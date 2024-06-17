@@ -23,7 +23,7 @@ In the example given below, we have set the chart marker options on data points 
     // Access first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Creating the default chart
-    $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 0, 0, 400, 400);
+    $chart = $slide->getShapes()->addChart(ChartType->LineWithMarkers, 0, 0, 400, 400);
     // Getting the default chart data WorkSheet index
     $defaultWorksheetIndex = 0;
     // Getting the chart data WorkSheet
@@ -40,21 +40,21 @@ In the example given below, we have set the chart marker options on data points 
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     // Add new point (1:3) there.
     $point = $series->getDataPoints()->addDataPointForLineSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 4.5));
-    $point->getMarker()->getFormat()->getFill()->setFillType(FillType::Picture);
+    $point->getMarker()->getFormat()->getFill()->setFillType(FillType->Picture);
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx1);
     $point = $series->getDataPoints()->addDataPointForLineSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 2.5));
-    $point->getMarker()->getFormat()->getFill()->setFillType(FillType::Picture);
+    $point->getMarker()->getFormat()->getFill()->setFillType(FillType->Picture);
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx2);
     $point = $series->getDataPoints()->addDataPointForLineSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 3.5));
-    $point->getMarker()->getFormat()->getFill()->setFillType(FillType::Picture);
+    $point->getMarker()->getFormat()->getFill()->setFillType(FillType->Picture);
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx1);
     $point = $series->getDataPoints()->addDataPointForLineSeries($fact->getCell($defaultWorksheetIndex, 4, 1, 4.5));
-    $point->getMarker()->getFormat()->getFill()->setFillType(FillType::Picture);
+    $point->getMarker()->getFormat()->getFill()->setFillType(FillType->Picture);
     $point->getMarker()->getFormat()->getFill()->getPictureFillFormat()->getPicture()->setImage($imgx2);
     // Changing the chart series marker
     $series->getMarker()->setSize(15);
     // Save presentation with chart
-    $pres->save("ScatterChart.pptx", SaveFormat::Pptx);
+    $pres->save("ScatterChart.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

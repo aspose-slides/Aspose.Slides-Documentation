@@ -62,7 +62,7 @@ This PHP code shows you how to convert a PowerPoint to PDF:
   $pres = new Presentation("PowerPoint.ppt");
   try {
     // Saves the presentation as a PDF
-    $pres->save("PPT-to-PDF.pdf", SaveFormat::Pdf);
+    $pres->save("PPT-to-PDF.pdf", SaveFormat->Pdf);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -102,7 +102,7 @@ This PHP code demonstrates an operation in which a PowerPoint is converted to PD
     // Defines the PDF standard
     $pdfOptions->setCompliance(PdfCompliance.Pdf15);
     // Saves the presentation as a PDF
-    $pres->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
+    $pres->save("PowerPoint-to-PDF.pdf", SaveFormat->Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -125,7 +125,7 @@ This PHP code shows you how to convert a PowerPoint presentation to PDF with hid
     // Adds hidden slides
     $pdfOptions->setShowHiddenSlides(true);
     // Saves the presentation as a PDF
-    $pres->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
+    $pres->save("PowerPoint-to-PDF.pdf", SaveFormat->Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -145,9 +145,9 @@ This PHP code shows you how to convert a PowerPoint to a password-protected PDF 
     $pdfOptions = new PdfOptions();
     // Sets PDF password and access permissions
     $pdfOptions->setPassword("password");
-    $pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
+    $pdfOptions->setAccessPermissions(PdfAccessPermissions->PrintDocument | PdfAccessPermissions->HighQualityPrint);
     // Saves the presentation as a PDF
-    $pres->save("PPTX-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
+    $pres->save("PPTX-to-PDF.pdf", SaveFormat->Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -177,10 +177,10 @@ private class FontSubstSendsWarningCallback implements IWarningCallback
 {
     public int warning(IWarningInfo warning)
     {
-        if (warning.getWarningType() == WarningType::CompatibilityIssue)
+        if (warning.getWarningType() == WarningType->CompatibilityIssue)
             return ReturnAction.Continue;
 
-        if (warning.getWarningType() == WarningType::DataLoss &&
+        if (warning.getWarningType() == WarningType->DataLoss &&
                 warning.getDescription().startsWith("Font will be substituted"))
         {
             System.out.println("Font substitution warning: " + warning.getDescription());
@@ -210,7 +210,7 @@ This PHP code shows you how to convert specific slides in a PowerPoint presentat
     // Sets an array of slides positions
     $slides = array(1, 3 );
     // Saves the presentation as a PDF
-    $pres->save("PPTX-to-PDF.pdf", $slides, SaveFormat::Pdf);
+    $pres->save("PPTX-to-PDF.pdf", $slides, SaveFormat->Pdf);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -231,11 +231,11 @@ This PHP code shows you how to convert a PowerPoint when its slide size is speci
       $slide = $pres->getSlides()->get_Item(0);
       $outPres->getSlides()->insertClone(0, $slide);
       // Sets the slide type and size
-      $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType::EnsureFit);
+      $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType->EnsureFit);
       $pdfOptions = new PdfOptions();
       $options = $pdfOptions->getNotesCommentsLayouting();
-      $options->setNotesPosition(NotesPositions::BottomFull);
-      $outPres->save("PDFnotes_out.pdf", SaveFormat::Pdf, $pdfOptions);
+      $options->setNotesPosition(NotesPositions->BottomFull);
+      $outPres->save("PDFnotes_out.pdf", SaveFormat->Pdf, $pdfOptions);
     } finally {
       if (!java_is_null($pres)) {
         $pres->dispose();
@@ -258,8 +258,8 @@ This PHP code shows you how to convert a PowerPoint to PDF notes:
   try {
     $pdfOptions = new PdfOptions();
     $options = $pdfOptions->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions::BottomFull);
-    $pres->save("Pdf_With_Notes.pdf", SaveFormat::Pdf, $pdfOptions);
+    $options->setNotesPosition(NotesPositions->BottomFull);
+    $pres->save("Pdf_With_Notes.pdf", SaveFormat->Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -278,11 +278,11 @@ This PHP code demonstrates a PowerPoint to PDF conversion operation in which mul
   try {
     $pdfOptions = new PdfOptions();
     $pdfOptions->setCompliance(PdfCompliance.PdfA1a);
-    $pres->save("pres-a1a-compliance.pdf", SaveFormat::Pdf, $pdfOptions);
+    $pres->save("pres-a1a-compliance.pdf", SaveFormat->Pdf, $pdfOptions);
     $pdfOptions->setCompliance(PdfCompliance.PdfA1b);
-    $pres->save("pres-a1b-compliance.pdf", SaveFormat::Pdf, $pdfOptions);
+    $pres->save("pres-a1b-compliance.pdf", SaveFormat->Pdf, $pdfOptions);
     $pdfOptions->setCompliance(PdfCompliance.PdfUa);
-    $pres->save("pres-ua-compliance.pdf", SaveFormat::Pdf, $pdfOptions);
+    $pres->save("pres-ua-compliance.pdf", SaveFormat->Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

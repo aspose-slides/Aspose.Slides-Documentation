@@ -19,12 +19,12 @@ They provide access to the custom rotation that is being applied to the text wit
 
 ```php
   $pres = new Presentation();
-  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 50, 50, 500, 300);
   $series = $chart->getChartData()->getSeries()->get_Item(0);
   $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
   $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getTextBlockFormat()->setRotationAngle(65);
   $chart->setTitle(true);
   $chart->getChartTitle()->addTextFrameForOverriding("Custom title")->getTextFrameFormat()->setRotationAngle(-30);
-  $pres->save("out.pptx", SaveFormat::Pptx);
+  $pres->save("out.pptx", SaveFormat->Pptx);
 
 ```

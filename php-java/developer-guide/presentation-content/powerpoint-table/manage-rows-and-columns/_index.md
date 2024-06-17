@@ -36,7 +36,7 @@ This PHP code shows you how to set a table's first row as its header:
       }
     }
     // Saves the presentation to disk
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $pres->save("pres.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -87,7 +87,7 @@ This PHP code shows you how to clone a PowerPoint table's row or column:
     // Clones 2nd column at 4th column index
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
     // Saves the presentation to disk
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
+    $pres->save("table_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -118,7 +118,7 @@ This PHP code shows you how to remove a row or column from a table:
     $table = $slide->getShapes()->addTable(100, 100, $colWidth, $rowHeight);
     $table->getRows()->removeAt(1, false);
     $table->getColumns()->removeAt(1, false);
-    $pres->save("TestTable_out.pptx", SaveFormat::Pptx);
+    $pres->save("TestTable_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -151,15 +151,15 @@ This PHP code demonstrates the operation.
     $someTable->getRows()->get_Item(0)->setTextFormat($portionFormat);
     // Sets the first row cells' text alignment and right margin
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setAlignment(TextAlignment->Right);
     $paragraphFormat->setMarginRight(20);
     $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
     // Sets the second row cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $textFrameFormat->setTextVerticalType(TextVerticalType->Vertical);
     $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
     // Saves the presentation to disk
-    $pres->save("result.pptx", SaveFormat::Pptx);
+    $pres->save("result.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -192,14 +192,14 @@ This PHP code demonstrates the operation:
     $someTable->getColumns()->get_Item(0)->setTextFormat($portionFormat);
     // Sets the first column cells' text alignment and right margin in one call
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat->setAlignment(TextAlignment::Right);
+    $paragraphFormat->setAlignment(TextAlignment->Right);
     $paragraphFormat->setMarginRight(20);
     $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
     // Sets the second column cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $textFrameFormat->setTextVerticalType(TextVerticalType->Vertical);
     $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat::Pptx);
+    $pres->save("result.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -216,9 +216,9 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
   $pres = new Presentation();
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
-    $table->setStylePreset(TableStylePreset::DarkStyle1);// change the default style preset theme
+    $table->setStylePreset(TableStylePreset->DarkStyle1);// change the default style preset theme
 
-    $pres->save("table.pptx", SaveFormat::Pptx);
+    $pres->save("table.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

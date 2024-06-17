@@ -21,13 +21,13 @@ Method com.aspose.slides.IConnector.reroute() reroutes connector so that it take
 ```php
   $input = new Presentation();
   $shapes = $input->getSlides()->get_Item(0)->getShapes();
-  $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-  $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-  $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+  $connector = $shapes->addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
+  $ellipse = $shapes->addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
+  $rectangle = $shapes->addAutoShape(ShapeType->Rectangle, 100, 300, 100, 100);
   $connector->setStartShapeConnectedTo($ellipse);
   $connector->setEndShapeConnectedTo($rectangle);
   $connector->reroute();
-  $input->save("output.pptx", SaveFormat::Pptx);
+  $input->save("output.pptx", SaveFormat->Pptx);
 
 ```
 ### **Method IPresentation.getSlideById(long) has been added**
@@ -44,11 +44,11 @@ Method com.aspose.slides.ISmartArt.getNodes() returns collection of root nodes i
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::VerticalBulletList);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->VerticalBulletList);
   $node = $smart->getNodes()->get_Item(1);// select second root node
 
   $node->getTextFrame()->setText("Second root node");
-  $pres->save("out.pptx", SaveFormat::Pptx);
+  $pres->save("out.pptx", SaveFormat->Pptx);
 
 ```
 ### **Method ISmartArt.setLayout(int) has been added**
@@ -56,9 +56,9 @@ Method for property com.aspose.slides.ISmartArt.setLayout(int) has been added. I
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
-  $smart->setLayout(SmartArtLayoutType::BasicProcess);
-  $pres->save("out.pptx", SaveFormat::Pptx);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicBlockList);
+  $smart->setLayout(SmartArtLayoutType->BasicProcess);
+  $pres->save("out.pptx", SaveFormat->Pptx);
 
 ```
 ### **Method ISmartArtNode.isHidden() has been added**
@@ -66,14 +66,14 @@ Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->RadialCycle);
   $node = $smart->getAllNodes()->addNode();
   $hidden = $node->isHidden();// returns true
 
   if ($hidden) {
     // do some actions or notifications
   }
-  $pres->Save("out.pptx", SaveFormat::Pptx);
+  $pres->Save("out.pptx", SaveFormat->Pptx);
 
 ```
 ### **Methods ISmartArt.isReversed(), setReserved() have been added**
@@ -81,9 +81,9 @@ Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of 
 
 ```php
   $presentation = new Presentation();
-  $smart = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicProcess);
+  $smart = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicProcess);
   $smart->setReversed(true);
-  $presentation->save("out.pptx", SaveFormat::Pptx);
+  $presentation->save("out.pptx", SaveFormat->Pptx);
 
 ```
 ### **Methods ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) have been added**
@@ -91,9 +91,9 @@ Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganiz
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
-  $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
-  $pres->save("out.pptx", SaveFormat::Pptx);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->OrganizationChart);
+  $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType->LeftHanging);
+  $pres->save("out.pptx", SaveFormat->Pptx);
 
 ```
 ### **Property IShape.getConnectionSiteCount() has been added**
@@ -102,16 +102,16 @@ Property com.aspose.slides.getConnectionSiteCount() returns the number of connec
 ```php
   $input = new Presentation();
   $shapes = $input->getSlides()->get_Item(0)->getShapes();
-  $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-  $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-  $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
+  $connector = $shapes->addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
+  $ellipse = $shapes->addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
+  $rectangle = $shapes->addAutoShape(ShapeType->Rectangle, 100, 200, 100, 100);
   $connector->setStartShapeConnectedTo($ellipse);
   $connector->setEndShapeConnectedTo($rectangle);
   $wantedIndex = 6;
   if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
     $connector->setStartShapeConnectionSiteIndex($wantedIndex);
   }
-  $input->save("output.pptx", SaveFormat::Pptx);
+  $input->save("output.pptx", SaveFormat->Pptx);
 
 ```
 ### **Minor Changes**

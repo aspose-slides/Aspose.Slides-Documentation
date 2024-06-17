@@ -135,7 +135,7 @@ $metered = new Metered();
 $metered->setMeteredKey("*****", "*****");
 
 # Get metered data amount before calling API
-$amountbefore = Metered::getConsumptionQuantity();
+$amountbefore = Metered->getConsumptionQuantity();
 # Display information
 echo "<script>console.log('Amount Consumed Before: " . java_values($amountbefore) . "' );</script>";
 
@@ -144,10 +144,10 @@ $pres = new Presentation();
 # Get the page count of document
 echo "<script>console.log('Amount Consumed After: " . java_values($pres->getSlides()->size()) . "' );</script>";
 # save as PDF
-$pres->save("out_pdf.pdf", SaveFormat::Pdf);
+$pres->save("out_pdf.pdf", SaveFormat->Pdf);
 
 # Get metered data amount After calling API
-$amountafter = Metered::getConsumptionQuantity();
+$amountafter = Metered->getConsumptionQuantity();
 # Display information
 echo "<script>console.log('Amount Consumed After: " . java_values($amountafter) . "' );</script>";
 ?>

@@ -28,14 +28,14 @@ This PHP code shows you how to set the overlap for a chart series:
   $pres = new Presentation();
   try {
     // Adds chart
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries();
     if ($series->get_Item(0)->getOverlap() == 0) {
       // Sets series overlap
       $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
     }
     // Writes the presentation file to disk
-    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
+    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -58,12 +58,12 @@ This PHP code shows you how to change a series' color:
 ```php
   $pres = new Presentation("test.pptx");
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 600, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Pie, 50, 50, 600, 400);
     $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(1);
     $point->setExplosion(30);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
+    $point->getFormat()->getFill()->setFillType(FillType->Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
+    $pres->save("output.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -86,11 +86,11 @@ This code  shows you how to change a series category's color:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 50, 50, 600, 400);
     $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
+    $point->getFormat()->getFill()->setFillType(FillType->Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
+    $pres->save("output.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -115,10 +115,10 @@ This PHP code shows you how to change a series' name in its chart data `ChartDat
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Column3D, 50, 50, 600, 400, true);
     $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
     $seriesCell->setValue("New name");
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $pres->save("pres.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -132,7 +132,7 @@ This PHP code shows you how to change a series name in its legend through`Series
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Column3D, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $name = $series->getName();
     $name->getAsCells()->get_Item(0)->setValue("New name");
@@ -150,7 +150,7 @@ Aspose.Slides for PHP via Java allows you to set the automatic fill color for ch
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType->ClusteredColumn`).
 1. Access the chart series and set the fill color to Automatic.
 1. Save the presentation to a PPTX file.
 
@@ -160,13 +160,13 @@ This PHP code shows you how to set the automatic fill color for a chart series:
   $pres = new Presentation();
   try {
     // Creates a clustered column chart
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 100, 50, 600, 400);
     // Sets series fill format to automatic
     for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
     }
     // Writes the presentation file to disk
-    $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
+    $pres->save("AutoFillSeries_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -180,7 +180,7 @@ Aspose.Slides allows you to set the invert fill color for chart series inside a 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType::ClusteredColumn`).
+1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType->ClusteredColumn`).
 1. Access the chart series and set the fill color to invert.
 1. Save the presentation to a PPTX file.
 
@@ -190,7 +190,7 @@ This PHP code demonstrates the operation:
   $inverColor = java("java.awt.Color")->RED;
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 100, 100, 400, 300);
     $workBook = $chart->getChartData()->getChartDataWorkbook();
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
@@ -206,10 +206,10 @@ This PHP code demonstrates the operation:
     $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 3, 1, -30));
     $seriesColor = $series->getAutomaticSeriesColor();
     $series->setInvertIfNegative(true);
-    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->setFillType(FillType->Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColor);
     $series->getInvertedSolidFillColor()->setColor($inverColor);
-    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
+    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -227,7 +227,7 @@ This PHP code demonstrates the operation:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries();
     $chart->getChartData()->getSeries()->clear();
     $chartSeries = $series->add($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1"), $chart->getType());
@@ -237,7 +237,7 @@ This PHP code demonstrates the operation:
     $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B5", 1));
     $chartSeries->setInvertIfNegative(false);
     $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
-    $pres->save("out.pptx", SaveFormat::Pptx);
+    $pres->save("out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -268,7 +268,7 @@ This PHP code demonstrates the operation:
       $dataPoint->getYValue()->getAsCell()->setValue(null);
     }
     $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
-    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
+    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -296,7 +296,7 @@ This code  shows you how to set a series' Gap Width:
     // Accesses the presentation's first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adds a chart with default data
-    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
+    $chart = $slide->getShapes()->addChart(ChartType->StackedColumn, 0, 0, 500, 500);
     // Sets the index of the chart data sheet
     $defaultWorksheetIndex = 0;
     // Gets the chart data worksheet
@@ -320,7 +320,7 @@ This code  shows you how to set a series' Gap Width:
     // Sets GapWidth value
     $series->getParentSeriesGroup()->setGapWidth(50);
     // Saves presentation to disk
-    $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
+    $pres->save("GapWidth_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

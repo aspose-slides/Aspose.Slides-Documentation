@@ -16,8 +16,8 @@ Specifies the size of the hole in a doughnut chart.
 
 ```php
   $pres = new Presentation();
-  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Doughnut, 50, 50, 400, 400);
+  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Doughnut, 50, 50, 400, 400);
   $chart->getChartData()->getSeriesGroups()->get_Item(0)->setDoughnutHoleSize(90);
-  $pres->save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat::Pptx);
+  $pres->save("ChartSeries.API.DoughnutHoleSize.pptx", SaveFormat->Pptx);
 
 ```

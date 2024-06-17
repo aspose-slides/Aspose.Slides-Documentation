@@ -56,7 +56,7 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
     // Adds an Ole Object Frame shape
     $oleObjectFrame = $sld->getShapes()->addOleObjectFrame(0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $dataInfo);
     // Writes the PPTX file to disk
-    $pres->save("OleEmbed_out.pptx", SaveFormat::Pptx);
+    $pres->save("OleEmbed_out.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -152,7 +152,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
           $Wb->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
           $Wb->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
           $Wb->getWorksheets()->get(0)->getCells()->get(3, 4)->putValue(15);
-          $so1 = new OoxmlSaveOptions(SaveFormat::XLSX);
+          $so1 = new OoxmlSaveOptions(SaveFormat->XLSX);
           $Wb->save($msout, $so1);
           // Changes Ole frame object data
           $newData = new OleEmbeddedDataInfo($msout->toByteArray(), $ole->getEmbeddedData()->getEmbeddedFileExtension());
@@ -168,7 +168,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
         }
       }
     }
-    $pres->save("OleEdit_out.pptx", SaveFormat::Pptx);
+    $pres->save("OleEdit_out.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -189,7 +189,7 @@ This PHP code shows you how to embed HTML and ZIP in a slide:
   try {
     $slide = $pres->getSlides()->get_Item(0);
 $Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))::TYPE;
+$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 try {
     $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.html"));
     $bytes = $Array->newInstance($Byte, $dis->available());
@@ -214,7 +214,7 @@ try {
     $dataInfoZip = new OleEmbeddedDataInfo($zipBytes, "zip");
     $oleFrameZip = $slide->getShapes()->addOleObjectFrame(150, 220, 50, 50, $dataInfoZip);
     $oleFrameZip->setObjectIcon(true);
-    $pres->save("embeddedOle.pptx", SaveFormat::Pptx);
+    $pres->save("embeddedOle.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -239,7 +239,7 @@ This Java shows you how to set the file type for an embedded OLE object:
     $oleObjectFrame = $slide->getShapes()->get_Item(0);
     echo("Current embedded data extension is: " . $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension());
 $Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))::TYPE;
+$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 try {
     $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "embedOle.zip"));
     $bytes = $Array->newInstance($Byte, $dis->available());
@@ -249,7 +249,7 @@ try {
 }
     $oleObjectFrame->setEmbeddedData(new OleEmbeddedDataInfo($bytes, "zip"));
 
-    $pres->save("embeddedChanged.pptx", SaveFormat::Pptx);
+    $pres->save("embeddedChanged.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -284,7 +284,7 @@ This PHP code shows you how to set the icon image and title for an embedded obje
     $oleObjectFrame->setSubstitutePictureTitle("My title");
     $oleObjectFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
     $oleObjectFrame->setObjectIcon(false);
-    $pres->save("embeddedOle-newImage.pptx", SaveFormat::Pptx);
+    $pres->save("embeddedOle-newImage.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

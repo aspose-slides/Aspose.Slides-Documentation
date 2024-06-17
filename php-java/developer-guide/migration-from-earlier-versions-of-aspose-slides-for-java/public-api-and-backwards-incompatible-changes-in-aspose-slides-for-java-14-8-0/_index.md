@@ -20,7 +20,7 @@ This method is not only for specific series but for all series of the parent ser
 
 ```php
   $pres = new Presentation();
-  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
+  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 50, 50, 600, 400, true);
   $series = $chart->getChartData()->getSeries();
   if ($series->get_Item(0)->getOverlap() == 0) {
     $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
@@ -32,7 +32,7 @@ This method of creating shape thumbnails allows developers to generate a shape t
 
 ```php
   $pres = new Presentation();
-  $st = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThumbnail(ShapeThumbnailBounds::Appearance, 1, 1);
+  $st = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getThumbnail(ShapeThumbnailBounds->Appearance, 1, 1);
 
 ```
 ### **Added the VbaProject Class and IVbaProject Interface, Changed the Presentation.getVbaProject() and setVbaProject(VbaProject) Methods**
@@ -53,6 +53,6 @@ A new feature allows developers to create and edit VBA projects in a presentatio
   // Add references to the VBA project
   $pres->getVbaProject()->getReferences()->add($stdoleReference);
   $pres->getVbaProject()->getReferences()->add($officeReference);
-  $pres->save("data\\test.pptm", SaveFormat::Pptm);
+  $pres->save("data\\test.pptm", SaveFormat->Pptm);
 
 ```

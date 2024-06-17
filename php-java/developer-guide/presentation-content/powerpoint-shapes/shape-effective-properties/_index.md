@@ -151,7 +151,7 @@ Using Aspose.Slides for PHP via Java, you can get effective properties of Font H
 ```php
   $pres = new Presentation();
   try {
-    $newShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
+    $newShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 400, 75, false);
     $newShape->addTextFrame("");
     $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->clear();
     $portion0 = new Portion("Sample text with first portion");
@@ -177,7 +177,7 @@ Using Aspose.Slides for PHP via Java, you can get effective properties of Font H
     echo("Effective font height after setting portion #1 font height:");
     echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
     echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+    $pres->save("SetLocalFontHeightValues.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

@@ -62,14 +62,14 @@ This PHP code shows you how to remove the borders from table cells:
     // Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::NoFill);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType->NoFill);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType->NoFill);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType->NoFill);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType->NoFill);
       }
     }
     // Writes the PPTX to disk
-    $pres->save("table_out.pptx", SaveFormat::Pptx);
+    $pres->save("table_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -95,16 +95,16 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
     // Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
@@ -113,7 +113,7 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
     // Merges cells (1, 2) x (2, 2)
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
+    $pres->save("MergeCells_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -138,16 +138,16 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
     // Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
@@ -159,7 +159,7 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
     // Merges cells (1, 1) x (1, 2)
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
     // Writes the PPTX file to disk
-    $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
+    $pres->save("MergeCells_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -189,16 +189,16 @@ This PHP code demonstrates the process we described:
     // Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType->Solid);
         $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
@@ -210,7 +210,7 @@ This PHP code demonstrates the process we described:
     // Splits cell (1, 1)
     $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
     // Writes the PPTX file to disk
-    $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
+    $pres->save("SplitCells_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -233,9 +233,9 @@ This PHP code shows you how to change a table cell's background color:
     $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
     // set the background color for a cell
     $cell = $table->get_Item(2, 3);
-    $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $cell->getCellFormat()->getFillFormat()->setFillType(FillType->Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $presentation->save("cell_background_color.pptx", SaveFormat::Pptx);
+    $presentation->save("cell_background_color.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -282,11 +282,11 @@ This PHP code shows you how to place an image inside a table cell when creating 
     }
     // Adds the image to the first table cell
     $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
-    $cellFormat->getFillFormat()->setFillType(FillType::Picture);
-    $cellFormat->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $cellFormat->getFillFormat()->setFillType(FillType->Picture);
+    $cellFormat->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
     $cellFormat->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
     // Saves the PPTX file to Disk
-    $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
+    $pres->save("Image_In_TableCell_out.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

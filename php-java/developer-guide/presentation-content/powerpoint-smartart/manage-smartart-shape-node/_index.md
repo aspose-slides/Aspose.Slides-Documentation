@@ -40,7 +40,7 @@ Aspose.Slides for PHP via Java has provided the simplest API to manage the Smart
       }
     }
     // Saving Presentation
-    $pres->save("AddSmartArtNode.pptx", SaveFormat::Pptx);
+    $pres->save("AddSmartArtNode.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -66,7 +66,7 @@ In the following sample code we have explained how to add the child nodes belong
     // Access the presentation slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add Smart Art IShape
-    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
+    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType->StackedList);
     // Accessing the SmartArt node at index 0
     $node = $smart->getAllNodes()->get_Item(0);
     // Adding new child node at position 2 in parent node
@@ -74,7 +74,7 @@ In the following sample code we have explained how to add the child nodes belong
     // Add Text
     $chNode->getTextFrame()->setText("Sample Text Added");
     // Save Presentation
-    $pres->save("AddSmartArtNodeByPosition.pptx", SaveFormat::Pptx);
+    $pres->save("AddSmartArtNodeByPosition.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -110,7 +110,7 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
           // Accessing SmartArt node at index i
           $node = $smart->getAllNodes()->get_Item($i);
           // Printing the SmartArt node parameters
-          System::out->print($node->getTextFrame()->getText() . " " . $node->getLevel() . " " . $node->getPosition());
+          System->out->print($node->getTextFrame()->getText() . " " . $node->getLevel() . " " . $node->getPosition());
         }
       }
     }
@@ -155,7 +155,7 @@ The following sample code will help to access the child nodes belonging to respe
             // Accessing the child node in SmartArt node
             $node = $node0->getChildNodes()->get_Item($j);
             // Printing the SmartArt child node parameters
-            System::out->print("j = " . $j . ", Text = " . $node->getTextFrame()->getText() . ",  Level = " . $node->getLevel() . ", Position = " . $node->getPosition());
+            System->out->print("j = " . $j . ", Text = " . $node->getTextFrame()->getText() . ",  Level = " . $node->getLevel() . ", Position = " . $node->getPosition());
           }
         }
       }
@@ -186,14 +186,14 @@ In this example, we will learn to access the child nodes at some particular posi
     // Accessing the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adding the SmartArt shape in first slide
-    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
+    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType->StackedList);
     // Accessing the SmartArt node at index 0
     $node = $smart->getAllNodes()->get_Item(0);
     // Accessing the child node at position 1 in parent node
     $position = 1;
     $chNode = $node->getChildNodes()->get_Item($position);
     // Printing the SmartArt child node parameters
-    System::out->print("Text = " . $chNode->getTextFrame()->getText() . ",  Level = " . $chNode->getLevel() . ", Position = " . $chNode->getPosition());
+    System->out->print("Text = " . $chNode->getTextFrame()->getText() . ",  Level = " . $chNode->getLevel() . ", Position = " . $chNode->getPosition());
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -233,7 +233,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
       }
     }
     // Save Presentation
-    $pres->save("RemoveSmartArtNode.pptx", SaveFormat::Pptx);
+    $pres->save("RemoveSmartArtNode.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -275,7 +275,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
       }
     }
     // Save Presentation
-    $pres->save("RemoveSmartArtNodeByPosition.pptx", SaveFormat::Pptx);
+    $pres->save("RemoveSmartArtNodeByPosition.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -291,7 +291,7 @@ Now Aspose.Slides for PHP via Java support for setting [SmartArtShape](https://r
   // Instantiate Presentation Class
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(20, 20, 600, 500, SmartArtLayoutType::OrganizationChart);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(20, 20, 600, 500, SmartArtLayoutType->OrganizationChart);
     // Move SmartArt shape to new position
     $node = $smart->getAllNodes()->get_Item(1);
     $shape = $node->getShapes()->get_Item(1);
@@ -309,7 +309,7 @@ Now Aspose.Slides for PHP via Java support for setting [SmartArtShape](https://r
     $node = $smart->getAllNodes()->get_Item(4);
     $shape = $node->getShapes()->get_Item(1);
     $shape->setRotation(90);
-    $pres->save("SmartArt.pptx", SaveFormat::Pptx);
+    $pres->save("SmartArt.pptx", SaveFormat->Pptx);
   } finally {
     $pres->dispose();
   }
@@ -361,7 +361,7 @@ In the following sample code we will investigate how to identify **Assistant Nod
       }
     }
     // Save Presentation
-    $pres->save("ChangeAssitantNode.pptx", SaveFormat::Pptx);
+    $pres->save("ChangeAssitantNode.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -392,16 +392,16 @@ Please follow the steps below:
     // Accessing the slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adding SmartArt shape and nodes
-    $chevron = $slide->getShapes()->addSmartArt(10, 10, 800, 60, SmartArtLayoutType::ClosedChevronProcess);
+    $chevron = $slide->getShapes()->addSmartArt(10, 10, 800, 60, SmartArtLayoutType->ClosedChevronProcess);
     $node = $chevron->getAllNodes()->addNode();
     $node->getTextFrame()->setText("Some text");
     // Setting node fill color
     foreach($node->getShapes() as $item) {
-      $item->getFillFormat()->setFillType(FillType::Solid);
+      $item->getFillFormat()->setFillType(FillType->Solid);
       $item->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     }
     // Save the presentation
-    $pres->save("TestSmart.pptx", SaveFormat::Pptx);
+    $pres->save("TestSmart.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -424,14 +424,14 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
   $pres = new Presentation();
   try {
     // Add SmartArt
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicCycle);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicCycle);
     // Obtain the reference of a node by using its Index
     $node = $smart->getNodes()->get_Item(1);
     // Get thumbnail
     $slideImage = $node->getShapes()->get_Item(0)->getImage();
     // Save thumbnail
     try {
-      $slideImage->save("SmartArt_ChildNote_Thumbnail.png", ImageFormat::Png);
+      $slideImage->save("SmartArt_ChildNote_Thumbnail.png", ImageFormat->Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();

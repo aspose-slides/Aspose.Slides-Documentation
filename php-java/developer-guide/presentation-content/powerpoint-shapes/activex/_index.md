@@ -28,11 +28,11 @@ This sample code, based on the steps above, shows to how to add Media Player Act
   $pres = new Presentation();
   try {
     // Adding the Media Player ActiveX control
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
+    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType->WindowsMediaPlayer, 100, 100, 400, 400);
     // Access the Media Player ActiveX control and set the video path
     $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
     // Save the Presentation
-    $pres->save("Output.pptx", SaveFormat::Pptx);
+    $pres->save("Output.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -75,24 +75,24 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $control->getProperties()->set_Item("Value", $newText);
       // Changing substitute image. PowerPoint will replace this image during activeX activation,
       // so sometime it's OK to leave image unchanged.
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage::TYPE_INT_ARGB);
+      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor::window);
+      $graphics->setColor(SystemColor->window);
       $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font::PLAIN, 16);
-      $graphics->setColor(SystemColor::windowText);
+      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
+      $graphics->setColor(SystemColor->windowText);
       $graphics->setFont($font);
       $graphics->drawString($newText, 10, 20);
-      $graphics->setColor(SystemColor::controlShadow);
+      $graphics->setColor(SystemColor->controlShadow);
       $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
       $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor::controlDkShadow);
+      $graphics->setColor(SystemColor->controlDkShadow);
       $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
       $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor::controlHighlight);
+      $graphics->setColor(SystemColor->controlHighlight);
       $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
       $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor::controlLtHighlight);
+      $graphics->setColor(SystemColor->controlLtHighlight);
       $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();
@@ -106,25 +106,25 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $newCaption = "Show MessageBox";
       $control->getProperties()->set_Item("Caption", $newCaption);
       // Changing substitute
-      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage::TYPE_INT_ARGB);
+      $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
-      $graphics->setColor(SystemColor::control);
+      $graphics->setColor(SystemColor->control);
       $graphics->fillRect(0, 0, $image->getWidth(), $image->getHeight());
-      $font = new Font($control->getProperties()->get_Item("FontName"), Font::PLAIN, 16);
-      $graphics->setColor(SystemColor::windowText);
+      $font = new Font($control->getProperties()->get_Item("FontName"), Font->PLAIN, 16);
+      $graphics->setColor(SystemColor->windowText);
       $graphics->setFont($font);
       $metrics = $graphics->getFontMetrics($font);
       $graphics->drawString($newCaption, $image->getWidth() - $metrics->stringWidth($newCaption) / 2, 20);
-      $graphics->setColor(SystemColor::controlLtHighlight);
+      $graphics->setColor(SystemColor->controlLtHighlight);
       $graphics->drawLine(0, $image->getHeight() - 1, 0, 0);
       $graphics->drawLine(0, 0, $image->getWidth() - 1, 0);
-      $graphics->setColor(SystemColor::controlHighlight);
+      $graphics->setColor(SystemColor->controlHighlight);
       $graphics->drawLine(1, $image->getHeight() - 2, 1, 1);
       $graphics->drawLine(1, 1, $image->getWidth() - 2, 1);
-      $graphics->setColor(SystemColor::controlShadow);
+      $graphics->setColor(SystemColor->controlShadow);
       $graphics->drawLine(1, $image->getHeight() - 1, $image->getWidth() - 1, $image->getHeight() - 1);
       $graphics->drawLine($image->getWidth() - 1, $image->getHeight() - 1, $image->getWidth() - 1, 1);
-      $graphics->setColor(SystemColor::controlDkShadow);
+      $graphics->setColor(SystemColor->controlDkShadow);
       $graphics->drawLine(0, $image->getHeight(), $image->getWidth(), $image->getHeight());
       $graphics->drawLine($image->getWidth(), $image->getHeight(), $image->getWidth(), 0);
       $graphics->dispose();
@@ -137,10 +137,10 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $frame = $ctl->getFrame();
       $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
     }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
+    $pres->save("withActiveX-edited_java.pptm", SaveFormat->Pptm);
     // removing controls
     $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
+    $pres->save("withActiveX-cleared_java.pptm", SaveFormat->Pptm);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

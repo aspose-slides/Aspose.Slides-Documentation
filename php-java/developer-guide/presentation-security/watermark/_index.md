@@ -29,7 +29,7 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
+    $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType->Triangle, 0, 0, 0, 0);
     $watermarkTextFrame = $watermarkShape->addTextFrame("Watermark");
   } finally {
     if (!java_is_null($presentation)) {
@@ -55,7 +55,7 @@ All the other logic is the same as in adding watermark into a single slide - cre
   $pres = new Presentation();
   try {
     $master = $pres->getMasters()->get_Item(0);
-    $watermarkShape = $master->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
+    $watermarkShape = $master->getShapes()->addAutoShape(ShapeType->Triangle, 0, 0, 0, 0);
     $watermarkTextFrame = $watermarkShape->addTextFrame("Watermark");
   } finally {
     if (!java_is_null($pres)) {
@@ -75,7 +75,7 @@ You can change the font of text watermark:
 
 ```php
   $watermarkPortion = $watermarkTextFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-  $watermarkPortion->getPortionFormat()->setFontBold(NullableBool::True);
+  $watermarkPortion->getPortionFormat()->setFontBold(NullableBool->True);
   $watermarkPortion->getPortionFormat()->setFontHeight(52);
 
 ```
@@ -90,7 +90,7 @@ To set the transparency of text watermark use this code:
   $green = 200;
   $blue = 200;
   $watermarkPortion = $watermarkTextFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-  $watermarkPortion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+  $watermarkPortion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
   $watermarkPortion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", $red, $green, $blue, $alpha));
 
 ```
@@ -108,7 +108,7 @@ It is possible to center watermark on a slide and for that you can do the follow
   $x = $center->getX() - $width / 2;
   $y = $center->getY() - $height / 2;
   // ...
-  $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, $x, $y, $width, $height);
+  $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType->Triangle, $x, $y, $width, $height);
 
 ```
 
@@ -128,9 +128,9 @@ To add image watermark into all presentation slides, you may do the following:
     }
   }
   // ...
-  $watermarkShape->getFillFormat()->setFillType(FillType::Picture);
+  $watermarkShape->getFillFormat()->setFillType(FillType->Picture);
   $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-  $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+  $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
 
 ```
 

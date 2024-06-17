@@ -22,9 +22,9 @@ This PHP code shows you how to change the accent color for a theme:
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
-    $shape->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 10, 100, 100);
+    $shape->getFillFormat()->setFillType(FillType->Solid);
+    $shape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -45,9 +45,9 @@ You can determine the resulting color's effective value this way:
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
 
 ```php
-  $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 120, 100, 100);
-  $otherShape->getFillFormat()->setFillType(FillType::Solid);
-  $otherShape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+  $otherShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 120, 100, 100);
+  $otherShape->getFillFormat()->setFillType(FillType->Solid);
+  $otherShape->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
   $pres->getMasterTheme()->getColorScheme()->getAccent4()->setColor(java("java.awt.Color")->RED);
 
 ```
@@ -71,38 +71,38 @@ This PHP code demonstrates an operation where additional palette colors are obta
   try {
     $slide = $presentation->getSlides()->get_Item(0);
     // Accent 4
-    $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
-    $shape1->getFillFormat()->setFillType(FillType::Solid);
-    $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
+    $shape1 = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 10, 50, 50);
+    $shape1->getFillFormat()->setFillType(FillType->Solid);
+    $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     // Accent 4, Lighter 80%
-    $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
-    $shape2->getFillFormat()->setFillType(FillType::Solid);
-    $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.2);
-    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.8);
+    $shape2 = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 70, 50, 50);
+    $shape2->getFillFormat()->setFillType(FillType->Solid);
+    $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
+    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
+    $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
     // Accent 4, Lighter 60%
-    $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
-    $shape3->getFillFormat()->setFillType(FillType::Solid);
-    $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.4);
-    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.6);
+    $shape3 = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 130, 50, 50);
+    $shape3->getFillFormat()->setFillType(FillType->Solid);
+    $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
+    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
+    $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
     // Accent 4, Lighter 40%
-    $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
-    $shape4->getFillFormat()->setFillType(FillType::Solid);
-    $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.6);
-    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::AddLuminance, 0.4);
+    $shape4 = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 190, 50, 50);
+    $shape4->getFillFormat()->setFillType(FillType->Solid);
+    $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
+    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
+    $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
     // Accent 4, Darker 25%
-    $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
-    $shape5->getFillFormat()->setFillType(FillType::Solid);
-    $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-    $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.75);
+    $shape5 = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 250, 50, 50);
+    $shape5->getFillFormat()->setFillType(FillType->Solid);
+    $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
+    $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
     // Accent 4, Darker 50%
-    $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
-    $shape6->getFillFormat()->setFillType(FillType::Solid);
-    $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor::Accent4);
-    $shape6->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation::MultiplyLuminance, 0.5);
-    $presentation->save($path . "example_accent4.pptx", SaveFormat::Pptx);
+    $shape6 = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 310, 50, 50);
+    $shape6->getFillFormat()->setFillType(FillType->Solid);
+    $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
+    $shape6->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.5);
+    $presentation->save($path . "example_accent4.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -123,7 +123,7 @@ To allow you select fonts for themes and other purposes, Aspose.Slides uses thes
 This PHP code shows you how to assign the Latin font to a theme element:
 
 ```php
-  $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 100);
+  $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 10, 100, 100);
   $paragraph = new Paragraph();
   $portion = new Portion("Theme text format");
   $paragraph->getPortions()->add($portion);
@@ -205,10 +205,10 @@ This PHP code shows you how to change a theme effect by altering parts of elemen
   $pres = new Presentation("Subtle_Moderate_Intense.pptx");
   try {
     $pres->getMasterTheme()->getFormatScheme()->getLineStyles()->get_Item(0)->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->getMasterTheme()->getFormatScheme()->getFillStyles()->get_Item(2)->setFillType(FillType::Solid);
+    $pres->getMasterTheme()->getFormatScheme()->getFillStyles()->get_Item(2)->setFillType(FillType->Solid);
     $pres->getMasterTheme()->getFormatScheme()->getFillStyles()->get_Item(2)->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $pres->getMasterTheme()->getFormatScheme()->getEffectStyles()->get_Item(2)->getEffectFormat()->getOuterShadowEffect()->setDistance(10.0);
-    $pres->save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
+    $pres->save("Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

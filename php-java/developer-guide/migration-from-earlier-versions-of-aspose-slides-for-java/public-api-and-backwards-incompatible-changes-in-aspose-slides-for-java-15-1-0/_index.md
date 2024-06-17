@@ -35,7 +35,7 @@ The following example shows how to replace a font in a presentation:
   $sourceFont = new FontData("Arial");
   $destFont = new FontData("Times New Roman");
   $pres->getFontsManager()->replaceFont($sourceFont, $destFont);
-  $pres->save("PresContainsTimesNoewRomanFont.pptx", SaveFormat::Pptx);
+  $pres->save("PresContainsTimesNoewRomanFont.pptx", SaveFormat->Pptx);
 
 ```
 
@@ -45,7 +45,7 @@ Another example, shows font substitution for rendering when it is inaccessible:
   $pres = new Presentation("PresContainsSomeRareFontFont.pptx");
   $sourceFont = new FontData("SomeRareFont");
   $destFont = new FontData("Arial");
-  $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition::WhenInaccessible);
+  $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
   $fontSubstRuleCollection = new FontSubstRuleCollection();
   $fontSubstRuleCollection->add($fontSubstRule);
   $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);

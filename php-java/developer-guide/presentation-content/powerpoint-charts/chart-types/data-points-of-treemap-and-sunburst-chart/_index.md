@@ -18,7 +18,7 @@ Let’s start with adding a new Sunburst chart to the presentation:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Sunburst, 100, 100, 450, 400);
     // ...
   } finally {
     if (!java_is_null($pres)) {
@@ -67,7 +67,7 @@ Set "Branch 1" data label to show series name ("Series1") instead of category na
   $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
   $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
   $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
   $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
 ```
@@ -80,12 +80,12 @@ Change color of "Steam 4" branch:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Sunburst, 100, 100, 450, 400);
     $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
     $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
+    $stem4branch->getFormat()->getFill()->setFillType(FillType->Solid);
     $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $pres->save("pres.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

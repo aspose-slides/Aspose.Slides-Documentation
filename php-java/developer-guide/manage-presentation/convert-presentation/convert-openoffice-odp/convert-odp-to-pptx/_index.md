@@ -15,7 +15,7 @@ Aspose.Slides for PHP via Java offers [Presentation](https://reference.aspose.co
   } finally {
   }
   // Saving the ODP presentation to PPTX format
-  $pres->save("AccessOpenDoc_out.pptx", SaveFormat::Pptx);
+  $pres->save("AccessOpenDoc_out.pptx", SaveFormat->Pptx);
 ```
 
 ## **Live Example**

@@ -63,7 +63,7 @@ arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
 **Aspose.Slides for PHP via Java**
 
 ``` php
-$arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
+$arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle->SOLID);
 ```php
 
 ```
@@ -93,8 +93,8 @@ try
     $slide = $pres->getSlides()->get_Item(0);
 
     // Adds an autoshape with type set to line
-    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
-    $pres->save("NewPresentation_out.pptx", SaveFormat::Pptx);
+    $slide->getShapes()->addAutoShape(ShapeType->Line, 50, 150, 300, 0);
+    $pres->save("NewPresentation_out.pptx", SaveFormat->Pptx);
 }
 finally
 {

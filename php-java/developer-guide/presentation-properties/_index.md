@@ -90,7 +90,7 @@ Modifying the built-in properties of presentation files is as easy as that of ac
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
     // Save your presentation to a file
-    $pres->save("DocProps.pptx", SaveFormat::Pptx);
+    $pres->save("DocProps.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -122,7 +122,7 @@ Aspose.Slides for PHP via Java also allows developers to add the custom the valu
     // Removing selected property
     $dProps->removeCustomProperty($getPropertyName);
     // Saving presentation
-    $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
+    $pres->save("CustomDemo.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -152,7 +152,7 @@ Aspose.Slides for PHP via Java also allows developers to access the values of cu
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
     // Save your presentation to a file
-    $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
+    $pres->save("CustomDemoModified.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -295,7 +295,7 @@ This PHP code shows you how to set the default language for an entire PowerPoint
   $pres = new Presentation($loadOptions);
   try {
     // Adds a new rectangle shape with text
-    $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
+    $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 50, 150, 50);
     $shp->getTextFrame()->setText("New Text");
     // Checks the first portion language
     echo($shp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getLanguageId());

@@ -15,7 +15,7 @@ Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 
 
 {{% alert color="warning" %}} 
 
-PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set  `markdownSaveOptions.setExportType(MarkdownExportType::Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.
+PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set  `markdownSaveOptions.setExportType(MarkdownExportType->Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.
 
 {{% /alert %}} 
 
@@ -29,7 +29,7 @@ This PHP code shows you how to convert PowerPoint to markdown:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    $pres->save("pres.md", SaveFormat::Md);
+    $pres->save("pres.md", SaveFormat->Md);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -47,8 +47,8 @@ This PHP code shows you how to convert PowerPoint to CommonMark:
   $pres = new Presentation("pres.pptx");
   try {
     $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setFlavor(Flavor::CommonMark);
-    $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
+    $markdownSaveOptions->setFlavor(Flavor->CommonMark);
+    $pres->save("pres.md", SaveFormat->Md, $markdownSaveOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -72,10 +72,10 @@ If you want the images to appear individually one after the other in the resulti
     $markdownSaveOptions = new MarkdownSaveOptions();
     $markdownSaveOptions->setShowHiddenSlides(true);
     $markdownSaveOptions->setShowSlideNumber(true);
-    $markdownSaveOptions->setFlavor(Flavor::Github);
-    $markdownSaveOptions->setExportType(MarkdownExportType::Sequential);
-    $markdownSaveOptions->setNewLineType(NewLineType::Windows);
-    $pres->save("doc.md", array(1, 2, 3, 4, 5, 6, 7, 8, 9 ), SaveFormat::Md, $markdownSaveOptions);
+    $markdownSaveOptions->setFlavor(Flavor->Github);
+    $markdownSaveOptions->setExportType(MarkdownExportType->Sequential);
+    $markdownSaveOptions->setNewLineType(NewLineType->Windows);
+    $pres->save("doc.md", array(1, 2, 3, 4, 5, 6, 7, 8, 9 ), SaveFormat->Md, $markdownSaveOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -94,10 +94,10 @@ This PHP code demonstrates the operation:
   try {
     $outPath = "c:/documents";
     $markdownSaveOptions = new MarkdownSaveOptions();
-    $markdownSaveOptions->setExportType(MarkdownExportType::Visual);
+    $markdownSaveOptions->setExportType(MarkdownExportType->Visual);
     $markdownSaveOptions->setImagesSaveFolderName("md-images");
     $markdownSaveOptions->setBasePath($outPath);
-    $pres->save("pres.md", SaveFormat::Md, $markdownSaveOptions);
+    $pres->save("pres.md", SaveFormat->Md, $markdownSaveOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

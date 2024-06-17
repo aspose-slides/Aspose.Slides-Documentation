@@ -52,7 +52,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
     $para1 = $tf1->getParagraphs()->get_Item(0);
     $para2 = $tf2->getParagraphs()->get_Item(0);
     // Justify the paragraph
-    $para2->getParagraphFormat()->setAlignment(TextAlignment::JustifyLow);
+    $para2->getParagraphFormat()->setAlignment(TextAlignment->JustifyLow);
     // Accessing the first portion
     $port1 = $para1->getPortions()->get_Item(0);
     $port2 = $para2->getPortions()->get_Item(0);
@@ -63,18 +63,18 @@ The implementation of the above steps is given below. It takes an unadorned pres
     $port1->getPortionFormat()->setLatinFont($fd1);
     $port2->getPortionFormat()->setLatinFont($fd2);
     // Set font to Bold
-    $port1->getPortionFormat()->setFontBold(NullableBool::True);
-    $port2->getPortionFormat()->setFontBold(NullableBool::True);
+    $port1->getPortionFormat()->setFontBold(NullableBool->True);
+    $port2->getPortionFormat()->setFontBold(NullableBool->True);
     // Set font to Italic
-    $port1->getPortionFormat()->setFontItalic(NullableBool::True);
-    $port2->getPortionFormat()->setFontItalic(NullableBool::True);
+    $port1->getPortionFormat()->setFontItalic(NullableBool->True);
+    $port2->getPortionFormat()->setFontItalic(NullableBool->True);
     // Set font color
-    $port1->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port1->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $port1->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $port2->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port2->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $port2->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     // Save the PPTX to disk
-    $pres->save("WelcomeFont.pptx", SaveFormat::Pptx);
+    $pres->save("WelcomeFont.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -116,9 +116,9 @@ The implementation of the above steps is given below.
     // Get first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 50);
+    $ashp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 50, 200, 50);
     // Remove any fill style associated with the AutoShape
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
+    $ashp->getFillFormat()->setFillType(FillType->NoFill);
     // Access the TextFrame associated with the AutoShape
     $tf = $ashp->getTextFrame();
     $tf->setText("Aspose TextBox");
@@ -127,18 +127,18 @@ The implementation of the above steps is given below.
     // Set the Font for the Portion
     $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
     // Set Bold property of the Font
-    $port->getPortionFormat()->setFontBold(NullableBool::True);
+    $port->getPortionFormat()->setFontBold(NullableBool->True);
     // Set Italic property of the Font
-    $port->getPortionFormat()->setFontItalic(NullableBool::True);
+    $port->getPortionFormat()->setFontItalic(NullableBool->True);
     // Set Underline property of the Font
-    $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
+    $port->getPortionFormat()->setFontUnderline(TextUnderlineType->Single);
     // Set the Height of the Font
     $port->getPortionFormat()->setFontHeight(25);
     // Set the color of the Font
-    $port->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $port->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Save the presentation to disk
-    $pres->save("pptxFont.pptx", SaveFormat::Pptx);
+    $pres->save("pptxFont.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

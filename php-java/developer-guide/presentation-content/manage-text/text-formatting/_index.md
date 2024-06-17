@@ -22,7 +22,7 @@ The code snippet below shows how to use this feature:
 
     $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("to", java("java.awt.Color")->MAGENTA, $textHighlightingOptions);// highlighting all separate 'the' occurrences
 
-    $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
+    $pres->save("OutputPresentation-highlight.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -51,7 +51,7 @@ The code snippet below shows how to use this feature:
     $options = new TextHighlightingOptions();
     $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightRegex("\\b[^\\s]{4}\\b", java("java.awt.Color")->YELLOW, $options);// highlighting all words with 10 symbols or longer
 
-    $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
+    $pres->save("OutputPresentation-highlight.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -69,19 +69,19 @@ This PHP code shows you how to set the background color for an entire text:
 ```php
   $pres = new Presentation();
   try {
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 50, 200, 100);
     $autoShape->getTextFrame()->getParagraphs()->clear();
     $para = new Paragraph();
     $portion1 = new Portion("Black");
-    $portion1->getPortionFormat()->setFontBold(NullableBool::True);
+    $portion1->getPortionFormat()->setFontBold(NullableBool->True);
     $portion2 = new Portion(" Red ");
     $portion3 = new Portion("Black");
-    $portion3->getPortionFormat()->setFontBold(NullableBool::True);
+    $portion3->getPortionFormat()->setFontBold(NullableBool->True);
     $para->getPortions()->add($portion1);
     $para->getPortions()->add($portion2);
     $para->getPortions()->add($portion3);
     $autoShape->getTextFrame()->getParagraphs()->add($para);
-    $pres->save("text.pptx", SaveFormat::Pptx);
+    $pres->save("text.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -91,7 +91,7 @@ This PHP code shows you how to set the background color for an entire text:
   try {
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     StreamSupport->stream($autoShape->getTextFrame()->getParagraphs()->spliterator(), false)->map(( p) -> $p->getPortions())->forEach(( c) -> $c->forEach(( ic) -> $ic->getPortionFormat()->getHighlightColor()->setColor($Color.BLUE)));
-    $presentation->save("text-red.pptx", SaveFormat::Pptx);
+    $presentation->save("text-red.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -105,19 +105,19 @@ This PHP code shows you how to set the background color for only a portion of a 
 ```php
   $pres = new Presentation();
   try {
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 50, 200, 100);
     $autoShape->getTextFrame()->getParagraphs()->clear();
     $para = new Paragraph();
     $portion1 = new Portion("Black");
-    $portion1->getPortionFormat()->setFontBold(NullableBool::True);
+    $portion1->getPortionFormat()->setFontBold(NullableBool->True);
     $portion2 = new Portion(" Red ");
     $portion3 = new Portion("Black");
-    $portion3->getPortionFormat()->setFontBold(NullableBool::True);
+    $portion3->getPortionFormat()->setFontBold(NullableBool->True);
     $para->getPortions()->add($portion1);
     $para->getPortions()->add($portion2);
     $para->getPortions()->add($portion3);
     $autoShape->getTextFrame()->getParagraphs()->add($para);
-    $pres->save("text.pptx", SaveFormat::Pptx);
+    $pres->save("text.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -130,7 +130,7 @@ This PHP code shows you how to set the background color for only a portion of a 
     if ($redPortion->isPresent()) {
       $redPortion->get()->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->RED);
     }
-    $presentation->save("text-red.pptx", SaveFormat::Pptx);
+    $presentation->save("text-red.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -168,10 +168,10 @@ The implementation of the above steps is given below.
     $para1 = $tf1->getParagraphs()->get_Item(0);
     $para2 = $tf2->getParagraphs()->get_Item(0);
     // Aligning the text paragraph to center
-    $para1->getParagraphFormat()->setAlignment(TextAlignment::Center);
-    $para2->getParagraphFormat()->setAlignment(TextAlignment::Center);
+    $para1->getParagraphFormat()->setAlignment(TextAlignment->Center);
+    $para2->getParagraphFormat()->setAlignment(TextAlignment->Center);
     // Writing the presentation as a PPTX file
-    $pres->save("Centeralign_out.pptx", SaveFormat::Pptx);
+    $pres->save("Centeralign_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -200,7 +200,7 @@ The implementation of the above steps is given below.
     echo($shadowColor->toString() . " - transparency is: " . $shadowColor->getAlpha() / 255.0 * 100);
     // set transparency to zero percent
     $outerShadowEffect->getShadowColor()->setColor(new java("java.awt.Color", $shadowColor->getRed(), $shadowColor->getGreen(), $shadowColor->getBlue(), 255));
-    $pres->save("transparency-2.pptx", SaveFormat::Pptx);
+    $pres->save("transparency-2.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -223,7 +223,7 @@ This PHP code shows you how to expand the spacing for one line of text and conde
 
   $textBox2->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(-2);// condense
 
-  $presentation->save("out.pptx", SaveFormat::Pptx);
+  $presentation->save("out.pptx", SaveFormat->Pptx);
 
 ```
 
@@ -267,18 +267,18 @@ The implementation of the above steps is given below. It takes an unadorned pres
     $port1->getPortionFormat()->setLatinFont($fd1);
     $port2->getPortionFormat()->setLatinFont($fd2);
     // Set font to Bold
-    $port1->getPortionFormat()->setFontBold(NullableBool::True);
-    $port2->getPortionFormat()->setFontBold(NullableBool::True);
+    $port1->getPortionFormat()->setFontBold(NullableBool->True);
+    $port2->getPortionFormat()->setFontBold(NullableBool->True);
     // Set font to Italic
-    $port1->getPortionFormat()->setFontItalic(NullableBool::True);
-    $port2->getPortionFormat()->setFontItalic(NullableBool::True);
+    $port1->getPortionFormat()->setFontItalic(NullableBool->True);
+    $port2->getPortionFormat()->setFontItalic(NullableBool->True);
     // Set font color
-    $port1->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port1->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $port1->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
-    $port2->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port2->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $port2->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     // Write the PPTX to disk
-    $pres->save("WelcomeFont_out.pptx", SaveFormat::Pptx);
+    $pres->save("WelcomeFont_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -310,9 +310,9 @@ The implementation of the above steps is given below.
     // Get first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 50);
+    $ashp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 50, 200, 50);
     // Remove any fill style associated with the AutoShape
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
+    $ashp->getFillFormat()->setFillType(FillType->NoFill);
     // Access the TextFrame associated with the AutoShape
     $tf = $ashp->getTextFrame();
     $tf->setText("Aspose TextBox");
@@ -321,18 +321,18 @@ The implementation of the above steps is given below.
     // Set the Font for the Portion
     $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
     // Set Bold property of the Font
-    $port->getPortionFormat()->setFontBold(NullableBool::True);
+    $port->getPortionFormat()->setFontBold(NullableBool->True);
     // Set Italic property of the Font
-    $port->getPortionFormat()->setFontItalic(NullableBool::True);
+    $port->getPortionFormat()->setFontItalic(NullableBool->True);
     // Set Underline property of the Font
-    $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
+    $port->getPortionFormat()->setFontUnderline(TextUnderlineType->Single);
     // Set the Height of the Font
     $port->getPortionFormat()->setFontHeight(25);
     // Set the color of the Font
-    $port->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $port->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $port->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Write the PPTX to disk
-    $pres->save("SetTextFontProperties_out.pptx", SaveFormat::Pptx);
+    $pres->save("SetTextFontProperties_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -389,22 +389,22 @@ Aspose.Slides for PHP via Java allows developers to rotate the text. Text could 
     // Get the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
     $ashp->addTextFrame("");
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
+    $ashp->getFillFormat()->setFillType(FillType->NoFill);
     // Accessing the text frame
     $txtFrame = $ashp->getTextFrame();
-    $txtFrame->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
+    $txtFrame->getTextFrameFormat()->setTextVerticalType(TextVerticalType->Vertical270);
     // Create the Paragraph object for text frame
     $para = $txtFrame->getParagraphs()->get_Item(0);
     // Create Portion object for paragraph
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save("RotateText_out.pptx", SaveFormat::Pptx);
+    $pres->save("RotateText_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -430,10 +430,10 @@ In the example given below, we set the RotationAngle property.
     // Get the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
     $ashp->addTextFrame("");
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
+    $ashp->getFillFormat()->setFillType(FillType->NoFill);
     // Accessing the text frame
     $txtFrame = $ashp->getTextFrame();
     $txtFrame->getTextFrameFormat()->setRotationAngle(25);
@@ -442,10 +442,10 @@ In the example given below, we set the RotationAngle property.
     // Create Portion object for paragraph
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("Text rotation example.");
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save($resourcesOutputPath . "RotateText_out.pptx", SaveFormat::Pptx);
+    $pres->save($resourcesOutputPath . "RotateText_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -488,7 +488,7 @@ This PHP code shows you how to specify the line spacing for a paragraph:
     $para->getParagraphFormat()->setSpaceBefore(40);
     $para->getParagraphFormat()->setSpaceAfter(40);
     // Save Presentation
-    $pres->save("LineSpacing_out.pptx", SaveFormat::Pptx);
+    $pres->save("LineSpacing_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -514,22 +514,22 @@ In this topic, we will explore the different formatting properties of text frame
     // Access the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 150);
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 75, 350, 150);
     // Add TextFrame to the Rectangle
     $ashp->addTextFrame("");
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
+    $ashp->getFillFormat()->setFillType(FillType->NoFill);
     // Accessing the text frame
     $txtFrame = $ashp->getTextFrame();
-    $txtFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
+    $txtFrame->getTextFrameFormat()->setAutofitType(TextAutofitType->Shape);
     // Create the Paragraph object for text frame
     $para = $txtFrame->getParagraphs()->get_Item(0);
     // Create Portion object for paragraph
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save($resourcesOutputPath . "formatText_out.pptx", SaveFormat::Pptx);
+    $pres->save($resourcesOutputPath . "formatText_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -555,22 +555,22 @@ Aspose.Slides for PHP via Java allows developers to Anchor of any TextFrame. Tex
     // Get the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 350, 350);
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
     $ashp->addTextFrame("");
-    $ashp->getFillFormat()->setFillType(FillType::NoFill);
+    $ashp->getFillFormat()->setFillType(FillType->NoFill);
     // Accessing the text frame
     $txtFrame = $ashp->getTextFrame();
-    $txtFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
+    $txtFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType->Bottom);
     // Create the Paragraph object for text frame
     $para = $txtFrame->getParagraphs()->get_Item(0);
     // Create Portion object for paragraph
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save("AnchorText_out.pptx", SaveFormat::Pptx);
+    $pres->save("AnchorText_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

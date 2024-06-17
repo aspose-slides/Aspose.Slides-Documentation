@@ -71,10 +71,10 @@ This code shows you how to convert a PowerPoint to HTML :
   $pres = new Presentation("Convert_HTML.pptx");
   try {
     $htmlOpt = new HtmlOptions();
-    $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
+    $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomFull);
     $htmlOpt->setHtmlFormatter(HtmlFormatter->createDocumentFormatter("", false));
     // Saving the presentation to HTML
-    $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
+    $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat->Html, $htmlOpt);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -94,7 +94,7 @@ Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.c
     $htmlOptions = new HtmlOptions();
     $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter($controller));
     // Saving the presentation to HTML
-    $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, $htmlOptions);
+    $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat->Html, $htmlOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -110,9 +110,9 @@ This code shows you how to convert a PowerPoint to HTML with notes :
   try {
     $opt = new HtmlOptions();
     $options = $opt->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions::BottomFull);
+    $options->setNotesPosition(NotesPositions->BottomFull);
     // Saving notes pages
-    $pres->save("Output.html", SaveFormat::Html, $opt);
+    $pres->save("Output.html", SaveFormat->Html, $opt);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -136,7 +136,7 @@ The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/c
     $embedFontsController = new EmbedAllFontsHtmlController($fontNameExcludeList);
     $htmlOptionsEmbed = new HtmlOptions();
     $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($embedFontsController));
-    $pres->save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, $htmlOptionsEmbed);
+    $pres->save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat->Html, $htmlOptionsEmbed);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -155,7 +155,7 @@ This PHP code shows you how to convert a PowerPoint presentation to HTML while o
   try {
     $htmlOpts = new HtmlOptions();
     $htmlOpts->setPicturesCompression(PicturesCompression.Dpi150);
-    $pres->save("OutputDoc-dpi150.html", SaveFormat::Html, $htmlOpts);
+    $pres->save("OutputDoc-dpi150.html", SaveFormat->Html, $htmlOpts);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -170,7 +170,7 @@ This code  shows you how to output HTML with full quality images:
   try {
     $htmlOpts = new HtmlOptions();
     $htmlOpts->setDeletePicturesCroppedAreas(false);
-    $pres->save("Outputdoc-noCrop.html", SaveFormat::Html, $htmlOpts);
+    $pres->save("Outputdoc-noCrop.html", SaveFormat->Html, $htmlOpts);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -187,11 +187,11 @@ This PHP code shows you how to convert a slide in a PowerPoint presentation to H
   $pres = new Presentation("Individual-Slide.pptx");
   try {
     $htmlOptions = new HtmlOptions();
-    $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
+    $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomFull);
     $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter(new CustomFormattingController()));
     // Saving File
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      $pres->save("Individual Slide" . $i + 1 . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
+      $pres->save("Individual Slide" . $i + 1 . "_out.html", array($i + 1 ), SaveFormat->Html, $htmlOptions);
     }
   } finally {
     if (!java_is_null($pres)) {
@@ -243,7 +243,7 @@ The PHP code in this example shows you how to use overridable methods to create 
     $htmlController = new CustomHeaderAndFontsController("styles.css");
     $options = new HtmlOptions();
     $options->setHtmlFormatter(HtmlFormatter->createCustomFormatter($htmlController));
-    $pres->save("pres.html", SaveFormat::Html, $options);
+    $pres->save("pres.html", SaveFormat->Html, $options);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -300,7 +300,7 @@ This PHP code shows you how to convert a PowerPoint to HTML while linking all fo
     $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
     $htmlOptionsEmbed = new HtmlOptions();
     $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($linkcont));
-    $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
+    $pres->save("pres.html", SaveFormat->Html, $htmlOptionsEmbed);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -357,7 +357,7 @@ This PHP code shows you how to convert a PowerPoint presentation to responsive H
   try {
     $saveOptions = new HtmlOptions();
     $saveOptions->setSvgResponsiveLayout(true);
-    $pres->save("SomePresentation-out.html", SaveFormat::Html, $saveOptions);
+    $pres->save("SomePresentation-out.html", SaveFormat->Html, $saveOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -402,7 +402,7 @@ This PHP code shows you how to add a video to the presentation and then save it 
     $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter($controller));
     $htmlOptions->setSlideImageFormat(SlideImageFormat->svg($svgOptions));
     // Saving the file
-    $pres->save($fileName, SaveFormat::Html, $htmlOptions);
+    $pres->save($fileName, SaveFormat->Html, $htmlOptions);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

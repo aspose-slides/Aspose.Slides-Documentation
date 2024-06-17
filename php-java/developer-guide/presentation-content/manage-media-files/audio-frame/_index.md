@@ -38,7 +38,7 @@ try {
     audioFrame.setVolume(AudioVolumeMode.Loud);
 
     // Writes the PowerPoint file to disk
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
+    pres.save("AudioFrameEmbed_out.pptx", SaveFormat->Pptx);
 } catch(IOException e) {
 } finally {
     if (!java_is_null(pres)) pres.dispose();
@@ -75,7 +75,7 @@ This PHP code shows you how to change an audio frame's thumbnail or preview imag
     $audioFrame->getPictureFormat()->getPicture()->setImage($picture);// <-----
 
     // Saves the modified presentation to disk
-    $presentation->save("example_out.pptx", SaveFormat::Pptx);
+    $presentation->save("example_out.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($presentation)) {
@@ -115,9 +115,9 @@ This PHP code demonstrates an operation in which an audio's options are adjusted
     // Gets the AudioFrame shape
     $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     // Sets the Play mode to play on click
-    $audioFrame->setPlayMode(AudioPlayModePreset::OnClick);
+    $audioFrame->setPlayMode(AudioPlayModePreset->OnClick);
     // Sets the volume to Low
-    $audioFrame->setVolume(AudioVolumeMode::Low);
+    $audioFrame->setVolume(AudioVolumeMode->Low);
     // Sets the audio to play across slides
     $audioFrame->setPlayAcrossSlides(true);
     // Disables loop for the audio
@@ -127,7 +127,7 @@ This PHP code demonstrates an operation in which an audio's options are adjusted
     // Rewinds the audio to start after playing
     $audioFrame->setRewindAudio(true);
     // Saves the PowerPoint file to disk
-    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

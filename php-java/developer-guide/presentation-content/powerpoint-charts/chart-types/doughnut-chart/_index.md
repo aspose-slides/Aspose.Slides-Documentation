@@ -25,10 +25,10 @@ In the example given below, we have set the size of the hole in a doughnut chart
   // Create an instance of Presentation class
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Doughnut, 50, 50, 400, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Doughnut, 50, 50, 400, 400);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setDoughnutHoleSize(90);
     // Write presentation to disk
-    $pres->save("DoughnutHoleSize_out.pptx", SaveFormat::Pptx);
+    $pres->save("DoughnutHoleSize_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

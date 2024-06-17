@@ -48,14 +48,14 @@ The example below adds a group shape to a slide.
   $pres = new Presentation("Source Frame.pptx");
   try {
     $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
-    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $pres->getMasters()->get_Item(0)->getLayoutSlides()->getByType(SlideLayoutType->Blank);
     $destSlide = $pres->getSlides()->addEmptySlide($blankLayout);
     $destShapes = $destSlide->getShapes();
     $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
     $destShapes->addClone($sourceShapes->get_Item(2));
     $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
     // Write the PPTX file to disk
-    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
+    $pres->save("CloneShape_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -80,8 +80,8 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add autoshape of rectangle type
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
+    $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 40, 150, 50);
+    $sld->getShapes()->addAutoShape(ShapeType->Moon, 160, 40, 150, 50);
     $altText = "User Defined";
     $iCount = $sld->getShapes()->size();
     for($i = 0; $i < java_values($iCount) ; $i++) {
@@ -91,7 +91,7 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
       }
     }
     // Save presentation to disk
-    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
+    $pres->save("RemoveShape_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -116,8 +116,8 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add autoshape of rectangle type
-    $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
+    $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 40, 150, 50);
+    $sld->getShapes()->addAutoShape(ShapeType->Moon, 160, 40, 150, 50);
     $alttext = "User Defined";
     $iCount = $sld->getShapes()->size();
     for($i = 0; $i < java_values($iCount) ; $i++) {
@@ -127,7 +127,7 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
       }
     }
     // Save presentation to disk
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
+    $pres->save("Hiding_Shapes_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -151,15 +151,15 @@ Aspose.Slides for PHP via Java allows developers to reorder the shapes. Reorderi
   $pres = new Presentation("ChangeShapeOrder.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 365, 400, 150);
-    $shp3->getFillFormat()->setFillType(FillType::NoFill);
+    $shp3 = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 365, 400, 150);
+    $shp3->getFillFormat()->setFillType(FillType->NoFill);
     $shp3->addTextFrame(" ");
     $para = $shp3->getTextFrame()->getParagraphs()->get_Item(0);
     $portion = $para->getPortions()->get_Item(0);
     $portion->setText("Watermark Text Watermark Text Watermark Text");
-    $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
+    $shp3 = $slide->getShapes()->addAutoShape(ShapeType->Triangle, 200, 365, 400, 150);
     $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
+    $pres->save("Reshape_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -207,9 +207,9 @@ To set the AlternateText of a shape, please follow the steps below:
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add autoshape of rectangle type
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
-    $shp2->getFillFormat()->setFillType(FillType::Solid);
+    $shp1 = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 40, 150, 50);
+    $shp2 = $sld->getShapes()->addAutoShape(ShapeType->Moon, 160, 40, 150, 50);
+    $shp2->getFillFormat()->setFillType(FillType->Solid);
     $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
       $shape = $sld->getShapes()->get_Item($i);
@@ -218,7 +218,7 @@ To set the AlternateText of a shape, please follow the steps below:
       }
     }
     // Save presentation to disk
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
+    $pres->save("Set_AlternativeText_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -286,7 +286,7 @@ Source code below aligns shapes with indices 1,2 and 4 along the top border of t
     $shape1 = $slide->getShapes()->get_Item(1);
     $shape2 = $slide->getShapes()->get_Item(2);
     $shape3 = $slide->getShapes()->get_Item(4);
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
+    SlideUtil->alignShapes(ShapesAlignmentType->AlignTop, true, $pres->getSlides()->get_Item(0), array($slide->getShapes()->indexOf($shape1), $slide->getShapes()->indexOf($shape2), $slide->getShapes()->indexOf($shape3) ));
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -302,7 +302,7 @@ The example below shows how to align the entire collection of shapes relative to
 ```php
   $pres = new Presentation("example.pptx");
   try {
-    SlideUtil->alignShapes(ShapesAlignmentType::AlignBottom, false, $pres->getSlides()->get_Item(0));
+    SlideUtil->alignShapes(ShapesAlignmentType->AlignBottom, false, $pres->getSlides()->get_Item(0));
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

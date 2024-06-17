@@ -37,7 +37,7 @@ This sample code shows you how to generate a shape thumbnail from a slide:
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage();
     // Save the image to disk in PNG format
     try {
-      $slideImage->save("output.png", ImageFormat::Png);
+      $slideImage->save("output.png", ImageFormat->Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -66,10 +66,10 @@ This sample code shows you how to generate a shape thumbnail based on a defined 
   $pres = new Presentation("Thumbnail.pptx");
   try {
     // Create a full scale image
-    $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds::Shape, 1, 1);
+    $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Shape, 1, 1);
     // Save the image to disk in PNG format
     try {
-      $slideImage->save("output.png", ImageFormat::Png);
+      $slideImage->save("output.png", ImageFormat->Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -98,10 +98,10 @@ This sample code is based on the steps above:
   $pres = new Presentation("Thumbnail.pptx");
   try {
     // Create a full scale image
-    $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds::Appearance, 1, 1);
+    $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Appearance, 1, 1);
     // Save the image to disk in PNG format
     try {
-      $slideImage->save("output.png", ImageFormat::Png);
+      $slideImage->save("output.png", ImageFormat->Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();

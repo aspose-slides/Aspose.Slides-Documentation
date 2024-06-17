@@ -21,16 +21,16 @@ Aspose.Slides provides these connectors:
 
 | Connector                      | Image                                                        | Number of adjustment points |
 | ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType::Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType::StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType::BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType::BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType::BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType::BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType::CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType::CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType::CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType::CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+| `ShapeType->Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
+| `ShapeType->StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
+| `ShapeType->BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
+| `ShapeType->BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
+| `ShapeType->BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
+| `ShapeType->BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
+| `ShapeType->CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
+| `ShapeType->CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
+| `ShapeType->CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
+| `ShapeType->CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
 
 ## **Connect Shapes Using Connectors**
 
@@ -52,13 +52,13 @@ try {
     IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
     
     // Adds an Ellipse autoshape
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = shapes.addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
     
     // Adds a Rectangle autoshape
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+    IAutoShape rectangle = shapes.addAutoShape(ShapeType->Rectangle, 100, 300, 100, 100);
     
     // Adds a connector shape to the slide shape collection
-    IConnector connector = shapes.addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+    IConnector connector = shapes.addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
     
     // Connects the shapes using the connector
     connector.setStartShapeConnectedTo(ellipse);
@@ -68,7 +68,7 @@ try {
     connector.reroute();
     
     // Saves the presentation
-    pres.save("output.pptx", SaveFormat::Pptx);
+    pres.save("output.pptx", SaveFormat->Pptx);
 } finally {
     if (!java_is_null(pres)) pres.dispose();
 }
@@ -103,11 +103,11 @@ This PHP code demonstrates an operation where a preferred connection dot is spec
     // Accesses the shapes collection for a specific slide
     $shapes = $pres->getSlides()->get_Item(0)->getShapes();
     // Add an Ellipse autoshape
-    $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+    $ellipse = $shapes->addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
     // Add a Rectangle autoshape
-    $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
+    $rectangle = $shapes->addAutoShape(ShapeType->Rectangle, 100, 300, 100, 100);
     // Adds a connector shape to the slide's shape collection
-    $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+    $connector = $shapes->addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
     // Connects the shapes using the connector
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
@@ -119,7 +119,7 @@ This PHP code demonstrates an operation where a preferred connection dot is spec
       $connector->setStartShapeConnectionSiteIndex($wantedIndex);
     }
     // Saves the presentation
-    $pres->save("output.pptx", SaveFormat::Pptx);
+    $pres->save("output.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -142,12 +142,12 @@ Consider a case where a connector between two shapes (A and B) passes through a 
   $pres = new Presentation();
   try {
     $sld = $pres->getSlides()->get_Item(0);
-    $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 150, 150, 75);
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 400, 100, 50);
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 70, 30);
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector5, 20, 20, 400, 300);
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
-    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 300, 150, 150, 75);
+    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 500, 400, 100, 50);
+    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 70, 30);
+    $connector = $sld->getShapes()->addConnector(ShapeType->BentConnector5, 20, 20, 400, 300);
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
     $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $connector->setStartShapeConnectedTo($shapeFrom);
     $connector->setEndShapeConnectedTo($shapeTo);
@@ -194,16 +194,16 @@ Consider a case where two text frame objects are linked together through a conne
     // Gets the first slide in the presentation
     $sld = $pres->getSlides()->get_Item(0);
     // Adds shapes that will be joined together through a connector
-    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
+    $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 60, 25);
     $shapeFrom->getTextFrame()->setText("From");
-    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
+    $shapeTo = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 500, 100, 60, 25);
     $shapeTo->getTextFrame()->setText("To");
     // Adds a connector
-    $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
+    $connector = $sld->getShapes()->addConnector(ShapeType->BentConnector4, 20, 20, 400, 300);
     // Specifies the connector's direction
-    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
+    $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
     // Specifies the connector's color
-    $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $connector->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
     $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     // Specifies the thickness of the connector's line
     $connector->getLineFormat()->setWidth(3);
@@ -245,7 +245,7 @@ To define a model that allows us determine the coordinates and the shape of indi
   $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
   $y = $connector->getY();
   $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 0, $height);
+  $sld->getShapes()->addAutoShape(ShapeType->Rectangle, $x, $y, 0, $height);
 
 ```
 
@@ -261,12 +261,12 @@ First, let's add a new text frame object (**To 1**) to the slide (for connection
 
 ```php
   // Creates a new binding object
-  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
+  $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 400, 60, 25);
   $shapeTo_1->getTextFrame()->setText("To 1");
   // Creates a new connector
-  $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
-  $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+  $connector = $sld->getShapes()->addConnector(ShapeType->BentConnector4, 20, 20, 400, 300);
+  $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+  $connector->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
   $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
   $connector->getLineFormat()->setWidth(3);
   // Connects objects using the newly created connector
@@ -300,10 +300,10 @@ In our case, the object's angle of rotation is 90 degrees and the connector is d
   $x = $connector->getX();
   $y = $connector->getY();
   // Corrects the connector coordinates in case it appears
-  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
+  if ($connector->getFrame()->getFlipH() == NullableBool->True) {
     $x += $connector->getWidth();
   }
-  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
+  if ($connector->getFrame()->getFlipV() == NullableBool->True) {
     $y += $connector->getHeight();
   }
   // Takes in the adjustment point value as the coordinate
@@ -313,8 +313,8 @@ In our case, the object's angle of rotation is 90 degrees and the connector is d
   $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
   // Determines the width of the horizontal component using the second adjustment point value
   $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
-  $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
-  $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+  $shape = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, $xx, $yy, $width, 0);
+  $shape->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
   $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
 
 ```
@@ -343,7 +343,7 @@ This PHP code demonstrates an operation in which we calculated the angle for a c
       $shape = $slide->getShapes()->get_Item($i);
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
         $ashp = $shape;
-        if ($ashp->getShapeType() == ShapeType::Line) {
+        if ($ashp->getShapeType() == ShapeType->Line) {
           $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), $ashp->getFrame()->getFlipH() > 0, $ashp->getFrame()->getFlipV() > 0);
         }
       } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {

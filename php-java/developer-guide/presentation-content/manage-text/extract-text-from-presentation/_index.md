@@ -110,7 +110,7 @@ There is also a [SlideText](https://reference.aspose.com/slides/php-java/com.asp
 The new API can be used like this:
 
 ```php
-  $text1 = PresentationFactory->getInstance()->getPresentationText("presentation.pptx", TextExtractionArrangingMode::Unarranged);
+  $text1 = PresentationFactory->getInstance()->getPresentationText("presentation.pptx", TextExtractionArrangingMode->Unarranged);
   echo($text1->getSlidesText()[0]->getText());
   echo($text1->getSlidesText()[0]->getLayoutText());
   echo($text1->getSlidesText()[0]->getMasterText());

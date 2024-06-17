@@ -35,11 +35,11 @@ This Java shows you how to add a large video file through the BLOB process to a 
     try {
       // Let's add the video to the presentation - we chose the KeepLocked behavior because we do
       // not intend to access the "veryLargeVideo.avi" file.
-      $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior::KeepLocked);
+      $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
       $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(0, 0, 480, 270, $video);
       // Saves the presentation. While a large presentation gets outputted, the memory consumption
       // stays low through the pres object's lifecycle
-      $pres->save("presentationWithLargeVideo.pptx", SaveFormat::Pptx);
+      $pres->save("presentationWithLargeVideo.pptx", SaveFormat->Pptx);
     } finally {
       if (!java_is_null($fileStream)) {
         $fileStream->close();
@@ -64,7 +64,7 @@ This code  demonstrates the described operation:
   $hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
   $loadOptions = new LoadOptions();
   // Locks the source file and does NOT load it into memory
-  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
   // create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
   $pres = new Presentation($hugePresentationWithAudiosAndVideosFile, $loadOptions);
   try {
@@ -118,11 +118,11 @@ This PHP code shows you how to add a large image through the BLOB process:
     try {
       // Let's add the image to the presentation - we choose KeepLocked behavior because we do
       // NOT intend to access the "largeImage.png" file.
-      $img = $pres->getImages()->addImage($fileStream, LoadingStreamBehavior::KeepLocked);
-      $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, 300, 200, $img);
+      $img = $pres->getImages()->addImage($fileStream, LoadingStreamBehavior->KeepLocked);
+      $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType->Rectangle, 0, 0, 300, 200, $img);
       // Saves the presentation. While a large presentation gets outputted, the memory consumption
       // stays low through the pres object's lifecycle
-      $pres->save("presentationWithLargeImage.pptx", SaveFormat::Pptx);
+      $pres->save("presentationWithLargeImage.pptx", SaveFormat->Pptx);
     } finally {
       if (!java_is_null($fileStream)) {
         $fileStream->close();
@@ -146,7 +146,7 @@ Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB vid
 ```php
   $pres = new Presentation("large.pptx");
   try {
-    $pres->save("large.pdf", SaveFormat::Pdf);
+    $pres->save("large.pdf", SaveFormat->Pdf);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -163,11 +163,11 @@ Through the process involving a BLOB, you can load up a large presentation while
 
 ```php
   $loadOptions = new LoadOptions();
-  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
   $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
   $pres = new Presentation("large.pptx", $loadOptions);
   try {
-    $pres->save("large.pdf", SaveFormat::Pdf);
+    $pres->save("large.pdf", SaveFormat->Pdf);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -182,7 +182,7 @@ When the BLOB process is used, your computer creates temporary files in the defa
 
 ```php
   $loadOptions = new LoadOptions();
-  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
   $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
   $loadOptions->getBlobManagementOptions()->setTempFilesRootPath("temp");
 

@@ -37,14 +37,14 @@ This PHP code shows you how to specify that a text must always fit into its box 
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 30, 350, 100);
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 30, 30, 350, 100);
     $portion = new Portion("lorem ipsum...");
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion);
     $textFrameFormat = $autoShape->getTextFrame()->getTextFrameFormat();
-    $textFrameFormat->setAutofitType(TextAutofitType::Shape);
-    $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
+    $textFrameFormat->setAutofitType(TextAutofitType->Shape);
+    $pres->save("Output-presentation.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -67,14 +67,14 @@ This PHP code shows you how to specify that a textbox must always retain its dim
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 30, 350, 100);
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 30, 30, 350, 100);
     $portion = new Portion("lorem ipsum...");
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion);
     $textFrameFormat = $autoShape->getTextFrame()->getTextFrameFormat();
-    $textFrameFormat->setAutofitType(TextAutofitType::None);
-    $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
+    $textFrameFormat->setAutofitType(TextAutofitType->None);
+    $pres->save("Output-presentation.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -97,14 +97,14 @@ This PHP code shows you how to specify that a text must be shrunk on overflow in
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 30, 350, 100);
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 30, 30, 350, 100);
     $portion = new Portion("lorem ipsum...");
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion);
     $textFrameFormat = $autoShape->getTextFrame()->getTextFrameFormat();
-    $textFrameFormat->setAutofitType(TextAutofitType::Normal);
-    $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
+    $textFrameFormat->setAutofitType(TextAutofitType->Normal);
+    $pres->save("Output-presentation.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -129,14 +129,14 @@ This PHP code shows you how to use the Wrap Text setting in a PowerPoint present
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 30, 350, 100);
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 30, 30, 350, 100);
     $portion = new Portion("lorem ipsum...");
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion);
     $textFrameFormat = $autoShape->getTextFrame()->getTextFrameFormat();
-    $textFrameFormat->setWrapText(NullableBool::True);
-    $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
+    $textFrameFormat->setWrapText(NullableBool->True);
+    $pres->save("Output-presentation.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

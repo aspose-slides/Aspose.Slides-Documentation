@@ -88,7 +88,7 @@ The full source code sample:
     $mathParagraph->add(new MathBlock($fraction));
     $mathBlock = new MathematicalText("c")->setSuperscript("2")->join("=")->join(new MathematicalText("a")->setSuperscript("2"))->join("+")->join(new MathematicalText("b")->setSuperscript("2"));
     $mathParagraph->add($mathBlock);
-    $pres->save("math.pptx", SaveFormat::Pptx);
+    $pres->save("math.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -218,7 +218,7 @@ Creates a fraction of the specified type with this numerator and specified denom
 
 ```php
   $numerator = new MathematicalText("x");
-  $fraction = $numerator->divide("y", MathFractionTypes::Linear);
+  $fraction = $numerator->divide("y", MathFractionTypes->Linear);
 
 ``` 
 
@@ -278,8 +278,8 @@ For example:
   $funcName = new MathLimit(new MathematicalText("lim"), new MathematicalText("𝑛→∞"));
   $func1 = new MathematicalText("2x")->asArgumentOfFunction($funcName);
   $func2 = new MathematicalText("x")->asArgumentOfFunction("sin");
-  $func3 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfOneArgument::Sin);
-  $func4 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfTwoArguments::Log, "3");
+  $func3 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfOneArgument->Sin);
+  $func4 = new MathematicalText("x")->asArgumentOfFunction(MathFunctionsOfTwoArguments->Log, "3");
 
 ``` 
 
@@ -349,7 +349,7 @@ Example:
 
 ```php
   $baseArg = new MathematicalText("x")->join(new MathematicalText("dx")->toBox());
-  $integral = $baseArg->integral(MathIntegralTypes::Simple, "0", "1");
+  $integral = $baseArg->integral(MathIntegralTypes->Simple, "0", "1");
 
 ``` 
 
@@ -375,7 +375,7 @@ Examples:
 ```php
   $accent = new MathematicalText("x")->accent('̃');
   $bar = new MathematicalText("x")->overbar();
-  $groupChr = new MathematicalText("x")->join("y")->join("z")->group('⏡', MathTopBotPositions::Bottom, MathTopBotPositions::Top);
+  $groupChr = new MathematicalText("x")->join("y")->join("z")->group('⏡', MathTopBotPositions->Bottom, MathTopBotPositions->Top);
   $borderBox = new MathematicalText("x+y+z")->toBorderBox();
   $boxedOperator = new MathematicalText(":=")->toBox();
 

@@ -30,7 +30,7 @@ Using [**getRect()**](https://reference.aspose.com/slides/php-java/com.aspose.sl
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $textFrame = $shape->getTextFrame();
     $rect = $textFrame->getParagraphs()->get_Item(0)->getRect();
-    echo("X: " . $rect::$x . " Y: " . $rect::$y . " Width: " . $rect::$width . " Height: " . $rect::$height);
+    echo("X: " . $rect->$x . " Y: " . $rect->$y . " Width: " . $rect->$width . " Height: " . $rect->$height);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -57,15 +57,15 @@ This sample code demonstrates the described operation:
         continue;
       }
       $rect = $para->getRect();
-      $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
-      $shape->getFillFormat()->setFillType(FillType::NoFill);
+      $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
+      $shape->getFillFormat()->setFillType(FillType->NoFill);
       $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-      $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+      $shape->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
       foreach($para->getPortions() as $portion) {
         if ($portion->getText()->contains("0")) {
           $rect = $portion->getRect();
-          $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
-          $shape->getFillFormat()->setFillType(FillType::NoFill);
+          $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
+          $shape->getFillFormat()->setFillType(FillType->NoFill);
         }
       }
     }

@@ -27,7 +27,7 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
     // Save the image to disk in JPEG format
     try {
-      $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
+      $slideImage->save("picture1_out.jpg", ImageFormat->Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -52,14 +52,14 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
     // Save the image to disk in JPEG format
     try {
-      $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
+      $slideImage->save("picture2_out.jpg", ImageFormat->Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
     // Saves the presentation without embedded "Calibri" font to disk
-    $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
+    $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat->Ppt);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -88,12 +88,12 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/com
         }
       }
       if (!$embeddedFontsContainsFont) {
-        $pres->getFontsManager()->addEmbeddedFont($font, EmbedFontCharacters::All);
+        $pres->getFontsManager()->addEmbeddedFont($font, EmbedFontCharacters->All);
         $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
       }
     }
     // Saves the presentation to disk
-    $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
+    $pres->save("AddEmbeddedFont_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -112,7 +112,7 @@ This PHP code shows you how to compress embedded PowerPoint fonts:
   $pres = new Presentation("pres.pptx");
   try {
     Compress->compressEmbeddedFonts($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
+    $pres->save("pres-out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

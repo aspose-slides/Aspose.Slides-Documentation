@@ -145,8 +145,8 @@ You can add images to a slide master with Aspose.Slides:
         $image->dispose();
       }
     }
-    $pres->getMasters()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $pres->getMasters()->get_Item(0)->getShapes()->addPictureFrame(ShapeType->Rectangle, 10, 10, 100, 100, $picture);
+    $pres->save("pres.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -226,10 +226,10 @@ When you change a master slide's background color, all the normal slides in the 
   $pres = new Presentation();
   try {
     $master = $pres->getMasters()->get_Item(0);
-    $master->getBackground()->setType(BackgroundType::OwnBackground);
-    $master->getBackground()->getFillFormat()->setFillType(FillType::Solid);
+    $master->getBackground()->setType(BackgroundType->OwnBackground);
+    $master->getBackground()->getFillFormat()->setFillType(FillType->Solid);
     $master->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $pres->save("pres.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -299,9 +299,9 @@ This code shows you how to set a Slide Master as a presentation's default view :
   $presentation = new Presentation();
   try {
     // Sets the Default View as SlideMasterView
-    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
+    $presentation->getViewProperties()->setLastView(ViewType->SlideMasterView);
     // Saves the presentation
-    $presentation->save("PresView.pptx", SaveFormat::Pptx);
+    $presentation->save("PresView.pptx", SaveFormat->Pptx);
   } finally {
     $presentation->dispose();
   }
@@ -316,7 +316,7 @@ Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.c
   $pres = new Presentation("pres.pptx");
   try {
     Compress->removeUnusedMasterSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat::Pptx);
+    $pres->save("pres-out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

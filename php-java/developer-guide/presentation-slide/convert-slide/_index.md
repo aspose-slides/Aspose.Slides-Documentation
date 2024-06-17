@@ -40,7 +40,7 @@ This PHP code shows you how to convert the first slide of a presentation to a bi
     // Saves the image in the PNG format
     try {
       // save the image on the disk.
-      $slideImage->save("Slide_0.png", ImageFormat::Png);
+      $slideImage->save("Slide_0.png", ImageFormat->Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -65,7 +65,7 @@ This sample code shows you how to convert the first slide of a presentation to a
     $slideImage = $sld->getImage(new RenderingOptions(), $slideSize);
     try {
       // save the image on the disk.
-      $slideImage->save("Slide_0.png", ImageFormat::Png);
+      $slideImage->save("Slide_0.png", ImageFormat->Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -99,7 +99,7 @@ This sample code demonstrates the proposed conversion using the [getImage](https
     // Saves the image in the JPEG format
     try {
       // save the image on the disk.
-      $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
+      $slideImage->save("Slide_0.jpg", ImageFormat->Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -133,9 +133,9 @@ This PHP code demonstrates the conversion process for a slide with notes and com
     // Creates the rendering options
     $options = new RenderingOptions();
     // Sets the position of the notes on the page
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomTruncated);
     // Sets the position of the comments on the page
-    $options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
+    $options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions->Right);
     // Sets the width of the comment output area
     $options->getNotesCommentsLayouting()->setCommentsAreaWidth(500);
     // Sets the color for the comments area
@@ -144,7 +144,7 @@ This PHP code demonstrates the conversion process for a slide with notes and com
     $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, 2.0, 2.0);
     // Saves the image in the GIF format
     try {
-      $slideImage->save("Slide_Notes_Comments_0.gif", ImageFormat::Gif);
+      $slideImage->save("Slide_Notes_Comments_0.gif", ImageFormat->Gif);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -168,13 +168,13 @@ This PHP code demonstrates the conversion process for a slide with notes using t
     // Creates the rendering options
     $options = new RenderingOptions();
     // Sets the position of the notes
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomTruncated);
     // Creates a Images with the notes' size
     $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, $notesSize);
     // Saves the image in PNG format
     try {
       // save the image on the disk.
-      $slideImage->save("Slide_0.png", ImageFormat::Png);
+      $slideImage->save("Slide_0.png", ImageFormat->Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -211,9 +211,9 @@ This PHP code demonstrates a conversion process where ITiffOptions is used to ou
     // Set the font used in case source font is not found
     $options->setDefaultRegularFont("Arial Black");
     // Set the position of the notes on the page
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomTruncated);
     // Sets the pixel format (black and white)
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);
+    $options->setPixelFormat(ImagePixelFormat->Format1bppIndexed);
     // Sets the resolution
     $options->setDpiX(300);
     $options->setDpiY(300);
@@ -221,7 +221,7 @@ This PHP code demonstrates a conversion process where ITiffOptions is used to ou
     $slideImage = $slide->getImage($options);
     // Saves the image in TIFF format
     try {
-      $slideImage->save("PresentationNotesComments.tiff", ImageFormat::Tiff);
+      $slideImage->save("PresentationNotesComments.tiff", ImageFormat->Tiff);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -260,7 +260,7 @@ This sample code shows you how to convert all slides in a presentation to images
       $slideImage = $pres->getSlides()->get_Item($i)->getImage(2.0, 2.0);
       // Save the image in PNG format
       try {
-        $slideImage->save("Slide_" . $i . ".png", ImageFormat::Png);
+        $slideImage->save("Slide_" . $i . ".png", ImageFormat->Png);
       } finally {
         if (!java_is_null($slideImage)) {
           $slideImage->dispose();

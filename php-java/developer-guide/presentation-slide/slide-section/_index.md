@@ -31,12 +31,12 @@ This sample code shows you to create a section in a presentation :
     $section1 = $pres->getSections()->addSection("Section 1", $newSlide1);
     $section2 = $pres->getSections()->addSection("Section 2", $newSlide3);// section1 will be ended at newSlide2 and after it section2 will start
 
-    $pres->save("pres-sections.pptx", SaveFormat::Pptx);
+    $pres->save("pres-sections.pptx", SaveFormat->Pptx);
     $pres->getSections()->reorderSectionWithSlides($section2, 0);
-    $pres->save("pres-sections-moved.pptx", SaveFormat::Pptx);
+    $pres->save("pres-sections-moved.pptx", SaveFormat->Pptx);
     $pres->getSections()->removeSectionWithSlides($section2);
     $pres->getSections()->appendEmptySection("Last empty section");
-    $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
+    $pres->save("pres-section-with-empty.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

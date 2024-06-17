@@ -9,7 +9,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the any of desired type (this example uses ChartType::ClusteredColumn).
+1. Add a chart with default data along with the any of desired type (this example uses ChartType->ClusteredColumn).
 1. Adding exponential trend line for chart series 1.
 1. Adding linear trend line for chart series 1.
 1. Adding logarithmic trend line for chart series 2.
@@ -25,36 +25,36 @@ The following code is used to create a chart with Trend Lines.
   $pres = new Presentation();
   try {
     // Creating a clustered column chart
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 20, 20, 500, 400);
     // Adding ponential trend line for chart series 1
-    $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Exponential);
+    $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType->Exponential);
     $tredLinep->setDisplayEquation(false);
     $tredLinep->setDisplayRSquaredValue(false);
     // Adding Linear trend line for chart series 1
-    $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Linear);
-    $tredLineLin->setTrendlineType(TrendlineType::Linear);
-    $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+    $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType->Linear);
+    $tredLineLin->setTrendlineType(TrendlineType->Linear);
+    $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType->Solid);
     $tredLineLin->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     // Adding Logarithmic trend line for chart series 2
-    $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Logarithmic);
-    $tredLineLog->setTrendlineType(TrendlineType::Logarithmic);
+    $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType->Logarithmic);
+    $tredLineLog->setTrendlineType(TrendlineType->Logarithmic);
     $tredLineLog->addTextFrameForOverriding("New log trend line");
     // Adding MovingAverage trend line for chart series 2
-    $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::MovingAverage);
-    $tredLineMovAvg->setTrendlineType(TrendlineType::MovingAverage);
+    $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType->MovingAverage);
+    $tredLineMovAvg->setTrendlineType(TrendlineType->MovingAverage);
     $tredLineMovAvg->setPeriod(3);
     $tredLineMovAvg->setTrendlineName("New TrendLine Name");
     // Adding Polynomial trend line for chart series 3
-    $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType::Polynomial);
-    $tredLinePol->setTrendlineType(TrendlineType::Polynomial);
+    $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType->Polynomial);
+    $tredLinePol->setTrendlineType(TrendlineType->Polynomial);
     $tredLinePol->setForward(1);
     $tredLinePol->setOrder(3);
     // Adding Power trend line for chart series 3
-    $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Power);
-    $tredLinePower->setTrendlineType(TrendlineType::Power);
+    $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType->Power);
+    $tredLinePower->setTrendlineType(TrendlineType->Power);
     $tredLinePower->setBackward(1);
     // Saving presentation
-    $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
+    $pres->save("ChartTrendLines_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -79,11 +79,11 @@ The following code is used to create a chart with Custom Lines.
   // Create an instance of Presentation class
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
-    $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType::Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
-    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 100, 100, 500, 400);
+    $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType->Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("Presentation.pptx", SaveFormat::Pptx);
+    $pres->save("Presentation.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

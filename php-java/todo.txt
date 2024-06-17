@@ -1,6 +1,6 @@
 class
 override
-::$length
+->$length
 foreach($controls as $control)
 ```Java
 []
@@ -9,4 +9,4 @@ new Java("java.util.Date")
 new ArrayList<IComment>()
 null
 instanceof
-NullableBool::True
+NullableBool->True

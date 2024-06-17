@@ -34,7 +34,7 @@ The implementation of the above steps is given below.
     // Get slide
     $slide = $pres->getSlides()->get_Item(0);
     // Create text box
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 200, 100);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
     // Create paragraph for superscript text
@@ -62,7 +62,7 @@ The implementation of the above steps is given below.
     // Add paragraphs to text box
     $textFrame->getParagraphs()->add($superPar);
     $textFrame->getParagraphs()->add($paragraph2);
-    $pres->save("formatText.pptx", SaveFormat::Pptx);
+    $pres->save("formatText.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

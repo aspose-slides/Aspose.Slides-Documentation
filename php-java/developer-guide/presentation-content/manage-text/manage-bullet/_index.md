@@ -61,7 +61,7 @@ This sample code —an implementation of the steps above—shows you to create a
     // Accessing first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adding and accessing Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $aShp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
     // Accessing the text frame of created autoshape
     $txtFrm = $aShp->getTextFrame();
     // Removing the default exisiting paragraph
@@ -69,14 +69,14 @@ This sample code —an implementation of the steps above—shows you to create a
     // Creating a paragraph
     $para = new Paragraph();
     // Setting paragraph bullet style and symbol
-    $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $para->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
     $para->getParagraphFormat()->getBullet()->setChar(8226);
     // Setting paragraph text
     $para->setText("Welcome to Aspose.Slides");
     // Setting bullet indent
     $para->getParagraphFormat()->setIndent(25);
     // Setting bullet color
-    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType->RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
     // set IsBulletHardColor to true to use own bullet color
     $para->getParagraphFormat()->getBullet()->isBulletHardColor();
@@ -85,7 +85,7 @@ This sample code —an implementation of the steps above—shows you to create a
     // Adding Paragraph to text frame
     $txtFrm->getParagraphs()->add($para);
     // saving the presentation as a PPTX file
-    $pres->save("Bullet.pptx", SaveFormat::Pptx);
+    $pres->save("Bullet.pptx", SaveFormat->Pptx);
   } finally {
     $pres->dispose();
   }
@@ -140,7 +140,7 @@ This PHP code shows you to create a picture bullet in a slide:
       }
     }
     // Adding and accessing Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $aShp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
     // Accessing the text frame of created autoshape
     $txtFrm = $aShp->getTextFrame();
     // Removing the default exisiting paragraph
@@ -149,14 +149,14 @@ This PHP code shows you to create a picture bullet in a slide:
     $para = new Paragraph();
     $para->setText("Welcome to Aspose.Slides");
     // Setting paragraph bullet style and image
-    $para->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
+    $para->getParagraphFormat()->getBullet()->setType(BulletType->Picture);
     $para->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
     // Setting Bullet Height
     $para->getParagraphFormat()->getBullet()->setHeight(100);
     // Adding Paragraph to text frame
     $txtFrm->getParagraphs()->add($para);
     // Writing the presentation as a PPTX file
-    $pres->save("Bullet.pptx", SaveFormat::Pptx);
+    $pres->save("Bullet.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -191,7 +191,7 @@ This code, which is an implementation of the steps above, shows you how to creat
     // Accessing first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adding and accessing Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $aShp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
     // Accessing the text frame of created autoshape
     $txtFrm = $aShp->addTextFrame("");
     // Removing the default exisiting paragraph
@@ -200,9 +200,9 @@ This code, which is an implementation of the steps above, shows you how to creat
     $para1 = new Paragraph();
     // Setting paragraph bullet style and symbol
     $para1->setText("Content");
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $para1->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
     $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Setting bullet level
     $para1->getParagraphFormat()->setDepth(0);
@@ -210,9 +210,9 @@ This code, which is an implementation of the steps above, shows you how to creat
     $para2 = new Paragraph();
     // Setting paragraph bullet style and symbol
     $para2->setText("Second level");
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $para2->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
     $para2->getParagraphFormat()->getBullet()->setChar('-');
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Setting bullet level
     $para2->getParagraphFormat()->setDepth(1);
@@ -220,9 +220,9 @@ This code, which is an implementation of the steps above, shows you how to creat
     $para3 = new Paragraph();
     // Setting paragraph bullet style and symbol
     $para3->setText("Third level");
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $para3->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
     $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Setting bullet level
     $para3->getParagraphFormat()->setDepth(2);
@@ -230,9 +230,9 @@ This code, which is an implementation of the steps above, shows you how to creat
     $para4 = new Paragraph();
     // Setting paragraph bullet style and symbol
     $para4->setText("Fourth Level");
-    $para4->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $para4->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
     $para4->getParagraphFormat()->getBullet()->setChar('-');
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Setting bullet level
     $para4->getParagraphFormat()->setDepth(3);
@@ -242,7 +242,7 @@ This code, which is an implementation of the steps above, shows you how to creat
     $txtFrm->getParagraphs()->add($para3);
     $txtFrm->getParagraphs()->add($para4);
     // saving the presentation as a PPTX file
-    $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
+    $pres->save("MultilevelBullet.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -274,7 +274,7 @@ This PHP code shows you how to create a numbered list in a slide:
     // Accessing first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adding and accessing Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $aShp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
     // Accessing the text frame of created autoshape
     $txtFrm = $aShp->addTextFrame("");
     // Removing the default exisiting paragraph
@@ -284,22 +284,22 @@ This PHP code shows you how to create a numbered list in a slide:
     $paragraph1->setText("bullet 2");
     $paragraph1->getParagraphFormat()->setDepth(4);
     $paragraph1->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
-    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType->Numbered);
     $txtFrm->getParagraphs()->add($paragraph1);
     $paragraph2 = new Paragraph();
     $paragraph2->setText("bullet 3");
     $paragraph2->getParagraphFormat()->setDepth(4);
     $paragraph2->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
-    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType->Numbered);
     $txtFrm->getParagraphs()->add($paragraph2);
     // Second list
     $paragraph5 = new Paragraph();
     $paragraph5->setText("bullet 5");
     $paragraph5->getParagraphFormat()->setDepth(4);
     $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(5);
-    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType->Numbered);
     $txtFrm->getParagraphs()->add($paragraph5);
-    $pres->save($resourcesOutputPath . "SetCustomBulletsNumber-slides.pptx.pptx", SaveFormat::Pptx);
+    $pres->save($resourcesOutputPath . "SetCustomBulletsNumber-slides.pptx.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

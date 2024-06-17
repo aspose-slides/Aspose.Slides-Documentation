@@ -10,11 +10,11 @@ New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slide
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 500, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Pie, 50, 50, 500, 400);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowLabelAsDataCallout(true);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->get_Item(2)->getDataLabelFormat()->setShowLabelAsDataCallout(false);
-    $pres->save("DisplayCharts.pptx", SaveFormat::Pptx);
+    $pres->save("DisplayCharts.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -30,7 +30,7 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType::Doughnut, 10, 10, 500, 500, false);
+    $chart = $slide->getShapes()->addChart(ChartType->Doughnut, 10, 10, 500, 500, false);
     $workBook = $chart->getChartData()->getChartDataWorkbook();
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
@@ -50,19 +50,19 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
       while ($i < java_values($chart->getChartData()->getSeries()->size())) {
         $iCS = $chart->getChartData()->getSeries()->get_Item($i);
         $dataPoint = $iCS->getDataPoints()->addDataPointForDoughnutSeries($workBook->getCell(0, $categoryIndex + 1, $i + 1, 1));
-        $dataPoint->getFormat()->getFill()->setFillType(FillType::Solid);
-        $dataPoint->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
+        $dataPoint->getFormat()->getFill()->setFillType(FillType->Solid);
+        $dataPoint->getFormat()->getLine()->getFillFormat()->setFillType(FillType->Solid);
         $dataPoint->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
         $dataPoint->getFormat()->getLine()->setWidth(1);
-        $dataPoint->getFormat()->getLine()->setStyle(LineStyle::Single);
-        $dataPoint->getFormat()->getLine()->setDashStyle(LineDashStyle::Solid);
+        $dataPoint->getFormat()->getLine()->setStyle(LineStyle->Single);
+        $dataPoint->getFormat()->getLine()->setDashStyle(LineDashStyle->Solid);
         if ($i == java_values($chart->getChartData()->getSeries()->size()) - 1) {
           $lbl = $dataPoint->getLabel();
-          $lbl->getTextFormat()->getTextBlockFormat()->setAutofitType(TextAutofitType::Shape);
-          $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool::True);
+          $lbl->getTextFormat()->getTextBlockFormat()->setAutofitType(TextAutofitType->Shape);
+          $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool->True);
           $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setLatinFont(new FontData("DINPro-Bold"));
           $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(12);
-          $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+          $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
           $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
           $lbl->getDataLabelFormat()->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
           $lbl->getDataLabelFormat()->setShowValue(false);
@@ -78,7 +78,7 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
       } 
       $categoryIndex++;
     } 
-    $pres->save("chart.pptx", SaveFormat::Pptx);
+    $pres->save("chart.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

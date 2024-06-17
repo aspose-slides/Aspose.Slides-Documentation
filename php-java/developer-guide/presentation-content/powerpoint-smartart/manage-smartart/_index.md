@@ -43,11 +43,11 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
   $pres = new Presentation();
   try {
     // Add SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicBlockList);
     // Change LayoutType to BasicProcess
-    $smart->setLayout(SmartArtLayoutType::BasicProcess);
+    $smart->setLayout(SmartArtLayoutType->BasicProcess);
     // Saving Presentation
-    $pres->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
+    $pres->save("ChangeSmartArtLayout_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -71,7 +71,7 @@ In the example given below, we have added a connector between two shapes.
   $pres = new Presentation();
   try {
     // Add SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->RadialCycle);
     // Add node on SmartArt
     $node = $smart->getAllNodes()->addNode();
     // Check isHidden property
@@ -81,7 +81,7 @@ In the example given below, we have added a connector between two shapes.
       // Do some actions or notifications
     }
     // Saving Presentation
-    $pres->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
+    $pres->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -103,11 +103,11 @@ Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.co
   $pres = new Presentation();
   try {
     // Add SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->OrganizationChart);
     // Get or Set the organization chart type
-    $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
+    $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType->LeftHanging);
     // Saving Presentation
-    $pres->save("OrganizeChartLayoutType_out.pptx", SaveFormat::Pptx);
+    $pres->save("OrganizeChartLayoutType_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -121,7 +121,7 @@ Aspose.Slides for PHP via Java provides a simple API for creating and PictureOr
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType::PictureOrganizationChart).
+1. Add a chart with default data along with the desired type (ChartType->PictureOrganizationChart).
 1. Write the modified presentation to a PPTX file
 
 The following code is used to create a chart.
@@ -129,8 +129,8 @@ The following code is used to create a chart.
 ```php
   $pres = new Presentation("test.pptx");
   try {
-    $smartArt = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
-    $pres->save("OrganizationChart.pptx", SaveFormat::Pptx);
+    $smartArt = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType->PictureOrganizationChart);
+    $pres->save("OrganizationChart.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -154,12 +154,12 @@ The following code is used to create a chart.
   $pres = new Presentation();
   try {
     // Add SmartArt BasicProcess
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicProcess);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicProcess);
     // Get or Set the state of SmartArt Diagram
     $smart->setReversed(true);
     $flag = $smart->isReversed();
     // Saving Presentation
-    $pres->save("output.pptx", SaveFormat::Pptx);
+    $pres->save("output.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

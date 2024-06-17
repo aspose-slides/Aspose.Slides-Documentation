@@ -29,7 +29,7 @@ This PHP code shows you how to convert PowerPoint to TIFF:
   $pres = new Presentation("presentation.pptx");
   try {
     // Saves the presentation as TIFF
-    $pres->save("tiff-image.tiff", SaveFormat::Tiff);
+    $pres->save("tiff-image.tiff", SaveFormat->Tiff);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -49,7 +49,7 @@ This PHP code shows you how to convert a colored slide or image to black-and-whi
   $tiffOptions->setBwConversionMode(BlackWhiteConversionMode.Dithering);
   $presentation = new Presentation("sample.pptx");
   try {
-    $presentation->save("output.tiff", SaveFormat::Tiff, $tiffOptions);
+    $presentation->save("output.tiff", SaveFormat->Tiff, $tiffOptions);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -85,9 +85,9 @@ This PHP code shows you how to convert PowerPoint to TIFF images with custom siz
     // Sets the Image Size
     $opts->setImageSize(new Java("java.awt.Dimension", 1728, 1078));
     $options = $opts->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions::BottomFull);
+    $options->setNotesPosition(NotesPositions->BottomFull);
     // Saves the presentation to TIFF with specified size
-    $pres->save("tiff-ImageSize.tiff", SaveFormat::Tiff, $opts);
+    $pres->save("tiff-ImageSize.tiff", SaveFormat->Tiff, $opts);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -116,7 +116,7 @@ This PHP code shows you how to convert PowerPoint to TIFF image with custom pixe
     Format32bppArgb;   // 32 bits per pixel, ARGB.
      */
     // Saves the presentation to TIFF with specified image size
-    $pres->save("Tiff-PixelFormat.tiff", SaveFormat::Tiff, $options);
+    $pres->save("Tiff-PixelFormat.tiff", SaveFormat->Tiff, $options);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

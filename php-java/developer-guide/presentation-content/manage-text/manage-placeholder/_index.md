@@ -35,7 +35,7 @@ This PHP code shows how to change the text in a placeholder:
       }
     }
     // Saves the presentation to disk
-    $pres->save("output_out.pptx", SaveFormat::Pptx);
+    $pres->save("output_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -58,17 +58,17 @@ This PHP code shows you how to set the prompt text in a placeholder:
       if (java_instanceof($shape->getPlaceholder()) != null && $shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $text = "";
         // PowerPoint displays "Click to add title"
-        if ($shape->getPlaceholder()->getType() == PlaceholderType::CenteredTitle) {
+        if ($shape->getPlaceholder()->getType() == PlaceholderType->CenteredTitle) {
           $text = "Add Title";
         } else // Adds subtitle
-        if ($shape->getPlaceholder()->getType() == PlaceholderType::Subtitle) {
+        if ($shape->getPlaceholder()->getType() == PlaceholderType->Subtitle) {
           $text = "Add Subtitle";
         }
         $shape->getTextFrame()->setText($text);
         echo("Placeholder with text: " . $text);
       }
     }
-    $pres->save("Placeholders_PromptText.pptx", SaveFormat::Pptx);
+    $pres->save("Placeholders_PromptText.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -96,7 +96,7 @@ This PHP code shows you how to set the transparency for a picture background (in
       $alphaModulate->setAmount(100 - $alphaValue);
     }
   }
-  $presentation->save("example_out.pptx", SaveFormat::Pptx);
+  $presentation->save("example_out.pptx", SaveFormat->Pptx);
 
 ```
 

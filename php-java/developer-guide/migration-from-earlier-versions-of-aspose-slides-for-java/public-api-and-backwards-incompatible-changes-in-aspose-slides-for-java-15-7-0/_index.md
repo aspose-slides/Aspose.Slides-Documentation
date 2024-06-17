@@ -21,7 +21,7 @@ Methods getPixelFormat(), setPixelFormat(/ImagePixelFormat/int) have been added 
 ```php
   $pres = new Presentation("demo.pptx");
   $options = new TiffOptions();
-  $options->setPixelFormat(ImagePixelFormat::Format8bppIndexed);
-  $pres->save("demo-out.tiff", SaveFormat::Tiff, $options);
+  $options->setPixelFormat(ImagePixelFormat->Format8bppIndexed);
+  $pres->save("demo-out.tiff", SaveFormat->Tiff, $options);
 
 ```

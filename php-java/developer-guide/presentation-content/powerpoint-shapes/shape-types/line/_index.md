@@ -30,9 +30,9 @@ In the example given below, we have added a line to the first slide of the prese
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of type line
-    $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
+    $sld->getShapes()->addAutoShape(ShapeType->Line, 50, 150, 300, 0);
     // Write the PPTX to Disk
-    $pres->save("LineShape.pptx", SaveFormat::Pptx);
+    $pres->save("LineShape.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -62,19 +62,19 @@ Aspose.Slides for PHP via Java also allows developers to configure some properti
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of type line
-    $shp = $sld->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType->Line, 50, 150, 300, 0);
     // Apply some formatting on the line
-    $shp->getLineFormat()->setStyle(LineStyle::ThickBetweenThin);
+    $shp->getLineFormat()->setStyle(LineStyle->ThickBetweenThin);
     $shp->getLineFormat()->setWidth(10);
-    $shp->getLineFormat()->setDashStyle(LineDashStyle::DashDot);
-    $shp->getLineFormat()->setBeginArrowheadLength(LineArrowheadLength::Short);
-    $shp->getLineFormat()->setBeginArrowheadStyle(LineArrowheadStyle::Oval);
-    $shp->getLineFormat()->setEndArrowheadLength(LineArrowheadLength::Long);
-    $shp->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::Triangle);
-    $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor::Maroon));
+    $shp->getLineFormat()->setDashStyle(LineDashStyle->DashDot);
+    $shp->getLineFormat()->setBeginArrowheadLength(LineArrowheadLength->Short);
+    $shp->getLineFormat()->setBeginArrowheadStyle(LineArrowheadStyle->Oval);
+    $shp->getLineFormat()->setEndArrowheadLength(LineArrowheadLength->Long);
+    $shp->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
+    $shp->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->Maroon));
     // Write the PPTX to Disk
-    $pres->save("LineShape.pptx", SaveFormat::Pptx);
+    $pres->save("LineShape.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

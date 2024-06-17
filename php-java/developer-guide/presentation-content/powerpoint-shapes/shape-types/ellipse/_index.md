@@ -29,9 +29,9 @@ In the example given below, we have added an ellipse to the first slide
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add AutoShape of ellipse type
-    $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
+    $sld->getShapes()->addAutoShape(ShapeType->Ellipse, 50, 150, 150, 50);
     // Write the PPTX file to disk
-    $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
+    $pres->save("EllipseShp1.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -61,16 +61,16 @@ In the example given below, we have added a formatted ellipse to the first slide
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add AutoShape of ellipse type
-    $shp = $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType->Ellipse, 50, 150, 150, 50);
     // Apply some formatting to ellipse shape
-    $shp->getFillFormat()->setFillType(FillType::Solid);
-    $shp->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor::Chocolate));
+    $shp->getFillFormat()->setFillType(FillType->Solid);
+    $shp->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->Chocolate));
     // Apply some formatting to the line of Ellipse
-    $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shp->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shp->getLineFormat()->setWidth(5);
     // Write the PPTX file to disk
-    $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
+    $pres->save("EllipseShp1.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

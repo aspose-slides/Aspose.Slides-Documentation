@@ -56,7 +56,7 @@ This Java demonstrates an operation in which a large presentation (say 2GB in si
 
 ```php
   $loadOptions = new LoadOptions();
-  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior::KeepLocked);
+  $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
   $loadOptions->getBlobManagementOptions()->setTemporaryFilesAllowed(true);
   $loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(0);
   $pres = new Presentation("veryLargePresentation.pptx", $loadOptions);
@@ -65,7 +65,7 @@ This Java demonstrates an operation in which a large presentation (say 2GB in si
     // makes changes to the presentation.
     $pres->getSlides()->get_Item(0)->setName("Very large presentation");
     // The presentation will be saved to the other file. The memory consumption stays low during the operation
-    $pres->save("veryLargePresentation-copy.pptx", SaveFormat::Pptx);
+    $pres->save("veryLargePresentation-copy.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -110,19 +110,19 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
             if (!java_is_null($dis)) $dis->close();
         }
           $args->setData($imageBytes);
-          return ResourceLoadingAction::UserProvided;
+          return ResourceLoadingAction->UserProvided;
         } catch (JavaException $ex) {
-          return ResourceLoadingAction::Skip;
+          return ResourceLoadingAction->Skip;
         } catch (JavaException $ex) {
           $ex->printStackTrace();
         }
       } else if ($args->getOriginalUri()->endsWith(".png")) {
         // sets substitute url
         $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-        return ResourceLoadingAction::Default;
+        return ResourceLoadingAction->Default;
       }
       // skips all other images
-      return ResourceLoadingAction::Skip;
+      return ResourceLoadingAction->Skip;
     }
   }
 
@@ -141,7 +141,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
   try {
     // ...do some work here...
     // Saves your presentation to a file
-    $pres->save("demoPass.pptx", SaveFormat::Pptx);
+    $pres->save("demoPass.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

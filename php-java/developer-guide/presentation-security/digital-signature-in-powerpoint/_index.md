@@ -38,7 +38,7 @@ The code sample below demonstrates how to add digital signature from a PFX cer
     // Add digital signature to presentation
     $pres->getDigitalSignatures()->add($signature);
     // Save presentation
-    $pres->save("SomePresentationSigned.pptx", SaveFormat::Pptx);
+    $pres->save("SomePresentationSigned.pptx", SaveFormat->Pptx);
   } finally {
     $pres->dispose();
   }

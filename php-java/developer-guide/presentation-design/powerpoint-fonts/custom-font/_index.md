@@ -36,7 +36,7 @@ This PHP code demonstrates the font loading process:
   // Do Some work and perform presentation/slide rendering
   $pres = new Presentation("DefaultFonts.pptx");
   try {
-    $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
+    $pres->save("NewFonts_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -106,7 +106,7 @@ This PHP code demonstrates the byte array font loading process:
 
 ```php
 $Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))::TYPE;
+$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 try {
     $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "ARIALN.TTF"));
     $bytes = $Array->newInstance($Byte, $dis->available());

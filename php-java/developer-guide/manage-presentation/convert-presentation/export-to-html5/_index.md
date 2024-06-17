@@ -22,7 +22,7 @@ This PHP code shows how you to export a presentation to HTML5 without web extens
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    $pres->save("pres.html", SaveFormat::Html5);
+    $pres->save("pres.html", SaveFormat->Html5);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -45,7 +45,7 @@ You may want to specify settings for shape animations and slide transitions this
     $html5Options = new Html5Options();
     $html5Options->setAnimateShapes(false);
     $html5Options->setAnimateTransitions(false);
-    $pres->save("pres5.html", SaveFormat::Html5, $html5Options);
+    $pres->save("pres5.html", SaveFormat->Html5, $html5Options);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -61,7 +61,7 @@ This Java demonstrates the standard PowerPoint to HTML process:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    $pres->save("pres.html", SaveFormat::Html);
+    $pres->save("pres.html", SaveFormat->Html);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -102,7 +102,7 @@ This PHP code demonstrates the PowerPoint to HTML5 Slide View export process:
     $html5Options = new Html5Options();
     $html5Options->setAnimateShapes(true);
     $html5Options->setAnimateTransitions(true);
-    $pres->save("HTML5-slide-view.html", SaveFormat::Html5, $html5Options);
+    $pres->save("HTML5-slide-view.html", SaveFormat->Html5, $html5Options);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

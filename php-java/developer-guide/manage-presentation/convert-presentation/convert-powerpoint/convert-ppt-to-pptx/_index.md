@@ -56,7 +56,7 @@ Aspose.Slides for PHP via Java offers [Presentation](https://reference.aspose.co
   $pres = new Presentation("Aspose.ppt");
   try {
     // Saving the PPTX presentation to PPTX format
-    $pres->save("ConvertedAspose.pptx", SaveFormat::Pptx);
+    $pres->save("ConvertedAspose.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
