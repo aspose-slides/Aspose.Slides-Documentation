@@ -19,31 +19,26 @@ Aspose.Slides for PHP via Java allows you to add audio files to slides. The audi
 
 This PHP code shows you how to add an embedded audio frame to a slide:
 
-```Java
-// Instantiates a Presentation class that represents a presentation file
-Presentation pres = new Presentation();
-try {
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Loads the wav sound file to stream
-    FileInputStream fstr = new Java("java.io.FileInputStream", new Java("java.io.File", "audio.wav"));
-
-    // Adds the Audio Frame
-    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    
-    // Sets the Play Mode and Volume of the Audio
-    audioFrame.setPlayMode(AudioPlayModePreset->Auto);
-    audioFrame.setVolume(AudioVolumeMode->Loud);
-
-    // Writes the PowerPoint file to disk
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat->Pptx);
-} catch(IOException e) {
-} finally {
-    if (!java_is_null(pres)) pres.dispose();
-}
 ```php
+// Instantiates a Presentation class that represents a presentation file
+  $pres = new Presentation();
+  try {
+    // Gets the first slide
+    $sld = $pres->getSlides()->get_Item(0);
+    // Loads the wav sound file to stream
+    $fstr = new Java("java.io.FileInputStream", new Java("java.io.File", "audio.wav"));
+    // Adds the Audio Frame
+    $audioFrame = $sld->getShapes()->addAudioFrameEmbedded(50, 150, 100, 100, $fstr);
+    $fstr->close();
+    // Sets the Play Mode and Volume of the Audio
+    $audioFrame->setPlayMode(AudioPlayModePreset->Auto);
+    $audioFrame->setVolume(AudioVolumeMode->Loud);
+    // Writes the PowerPoint file to disk
+    $pres->save("AudioFrameEmbed_out.pptx", SaveFormat->Pptx);
+} catch(JavaException e) {
+} finally {
+    if (!java_is_null($pres)) $pres.dispose();
+}
 
 ```
 

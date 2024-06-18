@@ -44,36 +44,28 @@ Aspose.Slides provides these connectors:
 
 This PHP code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
 
-```Java
-// Instantiates a presentation class that represents the PPTX file
-Presentation pres = new Presentation();
-try {
-    // Accesses the shapes collection for a specific slide
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Adds an Ellipse autoshape
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
-    
-    // Adds a Rectangle autoshape
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType->Rectangle, 100, 300, 100, 100);
-    
-    // Adds a connector shape to the slide shape collection
-    IConnector connector = shapes.addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
-    
-    // Connects the shapes using the connector
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // Calls reroute that sets the automatic shortest path between shapes
-    connector.reroute();
-    
-    // Saves the presentation
-    pres.save("output.pptx", SaveFormat->Pptx);
-} finally {
-    if (!java_is_null(pres)) pres.dispose();
-}
 ```php
-
+// Instantiates a presentation class that represents the PPTX file
+  $pres = new Presentation();
+  try {
+    // Accesses the shapes collection for a specific slide
+    $shapes = $pres->getSlides()->get_Item(0)->getShapes();
+    // Adds an Ellipse autoshape
+    $ellipse = $shapes->addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
+    // Adds a Rectangle autoshape
+    $rectangle = $shapes->addAutoShape(ShapeType->Rectangle, 100, 300, 100, 100);
+    // Adds a connector shape to the slide shape collection
+    $connector = $shapes->addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
+    // Connects the shapes using the connector
+    $connector->setStartShapeConnectedTo($ellipse);
+    $connector->setEndShapeConnectedTo($rectangle);
+    // Calls reroute that sets the automatic shortest path between shapes
+    $connector->reroute();
+    // Saves the presentation
+    $pres->save("output.pptx", SaveFormat->Pptx);
+} finally {
+    if (!java_is_null($pres)) $pres.dispose();
+}
 ```
 
 {{%  alert title="NOTE"  color="warning"   %}} 
