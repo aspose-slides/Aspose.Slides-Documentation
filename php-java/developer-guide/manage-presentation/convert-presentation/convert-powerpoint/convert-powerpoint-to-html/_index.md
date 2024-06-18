@@ -199,7 +199,16 @@ This PHP code shows you how to convert a slide in a PowerPoint presentation to H
     }
   }
 ```
+
+Due to restrictions of PHPJavaBridge, the implementation of the IHtmlFormattingController interface should be added as another jar file to JavaBridge\WEB-INF\lib directory.
+
+IHtmlFormattingController interface implementation:
+
 ```java
+package com.aspose.slides;
+
+import com.aspose.slides.*;
+
 public class CustomFormattingController implements IHtmlFormattingController
 {
     @Override
@@ -251,7 +260,15 @@ The PHP code in this example shows you how to use overridable methods to create 
   }
 ```
 
+Due to restrictions of PHPJavaBridge, the extension of the EmbedAllFontsHtmlController class should be added as another jar file to JavaBridge\WEB-INF\lib directory.
+
+extension of the parent class EmbedAllFontsHtmlController:
+
 ```java
+package com.aspose.slides;
+
+import com.aspose.slides.*;
+
 public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 {
     private final int m_basePath = 0;
@@ -308,9 +325,16 @@ This PHP code shows you how to convert a PowerPoint to HTML while linking all fo
   }
 ```
 
-This PHP code shows you how `LinkAllFontsHtmlController` is implemented:
+Due to restrictions of PHPJavaBridge, the extension of the EmbedAllFontsHtmlController class should be added as another jar file to JavaBridge\WEB-INF\lib directory.
+
+This Java code shows you how `LinkAllFontsHtmlController` is implemented:
 
 ```java
+package com.aspose.slides;
+
+import java.io.*;
+import com.aspose.slides.*;
+
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
     private final String m_basePath;

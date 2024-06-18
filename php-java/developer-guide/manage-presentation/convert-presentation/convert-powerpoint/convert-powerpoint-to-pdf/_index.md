@@ -161,7 +161,7 @@ Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/sli
 
 This PHP code shows you how to detect font substitutions:
 
-```java
+```php
   $loadOptions = new LoadOptions();
   $warningCallback = new FontSubstSendsWarningCallback();
   $loadOptions->setWarningCallback($warningCallback);
@@ -172,15 +172,25 @@ This PHP code shows you how to detect font substitutions:
       $pres->dispose();
     }
   }
+```
 
-private class FontSubstSendsWarningCallback implements IWarningCallback
+Due to restrictions of PHPJavaBridge, the implementation of the IWarningCallback interface should be added as another jar file to JavaBridge\WEB-INF\lib directory.
+
+IWarningCallback interface implementation:
+
+```java
+package com.aspose.slides;
+
+import com.aspose.slides.*;
+
+public class FontSubstSendsWarningCallback implements IWarningCallback
 {
     public int warning(IWarningInfo warning)
     {
-        if (warning.getWarningType() == WarningType->CompatibilityIssue)
+        if (warning.getWarningType() == WarningType.CompatibilityIssue)
             return ReturnAction.Continue;
 
-        if (warning.getWarningType() == WarningType->DataLoss &&
+        if (warning.getWarningType() == WarningType.DataLoss &&
                 warning.getDescription().startsWith("Font will be substituted"))
         {
             System.out.println("Font substitution warning: " + warning.getDescription());
