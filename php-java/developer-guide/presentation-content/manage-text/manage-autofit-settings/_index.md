@@ -23,11 +23,11 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for PHP via Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations.
+Aspose.Slides for PHP via Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations.
 
 ## **Resize Shape to Fit Text**
 
-If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat) class) to `Shape`.
+If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) class) to `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
@@ -57,7 +57,7 @@ If the text becomes longer or bigger, the textbox will be automatically resized 
 
 ## **Do Not Autofit**
 
-If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat) class) to `None`.
+If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) class) to `None`.
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
@@ -87,7 +87,7 @@ When the text becomes too long for its box, it spills out.
 
 ## **Shrink Text on Overflow**
 
-If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat) class) to `Normal`.
+If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) class) to `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
@@ -121,7 +121,7 @@ When the **Shrink text on overflow** option is used, the setting gets applied on
 
 ## **Wrap Text**
 
-If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [WrapText](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat#getWrapText--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat) class) to `true`.
+If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [WrapText](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getWrapText--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat) class) to `true`.
 
 This PHP code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 

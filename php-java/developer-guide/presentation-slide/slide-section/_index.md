@@ -16,7 +16,7 @@ Ideally, you should create a section that houses similar slides—the slides hav
 
 ## Creating Sections in Presentations
 
-To add a section that will house slides in a presentation, Aspose.Slides for PHP via Java provides the [addSection()](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) method that allows you to specify the name of the section you intend to create and the slide from which the section starts.
+To add a section that will house slides in a presentation, Aspose.Slides for PHP via Java provides the [addSection()](https://reference.aspose.com/slides/php-java/aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) method that allows you to specify the name of the section you intend to create and the slide from which the section starts.
 
 This sample code shows you to create a section in a presentation :
 

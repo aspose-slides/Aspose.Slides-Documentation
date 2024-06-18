@@ -8,7 +8,7 @@ description: "Chart workbook in PowerPoint presentation "
 ---
 
 ## **Set Chart Data from Workbook**
-Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/php-java/aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 This PHP code demonstrates a sample operation:
 
@@ -31,7 +31,7 @@ This PHP code demonstrates a sample operation:
 
 ## **Set WorkBook Cell as Chart DataLabel**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a Bubble chart with some data.
 1. Access the chart series.
@@ -67,7 +67,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
 
 ## **Manage Worksheets**
 
-This PHP code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This PHP code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```php
   $pres = new Presentation();
@@ -200,7 +200,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 
 ### **Get Chart External Data Source Workbook Path**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Create an object for the chart shape.
 1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.

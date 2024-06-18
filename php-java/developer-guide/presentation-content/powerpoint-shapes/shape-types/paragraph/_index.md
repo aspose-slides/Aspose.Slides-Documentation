@@ -7,7 +7,7 @@ url: /php-java/paragraph/
 
 
 ## Get Paragraph and Portion Coordinates in TextFrame ##
-Using Aspose.Slides for PHP via Java, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get [the coordinates of portion](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPortion#getCoordinates--) inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with position of portion inside a paragraph.
+Using Aspose.Slides for PHP via Java, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get [the coordinates of portion](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getCoordinates--) inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with position of portion inside a paragraph.
 
 ```php
   $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
@@ -22,7 +22,7 @@ Using Aspose.Slides for PHP via Java, developers can now get the rectangular coo
 
 
 ## **Get Rectangular Coordinates of Paragraph**
-Using [**getRect()**](https://reference.aspose.com/slides/php-java/com.aspose.slides/IParagraph#getRect--) method developers can get paragraph bounds rectangle.
+Using [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) method developers can get paragraph bounds rectangle.
 
 ```php
   $pres = new Presentation("HelloWorld.pptx");
@@ -41,7 +41,7 @@ Using [**getRect()**](https://reference.aspose.com/slides/php-java/com.aspose.sl
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
 
-To get the [Portion](https://reference.aspose.com/slides/php-java/com.aspose.slides/Portion) or [Paragraph](https://reference.aspose.com/slides/php-java/com.aspose.slides/Paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.getRect](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPortion#getRect--) and [IParagraph.getRect](https://reference.aspose.com/slides/php-java/com.aspose.slides/IParagraph#getRect--) methods.
+To get the [Portion](https://reference.aspose.com/slides/php-java/aspose.slides/Portion) or [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/Paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IPortion#getRect--) and [IParagraph.getRect](https://reference.aspose.com/slides/php-java/aspose.slides/IParagraph#getRect--) methods.
 
 This sample code demonstrates the described operation:
 

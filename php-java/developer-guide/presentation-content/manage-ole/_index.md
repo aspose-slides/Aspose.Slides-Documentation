@@ -16,19 +16,19 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 - An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
 - An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app.
 
-[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for PHP via Java](https://products.aspose.com/slides/php-java/) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame)).
 
 ## **Adding OLE Object Frames to Slides**
 Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for PHP via Java, you can do it this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Obtain the reference of the slide by using its index.
 1. Open the Excel file containing the Excel chart object and save it to `MemoryStream`.
-1. Add the [OleObjectFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/OleObjectFrame) to the slide containing the array of bytes and other information about the OLE object.
+1. Add the [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) to the slide containing the array of bytes and other information about the OLE object.
 1. Write the modified presentation as a PPTX file.
 
 In the example below, we added a chart from an Excel file to a slide as an OLE Object Frame using Aspose.Slides for PHP via Java.
-**Note** that the [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/com.aspose.slides/IOleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+**Note** that the [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/IOleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```php
   // Instantiates Prseetation class that represents the PPTX file
@@ -69,11 +69,11 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
 ## **Accessing OLE Object Frames**
 If an OLE object is already embedded in a slide, you can find or access that object easily using this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Obtain the reference of the slide by using its index.
 1. Access the OLE Object Frame shape.
 
-   In our example, we used the previously created PPTX, which has only one shape on the first slide.  We then *cast* that object as an [OleObjectFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/OleObjectFrame). This was the desired OLE Object Frame to be accessed.
+   In our example, we used the previously created PPTX, which has only one shape on the first slide.  We then *cast* that object as an [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame). This was the desired OLE Object Frame to be accessed.
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file.
@@ -116,11 +116,11 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
 
 If an OLE object is already embedded in a slide, you can easily access that object and modify its data this way:
 
-1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Open the desired presentation with the embedded OLE Object by creating an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Get the slide's reference through its index. 
 1. Access the OLE Object Frame shape.
 
-   In our example, we used the previously created PPTX that has only one shape on the first slide. We then *cast* that object as an [OleObjectFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/OleObjectFrame). This was the desired OLE Object Frame to be accessed.
+   In our example, we used the previously created PPTX that has only one shape on the first slide. We then *cast* that object as an [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame). This was the desired OLE Object Frame to be accessed.
 1. Once the OLE Object Frame is accessed, you can perform any operation on it.
 1. Create the Workbook object and access the OLE Data.
 1. Access the desired Worksheet and amend the data.
@@ -298,8 +298,8 @@ This PHP code shows you how to set the icon image and title for an embedded obje
 
 Aspose.Slides for PHP via Java allows you to extract the files embedded in slides as OLE objects this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class containing the OLE object you intend to extract.
-2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/oleobjectframe) shape.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class containing the OLE object you intend to extract.
+2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe) shape.
 3. Access the embedded file's data from the OLE Object Frame and write it to disk. 
 
 This PHP code shows you how to extract a file embedded in a slide as an OLE object:

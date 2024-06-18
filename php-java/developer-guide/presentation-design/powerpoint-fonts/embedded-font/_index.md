@@ -11,11 +11,11 @@ description: "Use embedded fonts in PowerPoint presentation "
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
 
-The [FontsManager](https://reference.aspose.com/slides/php-java/com.aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/php-java/com.aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/) class, and their interfaces contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
+The [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/php-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) class, and their interfaces contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
 
 ## **Get or Remove Embedded Fonts from Presentation**
 
-Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) method (exposed by the [FontsManager](https://reference.aspose.com/slides/php-java/com.aspose.slides/FontsManager) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/com.aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) method (exposed by the same class) is used.
+Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) method (exposed by the [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [removeEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#removeEmbeddedFont-com.aspose.slides.IFontData-) method (exposed by the same class) is used.
 
 This PHP code shows you how to get and remove embedded fonts from a presentation:
 
@@ -70,7 +70,7 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
 
 ## **Add Embedded Fonts to Presentation**
 
-Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/com.aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/php-java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This PHP code shows you how to embed and add fonts to a presentation:
+Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This PHP code shows you how to embed and add fonts to a presentation:
 
 ```php
   // Loads the presentation
@@ -104,7 +104,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/com
 
 ## **Compress Embedded Fonts**
 
-To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) method (exposed by the [Compress](https://reference.aspose.com/slides/php-java/com.aspose.slides/compress/) class).
+To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the [compressEmbeddedFonts](https://reference.aspose.com/slides/php-java/aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) method (exposed by the [Compress](https://reference.aspose.com/slides/php-java/aspose.slides/compress/) class).
 
 This PHP code shows you how to compress embedded PowerPoint fonts:
 

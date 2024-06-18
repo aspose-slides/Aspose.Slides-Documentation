@@ -10,7 +10,7 @@ Aspose.Slides for PHP via Java allows you to examine a presentation to find out 
 
 {{% alert title="Info" color="info" %}} 
 
-The [PresentationInfo](https://reference.aspose.com/slides/php-java/com.aspose.slides/PresentationInfo) and [DocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/documentproperties/) classes contain the properties and methods used in operations here.
+The [PresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo) and [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) classes contain the properties and methods used in operations here.
 
 {{% /alert %}} 
 
@@ -47,11 +47,11 @@ This PHP code shows you how to get a presentation’s properties (information ab
 
 ```
 
-You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/documentproperties/#DocumentProperties--) class.
+You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#DocumentProperties--) class.
 
 ## **Update a Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
 
 This PHP code shows you how to edit a presentation's properties:
 

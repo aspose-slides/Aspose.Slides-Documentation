@@ -15,11 +15,11 @@ While effects in PowerPoint can be used to make a shape stand out, they differ f
 
 * Some combinations of effects look better than others. For this reason, PowerPoint options under **Preset**. The Preset options are essentially a known good-looking combination of two or more effects. This way, by selecting a preset, you won't have to waste time testing or combining different effects to find a nice combination.
 
-Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/EffectFormat) class that allow you to apply the same effects to shapes in PowerPoint presentations.
+Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat) class that allow you to apply the same effects to shapes in PowerPoint presentations.
 
 ## **Apply Shadow Effect**
 
-This PHP code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/com.aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
+This PHP code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
 
 ```php
   $pres = new Presentation();

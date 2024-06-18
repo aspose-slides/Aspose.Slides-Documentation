@@ -34,9 +34,9 @@ Aspose.Slides provides these connectors:
 
 ## **Connect Shapes Using Connectors**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
+1. Add two [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
 1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
 1. Call the `reroute` method to apply the shortest connection path.
@@ -78,9 +78,9 @@ The `Connector.reroute` method reroutes a connector and forces it to take the sh
 
 If you want a connector to link two shapes using specific dots on the shapes, you have to specify your preferred connection dots this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
+1. Add two [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
 1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
 1. Connect the shapes using the connector. 
 1. Set your preferred connection dots on the shapes. 

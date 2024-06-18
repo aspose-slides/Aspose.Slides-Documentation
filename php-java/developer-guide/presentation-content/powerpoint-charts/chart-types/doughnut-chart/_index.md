@@ -14,7 +14,7 @@ Aspose.Slides for PHP via Java now supports specifying the size of the hole in a
 
 In order to specify the size of the hole in a doughnut chart, please follow the steps below:
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) object.
 1. Add doughnut chart on the slide.
 1. Specify the size of the hole in a doughnut chart.
 1. Write presentation to disk.

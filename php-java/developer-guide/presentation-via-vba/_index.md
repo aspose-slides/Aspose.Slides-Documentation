@@ -19,10 +19,10 @@ Aspose.Slides **never** runs the macros in a presentation.
 
 ## **Add VBA Macros**
 
-Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/php-java/com.aspose.slides/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/php-java/com.aspose.slides/ivbaproject/) interface to manage VBA embedded in a presentation.
+Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/ivbaproject/) interface to manage VBA embedded in a presentation.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
-1. Use the [VbaProject](https://reference.aspose.com/slides/php-java/com.aspose.slides/vbaproject/#VbaProject--) constructor to add a new VBA project.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
+1. Use the [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/vbaproject/#VbaProject--) constructor to add a new VBA project.
 1. Add a module to the VbaProject.
 1. Set the module source code.
 1. Add references to <stdole>.
@@ -67,9 +67,9 @@ You may want to check out **Aspose** [Macro Remover](https://products.aspose.app
 
 ## **Remove VBA Macros**
 
-Using the [VbaProject](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#getVbaProject--) property under the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class, you can remove a VBA macro.
+Using the [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getVbaProject--) property under the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class, you can remove a VBA macro.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation containing the macro.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and load the presentation containing the macro.
 1. Access the Macro module and remove it.
 1. Save the modified presentation.
 
@@ -93,7 +93,7 @@ This PHP code shows you how to remove a VBA macro:
 
 ## **Extract VBA Macros**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation containing the macro.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and load the presentation containing the macro.
 2. Check if the presentation contains a VBA Project.
 3. Loop through all the modules contained in the VBA Project to view the macros.
 

@@ -96,7 +96,7 @@ In PowerPoint, you can create charts through the insert function, which provides
 
 {{% alert color="primary" %}} 
 
-To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType) class. The fields under this class correspond to different chart types.
+To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType) class. The fields under this class correspond to different chart types.
 
 {{% /alert %}} 
 
@@ -109,7 +109,7 @@ _Steps: Create Chart_
 
 _Code Steps:_
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a chart with some data and specify your preferred chart type. 
 4. Add a title for the chart. 
@@ -209,11 +209,11 @@ You may want to use a scattered chart when
 
 1. Please follow the steps mentioned above in [Creating Normal Charts](#creating-normal-charts)
 2. For third step, Add a chart with some data and specify your chart type as one of the following
-   1. [ChartType->ScatterWithMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
-   2. [ChartType->ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
-   3. [ChartType->ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
-   4. [ChartType->ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
-   5. [ChartType->ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
+   1. [ChartType->ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
+   2. [ChartType->ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
+   3. [ChartType->ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
+   4. [ChartType->ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
+   5. [ChartType->ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
 
 This PHP code shows you how to create a scattered charts with a different series of markers:
 
@@ -275,10 +275,10 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 <a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
-3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).Pie).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Pie).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -382,7 +382,7 @@ This PHP code shows you how to create a pie chart:
 
 Line charts (also known as a line graphs) are best used in situations where you want demonstrate changes in value over time. Using a line chart, you can compare lots of data at once, track changes and trends over time, highlight anomalies in data series, etc.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType->Line`).
 1. Access the chart data IChartDataWorkbook.
@@ -424,10 +424,10 @@ Tree map charts are best used for sales data when you want to show the relative 
 <a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).TreeMap).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).TreeMap).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -485,10 +485,10 @@ This PHP code shows you how to create a tree map chart:
 <a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).OpenHighLowClose).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -547,10 +547,10 @@ Sample PHP code used to create a stock chart:
 <a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).BoxAndWhisker).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -600,9 +600,9 @@ This PHP code shows you how to create a box and whisker chart:
 <a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart </strong></a>
 
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).Funnel).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Funnel).
 4. Write the modified presentation to a PPTX file
 
 The PHP code shows you how to create a funnel chart:
@@ -643,9 +643,9 @@ The PHP code shows you how to create a funnel chart:
 <a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).sunburst).
+3. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).sunburst).
 4. Write the modified presentation to a PPTX file
 
 This PHP code shows you how to create a sunburst chart:
@@ -699,10 +699,10 @@ This PHP code shows you how to create a sunburst chart:
 <a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).Histogram).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).Histogram).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Write the modified presentation to a PPTX file
@@ -733,7 +733,7 @@ This PHP code shows you how to create an histogram chart:
 <a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Add a chart with some data and specify your preferred chart type (`ChartType->Radar` in this case).
 4. Write the modified presentation to a PPTX file
@@ -759,10 +759,10 @@ This PHP code shows you how to create an radar chart:
 <a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart </strong></a> |
 <a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart </strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ChartType).ClusteredColumn).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/php-java/aspose.slides/ChartType).ClusteredColumn).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/php-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -852,7 +852,7 @@ This PHP code shows you how to create a combination chart in PowerPoint:
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart </strong></a> |
 <a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart </strong></a>
 
-1. Instantiate a [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class that represents the presentation containing the chart you want to update.
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class that represents the presentation containing the chart you want to update.
 2. Obtain the reference of a slide by using its Index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data worksheet.
@@ -915,7 +915,7 @@ This PHP code shows you how to update a chart:
 
 To set the data range for a chart, do this:
 
-1. Instantiate a [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class that represents the presentation containing the chart.
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class that represents the presentation containing the chart.
 2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data and set the range.

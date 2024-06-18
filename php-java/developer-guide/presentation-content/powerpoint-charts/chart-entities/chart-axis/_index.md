@@ -10,7 +10,7 @@ description: "How to edit PowerPoint chart axis "
 ## **Getting the Max Values on the Vertical Axis on Charts**
 Aspose.Slides for PHP via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Access the first slide.
 1. Add a chart with default data.
 1. Get the actual maximum value on the axis.

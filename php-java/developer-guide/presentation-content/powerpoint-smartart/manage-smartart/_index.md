@@ -6,7 +6,7 @@ url: /php-java/manage-smartart/
 ---
 
 ## **Get Text from SmartArt**
-Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtShape) interface and [SmartArtShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
+Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtShape) interface and [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
 ```php
   $pres = new Presentation("Presentation.pptx");
@@ -30,12 +30,12 @@ Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose
 ```
 
 ## **Change Layout Type of SmartArt**
-In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt). Please follow the steps below:
+In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
-- Change [LayoutType](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt#setLayout-int-) to BasicProcess.
+- Add [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) BasicBlockList.
+- Change [LayoutType](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#setLayout-int-) to BasicProcess.
 - Write the presentation as a PPTX file.
   In the example given below, we have added a connector between two shapes.
 
@@ -57,12 +57,12 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
 ```
 
 ## **Check Hidden Property of SmartArt**
-Please note: method [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#isHidden--)) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt). Please follow the steps below:
+Please note: method [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#isHidden--)) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
-- Add [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+- Add [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
 - Add node on SmartArt.
-- Check [isHidden](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#isHidden--) property.
+- Check [isHidden](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#isHidden--) property.
 - Write the presentation as a PPTX file.
 
 In the example given below, we have added a connector between two shapes.
@@ -91,11 +91,11 @@ In the example given below, we have added a connector between two shapes.
 ```
 
 ## **Get or Set Organization Chart Type**
-Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#getOrganizationChartLayout--), [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
+Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getOrganizationChartLayout--), [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
-- Add [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
-- Get or [set the organization chart type](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-).
+- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+- Add [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
+- Get or [set the organization chart type](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-).
 - Write the presentation as a PPTX file.
   In the example given below, we have added a connector between two shapes.
 
@@ -119,7 +119,7 @@ Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.co
 ## **Create Picture Organization Chart**
 Aspose.Slides for PHP via Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the desired type (ChartType->PictureOrganizationChart).
 1. Write the modified presentation to a PPTX file
@@ -140,11 +140,11 @@ The following code is used to create a chart.
 ```
 
 ## **Get or Set SmartArt State**
-In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt). Please follow the steps below:
+In order to change the layout type of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt). Please follow the steps below:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
-1. Add [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
-1. [Get](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt#isReversed--) or [Set](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt#setReversed-boolean-) the state of SmartArt Diagram.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
+1. Add [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) on slide.
+1. [Get](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#isReversed--) or [Set](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#setReversed-boolean-) the state of SmartArt Diagram.
 1. Write the presentation as a PPTX file.
 
 The following code is used to create a chart.

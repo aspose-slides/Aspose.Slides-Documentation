@@ -76,7 +76,7 @@ Aspose.Slides allows you to perform other tasks involving password protection an
 
 You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
 
-To encrypt or password protect a presentation, you have to use the encrypt method (from [IProtectionManager](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation.
+To encrypt or password protect a presentation, you have to use the encrypt method (from [IProtectionManager](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation.
 
 This sample code shows you how to encrypt a presentation:
 
@@ -99,7 +99,7 @@ You can add a mark stating “Do not modify” to a presentation. This way, you 
 
 **Note** that the write protection process does not encrypt the presentation. Therefore, users—if they actually want to—can modify the presentation, but to save the changes, they will have to create a presentation with a different name. 
 
-To set a write protection, you have to use the [setWriteProtection](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) method. This sample code shows you how to set a write protection to a presentation:
+To set a write protection, you have to use the [setWriteProtection](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) method. This sample code shows you how to set a write protection to a presentation:
 
 ```php
   $presentation = new Presentation("pres.pptx");
@@ -116,7 +116,7 @@ To set a write protection, you have to use the [setWriteProtection](https://refe
 
 ## **Decrypting a Presentation; Opening an Encrypted Presentation**
 
-Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [removeEncryption](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager#removeEncryption--) method with no parameters. You will then have to enter the correct password to load the presentation.
+Aspose.Slides allow you to load an encrypted file by passing its password. To decrypt a presentation, you have to call the [removeEncryption](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager#removeEncryption--) method with no parameters. You will then have to enter the correct password to load the presentation.
 
 This sample code shows you how to decrypt a presentation: 
 
@@ -138,7 +138,7 @@ This sample code shows you how to decrypt a presentation:
 
 You can remove the encryption or password protection on a presentation. This way, users become able to access or modify the presentation without restrictions. 
 
-To remove encryption or password protection, you have to call the [removeEncryption](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager#removeEncryption--) method. This sample code shows you to remove encryption from a presentation:
+To remove encryption or password protection, you have to call the [removeEncryption](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager#removeEncryption--) method. This sample code shows you to remove encryption from a presentation:
 
 ```php
   $loadOptions = new LoadOptions();
@@ -159,7 +159,7 @@ To remove encryption or password protection, you have to call the [removeEncrypt
 
 You can use Aspose.Slides to remove the write protection used on a presentation file. This way, users get to modify as they like—and they get no warnings when they perform such tasks.
 
-You can remove the write protection from a presentation by using the [removeWriteProtection](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager#removeWriteProtection--) method. This sample code shows you to remove the write protection from a presentation:
+You can remove the write protection from a presentation by using the [removeWriteProtection](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager#removeWriteProtection--) method. This sample code shows you to remove the write protection from a presentation:
 
 ```php
   $presentation = new Presentation("pres.pptx");
@@ -180,7 +180,7 @@ Typically, users struggle to get the document properties of an encrypted or pass
 
 **Note** that when Aspose.Slides encrypts a presentation, the presentation’s document properties get password protected too by default. But if you need to make the presentation’s properties accessible (even after the presentation gets encrypted), Aspose.Slides allows you to do precisely that. 
 
-If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [encryptDocumentProperties](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) property to `true`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
+If you want users to retain the ability to access the properties of a presentation you encrypted, you can set the [encryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager#getEncryptDocumentProperties--) property to `true`. This sample code shows you how to encrypt a presentation while providing the means for users to access its document properties:
 
 ```php
   $presentation = new Presentation("pres.pptx");
@@ -209,7 +209,7 @@ This PHP code shows you how to examine a presentation to see if it is password p
 
 ## **Checking whether a Presentation is Encrypted**
 
-Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [isEncrypted](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager#isEncrypted--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted.
+Aspose.Slides allows you to check whether a presentation is encrypted. To perform this task, you can use the [isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager#isEncrypted--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted.
 
 This sample code shows you how to check whether a presentation is encrypted:
 
@@ -227,7 +227,7 @@ This sample code shows you how to check whether a presentation is encrypted:
 
 ## **Checking whether a Presentation is Write Protected**
 
-Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [isWriteProtected](https://reference.aspose.com/slides/php-java/com.aspose.slides/IProtectionManager#isWriteProtected--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted.
+Aspose.Slides allows you to check whether a presentation is write-protected. To perform this task, you can use the [isWriteProtected](https://reference.aspose.com/slides/php-java/aspose.slides/IProtectionManager#isWriteProtected--) property, which returns `true` if the presentation is encrypted or `false` if the presentation isn't encrypted.
 
 This sample code shows you how to check whether a presentation is write-protected:
 

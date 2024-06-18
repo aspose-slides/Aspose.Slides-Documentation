@@ -21,8 +21,8 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 
 ## **Convert PowerPoint to Markdown**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class to represent a presentation object.
-2. Use the [Save ](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)method to save the object as a markdown file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class to represent a presentation object.
+2. Use the [Save ](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)method to save the object as a markdown file.
 
 This PHP code shows you how to convert PowerPoint to markdown:
 
@@ -56,11 +56,11 @@ This PHP code shows you how to convert PowerPoint to CommonMark:
   }
 ```
 
-The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/php-java/com.aspose.slides/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/markdownsaveoptions/) class.
+The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/php-java/aspose.slides/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) class.
 
 ## **Convert Presentation Containing Images to Markdown**
 
-The [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/markdownsaveoptions/) class provides properties and enumerations that allow you to use certain options or settings for the resulting markdown file. The [MarkdownExportType](https://reference.aspose.com/slides/php-java/com.aspose.slides/markdownexporttype/) enum, for example, can be set to values that determine how images are rendered or handled: `Sequential`, `TextOnly`, `Visual`.
+The [MarkdownSaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/markdownsaveoptions/) class provides properties and enumerations that allow you to use certain options or settings for the resulting markdown file. The [MarkdownExportType](https://reference.aspose.com/slides/php-java/aspose.slides/markdownexporttype/) enum, for example, can be set to values that determine how images are rendered or handled: `Sequential`, `TextOnly`, `Visual`.
 
 ### **Convert Images Sequentially**
 

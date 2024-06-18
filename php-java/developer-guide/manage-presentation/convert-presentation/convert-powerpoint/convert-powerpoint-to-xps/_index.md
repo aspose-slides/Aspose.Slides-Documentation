@@ -39,12 +39,12 @@ Microsoft eventually implemented support for printing operations in PDF through 
 
 ## XPS Conversion with Aspose.Slides
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) for Java, you can use the [**Save**](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class to convert the entire presentation into an XPS document.
+In [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) for Java, you can use the [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class to convert the entire presentation into an XPS document.
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 
-- Default settings (without [**XPSOptions**](https://reference.aspose.com/slides/php-java/com.aspose.slides/xpsoptions))
-- Custom settings (with [**XPSOptions**](https://reference.aspose.com/slides/php-java/com.aspose.slides/xpsoptions))
+- Default settings (without [**XPSOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions))
+- Custom settings (with [**XPSOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/xpsoptions))
 
 ### **Converting Presentations to XPS Using Default Settings**
 

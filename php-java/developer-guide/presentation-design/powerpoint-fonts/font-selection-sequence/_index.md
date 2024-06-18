@@ -16,7 +16,7 @@ This is the process Aspose.Slides follows when dealing with fonts:
 
 1. Aspose.Slides searches for fonts in the operating system to find the font that matches the presentation's chosen font. 
 2. If the chosen font is found, Aspose.Slides uses it. Otherwise, Aspose.Slides uses a replacement font that is as close as possible to what PowerPoint would use. 
-3. If font replacement rules have been set through [FontSubstRule](https://reference.aspose.com/slides/php-java/com.aspose.slides/fontsubstrule/), they are applied.
+3. If font replacement rules have been set through [FontSubstRule](https://reference.aspose.com/slides/php-java/aspose.slides/fontsubstrule/), they are applied.
 
 Aspose.Slides allows you to add fonts to Aspose runtime and then use those fonts. See [**Custom fonts**](https://docs.aspose.com/slides/php-java/custom-font/).
 

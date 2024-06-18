@@ -11,15 +11,15 @@ with 3D presentation, demonstrate 3D model of your future business project, 3D m
 or just a 3D representation of your data. 
 
 PowerPoint 3D models can be created from 2D shapes, by applying such effects on them: 3D rotation, 3D depth and extrusion, 3D gradient, 3D text, etc. 
-The list of 3D features applied to the shapes can be found in **[ThreeDFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat)** class.
+The list of 3D features applied to the shapes can be found in **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** class.
 The instance of the class can be get by:
  
-- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/com.aspose.slides/Shape#getThreeDFormat--)** method for creating a PowerPoint 3D Model.
-- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/com.aspose.slides/TextFrameFormat#getThreeDFormat--)** method for creating a 3D Text
+- **[Shape.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/Shape#getThreeDFormat--)** method for creating a PowerPoint 3D Model.
+- **[TextFrameFormat.getThreeDFormat()](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrameFormat#getThreeDFormat--)** method for creating a 3D Text
 (WordArt).
 
-All effects implemented in **[ThreeDFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat)** can be used for both shapes and text.
-Let us have a quick look on the main methods of **[ThreeDFormat](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat)** class. In the next example
+All effects implemented in **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** can be used for both shapes and text.
+Let us have a quick look on the main methods of **[ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat)** class. In the next example
 we create a rectangle 2D shape with a text on it. By getting camera view on the shape, we change its rotation and make looking as a 3D model. Setting a flat light 
 and its direction to the top of the 3D model, bring more volume to the model. Changed materials, extrusion height and color make the 3D model look more alive.  
 ``` php 
@@ -60,7 +60,7 @@ The rotation of 3D model in PowerPoint can be done via menu:
 
 ![todo:image_alt_text](img_02_01.png)
 
-To rotate 3D model with Aspose.Slides API, use **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat#getCamera--)**
+To rotate 3D model with Aspose.Slides API, use **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getCamera--)**
 method, set the rotation of the camera relatively to 3D shape:
 
 ``` php
@@ -76,8 +76,8 @@ try {
 ```
 
 ## 3D Depth and Extrusion
-**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat#getExtrusionHeight--)**
-and **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/com.aspose.slides/ThreeDFormat#getExtrusionColor--)** methods
+**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)**
+and **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/php-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** methods
 are used to create extrusion on shape:
 
 ``` php

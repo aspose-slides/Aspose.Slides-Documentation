@@ -25,7 +25,7 @@ Using Aspose.Slides, you can convert presentations in these formats to PDF:
 * PPTX
 * ODP
 
-To convert a presentation to PDF, you simply have to pass the file name as an argument in the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and then save the presentation as a PDF using a [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation#save-java.lang.String-int-) method. The [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class exposes the [Save](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation#save-java.lang.String-int-) method that is typically used to convert a presentation to PDF.
+To convert a presentation to PDF, you simply have to pass the file name as an argument in the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class and then save the presentation as a PDF using a [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) method. The [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class exposes the [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) method that is typically used to convert a presentation to PDF.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
@@ -79,7 +79,7 @@ Aspose provides a free online [**PowerPoint to PDF converter**](https://products
 
 ## **Convert PowerPoint to PDF with Options**
 
-Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/PdfOptions) class—that allow you to customize the PDF (resulting from the conversion process), lock the PDF with a password, or even specify how the conversion process should go.
+Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/PdfOptions) class—that allow you to customize the PDF (resulting from the conversion process), lock the PDF with a password, or even specify how the conversion process should go.
 
 ### **Convert PowerPoint to PDF with Custom Options**
 
@@ -112,7 +112,7 @@ This PHP code demonstrates an operation in which a PowerPoint is converted to PD
 
 ### **Convert PowerPoint to PDF with Hidden Slides**
 
-If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/php-java/com.aspose.slides/IPdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
+If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/php-java/aspose.slides/IPdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
 
 This PHP code shows you how to convert a PowerPoint presentation to PDF with hidden slides included:
 
@@ -135,7 +135,7 @@ This PHP code shows you how to convert a PowerPoint presentation to PDF with hid
 
 ### **Convert PowerPoint to Password Protected PDF**
 
-This PHP code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/PdfOptions) class):
+This PHP code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/php-java/aspose.slides/PdfOptions) class):
 
 ```php
 // Instantiates a Presentation object that represents a PowerPoint file
@@ -157,7 +157,7 @@ This PHP code shows you how to convert a PowerPoint to a password-protected PDF 
 
 ### Detect Font Substitutions**
 
-Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/php-java/com.aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/php-java/com.aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process.
+Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process.
 
 This PHP code shows you how to detect font substitutions:
 

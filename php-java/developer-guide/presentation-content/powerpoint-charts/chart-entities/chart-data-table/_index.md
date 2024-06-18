@@ -7,7 +7,7 @@ url: /php-java/chart-data-table/
 ## **Set Font Properties for Chart Data Table**
 Aspose.Slides for PHP via Java provides support for changing color of categories in a series color. 
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. set chart table.
 1. Set font height.

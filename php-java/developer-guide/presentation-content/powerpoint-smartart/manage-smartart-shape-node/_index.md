@@ -11,12 +11,12 @@ description: Manage smart art node and child node in PowerPoint Presentations
 ## **Add SmartArt Node in PowerPoint Presentation using PHP**
 Aspose.Slides for PHP via Java has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) if it is SmartArt.
-1. [Add a new Node](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNodeCollection#addNode--) in SmartArt shape [**NodeCollection**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt#getAllNodes--) and set the text in TextFrame.
-1. Now, [Add](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNodeCollection#addNode--) a [**Child Node**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#getChildNodes--) in newly added [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) Node and set the text in TextFrame
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) if it is SmartArt.
+1. [Add a new Node](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) in SmartArt shape [**NodeCollection**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt#getAllNodes--) and set the text in TextFrame.
+1. Now, [Add](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--) a [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) in newly added [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) Node and set the text in TextFrame
 1. Save the Presentation.
 
 ```php
@@ -54,9 +54,9 @@ In the following sample code we have explained how to add the child nodes belong
 
 1. Create an instance of Presentation class.
 1. Obtain the reference of first slide by using its Index.
-1. Add a [**StackedList**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtLayoutType#StackedList) type [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt) shape in accessed slide.
+1. Add a [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) type [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) shape in accessed slide.
 1. Access the first node in added SmartArt shape
-1. Now, add the [**Child Node**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#getChildNodes--) for selected [**Node**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtNode) at position 2 and set its text.
+1. Now, add the [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) for selected [**Node**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode) at position 2 and set its text.
 1. Save the Presentation
 
 ```php
@@ -86,11 +86,11 @@ In the following sample code we have explained how to add the child nodes belong
 ## **Access SmartArt Node in PowerPoint Presentation using PHP**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) if it is SmartArt.
-1. Traverse through all [**Nodes**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt#getAllNodes--) inside SmartArt Shape.
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) if it is SmartArt.
+1. Traverse through all [**Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) inside SmartArt Shape.
 1. Access and display information like SmartArt Node position, level and Text.
 
 ```php
@@ -126,13 +126,13 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
 ## **Access SmartArt Child Node**
 The following sample code will help to access the child nodes belonging to respective nodes of SmartArt shape.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) if it is SmartArt.
-1. Traverse through all [**Nodes**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArt#getAllNodes--) inside SmartArt Shape.
-1. For every selected SmartArt shape [**Node**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtNode), traverse through all [**Child Nodes**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtNode#getChildNodes--) inside particular node.
-1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#getChildNodes--) position, level and Text.
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) if it is SmartArt.
+1. Traverse through all [**Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt#getAllNodes--) inside SmartArt Shape.
+1. For every selected SmartArt shape [**Node**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode), traverse through all [**Child Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#getChildNodes--) inside particular node.
+1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) position, level and Text.
 
 ```php
   // Instantiate Presentation Class
@@ -171,13 +171,13 @@ The following sample code will help to access the child nodes belonging to respe
 ## **Access SmartArt Child Node at Specific Position**
 In this example, we will learn to access the child nodes at some particular position belonging to respective nodes of SmartArt shape.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 1. Obtain the reference of first slide by using its Index.
-1. Add a [**StackedList**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtLayoutType#StackedList) type SmartArt shape.
+1. Add a [**StackedList**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#StackedList) type SmartArt shape.
 1. Access the added SmartArt shape.
 1. Access the node at index 0 for accessed SmartArt shape.
-1. Now, access the [**Child Node**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#getChildNodes--) at position 1 for accessed SmartArt node using **get_Item()** method.
-1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNode#getChildNodes--) position, level and Text.
+1. Now, access the [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) at position 1 for accessed SmartArt node using **get_Item()** method.
+1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNode#getChildNodes--) position, level and Text.
 
 ```php
   // Instantiate the presentation
@@ -205,13 +205,13 @@ In this example, we will learn to access the child nodes at some particular posi
 ## **Remove SmartArt Node in PowerPoint Presentation using PHP**
 In this example, we will learn to remove the nodes inside SmartArt shape.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) if it is SmartArt.
-1. Check if the [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) has more than 0 nodes.
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) if it is SmartArt.
+1. Check if the [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) has more than 0 nodes.
 1. Select the SmartArt node to be deleted.
-1. Now, remove the selected node using [**RemoveNode**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) method.
+1. Now, remove the selected node using [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-com.aspose.slides.ISmartArtNode-) method.
 1. Save the Presentation.
 
 ```php
@@ -245,13 +245,13 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 ## **Remove SmartArt Node at Specific Position**
 In this example, we will learn to remove the nodes inside SmartArt shape at particular position.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) if it is SmartArt.
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) if it is SmartArt.
 1. Select the SmartArt shape node at index 0.
 1. Now, check if the selected SmartArt node has more than 2 child nodes.
-1. Now, remove the node at **Position 1** using [**RemoveNode**](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNodeCollection#removeNode-int-) method.
+1. Now, remove the node at **Position 1** using [**RemoveNode**](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#removeNode-int-) method.
 1. Save the Presentation.
 
 ```php
@@ -285,7 +285,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 ```
 
 ## **Set Custom Position for Child Node in SmartArt**
-Now Aspose.Slides for PHP via Java support for setting [SmartArtShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShape#setX-float-) and [Y](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShape#setY-float-) properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes. Also with custom position settings, user may set the nodes as per requirements.
+Now Aspose.Slides for PHP via Java support for setting [SmartArtShape](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setX-float-) and [Y](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#setY-float-) properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes. Also with custom position settings, user may set the nodes as per requirements.
 
 ```php
   // Instantiate Presentation Class
@@ -331,11 +331,11 @@ We will use the following source SmartArt shape for our investigation in differe
 
 In the following sample code we will investigate how to identify **Assistant Nodes** in the SmartArt nodes collection and changing them.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of second slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) if it is SmartArt.
-1. Traverse through all nodes inside SmartArt shape and check if they are [**Assistant Nodes**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtNode#isAssistant--).
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) type and Typecast selected shape to [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) if it is SmartArt.
+1. Traverse through all nodes inside SmartArt shape and check if they are [**Assistant Nodes**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtNode#isAssistant--).
 1. Change the status of Assistant Node to normal node.
 1. Save the Presentation.
 
@@ -379,10 +379,10 @@ Aspose.Slides for PHP via Java makes it possible to add custom SmartArt shapes a
 
 Please follow the steps below:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 1. Obtain the reference of a slide using its index.
-1. Add a [SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArt) shape by setting its [**LayoutType**](https://reference.aspose.com/slides/php-java/com.aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
-1. Set the [**FillFormat**](https://reference.aspose.com/slides/php-java/com.aspose.slides/IShape#getFillFormat--) for the SmartArt shape nodes.
+1. Add a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArt) shape by setting its [**LayoutType**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArtLayoutType#ClosedChevronProcess).
+1. Set the [**FillFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getFillFormat--) for the SmartArt shape nodes.
 1. Write the modified presentation as a PPTX file.
 
 ```php
@@ -413,8 +413,8 @@ Please follow the steps below:
 ## **Generate Thumbnail of SmartArt Child Node**
 Developers can generate a thumbnail of Child node of a SmartArt by following the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
-1. [Add SmartArt](https://reference.aspose.com/slides/php-java/com.aspose.slides/ISmartArtNodeCollection#addNode--).
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
+1. [Add SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/ISmartArtNodeCollection#addNode--).
 1. Obtain the reference of a node by using its Index
 1. Get the thumbnail image.
 1. Save the thumbnail image in any desired image format.

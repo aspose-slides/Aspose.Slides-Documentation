@@ -7,14 +7,14 @@ keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.
 description: "Manage table rows and columns in PowerPoint presentations "
 ---
 
-To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/com.aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITable) interface, and many other types.
+To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) interface, and many other types.
 
 ## **Set First Row as Header**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class and load the presentation.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation.
 2. Get a slide's reference through its index. 
-3. Create an [ITable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITable) object and set it to null.
-4. Iterate through all [IShape](https://reference.aspose.com/slides/php-java/com.aspose.slides/ishape/) objects to find the relevant table.
+3. Create an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object and set it to null.
+4. Iterate through all [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/ishape/) objects to find the relevant table.
 5. Set the table's first row as its header. 
 
 This PHP code shows you how to set a table's first row as its header:
@@ -48,11 +48,11 @@ This PHP code shows you how to set a table's first row as its header:
 
 ## **Clone Table's Row or Column**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class and load the presentation,
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
+5. Add an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
 6. Clone the table row.
 7. Clone the table column.
 8. Save the modified presentation.
@@ -98,11 +98,11 @@ This PHP code shows you how to clone a PowerPoint table's row or column:
 
 ## **Remove Row or Column from Table**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class and load the presentation,
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
+5. Add an [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
 6. Remove the table row.
 7. Remove the table column.
 8. Save the modified presentation. 
@@ -129,12 +129,12 @@ This PHP code shows you how to remove a row or column from a table:
 
 ## **Set Text Formatting on Table Row Level**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class and load the presentation,
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITable) object from the slide.
-4. Set the first-row cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/baseportionformat/#setFontHeight-float-).
-5. Set the first-row cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Set the second-row cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+3. Access the relevant [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object from the slide.
+4. Set the first-row cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).
+5. Set the first-row cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
+6. Set the second-row cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation.
 
 This PHP code demonstrates the operation.
@@ -170,12 +170,12 @@ This PHP code demonstrates the operation.
 
 ## **Set Text Formatting on Table Column Level**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) class and load the presentation,
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/php-java/com.aspose.slides/ITable) object from the slide.
-4. Set the first-column cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/baseportionformat/#setFontHeight-float-).
-5. Set the first-column cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/iparagraphformat/#setMarginRight-float-).
-6. Set the second-column cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+3. Access the relevant [ITable](https://reference.aspose.com/slides/php-java/aspose.slides/ITable) object from the slide.
+4. Set the first-column cells' [setFontHeight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight-float-).
+5. Set the first-column cells' [setAlignment(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
+6. Set the second-column cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation. 
 
 This PHP code demonstrates the operation:

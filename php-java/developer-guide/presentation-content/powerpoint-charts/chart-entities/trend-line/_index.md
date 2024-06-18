@@ -7,7 +7,7 @@ url: /php-java/trend-line/
 ## **Add Trend Line**
 Aspose.Slides for PHP via Java provides a simple API for managing different chart Trend Lines:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (this example uses ChartType->ClusteredColumn).
 1. Adding exponential trend line for chart series 1.
@@ -66,7 +66,7 @@ The following code is used to create a chart with Trend Lines.
 ## **Add Custom Line**
 Aspose.Slides for PHP via Java provides a simple API to add custom lines in a chart. To add a simple plain line to a selected slide of the presentation, please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class
+- Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class
 - Obtain the reference of a slide by using its Index
 - Create a new chart using AddChart method exposed by Shapes object
 - Add an AutoShape of Line type using AddAutoShape method exposed by Shapes object

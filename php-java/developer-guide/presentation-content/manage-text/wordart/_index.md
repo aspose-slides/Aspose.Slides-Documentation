@@ -69,7 +69,7 @@ These are some of the available parameters or options:
 
 **Using Aspose.Slides**
 
-Here, we apply the [SmallGrid](https://reference.aspose.com/slides/php-java/com.aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
+Here, we apply the [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
 
 ```php
   $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Pattern);
@@ -268,9 +268,9 @@ These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFor
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for PHP via Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/php-java/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/php-java/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/php-java/com.aspose.slides/classes/TextFrame). Go through these steps:
+Aspose.Slides for PHP via Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/php-java/aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/classes/TextFrame). Go through these steps:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.
 3. Add an AutoShape of Rectangle type to the slide.
 4. Access the TextFrame associated with the AutoShape.
@@ -317,7 +317,7 @@ This sample code —an implementation of the steps above—shows you how to appl
 ## **Apply Inner Shadow Effect to Shapes**
 Go through these steps:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) class.
 2. Get a reference of the slide.
 3. Add an AutoShape of the Rectangle type.
 4. Enable InnerShadowEffect.
