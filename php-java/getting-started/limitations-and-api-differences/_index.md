@@ -114,6 +114,7 @@ The parameters and arguments they return and accept are wrappers on top of the J
 ``` php
 if ($node->isAssistant()) - wrong!
 if (java_values($node->isAssistant())) - correct!
+```
 
 #### 2. **Extending Java class and instanceof operator**
 
@@ -131,20 +132,24 @@ $Integer = new JavaClass("java.lang.Integer");
 $IntegerArray = $Array->newInstance($Integer, 2);
 $IntegerArray[0] = 1;
 $IntegerArray[1] = 0;
+```
 
 #### 4. **A Java array length**
 
 ``` php
 $data->length; - does NOT work
+```
 workaround
 ``` php
 $Array = new JavaClass("java.lang.reflect.Array");
 $Array->getLength($data);
+```
 
 #### 5. **The Java method Files.readAllBytes**
 
 ``` php
 $htmlBytes = Files->readAllBytes(Paths->get("embedOle.html")); - does NOT work
+```
 workaround
 ``` php
 $file = new Java("java.io.File", "embedOle.html");
@@ -157,3 +162,4 @@ try {
 } finally {
     if (!java_is_null($dis)) $dis->close();
 }
+```
