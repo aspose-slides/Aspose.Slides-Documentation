@@ -3,7 +3,7 @@ title: Manage Blob
 type: docs
 weight: 10
 url: /php-java/manage-blob/
-description: Manage Blob in PowerPoint Presentation using Java. Use Blob to reduce memory consumption in PowerPoint Presentation using Java. Add large file through Blob to PowerPoint Presentation using Java. Export large file through Blob from PowerPoint Presentation using Java. Load a large PowerPoint Presentation as Blob using Java.
+description: Manage Blob in PowerPoint Presentation using PHP. Use Blob to reduce memory consumption in PowerPoint Presentation using PHP. Add large file through Blob to PowerPoint Presentation using PHP. Export large file through Blob from PowerPoint Presentation using PHP. Load a large PowerPoint Presentation as Blob using PHP.
 ---
 
 ## **About BLOB**

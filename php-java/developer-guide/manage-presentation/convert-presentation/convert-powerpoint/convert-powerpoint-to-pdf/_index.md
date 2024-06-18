@@ -10,7 +10,7 @@ description: "Convert PowerPoint Presentation to PDF . Save PowerPoint as PDF wi
 ---
 ## **Overview**
 
-This article explains how you can convert PowerPoint file formats into PDF using Java. It covers wide range of topics e.g.
+This article explains how you can convert PowerPoint file formats into PDF using PHP. It covers wide range of topics e.g.
 
 - Convert PPT to PDF
 - Convert PPTX to PDF

@@ -8,7 +8,7 @@ keywords: smartart powerpoint, smartart nodes, smartart position, remove smartar
 description: Manage smart art node and child node in PowerPoint Presentations
 ---
 
-## **Add SmartArt Node in PowerPoint Presentation using Java**
+## **Add SmartArt Node in PowerPoint Presentation using PHP**
 Aspose.Slides for PHP via Java has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
@@ -83,7 +83,7 @@ In the following sample code we have explained how to add the child nodes belong
 
 ```
 
-## **Access SmartArt Node in PowerPoint Presentation using Java**
+## **Access SmartArt Node in PowerPoint Presentation using PHP**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.
@@ -202,7 +202,7 @@ In this example, we will learn to access the child nodes at some particular posi
 
 ```
 
-## **Remove SmartArt Node in PowerPoint Presentation using Java**
+## **Remove SmartArt Node in PowerPoint Presentation using PHP**
 In this example, we will learn to remove the nodes inside SmartArt shape.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation) class and load the presentation with SmartArt Shape.

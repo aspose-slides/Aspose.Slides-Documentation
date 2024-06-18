@@ -3,7 +3,7 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /php-java/manage-textbox/
-description: Create Text Box on PowerPoint Slides using Java. Add Column in Text Box or Text Frame in PowerPoint Slides using Java. Add Text Box with Hyperlink in PowerPoint Slides using Java.
+description: Create Text Box on PowerPoint Slides using PHP. Add Column in Text Box or Text Frame in PowerPoint Slides using PHP. Add Text Box with Hyperlink in PowerPoint Slides using PHP.
 ---
 
 

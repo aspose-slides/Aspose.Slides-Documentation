@@ -3,7 +3,7 @@ title: Manage Placeholder
 type: docs
 weight: 10
 url: /php-java/manage-placeholder/
-description: Change Text in a Placeholder in PowerPoint Slides using Java. Set Prompt Text in a Placeholder in PowerPoint Slides using Java.
+description: Change Text in a Placeholder in PowerPoint Slides using PHP. Set Prompt Text in a Placeholder in PowerPoint Slides using PHP.
 ---
 
 ## **Change Text in Placeholder**

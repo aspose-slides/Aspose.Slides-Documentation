@@ -4,13 +4,13 @@ linktitle: Convert Powerpoint to HTML
 type: docs
 weight: 30
 url: /php-java/convert-powerpoint-to-html/
-keywords: "Java PowerPoint to HTML, Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, Java, Aspose.Slides, HTML export"
+keywords: "PHP  PowerPoint to HTML, Convert PowerPoint Presentation, PPTX, PPT, PPT to HTML, PPTX to HTML, PowerPoint to HTML, Save PowerPoint as HTML, Save PPT as HTML, Save PPTX as HTML, Java, Aspose.Slides, HTML export"
 description: "Convert PowerPoint HTML : Save PPTX or PPT as HTML . Save slides as HTML "
 ---
 
 ## **Overview**
 
-This article explains how to convert PowerPoint Presentation in HTML format using Java. It covers the following topics.
+This article explains how to convert PowerPoint Presentation in HTML format using PHP. It covers the following topics.
 
 - Convert PowerPoint to HTML
 - Convert PPT to HTML
@@ -333,7 +333,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
         try {
             String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
             String path = fontName + ".woff"; // some path sanitaze may be needed
-            Files.write(new Java("java.io.File", m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
+            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
 
             generator.addHtml("<style>");
             generator.addHtml("@font-face { ");
