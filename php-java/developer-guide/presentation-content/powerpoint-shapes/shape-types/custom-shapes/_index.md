@@ -121,7 +121,6 @@ This PHP code shows you how to add custom points to a shape:
       $pres->dispose();
     }
   }
-
 ```
 ![example1_image](custom_shape_1.png)
 
@@ -146,7 +145,6 @@ This PHP code shows you how to remove points from a shape:
       $pres->dispose();
     }
   }
-
 ```
 ![example2_image](custom_shape_2.png)
 
@@ -190,7 +188,6 @@ This Java shows you how to create a custom shape:
       $pres->dispose();
     }
   }
-
 ```
 ![example3_image](custom_shape_3.png)
 
@@ -226,7 +223,6 @@ This PHP code shows you to create a composite custom shape:
       $pres->dispose();
     }
   }
-
 ```
 ![example4_image](custom_shape_4.png)
 
@@ -269,7 +265,6 @@ This PHP code shows you how to create a custom shape with curved corners (inward
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Convert GeometryPath to java.awt.Shape** 
@@ -311,6 +306,5 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
       $pres->dispose();
     }
   }
-
 ```
 ![example5_image](custom_shape_5.png)

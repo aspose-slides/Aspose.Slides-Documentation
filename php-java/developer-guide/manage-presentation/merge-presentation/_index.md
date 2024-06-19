@@ -87,7 +87,6 @@ This PHP code shows you how to merge presentations:
       $pres1->dispose();
     }
   }
-
 ```
 
 ## **Merge Presentations with Slide Master**
@@ -115,7 +114,6 @@ This code  demonstrates the described operation:
       $pres1->dispose();
     }
   }
-
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -149,7 +147,6 @@ This PHP code shows you how to select and combine specific slides from different
       $pres1->dispose();
     }
   }
-
 ```
 
 ## **Merge Presentations With Slide Layout**
@@ -175,7 +172,6 @@ This PHP code shows you how to combine slides from presentations while applying 
       $pres1->dispose();
     }
   }
-
 ```
 
 ## **Merge Presentations With Different Slide Sizes**
@@ -210,7 +206,6 @@ This sample code demonstrates the described operation:
       $pres1->dispose();
     }
   }
-
 ```
 
 ## **Merge Slides to Presentation Section**
@@ -236,7 +231,6 @@ This PHP code shows you how to merge a specific slide to a section in a presenta
       $pres1->dispose();
     }
   }
-
 ```
 
 The slide is added at the end of the section. 

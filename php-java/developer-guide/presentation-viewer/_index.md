@@ -43,7 +43,6 @@ To generate an SVG image from any desired slide with Aspose.Slides for PHP via J
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Generate SVG with Custom Shape IDS**
@@ -66,7 +65,6 @@ Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.filef
   } finally {
     $pres->dispose();
   }
-
 ```
 ```php
   class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
@@ -84,7 +82,6 @@ Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.filef
       $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
     }
   }
-
 ```
 
 ## **Create Slides Thumbnail Image**
@@ -114,7 +111,6 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Create Thumbnail with User Defined Dimensions**
@@ -149,7 +145,6 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Create Thumbnail from Slide in Notes Slides View**
@@ -189,5 +184,4 @@ The code snippet below produces a thumbnail of the first slide of a presentation
   } finally {
     $pres->dispose();
   }
-
 ```

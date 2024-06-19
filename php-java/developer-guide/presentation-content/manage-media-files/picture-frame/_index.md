@@ -48,7 +48,6 @@ This PHP code shows you how to create a picture frame:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="warning" %}} 
@@ -91,7 +90,6 @@ This PHP code shows you how to create a picture frame with relative scale:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Extract Image from Picture Frame**
@@ -118,7 +116,6 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/p
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Get Transparency of Image**
@@ -136,7 +133,6 @@ Aspose.Slides allows you to get the transparency of an image. This PHP code demo
       echo("Picture transparency: " . $transparencyValue);
     }
   }
-
 ```
 
 ## **Picture Frame Formatting**
@@ -182,7 +178,6 @@ This PHP code demonstrates the picture frame formatting process:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Tip" color="primary" %}}
@@ -228,7 +223,6 @@ To avoid large presentation sizes, you can add images (or videos) through links 
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Crop Image**
@@ -263,7 +257,6 @@ This PHP code shows you how to crop an existing image on a slide:
       $pres->dispose();
     }
   }
-
 ```
 
 ## Delete Cropped Areas of Picture
@@ -287,7 +280,6 @@ This PHP code demonstrates the operation:
       $presentation->dispose();
     }
   }
-
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
@@ -327,7 +319,6 @@ This PHP code shows you how to lock a shape's aspect ratio:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
@@ -391,6 +382,5 @@ This PHP code demonstrates a process in which a StretchOff property is used:
       $pres->dispose();
     }
   }
-
 ```
 

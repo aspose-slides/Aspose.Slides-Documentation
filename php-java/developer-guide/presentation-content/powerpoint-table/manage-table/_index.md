@@ -66,7 +66,6 @@ This PHP code shows you how to create a table in a presentation:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Numbering in Standard Table**
@@ -118,7 +117,6 @@ This PHP code shows you how to specify the numbering for cells in a table:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Access Existing Table**
@@ -162,7 +160,6 @@ This PHP code shows you how to access and work with an existing table:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -212,7 +209,6 @@ This PHP code shows you how to align the text in a table:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Text Formatting on Table Level**
@@ -252,7 +248,6 @@ This PHP code shows you how to apply your preferred formatting options to the te
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Get Table Style Properties**
@@ -271,7 +266,6 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Lock Aspect Ratio of Table**
@@ -294,5 +288,4 @@ This PHP code shows you how to lock the aspect ratio for a table:
       $pres->dispose();
     }
   }
-
 ```

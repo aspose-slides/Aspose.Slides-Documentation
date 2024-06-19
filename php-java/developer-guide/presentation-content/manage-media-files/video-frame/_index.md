@@ -45,7 +45,6 @@ This PHP code shows you how to add a video stored locally to a presentation:
       $pres->dispose();
     }
   }
-
 ```
 
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/php-java/aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) method:
@@ -60,7 +59,6 @@ Alternatively, you can add a video by passing its file path directly to the [add
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -87,7 +85,6 @@ This PHP code shows you how to add a video from the web to a slide in a PowerPoi
       $pres->dispose();
     }
   }
-
 ```
 
 ```php
@@ -132,6 +129,5 @@ This PHP code shows you how to extract the video on a presentation slide:
       $pres->dispose();
     }
   }
-
 ```
 

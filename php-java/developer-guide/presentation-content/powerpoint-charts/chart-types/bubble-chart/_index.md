@@ -18,7 +18,6 @@ Aspose.Slides for PHP via Java provides support for Bubble chart size scaling. I
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Represent Data as Bubble Chart Sizes**
@@ -35,5 +34,4 @@ Methods [**setBubbleSizeRepresentation**](https://reference.aspose.com/slides/p
       $pres->dispose();
     }
   }
-
 ```

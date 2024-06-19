@@ -80,7 +80,6 @@ The implementation of the above steps is given below. It takes an unadorned pres
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Text Font Properties**
@@ -144,7 +143,6 @@ The implementation of the above steps is given below.
       $pres->dispose();
     }
   }
-
 ```
 
 

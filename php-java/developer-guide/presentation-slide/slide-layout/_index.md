@@ -86,7 +86,6 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Remove Unused Layout Slide**
@@ -103,7 +102,6 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -132,7 +130,6 @@ To allow you to set the size and type for a specific layout slide, Aspose.Slides
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 
@@ -172,7 +169,6 @@ This PHP code shows you how to set the visibility for a slide footer (and perfor
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Set Child Footer Visibility Inside Slide**
@@ -203,7 +199,6 @@ This PHP code demonstrates the operation:
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Set Slide Size with Respect to Content Scaling**
@@ -231,7 +226,6 @@ This PHP code demonstrates the operation:
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Set Page Size when Generating PDF**
@@ -254,5 +248,4 @@ Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/php-j
   } finally {
     $presentation->dispose();
   }
-
 ```

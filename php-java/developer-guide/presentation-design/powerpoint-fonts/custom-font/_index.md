@@ -44,7 +44,6 @@ This PHP code demonstrates the font loading process:
     // Clears Font Cachce
     FontsLoader->clearCache();
   }
-
 ```
 
 ## **Get Custom Fonts Folder**
@@ -95,7 +94,6 @@ This PHP code shows you how to use the [setDocumentLevelFontSources](https://ref
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Manage Fonts Externally**
@@ -143,6 +141,5 @@ try {
   } finally {
     FontsLoader->clearCache();
   }
-
 ```
 

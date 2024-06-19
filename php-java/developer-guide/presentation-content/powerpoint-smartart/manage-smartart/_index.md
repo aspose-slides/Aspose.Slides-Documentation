@@ -26,7 +26,6 @@ Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change Layout Type of SmartArt**
@@ -53,7 +52,6 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Check Hidden Property of SmartArt**
@@ -87,7 +85,6 @@ In the example given below, we have added a connector between two shapes.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Get or Set Organization Chart Type**
@@ -113,7 +110,6 @@ Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.co
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Create Picture Organization Chart**
@@ -136,7 +132,6 @@ The following code is used to create a chart.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Get or Set SmartArt State**
@@ -165,7 +160,6 @@ The following code is used to create a chart.
       $pres->dispose();
     }
   }
-
 ```
 
 

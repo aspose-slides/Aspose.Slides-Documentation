@@ -55,7 +55,6 @@ This PHP code demonstrates an operation where we formatted a rectangle `AutoShap
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -115,7 +114,6 @@ This Java demonstrates an operation where 3 rectangles (the image above) were cr
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -156,7 +154,6 @@ This PHP code demonstrates an operation where the gradient fill effect was used 
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -200,7 +197,6 @@ This PHP code demonstrates an operation where a pattern fill was used to beautif
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -251,7 +247,6 @@ This PHP code shows you how to fill a shape with a picture:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -288,7 +283,6 @@ This PHP code shows you how to apply the solid color fill to a box in PowerPoint
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Transparency**
@@ -323,7 +317,6 @@ This PHP code demonstrates the process:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Rotate Shapes**
@@ -354,7 +347,6 @@ This PHP code shows you how to rotate a shape by 90 degrees:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -397,7 +389,6 @@ This PHP code shows you how to add 3D bevel effects to a shape:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -433,7 +424,6 @@ This PHP code shows you how to apply 3D rotation effects to a shape:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Reset Formatting**
@@ -452,6 +442,5 @@ This PHP code shows you how to reset the formatting in a slide and revert the po
       $pres->dispose();
     }
   }
-
 ```
 

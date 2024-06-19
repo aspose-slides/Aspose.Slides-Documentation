@@ -62,7 +62,6 @@ Aspose.Slides for PHP via Java offers [Presentation](https://reference.aspose.co
       $pres->dispose();
     }
   }
-
 ```
 
 |![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|

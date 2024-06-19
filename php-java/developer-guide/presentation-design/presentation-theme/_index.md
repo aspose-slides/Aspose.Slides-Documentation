@@ -30,7 +30,6 @@ This PHP code shows you how to change the accent color for a theme:
       $pres->dispose();
     }
   }
-
 ```
 
 You can determine the resulting color's effective value this way:
@@ -108,7 +107,6 @@ This PHP code demonstrates an operation where additional palette colors are obta
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Change Theme Font**
@@ -165,7 +163,6 @@ For example, after you save a presentation in the PowerPoint app, you can run th
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="warning" %}} 
@@ -214,7 +211,6 @@ This PHP code shows you how to change a theme effect by altering parts of elemen
       $pres->dispose();
     }
   }
-
 ```
 
 The resulting changes in fill color, fill type, shadow effect, etc:

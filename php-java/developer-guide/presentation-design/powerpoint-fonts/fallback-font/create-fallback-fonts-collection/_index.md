@@ -25,7 +25,6 @@ Here is an examples how to create fallback fonts rules collection and assign in 
       $pres->dispose();
     }
   }
-
 ```
 
 After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.

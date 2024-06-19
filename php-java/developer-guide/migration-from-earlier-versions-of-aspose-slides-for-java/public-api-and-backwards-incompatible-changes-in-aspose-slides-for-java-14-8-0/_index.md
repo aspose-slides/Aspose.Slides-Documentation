@@ -25,7 +25,6 @@ This method is not only for specific series but for all series of the parent ser
   if ($series->get_Item(0)->getOverlap() == 0) {
     $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
   }
-
 ```
 ### **Added the ShapeThumbnailBounds.Appearance Enum Value**
 This method of creating shape thumbnails allows developers to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by the slide bounds.

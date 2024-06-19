@@ -32,7 +32,6 @@ In the example given below, we have set different properties of Pie of Pie chart
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Automatic Pie Chart Slice Colors**
@@ -88,5 +87,4 @@ Write the modified presentation to a PPTX file.
       $pres->dispose();
     }
   }
-
 ```

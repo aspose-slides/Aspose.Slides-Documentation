@@ -25,5 +25,4 @@ Aspose.Slides for PHP via Java provides support for extracting image of specific
       $pres->dispose();
     }
   }
-
 ```

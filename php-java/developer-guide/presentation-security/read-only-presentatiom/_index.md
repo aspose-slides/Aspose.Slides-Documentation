@@ -29,7 +29,6 @@ Aspose.Slides for PHP via Java allows you to set a presentation to **Read-Only**
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" %}} 

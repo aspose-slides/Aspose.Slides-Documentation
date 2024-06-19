@@ -56,7 +56,6 @@ This PHP code shows you how to add a VBA macro from scratch to a presentation:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" %}} 
@@ -88,7 +87,6 @@ This PHP code shows you how to remove a VBA macro:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Extract VBA Macros**
@@ -115,6 +113,5 @@ This PHP code shows you how to extract VBA macros from a presentation containing
       $pres->dispose();
     }
   }
-
 ```
 

@@ -37,7 +37,6 @@ To create a simple slide transition effect, follow the steps below:
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Add Advanced Slide Transition**
@@ -73,7 +72,6 @@ In the above section, we just applied a simple transition effect on the slide. N
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Morph Transition**
@@ -103,7 +101,6 @@ The following code snippet shows you how to add a clone of the slide with some t
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Morph Transition Types**
@@ -126,7 +123,6 @@ The following code snippet shows you how to set morph transition to slide and ch
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Set Transition Effects**
@@ -151,5 +147,4 @@ In the example given below, we have set the transition effects.
   } finally {
     $presentation->dispose();
   }
-
 ```

@@ -47,6 +47,5 @@ This sample code  shows you how to convert PPT to SVG using Aspose.Slides:
       $pres->dispose();
     }
   }
-
 ```
 

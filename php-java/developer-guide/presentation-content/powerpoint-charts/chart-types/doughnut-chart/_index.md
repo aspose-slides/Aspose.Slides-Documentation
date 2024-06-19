@@ -34,5 +34,4 @@ In the example given below, we have set the size of the hole in a doughnut chart
       $pres->dispose();
     }
   }
-
 ```

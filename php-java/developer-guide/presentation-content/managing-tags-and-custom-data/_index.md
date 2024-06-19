@@ -33,7 +33,6 @@ In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://
       $pres->dispose();
     }
   }
-
 ```
 
 ## Adding Tags to Presentations
@@ -57,7 +56,6 @@ This sample code shows you how to add a tag to a [Presentation](https://referenc
       $pres->dispose();
     }
   }
-
 ```
 
 Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide):
@@ -72,7 +70,6 @@ Tags also can be set for [Slide](https://reference.aspose.com/slides/php-java/as
       $pres->dispose();
     }
   }
-
 ```
 
 Or any individual [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape):
@@ -89,5 +86,4 @@ Or any individual [Shape](https://reference.aspose.com/slides/php-java/aspose.sl
       $pres->dispose();
     }
   }
-
 ```

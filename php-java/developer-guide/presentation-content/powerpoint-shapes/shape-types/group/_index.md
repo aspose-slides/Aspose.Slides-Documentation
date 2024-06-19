@@ -40,7 +40,6 @@ The example below adds a group shape to a slide.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Access AltText Property**
@@ -78,5 +77,4 @@ The example below accesses alternative text of group shape.
       $pres->dispose();
     }
   }
-
 ```

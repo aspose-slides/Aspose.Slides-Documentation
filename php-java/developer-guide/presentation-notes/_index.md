@@ -37,7 +37,6 @@ Notes of some specific slide could be removed as shown in example below:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove Notes from Presentation**
@@ -60,7 +59,6 @@ Notes of all the slides of a presentation could be removed as shown in example b
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add NotesStyle**
@@ -84,5 +82,4 @@ Notes of all the slides of a presentation could be removed as shown in example b
       $pres->dispose();
     }
   }
-
 ```

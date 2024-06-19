@@ -83,7 +83,6 @@ This applies to these use cases:
     $shapes->insertTable();
     $shapes->insertVideoFrame();
   }
-
 ```
 
 But the IShape.getRawFrame() frame can be undefined. This make sense when a shape is linked to a placeholder. Then undefined shape frame values are overridden from the parent placeholder shape. If there is no parent placeholder shape for that shape then it uses default values when it evaluates effective frame based on its IShape.getRawFrame(). Default values are 0 and NullableBool.False for x, y, width, height, flipH, flipV and rotationAngle. For example:

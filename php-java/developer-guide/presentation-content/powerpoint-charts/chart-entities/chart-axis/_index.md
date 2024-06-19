@@ -38,7 +38,6 @@ This sample code—an implementation of the steps above—shows you how to get t
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Swapping the Data between Axes**
@@ -59,7 +58,6 @@ This PHP code shows you how to perform the data swap task between axes on a char
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Disabling the Vertical Axis for Line Charts**
@@ -77,7 +75,6 @@ This PHP code shows you how to hide the vertical axis for a line chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Disabling the Horizontal Axis for Line Charts**
@@ -95,7 +92,6 @@ This code shows you how to hide the horizontal axis for a line chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Changing Category Axis**
@@ -116,7 +112,6 @@ Using the **CategoryAxisType** property, you can specify your preferred category
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Setting the Date Format for Category Axis Value**
@@ -148,7 +143,6 @@ Aspose.Slides for PHP via Java allows you to set the date format for a category 
       $pres->dispose();
     }
   }
-
 ```
 ```php
 
@@ -169,7 +163,6 @@ Aspose.Slides for PHP via Java allows you to set the rotation angle for a chart 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
@@ -186,7 +179,6 @@ Aspose.Slides for PHP via Java allows you to set the position axis in a category
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Enabling the Display Unit label on Chart Value Axis**
@@ -203,5 +195,4 @@ Aspose.Slides for PHP via Java allows you to configure a chart to show a unit la
       $pres->dispose();
     }
   }
-
 ```

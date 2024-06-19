@@ -25,7 +25,6 @@ Let’s start with adding a new Sunburst chart to the presentation:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -91,7 +90,6 @@ Change color of "Steam 4" branch:
       $pres->dispose();
     }
   }
-
 ```
 
 ![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)

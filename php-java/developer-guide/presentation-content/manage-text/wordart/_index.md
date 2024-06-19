@@ -44,7 +44,6 @@ First, we create a simple text using this PHP code:
       $pres->dispose();
     }
   }
-
 ```
 Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
@@ -311,7 +310,6 @@ This sample code —an implementation of the steps above—shows you how to appl
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Apply Inner Shadow Effect to Shapes**
@@ -360,7 +358,6 @@ This sample code (based on the steps above) shows you how to add a connector bet
       $pres->dispose();
     }
   }
-
 ```
 
 

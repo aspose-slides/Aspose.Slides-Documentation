@@ -90,7 +90,6 @@ This sample code shows you how to encrypt a presentation:
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Setting Write Protection to a Presentation**
@@ -111,7 +110,6 @@ To set a write protection, you have to use the [setWriteProtection](https://refe
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Decrypting a Presentation; Opening an Encrypted Presentation**
@@ -131,7 +129,6 @@ This sample code shows you how to decrypt a presentation:
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Removing Encryption; Disabling Password Protection**
@@ -152,7 +149,6 @@ To remove encryption or password protection, you have to call the [removeEncrypt
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Removing Write Protection from a Presentation**
@@ -171,7 +167,6 @@ You can remove the write protection from a presentation by using the [removeWrit
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Getting the Properties of an Encrypted Presentation**
@@ -192,7 +187,6 @@ If you want users to retain the ability to access the properties of a presentati
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Checking whether a Presentation is Password Protected Before Loading it**
@@ -222,7 +216,6 @@ This sample code shows you how to check whether a presentation is encrypted:
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Checking whether a Presentation is Write Protected**
@@ -240,7 +233,6 @@ This sample code shows you how to check whether a presentation is write-protecte
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Validating or Confirming that a Specific Password has been used to Protect a Presentation**
@@ -259,7 +251,6 @@ This sample code shows you how to validate a password:
       $presentation->dispose();
     }
   }
-
 ```
 
 It returns `true` if the presentation has been encrypted with the specified password. Otherwise, it returns `false`. 

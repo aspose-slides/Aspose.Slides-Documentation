@@ -26,7 +26,6 @@ This PHP code demonstrates a sample operation:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set WorkBook Cell as Chart DataLabel**
@@ -62,7 +61,6 @@ This PHP code shows you to set a workbook cell as a chart data label:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Manage Worksheets**
@@ -82,7 +80,6 @@ This PHP code demonstrates an operation where the [IChartDataWorkbook.Worksheets
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Specify Data Source Type**
@@ -104,7 +101,6 @@ This PHP code shows you how to specify a type for a data source:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **External Workbook**
@@ -143,7 +139,6 @@ This PHP code demonstrates the external workbook creation process:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Set External Workbook**
@@ -174,7 +169,6 @@ This PHP code shows you how to set an external workbook:
       $pres->dispose();
     }
   }
-
 ```
 
 The `ChartData` parameter (under the `setExternalWorkbook` method) is used to specify whether an excel workbook will be loaded or not. 
@@ -195,7 +189,6 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Get Chart External Data Source Workbook Path**
@@ -225,7 +218,6 @@ This PHP code demonstrates the operation:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Edit Chart Data**
@@ -247,5 +239,4 @@ This PHP code is an implementation of the described process:
       $pres->dispose();
     }
   }
-
 ```

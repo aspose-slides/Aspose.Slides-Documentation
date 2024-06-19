@@ -44,7 +44,6 @@ If you prefer to use a special slide size for your presentations, we strongly re
       $pres->dispose();
     }
   }
-
 ```
 
 ## Specifying Custom Slide Sizes in Presentations
@@ -64,7 +63,6 @@ This sample code shows you how to use Aspose.Slides for PHP via Java to specify 
       $pres->dispose();
     }
   }
-
 ```
 
 ## Dealing With Issues When Changing the Size of Slides in Presentations
@@ -96,6 +94,5 @@ This sample code shows you how to use the `Maximize` setting when changing the s
       $pres->dispose();
     }
   }
-
 ```
 

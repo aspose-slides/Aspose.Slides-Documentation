@@ -52,7 +52,6 @@ An example is given below shows how can you access [**ViewProperties.getNormalVi
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Set Default Zoom Value**
@@ -82,5 +81,4 @@ In order to set the view properties. Please follow the steps below:
   } finally {
     $presentation->dispose();
   }
-
 ```

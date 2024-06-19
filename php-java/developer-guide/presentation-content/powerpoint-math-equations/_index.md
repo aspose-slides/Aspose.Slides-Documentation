@@ -50,8 +50,7 @@ To add a mathematical expression on the slide, first, add a shape that will con
       $pres->dispose();
     }
   }
-
-``` 
+```
 
 After creating, the shape will already contain one paragraph with a mathematical portion by default. The [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion) class is a portion that contains a mathematical text inside. To access mathematical content inside [**MathPortion**](https://reference.aspose.com/slides/php-java/aspose.slides/MathPortion), refer to the [**MathParagraph** ](https://reference.aspose.com/slides/php-java/aspose.slides/MathParagraph)variable:
 
@@ -94,8 +93,7 @@ The full source code sample:
       $pres->dispose();
     }
   }
-
-``` 
+```
 
 ## **Mathematical Element Types**
 Mathematical expressions are formed from sequences of mathematical elements. The sequence of mathematical elements is represented by a mathematical block, and arguments of mathematical elements form a tree-like nesting.

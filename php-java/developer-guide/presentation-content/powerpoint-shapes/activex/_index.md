@@ -38,7 +38,6 @@ This sample code, based on the steps above, shows to how to add Media Player Act
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Modifying ActiveX Control**
@@ -147,5 +146,4 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $pres->dispose();
     }
   }
-
 ```

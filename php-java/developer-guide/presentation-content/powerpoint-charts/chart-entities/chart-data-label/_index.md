@@ -24,7 +24,6 @@ This PHP code shows you how to set the data precision in a chart data label:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Display Percentage as Labels**
@@ -72,7 +71,6 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Percentage Sign with Chart Data Labels**
@@ -132,7 +130,6 @@ This PHP code shows you to set the percentage sign for a chart data label:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Label Distances** From Axis
@@ -155,7 +152,6 @@ This PHP code shows you how to set the label distance from a category axis when 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Adjust Label Location**
@@ -180,7 +176,6 @@ This PHP code shows you how to adjust the label location on a pie chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ![pie-chart-adjusted-label](pie-chart-adjusted-label.png)

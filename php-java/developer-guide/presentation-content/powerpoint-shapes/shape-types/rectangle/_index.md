@@ -36,7 +36,6 @@ In the example given below, we have added a simple rectangle to the first slide 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add Formatted Rectangle to Slide**
@@ -75,5 +74,4 @@ The above steps are implemented in the example given below.
       $pres->dispose();
     }
   }
-
 ```

@@ -89,7 +89,6 @@ This sample code —an implementation of the steps above—shows you to create a
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## Creating Picture Bullets
@@ -163,7 +162,6 @@ This PHP code shows you to create a picture bullet in a slide:
       $pres->dispose();
     }
   }
-
 ```
 
 ## Creating Multilevel Bullets
@@ -248,7 +246,6 @@ This code, which is an implementation of the steps above, shows you how to creat
       $pres->dispose();
     }
   }
-
 ```
 
 ## Create Custom Numbered List
@@ -305,5 +302,4 @@ This PHP code shows you how to create a numbered list in a slide:
       $pres->dispose();
     }
   }
-
 ```

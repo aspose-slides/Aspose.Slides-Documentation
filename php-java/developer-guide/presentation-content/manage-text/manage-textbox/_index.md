@@ -58,7 +58,6 @@ This PHP code—an implementation of the steps above—shows you how to add text
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Check for Text Box Shape**
@@ -83,7 +82,6 @@ This PHP code shows you how to check whether a shape was created as a text box:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add Column In Text Box**
@@ -114,7 +112,6 @@ This code  demonstrates the described operation:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -172,7 +169,6 @@ This PHP code shows you how to add a column inside a text frame:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Update Text**
@@ -209,7 +205,6 @@ This PHP code demonstrates an operation where all the texts in a presentation ar
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add Text Box with Hyperlink** 
@@ -253,5 +248,4 @@ This PHP code—an implementation of the steps above—shows you how to add a te
       $pres->dispose();
     }
   }
-
 ```

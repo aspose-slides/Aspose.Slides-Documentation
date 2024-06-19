@@ -87,7 +87,6 @@ This PHP code is an implementation of the steps for adding paragraphs containing
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -166,7 +165,6 @@ This PHP code shows you how to add a paragraph bullet:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -234,7 +232,6 @@ This PHP code shows you how to add and manage picture bullets:
       $presentation->dispose();
     }
   }
-
 ```
 
 
@@ -316,7 +313,6 @@ This PHP code shows you how to add and manage multilevel bullets:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -370,7 +366,6 @@ This PHP code shows you how to add and manage paragraphs with custom numbering o
       $presentation->dispose();
     }
   }
-
 ```
 
 
@@ -429,7 +424,6 @@ This PHP code shows you how to set a paragraph indent:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Hanging Indent for Paragraph**
@@ -457,7 +451,6 @@ This PHP code shows you how to set the hanging indent for a paragraph:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Manage End Paragraph Run Properties for Paragraph**
@@ -492,7 +485,6 @@ This PHP code shows you how to set the End properties for paragraphs in PowerPoi
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -536,7 +528,6 @@ This PHP code is an implementation of the steps for importing HTML texts in para
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -576,7 +567,6 @@ This PHP code shows you how to export PowerPoint paragraph texts to HTML:
       $pres->dispose();
     }
   }
-
 ```
 
  

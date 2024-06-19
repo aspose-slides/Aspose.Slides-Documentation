@@ -51,7 +51,6 @@ This Java shows you how to add a large video file through the BLOB process to a 
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -101,7 +100,6 @@ This code  demonstrates the described operation:
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ### **Add Image as BLOB in Presentation**
@@ -134,7 +132,6 @@ This PHP code shows you how to add a large image through the BLOB process:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Memory and Large Presentations**
@@ -152,7 +149,6 @@ Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB vid
       $pres->dispose();
     }
   }
-
 ```
 
 But this method consumes around 1.6 GB of temporary memory. 
@@ -173,7 +169,6 @@ Through the process involving a BLOB, you can load up a large presentation while
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Change the Folder for Temporary Files**

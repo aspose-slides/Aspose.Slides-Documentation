@@ -35,7 +35,6 @@ In the example given below, we have set the position and size for Chart legend.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Font Size of Legend**
@@ -64,7 +63,6 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of leg
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Font Size of Individual Legend**
@@ -95,6 +93,5 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of ind
       $pres->dispose();
     }
   }
-
 ```
 

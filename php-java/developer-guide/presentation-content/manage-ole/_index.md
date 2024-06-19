@@ -63,7 +63,6 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Accessing OLE Object Frames**
@@ -109,7 +108,6 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Changing OLE Object Data**
@@ -175,7 +173,6 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
       $pres->dispose();
     }
   }
-
 ```
 
 ## Embedding Other File Types in Slides
@@ -221,7 +218,6 @@ try {
       $pres->dispose();
     }
   }
-
 ```
 
 ## Setting File Types for Embedded Objects
@@ -256,7 +252,6 @@ try {
       $pres->dispose();
     }
   }
-
 ```
 
 ## Setting Icon Images and Titles for Embedded Objects
@@ -291,7 +286,6 @@ This PHP code shows you how to set the icon image and title for an embedded obje
       $pres->dispose();
     }
   }
-
 ```
 
 ## Extracting Embedded Files
@@ -330,5 +324,4 @@ This PHP code shows you how to extract a file embedded in a slide as an OLE obje
       $pres->dispose();
     }
   }
-
 ```

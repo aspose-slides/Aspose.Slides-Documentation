@@ -68,7 +68,6 @@ This PHP code shows you how to convert a PowerPoint to PDF:
       $pres->dispose();
     }
   }
-
 ```
 
 {{%  alert  color="primary"  %}} 

@@ -54,5 +54,4 @@ Aspose.Slides for PHP via Java provides a simple API for setting these propertie
       $pres->dispose();
     }
   }
-
 ```

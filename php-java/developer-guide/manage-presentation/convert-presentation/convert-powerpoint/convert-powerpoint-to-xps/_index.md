@@ -61,7 +61,6 @@ This sample code  shows you how to convert a presentation to an XPS document usi
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -83,5 +82,4 @@ This sample code shows you how to convert a presentation to an XPS document usin
       $pres->dispose();
     }
   }
-
 ```

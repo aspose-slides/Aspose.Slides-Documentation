@@ -46,7 +46,6 @@ Aspose.Slides for PHP via Java has provided the simplest API to manage the Smart
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add SmartArt Node at Specific Position**
@@ -80,7 +79,6 @@ In the following sample code we have explained how to add the child nodes belong
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Access SmartArt Node in PowerPoint Presentation using PHP**
@@ -119,7 +117,6 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -165,7 +162,6 @@ The following sample code will help to access the child nodes belonging to respe
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Access SmartArt Child Node at Specific Position**
@@ -199,7 +195,6 @@ In this example, we will learn to access the child nodes at some particular posi
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove SmartArt Node in PowerPoint Presentation using PHP**
@@ -239,7 +234,6 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove SmartArt Node at Specific Position**
@@ -281,7 +275,6 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Custom Position for Child Node in SmartArt**
@@ -313,7 +306,6 @@ Now Aspose.Slides for PHP via Java support for setting [SmartArtShape](https://r
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Check Assistant Node**
@@ -367,7 +359,6 @@ In the following sample code we will investigate how to identify **Assistant Nod
       $pres->dispose();
     }
   }
-
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
@@ -407,7 +398,6 @@ Please follow the steps below:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Generate Thumbnail of SmartArt Child Node**
@@ -442,7 +432,6 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
       $pres->dispose();
     }
   }
-
 ```
 
 

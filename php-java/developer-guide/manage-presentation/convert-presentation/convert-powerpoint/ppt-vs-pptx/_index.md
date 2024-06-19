@@ -36,7 +36,6 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" %}} 

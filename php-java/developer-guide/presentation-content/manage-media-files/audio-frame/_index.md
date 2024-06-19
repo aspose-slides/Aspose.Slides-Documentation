@@ -39,7 +39,6 @@ This PHP code shows you how to add an embedded audio frame to a slide:
 } finally {
     if (!java_is_null($pres)) $pres.dispose();
 }
-
 ```
 
 ## **Change Audio Frame Thumbnail**
@@ -77,7 +76,6 @@ This PHP code shows you how to change an audio frame's thumbnail or preview imag
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Change Audio Play Options**
@@ -128,7 +126,6 @@ This PHP code demonstrates an operation in which an audio's options are adjusted
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Extract Audio**
@@ -165,5 +162,4 @@ This code  shows you how to extract the audio used in a slide:
       $pres->dispose();
     }
   }
-
 ```

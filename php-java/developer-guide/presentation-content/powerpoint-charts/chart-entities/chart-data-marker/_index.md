@@ -61,5 +61,4 @@ In the example given below, we have set the chart marker options on data points 
       $pres->dispose();
     }
   }
-
 ```

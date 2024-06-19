@@ -29,7 +29,6 @@ Aspose.Slides for PHP via Java has provided an API to create SmartArt shapes. To
       $pres->dispose();
     }
   }
-
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
@@ -57,7 +56,6 @@ The following code will be used to access the SmartArt shapes added in presentat
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Access SmartArt Shape with Particular Layout Type**
@@ -89,7 +87,6 @@ The following sample code will help to access the [SmartArt](https://reference.a
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change SmartArt Shape Style**
@@ -127,7 +124,6 @@ In this example, we will learn to change the quick style for any SmartArt shape.
   } finally {
     $pres->dispose();
   }
-
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
@@ -169,7 +165,6 @@ In this example, we will learn to change the color style for any SmartArt shape.
   } finally {
     $pres->dispose();
   }
-
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/v2Hwocs.png)|

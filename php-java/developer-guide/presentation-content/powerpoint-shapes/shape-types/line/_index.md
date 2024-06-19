@@ -38,7 +38,6 @@ In the example given below, we have added a line to the first slide of the prese
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Create Arrow Shaped Line**
@@ -80,5 +79,4 @@ Aspose.Slides for PHP via Java also allows developers to configure some properti
       $pres->dispose();
     }
   }
-
 ```

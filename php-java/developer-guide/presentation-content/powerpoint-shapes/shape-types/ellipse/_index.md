@@ -37,7 +37,6 @@ In the example given below, we have added an ellipse to the first slide
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Create Formatted Ellipse**
@@ -76,5 +75,4 @@ In the example given below, we have added a formatted ellipse to the first slide
       $pres->dispose();
     }
   }
-
 ```

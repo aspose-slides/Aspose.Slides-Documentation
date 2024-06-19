@@ -38,7 +38,6 @@ This PHP code shows you how to set a solid color (blue) as the background for a 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Solid Color as Background for Master Slide**
@@ -68,7 +67,6 @@ This PHP code shows you how to set a solid color (forest green) as the backgroun
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Gradient Color as Background for Slide**
@@ -98,7 +96,6 @@ This PHP code shows you how to set a gradient color as the background for a slid
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Image as Background for Slide**
@@ -143,7 +140,6 @@ This PHP code shows you how to set an image as the background for a slide:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Change Transparency of Background Image**
@@ -169,7 +165,6 @@ You may want to adjust the transparency of a slide's background image to make th
   } else {
     $transparencyOperation->setAmount(100 - $transparencyValue);
   }
-
 ```
 
 ## **Get Value of Slide Background**
@@ -195,7 +190,6 @@ This PHP code shows you how to get a slide's effective background value:
       $pres->dispose();
     }
   }
-
 ```
 
 

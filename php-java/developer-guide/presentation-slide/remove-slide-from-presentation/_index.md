@@ -32,7 +32,6 @@ This PHP code shows you how to remove a slide through its reference:
   } finally {
     $pres->dispose();
   }
-
 ```
 
 
@@ -55,7 +54,6 @@ This PHP code shows you how to remove a slide through its index:
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Remove Unused Layout Slide**
@@ -72,7 +70,6 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove Unused Master Slide**
@@ -89,6 +86,5 @@ Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.c
       $pres->dispose();
     }
   }
-
 ```
 

@@ -60,7 +60,6 @@ The following code is used to create a chart with Trend Lines.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add Custom Line**
@@ -89,5 +88,4 @@ The following code is used to create a chart with Custom Lines.
       $pres->dispose();
     }
   }
-
 ```

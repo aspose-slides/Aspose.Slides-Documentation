@@ -50,7 +50,6 @@ This PHP code shows you how to specify that a text must always fit into its box 
       $pres->dispose();
     }
   }
-
 ```
 
 If the text becomes longer or bigger, the textbox will be automatically resized (increase in height) to ensure all the text fits into it. If the text becomes shorter, the reverse occurs. 
@@ -80,7 +79,6 @@ This PHP code shows you how to specify that a textbox must always retain its dim
       $pres->dispose();
     }
   }
-
 ```
 
 When the text becomes too long for its box, it spills out. 
@@ -110,7 +108,6 @@ This PHP code shows you how to specify that a text must be shrunk on overflow in
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Info" color="info" %}}
@@ -142,7 +139,6 @@ This PHP code shows you how to use the Wrap Text setting in a PowerPoint present
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Note" color="warning" %}} 

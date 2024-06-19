@@ -31,7 +31,6 @@ The examples that follow show how to save a presentation with Aspose.Slides for 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Save Presentation to Stream**
@@ -53,7 +52,6 @@ It is possible to save a presentation to a stream by passing an output stream to
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Save Presentation with Predefined View Type**
@@ -72,7 +70,6 @@ Aspose.Slides for PHP via Java provides a facility to set the view type for the 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Save Presentation to Strict Open XML Spreadsheet Format**
@@ -98,7 +95,6 @@ The following sample code creates a presentation and saves it in the Strict Open
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Save Progress Updates in Percentage**
@@ -116,7 +112,6 @@ The following code snippets below show how to use [IProgressCallback](https://re
   } finally {
     $pres->dispose();
   }
-
 ```
 ```php
   class ExportProgressHandler implements IProgressCallback {
@@ -126,7 +121,6 @@ The following code snippets below show how to use [IProgressCallback](https://re
       echo($progress . "% file converted");
     }
   }
-
 ```
 
 {{% alert title="Info" color="info" %}}

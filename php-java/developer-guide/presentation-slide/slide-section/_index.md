@@ -42,7 +42,6 @@ This sample code shows you to create a section in a presentation :
       $pres->dispose();
     }
   }
-
 ```
 
 ## Changing the Names of Sections
@@ -61,7 +60,6 @@ This sample code shows you how to change the name of a section in a presentation
       $pres->dispose();
     }
   }
-
 ```
 
 

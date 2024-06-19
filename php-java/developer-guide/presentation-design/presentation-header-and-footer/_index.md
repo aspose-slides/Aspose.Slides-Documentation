@@ -37,7 +37,6 @@ Notes of some specific slide could be removed as shown in example below:
       $pres->dispose();
     }
   }
-
 ```
 ```php
 
@@ -113,5 +112,4 @@ Code Snippet provided in below Example.
       $pres->dispose();
     }
   }
-
 ```

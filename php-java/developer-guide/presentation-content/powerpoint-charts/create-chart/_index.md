@@ -190,7 +190,6 @@ This PHP code shows you how to create a normal chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Scattered Charts**
@@ -264,7 +263,6 @@ This PHP code shows you how to create a scattered charts with a different series
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Pie Charts**
@@ -375,7 +373,6 @@ This PHP code shows you how to create a pie chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Line Charts**
@@ -403,7 +400,6 @@ This PHP code shows you how to create a line chart:
       $pres->dispose();
     }
   }
-
 ```
 
 By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
@@ -413,7 +409,6 @@ By default, points on a line chart are joined by straight continuous lines. If y
   foreach($lineChart->getChartData()->getSeries() as $series) {
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
   }
-
 ```
 
 ### **Creating Tree Map Charts**
@@ -476,7 +471,6 @@ This PHP code shows you how to create a tree map chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Stock Charts**
@@ -538,7 +532,6 @@ Sample PHP code used to create a stock chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Box and Whisker Charts**
@@ -590,7 +583,6 @@ This PHP code shows you how to create a box and whisker chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Funnel Charts**
@@ -634,7 +626,6 @@ The PHP code shows you how to create a funnel chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Sunburst Charts**
@@ -690,7 +681,6 @@ This PHP code shows you how to create a sunburst chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Histogram Charts**
@@ -750,7 +740,6 @@ This PHP code shows you how to create an radar chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Multi Category Charts**
@@ -808,7 +797,6 @@ This PHP code shows you how to create a multicategory chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Map Charts**
@@ -831,7 +819,6 @@ This PHP code shows you how to create a map chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Creating Combination Charts**
@@ -908,7 +895,6 @@ This PHP code shows you how to update a chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Setting Data Range for Charts**
@@ -935,7 +921,6 @@ This PHP code shows you how to set the data range for a chart:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Using Default Markers in Charts**
@@ -977,5 +962,4 @@ This PHP code shows you how to set a chart series market automatically:
       $pres->dispose();
     }
   }
-
 ```

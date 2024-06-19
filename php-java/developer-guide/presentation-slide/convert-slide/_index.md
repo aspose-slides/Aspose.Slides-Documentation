@@ -51,7 +51,6 @@ This PHP code shows you how to convert the first slide of a presentation to a bi
       $pres->dispose();
     }
   }
-
 ```
 
 This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
@@ -76,7 +75,6 @@ This sample code shows you how to convert the first slide of a presentation to a
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Tip" color="primary" %}} 
@@ -110,7 +108,6 @@ This sample code demonstrates the proposed conversion using the [getImage](https
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Converting Slides With Notes and Comments to Images**
@@ -155,7 +152,6 @@ This PHP code demonstrates the conversion process for a slide with notes and com
       $pres->dispose();
     }
   }
-
 ```
 
 This PHP code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
@@ -185,7 +181,6 @@ This PHP code demonstrates the conversion process for a slide with notes using t
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -232,7 +227,6 @@ This PHP code demonstrates a conversion process where ITiffOptions is used to ou
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -272,6 +266,5 @@ This sample code shows you how to convert all slides in a presentation to images
       $pres->dispose();
     }
   }
-
 ```
 

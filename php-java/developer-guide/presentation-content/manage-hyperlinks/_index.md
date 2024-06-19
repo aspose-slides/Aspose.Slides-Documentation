@@ -41,7 +41,6 @@ This PHP code shows you how to add a website hyperlink to a text:
       $presentation->dispose();
     }
   }
-
 ```
 
 ### **Adding URL Hyperlinks to Shapes or Frames**
@@ -60,7 +59,6 @@ This sample code  shows you how to add a website hyperlink to a shape:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Adding URL Hyperlinks to Media**
@@ -93,7 +91,6 @@ This sample code shows you how to add a hyperlink to an **image**:
       $pres->dispose();
     }
   }
-
 ```
 
 This sample code shows you how to add a hyperlink to an **audio file**:
@@ -122,7 +119,6 @@ try {
       $pres->dispose();
     }
   }
-
 ```
 
 This sample code shows you how to add a hyperlink to a **video**:
@@ -151,7 +147,6 @@ try {
       $pres->dispose();
     }
   }
-
 ```
 
 {{%  alert  title="Tip"  color="primary"  %}} 
@@ -190,7 +185,6 @@ This sample code shows you how to create a table of contents with hyperlinks:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Formatting Hyperlinks**
@@ -220,7 +214,6 @@ This sample code demonstrates an operation where hyperlinks with different color
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Removing Hyperlinks in Presentations**
@@ -249,7 +242,6 @@ This PHP code shows you how to remove the hyperlink from a text in a presentatio
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Removing Hyperlinks from Shapes or Frames**
@@ -269,7 +261,6 @@ This PHP code shows you how to remove the hyperlink from a shape in a presentati
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Mutable Hyperlink**
@@ -299,7 +290,6 @@ The code snippet shows you how to add a hyperlink to a slide and edit its toolti
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Supported Properties in IHyperlinkQueries**

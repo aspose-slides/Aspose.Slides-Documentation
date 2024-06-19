@@ -41,7 +41,6 @@ This PHP code shows you how to set the overlap for a chart series:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change Series Color**
@@ -69,7 +68,6 @@ This PHP code shows you how to change a series' color:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change Series Category's Color**
@@ -96,7 +94,6 @@ This code  shows you how to change a series category's color:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change Series' Name** 
@@ -124,7 +121,6 @@ This PHP code shows you how to change a series' name in its chart data `ChartDat
       $pres->dispose();
     }
   }
-
 ```
 
 This PHP code shows you how to change a series name in its legend through`Series`:
@@ -141,7 +137,6 @@ This PHP code shows you how to change a series name in its legend through`Series
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Chart Series Fill Color**
@@ -172,7 +167,6 @@ This PHP code shows you how to set the automatic fill color for a chart series:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Chart Series Invert Fill Colors**
@@ -215,7 +209,6 @@ This PHP code demonstrates the operation:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -243,7 +236,6 @@ This PHP code demonstrates the operation:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Clear Specific Data Points' Data**
@@ -274,7 +266,6 @@ This PHP code demonstrates the operation:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Series Gap Width**
@@ -326,5 +317,4 @@ This code  shows you how to set a series' Gap Width:
       $pres->dispose();
     }
   }
-
 ```

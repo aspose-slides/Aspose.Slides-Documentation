@@ -34,7 +34,6 @@ This PHP code shows you how to identify merged table cells in a presentation:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove Table Cells Border**
@@ -75,7 +74,6 @@ This PHP code shows you how to remove the borders from table cells:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Numbering in Merged Cells**
@@ -119,7 +117,6 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
       $pres->dispose();
     }
   }
-
 ```
 
 We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
@@ -165,7 +162,6 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Numbering in Splitted Cell**
@@ -216,7 +212,6 @@ This PHP code demonstrates the process we described:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change Table Cell Background Color**
@@ -241,7 +236,6 @@ This PHP code shows you how to change a table cell's background color:
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Add Image Inside Table Cell**
@@ -293,5 +287,4 @@ This PHP code shows you how to place an image inside a table cell when creating 
       $pres->dispose();
     }
   }
-
 ```

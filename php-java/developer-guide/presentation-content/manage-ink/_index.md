@@ -48,7 +48,6 @@ This PHP code shows you how to set the color for a brush:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Set Ink Brush Size** 
@@ -68,7 +67,6 @@ This PHP code shows you how to set the size for a brush:
       $pres->dispose();
     }
   }
-
 ```
 
 Generally, a brush's width and height don't match, so PowerPoint does not display the brush size (the data section is grayed out). But when the brush width and height match, PowerPoint displays its size this way:

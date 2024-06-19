@@ -55,7 +55,6 @@ This PHP code shows you how to add a comment to a slide in a PowerPoint presenta
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Access Slide Comments**
@@ -77,7 +76,6 @@ This PHP code shows you how to access an existing comment on a slide in a PowerP
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -128,7 +126,6 @@ This PHP code shows you how to add comments and get replies to them:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="warning" title="Attention" %}} 
@@ -157,7 +154,6 @@ This PHP code shows you how to add a modern comment to a slide in a PowerPoint p
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove Comment**
@@ -181,7 +177,6 @@ This PHP code shows you how to remove all comments and authors in a presentation
       $presentation->dispose();
     }
   }
-
 ```
 
 ### **Delete Specific Comments**
@@ -214,6 +209,5 @@ This PHP code shows you how to delete specific comments on a slide:
       $presentation->dispose();
     }
   }
-
 ```
 

@@ -65,7 +65,6 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add Embedded Fonts to Presentation**
@@ -99,7 +98,6 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/asp
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Compress Embedded Fonts**
@@ -118,6 +116,5 @@ This PHP code shows you how to compress embedded PowerPoint fonts:
       $pres->dispose();
     }
   }
-
 ```
 

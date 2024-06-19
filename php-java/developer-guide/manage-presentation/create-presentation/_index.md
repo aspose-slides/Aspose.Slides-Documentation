@@ -32,5 +32,4 @@ In the example given below, we have added a line to the first slide of the prese
       $pres->dispose();
     }
   }
-
 ```

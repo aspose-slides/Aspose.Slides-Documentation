@@ -29,5 +29,4 @@ Aspose.Slides for PHP via Java provides support for changing color of categories
       $pres->dispose();
     }
   }
-
 ```

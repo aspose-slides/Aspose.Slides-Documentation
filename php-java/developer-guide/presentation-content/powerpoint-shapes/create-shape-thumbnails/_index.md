@@ -48,7 +48,6 @@ This sample code shows you how to generate a shape thumbnail from a slide:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Generating Shape Thumbnails with User-Defined Scaling Factor**
@@ -80,7 +79,6 @@ This sample code shows you how to generate a shape thumbnail based on a defined 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Generating Shape Thumbnail of Bounds**
@@ -112,5 +110,4 @@ This sample code is based on the steps above:
       $pres->dispose();
     }
   }
-
 ```

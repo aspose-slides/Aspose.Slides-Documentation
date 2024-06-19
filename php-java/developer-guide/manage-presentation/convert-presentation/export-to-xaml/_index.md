@@ -33,7 +33,6 @@ This PHP code shows you how to export a presentation to XAML with default settin
       $pres->dispose();
     }
   }
-
 ```
 
 ## Exporting Presentations to XAML With Custom Options
@@ -53,5 +52,4 @@ For example, if you want Aspose.Slides to add hidden slides from your presentati
       $pres->dispose();
     }
   }
-
 ```

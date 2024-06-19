@@ -35,7 +35,6 @@ This PHP code shows you how to apply the outer shadow effect ([OuterShadowEffect
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Apply Reflection Effect**
@@ -57,7 +56,6 @@ This PHP code shows you how to apply the reflection effect to a shape:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Apply Glow Effect**
@@ -77,7 +75,6 @@ This PHP code shows you how to apply the glow effect to a shape:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Apply Soft Edges Effect**
@@ -96,5 +93,4 @@ This PHP code shows you how to apply the soft edges to a shape:
       $pres->dispose();
     }
   }
-
 ```

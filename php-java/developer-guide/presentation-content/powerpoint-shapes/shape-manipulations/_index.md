@@ -25,7 +25,6 @@ After setting the alternative text of any desired shape, you can then open that 
       $pres->dispose();
     }
   }
-
 ```
 ```php
 
@@ -61,7 +60,6 @@ The example below adds a group shape to a slide.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove Shape**
@@ -97,7 +95,6 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Hide Shape**
@@ -133,7 +130,6 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change Shapes Order**
@@ -165,7 +161,6 @@ Aspose.Slides for PHP via Java allows developers to reorder the shapes. Reorderi
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Get Interop Shape ID**
@@ -181,7 +176,6 @@ Aspose.Slides for PHP via Java allows developers to get a unique shape identifie
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Alternative Text for Shape**
@@ -224,7 +218,6 @@ To set the AlternateText of a shape, please follow the steps below:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Access Layout Formats for Shape**
@@ -246,7 +239,6 @@ Below sample code is given.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Render Shape as SVG**
@@ -269,7 +261,6 @@ Now Aspose.Slides for PHP via Java support for rendering a shape as svg. Method 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Shapes Alignment**
@@ -292,7 +283,6 @@ Source code below aligns shapes with indices 1,2 and 4 along the top border of t
       $pres->dispose();
     }
   }
-
 ```
 
 **Example 2**
@@ -308,5 +298,4 @@ The example below shows how to align the entire collection of shapes relative to
       $pres->dispose();
     }
   }
-
 ```

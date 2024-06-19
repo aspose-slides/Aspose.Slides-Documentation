@@ -59,7 +59,6 @@ The worksheet of the chart is automatically created and can be accessed with 
       $pres->dispose();
     }
   }
-
 ```
 
 Let's write some values in cells with 

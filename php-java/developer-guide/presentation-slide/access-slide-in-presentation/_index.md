@@ -24,7 +24,6 @@ The Presentation class, representing a presentation file, exposes all slides as 
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Access Slide by ID**
@@ -42,7 +41,6 @@ Each slide in a presentation has a unique ID associated with it. You can use the
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Change Slide Position**
@@ -69,7 +67,6 @@ This PHP code demonstrates an operation in which the slide in position 1 is move
   } finally {
     $pres->dispose();
   }
-
 ```
 
 The first slide became the second; the second slide became the first. When you change a slide's position, other slides are automatically adjusted.
@@ -99,7 +96,6 @@ This PHP code demonstrates an operation where the first slide number is set to 1
   } finally {
     $pres->dispose();
   }
-
 ```
 
 If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
@@ -124,5 +120,4 @@ If you prefer to skip the first slide, you can start the numbering from the seco
       $presentation->dispose();
     }
   }
-
 ```

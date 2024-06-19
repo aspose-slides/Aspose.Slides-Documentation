@@ -117,7 +117,6 @@ This PHP code demonstrates an operation where a preferred connection dot is spec
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Adjust Connector Point**
@@ -149,7 +148,6 @@ Consider a case where a connector between two shapes (A and B) passes through a 
       $pres->dispose();
     }
   }
-
 ```
 
 To avoid or bypass the third shape, we can adjust the connector by moving its vertical line to the left this way:
@@ -212,7 +210,6 @@ Consider a case where two text frame objects are linked together through a conne
       $pres->dispose();
     }
   }
-
 ```
 
 **Adjustment**
@@ -349,7 +346,6 @@ This PHP code demonstrates an operation in which we calculated the angle for a c
       $pres->dispose();
     }
   }
-
 ```
 
 ```php

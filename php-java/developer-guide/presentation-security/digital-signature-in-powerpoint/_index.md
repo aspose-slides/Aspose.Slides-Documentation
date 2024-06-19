@@ -42,7 +42,6 @@ The code sample below demonstrates how to add digital signature from a PFX cer
   } finally {
     $pres->dispose();
   }
-
 ```
 
 Now its possible to check if the presentation was digitally signed and has not been modified:
@@ -70,5 +69,4 @@ Now its possible to check if the presentation was digitally signed and has not 
       $pres->dispose();
     }
   }
-
 ```

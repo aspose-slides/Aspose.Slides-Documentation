@@ -34,6 +34,5 @@ This sample code shows you how to export a math equation from a presentation to 
       $pres->dispose();
     }
   }
-
 ```
 

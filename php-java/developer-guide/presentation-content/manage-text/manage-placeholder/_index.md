@@ -41,7 +41,6 @@ This PHP code shows how to change the text in a placeholder:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Prompt Text in Placeholder**
@@ -74,7 +73,6 @@ This PHP code shows you how to set the prompt text in a placeholder:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Placeholder Image Transparency**

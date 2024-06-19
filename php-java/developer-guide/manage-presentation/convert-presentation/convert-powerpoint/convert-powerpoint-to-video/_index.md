@@ -89,7 +89,6 @@ This PHP code shows you how to convert a presentation (containing a figure and t
   } catch (JavaException $e) {
     $e->printStackTrace();
   }
-
 ```
 
 ## **Video Effects**
@@ -178,7 +177,6 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
   } catch (JavaException $e) {
     $e->printStackTrace();
   }
-
 ```
 
 ## **Video Conversion Classes**
@@ -232,7 +230,6 @@ To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/
       $presentation->dispose();
     }
   }
-
 ```
 
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
@@ -267,7 +264,6 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
       $presentation->dispose();
     }
   }
-
 ```
 
 Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.

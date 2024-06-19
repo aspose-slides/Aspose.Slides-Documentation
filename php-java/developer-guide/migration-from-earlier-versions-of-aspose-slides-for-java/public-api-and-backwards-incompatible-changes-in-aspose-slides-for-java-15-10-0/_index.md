@@ -46,7 +46,6 @@ To add a series animation to the chart the following code may be used:
       $pres->dispose();
     }
   }
-
 ```
 
 Categories animation:
@@ -68,7 +67,6 @@ Categories animation:
       $pres->dispose();
     }
   }
-
 ```
 
 Series elements animation:
@@ -98,7 +96,6 @@ Series elements animation:
       $pres->dispose();
     }
   }
-
 ```
 
 Categories elements animation:
@@ -128,7 +125,6 @@ Categories elements animation:
       $pres->dispose();
     }
   }
-
 ```
 #### **New com.aspose.slides.VideoPlayerHtmlController added to support export od media files to HTML**
 The new public class com.aspose.slides.VideoPlayerHtmlController has been added. Using the instance of this class user can export video and audio files into HTML.
@@ -158,5 +154,4 @@ Usage example:
       $pres->dispose();
     }
   }
-
 ```

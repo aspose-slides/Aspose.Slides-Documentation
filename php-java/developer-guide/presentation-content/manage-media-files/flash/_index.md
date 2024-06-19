@@ -26,5 +26,4 @@ Aspose.Slides for PHP via Java provides a facility for extracting flash objects 
       $pres->dispose();
     }
   }
-
 ```

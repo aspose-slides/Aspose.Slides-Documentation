@@ -54,7 +54,6 @@ You can add one or several images on your computer onto a slide in a presentatio
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Adding Images From the Web to Slides**
@@ -95,7 +94,6 @@ This sample code shows you how to add an image from the web to a slide :
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Adding Images to Slide Masters**
@@ -125,7 +123,6 @@ This Java sample code shows you how to add an image to a slide master:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Adding Images as Slide Background**
@@ -167,7 +164,6 @@ try {
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Converting SVG to a Set of Shapes**
@@ -209,7 +205,6 @@ try {
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Adding Images as EMF in Slides**
@@ -252,7 +247,6 @@ This sample code shows you how to perform the described task:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Info" color="info" %}}

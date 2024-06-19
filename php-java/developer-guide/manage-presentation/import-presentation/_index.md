@@ -31,7 +31,6 @@ This PHP code demonstrates the PDF to PowerPoint operation:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert  title="Tip" color="primary" %}} 
@@ -68,7 +67,6 @@ This PHP code demonstrates the HTML to PowerPoint operation:
       $presentation->dispose();
     }
   }
-
 ```
 
 {{% alert title="Note" color="warning" %}} 

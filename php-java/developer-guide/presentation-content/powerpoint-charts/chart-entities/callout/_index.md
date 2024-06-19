@@ -20,7 +20,6 @@ New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slide
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Callout for Doughnut Chart**
@@ -84,5 +83,4 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
       $pres->dispose();
     }
   }
-
 ```

@@ -22,7 +22,6 @@ Aspose.Slides for PHP via Java provides a simple API for getting these propertie
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Calculate Actual Position of Parent Chart Elements**
@@ -42,7 +41,6 @@ Aspose.Slides for PHP via Java provides a simple API for getting these propertie
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Hide Information from Chart**
@@ -81,5 +79,4 @@ This topic helps you to understand how to hide information from chart. Using Asp
       $pres->dispose();
     }
   }
-
 ```

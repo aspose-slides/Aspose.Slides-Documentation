@@ -28,7 +28,6 @@ This sample code shows you how to get effective values:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Getting Effective Properties of the Camera**
@@ -49,7 +48,6 @@ This sample code sample shows you how to get effective properties for the camera
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Getting Effective Properties of Light Rig**
@@ -69,7 +67,6 @@ This sample code sample shows you how to get effective properties of Light Rig:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Getting Effective Properties of Bevel Shape**
@@ -90,7 +87,6 @@ This sample code sample shows you how to get effective properties for the Bevel 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Getting Effective Properties of a Text Frame**
@@ -116,7 +112,6 @@ This sample code shows you how to get effective text frame formatting properties
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Getting Effective Properties of a Text Style**
@@ -142,7 +137,6 @@ This sample code sample shows you how to get effective text style properties:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Getting Effective Font Height Value**
@@ -183,7 +177,6 @@ Using Aspose.Slides for PHP via Java, you can get effective properties of Font H
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Getting Effective Fill Format for Table**
@@ -206,7 +199,6 @@ Using Aspose.Slides for PHP via Java, you can get effective fill formatting for 
       $pres->dispose();
     }
   }
-
 ```
 
 

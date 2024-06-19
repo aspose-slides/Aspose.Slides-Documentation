@@ -39,7 +39,6 @@ In the example given below, we have cloned a slide (lying at the first position 
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Clone at Another Position with in Presentation**
@@ -65,7 +64,6 @@ In the example given below, we have cloned a slide (lying at the zero index – 
   } finally {
     $pres->dispose();
   }
-
 ```
 
 ## **Clone at End in another Presentation**
@@ -97,7 +95,6 @@ In the example given below, we have cloned a slide (from the first index of the 
   } finally {
     $srcPres->dispose();
   }
-
 ```
 
 ## **Clone at Another Position in another Presentation**
@@ -129,7 +126,6 @@ In the example given below, we have cloned a slide (from the zero index of the s
   } finally {
     $srcPres->dispose();
   }
-
 ```
 
 ## **Clone at specific position in another Presentation**
@@ -176,7 +172,6 @@ In the example given below, we have cloned a slide with a master (lying at the z
   } finally {
     $srcPres->dispose();
   }
-
 ```
 
 ## **Clone at End in Specified Section**
@@ -198,5 +193,4 @@ The following code snippet shows you how to clone a slide and insert the cloned 
       $presentation->dispose();
     }
   }
-
 ```

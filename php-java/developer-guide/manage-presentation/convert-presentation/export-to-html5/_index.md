@@ -28,7 +28,6 @@ This PHP code shows how you to export a presentation to HTML5 without web extens
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" %}} 
@@ -51,7 +50,6 @@ You may want to specify settings for shape animations and slide transitions this
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Export PowerPoint to HTML**
@@ -67,7 +65,6 @@ This Java demonstrates the standard PowerPoint to HTML process:
       $pres->dispose();
     }
   }
-
 ```
 
 In this case, the presentation content is rendered through SVG in a form like this:
@@ -108,6 +105,5 @@ This PHP code demonstrates the PowerPoint to HTML5 Slide View export process:
       $pres->dispose();
     }
   }
-
 ```
 

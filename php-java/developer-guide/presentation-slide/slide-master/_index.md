@@ -117,7 +117,6 @@ Using Aspose.Slides, you can access a Slide Master this way:
   } finally {
     $pres->dispose();
   }
-
 ```
 
 The [IMasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlide) interface represents a Slide Master. The [Masters](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getMasters--) property (related to [IMasterSlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterSlideCollection) type) contains a list of all Slide Masters that are defined in the presentation. 
@@ -153,7 +152,6 @@ You can add images to a slide master with Aspose.Slides:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -235,7 +233,6 @@ When you change a master slide's background color, all the normal slides in the 
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -260,7 +257,6 @@ To clone a Slide Master to another presentation, call the [**addClone**](https:
       $presSource->dispose();
     }
   }
-
 ```
 
 
@@ -305,7 +301,6 @@ This code shows you how to set a Slide Master as a presentation's default view :
   } finally {
     $presentation->dispose();
   }
-
 ```
 
 ## **Remove Unused Master Slide**
@@ -322,5 +317,4 @@ Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.c
       $pres->dispose();
     }
   }
-
 ```

@@ -72,7 +72,6 @@ These properties as exposed by [IDocumentProperties](https://reference.aspose.co
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Modify Built-in Properties**
@@ -96,7 +95,6 @@ Modifying the built-in properties of presentation files is as easy as that of ac
       $pres->dispose();
     }
   }
-
 ```
 
 This example modifies the built-in properties of the presentation that can be viewed as shown below:
@@ -128,7 +126,6 @@ Aspose.Slides for PHP via Java also allows developers to add the custom the valu
       $pres->dispose();
     }
   }
-
 ```
 
 |**Custom Document Properties Added**|** |
@@ -158,7 +155,6 @@ Aspose.Slides for PHP via Java also allows developers to access the values of cu
       $pres->dispose();
     }
   }
-
 ```
 
 This example modifies the custom properties of the [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentation. Following figures show the presentation custom properties before and after modification:
@@ -282,7 +278,6 @@ This PHP code shows you how to set the proofing language for a PowerPoint: xxx W
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Default Language**
@@ -304,6 +299,5 @@ This PHP code shows you how to set the default language for an entire PowerPoint
       $pres->dispose();
     }
   }
-
 ```
 

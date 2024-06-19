@@ -28,7 +28,6 @@ The code snippet below shows how to use this feature:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="primary" %}} 
@@ -57,7 +56,6 @@ The code snippet below shows how to use this feature:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Text Background Color**
@@ -97,7 +95,6 @@ This PHP code shows you how to set the background color for an entire text:
       $presentation->dispose();
     }
   }
-
 ```
 
 This PHP code shows you how to set the background color for only a portion of a text:
@@ -136,7 +133,6 @@ This PHP code shows you how to set the background color for only a portion of a 
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Align Text Paragraphs**
@@ -177,7 +173,6 @@ The implementation of the above steps is given below.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Transparency for Text**
@@ -206,7 +201,6 @@ The implementation of the above steps is given below.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Character Spacing for Text**
@@ -284,7 +278,6 @@ The implementation of the above steps is given below. It takes an unadorned pres
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Manage Font Family of Text**
@@ -338,7 +331,6 @@ The implementation of the above steps is given below.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Font Size for Text**
@@ -368,7 +360,6 @@ This PHP code shows you how to set the font size for texts contained in a paragr
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **Set Text Rotation**
@@ -410,7 +401,6 @@ Aspose.Slides for PHP via Java allows developers to rotate the text. Text could 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Custom Rotation Angle for TextFrame**
@@ -451,7 +441,6 @@ In the example given below, we set the RotationAngle property.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Line Spacing of Paragraph**
@@ -494,7 +483,6 @@ This PHP code shows you how to specify the line spacing for a paragraph:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set the AutofitType Property for TextFrame**
@@ -535,7 +523,6 @@ In this topic, we will explore the different formatting properties of text frame
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Anchor of TextFrame**
@@ -576,7 +563,6 @@ Aspose.Slides for PHP via Java allows developers to Anchor of any TextFrame. Tex
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Tabs and EffectiveTabs in Presentation**

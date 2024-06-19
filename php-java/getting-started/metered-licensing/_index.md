@@ -38,7 +38,6 @@ This PHP code shows you how to set metered public and private keys:
   } catch (JavaException $ex) {
     $ex->printStackTrace();
   }
-
 ```
 
 {{% alert color="warning" title="NOTE"  %}} 

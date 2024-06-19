@@ -28,5 +28,4 @@ Two slides are equal if all shapes, styles, texts, animation and other settings.
   } finally {
     $presentation1->dispose();
   }
-
 ```

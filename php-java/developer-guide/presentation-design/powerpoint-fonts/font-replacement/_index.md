@@ -36,7 +36,6 @@ This PHP code demonstrates font replacement:
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert title="Note" color="warning" %}} 

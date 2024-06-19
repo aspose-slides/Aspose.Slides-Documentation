@@ -43,7 +43,6 @@ In the example given below, we animated chart series.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Chart Category Animation**
@@ -74,7 +73,6 @@ In the example given below, we animated chart category.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Animation in Series Element**
@@ -116,7 +114,6 @@ In the example given below, we have animated series' elements.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Animation in Category Element**
@@ -158,5 +155,4 @@ In the example given below, we have animated categories elements.
       $pres->dispose();
     }
   }
-
 ```

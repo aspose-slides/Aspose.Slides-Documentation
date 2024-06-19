@@ -32,7 +32,6 @@ Aspose.Slides for PHP via Java provides a simple API for . 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Layout Mode of Chart Plot Area**
@@ -60,5 +59,4 @@ Sample code is given below.
       $pres->dispose();
     }
   }
-
 ```

@@ -67,7 +67,6 @@ This PHP code shows you how to create a zoom frame on a slide:
       $pres->dispose();
     }
   }
-
 ```
 ### **Creating Zoom Frames with Custom Images**
 With Aspose.Slides for PHP via Java, you can create a zoom frame with a different slide preview image this way:
@@ -112,7 +111,6 @@ This PHP code shows you how to create a zoom frame with a different image:
       $pres->dispose();
     }
   }
-
 ```
 ### **Formatting Zoom Frames**
 In the previous sections, we showed you how to create simple zoom frames. To create more complicated zoom frames, you have to alter a simple frame's formatting. There are several formatting options you can apply to a zoom frame. 
@@ -181,7 +179,6 @@ This PHP code shows you how to change a zoom frame's formatting on a slide:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Section Zoom**
@@ -224,7 +221,6 @@ This PHP code shows you how to create a zoom frame on a slide:
       $pres->dispose();
     }
   }
-
 ```
 ### **Creating Section Zoom Frames with Custom Images**
 
@@ -270,7 +266,6 @@ This PHP code shows you how to create a zoom frame with a different image:
       $pres->dispose();
     }
   }
-
 ```
 ### **Formatting Section Zoom Frames**
 
@@ -336,7 +331,6 @@ This PHP code shows you how to change a section zoom frame's formatting:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -399,7 +393,6 @@ This PHP code shows you how to create a summary zoom frame on a slide:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Adding and Removing Summary Zoom Section**
@@ -453,7 +446,6 @@ This PHP code shows you how to add and remove sections in a summary zoom frame:
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Formatting Summary Zoom Sections**
@@ -521,7 +513,6 @@ This PHP code shows you how to change the formatting for a summary zoom section 
       $pres->dispose();
     }
   }
-
 ```
 
   

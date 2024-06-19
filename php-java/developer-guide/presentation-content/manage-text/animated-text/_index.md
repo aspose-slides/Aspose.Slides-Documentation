@@ -25,7 +25,6 @@ We added the [**addEffect()**](https://reference.aspose.com/slides/php-java/aspo
       $presentation->dispose();
     }
   }
-
 ```
 
 ## Getting the Animation Effects in Paragraphs
@@ -49,5 +48,4 @@ Aspose.Slides for PHP via Java allows you to get all the animation effects appli
   } finally {
     $pres->dispose();
   }
-
 ```

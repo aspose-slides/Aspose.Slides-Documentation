@@ -37,7 +37,6 @@ getAutomaticSeriesColor() method returns an automatic color of series based on s
   for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
     $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
   }
-
 ```
 ### **Method for removing chart data point and chart category by its index has been added**
 IChartDataPointCollection.removeAt(int index) method has been added for removing chart data point by its index.

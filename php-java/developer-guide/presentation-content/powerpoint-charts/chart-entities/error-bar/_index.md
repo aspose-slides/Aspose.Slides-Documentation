@@ -39,7 +39,6 @@ Aspose.Slides for PHP via Java provides a simple API for managing error bar valu
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Add Custom Error Bar Value**
@@ -88,5 +87,4 @@ Aspose.Slides for PHP via Java provides a simple API for managing custom error b
       $pres->dispose();
     }
   }
-
 ```

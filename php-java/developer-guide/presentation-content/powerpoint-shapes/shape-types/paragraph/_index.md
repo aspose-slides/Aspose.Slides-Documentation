@@ -17,7 +17,6 @@ Using Aspose.Slides for PHP via Java, developers can now get the rectangular coo
       $point = $portion->getCoordinates();
     }
   }
-
 ```
 
 
@@ -36,7 +35,6 @@ Using [**getRect()**](https://reference.aspose.com/slides/php-java/aspose.slides
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
@@ -74,5 +72,4 @@ This sample code demonstrates the described operation:
       $pres->dispose();
     }
   }
-
 ```

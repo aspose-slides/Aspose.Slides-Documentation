@@ -36,5 +36,4 @@ Aspose.Slides for PHP via Java allows developers to add empty slides to their pr
   } finally {
     $pres->dispose();
   }
-
 ```

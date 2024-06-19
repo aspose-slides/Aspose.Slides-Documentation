@@ -36,7 +36,6 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
       $presentation->dispose();
     }
   }
-
 ```
 
 
@@ -62,7 +61,6 @@ All the other logic is the same as in adding watermark into a single slide - cre
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -201,7 +199,6 @@ To remove watermark shape and its child controls from slide, use [AutoShape.getN
       $slide->getShapes()->remove($watermarkShape);
     }
   }
-
 ```
 
 

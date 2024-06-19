@@ -27,7 +27,6 @@ This PHP code shows you how to open a presentation and also find out the number 
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Open Password Protected Presentation**
@@ -45,7 +44,6 @@ When you have to open a password-protected presentation, you can pass the passwo
       $pres->dispose();
     }
   }
-
 ```
 
 ## Open Large Presentation
@@ -71,7 +69,6 @@ This Java demonstrates an operation in which a large presentation (say 2GB in si
       $pres->dispose();
     }
   }
-
 ```
 
 {{% alert color="info" title="Info" %}}
@@ -125,7 +122,6 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
       return ResourceLoadingAction->Skip;
     }
   }
-
 ```
 
 <h2>Open and Save Presentation</h2>
@@ -147,5 +143,4 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
       $pres->dispose();
     }
   }
-
 ```

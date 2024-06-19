@@ -63,7 +63,6 @@ This PHP code shows you how to apply the `Fade` effect to AutoShape and set the 
       $pres->dispose();
     }
   }
-
 ```
 
 {{%  alert color="primary"  %}} 
@@ -111,7 +110,6 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Apply Animation to Shape**
@@ -158,7 +156,6 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Get the Animation Effects Applied to Shape**
@@ -187,7 +184,6 @@ This PHP code shows you how to get the all effects applied to a specific shape:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Change Animation Effect Timing Properties**
@@ -233,7 +229,6 @@ This PHP code demonstrates the operation:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Animation Effect Sound**
@@ -283,7 +278,6 @@ try {
       $pres->dispose();
     }
   }
-
 ```
 
 ### **Extract Animation Effect Sound**
@@ -314,7 +308,6 @@ This PHP code shows you how to extract the sound embedded in an animation effect
       $presentation->dispose();
     }
   }
-
 ```
 
 ## **After Animation**
@@ -354,7 +347,6 @@ This PHP code shows you how to change an after animation effect:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Animate Text**
@@ -396,6 +388,5 @@ This PHP code demonstrates the operation:
       $pres->dispose();
     }
   }
-
 ```
 

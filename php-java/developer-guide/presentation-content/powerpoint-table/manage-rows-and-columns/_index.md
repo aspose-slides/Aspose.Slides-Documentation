@@ -42,7 +42,6 @@ This PHP code shows you how to set a table's first row as its header:
       $pres->dispose();
     }
   }
-
 ```
 
 
@@ -93,7 +92,6 @@ This PHP code shows you how to clone a PowerPoint table's row or column:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Remove Row or Column from Table**
@@ -124,7 +122,6 @@ This PHP code shows you how to remove a row or column from a table:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Text Formatting on Table Row Level**
@@ -165,7 +162,6 @@ This PHP code demonstrates the operation.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Text Formatting on Table Column Level**
@@ -205,7 +201,6 @@ This PHP code demonstrates the operation:
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Get Table Style Properties**
@@ -224,6 +219,5 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
       $pres->dispose();
     }
   }
-
 ```
 

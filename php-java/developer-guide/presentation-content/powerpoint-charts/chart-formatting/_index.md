@@ -172,7 +172,6 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Font Properties for Chart**
@@ -198,7 +197,6 @@ Below sample example is given.
       $pres->dispose();
     }
   }
-
 ```
 
 ## **Set Format of Numerics**
@@ -240,7 +238,6 @@ Aspose.Slides for PHP via Java provides a simple API for managing chart data for
       $pres->dispose();
     }
   }
-
 ```
 
 The possible preset number format values along with their preset index and that can be used are given below:
@@ -309,6 +306,5 @@ Below sample example is given. 
       $pres->dispose();
     }
   }
-
 ```
 
