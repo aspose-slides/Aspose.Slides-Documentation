@@ -296,12 +296,17 @@ Where PresentationPlayerFrameTick
 ```java
 package com.aspose.slides;
 
+import java.io.*;
 import com.aspose.slides.*;
 
 public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
 {
     public void invoke(PresentationPlayer sender, FrameTickEventArgs arg) {
-        arg.getFrame().save(outPath + "frame_" + sender.getFrameIndex() + ".png");
+        try {
+            arg.getFrame().save(outPath + "frame_" + sender.getFrameIndex() + ".png");
+        } catch (IOException e) {
+                throw new RuntimeException(e);
+        }
     }
 }
 ```
