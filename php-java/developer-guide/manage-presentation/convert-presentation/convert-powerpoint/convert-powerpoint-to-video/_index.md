@@ -60,15 +60,8 @@ This PHP code shows you how to convert a presentation (containing a figure and t
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);
       try {
-        $player->setFrameTick((PresentationPlayer sender,FrameTickEventArgs arguments) -> {
-          try {
-            $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
-            $arguments->getFrame()->save($frame, ImageFormat->Png);
-            $frames->add($frame);
-          } catch (JavaException $e) {
-            throw new RuntimeException($e);
-          }
-        });
+        $presentationPlayerFrameTick = new PresentationPlayerFrameTick();
+        $player->setFrameTick($presentationPlayerFrameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
         if (!java_is_null($player)) {
@@ -89,6 +82,28 @@ This PHP code shows you how to convert a presentation (containing a figure and t
   } catch (JavaException $e) {
     $e->printStackTrace();
   }
+```
+
+Where PresentationPlayerFrameTick
+
+```java
+package com.aspose.slides;
+
+import java.io.*;
+import com.aspose.slides.*;
+
+public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
+{
+    public void invoke(PresentationPlayer sender, FrameTickEventArgs arg) {
+            try {
+                    String frame = String.format("frame_%04d.png", sender.getFrameIndex());
+                    arguments.getFrame().save(frame, ImageFormat.Png);
+                    frames.add(frame);
+                 } catch (IOException e) {
+                       throw new RuntimeException(e);
+            }
+    }
+}
 ```
 
 ## **Video Effects**
@@ -148,15 +163,8 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);
       try {
-        $player->setFrameTick((PresentationPlayer sender,FrameTickEventArgs arguments) -> {
-          try {
-            $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
-            $arguments->getFrame()->save($frame, ImageFormat->Png);
-            $frames->add($frame);
-          } catch (JavaException $e) {
-            throw new RuntimeException($e);
-          }
-        });
+        $presentationPlayerFrameTick = new PresentationPlayerFrameTick();
+        $player->setFrameTick($presentationPlayerFrameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
         if (!java_is_null($player)) {
@@ -177,6 +185,28 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
   } catch (JavaException $e) {
     $e->printStackTrace();
   }
+```
+
+Where PresentationPlayerFrameTick
+
+```java
+package com.aspose.slides;
+
+import java.io.*;
+import com.aspose.slides.*;
+
+public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
+{
+    public void invoke(PresentationPlayer sender, FrameTickEventArgs arg) {
+    try {
+            String frame = String.format("frame_%04d.png", sender.getFrameIndex());
+            arguments.getFrame().save(frame, ImageFormat.Png);
+            frames.add(frame);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
 ```
 
 ## **Video Conversion Classes**
@@ -241,13 +271,8 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
     try {
       $player = new PresentationPlayer($animationsGenerator, 33);
       try {
-        $player->setFrameTick((PresentationPlayer sender,FrameTickEventArgs arguments) -> {
-          try {
-            $arguments->getFrame()->save("frame_" . $sender->getFrameIndex() . ".png", ImageFormat->Png);
-          } catch (JavaException $e) {
-            throw new RuntimeException($e);
-          }
-        });
+        $presentationPlayerFrameTick = new PresentationPlayerFrameTick();
+        $player->setFrameTick($presentationPlayerFrameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
         if (!java_is_null($player)) {
@@ -264,6 +289,21 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
       $presentation->dispose();
     }
   }
+```
+
+Where PresentationPlayerFrameTick
+
+```java
+package com.aspose.slides;
+
+import com.aspose.slides.*;
+
+public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
+{
+    public void invoke(PresentationPlayer sender, FrameTickEventArgs arg) {
+        arg.getFrame().save(outPath + "frame_" + sender.getFrameIndex() + ".png");
+    }
+}
 ```
 
 Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.
