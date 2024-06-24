@@ -229,7 +229,6 @@ use aspose\slides\EffectType;
 use aspose\slides\EffectSubtype;
 use aspose\slides\EffectTriggerType;
 use aspose\slides\EffectPresetClassType;
-use java\io\RuntimeException;
 
 class PresentationAnimationPlayer {
     function invoke($animationPlayer) {
@@ -239,14 +238,12 @@ class PresentationAnimationPlayer {
             // initial animation state bitmap
             $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
-            throw new RuntimeException($e);
         }
         $animationPlayer->setTimePosition($animationPlayer->getDuration());// final state of the animation
         try {
             // last frame of the animation
             $animationPlayer->getFrame()->save("lastFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
-            throw new RuntimeException($e);
         }
     }
 }
