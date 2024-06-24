@@ -220,46 +220,59 @@ When animations are generated, a `NewAnimation` event is generated for each subs
 To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/), the [Duration](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#getDuration--) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/php-java/aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `GetFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
 
 ```php
-  $presentation = new Presentation();
-  try {
-    // Adds a smile shape and animates it
-    $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->SmileyFace, 110, 20, 500, 500);
-    $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    $effectIn = $mainSequence->addEffect($smile, EffectType->Fly, EffectSubtype->TopLeft, EffectTriggerType->AfterPrevious);
-    $effectOut = $mainSequence->addEffect($smile, EffectType->Fly, EffectSubtype->BottomRight, EffectTriggerType->AfterPrevious);
-    $effectIn->getTiming()->setDuration(2.0);
-    $effectOut->setPresetClassType(EffectPresetClassType->Exit);
-    $animationsGenerator = new PresentationAnimationsGenerator($presentation);
-    try {
-      $animationsGenerator->setNewAnimation((IPresentationAnimationPlayer animationPlayer) -> {
+use aspose\slides\Presentation;
+use aspose\slides\PresentationPlayer;
+use aspose\slides\PresentationAnimationsGenerator;
+use aspose\slides\ImageFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\EffectType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectPresetClassType;
+use java\io\RuntimeException;
+
+class PresentationAnimationPlayer {
+    function invoke($animationPlayer) {
         echo(sprintf("Animation total duration: %f", $animationPlayer->getDuration()));
         $animationPlayer->setTimePosition(0);// initial animation state
-
         try {
-          // initial animation state bitmap
-          $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat->Png);
+            // initial animation state bitmap
+            $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
-          throw new RuntimeException($e);
+            throw new RuntimeException($e);
         }
         $animationPlayer->setTimePosition($animationPlayer->getDuration());// final state of the animation
-
         try {
-          // last frame of the animation
-          $animationPlayer->getFrame()->save("lastFrame.png", ImageFormat->Png);
+            // last frame of the animation
+            $animationPlayer->getFrame()->save("lastFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
-          throw new RuntimeException($e);
+            throw new RuntimeException($e);
         }
-      });
+    }
+}
+$presentation = new Presentation();
+try {
+    // Adds a smile shape and animates it
+    $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
+    $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
+    $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);
+    $effectOut = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubtype::BottomRight, EffectTriggerType::AfterPrevious);
+    $effectIn->getTiming()->setDuration(2.0);
+    $effectOut->setPresetClassType(EffectPresetClassType::Exit);
+    $animationsGenerator = new PresentationAnimationsGenerator($presentation);
+    $presentationAnimation=java_closure(new PresentationAnimationPlayer(), null, java("com.aspose.slides.PresentationAnimationsGeneratorNewAnimation"));
+    try {
+        $animationsGenerator->setNewAnimation($presentationAnimation);
     } finally {
-      if (!java_is_null($animationsGenerator)) {
-        $animationsGenerator->dispose();
-      }
+        if (!java_is_null($animationsGenerator)) {
+            $animationsGenerator->dispose();
+        }
     }
-  } finally {
+} finally {
     if (!java_is_null($presentation)) {
-      $presentation->dispose();
+        $presentation->dispose();
     }
-  }
+}
 ```
 
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
