@@ -55,12 +55,25 @@ This PHP code shows you how to convert a presentation (containing a figure and t
     $effectIn->getTiming()->setDuration(2.0);
     $effectOut->setPresetClassType(EffectPresetClassType::Exit);
     $fps = 33;
+
+    class FrameTick {
+      function invoke($sender, $arg) {
+            try {
+                $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
+                $arguments->getFrame()->save($frame, ImageFormat::Png);
+                $frames->add($frame);
+                } catch (JavaException $e) {
+                         throw new RuntimeException($e);
+                  }
+             }
+    }
+
     $frames = new Java("java.util.ArrayList");
     $animationsGenerator = new PresentationAnimationsGenerator($presentation);
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);
       try {
-        $presentationPlayerFrameTick = new PresentationPlayerFrameTick();
+        $presentationPlayerFrameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
         $player->setFrameTick($presentationPlayerFrameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
