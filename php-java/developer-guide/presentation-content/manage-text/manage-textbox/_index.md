@@ -69,14 +69,18 @@ Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/php
 This PHP code shows you how to check whether a shape was created as a text box:
 
 ```php
+class ShapeCallback {
+    function invoke($shape, $slide, $index){
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")))
+        $autoShape = $shape;
+        echo(java_is_true($autoShape->isTextBox()) ? "shape is text box" : "shape is text not box");
+    }
+}
+
   $pres = new Presentation("pres.pptx");
   try {
-    ForEach->shape($pres, ( shape, slide, index) -> {
-      if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
-        $autoShape = $shape;
-        $System.out->println($autoShape->isTextBox() ? "shape is text box" : "shape is text not box");
-      }
-    });
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
+    ForEach::shape($pres, $forEachShapeCallback);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
