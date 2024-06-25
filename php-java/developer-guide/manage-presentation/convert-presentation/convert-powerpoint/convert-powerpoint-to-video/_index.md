@@ -63,7 +63,6 @@ This PHP code shows you how to convert a presentation (containing a figure and t
                 $arguments->getFrame()->save($frame, ImageFormat::Png);
                 $frames->add($frame);
                 } catch (JavaException $e) {
-                         throw new RuntimeException($e);
                   }
              }
     }
@@ -113,7 +112,6 @@ public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
                     arguments.getFrame().save(frame, ImageFormat.Png);
                     frames.add(frame);
                  } catch (IOException e) {
-                       throw new RuntimeException(e);
             }
     }
 }
@@ -171,12 +169,24 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
     $effect3->getTiming()->setTriggerDelayTime(1.0);
     $effect4->getTiming()->setTriggerDelayTime(1.0);
     $fps = 33;
+
+    class FrameTick {
+      function invoke($sender, $arg) {
+            try {
+                $frame = sprintf("frame_%04d.png", $sender->getFrameIndex());
+                $arguments->getFrame()->save($frame, ImageFormat::Png);
+                $frames->add($frame);
+                } catch (JavaException $e) {
+                  }
+             }
+    }
+
     $frames = new Java("java.util.ArrayList");
     $animationsGenerator = new PresentationAnimationsGenerator($presentation);
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);
       try {
-        $presentationPlayerFrameTick = new PresentationPlayerFrameTick();
+        $presentationPlayerFrameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
         $player->setFrameTick($presentationPlayerFrameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
@@ -216,7 +226,6 @@ public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
             arguments.getFrame().save(frame, ImageFormat.Png);
             frames.add(frame);
         } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }
@@ -288,13 +297,23 @@ try {
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
 
 ```php
+
+    class FrameTick {
+      function invoke($sender, $arg) {
+            try {
+                $arguments->getFrame()->save("frame_" . $sender->getFrameIndex() . ".png", ImageFormat->Png);
+                } catch (JavaException $e) {
+                  }
+             }
+    }
+
   $presentation = new Presentation("animated.pptx");
   try {
     $animationsGenerator = new PresentationAnimationsGenerator($presentation);
     try {
       $player = new PresentationPlayer($animationsGenerator, 33);
       try {
-        $presentationPlayerFrameTick = new PresentationPlayerFrameTick();
+        $presentationPlayerFrameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
         $player->setFrameTick($presentationPlayerFrameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
@@ -328,7 +347,6 @@ public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
         try {
             arg.getFrame().save(outPath + "frame_" + sender.getFrameIndex() + ".png");
         } catch (IOException e) {
-                throw new RuntimeException(e);
         }
     }
 }
