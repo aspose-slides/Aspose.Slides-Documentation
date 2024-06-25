@@ -22,7 +22,7 @@ The code snippet below shows how to use this feature:
 
     $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightText("to", java("java.awt.Color")->MAGENTA, $textHighlightingOptions);// highlighting all separate 'the' occurrences
 
-    $pres->save("OutputPresentation-highlight.pptx", SaveFormat->Pptx);
+    $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -50,7 +50,7 @@ The code snippet below shows how to use this feature:
     $options = new TextHighlightingOptions();
     $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getTextFrame()->highlightRegex("\\b[^\\s]{4}\\b", java("java.awt.Color")->YELLOW, $options);// highlighting all words with 10 symbols or longer
 
-    $pres->save("OutputPresentation-highlight.pptx", SaveFormat->Pptx);
+    $pres->save("OutputPresentation-highlight.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -79,7 +79,7 @@ This PHP code shows you how to set the background color for an entire text:
     $para->getPortions()->add($portion2);
     $para->getPortions()->add($portion3);
     $autoShape->getTextFrame()->getParagraphs()->add($para);
-    $pres->save("text.pptx", SaveFormat->Pptx);
+    $pres->save("text.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -89,7 +89,7 @@ This PHP code shows you how to set the background color for an entire text:
   try {
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     StreamSupport->stream($autoShape->getTextFrame()->getParagraphs()->spliterator(), false)->map(( p) -> $p->getPortions())->forEach(( c) -> $c->forEach(( ic) -> $ic->getPortionFormat()->getHighlightColor()->setColor($Color.BLUE)));
-    $presentation->save("text-red.pptx", SaveFormat->Pptx);
+    $presentation->save("text-red.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -114,7 +114,7 @@ This PHP code shows you how to set the background color for only a portion of a 
     $para->getPortions()->add($portion2);
     $para->getPortions()->add($portion3);
     $autoShape->getTextFrame()->getParagraphs()->add($para);
-    $pres->save("text.pptx", SaveFormat->Pptx);
+    $pres->save("text.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -127,7 +127,7 @@ This PHP code shows you how to set the background color for only a portion of a 
     if ($redPortion->isPresent()) {
       $redPortion->get()->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->RED);
     }
-    $presentation->save("text-red.pptx", SaveFormat->Pptx);
+    $presentation->save("text-red.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -167,7 +167,7 @@ The implementation of the above steps is given below.
     $para1->getParagraphFormat()->setAlignment(TextAlignment->Center);
     $para2->getParagraphFormat()->setAlignment(TextAlignment->Center);
     // Writing the presentation as a PPTX file
-    $pres->save("Centeralign_out.pptx", SaveFormat->Pptx);
+    $pres->save("Centeralign_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -195,7 +195,7 @@ The implementation of the above steps is given below.
     echo($shadowColor->toString() . " - transparency is: " . $shadowColor->getAlpha() / 255.0 * 100);
     // set transparency to zero percent
     $outerShadowEffect->getShadowColor()->setColor(new java("java.awt.Color", $shadowColor->getRed(), $shadowColor->getGreen(), $shadowColor->getBlue(), 255));
-    $pres->save("transparency-2.pptx", SaveFormat->Pptx);
+    $pres->save("transparency-2.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -217,7 +217,7 @@ This PHP code shows you how to expand the spacing for one line of text and conde
 
   $textBox2->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(-2);// condense
 
-  $presentation->save("out.pptx", SaveFormat->Pptx);
+  $presentation->save("out.pptx", SaveFormat::Pptx);
 
 ```
 
@@ -272,7 +272,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
     $port2->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $port2->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     // Write the PPTX to disk
-    $pres->save("WelcomeFont_out.pptx", SaveFormat->Pptx);
+    $pres->save("WelcomeFont_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -325,7 +325,7 @@ The implementation of the above steps is given below.
     $port->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $port->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Write the PPTX to disk
-    $pres->save("SetTextFontProperties_out.pptx", SaveFormat->Pptx);
+    $pres->save("SetTextFontProperties_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -395,7 +395,7 @@ Aspose.Slides for PHP via Java allows developers to rotate the text. Text could 
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save("RotateText_out.pptx", SaveFormat->Pptx);
+    $pres->save("RotateText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -435,7 +435,7 @@ In the example given below, we set the RotationAngle property.
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save($resourcesOutputPath . "RotateText_out.pptx", SaveFormat->Pptx);
+    $pres->save($resourcesOutputPath . "RotateText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -477,7 +477,7 @@ This PHP code shows you how to specify the line spacing for a paragraph:
     $para->getParagraphFormat()->setSpaceBefore(40);
     $para->getParagraphFormat()->setSpaceAfter(40);
     // Save Presentation
-    $pres->save("LineSpacing_out.pptx", SaveFormat->Pptx);
+    $pres->save("LineSpacing_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -517,7 +517,7 @@ In this topic, we will explore the different formatting properties of text frame
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save($resourcesOutputPath . "formatText_out.pptx", SaveFormat->Pptx);
+    $pres->save($resourcesOutputPath . "formatText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -557,7 +557,7 @@ Aspose.Slides for PHP via Java allows developers to Anchor of any TextFrame. Tex
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Save Presentation
-    $pres->save("AnchorText_out.pptx", SaveFormat->Pptx);
+    $pres->save("AnchorText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

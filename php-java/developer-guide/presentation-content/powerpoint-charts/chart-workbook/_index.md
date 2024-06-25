@@ -55,7 +55,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
     $dataLabelCollection->get_Item(0)->setValueFromCell($wb->getCell(0, "A10", $lbl0));
     $dataLabelCollection->get_Item(1)->setValueFromCell($wb->getCell(0, "A11", $lbl1));
     $dataLabelCollection->get_Item(2)->setValueFromCell($wb->getCell(0, "A12", $lbl2));
-    $pres->save("resultchart.pptx", SaveFormat->Pptx);
+    $pres->save("resultchart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -95,7 +95,7 @@ This PHP code shows you how to specify a type for a data source:
     $val->setData("LiteralString");
     $val = $chart->getChartData()->getSeries()->get_Item(1)->getName();
     $val->setData($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1", "NewCell"));
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -132,7 +132,7 @@ This PHP code demonstrates the external workbook creation process:
       }
     }
     $chart->getChartData()->setExternalWorkbook($workbookPath);
-    $pres->save("externalWorkbook.pptx", SaveFormat->Pptx);
+    $pres->save("externalWorkbook.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -163,7 +163,7 @@ This PHP code shows you how to set an external workbook:
     $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A2"));
     $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A3"));
     $chartData->getCategories()->add($chartData->getChartDataWorkbook()->getCell(0, "A4"));
-    $pres->save("Presentation_with_externalWorkbook.pptx", SaveFormat->Pptx);
+    $pres->save("Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -183,7 +183,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
     $chartData = $chart->getChartData();
     $chartData->setExternalWorkbook("http://path/doesnt/exists", false);
-    $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat->Pptx);
+    $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -212,7 +212,7 @@ This PHP code demonstrates the operation:
       $path = $chart->getChartData()->getExternalWorkbookPath();
     }
     // Saves the presentation
-    $pres->save("result.pptx", SaveFormat->Pptx);
+    $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -233,7 +233,7 @@ This PHP code is an implementation of the described process:
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $chartData = $chart->getChartData();
     $chartData->getSeries()->get_Item(0)->getDataPoints()->get_Item(0)->getValue()->getAsCell()->setValue(100);
-    $pres->save("presentation_out.pptx", SaveFormat->Pptx);
+    $pres->save("presentation_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

@@ -31,6 +31,6 @@ To convert a PPTX to PPT simply pass the file name and save format to the **Save
   // instantiate a Presentation object that represents a PPTX file
   $presentation = new Presentation("template.pptx");
   // save the presentation as PPT
-  $presentation->save("output.ppt", SaveFormat->Ppt);
+  $presentation->save("output.ppt", SaveFormat::Ppt);
 
 ```

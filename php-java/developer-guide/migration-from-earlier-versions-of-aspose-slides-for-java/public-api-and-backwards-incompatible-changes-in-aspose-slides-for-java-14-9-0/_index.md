@@ -24,7 +24,7 @@ New methods added:
   $imageData = $presentation->getImages()->get_Item(0)->replaceImage($imageData);
   // The second way
   $presentation->getImages()->get_Item(1)->replaceImage($presentation->getImages()->get_Item(0));
-  $presentation->save("presentation_out.pptx", SaveFormat->Pptx);
+  $presentation->save("presentation_out.pptx", SaveFormat::Pptx);
 
 ```
 ### **Added Methods for Saving Slides Keeping Page Numbers**
@@ -49,7 +49,7 @@ These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTM
   $presentation = new Presentation($presentationFileName);
   $slides = array(2, 3, 5 );// Array of slides positions
 
-  $presentation->save($outFileName, $slides, SaveFormat->Pdf);
+  $presentation->save($outFileName, $slides, SaveFormat::Pdf);
 
 ```
 ### **Added the SmartArtLayoutType::Custom Enum Value**
@@ -73,7 +73,7 @@ Example of usage:
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
   }
-  $pres->save("out.pptx", SaveFormat->Pptx);
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```
 ### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
@@ -95,6 +95,6 @@ Depending of SmartArtLayoutType one SmartArtShape can be shared between several 
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
   }
-  $pres->save("out.pptx", SaveFormat->Pptx);
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```

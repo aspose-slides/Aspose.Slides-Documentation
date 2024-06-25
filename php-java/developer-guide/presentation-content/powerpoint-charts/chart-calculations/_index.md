@@ -73,7 +73,7 @@ This topic helps you to understand how to hide information from chart. Using Asp
     $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $series->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Solid);
-    $pres->save("HideInformationFromChart.pptx", SaveFormat->Pptx);
+    $pres->save("HideInformationFromChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

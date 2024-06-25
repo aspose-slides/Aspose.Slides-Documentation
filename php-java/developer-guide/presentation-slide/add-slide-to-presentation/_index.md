@@ -32,7 +32,7 @@ Aspose.Slides for PHP via Java allows developers to add empty slides to their pr
     }
     // Do some work on the newly added slide
     // Save the PPTX file to the Disk
-    $pres->save("EmptySlide.pptx", SaveFormat->Pptx);
+    $pres->save("EmptySlide.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }

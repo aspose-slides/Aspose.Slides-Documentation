@@ -52,6 +52,6 @@ A new feature allows developers to create and edit VBA projects in a presentatio
   // Add references to the VBA project
   $pres->getVbaProject()->getReferences()->add($stdoleReference);
   $pres->getVbaProject()->getReferences()->add($officeReference);
-  $pres->save("data\\test.pptm", SaveFormat->Pptm);
+  $pres->save("data\\test.pptm", SaveFormat::Pptm);
 
 ```

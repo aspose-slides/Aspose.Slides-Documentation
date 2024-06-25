@@ -53,7 +53,7 @@ Sample code is given below.
     $chart->getPlotArea()->setWidth(0.7);
     $chart->getPlotArea()->setHeight(0.7);
     $chart->getPlotArea()->setLayoutTargetType(LayoutTargetType::Inner);
-    $pres->save("SetLayoutMode_outer.pptx", SaveFormat->Pptx);
+    $pres->save("SetLayoutMode_outer.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

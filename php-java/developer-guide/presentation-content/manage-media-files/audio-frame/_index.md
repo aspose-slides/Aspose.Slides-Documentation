@@ -34,7 +34,7 @@ This PHP code shows you how to add an embedded audio frame to a slide:
     $audioFrame->setPlayMode(AudioPlayModePreset->Auto);
     $audioFrame->setVolume(AudioVolumeMode->Loud);
     // Writes the PowerPoint file to disk
-    $pres->save("AudioFrameEmbed_out.pptx", SaveFormat->Pptx);
+    $pres->save("AudioFrameEmbed_out.pptx", SaveFormat::Pptx);
 } catch(JavaException e) {
 } finally {
     if (!java_is_null($pres)) $pres.dispose();
@@ -69,7 +69,7 @@ This PHP code shows you how to change an audio frame's thumbnail or preview imag
     $audioFrame->getPictureFormat()->getPicture()->setImage($picture);// <-----
 
     // Saves the modified presentation to disk
-    $presentation->save("example_out.pptx", SaveFormat->Pptx);
+    $presentation->save("example_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($presentation)) {
@@ -120,7 +120,7 @@ This PHP code demonstrates an operation in which an audio's options are adjusted
     // Rewinds the audio to start after playing
     $audioFrame->setRewindAudio(true);
     // Saves the PowerPoint file to disk
-    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat->Pptx);
+    $pres->save("AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

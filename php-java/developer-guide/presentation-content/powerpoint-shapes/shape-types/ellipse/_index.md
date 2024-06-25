@@ -31,7 +31,7 @@ In the example given below, we have added an ellipse to the first slide
     // Add AutoShape of ellipse type
     $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
     // Write the PPTX file to disk
-    $pres->save("EllipseShp1.pptx", SaveFormat->Pptx);
+    $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -69,7 +69,7 @@ In the example given below, we have added a formatted ellipse to the first slide
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shp->getLineFormat()->setWidth(5);
     // Write the PPTX file to disk
-    $pres->save("EllipseShp1.pptx", SaveFormat->Pptx);
+    $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

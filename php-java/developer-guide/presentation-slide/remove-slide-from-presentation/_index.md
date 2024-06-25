@@ -28,7 +28,7 @@ This PHP code shows you how to remove a slide through its reference:
     // Removes a slide through its reference
     $pres->getSlides()->remove($slide);
     // Saves the modified presentation
-    $pres->save("modified.pptx", SaveFormat->Pptx);
+    $pres->save("modified.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -50,7 +50,7 @@ This PHP code shows you how to remove a slide through its index:
     // Removes a slide through its slide index
     $pres->getSlides()->removeAt(0);
     // Saves the modified presentation
-    $pres->save("modified.pptx", SaveFormat->Pptx);
+    $pres->save("modified.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -64,7 +64,7 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
   $pres = new Presentation("pres.pptx");
   try {
     Compress->removeUnusedLayoutSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -80,7 +80,7 @@ Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.c
   $pres = new Presentation("pres.pptx");
   try {
     Compress->removeUnusedMasterSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

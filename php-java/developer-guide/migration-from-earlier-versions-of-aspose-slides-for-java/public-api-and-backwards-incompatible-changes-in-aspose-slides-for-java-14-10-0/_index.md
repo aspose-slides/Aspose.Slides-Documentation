@@ -38,7 +38,7 @@ IChartCategory.remove()
     $ser->getDataPoints()->remove($ser->getDataPoints()->get_Item(0));// ChartDataPointCollection.remove()
 
   }
-  $pres->save("presentation.pptx", SaveFormat->Pptx);
+  $pres->save("presentation.pptx", SaveFormat::Pptx);
 
 ```
 ### **Obsolete Aspose.Slides.ParagraphFormat methods have been removed**

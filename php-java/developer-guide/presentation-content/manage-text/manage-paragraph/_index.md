@@ -81,7 +81,7 @@ This PHP code is an implementation of the steps for adding paragraphs containing
       }
     }
     // Write PPTX to Disk
-    $pres->save("multiParaPort_out.pptx", SaveFormat->Pptx);
+    $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -159,7 +159,7 @@ This PHP code shows you how to add a paragraph bullet:
     // Adds Paragraph to text frame
     $txtFrm->getParagraphs()->add($para2);
     // Saves the modified presentation
-    $pres->save("Bullet_out.pptx", SaveFormat->Pptx);
+    $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -223,9 +223,9 @@ This PHP code shows you how to add and manage picture bullets:
     // Adds paragraph to text frame
     $textFrame->getParagraphs()->add($paragraph);
     // Writes the presentation as a PPTX file
-    $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat->Pptx);
+    $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
     // Writes the presentation as a PPT file
-    $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat->Ppt);
+    $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($presentation)) {
@@ -307,7 +307,7 @@ This PHP code shows you how to add and manage multilevel bullets:
     $text->getParagraphs()->add($para3);
     $text->getParagraphs()->add($para4);
     // Writes the presentation as a PPTX file
-    $pres->save("MultilevelBullet.pptx", SaveFormat->Pptx);
+    $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -360,7 +360,7 @@ This PHP code shows you how to add and manage paragraphs with custom numbering o
     $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
     $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $textFrame->getParagraphs()->add($paragraph5);
-    $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat->Pptx);
+    $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -418,7 +418,7 @@ This PHP code shows you how to set a paragraph indent:
     $para3->getParagraphFormat()->setDepth(2);
     $para3->getParagraphFormat()->setIndent(50);
     // Write the Presentation to disk
-    $pres->save("InOutDent_out.pptx", SaveFormat->Pptx);
+    $pres->save("InOutDent_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -445,7 +445,7 @@ This PHP code shows you how to set the hanging indent for a paragraph:
     $autoShape->getTextFrame()->getParagraphs()->add($para1);
     $autoShape->getTextFrame()->getParagraphs()->add($para2);
     $autoShape->getTextFrame()->getParagraphs()->add($para3);
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -474,12 +474,12 @@ This PHP code shows you how to set the End properties for paragraphs in PowerPoi
     $para2 = new Paragraph();
     $para2->getPortions()->add(new Portion("Sample text 2"));
     $portionFormat = new PortionFormat();
-    $portionFormat->setFontHeight(48);
-    $portionFormat->setLatinFont(new FontData("Times New Roman"));
+    $portionFormat::setFontHeight(48);
+    $portionFormat::setLatinFont(new FontData("Times New Roman"));
     $para2->setEndParagraphPortionFormat($portionFormat);
     $shape->getTextFrame()->getParagraphs()->add($para1);
     $shape->getTextFrame()->getParagraphs()->add($para2);
-    $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat->Pptx);
+    $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -522,7 +522,7 @@ This PHP code is an implementation of the steps for importing HTML texts in para
     // Adding text from HTML stream reader in text frame
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
     // Saving Presentation
-    $pres->save("output_out.pptx", SaveFormat->Pptx);
+    $pres->save("output_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

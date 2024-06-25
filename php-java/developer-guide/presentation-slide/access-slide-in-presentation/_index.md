@@ -63,7 +63,7 @@ This PHP code demonstrates an operation in which the slide in position 1 is move
     // Sets the new position for the slide
     $sld->setSlideNumber(2);
     // Saves the modified presentation
-    $pres->save("helloworld_Pos.pptx", SaveFormat->Pptx);
+    $pres->save("helloworld_Pos.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -92,7 +92,7 @@ This PHP code demonstrates an operation where the first slide number is set to 1
     // Sets the slide number
     $pres->setFirstSlideNumber(10);
     // Saves the modified presentation
-    $pres->save("Set_Slide_Number_out.pptx", SaveFormat->Pptx);
+    $pres->save("Set_Slide_Number_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -114,7 +114,7 @@ If you prefer to skip the first slide, you can start the numbering from the seco
     // Hides the slide number for the first slide
     $presentation->getSlides()->get_Item(0)->getHeaderFooterManager()->setSlideNumberVisibility(false);
     // Saves the modified presentation
-    $presentation->save("output.pptx", SaveFormat->Pptx);
+    $presentation->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();

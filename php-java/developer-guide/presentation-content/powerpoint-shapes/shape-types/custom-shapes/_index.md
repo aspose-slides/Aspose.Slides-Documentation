@@ -259,7 +259,7 @@ This PHP code shows you how to create a custom shape with curved corners (inward
     $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
     $geometryPath->closeFigure();
     $childShape->setGeometryPath($geometryPath);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

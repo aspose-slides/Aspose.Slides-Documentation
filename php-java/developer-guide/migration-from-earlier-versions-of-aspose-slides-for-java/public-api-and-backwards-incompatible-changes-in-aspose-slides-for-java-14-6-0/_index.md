@@ -70,7 +70,7 @@ This interface specifies the types of values in the ChartDataPoint.ErrorBarsCust
     $points->get_Item($i)->getErrorBarsCustomValues()->getYMinus()->setAsLiteralDouble($i + 1);
     $points->get_Item($i)->getErrorBarsCustomValues()->getYPlus()->setAsLiteralDouble($i + 1);
   }
-  $pres->save("data/ErrorBarsCustomValues.pptx", SaveFormat->Pptx);
+  $pres->save("data/ErrorBarsCustomValues.pptx", SaveFormat::Pptx);
 
 ```
 #### **Added the Aspose.Slides.Charts.IErrorBarsCustomValues Interface**
@@ -97,7 +97,7 @@ When the IErrorBarsFormat.ValueType property is equal to Custom to specify value
     $points->get_Item($i)->getErrorBarsCustomValues()->getYMinus()->setAsLiteralDouble($i + 1);
     $points->get_Item($i)->getErrorBarsCustomValues()->getYPlus()->setAsLiteralDouble($i + 1);
   }
-  $pres->save("data/ErrorBarsCustomValues.pptx", SaveFormat->Pptx);
+  $pres->save("data/ErrorBarsCustomValues.pptx", SaveFormat::Pptx);
 
 ```
 #### **Added the Aspose.Slides.Charts.IErrorBarsFormat Interface**
@@ -118,6 +118,6 @@ In case of custom value type to specify value use the ErrorBarCustomValues prope
   $errBarX->setType(ErrorBarType::Plus);
   $errBarY->getFormat()->getLine()->setWidth(2);
   $errBarX->setEndCap(true);
-  $pres->save("data/ErrorBars.pptx", SaveFormat->Pptx);
+  $pres->save("data/ErrorBars.pptx", SaveFormat::Pptx);
 
 ```

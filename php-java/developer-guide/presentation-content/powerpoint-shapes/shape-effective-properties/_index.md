@@ -20,9 +20,9 @@ This sample code shows you how to get effective values:
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
+    $effectiveTextFrameFormat = $localTextFrameFormat::getEffective();
     $localPortionFormat = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat->getEffective();
+    $effectivePortionFormat = $localPortionFormat::getEffective();
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -99,14 +99,14 @@ This sample code shows you how to get effective text frame formatting properties
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    echo("Anchoring type: " . $effectiveTextFrameFormat->getAnchoringType());
-    echo("Autofit type: " . $effectiveTextFrameFormat->getAutofitType());
-    echo("Text vertical type: " . $effectiveTextFrameFormat->getTextVerticalType());
+    echo("Anchoring type: " . $effectiveTextFrameFormat::getAnchoringType());
+    echo("Autofit type: " . $effectiveTextFrameFormat::getAutofitType());
+    echo("Text vertical type: " . $effectiveTextFrameFormat::getTextVerticalType());
     echo("Margins");
-    echo("   Left: " . $effectiveTextFrameFormat->getMarginLeft());
-    echo("   Top: " . $effectiveTextFrameFormat->getMarginTop());
-    echo("   Right: " . $effectiveTextFrameFormat->getMarginRight());
-    echo("   Bottom: " . $effectiveTextFrameFormat->getMarginBottom());
+    echo("   Left: " . $effectiveTextFrameFormat::getMarginLeft());
+    echo("   Top: " . $effectiveTextFrameFormat::getMarginTop());
+    echo("   Right: " . $effectiveTextFrameFormat::getMarginRight());
+    echo("   Bottom: " . $effectiveTextFrameFormat::getMarginBottom());
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -171,7 +171,7 @@ Using Aspose.Slides for PHP via Java, you can get effective properties of Font H
     echo("Effective font height after setting portion #1 font height:");
     echo("Portion #0: " . $portion0->getPortionFormat()->getEffective()->getFontHeight());
     echo("Portion #1: " . $portion1->getPortionFormat()->getEffective()->getFontHeight());
-    $pres->save("SetLocalFontHeightValues.pptx", SaveFormat->Pptx);
+    $pres->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

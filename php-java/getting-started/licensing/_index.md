@@ -144,7 +144,7 @@ $pres = new Presentation();
 # Get the page count of document
 echo "<script>console.log('Amount Consumed After: " . java_values($pres->getSlides()->size()) . "' );</script>";
 # save as PDF
-$pres->save("out_pdf.pdf", SaveFormat->Pdf);
+$pres->save("out_pdf.pdf", SaveFormat::Pdf);
 
 # Get metered data amount After calling API
 $amountafter = Metered->getConsumptionQuantity();

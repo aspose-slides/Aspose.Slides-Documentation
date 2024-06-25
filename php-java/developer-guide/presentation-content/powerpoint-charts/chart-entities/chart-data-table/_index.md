@@ -23,7 +23,7 @@ Aspose.Slides for PHP via Java provides support for changing color of categories
     $chart->setDataTable(true);
     $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool->True);
     $chart->getChartDataTable()->getTextFormat()->getPortionFormat()->setFontHeight(20);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

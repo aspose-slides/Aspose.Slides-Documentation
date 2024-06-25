@@ -18,7 +18,7 @@ This PHP code shows you how to set the data precision in a chart data label:
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 50, 50, 450, 300);
     $chart->setDataTable(true);
     $chart->getChartData()->getSeries()->get_Item(0)->setNumberFormatOfValues("#,##0.00");
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -65,7 +65,7 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
       }
     }
     // Saves the presentation containing the chart
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -124,7 +124,7 @@ This PHP code shows you to set the percentage sign for a chart data label:
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     // Writes the presentation to disk
-    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat->Pptx);
+    $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -146,7 +146,7 @@ This PHP code shows you how to set the label distance from a category axis when 
     // Sets the label distance from an axis
     $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
     // WriteS the presentation to disk
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -170,7 +170,7 @@ This PHP code shows you how to adjust the label location on a pie chart:
     $label->getDataLabelFormat()->setPosition(LegendDataLabelPosition->OutsideEnd);
     $label->setX(0.71);
     $label->setY(0.04);
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

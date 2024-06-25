@@ -62,7 +62,7 @@ This PHP code shows you how to add a connector (a bent connector) between two sh
     // Calls reroute that sets the automatic shortest path between shapes
     $connector->reroute();
     // Saves the presentation
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) $pres.dispose();
 }
@@ -111,7 +111,7 @@ This PHP code demonstrates an operation where a preferred connection dot is spec
       $connector->setStartShapeConnectionSiteIndex($wantedIndex);
     }
     // Saves the presentation
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

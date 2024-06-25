@@ -25,7 +25,7 @@ The examples that follow show how to save a presentation with Aspose.Slides for 
   try {
     // ...do some work here...
     // Save your presentation to a file
-    $pres->save("demoPass.pptx", SaveFormat->Pptx);
+    $pres->save("demoPass.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -44,7 +44,7 @@ It is possible to save a presentation to a stream by passing an output stream to
     // Add text to shape
     $shape->getTextFrame()->setText("This demo shows how to Create PowerPoint file and save it to Stream.");
     $os = new Java("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
-    $pres->save($os, SaveFormat->Pptx);
+    $pres->save($os, SaveFormat::Pptx);
     $os->close();
   } catch (JavaException $e) {
   } finally {
@@ -64,7 +64,7 @@ Aspose.Slides for PHP via Java provides a facility to set the view type for the 
     // Setting view type
     $pres->getViewProperties()->setLastView(ViewType::SlideMasterView);
     // Saving presentation
-    $pres->save("newDemo.pptx", SaveFormat->Pptx);
+    $pres->save("newDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -89,7 +89,7 @@ The following sample code creates a presentation and saves it in the Strict Open
     $options = new PptxOptions();
     $options->setConformance(Conformance->Iso29500_2008_Strict);
     // Save your presentation to a file
-    $pres->save("demoPass.pptx", SaveFormat->Pptx, $options);
+    $pres->save("demoPass.pptx", SaveFormat::Pptx, $options);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -108,7 +108,7 @@ The following code snippets below show how to use [IProgressCallback](https://re
   try {
     $saveOptions = new PdfOptions();
     $saveOptions->setProgressCallback(new ExportProgressHandler());
-    $pres->save("ConvertToPDF.pdf", SaveFormat->Pdf, $saveOptions);
+    $pres->save("ConvertToPDF.pdf", SaveFormat::Pdf, $saveOptions);
   } finally {
     $pres->dispose();
   }

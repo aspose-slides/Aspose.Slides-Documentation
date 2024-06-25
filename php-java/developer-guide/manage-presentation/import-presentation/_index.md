@@ -25,7 +25,7 @@ This PHP code demonstrates the PDF to PowerPoint operation:
   $pres = new Presentation();
   try {
     $pres->getSlides()->addFromPdf("InputPDF.pdf");
-    $pres->save("OutputPresentation.pptx", SaveFormat->Pptx);
+    $pres->save("OutputPresentation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -60,7 +60,7 @@ This PHP code demonstrates the HTML to PowerPoint operation:
         $htmlStream->close();
       }
     }
-    $presentation->save("MyPresentation.pptx", SaveFormat->Pptx);
+    $presentation->save("MyPresentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($presentation)) {

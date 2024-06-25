@@ -27,7 +27,7 @@ Method com.aspose.slides.IConnector.reroute() reroutes connector so that it take
   $connector->setStartShapeConnectedTo($ellipse);
   $connector->setEndShapeConnectedTo($rectangle);
   $connector->reroute();
-  $input->save("output.pptx", SaveFormat->Pptx);
+  $input->save("output.pptx", SaveFormat::Pptx);
 
 ```
 ### **Method IPresentation.getSlideById(long) has been added**
@@ -48,7 +48,7 @@ Method com.aspose.slides.ISmartArt.getNodes() returns collection of root nodes i
   $node = $smart->getNodes()->get_Item(1);// select second root node
 
   $node->getTextFrame()->setText("Second root node");
-  $pres->save("out.pptx", SaveFormat->Pptx);
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```
 ### **Method ISmartArt.setLayout(int) has been added**
@@ -58,7 +58,7 @@ Method for property com.aspose.slides.ISmartArt.setLayout(int) has been added. I
   $pres = new Presentation();
   $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
   $smart->setLayout(SmartArtLayoutType::BasicProcess);
-  $pres->save("out.pptx", SaveFormat->Pptx);
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```
 ### **Method ISmartArtNode.isHidden() has been added**
@@ -73,7 +73,7 @@ Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a
   if ($hidden) {
     // do some actions or notifications
   }
-  $pres->Save("out.pptx", SaveFormat->Pptx);
+  $pres->Save("out.pptx", SaveFormat::Pptx);
 
 ```
 ### **Methods ISmartArt.isReversed(), setReserved() have been added**
@@ -83,7 +83,7 @@ Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of 
   $presentation = new Presentation();
   $smart = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicProcess);
   $smart->setReversed(true);
-  $presentation->save("out.pptx", SaveFormat->Pptx);
+  $presentation->save("out.pptx", SaveFormat::Pptx);
 
 ```
 ### **Methods ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) have been added**
@@ -93,7 +93,7 @@ Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganiz
   $pres = new Presentation();
   $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
   $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
-  $pres->save("out.pptx", SaveFormat->Pptx);
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```
 ### **Property IShape.getConnectionSiteCount() has been added**
@@ -111,7 +111,7 @@ Property com.aspose.slides.getConnectionSiteCount() returns the number of connec
   if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
     $connector->setStartShapeConnectionSiteIndex($wantedIndex);
   }
-  $input->save("output.pptx", SaveFormat->Pptx);
+  $input->save("output.pptx", SaveFormat::Pptx);
 
 ```
 ### **Minor Changes**

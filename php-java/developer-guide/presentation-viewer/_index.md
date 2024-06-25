@@ -102,7 +102,7 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
     $slideImage = $sld->getImage(1.0, 1.0);
     // Save the image to disk in JPEG format
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat->Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -136,7 +136,7 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
     $slideImage = $sld->getImage($ScaleX, $ScaleY);
     // Save the image to disk in JPEG format
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat->Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
@@ -175,7 +175,7 @@ The code snippet below produces a thumbnail of the first slide of a presentation
     $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
     // Save the image to disk in JPEG format
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat->Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();

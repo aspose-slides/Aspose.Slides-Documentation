@@ -54,7 +54,7 @@ In the example given below, we have set the chart marker options on data points 
     // Changing the chart series marker
     $series->getMarker()->setSize(15);
     // Save presentation with chart
-    $pres->save("ScatterChart.pptx", SaveFormat->Pptx);
+    $pres->save("ScatterChart.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

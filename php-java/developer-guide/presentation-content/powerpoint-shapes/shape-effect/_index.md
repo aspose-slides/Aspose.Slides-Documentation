@@ -29,7 +29,7 @@ This PHP code shows you how to apply the outer shadow effect ([OuterShadowEffect
     $shape->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->DARK_GRAY);
     $shape->getEffectFormat()->getOuterShadowEffect()->setDistance(10);
     $shape->getEffectFormat()->getOuterShadowEffect()->setDirection(45);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -50,7 +50,7 @@ This PHP code shows you how to apply the reflection effect to a shape:
     $shape->getEffectFormat()->getReflectionEffect()->setDirection(90);
     $shape->getEffectFormat()->getReflectionEffect()->setDistance(55);
     $shape->getEffectFormat()->getReflectionEffect()->setBlurRadius(4);
-    $pres->save("reflection.pptx", SaveFormat->Pptx);
+    $pres->save("reflection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -69,7 +69,7 @@ This PHP code shows you how to apply the glow effect to a shape:
     $shape->getEffectFormat()->enableGlowEffect();
     $shape->getEffectFormat()->getGlowEffect()->getColor()->setColor(java("java.awt.Color")->MAGENTA);
     $shape->getEffectFormat()->getGlowEffect()->setRadius(15);
-    $pres->save("glow.pptx", SaveFormat->Pptx);
+    $pres->save("glow.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -87,7 +87,7 @@ This PHP code shows you how to apply the soft edges to a shape:
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 20, 20, 200, 150);
     $shape->getEffectFormat()->enableSoftEdgeEffect();
     $shape->getEffectFormat()->getSoftEdgeEffect()->setRadius(15);
-    $pres->save("softEdges.pptx", SaveFormat->Pptx);
+    $pres->save("softEdges.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

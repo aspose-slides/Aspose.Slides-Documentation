@@ -50,6 +50,6 @@ When a new first slide number value is specified all slide numbers are recalcula
   $pres = new Presentation($path);
   $firstSlideNumber = $pres->getFirstSlideNumber();
   $pres->setFirstSlideNumber(10);
-  $pres->save($newPath, SaveFormat->Pptx);
+  $pres->save($newPath, SaveFormat::Pptx);
 
 ```

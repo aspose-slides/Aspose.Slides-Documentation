@@ -38,7 +38,7 @@ This PHP code demonstrates the font substitution process:
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
     // Saves the image to disk in the JPEG format
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat->Jpeg);
+      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();

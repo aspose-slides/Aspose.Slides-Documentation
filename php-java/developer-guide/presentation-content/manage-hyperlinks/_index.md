@@ -32,10 +32,10 @@ This PHP code shows you how to add a website hyperlink to a text:
     $shape1 = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50, false);
     $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
-    $portionFormat->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-    $portionFormat->setFontHeight(32);
-    $presentation->save("presentation-out.pptx", SaveFormat->Pptx);
+    $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+    $portionFormat::setFontHeight(32);
+    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -53,7 +53,7 @@ This sample code  shows you how to add a website hyperlink to a shape:
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50);
     $shape->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $shape->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -84,7 +84,7 @@ This sample code shows you how to add a hyperlink to an **image**:
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -112,7 +112,7 @@ try {
     $audioFrame = $pres->getSlides()->get_Item(0)->getShapes()->addAudioFrameEmbedded(10, 10, 100, 100, $audio);
     $audioFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $audioFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -140,7 +140,7 @@ try {
     $videoFrame = $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
     $videoFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $videoFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -179,7 +179,7 @@ This sample code shows you how to create a table of contents with hyperlinks:
     $linkPortion->getPortionFormat()->getHyperlinkManager()->setInternalHyperlinkClick($secondSlide);
     $paragraph->getPortions()->add($linkPortion);
     $contentTable->getTextFrame()->getParagraphs()->add($paragraph);
-    $pres->save("link_to_slide.pptx", SaveFormat->Pptx);
+    $pres->save("link_to_slide.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -201,14 +201,14 @@ This sample code demonstrates an operation where hyperlinks with different color
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 450, 50, false);
     $shape1->addTextFrame("This is a sample of colored hyperlink.");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
-    $portionFormat->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat->getHyperlinkClick()->setColorSource(HyperlinkColorSource->PortionFormat);
-    $portionFormat->getFillFormat()->setFillType(FillType::Solid);
-    $portionFormat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+    $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    $portionFormat::getHyperlinkClick()->setColorSource(HyperlinkColorSource->PortionFormat);
+    $portionFormat::getFillFormat()->setFillType(FillType::Solid);
+    $portionFormat::getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $shape2 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 200, 450, 50, false);
     $shape2->addTextFrame("This is a sample of usual hyperlink.");
     $shape2->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $pres->save("presentation-out-hyperlink.pptx", SaveFormat->Pptx);
+    $pres->save("presentation-out-hyperlink.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -236,7 +236,7 @@ This PHP code shows you how to remove the hyperlink from a text in a presentatio
         }
       }
     }
-    $pres->save("pres-removed-hyperlinks.pptx", SaveFormat->Pptx);
+    $pres->save("pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -255,7 +255,7 @@ This PHP code shows you how to remove the hyperlink from a shape in a presentati
     foreach($slide->getShapes() as $shape) {
       $shape->getHyperlinkManager()->removeHyperlinkClick();
     }
-    $pres->save("pres-removed-hyperlinks.pptx", SaveFormat->Pptx);
+    $pres->save("pres-removed-hyperlinks.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -281,10 +281,10 @@ The code snippet shows you how to add a hyperlink to a slide and edit its toolti
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 600, 50, false);
     $shape1->addTextFrame("Aspose: File Format APIs");
     $portionFormat = $shape1->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat();
-    $portionFormat->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-    $portionFormat->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-    $portionFormat->setFontHeight(32);
-    $pres->save("presentation-out.pptx", SaveFormat->Pptx);
+    $portionFormat::setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
+    $portionFormat::getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+    $portionFormat::setFontHeight(32);
+    $pres->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

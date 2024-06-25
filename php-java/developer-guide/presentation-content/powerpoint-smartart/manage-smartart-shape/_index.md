@@ -23,7 +23,7 @@ Aspose.Slides for PHP via Java has provided an API to create SmartArt shapes. To
     // Add Smart Art Shape
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::BasicBlockList);
     // Saving presentation
-    $pres->save("SimpleSmartArt.pptx", SaveFormat->Pptx);
+    $pres->save("SimpleSmartArt.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -120,7 +120,7 @@ In this example, we will learn to change the quick style for any SmartArt shape.
       }
     }
     // Saving presentation
-    $pres->save("ChangeSmartArtStyle.pptx", SaveFormat->Pptx);
+    $pres->save("ChangeSmartArtStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -161,7 +161,7 @@ In this example, we will learn to change the color style for any SmartArt shape.
       }
     }
     // Saving presentation
-    $pres->save("ChangeSmartArtColorStyle.pptx", SaveFormat->Pptx);
+    $pres->save("ChangeSmartArtColorStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }

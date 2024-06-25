@@ -35,7 +35,7 @@ The following example shows how to replace a font in a presentation:
   $sourceFont = new FontData("Arial");
   $destFont = new FontData("Times New Roman");
   $pres->getFontsManager()->replaceFont($sourceFont, $destFont);
-  $pres->save("PresContainsTimesNoewRomanFont.pptx", SaveFormat->Pptx);
+  $pres->save("PresContainsTimesNoewRomanFont.pptx", SaveFormat::Pptx);
 
 ```
 

@@ -82,7 +82,7 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
     // Adds empty slide with added layout slide
     $pres->getSlides()->insertEmptySlide(0, $layoutSlide);
     // Saves the presentation to disk
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -96,7 +96,7 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
   $pres = new Presentation("pres.pptx");
   try {
     Compress->removeUnusedLayoutSlides($pres);
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -123,7 +123,7 @@ To allow you to set the size and type for a specific layout slide, Aspose.Slides
       $auxPresentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
       $auxPresentation->getSlides()->removeAt(0);
       // Saves the presentation to disk
-      $auxPresentation->save("size.pptx", SaveFormat->Pptx);
+      $auxPresentation->save("size.pptx", SaveFormat::Pptx);
     } finally {
       $auxPresentation->dispose();
     }
@@ -222,7 +222,7 @@ This PHP code demonstrates the operation:
     $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);// Method SetSize is used to set slide size with maximum size of content
 
     // Saves the presentation to disk
-    $presentation->save("Set_Size&Type_out.pptx", SaveFormat->Pptx);
+    $presentation->save("Set_Size&Type_out.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
   }
@@ -244,7 +244,7 @@ Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/php-j
     $opts = new PdfOptions();
     $opts->setSufficientResolution(600);
     // Saves the presentation to disk
-    $presentation->save("SetPDFPageSize_out.pdf", SaveFormat->Pdf, $opts);
+    $presentation->save("SetPDFPageSize_out.pdf", SaveFormat::Pdf, $opts);
   } finally {
     $presentation->dispose();
   }

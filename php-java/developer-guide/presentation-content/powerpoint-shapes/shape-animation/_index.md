@@ -57,7 +57,7 @@ This PHP code shows you how to apply the `Fade` effect to AutoShape and set the 
     // Animates shape text by 1st level paragraphs
     $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
     // Save the PPTX file to disk
-    $pres->save($path . "AnimText_out.pptx", SaveFormat->Pptx);
+    $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -103,7 +103,7 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
     // Adds Fly from Left animation effect to picture frame
     $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
     // Save the PPTX file to disk
-    $pres->save($path . "AnimImage_out.pptx", SaveFormat->Pptx);
+    $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -150,7 +150,7 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
     $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
     $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
     // Writes the PPTX file to disk
-    $pres->save("AnimExample_out.pptx", SaveFormat->Pptx);
+    $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -223,7 +223,7 @@ This PHP code demonstrates the operation:
     // Changes effect TriggerDelayTime
     $effect->getTiming()->setTriggerDelayTime(0.5);
     // Saves the PPTX file to disk
-    $pres->save("AnimExample_changed.pptx", SaveFormat->Pptx);
+    $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -272,7 +272,7 @@ try {
     // Sets the effect "Stop previous sound" flag
     $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
     // Writes the PPTX file to disk
-    $pres->save("AnimExample_Sound_out.pptx", SaveFormat->Pptx);
+    $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -341,7 +341,7 @@ This PHP code shows you how to change an after animation effect:
     // Sets the after animation dim color
     $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
     // Writes the PPTX file to disk
-    $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat->Pptx);
+    $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -382,7 +382,7 @@ This PHP code demonstrates the operation:
     // Sets the delay between words to 20% of effect duration
     $firstEffect->setDelayBetweenTextParts(20.0);
     // Writes the PPTX file to disk
-    $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat->Pptx);
+    $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

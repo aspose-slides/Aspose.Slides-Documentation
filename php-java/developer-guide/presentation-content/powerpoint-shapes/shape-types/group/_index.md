@@ -34,7 +34,7 @@ The example below adds a group shape to a slide.
     // Adding group shape frame
     $groupShape->setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool->False, NullableBool->False, 0));
     // Write the PPTX file to disk
-    $pres->save("GroupShape.pptx", SaveFormat->Pptx);
+    $pres->save("GroupShape.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

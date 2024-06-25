@@ -32,7 +32,7 @@ This PHP code shows you how to set a solid color (blue) as the background for a 
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Writes the presentation to disk
-    $pres->save("ContentBG.pptx", SaveFormat->Pptx);
+    $pres->save("ContentBG.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -61,7 +61,7 @@ This PHP code shows you how to set a solid color (forest green) as the backgroun
     $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     // Writes the presentation to disk
-    $pres->save("MasterBG.pptx", SaveFormat->Pptx);
+    $pres->save("MasterBG.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -90,7 +90,7 @@ This PHP code shows you how to set a gradient color as the background for a slid
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip->FlipBoth);
     // Writes the presentation to disk
-    $pres->save("ContentBG_Grad.pptx", SaveFormat->Pptx);
+    $pres->save("ContentBG_Grad.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -133,7 +133,7 @@ This PHP code shows you how to set an image as the background for a slide:
     // Adds image to presentation's images collection
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($imgx);
     // Writes the presentation to disk
-    $pres->save("ContentBG_Img.pptx", SaveFormat->Pptx);
+    $pres->save("ContentBG_Img.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

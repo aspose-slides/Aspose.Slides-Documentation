@@ -63,7 +63,7 @@ This Java demonstrates an operation in which a large presentation (say 2GB in si
     // makes changes to the presentation.
     $pres->getSlides()->get_Item(0)->setName("Very large presentation");
     // The presentation will be saved to the other file. The memory consumption stays low during the operation
-    $pres->save("veryLargePresentation-copy.pptx", SaveFormat->Pptx);
+    $pres->save("veryLargePresentation-copy.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -137,7 +137,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
   try {
     // ...do some work here...
     // Saves your presentation to a file
-    $pres->save("demoPass.pptx", SaveFormat->Pptx);
+    $pres->save("demoPass.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

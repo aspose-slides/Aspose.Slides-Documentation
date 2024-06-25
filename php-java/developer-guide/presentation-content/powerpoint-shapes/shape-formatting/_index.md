@@ -49,7 +49,7 @@ This PHP code demonstrates an operation where we formatted a rectangle `AutoShap
     $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Writes the PPTX file to disk
-    $pres->save("RectShpLn_out.pptx", SaveFormat->Pptx);
+    $pres->save("RectShpLn_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -108,7 +108,7 @@ This Java demonstrates an operation where 3 rectangles (the image above) were cr
     $shp2->getTextFrame()->setText("Bevel Join Style");
     $shp3->getTextFrame()->setText("Round Join Style");
     // Writes the PPTX file to disk
-    $pres->save("RectShpLnJoin_out.pptx", SaveFormat->Pptx);
+    $pres->save("RectShpLnJoin_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -148,7 +148,7 @@ This PHP code demonstrates an operation where the gradient fill effect was used 
     $shp->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor->Purple);
     $shp->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor->Red);
     // Writes the PPTX file to disk
-    $pres->save("EllipseShpGrad_out.pptx", SaveFormat->Pptx);
+    $pres->save("EllipseShpGrad_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -191,7 +191,7 @@ This PHP code demonstrates an operation where a pattern fill was used to beautif
     $shp->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shp->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
     // Writes the PPTX file to disk
-    $pres->save("RectShpPatt_out.pptx", SaveFormat->Pptx);
+    $pres->save("RectShpPatt_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -240,7 +240,7 @@ This PHP code shows you how to fill a shape with a picture:
     }
     $shp->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
     // Writes the PPTX file to disk
-    $pres->save("RectShpPic_out.pptx", SaveFormat->Pptx);
+    $pres->save("RectShpPic_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -277,7 +277,7 @@ This PHP code shows you how to apply the solid color fill to a box in PowerPoint
     // Sets the color for the rectangle
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     // Writes the PPTX file to disk
-    $pres->save("RectShpSolid_out.pptx", SaveFormat->Pptx);
+    $pres->save("RectShpSolid_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -311,7 +311,7 @@ This PHP code demonstrates the process:
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 204, 102, 0, 128));
     // Writes the PPTX file to disk
-    $pres->save("ShapeTransparentOverSolid_out.pptx", SaveFormat->Pptx);
+    $pres->save("ShapeTransparentOverSolid_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -341,7 +341,7 @@ This PHP code shows you how to rotate a shape by 90 degrees:
     // Rotates the shape by 90 degrees
     $shp->setRotation(90);
     // Writes the PPTX file to disk
-    $pres->save("RectShpRot_out.pptx", SaveFormat->Pptx);
+    $pres->save("RectShpRot_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -371,8 +371,8 @@ This PHP code shows you how to add 3D bevel effects to a shape:
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $format = $shape->getLineFormat()->getFillFormat();
-    $format->setFillType(FillType::Solid);
-    $format->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $Format::setFillType(FillType::Solid);
+    $Format::getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $shape->getLineFormat()->setWidth(2.0);
     // Sets the shape's ThreeDFormat properties
     $shape->getThreeDFormat()->setDepth(4);
@@ -383,7 +383,7 @@ This PHP code shows you how to add 3D bevel effects to a shape:
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
     // Writes the presentation as a PPTX file
-    $pres->save("Bavel_out.pptx", SaveFormat->Pptx);
+    $pres->save("Bavel_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -418,7 +418,7 @@ This PHP code shows you how to apply 3D rotation effects to a shape:
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
     // Writes the presentation as a PPTX file
-    $pres->save("Rotation_out.pptx", SaveFormat->Pptx);
+    $pres->save("Rotation_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

@@ -54,7 +54,7 @@ The example below adds a group shape to a slide.
     $destShapes->addClone($sourceShapes->get_Item(2));
     $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
     // Write the PPTX file to disk
-    $pres->save("CloneShape_out.pptx", SaveFormat->Pptx);
+    $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -89,7 +89,7 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
       }
     }
     // Save presentation to disk
-    $pres->save("RemoveShape_out.pptx", SaveFormat->Pptx);
+    $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -124,7 +124,7 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
       }
     }
     // Save presentation to disk
-    $pres->save("Hiding_Shapes_out.pptx", SaveFormat->Pptx);
+    $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -155,7 +155,7 @@ Aspose.Slides for PHP via Java allows developers to reorder the shapes. Reorderi
     $portion->setText("Watermark Text Watermark Text Watermark Text");
     $shp3 = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 200, 365, 400, 150);
     $slide->getShapes()->reorder(2, $shp3);
-    $pres->save("Reshape_out.pptx", SaveFormat->Pptx);
+    $pres->save("Reshape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -212,7 +212,7 @@ To set the AlternateText of a shape, please follow the steps below:
       }
     }
     // Save presentation to disk
-    $pres->save("Set_AlternativeText_out.pptx", SaveFormat->Pptx);
+    $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

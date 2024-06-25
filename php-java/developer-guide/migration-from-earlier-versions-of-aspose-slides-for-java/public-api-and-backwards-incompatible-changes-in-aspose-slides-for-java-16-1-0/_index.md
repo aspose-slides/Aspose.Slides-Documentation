@@ -25,6 +25,6 @@ They provide access to the custom rotation that is being applied to the text wit
   $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getTextBlockFormat()->setRotationAngle(65);
   $chart->setTitle(true);
   $chart->getChartTitle()->addTextFrameForOverriding("Custom title")->getTextFrameFormat()->setRotationAngle(-30);
-  $pres->save("out.pptx", SaveFormat->Pptx);
+  $pres->save("out.pptx", SaveFormat::Pptx);
 
 ```

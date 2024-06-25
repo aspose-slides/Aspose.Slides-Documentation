@@ -33,7 +33,7 @@ To create a simple slide transition effect, follow the steps below:
     // Apply comb type transition on slide 2
     $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
     // Write the presentation to disk
-    $presentation->save("SampleTransition_out.pptx", SaveFormat->Pptx);
+    $presentation->save("SampleTransition_out.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
   }
@@ -68,7 +68,7 @@ In the above section, we just applied a simple transition effect on the slide. N
     $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceOnClick(true);
     $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceAfterTime(7000);
     // Write the presentation to disk
-    $pres->save("SampleTransition_out.pptx", SaveFormat->Pptx);
+    $pres->save("SampleTransition_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -97,7 +97,7 @@ The following code snippet shows you how to add a clone of the slide with some t
     $shape->setWidth($shape->getWidth() - 200);
     $shape->setHeight($shape->getHeight() - 10);
     $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Morph);
-    $presentation->save("presentation-out.pptx", SaveFormat->Pptx);
+    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
   }
@@ -119,7 +119,7 @@ The following code snippet shows you how to set morph transition to slide and ch
   try {
     $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Morph);
     $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setMorphType(TransitionMorphType::ByWord);
-    $presentation->save("presentation-out.pptx", SaveFormat->Pptx);
+    $presentation->save("presentation-out.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
   }
@@ -143,7 +143,7 @@ In the example given below, we have set the transition effects.
     $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Cut);
     $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setFromBlack(true);
     // Write the presentation to disk
-    $presentation->save("SetTransitionEffects_out.pptx", SaveFormat->Pptx);
+    $presentation->save("SetTransitionEffects_out.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
   }

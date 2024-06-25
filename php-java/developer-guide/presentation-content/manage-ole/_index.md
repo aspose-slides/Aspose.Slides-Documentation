@@ -56,7 +56,7 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
     // Adds an Ole Object Frame shape
     $oleObjectFrame = $sld->getShapes()->addOleObjectFrame(0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $dataInfo);
     // Writes the PPTX file to disk
-    $pres->save("OleEmbed_out.pptx", SaveFormat->Pptx);
+    $pres->save("OleEmbed_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -150,7 +150,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
           $Wb->getWorksheets()->get(0)->getCells()->get(1, 4)->putValue(12);
           $Wb->getWorksheets()->get(0)->getCells()->get(2, 4)->putValue(14);
           $Wb->getWorksheets()->get(0)->getCells()->get(3, 4)->putValue(15);
-          $so1 = new OoxmlSaveOptions(SaveFormat->XLSX);
+          $so1 = new OoxmlSaveOptions(SaveFormat::XLSX);
           $Wb->save($msout, $so1);
           // Changes Ole frame object data
           $newData = new OleEmbeddedDataInfo($msout->toByteArray(), $ole->getEmbeddedData()->getEmbeddedFileExtension());
@@ -166,7 +166,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
         }
       }
     }
-    $pres->save("OleEdit_out.pptx", SaveFormat->Pptx);
+    $pres->save("OleEdit_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -211,7 +211,7 @@ try {
     $dataInfoZip = new OleEmbeddedDataInfo($zipBytes, "zip");
     $oleFrameZip = $slide->getShapes()->addOleObjectFrame(150, 220, 50, 50, $dataInfoZip);
     $oleFrameZip->setObjectIcon(true);
-    $pres->save("embeddedOle.pptx", SaveFormat->Pptx);
+    $pres->save("embeddedOle.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -245,7 +245,7 @@ try {
 }
     $oleObjectFrame->setEmbeddedData(new OleEmbeddedDataInfo($bytes, "zip"));
 
-    $pres->save("embeddedChanged.pptx", SaveFormat->Pptx);
+    $pres->save("embeddedChanged.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -279,7 +279,7 @@ This PHP code shows you how to set the icon image and title for an embedded obje
     $oleObjectFrame->setSubstitutePictureTitle("My title");
     $oleObjectFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
     $oleObjectFrame->setObjectIcon(false);
-    $pres->save("embeddedOle-newImage.pptx", SaveFormat->Pptx);
+    $pres->save("embeddedOle-newImage.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

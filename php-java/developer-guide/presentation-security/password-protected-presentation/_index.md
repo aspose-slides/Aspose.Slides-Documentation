@@ -84,7 +84,7 @@ This sample code shows you how to encrypt a presentation:
   $presentation = new Presentation("pres.pptx");
   try {
     $presentation->getProtectionManager()->encrypt("123123");
-    $presentation->save("encrypted-pres.pptx", SaveFormat->Pptx);
+    $presentation->save("encrypted-pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -104,7 +104,7 @@ To set a write protection, you have to use the [setWriteProtection](https://refe
   $presentation = new Presentation("pres.pptx");
   try {
     $presentation->getProtectionManager()->setWriteProtection("123123");
-    $presentation->save("write-protected-pres.pptx", SaveFormat->Pptx);
+    $presentation->save("write-protected-pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -143,7 +143,7 @@ To remove encryption or password protection, you have to call the [removeEncrypt
   $presentation = new Presentation("pres.pptx", $loadOptions);
   try {
     $presentation->getProtectionManager()->removeEncryption();
-    $presentation->save("encryption-removed.pptx", SaveFormat->Pptx);
+    $presentation->save("encryption-removed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -161,7 +161,7 @@ You can remove the write protection from a presentation by using the [removeWrit
   $presentation = new Presentation("pres.pptx");
   try {
     $presentation->getProtectionManager()->removeWriteProtection();
-    $presentation->save("write-protection-removed.pptx", SaveFormat->Pptx);
+    $presentation->save("write-protection-removed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();

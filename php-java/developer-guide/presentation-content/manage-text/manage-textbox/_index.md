@@ -52,7 +52,7 @@ This PHP code—an implementation of the steps above—shows you how to add text
     // Sets Text
     $portion->setText("Aspose TextBox");
     // Saves the presentation to disk
-    $pres->save("TextBox_out.pptx", SaveFormat->Pptx);
+    $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -102,11 +102,11 @@ This code  demonstrates the described operation:
     // Gets the text format of TextFrame
     $format = $aShape->getTextFrame()->getTextFrameFormat();
     // Specifies the number of columns in TextFrame
-    $format->setColumnCount(3);
+    $Format::setColumnCount(3);
     // Specifies the spacing between columns
-    $format->setColumnSpacing(10);
+    $Format::setColumnSpacing(10);
     // Saves the presentation
-    $pres->save("ColumnCount.pptx", SaveFormat->Pptx);
+    $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -126,9 +126,9 @@ This PHP code shows you how to add a column inside a text frame:
   try {
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     $format = $shape1->getTextFrame()->getTextFrameFormat();
-    $format->setColumnCount(2);
+    $Format::setColumnCount(2);
     $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
-    $pres->save($outPptxFileName, SaveFormat->Pptx);
+    $pres->save($outPptxFileName, SaveFormat::Pptx);
     $test = new Presentation($outPptxFileName);
     try {
       $autoShape = $test->getSlides()->get_Item(0)->getShapes()->get_Item(0);
@@ -139,8 +139,8 @@ This PHP code shows you how to add a column inside a text frame:
         $test->dispose();
       }
     }
-    $format->setColumnSpacing(20);
-    $pres->save($outPptxFileName, SaveFormat->Pptx);
+    $Format::setColumnSpacing(20);
+    $pres->save($outPptxFileName, SaveFormat::Pptx);
     $test1 = new Presentation($outPptxFileName);
     try {
       $autoShape = $test1->getSlides()->get_Item(0)->getShapes()->get_Item(0);
@@ -151,9 +151,9 @@ This PHP code shows you how to add a column inside a text frame:
         $test1->dispose();
       }
     }
-    $format->setColumnCount(3);
-    $format->setColumnSpacing(15);
-    $pres->save($outPptxFileName, SaveFormat->Pptx);
+    $Format::setColumnCount(3);
+    $Format::setColumnSpacing(15);
+    $pres->save($outPptxFileName, SaveFormat::Pptx);
     $test2 = new Presentation($outPptxFileName);
     try {
       $autoShape = $test2->getSlides()->get_Item(0)->getShapes()->get_Item(0);
@@ -199,7 +199,7 @@ This PHP code demonstrates an operation where all the texts in a presentation ar
       }
     }
     // Saves modified presentation
-    $pres->save("text-changed.pptx", SaveFormat->Pptx);
+    $pres->save("text-changed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -242,7 +242,7 @@ This PHP code—an implementation of the steps above—shows you how to add a te
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
     // Saves the PPTX Presentation
-    $pres->save("hLink_out.pptx", SaveFormat->Pptx);
+    $pres->save("hLink_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

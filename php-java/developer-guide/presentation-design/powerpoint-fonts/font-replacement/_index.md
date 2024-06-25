@@ -30,7 +30,7 @@ This PHP code demonstrates font replacement:
     // Replaces the fonts
     $pres->getFontsManager()->replaceFont($sourceFont, $destFont);
     // Saves the presentation
-    $pres->save("UpdatedFont_out.pptx", SaveFormat->Pptx);
+    $pres->save("UpdatedFont_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

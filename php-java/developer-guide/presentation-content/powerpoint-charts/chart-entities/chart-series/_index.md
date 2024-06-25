@@ -35,7 +35,7 @@ This PHP code shows you how to set the overlap for a chart series:
       $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
     }
     // Writes the presentation file to disk
-    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat->Pptx);
+    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -62,7 +62,7 @@ This PHP code shows you how to change a series' color:
     $point->setExplosion(30);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -88,7 +88,7 @@ This code  shows you how to change a series category's color:
     $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -115,7 +115,7 @@ This PHP code shows you how to change a series' name in its chart data `ChartDat
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
     $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
     $seriesCell->setValue("New name");
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -161,7 +161,7 @@ This PHP code shows you how to set the automatic fill color for a chart series:
       $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
     }
     // Writes the presentation file to disk
-    $pres->save("AutoFillSeries_out.pptx", SaveFormat->Pptx);
+    $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -203,7 +203,7 @@ This PHP code demonstrates the operation:
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColor);
     $series->getInvertedSolidFillColor()->setColor($inverColor);
-    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat->Pptx);
+    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -230,7 +230,7 @@ This PHP code demonstrates the operation:
     $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B5", 1));
     $chartSeries->setInvertIfNegative(false);
     $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
-    $pres->save("out.pptx", SaveFormat->Pptx);
+    $pres->save("out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -260,7 +260,7 @@ This PHP code demonstrates the operation:
       $dataPoint->getYValue()->getAsCell()->setValue(null);
     }
     $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
-    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat->Pptx);
+    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -311,7 +311,7 @@ This code  shows you how to set a series' Gap Width:
     // Sets GapWidth value
     $series->getParentSeriesGroup()->setGapWidth(50);
     // Saves presentation to disk
-    $pres->save("GapWidth_out.pptx", SaveFormat->Pptx);
+    $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

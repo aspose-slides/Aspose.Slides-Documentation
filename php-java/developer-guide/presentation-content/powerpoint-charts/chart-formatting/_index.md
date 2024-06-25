@@ -166,7 +166,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
     // Save Presentation
-    $pres->save("FormattedChart.pptx", SaveFormat->Pptx);
+    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -191,7 +191,7 @@ Below sample example is given.
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat->Pptx);
+    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -232,7 +232,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing chart data for
       }
     }
     // Saving presentation
-    $pres->save("PresetNumberFormat.pptx", SaveFormat->Pptx);
+    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -300,7 +300,7 @@ Below sample example is given. 
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getLineFormat()->setStyle(LineStyle->Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

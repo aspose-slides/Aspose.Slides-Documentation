@@ -54,7 +54,7 @@ The following code is used to create a chart with Trend Lines.
     $tredLinePower->setTrendlineType(TrendlineType::Power);
     $tredLinePower->setBackward(1);
     // Saving presentation
-    $pres->save("ChartTrendLines_out.pptx", SaveFormat->Pptx);
+    $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -82,7 +82,7 @@ The following code is used to create a chart with Custom Lines.
     $shape = $chart->getUserShapes()->getShapes()->addAutoShape(ShapeType::Line, 0, $chart->getHeight() / 2, $chart->getWidth(), 0);
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("Presentation.pptx", SaveFormat->Pptx);
+    $pres->save("Presentation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

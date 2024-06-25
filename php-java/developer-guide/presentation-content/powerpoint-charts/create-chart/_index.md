@@ -184,7 +184,7 @@ This PHP code shows you how to create a normal chart:
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
     // Saves the presentation with chart
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -257,7 +257,7 @@ This PHP code shows you how to create a scattered charts with a different series
     // Changes the chart series marker
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
-    $pres->save("AsposeChart_out.pptx", SaveFormat->Pptx);
+    $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -367,7 +367,7 @@ This PHP code shows you how to create a pie chart:
     // Sets the Rotation Angle for Pie Chart Sectors
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
     // Saves the presentation with a chart
-    $pres->save("PieChart_out.pptx", SaveFormat->Pptx);
+    $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -394,7 +394,7 @@ This PHP code shows you how to create a line chart:
   $pres = new Presentation();
   try {
     $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
-    $pres->save("lineChart.pptx", SaveFormat->Pptx);
+    $pres->save("lineChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -465,7 +465,7 @@ This PHP code shows you how to create a tree map chart:
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D7", 4));
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D8", 3));
     $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
-    $pres->save("Treemap.pptx", SaveFormat->Pptx);
+    $pres->save("Treemap.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -526,7 +526,7 @@ Sample PHP code used to create a stock chart:
     foreach($chart->getChartData()->getSeries() as $ser) {
       $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -577,7 +577,7 @@ This PHP code shows you how to create a box and whisker chart:
     $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B4", 10));
     $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B5", 23));
     $series->getDataPoints()->addDataPointForBoxAndWhiskerSeries($wb->getCell(0, "B6", 16));
-    $pres->save("BoxAndWhisker.pptx", SaveFormat->Pptx);
+    $pres->save("BoxAndWhisker.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -620,7 +620,7 @@ The PHP code shows you how to create a funnel chart:
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B4", 300));
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B5", 400));
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B6", 500));
-    $pres->save("Funnel.pptx", SaveFormat->Pptx);
+    $pres->save("Funnel.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -675,7 +675,7 @@ This PHP code shows you how to create a sunburst chart:
     $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D6", 9));
     $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D7", 4));
     $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D8", 3));
-    $pres->save("Sunburst.pptx", SaveFormat->Pptx);
+    $pres->save("Sunburst.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -734,7 +734,7 @@ This PHP code shows you how to create an radar chart:
   $pres = new Presentation();
   try {
     $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Radar, 20, 20, 400, 300);
-    $pres->save("Radar-chart.pptx", SaveFormat->Pptx);
+    $pres->save("Radar-chart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -791,7 +791,7 @@ This PHP code shows you how to create a multicategory chart:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D8", 70));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D9", 80));
     // Save presentation with chart
-    $pres->save("AsposeChart_out.pptx", SaveFormat->Pptx);
+    $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -813,7 +813,7 @@ This PHP code shows you how to create a map chart:
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Map, 50, 50, 500, 400);
-    $pres->save("mapChart.pptx", SaveFormat->Pptx);
+    $pres->save("mapChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -889,7 +889,7 @@ This PHP code shows you how to update a chart:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
     // Save presentation with chart
-    $pres->save("AsposeChartModified_out.pptx", SaveFormat->Pptx);
+    $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -915,7 +915,7 @@ This PHP code shows you how to set the data range for a chart:
     $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->get_Item(0);
     $chart->getChartData()->setRange("Sheet1!A1:B4");
-    $pres->save("SetDataRange_out.pptx", SaveFormat->Pptx);
+    $pres->save("SetDataRange_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -956,7 +956,7 @@ This PHP code shows you how to set a chart series market automatically:
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 2, 40));
     $chart->setLegend(true);
     $chart->getLegend()->setOverlay(false);
-    $pres->save("DefaultMarkersInChart.pptx", SaveFormat->Pptx);
+    $pres->save("DefaultMarkersInChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

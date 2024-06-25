@@ -32,7 +32,7 @@ This sample code, based on the steps above, shows to how to add Media Player Act
     // Access the Media Player ActiveX control and set the video path
     $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
     // Save the Presentation
-    $pres->save("Output.pptx", SaveFormat->Pptx);
+    $pres->save("Output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -136,10 +136,10 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       $frame = $ctl->getFrame();
       $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
     }
-    $pres->save("withActiveX-edited_java.pptm", SaveFormat->Pptm);
+    $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
     // removing controls
     $pres->getSlides()->get_Item(0)->getControls()->clear();
-    $pres->save("withActiveX-cleared_java.pptm", SaveFormat->Pptm);
+    $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

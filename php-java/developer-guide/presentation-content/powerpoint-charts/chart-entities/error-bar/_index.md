@@ -33,7 +33,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing error bar valu
     $errBarY->getFormat()->getLine()->setWidth(2.0);
     $errBarX->hasEndCap();
     // Saving presentation
-    $pres->save("ErrorBars.pptx", SaveFormat->Pptx);
+    $pres->save("ErrorBars.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -81,7 +81,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing custom error b
       $points->get_Item($i)->getErrorBarsCustomValues()->getYPlus()->setAsLiteralDouble($i + 1);
     }
     // Saving presentation
-    $pres->save("ErrorBarsCustomValues.pptx", SaveFormat->Pptx);
+    $pres->save("ErrorBarsCustomValues.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

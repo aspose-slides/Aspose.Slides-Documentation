@@ -41,18 +41,18 @@ This PHP code shows you how to create a table in a presentation:
     for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
       for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
-        $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat->getBorderTop()->setWidth(5);
-        $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat->getBorderBottom()->setWidth(5);
-        $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat->getBorderLeft()->setWidth(5);
-        $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
-        $cellFormat->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-        $cellFormat->getBorderRight()->setWidth(5);
+        $cellFormat::getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat::getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat::getBorderTop()->setWidth(5);
+        $cellFormat::getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat::getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat::getBorderBottom()->setWidth(5);
+        $cellFormat::getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat::getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat::getBorderLeft()->setWidth(5);
+        $cellFormat::getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
+        $cellFormat::getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+        $cellFormat::getBorderRight()->setWidth(5);
       }
     }
     // Merges cells 1 & 2 of row 1
@@ -60,7 +60,7 @@ This PHP code shows you how to create a table in a presentation:
     // Adds some text to the merged cell
     $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
     // Saves the presentation to Disk
-    $pres->save("table.pptx", SaveFormat->Pptx);
+    $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -111,7 +111,7 @@ This PHP code shows you how to specify the numbering for cells in a table:
       }
     }
     // Saves presentation to disk
-    $pres->save("StandardTables_out.pptx", SaveFormat->Pptx);
+    $pres->save("StandardTables_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -154,7 +154,7 @@ This PHP code shows you how to access and work with an existing table:
       }
     }
     // Saves the modified presentation to disk
-    $pres->save("table1_out.pptx", SaveFormat->Pptx);
+    $pres->save("table1_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -203,7 +203,7 @@ This PHP code shows you how to align the text in a table:
     $cell->setTextAnchorType(TextAnchorType::Center);
     $cell->setTextVerticalType(TextVerticalType::Vertical270);
     // Saves the presentation to disk
-    $pres->save("Vertical_Align_Text_out.pptx", SaveFormat->Pptx);
+    $pres->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -231,18 +231,18 @@ This PHP code shows you how to apply your preferred formatting options to the te
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     // Sets the table cells' font height
     $portionFormat = new PortionFormat();
-    $portionFormat->setFontHeight(25);
+    $portionFormat::setFontHeight(25);
     $someTable->setTextFormat($portionFormat);
     // Sets the table cells' text alignment and right margin in one call
     $paragraphFormat = new ParagraphFormat();
-    $paragraphFormat->setAlignment(TextAlignment->Right);
-    $paragraphFormat->setMarginRight(20);
+    $paragraphFormat::setAlignment(TextAlignment->Right);
+    $paragraphFormat::setMarginRight(20);
     $someTable->setTextFormat($paragraphFormat);
     // Sets the table cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
+    $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->setTextFormat($textFrameFormat);
-    $pres->save("result.pptx", SaveFormat->Pptx);
+    $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -260,7 +260,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
     $table = $pres->getSlides()->get_Item(0)->getShapes()->addTable(10, 10, array(100, 150 ), array(5, 5, 5 ));
     $table->setStylePreset(TableStylePreset->DarkStyle1);// change the default style preset theme
 
-    $pres->save("table.pptx", SaveFormat->Pptx);
+    $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -282,7 +282,7 @@ This PHP code shows you how to lock the aspect ratio for a table:
     $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
 
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $pres->save("pres-out.pptx", SaveFormat->Pptx);
+    $pres->save("pres-out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

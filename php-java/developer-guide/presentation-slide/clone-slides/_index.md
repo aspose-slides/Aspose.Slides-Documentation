@@ -35,7 +35,7 @@ In the example given below, we have cloned a slide (lying at the first position 
     $slds = $pres->getSlides();
     $slds->addClone($pres->getSlides()->get_Item(0));
     // Write the modified presentation to disk
-    $pres->save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat->Pptx);
+    $pres->save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -60,7 +60,7 @@ In the example given below, we have cloned a slide (lying at the zero index – 
     // Clone the desired slide to the specified index in the same presentation
     $slds->insertClone(2, $pres->getSlides()->get_Item(1));
     // Write the modified presentation to disk
-    $pres->save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat->Pptx);
+    $pres->save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -88,7 +88,7 @@ In the example given below, we have cloned a slide (from the first index of the 
       $slds = $destPres->getSlides();
       $slds->addClone($srcPres->getSlides()->get_Item(0));
       // Write the destination presentation to disk
-      $destPres->save("Aspose2_out.pptx", SaveFormat->Pptx);
+      $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
     }
@@ -119,7 +119,7 @@ In the example given below, we have cloned a slide (from the zero index of the s
       $slds = $destPres->getSlides();
       $slds->insertClone(2, $srcPres->getSlides()->get_Item(0));
       // Write the destination presentation to disk
-      $destPres->save("Aspose2_out.pptx", SaveFormat->Pptx);
+      $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
     }
@@ -165,7 +165,7 @@ In the example given below, we have cloned a slide with a master (lying at the z
       $slds = $destPres->getSlides();
       $slds->addClone($SourceSlide, $iSlide, true);
       // Save the destination presentation to disk
-      $destPres->save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat->Pptx);
+      $destPres->save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
     }
@@ -187,7 +187,7 @@ The following code snippet shows you how to clone a slide and insert the cloned 
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);
     // Save the destination presentation to disk
-    $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat->Pptx);
+    $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();

@@ -81,7 +81,7 @@ This PHP code shows you how to merge presentations:
         $pres2->dispose();
       }
     }
-    $pres1->save("combined.pptx", SaveFormat->Pptx);
+    $pres1->save("combined.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres1)) {
       $pres1->dispose();
@@ -108,7 +108,7 @@ This code  demonstrates the described operation:
         $pres2->dispose();
       }
     }
-    $pres1->save("combined.pptx", SaveFormat->Pptx);
+    $pres1->save("combined.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres1)) {
       $pres1->dispose();
@@ -141,7 +141,7 @@ This PHP code shows you how to select and combine specific slides from different
         $pres2->dispose();
       }
     }
-    $pres1->save("combined.pptx", SaveFormat->Pptx);
+    $pres1->save("combined.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres1)) {
       $pres1->dispose();
@@ -166,7 +166,7 @@ This PHP code shows you how to combine slides from presentations while applying 
         $pres2->dispose();
       }
     }
-    $pres1->save("combined.pptx", SaveFormat->Pptx);
+    $pres1->save("combined.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres1)) {
       $pres1->dispose();
@@ -200,7 +200,7 @@ This sample code demonstrates the described operation:
         $pres2->dispose();
       }
     }
-    $pres1->save("combined.pptx", SaveFormat->Pptx);
+    $pres1->save("combined.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres1)) {
       $pres1->dispose();
@@ -225,7 +225,7 @@ This PHP code shows you how to merge a specific slide to a section in a presenta
         $pres2->dispose();
       }
     }
-    $pres1->save("combined.pptx", SaveFormat->Pptx);
+    $pres1->save("combined.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres1)) {
       $pres1->dispose();

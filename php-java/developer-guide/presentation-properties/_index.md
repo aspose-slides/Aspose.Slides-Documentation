@@ -89,7 +89,7 @@ Modifying the built-in properties of presentation files is as easy as that of ac
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
     // Save your presentation to a file
-    $pres->save("DocProps.pptx", SaveFormat->Pptx);
+    $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -120,7 +120,7 @@ Aspose.Slides for PHP via Java also allows developers to add the custom the valu
     // Removing selected property
     $dProps->removeCustomProperty($getPropertyName);
     // Saving presentation
-    $pres->save("CustomDemo.pptx", SaveFormat->Pptx);
+    $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -149,7 +149,7 @@ Aspose.Slides for PHP via Java also allows developers to access the values of cu
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
     // Save your presentation to a file
-    $pres->save("CustomDemoModified.pptx", SaveFormat->Pptx);
+    $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -266,10 +266,10 @@ This PHP code shows you how to set the proofing language for a PowerPoint: xxx W
     $newPortion = new Portion();
     $font = new FontData("SimSun");
     $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat->setComplexScriptFont($font);
-    $portionFormat->setEastAsianFont($font);
-    $portionFormat->setLatinFont($font);
-    $portionFormat->setLanguageId("zh-CN");// set the Id of a proofing language
+    $portionFormat::setComplexScriptFont($font);
+    $portionFormat::setEastAsianFont($font);
+    $portionFormat::setLatinFont($font);
+    $portionFormat::setLanguageId("zh-CN");// set the Id of a proofing language
 
     $newPortion->setText("1。");
     $paragraph->getPortions()->add($newPortion);

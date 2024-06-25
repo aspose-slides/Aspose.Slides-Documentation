@@ -61,7 +61,7 @@ This PHP code shows you how to create a zoom frame on a slide:
     $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 250, 200, $slide2);
     $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(200, 250, 250, 200, $slide3);
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -104,7 +104,7 @@ This PHP code shows you how to create a zoom frame with a different image:
     // Adds the ZoomFrame object
     $pres->getSlides()->get_Item(0)->getShapes()->addZoomFrame(20, 20, 300, 200, $slide, $picture);
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -172,7 +172,7 @@ This PHP code shows you how to change a zoom frame's formatting on a slide:
     // Setting for Do not show background for zoomFrame2 object
     $zoomFrame2->setShowBackground(false);
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -215,7 +215,7 @@ This PHP code shows you how to create a zoom frame on a slide:
     // Adds a SectionZoomFrame object
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1));
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -259,7 +259,7 @@ This PHP code shows you how to create a zoom frame with a different image:
     // Adds SectionZoomFrame object
     $sectionZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSectionZoomFrame(20, 20, 300, 200, $pres->getSections()->get_Item(1), $picture);
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -324,7 +324,7 @@ This PHP code shows you how to change a section zoom frame's formatting:
     $sectionZoomFrame->getLineFormat()->setWidth(2.5);
     $sectionZoomFrame->setTransitionDuration(1.5);
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -387,7 +387,7 @@ This PHP code shows you how to create a summary zoom frame on a slide:
     // Adds a SummaryZoomFrame object
     $summaryZoomFrame = $pres->getSlides()->get_Item(0)->getShapes()->addSummaryZoomFrame(150, 50, 300, 200);
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -440,7 +440,7 @@ This PHP code shows you how to add and remove sections in a summary zoom frame:
     // Removes section from the Summary Zoom
     $summaryZoomFrame->getSummaryZoomCollection()->removeSummaryZoomSection($pres->getSections()->get_Item(1));
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -506,7 +506,7 @@ This PHP code shows you how to change the formatting for a summary zoom section 
     $summarySection->getLineFormat()->setWidth(1.5);
     $summarySection->setTransitionDuration(1.5);
     // Saves the presentation
-    $pres->save("presentation.pptx", SaveFormat->Pptx);
+    $pres->save("presentation.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

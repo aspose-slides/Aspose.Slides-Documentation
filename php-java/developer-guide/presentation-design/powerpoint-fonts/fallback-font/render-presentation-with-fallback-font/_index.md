@@ -37,7 +37,7 @@ The following example includes these steps:
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
     // Save the image to disk in JPEG format
     try {
-      $slideImage->save("Slide_0.jpg", ImageFormat->Jpeg);
+      $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();

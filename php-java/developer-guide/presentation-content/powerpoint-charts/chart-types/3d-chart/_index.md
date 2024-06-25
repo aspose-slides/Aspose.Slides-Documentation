@@ -48,7 +48,7 @@ Aspose.Slides for PHP via Java provides a simple API for setting these propertie
     // Set OverLap value
     $series->getParentSeriesGroup()->setOverlap(100);
     // Write presentation to disk
-    $pres->save("Rotation3D_out.pptx", SaveFormat->Pptx);
+    $pres->save("Rotation3D_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

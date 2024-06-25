@@ -36,7 +36,7 @@ This PHP code demonstrates the font loading process:
   // Do Some work and perform presentation/slide rendering
   $pres = new Presentation("DefaultFonts.pptx");
   try {
-    $pres->save("NewFonts_out.pptx", SaveFormat->Pptx);
+    $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

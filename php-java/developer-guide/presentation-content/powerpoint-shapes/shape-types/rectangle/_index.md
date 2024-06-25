@@ -30,7 +30,7 @@ In the example given below, we have added a simple rectangle to the first slide 
     // Add AutoShape of ellipse type
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 50);
     // Write the PPTX file to disk
-    $pres->save("RecShp1.pptx", SaveFormat->Pptx);
+    $pres->save("RecShp1.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -68,7 +68,7 @@ The above steps are implemented in the example given below.
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shp->getLineFormat()->setWidth(5);
     // Write the PPTX file to disk
-    $pres->save("RecShp2.pptx", SaveFormat->Pptx);
+    $pres->save("RecShp2.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

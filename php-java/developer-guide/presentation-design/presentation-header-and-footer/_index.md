@@ -31,7 +31,7 @@ Notes of some specific slide could be removed as shown in example below:
       updateHeaderFooterText($masterNotesSlide);
     }
     // Save presentation
-    $pres->save("HeaderFooterJava.pptx", SaveFormat->Pptx);
+    $pres->save("HeaderFooterJava.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -106,7 +106,7 @@ Code Snippet provided in below Example.
       $headerFooterManager->setDateTimeText("New date and time text");// set text to notes slide Date-time placeholder
 
     }
-    $pres->save("testresult.pptx", SaveFormat->Pptx);
+    $pres->save("testresult.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

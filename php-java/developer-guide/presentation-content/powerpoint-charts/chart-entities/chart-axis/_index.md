@@ -32,7 +32,7 @@ This sample code—an implementation of the steps above—shows you how to get t
     $majorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMajorUnit();
     $minorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMinorUnit();
     // Saves the presentation
-    $pres->save("MaxValuesVerticalAxis_out.pptx", SaveFormat->Pptx);
+    $pres->save("MaxValuesVerticalAxis_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -52,7 +52,7 @@ This PHP code shows you how to perform the data swap task between axes on a char
     // Switches rows and columns
     $chart->getChartData()->switchRowColumn();
     // Saves presentation
-    $pres->save("SwitchChartRowColumns_out.pptx", SaveFormat->Pptx);
+    $pres->save("SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -69,7 +69,7 @@ This PHP code shows you how to hide the vertical axis for a line chart:
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 100, 100, 400, 300);
     $chart->getAxes()->getVerticalAxis()->setVisible(false);
-    $pres->save("chart.pptx", SaveFormat->Pptx);
+    $pres->save("chart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -86,7 +86,7 @@ This code shows you how to hide the horizontal axis for a line chart:
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 100, 100, 400, 300);
     $chart->getAxes()->getHorizontalAxis()->setVisible(false);
-    $pres->save("chart.pptx", SaveFormat->Pptx);
+    $pres->save("chart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -106,7 +106,7 @@ Using the **CategoryAxisType** property, you can specify your preferred category
     $chart->getAxes()->getHorizontalAxis()->setAutomaticMajorUnit(false);
     $chart->getAxes()->getHorizontalAxis()->setMajorUnit(1);
     $chart->getAxes()->getHorizontalAxis()->setMajorUnitScale(TimeUnitType::Months);
-    $presentation->save("ChangeChartCategoryAxis_out.pptx", SaveFormat->Pptx);
+    $presentation->save("ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -137,7 +137,7 @@ Aspose.Slides for PHP via Java allows you to set the date format for a category 
     $chart->getAxes()->getHorizontalAxis()->setCategoryAxisType(CategoryAxisType::Date);
     $chart->getAxes()->getHorizontalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getHorizontalAxis()->setNumberFormat("yyyy");
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -157,7 +157,7 @@ Aspose.Slides for PHP via Java allows you to set the rotation angle for a chart 
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
     $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFormat()->getTextBlockFormat()->setRotationAngle(90);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -173,7 +173,7 @@ Aspose.Slides for PHP via Java allows you to set the position axis in a category
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
     $chart->getAxes()->getHorizontalAxis()->setAxisBetweenCategories(true);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -189,7 +189,7 @@ Aspose.Slides for PHP via Java allows you to configure a chart to show a unit la
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 450, 300);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Millions);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

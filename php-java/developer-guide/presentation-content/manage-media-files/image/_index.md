@@ -48,7 +48,7 @@ You can add one or several images on your computer onto a slide in a presentatio
       }
     }
     $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -87,7 +87,7 @@ This sample code shows you how to add an image from the web to a slide :
       }
       $outputStream->close();
     }
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -117,7 +117,7 @@ This Java sample code shows you how to add an image to a slide master:
       }
     }
     $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -157,7 +157,7 @@ try {
     $svgImage = new SvgImage($svgContent);
     $ppImage = $pres->getImages()->addImage($svgImage);
     $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $ppImage->getWidth(), $ppImage->getHeight(), $ppImage);
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -198,7 +198,7 @@ try {
     // Convert SVG image to group of shapes scaling it to slide size
     $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
     // Save presentation in PPTX format
-    $presentation->save("output.pptx", SaveFormat->Pptx);
+    $presentation->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($presentation)) {
@@ -240,7 +240,7 @@ This sample code shows you how to perform the described task:
       $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
       $m = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $picture);
     }
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {

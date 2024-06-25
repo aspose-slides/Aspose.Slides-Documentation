@@ -26,7 +26,7 @@ In the example given below, we have set different properties of Pie of Pie chart
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitBy(PieSplitType::ByPercentage);
     $chart->getChartData()->getSeries()->get_Item(0)->getParentSeriesGroup()->setPieSplitPosition(53);
     // Write presentation to disk
-    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat->Pptx);
+    $pres->save("SecondPlotOptionsforCharts_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -81,7 +81,7 @@ Write the modified presentation to a PPTX file.
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     $series->getParentSeriesGroup()->setColorVaried(true);
-    $pres->save("Pie.pptx", SaveFormat->Pptx);
+    $pres->save("Pie.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

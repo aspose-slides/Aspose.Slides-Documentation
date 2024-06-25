@@ -85,7 +85,7 @@ This sample code —an implementation of the steps above—shows you to create a
     // Adding Paragraph to text frame
     $txtFrm->getParagraphs()->add($para);
     // saving the presentation as a PPTX file
-    $pres->save("Bullet.pptx", SaveFormat->Pptx);
+    $pres->save("Bullet.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -155,7 +155,7 @@ This PHP code shows you to create a picture bullet in a slide:
     // Adding Paragraph to text frame
     $txtFrm->getParagraphs()->add($para);
     // Writing the presentation as a PPTX file
-    $pres->save("Bullet.pptx", SaveFormat->Pptx);
+    $pres->save("Bullet.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -240,7 +240,7 @@ This code, which is an implementation of the steps above, shows you how to creat
     $txtFrm->getParagraphs()->add($para3);
     $txtFrm->getParagraphs()->add($para4);
     // saving the presentation as a PPTX file
-    $pres->save("MultilevelBullet.pptx", SaveFormat->Pptx);
+    $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -296,7 +296,7 @@ This PHP code shows you how to create a numbered list in a slide:
     $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(5);
     $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $txtFrm->getParagraphs()->add($paragraph5);
-    $pres->save($resourcesOutputPath . "SetCustomBulletsNumber-slides.pptx.pptx", SaveFormat->Pptx);
+    $pres->save($resourcesOutputPath . "SetCustomBulletsNumber-slides.pptx.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

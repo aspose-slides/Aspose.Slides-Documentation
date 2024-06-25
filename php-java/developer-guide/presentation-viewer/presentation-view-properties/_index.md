@@ -48,7 +48,7 @@ An example is given below shows how can you access [**ViewProperties.getNormalVi
     $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setAutoAdjust(true);
     $pres->getViewProperties()->getNormalViewProperties()->getRestoredTop()->setDimensionSize(80);
     $pres->getViewProperties()->getNormalViewProperties()->setShowOutlineIcons(true);
-    $pres->save("presentation_normal_view_state.pptx", SaveFormat->Pptx);
+    $pres->save("presentation_normal_view_state.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
   }
@@ -77,7 +77,7 @@ In order to set the view properties. Please follow the steps below:
 
     $presentation->getViewProperties()->getNotesViewProperties()->setScale(100);// Zoom value in percentages for notes view
 
-    $presentation->save("Zoom_out.pptx", SaveFormat->Pptx);
+    $presentation->save("Zoom_out.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
   }

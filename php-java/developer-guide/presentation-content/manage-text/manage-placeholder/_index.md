@@ -35,7 +35,7 @@ This PHP code shows how to change the text in a placeholder:
       }
     }
     // Saves the presentation to disk
-    $pres->save("output_out.pptx", SaveFormat->Pptx);
+    $pres->save("output_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -67,7 +67,7 @@ This PHP code shows you how to set the prompt text in a placeholder:
         echo("Placeholder with text: " . $text);
       }
     }
-    $pres->save("Placeholders_PromptText.pptx", SaveFormat->Pptx);
+    $pres->save("Placeholders_PromptText.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -94,7 +94,7 @@ This PHP code shows you how to set the transparency for a picture background (in
       $alphaModulate->setAmount(100 - $alphaValue);
     }
   }
-  $presentation->save("example_out.pptx", SaveFormat->Pptx);
+  $presentation->save("example_out.pptx", SaveFormat::Pptx);
 
 ```
 

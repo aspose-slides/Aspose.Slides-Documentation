@@ -84,7 +84,7 @@ Change color of "Steam 4" branch:
     $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
     $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
     $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat->Pptx);
+    $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

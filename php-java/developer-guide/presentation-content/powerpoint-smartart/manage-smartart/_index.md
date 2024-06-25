@@ -46,7 +46,7 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
     // Change LayoutType to BasicProcess
     $smart->setLayout(SmartArtLayoutType::BasicProcess);
     // Saving Presentation
-    $pres->save("ChangeSmartArtLayout_out.pptx", SaveFormat->Pptx);
+    $pres->save("ChangeSmartArtLayout_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -79,7 +79,7 @@ In the example given below, we have added a connector between two shapes.
       // Do some actions or notifications
     }
     // Saving Presentation
-    $pres->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat->Pptx);
+    $pres->save("CheckSmartArtHiddenProperty_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -104,7 +104,7 @@ Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.co
     // Get or Set the organization chart type
     $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
     // Saving Presentation
-    $pres->save("OrganizeChartLayoutType_out.pptx", SaveFormat->Pptx);
+    $pres->save("OrganizeChartLayoutType_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -126,7 +126,7 @@ The following code is used to create a chart.
   $pres = new Presentation("test.pptx");
   try {
     $smartArt = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::PictureOrganizationChart);
-    $pres->save("OrganizationChart.pptx", SaveFormat->Pptx);
+    $pres->save("OrganizationChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -154,7 +154,7 @@ The following code is used to create a chart.
     $smart->setReversed(true);
     $flag = $smart->isReversed();
     // Saving Presentation
-    $pres->save("output.pptx", SaveFormat->Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

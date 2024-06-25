@@ -74,7 +74,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
     $port2->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $port2->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     // Save the PPTX to disk
-    $pres->save("WelcomeFont.pptx", SaveFormat->Pptx);
+    $pres->save("WelcomeFont.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -137,7 +137,7 @@ The implementation of the above steps is given below.
     $port->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $port->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Save the presentation to disk
-    $pres->save("pptxFont.pptx", SaveFormat->Pptx);
+    $pres->save("pptxFont.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

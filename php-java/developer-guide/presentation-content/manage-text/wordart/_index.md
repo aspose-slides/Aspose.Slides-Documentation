@@ -304,7 +304,7 @@ This sample code —an implementation of the steps above—shows you how to appl
     $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
     $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
     // Write the presentation to disk
-    $pres->save("pres_out.pptx", SaveFormat->Pptx);
+    $pres->save("pres_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -352,7 +352,7 @@ This sample code (based on the steps above) shows you how to add a connector bet
     // Set Scheme Color
     $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
     // Save Presentation
-    $pres->save("WordArt_out.pptx", SaveFormat->Pptx);
+    $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

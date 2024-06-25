@@ -31,7 +31,7 @@ Notes of some specific slide could be removed as shown in example below:
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
     // Saving presentation to disk
-    $pres->save("test.pptx", SaveFormat->Pptx);
+    $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -53,7 +53,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
       $mgr->removeNotesSlide();
     }
     // Saving presentation to disk
-    $pres->save("test.pptx", SaveFormat->Pptx);
+    $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -74,9 +74,9 @@ Notes of all the slides of a presentation could be removed as shown in example b
       $notesStyle = $notesMaster->getNotesStyle();
       // Set symbol bullet for the first level paragraphs
       $paragraphFormat = $notesStyle->getLevel(0);
-      $paragraphFormat->getBullet()->setType(BulletType::Symbol);
+      $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }
-    $pres->save("NotesSlideWithNotesStyle.pptx", SaveFormat->Pptx);
+    $pres->save("NotesSlideWithNotesStyle.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

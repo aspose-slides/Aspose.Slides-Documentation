@@ -14,7 +14,7 @@ This sample code  shows you how to convert a presentation to animated GIF using 
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    $pres->save("pres.gif", SaveFormat->Gif);
+    $pres->save("pres.gif", SaveFormat::Gif);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -43,7 +43,7 @@ This sample code shows you how to convert a presentation to animated GIF using c
 
     $gifOptions->setTransitionFps(35);// increase FPS to better transition animation quality
 
-    $pres->save("pres.gif", SaveFormat->Gif, $gifOptions);
+    $pres->save("pres.gif", SaveFormat::Gif, $gifOptions);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

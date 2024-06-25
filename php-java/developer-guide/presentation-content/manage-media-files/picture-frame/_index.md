@@ -41,7 +41,7 @@ This PHP code shows you how to create a picture frame:
     // Adds a picture frame with the picture's equivalent height and width
     $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Write the PPTX file to disk
-    $pres->save("RectPicFrame.pptx", SaveFormat->Pptx);
+    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -83,7 +83,7 @@ This PHP code shows you how to create a picture frame with relative scale:
     $pf->setRelativeScaleHeight(0.8);
     $pf->setRelativeScaleWidth(1.35);
     // Write the PPTX file to disk
-    $pres->save("RectPicFrame.pptx", SaveFormat->Pptx);
+    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -105,7 +105,7 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/p
       $pictureFrame = $firstShape;
       try {
         $slideImage = $pictureFrame->getPictureFormat()->getPicture()->getImage()->getImage();
-        $slideImage->save("slide_1_shape_1.png", ImageFormat->Png);
+        $slideImage->save("slide_1_shape_1.png", ImageFormat::Png);
       } finally {
         if (!java_is_null($slideImage)) {
           $slideImage->dispose();
@@ -171,7 +171,7 @@ This PHP code demonstrates the picture frame formatting process:
     $pf->getLineFormat()->setWidth(20);
     $pf->setRotation(45);
     // Writes the PPTX file to disk
-    $pres->save("RectPicFrame.pptx", SaveFormat->Pptx);
+    $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -217,7 +217,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
     foreach($shapesToRemove as $shape) {
       $presentation->getSlides()->get_Item(0)->getShapes()->remove($shape);
     }
-    $presentation->save("output.pptx", SaveFormat->Pptx);
+    $presentation->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -250,7 +250,7 @@ This PHP code shows you how to crop an existing image on a slide:
     $picFrame->getPictureFormat()->setCropTop(3);
     $picFrame->getPictureFormat()->setCropBottom(31);
     // Saves the result
-    $pres->save($outPptxFile, SaveFormat->Pptx);
+    $pres->save($outPptxFile, SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
@@ -274,7 +274,7 @@ This PHP code demonstrates the operation:
     // Deletes cropped areas of the PictureFrame image and returns the cropped image
     $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
     // Saves the result
-    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat->Pptx);
+    $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -375,7 +375,7 @@ This PHP code demonstrates a process in which a StretchOff property is used:
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
     // Writes the PPTX file to disk
-    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat->Pptx);
+    $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
     if (!java_is_null($pres)) {
