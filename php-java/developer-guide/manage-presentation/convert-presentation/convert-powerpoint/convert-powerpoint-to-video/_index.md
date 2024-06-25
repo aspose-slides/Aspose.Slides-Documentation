@@ -301,7 +301,7 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
     class FrameTick {
       function invoke($sender, $arg) {
             try {
-                $arguments->getFrame()->save("frame_" . $sender->getFrameIndex() . ".png", ImageFormat->Png);
+                $arguments->getFrame()->save("frame_" . $sender->getFrameIndex() . ".png", ImageFormat::Png);
                 } catch (JavaException $e) {
                   }
              }
