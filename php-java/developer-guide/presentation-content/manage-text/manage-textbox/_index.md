@@ -106,9 +106,9 @@ This code  demonstrates the described operation:
     // Gets the text format of TextFrame
     $format = $aShape->getTextFrame()->getTextFrameFormat();
     // Specifies the number of columns in TextFrame
-    $Format::setColumnCount(3);
+    $format->setColumnCount(3);
     // Specifies the spacing between columns
-    $Format::setColumnSpacing(10);
+    $format->setColumnSpacing(10);
     // Saves the presentation
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
   } finally {
@@ -130,7 +130,7 @@ This PHP code shows you how to add a column inside a text frame:
   try {
     $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     $format = $shape1->getTextFrame()->getTextFrameFormat();
-    $Format::setColumnCount(2);
+    $format->setColumnCount(2);
     $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
     $pres->save($outPptxFileName, SaveFormat::Pptx);
     $test = new Presentation($outPptxFileName);
@@ -143,7 +143,7 @@ This PHP code shows you how to add a column inside a text frame:
         $test->dispose();
       }
     }
-    $Format::setColumnSpacing(20);
+    $format->setColumnSpacing(20);
     $pres->save($outPptxFileName, SaveFormat::Pptx);
     $test1 = new Presentation($outPptxFileName);
     try {
@@ -155,8 +155,8 @@ This PHP code shows you how to add a column inside a text frame:
         $test1->dispose();
       }
     }
-    $Format::setColumnCount(3);
-    $Format::setColumnSpacing(15);
+    $format->setColumnCount(3);
+    $format->setColumnSpacing(15);
     $pres->save($outPptxFileName, SaveFormat::Pptx);
     $test2 = new Presentation($outPptxFileName);
     try {

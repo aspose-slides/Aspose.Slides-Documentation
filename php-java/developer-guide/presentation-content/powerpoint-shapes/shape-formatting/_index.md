@@ -371,8 +371,8 @@ This PHP code shows you how to add 3D bevel effects to a shape:
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $format = $shape->getLineFormat()->getFillFormat();
-    $Format::setFillType(FillType::Solid);
-    $Format::getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $format->setFillType(FillType::Solid);
+    $format->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $shape->getLineFormat()->setWidth(2.0);
     // Sets the shape's ThreeDFormat properties
     $shape->getThreeDFormat()->setDepth(4);
