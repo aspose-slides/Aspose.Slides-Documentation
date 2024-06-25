@@ -72,8 +72,8 @@ This PHP code shows you how to convert a presentation (containing a figure and t
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);
       try {
-        $presentationPlayerFrameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
-        $player->setFrameTick($presentationPlayerFrameTick);
+        $frameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
+        $player->setFrameTick($frameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
         if (!java_is_null($player)) {
@@ -186,8 +186,8 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
     try {
       $player = new PresentationPlayer($animationsGenerator, $fps);
       try {
-        $presentationPlayerFrameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
-        $player->setFrameTick($presentationPlayerFrameTick);
+        $frameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
+        $player->setFrameTick($frameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
         if (!java_is_null($player)) {
@@ -313,8 +313,8 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
     try {
       $player = new PresentationPlayer($animationsGenerator, 33);
       try {
-        $presentationPlayerFrameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
-        $player->setFrameTick($presentationPlayerFrameTick);
+        $frameTick = java_closure(new FrameTick(), null, java("com.aspose.slides.PresentationPlayerFrameTick"));
+        $player->setFrameTick($frameTick);
         $animationsGenerator->run($presentation->getSlides());
       } finally {
         if (!java_is_null($player)) {
