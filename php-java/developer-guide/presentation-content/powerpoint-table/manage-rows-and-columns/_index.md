@@ -153,7 +153,7 @@ This PHP code demonstrates the operation.
     $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
     // Sets the second row cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat->setTextVerticalType(TextVerticalType->Vertical);
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
     // Saves the presentation to disk
     $pres->save("result.pptx", SaveFormat->Pptx);
@@ -193,7 +193,7 @@ This PHP code demonstrates the operation:
     $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
     // Sets the second column cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat->setTextVerticalType(TextVerticalType->Vertical);
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);
     $pres->save("result.pptx", SaveFormat->Pptx);
   } finally {

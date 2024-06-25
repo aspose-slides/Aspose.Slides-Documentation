@@ -103,7 +103,7 @@ If you prefer to skip the first slide, you can start the numbering from the seco
 ```php
   $presentation = new Presentation();
   try {
-    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType->Blank);
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
     $presentation->getSlides()->addEmptySlide($layoutSlide);
     $presentation->getSlides()->addEmptySlide($layoutSlide);
     $presentation->getSlides()->addEmptySlide($layoutSlide);

@@ -40,7 +40,7 @@ This PHP code—an implementation of the steps above—shows you how to add text
     // Gets the first slide in the presentation
     $sld = $pres->getSlides()->get_Item(0);
     // Adds an AutoShape with type set as Rectangle
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 75, 150, 50);
+    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
     // Adds TextFrame to the Rectangle
     $ashp->addTextFrame(" ");
     // Accesses the text frame
@@ -96,7 +96,7 @@ This code  demonstrates the described operation:
     // Gets the first slide in the presentation
     $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape with type set as Rectangle
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 300, 300);
+    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     // Add TextFrame to the Rectangle
     $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
     // Gets the text format of TextFrame
@@ -124,7 +124,7 @@ This PHP code shows you how to add a column inside a text frame:
   $outPptxFileName = "ColumnsTest.pptx";
   $pres = new Presentation();
   try {
-    $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 300, 300);
+    $shape1 = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     $format = $shape1->getTextFrame()->getTextFrameFormat();
     $format->setColumnCount(2);
     $shape1->getTextFrame()->setText("All these columns are forced to stay within a single text container -- " . "you can add or delete text - and the new or remaining text automatically adjusts " . "itself to stay within the container. You cannot have text spill over from one container " . "to other, though -- because PowerPoint's column options for text are limited!");
@@ -230,7 +230,7 @@ This PHP code—an implementation of the steps above—shows you how to add a te
     // Gets the first slide in the presentation
     $slide = $pres->getSlides()->get_Item(0);
     // Adds an AutoShape object with type set as Rectangle
-    $shape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 150, 150, 50);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
     // Casts the shape to AutoShape
     $pptxAutoShape = $shape;
     // Accesses the ITextFrame property associated with the AutoShape

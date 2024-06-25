@@ -25,7 +25,7 @@ In the example given below, we have added a line to the first slide of the prese
     // Get the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an autoshape of type line
-    $slide->getShapes()->addAutoShape(ShapeType->Line, 50, 150, 300, 0);
+    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     $pres->save("NewPresentation_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {

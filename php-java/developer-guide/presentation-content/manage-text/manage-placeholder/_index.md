@@ -57,10 +57,10 @@ This PHP code shows you how to set the prompt text in a placeholder:
       if (java_instanceof($shape->getPlaceholder()) != null && $shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $text = "";
         // PowerPoint displays "Click to add title"
-        if ($shape->getPlaceholder()->getType() == PlaceholderType->CenteredTitle) {
+        if ($shape->getPlaceholder()->getType() == PlaceholderType::CenteredTitle) {
           $text = "Add Title";
         } else // Adds subtitle
-        if ($shape->getPlaceholder()->getType() == PlaceholderType->Subtitle) {
+        if ($shape->getPlaceholder()->getType() == PlaceholderType::Subtitle) {
           $text = "Add Subtitle";
         }
         $shape->getTextFrame()->setText($text);

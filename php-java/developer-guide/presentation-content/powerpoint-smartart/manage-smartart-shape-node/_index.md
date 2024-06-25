@@ -65,7 +65,7 @@ In the following sample code we have explained how to add the child nodes belong
     // Access the presentation slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add Smart Art IShape
-    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType->StackedList);
+    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
     // Accessing the SmartArt node at index 0
     $node = $smart->getAllNodes()->get_Item(0);
     // Adding new child node at position 2 in parent node
@@ -182,7 +182,7 @@ In this example, we will learn to access the child nodes at some particular posi
     // Accessing the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adding the SmartArt shape in first slide
-    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType->StackedList);
+    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::StackedList);
     // Accessing the SmartArt node at index 0
     $node = $smart->getAllNodes()->get_Item(0);
     // Accessing the child node at position 1 in parent node
@@ -284,7 +284,7 @@ Now Aspose.Slides for PHP via Java support for setting [SmartArtShape](https://r
   // Instantiate Presentation Class
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(20, 20, 600, 500, SmartArtLayoutType->OrganizationChart);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(20, 20, 600, 500, SmartArtLayoutType::OrganizationChart);
     // Move SmartArt shape to new position
     $node = $smart->getAllNodes()->get_Item(1);
     $shape = $node->getShapes()->get_Item(1);
@@ -383,12 +383,12 @@ Please follow the steps below:
     // Accessing the slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adding SmartArt shape and nodes
-    $chevron = $slide->getShapes()->addSmartArt(10, 10, 800, 60, SmartArtLayoutType->ClosedChevronProcess);
+    $chevron = $slide->getShapes()->addSmartArt(10, 10, 800, 60, SmartArtLayoutType::ClosedChevronProcess);
     $node = $chevron->getAllNodes()->addNode();
     $node->getTextFrame()->setText("Some text");
     // Setting node fill color
     foreach($node->getShapes() as $item) {
-      $item->getFillFormat()->setFillType(FillType->Solid);
+      $item->getFillFormat()->setFillType(FillType::Solid);
       $item->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     }
     // Save the presentation
@@ -414,7 +414,7 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
   $pres = new Presentation();
   try {
     // Add SmartArt
-    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicCycle);
+    $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicCycle);
     // Obtain the reference of a node by using its Index
     $node = $smart->getNodes()->get_Item(1);
     // Get thumbnail

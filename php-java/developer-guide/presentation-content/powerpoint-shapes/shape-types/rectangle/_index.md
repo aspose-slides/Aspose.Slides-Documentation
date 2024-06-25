@@ -28,7 +28,7 @@ In the example given below, we have added a simple rectangle to the first slide 
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add AutoShape of ellipse type
-    $shp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 150, 50);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 50);
     // Write the PPTX file to disk
     $pres->save("RecShp1.pptx", SaveFormat->Pptx);
   } finally {
@@ -59,12 +59,12 @@ The above steps are implemented in the example given below.
     // Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add AutoShape of ellipse type
-    $shp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 150, 50);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 50);
     // Apply some formatting to ellipse shape
-    $shp->getFillFormat()->setFillType(FillType->Solid);
+    $shp->getFillFormat()->setFillType(FillType::Solid);
     $shp->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     // Apply some formatting to the line of Ellipse
-    $shp->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shp->getLineFormat()->setWidth(5);
     // Write the PPTX file to disk

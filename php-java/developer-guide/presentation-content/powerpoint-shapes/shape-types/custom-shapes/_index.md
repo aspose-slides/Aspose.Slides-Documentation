@@ -100,7 +100,7 @@ This PHP code shows you how to
 ```
 
 ## **Add Custom Points to Shape**
-1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) class and set the [ShapeType->Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) type.
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) class and set the [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) class from the shape.
 3. Add a new point between the two top points on the path.
 4. Add a new point between the two bottom points on the path.
@@ -111,7 +111,7 @@ This PHP code shows you how to add custom points to a shape:
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 200, 100);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $geometryPath = $shape->getGeometryPaths()[0];
     $geometryPath->lineTo(100, 50, 1);
     $geometryPath->lineTo(100, 50, 4);
@@ -126,7 +126,7 @@ This PHP code shows you how to add custom points to a shape:
 
 ##  Remove Points From Shape
 
-1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) class and set the [ShapeType->Heart](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) type.
+1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) class and set the [ShapeType::Heart](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) class from the shape.
 3. Remove the segment for the path.
 4. Apply the path to the shape.
@@ -136,7 +136,7 @@ This PHP code shows you how to remove points from a shape:
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Heart, 100, 100, 300, 300);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
     $path = $shape->getGeometryPaths()[0];
     $path->removeAt(2);
     $shape->setGeometryPath($path);
@@ -181,7 +181,7 @@ This Java shows you how to create a custom shape:
   $starPath->closeFigure();
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, $R * 2, $R * 2);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $R * 2, $R * 2);
     $shape->setGeometryPath($starPath);
   } finally {
     if (!java_is_null($pres)) {
@@ -204,7 +204,7 @@ This PHP code shows you to create a composite custom shape:
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 200, 100);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $geometryPath0 = new GeometryPath();
     $geometryPath0->moveTo(0, 0);
     $geometryPath0->lineTo($shape->getWidth(), 0);
@@ -241,7 +241,7 @@ This PHP code shows you how to create a custom shape with curved corners (inward
   $leftBottomSize = 10.0;
   $pres = new Presentation();
   try {
-    $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+    $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
     $geometryPath = new GeometryPath();
     $point1 = new Point2DFloat($leftTopSize, 0);
     $point2 = new Point2DFloat($shapeWidth - $rightTopSize, 0);
@@ -280,10 +280,10 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
   $pres = new Presentation();
   try {
     // Create new shape
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 300, 100);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
     // Get geometry path of the shape
     $originalPath = $shape->getGeometryPaths()[0];
-    $originalPath->setFillMode(PathFillModeType->None);
+    $originalPath->setFillMode(PathFillModeType::None);
     // Create new graphics path with text
     $graphicsPath;
     $font = new Font("Arial", Font->PLAIN, 40);
@@ -298,7 +298,7 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
     }
     // Convert graphics path to geometry path
     $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
-    $textPath->setFillMode(PathFillModeType->Normal);
+    $textPath->setFillMode(PathFillModeType::Normal);
     // Set combination of new geometry path and origin geometry path to the shape
     $shape->setGeometryPaths(array($originalPath, $textPath ));
   } finally {

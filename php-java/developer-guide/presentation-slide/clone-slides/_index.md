@@ -182,7 +182,7 @@ The following code snippet shows you how to clone a slide and insert the cloned 
 ```php
   $presentation = new Presentation();
   try {
-    $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 50, 300, 100);
+    $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 50, 300, 100);
     $presentation->getSections()->addSection("Section 1", $presentation->getSlides()->get_Item(0));
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);

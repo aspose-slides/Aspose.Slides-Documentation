@@ -24,7 +24,7 @@ This PHP code shows you how to apply the outer shadow effect ([OuterShadowEffect
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->RoundCornerRectangle, 20, 20, 200, 150);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 20, 20, 200, 150);
     $shape->getEffectFormat()->enableOuterShadowEffect();
     $shape->getEffectFormat()->getOuterShadowEffect()->getShadowColor()->setColor(java("java.awt.Color")->DARK_GRAY);
     $shape->getEffectFormat()->getOuterShadowEffect()->setDistance(10);
@@ -44,7 +44,7 @@ This PHP code shows you how to apply the reflection effect to a shape:
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->RoundCornerRectangle, 20, 20, 200, 150);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 20, 20, 200, 150);
     $shape->getEffectFormat()->enableReflectionEffect();
     $shape->getEffectFormat()->getReflectionEffect()->setRectangleAlign(RectangleAlignment->Bottom);
     $shape->getEffectFormat()->getReflectionEffect()->setDirection(90);
@@ -65,7 +65,7 @@ This PHP code shows you how to apply the glow effect to a shape:
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->RoundCornerRectangle, 20, 20, 200, 150);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 20, 20, 200, 150);
     $shape->getEffectFormat()->enableGlowEffect();
     $shape->getEffectFormat()->getGlowEffect()->getColor()->setColor(java("java.awt.Color")->MAGENTA);
     $shape->getEffectFormat()->getGlowEffect()->setRadius(15);
@@ -84,7 +84,7 @@ This PHP code shows you how to apply the soft edges to a shape:
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->RoundCornerRectangle, 20, 20, 200, 150);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 20, 20, 200, 150);
     $shape->getEffectFormat()->enableSoftEdgeEffect();
     $shape->getEffectFormat()->getSoftEdgeEffect()->setRadius(15);
     $pres->save("softEdges.pptx", SaveFormat->Pptx);

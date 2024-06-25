@@ -290,7 +290,7 @@ This PHP code shows you how to set the default language for an entire PowerPoint
   $pres = new Presentation($loadOptions);
   try {
     // Adds a new rectangle shape with text
-    $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 50, 150, 50);
+    $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
     $shp->getTextFrame()->setText("New Text");
     // Checks the first portion language
     echo($shp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getLanguageId());

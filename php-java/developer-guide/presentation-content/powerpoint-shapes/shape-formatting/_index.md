@@ -37,16 +37,16 @@ This PHP code demonstrates an operation where we formatted a rectangle `AutoShap
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Adds autoshape of rectangle type
-    $shp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 150, 75);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
     // Sets the fill color for the rectangle shape
-    $shp->getFillFormat()->setFillType(FillType->Solid);
+    $shp->getFillFormat()->setFillType(FillType::Solid);
     $shp->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     // Applies some formatting on the rectangle's lines
     $shp->getLineFormat()->setStyle(LineStyle->ThickThin);
     $shp->getLineFormat()->setWidth(7);
     $shp->getLineFormat()->setDashStyle(LineDashStyle->Dash);
     // Sets the color for the rectangle's line
-    $shp->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Writes the PPTX file to disk
     $pres->save("RectShpLn_out.pptx", SaveFormat->Pptx);
@@ -78,26 +78,26 @@ This Java demonstrates an operation where 3 rectangles (the image above) were cr
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Adds 3 rectangle autoshapes
-    $shp1 = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 100, 150, 75);
-    $shp2 = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 300, 100, 150, 75);
-    $shp3 = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 250, 150, 75);
+    $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 100, 150, 75);
+    $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 100, 150, 75);
+    $shp3 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 250, 150, 75);
     // Sets the fill color for the rectangle shape
-    $shp1->getFillFormat()->setFillType(FillType->Solid);
+    $shp1->getFillFormat()->setFillType(FillType::Solid);
     $shp1->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $shp2->getFillFormat()->setFillType(FillType->Solid);
+    $shp2->getFillFormat()->setFillType(FillType::Solid);
     $shp2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $shp3->getFillFormat()->setFillType(FillType->Solid);
+    $shp3->getFillFormat()->setFillType(FillType::Solid);
     $shp3->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Sets the line's width
     $shp1->getLineFormat()->setWidth(15);
     $shp2->getLineFormat()->setWidth(15);
     $shp3->getLineFormat()->setWidth(15);
     // Sets the color for the rectangle's line
-    $shp1->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $shp1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $shp2->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $shp2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $shp3->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $shp3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     // Sets the Join Style
     $shp1->getLineFormat()->setJoinStyle(LineJoinStyle->Miter);
@@ -138,9 +138,9 @@ This PHP code demonstrates an operation where the gradient fill effect was used 
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Adds an ellipse autoshape
-    $shp = $sld->getShapes()->addAutoShape(ShapeType->Ellipse, 50, 150, 75, 150);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 75, 150);
     // Applies the gradient formatting to the ellipse
-    $shp->getFillFormat()->setFillType(FillType->Gradient);
+    $shp->getFillFormat()->setFillType(FillType::Gradient);
     $shp->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape->Linear);
     // Sets the direction of the gradient
     $shp->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection->FromCorner2);
@@ -182,9 +182,9 @@ This PHP code demonstrates an operation where a pattern fill was used to beautif
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Adds a rectangle autoshape
-    $shp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 75, 150);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
     // Sets the fill type to Pattern
-    $shp->getFillFormat()->setFillType(FillType->Pattern);
+    $shp->getFillFormat()->setFillType(FillType::Pattern);
     // Sets the pattern style
     $shp->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle->Trellis);
     // Sets the pattern back and fore colors
@@ -223,9 +223,9 @@ This PHP code shows you how to fill a shape with a picture:
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add a rectangle autoshape
-    $shp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 75, 150);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
     // Sets the fill type to Picture
-    $shp->getFillFormat()->setFillType(FillType->Picture);
+    $shp->getFillFormat()->setFillType(FillType::Picture);
     // Sets the picture fill mode
     $shp->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Tile);
     // Sets the picture
@@ -271,9 +271,9 @@ This PHP code shows you how to apply the solid color fill to a box in PowerPoint
     // Gets the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adds a rectangle autoshape
-    $shape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 75, 150);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
     // Sets the fill type to Solid
-    $shape->getFillFormat()->setFillType(FillType->Solid);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
     // Sets the color for the rectangle
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     // Writes the PPTX file to disk
@@ -305,10 +305,10 @@ This PHP code demonstrates the process:
   try {
     $slide = $pres->getSlides()->get_Item(0);
     // Adds a solid shape
-    $solidShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 75, 175, 75, 150);
+    $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 75, 175, 75, 150);
     // Adds a transparent shape over the solid shape
-    $shape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 75, 150);
-    $shape->getFillFormat()->setFillType(FillType->Solid);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 204, 102, 0, 128));
     // Writes the PPTX file to disk
     $pres->save("ShapeTransparentOverSolid_out.pptx", SaveFormat->Pptx);
@@ -337,7 +337,7 @@ This PHP code shows you how to rotate a shape by 90 degrees:
     // Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Adds a rectangle autoshape
-    $shp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 75, 150);
+    $shp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
     // Rotates the shape by 90 degrees
     $shp->setRotation(90);
     // Writes the PPTX file to disk
@@ -367,20 +367,20 @@ This PHP code shows you how to add 3D bevel effects to a shape:
   try {
     $slide = $pres->getSlides()->get_Item(0);
     // Adds a shape to the slide
-    $shape = $slide->getShapes()->addAutoShape(ShapeType->Ellipse, 30, 30, 100, 100);
-    $shape->getFillFormat()->setFillType(FillType->Solid);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 30, 30, 100, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $format = $shape->getLineFormat()->getFillFormat();
-    $format->setFillType(FillType->Solid);
+    $format->setFillType(FillType::Solid);
     $format->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $shape->getLineFormat()->setWidth(2.0);
     // Sets the shape's ThreeDFormat properties
     $shape->getThreeDFormat()->setDepth(4);
-    $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType->Circle);
+    $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
     $shape->getThreeDFormat()->getBevelTop()->setHeight(6);
     $shape->getThreeDFormat()->getBevelTop()->setWidth(6);
-    $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType->OrthographicFront);
-    $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType->ThreePt);
+    $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
+    $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
     // Writes the presentation as a PPTX file
     $pres->save("Bavel_out.pptx", SaveFormat->Pptx);
@@ -407,16 +407,16 @@ This PHP code shows you how to apply 3D rotation effects to a shape:
   // Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 30, 30, 200, 200);
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 30, 200, 200);
     $autoShape->getThreeDFormat()->setDepth(6);
     $autoShape->getThreeDFormat()->getCamera()->setRotation(40, 35, 20);
-    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType->IsometricLeftUp);
-    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType->Balanced);
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Line, 30, 300, 200, 200);
+    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
+    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Line, 30, 300, 200, 200);
     $autoShape->getThreeDFormat()->setDepth(6);
     $autoShape->getThreeDFormat()->getCamera()->setRotation(0, 35, 20);
-    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType->IsometricLeftUp);
-    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType->Balanced);
+    $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
+    $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
     // Writes the presentation as a PPTX file
     $pres->save("Rotation_out.pptx", SaveFormat->Pptx);
   } finally {

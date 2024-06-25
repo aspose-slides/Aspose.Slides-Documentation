@@ -29,9 +29,9 @@ To create a simple slide transition effect, follow the steps below:
   $presentation = new Presentation("AccessSlides.pptx");
   try {
     // Apply circle type transition on slide 1
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType->Circle);
+    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
     // Apply comb type transition on slide 2
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType->Comb);
+    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
     // Write the presentation to disk
     $presentation->save("SampleTransition_out.pptx", SaveFormat->Pptx);
   } finally {
@@ -53,17 +53,17 @@ In the above section, we just applied a simple transition effect on the slide. N
   $pres = new Presentation("BetterSlideTransitions.pptx");
   try {
     // Apply circle type transition on slide 1
-    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType->Circle);
+    $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Circle);
     // Set the transition time of 3 seconds
     $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceOnClick(true);
     $pres->getSlides()->get_Item(0)->getSlideShowTransition()->setAdvanceAfterTime(3000);
     // Apply comb type transition on slide 2
-    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType->Comb);
+    $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Comb);
     // Set the transition time of 5 seconds
     $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceOnClick(true);
     $pres->getSlides()->get_Item(1)->getSlideShowTransition()->setAdvanceAfterTime(5000);
     // Apply zoom type transition on slide 3
-    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setType(TransitionType->Zoom);
+    $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setType(TransitionType::Zoom);
     // Set the transition time of 7 seconds
     $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceOnClick(true);
     $pres->getSlides()->get_Item(2)->getSlideShowTransition()->setAdvanceAfterTime(7000);
@@ -88,7 +88,7 @@ The following code snippet shows you how to add a clone of the slide with some t
 ```php
   $presentation = new Presentation();
   try {
-    $autoshape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 400, 100);
+    $autoshape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 100);
     $autoshape->getTextFrame()->setText("Morph Transition in PowerPoint Presentations");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
     $shape = $presentation->getSlides()->get_Item(1)->getShapes()->get_Item(0);
@@ -96,7 +96,7 @@ The following code snippet shows you how to add a clone of the slide with some t
     $shape->setY($shape->getY() + 50);
     $shape->setWidth($shape->getWidth() - 200);
     $shape->setHeight($shape->getHeight() - 10);
-    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType->Morph);
+    $presentation->getSlides()->get_Item(1)->getSlideShowTransition()->setType(TransitionType::Morph);
     $presentation->save("presentation-out.pptx", SaveFormat->Pptx);
   } finally {
     $presentation->dispose();
@@ -117,8 +117,8 @@ The following code snippet shows you how to set morph transition to slide and ch
 ```php
   $presentation = new Presentation("presentation.pptx");
   try {
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType->Morph);
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setMorphType(TransitionMorphType->ByWord);
+    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Morph);
+    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setMorphType(TransitionMorphType::ByWord);
     $presentation->save("presentation-out.pptx", SaveFormat->Pptx);
   } finally {
     $presentation->dispose();
@@ -140,7 +140,7 @@ In the example given below, we have set the transition effects.
   $presentation = new Presentation("AccessSlides.pptx");
   try {
     // Set effect
-    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType->Cut);
+    $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->setType(TransitionType::Cut);
     $presentation->getSlides()->get_Item(0)->getSlideShowTransition()->getValue()->setFromBlack(true);
     // Write the presentation to disk
     $presentation->save("SetTransitionEffects_out.pptx", SaveFormat->Pptx);

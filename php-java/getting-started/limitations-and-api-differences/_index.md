@@ -93,7 +93,7 @@ try
     $slide = $pres->getSlides()->get_Item(0);
 
     // Adds an autoshape with type set to line
-    $slide->getShapes()->addAutoShape(ShapeType->Line, 50, 150, 300, 0);
+    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     $pres->save("NewPresentation_out.pptx", SaveFormat->Pptx);
 }
 finally

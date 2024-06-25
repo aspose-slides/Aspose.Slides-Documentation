@@ -240,7 +240,7 @@ This PHP code shows you how to convert a PowerPoint when its slide size is speci
       $slide = $pres->getSlides()->get_Item(0);
       $outPres->getSlides()->insertClone(0, $slide);
       // Sets the slide type and size
-      $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType->EnsureFit);
+      $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType::EnsureFit);
       $pdfOptions = new PdfOptions();
       $options = $pdfOptions->getNotesCommentsLayouting();
       $options->setNotesPosition(NotesPositions->BottomFull);

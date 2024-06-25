@@ -41,16 +41,16 @@ This PHP code shows you how to create a table in a presentation:
     for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
       for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
-        $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType->Solid);
+        $cellFormat->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cellFormat->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cellFormat->getBorderTop()->setWidth(5);
-        $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType->Solid);
+        $cellFormat->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
         $cellFormat->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cellFormat->getBorderBottom()->setWidth(5);
-        $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType->Solid);
+        $cellFormat->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
         $cellFormat->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cellFormat->getBorderLeft()->setWidth(5);
-        $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType->Solid);
+        $cellFormat->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
         $cellFormat->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cellFormat->getBorderRight()->setWidth(5);
       }
@@ -96,16 +96,16 @@ This PHP code shows you how to specify the numbering for cells in a table:
     // Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
-        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType->Solid);
+        $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderTop()->setWidth(5);
-        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType->Solid);
+        $cell->getCellFormat()->getBorderBottom()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderBottom()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderBottom()->setWidth(5);
-        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType->Solid);
+        $cell->getCellFormat()->getBorderLeft()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderLeft()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderLeft()->setWidth(5);
-        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType->Solid);
+        $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderRight()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
@@ -196,12 +196,12 @@ This PHP code shows you how to align the text in a table:
     // Creates the Portion object for paragraph
     $portion = $paragraph->getPortions()->get_Item(0);
     $portion->setText("Text here");
-    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Aligns the text vertically
     $cell = $tbl->get_Item(0, 0);
-    $cell->setTextAnchorType(TextAnchorType->Center);
-    $cell->setTextVerticalType(TextVerticalType->Vertical270);
+    $cell->setTextAnchorType(TextAnchorType::Center);
+    $cell->setTextVerticalType(TextVerticalType::Vertical270);
     // Saves the presentation to disk
     $pres->save("Vertical_Align_Text_out.pptx", SaveFormat->Pptx);
   } finally {
@@ -240,7 +240,7 @@ This PHP code shows you how to apply your preferred formatting options to the te
     $someTable->setTextFormat($paragraphFormat);
     // Sets the table cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
-    $textFrameFormat->setTextVerticalType(TextVerticalType->Vertical);
+    $textFrameFormat->setTextVerticalType(TextVerticalType::Vertical);
     $someTable->setTextFormat($textFrameFormat);
     $pres->save("result.pptx", SaveFormat->Pptx);
   } finally {

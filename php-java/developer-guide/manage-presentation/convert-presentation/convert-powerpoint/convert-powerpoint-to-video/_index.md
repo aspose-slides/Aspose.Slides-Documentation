@@ -48,12 +48,12 @@ This PHP code shows you how to convert a presentation (containing a figure and t
   $presentation = new Presentation();
   try {
     // Adds a smile shape and then animates it
-    $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->SmileyFace, 110, 20, 500, 500);
+    $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    $effectIn = $mainSequence->addEffect($smile, EffectType->Fly, EffectSubtype->TopLeft, EffectTriggerType->AfterPrevious);
-    $effectOut = $mainSequence->addEffect($smile, EffectType->Fly, EffectSubtype->BottomRight, EffectTriggerType->AfterPrevious);
+    $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::TopLeft, EffectTriggerType::AfterPrevious);
+    $effectOut = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::BottomRight, EffectTriggerType::AfterPrevious);
     $effectIn->getTiming()->setDuration(2.0);
-    $effectOut->setPresetClassType(EffectPresetClassType->Exit);
+    $effectOut->setPresetClassType(EffectPresetClassType::Exit);
     $fps = 33;
     $frames = new Java("java.util.ArrayList");
     $animationsGenerator = new PresentationAnimationsGenerator($presentation);
@@ -123,10 +123,10 @@ Animations and transitions make slideshows more engaging and interesting—and t
   // ...
   // Adds a new slide and animated transition
   $newSlide = $presentation->getSlides()->addEmptySlide($presentation->getSlides()->get_Item(0)->getLayoutSlide());
-  $newSlide->getBackground()->setType(BackgroundType->OwnBackground);
-  $newSlide->getBackground()->getFillFormat()->setFillType(FillType->Solid);
+  $newSlide->getBackground()->setType(BackgroundType::OwnBackground);
+  $newSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
   $newSlide->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
-  $newSlide->getSlideShowTransition()->setType(TransitionType->Push);
+  $newSlide->getSlideShowTransition()->setType(TransitionType::Push);
 
 ```
 
@@ -136,7 +136,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
   $presentation = new Presentation();
   try {
     // Adds text and animations
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 210, 120, 300, 300);
+    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 120, 300, 300);
     $para1 = new Paragraph();
     $para1->getPortions()->add(new Portion("Aspose Slides for Java"));
     $para2 = new Paragraph();
@@ -149,10 +149,10 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
     $paragraphCollection->add($para3);
     $paragraphCollection->add(new Paragraph());
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    $effect1 = $mainSequence->addEffect($para1, EffectType->Appear, EffectSubtype->None, EffectTriggerType->AfterPrevious);
-    $effect2 = $mainSequence->addEffect($para2, EffectType->Appear, EffectSubtype->None, EffectTriggerType->AfterPrevious);
-    $effect3 = $mainSequence->addEffect($para3, EffectType->Appear, EffectSubtype->None, EffectTriggerType->AfterPrevious);
-    $effect4 = $mainSequence->addEffect($para3, EffectType->Appear, EffectSubtype->None, EffectTriggerType->AfterPrevious);
+    $effect1 = $mainSequence->addEffect($para1, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
+    $effect2 = $mainSequence->addEffect($para2, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
+    $effect3 = $mainSequence->addEffect($para3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
+    $effect4 = $mainSequence->addEffect($para3, EffectType::Appear, EffectSubType::None, EffectTriggerType::AfterPrevious);
     $effect1->getTiming()->setTriggerDelayTime(1.0);
     $effect2->getTiming()->setTriggerDelayTime(1.0);
     $effect3->getTiming()->setTriggerDelayTime(1.0);

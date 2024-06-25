@@ -47,7 +47,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType->Bubble, 50, 50, 600, 400, true);
+    $chart = $slide->getShapes()->addChart(ChartType::Bubble, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries();
     $dataLabelCollection = $series->get_Item(0)->getLabels();
     $dataLabelCollection->getDefaultDataLabelFormat()->setShowLabelValueFromCell(true);
@@ -70,7 +70,7 @@ This PHP code demonstrates an operation where the [IChartDataWorkbook.Worksheets
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Pie, 50, 50, 400, 500);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 500);
     $wb = $chart->getChartData()->getChartDataWorkbook();
     for($i = 0; $i < java_values($wb->getWorksheets()->size()) ; $i++) {
       echo($wb->getWorksheets()->get_Item($i)->getName());
@@ -89,9 +89,9 @@ This PHP code shows you how to specify a type for a data source:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Column3D, 50, 50, 600, 400, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
     $val = $chart->getChartData()->getSeries()->get_Item(0)->getName();
-    $val->setDataSourceType(DataSourceType->StringLiterals);
+    $val->setDataSourceType(DataSourceType::StringLiterals);
     $val->setData("LiteralString");
     $val = $chart->getChartData()->getSeries()->get_Item(1)->getName();
     $val->setData($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1", "NewCell"));
@@ -120,7 +120,7 @@ This PHP code demonstrates the external workbook creation process:
   $Array = new java_class("java.lang.reflect.Array");
   try {
     $workbookPath = "externalWorkbook1.xlsx";
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Pie, 50, 50, 400, 600);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600);
     $fileStream = new Java("java.io.FileOutputStream", $workbookPath);
     $Array = new java_class("java.lang.reflect.Array");
     try {
@@ -153,10 +153,10 @@ This PHP code shows you how to set an external workbook:
   // Creates an instance of the Presentation class
   $pres = new Presentation("chart.pptx");
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Pie, 50, 50, 400, 600, false);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, false);
     $chartData = $chart->getChartData();
     $chartData->setExternalWorkbook("externalWorkbook.xlsx");
-    $chartData->getSeries()->add($chartData->getChartDataWorkbook()->getCell(0, "B1"), ChartType->Pie);
+    $chartData->getSeries()->add($chartData->getChartDataWorkbook()->getCell(0, "B1"), ChartType::Pie);
     $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B2"));
     $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B3"));
     $chartData->getSeries()->get_Item(0)->getDataPoints()->addDataPointForPieSeries($chartData->getChartDataWorkbook()->getCell(0, "B4"));
@@ -180,7 +180,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
   // Creates an instance of the Presentation class
   $pres = new Presentation("chart.pptx");
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Pie, 50, 50, 400, 600, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
     $chartData = $chart->getChartData();
     $chartData->setExternalWorkbook("http://path/doesnt/exists", false);
     $pres->save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", SaveFormat->Pptx);
@@ -208,7 +208,7 @@ This PHP code demonstrates the operation:
     $slide = $pres->getSlides()->get_Item(1);
     $chart = $slide->getShapes()->get_Item(0);
     $sourceType = $chart->getChartData()->getDataSourceType();
-    if ($sourceType == ChartDataSourceType->ExternalWorkbook) {
+    if ($sourceType == ChartDataSourceType::ExternalWorkbook) {
       $path = $chart->getChartData()->getExternalWorkbookPath();
     }
     // Saves the presentation

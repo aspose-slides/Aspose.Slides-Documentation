@@ -191,7 +191,7 @@ This sample code demonstrates the described operation:
   try {
     $pres2 = new Presentation("pres2.pptx");
     try {
-      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType->EnsureFit);
+      $pres2->getSlideSize()->setSize($pres1->getSlideSize()->getSize()->getWidth(), $pres1->getSlideSize()->getSize()->getHeight(), SlideSizeScaleType::EnsureFit);
       foreach($pres2->getSlides() as $slide) {
         $pres1->getSlides()->addClone($slide);
       }

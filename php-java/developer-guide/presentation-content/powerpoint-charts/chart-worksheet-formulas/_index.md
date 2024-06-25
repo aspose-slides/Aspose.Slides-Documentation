@@ -51,7 +51,7 @@ The worksheet of the chart is automatically created and can be accessed with 
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 150, 150, 500, 300);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
     $workbook = $chart->getChartData()->getChartDataWorkbook();
     // ...
   } finally {

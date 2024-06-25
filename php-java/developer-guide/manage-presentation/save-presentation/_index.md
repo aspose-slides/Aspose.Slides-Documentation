@@ -40,7 +40,7 @@ It is possible to save a presentation to a stream by passing an output stream to
   // Instantiate a Presentation object that represents a PPT file
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 200, 200);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 200, 200);
     // Add text to shape
     $shape->getTextFrame()->setText("This demo shows how to Create PowerPoint file and save it to Stream.");
     $os = new Java("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
@@ -62,7 +62,7 @@ Aspose.Slides for PHP via Java provides a facility to set the view type for the 
   $pres = new Presentation();
   try {
     // Setting view type
-    $pres->getViewProperties()->setLastView(ViewType->SlideMasterView);
+    $pres->getViewProperties()->setLastView(ViewType::SlideMasterView);
     // Saving presentation
     $pres->save("newDemo.pptx", SaveFormat->Pptx);
   } finally {
@@ -84,7 +84,7 @@ The following sample code creates a presentation and saves it in the Strict Open
     // Get the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an autoshape of type line
-    $slide->getShapes()->addAutoShape(ShapeType->Line, 50, 150, 300, 0);
+    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
     // Setting strick XML save options
     $options = new PptxOptions();
     $options->setConformance(Conformance->Iso29500_2008_Strict);

@@ -39,7 +39,7 @@ This PHP code shows you how to create a picture frame:
     // Instantiates the Image class
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
     // Adds a picture frame with the picture's equivalent height and width
-    $sld->getShapes()->addPictureFrame(ShapeType->Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
+    $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Write the PPTX file to disk
     $pres->save("RectPicFrame.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
@@ -78,7 +78,7 @@ This PHP code shows you how to create a picture frame with relative scale:
     // Instantiate the Image class
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
     // Add Picture Frame with height and width equivalent of Picture
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType->Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
+    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Setting relative scale width and height
     $pf->setRelativeScaleHeight(0.8);
     $pf->setRelativeScaleWidth(1.35);
@@ -164,9 +164,9 @@ This PHP code demonstrates the picture frame formatting process:
     // Instantiates the Image class
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
     // Adds Picture Frame with height and width equivalent of Picture
-    $pf = $sld->getShapes()->addPictureFrame(ShapeType->Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
+    $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
     // Applies some formatting to PictureFrameEx
-    $pf->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $pf->getLineFormat()->setWidth(20);
     $pf->setRotation(45);
@@ -201,12 +201,12 @@ To avoid large presentation sizes, you can add images (or videos) through links 
         continue;
       }
       switch ($autoShape->getPlaceholder()->getType()) {
-        case PlaceholderType->Picture :
-          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType->Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
+        case PlaceholderType::Picture :
+          $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, $autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), null);
           $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
           $shapesToRemove->add($autoShape);
           break;
-        case PlaceholderType->Media :
+        case PlaceholderType::Media :
           $videoFrame = $presentation->getSlides()->get_Item(0)->getShapes()->addVideoFrame($autoShape->getX(), $autoShape->getY(), $autoShape->getWidth(), $autoShape->getHeight(), "");
           $videoFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
           $videoFrame->setLinkPathLong("https://youtu.be/t_1LYZ102RA");
@@ -243,7 +243,7 @@ This PHP code shows you how to crop an existing image on a slide:
       }
     }
     // Adds a PictureFrame to a Slide
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType->Rectangle, 100, 100, 420, 250, $picture);
+    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
     // Crops the image (percentage values)
     $picFrame->getPictureFormat()->setCropLeft(23.6);
     $picFrame->getPictureFormat()->setCropRight(21.5);
@@ -299,7 +299,7 @@ This PHP code shows you how to lock a shape's aspect ratio:
 ```php
   $pres = new Presentation("pres.pptx");
   try {
-    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType->Custom);
+    $layout = $pres->getLayoutSlides()->getByType(SlideLayoutType::Custom);
     $emptySlide = $pres->getSlides()->addEmptySlide($layout);
     $picture;
     $image = Images->fromFile("image.png");
@@ -310,7 +310,7 @@ This PHP code shows you how to lock a shape's aspect ratio:
         $image->dispose();
       }
     }
-    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType->Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
+    $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
     // set shape to have to preserve aspect ratio on resizing
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
   } catch (JavaException $e) {
@@ -362,9 +362,9 @@ This PHP code demonstrates a process in which a StretchOff property is used:
       }
     }
     // Adds an AutoShape set to Rectangle
-    $aShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 300, 300);
+    $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
     // Sets the shape's fill type
-    $aShape->getFillFormat()->setFillType(FillType->Picture);
+    $aShape->getFillFormat()->setFillType(FillType::Picture);
     // Sets the shape's picture fill mode
     $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
     // Sets the image to fill the shape

@@ -35,7 +35,7 @@ First, we create a simple text using this PHP code:
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     $textFrame = $autoShape->getTextFrame();
     $portion = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->setText("Aspose.Slides");
@@ -71,11 +71,11 @@ These are some of the available parameters or options:
 Here, we apply the [SmallGrid](https://reference.aspose.com/slides/php-java/aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
 
 ```php
-  $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Pattern);
+  $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
   $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->ORANGE);
   $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
   $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle->SmallGrid);
-  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+  $portion->getPortionFormat()->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
   $portion->getPortionFormat()->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 
 ```
@@ -176,7 +176,7 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ```php
-  $textFrame->getTextFrameFormat()->setTransform(TextShapeType->ArchUpPour);
+  $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUpPour);
 
 ```
 
@@ -203,10 +203,10 @@ To select a transformation type, use the TextShapeType enum.
 We set a 3D effect to a text shape using this sample code:
 
 ```php
-  $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType->Circle);
+  $autoShape->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $autoShape->getThreeDFormat()->getBevelBottom()->setHeight(10.5);
   $autoShape->getThreeDFormat()->getBevelBottom()->setWidth(10.5);
-  $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType->Circle);
+  $autoShape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
   $autoShape->getThreeDFormat()->getBevelTop()->setHeight(12.5);
   $autoShape->getThreeDFormat()->getBevelTop()->setWidth(11);
   $autoShape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
@@ -214,11 +214,11 @@ We set a 3D effect to a text shape using this sample code:
   $autoShape->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
   $autoShape->getThreeDFormat()->setContourWidth(1.5);
   $autoShape->getThreeDFormat()->setDepth(3);
-  $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType->Plastic);
+  $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
   $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
-  $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType->Balanced);
+  $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
   $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType->PerspectiveContrastingRightFacing);
+  $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 
 ```
 
@@ -229,10 +229,10 @@ The resulting text and its shape:
 We apply a 3D effect to the text with this PHP code:
 
 ```php
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType->Circle);
+  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setBevelType(BevelPresetType::Circle);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setHeight(3.5);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelBottom()->setWidth(3.5);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType->Circle);
+  $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setHeight(4);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getBevelTop()->setWidth(4);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->ORANGE);
@@ -240,11 +240,11 @@ We apply a 3D effect to the text with this PHP code:
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getContourColor()->setColor(java("java.awt.Color")->RED);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType->Plastic);
+  $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType->Balanced);
+  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType->PerspectiveContrastingRightFacing);
+  $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
 
 ```
 
@@ -290,11 +290,11 @@ This sample code —an implementation of the steps above—shows you how to appl
     // Get reference of the slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 75, 150, 50);
+    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
     // Add TextFrame to the Rectangle
     $ashp->addTextFrame("Aspose TextBox");
     // Disable shape fill in case we want to get shadow of text
-    $ashp->getFillFormat()->setFillType(FillType->NoFill);
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
     // Add outer shadow and set all necessary parameters
     $ashp->getEffectFormat()->enableOuterShadowEffect();
     $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
@@ -332,8 +332,8 @@ This sample code (based on the steps above) shows you how to add a connector bet
     // Get reference of the slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 75, 400, 300);
-    $ashp->getFillFormat()->setFillType(FillType->NoFill);
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
+    $ashp->getFillFormat()->setFillType(FillType::NoFill);
     // Add TextFrame to the Rectangle
     $ashp->addTextFrame("Aspose TextBox");
     $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
@@ -348,7 +348,7 @@ This sample code (based on the steps above) shows you how to add a connector bet
     $ef->getInnerShadowEffect()->setDistance(6.0);
     $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
     // Set ColorType as Scheme
-    $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType->Scheme);
+    $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
     // Set Scheme Color
     $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
     // Save Presentation

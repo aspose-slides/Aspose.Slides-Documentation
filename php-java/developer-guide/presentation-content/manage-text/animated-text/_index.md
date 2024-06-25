@@ -18,7 +18,7 @@ We added the [**addEffect()**](https://reference.aspose.com/slides/php-java/aspo
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     // add Fly animation effect to selected paragraph
-    $effect = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($paragraph, EffectType->Fly, EffectSubtype->Left, EffectTriggerType->OnClick);
+    $effect = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($paragraph, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
     $presentation->save("AnimationEffectinParagraph.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($presentation)) {

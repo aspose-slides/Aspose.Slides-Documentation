@@ -45,10 +45,10 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
     // Goes through layout slide types
     $layoutSlides = $pres->getMasters()->get_Item(0)->getLayoutSlides();
     $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType->TitleAndObject))) {
-      $layoutSlide = $layoutSlides->getByType(SlideLayoutType->TitleAndObject);
+    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
+      $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
     } else {
-      $layoutSlide = $layoutSlides->getByType(SlideLayoutType->Title);
+      $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
     }
     if (java_is_null($layoutSlide)) {
       // The situation where a presentation doesn't contain some layout types.
@@ -72,9 +72,9 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
           }
         }
         if (java_is_null($layoutSlide)) {
-          $layoutSlide = $layoutSlides->getByType(SlideLayoutType->Blank);
+          $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
           if (java_is_null($layoutSlide)) {
-            $layoutSlide = $layoutSlides->add(SlideLayoutType->TitleAndObject, "Title and Object");
+            $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
           }
         }
       }
@@ -116,9 +116,9 @@ To allow you to set the size and type for a specific layout slide, Aspose.Slides
     $auxPresentation = new Presentation();
     try {
       // Sets the slide size for the generated presentation to that of the source
-      $auxPresentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType->EnsureFit);
+      $auxPresentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);
       // getType());
-      $auxPresentation->getSlideSize()->setSize(SlideSizeType->A4Paper, SlideSizeScaleType->Maximize);
+      $auxPresentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);
       // Clones the required slide
       $auxPresentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
       $auxPresentation->getSlides()->removeAt(0);
@@ -217,9 +217,9 @@ This PHP code demonstrates the operation:
   $presentation = new Presentation("demo.pptx");
   try {
     // Sets the slide size for the generated presentations to that of the source
-    $presentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType->EnsureFit);// Method SetSize is used to set slide size with scale content to ensure fit
+    $presentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);// Method SetSize is used to set slide size with scale content to ensure fit
 
-    $presentation->getSlideSize()->setSize(SlideSizeType->A4Paper, SlideSizeScaleType->Maximize);// Method SetSize is used to set slide size with maximum size of content
+    $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);// Method SetSize is used to set slide size with maximum size of content
 
     // Saves the presentation to disk
     $presentation->save("Set_Size&Type_out.pptx", SaveFormat->Pptx);
@@ -239,7 +239,7 @@ Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/php-j
   $presentation = new Presentation();
   try {
     // Sets the SlideSize.Type Property
-    $presentation->getSlideSize()->setSize(SlideSizeType->A4Paper, SlideSizeScaleType->EnsureFit);
+    $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
     // Sets different properties for PDF Options
     $opts = new PdfOptions();
     $opts->setSufficientResolution(600);

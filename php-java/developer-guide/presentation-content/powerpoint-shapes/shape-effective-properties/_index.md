@@ -145,7 +145,7 @@ Using Aspose.Slides for PHP via Java, you can get effective properties of Font H
 ```php
   $pres = new Presentation();
   try {
-    $newShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 400, 75, false);
+    $newShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
     $newShape->addTextFrame("");
     $newShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->clear();
     $portion0 = new Portion("Sample text with first portion");

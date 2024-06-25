@@ -19,17 +19,17 @@ Aspose.Slides for PHP via Java provides a simple API for managing error bar valu
   $pres = new Presentation();
   try {
     // Creating a bubble chart
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Bubble, 50, 50, 400, 300, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
     // Adding Error bars and setting its format
     $errBarX = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsXFormat();
     $errBarY = $chart->getChartData()->getSeries()->get_Item(0)->getErrorBarsYFormat();
     $errBarX->isVisible();
     $errBarY->isVisible();
-    $errBarX->setValueType(ErrorBarValueType->Fixed);
+    $errBarX->setValueType(ErrorBarValueType::Fixed);
     $errBarX->setValue(0.1);
-    $errBarY->setValueType(ErrorBarValueType->Percentage);
+    $errBarY->setValueType(ErrorBarValueType::Percentage);
     $errBarY->setValue(5);
-    $errBarX->setType(ErrorBarType->Plus);
+    $errBarX->setType(ErrorBarType::Plus);
     $errBarY->getFormat()->getLine()->setWidth(2.0);
     $errBarX->hasEndCap();
     // Saving presentation
@@ -57,22 +57,22 @@ Aspose.Slides for PHP via Java provides a simple API for managing custom error b
   $pres = new Presentation();
   try {
     // Creating a bubble chart
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Bubble, 50, 50, 400, 300, true);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Bubble, 50, 50, 400, 300, true);
     // Adding custom Error bars and setting its format
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $errBarX = $series->getErrorBarsXFormat();
     $errBarY = $series->getErrorBarsYFormat();
     $errBarX->isVisible();
     $errBarY->isVisible();
-    $errBarX->setValueType(ErrorBarValueType->Custom);
-    $errBarY->setValueType(ErrorBarValueType->Custom);
+    $errBarX->setValueType(ErrorBarValueType::Custom);
+    $errBarY->setValueType(ErrorBarValueType::Custom);
     // Accessing chart series data point and setting error bars values for
     // individual point
     $points = $series->getDataPoints();
-    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXPlusValues(DataSourceType->DoubleLiterals);
-    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXMinusValues(DataSourceType->DoubleLiterals);
-    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYPlusValues(DataSourceType->DoubleLiterals);
-    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYMinusValues(DataSourceType->DoubleLiterals);
+    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXPlusValues(DataSourceType::DoubleLiterals);
+    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForXMinusValues(DataSourceType::DoubleLiterals);
+    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYPlusValues(DataSourceType::DoubleLiterals);
+    $points->getDataSourceTypeForErrorBarsCustomValues()->setDataSourceTypeForYMinusValues(DataSourceType::DoubleLiterals);
     // Setting error bars for chart series points
     for($i = 0; $i < java_values($points->size()) ; $i++) {
       $points->get_Item($i)->getErrorBarsCustomValues()->getXMinus()->setAsLiteralDouble($i + 1);

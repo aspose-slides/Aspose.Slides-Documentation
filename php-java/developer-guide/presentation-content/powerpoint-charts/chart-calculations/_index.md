@@ -11,7 +11,7 @@ Aspose.Slides for PHP via Java provides a simple API for getting these propertie
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Area, 100, 100, 500, 350);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Area, 100, 100, 500, 350);
     $chart->validateChartLayout();
     $maxValue = $chart->getAxes()->getVerticalAxis()->getActualMaxValue();
     $minValue = $chart->getAxes()->getVerticalAxis()->getActualMinValue();
@@ -30,7 +30,7 @@ Aspose.Slides for PHP via Java provides a simple API for getting these propertie
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 100, 100, 500, 350);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 350);
     $chart->validateChartLayout();
     $x = $chart->getPlotArea()->getActualX();
     $y = $chart->getPlotArea()->getActualY();
@@ -50,7 +50,7 @@ This topic helps you to understand how to hide information from chart. Using Asp
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType->LineWithMarkers, 140, 118, 320, 370);
+    $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 140, 118, 320, 370);
     // Hiding chart Title
     $chart->setTitle(false);
     // /Hiding Values axis
@@ -60,17 +60,17 @@ This topic helps you to understand how to hide information from chart. Using Asp
     // Hiding Legend
     $chart->setLegend(false);
     // Hiding MajorGridLines
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType->NoFill);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->removeAt($i);
     }
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getMarker()->setSymbol(MarkerStyleType->Circle);
+    $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition->Top);
     $series->getMarker()->setSize(15);
     // Setting series line color
-    $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType->Solid);
+    $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $series->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Solid);
     $pres->save("HideInformationFromChart.pptx", SaveFormat->Pptx);

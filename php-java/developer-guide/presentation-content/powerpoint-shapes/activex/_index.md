@@ -28,7 +28,7 @@ This sample code, based on the steps above, shows to how to add Media Player Act
   $pres = new Presentation();
   try {
     // Adding the Media Player ActiveX control
-    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType->WindowsMediaPlayer, 100, 100, 400, 400);
+    $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
     // Access the Media Player ActiveX control and set the video path
     $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
     // Save the Presentation

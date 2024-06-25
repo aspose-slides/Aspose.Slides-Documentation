@@ -74,7 +74,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
       $notesStyle = $notesMaster->getNotesStyle();
       // Set symbol bullet for the first level paragraphs
       $paragraphFormat = $notesStyle->getLevel(0);
-      $paragraphFormat->getBullet()->setType(BulletType->Symbol);
+      $paragraphFormat->getBullet()->setType(BulletType::Symbol);
     }
     $pres->save("NotesSlideWithNotesStyle.pptx", SaveFormat->Pptx);
   } finally {

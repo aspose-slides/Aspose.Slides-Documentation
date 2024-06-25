@@ -47,15 +47,15 @@ This PHP code shows you how to apply the `Fade` effect to AutoShape and set the 
   try {
     $sld = $pres->getSlides()->get_Item(0);
     // Adds new AutoShape with text
-    $autoShape = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 20, 20, 150, 100);
+    $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
     $textFrame = $autoShape->getTextFrame();
     $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
     // Gets the main sequence of the slide.
     $sequence = $sld->getTimeline()->getMainSequence();
     // Adds Fade animation effect to shape
-    $effect = $sequence->addEffect($autoShape, EffectType->Fade, EffectSubtype->None, EffectTriggerType->OnClick);
+    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
     // Animates shape text by 1st level paragraphs
-    $effect->getTextAnimation()->setBuildType(BuildType->ByLevelParagraphs1);
+    $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
     // Save the PPTX file to disk
     $pres->save($path . "AnimText_out.pptx", SaveFormat->Pptx);
   } finally {
@@ -97,11 +97,11 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
       }
     }
     // Adds picture frame to slide
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType->Rectangle, 50, 50, 100, 100, $picture);
+    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
     // Gets the main sequence of the slide.
     $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     // Adds Fly from Left animation effect to picture frame
-    $effect = $sequence->addEffect($picFrame, EffectType->Fly, EffectSubtype->Left, EffectTriggerType->OnClick);
+    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
     // Save the PPTX file to disk
     $pres->save($path . "AnimImage_out.pptx", SaveFormat->Pptx);
   } catch (JavaException $e) {
@@ -131,24 +131,24 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
   try {
     $sld = $pres->getSlides()->get_Item(0);
     // Creates PathFootball effect for existing shape from scratch.
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 150, 150, 250, 25);
+    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
     $ashp->addTextFrame("Animated TextBox");
     // Adds the PathFootBall animation effect
-    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType->PathFootball, EffectSubtype->None, EffectTriggerType->AfterPrevious);
+    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
     // Creates some kind of "button".
-    $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Bevel, 10, 10, 20, 20);
+    $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
     // Creates a sequence of effects for this button.
     $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
     // Creates a custom user path. Our object will be moved only after the button is clicked.
-    $fxUserPath = $seqInter->addEffect($ashp, EffectType->PathUser, EffectSubtype->None, EffectTriggerType->OnClick);
+    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
     // Adds commands for moving since created path is empty.
     $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
     $pts = new Point2DFloat[1];
     $pts[0] = new Point2DFloat(0.076, 0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType->LineTo, $pts, MotionPathPointsType->Auto, true);
+    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
     $pts[0] = new Point2DFloat(-0.076, -0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType->LineTo, $pts, MotionPathPointsType->Auto, false);
-    $motionBhv->getPath()->add(MotionCommandPathType->End, null, MotionPathPointsType->Auto, false);
+    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
+    $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
     // Writes the PPTX file to disk
     $pres->save("AnimExample_out.pptx", SaveFormat->Pptx);
   } finally {
@@ -217,7 +217,7 @@ This PHP code demonstrates the operation:
     // Gets the first effect of main sequence.
     $effect = $sequence->get_Item(0);
     // Changes effect TriggerType to start on click
-    $effect->getTiming()->setTriggerType(EffectTriggerType->OnClick);
+    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
     // Changes effect Duration
     $effect->getTiming()->setDuration(3.0);
     // Changes effect TriggerDelayTime
@@ -321,11 +321,11 @@ This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
 PowerPoint Effect **After animation** drop-down list matches these properties: 
 
 - [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAfterAnimationType-int-) property which describes the After animation type :
-  * PowerPoint **More Colors** matches the [AfterAnimationType->Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type;
-  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType->DoNotDim](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#DoNotDim) type (default after animation type);
-  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType->HideAfterAnimation](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation) type;
-  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType->HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType->Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
+  * PowerPoint **More Colors** matches the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type;
+  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#DoNotDim) type (default after animation type);
+  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation) type;
+  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
+- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
 
 This PHP code shows you how to change an after animation effect:
 
@@ -337,7 +337,7 @@ This PHP code shows you how to change an after animation effect:
     // Gets the first effect of the main sequence
     $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
     // Changes the after animation type to Color
-    $firstEffect->setAfterAnimationType(AfterAnimationType->Color);
+    $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
     // Sets the after animation dim color
     $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
     // Writes the PPTX file to disk
@@ -354,15 +354,15 @@ This PHP code shows you how to change an after animation effect:
 Aspose.Slides provides these properties to allow you to work with an animation effect's *Animate text* block:
 
 - [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAnimateTextType-int-) which describes an animate text type of the effect. The shape text can be animated:
-  - All at once ([AnimateTextType->AllAtOnce](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#AllAtOnce) type)
-  - By word ([AnimateTextType->ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByWord) type)
-  - By letter ([AnimateTextType->ByLetter](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByLetter) type)
+  - All at once ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#AllAtOnce) type)
+  - By word ([AnimateTextType::ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByWord) type)
+  - By letter ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByLetter) type)
 - [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setDelayBetweenTextParts-float-) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
 
 This is how you can change the Effect Animate text properties:
 
 1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/itextanimation/#setBuildType-int-) property to [BuildType->AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
+2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/itextanimation/#setBuildType-int-) property to [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
 3. Set new values for the [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setAnimateTextType-int-) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/ieffect/#setDelayBetweenTextParts-float-) properties.
 4. Save the modified PPTX file.
 
@@ -376,9 +376,9 @@ This PHP code demonstrates the operation:
     // Gets the first effect of the main sequence
     $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
     // Changes the effect Text animation type to "As One Object"
-    $firstEffect->getTextAnimation()->setBuildType(BuildType->AsOneObject);
+    $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
     // Changes the effect Animate text type to "By word"
-    $firstEffect->setAnimateTextType(AnimateTextType->ByWord);
+    $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
     // Sets the delay between words to 20% of effect duration
     $firstEffect->setDelayBetweenTextParts(20.0);
     // Writes the PPTX file to disk

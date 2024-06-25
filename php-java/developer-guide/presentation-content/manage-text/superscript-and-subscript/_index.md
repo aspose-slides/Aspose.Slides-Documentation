@@ -34,7 +34,7 @@ The implementation of the above steps is given below.
     // Get slide
     $slide = $pres->getSlides()->get_Item(0);
     // Create text box
-    $shape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 200, 100);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
     // Create paragraph for superscript text

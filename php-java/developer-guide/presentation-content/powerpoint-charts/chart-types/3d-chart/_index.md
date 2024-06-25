@@ -19,7 +19,7 @@ Aspose.Slides for PHP via Java provides a simple API for setting these propertie
     // Access first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add chart with default data
-    $chart = $slide->getShapes()->addChart(ChartType->StackedColumn3D, 0, 0, 500, 500);
+    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn3D, 0, 0, 500, 500);
     // Setting the index of chart data sheet
     $defaultWorksheetIndex = 0;
     // Getting the chart data worksheet

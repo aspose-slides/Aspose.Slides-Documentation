@@ -48,7 +48,7 @@ Code that attempts to assign an undefined frame to IShape.setFrame(IShapeFrame) 
 or
 
 ```php
-  slide.Shapes->AddAutoShape(ShapeType->RoundCornerRectangle, Float->NaN, Float->NaN, Float->NaN, Float->NaN);
+  slide.Shapes->AddAutoShape(ShapeType::RoundCornerRectangle, Float->NaN, Float->NaN, Float->NaN, Float->NaN);
 
 ```
 

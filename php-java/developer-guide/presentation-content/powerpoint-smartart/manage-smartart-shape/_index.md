@@ -21,7 +21,7 @@ Aspose.Slides for PHP via Java has provided an API to create SmartArt shapes. To
     // Get first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add Smart Art Shape
-    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType->BasicBlockList);
+    $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::BasicBlockList);
     // Saving presentation
     $pres->save("SimpleSmartArt.pptx", SaveFormat->Pptx);
   } finally {
@@ -59,7 +59,7 @@ The following code will be used to access the SmartArt shapes added in presentat
 ```
 
 ## **Access SmartArt Shape with Particular Layout Type**
-The following sample code will help to access the [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) shape with particular LayoutType-> Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) shape is added.
+The following sample code will help to access the [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) shape with particular LayoutType:: Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) shape is added.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
@@ -77,7 +77,7 @@ The following sample code will help to access the [SmartArt](https://reference.a
         // Typecast shape to SmartArtEx
         $smart = $shape;
         // Checking SmartArt Layout
-        if ($smart->getLayout() == SmartArtLayoutType->BasicBlockList) {
+        if ($smart->getLayout() == SmartArtLayoutType::BasicBlockList) {
           echo("Do some thing here....");
         }
       }
@@ -113,9 +113,9 @@ In this example, we will learn to change the quick style for any SmartArt shape.
         // Typecast shape to SmartArtEx
         $smart = $shape;
         // Checking SmartArt style
-        if ($smart->getQuickStyle() == SmartArtQuickStyleType->SimpleFill) {
+        if ($smart->getQuickStyle() == SmartArtQuickStyleType::SimpleFill) {
           // Changing SmartArt Style
-          $smart->setQuickStyle(SmartArtQuickStyleType->Cartoon);
+          $smart->setQuickStyle(SmartArtQuickStyleType::Cartoon);
         }
       }
     }
@@ -154,9 +154,9 @@ In this example, we will learn to change the color style for any SmartArt shape.
         // Typecast shape to SmartArtEx
         $smart = $shape;
         // Checking SmartArt color type
-        if ($smart->getColorStyle() == SmartArtColorType->ColoredFillAccent1) {
+        if ($smart->getColorStyle() == SmartArtColorType::ColoredFillAccent1) {
           // Changing SmartArt color type
-          $smart->setColorStyle(SmartArtColorType->ColorfulAccentColors);
+          $smart->setColorStyle(SmartArtColorType::ColorfulAccentColors);
         }
       }
     }

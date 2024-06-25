@@ -21,9 +21,9 @@ Method com.aspose.slides.IConnector.reroute() reroutes connector so that it take
 ```php
   $input = new Presentation();
   $shapes = $input->getSlides()->get_Item(0)->getShapes();
-  $connector = $shapes->addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
-  $ellipse = $shapes->addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
-  $rectangle = $shapes->addAutoShape(ShapeType->Rectangle, 100, 300, 100, 100);
+  $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+  $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+  $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
   $connector->setStartShapeConnectedTo($ellipse);
   $connector->setEndShapeConnectedTo($rectangle);
   $connector->reroute();
@@ -44,7 +44,7 @@ Method com.aspose.slides.ISmartArt.getNodes() returns collection of root nodes i
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->VerticalBulletList);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::VerticalBulletList);
   $node = $smart->getNodes()->get_Item(1);// select second root node
 
   $node->getTextFrame()->setText("Second root node");
@@ -56,8 +56,8 @@ Method for property com.aspose.slides.ISmartArt.setLayout(int) has been added. I
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicBlockList);
-  $smart->setLayout(SmartArtLayoutType->BasicProcess);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicBlockList);
+  $smart->setLayout(SmartArtLayoutType::BasicProcess);
   $pres->save("out.pptx", SaveFormat->Pptx);
 
 ```
@@ -66,7 +66,7 @@ Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->RadialCycle);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::RadialCycle);
   $node = $smart->getAllNodes()->addNode();
   $hidden = $node->isHidden();// returns true
 
@@ -81,7 +81,7 @@ Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of 
 
 ```php
   $presentation = new Presentation();
-  $smart = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->BasicProcess);
+  $smart = $presentation->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicProcess);
   $smart->setReversed(true);
   $presentation->save("out.pptx", SaveFormat->Pptx);
 
@@ -91,8 +91,8 @@ Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganiz
 
 ```php
   $pres = new Presentation();
-  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType->OrganizationChart);
-  $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType->LeftHanging);
+  $smart = $pres->getSlides()->get_Item(0)->getShapes()->addSmartArt(10, 10, 400, 300, SmartArtLayoutType::OrganizationChart);
+  $smart->getNodes()->get_Item(0)->setOrganizationChartLayout(OrganizationChartLayoutType::LeftHanging);
   $pres->save("out.pptx", SaveFormat->Pptx);
 
 ```
@@ -102,9 +102,9 @@ Property com.aspose.slides.getConnectionSiteCount() returns the number of connec
 ```php
   $input = new Presentation();
   $shapes = $input->getSlides()->get_Item(0)->getShapes();
-  $connector = $shapes->addConnector(ShapeType->BentConnector2, 0, 0, 10, 10);
-  $ellipse = $shapes->addAutoShape(ShapeType->Ellipse, 0, 100, 100, 100);
-  $rectangle = $shapes->addAutoShape(ShapeType->Rectangle, 100, 200, 100, 100);
+  $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
+  $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
+  $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 200, 100, 100);
   $connector->setStartShapeConnectedTo($ellipse);
   $connector->setEndShapeConnectedTo($rectangle);
   $wantedIndex = 6;

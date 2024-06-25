@@ -55,15 +55,15 @@ This sample code demonstrates the described operation:
         continue;
       }
       $rect = $para->getRect();
-      $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
-      $shape->getFillFormat()->setFillType(FillType->NoFill);
+      $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
+      $shape->getFillFormat()->setFillType(FillType::NoFill);
       $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-      $shape->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+      $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
       foreach($para->getPortions() as $portion) {
         if ($portion->getText()->contains("0")) {
           $rect = $portion->getRect();
-          $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
-          $shape->getFillFormat()->setFillType(FillType->NoFill);
+          $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, $rect->getX() + $x, $rect->getY() + $y, $rect->getWidth(), $rect->getHeight());
+          $shape->getFillFormat()->setFillType(FillType::NoFill);
         }
       }
     }

@@ -130,7 +130,7 @@ This PHP code shows you how to create a normal chart:
     // Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Adds a chart with its default data
-    $chart = $sld->getShapes()->addChart(ChartType->ClusteredColumn, 0, 0, 500, 500);
+    $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
     // Sets the chart Title
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool->True);
@@ -161,7 +161,7 @@ This PHP code shows you how to create a normal chart:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     // Sets the fill color for series
-    $series->getFormat()->getFill()->setFillType(FillType->Solid);
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     // Takes the second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
@@ -170,7 +170,7 @@ This PHP code shows you how to create a normal chart:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
     // Sets the fill color for the series
-    $series->getFormat()->getFill()->setFillType(FillType->Solid);
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     // Create custom labels for each categories for the new series
     // Sets the first label to show Category name
@@ -208,11 +208,11 @@ You may want to use a scattered chart when
 
 1. Please follow the steps mentioned above in [Creating Normal Charts](#creating-normal-charts)
 2. For third step, Add a chart with some data and specify your chart type as one of the following
-   1. [ChartType->ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
-   2. [ChartType->ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
-   3. [ChartType->ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
-   4. [ChartType->ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
-   5. [ChartType->ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
+   1. [ChartType::ScatterWithMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
+   2. [ChartType::ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
+   3. [ChartType::ScatterWithSmoothLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
+   4. [ChartType::ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
+   5. [ChartType::ScatterWithStraightLines](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
 
 This PHP code shows you how to create a scattered charts with a different series of markers:
 
@@ -223,7 +223,7 @@ This PHP code shows you how to create a scattered charts with a different series
     // Accesses the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Creates the default chart
-    $chart = $slide->getShapes()->addChart(ChartType->ScatterWithSmoothLines, 0, 0, 400, 400);
+    $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
     // Gets the default chart data worksheet index
     $defaultWorksheetIndex = 0;
     // Gets the chart data worksheet
@@ -240,10 +240,10 @@ This PHP code shows you how to create a scattered charts with a different series
     // Adds a new point (2:10)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
     // Changes the series type
-    $series->setType(ChartType->ScatterWithStraightLinesAndMarkers);
+    $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
     // Changes the chart series marker
     $series->getMarker()->setSize(10);
-    $series->getMarker()->setSymbol(MarkerStyleType->Star);
+    $series->getMarker()->setSymbol(MarkerStyleType::Star);
     // Takes the second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
     // Adds a new point (5:2) there
@@ -256,7 +256,7 @@ This PHP code shows you how to create a scattered charts with a different series
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
     // Changes the chart series marker
     $series->getMarker()->setSize(10);
-    $series->getMarker()->setSymbol(MarkerStyleType->Circle);
+    $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -295,7 +295,7 @@ This PHP code shows you how to create a pie chart:
     // Accesses the first slide
     $slides = $pres->getSlides()->get_Item(0);
     // Adds a chart with default data
-    $chart = $slides->getShapes()->addChart(ChartType->Pie, 100, 100, 400, 400);
+    $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
     // Sets the chart Title
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool->True);
@@ -325,28 +325,28 @@ This PHP code shows you how to create a pie chart:
     // series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType->Solid);
+    $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
     // Sets the Sector border
-    $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType->Solid);
+    $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
     $point->getFormat()->getLine()->setStyle(LineStyle->ThinThick);
     $point->getFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
     $point1 = $series->getDataPoints()->get_Item(1);
-    $point1->getFormat()->getFill()->setFillType(FillType->Solid);
+    $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     // Sets the Sector border
-    $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType->Solid);
+    $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
     $point1->getFormat()->getLine()->setStyle(LineStyle->Single);
     $point1->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDot);
     $point2 = $series->getDataPoints()->get_Item(2);
-    $point2->getFormat()->getFill()->setFillType(FillType->Solid);
+    $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     // Sets the Sector border
-    $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType->Solid);
+    $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
@@ -381,7 +381,7 @@ Line charts (also known as a line graphs) are best used in situations where you 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
-1. Add a chart with default data along with the desired type (in this case, `ChartType->Line`).
+1. Add a chart with default data along with the desired type (in this case, `ChartType::Line`).
 1. Access the chart data IChartDataWorkbook.
 1. Clear the default series and categories.
 1. Add new series and categories.
@@ -393,7 +393,7 @@ This PHP code shows you how to create a line chart:
 ```php
   $pres = new Presentation();
   try {
-    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Line, 10, 50, 600, 350);
+    $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
     $pres->save("lineChart.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -405,7 +405,7 @@ This PHP code shows you how to create a line chart:
 By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
 
 ```php
-  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Line, 10, 50, 600, 350);
+  $lineChart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Line, 10, 50, 600, 350);
   foreach($lineChart->getChartData()->getSeries() as $series) {
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Dash);
   }
@@ -433,7 +433,7 @@ This PHP code shows you how to create a tree map chart:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Treemap, 50, 50, 500, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Treemap, 50, 50, 500, 400);
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
@@ -454,7 +454,7 @@ This PHP code shows you how to create a tree map chart:
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
-    $series = $chart->getChartData()->getSeries()->add(ChartType->Treemap);
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Treemap);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D1", 4));
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D2", 5));
@@ -464,7 +464,7 @@ This PHP code shows you how to create a tree map chart:
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D6", 9));
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D7", 4));
     $series->getDataPoints()->addDataPointForTreemapSeries($wb->getCell(0, "D8", 3));
-    $series->setParentLabelLayout(ParentLabelLayoutType->Overlapping);
+    $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
     $pres->save("Treemap.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -494,7 +494,7 @@ Sample PHP code used to create a stock chart:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->OpenHighLowClose, 50, 50, 600, 400, false);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::OpenHighLowClose, 50, 50, 600, 400, false);
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
@@ -522,9 +522,9 @@ Sample PHP code used to create a stock chart:
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 2, 4, 38));
     $series->getDataPoints()->addDataPointForStockSeries($wb->getCell(0, 3, 4, 50));
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->getUpDownBars()->setUpDownBars(true);
-    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType->Solid);
+    $chart->getChartData()->getSeriesGroups()->get_Item(0)->getHiLowLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     foreach($chart->getChartData()->getSeries() as $ser) {
-      $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType->NoFill);
+      $ser->getFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     }
     $pres->save("output.pptx", SaveFormat->Pptx);
   } finally {
@@ -554,7 +554,7 @@ This PHP code shows you how to create a box and whisker chart:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->BoxAndWhisker, 50, 50, 500, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::BoxAndWhisker, 50, 50, 500, 400);
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
@@ -565,8 +565,8 @@ This PHP code shows you how to create a box and whisker chart:
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 1"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 1"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 1"));
-    $series = $chart->getChartData()->getSeries()->add(ChartType->BoxAndWhisker);
-    $series->setQuartileMethod(QuartileMethodType->Exclusive);
+    $series = $chart->getChartData()->getSeries()->add(ChartType::BoxAndWhisker);
+    $series->setQuartileMethod(QuartileMethodType::Exclusive);
     $series->setShowMeanLine(true);
     $series->setShowMeanMarkers(true);
     $series->setShowInnerPoints(true);
@@ -602,7 +602,7 @@ The PHP code shows you how to create a funnel chart:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Funnel, 50, 50, 500, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Funnel, 50, 50, 500, 400);
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
@@ -613,7 +613,7 @@ The PHP code shows you how to create a funnel chart:
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "A4", "Category 4"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "A5", "Category 5"));
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "A6", "Category 6"));
-    $series = $chart->getChartData()->getSeries()->add(ChartType->Funnel);
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Funnel);
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B1", 50));
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B2", 100));
     $series->getDataPoints()->addDataPointForFunnelSeries($wb->getCell(0, "B3", 200));
@@ -644,7 +644,7 @@ This PHP code shows you how to create a sunburst chart:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Sunburst, 50, 50, 500, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 50, 50, 500, 400);
     $chart->getChartData()->getCategories()->clear();
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
@@ -665,7 +665,7 @@ This PHP code shows you how to create a sunburst chart:
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C7", "Leaf7"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem4");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C8", "Leaf8"));
-    $series = $chart->getChartData()->getSeries()->add(ChartType->Sunburst);
+    $series = $chart->getChartData()->getSeries()->add(ChartType::Sunburst);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
     $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D1", 4));
     $series->getDataPoints()->addDataPointForSunburstSeries($wb->getCell(0, "D2", 5));
@@ -701,19 +701,19 @@ This PHP code shows you how to create an histogram chart:
 
 ```php
   $pres = new Presentation();
-  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Histogram, 50, 50, 500, 400);
+  $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Histogram, 50, 50, 500, 400);
   $chart->getChartData()->getCategories()->clear();
   $chart->getChartData()->getSeries()->clear();
   $wb = $chart->getChartData()->getChartDataWorkbook();
   $wb->clear(0);
-  $series = $chart->getChartData()->getSeries()->add(ChartType->Histogram);
+  $series = $chart->getChartData()->getSeries()->add(ChartType::Histogram);
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A1", 15));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A2", -41));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A3", 16));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A4", 10));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A5", -23));
   $series->getDataPoints()->addDataPointForHistogramSeries($wb->getCell(0, "A6", 16));
-  $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType->Automatic);
+  $chart->getAxes()->getHorizontalAxis()->setAggregationType(AxisAggregationType::Automatic);
 
 ```
 
@@ -725,7 +725,7 @@ This PHP code shows you how to create an histogram chart:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add a chart with some data and specify your preferred chart type (`ChartType->Radar` in this case).
+3. Add a chart with some data and specify your preferred chart type (`ChartType::Radar` in this case).
 4. Write the modified presentation to a PPTX file
 
 This PHP code shows you how to create an radar chart:
@@ -733,7 +733,7 @@ This PHP code shows you how to create an radar chart:
 ```php
   $pres = new Presentation();
   try {
-    $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Radar, 20, 20, 400, 300);
+    $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Radar, 20, 20, 400, 300);
     $pres->save("Radar-chart.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -762,7 +762,7 @@ This PHP code shows you how to create a multicategory chart:
 ```php
   $pres = new Presentation();
   try {
-    $ch = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->ClusteredColumn, 100, 100, 600, 450);
+    $ch = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 600, 450);
     $ch->getChartData()->getSeries()->clear();
     $ch->getChartData()->getCategories()->clear();
     $fact = $ch->getChartData()->getChartDataWorkbook();
@@ -781,7 +781,7 @@ This PHP code shows you how to create a multicategory chart:
     $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
     // Adding Series
-    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType->ClusteredColumn);
+    $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D4", 30));
@@ -812,7 +812,7 @@ This PHP code shows you how to create a map chart:
 ```php
   $pres = new Presentation();
   try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType->Map, 50, 50, 500, 400);
+    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Map, 50, 50, 500, 400);
     $pres->save("mapChart.pptx", SaveFormat->Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -887,7 +887,7 @@ This PHP code shows you how to update a chart:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
-    $chart->setType(ChartType->ClusteredCylinder);
+    $chart->setType(ChartType::ClusteredCylinder);
     // Save presentation with chart
     $pres->save("AsposeChartModified_out.pptx", SaveFormat->Pptx);
   } finally {
@@ -932,7 +932,7 @@ This PHP code shows you how to set a chart series market automatically:
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $chart = $slide->getShapes()->addChart(ChartType->LineWithMarkers, 10, 10, 400, 400);
+    $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 10, 10, 400, 400);
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $fact = $chart->getChartData()->getChartDataWorkbook();

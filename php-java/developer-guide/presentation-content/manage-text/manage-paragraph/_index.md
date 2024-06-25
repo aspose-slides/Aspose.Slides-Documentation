@@ -38,7 +38,7 @@ This PHP code is an implementation of the steps for adding paragraphs containing
     // Accessing first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Add an AutoShape of Rectangle type
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 150, 300, 150);
+    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
     // Access TextFrame of the AutoShape
     $tf = $ashp->getTextFrame();
     // Create Paragraphs and Portions with different text formats
@@ -68,12 +68,12 @@ This PHP code is an implementation of the steps for adding paragraphs containing
         $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
         $portion->setText("Portion0" . $j);
         if ($j == 0) {
-          $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
+          $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
           $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
           $portion->getPortionFormat()->setFontBold(NullableBool->True);
           $portion->getPortionFormat()->setFontHeight(15);
         } else if ($j == 1) {
-          $portion->getPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
+          $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
           $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
           $portion->getPortionFormat()->setFontItalic(NullableBool->True);
           $portion->getPortionFormat()->setFontHeight(18);
@@ -118,7 +118,7 @@ This PHP code shows you how to add a paragraph bullet:
     // Accesses the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adds and accesses Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
+    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     // Accesses the autoshape text frame
     $txtFrm = $aShp->getTextFrame();
     // Removes the default paragraph
@@ -126,14 +126,14 @@ This PHP code shows you how to add a paragraph bullet:
     // Creates a paragraph
     $para = new Paragraph();
     // Sets a paragraph bullet style and symbol
-    $para->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para->getParagraphFormat()->getBullet()->setChar(8226);
     // Sets a paragraph text
     $para->setText("Welcome to Aspose.Slides");
     // Sets bullet indent
     $para->getParagraphFormat()->setIndent(25);
     // Sets bullet color
-    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType->RGB);
+    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
     $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool->True);// set IsBulletHardColor to true to use own bullet color
 
@@ -144,13 +144,13 @@ This PHP code shows you how to add a paragraph bullet:
     // Creates second paragraph
     $para2 = new Paragraph();
     // Sets paragraph bullet type and style
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType->Numbered);
+    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
     // Adds paragraph text
     $para2->setText("This is numbered bullet");
     // Sets bullet indent
     $para2->getParagraphFormat()->setIndent(25);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType->RGB);
+    $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
     $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool->True);// set IsBulletHardColor to true to use own bullet color
 
@@ -207,7 +207,7 @@ This PHP code shows you how to add and manage picture bullets:
       }
     }
     // Adds and accesses Autoshape
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     // Accesses the autoshape textframe
     $textFrame = $autoShape->getTextFrame();
     // Removes the default paragraph
@@ -216,7 +216,7 @@ This PHP code shows you how to add and manage picture bullets:
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
     // Sets paragraph bullet style and image
-    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType->Picture);
+    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
     $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
     // Sets bullet Height
     $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
@@ -260,7 +260,7 @@ This PHP code shows you how to add and manage multilevel bullets:
     // Accesses the first slide
     $slide = $pres->getSlides()->get_Item(0);
     // Adds and accesses Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
+    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     // Accesses the text frame of created autoshape
     $text = $aShp->addTextFrame("");
     // Clears the default paragraph
@@ -268,36 +268,36 @@ This PHP code shows you how to add and manage multilevel bullets:
     // Adds the first paragraph
     $para1 = new Paragraph();
     $para1->setText("Content");
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Sets the bullet level
     $para1->getParagraphFormat()->setDepth(0);
     // Adds the second paragraph
     $para2 = new Paragraph();
     $para2->setText("Second Level");
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para2->getParagraphFormat()->getBullet()->setChar('-');
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Sets the bullet level
     $para2->getParagraphFormat()->setDepth(1);
     // Adds the third paragraph
     $para3 = new Paragraph();
     $para3->setText("Third Level");
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Sets the bullet level
     $para3->getParagraphFormat()->setDepth(2);
     // Adds the fourth paragraph
     $para4 = new Paragraph();
     $para4->setText("Fourth Level");
-    $para4->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para4->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para4->getParagraphFormat()->getBullet()->setChar('-');
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     // Sets the bullet level
     $para4->getParagraphFormat()->setDepth(3);
@@ -336,7 +336,7 @@ This PHP code shows you how to add and manage paragraphs with custom numbering o
 ```php
   $presentation = new Presentation();
   try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 200, 200, 400, 200);
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     // Accesses the text frame of created autoshape
     $textFrame = $shape->getTextFrame();
     // Removes the default exisiting paragraph
@@ -346,19 +346,19 @@ This PHP code shows you how to add and manage paragraphs with custom numbering o
     $paragraph1->setText("bullet 2");
     $paragraph1->getParagraphFormat()->setDepth(4);
     $paragraph1->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
-    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType->Numbered);
+    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $textFrame->getParagraphs()->add($paragraph1);
     $paragraph2 = new Paragraph();
     $paragraph2->setText("bullet 3");
     $paragraph2->getParagraphFormat()->setDepth(4);
     $paragraph2->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
-    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType->Numbered);
+    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $textFrame->getParagraphs()->add($paragraph2);
     $paragraph5 = new Paragraph();
     $paragraph5->setText("bullet 7");
     $paragraph5->getParagraphFormat()->setDepth(4);
     $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
-    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType->Numbered);
+    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $textFrame->getParagraphs()->add($paragraph5);
     $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat->Pptx);
   } finally {
@@ -388,31 +388,31 @@ This PHP code shows you how to set a paragraph indent:
     // Get first slide
     $sld = $pres->getSlides()->get_Item(0);
     // Add a Rectangle Shape
-    $rect = $sld->getShapes()->addAutoShape(ShapeType->Rectangle, 100, 100, 500, 150);
+    $rect = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 150);
     // Add TextFrame to the Rectangle
     $tf = $rect->addTextFrame("This is first line \rThis is second line \rThis is third line");
     // Set the text to fit the shape
-    $tf->getTextFrameFormat()->setAutofitType(TextAutofitType->Shape);
+    $tf->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
     // Hide the lines of the Rectangle
-    $rect->getLineFormat()->getFillFormat()->setFillType(FillType->Solid);
+    $rect->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     // Get first Paragraph in the TextFrame and set its Indent
     $para1 = $tf->getParagraphs()->get_Item(0);
     // Setting paragraph bullet style and symbol
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para1->getParagraphFormat()->getBullet()->setChar(8226);
     $para1->getParagraphFormat()->setAlignment(TextAlignment->Left);
     $para1->getParagraphFormat()->setDepth(2);
     $para1->getParagraphFormat()->setIndent(30);
     // Get second Paragraph in the TextFrame and set its Indent
     $para2 = $tf->getParagraphs()->get_Item(1);
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para2->getParagraphFormat()->getBullet()->setChar(8226);
     $para2->getParagraphFormat()->setAlignment(TextAlignment->Left);
     $para2->getParagraphFormat()->setDepth(2);
     $para2->getParagraphFormat()->setIndent(40);
     // Get third Paragraph in the TextFrame and set its Indent
     $para3 = $tf->getParagraphs()->get_Item(2);
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType->Symbol);
+    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $para3->getParagraphFormat()->getBullet()->setChar(8226);
     $para3->getParagraphFormat()->setAlignment(TextAlignment->Left);
     $para3->getParagraphFormat()->setDepth(2);
@@ -433,7 +433,7 @@ This PHP code shows you how to set the hanging indent for a paragraph:
 ```php
   $pres = new Presentation();
   try {
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 50, 250, 550, 150);
+    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 250, 550, 150);
     $para1 = new Paragraph();
     $para1->setText("Example");
     $para2 = new Paragraph();
@@ -468,7 +468,7 @@ This PHP code shows you how to set the End properties for paragraphs in PowerPoi
 ```php
   $pres = new Presentation();
   try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 10, 200, 250);
+    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
     $para1 = new Paragraph();
     $para1->getPortions()->add(new Portion("Sample text"));
     $para2 = new Paragraph();
@@ -511,8 +511,8 @@ This PHP code is an implementation of the steps for importing HTML texts in para
     // Acesss the default first slide of presentation
     $slide = $pres->getSlides()->get_Item(0);
     // Adding the AutoShape to accomodate the HTML content
-    $ashape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
-    $ashape->getFillFormat()->setFillType(FillType->NoFill);
+    $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
+    $ashape->getFillFormat()->setFillType(FillType::NoFill);
     // Adding text frame to the shape
     $ashape->addTextFrame("");
     // Clearing all paragraphs in added text frame

@@ -78,7 +78,7 @@ Or any individual [Shape](https://reference.aspose.com/slides/php-java/aspose.sl
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->addAutoShape(ShapeType->Rectangle, 10, 10, 100, 50);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 50);
     $shape->getTextFrame()->setText("My text");
     $shape->getCustomData()->getTags()->set_Item("tag", "value");
   } finally {

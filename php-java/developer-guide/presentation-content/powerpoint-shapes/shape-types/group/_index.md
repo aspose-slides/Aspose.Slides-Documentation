@@ -27,10 +27,10 @@ The example below adds a group shape to a slide.
     // Adding a group shape to the slide
     $groupShape = $slideShapes->addGroupShape();
     // Adding shapes inside Added group shape
-    $groupShape->getShapes()->addAutoShape(ShapeType->Rectangle, 300, 100, 100, 100);
-    $groupShape->getShapes()->addAutoShape(ShapeType->Rectangle, 500, 100, 100, 100);
-    $groupShape->getShapes()->addAutoShape(ShapeType->Rectangle, 300, 300, 100, 100);
-    $groupShape->getShapes()->addAutoShape(ShapeType->Rectangle, 500, 300, 100, 100);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 100, 100, 100);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 100, 100);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 300, 100, 100);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 300, 100, 100);
     // Adding group shape frame
     $groupShape->setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool->False, NullableBool->False, 0));
     // Write the PPTX file to disk
