@@ -111,11 +111,11 @@ This PHP code shows you how to extract the video on a presentation slide:
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
           $vf = $shape;
           $type = $vf->getEmbeddedVideo()->getContentType();
-          $ss = $Type::lastIndexOf('-');
+          $ss = $type->lastIndexOf('-');
           $buffer = $vf->getEmbeddedVideo()->getBinaryData();
           // Gets the File Extension
-          $charIndex = $Type::indexOf("/");
-          $type = $Type::substring($charIndex + 1);
+          $charIndex = $type->indexOf("/");
+          $type = $type->substring($charIndex + 1);
           $fop = new Java("java.io.FileOutputStream", "testing2." . $type);
           $fop->write($buffer);
           $fop->flush();
