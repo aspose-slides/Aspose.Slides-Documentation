@@ -144,7 +144,7 @@ This PHP code shows you how to convert a PowerPoint to a password-protected PDF 
     $pdfOptions = new PdfOptions();
     // Sets PDF password and access permissions
     $pdfOptions->setPassword("password");
-    $pdfOptions->setAccessPermissions(PdfAccessPermissions->PrintDocument | PdfAccessPermissions->HighQualityPrint);
+    $pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
     // Saves the presentation as a PDF
     $pres->save("PPTX-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
