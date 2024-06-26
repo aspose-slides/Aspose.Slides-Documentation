@@ -154,7 +154,7 @@ This PHP code shows you how to convert a PowerPoint presentation to HTML while o
   $pres = new Presentation("InputDoc.pptx");
   try {
     $htmlOpts = new HtmlOptions();
-    $htmlOpts->setPicturesCompression(PicturesCompression.Dpi150);
+    $htmlOpts->setPicturesCompression(PicturesCompression::Dpi150);
     $pres->save("OutputDoc-dpi150.html", SaveFormat::Html, $htmlOpts);
   } finally {
     if (!java_is_null($pres)) {
