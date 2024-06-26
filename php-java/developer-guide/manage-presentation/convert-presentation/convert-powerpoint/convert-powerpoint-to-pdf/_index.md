@@ -97,9 +97,9 @@ This PHP code demonstrates an operation in which a PowerPoint is converted to PD
     // Sets the behavior for metafiles
     $pdfOptions->setSaveMetafilesAsPng(true);
     // Sets the text compression level
-    $pdfOptions->setTextCompression(PdfTextCompression.Flate);
+    $pdfOptions->setTextCompression(PdfTextCompression::Flate);
     // Defines the PDF standard
-    $pdfOptions->setCompliance(PdfCompliance.Pdf15);
+    $pdfOptions->setCompliance(PdfCompliance::Pdf15);
     // Saves the presentation as a PDF
     $pres->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
@@ -286,11 +286,11 @@ This PHP code demonstrates a PowerPoint to PDF conversion operation in which mul
   $pres = new Presentation("pres.pptx");
   try {
     $pdfOptions = new PdfOptions();
-    $pdfOptions->setCompliance(PdfCompliance.PdfA1a);
+    $pdfOptions->setCompliance(PdfCompliance::PdfA1a);
     $pres->save("pres-a1a-compliance.pdf", SaveFormat::Pdf, $pdfOptions);
-    $pdfOptions->setCompliance(PdfCompliance.PdfA1b);
+    $pdfOptions->setCompliance(PdfCompliance::PdfA1b);
     $pres->save("pres-a1b-compliance.pdf", SaveFormat::Pdf, $pdfOptions);
-    $pdfOptions->setCompliance(PdfCompliance.PdfUa);
+    $pdfOptions->setCompliance(PdfCompliance::PdfUa);
     $pres->save("pres-ua-compliance.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
