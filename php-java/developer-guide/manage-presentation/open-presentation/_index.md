@@ -107,19 +107,19 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
             if (!java_is_null($dis)) $dis->close();
         }
           $args->setData($imageBytes);
-          return ResourceLoadingAction->UserProvided;
+          return ResourceLoadingAction::UserProvided;
         } catch (JavaException $ex) {
-          return ResourceLoadingAction->Skip;
+          return ResourceLoadingAction::Skip;
         } catch (JavaException $ex) {
           $ex->printStackTrace();
         }
       } else if ($args->getOriginalUri()->endsWith(".png")) {
         // sets substitute url
         $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
-        return ResourceLoadingAction->Default;
+        return ResourceLoadingAction::Default;
       }
       // skips all other images
-      return ResourceLoadingAction->Skip;
+      return ResourceLoadingAction::Skip;
     }
   }
 ```
