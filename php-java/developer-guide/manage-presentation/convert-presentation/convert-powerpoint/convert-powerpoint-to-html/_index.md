@@ -184,14 +184,44 @@ To convert a specific slide in a PowerPoint to HTML, you have to instantiate the
 This PHP code shows you how to convert a slide in a PowerPoint presentation to HTML:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\HtmlOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\SaveFormat;
+
+
+class CustomFormattingController
+{
+    function writeDocumentStart($generator, $presentation) { }
+
+    function writeDocumentEnd($generator, $presentation) { }
+
+    function writeSlideStart($generator, $slide)
+	{
+        $generator->addHtml(sprintf(self::SlideHeader, $generator->getSlideIndex() + 1));
+    }
+
+    function writeSlideEnd($generator, $slide)
+	{
+        $generator->addHtml(self::SlideFooter);
+    }
+
+    function writeShapeStart($generator, $shape) { }
+
+    function writeShapeEnd($generator, $shape) { }
+
+    const SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
+    const SlideFooter = "</div>";
+}
   $pres = new Presentation("Individual-Slide.pptx");
   try {
     $htmlOptions = new HtmlOptions();
     $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter(new CustomFormattingController()));
+	$formattingController= java_closure(new CustomFormattingController(), null, java("com.aspose.slides.IHtmlFormattingController"));
+    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($formattingController));
     // Saving File
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      $pres->save("Individual Slide" . $i + 1 . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
+      $pres->save("Individual Slide" . ($i + 1) . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
     }
   } finally {
     if (!java_is_null($pres)) {
@@ -199,47 +229,6 @@ This PHP code shows you how to convert a slide in a PowerPoint presentation to H
     }
   }
 ```
-
-Due to restrictions of PHPJavaBridge, the implementation of the IHtmlFormattingController interface should be added as another jar file to JavaBridge\WEB-INF\lib directory.
-
-IHtmlFormattingController interface implementation:
-
-```java
-package com.aspose.slides;
-
-import com.aspose.slides.*;
-
-public class CustomFormattingController implements IHtmlFormattingController
-{
-    @Override
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeDocumentEnd(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeSlideStart(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(String.format(SlideHeader, generator.getSlideIndex() + 1));
-    }
-
-    @Override
-    public void writeSlideEnd(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(SlideFooter);
-    }
-
-    @Override
-    public void writeShapeStart(IHtmlGenerator generator, IShape shape) { }
-
-    @Override
-    public void writeShapeEnd(IHtmlGenerator generator, IShape shape) { }
-
-    private final String SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-    private final String SlideFooter = "</div>";
-}
-```
-
 
 ## **Save CSS and Images When Exporting To HTML**
 Using new CSS style files, you can easily change the style of the HTML file resulting from the PowerPoint to HTML conversion process. 
