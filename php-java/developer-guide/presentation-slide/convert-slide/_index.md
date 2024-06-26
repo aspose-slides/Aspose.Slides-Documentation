@@ -130,9 +130,9 @@ This PHP code demonstrates the conversion process for a slide with notes and com
     // Creates the rendering options
     $options = new RenderingOptions();
     // Sets the position of the notes on the page
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomTruncated);
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
     // Sets the position of the comments on the page
-    $options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions->Right);
+    $options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
     // Sets the width of the comment output area
     $options->getNotesCommentsLayouting()->setCommentsAreaWidth(500);
     // Sets the color for the comments area
@@ -164,7 +164,7 @@ This PHP code demonstrates the conversion process for a slide with notes using t
     // Creates the rendering options
     $options = new RenderingOptions();
     // Sets the position of the notes
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomTruncated);
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
     // Creates a Images with the notes' size
     $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, $notesSize);
     // Saves the image in PNG format
@@ -206,7 +206,7 @@ This PHP code demonstrates a conversion process where ITiffOptions is used to ou
     // Set the font used in case source font is not found
     $options->setDefaultRegularFont("Arial Black");
     // Set the position of the notes on the page
-    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomTruncated);
+    $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
     // Sets the pixel format (black and white)
     $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);
     // Sets the resolution

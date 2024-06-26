@@ -15,7 +15,7 @@ The [Save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentati
   $pres = new Presentation("demo.pptx");
   try {
     $opts = new TiffOptions();
-    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomFull);
+    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
     // Saving the presentation to TIFF notes
     $pres->save("Tiff-Notes.tiff", SaveFormat::Tiff, $opts);
   } finally {

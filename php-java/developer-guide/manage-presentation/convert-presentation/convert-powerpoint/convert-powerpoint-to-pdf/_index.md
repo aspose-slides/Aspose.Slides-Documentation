@@ -243,7 +243,7 @@ This PHP code shows you how to convert a PowerPoint when its slide size is speci
       $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType::EnsureFit);
       $pdfOptions = new PdfOptions();
       $options = $pdfOptions->getNotesCommentsLayouting();
-      $options->setNotesPosition(NotesPositions->BottomFull);
+      $options->setNotesPosition(NotesPositions::BottomFull);
       $outPres->save("PDFnotes_out.pdf", SaveFormat::Pdf, $pdfOptions);
     } finally {
       if (!java_is_null($pres)) {
@@ -267,7 +267,7 @@ This PHP code shows you how to convert a PowerPoint to PDF notes:
   try {
     $pdfOptions = new PdfOptions();
     $options = $pdfOptions->getNotesCommentsLayouting();
-    $options->setNotesPosition(NotesPositions->BottomFull);
+    $options->setNotesPosition(NotesPositions::BottomFull);
     $pres->save("Pdf_With_Notes.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {

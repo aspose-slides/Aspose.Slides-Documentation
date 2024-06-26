@@ -373,7 +373,7 @@ Examples:
 ```php
   $accent = new MathematicalText("x")->accent('̃');
   $bar = new MathematicalText("x")->overbar();
-  $groupChr = new MathematicalText("x")->join("y")->join("z")->group('⏡', MathTopBotPositions->Bottom, MathTopBotPositions->Top);
+  $groupChr = new MathematicalText("x")->join("y")->join("z")->group('⏡', MathTopBotPositions::Bottom, MathTopBotPositions::Top);
   $borderBox = new MathematicalText("x+y+z")->toBorderBox();
   $boxedOperator = new MathematicalText(":=")->toBox();
 

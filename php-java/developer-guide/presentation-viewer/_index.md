@@ -170,7 +170,7 @@ The code snippet below produces a thumbnail of the first slide of a presentation
     $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
     $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
     $opts = new RenderingOptions();
-    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions->BottomTruncated);
+    $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
     // Create a full scale image
     $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
     // Save the image to disk in JPEG format
