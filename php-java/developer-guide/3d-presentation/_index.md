@@ -182,7 +182,7 @@ To create a 3D text (WordArt), do the following:
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Pattern);
     $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getForeColor()->setColor(new java("java.awt.Color", 255, 140, 0));
-    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(Color.WHITE);
+    $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->WHITE);
     $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle.LargeGrid);
     $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(128);
     $textFrame = $shape->getTextFrame();
