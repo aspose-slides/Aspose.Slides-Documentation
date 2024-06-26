@@ -31,7 +31,7 @@ and its direction to the top of the 3D model, bring more volume to the model. Ch
     $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
     $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Flat);
-    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
+    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
     $shape->getThreeDFormat()->setMaterial(MaterialPresetType::Flat);
     $shape->getThreeDFormat()->setExtrusionHeight(100);
     $shape->getThreeDFormat()->getExtrusionColor()->setColor(java("java.awt.Color")->BLUE);
@@ -117,7 +117,7 @@ In PowerPoint, Depth of the shape is set via:
     $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
     $shape->getThreeDFormat()->getCamera()->setRotation(10, 20, 30);
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Flat);
-    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
+    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
     $shape->getThreeDFormat()->setExtrusionHeight(150);
     $shape->getThreeDFormat()->getExtrusionColor()->setColor(new java("java.awt.Color", 255, 140, 0));
     try {
@@ -191,7 +191,7 @@ To create a 3D text (WordArt), do the following:
     $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(3.5);
     $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
     $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
+    $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
     $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
     $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
     $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);

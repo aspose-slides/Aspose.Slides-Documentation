@@ -215,7 +215,7 @@ We set a 3D effect to a text shape using this sample code:
   $autoShape->getThreeDFormat()->setContourWidth(1.5);
   $autoShape->getThreeDFormat()->setDepth(3);
   $autoShape->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
+  $autoShape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
   $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
   $autoShape->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
   $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);
@@ -241,7 +241,7 @@ We apply a 3D effect to the text with this PHP code:
   $textFrame->getTextFrameFormat()->getThreeDFormat()->setContourWidth(1.5);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->setMaterial(MaterialPresetType::Plastic);
-  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
+  $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getLightRig()->setRotation(0, 0, 40);
   $textFrame->getTextFrameFormat()->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::PerspectiveContrastingRightFacing);

@@ -143,7 +143,7 @@ This PHP code demonstrates an operation where the gradient fill effect was used 
     $shp->getFillFormat()->setFillType(FillType::Gradient);
     $shp->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape->Linear);
     // Sets the direction of the gradient
-    $shp->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection->FromCorner2);
+    $shp->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
     // Add 2 gradient stops
     $shp->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor->Purple);
     $shp->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor->Red);
@@ -381,7 +381,7 @@ This PHP code shows you how to add 3D bevel effects to a shape:
     $shape->getThreeDFormat()->getBevelTop()->setWidth(6);
     $shape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::OrthographicFront);
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
-    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection->Top);
+    $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
     // Writes the presentation as a PPTX file
     $pres->save("Bavel_out.pptx", SaveFormat::Pptx);
   } finally {
