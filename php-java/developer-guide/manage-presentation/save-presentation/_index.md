@@ -103,23 +103,23 @@ New [**IProgressCallback**](https://reference.aspose.com/slides/php-java/aspose.
 The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) interface:
 
 ```php
+  class ExportProgressHandler {
+    function reporting($progressValue) {
+      // Use progress percentage value here
+      $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
+      echo($progress . "% file converted");
+    }
+  }
+
   // Opening the presentation file
   $pres = new Presentation("ConvertToPDF.pptx");
   try {
     $saveOptions = new PdfOptions();
-    $saveOptions->setProgressCallback(new ExportProgressHandler());
+    $progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
+    $saveOptions->setProgressCallback($progressHandler);
     $pres->save("ConvertToPDF.pdf", SaveFormat::Pdf, $saveOptions);
   } finally {
     $pres->dispose();
-  }
-```
-```php
-  class ExportProgressHandler implements IProgressCallback {
-    public void reporting(double progressValue) {
-      // Use progress percentage value here
-      $progress = Double->valueOf($progressValue)->intValue();
-      echo($progress . "% file converted");
-    }
   }
 ```
 

@@ -10,3 +10,5 @@ new ArrayList<IComment>()
 null
 instanceof
 NullableBool->True
+if (java_values
+java_values == != > <
