@@ -49,12 +49,30 @@ To generate an SVG image from any desired slide with Aspose.Slides for PHP via J
 Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
 ```php
+
+  class CustomSvgShapeFormattingController {
+    private $m_shapeIndex;
+
+    function __construct() {
+      $this->m_shapeIndex = 0;
+    }
+
+    function __construct($shapeStartIndex) {
+      $this->m_shapeIndex = $shapeStartIndex;
+    }
+
+    function formatShape($svgShape, $shape) {
+      $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
+    }
+  }
+
   $pres = new Presentation("pptxFileName.pptx");
   try {
     $stream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
     try {
       $svgOptions = new SVGOptions();
-      $svgOptions->setShapeFormattingController(new CustomSvgShapeFormattingController());
+      $shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(), null, java("com.aspose.slides.ISvgShapeFormattingController"));
+      $svgOptions->setShapeFormattingController($shapeFormattingController);
       $pres->getSlides()->get_Item(0)->writeAsSvg($stream, $svgOptions);
     } finally {
       if (!java_is_null($stream)) {
@@ -64,23 +82,6 @@ Aspose.Slides for PHP via Java can be used to generate [SVG](https://docs.filef
   } catch (JavaException $e) {
   } finally {
     $pres->dispose();
-  }
-```
-```php
-  class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
-    private int $m_shapeIndex;
-
-    public CustomSvgShapeFormattingController() {
-      $m_shapeIndex = 0;
-    }
-
-    public CustomSvgShapeFormattingController(int shapeStartIndex) {
-      $m_shapeIndex = $shapeStartIndex;
-    }
-
-    public void formatShape(ISvgShape svgShape, IShape shape) {
-      $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
-    }
   }
 ```
 
