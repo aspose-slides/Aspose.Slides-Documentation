@@ -23,7 +23,7 @@ You may want to check our [**PowerPoint to Video Online Converter**](https://pro
 In [Aspose.Slides 22.11](https://docs.aspose.com/slides/php-java/aspose-slides-for-java-22-11-release-notes/), we implemented support for presentation to video conversion.
 
 * Use **Aspose.Slides** to generate a set of frames (from the presentation slides) that correspond to a certain FPS (frames per second)
-* Use a third-party utility like **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) to create a video based on the frames. 
+* Use a third-party utility like **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) to create a video based on the frames.
 
 ### **Convert PowerPoint to Video**
 
@@ -94,27 +94,6 @@ This PHP code shows you how to convert a presentation (containing a figure and t
   } catch (JavaException $e) {
     $e->printStackTrace();
   }
-```
-
-Where PresentationPlayerFrameTick
-
-```java
-package com.aspose.slides;
-
-import java.io.*;
-import com.aspose.slides.*;
-
-public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
-{
-    public void invoke(PresentationPlayer sender, FrameTickEventArgs arg) {
-            try {
-                    String frame = String.format("frame_%04d.png", sender.getFrameIndex());
-                    arguments.getFrame().save(frame, ImageFormat.Png);
-                    frames.add(frame);
-                 } catch (IOException e) {
-            }
-    }
-}
 ```
 
 ## **Video Effects**
@@ -210,27 +189,6 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
   }
 ```
 
-Where PresentationPlayerFrameTick
-
-```java
-package com.aspose.slides;
-
-import java.io.*;
-import com.aspose.slides.*;
-
-public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
-{
-    public void invoke(PresentationPlayer sender, FrameTickEventArgs arg) {
-    try {
-            String frame = String.format("frame_%04d.png", sender.getFrameIndex());
-            arguments.getFrame().save(frame, ImageFormat.Png);
-            frames.add(frame);
-        } catch (IOException e) {
-        }
-    }
-}
-```
-
 ## **Video Conversion Classes**
 
 To allow you to perform PowerPoint to video conversion tasks, Aspose.Slides provides the [PresentationAnimationsGenerator](https://reference.aspose.com/slides/php-java/aspose.slides/presentationanimationsgenerator/) and [PresentationPlayer](https://reference.aspose.com/slides/php-java/aspose.slides/presentationplayer/) classes.
@@ -298,7 +256,7 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
 
 ```php
 
-    class FrameTick {
+class FrameTick {
       function invoke($sender, $arg) {
             try {
                 $arguments->getFrame()->save("frame_" . $sender->getFrameIndex() . ".png", ImageFormat::Png);
@@ -331,25 +289,6 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
       $presentation->dispose();
     }
   }
-```
-
-Where PresentationPlayerFrameTick
-
-```java
-package com.aspose.slides;
-
-import java.io.*;
-import com.aspose.slides.*;
-
-public class PresentationPlayerFrameTick implements PresentationPlayer.FrameTick
-{
-    public void invoke(PresentationPlayer sender, FrameTickEventArgs arg) {
-        try {
-            arg.getFrame().save(outPath + "frame_" + sender.getFrameIndex() + ".png");
-        } catch (IOException e) {
-        }
-    }
-}
 ```
 
 Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.
