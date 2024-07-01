@@ -72,7 +72,7 @@ This code shows you how to convert a PowerPoint to HTML :
   try {
     $htmlOpt = new HtmlOptions();
     $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
-    $htmlOpt->setHtmlFormatter(HtmlFormatter->createDocumentFormatter("", false));
+    $htmlOpt->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createDocumentFormatter("", false));
     // Saving the presentation to HTML
     $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
   } finally {
@@ -92,7 +92,7 @@ Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.c
   try {
     $controller = new ResponsiveHtmlController();
     $htmlOptions = new HtmlOptions();
-    $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter($controller));
+    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
     // Saving the presentation to HTML
     $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, $htmlOptions);
   } finally {
@@ -135,7 +135,7 @@ The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/a
     $fontNameExcludeList = array("Calibri", "Arial" );
     $embedFontsController = new EmbedAllFontsHtmlController($fontNameExcludeList);
     $htmlOptionsEmbed = new HtmlOptions();
-    $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($embedFontsController));
+    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($embedFontsController));
     $pres->save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat::Html, $htmlOptionsEmbed);
   } finally {
     if (!java_is_null($pres)) {
@@ -236,60 +236,54 @@ Using new CSS style files, you can easily change the style of the HTML file resu
 The PHP code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\HtmlOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\SaveFormat;
+use aspose\slides\EmbedAllFontsHtmlController;
+
+class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
+    const m_basePath = 0;
+
+    // Custom header template
+    const Header = "<!DOCTYPE html>\n" .
+            "<html>\n" .
+            "<head>\n" .
+            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" .
+            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" .
+            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" .
+            "</head>";
+
+    public $m_cssFileName;
+
+    public function __construct($cssFileName)
+    {
+        parent::__construct();
+		$this->m_cssFileName = $cssFileName    }
+
+    public function writeDocumentStart($generator, $presentation)
+    {
+        $generator->addHtml(sprintf(self::Header, $m_cssFileName));
+        $this->writeAllFonts($generator, $presentation);
+    }
+
+    public function writeAllFonts($generator, $presentation)
+    {
+        $generator->addHtml("<!-- Embedded fonts -->");
+        parent::writeAllFonts($generator, $presentation);
+    }
+}
+
   $pres = new Presentation("pres.pptx");
   try {
-    $htmlController = new CustomHeaderAndFontsController("styles.css");
     $options = new HtmlOptions();
-    $options->setHtmlFormatter(HtmlFormatter->createCustomFormatter($htmlController));
+    $options->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter(new CustomHeaderAndFontsController("styles.css")));
     $pres->save("pres.html", SaveFormat::Html, $options);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
     }
   }
-```
-
-Due to restrictions of PHPJavaBridge, the extension of the EmbedAllFontsHtmlController class should be added as another jar file to JavaBridge\WEB-INF\lib directory.
-
-extension of the parent class EmbedAllFontsHtmlController:
-
-```java
-package com.aspose.slides;
-
-import com.aspose.slides.*;
-
-public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
-{
-    private final int m_basePath = 0;
-
-    // Custom header template
-    final static String Header = "<!DOCTYPE html>\n" +
-            "<html>\n" +
-            "<head>\n" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-            "</head>";
-
-    private final String m_cssFileName;
-
-    public CustomHeaderAndFontsController(String cssFileName) 
-    {
-        m_cssFileName = cssFileName;
-    }
-
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml(String.format(Header, m_cssFileName));
-        writeAllFonts(generator, presentation);
-    }
-
-    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml("<!-- Embedded fonts -->");
-        super.writeAllFonts(generator, presentation);
-    }
-}
 ```
 
 ## **Link All Fonts When Converting Presentation to HTML**
@@ -305,7 +299,7 @@ This PHP code shows you how to convert a PowerPoint to HTML while linking all fo
     $fontNameExcludeList = array("Calibri", "Arial" );
     $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
     $htmlOptionsEmbed = new HtmlOptions();
-    $htmlOptionsEmbed->setHtmlFormatter(HtmlFormatter->createCustomFormatter($linkcont));
+    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($linkcont));
     $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
   } finally {
     if (!java_is_null($pres)) {
@@ -326,37 +320,36 @@ import com.aspose.slides.*;
 
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
-    private final String m_basePath;
+    private final $m_basePath;
 
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
+    public LinkAllFontsHtmlController(String[] fontNameExcludeList, $basePath)
     {
         super(fontNameExcludeList);
         m_basePath = basePath;
     }
 
-    public void writeFont
+    function writeFont
     (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            String fontStyle,
-            String fontWeight,
+            $generator,
+            $originalFont,
+            $substitutedFont,
+            $fontStyle,
+            $fontWeight,
             byte[] fontData)
     {
         try {
-            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // some path sanitaze may be needed
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
+            $fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont->getFontName();
+            $path = fontName + ".woff"; // some path sanitaze may be needed
+            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption::CREATE);
 
-            generator.addHtml("<style>");
-            generator.addHtml("@font-face { ");
-            generator.addHtml("font-family: '" + fontName + "'; ");
-            generator.addHtml("src: url('" + path + "')");
+            $generator->addHtml("<style>");
+            $generator->addHtml("@font-face { ");
+            $generator->addHtml("font-family: '" + fontName + "'; ");
+            $generator->addHtml("src: url('" + path + "')");
 
-            generator.addHtml(" }");
-            generator.addHtml("</style>");
-        } catch (IOException ex) {
-            ex.printStackTrace();
+            $generator->addHtml(" }");
+            $generator->addHtml("</style>");
+        } catch (JavaException $ex) {
         }
     }
 }
@@ -412,7 +405,7 @@ This PHP code shows you how to add a video to the presentation and then save it 
     // Setting HTML options
     $htmlOptions = new HtmlOptions($controller);
     $svgOptions = new SVGOptions($controller);
-    $htmlOptions->setHtmlFormatter(HtmlFormatter->createCustomFormatter($controller));
+    $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
     $htmlOptions->setSlideImageFormat(SlideImageFormat::svg($svgOptions));
     // Saving the file
     $pres->save($fileName, SaveFormat::Html, $htmlOptions);
