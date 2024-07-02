@@ -70,12 +70,12 @@ This PHP code is an implementation of the steps for adding paragraphs containing
         if ($j == 0) {
           $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
           $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-          $portion->getPortionFormat()->setFontBold(NullableBool->True);
+          $portion->getPortionFormat()->setFontBold(NullableBool::True);
           $portion->getPortionFormat()->setFontHeight(15);
         } else if ($j == 1) {
           $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
           $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-          $portion->getPortionFormat()->setFontItalic(NullableBool->True);
+          $portion->getPortionFormat()->setFontItalic(NullableBool::True);
           $portion->getPortionFormat()->setFontHeight(18);
         }
       }
@@ -135,7 +135,7 @@ This PHP code shows you how to add a paragraph bullet:
     // Sets bullet color
     $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool->True);// set IsBulletHardColor to true to use own bullet color
+    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// set IsBulletHardColor to true to use own bullet color
 
     // Sets Bullet Height
     $para->getParagraphFormat()->getBullet()->setHeight(100);
@@ -152,7 +152,7 @@ This PHP code shows you how to add a paragraph bullet:
     $para2->getParagraphFormat()->setIndent(25);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
     $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool->True);// set IsBulletHardColor to true to use own bullet color
+    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// set IsBulletHardColor to true to use own bullet color
 
     // Sets Bullet Height
     $para2->getParagraphFormat()->getBullet()->setHeight(100);

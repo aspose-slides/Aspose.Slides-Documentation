@@ -56,8 +56,8 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $chartTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $chartTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $chartTitle->getPortionFormat()->setFontHeight(20);
-    $chartTitle->getPortionFormat()->setFontBold(NullableBool->True);
-    $chartTitle->getPortionFormat()->setFontItalic(NullableBool->True);
+    $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
     // Setting Major grid lines format for value axis
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
@@ -82,9 +82,9 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
     // Setting Value Axis Text Properties
     $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool->True);
+    $txtVal->setFontBold(NullableBool::True);
     $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool->True);
+    $txtVal->setFontItalic(NullableBool::True);
     $txtVal->getFillFormat()->setFillType(FillType::Solid);
     $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
     $txtVal->setLatinFont(new FontData("Times New Roman"));
@@ -96,8 +96,8 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool->True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool->True);
+    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
     // Setting Major grid lines format for Category axis
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
@@ -108,9 +108,9 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
     // Setting Category Axis Text Properties
     $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool->True);
+    $txtCat->setFontBold(NullableBool::True);
     $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool->True);
+    $txtCat->setFontItalic(NullableBool::True);
     $txtCat->getFillFormat()->setFillType(FillType::Solid);
     $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $txtCat->setLatinFont(new FontData("Arial"));
@@ -122,17 +122,17 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool->True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool->True);
+    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
     // Setting category axis label position
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
     // Setting category axis label rotation angle
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
     // Setting Legends Text Properties
     $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool->True);
+    $txtleg->setFontBold(NullableBool::True);
     $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool->True);
+    $txtleg->setFontItalic(NullableBool::True);
     $txtleg->getFillFormat()->setFillType(FillType::Solid);
     $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
     // Set show chart legends without overlapping chart

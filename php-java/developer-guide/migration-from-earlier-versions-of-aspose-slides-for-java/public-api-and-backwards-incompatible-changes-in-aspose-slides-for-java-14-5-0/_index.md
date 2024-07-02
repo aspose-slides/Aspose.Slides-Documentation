@@ -41,7 +41,7 @@ Code that attempts to assign an undefined frame to IShape.setFrame(IShapeFrame) 
 
 ```php
   $shape = $$missing$;
-  $shape->setFrame(new ShapeFrame(Float->NaN, Float->NaN, Float->NaN, Float->NaN, NullableBool->NotDefined, NullableBool->NotDefined, Float->NaN));
+  $shape->setFrame(new ShapeFrame(Float->NaN, Float->NaN, Float->NaN, Float->NaN, NullableBool::NotDefined, NullableBool::NotDefined, Float->NaN));
 
 ```
 
@@ -90,7 +90,7 @@ But the IShape.getRawFrame() frame can be undefined. This make sense when a shap
 ```php
   $shape = $$missing$;// shape is linked to placeholder
 
-  $shape->setRawFrame(new ShapeFrame(Float->NaN, Float->NaN, 100, Float->NaN, NullableBool->NotDefined, NullableBool->NotDefined, 0));
+  $shape->setRawFrame(new ShapeFrame(Float->NaN, Float->NaN, 100, Float->NaN, NullableBool::NotDefined, NullableBool::NotDefined, 0));
   // now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
 
 ```

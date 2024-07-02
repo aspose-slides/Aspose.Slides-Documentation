@@ -63,11 +63,11 @@ The implementation of the above steps is given below. It takes an unadorned pres
     $port1->getPortionFormat()->setLatinFont($fd1);
     $port2->getPortionFormat()->setLatinFont($fd2);
     // Set font to Bold
-    $port1->getPortionFormat()->setFontBold(NullableBool->True);
-    $port2->getPortionFormat()->setFontBold(NullableBool->True);
+    $port1->getPortionFormat()->setFontBold(NullableBool::True);
+    $port2->getPortionFormat()->setFontBold(NullableBool::True);
     // Set font to Italic
-    $port1->getPortionFormat()->setFontItalic(NullableBool->True);
-    $port2->getPortionFormat()->setFontItalic(NullableBool->True);
+    $port1->getPortionFormat()->setFontItalic(NullableBool::True);
+    $port2->getPortionFormat()->setFontItalic(NullableBool::True);
     // Set font color
     $port1->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $port1->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
@@ -126,9 +126,9 @@ The implementation of the above steps is given below.
     // Set the Font for the Portion
     $port->getPortionFormat()->setLatinFont(new FontData("Times New Roman"));
     // Set Bold property of the Font
-    $port->getPortionFormat()->setFontBold(NullableBool->True);
+    $port->getPortionFormat()->setFontBold(NullableBool::True);
     // Set Italic property of the Font
-    $port->getPortionFormat()->setFontItalic(NullableBool->True);
+    $port->getPortionFormat()->setFontItalic(NullableBool::True);
     // Set Underline property of the Font
     $port->getPortionFormat()->setFontUnderline(TextUnderlineType::Single);
     // Set the Height of the Font

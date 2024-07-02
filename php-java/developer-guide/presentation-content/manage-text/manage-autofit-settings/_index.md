@@ -132,7 +132,7 @@ This PHP code shows you how to use the Wrap Text setting in a PowerPoint present
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->add($portion);
     $textFrameFormat = $autoShape->getTextFrame()->getTextFrameFormat();
-    $textFrameFormat::setWrapText(NullableBool->True);
+    $textFrameFormat::setWrapText(NullableBool::True);
     $pres->save("Output-presentation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

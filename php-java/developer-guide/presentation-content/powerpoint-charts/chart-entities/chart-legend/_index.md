@@ -82,9 +82,9 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of ind
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
     $tf = $chart->getLegend()->getEntries()->get_Item(1)->getTextFormat();
-    $tf->getPortionFormat()->setFontBold(NullableBool->True);
+    $tf->getPortionFormat()->setFontBold(NullableBool::True);
     $tf->getPortionFormat()->setFontHeight(20);
-    $tf->getPortionFormat()->setFontItalic(NullableBool->True);
+    $tf->getPortionFormat()->setFontItalic(NullableBool::True);
     $tf->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $tf->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $pres->save("output.pptx", SaveFormat::Pptx);

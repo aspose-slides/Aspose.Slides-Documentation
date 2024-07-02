@@ -9,6 +9,6 @@ new Java("java.util.Date")
 new ArrayList<IComment>()
 null
 instanceof
-NullableBool->True
+NullableBool::True
 if (java_values
 java_values == != > <

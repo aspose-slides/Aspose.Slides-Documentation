@@ -58,7 +58,7 @@ Aspose.Slides for PHP via Java provides support for setting series data label c
         if ($i == java_values($chart->getChartData()->getSeries()->size()) - 1) {
           $lbl = $dataPoint->getLabel();
           $lbl->getTextFormat()->getTextBlockFormat()->setAutofitType(TextAutofitType::Shape);
-          $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool->True);
+          $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontBold(NullableBool::True);
           $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setLatinFont(new FontData("DINPro-Bold"));
           $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(12);
           $lbl->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);

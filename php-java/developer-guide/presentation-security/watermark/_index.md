@@ -73,7 +73,7 @@ You can change the font of text watermark:
 
 ```php
   $watermarkPortion = $watermarkTextFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-  $watermarkPortion->getPortionFormat()->setFontBold(NullableBool->True);
+  $watermarkPortion->getPortionFormat()->setFontBold(NullableBool::True);
   $watermarkPortion->getPortionFormat()->setFontHeight(52);
 
 ```

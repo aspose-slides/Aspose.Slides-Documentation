@@ -195,7 +195,7 @@ This PHP code demonstrates an operation where all the texts in a presentation ar
             foreach($paragraph->getPortions() as $portion) {
               $portion->setText($portion->getText()->replace("years", "months"));// Changes text
 
-              $portion->getPortionFormat()->setFontBold(NullableBool->True);// Changes formatting
+              $portion->getPortionFormat()->setFontBold(NullableBool::True);// Changes formatting
 
             }
           }

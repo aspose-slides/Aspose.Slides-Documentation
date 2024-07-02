@@ -289,10 +289,10 @@ In our case, the object's angle of rotation is 90 degrees and the connector is d
   $x = $connector->getX();
   $y = $connector->getY();
   // Corrects the connector coordinates in case it appears
-  if ($connector->getFrame()->getFlipH() == NullableBool->True) {
+  if ($connector->getFrame()->getFlipH() == NullableBool::True) {
     $x += $connector->getWidth();
   }
-  if ($connector->getFrame()->getFlipV() == NullableBool->True) {
+  if ($connector->getFrame()->getFlipV() == NullableBool::True) {
     $y += $connector->getHeight();
   }
   // Takes in the adjustment point value as the coordinate
