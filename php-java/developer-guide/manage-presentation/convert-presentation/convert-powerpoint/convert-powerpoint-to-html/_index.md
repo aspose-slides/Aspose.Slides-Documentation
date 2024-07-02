@@ -343,8 +343,8 @@ class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
     $pres = new Presentation("pres.pptx");
   try {
     // Exclude default presentation fonts
-	$fontNameExcludeList = array("G-Type");
-    $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "f:/git/slides-java/TestDataNet/Regressions/SLIDESNET-38024/");
+	$fontNameExcludeList = array("Calibri", "Arial");
+    $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
     $htmlOptionsEmbed = new HtmlOptions();
     $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($linkcont));
     $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
