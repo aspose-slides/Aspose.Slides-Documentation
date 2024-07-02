@@ -293,39 +293,20 @@ If you do not want to embed fonts (to avoid increasing the size of the resulting
 This PHP code shows you how to convert a PowerPoint to HTML while linking all fonts and excluding "Calibri" and "Arial" (since they already exist in the system):
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    // Exclude default presentation fonts
-    $fontNameExcludeList = array("Calibri", "Arial" );
-    $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
-    $htmlOptionsEmbed = new HtmlOptions();
-    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($linkcont));
-    $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\Presentation;
+use aspose\slides\HtmlOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\SaveFormat;
+use aspose\slides\EmbedAllFontsHtmlController;
 
-Due to restrictions of PHPJavaBridge, the extension of the EmbedAllFontsHtmlController class should be added as another jar file to JavaBridge\WEB-INF\lib directory.
-
-This Java code shows you how `LinkAllFontsHtmlController` is implemented:
-
-```java
-package com.aspose.slides;
-
-import java.io.*;
-import com.aspose.slides.*;
-
-public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
+class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
-    private final $m_basePath;
+    private $m_basePath;
 
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, $basePath)
+    public function __construct($fontNameExcludeList, $basePath)
     {
-        super(fontNameExcludeList);
-        m_basePath = basePath;
+        parent::__construct($fontNameExcludeList);
+        $this->m_basePath = $basePath;
     }
 
     function writeFont
@@ -335,17 +316,23 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
             $substitutedFont,
             $fontStyle,
             $fontWeight,
-            byte[] fontData)
+            $fontData)
     {
         try {
-            $fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont->getFontName();
-            $path = fontName + ".woff"; // some path sanitaze may be needed
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption::CREATE);
+            $fontName = java_is_null($substitutedFont) ? $originalFont->getFontName() : $substitutedFont->getFontName();
+            $path = $fontName . ".woff"; // some path sanitaze may be needed
+			$fstr = new Java("java.io.FileOutputStream", $this->m_basePath . $path);
+			$Array = new java_class("java.lang.reflect.Array");
+			try {
+				$fstr->write($fontData, 0, $Array->getLength($fontData));
+			} finally {
+				$fstr->close();
+			}
 
             $generator->addHtml("<style>");
             $generator->addHtml("@font-face { ");
-            $generator->addHtml("font-family: '" + fontName + "'; ");
-            $generator->addHtml("src: url('" + path + "')");
+            $generator->addHtml("font-family: '" . $fontName . "'; ");
+            $generator->addHtml("src: url('" . $path . "')");
 
             $generator->addHtml(" }");
             $generator->addHtml("</style>");
@@ -353,6 +340,19 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
         }
     }
 }
+    $pres = new Presentation("pres.pptx");
+  try {
+    // Exclude default presentation fonts
+	$fontNameExcludeList = array("G-Type");
+    $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "f:/git/slides-java/TestDataNet/Regressions/SLIDESNET-38024/");
+    $htmlOptionsEmbed = new HtmlOptions();
+    $htmlOptionsEmbed->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($linkcont));
+    $pres->save("pres.html", SaveFormat::Html, $htmlOptionsEmbed);
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 ## **Convert PowerPoint to Responsive HTML**
