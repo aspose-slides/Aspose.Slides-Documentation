@@ -85,16 +85,10 @@ When you want to create a presentation that contains large objects (video, audio
 Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/php-java/aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This PHP code shows you how to use the `IResourceLoadingCallback` interface:
 
 ```php
-  $opts = new LoadOptions();
-  $opts->setResourceLoadingCallback(new ImageLoadingHandler());
-  $pres = new Presentation("presentation.pptx", $opts);
 
-```
-
-```php
-  class ImageLoadingHandler implements IResourceLoadingCallback {
-    public int resourceLoading(IResourceLoadingArgs args) {
-      if ($args->getOriginalUri()->endsWith(".jpg")) {
+class ImageLoadingHandler {
+    function resourceLoading($args) {
+      if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
         // loads substitute image
         $file = new Java("java.io.File", "aspose-logo.jpg");
         $Array = new JavaClass("java.lang.reflect.Array");
@@ -108,12 +102,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
         }
           $args->setData($imageBytes);
           return ResourceLoadingAction::UserProvided;
-        } catch (JavaException $ex) {
-          return ResourceLoadingAction::Skip;
-        } catch (JavaException $ex) {
-          $ex->printStackTrace();
-        }
-      } else if ($args->getOriginalUri()->endsWith(".png")) {
+      } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
         // sets substitute url
         $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
         return ResourceLoadingAction::Default;
@@ -122,6 +111,11 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
       return ResourceLoadingAction::Skip;
     }
   }
+
+  $opts = new LoadOptions();
+  $loadingHandler = java_closure(new ImageLoadingHandler(), null, java("com.aspose.slides.IResourceLoadingCallback"));
+  $opts->setResourceLoadingCallback($loadingHandler);
+  $pres = new Presentation("presentation.pptx", $opts);
 ```
 
 <h2>Open and Save Presentation</h2>
