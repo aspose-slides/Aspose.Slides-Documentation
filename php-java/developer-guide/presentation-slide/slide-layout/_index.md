@@ -59,14 +59,14 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
       // You can also use a set of placeholder shape types. For example,
       // Title slide should have only Title placeholder type, etc.
       foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-        if ($titleAndObjectLayoutSlide->getName() == "Title and Object") {
+        if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
           $layoutSlide = $titleAndObjectLayoutSlide;
           break;
         }
       }
       if (java_is_null($layoutSlide)) {
         foreach($layoutSlides as $titleLayoutSlide) {
-          if ($titleLayoutSlide->getName() == "Title") {
+          if (java_values($titleLayoutSlide->getName()) == "Title") {
             $layoutSlide = $titleLayoutSlide;
             break;
           }

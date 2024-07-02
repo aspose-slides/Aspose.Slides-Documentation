@@ -17,7 +17,7 @@ Aspose.Slides for PHP via Java provides a facility for extracting flash objects 
     $controls = $pres->getSlides()->get_Item(0)->getControls();
     $flashControl = null;
     foreach($controls as $control) {
-      if ($control->getName() == "ShockwaveFlash1") {
+      if (java_values($control->getName()) == "ShockwaveFlash1") {
         $flashControl = $control;
       }
     }
