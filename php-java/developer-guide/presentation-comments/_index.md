@@ -45,7 +45,7 @@ This PHP code shows you how to add a comment to a slide in a PowerPoint presenta
     // Accesses the comment at index 0 for slide 1
     $str = $Comments[0]->getText();
     $pres->save("Comments_out.pptx", SaveFormat::Pptx);
-    if ($Array->getLength($Comments) > 0) {
+    if (java_values($Array->getLength($Comments)) > 0) {
       // Selects the Author's comments collection at index 0
       $commentCollection = $Comments[0]->getAuthor()->getComments();
       $Comment = $commentCollection->get_Item(0)->getText();

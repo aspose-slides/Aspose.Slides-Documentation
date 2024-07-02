@@ -30,7 +30,7 @@ This PHP code shows you how to set the overlap for a chart series:
     // Adds chart
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries();
-    if ($series->get_Item(0)->getOverlap() == 0) {
+    if (java_values($series->get_Item(0)->getOverlap()) == 0) {
       // Sets series overlap
       $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
     }

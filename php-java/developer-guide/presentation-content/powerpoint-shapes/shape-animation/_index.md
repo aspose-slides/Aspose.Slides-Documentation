@@ -176,7 +176,7 @@ This PHP code shows you how to get the all effects applied to a specific shape:
     $shape = $firstSlide->getShapes()->get_Item(0);
     // Gets all animation effects applied to the shape.
     $shapeEffects = $sequence->getEffectsByShape($shape);
-    if ($Array->getLength($shapeEffects) > 0) {
+    if (java_values($Array->getLength($shapeEffects)) > 0) {
       echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
     }
   } finally {

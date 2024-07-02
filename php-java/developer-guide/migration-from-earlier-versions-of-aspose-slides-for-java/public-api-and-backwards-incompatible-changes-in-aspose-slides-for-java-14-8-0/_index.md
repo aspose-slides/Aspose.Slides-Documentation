@@ -22,7 +22,7 @@ This method is not only for specific series but for all series of the parent ser
   $pres = new Presentation();
   $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
   $series = $chart->getChartData()->getSeries();
-  if ($series->get_Item(0)->getOverlap() == 0) {
+  if (java_values($series->get_Item(0)->getOverlap()) == 0) {
     $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
   }
 ```

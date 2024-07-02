@@ -21,7 +21,7 @@ The following example includes these steps:
     // Trying to remove FallBack font "Tahoma" from loaded rules
     $fallBackRule->remove("Tahoma");
     // And to update of rules for specified range
-    if ($fallBackRule->getRangeEndIndex() >= 0x4000 && $fallBackRule->getRangeStartIndex() < 0x5000) {
+    if (java_values($fallBackRule->getRangeEndIndex()) >= 0x4000 && java_values($fallBackRule->getRangeStartIndex()) < 0x5000) {
       $fallBackRule->addFallBackFonts("Verdana");
     }
   }

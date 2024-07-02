@@ -333,11 +333,11 @@ This PHP code demonstrates an operation in which we calculated the angle for a c
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
         $ashp = $shape;
         if ($ashp->getShapeType() == ShapeType::Line) {
-          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), $ashp->getFrame()->getFlipH() > 0, $ashp->getFrame()->getFlipV() > 0);
+          $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, $ashp->getFrame()->getFlipV() > 0);
         }
       } else if (java_instanceof($shape, new JavaClass("com.aspose.slides.Connector"))) {
         $ashp = $shape;
-        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), $ashp->getFrame()->getFlipH() > 0, $ashp->getFrame()->getFlipV() > 0);
+        $dir = getDirection($ashp->getWidth(), $ashp->getHeight(), java_values($ashp->getFrame()->getFlipH()) > 0, java_values($ashp->getFrame()->getFlipV()) > 0);
       }
       echo($dir);
     }

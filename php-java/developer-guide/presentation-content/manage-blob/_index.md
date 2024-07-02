@@ -84,7 +84,7 @@ This code  demonstrates the described operation:
         $outputFileStream = new Java("java.io.FileOutputStream", "video" . $index . ".avi");
         try {
           $bytesRead;
-          while ($bytesRead = $presVideoStream->read($buffer, 0, $Array->getLength($buffer)) > 0) {
+          while ($bytesRead = $presVideoStream->read($buffer, 0, java_values($Array->getLength($buffer))) > 0) {
             $outputFileStream->write($buffer, 0, $bytesRead);
           } 
         } finally {
