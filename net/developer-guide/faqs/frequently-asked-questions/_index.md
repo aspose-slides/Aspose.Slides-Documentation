@@ -33,18 +33,7 @@ In general, Aspose.Slides for .NET can easily handle presentation files of aroun
 
 **A**: You can render the presentation slides to images and can use these images for previewing the slides.
 
-## **Cloning Slides**
-
-**Q: Why are internal hyperlinks lost when slides are cloned?**
-
-**A**: There is no way to preserve internal links when slides are cloned. The reason is that the new presentation may have a different number of slides and their order may be different from the original presentation. So cloning the slide in target presentation may not point to desired slide link. That is why all internal hyperlinks should be reset after slides cloning if necessary.
-
 ## **Working with Presentations**
-
-**Q: When I open a PPT file with slides created with Aspose.Slides and then press F5 for the Slide Show mode, I only see the first slide.**
-The rest of the slides are not shown in this mode. If I open the Set Up Show settings, the fields **From** and **To** are set to 1 and 1. Is it possible to change these values?
-
-**A**: You can use the [SlideShowSettings](https://reference.aspose.com/slides/net/aspose.slides/slideshowsettings/).`Slides` property to control these settings.
 
 **Q: Is it possible to scan text from a presentation?**
 
