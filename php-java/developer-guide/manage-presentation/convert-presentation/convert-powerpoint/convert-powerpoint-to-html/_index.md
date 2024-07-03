@@ -259,7 +259,8 @@ class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
     public function __construct($cssFileName)
     {
         parent::__construct();
-		$this->m_cssFileName = $cssFileName    }
+		$this->m_cssFileName = $cssFileName;
+	}
 
     public function writeDocumentStart($generator, $presentation)
     {
