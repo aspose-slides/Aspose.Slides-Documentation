@@ -163,3 +163,19 @@ try {
     if (!java_is_null($dis)) $dis->close();
 }
 ```
+
+#### 6. **The Java method Files.write**
+
+``` php
+Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - does NOT work
+```
+workaround
+``` php
+$fstr = new Java("java.io.FileOutputStream", $path);
+$Array = new java_class("java.lang.reflect.Array");
+try {
+    $fstr->write($fontData, 0, $Array->getLength($fontData));
+} finally {
+	$fstr->close();
+}
+```
