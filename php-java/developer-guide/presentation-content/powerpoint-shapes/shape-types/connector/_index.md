@@ -348,6 +348,3 @@ This PHP code demonstrates an operation in which we calculated the angle for a c
   }
 ```
 
-```php
-
-```
