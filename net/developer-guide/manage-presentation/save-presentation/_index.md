@@ -82,6 +82,34 @@ The following sample code creates a presentation and saves it in the Strict Open
 
 ```
 
+### **Saving Presentations to Open XML format in Zip64 mode**
+An Open XML file is a ZIP-archive that has a 4 GB (2^32 bytes) limit on uncompressed size of a file, compressed size of a file, and total size of the archive, as well as a limit of 65,535 (2^16-1) files in the archive. ZIP64 format extensions increase the limits to 2^64.
+
+The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Open XML file.
+
+This property provides the following modes:
+
+- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
+- [Zip64Mode.Never](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) means that ZIP64 format extensions will not be used. 
+- [Zip64Mode.Always](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) means that ZIP64 format extensions will always be used.
+
+The following C# code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
+
+```c#
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample-zip64.pptx", SaveFormat.Pptx, new PptxOptions()
+    {
+        Zip64Mode = Zip64Mode.Always
+    });
+}
+```
+
+{{% alert title="NOTE" color="warning" %}}
+
+Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
+
+{{% /alert %}}
 
 ### **Saving Progress Updates in Percentage**
 New [**IProgressCallback** ](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback)interface has been added to [**ISaveOptions** ](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions)interface and [**SaveOptions** ](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions)abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.
