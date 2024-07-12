@@ -36,7 +36,7 @@ This table contains the file formats that Aspose.Slides for .NET can load and sa
 |[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument Presentation Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format| |{{< emoticons/tick >}}| |
 |[EMF/EMF+](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format (Plus Extensions)| |{{< emoticons/tick >}}| |
-|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format| |{{< emoticons/tick >}}| |
+|[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification| |{{< emoticons/tick >}}| |
 |[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
 |[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics| |{{< emoticons/tick >}}| |
@@ -44,7 +44,7 @@ This table contains the file formats that Aspose.Slides for .NET can load and sa
 |[BMP](https://docs.fileformat.com/image/bmp/)|Device Independent Bitmap| |{{< emoticons/tick >}}| |
 |[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics| |{{< emoticons/tick >}}| |
 |[SWF](https://docs.fileformat.com/page-description-language/swf/)|Small Web Format| |{{< emoticons/tick >}}| |
-|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language| |{{< emoticons/tick >}}| |
+|[HTML](https://docs.fileformat.com/web/html/)|Hypertext Markup Language|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[XAML](https://docs.fileformat.com/web/xaml/)|Extensible Application Markup Language| |{{< emoticons/tick >}}| |
 |[MD](https://docs.fileformat.com/word-processing/md/)|Markdown| |{{< emoticons/tick >}}| |
 |[XML](https://docs.fileformat.com/web/xml/)|PowerPoint XML Presentation| |{{< emoticons/tick >}}| |
