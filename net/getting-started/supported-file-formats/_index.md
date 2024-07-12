@@ -35,7 +35,7 @@ This table contains the file formats that Aspose.Slides for .NET can load and sa
 |[ODP/FODP](https://docs.fileformat.com/presentation/odp/)|OpenDocument Presentation|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[OTP](https://docs.fileformat.com/presentation/otp/)|OpenDocument Presentation Template|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[TIFF](https://docs.fileformat.com/image/tiff/)|Tag Image File Format| |{{< emoticons/tick >}}| |
-|[EMF/EMF+](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format (Plus Extensions)| |{{< emoticons/tick >}}| |
+|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced Metafile Format| |{{< emoticons/tick >}}| |
 |[PDF](https://docs.fileformat.com/pdf/)|Portable Document Format|{{< emoticons/tick >}}|{{< emoticons/tick >}}| |
 |[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification| |{{< emoticons/tick >}}| |
 |[JPEG](https://docs.fileformat.com/image/jpeg/)|Joint Photographic Experts Group| |{{< emoticons/tick >}}| |
