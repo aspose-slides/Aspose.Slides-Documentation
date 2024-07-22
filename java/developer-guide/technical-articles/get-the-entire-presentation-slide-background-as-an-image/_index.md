@@ -49,4 +49,7 @@ clonedSlide.getShapes().clear();
 
 var background = clonedSlide.getImage(imageScale, imageScale);
 background.save("output.png", ImageFormat.Png);
+
+tempPresentation.dispose();
+presentation.dispose();
 ```
