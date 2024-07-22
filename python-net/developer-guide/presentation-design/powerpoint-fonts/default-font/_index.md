@@ -20,7 +20,6 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Use load options to define the default regualr and asian fonts# Use load options to define the default regualr and asian fonts
@@ -31,7 +30,7 @@ loadOptions.default_asian_font = "Wingdings"
 # Load the presentation
 with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as pptx:
     # Generate slide thumbnail
-    pptx.slides[0].get_thumbnail(1, 1).save("output_out.png", draw.imaging.ImageFormat.png)
+    pptx.slides[0].get_image(1, 1).save("output_out.png", slides.ImageFormat.PNG)
 
     # Generate PDF
     pptx.save("output_out.pdf", slides.export.SaveFormat.PDF)

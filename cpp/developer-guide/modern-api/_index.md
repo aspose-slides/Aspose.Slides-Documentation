@@ -182,7 +182,7 @@ pres->get_Slide(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rec
 ### ImageCollection Class
 |Method Signature|Replacement Method Signature|
 | :- | :- |
-|AddImage(System::SharedPtr&lt;IPPImage&gt; image)|AddImage(System::SharedPtr&lt;System::Drawing::Image&gt; image)|
+|AddImage(System::SharedPtr&lt;System::Drawing::Image&gt; image)|AddImage(System::SharedPtr&lt;IImage&gt; image)|
 
 ### PPImage Class
 |Method Signature|Replacement Method Signature|

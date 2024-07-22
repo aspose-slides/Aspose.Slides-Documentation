@@ -230,8 +230,8 @@ autoShape->get_FillFormat()->set_FillType(FillType::Picture);
 autoShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
 // Sets the picture
-auto bitmap = MakeObject<System::Drawing::Bitmap>(u"Tulips.jpg");
-auto imgx = pres->get_Images()->AddImage(bitmap);
+auto img = Images::FromFile(u"Tulips.jpg");
+auto imgx = pres->get_Images()->AddImage(img);
 autoShape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
 
 // Writes the PPTX file to disk

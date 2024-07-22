@@ -78,7 +78,7 @@ void AddExcelChartInPresentation(System::SharedPtr<Presentation> pres, System::S
     intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
     imgChart->Save(cellsOutputStream, Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
 
-    auto imgChartSlides = System::Drawing::Image::FromStream(ToSlidesMemoryStream(cellsOutputStream));
+    auto imgChartSlides = Images::FromStream(ToSlidesMemoryStream(cellsOutputStream));
     oof->get_SubstitutePictureFormat()->get_Picture()->set_Image(pres->get_Images()->AddImage(imgChartSlides));
 }
 ```

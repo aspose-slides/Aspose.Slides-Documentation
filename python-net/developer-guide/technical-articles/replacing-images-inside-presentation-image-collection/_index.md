@@ -21,7 +21,6 @@ Aspose.Slides for Python via .NET provides a simple API methods for replacing th
 1. Write the modified presentation as a PPTX file.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 def read_all_bytes(file_name):
@@ -37,7 +36,7 @@ with slides.Presentation("pres.pptx") as presentation:
     oldImage.replace_image(data)
 
     #the second way
-    newImage = draw.Image.from_file("image_1.jpeg")
+    newImage = slides.Images.from_file("image_1.jpeg")
     oldImage = presentation.images[1]
     oldImage.replace_image(newImage)
 

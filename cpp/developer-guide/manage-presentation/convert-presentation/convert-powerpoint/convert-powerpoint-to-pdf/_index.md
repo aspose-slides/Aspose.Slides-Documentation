@@ -4,19 +4,26 @@ linktitle: Convert PowerPoint to PDF
 type: docs
 weight: 40
 url: /cpp/convert-powerpoint-to-pdf/
-keywords: "C++ PowerPoint to PDF Conversions, Convert PowerPoint, Presentation, PowerPoint to PDF, PPT to PDF, PPTX to PDF, Save PowerPoint as PDF, PDF/A1a, PDF/A1b, PDF/UA, CPP, C++"
-description: "Convert PowerPoint Presentation to PDF in C++. Save PowerPoint as PDF with compliance or accessibility standards"
+keywords:
+- convert PowerPoint
+- presentation
+- PowerPoint to PDF
+- PPT to PDF
+- PPTX to PDF
+- save PowerPoint as PDF
+- PDF/A1a
+- PDF/A1b
+- PDF/UA
+- C++
+- Aspose.Slides for C++
+description: "Convert PowerPoint presentations to PDF in C++. Save PowerPoint as PDF with compliance or accessibility standards."
 ---
+
 ## **Overview**
 
-This article explains how you can convert PowerPoint file formats into PDF using C++. It covers wide range of topics e.g.
+Converting PowerPoint documents into PDF format offers several advantages, including ensuring compatibility across different devices and preserving the layout and formatting of your presentation. This article shows you how to convert presentations to PDF documents, use various options to control image quality, include hidden slides, password protect PDF documents, detect font substitutions, select slides for conversion, and apply compliance standards to output documents.
 
-- [Convert PPT to PDF in C++](#cpp-ppt-to-pdf)
-- [Convert PPTX to PDF in C++](#cpp-pptx-to-pdf)
-- [Convert ODP to PDF in C++](#cpp-odp-to-pdf)
-- [Convert PowerPoint to PDF in C++](#cpp-powerpoint-to-pdf)
-
-## **C++ PowerPoint to PDF Conversions**
+## **PowerPoint to PDF Conversions**
 
 Using Aspose.Slides, you can convert presentations in these formats to PDF:
 
@@ -80,31 +87,36 @@ Aspose.Slides provides custom options—properties under the [PdfOptions](https:
 
 ### **Convert PowerPoint to PDF with Custom Options**
 
-Using custom conversion options, you can set your preferred quality setting for JPG images, specify how metafiles should be handled, set a compression level for texts, etc.
+Using custom conversion options, you can set your preferred quality setting for raster images, specify how metafiles should be handled, set a compression level for texts, set DPI for images, etc.
 
-This C++ code demonstrates an operation in which a PowerPoint is converted to PDF with several custom options:
+The code example below demonstrates an operation in which a PowerPoint presentation is converted to PDF with several custom options:
 
 ```c++
-// Instantiates a Presentation class that represents a PowerPoint file
-auto presentation = System::MakeObject<Presentation>(u"PowerPoint.pptx");
-
 // Instantiates the PdfOptions class
 auto pdfOptions = System::MakeObject<PdfOptions>();
 
-// Sets the Jpeg quality
+// Sets the quality for JPG images
 pdfOptions->set_JpegQuality(90);
+
+// Sets DPI for images
+pdfOptions->set_SufficientResolution(300);
 
 // Sets the behavior for metafiles
 pdfOptions->set_SaveMetafilesAsPng(true);
 
-// Sets the text compression level
+// Sets the text compression level for textual content
 pdfOptions->set_TextCompression(PdfTextCompression::Flate);
 
-// Defines the PDF standard
+// Defines the PDF compliance mode
 pdfOptions->set_Compliance(PdfCompliance::Pdf15);
 
-// Saves the presentation as a PDF
+// Instantiates the Presentation class that represents a PowerPoint document
+auto presentation = System::MakeObject<Presentation>(u"PowerPoint.pptx");
+
+// Saves the presentation as a PDF document
 presentation->Save(u"PowerPoint-to-PDF.pdf", SaveFormat::Pdf, pdfOptions);
+
+presentation->Dispose();
 ```
 
 ### **Convert PowerPoint to PDF with Hidden Slides**

@@ -1,6 +1,6 @@
 ---
 title: Aspose.Slides for Node.js via Java
-second_title: "Aspose.Slides for Node.js Documentation"
+second_title: "Aspose.Slides for Node.js via .NET Documentation"
 description: Aspose.Slides for Node.js via Java provides a lot of key features such as managing text, shapes, tables & animations, adding audio and video to slides, previewing slides, exporting slides to SVG, PDF format and more.
 type: docs
 weight: 47

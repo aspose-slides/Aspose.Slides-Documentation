@@ -18,18 +18,17 @@ This article explains how you can extract the images added to presentations.
 To extract an image from a presentation, you have to locate the image first by going through every slide and then going through every shape. Once the image is found or identified, you can extract it and save it as a new file. XXX 
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 def get_image_format(image_type):
     return {
-        "jpeg": draw.imaging.ImageFormat.jpeg,
-        "emf": draw.imaging.ImageFormat.emf,
-        "bmp": draw.imaging.ImageFormat.bmp,
-        "png": draw.imaging.ImageFormat.png,
-        "wmf": draw.imaging.ImageFormat.wmf,
-        "gif": draw.imaging.ImageFormat.gif,
-    }.get(image_type, draw.imaging.ImageFormat.jpeg)
+        "jpeg": slides.ImageFormat.JPEG,
+        "emf": slides.ImageFormat.EMF,
+        "bmp": slides.ImageFormat.BMP,
+        "png": slides.ImageFormat.PNG,
+        "wmf": slides.ImageFormat.WMF,
+        "gif": slides.ImageFormat.GIF,
+    }.get(image_type, slides.ImageFormat.JPEG)
 
 with slides.Presentation("pres.pptx") as pres:
     #Accessing the presentation
@@ -40,7 +39,7 @@ with slides.Presentation("pres.pptx") as pres:
     for slide in pres.slides:
         slideIndex += 1
         #Accessing the first slide
-        image_format = draw.imaging.ImageFormat.jpeg
+        image_format = slides.ImageFormat.JPEG
 
         back_image = None
         file_name = "BackImage_Slide_{0}{1}.{2}"
@@ -59,7 +58,7 @@ with slides.Presentation("pres.pptx") as pres:
             image_type = back_image.content_type.split("/")[1]
             image_format = get_image_format(image_type)
 
-            back_image.system_image.save(
+            back_image.image.save(
                 file_name.format("LayoutSlide_" if is_layout else "", slideIndex, image_type), 
                 image_format)
 
@@ -76,7 +75,7 @@ with slides.Presentation("pres.pptx") as pres:
                 image_type = shape_image.content_type.split("/")[1]
                 image_format = get_image_format(image_type)
 
-                shape_image.system_image.save(
+                shape_image.image.save(
                                 file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
                                 image_format)
 ```

@@ -21,8 +21,8 @@ Go through these steps:
 
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
 2. Get the slide object from the [Presentation::get_Slides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#a9981b38f5a01d9fa5482f05b0a75974c) collection under the [ISlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide) interface. 
-3. Use a [ISlide::GetThumbnail()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#a7bd377d403ff886232df21351c1fe783) method to get the thumbnail for each slide. 
-4. Use the [Image::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/cpp/class/system.drawing.image#a4db9d0686ee892f6fb8fd6aebb4beb69) method to save the slide thumbnail to the PNG format. 
+3. Use a [ISlide::GetImage()](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage) method to get the thumbnail for each slide. 
+4. Use the [IImage::Save(String, ImageFormatPtr](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/save/#iimagesavesystemstring-imageformat-method) method to save the slide thumbnail to the PNG format. 
 
 This C++ code shows you how to convert a PowerPoint presentation to PNG:
 
@@ -33,7 +33,7 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 {
     auto slide = pres->get_Slides()->idx_get(index);
     auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetThumbnail()->Save(fileName, ImageFormat::get_Png());
+    slide->GetImage()->Save(fileName, ImageFormat::Png);
 }
 ```
 
@@ -52,7 +52,7 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 {
     auto slide = pres->get_Slides()->idx_get(index);
     auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetThumbnail(scaleX, scaleY)->Save(fileName, ImageFormat::get_Png());
+    slide->GetImage(scaleX, scaleY)->Save(fileName, ImageFormat::Png);
 }
 ```
 
@@ -70,7 +70,7 @@ for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
 {
     auto slide = pres->get_Slides()->idx_get(index);
     auto fileName = String::Format(u"slide_{0}.png", index);
-    slide->GetThumbnail(size)->Save(fileName, ImageFormat::get_Png());
+    slide->GetImage(size)->Save(fileName, ImageFormat::Png);
 }
 ```
 

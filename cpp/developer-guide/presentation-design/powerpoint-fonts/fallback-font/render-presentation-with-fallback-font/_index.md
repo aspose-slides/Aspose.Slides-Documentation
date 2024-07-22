@@ -44,7 +44,7 @@ auto pres = System::MakeObject<Presentation>(u"input.pptx");
 pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
 // Rendering of thumbnail with using of initialized rules collection and saving to PNG
-pres->get_Slides()->idx_get(0)->GetThumbnail(1.f, 1.f)->Save(u"Slide_0.png", ImageFormat::get_Png());
+pres->get_Slides()->idx_get(0)->GetImage(1.f, 1.f)->Save(u"Slide_0.png", ImageFormat::Png);
 ```
 
 

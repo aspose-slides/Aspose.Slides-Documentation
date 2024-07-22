@@ -90,7 +90,7 @@ This C++ code shows you how to apply the `Fly` effect to a picture frame:
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
 
 // Load Image to be added in presentaiton image collection
-System::SharedPtr<System::Drawing::Image> img = System::MakeObject<System::Drawing::Bitmap>(u"aspose-logo.jpg");
+System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
 System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
 
 // Adds picture frame to slide

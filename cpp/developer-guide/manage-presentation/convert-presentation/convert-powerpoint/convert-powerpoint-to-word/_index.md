@@ -38,8 +38,8 @@ auto builder = MakeObject<Aspose::Words::DocumentBuilder>(doc);
 for (const auto& slide : presentation->get_Slides())
 {
     // generates and inserts slide image
-    auto bitmap = slide->GetThumbnail(1.0f, 1.0f);
-    builder->InsertImage(bitmap);
+    auto image = slide->GetImage(1.0f, 1.0f);
+    builder->InsertImage(image);
 
     // inserts slide's texts
     for (const auto& shape : slide->get_Shapes())

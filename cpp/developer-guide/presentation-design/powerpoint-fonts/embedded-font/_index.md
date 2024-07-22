@@ -21,7 +21,7 @@ This C++ code shows you how to get and remove embedded fonts from a presentation
 // Instantiates a Presentation object that represents a presentation file
 auto presentation = System::MakeObject<Presentation>(u"EmbeddedFonts.pptx");
 // Renders a slide containing a text frame that uses embedded "FunSized"
-presentation->get_Slides()->idx_get(0)->GetThumbnail(Size(960, 720))->Save(u"picture1_out.png", ImageFormat::get_Png());
+presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture1_out.png", ImageFormat::Png);
 
 auto fontsManager = presentation->get_FontsManager();
 
@@ -40,7 +40,7 @@ auto funSizedEmbeddedFont = Array<SharedPtr<IFontData>>::Find(embeddedFonts, com
 fontsManager->RemoveEmbeddedFont(funSizedEmbeddedFont);
 
 // Renders the presentation; "Calibri" font is replaced with an existing one
-presentation->get_Slides()->idx_get(0)->GetThumbnail(Size(960, 720))->Save(u"picture2_out.png", ImageFormat::get_Png());
+presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture2_out.png", ImageFormat::Png);
 
 // Saves the presentation without embedded "Calibri" font to disk
 presentation->Save(u"WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);

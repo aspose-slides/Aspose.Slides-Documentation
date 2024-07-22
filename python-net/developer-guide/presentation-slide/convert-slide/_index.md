@@ -11,10 +11,7 @@ Aspose.Slides for Python via .NET allows you to convert slides (in presentations
 
 To convert a slide to an image, do this: 
 
-1. First,
-   * convert the slide to a Bitmap first by using the [get_thumbnail](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method or
-   * render the slide to a Graphics object by using the [render_to_graphics](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method from the [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) interface.
-
+1. First, convert the slide to a Bitmap first by using the [get_image](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method.
 2. Second, set additional options for conversion and convertible slide objects through
    * the [ITiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/itiffoptions/) interface or
    * the [IRenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/irenderingoptions/) interface. 
@@ -34,33 +31,13 @@ Aspose recently developed an online [Text to GIF](https://products.aspose.app/sl
 This Python code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
 
 ```py 
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as pres:
     # Converts the first slide in the presentation to a Bitmap object
-    with pres.slides[0].get_thumbnail() as bmp:
+    with pres.slides[0].get_image() as bmp:
         # Saves the image in the PNG format
-        bmp.save("Slide_0.png", draw.imaging.ImageFormat.png)
-```
-
-This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [render_to_graphics](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
-
-```py
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-with slides.Presentation("Presentation.pptx") as pres:
-    # Gets the presentation slide size
-    slideSize = pres.slide_size.size
-
-    # Creates a Bitmap with the slide size
-    with draw.Bitmap(slideSize.width, slideSize.height) as slideImage:
-        # Renders the first slide to the Graphics object
-        with draw.Graphics.from_image(slideImage) as graphics:
-            pres.slides[0].render_to_graphics(slides.export.RenderingOptions(), graphics)
-
-        slideImage.save("Slide_1.png", draw.imaging.ImageFormat.png)
+        bmp.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
 {{% alert title="Tip" color="primary" %}} 
@@ -71,9 +48,9 @@ You can convert a slide to a bitmap object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [get_thumbnail](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) or [render_to_graphics](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using an overload from the [get_image](https://reference.aspose.com/slides/python-net/aspose.slides/islide/), you can convert a slide to an image with specific dimensions (length and width). 
 
-This sample code demonstrates the proposed conversion using the [get_thumbnail](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method in Python:
+This sample code demonstrates the proposed conversion using the [get_image](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method in Python:
 
 ```py
 import aspose.pydrawing as draw
@@ -81,32 +58,9 @@ import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as pres:
     # Converts the first slide in the presentation to a Bitmap with the specified size
-    with pres.slides[0].get_thumbnail(draw.Size(1820, 1040)) as bmp:
+    with pres.slides[0].get_image(draw.Size(1820, 1040)) as bmp:
         # Saves the image in the JPEG format
-        bmp.save("Slide_0.jpg", draw.imaging.ImageFormat.jpeg)
-```
-
-This Python code demonstrates how to convert the first slide to the framed image with the [render_to_graphics](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
-
-```py 
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-with slides.Presentation("Presentation.pptx") as pres:
-    slideSize = draw.Size(1820, 1040)
-
-    # Creates a Bitmap with the specified size (slide size + fields)
-    with draw.Bitmap(slideSize.width + 50, slideSize.height + 50) as slideImage:
-        with draw.Graphics.from_image(slideImage) as graphics:
-            # Fills and translates Graphics to create a frame around the slide
-            graphics.clear(draw.Color.red)
-            graphics.translate_transform(25, 25)
-
-            # Renders the first slide to Graphics
-            pres.slides[0].render_to_graphics(slides.export.RenderingOptions(), graphics, slideSize)
-
-        # Saves the image in the JPEG format
-        slideImage.save("FramedSlide_0.jpg", draw.imaging.ImageFormat.jpeg)
+        bmp.save("Slide_0.jpg", slides.ImageFormat.JPEG)
 ```
 
 ## **Converting Slides With Notes and Comments to Images**
@@ -144,36 +98,10 @@ with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
     options.notes_comments_layouting.comments_area_color = draw.Color.antique_white
                 
     # Converts the first slide of the presentation to a Bitmap object
-    bmp = pres.slides[0].get_thumbnail(options, 2, 2)
+    bmp = pres.slides[0].get_image(options, 2, 2)
 
     # Saves the image in the GIF format
-    bmp.save("Slide_Notes_Comments_0.gif", draw.imaging.ImageFormat.gif)
-```
-
-This Python code demonstrates the conversion process for a slide with notes using the [render_to_graphics](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
-
-```py 
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
-    # Gets the presentation notes size
-    notesSize = pres.notes_size.size.to_size()
-
-    # Creates the rendering options
-    options = slides.export.RenderingOptions()
-
-    # Sets the position of the notes
-    options.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
-
-    # Creates a Bitmap with the notes' size
-    with draw.Bitmap(notesSize.width, notesSize.height) as slideImage:
-        # Renders the first slide to Graphics
-        with draw.Graphics.from_image(slideImage) as graphics:
-            pres.slides[0].render_to_graphics(options, graphics, notesSize)
-
-        # Saves the image in PNG format
-        slideImage.save("Slide_Notes_0.png", draw.imaging.ImageFormat.png)
+    bmp.save("Slide_Notes_Comments_0.gif", slides.ImageFormat.GIF)
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -214,9 +142,9 @@ with slides.Presentation(path + "Comments1.pptx") as pres:
     options.dpi_y = 300
 
     # Converts the slide to a Bitmap object
-    with slide.get_thumbnail(options) as bmp:
+    with slide.get_image(options) as bmp:
         # Saves the image in BMP format
-        bmp.save("PresentationNotesComments.tiff", draw.imaging.ImageFormat.tiff)
+        bmp.save("PresentationNotesComments.tiff", slides.ImageFormat.TIFF)
 ```
 
 ## **Converting All Slides to Images**
@@ -226,7 +154,6 @@ Aspose.Slides allows you to convert all slides in a single presentation to image
 This sample code shows you how to convert all slides in a presentation to images in Python:
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as pres:
@@ -237,8 +164,8 @@ with slides.Presentation("Presentation.pptx") as pres:
             continue
 
         # Converts the slide to a Bitmap object
-        with pres.slides[i].get_thumbnail(2, 2) as bmp:
+        with pres.slides[i].get_image2) as bmp:
             # Saves the image in the JPEG format
-            bmp.save("image_{0}.jpeg".format(i), draw.imaging.ImageFormat.jpeg)
+            bmp.save("image_{0}.jpeg".format(i), slides.ImageFormat.JPEG)
 ```
 
