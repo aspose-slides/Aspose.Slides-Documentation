@@ -123,6 +123,32 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 }
 ```
 
+## Load Presentation Without Embedded Binary Objects
+
+The PowerPoint presentation can contain the following types of the embedded binary objects:
+
+- VBA Project ([IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
+- OLE Object embedded data ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
+- ActiveX Control binary data ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/));
+
+Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/) property, you can load the presentation without any embedded binary objects.
+
+This property can be useful for removing potentially malicious binary content.
+
+The C# code demonstrates how to load and save a presentation without any malware content:
+
+```c#
+LoadOptions loadOptions = new LoadOptions()
+{
+	DeleteEmbeddedBinaryObjects = true
+}
+
+using (var pres = new Presentation("malware.ppt", loadOptions))
+{
+    pres.Save("clean.ppt", SaveFormat.Ppt);
+}
+```
+
 <h2>Open and Save Presentation</h2>
 
 <a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
