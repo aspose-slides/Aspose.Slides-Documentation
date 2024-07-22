@@ -102,7 +102,7 @@ auto autoshape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f,
 autoshape->get_TextFrame()->set_Text(u"Second Slide");
 
 // Creates a new image for the zoom object
-auto image = pres->get_Images()->AddImage(Image::FromFile(u"image.png"));
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 
 //Adds the ZoomFrame object
 slide0->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, slide, image);
@@ -154,7 +154,7 @@ auto zoomFrame1 = slide1->get_Shapes()->AddZoomFrame(20.0f, 20.0f, 250.0f, 200.0
 auto zoomFrame2 = slide1->get_Shapes()->AddZoomFrame(200.0f, 250.0f, 250.0f, 200.0f, slide3);
 
 // Creates a new image for the zoom object
-auto image = pres->get_Images()->AddImage(Image::FromFile(u"image.png"));
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 // Sets custom image for zoomFrame1 object
 zoomFrame1->set_Image(image);
 
@@ -235,7 +235,7 @@ SetSlideBackground(slide, Color::get_YellowGreen());
 pres->get_Sections()->AddSection(u"Section 1", slide);
 
 // Creates a new image for the zoom object
-auto image = pres->get_Images()->AddImage(Image::FromFile(u"image.png"));
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 
 // Adds SectionZoomFrame object
 auto sectionZoomFrame = slide0->get_Shapes()->AddSectionZoomFrame(20.0f, 20.0f, 300.0f, 200.0f, pres->get_Sections()->idx_get(1), image);
@@ -286,7 +286,7 @@ sectionZoomFrame->set_Y(300.0f);
 sectionZoomFrame->set_Width(100.0f);
 sectionZoomFrame->set_Height(75.0f);
 
-auto image = pres->get_Images()->AddImage(Image::FromFile(u"image.png"));
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 sectionZoomFrame->set_Image(image);
 
 sectionZoomFrame->set_ReturnToParent(true);
@@ -459,7 +459,7 @@ auto summaryZoomFrame = slide0->get_Shapes()->AddSummaryZoomFrame(150.0f, 50.0f,
 auto summarySection = summaryZoomFrame->get_SummaryZoomCollection()->idx_get(0);
 
 // Formatting for SummaryZoomSection object
-auto image = pres->get_Images()->AddImage(Image::FromFile(u"image.png"));
+auto image = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
 summarySection->set_Image(image);
 
 summarySection->set_ReturnToParent(false);

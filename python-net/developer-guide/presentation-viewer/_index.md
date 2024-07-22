@@ -24,7 +24,6 @@ To generate an SVG image from any desired slide with Aspose.Slides for Python, p
 - Save the memory stream to file.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Instantiate a Presentation class that represents the presentation file
@@ -43,7 +42,6 @@ with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
 Aspose.Slides for Python via .NET can be used to generate [SVG ](https://docs.fileformat.com/page-description-language/svg/)from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/python-net/aspose.slides.export/isvgshape/), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
@@ -62,7 +60,6 @@ Aspose.Slides for Python via .NET help you generate thumbnail images of the slid
 1. Save the thumbnail image in any desired image format.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Instantiate a Presentation class that represents the presentation file
@@ -71,10 +68,10 @@ with slides.Presentation("pres.pptx") as pres:
     sld = pres.slides[0]
 
     # Create a full scale image
-    bmp = sld.get_thumbnail(1, 1)
+    bmp = sld.get_image(1, 1)
 
     # save the image to disk in JPEG format
-    bmp.save("Thumbnail_out.jpg", draw.imaging.ImageFormat.jpeg)
+    bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
 ```
 
 
@@ -85,7 +82,6 @@ with slides.Presentation("pres.pptx") as pres:
 1. Save the thumbnail image in any desired image format.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Instantiate a Presentation class that represents the presentation file
@@ -103,10 +99,10 @@ with slides.Presentation("pres.pptx") as pres:
 
 
     # Create a full scale image
-    bmp = sld.get_thumbnail(ScaleX, ScaleY)
+    bmp = sld.get_image(ScaleX, ScaleY)
 
     # save the image to disk in JPEG format
-    bmp.save("Thumbnail2_out.jpg", draw.imaging.ImageFormat.jpeg)
+    bmp.save("Thumbnail2_out.jpg", slides.ImageFormat.JPEG)
 ```
 
 
@@ -121,7 +117,6 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Instantiate a Presentation class that represents the presentation file
@@ -139,8 +134,8 @@ with slides.Presentation("pres.pptx") as pres:
 
    
     # Create a full scale image                
-    bmp = sld.get_thumbnail(ScaleX, ScaleY)
+    bmp = sld.get_image(ScaleX, ScaleY)
     # save the image to disk in JPEG format
-    bmp.save("Notes_tnail_out.jpg", draw.imaging.ImageFormat.jpeg)
+    bmp.save("Notes_tnail_out.jpg", slides.ImageFormat.JPEG)
 ```
 

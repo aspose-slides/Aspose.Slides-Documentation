@@ -238,7 +238,7 @@ System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(
 System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
 
 // Instantiates the image for bullets
-System::SharedPtr<System::Drawing::Image> image = System::MakeObject<System::Drawing::Bitmap>(u"bullets.png");
+System::SharedPtr<IImage> image = Images::FromFile(u"bullets.png");
 System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(image);
 
 // Adds and accesses Autoshape

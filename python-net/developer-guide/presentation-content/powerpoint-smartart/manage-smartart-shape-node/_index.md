@@ -389,7 +389,6 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 The example below generating a thumbnail of SmartArt child node
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 import aspose.slides.smartart as art
 
@@ -402,10 +401,10 @@ with slides.Presentation() as presentation:
     node = smart.nodes[1]
 
     # Get thumbnail
-    bmp = node.shapes[0].get_thumbnail()
+    bmp = node.shapes[0].get_image()
 
     # save thumbnail
-    bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", draw.imaging.ImageFormat.jpeg)
+    bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", slides.ImageFormat.JPEG)
 ```
 
 

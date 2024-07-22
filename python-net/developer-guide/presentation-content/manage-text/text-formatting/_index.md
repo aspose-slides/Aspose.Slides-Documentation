@@ -3,7 +3,23 @@ title: Text Formatting
 type: docs
 weight: 50
 url: /python-net/text-formatting/
-keywords: "Highlight text, Regular expression, Align text paragraphs, Text transparency, Paragraph font properties, font family, text rotation, custom angle rotation, text frame, line spacing, Autofit property, text frame anchor, text tabulation, Python, Aspose.Slides for Python via .NET"
+keywords:
+- highlight text
+- regular expression
+- align text paragraphs
+- text transparency
+- paragraph font properties
+- font family
+- text rotation
+- custom angle rotation
+- text frame
+- line spacing
+- autofit property
+- text frame anchor
+- text tabulation
+- default text style
+- Python
+- Aspose.Slides for Python
 description: "Manage and manipulate text and text frame properties in Python"
 ---
 
@@ -53,6 +69,7 @@ with slides.Presentation(path + "SomePresentation.pptx") as presentation:
     presentation.slides[0].shapes[0].text_frame.highlight_regex("\\b[^\s]{5,}\\b", draw.Color.blue, options) 
     presentation.save("SomePresentation-out3.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **Set Text Background Color**
 
@@ -203,6 +220,7 @@ with slides.Presentation(path + "transparency.pptx") as pres:
     pres.save("transparency-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+
 ## **Set Character Spacing for Text**
 
 Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
@@ -349,6 +367,7 @@ with slides.Presentation() as presentation:
     # Write the PPTX to disk 
     presentation.save("SetTextFontProperties_out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
 
 ## **Set Font Size for Text**
 
@@ -497,8 +516,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 ```
 
 
-
-
 ## **Set the AutofitType Property for TextFrame**
 In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for Python via .NET allows developers to set AutofitType property of any text frame. AutofitType could be set to Normal or Shape. If set to Normal then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to shape, then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
@@ -588,7 +605,6 @@ with slides.Presentation() as presentation:
 ```
 
 
-
 ## **Set Text Tabulation**
 - EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
 - EffectiveTabs collection includes all tabs (from Tabs collection and default tabs)
@@ -596,3 +612,20 @@ with slides.Presentation() as presentation:
 - EffectiveTabs.DefaultTabSize (294) property shows distance between default tabs (3 and 4 in our example).
 - EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Helloworld!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
+
+
+## **Set Default Text Style**
+
+If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `default_text_style` property from the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
+
+```py
+with slides.Presentation() as presentation:
+    # Get the top level paragraph format.
+    paragraphFormat = presentation.default_text_style.get_level(0)
+
+    if paragraphFormat is not None:
+        paragraphFormat.default_portion_format.font_height = 14
+        paragraphFormat.default_portion_format.font_bold = slides.NullableBool.TRUE
+
+    presentation.save("DefaultTextStyle.pptx", slides.export.SaveFormat.PPTX)
+```

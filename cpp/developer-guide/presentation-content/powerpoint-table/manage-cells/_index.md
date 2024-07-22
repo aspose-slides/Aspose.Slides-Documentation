@@ -319,10 +319,10 @@ System::ArrayPtr<double> total_for_Cat = System::MakeObject<System::Array<double
 auto tbl = islide->get_Shapes()->AddTable(50, 50, dblCols, dblRows);
 
 // Gets the picture
-auto bitmap = MakeObject<System::Drawing::Bitmap>(ImagePath);
+auto img = Images::FromFile(ImagePath);
 
 // Adds an image to the presentation's images collection
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(img);
 
 
 // Adds the image to the first table cell

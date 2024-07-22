@@ -18,11 +18,11 @@ auto pres = System::MakeObject<Presentation>(u"PowerPoint-Presentation.ppt");
 for (auto&& sld : pres->get_Slides())
 {
     // Creates a full scale image
-    System::SharedPtr<System::Drawing::Bitmap> bmp = sld->GetThumbnail(1.0f, 1.0f);
+    System::SharedPtr<IImage> image = sld->GetImage(1.0f, 1.0f);
 
     // Saves the image to disk in JPEG format
-    bmp->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
-              System::Drawing::Imaging::ImageFormat::get_Jpeg());
+    image->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
+                ImageFormat::Jpeg);
 }
 ```
 
@@ -34,7 +34,7 @@ To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try 
 
 ## Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
 
-To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into `float scaleX, float Y` of the [**ISlide::GetThumbnail()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_slide#ada75b519be73a2c84f6785b9c193a743) method:
+To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into `float scaleX, float Y` of the [**ISlide::GetImage()**](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/#islidegetimagefloat-float-method) method:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"PowerPoint-Presentation.pptx");
@@ -48,50 +48,11 @@ float ScaleY = (float)(1.0 / pres->get_SlideSize()->get_Size().get_Height()) * d
 for (auto&& sld : pres->get_Slides())
 {
     // Creates a full scale image
-    System::SharedPtr<System::Drawing::Bitmap> bmp = sld->GetThumbnail(ScaleX, ScaleY);
+    System::SharedPtr<IImage> image = sld->GetImage(ScaleX, ScaleY);
 
     // Saves the image to disk in JPEG format
-    bmp->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
-              System::Drawing::Imaging::ImageFormat::get_Jpeg());
-}
-```
-
-## **Render Comments when Saving Presentation into Image**
-
-Aspose.Slides for C++ provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This C++ code demonstrates the operation:
-
-```c++
-// The path to the documents directory.
-const String templatePath = u"../templates/TestDeck_050.pptx";
-const String outPath = u"../out/RenderComments_out.png";
-
-// Instantiates the Presentation class
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-// Creates a bitmap object
-auto bmp = MakeObject<Bitmap>(740, 960);
-SharedPtr<Graphics> graphics = Graphics::FromImage(bmp);
-
-// Accesses the first slide
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-SharedPtr<NotesCommentsLayoutingOptions> opts = MakeObject<NotesCommentsLayoutingOptions>();
-opts->set_CommentsAreaColor(Color::get_Red());
-
-opts->set_CommentsAreaWidth(200);
-opts->set_CommentsPosition(CommentsPositions::Right);
-opts->set_NotesPosition(NotesPositions::BottomTruncated);
-
-// Accesses and renders the first slide
-pres->get_Slides()->idx_get(0)->RenderToGraphics(opts, graphics);
-try
-{
-	bmp->Save(outPath, ImageFormat::get_Png());
-}
-catch (Exception e)
-{
-	System::Console::WriteLine(u"Exception " + e.get_Message());
-
+    image->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
+                ImageFormat::Jpeg);
 }
 ```
 

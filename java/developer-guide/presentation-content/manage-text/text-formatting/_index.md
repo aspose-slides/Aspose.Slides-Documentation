@@ -3,8 +3,25 @@ title: Text Formatting
 type: docs
 weight: 50
 url: /java/text-formatting/
+keywords:
+- highlight text
+- regular expression
+- align text paragraphs
+- text transparency
+- paragraph font properties
+- font family
+- text rotation
+- custom angle rotation
+- text frame
+- line spacing
+- autofit property
+- text frame anchor
+- text tabulation
+- default text style
+- Java
+- Aspose.Slides for Java
+description: "Manage and manipulate text and text frame properties in Java"
 ---
-
 
 ## **Highlight Text**
 Method [highlightText](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) class.
@@ -632,3 +649,24 @@ All text tabulations are given in pixels.
 - EffectiveTabs.DefaultTabSize (294) property shows distance between default tabs (3 and 4 in our example).
 - EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Hello World!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
+
+## **Set Default Text Style**
+
+If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `getDefaultTextStyle` method from the [IPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
+
+```java
+Presentation presentation = new Presentation();
+try {
+    // Get the top level paragraph format.
+    IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
+
+    if (paragraphFormat != null) {
+        paragraphFormat.getDefaultPortionFormat().setFontHeight(14);
+        paragraphFormat.getDefaultPortionFormat().setFontBold(NullableBool.True);
+    }
+
+    presentation.save("DefaultTextStyle.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```

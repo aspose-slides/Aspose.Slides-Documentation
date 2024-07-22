@@ -23,7 +23,7 @@ import aspose.slides as slides
 # Instantiates a Presentation object that represents a presentation file
 with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
     # Renders a slide containing a text frame that uses embedded "FunSized"
-    presentation.slides[0].get_thumbnail(draw.Size(960, 720)).save("picture1_out.png", draw.imaging.ImageFormat.png)
+    presentation.slides[0].get_image(draw.Size(960, 720)).save("picture1_out.png", slides.ImageFormat.PNG)
 
     fontsManager = presentation.fonts_manager
 
@@ -38,7 +38,7 @@ with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
     fontsManager.remove_embedded_font(funSizedEmbeddedFont)
 
     # Renders the presentation; "Calibri" font is replaced with an existing one
-    presentation.slides[0].get_thumbnail(draw.Size(960, 720)).save("picture2_out.png", draw.imaging.ImageFormat.png)
+    presentation.slides[0].get_image(draw.Size(960, 720)).save("picture2_out.png", slides.ImageFormat.PNG)
 
     # Saves the presentation without embedded "Calibri" font to disk
     presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)

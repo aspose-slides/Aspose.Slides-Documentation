@@ -45,7 +45,7 @@ builder = words.DocumentBuilder(doc)
 for index in range(presentation.slides.length):
     slide = presentation.slides[index]
     # generates and inserts slide image
-    slide.get_thumbnail(2,2).save("slide_{i}.png".format(i = index), drawing.imaging.ImageFormat.png)
+    slide.get_image(2,2).save("slide_{i}.png".format(i = index), slides.ImageFormat.PNG)
     builder.insert_image("slide_{i}.png".format(i = index))
     
     for shape in slide.shapes:

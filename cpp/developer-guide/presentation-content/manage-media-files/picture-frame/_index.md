@@ -38,14 +38,14 @@ const String filePath = u"../templates/Tulips.jpg";
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // Accesses first slide
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+SharedPtr<ISlide> slide = pres->get_Slide(0);
 
 // Loads the Image that will be added in presentaiton image collection
 // Gets the picture
-auto bitmap = MakeObject<System::Drawing::Bitmap>(filePath);
+auto image = Images::FromFile(filePath);
 
 // Adds an image to presentation's images collection
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
 // Adds a picture frame to the slide
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
@@ -91,14 +91,14 @@ const String filePath = u"../templates/Tulips.jpg";
 SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
 // Accesses the first slide
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+SharedPtr<ISlide> slide = pres->get_Slide(0);
 
 // Loads the Image to be added in presentaiton image collection
 // Gets the picture
-auto bitmap = MakeObject<System::Drawing::Bitmap>(filePath);
+auto image = Images::FromFile(filePath);
 
 // Adds an image to the presentation's images collection
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
 // Adds a picture frame to the slide
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
@@ -182,10 +182,10 @@ SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 // Loads the Image to be added in presentaiton image collection
 // Gets the picture
-auto bitmap = MakeObject<System::Drawing::Bitmap>(filePath);
+auto image = Images::FromFile(filePath);
 
-// Adds the image to presentation's images collection
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(bitmap);
+// Adds an image to the presentation's images collection
+SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
 
 // Adds a picture frame to the slide
 SharedPtr<IPictureFrame> pf = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, imgx);
@@ -258,7 +258,7 @@ using namespace System::Drawing;
     
 auto presentation = System::MakeObject<Presentation>();
 // Creates new image object
-auto newImage = presentation->get_Images()->AddImage(System::Drawing::Image::FromFile(imagePath));
+auto newImage = presentation->get_Images()->AddImage(Images::FromFile(imagePath));
 
 // Adds a PictureFrame to a Slide
 auto picFrame = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 100.0f, 100.0f, 420.0f, 250.0f, newImage);
@@ -314,7 +314,7 @@ System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.p
 System::SharedPtr<ILayoutSlide> layout = pres->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
 System::SharedPtr<ISlide> emptySlide = pres->get_Slides()->AddEmptySlide(layout);
 
-System::SharedPtr<System::Drawing::Image> image = System::Drawing::Image::FromFile(u"image.png");
+System::SharedPtr<IImage> image = Images::FromFile(u"image.png");
 System::SharedPtr<IPPImage> presImage = pres->get_Images()->AddImage(image);
 
 System::SharedPtr<IPictureFrame> pictureFrame = emptySlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 50.0f, 150.0f, static_cast<float>(presImage->get_Width()), static_cast<float>(presImage->get_Height()), presImage);
@@ -349,8 +349,8 @@ This C++ code demonstrates a process in which a StretchOff property is used:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>();
-auto ppImage = pres->get_Images()->AddImage(System::MakeObject<System::Drawing::Bitmap>(u"image.png"));
-auto slide = pres->get_Slides()->idx_get(0);
+auto ppImage = pres->get_Images()->AddImage(Images::FromFile(u"image.png"));
+auto slide = pres->get_Slide(0);
 auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 400.0f, 400.0f, ppImage);
 
 // Sets the image stretched from each side in the shape body
