@@ -32,10 +32,10 @@ Aspose.Slides for C++ provides a facility to set the view type for the generated
 
 {{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-SaveAsPredefinedViewType-SaveAsPredefinedViewType.cpp" >}}
 
-## **Save Presentation to Strict Open XML Spreadsheet Format**
-Aspose.Slides allows you to save the presentation in Strict Open XML format. For that purpose, it provides the **PptxOptions** class where you can set the Conformance property while saving the presentation file. If you set its value as **Conformance.Iso29500_2008_Strict**, then the output presentation file will be saved in Strict Open XML format.
+## **Save Presentation to Strict Office Open XML Format**
+Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the **PptxOptions** class where you can set the Conformance property while saving the presentation file. If you set its value as **Conformance.Iso29500_2008_Strict**, then the output presentation file will be saved in Strict Office Open XML format.
 
-The following sample code creates a presentation and saves it in the Strict Open XML Format. While calling the Save method for the presentation, the **PptxOptions** object is passed into it with the Conformance property set as **Conformance.Iso29500_2008_Strict**.
+The following sample code creates a presentation and saves it in the Strict Office Open XML Format. While calling the Save method for the presentation, the **PptxOptions** object is passed into it with the Conformance property set as **Conformance.Iso29500_2008_Strict**.
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SaveToStrictOpenXML-SaveToStrictOpenXML.cpp" >}}
 
