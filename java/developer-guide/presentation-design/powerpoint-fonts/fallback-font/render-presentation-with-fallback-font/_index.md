@@ -38,10 +38,15 @@ try {
     //Assigning a prepared rules list for using
     pres.getFontsManager().setFontFallBackRulesCollection(rulesList);
 
-    // Rendering of thumbnail with using of initialized rules collection and saving to PNG
-    ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(1f, 1f), 
-            "PNG", new File("Slide_0.png"));
-} catch (IOException e) {
+    // Rendering of thumbnail with using of initialized rules collection and saving to JPEG
+   IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
+
+   //Save the image to disk in JPEG format
+   try {
+         slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
+   } finally {
+        if (slideImage != null) slideImage.dispose();
+   }
 } finally {
     if (pres != null) pres.dispose();
 }

@@ -40,11 +40,14 @@ try {
     pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
     
     // Arial font will be used in place of SomeRareFont when the latter is inaccessible
-    BufferedImage image = pres.getSlides().get_Item(0).getThumbnail(1f, 1f);
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
     
     // Saves the image to disk in the JPEG format
-    ImageIO.write(image, "PNG", new File("Thumbnail_out.jpg"));
-} catch (IOException e) {
+    try {
+          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }

@@ -248,9 +248,14 @@ try {
     shp.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
     // Sets the picture
-    byte[] img = Files.readAllBytes(Paths.get("Tulips.jpg"));
-    IPPImage imgx = pres.getImages().addImage(img);
-    shp.getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
+    IPPImage picture;
+    IImage image = Images.fromFile("Tulips.jpg");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
+    shp.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
     // Writes the PPTX file to disk
     pres.save("RectShpPic_out.pptx", SaveFormat.Pptx);

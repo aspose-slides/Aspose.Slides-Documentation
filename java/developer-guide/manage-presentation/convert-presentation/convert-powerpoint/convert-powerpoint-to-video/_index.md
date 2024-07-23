@@ -65,7 +65,7 @@ try {
             {
                 try {
                     String frame = String.format("frame_%04d.png", sender.getFrameIndex());
-                    ImageIO.write(arguments.getFrame(), "PNG", new java.io.File(frame));
+                    arguments.getFrame().save(frame, ImageFormat.Png);
                     frames.add(frame);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -171,7 +171,7 @@ try {
             {
                 try {
                     String frame = String.format("frame_%04d.png", sender.getFrameIndex());
-                    ImageIO.write(arguments.getFrame(), "PNG", new java.io.File(frame));
+                    arguments.getFrame().save(frame, ImageFormat.Png);
                     frames.add(frame);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -233,14 +233,14 @@ try {
             animationPlayer.setTimePosition(0); // initial animation state
             try {
                 // initial animation state bitmap
-                ImageIO.write(animationPlayer.getFrame(), "PNG", new File("firstFrame.png"));
+                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             animationPlayer.setTimePosition(animationPlayer.getDuration()); // final state of the animation
             try {
                 // last frame of the animation
-                ImageIO.write(animationPlayer.getFrame(), "PNG", new File("lastFrame.png"));
+                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -265,7 +265,7 @@ try {
             player.setFrameTick((sender, arguments) ->
             {
                 try {
-                    ImageIO.write(arguments.getFrame(), "PNG", new java.io.File("frame_" + sender.getFrameIndex() + ".png"));
+                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

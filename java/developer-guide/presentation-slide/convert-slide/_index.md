@@ -12,8 +12,7 @@ Aspose.Slides for Java allows you to convert slides (in presentations) to images
 To convert a slide to an image, do this: 
 
 1. First,
-   * convert the slide to a BufferedImage first by using the [GetThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail--) method or
-   * render the slide to a Graphics2D object by using the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method from the [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) interface.
+   * convert the slide to a Images first by using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method or
 
 2. Second, set additional options for conversion and convertible slide objects through
    * the [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) interface or
@@ -21,7 +20,7 @@ To convert a slide to an image, do this:
 
 ## **About Bitmap and Other Image Formats**
 
-In Java, a [BufferedImage](https://docs.oracle.com/javase/7/docs/api/java/awt/image/BufferedImage.html) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
+In Java, a [Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
 
 {{% alert title="Info" color="info" %}}
 
@@ -36,37 +35,37 @@ This Java code shows you how to convert the first slide of a presentation to a b
 ``` java 
 Presentation pres = new Presentation("Presentation.pptx");
 try {
-    // Converts the first slide in the presentation to a BufferedImage object
-    BufferedImage bmp = pres.getSlides().get_Item(0).getThumbnail();
+    // Converts the first slide in the presentation to a Images object
+    IImage slideImage = pres.getSlides().get_Item(0).getImage();
 
 	// Saves the image in the PNG format
-	ImageIO.write(bmp, "PNG", new File("Slide_0.png"));
-} catch (Exception e) {  
+	try {
+        // save the image on the disk.
+         slideImage.save("Slide_0.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method:
+This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
 ``` java 
 Presentation pres = new Presentation("Presentation.pptx");
 try {
 	// Gets the presentation slide size
-	Dimension2D slideSize = pres.getSlideSize().getSize();
+	Dimension2D slideSize = new Dimension((int) slideSize.getWidth(), (int) slideSize.getHeight());
 
-	// Creates a BufferedImage with the slide size
-	BufferedImage slideImage = new BufferedImage((int) slideSize.getWidth(), (int) slideSize.getHeight(), BufferedImage.TYPE_INT_ARGB);
-	java.awt.Graphics graphics = slideImage.createGraphics();
-
-	// Renders the first slide to the Graphics object
-	try {
-		pres.getSlides().get_Item(0).renderToGraphics(new RenderingOptions(), (Graphics2D) graphics);
-	} finally {
-		if (graphics != null) graphics.dispose();
-	}
-
-	ImageIO.write(slideImage, "PNG", new File("Slide_0.png"));
+	// Creates a Images with the slide size
+    IImage slideImage = sld.getImage(new RenderingOptions(), slideSize);
+    try {
+         // save the image on the disk.
+          slideImage.save("Slide_0.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -74,56 +73,31 @@ try {
 
 {{% alert title="Tip" color="primary" %}} 
 
-You can convert a slide to a BufferedImage object and then use the object directly somewhere. Or you can convert a slide to a BufferedImage and then save the image in JPEG or any other format you prefer. 
+You can convert a slide to a Images object and then use the object directly somewhere. Or you can convert a slide to a Images and then save the image in JPEG or any other format you prefer.
 
 {{% /alert %}}  
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [GetThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-com.aspose.slides.IRenderingOptions-) or [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-) method, you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using an overload from the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-) method, you can convert a slide to an image with specific dimensions (length and width).
 
-This sample code demonstrates the proposed conversion using the [GetThumbnail](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getThumbnail-java.awt.Dimension-) method in Java:
+This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method in Java:
 
 ``` java 
 Presentation pres = new Presentation("Presentation.pptx");
 try {
     // Converts the first slide in the presentation to a Bitmap with the specified size
-    BufferedImage bmp = pres.getSlides().get_Item(0).getThumbnail(new Dimension(1820, 1040));
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(1820, 1040));
 	
 	// Saves the image in the JPEG format
-	ImageIO.write(bmp, "JPG", new File("Slide_0.jpg"));
-} catch (Exception e) {
+	try {
+         // save the image on the disk.
+          slideImage.save("Slide_0.jpg", ImageFormat.Jpeg);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
-}
-```
-
-This Java code demonstrates how to convert the first slide to the framed image with the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-) method:
-
-``` java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-	java.awt.Dimension slideSize = new java.awt.Dimension(1820, 1040);
-
-	// Creates a BufferedImage with the specified size (slide size + fields)
-	BufferedImage slideImage = new BufferedImage(slideSize.width + 50, slideSize.height + 50, BufferedImage.TYPE_INT_ARGB);
-	java.awt.Graphics2D graphics = slideImage.createGraphics();
-	try {
-		// Fills and translates Graphics to create a frame around the slide
-		graphics.setColor(java.awt.Color.RED);
-		graphics.fillRect(-1, -1, slideImage.getWidth() + 1, slideImage.getHeight() + 1);
-		graphics.translate(12, 12);
-
-		// Renders the first slide to Graphics
-		pres.getSlides().get_Item(0).renderToGraphics(new RenderingOptions(), (Graphics2D) graphics, slideSize);
-	} finally {
-		if (graphics != null) graphics.dispose();
-	}
-
-	// Saves the image in the JPEG format
-	ImageIO.write(slideImage, "JPG", new File("FramedSlide_0.jpg"));
-} finally {
-	if (pres != null) pres.dispose();
 }
 ```
 
@@ -160,17 +134,20 @@ try {
     options.getNotesCommentsLayouting().setCommentsAreaColor(Color.LIGHT_GRAY);
 
     // Converts the first slide of the presentation to a Bitmap object
-    BufferedImage bmp = pres.getSlides().get_Item(0).getThumbnail(options, 2f, 2f);
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(options, 2f, 2f);
 
     // Saves the image in the GIF format
-    ImageIO.write(bmp, "GIF", new File("Slide_Notes_Comments_0.gif"));
-} catch (Exception e) {
+    try {
+          slideImage.save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-This Java code demonstrates the conversion process for a slide with notes using the [RenderToGraphics](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-) method:
+This Java code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
 ``` java
 Presentation pres = new Presentation("PresentationNotes.pptx");
@@ -184,18 +161,16 @@ try {
 	// Sets the position of the notes
 	options.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
 
-	// Creates a Bitmap with the notes' size
-	BufferedImage slideImage = new BufferedImage((int)notesSize.getWidth(), (int)notesSize.getHeight(), BufferedImage.TYPE_INT_ARGB);
-	java.awt.Graphics2D graphics = slideImage.createGraphics();
-	try {
-		pres.getSlides().get_Item(0).renderToGraphics(options, graphics, 
-				new Dimension((int)notesSize.getWidth(), (int)notesSize.getHeight()));
-	} finally {
-		if (graphics != null) graphics.dispose();
-	}
+	// Creates a Images with the notes' size
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(options, notesSize);
 
 	// Saves the image in PNG format
-	ImageIO.write(slideImage, "PNG", new File("Slide_Notes_0.png"));
+    try {
+         // save the image on the disk.
+          slideImage.save("Slide_0.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -237,11 +212,14 @@ try {
 	options.setDpiY(300);
 
 	// Converts the slide to a Bitmap object
-	BufferedImage bmp = slide.getThumbnail(options);
+	IImage slideImage = slide.getImage(options);
 
 	// Saves the image in TIFF format
-	ImageIO.write(bmp, "TIFF", new File("PresentationNotesComments.tiff"));
-} catch (IOException e) {
+	try {
+          slideImage.save("PresentationNotesComments.tiff", ImageFormat.Tiff);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
 	if (pres != null) pres.dispose();
 }
@@ -270,12 +248,15 @@ try {
             continue;
 
         // Convert slide to a Bitmap object
-        BufferedImage bmp = pres.getSlides().get_Item(i).getThumbnail(2f, 2f);
+        IImage slideImage = pres.getSlides().get_Item(i).getImage(2f, 2f);
 
         // Save the image in PNG format
-        ImageIO.write(bmp, "PNG", new File("Slide_" + i + ".png"));
+        try {
+              slideImage.save("Slide_" + i + ".png", ImageFormat.Png);
+        } finally {
+             if (slideImage != null) slideImage.dispose();
+        }
     }
-} catch (Exception e) {
 } finally {
     if (pres != null) pres.dispose();
 } 

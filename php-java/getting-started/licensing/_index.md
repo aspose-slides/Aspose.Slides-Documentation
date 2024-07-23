@@ -75,7 +75,7 @@ This code snippet is used to set a license file:
 
 ```php
 <?php
-require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("http://localhost:8080/JavaBridge/php-java/Java.inc");
 require_once("lib/aspose.slides.php");
 
 use aspose\slides\License;
@@ -83,6 +83,8 @@ use aspose\slides\License;
 $license = new License();
 $license->setLicense("Aspose.Slides.lic");
 ?>
+```php
+
 ```
 
 When calling the setLicense method, the license name should be same as that of your license file. For example, you can change the license file name to "Aspose.Slides.lic.xml". Then, in your code, you have to pass the new license name (Aspose.Slides.lic.xml) to the setLicense method.
@@ -95,7 +97,7 @@ This code snippet is used to apply a license from a stream:
 
 ```php
 <?php
-require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("http://localhost:8080/JavaBridge/php-java/Java.inc");
 require_once("lib/aspose.slides.php");
 
 use aspose\slides\License;
@@ -103,6 +105,8 @@ use aspose\slides\License;
 $license = new License();
 $license->setLicense($stream);
 ?>
+```php
+
 ```
 
 #### Apply Metered License
@@ -117,7 +121,7 @@ The following code example shows how to set metered public and private keys:
 
 ```php
 <?php
-require_once("http://localhost:8080/JavaBridge/java/Java.inc");
+require_once("http://localhost:8080/JavaBridge/php-java/Java.inc");
 require_once("lib/aspose.slides.php");
 
 use aspose\slides\Metered;
@@ -131,7 +135,7 @@ $metered = new Metered();
 $metered->setMeteredKey("*****", "*****");
 
 # Get metered data amount before calling API
-$amountbefore = Metered::getConsumptionQuantity();
+$amountbefore = Metered->getConsumptionQuantity();
 # Display information
 echo "<script>console.log('Amount Consumed Before: " . java_values($amountbefore) . "' );</script>";
 
@@ -143,10 +147,12 @@ echo "<script>console.log('Amount Consumed After: " . java_values($pres->getSlid
 $pres->save("out_pdf.pdf", SaveFormat::Pdf);
 
 # Get metered data amount After calling API
-$amountafter = Metered::getConsumptionQuantity();
+$amountafter = Metered->getConsumptionQuantity();
 # Display information
 echo "<script>console.log('Amount Consumed After: " . java_values($amountafter) . "' );</script>";
 ?>
+```php
+
 ```
 
 {{% alert color="primary" %}}

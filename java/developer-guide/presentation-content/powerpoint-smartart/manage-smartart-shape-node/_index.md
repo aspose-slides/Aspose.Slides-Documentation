@@ -460,11 +460,14 @@ try {
     ISmartArtNode node = smart.getNodes().get_Item(1);
 
     // Get thumbnail
-    BufferedImage bmp = node.getShapes().get_Item(0).getThumbnail();
+    IImage slideImage = node.getShapes().get_Item(0).getImage();
 
     // Save thumbnail
-    ImageIO.write(bmp, "PNG", new File("SmartArt_ChildNote_Thumbnail.png"));
-} catch (IOException e) {
+    try {
+          slideImage.save("SmartArt_ChildNote_Thumbnail.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }

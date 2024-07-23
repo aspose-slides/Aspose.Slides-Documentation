@@ -115,9 +115,35 @@ class ImageLoadingHandler implements IResourceLoadingCallback
 }
 ```
 
-<h2>Open and Save Presentation</h2>
+## Load Presentation Without Embedded Binary Objects
 
-<a name="Java-open-save-presentation"><strong>Steps: Open and Save Presentation in Java</strong></a>
+The PowerPoint presentation can contain the following types of the embedded binary objects:
+
+- VBA Project ([IPresentation.VbaProject](https://reference.aspose.com/slides/java/com.aspose.slides/vbaproject/));
+- OLE Object embedded data ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/java/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
+- ActiveX Control binary data ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/java/com.aspose.slides/icontrol/#getActiveXControlBinary--));
+
+Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) property, you can load the presentation without any embedded binary objects.
+
+This property can be useful for removing potentially malicious binary content.
+
+The code demonstrates how to load and save a presentation without any malware content:
+
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setDeleteEmbeddedBinaryObjects(true);
+
+Presentation pres = new Presentation("malware.ppt", loadOptions);
+try {
+    pres.save("clean.ppt", SaveFormat.Ppt);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+## Open and Save Presentation
+
+Steps to Open and Save Presentation:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and pass the file you want to open. 
 2. Save the presentation.  

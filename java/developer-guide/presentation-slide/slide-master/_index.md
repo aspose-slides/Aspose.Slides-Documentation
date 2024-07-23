@@ -135,9 +135,14 @@ You can add images to a slide master with Aspose.Slides:
 ```java
 Presentation pres = new Presentation();
 try {
-    byte[] imageBytes = Files.readAllBytes(Paths.get("image.png"));
-    IPPImage image = pres.getImages().addImage(imageBytes);
-    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
+    pres.getMasters().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
     pres.save("pres.pptx", SaveFormat.Pptx);
 } catch(IOException e) {

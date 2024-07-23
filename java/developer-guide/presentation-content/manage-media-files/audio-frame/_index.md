@@ -62,11 +62,16 @@ try {
     audioStream.close();
 
     // Adds an image to presentation resources.
-    byte[] imageBytes = Files.readAllBytes(Paths.get("eagle.jpeg"));
-    IPPImage audioImage = presentation.getImages().addImage(imageBytes);
+    IPPImage picture;
+    IImage image = Images.fromFile("eagle.jpeg");
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 
     // Sets the image for the audio frame.
-    audioFrame.getPictureFormat().getPicture().setImage(audioImage); // <-----
+    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
 
     //Saves the modified presentation to disk
     presentation.save("example_out.pptx", SaveFormat.Pptx);

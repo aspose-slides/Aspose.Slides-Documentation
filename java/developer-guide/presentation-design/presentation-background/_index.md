@@ -120,8 +120,13 @@ try {
             .setPictureFillMode(PictureFillMode.Stretch);
     
     // Loads the image
-    IPPImage imgx = pres.getImages().addImage(Files.readAllBytes(Paths.get("Desert.jpg")));
-    
+    IPPImage imgx;
+    IImage image = Images.fromFile("Desert.jpg");
+    try {
+        imgx = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
     // Adds image to presentation's images collection
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
     

@@ -281,8 +281,8 @@ try {
 3. Define an array of columns with width.
 4. Define an array of rows with height.
 5. Add a table to the slide through the [AddTable](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
-6. Create a `BufferedImage` object to hold the image file.
-7. Add the `BufferedImage` image to `IPPImage` Object.
+6. Create a `Images` object to hold the image file.
+7. Add the `IImage` image to `IPPImage` Object.
 8. Set the `FillFormat` for the Table Cell to `Picture`.
 9. Add the image to the table's first cell.
 10. Save the modified presentation as a PPTX file
@@ -303,17 +303,20 @@ try {
     // Adds a table shape to the slide
     ITable tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
 
-    // Creates a BufferedImage object to hold the image file
-    BufferedImage image = ImageIO.read(new File("image.jpg"));
-
-    // Create an IPPImage object using the BufferedImage object
-    IPPImage imgx1 = pres.getImages().addImage(image);
+    // Create an IPPImage object using the image file
+    IPPImage picture;
+    IImage image = Images.fromFile("image.jpg");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 
     // Adds the image to the first table cell
     ICellFormat cellFormat = tbl.get_Item(0, 0).getCellFormat();
     cellFormat.getFillFormat().setFillType(FillType.Picture);
     cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(imgx1);
+    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
     // Saves the PPTX file to Disk
     pres.save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);

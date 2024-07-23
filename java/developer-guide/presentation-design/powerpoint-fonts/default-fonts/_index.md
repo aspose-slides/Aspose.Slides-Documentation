@@ -30,8 +30,13 @@ loadOptions.setDefaultAsianFont("Wingdings");
 Presentation pres = new Presentation("DefaultFonts.pptx", loadOptions);
 try {
     // Generate slide thumbnail
-    BufferedImage image = pres.getSlides().get_Item(0).getThumbnail(1, 1);
-    ImageIO.write(image, "png", new File("output.png"));
+    IImage slideImage = pres.getSlides().get_Item(0).getImage(1, 1);
+    try {
+         // save the image on the disk.
+          slideImage.save("output.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 
     // Generate PDF
     pres.save("output_out.pdf", SaveFormat.Pdf);

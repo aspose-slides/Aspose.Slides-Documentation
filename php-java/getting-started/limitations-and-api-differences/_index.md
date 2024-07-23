@@ -16,6 +16,8 @@ This list, using sample code segments, demonstrates certain differences between 
 
 ``` php
  import com.aspose.slides.*;
+```php
+
 ```
 
 **Aspose.Slides for PHP via Java**
@@ -26,6 +28,8 @@ require_once("lib/aspose.slides.php");
 
 use aspose\sldes;
 use aspose\sldes\Presentation;
+```php
+
 ```
 
 ### **Instantiating a new Presentation**
@@ -34,12 +38,16 @@ use aspose\sldes\Presentation;
 
 ``` php
 Presentation presentation = new Presentation();
+```php
+
 ```
 
 **Aspose.Slides for PHP via Java**
 
 ``` php
 $presentation = new Presentation();
+```php
+
 ```
 
 ### **Enums or Constants**
@@ -48,46 +56,22 @@ $presentation = new Presentation();
 
 ``` php
 arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
+```php
+
 ```
 
 **Aspose.Slides for PHP via Java**
 
 ``` php
-$arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
+$arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle->SOLID);
+```php
+
 ```
 
 ### **Example**
 
 **Aspose.Slides for Java**
 
-``` php
-import com.aspose.slides.ISlide;
-import com.aspose.slides.Presentation;
-import com.aspose.slides.SaveFormat;
-import com.aspose.slides.ShapeType;
-
-public class Test
-{
-    public static void main(String[] args) throws Exception
-    {
-        // Instantiates a Presentation object that represents a presentation file
-        Presentation pres = new Presentation();
-        try
-        {
-            // Gets the first slide
-            ISlide slide = pres.getSlides().get_Item(0);
-
-            // Adds an autoshape with type set to line
-            slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-            pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
-        }
-        finally
-        {
-            if (pres != null) pres.dispose();
-        }
-    }
-}
-```
 
 **Aspose.Slides for PHP via Java**
 
@@ -114,10 +98,9 @@ try
 }
 finally
 {
-    if ($pres != null) $pres->dispose();
+    if (!java_is_null($pres)) $pres->dispose();
 }
 ?>
-```
 
 ### **Other Limitations of Aspose.Slides for PHP via Java API compared to Aspose.Slides for Java API**
 
@@ -177,6 +160,22 @@ try {
     $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $file));
     $dis->readFully($htmlBytes);
 } finally {
-    if ($dis != null) $dis->close();
+    if (!java_is_null($dis)) $dis->close();
+}
+```
+
+#### 6. **The Java method Files.write**
+
+``` php
+Files->write(new File($path)->toPath(), $fontData, StandardOpenOption::CREATE); - does NOT work
+```
+workaround
+``` php
+$fstr = new Java("java.io.FileOutputStream", $path);
+$Array = new java_class("java.lang.reflect.Array");
+try {
+    $fstr->write($fontData, 0, $Array->getLength($fontData));
+} finally {
+	$fstr->close();
 }
 ```

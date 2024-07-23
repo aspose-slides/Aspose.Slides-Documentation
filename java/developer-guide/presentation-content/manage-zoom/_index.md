@@ -99,10 +99,15 @@ try {
     autoshape.getTextFrame().setText("Second Slide");
 
     // Creates a new image for the zoom object
-    IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
-
+    IPPImage picture;
+        IImage image = Images.fromFile("image.png");
+        try {
+            picture = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) image.dispose();
+        }
     //Adds the ZoomFrame object
-    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, image);
+    pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
 
     // Saves the presentation
     pres.save("presentation.pptx", SaveFormat.Pptx);
@@ -158,9 +163,15 @@ try {
     IZoomFrame zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
 
     // Creates a new image for the zoom object
-    IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
+    IPPImage picture;
+        IImage image = Images.fromFile("image.png");
+        try {
+            picture = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) image.dispose();
+        }
     // Sets custom image for zoomFrame1 object
-    zoomFrame1.setImage(image);
+    zoomFrame1.setImage(picture);
 
     // Sets a zoom frame format for the zoomFrame2 object
     zoomFrame2.getLineFormat().setWidth(5);
@@ -248,10 +259,16 @@ try {
     pres.getSections().addSection("Section 1", slide);
 
     // Creates a new image for the zoom object
-    IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 
     // Adds SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), image);
+    ISectionZoomFrame sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
 
     // Saves the presentation
     pres.save("presentation.pptx", SaveFormat.Pptx);
@@ -303,8 +320,14 @@ try {
     sectionZoomFrame.setWidth(100);
     sectionZoomFrame.setHeight(75);
 
-    IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
-    sectionZoomFrame.setImage(image);
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+         picture = pres.getImages().addImage(image);
+     } finally {
+        if (image != null) image.dispose();
+     }
+    sectionZoomFrame.setImage(picture);
 
     sectionZoomFrame.setReturnToParent(true);
     sectionZoomFrame.setShowBackground(false);
@@ -500,8 +523,14 @@ try {
     ISummaryZoomSection summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
 
     // Formatting for SummaryZoomSection object
-    IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
-    summarySection.setImage(image);
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+    picture = pres.getImages().addImage(picture);
+    } finally {
+          if (image != null) image.dispose();
+    }
+    summarySection.setImage(picture);
 
     summarySection.setReturnToParent(false);
 

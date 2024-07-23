@@ -38,8 +38,14 @@ You can add one or several images on your computer onto a slide in a presentatio
 Presentation pres = new Presentation();
 try {
 	ISlide slide = pres.getSlides().get_Item(0);
-	IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
-	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+	    IPPImage picture;
+        IImage image = Images.fromFile("image.png");
+        try {
+            picture = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) image.dispose();
+        }
+	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -98,8 +104,14 @@ try {
 	ISlide slide = pres.getSlides().get_Item(0);
 	IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
 
-	IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
-	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
+	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
@@ -196,14 +208,19 @@ try {
     
         EmfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
         sr.toImage(j, EmfSheetName);
-    
-        byte[] bytes = Files.readAllBytes(Paths.get(EmfSheetName));
-        IPPImage emfImage = pres.getImages().addImage(bytes);
+
+        IPPImage picture;
+        IImage image = Images.fromFile(EmfSheetName);
+        try {
+            picture = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) image.dispose();
+        }
         ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
         IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
 					(float)pres.getSlideSize().getSize().getWidth(), 
 					(float)pres.getSlideSize().getSize().getHeight(), 
-					emfImage);
+					picture);
     }
     
     pres.save("output.pptx", SaveFormat.Pptx);

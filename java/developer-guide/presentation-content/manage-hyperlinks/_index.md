@@ -71,9 +71,15 @@ This sample code shows you how to add a hyperlink to an **image**:
 Presentation pres = new Presentation();
 try {
 	// Adds image to presentation
-	IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+    picture = pres.getImages().addImage(picture);
+    } finally {
+          if (image != null) image.dispose();
+    }
 	// Creates picture frame on slide 1 based on previously added image
-	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
 	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
 	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");

@@ -249,7 +249,13 @@ try {
     ISlide slide = pres.getSlides().get_Item(0);
     IOleObjectFrame oleObjectFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
-    IPPImage oleImage = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.png")));
+        IPPImage oleImage;
+        IImage image = Images.fromFile("image.png");
+        try {
+             oleImage = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) image.dispose();
+        }
     oleObjectFrame.setSubstitutePictureTitle("My title");
     oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
     oleObjectFrame.setObjectIcon(false);

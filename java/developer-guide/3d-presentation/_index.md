@@ -37,9 +37,12 @@ try {
     shape.getThreeDFormat().setExtrusionHeight(100);
     shape.getThreeDFormat().getExtrusionColor().setColor(Color.BLUE);
  
-    try {
-        ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(2, 2), "PNG", new File("sample_3d.png"));
-    } catch (IOException e) { }
+try {
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
+        slideImage.save("sample_3d.png", ImageFormat.Png);
+    } finally {
+             if (slideImage != null) slideImage.dispose();
+         }
  
     pres.save("sandbox_3d.pptx", SaveFormat.Pptx);
 } finally {
@@ -64,8 +67,11 @@ IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeTy
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 // ... set other 3D scene parameters
 try {
-    ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(2, 2), "PNG", new File("sample_3d.png"));
-} catch (IOException e) { }
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
+        slideImage.save("sample_3d.png", ImageFormat.Png);
+    } finally {
+             if (slideImage != null) slideImage.dispose();
+         }
 ```
 
 ## 3D Depth and Extrusion
@@ -80,8 +86,11 @@ shape.getThreeDFormat().setExtrusionHeight(100);
 shape.getThreeDFormat().getExtrusionColor().setColor(new Color(128, 0, 128));
 // ... set other 3D scene parameters
 try {
-    ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(2, 2), "PNG", new File("sample_3d.png"));
-} catch (IOException e) { }
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
+        slideImage.save("sample_3d.png", ImageFormat.Png);
+    } finally {
+             if (slideImage != null) slideImage.dispose();
+         }
 ```
 
 In PowerPoint, Depth of the shape is set via:
@@ -110,8 +119,11 @@ try {
     shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
  
     try {
-        ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(2, 2), "PNG", new File("sample_3d.png"));
-    } catch (IOException e) { }
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
+        slideImage.save("sample_3d.png", ImageFormat.Png);
+    } finally {
+             if (slideImage != null) slideImage.dispose();
+         }
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -124,16 +136,23 @@ Thats how it looks like:
 You may also create an image gradient:
 ``` java
 shape.getFillFormat().setFillType(FillType.Picture);
-IPPImage picture = null;
 try {
-    picture = pres.getImages().addImage(Files.readAllBytes(Paths.get("image.jpg")));
-} catch (IOException e) { }
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
 shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 // .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
 try {
-    ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(2, 2), "PNG", new File("sample_3d.png"));
-} catch (IOException e) { }
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
+        slideImage.save("sample_3d.png", ImageFormat.Png);
+    } finally {
+             if (slideImage != null) slideImage.dispose();
+         }
 ```
 
 
@@ -173,9 +192,12 @@ try {
  
     textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
  
-    try {
-        ImageIO.write(pres.getSlides().get_Item(0).getThumbnail(2, 2), "PNG", new File("text3d.png"));
-    } catch (IOException e) { }
+try {
+        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
+        slideImage.save("text3d.png", ImageFormat.Png);
+    } finally {
+             if (slideImage != null) slideImage.dispose();
+         }
  
     pres.save("text3d.pptx", SaveFormat.Pptx);
 } finally {

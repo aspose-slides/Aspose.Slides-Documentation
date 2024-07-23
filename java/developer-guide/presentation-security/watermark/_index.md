@@ -125,15 +125,19 @@ IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, x
 To add image watermark into all presentation slides, you may do the following:
 
 ```java
-IPPImage image = pres.getImages().addImage(Files.readAllBytes(Paths.get("watermark.png")));
-
-
+IPPImage picture;
+IImage image = Images.fromFile("watermark.png");
+try {
+    picture = pres.getImages().addImage(image);
+} finally {
+    if (image != null) image.dispose();
+}
 // ...
 
 
 watermarkShape.getFillFormat().setFillType(FillType.Picture);
 
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 ```

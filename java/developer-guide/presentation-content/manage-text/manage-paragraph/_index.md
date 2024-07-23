@@ -219,9 +219,13 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Instantiates the image for bullets
-    byte[] imageBytes = Files.readAllBytes(Paths.get("bullets.png"));
-    IPPImage ippxImage = presentation.getImages().addImage(imageBytes);
-
+    IPPImage picture;
+    IImage image = Images.fromFile("bullets.png");
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
     // Adds and accesses Autoshape
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
@@ -237,7 +241,7 @@ try {
 
     // Sets paragraph bullet style and image
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(ippxImage);
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
 
     // Sets bullet Height
     paragraph.getParagraphFormat().getBullet().setHeight(100);

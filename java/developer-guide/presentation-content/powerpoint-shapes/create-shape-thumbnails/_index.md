@@ -24,7 +24,7 @@ To generate a shape thumbnail from any slide using Aspose.Slides for Java, do th
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.
-1. [Get the shape thumbnail image](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getThumbnail--) of the referenced slide on default scale.
+1. [Get the shape thumbnail image](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getImage--) of the referenced slide on default scale.
 1. Save the thumbnail image in your preferred image format.
 
 This sample code shows you how to generate a shape thumbnail from a slide:
@@ -34,11 +34,14 @@ This sample code shows you how to generate a shape thumbnail from a slide:
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
     // Create a full scale image
-    BufferedImage image = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail();
+    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
     
     // Save the image to disk in PNG format
-    ImageIO.write(image, "jpeg", new File("output.jpg"));
-} catch (Exception e) {
+    try {
+          slideImage.save("output.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -49,7 +52,7 @@ To generate the shape thumbnail of a slide using Aspose.Slides for Java, do this
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.
-1. [Get the shape thumbnail image](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getThumbnail-int-float-float-) of the referenced slide with user-defined dimensions.
+1. [Get the shape thumbnail image](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getImage-int-float-float-) of the referenced slide with user-defined dimensions.
 1. Save the thumbnail image in your preferred image format.
 
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:
@@ -59,11 +62,14 @@ This sample code shows you how to generate a shape thumbnail based on a defined 
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
     // Create a full scale image
-    BufferedImage image = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Shape, 1, 1);
+    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 1, 1);
 
     // Save the image to disk in PNG format
-    ImageIO.write(image, "jpeg", new File("output.jpg"));
-} catch (Exception e) {
+    try {
+          slideImage.save("output.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -84,11 +90,14 @@ This sample code is based on the steps above:
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
     // Create a full scale image
-    BufferedImage image = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(ShapeThumbnailBounds.Appearance, 1, 1);
+    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
     // Save the image to disk in PNG format
-    ImageIO.write(image, "jpeg", new File("output.jpg"));
-} catch (Exception e) {
+    try {
+          slideImage.save("output.png", ImageFormat.Png);
+    } finally {
+         if (slideImage != null) slideImage.dispose();
+    }
 } finally {
     if (pres != null) pres.dispose();
 }

@@ -43,7 +43,7 @@ $pres = new Presentation();
 # instantiate a disposable instance of IImage from the file on the disk.
 $image = Images::fromFile("image.png");
 
-// create a PowerPoint image by adding an instance of IImage to the presentation's images.
+# create a PowerPoint image by adding an instance of IImage to the presentation's images.
 $ppImage = $pres->getImages()->addImage($image);
 $image->dispose();
 
