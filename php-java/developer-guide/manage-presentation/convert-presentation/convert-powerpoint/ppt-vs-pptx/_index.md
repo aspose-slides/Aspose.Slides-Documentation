@@ -26,10 +26,10 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 {{% /alert %}} 
 
 ```php
-  // Instantiate a Presentation object that represents a PPT file
+  # Instantiate a Presentation object that represents a PPT file
   $pres = new Presentation("PPTtoPPTX.ppt");
   try {
-    // Saving the PPT presentation to PPTX format
+    # Saving the PPT presentation to PPTX format
     $pres->save("PPTtoPPTX_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

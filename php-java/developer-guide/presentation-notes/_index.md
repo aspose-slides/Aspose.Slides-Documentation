@@ -24,13 +24,13 @@ Aspose.Slides for PHP via Java provides the feature of removing notes of any sli
 Notes of some specific slide could be removed as shown in example below:
 
 ```php
-  // Instantiate a Presentation object that represents a presentation file
+  # Instantiate a Presentation object that represents a presentation file
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    // Removing notes of first slide
+    # Removing notes of first slide
     $mgr = $pres->getSlides()->get_Item(0)->getNotesSlideManager();
     $mgr->removeNotesSlide();
-    // Saving presentation to disk
+    # Saving presentation to disk
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -43,16 +43,16 @@ Notes of some specific slide could be removed as shown in example below:
 Notes of all the slides of a presentation could be removed as shown in example below:
 
 ```php
-  // Instantiate a Presentation object that represents a presentation file
+  # Instantiate a Presentation object that represents a presentation file
   $pres = new Presentation("presWithNotes.pptx");
   try {
-    // Removing notes of all slides
+    # Removing notes of all slides
     $mgr = null;
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
       $mgr = $pres->getSlides()->get_Item($i)->getNotesSlideManager();
       $mgr->removeNotesSlide();
     }
-    // Saving presentation to disk
+    # Saving presentation to disk
     $pres->save("test.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -65,14 +65,14 @@ Notes of all the slides of a presentation could be removed as shown in example b
 [getNotesStyle](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide#getNotesStyle--) method has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/php-java/aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
 
 ```php
-  // Instantiate a Presentation object that represents a presentation file
+  # Instantiate a Presentation object that represents a presentation file
   $pres = new Presentation("demo.pptx");
   try {
     $notesMaster = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (!java_is_null($notesMaster)) {
-      // Get MasterNotesSlide text style
+      # Get MasterNotesSlide text style
       $notesStyle = $notesMaster->getNotesStyle();
-      // Set symbol bullet for the first level paragraphs
+      # Set symbol bullet for the first level paragraphs
       $paragraphFormat = $notesStyle->getLevel(0);
       $paragraphFormat::getBullet()->setType(BulletType::Symbol);
     }

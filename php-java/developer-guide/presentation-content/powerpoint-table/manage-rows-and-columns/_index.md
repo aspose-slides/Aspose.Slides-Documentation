@@ -20,22 +20,22 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 This PHP code shows you how to set a table's first row as its header:
 
 ```php
-  // Instantiates the Presentation class
+  # Instantiates the Presentation class
   $pres = new Presentation("table.pptx");
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Initializes the null TableEx
+    # Initializes the null TableEx
     $tbl = null;
-    // Iterates through the shapes and sets a reference to the table
+    # Iterates through the shapes and sets a reference to the table
     foreach($sld->getShapes() as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
-        // Sets the first row of a table as its header
+        # Sets the first row of a table as its header
         $tbl->setFirstRow(true);
       }
     }
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("pres.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -59,33 +59,33 @@ This PHP code shows you how to set a table's first row as its header:
 This PHP code shows you how to clone a PowerPoint table's row or column:
 
 ```php
-  // Instantiates the Presentation class
+  # Instantiates the Presentation class
   $pres = new Presentation("Test.pptx");
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
-    // Adds a table shape to slide
+    # Adds a table shape to slide
     $table = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    // Adds some text to the row 1 cell 1
+    # Adds some text to the row 1 cell 1
     $table->get_Item(0, 0)->getTextFrame()->setText("Row 1 Cell 1");
-    // Adds some text to the row 1 cell 2
+    # Adds some text to the row 1 cell 2
     $table->get_Item(1, 0)->getTextFrame()->setText("Row 1 Cell 2");
-    // Clones Row 1 at end of table
+    # Clones Row 1 at end of table
     $table->getRows()->addClone($table->getRows()->get_Item(0), false);
-    // Adds some text to the row 2 cell 1
+    # Adds some text to the row 2 cell 1
     $table->get_Item(0, 1)->getTextFrame()->setText("Row 2 Cell 1");
-    // Adds some text to the row 2 cell 2
+    # Adds some text to the row 2 cell 2
     $table->get_Item(1, 1)->getTextFrame()->setText("Row 2 Cell 2");
-    // Clones Row 2 as 4th row of table
+    # Clones Row 2 as 4th row of table
     $table->getRows()->insertClone(3, $table->getRows()->get_Item(1), false);
-    // Clones first column at the end
+    # Clones first column at the end
     $table->getColumns()->addClone($table->getColumns()->get_Item(0), false);
-    // Clones 2nd column at 4th column index
+    # Clones 2nd column at 4th column index
     $table->getColumns()->insertClone(3, $table->getColumns()->get_Item(1), false);
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("table_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -137,25 +137,25 @@ This PHP code shows you how to remove a row or column from a table:
 This PHP code demonstrates the operation.
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Let's assume that the first shape on the first slide is a table
+    # Let's assume that the first shape on the first slide is a table
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    // Sets first row cells' font height
+    # Sets first row cells' font height
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->getRows()->get_Item(0)->setTextFormat($portionFormat);
-    // Sets the first row cells' text alignment and right margin
+    # Sets the first row cells' text alignment and right margin
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->getRows()->get_Item(0)->setTextFormat($paragraphFormat);
-    // Sets the second row cells' text vertical type
+    # Sets the second row cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getRows()->get_Item(1)->setTextFormat($textFrameFormat);
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -177,21 +177,21 @@ This PHP code demonstrates the operation.
 This PHP code demonstrates the operation:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Let's assume that the first shape on the first slide is a table
+    # Let's assume that the first shape on the first slide is a table
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    // Sets the first column cells' font height
+    # Sets the first column cells' font height
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->getColumns()->get_Item(0)->setTextFormat($portionFormat);
-    // Sets the first column cells' text alignment and right margin in one call
+    # Sets the first column cells' text alignment and right margin in one call
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->getColumns()->get_Item(0)->setTextFormat($paragraphFormat);
-    // Sets the second column cells' text vertical type
+    # Sets the second column cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->getColumns()->get_Item(1)->setTextFormat($textFrameFormat);

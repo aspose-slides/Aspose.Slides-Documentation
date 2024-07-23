@@ -49,7 +49,7 @@ Another example, shows font substitution for rendering when it is inaccessible:
   $fontSubstRuleCollection = new FontSubstRuleCollection();
   $fontSubstRuleCollection->add($fontSubstRule);
   $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-  // Arial font will be used instead of SomeRareFont when inaccessible
+  # Arial font will be used instead of SomeRareFont when inaccessible
   $pres->getSlides()->get_Item(0)->getThumbnail(1, 1);
 
 ```

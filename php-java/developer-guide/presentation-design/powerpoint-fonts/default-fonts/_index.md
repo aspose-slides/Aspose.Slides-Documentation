@@ -21,26 +21,26 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```php
-  // Use load options to define the default regualr and asian fonts
+  # Use load options to define the default regualr and asian fonts
   $loadOptions = new LoadOptions(LoadFormat::Auto);
   $loadOptions->setDefaultRegularFont("Wingdings");
   $loadOptions->setDefaultAsianFont("Wingdings");
-  // Load the presentation
+  # Load the presentation
   $pres = new Presentation("DefaultFonts.pptx", $loadOptions);
   try {
-    // Generate slide thumbnail
+    # Generate slide thumbnail
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(1, 1);
     try {
-      // save the image on the disk.
+      # save the image on the disk.
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
       if (!java_is_null($slideImage)) {
         $slideImage->dispose();
       }
     }
-    // Generate PDF
+    # Generate PDF
     $pres->save("output_out.pdf", SaveFormat::Pdf);
-    // Generate XPS
+    # Generate XPS
     $pres->save("output_out.xps", SaveFormat::Xps);
   } catch (JavaException $e) {
   } finally {

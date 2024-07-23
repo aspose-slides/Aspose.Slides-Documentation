@@ -140,7 +140,7 @@ To create an image object based on SVG image, you can do it this way:
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```php
-  // Instantiate Presentation class that represents PPTX file
+  # Instantiate Presentation class that represents PPTX file
   $pres = new Presentation();
   try {
 $Array = new JavaClass("java.lang.reflect.Array");
@@ -176,10 +176,10 @@ The functionality is provided by one of the overloads of the [addGroupShape](htt
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
 ```php
-  // Create new presentation
+  # Create new presentation
   $presentation = new Presentation();
   try {
-    // Read SVG file content
+    # Read SVG file content
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 try {
@@ -191,13 +191,13 @@ try {
 }
     $svgContent = $bytes;
 
-    // Create SvgImage object
+    # Create SvgImage object
     $svgImage = new SvgImage($svgContent);
-    // Get slide size
+    # Get slide size
     $slideSize = $presentation->getSlideSize()->getSize();
-    // Convert SVG image to group of shapes scaling it to slide size
+    # Convert SVG image to group of shapes scaling it to slide size
     $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape($svgImage, 0.0, 0.0, $slideSize->getWidth(), $slideSize->getHeight());
-    // Save presentation in PPTX format
+    # Save presentation in PPTX format
     $presentation->save("output.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -219,7 +219,7 @@ This sample code shows you how to perform the described task:
   $options->setHorizontalResolution(200);
   $options->setVerticalResolution(200);
   $options->setImageType(ImageType::EMF);
-  // Save the workbook to stream
+  # Save the workbook to stream
   $sr = new SheetRender($sheet, $options);
   $pres = new Presentation();
   try {

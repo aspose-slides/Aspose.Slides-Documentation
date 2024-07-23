@@ -58,10 +58,10 @@ The standard PowerPoint PDF conversion operation is executed using default optio
 This PHP code shows you how to convert a PowerPoint to PDF:
 
 ```php
-  // Instantiates a Presentation class that represents a PowerPoint file
+  # Instantiates a Presentation class that represents a PowerPoint file
   $pres = new Presentation("PowerPoint.ppt");
   try {
-    // Saves the presentation as a PDF
+    # Saves the presentation as a PDF
     $pres->save("PPT-to-PDF.pdf", SaveFormat::Pdf);
   } finally {
     if (!java_is_null($pres)) {
@@ -90,17 +90,17 @@ This PHP code demonstrates an operation in which a PowerPoint is converted to PD
 // Instantiates a Presentation class that represents a PowerPoint file
   $pres = new Presentation("PowerPoint.pptx");
   try {
-    // Instantiates the PdfOptions class
+    # Instantiates the PdfOptions class
     $pdfOptions = new PdfOptions();
-    // Sets the Jpeg quality
+    # Sets the Jpeg quality
     $pdfOptions->setJpegQuality(90);
-    // Sets the behavior for metafiles
+    # Sets the behavior for metafiles
     $pdfOptions->setSaveMetafilesAsPng(true);
-    // Sets the text compression level
+    # Sets the text compression level
     $pdfOptions->setTextCompression(PdfTextCompression::Flate);
-    // Defines the PDF standard
+    # Defines the PDF standard
     $pdfOptions->setCompliance(PdfCompliance::Pdf15);
-    // Saves the presentation as a PDF
+    # Saves the presentation as a PDF
     $pres->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
@@ -119,11 +119,11 @@ This PHP code shows you how to convert a PowerPoint presentation to PDF with hid
 // Instantiates a Presentation class that represents a PowerPoint file
   $pres = new Presentation("PowerPoint.pptx");
   try {
-    // Instantiates the PdfOptions class
+    # Instantiates the PdfOptions class
     $pdfOptions = new PdfOptions();
-    // Adds hidden slides
+    # Adds hidden slides
     $pdfOptions->setShowHiddenSlides(true);
-    // Saves the presentation as a PDF
+    # Saves the presentation as a PDF
     $pres->save("PowerPoint-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
@@ -140,12 +140,12 @@ This PHP code shows you how to convert a PowerPoint to a password-protected PDF 
 // Instantiates a Presentation object that represents a PowerPoint file
   $pres = new Presentation("PowerPoint.pptx");
   try {
-    // / Instantiates the PdfOptions class
+    # / Instantiates the PdfOptions class
     $pdfOptions = new PdfOptions();
-    // Sets PDF password and access permissions
+    # Sets PDF password and access permissions
     $pdfOptions->setPassword("password");
     $pdfOptions->setAccessPermissions(PdfAccessPermissions::PrintDocument | PdfAccessPermissions::HighQualityPrint);
-    // Saves the presentation as a PDF
+    # Saves the presentation as a PDF
     $pres->save("PPTX-to-PDF.pdf", SaveFormat::Pdf, $pdfOptions);
   } finally {
     if (!java_is_null($pres)) {
@@ -203,9 +203,9 @@ This PHP code shows you how to convert specific slides in a PowerPoint presentat
 // Instantiates a Presentation object that represents a PowerPoint file
   $pres = new Presentation("PowerPoint.pptx");
   try {
-    // Sets an array of slides positions
+    # Sets an array of slides positions
     $slides = array(1, 3 );
-    // Saves the presentation as a PDF
+    # Saves the presentation as a PDF
     $pres->save("PPTX-to-PDF.pdf", $slides, SaveFormat::Pdf);
   } finally {
     if (!java_is_null($pres)) {
@@ -226,7 +226,7 @@ This PHP code shows you how to convert a PowerPoint when its slide size is speci
     try {
       $slide = $pres->getSlides()->get_Item(0);
       $outPres->getSlides()->insertClone(0, $slide);
-      // Sets the slide type and size
+      # Sets the slide type and size
       $outPres->getSlideSize()->setSize(612.0, 792.0, SlideSizeScaleType::EnsureFit);
       $pdfOptions = new PdfOptions();
       $options = $pdfOptions->getNotesCommentsLayouting();

@@ -18,7 +18,7 @@ Aspose.Slides for PHP via Java provides a simple API for . 
 1. Gets actual height of the chart element.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 350);
@@ -43,7 +43,7 @@ Aspose.Slides for PHP via Java provides a simple API to set the layout mode of t
 Sample code is given below.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);

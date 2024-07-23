@@ -287,15 +287,15 @@ This sample code —an implementation of the steps above—shows you how to appl
 ```php
   $pres = new Presentation();
   try {
-    // Get reference of the slide
+    # Get reference of the slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Add an AutoShape of Rectangle type
+    # Add an AutoShape of Rectangle type
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    // Add TextFrame to the Rectangle
+    # Add TextFrame to the Rectangle
     $ashp->addTextFrame("Aspose TextBox");
-    // Disable shape fill in case we want to get shadow of text
+    # Disable shape fill in case we want to get shadow of text
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    // Add outer shadow and set all necessary parameters
+    # Add outer shadow and set all necessary parameters
     $ashp->getEffectFormat()->enableOuterShadowEffect();
     $shadow = $ashp->getEffectFormat()->getOuterShadowEffect();
     $shadow->setBlurRadius(4.0);
@@ -303,7 +303,7 @@ This sample code —an implementation of the steps above—shows you how to appl
     $shadow->setDistance(3);
     $shadow->setRectangleAlign(RectangleAlignment->TopLeft);
     $shadow->getShadowColor()->setPresetColor(PresetColor->Black);
-    // Write the presentation to disk
+    # Write the presentation to disk
     $pres->save("pres_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -329,29 +329,29 @@ This sample code (based on the steps above) shows you how to add a connector bet
 ```php
   $pres = new Presentation();
   try {
-    // Get reference of the slide
+    # Get reference of the slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Add an AutoShape of Rectangle type
+    # Add an AutoShape of Rectangle type
     $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 400, 300);
     $ashp->getFillFormat()->setFillType(FillType::NoFill);
-    // Add TextFrame to the Rectangle
+    # Add TextFrame to the Rectangle
     $ashp->addTextFrame("Aspose TextBox");
     $port = $ashp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $pf = $port->getPortionFormat();
     $pf->setFontHeight(50);
-    // Enable InnerShadowEffect
+    # Enable InnerShadowEffect
     $ef = $pf->getEffectFormat();
     $ef->enableInnerShadowEffect();
-    // Set all necessary parameters
+    # Set all necessary parameters
     $ef->getInnerShadowEffect()->setBlurRadius(8.0);
     $ef->getInnerShadowEffect()->setDirection(90.0);
     $ef->getInnerShadowEffect()->setDistance(6.0);
     $ef->getInnerShadowEffect()->getShadowColor()->setB(189);
-    // Set ColorType as Scheme
+    # Set ColorType as Scheme
     $ef->getInnerShadowEffect()->getShadowColor()->setColorType(ColorType::Scheme);
-    // Set Scheme Color
+    # Set Scheme Color
     $ef->getInnerShadowEffect()->getShadowColor()->setSchemeColor(SchemeColor->Accent1);
-    // Save Presentation
+    # Save Presentation
     $pres->save("WordArt_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

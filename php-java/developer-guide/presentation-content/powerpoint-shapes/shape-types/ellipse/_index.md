@@ -23,14 +23,14 @@ To add a simple ellipse to a selected slide of the presentation, please follow t
 In the example given below, we have added an ellipse to the first slide
 
 ```php
-  // Instantiate Presentation class that represents the PPTX
+  # Instantiate Presentation class that represents the PPTX
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Add AutoShape of ellipse type
+    # Add AutoShape of ellipse type
     $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
-    // Write the PPTX file to disk
+    # Write the PPTX file to disk
     $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -54,21 +54,21 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
 ```php
-  // Instantiate Presentation class that represents the PPTX
+  # Instantiate Presentation class that represents the PPTX
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Add AutoShape of ellipse type
+    # Add AutoShape of ellipse type
     $shp = $sld->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 150, 150, 50);
-    // Apply some formatting to ellipse shape
+    # Apply some formatting to ellipse shape
     $shp->getFillFormat()->setFillType(FillType::Solid);
     $shp->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->Chocolate));
-    // Apply some formatting to the line of Ellipse
+    # Apply some formatting to the line of Ellipse
     $shp->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shp->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shp->getLineFormat()->setWidth(5);
-    // Write the PPTX file to disk
+    # Write the PPTX file to disk
     $pres->save("EllipseShp1.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

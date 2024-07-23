@@ -20,14 +20,14 @@ If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides
 This PHP code shows you how to remove a slide through its reference:
 
 ```php
-  // Instantiate a Presentation object that represents a presentation file
+  # Instantiate a Presentation object that represents a presentation file
   $pres = new Presentation("demo.pptx");
   try {
-    // Accesses a slide through its index in the slides collection
+    # Accesses a slide through its index in the slides collection
     $slide = $pres->getSlides()->get_Item(0);
-    // Removes a slide through its reference
+    # Removes a slide through its reference
     $pres->getSlides()->remove($slide);
-    // Saves the modified presentation
+    # Saves the modified presentation
     $pres->save("modified.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -44,12 +44,12 @@ This PHP code shows you how to remove a slide through its reference:
 This PHP code shows you how to remove a slide through its index:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("demo.pptx");
   try {
-    // Removes a slide through its slide index
+    # Removes a slide through its slide index
     $pres->getSlides()->removeAt(0);
-    // Saves the modified presentation
+    # Saves the modified presentation
     $pres->save("modified.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();

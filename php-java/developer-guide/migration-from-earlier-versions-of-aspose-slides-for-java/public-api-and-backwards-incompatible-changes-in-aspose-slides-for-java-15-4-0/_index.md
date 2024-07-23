@@ -71,7 +71,7 @@ Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a
   $hidden = $node->isHidden();// returns true
 
   if ($hidden) {
-    // do some actions or notifications
+    # do some actions or notifications
   }
   $pres->Save("out.pptx", SaveFormat::Pptx);
 

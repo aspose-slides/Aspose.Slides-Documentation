@@ -28,7 +28,7 @@ This PHP code shows you how to convert PowerPoint to TIFF:
 // Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("presentation.pptx");
   try {
-    // Saves the presentation as TIFF
+    # Saves the presentation as TIFF
     $pres->save("tiff-image.tiff", SaveFormat::Tiff);
   } finally {
     if (!java_is_null($pres)) {
@@ -67,26 +67,26 @@ This PHP code shows you how to convert PowerPoint to TIFF images with custom siz
 // Instantiates a Presentation object that represents a Presentation file
   $pres = new Presentation("presentation.pptx");
   try {
-    // Instantiates the TiffOptions class
+    # Instantiates the TiffOptions class
     $opts = new TiffOptions();
-    // Sets the compression type
-    // Possible values are:
-    // Default - Specifies the default compression scheme (LZW).
-    // None - Specifies no compression.
-    // CCITT3
-    // CCITT4
-    // LZW
-    // RLE
+    # Sets the compression type
+    # Possible values are:
+    # Default - Specifies the default compression scheme (LZW).
+    # None - Specifies no compression.
+    # CCITT3
+    # CCITT4
+    # LZW
+    # RLE
     $opts->setCompressionType(TiffCompressionTypes.Default);
-    // Depth – depends on the compression type and cannot be set manually.
-    // Sets the image DPI
+    # Depth – depends on the compression type and cannot be set manually.
+    # Sets the image DPI
     $opts->setDpiX(200);
     $opts->setDpiY(100);
-    // Sets the Image Size
+    # Sets the Image Size
     $opts->setImageSize(new Java("java.awt.Dimension", 1728, 1078));
     $options = $opts->getNotesCommentsLayouting();
     $options->setNotesPosition(NotesPositions::BottomFull);
-    // Saves the presentation to TIFF with specified size
+    # Saves the presentation to TIFF with specified size
     $pres->save("tiff-ImageSize.tiff", SaveFormat::Tiff, $opts);
   } finally {
     if (!java_is_null($pres)) {
@@ -115,7 +115,7 @@ This PHP code shows you how to convert PowerPoint to TIFF image with custom pixe
     Format24bppRgb;    // 24 bits per pixel, RGB.
     Format32bppArgb;   // 32 bits per pixel, ARGB.
      */
-    // Saves the presentation to TIFF with specified image size
+    # Saves the presentation to TIFF with specified image size
     $pres->save("Tiff-PixelFormat.tiff", SaveFormat::Tiff, $options);
   } finally {
     if (!java_is_null($pres)) {

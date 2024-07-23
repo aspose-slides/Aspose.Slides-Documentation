@@ -16,7 +16,7 @@ Aspose.Slides for PHP via Java provides support for changing color of categories
  Below sample example is given. 
 
 ```php
-  // Creating empty presentation
+  # Creating empty presentation
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);

@@ -39,10 +39,10 @@ For more information on working with Master Slides in particular, see the [Slide
 This PHP code shows you how to add a slide layout to a PowerPoint presentation:
 
 ```php
-  // Instantiates a Presentation class that represents the presentation file
+  # Instantiates a Presentation class that represents the presentation file
   $pres = new Presentation("AccessSlides.pptx");
   try {
-    // Goes through layout slide types
+    # Goes through layout slide types
     $layoutSlides = $pres->getMasters()->get_Item(0)->getLayoutSlides();
     $layoutSlide = null;
     if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
@@ -51,13 +51,13 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
       $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
     }
     if (java_is_null($layoutSlide)) {
-      // The situation where a presentation doesn't contain some layout types.
-      // presentation File only contains Blank and Custom layout types.
-      // But layout slides with Custom types have different slide names,
-      // like "Title", "Title and Content", etc. And it is possible to use these
-      // names for layout slide selection.
-      // You can also use a set of placeholder shape types. For example,
-      // Title slide should have only Title placeholder type, etc.
+      # The situation where a presentation doesn't contain some layout types.
+      # presentation File only contains Blank and Custom layout types.
+      # But layout slides with Custom types have different slide names,
+      # like "Title", "Title and Content", etc. And it is possible to use these
+      # names for layout slide selection.
+      # You can also use a set of placeholder shape types. For example,
+      # Title slide should have only Title placeholder type, etc.
       foreach($layoutSlides as $titleAndObjectLayoutSlide) {
         if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
           $layoutSlide = $titleAndObjectLayoutSlide;
@@ -79,9 +79,9 @@ This PHP code shows you how to add a slide layout to a PowerPoint presentation:
         }
       }
     }
-    // Adds empty slide with added layout slide
+    # Adds empty slide with added layout slide
     $pres->getSlides()->insertEmptySlide(0, $layoutSlide);
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -110,19 +110,19 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
 To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [getType()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getType--) and [getSize()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getSize--) properties (from the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class). This Java demonstrates the operation:
 
 ```php
-  // Instantiates a Presentation object that represents presentation file
+  # Instantiates a Presentation object that represents presentation file
   $presentation = new Presentation("demo.pptx");
   try {
     $auxPresentation = new Presentation();
     try {
-      // Sets the slide size for the generated presentation to that of the source
+      # Sets the slide size for the generated presentation to that of the source
       $auxPresentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);
-      // getType());
+      # getType());
       $auxPresentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);
-      // Clones the required slide
+      # Clones the required slide
       $auxPresentation->getSlides()->addClone($presentation->getSlides()->get_Item(0));
       $auxPresentation->getSlides()->removeAt(0);
-      // Saves the presentation to disk
+      # Saves the presentation to disk
       $auxPresentation->save("size.pptx", SaveFormat::Pptx);
     } finally {
       $auxPresentation->dispose();
@@ -147,17 +147,17 @@ This PHP code shows you how to set the visibility for a slide footer (and perfor
   $presentation = new Presentation("presentation.ppt");
   try {
     $headerFooterManager = $presentation->getSlides()->get_Item(0)->getHeaderFooterManager();
-    // Method isFooterVisible is used to specify that a slide footer placeholder is missing
+    # Method isFooterVisible is used to specify that a slide footer placeholder is missing
     if (!$headerFooterManager->isFooterVisible()) {
       $headerFooterManager->setFooterVisibility(true);// Method setFooterVisibility is used to set a slide footer placeholder to visible
 
     }
-    // Method isSlideNumberVisible is used to specify that a slide page number placeholder is missing
+    # Method isSlideNumberVisible is used to specify that a slide page number placeholder is missing
     if (!$headerFooterManager->isSlideNumberVisible()) {
       $headerFooterManager->setSlideNumberVisibility(true);// Method setSlideNumberVisibility is used to set a slide page number placeholder to visible
 
     }
-    // Method isDateTimeVisible is used to specify that a slide date-time placeholder is missing
+    # Method isDateTimeVisible is used to specify that a slide date-time placeholder is missing
     if (!$headerFooterManager->isDateTimeVisible()) {
       $headerFooterManager->setDateTimeVisibility(true);// Method SetFooterVisibility is used to set a slide date-time placeholder to visible
 
@@ -213,15 +213,15 @@ This PHP code demonstrates the operation:
 This PHP code demonstrates the operation:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $presentation = new Presentation("demo.pptx");
   try {
-    // Sets the slide size for the generated presentations to that of the source
+    # Sets the slide size for the generated presentations to that of the source
     $presentation->getSlideSize()->setSize(540, 720, SlideSizeScaleType::EnsureFit);// Method SetSize is used to set slide size with scale content to ensure fit
 
     $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize);// Method SetSize is used to set slide size with maximum size of content
 
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $presentation->save("Set_Size&Type_out.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();
@@ -235,15 +235,15 @@ Certain presentations (like posters) are often converted to PDF docs. If you are
 Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This PHP code shows you how to use the [getType()](https://reference.aspose.com/slides/php-java/aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $presentation = new Presentation();
   try {
-    // Sets the SlideSize.Type Property
+    # Sets the SlideSize.Type Property
     $presentation->getSlideSize()->setSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
-    // Sets different properties for PDF Options
+    # Sets different properties for PDF Options
     $opts = new PdfOptions();
     $opts->setSufficientResolution(600);
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $presentation->save("SetPDFPageSize_out.pdf", SaveFormat::Pdf, $opts);
   } finally {
     $presentation->dispose();

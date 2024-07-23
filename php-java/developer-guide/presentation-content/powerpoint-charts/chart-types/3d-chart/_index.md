@@ -16,38 +16,38 @@ Aspose.Slides for PHP via Java provides a simple API for setting these propertie
 ```php
   $pres = new Presentation();
   try {
-    // Access first slide
+    # Access first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Add chart with default data
+    # Add chart with default data
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn3D, 0, 0, 500, 500);
-    // Setting the index of chart data sheet
+    # Setting the index of chart data sheet
     $defaultWorksheetIndex = 0;
-    // Getting the chart data worksheet
+    # Getting the chart data worksheet
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    // Add series
+    # Add series
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    // Add Catrgories
+    # Add Catrgories
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Set Rotation3D properties
+    # Set Rotation3D properties
     $chart->getRotation3D()->setRightAngleAxes(true);
     $chart->getRotation3D()->setRotationX(40);
     $chart->getRotation3D()->setRotationY(270);
     $chart->getRotation3D()->setDepthPercents(150);
-    // Take second chart series
+    # Take second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    // Now populating series data
+    # Now populating series data
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    // Set OverLap value
+    # Set OverLap value
     $series->getParentSeriesGroup()->setOverlap(100);
-    // Write presentation to disk
+    # Write presentation to disk
     $pres->save("Rotation3D_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

@@ -19,10 +19,10 @@ New methods added:
 
 ```php
   $presentation = new Presentation("presentation.pptx");
-  // The first way
-  // ...
+  # The first way
+  # ...
   $imageData = $presentation->getImages()->get_Item(0)->replaceImage($imageData);
-  // The second way
+  # The second way
   $presentation->getImages()->get_Item(1)->replaceImage($presentation->getImages()->get_Item(0));
   $presentation->save("presentation_out.pptx", SaveFormat::Pptx);
 

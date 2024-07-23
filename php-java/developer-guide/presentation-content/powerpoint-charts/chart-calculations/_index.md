@@ -51,15 +51,15 @@ This topic helps you to understand how to hide information from chart. Using Asp
   try {
     $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 140, 118, 320, 370);
-    // Hiding chart Title
+    # Hiding chart Title
     $chart->setTitle(false);
-    // /Hiding Values axis
+    # /Hiding Values axis
     $chart->getAxes()->getVerticalAxis()->setVisible(false);
-    // Category Axis visibility
+    # Category Axis visibility
     $chart->getAxes()->getHorizontalAxis()->setVisible(false);
-    // Hiding Legend
+    # Hiding Legend
     $chart->setLegend(false);
-    // Hiding MajorGridLines
+    # Hiding MajorGridLines
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::NoFill);
     for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->removeAt($i);
@@ -69,7 +69,7 @@ This topic helps you to understand how to hide information from chart. Using Asp
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setPosition(LegendDataLabelPosition->Top);
     $series->getMarker()->setSize(15);
-    // Setting series line color
+    # Setting series line color
     $series->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $series->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
     $series->getFormat()->getLine()->setDashStyle(LineDashStyle->Solid);

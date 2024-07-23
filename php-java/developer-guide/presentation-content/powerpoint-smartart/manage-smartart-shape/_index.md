@@ -15,14 +15,14 @@ Aspose.Slides for PHP via Java has provided an API to create SmartArt shapes. To
 1. Save the modified presentation as a PPTX file.
 
 ```php
-  // Instantiate Presentation Class
+  # Instantiate Presentation Class
   $pres = new Presentation();
   try {
-    // Get first slide
+    # Get first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Add Smart Art Shape
+    # Add Smart Art Shape
     $smart = $slide->getShapes()->addSmartArt(0, 0, 400, 400, SmartArtLayoutType::BasicBlockList);
-    // Saving presentation
+    # Saving presentation
     $pres->save("SimpleSmartArt.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -39,14 +39,14 @@ Aspose.Slides for PHP via Java has provided an API to create SmartArt shapes. To
 The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) shape. If shape is of SmartArt type then we will typecast that to [**SmartArt**](https://reference.aspose.com/slides/php-java/aspose.slides/SmartArt) instance.
 
 ```php
-  // Load the desired the presentation
+  # Load the desired the presentation
   $pres = new Presentation("AccessSmartArtShape.pptx");
   try {
-    // Traverse through every shape inside first slide
+    # Traverse through every shape inside first slide
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      // Check if shape is of SmartArt type
+      # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        // Typecast shape to SmartArtEx
+        # Typecast shape to SmartArtEx
         $smart = $shape;
         echo("Shape Name:" . $smart->getName());
       }
@@ -70,13 +70,13 @@ The following sample code will help to access the [SmartArt](https://reference.a
 ```php
   $pres = new Presentation("AccessSmartArtShape.pptx");
   try {
-    // Traverse through every shape inside first slide
+    # Traverse through every shape inside first slide
     foreach($pres->getSlides()->get_Item(0)->getShapes() as $shape) {
-      // Check if shape is of SmartArt type
+      # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        // Typecast shape to SmartArtEx
+        # Typecast shape to SmartArtEx
         $smart = $shape;
-        // Checking SmartArt Layout
+        # Checking SmartArt Layout
         if ($smart->getLayout() == SmartArtLayoutType::BasicBlockList) {
           echo("Do some thing here....");
         }
@@ -101,25 +101,25 @@ In this example, we will learn to change the quick style for any SmartArt shape.
 1. Save the Presentation.
 
 ```php
-  // Instantiate Presentation Class
+  # Instantiate Presentation Class
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    // Get first slide
+    # Get first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Traverse through every shape inside first slide
+    # Traverse through every shape inside first slide
     foreach($slide->getShapes() as $shape) {
-      // Check if shape is of SmartArt type
+      # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        // Typecast shape to SmartArtEx
+        # Typecast shape to SmartArtEx
         $smart = $shape;
-        // Checking SmartArt style
+        # Checking SmartArt style
         if ($smart->getQuickStyle() == SmartArtQuickStyleType::SimpleFill) {
-          // Changing SmartArt Style
+          # Changing SmartArt Style
           $smart->setQuickStyle(SmartArtQuickStyleType::Cartoon);
         }
       }
     }
-    // Saving presentation
+    # Saving presentation
     $pres->save("ChangeSmartArtStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -142,25 +142,25 @@ In this example, we will learn to change the color style for any SmartArt shape.
 1. Save the Presentation.
 
 ```php
-  // Instantiate Presentation Class
+  # Instantiate Presentation Class
   $pres = new Presentation("SimpleSmartArt.pptx");
   try {
-    // Get first slide
+    # Get first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Traverse through every shape inside first slide
+    # Traverse through every shape inside first slide
     foreach($slide->getShapes() as $shape) {
-      // Check if shape is of SmartArt type
+      # Check if shape is of SmartArt type
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.SmartArt"))) {
-        // Typecast shape to SmartArtEx
+        # Typecast shape to SmartArtEx
         $smart = $shape;
-        // Checking SmartArt color type
+        # Checking SmartArt color type
         if ($smart->getColorStyle() == SmartArtColorType::ColoredFillAccent1) {
-          // Changing SmartArt color type
+          # Changing SmartArt color type
           $smart->setColorStyle(SmartArtColorType::ColorfulAccentColors);
         }
       }
     }
-    // Saving presentation
+    # Saving presentation
     $pres->save("ChangeSmartArtColorStyle.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();

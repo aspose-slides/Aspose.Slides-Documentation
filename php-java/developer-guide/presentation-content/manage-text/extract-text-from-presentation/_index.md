@@ -16,24 +16,24 @@ use the [getAllTextBoxes](https://reference.aspose.com/slides/php-java/aspose.sl
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 
 ```php
-  // Instatiate Presentation class that represents a PPTX file
+  # Instatiate Presentation class that represents a PPTX file
   $pres = new Presentation("demo.pptx");
   $Array = new java_class("java.lang.reflect.Array");
   try {
     foreach($pres->getSlides() as $slide) {
-      // Get an Array of ITextFrame objects from all slides in the PPTX
+      # Get an Array of ITextFrame objects from all slides in the PPTX
       $textFramesPPTX = SlideUtil->getAllTextBoxes($slide);
-      // Loop through the Array of TextFrames
+      # Loop through the Array of TextFrames
       for($i = 0; $i < java_values($Array->getLength($textFramesPPTX)) ; $i++) {
-        // Loop through paragraphs in current ITextFrame
+        # Loop through paragraphs in current ITextFrame
         foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
-          // Loop through portions in the current IParagraph
+          # Loop through portions in the current IParagraph
           foreach($para->getPortions() as $port) {
-            // Display text in the current portion
+            # Display text in the current portion
             echo($port->getText());
-            // Display font height of the text
+            # Display font height of the text
             echo($port->getPortionFormat()->getFontHeight());
-            // Display font name of the text
+            # Display font name of the text
             if (!java_is_null($port->getPortionFormat()->getLatinFont())) {
               echo($port->getPortionFormat()->getLatinFont()->getFontName());
             }
@@ -55,23 +55,23 @@ To scan the text from the whole presentation, use the
    The method returns an array of [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
 
 ```php
-  // Instatiate Presentation class that represents a PPTX file
+  # Instatiate Presentation class that represents a PPTX file
   $pres = new Presentation("demo.pptx");
   $Array = new java_class("java.lang.reflect.Array");
   try {
-    // Get an Array of ITextFrame objects from all slides in the PPTX
+    # Get an Array of ITextFrame objects from all slides in the PPTX
     $textFramesPPTX = SlideUtil->getAllTextFrames($pres, true);
-    // Loop through the Array of TextFrames
+    # Loop through the Array of TextFrames
     for($i = 0; $i < java_values($Array->getLength($textFramesPPTX)) ; $i++) {
-      // Loop through paragraphs in current ITextFrame
+      # Loop through paragraphs in current ITextFrame
       foreach($textFramesPPTX[$i]->getParagraphs() as $para) {
-        // Loop through portions in the current IParagraph
+        # Loop through portions in the current IParagraph
         foreach($para->getPortions() as $port) {
-          // Display text in the current portion
+          # Display text in the current portion
           echo($port->getText());
-          // Display font height of the text
+          # Display font height of the text
           echo($port->getPortionFormat()->getFontHeight());
-          // Display font name of the text
+          # Display font name of the text
           if (!java_is_null($port->getPortionFormat()->getLatinFont())) {
             echo($port->getPortionFormat()->getLatinFont()->getFontName());
           }

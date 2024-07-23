@@ -47,12 +47,12 @@ Developers can use **IDocumentProperties** property exposed by [Presentation](ht
 These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```php
-  // Instantiate the Presentation class that represents the presentation
+  # Instantiate the Presentation class that represents the presentation
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Create a reference to IDocumentProperties object associated with Presentation
+    # Create a reference to IDocumentProperties object associated with Presentation
     $dp = $pres->getDocumentProperties();
-    // Display the built-in properties
+    # Display the built-in properties
     echo("Category : " . $dp->getCategory());
     echo("Current Status : " . $dp->getContentStatus());
     echo("Creation Date : " . $dp->getCreatedTime());
@@ -80,15 +80,15 @@ Modifying the built-in properties of presentation files is as easy as that of ac
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Create a reference to IDocumentProperties object associated with Presentation
+    # Create a reference to IDocumentProperties object associated with Presentation
     $dp = $pres->getDocumentProperties();
-    // Set the built-in properties
+    # Set the built-in properties
     $dp->setAuthor("Aspose.Slides for PHP via Java");
     $dp->setTitle("Modifying Presentation Properties");
     $dp->setSubject("Aspose Subject");
     $dp->setComments("Aspose Description");
     $dp->setManager("Aspose Manager");
-    // Save your presentation to a file
+    # Save your presentation to a file
     $pres->save("DocProps.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -109,17 +109,17 @@ Aspose.Slides for PHP via Java also allows developers to add the custom the valu
 ```php
   $pres = new Presentation();
   try {
-    // Getting Document Properties
+    # Getting Document Properties
     $dProps = $pres->getDocumentProperties();
-    // Adding Custom properties
+    # Adding Custom properties
     $dProps->set_Item("New Custom", 12);
     $dProps->set_Item("My Name", "Mudassir");
     $dProps->set_Item("Custom", 124);
-    // Getting property name at particular index
+    # Getting property name at particular index
     $getPropertyName = $dProps->getCustomPropertyName(2);
-    // Removing selected property
+    # Removing selected property
     $dProps->removeCustomProperty($getPropertyName);
-    // Saving presentation
+    # Saving presentation
     $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -138,17 +138,17 @@ Aspose.Slides for PHP via Java also allows developers to access the values of cu
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Create a reference to DocumentProperties object associated with Presentation
+    # Create a reference to DocumentProperties object associated with Presentation
     $dp = $pres->getDocumentProperties();
-    // Access and modify custom properties
+    # Access and modify custom properties
     for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
-      // Display names and values of custom properties
+      # Display names and values of custom properties
       echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
       echo("Custom Property Value : " . $dp->get_Item($dp->getCustomPropertyName($i)));
-      // Modify values of custom properties
+      # Modify values of custom properties
       $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
     }
-    // Save your presentation to a file
+    # Save your presentation to a file
     $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -180,14 +180,14 @@ The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
 ```php
-  // read the info of presentation
+  # read the info of presentation
   $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
-  // obtain the current properties
+  # obtain the current properties
   $props = $info->readDocumentProperties();
-  // set the new values of Author and Title fields
+  # set the new values of Author and Title fields
   $props->setAuthor("New Author");
   $props->setTitle("New Title");
-  // update the presentation with a new values
+  # update the presentation with a new values
   $info->updateDocumentProperties($props);
   $info->writeBindedPresentation("presentation.pptx");
 
@@ -289,10 +289,10 @@ This PHP code shows you how to set the default language for an entire PowerPoint
   $loadOptions->setDefaultTextLanguage("en-US");
   $pres = new Presentation($loadOptions);
   try {
-    // Adds a new rectangle shape with text
+    # Adds a new rectangle shape with text
     $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
     $shp->getTextFrame()->setText("New Text");
-    // Checks the first portion language
+    # Checks the first portion language
     echo($shp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getLanguageId());
   } finally {
     if (!java_is_null($pres)) {

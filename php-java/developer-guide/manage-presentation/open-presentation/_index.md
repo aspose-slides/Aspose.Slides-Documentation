@@ -17,10 +17,10 @@ To open an existing presentation, you simply have to instantiate the [Presentati
 This PHP code shows you how to open a presentation and also find out the number of slides it contains:
 
 ```php
-  // Instantiates the Presentation class and passes the file path to its constructor
+  # Instantiates the Presentation class and passes the file path to its constructor
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Prints the total number of slides present in the presentation
+    # Prints the total number of slides present in the presentation
     echo($pres->getSlides()->size());
   } finally {
     if (!java_is_null($pres)) {
@@ -38,7 +38,7 @@ When you have to open a password-protected presentation, you can pass the passwo
   $loadOptions->setPassword("YOUR_PASSWORD");
   $pres = new Presentation("pres.pptx", $loadOptions);
   try {
-    // Do some work with the decrypted presentation
+    # Do some work with the decrypted presentation
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -59,10 +59,10 @@ This Java demonstrates an operation in which a large presentation (say 2GB in si
   $loadOptions->getBlobManagementOptions()->setMaxBlobsBytesInMemory(0);
   $pres = new Presentation("veryLargePresentation.pptx", $loadOptions);
   try {
-    // The large presentation has been loaded and can be used, but the memory consumption is still low.
-    // makes changes to the presentation.
+    # The large presentation has been loaded and can be used, but the memory consumption is still low.
+    # makes changes to the presentation.
     $pres->getSlides()->get_Item(0)->setName("Very large presentation");
-    // The presentation will be saved to the other file. The memory consumption stays low during the operation
+    # The presentation will be saved to the other file. The memory consumption stays low during the operation
     $pres->save("veryLargePresentation-copy.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -89,7 +89,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
 class ImageLoadingHandler {
     function resourceLoading($args) {
       if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
-        // loads substitute image
+        # loads substitute image
         $file = new Java("java.io.File", "aspose-logo.jpg");
         $Array = new JavaClass("java.lang.reflect.Array");
         $Byte = new JavaClass("java.lang.Byte");
@@ -103,11 +103,11 @@ class ImageLoadingHandler {
           $args->setData($imageBytes);
           return ResourceLoadingAction::UserProvided;
       } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
-        // sets substitute url
+        # sets substitute url
         $args->setUri("http://www.google.com/images/logos/ps_logo2.png");
         return ResourceLoadingAction::Default;
       }
-      // skips all other images
+      # skips all other images
       return ResourceLoadingAction::Skip;
     }
   }
@@ -154,11 +154,11 @@ Steps to Open and Save Presentation:
 2. Save the presentation.  
 
 ```php
-  // Instantiates a Presentation object that represents a PPT file
+  # Instantiates a Presentation object that represents a PPT file
   $pres = new Presentation();
   try {
-    // ...do some work here...
-    // Saves your presentation to a file
+    # ...do some work here...
+    # Saves your presentation to a file
     $pres->save("demoPass.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

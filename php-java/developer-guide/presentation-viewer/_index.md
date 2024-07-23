@@ -29,14 +29,14 @@ To generate an SVG image from any desired slide with Aspose.Slides for PHP via J
 - Save the memory stream to file.
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("CreateSlidesSVGImage.pptx");
   try {
-    // Access the first slide
+    # Access the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Create a memory stream object
+    # Create a memory stream object
     $svgStream = new Java("java.io.FileOutputStream", "Aspose_out.svg");
-    // Generate SVG image of slide and save in memory stream
+    # Generate SVG image of slide and save in memory stream
     $sld->writeAsSvg($svgStream);
     $svgStream->close();
   } catch (JavaException $e) {
@@ -94,14 +94,14 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
 1. Save the thumbnail image in any desired image format.
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("ThumbnailFromSlide.pptx");
   try {
-    // Access the first slide
+    # Access the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Create a full scale image
+    # Create a full scale image
     $slideImage = $sld->getImage(1.0, 1.0);
-    // Save the image to disk in JPEG format
+    # Save the image to disk in JPEG format
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -122,20 +122,20 @@ Aspose.Slides for PHP via Java help you generate thumbnail images of the slides.
 1. Save the thumbnail image in any desired image format.
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
   try {
-    // Access the first slide
+    # Access the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // User defined dimension
+    # User defined dimension
     $desiredX = 1200;
     $desiredY = 800;
-    // Getting scaled value  of X and Y
+    # Getting scaled value  of X and Y
     $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
     $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
-    // Create a full scale image
+    # Create a full scale image
     $slideImage = $sld->getImage($ScaleX, $ScaleY);
-    // Save the image to disk in JPEG format
+    # Save the image to disk in JPEG format
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -159,22 +159,22 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
   try {
-    // Access the first slide
+    # Access the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // User defined dimension
+    # User defined dimension
     $desiredX = 1200;
     $desiredY = 800;
-    // Getting scaled value  of X and Y
+    # Getting scaled value  of X and Y
     $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
     $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
     $opts = new RenderingOptions();
     $opts->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    // Create a full scale image
+    # Create a full scale image
     $slideImage = $sld->getImage($opts, $ScaleX, $ScaleY);
-    // Save the image to disk in JPEG format
+    # Save the image to disk in JPEG format
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {

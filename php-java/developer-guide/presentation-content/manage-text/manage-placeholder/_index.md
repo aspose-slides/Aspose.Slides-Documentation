@@ -22,19 +22,19 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 This PHP code shows how to change the text in a placeholder:
 
 ```php
-  // Instantiates a Presentation class
+  # Instantiates a Presentation class
   $pres = new Presentation("ReplacingText.pptx");
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Iterates through shapes to find the placeholder
+    # Iterates through shapes to find the placeholder
     foreach($sld->getShapes() as $shp) {
       if (!java_is_null($shp->getPlaceholder())) {
-        // Changes the text in each placeholder
+        # Changes the text in each placeholder
         $shp->getTextFrame()->setText("This is Placeholder");
       }
     }
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("output_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -52,11 +52,11 @@ This PHP code shows you how to set the prompt text in a placeholder:
   $pres = new Presentation("Presentation.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    // Iterates through the slide
+    # Iterates through the slide
     foreach($slide->getSlide()->getShapes() as $shape) {
       if (java_instanceof($shape->getPlaceholder()) != null && $shape, new JavaClass("com.aspose.slides.AutoShape")) {
         $text = "";
-        // PowerPoint displays "Click to add title"
+        # PowerPoint displays "Click to add title"
         if ($shape->getPlaceholder()->getType() == PlaceholderType::CenteredTitle) {
           $text = "Add Title";
         } else // Adds subtitle

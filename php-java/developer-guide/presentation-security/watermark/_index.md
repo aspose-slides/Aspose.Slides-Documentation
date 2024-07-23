@@ -25,7 +25,7 @@ You can design watermark in any way however there are usually attend common feat
 To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) type. This type is not inherited from [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) object into [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) object. To add watermark into the shape, use [**addTextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method with watermark text passed into it:
 
 ```php
-  // Open presentation
+  # Open presentation
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
@@ -50,7 +50,7 @@ add it into [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspos
 All the other logic is the same as in adding watermark into a single slide - create an [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) object and then add watermark into it with [**addTextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method:
 
 ```php
-  // Open presentation
+  # Open presentation
   $pres = new Presentation();
   try {
     $master = $pres->getMasters()->get_Item(0);
@@ -105,7 +105,7 @@ It is possible to center watermark on a slide and for that you can do the follow
   $height = 300;
   $x = $center->getX() - $width / 2;
   $y = $center->getY() - $height / 2;
-  // ...
+  # ...
   $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, $x, $y, $width, $height);
 
 ```
@@ -125,7 +125,7 @@ To add image watermark into all presentation slides, you may do the following:
       $image->dispose();
     }
   }
-  // ...
+  # ...
   $watermarkShape->getFillFormat()->setFillType(FillType::Picture);
   $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
   $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
@@ -139,7 +139,7 @@ To add image watermark into all presentation slides, you may do the following:
 If its needed to prevent watermark from editing, use [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape#getShapeLock--) method on the shape, that wraps its. With this method you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
 
 ```php
-  // Lock Shapes from modifying
+  # Lock Shapes from modifying
   $watermarkShape->getShapeLock()->setSelectLocked(true);
   $watermarkShape->getShapeLock()->setSizeLocked(true);
   $watermarkShape->getShapeLock()->setTextLocked(true);

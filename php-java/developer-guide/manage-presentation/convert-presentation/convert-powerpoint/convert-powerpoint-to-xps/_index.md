@@ -51,10 +51,10 @@ When converting a presentation to XPS, you have to save the presentation using e
 This sample code  shows you how to convert a presentation to an XPS document using standard settings:
 
 ```php
-  // Instantiate a Presentation object that represents a presentation file
+  # Instantiate a Presentation object that represents a presentation file
   $pres = new Presentation("Convert_XPS.pptx");
   try {
-    // Saving the presentation to XPS document
+    # Saving the presentation to XPS document
     $pres->save("XPS_Output_Without_XPSOption.xps", SaveFormat::Xps);
   } finally {
     if (!java_is_null($pres)) {
@@ -68,14 +68,14 @@ This sample code  shows you how to convert a presentation to an XPS document usi
 This sample code shows you how to convert a presentation to an XPS document using custom settings :
 
 ```php
-  // Instantiate a Presentation object that represents a presentation file
+  # Instantiate a Presentation object that represents a presentation file
   $pres = new Presentation("Convert_XPS_Options.pptx");
   try {
-    // Instantiate the TiffOptions class
+    # Instantiate the TiffOptions class
     $options = new XpsOptions();
-    // Save MetaFiles as PNG
+    # Save MetaFiles as PNG
     $options->setSaveMetafilesAsPng(true);
-    // Save the presentation to XPS document
+    # Save the presentation to XPS document
     $pres->save("XPS_Output_With_Options.xps", SaveFormat::Xps, $options);
   } finally {
     if (!java_is_null($pres)) {

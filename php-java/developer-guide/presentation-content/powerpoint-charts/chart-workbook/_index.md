@@ -43,7 +43,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  // Instantiates a presentation class that represents a presentation file
+  # Instantiates a presentation class that represents a presentation file
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -150,7 +150,7 @@ While you cannot edit the data in workbooks stored in remote locations or resour
 This PHP code shows you how to set an external workbook:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation("chart.pptx");
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, false);
@@ -177,7 +177,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 * When `ChartData` value is set to `true` , the chart data gets updated from the target workbook.
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation("chart.pptx");
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 400, 600, true);
@@ -202,7 +202,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 This PHP code demonstrates the operation:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation("chart.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(1);
@@ -211,7 +211,7 @@ This PHP code demonstrates the operation:
     if ($sourceType == ChartDataSourceType::ExternalWorkbook) {
       $path = $chart->getChartData()->getExternalWorkbookPath();
     }
-    // Saves the presentation
+    # Saves the presentation
     $pres->save("result.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -227,7 +227,7 @@ You can edit the data in external workbooks the same way you make changes to the
 This PHP code is an implementation of the described process:
 
 ```php
-  // Creates an instance of tthe Presentation class
+  # Creates an instance of tthe Presentation class
   $pres = new Presentation("chart.pptx");
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);

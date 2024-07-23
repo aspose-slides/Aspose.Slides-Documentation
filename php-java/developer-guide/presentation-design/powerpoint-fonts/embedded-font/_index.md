@@ -20,12 +20,12 @@ Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slide
 This PHP code shows you how to get and remove embedded fonts from a presentation:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("EmbeddedFonts.pptx");
   try {
-    // Renders a slide containing a text frame that uses embedded "FunSized"
+    # Renders a slide containing a text frame that uses embedded "FunSized"
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    // Save the image to disk in JPEG format
+    # Save the image to disk in JPEG format
     try {
       $slideImage->save("picture1_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -34,9 +34,9 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
       }
     }
     $fontsManager = $pres->getFontsManager();
-    // Gets all embedded fonts
+    # Gets all embedded fonts
     $embeddedFonts = $fontsManager->getEmbeddedFonts();
-    // Finds the "Calibri" font
+    # Finds the "Calibri" font
     $calibriEmbeddedFont = null;
     $Array = new java_class("java.lang.reflect.Array");
     for($i = 0; $i < java_values($Array->getLength($embeddedFonts)) ; $i++) {
@@ -46,11 +46,11 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
         break;
       }
     }
-    // Removes "Calibri" font
+    # Removes "Calibri" font
     $fontsManager->removeEmbeddedFont($calibriEmbeddedFont);
-    // Renders the presentation; "Calibri" font is replaced with an existing one
+    # Renders the presentation; "Calibri" font is replaced with an existing one
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 960, 720));
-    // Save the image to disk in JPEG format
+    # Save the image to disk in JPEG format
     try {
       $slideImage->save("picture2_out.jpg", ImageFormat::Jpeg);
     } finally {
@@ -58,7 +58,7 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
         $slideImage->dispose();
       }
     }
-    // Saves the presentation without embedded "Calibri" font to disk
+    # Saves the presentation without embedded "Calibri" font to disk
     $pres->save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
   } finally {
     if (!java_is_null($pres)) {
@@ -72,7 +72,7 @@ This PHP code shows you how to get and remove embedded fonts from a presentation
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/php-java/aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This PHP code shows you how to embed and add fonts to a presentation:
 
 ```php
-  // Loads the presentation
+  # Loads the presentation
   $pres = new Presentation("Fonts.pptx");
   try {
     $allFonts = $pres->getFontsManager()->getFonts();
@@ -91,7 +91,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/php-java/asp
         $embeddedFonts = $pres->getFontsManager()->getEmbeddedFonts();
       }
     }
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

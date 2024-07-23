@@ -85,7 +85,7 @@ are used to create extrusion on shape:
     $shape->getThreeDFormat()->getCamera()->setRotation(20, 30, 40);
     $shape->getThreeDFormat()->setExtrusionHeight(100);
     $shape->getThreeDFormat()->getExtrusionColor()->setColor(new java("java.awt.Color", 128, 0, 128));
-    // ... set other 3D scene parameters
+    # ... set other 3D scene parameters
     try {
       $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
       $slideImage->save("sample_3d.png", ImageFormat::Png);
@@ -154,7 +154,7 @@ You may also create an image gradient:
       }
       $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
       $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-      // .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
+      # .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
       try {
         $slideImage = $pres->getSlides()->get_Item(0)->getImage(2, 2);
         $slideImage->save("sample_3d.png", ImageFormat::Png);
@@ -186,7 +186,7 @@ To create a 3D text (WordArt), do the following:
     $portion->getPortionFormat()->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::LargeGrid);
     $shape->getTextFrame()->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(128);
     $textFrame = $shape->getTextFrame();
-    // setup "Arch Up" WordArt transform effect
+    # setup "Arch Up" WordArt transform effect
     $textFrame->getTextFrameFormat()->setTransform(TextShapeType::ArchUp);
     $textFrame->getTextFrameFormat()->getThreeDFormat()->setExtrusionHeight(3.5);
     $textFrame->getTextFrameFormat()->getThreeDFormat()->setDepth(3);

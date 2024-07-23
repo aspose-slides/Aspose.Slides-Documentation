@@ -28,17 +28,17 @@ This Java shows you how to add a large video file through the BLOB process to a 
 
 ```php
   $pathToVeryLargeVideo = "veryLargeVideo.avi";
-  // Creates a new presentation to which the video will be added
+  # Creates a new presentation to which the video will be added
   $pres = new Presentation();
   try {
     $fileStream = new Java("java.io.FileInputStream", $pathToVeryLargeVideo);
     try {
-      // Let's add the video to the presentation - we chose the KeepLocked behavior because we do
-      // not intend to access the "veryLargeVideo.avi" file.
+      # Let's add the video to the presentation - we chose the KeepLocked behavior because we do
+      # not intend to access the "veryLargeVideo.avi" file.
       $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
       $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(0, 0, 480, 270, $video);
-      // Saves the presentation. While a large presentation gets outputted, the memory consumption
-      // stays low through the pres object's lifecycle
+      # Saves the presentation. While a large presentation gets outputted, the memory consumption
+      # stays low through the pres object's lifecycle
       $pres->save("presentationWithLargeVideo.pptx", SaveFormat::Pptx);
     } finally {
       if (!java_is_null($fileStream)) {
@@ -62,23 +62,23 @@ This code  demonstrates the described operation:
 ```php
   $hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
   $loadOptions = new LoadOptions();
-  // Locks the source file and does NOT load it into memory
+  # Locks the source file and does NOT load it into memory
   $loadOptions->getBlobManagementOptions()->setPresentationLockingBehavior(PresentationLockingBehavior->KeepLocked);
-  // create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
+  # create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
   $pres = new Presentation($hugePresentationWithAudiosAndVideosFile, $loadOptions);
   try {
-    // Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
-    // to transfer the data from the presentation's video stream to a stream for a newly created video file.
+    # Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
+    # to transfer the data from the presentation's video stream to a stream for a newly created video file.
     $Array = new JavaClass("java.lang.reflect.Array");
     $Byte = new JavaClass("java.lang.Byte");
     $buffer = $Array->newInstance($Byte, 8 * 1024);
-    // Iterates through the videos
+    # Iterates through the videos
     for($index = 0; $index < java_values($pres->getVideos()->size()) ; $index++) {
       $video = $pres->getVideos()->get_Item($index);
-      // Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
-      // like video.BinaryData - because this property returns a byte array containing a full video, which then
-      // causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
-      // require us to load the whole video into the memory.
+      # Opens the presentation video stream. Please, note that we intentionally avoided accessing properties
+      # like video.BinaryData - because this property returns a byte array containing a full video, which then
+      # causes bytes to be loaded into memory. We use video.GetStream, which will return Stream - and does NOT
+      # require us to load the whole video into the memory.
       $presVideoStream = $video->getStream();
       try {
         $outputFileStream = new Java("java.io.FileOutputStream", "video" . $index . ".avi");
@@ -93,9 +93,9 @@ This code  demonstrates the described operation:
       } finally {
         $presVideoStream->close();
       }
-      // Memory consumption will remain low regardless of the size of the video or presentation.
+      # Memory consumption will remain low regardless of the size of the video or presentation.
     }
-    // If necessary, you can apply the same steps for audio files.
+    # If necessary, you can apply the same steps for audio files.
   } catch (JavaException $e) {
   } finally {
     $pres->dispose();
@@ -109,17 +109,17 @@ This PHP code shows you how to add a large image through the BLOB process:
 
 ```php
   $pathToLargeImage = "large_image.jpg";
-  // creates a new presentation to which the image will be added.
+  # creates a new presentation to which the image will be added.
   $pres = new Presentation();
   try {
     $fileStream = new Java("java.io.FileInputStream", $pathToLargeImage);
     try {
-      // Let's add the image to the presentation - we choose KeepLocked behavior because we do
-      // NOT intend to access the "largeImage.png" file.
+      # Let's add the image to the presentation - we choose KeepLocked behavior because we do
+      # NOT intend to access the "largeImage.png" file.
       $img = $pres->getImages()->addImage($fileStream, LoadingStreamBehavior->KeepLocked);
       $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 0, 0, 300, 200, $img);
-      // Saves the presentation. While a large presentation gets outputted, the memory consumption
-      // stays low through the pres object's lifecycle
+      # Saves the presentation. While a large presentation gets outputted, the memory consumption
+      # stays low through the pres object's lifecycle
       $pres->save("presentationWithLargeImage.pptx", SaveFormat::Pptx);
     } finally {
       if (!java_is_null($fileStream)) {

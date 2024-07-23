@@ -19,18 +19,18 @@ description: "PowerPoint header and footer "
 Notes of some specific slide could be removed as shown in example below:
 
 ```php
-  // Load Presentation
+  # Load Presentation
   $pres = new Presentation("headerTest.pptx");
   try {
-    // Setting Footer
+    # Setting Footer
     $pres->getHeaderFooterManager()->setAllFootersText("My Footer text");
     $pres->getHeaderFooterManager()->setAllFootersVisibility(true);
-    // Access and Update Header
+    # Access and Update Header
     $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (null != $masterNotesSlide) {
       updateHeaderFooterText($masterNotesSlide);
     }
-    // Save presentation
+    # Save presentation
     $pres->save("HeaderFooterJava.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -60,7 +60,7 @@ Code Snippet provided in below Example.
 ```php
   $pres = new Presentation("presentation.pptx");
   try {
-    // Change Header and Footer settings for notes master and all notes slides
+    # Change Header and Footer settings for notes master and all notes slides
     $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
     if (!java_is_null($masterNotesSlide)) {
       $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
@@ -79,7 +79,7 @@ Code Snippet provided in below Example.
       $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");// set text to master notes slide and all child Date and time placeholders
 
     }
-    // Change Header and Footer settings for first notes slide only
+    # Change Header and Footer settings for first notes slide only
     $notesSlide = $pres->getSlides()->get_Item(0)->getNotesSlideManager()->getNotesSlide();
     if (!java_is_null($notesSlide)) {
       $headerFooterManager = $notesSlide->getHeaderFooterManager();

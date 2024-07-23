@@ -20,23 +20,23 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 This PHP code demonstrates the font substitution process:
 
 ```php
-  // Loads a presentation
+  # Loads a presentation
   $pres = new Presentation("Fonts.pptx");
   try {
-    // Loads the source font that will be replaced
+    # Loads the source font that will be replaced
     $sourceFont = new FontData("SomeRareFont");
-    // Loads the new font
+    # Loads the new font
     $destFont = new FontData("Arial");
-    // Adds a font rule for font replacement
+    # Adds a font rule for font replacement
     $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    // Adds the rule to font substitute rules collection
+    # Adds the rule to font substitute rules collection
     $fontSubstRuleCollection = new FontSubstRuleCollection();
     $fontSubstRuleCollection->add($fontSubstRule);
-    // Adds a font rule collection to the rule list
+    # Adds a font rule collection to the rule list
     $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    // Arial font will be used in place of SomeRareFont when the latter is inaccessible
+    # Arial font will be used in place of SomeRareFont when the latter is inaccessible
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    // Saves the image to disk in the JPEG format
+    # Saves the image to disk in the JPEG format
     try {
       $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
     } finally {

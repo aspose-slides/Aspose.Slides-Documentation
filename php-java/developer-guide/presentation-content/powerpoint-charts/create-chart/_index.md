@@ -124,66 +124,66 @@ _Code Steps:_
 This PHP code shows you how to create a normal chart:
 
 ```php
-  // Instantiates a presentation class that represents a PPTX file
+  # Instantiates a presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Adds a chart with its default data
+    # Adds a chart with its default data
     $chart = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 0, 0, 500, 500);
-    // Sets the chart Title
+    # Sets the chart Title
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->hasTitle();
-    // Sets the first series to show values
+    # Sets the first series to show values
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    // Sets the index for the chart data sheet
+    # Sets the index for the chart data sheet
     $defaultWorksheetIndex = 0;
-    // Gets the chart data WorkSheet
+    # Gets the chart data WorkSheet
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    // Deletes the default generated series and categories
+    # Deletes the default generated series and categories
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
     $s = $chart->getChartData()->getSeries()->size();
     $s = $chart->getChartData()->getCategories()->size();
-    // Adds new series
+    # Adds new series
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    // Adds new categories
+    # Adds new categories
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Takes the first chart series
+    # Takes the first chart series
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    // Now populates the series data
+    # Now populates the series data
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    // Sets the fill color for series
+    # Sets the fill color for series
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    // Takes the second chart series
+    # Takes the second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    // Populates series data
+    # Populates series data
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    // Sets the fill color for the series
+    # Sets the fill color for the series
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    // Create custom labels for each categories for the new series
-    // Sets the first label to show Category name
+    # Create custom labels for each categories for the new series
+    # Sets the first label to show Category name
     $lbl = $series->getDataPoints()->get_Item(0)->getLabel();
     $lbl->getDataLabelFormat()->setShowCategoryName(true);
     $lbl = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
-    // Shows value for the third label
+    # Shows value for the third label
     $lbl = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl->getDataLabelFormat()->setShowValue(true);
     $lbl->getDataLabelFormat()->setShowSeriesName(true);
     $lbl->getDataLabelFormat()->setSeparator("/");
-    // Saves the presentation with chart
+    # Saves the presentation with chart
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -217,44 +217,44 @@ You may want to use a scattered chart when
 This PHP code shows you how to create a scattered charts with a different series of markers:
 
 ```php
-  // Instantiates a presentation class that represents a PPTX file
+  # Instantiates a presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Creates the default chart
+    # Creates the default chart
     $chart = $slide->getShapes()->addChart(ChartType::ScatterWithSmoothLines, 0, 0, 400, 400);
-    // Gets the default chart data worksheet index
+    # Gets the default chart data worksheet index
     $defaultWorksheetIndex = 0;
-    // Gets the chart data worksheet
+    # Gets the chart data worksheet
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    // Deletes the demo series
+    # Deletes the demo series
     $chart->getChartData()->getSeries()->clear();
-    // Adds new series
+    # Adds new series
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 1, 3, "Series 2"), $chart->getType());
-    // Takes first chart series
+    # Takes first chart series
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    // Adds a new point (1:3) to the series
+    # Adds a new point (1:3) to the series
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 1), $fact->getCell($defaultWorksheetIndex, 2, 2, 3));
-    // Adds a new point (2:10)
+    # Adds a new point (2:10)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 2), $fact->getCell($defaultWorksheetIndex, 3, 2, 10));
-    // Changes the series type
+    # Changes the series type
     $series->setType(ChartType::ScatterWithStraightLinesAndMarkers);
-    // Changes the chart series marker
+    # Changes the chart series marker
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Star);
-    // Takes the second chart series
+    # Takes the second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    // Adds a new point (5:2) there
+    # Adds a new point (5:2) there
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 5), $fact->getCell($defaultWorksheetIndex, 2, 4, 2));
-    // Adds a new point (3:1)
+    # Adds a new point (3:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 3), $fact->getCell($defaultWorksheetIndex, 3, 4, 1));
-    // Adds a new point (2:2)
+    # Adds a new point (2:2)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 4, 3, 2), $fact->getCell($defaultWorksheetIndex, 4, 4, 2));
-    // Adds a new point (5:1)
+    # Adds a new point (5:1)
     $series->getDataPoints()->addDataPointForScatterSeries($fact->getCell($defaultWorksheetIndex, 5, 3, 5), $fact->getCell($defaultWorksheetIndex, 5, 4, 1));
-    // Changes the chart series marker
+    # Changes the chart series marker
     $series->getMarker()->setSize(10);
     $series->getMarker()->setSymbol(MarkerStyleType::Circle);
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
@@ -289,45 +289,45 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 This PHP code shows you how to create a pie chart:
 
 ```php
-  // Instantiates a presentation class that represents a PPTX file
+  # Instantiates a presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $slides = $pres->getSlides()->get_Item(0);
-    // Adds a chart with default data
+    # Adds a chart with default data
     $chart = $slides->getShapes()->addChart(ChartType::Pie, 100, 100, 400, 400);
-    // Sets the chart Title
+    # Sets the chart Title
     $chart->getChartTitle()->addTextFrameForOverriding("Sample Title");
     $chart->getChartTitle()->getTextFrameForOverriding()->getTextFrameFormat()->setCenterText(NullableBool::True);
     $chart->getChartTitle()->setHeight(20);
     $chart->setTitle(true);
-    // Sets the first series to show values
+    # Sets the first series to show values
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    // Sets the index for the chart data sheet
+    # Sets the index for the chart data sheet
     $defaultWorksheetIndex = 0;
-    // Gets the chart data worksheet
+    # Gets the chart data worksheet
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    // Deletes the default generated series and categories
+    # Deletes the default generated series and categories
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    // Adds new categories
+    # Adds new categories
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 1, 0, "First Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 2, 0, "2nd Qtr"));
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 3, 0, "3rd Qtr"));
-    // Adds new series
+    # Adds new series
     $series = $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    // Populates the series data
+    # Populates the series data
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForPieSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    // Not working in new version
-    // Adding new points and setting sector color
-    // series.IsColorVaried = true;
+    # Not working in new version
+    # Adding new points and setting sector color
+    # series.IsColorVaried = true;
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setColorVaried(true);
     $point = $series->getDataPoints()->get_Item(0);
     $point->getFormat()->getFill()->setFillType(FillType::Solid);
     $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
-    // Sets the Sector border
+    # Sets the Sector border
     $point->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
     $point->getFormat()->getLine()->setWidth(3.0);
@@ -336,7 +336,7 @@ This PHP code shows you how to create a pie chart:
     $point1 = $series->getDataPoints()->get_Item(1);
     $point1->getFormat()->getFill()->setFillType(FillType::Solid);
     $point1->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
-    // Sets the Sector border
+    # Sets the Sector border
     $point1->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point1->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $point1->getFormat()->getLine()->setWidth(3.0);
@@ -345,15 +345,15 @@ This PHP code shows you how to create a pie chart:
     $point2 = $series->getDataPoints()->get_Item(2);
     $point2->getFormat()->getFill()->setFillType(FillType::Solid);
     $point2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-    // Sets the Sector border
+    # Sets the Sector border
     $point2->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $point2->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $point2->getFormat()->getLine()->setWidth(2.0);
     $point2->getFormat()->getLine()->setStyle(LineStyle->ThinThin);
     $point2->getFormat()->getLine()->setDashStyle(LineDashStyle->LargeDashDotDot);
-    // Creates custom labels for each of categories for new series
+    # Creates custom labels for each of categories for new series
     $lbl1 = $series->getDataPoints()->get_Item(0)->getLabel();
-    // lbl.ShowCategoryName = true;
+    # lbl.ShowCategoryName = true;
     $lbl1->getDataLabelFormat()->setShowValue(true);
     $lbl2 = $series->getDataPoints()->get_Item(1)->getLabel();
     $lbl2->getDataLabelFormat()->setShowValue(true);
@@ -362,11 +362,11 @@ This PHP code shows you how to create a pie chart:
     $lbl3 = $series->getDataPoints()->get_Item(2)->getLabel();
     $lbl3->getDataLabelFormat()->setShowSeriesName(true);
     $lbl3->getDataLabelFormat()->setShowPercentage(true);
-    // Shows Leader Lines for Chart
+    # Shows Leader Lines for Chart
     $series->getLabels()->getDefaultDataLabelFormat()->setShowLeaderLines(true);
-    // Sets the Rotation Angle for Pie Chart Sectors
+    # Sets the Rotation Angle for Pie Chart Sectors
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setFirstSliceAngle(180);
-    // Saves the presentation with a chart
+    # Saves the presentation with a chart
     $pres->save("PieChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -438,7 +438,7 @@ This PHP code shows you how to create a tree map chart:
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    // branch 1
+    # branch 1
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
@@ -446,7 +446,7 @@ This PHP code shows you how to create a tree map chart:
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    // branch 2
+    # branch 2
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
@@ -649,7 +649,7 @@ This PHP code shows you how to create a sunburst chart:
     $chart->getChartData()->getSeries()->clear();
     $wb = $chart->getChartData()->getChartDataWorkbook();
     $wb->clear(0);
-    // branch 1
+    # branch 1
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C1", "Leaf1"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem1");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch1");
@@ -657,7 +657,7 @@ This PHP code shows you how to create a sunburst chart:
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C3", "Leaf3"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem2");
     $chart->getChartData()->getCategories()->add($wb->getCell(0, "C4", "Leaf4"));
-    // branch 2
+    # branch 2
     $leaf = $chart->getChartData()->getCategories()->add($wb->getCell(0, "C5", "Leaf5"));
     $leaf->getGroupingLevels()->setGroupingItem(1, "Stem3");
     $leaf->getGroupingLevels()->setGroupingItem(2, "Branch2");
@@ -780,7 +780,7 @@ This PHP code shows you how to create a multicategory chart:
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c8", "G"));
     $category->getGroupingLevels()->setGroupingItem(1, "Group4");
     $category = $ch->getChartData()->getCategories()->add($fact->getCell(0, "c9", "H"));
-    // Adding Series
+    # Adding Series
     $series = $ch->getChartData()->getSeries()->add($fact->getCell(0, "D1", "Series 1"), ChartType::ClusteredColumn);
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D2", 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D3", 20));
@@ -790,7 +790,7 @@ This PHP code shows you how to create a multicategory chart:
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D7", 60));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D8", 70));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, "D9", 80));
-    // Save presentation with chart
+    # Save presentation with chart
     $pres->save("AsposeChart_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -852,43 +852,43 @@ This PHP code shows you how to update a chart:
 ```php
   $pres = new Presentation();
   try {
-    // Access first slideMarker
+    # Access first slideMarker
     $sld = $pres->getSlides()->get_Item(0);
-    // Get chart with default data
+    # Get chart with default data
     $chart = $sld->getShapes()->get_Item(0);
-    // Setting the index of chart data sheet
+    # Setting the index of chart data sheet
     $defaultWorksheetIndex = 0;
-    // Getting the chart data worksheet
+    # Getting the chart data worksheet
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    // Changing chart Category Name
+    # Changing chart Category Name
     $fact->getCell($defaultWorksheetIndex, 1, 0, "Modified Category 1");
     $fact->getCell($defaultWorksheetIndex, 2, 0, "Modified Category 2");
-    // Take first chart series
+    # Take first chart series
     $series = $chart->getChartData()->getSeries()->get_Item(0);
-    // Now updating series data
+    # Now updating series data
     $fact->getCell($defaultWorksheetIndex, 0, 1, "New_Series1");// Modifying series name
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(90);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(123);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(44);
-    // Take Second chart series
+    # Take Second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    // Now updating series data
+    # Now updating series data
     $fact->getCell($defaultWorksheetIndex, 0, 2, "New_Series2");// Modifying series name
 
     $series->getDataPoints()->get_Item(0)->getValue()->setData(23);
     $series->getDataPoints()->get_Item(1)->getValue()->setData(67);
     $series->getDataPoints()->get_Item(2)->getValue()->setData(99);
-    // Now, Adding a new series
+    # Now, Adding a new series
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 3, "Series 3"), $chart->getType());
-    // Take 3rd chart series
+    # Take 3rd chart series
     $series = $chart->getChartData()->getSeries()->get_Item(2);
-    // Now populating series data
+    # Now populating series data
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 3, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 3, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 3, 30));
     $chart->setType(ChartType::ClusteredCylinder);
-    // Save presentation with chart
+    # Save presentation with chart
     $pres->save("AsposeChartModified_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -947,9 +947,9 @@ This PHP code shows you how to set a chart series market automatically:
     $chart->getChartData()->getCategories()->add($fact->getCell(0, 4, 0, "C4"));
     $series->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 4, 1, null));
     $chart->getChartData()->getSeries()->add($fact->getCell(0, 0, 2, "Series 2"), $chart->getType());
-    // Take second chart series
+    # Take second chart series
     $series2 = $chart->getChartData()->getSeries()->get_Item(1);
-    // Now populating series data
+    # Now populating series data
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 1, 2, 30));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 2, 2, 10));
     $series2->getDataPoints()->addDataPointForLineSeries($fact->getCell(0, 3, 2, 60));

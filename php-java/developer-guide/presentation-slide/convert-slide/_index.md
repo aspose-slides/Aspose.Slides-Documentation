@@ -35,11 +35,11 @@ This PHP code shows you how to convert the first slide of a presentation to a bi
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Converts the first slide in the presentation to a Images object
+    # Converts the first slide in the presentation to a Images object
     $slideImage = $pres->getSlides()->get_Item(0)->getImage();
-    // Saves the image in the PNG format
+    # Saves the image in the PNG format
     try {
-      // save the image on the disk.
+      # save the image on the disk.
       $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
       if (!java_is_null($slideImage)) {
@@ -58,12 +58,12 @@ This sample code shows you how to convert the first slide of a presentation to a
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Gets the presentation slide size
+    # Gets the presentation slide size
     $slideSize = new Java("java.awt.Dimension", $slideSize->getWidth(), $slideSize->getHeight());
-    // Creates a Images with the slide size
+    # Creates a Images with the slide size
     $slideImage = $sld->getImage(new RenderingOptions(), $slideSize);
     try {
-      // save the image on the disk.
+      # save the image on the disk.
       $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
       if (!java_is_null($slideImage)) {
@@ -92,11 +92,11 @@ This sample code demonstrates the proposed conversion using the [getImage](https
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Converts the first slide in the presentation to a Bitmap with the specified size
+    # Converts the first slide in the presentation to a Bitmap with the specified size
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(new Java("java.awt.Dimension", 1820, 1040));
-    // Saves the image in the JPEG format
+    # Saves the image in the JPEG format
     try {
-      // save the image on the disk.
+      # save the image on the disk.
       $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
       if (!java_is_null($slideImage)) {
@@ -127,19 +127,19 @@ This PHP code demonstrates the conversion process for a slide with notes and com
 ```php
   $pres = new Presentation("PresentationNotesComments.pptx");
   try {
-    // Creates the rendering options
+    # Creates the rendering options
     $options = new RenderingOptions();
-    // Sets the position of the notes on the page
+    # Sets the position of the notes on the page
     $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    // Sets the position of the comments on the page
+    # Sets the position of the comments on the page
     $options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
-    // Sets the width of the comment output area
+    # Sets the width of the comment output area
     $options->getNotesCommentsLayouting()->setCommentsAreaWidth(500);
-    // Sets the color for the comments area
+    # Sets the color for the comments area
     $options->getNotesCommentsLayouting()->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);
-    // Converts the first slide of the presentation to a Bitmap object
+    # Converts the first slide of the presentation to a Bitmap object
     $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, 2.0, 2.0);
-    // Saves the image in the GIF format
+    # Saves the image in the GIF format
     try {
       $slideImage->save("Slide_Notes_Comments_0.gif", ImageFormat::Gif);
     } finally {
@@ -159,17 +159,17 @@ This PHP code demonstrates the conversion process for a slide with notes using t
 ```php
   $pres = new Presentation("PresentationNotes.pptx");
   try {
-    // Gets the presentation notes size
+    # Gets the presentation notes size
     $notesSize = $pres->getNotesSize()->getSize();
-    // Creates the rendering options
+    # Creates the rendering options
     $options = new RenderingOptions();
-    // Sets the position of the notes
+    # Sets the position of the notes
     $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    // Creates a Images with the notes' size
+    # Creates a Images with the notes' size
     $slideImage = $pres->getSlides()->get_Item(0)->getImage($options, $notesSize);
-    // Saves the image in PNG format
+    # Saves the image in PNG format
     try {
-      // save the image on the disk.
+      # save the image on the disk.
       $slideImage->save("Slide_0.png", ImageFormat::Png);
     } finally {
       if (!java_is_null($slideImage)) {
@@ -198,23 +198,23 @@ This PHP code demonstrates a conversion process where ITiffOptions is used to ou
 ```php
   $pres = new Presentation("PresentationNotesComments.pptx");
   try {
-    // Gets a slide by its index
+    # Gets a slide by its index
     $slide = $pres->getSlides()->get_Item(0);
-    // Creates a TiffOptions object
+    # Creates a TiffOptions object
     $options = new TiffOptions();
     $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));
-    // Set the font used in case source font is not found
+    # Set the font used in case source font is not found
     $options->setDefaultRegularFont("Arial Black");
-    // Set the position of the notes on the page
+    # Set the position of the notes on the page
     $options->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomTruncated);
-    // Sets the pixel format (black and white)
+    # Sets the pixel format (black and white)
     $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);
-    // Sets the resolution
+    # Sets the resolution
     $options->setDpiX(300);
     $options->setDpiY(300);
-    // Converts the slide to a Bitmap object
+    # Converts the slide to a Bitmap object
     $slideImage = $slide->getImage($options);
-    // Saves the image in TIFF format
+    # Saves the image in TIFF format
     try {
       $slideImage->save("PresentationNotesComments.tiff", ImageFormat::Tiff);
     } finally {
@@ -244,15 +244,15 @@ This sample code shows you how to convert all slides in a presentation to images
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Render presentation to images array slide by slide
+    # Render presentation to images array slide by slide
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
-      // Control hidden slides (do not render hidden slides)
+      # Control hidden slides (do not render hidden slides)
       if ($pres->getSlides()->get_Item($i)->getHidden()) {
         continue;
       }
-      // Convert slide to a Bitmap object
+      # Convert slide to a Bitmap object
       $slideImage = $pres->getSlides()->get_Item($i)->getImage(2.0, 2.0);
-      // Save the image in PNG format
+      # Save the image in PNG format
       try {
         $slideImage->save("Slide_" . $i . ".png", ImageFormat::Png);
       } finally {

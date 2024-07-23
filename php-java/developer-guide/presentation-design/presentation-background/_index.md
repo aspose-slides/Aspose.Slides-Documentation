@@ -24,14 +24,14 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 This PHP code shows you how to set a solid color (blue) as the background for a normal slide:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation("MasterBG.pptx");
   try {
-    // Sets the background color for the first ISlide to Blue
+    # Sets the background color for the first ISlide to Blue
     $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    // Writes the presentation to disk
+    # Writes the presentation to disk
     $pres->save("ContentBG.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -53,14 +53,14 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 This PHP code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Sets the background color for the Master ISlide to Forest Green
+    # Sets the background color for the Master ISlide to Forest Green
     $pres->getMasters()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
     $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Solid);
     $pres->getMasters()->get_Item(0)->getBackground()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
-    // Writes the presentation to disk
+    # Writes the presentation to disk
     $pres->save("MasterBG.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -82,14 +82,14 @@ A gradient is a graphical effect based on a gradual change in color. Gradient co
 This PHP code shows you how to set a gradient color as the background for a slide:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation("MasterBG.pptx");
   try {
-    // Apply Gradient effect to the Background
+    # Apply Gradient effect to the Background
     $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Gradient);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getGradientFormat()->setTileFlip(TileFlip->FlipBoth);
-    // Writes the presentation to disk
+    # Writes the presentation to disk
     $pres->save("ContentBG_Grad.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -113,14 +113,14 @@ Besides solid colors and gradient colors, Aspose.Slides also allows you to set i
 This PHP code shows you how to set an image as the background for a slide:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Sets conditions for background image
+    # Sets conditions for background image
     $pres->getSlides()->get_Item(0)->getBackground()->setType(BackgroundType::OwnBackground);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->setFillType(FillType::Picture);
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    // Loads the image
+    # Loads the image
     $imgx;
     $image = Images->fromFile("Desert.jpg");
     try {
@@ -130,9 +130,9 @@ This PHP code shows you how to set an image as the background for a slide:
         $image->dispose();
       }
     }
-    // Adds image to presentation's images collection
+    # Adds image to presentation's images collection
     $pres->getSlides()->get_Item(0)->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($imgx);
-    // Writes the presentation to disk
+    # Writes the presentation to disk
     $pres->save("ContentBG_Img.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -149,9 +149,9 @@ You may want to adjust the transparency of a slide's background image to make th
 ```php
   $transparencyValue = 30;// for example
 
-  // Gets a collection of picture transform operations
+  # Gets a collection of picture transform operations
   $imageTransform = $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->getImageTransform();
-  // Finds a transparency effect with fixed percentage.
+  # Finds a transparency effect with fixed percentage.
   $transparencyOperation = null;
   foreach($imageTransform as $operation) {
     if (java_instanceof($operation, new JavaClass("com.aspose.slides.AlphaModulateFixed"))) {
@@ -159,7 +159,7 @@ You may want to adjust the transparency of a slide's background image to make th
       break;
     }
   }
-  // Sets the new transparency value.
+  # Sets the new transparency value.
   if (java_is_null($transparencyOperation)) {
     $imageTransform->addAlphaModulateFixedEffect(100 - $transparencyValue);
   } else {
@@ -176,7 +176,7 @@ Using the [Background](https://reference.aspose.com/slides/php-java/aspose.slide
 This PHP code shows you how to get a slide's effective background value:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation("SamplePresentation.pptx");
   try {
     $effBackground = $pres->getSlides()->get_Item(0)->getBackground()->getEffective();

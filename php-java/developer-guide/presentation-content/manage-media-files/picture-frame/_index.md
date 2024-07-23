@@ -31,16 +31,16 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 This PHP code shows you how to create a picture frame:
 
 ```php
-  // Instantiates the Presentation class that represents a PPTX file
+  # Instantiates the Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Gets the first slide
+    # Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Instantiates the Image class
+    # Instantiates the Image class
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    // Adds a picture frame with the picture's equivalent height and width
+    # Adds a picture frame with the picture's equivalent height and width
     $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    // Write the PPTX file to disk
+    # Write the PPTX file to disk
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -70,19 +70,19 @@ By altering an image's relative scaling, you can create a more complicated pictu
 This PHP code shows you how to create a picture frame with relative scale:
 
 ```php
-  // Instantiate Presentation class that represents the PPTX
+  # Instantiate Presentation class that represents the PPTX
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Instantiate the Image class
+    # Instantiate the Image class
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    // Add Picture Frame with height and width equivalent of Picture
+    # Add Picture Frame with height and width equivalent of Picture
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    // Setting relative scale width and height
+    # Setting relative scale width and height
     $pf->setRelativeScaleHeight(0.8);
     $pf->setRelativeScaleWidth(1.35);
-    // Write the PPTX file to disk
+    # Write the PPTX file to disk
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -156,21 +156,21 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 This PHP code demonstrates the picture frame formatting process:
 
 ```php
-  // Instantiates the Presentation class that represents the PPTX
+  # Instantiates the Presentation class that represents the PPTX
   $pres = new Presentation();
   try {
-    // Gets the first slide
+    # Gets the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Instantiates the Image class
+    # Instantiates the Image class
     $imgx = $pres->getImages()->addImage(new Java("java.io.FileInputStream", new Java("java.io.File", "asp1.jpg")));
-    // Adds Picture Frame with height and width equivalent of Picture
+    # Adds Picture Frame with height and width equivalent of Picture
     $pf = $sld->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $imgx->getWidth(), $imgx->getHeight(), $imgx);
-    // Applies some formatting to PictureFrameEx
+    # Applies some formatting to PictureFrameEx
     $pf->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $pf->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $pf->getLineFormat()->setWidth(20);
     $pf->setRotation(45);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("RectPicFrame.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -231,7 +231,7 @@ This PHP code shows you how to crop an existing image on a slide:
 
 ```php
   $pres = new Presentation();
-  // Creates new image object
+  # Creates new image object
   try {
     $picture;
     $image = Images->fromFile($imagePath);
@@ -242,14 +242,14 @@ This PHP code shows you how to crop an existing image on a slide:
         $image->dispose();
       }
     }
-    // Adds a PictureFrame to a Slide
+    # Adds a PictureFrame to a Slide
     $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 100, 100, 420, 250, $picture);
-    // Crops the image (percentage values)
+    # Crops the image (percentage values)
     $picFrame->getPictureFormat()->setCropLeft(23.6);
     $picFrame->getPictureFormat()->setCropRight(21.5);
     $picFrame->getPictureFormat()->setCropTop(3);
     $picFrame->getPictureFormat()->setCropBottom(31);
-    // Saves the result
+    # Saves the result
     $pres->save($outPptxFile, SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -269,11 +269,11 @@ This PHP code demonstrates the operation:
   $presentation = new Presentation("PictureFrameCrop.pptx");
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    // Gets the PictureFrame from the first slide
+    # Gets the PictureFrame from the first slide
     $picFrame = $slide->getShapes()->get_Item(0);
-    // Deletes cropped areas of the PictureFrame image and returns the cropped image
+    # Deletes cropped areas of the PictureFrame image and returns the cropped image
     $croppedImage = $picFrame->getPictureFormat()->deletePictureCroppedAreas();
-    // Saves the result
+    # Saves the result
     $presentation->save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {
@@ -311,7 +311,7 @@ This PHP code shows you how to lock a shape's aspect ratio:
       }
     }
     $pictureFrame = $emptySlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 150, $presImage->getWidth(), $presImage->getHeight(), $picture);
-    // set shape to have to preserve aspect ratio on resizing
+    # set shape to have to preserve aspect ratio on resizing
     $pictureFrame->getPictureFrameLock()->setAspectRatioLocked(true);
   } catch (JavaException $e) {
   } finally {
@@ -346,12 +346,12 @@ When stretching is specified for an image, a source rectangle is scaled to fit t
 This PHP code demonstrates a process in which a StretchOff property is used:
 
 ```php
-  // Instantiates the Prseetation class that represents a PPTX file
+  # Instantiates the Prseetation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Gets the first slide
+    # Gets the first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Instantiates the ImageEx class
+    # Instantiates the ImageEx class
     $picture;
     $image = Images->fromFile("aspose-logo.jpg");
     try {
@@ -361,20 +361,20 @@ This PHP code demonstrates a process in which a StretchOff property is used:
         $image->dispose();
       }
     }
-    // Adds an AutoShape set to Rectangle
+    # Adds an AutoShape set to Rectangle
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    // Sets the shape's fill type
+    # Sets the shape's fill type
     $aShape->getFillFormat()->setFillType(FillType::Picture);
-    // Sets the shape's picture fill mode
+    # Sets the shape's picture fill mode
     $aShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-    // Sets the image to fill the shape
+    # Sets the image to fill the shape
     $aShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    // Specifies the image offsets from the corresponding edge of the shape's bounding box
+    # Specifies the image offsets from the corresponding edge of the shape's bounding box
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetLeft(25);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetRight(25);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetTop(-20);
     $aShape->getFillFormat()->getPictureFillFormat()->setStretchOffsetBottom(-10);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("StretchOffsetLeftForPictureFrame_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {

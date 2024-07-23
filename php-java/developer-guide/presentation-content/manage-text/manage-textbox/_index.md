@@ -34,24 +34,24 @@ To create a textbox on a slide, go through these steps:
 This PHP code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```php
-  // Instantiates Presentation
+  # Instantiates Presentation
   $pres = new Presentation();
   try {
-    // Gets the first slide in the presentation
+    # Gets the first slide in the presentation
     $sld = $pres->getSlides()->get_Item(0);
-    // Adds an AutoShape with type set as Rectangle
+    # Adds an AutoShape with type set as Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    // Adds TextFrame to the Rectangle
+    # Adds TextFrame to the Rectangle
     $ashp->addTextFrame(" ");
-    // Accesses the text frame
+    # Accesses the text frame
     $txtFrame = $ashp->getTextFrame();
-    // Creates the Paragraph object for text frame
+    # Creates the Paragraph object for text frame
     $para = $txtFrame->getParagraphs()->get_Item(0);
-    // Creates a Portion object for paragraph
+    # Creates a Portion object for paragraph
     $portion = $para->getPortions()->get_Item(0);
-    // Sets Text
+    # Sets Text
     $portion->setText("Aspose TextBox");
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -97,19 +97,19 @@ This code  demonstrates the described operation:
 ```php
   $pres = new Presentation();
   try {
-    // Gets the first slide in the presentation
+    # Gets the first slide in the presentation
     $slide = $pres->getSlides()->get_Item(0);
-    // Add an AutoShape with type set as Rectangle
+    # Add an AutoShape with type set as Rectangle
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    // Add TextFrame to the Rectangle
+    # Add TextFrame to the Rectangle
     $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
-    // Gets the text format of TextFrame
+    # Gets the text format of TextFrame
     $format = $aShape->getTextFrame()->getTextFrameFormat();
-    // Specifies the number of columns in TextFrame
+    # Specifies the number of columns in TextFrame
     $format->setColumnCount(3);
-    // Specifies the spacing between columns
+    # Specifies the spacing between columns
     $format->setColumnSpacing(10);
-    // Saves the presentation
+    # Saves the presentation
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -186,12 +186,12 @@ This PHP code demonstrates an operation where all the texts in a presentation ar
   try {
     foreach($pres->getSlides() as $slide) {
       foreach($slide->getShapes() as $shape) {
-        // Checks if shape supports text frame (IAutoShape).
+        # Checks if shape supports text frame (IAutoShape).
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
           $autoShape = $shape;
-          // Iterates through paragraphs in text frame
+          # Iterates through paragraphs in text frame
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            // Iterates through each portion in paragraph
+            # Iterates through each portion in paragraph
             foreach($paragraph->getPortions() as $portion) {
               $portion->setText($portion->getText()->replace("years", "months"));// Changes text
 
@@ -202,7 +202,7 @@ This PHP code demonstrates an operation where all the texts in a presentation ar
         }
       }
     }
-    // Saves modified presentation
+    # Saves modified presentation
     $pres->save("text-changed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -228,24 +228,24 @@ You can insert a link inside a text box. When the text box is clicked, users are
 This PHP code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```php
-  // Instantiates a Presentation class that represents a PPTX
+  # Instantiates a Presentation class that represents a PPTX
   $pres = new Presentation();
   try {
-    // Gets the first slide in the presentation
+    # Gets the first slide in the presentation
     $slide = $pres->getSlides()->get_Item(0);
-    // Adds an AutoShape object with type set as Rectangle
+    # Adds an AutoShape object with type set as Rectangle
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    // Casts the shape to AutoShape
+    # Casts the shape to AutoShape
     $pptxAutoShape = $shape;
-    // Accesses the ITextFrame property associated with the AutoShape
+    # Accesses the ITextFrame property associated with the AutoShape
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
-    // Adds some text to the frame
+    # Adds some text to the frame
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    // Sets the Hyperlink for the portion text
+    # Sets the Hyperlink for the portion text
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
-    // Saves the PPTX Presentation
+    # Saves the PPTX Presentation
     $pres->save("hLink_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

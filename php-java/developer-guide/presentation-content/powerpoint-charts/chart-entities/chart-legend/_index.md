@@ -16,19 +16,19 @@ In order to set the legend properties. Please follow the steps below:
 In the example given below, we have set the position and size for Chart legend.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
-    // Get reference of the slide
+    # Get reference of the slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Add a clustered column chart on the slide
+    # Add a clustered column chart on the slide
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 500);
-    // Set Legend Properties
+    # Set Legend Properties
     $chart->getLegend()->setX(50 / $chart->getWidth());
     $chart->getLegend()->setY(50 / $chart->getHeight());
     $chart->getLegend()->setWidth(100 / $chart->getWidth());
     $chart->getLegend()->setHeight(100 / $chart->getHeight());
-    // Write presentation to disk
+    # Write presentation to disk
     $pres->save("Legend_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -48,7 +48,7 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of leg
 - Write presentation to disk.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
@@ -77,7 +77,7 @@ The Aspose.Slides for PHP via Java lets developers allow to set font size of ind
 - Write presentation to disk.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);

@@ -48,17 +48,17 @@ This PHP code shows you how to identify merged table cells in a presentation:
 This PHP code shows you how to remove the borders from table cells:
 
 ```php
-  // Instantiates Presentation class that represents a PPTX file
+  # Instantiates Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(50, 50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
-    // Adds table shape to slide
+    # Adds table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    // Sets the border format for each cell
+    # Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::NoFill);
@@ -67,7 +67,7 @@ This PHP code shows you how to remove the borders from table cells:
         $cell->getCellFormat()->getBorderRight()->getFillFormat()->setFillType(FillType::NoFill);
       }
     }
-    // Writes the PPTX to disk
+    # Writes the PPTX to disk
     $pres->save("table_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -80,17 +80,17 @@ This PHP code shows you how to remove the borders from table cells:
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This PHP code demonstrates the process:
 
 ```php
-  // Instantiates Presentation class that represents a PPTX file
+  # Instantiates Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses first slide
+    # Accesses first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
-    // Adds a table shape to the slide
+    # Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    // Sets the border format for each cell
+    # Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
@@ -107,9 +107,9 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
     }
-    // Merges cells (1, 1) x (2, 1)
+    # Merges cells (1, 1) x (2, 1)
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    // Merges cells (1, 2) x (2, 2)
+    # Merges cells (1, 2) x (2, 2)
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
     $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
   } finally {
@@ -122,17 +122,17 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
 We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
 ```php
-  // Instantiates Presentation class that represents a PPTX file
+  # Instantiates Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses first slide
+    # Accesses first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
-    // Adds a table shape to the slide
+    # Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    // Sets the border format for each cell
+    # Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
@@ -149,13 +149,13 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
     }
-    // Merges cells (1, 1) x (2, 1)
+    # Merges cells (1, 1) x (2, 1)
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    // Merges cells (1, 2) x (2, 2)
+    # Merges cells (1, 2) x (2, 2)
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    // Merges cells (1, 1) x (1, 2)
+    # Merges cells (1, 1) x (1, 2)
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(1, 2), true);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("MergeCells_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -172,17 +172,17 @@ This time, we take a regular table (a table without merged cells) and then try t
 This PHP code demonstrates the process we described:
 
 ```php
-  // Instantiates the Presentation class that represents a PPTX file
+  # Instantiates the Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
-    // Adds a table shape to the slide
+    # Adds a table shape to the slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    // Sets the border format for each cell
+    # Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
@@ -199,13 +199,13 @@ This PHP code demonstrates the process we described:
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
     }
-    // Merges cells (1, 1) x (2, 1)
+    # Merges cells (1, 1) x (2, 1)
     $tbl->mergeCells($tbl->get_Item(1, 1), $tbl->get_Item(2, 1), false);
-    // Merges cells (1, 2) x (2, 2)
+    # Merges cells (1, 2) x (2, 2)
     $tbl->mergeCells($tbl->get_Item(1, 2), $tbl->get_Item(2, 2), false);
-    // Splits cell (1, 1)
+    # Splits cell (1, 1)
     $tbl->get_Item(1, 1)->splitByWidth($tbl->get_Item(2, 1)->getWidth() / 2);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("SplitCells_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -224,9 +224,9 @@ This PHP code shows you how to change a table cell's background color:
     $slide = $presentation->getSlides()->get_Item(0);
     $dblCols = array(150, 150, 150, 150 );
     $dblRows = array(50, 50, 50, 50, 50 );
-    // create a new table
+    # create a new table
     $table = $slide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    // set the background color for a cell
+    # set the background color for a cell
     $cell = $table->get_Item(2, 3);
     $cell->getCellFormat()->getFillFormat()->setFillType(FillType::Solid);
     $cell->getCellFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -254,17 +254,17 @@ This PHP code shows you how to change a table cell's background color:
 This PHP code shows you how to place an image inside a table cell when creating a table:
 
 ```php
-  // Instantiates the Presentation class that represents a PPTX file
+  # Instantiates the Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $islide = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(150, 150, 150, 150 );
     $dblRows = array(100, 100, 100, 100, 90 );
-    // Adds a table shape to the slide
+    # Adds a table shape to the slide
     $tbl = $islide->getShapes()->addTable(50, 50, $dblCols, $dblRows);
-    // Create an IPPImage object using the image file
+    # Create an IPPImage object using the image file
     $picture;
     $image = Images->fromFile("image.jpg");
     try {
@@ -274,12 +274,12 @@ This PHP code shows you how to place an image inside a table cell when creating 
         $image->dispose();
       }
     }
-    // Adds the image to the first table cell
+    # Adds the image to the first table cell
     $cellFormat = $tbl->get_Item(0, 0)->getCellFormat();
     $cellFormat::getFillFormat()->setFillType(FillType::Picture);
     $cellFormat::getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
     $cellFormat::getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-    // Saves the PPTX file to Disk
+    # Saves the PPTX file to Disk
     $pres->save("Image_In_TableCell_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {

@@ -27,17 +27,17 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/php-java/
 This PHP code shows you how to create a table in a presentation:
 
 ```php
-  // Instantiates a Presentation class that represents a PPTX file
+  # Instantiates a Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
-    // Adds a table shape to slide
+    # Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    // Sets the border format for each cell
+    # Sets the border format for each cell
     for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
       for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
@@ -55,11 +55,11 @@ This PHP code shows you how to create a table in a presentation:
         $cellFormat::getBorderRight()->setWidth(5);
       }
     }
-    // Merges cells 1 & 2 of row 1
+    # Merges cells 1 & 2 of row 1
     $tbl->mergeCells($tbl->getRows()->get_Item(0)->get_Item(0), $tbl->getRows()->get_Item(1)->get_Item(1), false);
-    // Adds some text to the merged cell
+    # Adds some text to the merged cell
     $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
-    // Saves the presentation to Disk
+    # Saves the presentation to Disk
     $pres->save("table.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -83,17 +83,17 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 This PHP code shows you how to specify the numbering for cells in a table:
 
 ```php
-  // Instantiates a Presentation class that represents a PPTX file
+  # Instantiates a Presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses first slide
+    # Accesses first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
-    // Adds a table shape to slide
+    # Adds a table shape to slide
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    // Sets the border format for each cell
+    # Sets the border format for each cell
     foreach($tbl->getRows() as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
@@ -110,7 +110,7 @@ This PHP code shows you how to specify the numbering for cells in a table:
         $cell->getCellFormat()->getBorderRight()->setWidth(5);
       }
     }
-    // Saves presentation to disk
+    # Saves presentation to disk
     $pres->save("StandardTables_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -138,22 +138,22 @@ This PHP code shows you how to specify the numbering for cells in a table:
 This PHP code shows you how to access and work with an existing table:
 
 ```php
-  // Instantiates the Presentation class that represents a PPTX file
+  # Instantiates the Presentation class that represents a PPTX file
   $pres = new Presentation("UpdateExistingTable.pptx");
   try {
-    // Accesses the first slide
+    # Accesses the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Initializes null TableEx
+    # Initializes null TableEx
     $tbl = null;
-    // Iterates through the shapes and sets a reference to the table found
+    # Iterates through the shapes and sets a reference to the table found
     foreach($sld->getShapes() as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
-        // Sets the text for the first column of the second row
+        # Sets the text for the first column of the second row
         $tbl->get_Item(0, 1)->getTextFrame()->setText("New");
       }
     }
-    // Saves the modified presentation to disk
+    # Saves the modified presentation to disk
     $pres->save("table1_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -176,33 +176,33 @@ This PHP code shows you how to access and work with an existing table:
 This PHP code shows you how to align the text in a table:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Gets the first slide
+    # Gets the first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Defines columns with widths and rows with heights
+    # Defines columns with widths and rows with heights
     $dblCols = array(120, 120, 120, 120 );
     $dblRows = array(100, 100, 100, 100 );
-    // Adds the table shape to the slide
+    # Adds the table shape to the slide
     $tbl = $slide->getShapes()->addTable(100, 50, $dblCols, $dblRows);
     $tbl->get_Item(1, 0)->getTextFrame()->setText("10");
     $tbl->get_Item(2, 0)->getTextFrame()->setText("20");
     $tbl->get_Item(3, 0)->getTextFrame()->setText("30");
-    // Accesses the text frame
+    # Accesses the text frame
     $txtFrame = $tbl->get_Item(0, 0)->getTextFrame();
-    // Creates the Paragraph object for the text frame
+    # Creates the Paragraph object for the text frame
     $paragraph = $txtFrame->getParagraphs()->get_Item(0);
-    // Creates the Portion object for paragraph
+    # Creates the Portion object for paragraph
     $portion = $paragraph->getPortions()->get_Item(0);
     $portion->setText("Text here");
     $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    // Aligns the text vertically
+    # Aligns the text vertically
     $cell = $tbl->get_Item(0, 0);
     $cell->setTextAnchorType(TextAnchorType::Center);
     $cell->setTextVerticalType(TextVerticalType::Vertical270);
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -224,21 +224,21 @@ This PHP code shows you how to align the text in a table:
 This PHP code shows you how to apply your preferred formatting options to the text in a table:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation("simpletable.pptx");
   try {
-    // Let's assume that the first shape on the first slide is a table
+    # Let's assume that the first shape on the first slide is a table
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    // Sets the table cells' font height
+    # Sets the table cells' font height
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->setTextFormat($portionFormat);
-    // Sets the table cells' text alignment and right margin in one call
+    # Sets the table cells' text alignment and right margin in one call
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
     $someTable->setTextFormat($paragraphFormat);
-    // Sets the table cells' text vertical type
+    # Sets the table cells' text vertical type
     $textFrameFormat = new TextFrameFormat();
     $textFrameFormat::setTextVerticalType(TextVerticalType::Vertical);
     $someTable->setTextFormat($textFrameFormat);

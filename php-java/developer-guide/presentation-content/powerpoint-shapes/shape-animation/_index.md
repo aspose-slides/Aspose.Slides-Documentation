@@ -42,21 +42,21 @@ Aspose.Slides for PHP via Java allows you to apply animation to the text in a sh
 This PHP code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
 
 ```php
-  // Instantiates a presentation class that represents a presentation file.
+  # Instantiates a presentation class that represents a presentation file.
   $pres = new Presentation();
   try {
     $sld = $pres->getSlides()->get_Item(0);
-    // Adds new AutoShape with text
+    # Adds new AutoShape with text
     $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
     $textFrame = $autoShape->getTextFrame();
     $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
-    // Gets the main sequence of the slide.
+    # Gets the main sequence of the slide.
     $sequence = $sld->getTimeline()->getMainSequence();
-    // Adds Fade animation effect to shape
+    # Adds Fade animation effect to shape
     $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
-    // Animates shape text by 1st level paragraphs
+    # Animates shape text by 1st level paragraphs
     $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
-    // Save the PPTX file to disk
+    # Save the PPTX file to disk
     $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -83,10 +83,10 @@ Besides applying animations to text, you can also apply animations to a single [
 This PHP code shows you how to apply the `Fly` effect to a picture frame:
 
 ```php
-  // Instantiates a presentation class that represents a presentation file.
+  # Instantiates a presentation class that represents a presentation file.
   $pres = new Presentation();
   try {
-    // Load Image to be added in presentaiton image collection
+    # Load Image to be added in presentaiton image collection
     $picture;
     $image = Images->fromFile("aspose-logo.jpg");
     try {
@@ -96,13 +96,13 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
         $image->dispose();
       }
     }
-    // Adds picture frame to slide
+    # Adds picture frame to slide
     $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
-    // Gets the main sequence of the slide.
+    # Gets the main sequence of the slide.
     $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    // Adds Fly from Left animation effect to picture frame
+    # Adds Fly from Left animation effect to picture frame
     $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
-    // Save the PPTX file to disk
+    # Save the PPTX file to disk
     $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -126,22 +126,22 @@ This PHP code shows you how to apply the `Fly` effect to a picture frame:
 This PHP code shows you how to apply the `PathFootball` (path football) effect to a shape:
 
 ```php
-  // Instantiate a Presentation class that represents a PPTX file.
+  # Instantiate a Presentation class that represents a PPTX file.
   $pres = new Presentation();
   try {
     $sld = $pres->getSlides()->get_Item(0);
-    // Creates PathFootball effect for existing shape from scratch.
+    # Creates PathFootball effect for existing shape from scratch.
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
     $ashp->addTextFrame("Animated TextBox");
-    // Adds the PathFootBall animation effect
+    # Adds the PathFootBall animation effect
     $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    // Creates some kind of "button".
+    # Creates some kind of "button".
     $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-    // Creates a sequence of effects for this button.
+    # Creates a sequence of effects for this button.
     $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
-    // Creates a custom user path. Our object will be moved only after the button is clicked.
+    # Creates a custom user path. Our object will be moved only after the button is clicked.
     $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
-    // Adds commands for moving since created path is empty.
+    # Adds commands for moving since created path is empty.
     $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
     $pts = new Point2DFloat[1];
     $pts[0] = new Point2DFloat(0.076, 0.59);
@@ -149,7 +149,7 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
     $pts[0] = new Point2DFloat(-0.076, -0.59);
     $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
     $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -165,16 +165,16 @@ You may decide to find out the all animation effects applied to a single shape.
 This PHP code shows you how to get the all effects applied to a specific shape:
 
 ```php
-  // Instantiates a presentation class that represents a presentation file.
+  # Instantiates a presentation class that represents a presentation file.
   $pres = new Presentation("AnimExample_out.pptx");
   $Array = new java_class("java.lang.reflect.Array");
   try {
     $firstSlide = $pres->getSlides()->get_Item(0);
-    // Gets the main sequence of the slide.
+    # Gets the main sequence of the slide.
     $sequence = $firstSlide->getTimeline()->getMainSequence();
-    // Gets the first shape on slide.
+    # Gets the first shape on slide.
     $shape = $firstSlide->getShapes()->get_Item(0);
-    // Gets all animation effects applied to the shape.
+    # Gets all animation effects applied to the shape.
     $shapeEffects = $sequence->getEffectsByShape($shape);
     if (java_values($Array->getLength($shapeEffects)) > 0) {
       echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
@@ -209,20 +209,20 @@ This is how you change the Effect Timing properties:
 This PHP code demonstrates the operation:
 
 ```php
-  // Instantiates a presentation class that represents a presentation file.
+  # Instantiates a presentation class that represents a presentation file.
   $pres = new Presentation("AnimExample_out.pptx");
   try {
-    // Gets the main sequence of the slide.
+    # Gets the main sequence of the slide.
     $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    // Gets the first effect of main sequence.
+    # Gets the first effect of main sequence.
     $effect = $sequence->get_Item(0);
-    // Changes effect TriggerType to start on click
+    # Changes effect TriggerType to start on click
     $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
-    // Changes effect Duration
+    # Changes effect Duration
     $effect->getTiming()->setDuration(3.0);
-    // Changes effect TriggerDelayTime
+    # Changes effect TriggerDelayTime
     $effect->getTiming()->setTriggerDelayTime(0.5);
-    // Saves the PPTX file to disk
+    # Saves the PPTX file to disk
     $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -245,7 +245,7 @@ This PHP code shows you how to add an animation effect sound and stop it when th
 ```php
   $pres = new Presentation("AnimExample_out.pptx");
   try {
-    // Adds audio to presentation audio collection
+    # Adds audio to presentation audio collection
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 try {
@@ -258,20 +258,20 @@ try {
     $effectSound = $pres->getAudios()->addAudio($bytes);
 
     $firstSlide = $pres->getSlides()->get_Item(0);
-    // Gets the main sequence of the slide.
+    # Gets the main sequence of the slide.
     $sequence = $firstSlide->getTimeline()->getMainSequence();
-    // Gets the first effect of the main sequence
+    # Gets the first effect of the main sequence
     $firstEffect = $sequence->get_Item(0);
-    // Сhecks the effect for "No Sound"
+    # Сhecks the effect for "No Sound"
     if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
-      // Adds sound for the first effect
+      # Adds sound for the first effect
       $firstEffect->setSound($effectSound);
     }
-    // Gets the first interactive sequence of the slide.
+    # Gets the first interactive sequence of the slide.
     $interactiveSequence = $firstSlide->getTimeline()->getInteractiveSequences()->get_Item(0);
-    // Sets the effect "Stop previous sound" flag
+    # Sets the effect "Stop previous sound" flag
     $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -290,17 +290,17 @@ try {
 This PHP code shows you how to extract the sound embedded in an animation effect:
 
 ```php
-  // Instantiates a presentation class that represents a presentation file.
+  # Instantiates a presentation class that represents a presentation file.
   $presentation = new Presentation("EffectSound.pptx");
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    // Gets the main sequence of the slide.
+    # Gets the main sequence of the slide.
     $sequence = $slide->getTimeline()->getMainSequence();
     foreach($sequence as $effect) {
       if (java_is_null($effect->getSound())) {
         continue;
       }
-      // Extracts the effect sound in byte array
+      # Extracts the effect sound in byte array
       $audio = $effect->getSound()->getBinaryData();
     }
   } finally {
@@ -330,17 +330,17 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
 This PHP code shows you how to change an after animation effect:
 
 ```php
-  // Instantiates a presentation class that represents a presentation file
+  # Instantiates a presentation class that represents a presentation file
   $pres = new Presentation("AnimImage_out.pptx");
   try {
     $firstSlide = $pres->getSlides()->get_Item(0);
-    // Gets the first effect of the main sequence
+    # Gets the first effect of the main sequence
     $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    // Changes the after animation type to Color
+    # Changes the after animation type to Color
     $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
-    // Sets the after animation dim color
+    # Sets the after animation dim color
     $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -369,19 +369,19 @@ This is how you can change the Effect Animate text properties:
 This PHP code demonstrates the operation:
 
 ```php
-  // Instantiates a presentation class that represents a presentation file.
+  # Instantiates a presentation class that represents a presentation file.
   $pres = new Presentation("AnimTextBox_out.pptx");
   try {
     $firstSlide = $pres->getSlides()->get_Item(0);
-    // Gets the first effect of the main sequence
+    # Gets the first effect of the main sequence
     $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    // Changes the effect Text animation type to "As One Object"
+    # Changes the effect Text animation type to "As One Object"
     $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
-    // Changes the effect Animate text type to "By word"
+    # Changes the effect Animate text type to "By word"
     $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
-    // Sets the delay between words to 20% of effect duration
+    # Sets the delay between words to 20% of effect duration
     $firstEffect->setDelayBetweenTextParts(20.0);
-    // Writes the PPTX file to disk
+    # Writes the PPTX file to disk
     $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

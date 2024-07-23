@@ -48,20 +48,20 @@ This PHP code shows you how to add a connector (a bent connector) between two sh
 // Instantiates a presentation class that represents the PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the shapes collection for a specific slide
+    # Accesses the shapes collection for a specific slide
     $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    // Adds an Ellipse autoshape
+    # Adds an Ellipse autoshape
     $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    // Adds a Rectangle autoshape
+    # Adds a Rectangle autoshape
     $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    // Adds a connector shape to the slide shape collection
+    # Adds a connector shape to the slide shape collection
     $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    // Connects the shapes using the connector
+    # Connects the shapes using the connector
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    // Calls reroute that sets the automatic shortest path between shapes
+    # Calls reroute that sets the automatic shortest path between shapes
     $connector->reroute();
-    // Saves the presentation
+    # Saves the presentation
     $pres->save("output.pptx", SaveFormat::Pptx);
 } finally {
     if (!java_is_null($pres)) $pres.dispose();
@@ -89,28 +89,28 @@ If you want a connector to link two shapes using specific dots on the shapes, yo
 This PHP code demonstrates an operation where a preferred connection dot is specified:
 
 ```php
-  // Instantiates a presentation class that represents a PPTX file
+  # Instantiates a presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Accesses the shapes collection for a specific slide
+    # Accesses the shapes collection for a specific slide
     $shapes = $pres->getSlides()->get_Item(0)->getShapes();
-    // Add an Ellipse autoshape
+    # Add an Ellipse autoshape
     $ellipse = $shapes->addAutoShape(ShapeType::Ellipse, 0, 100, 100, 100);
-    // Add a Rectangle autoshape
+    # Add a Rectangle autoshape
     $rectangle = $shapes->addAutoShape(ShapeType::Rectangle, 100, 300, 100, 100);
-    // Adds a connector shape to the slide's shape collection
+    # Adds a connector shape to the slide's shape collection
     $connector = $shapes->addConnector(ShapeType::BentConnector2, 0, 0, 10, 10);
-    // Connects the shapes using the connector
+    # Connects the shapes using the connector
     $connector->setStartShapeConnectedTo($ellipse);
     $connector->setEndShapeConnectedTo($rectangle);
-    // Sets the preferred connection dot index on the Ellipse shape
+    # Sets the preferred connection dot index on the Ellipse shape
     $wantedIndex = 6;
-    // Checks whether the preferred index is less than the maximum site index count
+    # Checks whether the preferred index is less than the maximum site index count
     if ($ellipse->getConnectionSiteCount() > $wantedIndex) {
-      // Sets the preferred connection dot on the Ellipse autoshape
+      # Sets the preferred connection dot on the Ellipse autoshape
       $connector->setStartShapeConnectionSiteIndex($wantedIndex);
     }
-    // Saves the presentation
+    # Saves the presentation
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -178,31 +178,31 @@ Consider a case where two text frame objects are linked together through a conne
 ![connector-shape-complex](connector-shape-complex.png)
 
 ```php
-  // Instantiates a presentation class that represents a PPTX file
+  # Instantiates a presentation class that represents a PPTX file
   $pres = new Presentation();
   try {
-    // Gets the first slide in the presentation
+    # Gets the first slide in the presentation
     $sld = $pres->getSlides()->get_Item(0);
-    // Adds shapes that will be joined together through a connector
+    # Adds shapes that will be joined together through a connector
     $shapeFrom = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 60, 25);
     $shapeFrom->getTextFrame()->setText("From");
     $shapeTo = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 60, 25);
     $shapeTo->getTextFrame()->setText("To");
-    // Adds a connector
+    # Adds a connector
     $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
-    // Specifies the connector's direction
+    # Specifies the connector's direction
     $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
-    // Specifies the connector's color
+    # Specifies the connector's color
     $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    // Specifies the thickness of the connector's line
+    # Specifies the thickness of the connector's line
     $connector->getLineFormat()->setWidth(3);
-    // Links the shapes together with the connector
+    # Links the shapes together with the connector
     $connector->setStartShapeConnectedTo($shapeFrom);
     $connector->setStartShapeConnectionSiteIndex(3);
     $connector->setEndShapeConnectedTo($shapeTo);
     $connector->setEndShapeConnectionSiteIndex(2);
-    // Gets adjustment points for the connector
+    # Gets adjustment points for the connector
     $adjValue_0 = $connector->getAdjustments()->get_Item(0);
     $adjValue_1 = $connector->getAdjustments()->get_Item(1);
   } finally {
@@ -217,7 +217,7 @@ Consider a case where two text frame objects are linked together through a conne
 We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
 
 ```php
-  // Changes the values of the adjustment points
+  # Changes the values of the adjustment points
   $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
   $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
 
@@ -230,7 +230,7 @@ The result:
 To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.getAdjustments().get_Item(0) point:
 
 ```php
-  // Draw the vertical component of the connector
+  # Draw the vertical component of the connector
   $x = $connector->getX() . $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
   $y = $connector->getY();
   $height = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
@@ -249,24 +249,24 @@ In **Case 1**, we demonstrated a simple connector adjustment operation using bas
 First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
 
 ```php
-  // Creates a new binding object
+  # Creates a new binding object
   $shapeTo_1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 400, 60, 25);
   $shapeTo_1->getTextFrame()->setText("To 1");
-  // Creates a new connector
+  # Creates a new connector
   $connector = $sld->getShapes()->addConnector(ShapeType::BentConnector4, 20, 20, 400, 300);
   $connector->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle->Triangle);
   $connector->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
   $connector->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->CYAN);
   $connector->getLineFormat()->setWidth(3);
-  // Connects objects using the newly created connector
+  # Connects objects using the newly created connector
   $connector->setStartShapeConnectedTo($shapeFrom);
   $connector->setStartShapeConnectionSiteIndex(2);
   $connector->setEndShapeConnectedTo($shapeTo_1);
   $connector->setEndShapeConnectionSiteIndex(3);
-  // Gets the connector adjustment points
+  # Gets the connector adjustment points
   $adjValue_0 = $connector->getAdjustments()->get_Item(0);
   $adjValue_1 = $connector->getAdjustments()->get_Item(1);
-  // Changes the values of the adjustment points
+  # Changes the values of the adjustment points
   $adjValue_0->setRawValue($adjValue_0->getRawValue() + 20000);
   $adjValue_1->setRawValue($adjValue_1->getRawValue() + 200000);
 
@@ -285,22 +285,22 @@ Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
 In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code:
 
 ```php
-  // Saves the connector coordinates
+  # Saves the connector coordinates
   $x = $connector->getX();
   $y = $connector->getY();
-  // Corrects the connector coordinates in case it appears
+  # Corrects the connector coordinates in case it appears
   if ($connector->getFrame()->getFlipH() == NullableBool::True) {
     $x += $connector->getWidth();
   }
   if ($connector->getFrame()->getFlipV() == NullableBool::True) {
     $y += $connector->getHeight();
   }
-  // Takes in the adjustment point value as the coordinate
+  # Takes in the adjustment point value as the coordinate
   $x += $connector->getWidth() * $adjValue_0->getRawValue() / 100000;
-  // Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
+  # Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
   $xx = $connector->getFrame()->getCenterX() - $y . $connector->getFrame()->getCenterY();
   $yy = $x - $connector->getFrame()->getCenterX() . $connector->getFrame()->getCenterY();
-  // Determines the width of the horizontal component using the second adjustment point value
+  # Determines the width of the horizontal component using the second adjustment point value
   $width = $connector->getHeight() * $adjValue_1->getRawValue() / 100000;
   $shape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, $xx, $yy, $width, 0);
   $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);

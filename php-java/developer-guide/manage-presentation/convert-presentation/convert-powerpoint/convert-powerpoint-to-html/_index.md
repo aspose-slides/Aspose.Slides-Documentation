@@ -73,7 +73,7 @@ This code shows you how to convert a PowerPoint to HTML :
     $htmlOpt = new HtmlOptions();
     $htmlOpt->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
     $htmlOpt->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createDocumentFormatter("", false));
-    // Saving the presentation to HTML
+    # Saving the presentation to HTML
     $pres->save("ConvertWholePresentationToHTML_out.html", SaveFormat::Html, $htmlOpt);
   } finally {
     if (!java_is_null($pres)) {
@@ -93,7 +93,7 @@ Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.c
     $controller = new ResponsiveHtmlController();
     $htmlOptions = new HtmlOptions();
     $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
-    // Saving the presentation to HTML
+    # Saving the presentation to HTML
     $pres->save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat::Html, $htmlOptions);
   } finally {
     if (!java_is_null($pres)) {
@@ -111,7 +111,7 @@ This code shows you how to convert a PowerPoint to HTML with notes :
     $opt = new HtmlOptions();
     $options = $opt->getNotesCommentsLayouting();
     $options->setNotesPosition(NotesPositions::BottomFull);
-    // Saving notes pages
+    # Saving notes pages
     $pres->save("Output.html", SaveFormat::Html, $opt);
   } finally {
     if (!java_is_null($pres)) {
@@ -131,7 +131,7 @@ The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/php-java/a
 ```php
   $pres = new Presentation("input.pptx");
   try {
-    // exclude default presentation fonts
+    # exclude default presentation fonts
     $fontNameExcludeList = array("Calibri", "Arial" );
     $embedFontsController = new EmbedAllFontsHtmlController($fontNameExcludeList);
     $htmlOptionsEmbed = new HtmlOptions();
@@ -219,7 +219,7 @@ class CustomFormattingController
     $htmlOptions->getNotesCommentsLayouting()->setNotesPosition(NotesPositions::BottomFull);
 	$formattingController= java_closure(new CustomFormattingController(), null, java("com.aspose.slides.IHtmlFormattingController"));
     $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($formattingController));
-    // Saving File
+    # Saving File
     for($i = 0; $i < java_values($pres->getSlides()->size()) ; $i++) {
       $pres->save("Individual Slide" . ($i + 1) . "_out.html", array($i + 1 ), SaveFormat::Html, $htmlOptions);
     }
@@ -245,7 +245,7 @@ use aspose\slides\EmbedAllFontsHtmlController;
 class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController {
     const m_basePath = 0;
 
-    // Custom header template
+    # Custom header template
     const Header = "<!DOCTYPE html>\n" .
             "<html>\n" .
             "<head>\n" .
@@ -343,7 +343,7 @@ class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 }
     $pres = new Presentation("pres.pptx");
   try {
-    // Exclude default presentation fonts
+    # Exclude default presentation fonts
 	$fontNameExcludeList = array("Calibri", "Arial");
     $linkcont = new LinkAllFontsHtmlController($fontNameExcludeList, "C:/Windows/Fonts/");
     $htmlOptionsEmbed = new HtmlOptions();
@@ -403,12 +403,12 @@ This PHP code shows you how to add a video to the presentation and then save it 
     $video = $pres->getVideos()->addVideo($videoData);
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 100, 100, $video);
     $controller = new VideoPlayerHtmlController($path, $fileName, $baseUri);
-    // Setting HTML options
+    # Setting HTML options
     $htmlOptions = new HtmlOptions($controller);
     $svgOptions = new SVGOptions($controller);
     $htmlOptions->setHtmlFormatter(java("com.aspose.slides.HtmlFormatter")->createCustomFormatter($controller));
     $htmlOptions->setSlideImageFormat(SlideImageFormat::svg($svgOptions));
-    // Saving the file
+    # Saving the file
     $pres->save($fileName, SaveFormat::Html, $htmlOptions);
   } catch (JavaException $e) {
   } finally {

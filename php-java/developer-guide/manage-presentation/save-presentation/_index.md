@@ -20,11 +20,11 @@ Save a presentation to file by calling the [Presentation](https://reference.aspo
 The examples that follow show how to save a presentation with Aspose.Slides for PHP via Java.
 
 ```php
-  // Instantiate a Presentation object that represents a PPT file
+  # Instantiate a Presentation object that represents a PPT file
   $pres = new Presentation();
   try {
-    // ...do some work here...
-    // Save your presentation to a file
+    # ...do some work here...
+    # Save your presentation to a file
     $pres->save("demoPass.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -37,11 +37,11 @@ The examples that follow show how to save a presentation with Aspose.Slides for 
 It is possible to save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.io.OutputStream-int-) method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
 
 ```php
-  // Instantiate a Presentation object that represents a PPT file
+  # Instantiate a Presentation object that represents a PPT file
   $pres = new Presentation();
   try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 200, 200);
-    // Add text to shape
+    # Add text to shape
     $shape->getTextFrame()->setText("This demo shows how to Create PowerPoint file and save it to Stream.");
     $os = new Java("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
     $pres->save($os, SaveFormat::Pptx);
@@ -58,12 +58,12 @@ It is possible to save a presentation to a stream by passing an output stream to
 Aspose.Slides for PHP via Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/php-java/aspose.slides/ViewType) enumerator.
 
 ```php
-  // Opening the presentation file
+  # Opening the presentation file
   $pres = new Presentation();
   try {
-    // Setting view type
+    # Setting view type
     $pres->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    // Saving presentation
+    # Saving presentation
     $pres->save("newDemo.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -78,17 +78,17 @@ Aspose.Slides allows you to save the presentation in Strict Office Open XML for
 The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/php-java/aspose.slides/Conformance#Iso29500_2008_Strict).
 
 ```php
-  // Instantiate a Presentation object that represents a PPT file
+  # Instantiate a Presentation object that represents a PPT file
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Add an autoshape of type line
+    # Add an autoshape of type line
     $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
-    //Set Strict Office Open XML Format save options
+    #Set Strict Office Open XML Format save options
     $options = new PptxOptions();
     $options->setConformance(Conformance->Iso29500_2008_Strict);
-    // Save your presentation to a file
+    # Save your presentation to a file
     $pres->save("demoPass.pptx", SaveFormat::Pptx, $options);
   } finally {
     if (!java_is_null($pres)) {
@@ -136,13 +136,13 @@ The following code snippets below show how to use [IProgressCallback](https://re
 ```php
   class ExportProgressHandler {
     function reporting($progressValue) {
-      // Use progress percentage value here
+      # Use progress percentage value here
       $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
       echo($progress . "% file converted");
     }
   }
 
-  // Opening the presentation file
+  # Opening the presentation file
   $pres = new Presentation("ConvertToPDF.pptx");
   try {
     $saveOptions = new PdfOptions();

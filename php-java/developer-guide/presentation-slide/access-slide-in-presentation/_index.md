@@ -16,10 +16,10 @@ All slides in a presentation are arranged numerically based on the slide positio
 The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/php-java/aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/php-java/aspose.slides/islide/) objects). This PHP code shows you how to access a slide through its index:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("demo.pptx");
   try {
-    // Accesses a slide using its slide index
+    # Accesses a slide using its slide index
     $slide = $pres->getSlides()->get_Item(0);
   } finally {
     $pres->dispose();
@@ -31,12 +31,12 @@ The Presentation class, representing a presentation file, exposes all slides as 
 Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class) to target that ID. This PHP code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getSlideById-long-) method:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("demo.pptx");
   try {
-    // Gets a slide ID
+    # Gets a slide ID
     $id = $pres->getSlides()->get_Item(0)->getSlideId();
-    // Accesses the slide through its ID
+    # Accesses the slide through its ID
     $slide = $pres->getSlideById($id);
   } finally {
     $pres->dispose();
@@ -55,14 +55,14 @@ Aspose.Slides allow you to change a slide position. For example, you can specify
 This PHP code demonstrates an operation in which the slide in position 1 is moved to position 2:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Gets the slide whose position will be changed
+    # Gets the slide whose position will be changed
     $sld = $pres->getSlides()->get_Item(0);
-    // Sets the new position for the slide
+    # Sets the new position for the slide
     $sld->setSlideNumber(2);
-    // Saves the modified presentation
+    # Saves the modified presentation
     $pres->save("helloworld_Pos.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -84,14 +84,14 @@ Using the [setFirstSlideNumber](https://reference.aspose.com/slides/php-java/asp
 This PHP code demonstrates an operation where the first slide number is set to 10:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("HelloWorld.pptx");
   try {
-    // Gets the slide number
+    # Gets the slide number
     $firstSlideNumber = $pres->getFirstSlideNumber();
-    // Sets the slide number
+    # Sets the slide number
     $pres->setFirstSlideNumber(10);
-    // Saves the modified presentation
+    # Saves the modified presentation
     $pres->save("Set_Slide_Number_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -107,13 +107,13 @@ If you prefer to skip the first slide, you can start the numbering from the seco
     $presentation->getSlides()->addEmptySlide($layoutSlide);
     $presentation->getSlides()->addEmptySlide($layoutSlide);
     $presentation->getSlides()->addEmptySlide($layoutSlide);
-    // Sets the number for the first presentation slide
+    # Sets the number for the first presentation slide
     $presentation->setFirstSlideNumber(0);
-    // Shows slide numbers for all slides
+    # Shows slide numbers for all slides
     $presentation->getHeaderFooterManager()->setAllSlideNumbersVisibility(true);
-    // Hides the slide number for the first slide
+    # Hides the slide number for the first slide
     $presentation->getSlides()->get_Item(0)->getHeaderFooterManager()->setSlideNumberVisibility(false);
-    // Saves the modified presentation
+    # Saves the modified presentation
     $presentation->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {

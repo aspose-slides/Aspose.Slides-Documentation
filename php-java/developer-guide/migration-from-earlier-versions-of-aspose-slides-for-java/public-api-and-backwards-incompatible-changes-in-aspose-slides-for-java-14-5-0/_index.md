@@ -60,7 +60,7 @@ This applies to these use cases:
   $shape->setFrame();// cannot be undefined
 
   $shapes = $$missing$;
-  // x, y, width, height parameters cannot be Float.NaN:
+  # x, y, width, height parameters cannot be Float.NaN:
   {
     $shapes->addAudioFrameCD();
     $shapes->addAudioFrameEmbedded();
@@ -91,7 +91,7 @@ But the IShape.getRawFrame() frame can be undefined. This make sense when a shap
   $shape = $$missing$;// shape is linked to placeholder
 
   $shape->setRawFrame(new ShapeFrame(Float::NaN, Float::NaN, 100, Float::NaN, NullableBool::NotDefined, NullableBool::NotDefined, 0));
-  // now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
+  # now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
 
 ```
 ### **Changed Properties**

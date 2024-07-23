@@ -70,7 +70,7 @@ This sample code shows you how to add a hyperlink to an **image**:
 ```php
   $pres = new Presentation();
   try {
-    // Adds image to presentation
+    # Adds image to presentation
     $picture;
     $image = Images->fromFile("image.png");
     try {
@@ -80,7 +80,7 @@ This sample code shows you how to add a hyperlink to an **image**:
         $image->dispose();
       }
     }
-    // Creates picture frame on slide 1 based on previously added image
+    # Creates picture frame on slide 1 based on previously added image
     $pictureFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
     $pictureFrame->setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
     $pictureFrame->getHyperlinkClick()->setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");

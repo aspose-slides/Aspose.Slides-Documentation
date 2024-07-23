@@ -30,10 +30,10 @@ This PHP code shows you how to set the data precision in a chart data label:
 Aspose.Slides for PHP via Java allows you to set percentage labels on displayed charts. This PHP code demonstrates the operation:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Gets the first slide
+    # Gets the first slide
     $slide = $pres->getSlides()->get_Item(0);
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 400, 400);
     $series;
@@ -64,7 +64,7 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
         $lbl->getDataLabelFormat()->setShowBubbleSize(false);
       }
     }
-    // Saves the presentation containing the chart
+    # Saves the presentation containing the chart
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -77,30 +77,30 @@ Aspose.Slides for PHP via Java allows you to set percentage labels on displayed 
 This PHP code shows you to set the percentage sign for a chart data label:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Gets a slide's reference through its index
+    # Gets a slide's reference through its index
     $slide = $pres->getSlides()->get_Item(0);
-    // Creates the PercentsStackedColumn chart on a slide
+    # Creates the PercentsStackedColumn chart on a slide
     $chart = $slide->getShapes()->addChart(ChartType::PercentsStackedColumn, 20, 20, 500, 400);
-    // Sets the NumberFormatLinkedToSource to false
+    # Sets the NumberFormatLinkedToSource to false
     $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.00%");
     $chart->getChartData()->getSeries()->clear();
     $defaultWorksheetIndex = 0;
-    // Gets the chart data worksheet
+    # Gets the chart data worksheet
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    // Adds new series
+    # Adds new series
     $series = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 1, "Reds"), $chart->getType());
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 1, 0.3));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 1, 0.5));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 1, 0.8));
     $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 1, 0.65));
-    // Sets the fill color of series
+    # Sets the fill color of series
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
     $series->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    // Sets the LabelFormat properties
+    # Sets the LabelFormat properties
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormatLinkedToSource(false);
     $series->getLabels()->getDefaultDataLabelFormat()->setNumberFormat("0.0%");
@@ -108,13 +108,13 @@ This PHP code shows you to set the percentage sign for a chart data label:
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
     $series->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    // Adds new series
+    # Adds new series
     $series2 = $chart->getChartData()->getSeries()->add($workbook->getCell($defaultWorksheetIndex, 0, 2, "Blues"), $chart->getType());
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 1, 2, 0.7));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 2, 2, 0.5));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 3, 2, 0.2));
     $series2->getDataPoints()->addDataPointForBarSeries($workbook->getCell($defaultWorksheetIndex, 4, 2, 0.35));
-    // Sets Fill type and color
+    # Sets Fill type and color
     $series2->getFormat()->getFill()->setFillType(FillType::Solid);
     $series2->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $series2->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
@@ -123,7 +123,7 @@ This PHP code shows you to set the percentage sign for a chart data label:
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->setFontHeight(10);
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $series2->getLabels()->getDefaultDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->WHITE);
-    // Writes the presentation to disk
+    # Writes the presentation to disk
     $pres->save("SetDataLabelsPercentageSign_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -136,16 +136,16 @@ This PHP code shows you to set the percentage sign for a chart data label:
 This PHP code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```php
-  // Creates an instance of the Presentation class
+  # Creates an instance of the Presentation class
   $pres = new Presentation();
   try {
-    // Gets a slide's reference
+    # Gets a slide's reference
     $sld = $pres->getSlides()->get_Item(0);
-    // Creates a chart on the slide
+    # Creates a chart on the slide
     $ch = $sld->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 300);
-    // Sets the label distance from an axis
+    # Sets the label distance from an axis
     $ch->getAxes()->getHorizontalAxis()->setLabelOffset(500);
-    // WriteS the presentation to disk
+    # WriteS the presentation to disk
     $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

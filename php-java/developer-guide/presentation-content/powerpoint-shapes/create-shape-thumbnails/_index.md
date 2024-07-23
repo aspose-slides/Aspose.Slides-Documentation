@@ -30,12 +30,12 @@ To generate a shape thumbnail from any slide using Aspose.Slides for PHP via Jav
 This sample code shows you how to generate a shape thumbnail from a slide:
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    // Create a full scale image
+    # Create a full scale image
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage();
-    // Save the image to disk in PNG format
+    # Save the image to disk in PNG format
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -61,12 +61,12 @@ To generate the shape thumbnail of a slide using Aspose.Slides for PHP via Java,
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    // Create a full scale image
+    # Create a full scale image
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Shape, 1, 1);
-    // Save the image to disk in PNG format
+    # Save the image to disk in PNG format
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {
@@ -92,12 +92,12 @@ This method of creating thumbnails of shapes allows developers to generate a thu
 This sample code is based on the steps above:
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("Thumbnail.pptx");
   try {
-    // Create a full scale image
+    # Create a full scale image
     $slideImage = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getImage(ShapeThumbnailBounds->Appearance, 1, 1);
-    // Save the image to disk in PNG format
+    # Save the image to disk in PNG format
     try {
       $slideImage->save("output.png", ImageFormat::Png);
     } finally {

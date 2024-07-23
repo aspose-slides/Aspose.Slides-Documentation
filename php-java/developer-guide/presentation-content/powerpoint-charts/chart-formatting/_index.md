@@ -41,14 +41,14 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
 1. Write the modified presentation to a PPTX file
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
-    // Accessing the first slide
+    # Accessing the first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Adding the sample chart
+    # Adding the sample chart
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    // Setting Chart Title
+    # Setting Chart Title
     $chart->hasTitle();
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
@@ -58,20 +58,20 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    // Setting Major grid lines format for value axis
+    # Setting Major grid lines format for value axis
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    // Setting Minor grid lines format for value axis
+    # Setting Minor grid lines format for value axis
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    // Setting value axis number format
+    # Setting value axis number format
     $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    // Setting chart maximum, minimum values
+    # Setting chart maximum, minimum values
     $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
     $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
     $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
@@ -80,7 +80,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    // Setting Value Axis Text Properties
+    # Setting Value Axis Text Properties
     $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
     $txtVal->setFontBold(NullableBool::True);
     $txtVal->setFontHeight(16);
@@ -88,7 +88,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $txtVal->getFillFormat()->setFillType(FillType::Solid);
     $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
     $txtVal->setLatinFont(new FontData("Times New Roman"));
-    // Setting value axis title
+    # Setting value axis title
     $chart->getAxes()->getVerticalAxis()->hasTitle();
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
     $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
@@ -98,15 +98,15 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $valtitle->getPortionFormat()->setFontHeight(20);
     $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
     $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    // Setting Major grid lines format for Category axis
+    # Setting Major grid lines format for Category axis
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    // Setting Minor grid lines format for Category axis
+    # Setting Minor grid lines format for Category axis
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    // Setting Category Axis Text Properties
+    # Setting Category Axis Text Properties
     $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
     $txtCat->setFontBold(NullableBool::True);
     $txtCat->setFontHeight(16);
@@ -114,7 +114,7 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $txtCat->getFillFormat()->setFillType(FillType::Solid);
     $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $txtCat->setLatinFont(new FontData("Arial"));
-    // Setting Category Title
+    # Setting Category Title
     $chart->getAxes()->getHorizontalAxis()->hasTitle();
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
     $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
@@ -124,30 +124,30 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $catTitle->getPortionFormat()->setFontHeight(20);
     $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    // Setting category axis label position
+    # Setting category axis label position
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    // Setting category axis label rotation angle
+    # Setting category axis label rotation angle
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    // Setting Legends Text Properties
+    # Setting Legends Text Properties
     $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
     $txtleg->setFontBold(NullableBool::True);
     $txtleg->setFontHeight(16);
     $txtleg->setFontItalic(NullableBool::True);
     $txtleg->getFillFormat()->setFillType(FillType::Solid);
     $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    // Set show chart legends without overlapping chart
+    # Set show chart legends without overlapping chart
     $chart->getLegend()->setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
+    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
     $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    // Setting secondary value axis
+    # Setting secondary value axis
     $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
     $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    // Setting secondary value axis Number format
+    # Setting secondary value axis Number format
     $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
     $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
     $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    // Setting chart maximum, minimum values
+    # Setting chart maximum, minimum values
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
     $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
@@ -156,16 +156,16 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
     $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
     $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    // Setting chart back wall color
+    # Setting chart back wall color
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    // Setting Plot area color
+    # Setting Plot area color
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    // Save Presentation
+    # Save Presentation
     $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -185,7 +185,7 @@ Aspose.Slides for PHP via Java provides support for setting the font related pro
 Below sample example is given.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
@@ -213,25 +213,25 @@ Aspose.Slides for PHP via Java provides a simple API for managing chart data for
 1. Save the presentation.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
-    // Access the first presentation slide
+    # Access the first presentation slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Adding a default clustered column chart
+    # Adding a default clustered column chart
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    // Accessing the chart series collection
+    # Accessing the chart series collection
     $series = $chart->getChartData()->getSeries();
-    // Traverse through every chart series
+    # Traverse through every chart series
     foreach($series as $ser) {
-      // Traverse through every data cell in series
+      # Traverse through every data cell in series
       foreach($ser->getDataPoints() as $cell) {
-        // Setting the number format
+        # Setting the number format
         $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
 
       }
     }
-    // Saving presentation
+    # Saving presentation
     $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -292,7 +292,7 @@ Aspose.Slides for PHP via Java provides support for setting chart area. Methods
 Below sample example is given. 
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $slide = $pres->getSlides()->get_Item(0);

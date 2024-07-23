@@ -123,7 +123,7 @@ This sample code shows you how to decrypt a presentation:
   $loadOptions->setPassword("123123");
   $presentation = new Presentation("pres.pptx", $loadOptions);
   try {
-    // work with decrypted presentation
+    # work with decrypted presentation
   } finally {
     if (!java_is_null($presentation)) {
       $presentation->dispose();
@@ -244,7 +244,7 @@ This sample code shows you how to validate a password:
 ```php
   $presentation = new Presentation("pres.pptx");
   try {
-    // check if "pass" is matched with
+    # check if "pass" is matched with
     $isWriteProtected = $presentation->getProtectionManager()->checkWriteProtection("my_password");
   } finally {
     if (!java_is_null($presentation)) {

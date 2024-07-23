@@ -17,23 +17,23 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 The example below adds a group shape to a slide.
 
 ```php
-  // Instantiate Presentation class
+  # Instantiate Presentation class
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Accessing the shape collection of slides
+    # Accessing the shape collection of slides
     $slideShapes = $sld->getShapes();
-    // Adding a group shape to the slide
+    # Adding a group shape to the slide
     $groupShape = $slideShapes->addGroupShape();
-    // Adding shapes inside Added group shape
+    # Adding shapes inside Added group shape
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 100, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 100, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 300, 300, 100, 100);
     $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 500, 300, 100, 100);
-    // Adding group shape frame
+    # Adding group shape frame
     $groupShape->setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool::False, NullableBool::False, 0));
-    // Write the PPTX file to disk
+    # Write the PPTX file to disk
     $pres->save("GroupShape.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -54,20 +54,20 @@ This topic shows simple steps, complete with code examples, for adding a group s
 The example below accesses alternative text of group shape.
 
 ```php
-  // Instantiate Presentation class that represents PPTX file
+  # Instantiate Presentation class that represents PPTX file
   $pres = new Presentation("AltText.pptx");
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
     for($i = 0; $i < java_values($sld->getShapes()->size()) ; $i++) {
-      // Accessing the shape collection of slides
+      # Accessing the shape collection of slides
       $shape = $sld->getShapes()->get_Item($i);
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.GroupShape"))) {
-        // Accessing the group shape.
+        # Accessing the group shape.
         $grphShape = $shape;
         for($j = 0; $j < java_values($grphShape->getShapes()->size()) ; $j++) {
           $shape2 = $grphShape->getShapes()->get_Item($j);
-          // Accessing the AltText property
+          # Accessing the AltText property
           echo($shape2->getAlternativeText());
         }
       }

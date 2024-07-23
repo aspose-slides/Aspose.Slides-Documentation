@@ -43,7 +43,7 @@ This PHP code shows you how to get a presentation’s properties (information ab
   echo($props->getCreatedTime());
   echo($props->getSubject());
   echo($props->getTitle());
-  // ..
+  # ..
 
 ```
 

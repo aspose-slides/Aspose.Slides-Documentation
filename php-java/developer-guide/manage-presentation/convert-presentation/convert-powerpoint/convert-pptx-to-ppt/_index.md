@@ -28,9 +28,9 @@ For Java sample code to convert PPTX to PPT, please see the section below i.e. [
 To convert a PPTX to PPT simply pass the file name and save format to the **Save** method of [**Presentation**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class. The PHP code sample below converts a Presentation from PPTX to PPT using default options.
 
 ```php
-  // instantiate a Presentation object that represents a PPTX file
+  # instantiate a Presentation object that represents a PPTX file
   $presentation = new Presentation("template.pptx");
-  // save the presentation as PPT
+  # save the presentation as PPT
   $presentation->save("output.ppt", SaveFormat::Ppt);
 
 ```

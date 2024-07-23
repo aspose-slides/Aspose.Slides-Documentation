@@ -279,12 +279,12 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
 ```php
   $pres = new Presentation();
   try {
-    // Create new shape
+    # Create new shape
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    // Get geometry path of the shape
+    # Get geometry path of the shape
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
-    // Create new graphics path with text
+    # Create new graphics path with text
     $graphicsPath;
     $font = new Font("Arial", Font->PLAIN, 40);
     $text = "Text in shape";
@@ -296,10 +296,10 @@ This PHP code—an implementation of the steps above—demonstrates the **Geomet
     } finally {
       $g2->dispose();
     }
-    // Convert graphics path to geometry path
+    # Convert graphics path to geometry path
     $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
     $textPath->setFillMode(PathFillModeType::Normal);
-    // Set combination of new geometry path and origin geometry path to the shape
+    # Set combination of new geometry path and origin geometry path to the shape
     $shape->setGeometryPaths(array($originalPath, $textPath ));
   } finally {
     if (!java_is_null($pres)) {

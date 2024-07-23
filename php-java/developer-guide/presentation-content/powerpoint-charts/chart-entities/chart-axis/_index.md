@@ -31,7 +31,7 @@ This sample code—an implementation of the steps above—shows you how to get t
     $minValue = $chart->getAxes()->getVerticalAxis()->getActualMinValue();
     $majorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMajorUnit();
     $minorUnit = $chart->getAxes()->getHorizontalAxis()->getActualMinorUnit();
-    // Saves the presentation
+    # Saves the presentation
     $pres->save("MaxValuesVerticalAxis_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -49,9 +49,9 @@ This PHP code shows you how to perform the data swap task between axes on a char
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    // Switches rows and columns
+    # Switches rows and columns
     $chart->getChartData()->switchRowColumn();
-    // Saves presentation
+    # Saves presentation
     $pres->save("SwitchChartRowColumns_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

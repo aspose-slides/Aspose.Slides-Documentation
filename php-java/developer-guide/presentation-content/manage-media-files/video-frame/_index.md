@@ -29,15 +29,15 @@ If the video file you want to add to your slide is stored locally, you can creat
 This PHP code shows you how to add a video stored locally to a presentation:
 
 ```php
-  // Instantiates the Presentation class
+  # Instantiates the Presentation class
   $pres = new Presentation("pres.pptx");
   try {
-    // Loads the video
+    # Loads the video
     $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
     $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    // Gets the first slide and adds a videoframe
+    # Gets the first slide and adds a videoframe
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    // Saves the presentation to disk
+    # Saves the presentation to disk
     $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -75,7 +75,7 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 This PHP code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation();
   try {
     addVideoFromYouTube($pres, "Tj75Arhq5ho");
@@ -103,7 +103,7 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 This PHP code shows you how to extract the video on a presentation slide:
 
 ```php
-  // Instantiates a Presentation object that represents a presentation file
+  # Instantiates a Presentation object that represents a presentation file
   $pres = new Presentation("VideoSample.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
@@ -113,7 +113,7 @@ This PHP code shows you how to extract the video on a presentation slide:
           $type = $vf->getEmbeddedVideo()->getContentType();
           $ss = $type->lastIndexOf('-');
           $buffer = $vf->getEmbeddedVideo()->getBinaryData();
-          // Gets the File Extension
+          # Gets the File Extension
           $charIndex = $type->indexOf("/");
           $type = $type->substring($charIndex + 1);
           $fop = new Java("java.io.FileOutputStream", "testing2." . $type);

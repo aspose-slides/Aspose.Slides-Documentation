@@ -28,16 +28,16 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```php
-  // Opening the presentation file
+  # Opening the presentation file
   $pres = new Presentation();
   try {
-    // Create DigitalSignature object with PFX file and PFX password
+    # Create DigitalSignature object with PFX file and PFX password
     $signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-    // Comment new digital signature
+    # Comment new digital signature
     $signature->setComments("Aspose.Slides digital signing test.");
-    // Add digital signature to presentation
+    # Add digital signature to presentation
     $pres->getDigitalSignatures()->add($signature);
-    // Save presentation
+    # Save presentation
     $pres->save("SomePresentationSigned.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -47,13 +47,13 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
 ```php
-  // Open presentation
+  # Open presentation
   $pres = new Presentation("SomePresentationSigned.pptx");
   try {
     if (java_values($pres->getDigitalSignatures()->size()) > 0) {
       $allSignaturesAreValid = true;
       echo("Signatures used to sign the presentation: ");
-      // Check if all digital signatures are valid
+      # Check if all digital signatures are valid
       foreach($pres->getDigitalSignatures() as $signature) {
         echo($signature->getComments() . ", " . $signature->getSignTime()->toString() . " -- " . $signature->isValid() ? "VALID" : "INVALID");
         $allSignaturesAreValid &= $signature->isValid();

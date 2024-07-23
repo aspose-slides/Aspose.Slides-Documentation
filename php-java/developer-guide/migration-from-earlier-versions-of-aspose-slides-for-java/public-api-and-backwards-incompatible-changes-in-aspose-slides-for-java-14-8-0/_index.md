@@ -39,17 +39,17 @@ A new feature allows developers to create and edit VBA projects in a presentatio
 
 ```php
   $pres = new Presentation();
-  // Create new VBA Project
+  # Create new VBA Project
   $pres->setVbaProject(new VbaProject());
-  // Add empty module to the VBA project
+  # Add empty module to the VBA project
   $module = $pres->getVbaProject()->getModules()->addEmptyModule("Module");
-  // Set module source code
+  # Set module source code
   $module->setSourceCode("Sub Test(oShape As Shape)\r\n    MsgBox \"Test\"\r\nEnd Sub");
-  // Create reference to <stdole>
+  # Create reference to <stdole>
   $stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
-  // Create reference to Office
+  # Create reference to Office
   $officeReference = new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
-  // Add references to the VBA project
+  # Add references to the VBA project
   $pres->getVbaProject()->getReferences()->add($stdoleReference);
   $pres->getVbaProject()->getReferences()->add($officeReference);
   $pres->save("data\\test.pptm", SaveFormat::Pptm);

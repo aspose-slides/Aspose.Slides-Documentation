@@ -28,13 +28,13 @@ If you want to clone a slide and then use it within the same presentation file a
 In the example given below, we have cloned a slide (lying at the first position – zero index – of the presentation) to the end of the presentation.
 
 ```php
-  // Instantiate Presentation class that represents a presentation file
+  # Instantiate Presentation class that represents a presentation file
   $pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
   try {
-    // Clone the desired slide to the end of the collection of slides in the same presentation
+    # Clone the desired slide to the end of the collection of slides in the same presentation
     $slds = $pres->getSlides();
     $slds->addClone($pres->getSlides()->get_Item(0));
-    // Write the modified presentation to disk
+    # Write the modified presentation to disk
     $pres->save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -52,14 +52,14 @@ If you want to clone a slide and then use it within the same presentation file b
 In the example given below, we have cloned a slide (lying at the zero index – position 1 – of the presentation) to index 1 – Position 2 – of the presentation.
 
 ```php
-  // Instantiate Presentation class that represents a presentation file
+  # Instantiate Presentation class that represents a presentation file
   $pres = new Presentation("CloneWithInSamePresentation.pptx");
   try {
-    // Clone the desired slide to the end of the collection of slides in the same presentation
+    # Clone the desired slide to the end of the collection of slides in the same presentation
     $slds = $pres->getSlides();
-    // Clone the desired slide to the specified index in the same presentation
+    # Clone the desired slide to the specified index in the same presentation
     $slds->insertClone(2, $pres->getSlides()->get_Item(1));
-    // Write the modified presentation to disk
+    # Write the modified presentation to disk
     $pres->save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat::Pptx);
   } finally {
     $pres->dispose();
@@ -78,16 +78,16 @@ If you need to clone a slide from one presentation and use it in another present
 In the example given below, we have cloned a slide (from the first index of the source presentation) to the end of the destination presentation.
 
 ```php
-  // Instantiate Presentation class to load the source presentation file
+  # Instantiate Presentation class to load the source presentation file
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
+    # Instantiate Presentation class for destination PPTX (where slide is to be cloned)
     $destPres = new Presentation();
     try {
-      // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
+      # Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
       $slds = $destPres->getSlides();
       $slds->addClone($srcPres->getSlides()->get_Item(0));
-      // Write the destination presentation to disk
+      # Write the destination presentation to disk
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -109,16 +109,16 @@ If you need to clone a slide from one presentation and use it in another present
 In the example given below, we have cloned a slide (from the zero index of the source presentation) to index 1 (position 2) of the destination presentation.
 
 ```php
-  // Instantiate Presentation class to load the source presentation file
+  # Instantiate Presentation class to load the source presentation file
   $srcPres = new Presentation("CloneAtEndOfAnother.pptx");
   try {
-    // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
+    # Instantiate Presentation class for destination PPTX (where slide is to be cloned)
     $destPres = new Presentation();
     try {
-      // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
+      # Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
       $slds = $destPres->getSlides();
       $slds->insertClone(2, $srcPres->getSlides()->get_Item(0));
-      // Write the destination presentation to disk
+      # Write the destination presentation to disk
       $destPres->save("Aspose2_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -143,28 +143,28 @@ If you need to clone a slide with a master slide from one presentation from and 
 In the example given below, we have cloned a slide with a master (lying at the zero index of the source presentation) to the end of the destination presentation using a master from source slide.
 
 ```php
-  // Instantiate Presentation class to load the source presentation file
+  # Instantiate Presentation class to load the source presentation file
   $srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
   try {
-    // Instantiate Presentation class for destination presentation (where slide is to be cloned)
+    # Instantiate Presentation class for destination presentation (where slide is to be cloned)
     $destPres = new Presentation();
     try {
-      // Instantiate ISlide from the collection of slides in source presentation along with
-      // Master slide
+      # Instantiate ISlide from the collection of slides in source presentation along with
+      # Master slide
       $SourceSlide = $srcPres->getSlides()->get_Item(0);
       $SourceMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      // Clone the desired master slide from the source presentation to the collection of masters in the
-      // Destination presentation
+      # Clone the desired master slide from the source presentation to the collection of masters in the
+      # Destination presentation
       $masters = $destPres->getMasters();
       $DestMaster = $SourceSlide->getLayoutSlide()->getMasterSlide();
-      // Clone the desired master slide from the source presentation to the collection of masters in the
-      // Destination presentation
+      # Clone the desired master slide from the source presentation to the collection of masters in the
+      # Destination presentation
       $iSlide = $masters->addClone($SourceMaster);
-      // Clone the desired slide from the source presentation with the desired master to the end of the
-      // Collection of slides in the destination presentation
+      # Clone the desired slide from the source presentation with the desired master to the end of the
+      # Collection of slides in the destination presentation
       $slds = $destPres->getSlides();
       $slds->addClone($SourceSlide, $iSlide, true);
-      // Save the destination presentation to disk
+      # Save the destination presentation to disk
       $destPres->save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat::Pptx);
     } finally {
       $destPres->dispose();
@@ -186,7 +186,7 @@ The following code snippet shows you how to clone a slide and insert the cloned 
     $presentation->getSections()->addSection("Section 1", $presentation->getSlides()->get_Item(0));
     $section2 = $presentation->getSections()->appendEmptySection("Section 2");
     $presentation->getSlides()->addClone($presentation->getSlides()->get_Item(0), $section2);
-    // Save the destination presentation to disk
+    # Save the destination presentation to disk
     $presentation->save($dataDir . "CloneSlideIntoSpecifiedSection.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($presentation)) {

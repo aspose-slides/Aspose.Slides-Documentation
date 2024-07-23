@@ -23,8 +23,8 @@ ISlide.getNotesSlide(), ISlide.addNotesSlide() methods have been marked as Depre
 ```php
   $slide = $$missing$;
   $notes;
-  // notes = slide.addNotesSlide(); - deprecated
-  // notes = slide.getNotesSlide(); - deprecated
+  # notes = slide.addNotesSlide(); - deprecated
+  # notes = slide.getNotesSlide(); - deprecated
   $notes = $slide->getNotesSlideManager()->getNotesSlide();
   $notes = $slide->getNotesSlideManager()->addNotesSlide();
   $slide->getNotesSlideManager()->removeNotesSlide();

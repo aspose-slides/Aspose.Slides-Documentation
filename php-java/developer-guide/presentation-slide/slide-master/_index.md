@@ -112,7 +112,7 @@ Using Aspose.Slides, you can access a Slide Master this way:
 ```php
   $pres = new Presentation();
   try {
-    // Gives access to the Presentation's master slide
+    # Gives access to the Presentation's master slide
     $masterSlide = $pres->getMasters()->get_Item(0);
   } finally {
     $pres->dispose();
@@ -271,7 +271,7 @@ In PowerPoint, you can add new Slide Masters and Layouts (from the "Slide Master
 Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone**](https://reference.aspose.com/slides/php-java/aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method:
 
 ```php
-  // Adds a new master slide
+  # Adds a new master slide
   $secondMasterSlide = $pres->getMasters()->addClone($masterSlide);
 
 ```
@@ -291,12 +291,12 @@ Aspose.Slides allows you to set a Slide Master as the default view for a present
 This code shows you how to set a Slide Master as a presentation's default view :
 
 ```php
-  // Instantiates a Presentation class that represents the presentation file
+  # Instantiates a Presentation class that represents the presentation file
   $presentation = new Presentation();
   try {
-    // Sets the Default View as SlideMasterView
+    # Sets the Default View as SlideMasterView
     $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    // Saves the presentation
+    # Saves the presentation
     $presentation->save("PresView.pptx", SaveFormat::Pptx);
   } finally {
     $presentation->dispose();

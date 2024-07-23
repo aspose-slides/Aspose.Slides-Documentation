@@ -21,39 +21,39 @@ Aspose.Slides for PHP via Java provides a simple API for managing different char
 The following code is used to create a chart with Trend Lines.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
-    // Creating a clustered column chart
+    # Creating a clustered column chart
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 400);
-    // Adding ponential trend line for chart series 1
+    # Adding ponential trend line for chart series 1
     $tredLinep = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Exponential);
     $tredLinep->setDisplayEquation(false);
     $tredLinep->setDisplayRSquaredValue(false);
-    // Adding Linear trend line for chart series 1
+    # Adding Linear trend line for chart series 1
     $tredLineLin = $chart->getChartData()->getSeries()->get_Item(0)->getTrendLines()->add(TrendlineType::Linear);
     $tredLineLin->setTrendlineType(TrendlineType::Linear);
     $tredLineLin->getFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $tredLineLin->getFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    // Adding Logarithmic trend line for chart series 2
+    # Adding Logarithmic trend line for chart series 2
     $tredLineLog = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Logarithmic);
     $tredLineLog->setTrendlineType(TrendlineType::Logarithmic);
     $tredLineLog->addTextFrameForOverriding("New log trend line");
-    // Adding MovingAverage trend line for chart series 2
+    # Adding MovingAverage trend line for chart series 2
     $tredLineMovAvg = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::MovingAverage);
     $tredLineMovAvg->setTrendlineType(TrendlineType::MovingAverage);
     $tredLineMovAvg->setPeriod(3);
     $tredLineMovAvg->setTrendlineName("New TrendLine Name");
-    // Adding Polynomial trend line for chart series 3
+    # Adding Polynomial trend line for chart series 3
     $tredLinePol = $chart->getChartData()->getSeries()->get_Item(2)->getTrendLines()->add(TrendlineType::Polynomial);
     $tredLinePol->setTrendlineType(TrendlineType::Polynomial);
     $tredLinePol->setForward(1);
     $tredLinePol->setOrder(3);
-    // Adding Power trend line for chart series 3
+    # Adding Power trend line for chart series 3
     $tredLinePower = $chart->getChartData()->getSeries()->get_Item(1)->getTrendLines()->add(TrendlineType::Power);
     $tredLinePower->setTrendlineType(TrendlineType::Power);
     $tredLinePower->setBackward(1);
-    // Saving presentation
+    # Saving presentation
     $pres->save("ChartTrendLines_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -75,7 +75,7 @@ Aspose.Slides for PHP via Java provides a simple API to add custom lines in a ch
 The following code is used to create a chart with Custom Lines.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);

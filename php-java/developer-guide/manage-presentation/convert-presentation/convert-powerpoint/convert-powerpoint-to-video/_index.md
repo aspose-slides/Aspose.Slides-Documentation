@@ -47,7 +47,7 @@ This PHP code shows you how to convert a presentation (containing a figure and t
 ```php
   $presentation = new Presentation();
   try {
-    // Adds a smile shape and then animates it
+    # Adds a smile shape and then animates it
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubType::TopLeft, EffectTriggerType::AfterPrevious);
@@ -85,7 +85,7 @@ This PHP code shows you how to convert a presentation (containing a figure and t
         $animationsGenerator->dispose();
       }
     }
-    // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
+    # Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -109,9 +109,9 @@ You may want to see these articles: [PowerPoint Animation](https://docs.aspose.c
 Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 
 ```php
-  // Adds a smile shape and animates it
-  // ...
-  // Adds a new slide and animated transition
+  # Adds a smile shape and animates it
+  # ...
+  # Adds a new slide and animated transition
   $newSlide = $presentation->getSlides()->addEmptySlide($presentation->getSlides()->get_Item(0)->getLayoutSlide());
   $newSlide->getBackground()->setType(BackgroundType::OwnBackground);
   $newSlide->getBackground()->getFillFormat()->setFillType(FillType::Solid);
@@ -125,7 +125,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
 ```php
   $presentation = new Presentation();
   try {
-    // Adds text and animations
+    # Adds text and animations
     $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 120, 300, 300);
     $para1 = new Paragraph();
     $para1->getPortions()->add(new Portion("Aspose Slides for Java"));
@@ -178,7 +178,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
         $animationsGenerator->dispose();
       }
     }
-    // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
+    # Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
     $ffmpeg = new Java("net.bramp.ffmpeg.builder.FFmpeg", "path/to/ffmpeg");
     $ffprobe = new Java("net.bramp.ffmpeg.builder.FFprobe", "path/to/ffprobe");
     $builder = (new Java("net.bramp.ffmpeg.builder.FFmpegBuilder"))->addExtraArgs("-start_number", "1")->setInput("frame_%04d.png")->addOutput("output.avi")->setVideoFrameRate(FFmpeg->FPS_24)->setFormat("avi")->done();
@@ -215,13 +215,13 @@ class PresentationAnimationPlayer {
         echo(sprintf("Animation total duration: %f", $animationPlayer->getDuration()));
         $animationPlayer->setTimePosition(0);// initial animation state
         try {
-            // initial animation state bitmap
+            # initial animation state bitmap
             $animationPlayer->getFrame()->save("firstFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
         }
         $animationPlayer->setTimePosition($animationPlayer->getDuration());// final state of the animation
         try {
-            // last frame of the animation
+            # last frame of the animation
             $animationPlayer->getFrame()->save("lastFrame.png", ImageFormat::Png);
         } catch (JavaException $e) {
         }
@@ -229,7 +229,7 @@ class PresentationAnimationPlayer {
 }
 $presentation = new Presentation();
 try {
-    // Adds a smile shape and animates it
+    # Adds a smile shape and animates it
     $smile = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::SmileyFace, 110, 20, 500, 500);
     $mainSequence = $presentation->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
     $effectIn = $mainSequence->addEffect($smile, EffectType::Fly, EffectSubtype::TopLeft, EffectTriggerType::AfterPrevious);

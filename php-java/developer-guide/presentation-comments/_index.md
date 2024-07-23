@@ -24,29 +24,29 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for PHP 
 This PHP code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```php
-  // Instantiates the Presentation class
+  # Instantiates the Presentation class
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
   try {
-    // Adds an empty slide
+    # Adds an empty slide
     $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    // Adds an author
+    # Adds an author
     $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
-    // Sets the position for comments
+    # Sets the position for comments
     $point = new Point2DFloat(0.2, 0.2);
-    // Adds slide comment for an author on slide 1
+    # Adds slide comment for an author on slide 1
     $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
-    // Adds slide comment for an author on slide 2
+    # Adds slide comment for an author on slide 2
     $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
-    // Accesses ISlide 1
+    # Accesses ISlide 1
     $slide = $pres->getSlides()->get_Item(0);
-    // When null is passed as an argument, comments from all authors are brought to the selected slide
+    # When null is passed as an argument, comments from all authors are brought to the selected slide
     $Comments = $slide->getSlideComments($author);
-    // Accesses the comment at index 0 for slide 1
+    # Accesses the comment at index 0 for slide 1
     $str = $Comments[0]->getText();
     $pres->save("Comments_out.pptx", SaveFormat::Pptx);
     if (java_values($Array->getLength($Comments)) > 0) {
-      // Selects the Author's comments collection at index 0
+      # Selects the Author's comments collection at index 0
       $commentCollection = $Comments[0]->getAuthor()->getComments();
       $Comment = $commentCollection->get_Item(0)->getText();
     }
@@ -61,7 +61,7 @@ This PHP code shows you how to add a comment to a slide in a PowerPoint presenta
 This PHP code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```php
-  // Instantiates the Presentation class
+  # Instantiates the Presentation class
   $pres = new Presentation("Comments1.pptx");
   try {
     foreach($pres->getCommentAuthors() as $commentAuthor) {
@@ -88,24 +88,24 @@ This PHP code shows you how to add comments and get replies to them:
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
   try {
-    // Adds a comment
+    # Adds a comment
     $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
     $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    // Adds a reply to comment1
+    # Adds a reply to comment1
     $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
     $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply1->setParentComment($comment1);
-    // Adds another reply to comment1
+    # Adds another reply to comment1
     $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply2->setParentComment($comment1);
-    // Add a reply to an existing reply
+    # Add a reply to an existing reply
     $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $subReply->setParentComment($reply2);
     $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
     $reply3->setParentComment($comment3);
-    // Displays the comments hierarchy on console
+    # Displays the comments hierarchy on console
     $slide = $pres->getSlides()->get_Item(0);
     $comments = $slide->getSlideComments(null);
     for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
@@ -118,7 +118,7 @@ This PHP code shows you how to add comments and get replies to them:
       echo();
     }
     $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    // Removes comment1 and all replies to it
+    # Removes comment1 and all replies to it
     $comment1->remove();
     $pres->save("remove_comment.pptx", SaveFormat::Pptx);
   } finally {
@@ -165,11 +165,11 @@ This PHP code shows you how to remove all comments and authors in a presentation
 ```php
   $presentation = new Presentation("example.pptx");
   try {
-    // Deletes all comments from the presentation
+    # Deletes all comments from the presentation
     foreach($presentation->getCommentAuthors() as $author) {
       $author->getComments()->clear();
     }
-    // Deletes all authors
+    # Deletes all authors
     $presentation->getCommentAuthors()->clear();
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
   } finally {
@@ -187,11 +187,11 @@ This PHP code shows you how to delete specific comments on a slide:
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    // add comments...
+    # add comments...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
     $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
     $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    // remove all comments that contain "comment 1" text
+    # remove all comments that contain "comment 1" text
     foreach($presentation->getCommentAuthors() as $commentAuthor) {
       $toRemove = new Java("java.util.ArrayList");
       foreach($slide->getSlideComments($commentAuthor) as $comment) {

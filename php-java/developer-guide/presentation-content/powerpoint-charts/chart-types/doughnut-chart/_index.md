@@ -22,12 +22,12 @@ In order to specify the size of the hole in a doughnut chart, please follow the 
 In the example given below, we have set the size of the hole in a doughnut chart.
 
 ```php
-  // Create an instance of Presentation class
+  # Create an instance of Presentation class
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Doughnut, 50, 50, 400, 400);
     $chart->getChartData()->getSeriesGroups()->get_Item(0)->setDoughnutHoleSize(90);
-    // Write presentation to disk
+    # Write presentation to disk
     $pres->save("DoughnutHoleSize_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

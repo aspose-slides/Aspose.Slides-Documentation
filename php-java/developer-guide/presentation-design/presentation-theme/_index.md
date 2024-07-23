@@ -69,34 +69,34 @@ This PHP code demonstrates an operation where additional palette colors are obta
   $presentation = new Presentation();
   try {
     $slide = $presentation->getSlides()->get_Item(0);
-    // Accent 4
+    # Accent 4
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 50, 50);
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
-    // Accent 4, Lighter 80%
+    # Accent 4, Lighter 80%
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 70, 50, 50);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
     $shape2->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.2);
     $shape2->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.8);
-    // Accent 4, Lighter 60%
+    # Accent 4, Lighter 60%
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 130, 50, 50);
     $shape3->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.4);
     $shape3->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.6);
-    // Accent 4, Lighter 40%
+    # Accent 4, Lighter 40%
     $shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 190, 50, 50);
     $shape4->getFillFormat()->setFillType(FillType::Solid);
     $shape4->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.6);
     $shape4->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->AddLuminance, 0.4);
-    // Accent 4, Darker 25%
+    # Accent 4, Darker 25%
     $shape5 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 250, 50, 50);
     $shape5->getFillFormat()->setFillType(FillType::Solid);
     $shape5->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);
     $shape5->getFillFormat()->getSolidFillColor()->getColorTransform()->add(ColorTransformOperation->MultiplyLuminance, 0.75);
-    // Accent 4, Darker 50%
+    # Accent 4, Darker 50%
     $shape6 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 50, 50);
     $shape6->getFillFormat()->setFillType(FillType::Solid);
     $shape6->getFillFormat()->getSolidFillColor()->setSchemeColor(SchemeColor->Accent4);

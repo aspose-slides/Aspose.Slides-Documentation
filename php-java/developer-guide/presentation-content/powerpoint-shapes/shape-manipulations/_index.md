@@ -11,11 +11,11 @@ This topic will describe a simple technique to make it easier for developers to 
 After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for PHP via Java and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [findShape](https://reference.aspose.com/slides/php-java/aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
 ```php
-  // Instantiate a Presentation class that represents the presentation file
+  # Instantiate a Presentation class that represents the presentation file
   $pres = new Presentation("FindingShapeInSlide.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
-    // Alternative text of the shape to be found
+    # Alternative text of the shape to be found
     $shape = findShape($slide, "Shape1");
     if (!java_is_null($shape)) {
       echo("Shape Name: " . $shape->getName());
@@ -43,7 +43,7 @@ To clone a shape to a slide using Aspose.Slides for PHP via Java:
 The example below adds a group shape to a slide.
 
 ```php
-  // Instantiate Presentation class
+  # Instantiate Presentation class
   $pres = new Presentation("Source Frame.pptx");
   try {
     $sourceShapes = $pres->getSlides()->get_Item(0)->getShapes();
@@ -53,7 +53,7 @@ The example below adds a group shape to a slide.
     $destShapes->addClone($sourceShapes->get_Item(1), 50, 150 + $sourceShapes->get_Item(0)->getHeight());
     $destShapes->addClone($sourceShapes->get_Item(2));
     $destShapes->insertClone(0, $sourceShapes->get_Item(0), 50, 150);
-    // Write the PPTX file to disk
+    # Write the PPTX file to disk
     $pres->save("CloneShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -72,12 +72,12 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
 1. Save file to disk.
 
 ```php
-  // Create Presentation object
+  # Create Presentation object
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Add autoshape of rectangle type
+    # Add autoshape of rectangle type
     $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $altText = "User Defined";
@@ -88,7 +88,7 @@ Aspose.Slides for PHP via Java allows developers to remove any shape. To remove 
         $sld->getShapes()->remove($ashp);
       }
     }
-    // Save presentation to disk
+    # Save presentation to disk
     $pres->save("RemoveShape_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -107,12 +107,12 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
 1. Save file to disk.
 
 ```php
-  // Instantiate Presentation class that represents the PPTX
+  # Instantiate Presentation class that represents the PPTX
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Add autoshape of rectangle type
+    # Add autoshape of rectangle type
     $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $alttext = "User Defined";
@@ -123,7 +123,7 @@ Aspose.Slides for PHP via Java allows developers to hide any shape. To hide the 
         $ashp->setHidden(true);
       }
     }
-    // Save presentation to disk
+    # Save presentation to disk
     $pres->save("Hiding_Shapes_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -169,7 +169,7 @@ Aspose.Slides for PHP via Java allows developers to get a unique shape identifie
 ```php
   $pres = new Presentation("Presentation.pptx");
   try {
-    // Getting unique shape identifier in slide scope
+    # Getting unique shape identifier in slide scope
     $officeInteropShapeId = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0)->getOfficeInteropShapeId();
   } finally {
     if (!java_is_null($pres)) {
@@ -195,12 +195,12 @@ To set the AlternateText of a shape, please follow the steps below:
 1. Save file to disk.
 
 ```php
-  // Instantiate Presentation class that represents the PPTX
+  # Instantiate Presentation class that represents the PPTX
   $pres = new Presentation();
   try {
-    // Get the first slide
+    # Get the first slide
     $sld = $pres->getSlides()->get_Item(0);
-    // Add autoshape of rectangle type
+    # Add autoshape of rectangle type
     $shp1 = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 40, 150, 50);
     $shp2 = $sld->getShapes()->addAutoShape(ShapeType::Moon, 160, 40, 150, 50);
     $shp2->getFillFormat()->setFillType(FillType::Solid);
@@ -211,7 +211,7 @@ To set the AlternateText of a shape, please follow the steps below:
         $shape->setAlternativeText("User Defined");
       }
     }
-    // Save presentation to disk
+    # Save presentation to disk
     $pres->save("Set_AlternativeText_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

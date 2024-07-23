@@ -37,9 +37,9 @@ Here are the steps to convert PPT/PPTX to JPG:
   $pres = new Presentation("PowerPoint-Presentation.pptx");
   try {
     foreach($pres->getSlides() as $sld) {
-      // Creates a full scale image
+      # Creates a full scale image
       $slideImage = $sld->getImage(1.0, 1.0);
-      // Saves the image to disk in JPEG format
+      # Saves the image to disk in JPEG format
       try {
         $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat::Jpeg);
       } finally {
@@ -61,16 +61,16 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
 ```php
   $pres = new Presentation("PowerPoint-Presentation.pptx");
   try {
-    // Defines dimensions
+    # Defines dimensions
     $desiredX = 1200;
     $desiredY = 800;
-    // Gets scaled values of X and Y
+    # Gets scaled values of X and Y
     $ScaleX = 1.0 / $pres->getSlideSize()->getSize()->getWidth() * $desiredX;
     $ScaleY = 1.0 / $pres->getSlideSize()->getSize()->getHeight() * $desiredY;
     foreach($pres->getSlides() as $sld) {
-      // Creates a full scale image
+      # Creates a full scale image
       $slideImage = $sld->getImage($ScaleX, $ScaleY);
-      // Saves the image to disk in JPEG format
+      # Saves the image to disk in JPEG format
       try {
         $slideImage->save(String->format("Slide_%d.jpg", $sld->getSlideNumber()), ImageFormat::Jpeg);
       } finally {

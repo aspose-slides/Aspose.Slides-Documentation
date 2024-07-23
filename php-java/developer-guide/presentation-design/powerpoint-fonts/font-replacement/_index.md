@@ -20,16 +20,16 @@ Aspose.Slides allows you to replace a font this way:
 This PHP code demonstrates font replacement:
 
 ```php
-  // Loads a presentation
+  # Loads a presentation
   $pres = new Presentation("Fonts.pptx");
   try {
-    // Loads the source font that will be replaced
+    # Loads the source font that will be replaced
     $sourceFont = new FontData("Arial");
-    // Loads the new font
+    # Loads the new font
     $destFont = new FontData("Times New Roman");
-    // Replaces the fonts
+    # Replaces the fonts
     $pres->getFontsManager()->replaceFont($sourceFont, $destFont);
-    // Saves the presentation
+    # Saves the presentation
     $pres->save("UpdatedFont_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {

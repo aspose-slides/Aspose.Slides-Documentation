@@ -33,23 +33,23 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/php-
 This PHP code shows you how to add a VBA macro from scratch to a presentation:
 
 ```php
-  // Creates an instance of the presentation class
+  # Creates an instance of the presentation class
   $pres = new Presentation();
   try {
-    // Creates a new VBA Project
+    # Creates a new VBA Project
     $pres->setVbaProject(new VbaProject());
-    // Adds an empty module to the VBA project
+    # Adds an empty module to the VBA project
     $module = $pres->getVbaProject()->getModules()->addEmptyModule("Module");
-    // Sets the module source code
+    # Sets the module source code
     $module->setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
-    // Creates a reference to <stdole>
+    # Creates a reference to <stdole>
     $stdoleReference = new VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
-    // Creates a reference to Office
+    # Creates a reference to Office
     $officeReference = new VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
-    // Adds references to the VBA project
+    # Adds references to the VBA project
     $pres->getVbaProject()->getReferences()->add($stdoleReference);
     $pres->getVbaProject()->getReferences()->add($officeReference);
-    // Saves the Presentation
+    # Saves the Presentation
     $pres->save("test.pptm", SaveFormat::Pptm);
   } finally {
     if (!java_is_null($pres)) {
@@ -75,12 +75,12 @@ Using the [VbaProject](https://reference.aspose.com/slides/php-java/aspose.slide
 This PHP code shows you how to remove a VBA macro:
 
 ```php
-  // Loads the presentation containing the macro
+  # Loads the presentation containing the macro
   $pres = new Presentation("VBA.pptm");
   try {
-    // Accesses the Vba module and removes it
+    # Accesses the Vba module and removes it
     $pres->getVbaProject()->getModules()->remove($pres->getVbaProject()->getModules()->get_Item(0));
-    // Saves the Presentation
+    # Saves the Presentation
     $pres->save("test.pptm", SaveFormat::Pptm);
   } finally {
     if (!java_is_null($pres)) {
@@ -98,10 +98,10 @@ This PHP code shows you how to remove a VBA macro:
 This PHP code shows you how to extract VBA macros from a presentation containing macros:
 
 ```php
-  // Loads the presentation containing the macro
+  # Loads the presentation containing the macro
   $pres = new Presentation("VBA.pptm");
   try {
-    // Checks whether the Presentation contains a VBA Project
+    # Checks whether the Presentation contains a VBA Project
     if (!java_is_null($pres->getVbaProject())) {
       foreach($pres->getVbaProject()->getModules() as $module) {
         echo($module->getName());

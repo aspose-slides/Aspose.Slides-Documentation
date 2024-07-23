@@ -11,7 +11,7 @@ description: Extract Flash Objects from PowerPoint Presentation using PHP
 Aspose.Slides for PHP via Java provides a facility for extracting flash objects from a presentation. You can access the flash control by name and extract it from the presentation and including store SWF object data.
 
 ```php
-  // Instantiate Presentation class that represents the PPTX
+  # Instantiate Presentation class that represents the PPTX
   $pres = new Presentation();
   try {
     $controls = $pres->getSlides()->get_Item(0)->getControls();

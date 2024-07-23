@@ -19,7 +19,7 @@ Let’s start with adding a new Sunburst chart to the presentation:
   $pres = new Presentation();
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    // ...
+    # ...
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

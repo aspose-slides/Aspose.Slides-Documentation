@@ -13,29 +13,29 @@ The following example includes these steps:
 1. With [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), these rules are applied during any operations over the presentation: save, render, convert, etc.
 
 ```php
-  // Create new instance of a rules collection
+  # Create new instance of a rules collection
   $rulesList = new FontFallBackRulesCollection();
-  // create a number of rules
+  # create a number of rules
   $rulesList->add(new FontFallBackRule(0x400, 0x4ff, "Times New Roman"));
   foreach($rulesList as $fallBackRule) {
-    // Trying to remove FallBack font "Tahoma" from loaded rules
+    # Trying to remove FallBack font "Tahoma" from loaded rules
     $fallBackRule->remove("Tahoma");
-    // And to update of rules for specified range
+    # And to update of rules for specified range
     if (java_values($fallBackRule->getRangeEndIndex()) >= 0x4000 && java_values($fallBackRule->getRangeStartIndex()) < 0x5000) {
       $fallBackRule->addFallBackFonts("Verdana");
     }
   }
-  // Also we can remove any existing rules from list
+  # Also we can remove any existing rules from list
   if (java_values($rulesList->size()) > 0) {
     $rulesList->remove($rulesList->get_Item(0));
   }
   $pres = new Presentation("input.pptx");
   try {
-    // Assigning a prepared rules list for using
+    # Assigning a prepared rules list for using
     $pres->getFontsManager()->setFontFallBackRulesCollection($rulesList);
-    // Rendering of thumbnail with using of initialized rules collection and saving to JPEG
+    # Rendering of thumbnail with using of initialized rules collection and saving to JPEG
     $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    // Save the image to disk in JPEG format
+    # Save the image to disk in JPEG format
     try {
       $slideImage->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {

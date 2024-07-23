@@ -38,10 +38,10 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
     $doc = new Document();
     $builder = new DocumentBuilder($doc);
     foreach($pres->getSlides() as $slide) {
-      // generates and inserts slide image
+      # generates and inserts slide image
       $bitmap = $slide->getThumbnail(1, 1);
       $builder->insertImage($bitmap);
-      // inserts slide's texts
+      # inserts slide's texts
       foreach($slide->getShapes() as $shape) {
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
           $builder->writeln($shape->getTextFrame()->getText());

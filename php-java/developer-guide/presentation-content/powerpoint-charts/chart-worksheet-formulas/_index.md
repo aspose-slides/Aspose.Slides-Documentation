@@ -53,7 +53,7 @@ The worksheet of the chart is automatically created and can be accessed with 
   try {
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    // ...
+    # ...
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

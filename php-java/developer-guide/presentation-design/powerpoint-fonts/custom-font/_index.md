@@ -29,11 +29,11 @@ Aspose.Slides allows you to load fonts that are rendered in presentations withou
 This PHP code demonstrates the font loading process:
 
 ```php
-  // Folders to seek fonts
+  # Folders to seek fonts
   $folders = array($externalFontsDir );
-  // Loads the custom font directory fonts
+  # Loads the custom font directory fonts
   FontsLoader->loadExternalFonts($folders);
-  // Do Some work and perform presentation/slide rendering
+  # Do Some work and perform presentation/slide rendering
   $pres = new Presentation("DefaultFonts.pptx");
   try {
     $pres->save("NewFonts_out.pptx", SaveFormat::Pptx);
@@ -41,7 +41,7 @@ This PHP code demonstrates the font loading process:
     if (!java_is_null($pres)) {
       $pres->dispose();
     }
-    // Clears Font Cachce
+    # Clears Font Cachce
     FontsLoader->clearCache();
   }
 ```
@@ -52,8 +52,8 @@ Aspose.Slides provides the [getFontFolders](https://reference.aspose.com/slides/
 This PHP code shows you how to use [getFontFolders](https://reference.aspose.com/slides/php-java/aspose.slides/fontsloader/#getFontFolders--):
 
 ```php
-  // This line outputs folders where font files are searched.
-  // Those are folders added through the LoadExternalFonts method and system font folders.
+  # This line outputs folders where font files are searched.
+  # Those are folders added through the LoadExternalFonts method and system font folders.
   $fontFolders = FontsLoader->getFontFolders();
 
 ```
@@ -87,8 +87,8 @@ This PHP code shows you how to use the [setDocumentLevelFontSources](https://ref
   $loadOptions->getDocumentLevelFontSources()->setMemoryFonts(array($memoryFont1, $memoryFont2 ));
   $pres = new Presentation("MyPresentation.pptx", $loadOptions);
   try {
-    // Work with the presentation
-    // CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
+    # Work with the presentation
+    # CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();
@@ -135,7 +135,7 @@ try {
   try {
     $pres = new Presentation("");
     try {
-      // external font loaded during the presentation lifetime
+      # external font loaded during the presentation lifetime
     } finally {
     }
   } finally {

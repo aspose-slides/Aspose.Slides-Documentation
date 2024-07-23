@@ -28,38 +28,38 @@ This property returns or sets the superscript or subscript text (value from -100
 The implementation of the above steps is given below.
 
 ```php
-  // Instantiate a Presentation class that represents a PPTX
+  # Instantiate a Presentation class that represents a PPTX
   $pres = new Presentation();
   try {
-    // Get slide
+    # Get slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Create text box
+    # Create text box
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $textFrame = $shape->getTextFrame();
     $textFrame->getParagraphs()->clear();
-    // Create paragraph for superscript text
+    # Create paragraph for superscript text
     $superPar = new Paragraph();
-    // Create portion with usual text
+    # Create portion with usual text
     $portion1 = new Portion();
     $portion1->setText("SlideTitle");
     $superPar->getPortions()->add($portion1);
-    // Create portion with superscript text
+    # Create portion with superscript text
     $superPortion = new Portion();
     $superPortion->getPortionFormat()->setEscapement(30);
     $superPortion->setText("TM");
     $superPar->getPortions()->add($superPortion);
-    // Create paragraph for subscript text
+    # Create paragraph for subscript text
     $paragraph2 = new Paragraph();
-    // Create portion with usual text
+    # Create portion with usual text
     $portion2 = new Portion();
     $portion2->setText("a");
     $paragraph2->getPortions()->add($portion2);
-    // Create portion with subscript text
+    # Create portion with subscript text
     $subPortion = new Portion();
     $subPortion->getPortionFormat()->setEscapement(-25);
     $subPortion->setText("i");
     $paragraph2->getPortions()->add($subPortion);
-    // Add paragraphs to text box
+    # Add paragraphs to text box
     $textFrame->getParagraphs()->add($superPar);
     $textFrame->getParagraphs()->add($paragraph2);
     $pres->save("formatText.pptx", SaveFormat::Pptx);

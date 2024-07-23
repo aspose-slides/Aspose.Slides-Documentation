@@ -24,14 +24,14 @@ To add an ActiveX Media Player control, do this:
 This sample code, based on the steps above, shows to how to add Media Player ActiveX Control to a slide:
 
 ```php
-  // Create empty presentation instance
+  # Create empty presentation instance
   $pres = new Presentation();
   try {
-    // Adding the Media Player ActiveX control
+    # Adding the Media Player ActiveX control
     $pres->getSlides()->get_Item(0)->getControls()->addControl(ControlType::WindowsMediaPlayer, 100, 100, 400, 400);
-    // Access the Media Player ActiveX control and set the video path
+    # Access the Media Player ActiveX control and set the video path
     $pres->getSlides()->get_Item(0)->getControls()->get_Item(0)->getProperties()->set_Item("URL", "Wildlife.wmv");
-    // Save the Presentation
+    # Save the Presentation
     $pres->save("Output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -62,18 +62,18 @@ To manage a simple ActiveX control like a text box and simple command button on 
 This sample code, based on the steps above, shows how to manage a simple ActiveX control: 
 
 ```php
-  // Accessing the presentation with ActiveX controls
+  # Accessing the presentation with ActiveX controls
   $pres = new Presentation("ActiveX.pptm");
   try {
-    // Accessing the first slide in presentation
+    # Accessing the first slide in presentation
     $slide = $pres->getSlides()->get_Item(0);
-    // changing TextBox text
+    # changing TextBox text
     $control = $slide->getControls()->get_Item(0);
     if (!java_is_null($control->getName()->equalsIgnoreCase("TextBox1") && $control->getProperties())) {
       $newText = "Changed text";
       $control->getProperties()->set_Item("Value", $newText);
-      // Changing substitute image. PowerPoint will replace this image during activeX activation,
-      // so sometime it's OK to leave image unchanged.
+      # Changing substitute image. PowerPoint will replace this image during activeX activation,
+      # so sometime it's OK to leave image unchanged.
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->window);
@@ -99,12 +99,12 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
-    // Changing Button caption
+    # Changing Button caption
     $control = $pres->getSlides()->get_Item(0)->getControls()->get_Item(1);
     if (!java_is_null($control->getName()->equalsIgnoreCase("CommandButton1") && $control->getProperties())) {
       $newCaption = "Show MessageBox";
       $control->getProperties()->set_Item("Caption", $newCaption);
-      // Changing substitute
+      # Changing substitute
       $image = new BufferedImage($control->getFrame()->getWidth(), $control->getFrame()->getHeight(), BufferedImage->TYPE_INT_ARGB);
       $graphics = $image->getGraphics();
       $graphics->setColor(SystemColor->control);
@@ -131,13 +131,13 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
       Java("javax.imageio.ImageIO")->write($image, "PNG", $baos);
       $control->getSubstitutePictureFormat()->getPicture()->setImage($pres->getImages()->addImage($baos->toByteArray()));
     }
-    // moving 100 points down
+    # moving 100 points down
     foreach($pres->getSlides()->get_Item(0)->getControls() as $ctl) {
       $frame = $ctl->getFrame();
       $ctl->setFrame(new ShapeFrame($frame->getX(), $frame->getY() + 100, $frame->getWidth(), $frame->getHeight(), $frame->getFlipH(), $frame->getFlipV(), $frame->getRotation()));
     }
     $pres->save("withActiveX-edited_java.pptm", SaveFormat::Pptm);
-    // removing controls
+    # removing controls
     $pres->getSlides()->get_Item(0)->getControls()->clear();
     $pres->save("withActiveX-cleared_java.pptm", SaveFormat::Pptm);
   } catch (JavaException $e) {

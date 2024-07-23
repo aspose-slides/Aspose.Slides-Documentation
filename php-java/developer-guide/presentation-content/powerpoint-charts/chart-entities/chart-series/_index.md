@@ -27,14 +27,14 @@ This PHP code shows you how to set the overlap for a chart series:
 ```php
   $pres = new Presentation();
   try {
-    // Adds chart
+    # Adds chart
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
     $series = $chart->getChartData()->getSeries();
     if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      // Sets series overlap
+      # Sets series overlap
       $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
     }
-    // Writes the presentation file to disk
+    # Writes the presentation file to disk
     $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -154,13 +154,13 @@ This PHP code shows you how to set the automatic fill color for a chart series:
 ```php
   $pres = new Presentation();
   try {
-    // Creates a clustered column chart
+    # Creates a clustered column chart
     $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    // Sets series fill format to automatic
+    # Sets series fill format to automatic
     for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
       $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
     }
-    // Writes the presentation file to disk
+    # Writes the presentation file to disk
     $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -188,12 +188,12 @@ This PHP code demonstrates the operation:
     $workBook = $chart->getChartData()->getChartDataWorkbook();
     $chart->getChartData()->getSeries()->clear();
     $chart->getChartData()->getCategories()->clear();
-    // Adds new series and categories
+    # Adds new series and categories
     $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
     $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
     $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
-    // Takes the first chart series and populates its series data.
+    # Takes the first chart series and populates its series data.
     $series = $chart->getChartData()->getSeries()->get_Item(0);
     $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
     $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
@@ -281,36 +281,36 @@ Aspose.Slides for PHP via Java allows you to set a series' Gap Width through the
 This code  shows you how to set a series' Gap Width:
 
 ```php
-  // Creates empty presentation
+  # Creates empty presentation
   $pres = new Presentation();
   try {
-    // Accesses the presentation's first slide
+    # Accesses the presentation's first slide
     $slide = $pres->getSlides()->get_Item(0);
-    // Adds a chart with default data
+    # Adds a chart with default data
     $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    // Sets the index of the chart data sheet
+    # Sets the index of the chart data sheet
     $defaultWorksheetIndex = 0;
-    // Gets the chart data worksheet
+    # Gets the chart data worksheet
     $fact = $chart->getChartData()->getChartDataWorkbook();
-    // Adds series
+    # Adds series
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
     $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    // Adds Categories
+    # Adds Categories
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
     $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Takes the second chart series
+    # Takes the second chart series
     $series = $chart->getChartData()->getSeries()->get_Item(1);
-    // Populates the series data
+    # Populates the series data
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
     $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    // Sets GapWidth value
+    # Sets GapWidth value
     $series->getParentSeriesGroup()->setGapWidth(50);
-    // Saves presentation to disk
+    # Saves presentation to disk
     $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
