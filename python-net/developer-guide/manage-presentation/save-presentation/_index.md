@@ -58,10 +58,10 @@ with slides.Presentation() as presentation:
 
 ```
 
-### **Saving Presentations to Strict Open XML Spreadsheet Format**
-Aspose.Slides allows you to save the presentation in Strict Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/) class where you can set the Conformance property, while saving the presentation file. If you set its value as Conformance.Iso29500_2008_Strict, then the output presentation file will be saved in Strict Open XML format.
+### **Saving Presentations to Strict Office Open XML Format**
+Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/) class where you can set the Conformance property, while saving the presentation file. If you set its value as Conformance.Iso29500_2008_Strict, then the output presentation file will be saved in Strict Office Open XML format.
 
-The following sample code creates a presentation and saves it in the Strict Open XML Format. While calling the Save method for the presentation, the  **[PptxOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/)** object is passed into it with the [**Conformance** ](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/)property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/python-net/aspose.slides.export/conformance/).
+The following sample code creates a presentation and saves it in the Strict Office Open XML Format. While calling the Save method for the presentation, the  **[PptxOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/)** object is passed into it with the [**Conformance** ](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/)property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/python-net/aspose.slides.export/conformance/).
 
 
 
@@ -79,7 +79,7 @@ with slides.Presentation() as presentation:
     options = slides.export.PptxOptions()
     options.conformance = slides.export.Conformance.ISO29500_2008_STRICT
 
-    # Save the presentation to Strict Open XML Format
+    # Save the presentation to Strict Office Open XML Format
     presentation.save("NewPresentation_out.pptx", slides.export.SaveFormat.PPTX, options)
 
 ```
