@@ -72,10 +72,10 @@ try {
 }
 ```
 
-## **Save Presentation to Strict Open XML Spreadsheet Format**
-Aspose.Slides allows you to save the presentation in Strict Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) class where you can set the Conformance property while saving the presentation file. If you set its value as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict), then the output presentation file will be saved in Strict Open XML format.
+## **Saving Presentations to Strict Office Open XML Format**
+Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) class where you can set the Conformance property while saving the presentation file. If you set its value as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict), then the output presentation file will be saved in Strict Open XML format.
 
-The following sample code creates a presentation and saves it in the Strict Open XML Format. While calling the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict).
+The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict).
 
 ```java
 // Instantiate a Presentation object that represents a PPT file
@@ -87,7 +87,7 @@ try {
     // Add an autoshape of type line
     slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
     
-    //Setting strick XML save options
+    //Set Strict Office Open XML Format save options
     PptxOptions options = new PptxOptions();
     options.setConformance(Conformance.Iso29500_2008_Strict);
     
@@ -98,6 +98,38 @@ try {
 }
 
 ```
+
+## **Saving Presentations to Office Open XML format in Zip64 mode**
+
+An Office Open XML file is a ZIP-archive that has a 4 GB (2^32 bytes) limit on uncompressed size of a file, compressed size of a file, and total size of the archive, as well as a limit of 65,535 (2^16-1) files in the archive. ZIP64 format extensions increase the limits to 2^64.
+
+The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
+
+This property provides the following modes:
+
+- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#IfNecessary) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
+- [Zip64Mode.Never](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#Never) means that ZIP64 format extensions will not be used. 
+- [Zip64Mode.Always](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#Always) means that ZIP64 format extensions will always be used.
+
+The following code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
+
+```java
+Presentation pres = new Presentation("Sample.pptx");
+try {
+    PptxOptions pptxOptions = new PptxOptions();
+    pptxOptions.setZip64Mode(Zip64Mode.Always);
+    
+    pres.save("Sample-zip64.pptx", SaveFormat.Pptx, pptxOptions);
+} finally {
+    if (pres != null) pres.dispose();
+}
+```
+
+{{% alert title="NOTE" color="warning" %}}
+
+Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
+
+{{% /alert %}}
 
 ## **Save Progress Updates in Percentage**
 New [**IProgressCallback**](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/java/com.aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
