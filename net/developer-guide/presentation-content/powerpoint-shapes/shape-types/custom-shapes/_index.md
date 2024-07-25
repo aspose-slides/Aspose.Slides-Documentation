@@ -3,11 +3,24 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /net/custom-shape/
-keywords: "PowerPoint shape, custom shape, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Add custom shape in PowerPoint presentation in C# or .NET"
+keywords: 
+- shape
+- custom shape
+- create shape
+- geometry
+- shape geometry
+- geometry path
+- path points
+- edit points
+- PowerPoint
+- presentation
+- C#
+- Aspose.Slides for .NET
+description: "Add a custom shape to a PowerPoint presentation in .NET"
 ---
 
-# Change a Shape Using Edit Points
+## Change a Shape Using Edit Points
+
 Consider a square. In PowerPoint, using **edit points**, you can 
 
 * move the square's corner in or out
@@ -24,7 +37,6 @@ Essentially, you can perform the described tasks on any shape. Using edit points
 Before you start editing PowerPoint shapes through edit points, you might want to consider these points about shapes:
 
 * A shape (or its path) can either be closed or open.
-* When a shape is closed, it lacks a start or end point. When a shape is open, it has a beginning and end. 
 * All shapes consist of at least 2 anchor points linked to each other by lines
 * A line is either straight or curved. Anchor points determine the nature of the line. 
 * Anchor points exist as corner points, straight points, or smooth points:
@@ -105,7 +117,9 @@ void MoveTo(float x, float y);
 ``` csharp
 void RemoveAt(int index);
 ```
+
 ## **Add Custom Points to Shape**
+
 1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype) type.
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
 3. Add a new point between the two top points on the path.
@@ -128,7 +142,7 @@ using (Presentation pres = new Presentation())
 
 ![example1_image](custom_shape_1.png)
 
-##  Remove Points From Shape
+##  **Remove Points from Shape**
 
 1. Create an instance of [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class and set the [ShapeType.Heart](https://reference.aspose.com/slides/net/aspose.slides/shapetype) type. 
 2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath) class from the shape.
@@ -197,7 +211,6 @@ using (Presentation pres = new Presentation())
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Create Composite Custom Shape**
 
   1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape) class.
@@ -231,7 +244,7 @@ using (Presentation pres = new Presentation())
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Create Custom Shape With Curved Corners**
+## **Create Custom Shape with Curved Corners**
 
 This C# code shows you how to create a custom shape with curved corners (inwards);
 
@@ -274,6 +287,37 @@ using (var presentation = new Presentation())
     childShape.SetGeometryPath(geometryPath);
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
+}
+```
+
+## **Find Out If a Shape Geometry Is Closed**
+
+Checking if a shape in a PowerPoint presentation is closed can be crucial for the correct display and editing of objects on slides. A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline.
+
+The closedness of a shape is important for performing various operations, such as filling with color or gradient, applying effects and transformations, and ensuring proper interaction with other slide elements.
+
+To check whether the geometry of a shape is closed, you need to do the following:
+1. Get access to the shape geometry.
+2. Enumerate the geometry paths in the shape.
+    2.1. Get the last segment of the next path.
+    2.2. Check if the last segment is the `CLOSE` command.
+
+The following code example shows how to do this:
+
+```cs
+if (shape is GeometryShape geometryShape)
+{
+    for (int i = 0; i < geometryShape.GetGeometryPaths().Length; i++)
+    {
+        IGeometryPath path = geometryShape.GetGeometryPaths()[i];
+
+        if (path.PathData.Length == 0) continue;
+
+        IPathSegment lastSegment = path.PathData[path.PathData.Length - 1];
+        bool isClosed = lastSegment.PathCommand == PathCommandType.Close;
+        
+        Console.WriteLine($"Path {i} is closed: {isClosed}");
+    }
 }
 ```
 
