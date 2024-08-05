@@ -226,7 +226,7 @@ try {
 ## **Set Format of Numerics**
 Aspose.Slides for Java provides a simple API for managing chart data format:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
 1. Set the preset number format from the possible preset values.
@@ -309,9 +309,9 @@ The possible preset number format values along with their preset index and that 
 |**49**|@|
 
 ## **Set Chart Area Rounded Borders**
-Aspose.Slides for Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) have been added to [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) interface and [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart) class. 
+Aspose.Slides for Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) have been added to [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) interface and [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart) class. 
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Set fill type and fill color of chart
 1. Set round corner property True.

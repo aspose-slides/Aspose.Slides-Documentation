@@ -10,7 +10,7 @@ When developers add an **OleObjectFrame** to their slides using Aspose.Slides fo
 ## **Critic Analysis and Explanation**
 First of all, it is important to know that **Object Changed** message shown by Aspose.Slides for Java after adding **OleObjectFrame** in the slide, is **NOT** an error or bug in Aspose.Slides for Java. It's just an information or message to notify users that object is changed and image should be updated.
 
-For example, if you add a **Microsoft Excel Chart** as an **OleObjectFrame** to your slide (for more details and code snippet about adding **OleObjectFrame** to your slide, [click here](/slides/java/adding-frame-to-the-slide/)) and then open the presentation file using MS PowerPoint then the slide (where the **OLE Object** was added) would look like this:
+For example, if you add a **Microsoft Excel Chart** as an **OleObjectFrame** to your slide (for more details and code snippet about adding **OleObjectFrame** to your slide, [click here](/slides/androidjava/adding-frame-to-the-slide/)) and then open the presentation file using MS PowerPoint then the slide (where the **OLE Object** was added) would look like this:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

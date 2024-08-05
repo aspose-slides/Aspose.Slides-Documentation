@@ -8,14 +8,14 @@ url: /androidjava/save-presentation/
 ## **Overview**
 {{% alert color="primary" %}} 
 
-[Opening Presentation](/slides/java/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
+[Opening Presentation](/slides/androidjava/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
 
 {{% /alert %}} 
 
-The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
+The [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
 
 ## **Save Presentation to File**
-Save a presentation to file by calling the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method. Simply pass the file name and [**SaveFormat**](https://reference.aspose.com/slides/java/com.aspose.slides/SaveFormat) to the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method.
+Save a presentation to file by calling the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) method. Simply pass the file name and [**SaveFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveFormat) to the [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) method.
 
 The examples that follow show how to save a presentation with Aspose.Slides for Java.
 
@@ -33,7 +33,7 @@ try {
 ```
 
 ## **Save Presentation to Stream**
-It is possible to save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
+It is possible to save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
 
 ```java
 // Instantiate a Presentation object that represents a PPT file
@@ -56,7 +56,7 @@ try {
 ```
 
 ## **Save Presentation with Predefined View Type**
-Aspose.Slides for Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/java/com.aspose.slides/ViewType) enumerator.
+Aspose.Slides for Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewType) enumerator.
 
 ```java
 // Opening the presentation file
@@ -73,9 +73,9 @@ try {
 ```
 
 ## **Saving Presentations to Strict Office Open XML Format**
-Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) class where you can set the Conformance property while saving the presentation file. If you set its value as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict), then the output presentation file will be saved in Strict Open XML format.
+Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions) class where you can set the Conformance property while saving the presentation file. If you set its value as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Conformance#Iso29500_2008_Strict), then the output presentation file will be saved in Strict Open XML format.
 
-The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict).
+The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Conformance#Iso29500_2008_Strict).
 
 ```java
 // Instantiate a Presentation object that represents a PPT file
@@ -103,13 +103,13 @@ try {
 
 An Office Open XML file is a ZIP-archive that has a 4 GB (2^32 bytes) limit on uncompressed size of a file, compressed size of a file, and total size of the archive, as well as a limit of 65,535 (2^16-1) files in the archive. ZIP64 format extensions increase the limits to 2^64.
 
-The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
+The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
 
 This property provides the following modes:
 
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#IfNecessary) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
-- [Zip64Mode.Never](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#Never) means that ZIP64 format extensions will not be used. 
-- [Zip64Mode.Always](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#Always) means that ZIP64 format extensions will always be used.
+- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#IfNecessary) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
+- [Zip64Mode.Never](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Never) means that ZIP64 format extensions will not be used.
+- [Zip64Mode.Always](https://reference.aspose.com/slides/androidjava/com.aspose.slides/zip64mode/#Always) means that ZIP64 format extensions will always be used.
 
 The following code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
 
@@ -127,14 +127,14 @@ try {
 
 {{% alert title="NOTE" color="warning" %}}
 
-Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
+Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
 
 {{% /alert %}}
 
 ## **Save Progress Updates in Percentage**
-New [**IProgressCallback**](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/java/com.aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
+New [**IProgressCallback**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
 
-The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface:
+The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IProgressCallback) interface:
 
 ```java
 // Opening the presentation file

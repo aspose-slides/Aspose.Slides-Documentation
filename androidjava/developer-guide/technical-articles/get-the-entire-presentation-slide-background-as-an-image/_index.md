@@ -16,10 +16,10 @@ keywords:
 - Aspose.Slides for Java
 ---
 
-In PowerPoint presentations, the slide background can consist of many elements. In addition to the image set as the [slide background](/slides/java/presentation-background/), the final background can be influenced by the presentation theme, color scheme, and the shapes placed on the master slide and layout slide.
+In PowerPoint presentations, the slide background can consist of many elements. In addition to the image set as the [slide background](/slides/androidjava/presentation-background/), the final background can be influenced by the presentation theme, color scheme, and the shapes placed on the master slide and layout slide.
 
 Aspose.Slides for Java does not provide a simple method to extract the entire presentation slide background as an image, but you can follow the steps below to do this:
-1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
 1. Get the slide size from the presentation.
 1. Select a slide.
 1. Create a temporary presentation.

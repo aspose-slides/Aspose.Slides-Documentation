@@ -7,7 +7,7 @@ keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Java, Printer, Print
 description: "Print PowerPoint Presentation in Java"
 ---
 
-In Aspose.Slides for Java 24.4, we have introduced a [Modern API](https://docs.aspose.com/slides/java/modern-api/) that limits print support. However, we have taken a new approach to help you overcome this limitation. In this article, we will show you how to print a presentation using the current API.
+In Aspose.Slides for Java 24.4, we have introduced a [Modern API](https://docs.aspose.com/slides/androidjava/modern-api/) that limits print support. However, we have taken a new approach to help you overcome this limitation. In this article, we will show you how to print a presentation using the current API.
 
 ## Print Presentation
 
@@ -17,9 +17,9 @@ To print a presentation, follow these steps:
 
 1. Create an instance of the `PrintRequestAttributeSet` and specify printing attributes such as orientation and page range.
 2. Create an instance of the `RenderingOptions` and specify options for slide notes layout.
-3. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class, specifying the presentation file.
+3. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class, specifying the presentation file.
 4. Create an instance of the `PrinterJob` to specify the desired printer.
-5. Generate an array of Slide Images using the [getImages](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getImages-com.aspose.slides.IRenderingOptions-int---java.awt.Dimension-) method.
+5. Generate an array of Slide Images using the [getImages](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages-com.aspose.slides.IRenderingOptions-int---java.awt.Dimension-) method.
 6. Set the `IImage` array as Printable for `PrinterJob`.
 7. Call the `print` method of the `PrinterJob` class.
 

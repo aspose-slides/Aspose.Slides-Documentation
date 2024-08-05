@@ -12,9 +12,9 @@ description: PowerPoint Java API lets you set the default font for rendering the
 Aspose.Slides lets you set the default font fore rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular
 Font and DefaultAsian Font for use as default fonts. Please follow the steps below to loading fonts from external directories by using Aspose.Slides for Java API:
 
-1. Create an instance of [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/LoadOptions).
-1. [Set the DefaultRegularFont](https://reference.aspose.com/slides/java/com.aspose.slides/LoadOptions#setDefaultRegularFont-java.lang.String-) to your desired font. In the following example, I have used Wingdings.
-1. [Set the DefaultAsianFont](https://reference.aspose.com/slides/java/com.aspose.slides/LoadOptions#setDefaultAsianFont-java.lang.String-) to your desired font. I have used Wingdings in following sample.
+1. Create an instance of [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions).
+1. [Set the DefaultRegularFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions#setDefaultRegularFont-java.lang.String-) to your desired font. In the following example, I have used Wingdings.
+1. [Set the DefaultAsianFont](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LoadOptions#setDefaultAsianFont-java.lang.String-) to your desired font. I have used Wingdings in following sample.
 1. Load the presentation using Presentation and setting the load options.
 1. Now, generate the slide thumbnail, PDF and XPS to verify the results.
 

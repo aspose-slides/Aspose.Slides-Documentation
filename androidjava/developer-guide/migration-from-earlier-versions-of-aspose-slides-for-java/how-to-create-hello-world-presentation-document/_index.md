@@ -7,7 +7,7 @@ url: /androidjava/how-to-create-hello-world-presentation-document/
 
 {{% alert color="primary" %}} 
 
-A new [Aspose.Slides for Java API](/slides/java/) has been released and now this single product supports the capability to generate PowerPoint documents from scratch and editing the existing ones.
+A new [Aspose.Slides for Java API](/slides/androidjava/) has been released and now this single product supports the capability to generate PowerPoint documents from scratch and editing the existing ones.
 
 {{% /alert %}} 
 ## **Support for Legacy code**

@@ -25,11 +25,11 @@ When you merge one presentation to another, you are effectively combining their 
 
 Most presentation programs (PowerPoint or OpenOffice) lack functions that allow users to combine presentations in such manner. 
 
-[**Aspose.Slides for Java**](https://products.aspose.com/slides/java/), however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data. 
+[**Aspose.Slides for Java**](https://products.aspose.com/slides/androidjava/), however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data.
 
 **See also**
 
-[Clone Slides](https://docs.aspose.com/slides/java/clone-slides/). 
+[Clone Slides](https://docs.aspose.com/slides/androidjava/clone-slides/).
 
 {{% /alert %}}
 
@@ -45,9 +45,9 @@ With Aspose.Slides, you can merge
 
 Besides presentations, Aspose.Slides allows you to merge other files:
 
-* [Images](https://products.aspose.com/slides/java/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
-* Documents, such as [PDF to PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
-* And two different files such as [image to PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/).
+* [Images](https://products.aspose.com/slides/androidjava/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/androidjava/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/androidjava/merger/png-to-png/)
+* Documents, such as [PDF to PDF](https://products.aspose.com/slides/androidjava/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/androidjava/merger/html-to-html/)
+* And two different files such as [image to PDF](https://products.aspose.com/slides/androidjava/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/androidjava/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/androidjava/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 
@@ -58,13 +58,13 @@ You can apply options that determine whether
 * each slide in the output presentation retains a unique style
 * a specific style is used for all the slides in the output presentation. 
 
-To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) methods (from the [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides. 
+To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) methods (from the [ISlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides.
 
 The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
 
 ## **Merge Presentations** 
 
-Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
+Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) method that allows you to combine slides while the slides retain their layouts and styles (default parameters).
 
 This Java code shows you how to merge presentations:
 
@@ -88,7 +88,7 @@ try {
 
 ## **Merge Presentations with Slide Master**
 
-Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
+Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation.
 
 This code in Java demonstrates the described operation:
 
@@ -112,11 +112,11 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/PptxEditException) will be thrown. 
+The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException) will be thrown.
 
 {{% /alert %}}
 
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) method instead when merging. 
+If you want the slides in the output presentation to have a different slide layout, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) method instead when merging.
 
 ## **Merge Specific Slides From Presentations**
 

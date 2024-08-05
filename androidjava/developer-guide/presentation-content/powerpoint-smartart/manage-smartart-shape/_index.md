@@ -9,9 +9,9 @@ url: /androidjava/manage-smartart-shape/
 ## **Create SmartArt Shape**
 Aspose.Slides for Java has provided an API to create SmartArt shapes. To create a SmartArt shape in a slide, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Index.
-1. [Add a SmartArt shape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) by setting it [LayoutType](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArtLayoutType).
+1. [Add a SmartArt shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) by setting it [LayoutType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtLayoutType).
 1. Save the modified presentation as a PPTX file.
 
 ```java
@@ -36,7 +36,7 @@ try {
 |**Figure: SmartArt shape added to the slide**|
 
 ## **Access SmartArt Shape in Slide**
-The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) shape. If shape is of SmartArt type then we will typecast that to [**SmartArt**](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) instance.
+The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) shape. If shape is of SmartArt type then we will typecast that to [**SmartArt**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) instance.
 
 ```java
 // Load the desired the presentation
@@ -59,12 +59,12 @@ try {
 ```
 
 ## **Access SmartArt Shape with Particular Layout Type**
-The following sample code will help to access the [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) shape with particular LayoutType. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) shape is added.
+The following sample code will help to access the [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) shape with particular LayoutType. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) shape is added.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) type and Typecast selected shape to SmartArt if it is SmartArt.
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) type and Typecast selected shape to SmartArt if it is SmartArt.
 1. Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
 
 ```java
@@ -94,10 +94,10 @@ try {
 ## **Change SmartArt Shape Style**
 In this example, we will learn to change the quick style for any SmartArt shape.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) type and Typecast selected shape to SmartArt if it is SmartArt.
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) type and Typecast selected shape to SmartArt if it is SmartArt.
 1. Find the SmartArt shape with particular Style.
 1. Set the new Style for the SmartArt shape.
 1. Save the Presentation.
@@ -139,10 +139,10 @@ try {
 ## **Change SmartArt Shape Color Style**
 In this example, we will learn to change the color style for any SmartArt shape. In the following sample code will access the SmartArt shape with particular color style and will change its style.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
 1. Traverse through every shape inside first slide.
-1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/java/com.aspose.slides/SmartArt) type and Typecast selected shape to SmartArt if it is SmartArt.
+1. Check if shape is of [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArt) type and Typecast selected shape to SmartArt if it is SmartArt.
 1. Find the SmartArt shape with particular Color Style.
 1. Set the new Color Style for the SmartArt shape.
 1. Save the Presentation.

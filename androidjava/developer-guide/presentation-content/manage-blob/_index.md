@@ -22,7 +22,7 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 
 ### **Add Large File through BLOB to a Presentation**
 
-[Aspose.Slides](/slides/java/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
+[Aspose.Slides](/slides/androidjava/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
 This Java shows you how to add a large video file through the BLOB process to a presentation:
 
@@ -104,7 +104,7 @@ try {
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB. 
+With methods from the [**IImageCollection**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
 
 This Java code shows you how to add a large image through the BLOB process:
 

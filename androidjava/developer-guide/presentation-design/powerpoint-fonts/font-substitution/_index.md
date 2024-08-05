@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-You may want to see [**Font Replacement**](/slides/java/font-replacement/). 
+You may want to see [**Font Replacement**](/slides/androidjava/font-replacement/).
 
 {{% /alert %}}

@@ -37,5 +37,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Read more [**How to Convert Presentations PPT to PPTX**.](/slides/java/convert-ppt-to-pptx/)
+Read more [**How to Convert Presentations PPT to PPTX**.](/slides/androidjava/convert-ppt-to-pptx/)
 {{% /alert %}} 

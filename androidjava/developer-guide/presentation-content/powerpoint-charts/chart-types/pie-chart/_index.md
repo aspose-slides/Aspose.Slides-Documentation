@@ -7,7 +7,7 @@ url: /androidjava/pie-chart/
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
 Aspose.Slides for Java now supports second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will show you how to specify those options using Aspose.Slides. To specify the properties, do this:
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Specify the second plot options of chart.
 1. Write presentation to disk.
@@ -37,7 +37,7 @@ try {
 ## **Set Automatic Pie Chart Slice Colors**
 Aspose.Slides for Java provides a simple API for setting automatic pie chart slide colors. The sample code applies setting the above said properties.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Set chart Title.
