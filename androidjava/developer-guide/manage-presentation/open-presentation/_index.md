@@ -3,7 +3,7 @@ title: Open Presentation in Java
 linktitle: Open Presentation
 type: docs
 weight: 20
-url: /java/open-presentation/
+url: /androidjava/open-presentation/
 keywords: "Open PowerPoint, PPTX, PPT, Open Presentation, Load Presentation, Java"
 description: "Open or load Presentation PPT, PPTX, ODP in Java"
 ---

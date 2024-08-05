@@ -1,7 +1,7 @@
 ---
 title: Bubble Chart
 type: docs
-url: /java/bubble-chart/
+url: /androidjava/bubble-chart/
 ---
 
 ## **Bubble Chart Size Scaling**

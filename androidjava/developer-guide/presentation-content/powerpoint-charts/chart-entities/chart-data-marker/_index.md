@@ -1,7 +1,7 @@
 ---
 title: Chart Data Marker
 type: docs
-url: /java/chart-data-marker/
+url: /androidjava/chart-data-marker/
 ---
 
 ## **Set Chart Marker Options**

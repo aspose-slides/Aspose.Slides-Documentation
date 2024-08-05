@@ -2,7 +2,7 @@
 title: Convert OpenOffice ODP
 type: docs
 weight: 10
-url: /java/convert-openoffice-odp/
+url: /androidjava/convert-openoffice-odp/
 keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF in Java"
 description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML in Java"
 ---

@@ -2,7 +2,7 @@
 title: Presentation Localization
 type: docs
 weight: 100
-url: /java/presentation-localization/
+url: /androidjava/presentation-localization/
 ---
 
 ## **Change Language for Presentation and Shape's Text**

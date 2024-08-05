@@ -2,7 +2,7 @@
 title: Updating OLE objects automatically using MS PowerPoint Add In
 type: docs
 weight: 10
-url: /java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /androidjava/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **About updating OLE objects automatically**

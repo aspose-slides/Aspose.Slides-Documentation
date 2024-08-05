@@ -2,7 +2,7 @@
 title: Slide Section
 type: docs
 weight: 90
-url: /java/slide-section/
+url: /androidjava/slide-section/
 ---
 
 With Aspose.Slides for Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides. 

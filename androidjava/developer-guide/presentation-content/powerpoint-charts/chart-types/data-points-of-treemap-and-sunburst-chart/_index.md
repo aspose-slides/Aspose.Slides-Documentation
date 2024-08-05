@@ -1,7 +1,7 @@
 ---
 title: Data Points of Treemap and Sunburst Chart
 type: docs
-url: /java/data-points-of-treemap-and-sunburst-chart/
+url: /androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Sunburst graph in Aspose.Slides for Java"
 description: "Sunburst Graph, Sunburst Diagram, Sunburst Chart, Radial Chart, Radial Graph or Multi Level Pie Chart with Aspose.Slides for Java."

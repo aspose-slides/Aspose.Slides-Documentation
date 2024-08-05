@@ -2,7 +2,7 @@
 title: Doughnut Chart
 type: docs
 weight: 30
-url: /java/doughnut-chart/
+url: /androidjava/doughnut-chart/
 ---
 
 ## **Change Center Gap in Doughnut Chart**

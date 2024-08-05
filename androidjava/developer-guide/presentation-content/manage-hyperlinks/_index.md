@@ -2,7 +2,7 @@
 title: Manage Hyperlinks
 type: docs
 weight: 20
-url: /java/manage-hyperlinks/
+url: /androidjava/manage-hyperlinks/
 keywords: "PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, Java"
 description: "How to add hyperlink to a PowerPoint Presentation in Java"
 ---

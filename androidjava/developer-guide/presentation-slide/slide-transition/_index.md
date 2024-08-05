@@ -2,7 +2,7 @@
 title: Slide Transition
 type: docs
 weight: 80
-url: /java/slide-transition/
+url: /androidjava/slide-transition/
 keywords: "PowerPoint slide transition, morph transition in Java"
 description: "PowerPoint slide transition, PowerPoint morph transition in Java"
 ---

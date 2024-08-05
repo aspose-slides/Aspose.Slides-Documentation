@@ -2,7 +2,7 @@
 title: Render Presentation with Fallback Font
 type: docs
 weight: 30
-url: /java/render-presentation-with-fallback-font/
+url: /androidjava/render-presentation-with-fallback-font/
 ---
 
 The following example includes these steps:

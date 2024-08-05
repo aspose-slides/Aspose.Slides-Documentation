@@ -2,7 +2,7 @@
 title: Creating a Table on PowerPoint Slide
 type: docs
 weight: 50
-url: /java/creating-a-table-on-powerpoint-slide/
+url: /androidjava/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 

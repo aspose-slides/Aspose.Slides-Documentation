@@ -2,7 +2,7 @@
 title: Create a New Presentation
 type: docs
 weight: 10
-url: /java/create-a-new-presentation/
+url: /androidjava/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 

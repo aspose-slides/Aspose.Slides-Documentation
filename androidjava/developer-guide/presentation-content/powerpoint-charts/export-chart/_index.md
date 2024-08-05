@@ -2,7 +2,7 @@
 title: Export Chart
 type: docs
 weight: 90
-url: /java/export-chart/
+url: /androidjava/export-chart/
 ---
 
 ## **Get Chart Image**

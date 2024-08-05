@@ -1,7 +1,7 @@
 ---
 title: Callout
 type: docs
-url: /java/callout/
+url: /androidjava/callout/
 ---
 
 ## **Using Callouts**

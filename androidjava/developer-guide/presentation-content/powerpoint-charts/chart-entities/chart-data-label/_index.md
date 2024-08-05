@@ -1,7 +1,7 @@
 ---
 title: Chart Data Label
 type: docs
-url: /java/chart-data-label/
+url: /androidjava/chart-data-label/
 keywords: "Chart data label,label distance, Java, Aspose.Slides for Java"
 description: "Set PowerPoint chart data label and distance in Java"
 ---

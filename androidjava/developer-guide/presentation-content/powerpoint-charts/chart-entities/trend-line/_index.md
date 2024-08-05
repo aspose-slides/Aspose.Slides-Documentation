@@ -1,7 +1,7 @@
 ---
 title: Trend Line
 type: docs
-url: /java/trend-line/
+url: /androidjava/trend-line/
 ---
 
 ## **Add Trend Line**

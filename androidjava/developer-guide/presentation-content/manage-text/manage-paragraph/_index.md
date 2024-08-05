@@ -2,7 +2,7 @@
 title: Manage PowerPoint Paragraph in Java
 type: docs
 weight: 40
-url: /java/manage-paragraph/
+url: /androidjava/manage-paragraph/
 keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in Java"
 ---

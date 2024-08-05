@@ -3,7 +3,7 @@ title: Embedded Font - PowerPoint Java API
 linktitle: Embedded Font
 type: docs
 weight: 40
-url: /java/embedded-font/
+url: /androidjava/embedded-font/
 keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Use embedded fonts in PowerPoint presentation in Java"
 

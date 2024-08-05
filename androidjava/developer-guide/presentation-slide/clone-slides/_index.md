@@ -2,7 +2,7 @@
 title: Clone Slides
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /androidjava/clone-slides/
 ---
 
 

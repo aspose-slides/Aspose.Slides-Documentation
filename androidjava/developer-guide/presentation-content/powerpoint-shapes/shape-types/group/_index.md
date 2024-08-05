@@ -2,7 +2,7 @@
 title: Group
 type: docs
 weight: 40
-url: /java/group/
+url: /androidjava/group/
 ---
 
 ## **Add Group Shape**

@@ -2,7 +2,7 @@
 title: PPT vs PPTX
 type: docs
 weight: 10
-url: /java/ppt-vs-pptx/
+url: /androidjava/ppt-vs-pptx/
 keywords: "PPT vs PPTX"
 description: "Read about PPT vs PPTX differences in Aspose.Slides."
 ---

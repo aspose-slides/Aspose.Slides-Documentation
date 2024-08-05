@@ -2,7 +2,7 @@
 title: Examine Presentation
 type: docs
 weight: 30
-url: /java/examine-presentation/
+url: /androidjava/examine-presentation/
 
 ---
 

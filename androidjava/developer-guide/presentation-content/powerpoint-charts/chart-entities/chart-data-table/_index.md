@@ -1,7 +1,7 @@
 ---
 title: Chart Data Table
 type: docs
-url: /java/chart-data-table/
+url: /androidjava/chart-data-table/
 ---
 
 ## **Set Font Properties for Chart Data Table**

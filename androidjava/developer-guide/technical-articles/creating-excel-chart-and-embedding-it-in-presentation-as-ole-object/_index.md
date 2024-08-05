@@ -2,7 +2,7 @@
 title: Creating Excel Chart and Embedding it in Presentation as OLE Object
 type: docs
 weight: 30
-url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /androidjava/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 

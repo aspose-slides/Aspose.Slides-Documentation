@@ -2,7 +2,7 @@
 title: Remove Slide from Presentation
 type: docs
 weight: 30
-url: /java/remove-slide-from-presentation/
+url: /androidjava/remove-slide-from-presentation/
 keywords: "Remove slide, Delete slide, PowerPoint, Presentation, Java, Aspose.Slides"
 description: "Remove slide from PowerPoint by reference or index in Java"
 

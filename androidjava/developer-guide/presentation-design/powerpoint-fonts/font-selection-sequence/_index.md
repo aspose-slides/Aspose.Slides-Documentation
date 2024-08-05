@@ -3,7 +3,7 @@ title: Font Selection Sequence in Java
 linktitle: Font Selection Sequence in Java
 type: docs
 weight: 80
-url: /java/font-selection-sequence/
+url: /androidjava/font-selection-sequence/
 keywords:
 - font
 - font selection

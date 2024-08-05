@@ -2,7 +2,7 @@
 title: Get the Entire Presentation Slide Background as an Image
 type: docs
 weight: 95
-url: /java/get-the-entire-presentation-slide-background-as-an-image/
+url: /androidjava/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - slide
 - background

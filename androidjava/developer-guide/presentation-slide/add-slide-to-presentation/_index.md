@@ -2,7 +2,7 @@
 title: Add Slide to Presentation
 type: docs
 weight: 10
-url: /java/add-slide-to-presentation/
+url: /androidjava/add-slide-to-presentation/
 ---
 
 ## **Add Slide to Presentation**

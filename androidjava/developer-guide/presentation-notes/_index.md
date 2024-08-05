@@ -2,7 +2,7 @@
 title: Presentation Notes
 type: docs
 weight: 110
-url: /java/presentation-notes/
+url: /androidjava/presentation-notes/
 keywords: "PowerPoint speaker notes in Java"
 description: "Presentation notes, speaker notes in Java"
 ---

@@ -3,7 +3,7 @@ title: Custom PowerPoint Font in Java
 linktitle: Custom Font
 type: docs
 weight: 20
-url: /java/custom-font/
+url: /androidjava/custom-font/
 keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "PowerPoint custom fonts in Java"
 ---

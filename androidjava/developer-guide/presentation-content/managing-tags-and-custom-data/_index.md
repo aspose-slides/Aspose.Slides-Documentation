@@ -2,7 +2,7 @@
 title: Managing Tags and Custom Data
 type: docs
 weight: 300
-url: /java/managing-tags-and-custom-data
+url: /androidjava/managing-tags-and-custom-data
 
 ---
 

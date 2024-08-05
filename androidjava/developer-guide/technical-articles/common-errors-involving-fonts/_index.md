@@ -2,7 +2,7 @@
 title: Common Exceptions and Errors Involving Fonts on Linux
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /androidjava/technical-articles/common-errors-involving-fonts
 keywords: "Font exception, Font error, Linux, Java, Aspose.Slides for Java"
 description: "Font exceptions and errors on Linux"
 ---

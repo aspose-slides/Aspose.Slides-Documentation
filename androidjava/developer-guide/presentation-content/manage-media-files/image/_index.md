@@ -2,7 +2,7 @@
 title: Image
 type: docs
 weight: 10
-url: /java/image/
+url: /androidjava/image/
 description: Work with images in Slides in PowerPoint Presentation using Java. Add images from disk or from web in PowerPoint Slides using Java. Add images to Slide Masters or as Slide Background using Java. Add SVG to PowerPoint Presentation using Java. Convert SVG to Shapes in PowerPoint using Java. Add images as EMF in Slides using Java.
 ---
 

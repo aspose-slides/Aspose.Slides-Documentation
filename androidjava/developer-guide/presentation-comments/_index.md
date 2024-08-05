@@ -2,7 +2,7 @@
 title: Presentation Comments
 type: docs
 weight: 100
-url: /java/presentation-comments/
+url: /androidjava/presentation-comments/
 keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Add comments and replies in PowerPoint presentation in Java"
 ---

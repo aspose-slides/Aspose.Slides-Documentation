@@ -2,7 +2,7 @@
 title: Create Fallback Fonts Collection
 type: docs
 weight: 20
-url: /java/create-fallback-fonts-collection/
+url: /androidjava/create-fallback-fonts-collection/
 ---
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection) interface. It is possible to add or remove rules from the collection.

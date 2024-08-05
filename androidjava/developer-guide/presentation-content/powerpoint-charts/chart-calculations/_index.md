@@ -2,7 +2,7 @@
 title: Chart Calculations
 type: docs
 weight: 50
-url: /java/chart-calculations/
+url: /androidjava/chart-calculations/
 ---
 
 ## **Calculate Actual Values of Chart Elements**

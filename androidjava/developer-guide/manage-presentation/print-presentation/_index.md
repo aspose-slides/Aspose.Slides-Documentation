@@ -2,7 +2,7 @@
 title: Print Presentation
 type: docs
 weight: 50
-url: /java/print-presentation/
+url: /androidjava/print-presentation/
 keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Java, Printer, PrinterJob, PrintService"
 description: "Print PowerPoint Presentation in Java"
 ---

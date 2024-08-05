@@ -2,7 +2,7 @@
 title: PowerPoint Animation
 type: docs
 weight: 150
-url: /java/powerpoint-animation/
+url: /androidjava/powerpoint-animation/
 keywords: "PowerPoint animation"
 description: "PowerPoint animation, PowerPoint slide animation with Aspose.Slides."
 ---

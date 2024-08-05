@@ -2,7 +2,7 @@
 title: Shape Effective Properties
 type: docs
 weight: 50
-url: /java/shape-effective-properties/
+url: /androidjava/shape-effective-properties/
 ---
 
 In this topic, we will discuss **effective** and **local** properties. When we set values directly at these levels
