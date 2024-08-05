@@ -6,7 +6,7 @@ url: /androidjava/examine-presentation/
 
 ---
 
-Aspose.Slides for Java allows you to examine a presentation to find out its properties and understand its behavior. 
+title: Aspose.Slides for Android via Java allows you to examine a presentation to find out its properties and understand its behavior.
 
 {{% alert title="Info" color="info" %}} 
 

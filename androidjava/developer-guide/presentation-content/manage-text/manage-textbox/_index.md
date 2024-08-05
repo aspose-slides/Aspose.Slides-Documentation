@@ -7,7 +7,7 @@ description: Create Text Box on PowerPoint Slides using Java. Add Column in Text
 ---
 
 
-Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Java provides the [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) interface that allows you to add a shape containing some text.
+Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. title: Aspose.Slides for Android via Java provides the [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape) interface that allows you to add a shape containing some text.
 
 {{% alert title="Info" color="info" %}}
 
@@ -128,7 +128,7 @@ try {
 
 
 ## **Add Column In Text Frame**
-Aspose.Slides for Java provides the [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
+title: Aspose.Slides for Android via Java provides the [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
 
 This Java code shows you how to add a column inside a text frame:
 

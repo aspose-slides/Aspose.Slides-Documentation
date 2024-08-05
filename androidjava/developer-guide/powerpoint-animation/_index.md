@@ -9,14 +9,14 @@ description: "PowerPoint animation, PowerPoint slide animation with Aspose.Slide
 
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.
 
-**PowerPoint animation** plays an important role in order to make presentation eye-catching and attractive for the viewers. Aspose.Slides for Java offers a wide range of options to add animation to PowerPoint presentation:
+**PowerPoint animation** plays an important role in order to make presentation eye-catching and attractive for the viewers. title: Aspose.Slides for Android via Java offers a wide range of options to add animation to PowerPoint presentation:
 
 - apply various types of PowerPoint animation effects on shapes, charts, tables, OLE Objects and other presentation elements.
 - use multiple PowerPoint animation effects on a shape.
 - use animation timeline to control animation effects.
 - create custom animation.
 
-In Aspose.Slides for Java, various animations effects can be applied on the shapes. As every element on the slide including text, pictures, OLE Object, table etc is considered as a shape, it means we can apply animation effect on every element of a slide.
+In title: Aspose.Slides for Android via Java, various animations effects can be applied on the shapes. As every element on the slide including text, pictures, OLE Object, table etc is considered as a shape, it means we can apply animation effect on every element of a slide.
 
 
 ## **Animation Effects**

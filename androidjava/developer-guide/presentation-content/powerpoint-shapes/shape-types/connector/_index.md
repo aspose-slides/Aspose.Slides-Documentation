@@ -3,7 +3,7 @@ title: Connector
 type: docs
 weight: 10
 url: /androidjava/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
 description: "Connect PowerPoint shapes in Java"
 ---
 

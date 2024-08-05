@@ -3,7 +3,7 @@ title: Manage Table
 type: docs
 weight: 10
 url: /androidjava/manage-table/
-keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
 description: "Create and manage table in PowerPoint presentations in Java"
 ---
 

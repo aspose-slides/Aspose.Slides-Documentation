@@ -13,7 +13,7 @@ description: "PowerPoint header and footer in Java"
 
 {{% /alert %}} 
 
-[Aspose.Slides for Java](/slides/androidjava/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
+[title: Aspose.Slides for Android via Java](/slides/androidjava/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
 
 ## **Manage Header and Footer in Presentation**
 Notes of some specific slide could be removed as shown in example below:
@@ -57,7 +57,7 @@ public static void updateHeaderFooterText(IBaseSlide master)
 ```
 
 ## **Manage Header and Footer in Handout and Notes Slides**
-Aspose.Slides for Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
+title: Aspose.Slides for Android via Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
 - Load a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) containing a video.
 - Change Header and Footer settings for notes master and all notes slides.

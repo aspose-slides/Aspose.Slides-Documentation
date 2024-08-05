@@ -21,9 +21,9 @@ To use WordArt in Microsoft PowerPoint, you have to select one of the predefined
 
 **WordArt in Aspose.Slides**
 
-In Aspose.Slides for Java 20.10, we implemented support for WordArt and made improvements to the feature in subsequent Aspose.Slides for Java releases. 
+In title: Aspose.Slides for Android via Java 20.10, we implemented support for WordArt and made improvements to the feature in subsequent title: Aspose.Slides for Android via Java releases.
 
-With Aspose.Slides for Java, you can easily create your own WordArt template (one effect or combination of effects) in Java and apply it to texts. 
+With title: Aspose.Slides for Android via Java, you can easily create your own WordArt template (one effect or combination of effects) in Java and apply it to texts.
 
 ## Creating a Simple WordArt Template and Applying It to a Text
 
@@ -180,7 +180,7 @@ The result:
 
 {{% alert color="primary" %}} 
 
-Both Microsoft PowerPoint and Aspose.Slides for Java provide a certain number of predefined transformation types. 
+Both Microsoft PowerPoint and title: Aspose.Slides for Android via Java provide a certain number of predefined transformation types.
 
 {{% /alert %}} 
 
@@ -273,7 +273,7 @@ These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFor
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame). Go through these steps:
+title: Aspose.Slides for Android via Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/interfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/TextFrame). Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.

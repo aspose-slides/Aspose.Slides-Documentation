@@ -4,7 +4,7 @@ linktitle: Embedded Font
 type: docs
 weight: 40
 url: /androidjava/embedded-font/
-keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
 description: "Use embedded fonts in PowerPoint presentation in Java"
 
 ---

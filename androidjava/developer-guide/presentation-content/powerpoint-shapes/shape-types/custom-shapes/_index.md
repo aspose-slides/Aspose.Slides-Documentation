@@ -3,7 +3,7 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /androidjava/custom-shape/
-keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
 description: "Add custom shape in PowerPoint presentation in Java"
 ---
 

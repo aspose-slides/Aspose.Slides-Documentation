@@ -8,7 +8,7 @@ description: Extract Flash Objects from PowerPoint Presentation using Java
 
 ## **Extract Flash Objects from Presentation**
 
-Aspose.Slides for Java provides a facility for extracting flash objects from a presentation. You can access the flash control by name and extract it from the presentation and including store SWF object data.
+title: Aspose.Slides for Android via Java provides a facility for extracting flash objects from a presentation. You can access the flash control by name and extract it from the presentation and including store SWF object data.
 
 ```java
 // Instantiate Presentation class that represents the PPTX

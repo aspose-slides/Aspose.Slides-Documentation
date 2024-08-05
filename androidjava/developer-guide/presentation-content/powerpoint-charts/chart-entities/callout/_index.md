@@ -23,7 +23,7 @@ try {
 ```
 
 ## **Set Callout for Doughnut Chart**
-Aspose.Slides for Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
+title: Aspose.Slides for Android via Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```java
 Presentation pres = new Presentation();

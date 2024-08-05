@@ -3,7 +3,7 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /androidjava/shape-animation/
-keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
 description: "Apply PowerPoint animation in Java"
 ---
 
@@ -28,7 +28,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 
 ## **Apply Animation to TextBox**
 
-Aspose.Slides for Java allows you to apply animation to the text in a shape. 
+title: Aspose.Slides for Android via Java allows you to apply animation to the text in a shape.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 2. Obtain a slide reference through its index.
@@ -199,7 +199,7 @@ try {
 
 ## **Change Animation Effect Timing Properties**
 
-Aspose.Slides for Java allows you to change the Timing properties of an animation effect.
+title: Aspose.Slides for Android via Java allows you to change the Timing properties of an animation effect.
 
 This is the Animation Timing pane in Microsoft PowerPoint:
 
@@ -323,7 +323,7 @@ try {
 
 ## **After Animation**
 
-Aspose.Slides for Java allows you to change the After animation property of an animation effect.
+title: Aspose.Slides for Android via Java allows you to change the After animation property of an animation effect.
 
 This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
 

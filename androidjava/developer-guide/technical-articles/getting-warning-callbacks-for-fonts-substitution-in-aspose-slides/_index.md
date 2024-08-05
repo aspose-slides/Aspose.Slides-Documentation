@@ -7,13 +7,13 @@ url: /androidjava/getting-warning-callbacks-for-fonts-substitution-in-aspose-sli
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java makes it possible to get warning callbacks for fonts substitution in case the used font is not available on machine during rendering process. The warning callbacks are helpful in debugging the issues of missing or inaccessible fonts during rendering process.
+title: Aspose.Slides for Android via Java makes it possible to get warning callbacks for fonts substitution in case the used font is not available on machine during rendering process. The warning callbacks are helpful in debugging the issues of missing or inaccessible fonts during rendering process.
 
 
 
 {{% /alert %}} 
 
-Aspose.Slides for Java provides a simple API methods to receive warning callbacks during the rendering process. Follow the steps below to configure the warning callbacks:
+title: Aspose.Slides for Android via Java provides a simple API methods to receive warning callbacks during the rendering process. Follow the steps below to configure the warning callbacks:
 
 1. Create a custom callback class to receive the callbacks.
 1. Set the warning callbacks using using LoadOptions class

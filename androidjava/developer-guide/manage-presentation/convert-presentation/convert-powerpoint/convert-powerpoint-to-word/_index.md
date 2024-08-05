@@ -20,7 +20,7 @@ You may want to try out our [**Presentation to Word Online Converter**](https://
 
 ## **Aspose.Slides and Aspose.Words**
 
-To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [Aspose.Slides for Java](https://products.aspose.com/slides/androidjava/) and [Aspose.Words for Java](https://products.aspose.com/words/java/).
+To convert a PowerPoint file (PPTX or PPT) to Word (DOCX or DOCX), you need both [title: Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/) and [Aspose.Words for Java](https://products.aspose.com/words/java/).
 
 As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for java provides functions that allow you to extract texts from presentations. 
 
@@ -28,7 +28,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
 
 ## **Convert PowerPoint to Word**
 
-1. Download [Aspose.Slides for Java](https://downloads.aspose.com/slides/java) and [Aspose.Words for Java](https://downloads.aspose.com/words/java) libraries.
+1. Download [title: Aspose.Slides for Android via Java](https://downloads.aspose.com/slides/java) and [Aspose.Words for Java](https://downloads.aspose.com/words/java) libraries.
 2. Add *aspose-slides-x.x-jdk16.jar* and *aspose-words-x.x-jdk16.jar* to your CLASSPATH.
 3. Use this code snippet to convert the PowerPoint to Word:
 

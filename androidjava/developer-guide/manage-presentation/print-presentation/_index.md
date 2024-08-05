@@ -7,11 +7,11 @@ keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Java, Printer, Print
 description: "Print PowerPoint Presentation in Java"
 ---
 
-In Aspose.Slides for Java 24.4, we have introduced a [Modern API](https://docs.aspose.com/slides/androidjava/modern-api/) that limits print support. However, we have taken a new approach to help you overcome this limitation. In this article, we will show you how to print a presentation using the current API.
+In title: Aspose.Slides for Android via Java 24.4, we have introduced a [Modern API](https://docs.aspose.com/slides/androidjava/modern-api/) that limits print support. However, we have taken a new approach to help you overcome this limitation. In this article, we will show you how to print a presentation using the current API.
 
 ## Print Presentation
 
-This Java code snippet demonstrates how to print a PowerPoint presentation using Aspose.Slides for Java API. 
+This Java code snippet demonstrates how to print a PowerPoint presentation using title: Aspose.Slides for Android via Java API.
 
 To print a presentation, follow these steps:
 

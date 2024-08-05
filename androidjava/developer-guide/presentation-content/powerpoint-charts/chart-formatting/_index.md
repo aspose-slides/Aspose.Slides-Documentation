@@ -6,9 +6,9 @@ url: /androidjava/chart-formatting/
 ---
 
 ## **Format Chart Entities**
-Aspose.Slides for Java lets developers add custom charts to their slides from scratch. This article explains how to format different chart entities including chart category and value axis.
+title: Aspose.Slides for Android via Java lets developers add custom charts to their slides from scratch. This article explains how to format different chart entities including chart category and value axis.
 
-Aspose.Slides for Java provides a simple API for managing different chart entities and formatting them using custom values:
+title: Aspose.Slides for Android via Java provides a simple API for managing different chart entities and formatting them using custom values:
 
 1. Create an instance of the [**Presentation**](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Obtain a slide's reference by its index.
@@ -199,7 +199,7 @@ try {
 ```
 
 ## **Set Font Properties for Chart**
-Aspose.Slides for Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart.
+title: Aspose.Slides for Android via Java provides support for setting the font related properties for the chart. Please follow the steps below for setting the font properties for chart.
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class object.
 - Add chart on the slide.
@@ -224,7 +224,7 @@ try {
 ```
 
 ## **Set Format of Numerics**
-Aspose.Slides for Java provides a simple API for managing chart data format:
+title: Aspose.Slides for Android via Java provides a simple API for managing chart data format:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
@@ -309,7 +309,7 @@ The possible preset number format values along with their preset index and that 
 |**49**|@|
 
 ## **Set Chart Area Rounded Borders**
-Aspose.Slides for Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) have been added to [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) interface and [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart) class. 
+title: Aspose.Slides for Android via Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) have been added to [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) interface and [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart) class. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.

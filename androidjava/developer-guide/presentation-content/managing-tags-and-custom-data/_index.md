@@ -22,7 +22,7 @@ Tags are essentially string-key pair values.
 
 ## Getting the Values for Tags
 
-In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for Java for [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation):
+In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with title: Aspose.Slides for Android via Java for [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation):
 
 ```java
 Presentation pres = new Presentation("pres.pptx");
@@ -42,7 +42,7 @@ Aspose.Slides allows you to add tags to presentations. A tag typically consists 
 
 If you need to classify some presentations based on a specific rule or property, then you may benefit from adding tags to those presentations. For example, if you want to categorize or put all presentations from North American countries together, you can create a North American tag and then assign the relevant countries (the U.S., Mexico, and Canada) as the values. 
 
-This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) using Aspose.Slides for Java:
+This sample code shows you how to add a tag to a [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) using title: Aspose.Slides for Android via Java:
 
 ```java
 Presentation pres = new Presentation("pres.pptx");

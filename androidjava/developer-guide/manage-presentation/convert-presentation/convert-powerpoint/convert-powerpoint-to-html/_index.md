@@ -23,7 +23,7 @@ This article explains how to convert PowerPoint Presentation in HTML format usin
 For Java sample code to convert PowerPoint to HTML, please see the section below i.e. [Convert PowerPoint to HTML](#convert-powerpoint-to-html). The code can load number of formats like PPT, PPTX and ODP in Presentation object and save it to HTML format.
 
 ## **About PowerPoint to HTML Conversion**
-Using [**Aspose.Slides for Java**](https://products.aspose.com/slides/androidjava/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**.
+Using [**title: Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**.
 
 **Aspose.Slides** provides many options (mostly from the [**HtmlOptions**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/HtmlOptions) class) that define the PowerPoint to HTML conversion process:
 
@@ -365,7 +365,7 @@ try {
 
 
 ## **Export Media Files to HTML**
-Using Aspose.Slides for Java, you can export media files this way:
+Using title: Aspose.Slides for Android via Java, you can export media files this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Get a reference to the slide.

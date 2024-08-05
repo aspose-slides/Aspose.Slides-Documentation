@@ -15,7 +15,7 @@ keywords:
 - PDF/A1b
 - PDF/UA
 - Java
-- Aspose.Slides for Java
+- title: Aspose.Slides for Android via Java
 description: "Convert PowerPoint presentations to PDF in Java. Save PowerPoint as PDF with compliance or accessibility standards."
 ---
 
@@ -35,7 +35,7 @@ To convert a presentation to PDF, you simply have to pass the file name as an ar
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for Java directly writes API information and Version Number in output documents. For example, when it converts a presentation to PDF, Aspose.Slides for Java populates the Application field with the '*Aspose.Slides*' value and the PDF Producer field with a value in '*Aspose.Slides v XX.XX*'  form. **Note** that you cannot instruct Aspose.Slides for Java to change or remove this information from output documents.
+title: Aspose.Slides for Android via Java directly writes API information and Version Number in output documents. For example, when it converts a presentation to PDF, title: Aspose.Slides for Android via Java populates the Application field with the '*Aspose.Slides*' value and the PDF Producer field with a value in '*Aspose.Slides v XX.XX*'  form. **Note** that you cannot instruct title: Aspose.Slides for Android via Java to change or remove this information from output documents.
 
 {{% /alert %}}
 

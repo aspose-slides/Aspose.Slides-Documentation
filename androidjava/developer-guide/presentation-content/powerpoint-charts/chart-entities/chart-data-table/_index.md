@@ -5,7 +5,7 @@ url: /androidjava/chart-data-table/
 ---
 
 ## **Set Font Properties for Chart Data Table**
-Aspose.Slides for Java provides support for changing color of categories in a series color. 
+title: Aspose.Slides for Android via Java provides support for changing color of categories in a series color. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class object.
 1. Add chart on the slide.

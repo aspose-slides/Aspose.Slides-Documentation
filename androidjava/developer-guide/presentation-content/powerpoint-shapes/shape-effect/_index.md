@@ -3,7 +3,7 @@ title: Shape Effect
 type: docs
 weight: 30
 url: /androidjava/shape-effect
-keywords: "Shape effect, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Shape effect, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
 description: "Apply effect to PowerPoint shape in Java"
 ---
 

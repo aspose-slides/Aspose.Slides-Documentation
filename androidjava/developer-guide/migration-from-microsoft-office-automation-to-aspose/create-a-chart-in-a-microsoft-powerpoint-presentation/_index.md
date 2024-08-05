@@ -7,7 +7,7 @@ url: /androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
 
 {{% alert color="primary" %}} 
 
- Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for Java](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [title: Aspose.Slides for Android via Java](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Creating a Chart**
@@ -39,8 +39,8 @@ Using VSTO, the following steps are performed:
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-VSTOChart-VSTOChart.cs" >}}
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-VSTOChart-EnsurePowerPointIsRunning.cs" >}}
-### **Aspose.Slides for Java Example**
-Using Aspose.Slides for Java, the following steps are performed:
+### **title: Aspose.Slides for Android via Java Example**
+Using title: Aspose.Slides for Android via Java, the following steps are performed:
 
 1. Create an instance of a Microsoft PowerPoint presentation.
 1. Add a blank slide to the presentation.

@@ -4,7 +4,7 @@ linktitle: Font Substitution
 type: docs
 weight: 70
 url: /androidjava/font-substitution/
-keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Font, substitute font, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
 description: "Substitute font in PowerPoint in Java"
 ---
 

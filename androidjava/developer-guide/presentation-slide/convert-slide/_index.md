@@ -7,7 +7,7 @@ keywords: "Convert slide to image, export slide as image, save slide as image, s
 description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in Java"
 ---
 
-Aspose.Slides for Java allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others. 
+title: Aspose.Slides for Android via Java allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others.
 
 To convert a slide to an image, do this: 
 

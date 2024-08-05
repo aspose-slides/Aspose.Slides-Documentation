@@ -8,7 +8,7 @@ description: "How to edit PowerPoint chart axis in Java"
 
 
 ## **Getting the Max Values on the Vertical Axis on Charts**
-Aspose.Slides for Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
+title: Aspose.Slides for Android via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Access the first slide.
@@ -112,7 +112,7 @@ try {
 ```
 
 ## **Setting the Date Format for Category Axis Value**
-Aspose.Slides for Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
+title: Aspose.Slides for Android via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
 
 ```java
 Presentation pres = new Presentation();
@@ -156,7 +156,7 @@ public static String convertToOADate(GregorianCalendar date) throws ParseExcepti
 ```
 
 ## **Setting the Rotation Angle for Chart Axis Title**
-Aspose.Slides for Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
+title: Aspose.Slides for Android via Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
 
 ```java
 Presentation pres = new Presentation();
@@ -174,7 +174,7 @@ try {
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
-Aspose.Slides for Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
+title: Aspose.Slides for Android via Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
 
 ```java
 Presentation pres = new Presentation();
@@ -190,7 +190,7 @@ try {
 ```
 
 ## **Enabling the Display Unit label on Chart Value Axis**
-Aspose.Slides for Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
+title: Aspose.Slides for Android via Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
 
 ```java
 Presentation pres = new Presentation();
