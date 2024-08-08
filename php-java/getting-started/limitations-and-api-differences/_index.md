@@ -14,69 +14,84 @@ This list, using sample code segments, demonstrates certain differences between 
 
 **Aspose.Slides for Java**
 
-``` php
- import com.aspose.slides.*;
-```php
-
+```java
+import com.aspose.slides.*;
 ```
 
 **Aspose.Slides for PHP via Java**
 
-``` php
+```php
 require_once("Java.inc");
 require_once("lib/aspose.slides.php");
 
 use aspose\sldes;
 use aspose\sldes\Presentation;
-```php
-
 ```
 
 ### **Instantiating a new Presentation**
 
 **Aspose.Slides for Java**
 
-``` php
+```java
 Presentation presentation = new Presentation();
-```php
-
 ```
 
 **Aspose.Slides for PHP via Java**
 
-``` php
-$presentation = new Presentation();
 ```php
-
+$presentation = new Presentation();
 ```
 
 ### **Enums or Constants**
 
 **Aspose.Slides for Java**
 
-``` php
+```java
 arc2.getLineFormat().setDashStyle(MsoLineDashStyle.SOLID);
-```php
-
 ```
 
 **Aspose.Slides for PHP via Java**
 
-``` php
-$arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle->SOLID);
 ```php
-
+$arc2->getLineFormat()->setDashStyle(slides\MsoLineDashStyle::SOLID);
 ```
 
 ### **Example**
 
 **Aspose.Slides for Java**
 
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+
+public class Test
+{
+    public static void main(String[] args) throws Exception
+    {
+        // Instantiates a Presentation object that represents a presentation file
+        Presentation pres = new Presentation();
+        try
+        {
+            // Gets the first slide
+            ISlide slide = pres.getSlides().get_Item(0);
+
+            // Adds an autoshape with type set to line
+            slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
+            pres.save("NewPresentation_out.pptx", SaveFormat.Pptx);
+        }
+        finally
+        {
+            if (pres != null) pres.dispose();
+        }
+    }
+}
+```
 
 **Aspose.Slides for PHP via Java**
 
-
-``` php
+```php
 <?php
 require_once("Java.inc");
 require_once("lib/aspose.slides.php");
@@ -101,6 +116,7 @@ finally
     if (!java_is_null($pres)) $pres->dispose();
 }
 ?>
+```
 
 ### **Other Limitations of Aspose.Slides for PHP via Java API compared to Aspose.Slides for Java API**
 
