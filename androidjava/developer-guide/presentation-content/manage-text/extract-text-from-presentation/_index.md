@@ -11,7 +11,7 @@ It's not uncommon that developers need to extract the text from a presentation. 
 
 {{% /alert %}} 
 ## **Extract Text from Slide**
-title: Aspose.Slides for Android via Java provides the [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil) class. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation,
+Aspose.Slides for Android via Java provides the [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil) class. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation,
 use the [getAllTextBoxes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) overloaded static method exposed by the [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SlideUtil) class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of [TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 

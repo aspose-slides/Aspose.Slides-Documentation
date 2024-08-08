@@ -3,7 +3,7 @@ title: Presentation Comments
 type: docs
 weight: 100
 url: /androidjava/presentation-comments/
-keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Add comments and replies in PowerPoint presentation in Java"
 ---
 
@@ -13,7 +13,7 @@ In PowerPoint, a comment appears as a note or annotation on a slide. When a comm
 
 You may want to use comments to provide feedback or communicate with your colleagues when you review presentations.
 
-To allow you to use comments in PowerPoint presentations, title: Aspose.Slides for Android via Java provides
+To allow you to use comments in PowerPoint presentations, Aspose.Slides for Android via Java provides
 
 * The [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class, which contains the collections of authors (from the [ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection) interface). The authors add comments to slides.
 * The  [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection) interface, which contains the collection of comments for individual authors.

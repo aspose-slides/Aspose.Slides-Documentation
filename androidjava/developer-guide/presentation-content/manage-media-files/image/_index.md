@@ -184,7 +184,7 @@ try {
 ```
 
 ## **Adding Images as EMF in Slides**
-title: Aspose.Slides for Android via Java allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
+Aspose.Slides for Android via Java allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
 
 This sample code shows you how to perform the described task:
 

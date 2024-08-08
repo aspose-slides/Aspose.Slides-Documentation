@@ -2,7 +2,7 @@
 title: Chart Series
 type: docs
 url: /androidjava/chart-series/
-keywords: "Chart series, series color, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Chart series in PowerPoint presentations in Java"
 ---
 
@@ -44,7 +44,7 @@ try {
 ```
 
 ## **Change Series Color**
-title: Aspose.Slides for Android via Java allows you to change a series' color this way:
+Aspose.Slides for Android via Java allows you to change a series' color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Add chart on the slide.
@@ -71,7 +71,7 @@ try {
 ```
 
 ## **Change Series Category's Color**
-title: Aspose.Slides for Android via Java allows you to change a series category's color this way:
+Aspose.Slides for Android via Java allows you to change a series category's color this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Add chart on the slide.
@@ -105,7 +105,7 @@ In our example (sample image),
 * the columns are *Series 1, Series 2,* and *Series 3*;
 * the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
 
-title: Aspose.Slides for Android via Java allows you to update or change a series name in its chart data and legend.
+Aspose.Slides for Android via Java allows you to update or change a series name in its chart data and legend.
 
 This Java code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
@@ -140,7 +140,7 @@ try {
 
 ## **Set Chart Series Fill Color**
 
-title: Aspose.Slides for Android via Java allows you to set the automatic fill color for chart series inside a plot area this way:
+Aspose.Slides for Android via Java allows you to set the automatic fill color for chart series inside a plot area this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
@@ -243,7 +243,7 @@ try {
 ```
 
 ## **Clear Specific Data Points' Data**
-title: Aspose.Slides for Android via Java allows you to clear the `DataPoints` data for a specific chart series this way:
+Aspose.Slides for Android via Java allows you to clear the `DataPoints` data for a specific chart series this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 2. Obtain the reference of a slide through its index.
@@ -276,7 +276,7 @@ try {
 ```
 
 ## **Set Series Gap Width**
-title: Aspose.Slides for Android via Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
+Aspose.Slides for Android via Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Access first slide.

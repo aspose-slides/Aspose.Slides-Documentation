@@ -12,7 +12,7 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 - System Defined (Built-in) Properties
 - User-Defined (Custom) Properties
 
-**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using title: Aspose.Slides for Android via Java, developers can access and modify the values of built-in properties as well as custom properties.
+**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Android via Java, developers can access and modify the values of built-in properties as well as custom properties.
 
 {{% /alert %}} 
 
@@ -21,7 +21,7 @@ Microsoft PowerPoint 2007 allows managing the document properties of the present
 
 {{% alert color="primary" %}} 
 
-Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and title: Aspose.Slides for Android via Java x.x.x will be displayed against these fields.
+Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Android via Java x.x.x will be displayed against these fields.
 
 {{% /alert %}} 
 
@@ -37,9 +37,9 @@ In the above **Properties Dialog**, you can see that there are many tab pages li
 
 
 
-Working with Document Properties Using title: Aspose.Slides for Android via Java
+Working with Document Properties Using Aspose.Slides for Android via Java
 
-As we have described earlier that title: Aspose.Slides for Android via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of title: Aspose.Slides for Android via Java API. title: Aspose.Slides for Android via Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
+As we have described earlier that Aspose.Slides for Android via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Android via Java API. Aspose.Slides for Android via Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
 Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
@@ -74,7 +74,7 @@ try {
 ```
 
 ## **Modify Built-in Properties**
-Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using title: Aspose.Slides for Android via Java.
+Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for Android via Java.
 
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
@@ -83,7 +83,7 @@ try {
     IDocumentProperties dp = pres.getDocumentProperties();
     
     // Set the built-in properties
-    dp.setAuthor("title: Aspose.Slides for Android via Java");
+    dp.setAuthor("Aspose.Slides for Android via Java");
     dp.setTitle("Modifying Presentation Properties");
     dp.setSubject("Aspose Subject");
     dp.setComments("Aspose Description");
@@ -103,7 +103,7 @@ This example modifies the built-in properties of the presentation that can be vi
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Add Custom Document Properties**
-title: Aspose.Slides for Android via Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+Aspose.Slides for Android via Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```java
 Presentation pres = new Presentation();
@@ -134,7 +134,7 @@ try {
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Access and Modify Custom Properties**
-title: Aspose.Slides for Android via Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
+Aspose.Slides for Android via Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```java
 Presentation pres = new Presentation("Presentation.pptx");
@@ -255,7 +255,7 @@ private static void updateByTemplate(String path, IDocumentProperties template)
 ```
 
 ## **Check if Presentation is Modified or Created**
-title: Aspose.Slides for Android via Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
+Aspose.Slides for Android via Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
 
 ```java
 IPresentationInfo info=PresentationFactory.getInstance().getPresentationInfo("props.pptx");

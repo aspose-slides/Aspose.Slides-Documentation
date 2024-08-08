@@ -8,7 +8,7 @@ url: /androidjava/ellipse/
 
 {{% alert color="primary" %}} 
 
-In this topic, we will introduce developers about adding ellipse shapes to their slides using title: Aspose.Slides for Android via Java. title: Aspose.Slides for Android via Java provides an easier set of APIs to draw different kinds of shapes with just a few lines of code.
+In this topic, we will introduce developers about adding ellipse shapes to their slides using Aspose.Slides for Android via Java. Aspose.Slides for Android via Java provides an easier set of APIs to draw different kinds of shapes with just a few lines of code.
 
 {{% /alert %}} 
 

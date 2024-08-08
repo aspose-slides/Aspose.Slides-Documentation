@@ -3,7 +3,7 @@ title: Presentation Theme
 type: docs
 weight: 10
 url: /androidjava/presentation-theme/
-keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "PowerPoint presentation theme in Java"
 ---
 

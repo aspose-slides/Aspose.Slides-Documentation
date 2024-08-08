@@ -8,7 +8,7 @@ url: /androidjava/exporting-math-equations/
 
 ## Exporting Math Equations from Presentations
 
-title: Aspose.Slides for Android via Java allows you to export math equations from presentations. For example, you may need to extract the mathematical equations on slides (from a specific presentation) and use them in another program or platform.
+Aspose.Slides for Android via Java allows you to export math equations from presentations. For example, you may need to extract the mathematical equations on slides (from a specific presentation) and use them in another program or platform.
 
 {{% alert color="primary" %}} 
 

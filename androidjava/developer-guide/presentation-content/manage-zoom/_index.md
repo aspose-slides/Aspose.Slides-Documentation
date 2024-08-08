@@ -3,7 +3,7 @@ title: Manage Zoom
 type: docs
 weight: 60
 url: /androidjava/manage-zoom/
-keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Add zoom or zoom frames to PowerPoint presentations in Java"
 ---
 
@@ -73,7 +73,7 @@ try {
 }
 ```
 ### **Creating Zoom Frames with Custom Images**
-With title: Aspose.Slides for Android via Java, you can create a zoom frame with a different slide preview image this way:
+With Aspose.Slides for Android via Java, you can create a zoom frame with a different slide preview image this way:
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 2.	Create a new slide to which you intend to link the zoom frame. 
 3.	Add an identification text and background to the slide.
@@ -234,7 +234,7 @@ try {
 ```
 ### **Creating Section Zoom Frames with Custom Images**
 
-Using title: Aspose.Slides for Android via Java, you can create a section zoom frame with a different slide preview image this way:
+Using Aspose.Slides for Android via Java, you can create a section zoom frame with a different slide preview image this way:
 
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 2.	Create a new slide.

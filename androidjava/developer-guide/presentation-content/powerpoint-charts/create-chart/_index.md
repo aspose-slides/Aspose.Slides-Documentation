@@ -4,7 +4,7 @@ linktitle: Create Chart
 type: docs
 weight: 10
 url: /androidjava/create-chart/
-keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Create chart in PowerPoint presentation in Java"
 ---
 

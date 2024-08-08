@@ -5,7 +5,7 @@ url: /androidjava/3d-chart/
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**
-title: Aspose.Slides for Android via Java provides a simple API for setting these properties. This following article will help you how set different properties like **X,Y Rotation, DepthPercents** etc. The sample code applies setting the above said properties.
+Aspose.Slides for Android via Java provides a simple API for setting these properties. This following article will help you how set different properties like **X,Y Rotation, DepthPercents** etc. The sample code applies setting the above said properties.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Access first slide.

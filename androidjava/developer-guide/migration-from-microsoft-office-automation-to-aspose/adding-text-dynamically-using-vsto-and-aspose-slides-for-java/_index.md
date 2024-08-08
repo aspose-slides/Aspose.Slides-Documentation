@@ -1,5 +1,5 @@
 ---
-title: Adding Text Dynamically using VSTO and title: Aspose.Slides for Android via Java
+title: Adding Text Dynamically using VSTO and Aspose.Slides for Android via Java
 type: docs
 weight: 20
 url: /androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
@@ -7,7 +7,7 @@ url: /androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 
 {{% alert color="primary" %}} 
 
-A common task that developers are developers to accomplish is adding text to slides dynamically. This article shows code examples for adding text dynamically using [VSTO](/slides/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) and [title: Aspose.Slides for Android via Java](/slides/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+A common task that developers are developers to accomplish is adding text to slides dynamically. This article shows code examples for adding text dynamically using [VSTO](/slides/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) and [Aspose.Slides for Android via Java](/slides/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **Adding Text Dynamically**
@@ -26,10 +26,10 @@ The code snippets below results in a presentation with a plain slide and a strin
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_1.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddTextBoxVSTO-AddTextBoxVSTO.cs" >}}
-## **title: Aspose.Slides for Android via Java Example**
+## **Aspose.Slides for Android via Java Example**
 The code snippets below use Aspose.Slides to create a presentation with a plain slide and a string of text on it.
 
-**The presentation as created using title: Aspose.Slides for Android via Java**
+**The presentation as created using Aspose.Slides for Android via Java**
 
 ![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_2.png)
 

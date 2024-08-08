@@ -39,7 +39,7 @@ try {
 ```
 
 ## **Set Font Size of Legend**
-The title: Aspose.Slides for Android via Java lets developers allow to set font size of legend. Please follow the steps below: 
+The Aspose.Slides for Android via Java lets developers allow to set font size of legend. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 - Creating the default chart.
@@ -68,7 +68,7 @@ try {
 ```
 
 ## **Set Font Size of Individual Legend**
-The title: Aspose.Slides for Android via Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
+The Aspose.Slides for Android via Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 - Creating the default chart.

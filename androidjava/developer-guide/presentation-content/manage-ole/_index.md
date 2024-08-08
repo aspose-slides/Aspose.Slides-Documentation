@@ -16,10 +16,10 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 - An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
 - An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app.
 
-[title: Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Android via Java](https://products.aspose.com/slides/androidjava/) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)).
 
 ## **Adding OLE Object Frames to Slides**
-Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using title: Aspose.Slides for Android via Java, you can do it this way:
+Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for Android via Java, you can do it this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain the reference of the slide by using its index.
@@ -27,7 +27,7 @@ Assuming you already created a chart in Microsoft Excel and want to embed that c
 1. Add the [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) to the slide containing the array of bytes and other information about the OLE object.
 1. Write the modified presentation as a PPTX file.
 
-In the example below, we added a chart from an Excel file to a slide as an OLE Object Frame using title: Aspose.Slides for Android via Java.
+In the example below, we added a chart from an Excel file to a slide as an OLE Object Frame using Aspose.Slides for Android via Java.
 **Note** that the [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ``` java 
@@ -185,7 +185,7 @@ try {
 
 ## Embedding Other File Types in Slides
 
-Besides Excel charts, title: Aspose.Slides for Android via Java allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, the object automatically gets launched in the relevant program, or the user gets directed to select an appropriate program to open the object.
+Besides Excel charts, Aspose.Slides for Android via Java allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, the object automatically gets launched in the relevant program, or the user gets directed to select an appropriate program to open the object.
 
 This Java code shows you how to embed HTML and ZIP in a slide:
 
@@ -215,7 +215,7 @@ try {
 
 When working on presentations, you may need to replace old OLE objects with new ones. Or you may need to replace an unsupported OLE object with a supported one. 
 
-title: Aspose.Slides for Android via Java allows you to set the file type for an embedded object. This way, you get to change the OLE frame data or its extension.
+Aspose.Slides for Android via Java allows you to set the file type for an embedded object. This way, you get to change the OLE frame data or its extension.
 
 This Java shows you how to set the file type for an embedded OLE object:
 
@@ -239,7 +239,7 @@ try {
 
 After you embed an OLE object, a preview consisting of an icon image and title gets added automatically. The preview is what users see before they access or open the OLE object. 
 
-If you want to use a specific image and text as elements in the preview, you can set the icon image and title using title: Aspose.Slides for Android via Java.
+If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Android via Java.
 
 This Java code shows you how to set the icon image and title for an embedded object: 
 
@@ -269,7 +269,7 @@ try {
 
 ## Extracting Embedded Files
 
-title: Aspose.Slides for Android via Java allows you to extract the files embedded in slides as OLE objects this way:
+Aspose.Slides for Android via Java allows you to extract the files embedded in slides as OLE objects this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class containing the OLE object you intend to extract.
 2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe) shape.

@@ -3,7 +3,7 @@ title: Manage Autofit Settings
 type: docs
 weight: 30
 url: /androidjava/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Set the autofit settings for textbox in PowerPoint in Java"
 ---
 
@@ -23,7 +23,7 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-title: Aspose.Slides for Android via Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations.
+Aspose.Slides for Android via Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations.
 
 ## **Resize Shape to Fit Text**
 

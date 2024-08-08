@@ -9,7 +9,7 @@ description: "PowerPoint PPT Viewer in Java"
 
 {{% alert color="primary" %}} 
 
-title: Aspose.Slides for Android via Java is used to create presentation files, complete with slides. These slides can be viewed by opening presentations using Microsoft PowerPoint. But sometimes, developers may also need to view slides as images in their favorite image viewer or create their own presentation viewer. In such cases, title: Aspose.Slides for Android via Java lets you export an individual slide to an image. This article describes how to do it.
+Aspose.Slides for Android via Java is used to create presentation files, complete with slides. These slides can be viewed by opening presentations using Microsoft PowerPoint. But sometimes, developers may also need to view slides as images in their favorite image viewer or create their own presentation viewer. In such cases, Aspose.Slides for Android via Java lets you export an individual slide to an image. This article describes how to do it.
 
 {{% /alert %}} 
 
@@ -21,7 +21,7 @@ You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer
 [![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
 
 ## **Generate SVG Image from Slide**
-To generate an SVG image from any desired slide with title: Aspose.Slides for Android via Java, please follow the steps below:
+To generate an SVG image from any desired slide with Aspose.Slides for Android via Java, please follow the steps below:
 
 - Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 - Obtain the desired slide's reference by using its ID or index.
@@ -49,7 +49,7 @@ try {
 ```
 
 ## **Generate SVG with Custom Shape IDS**
-title: Aspose.Slides for Android via Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
+Aspose.Slides for Android via Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
 ```java
 Presentation pres = new Presentation("pptxFileName.pptx");
@@ -91,7 +91,7 @@ class CustomSvgShapeFormattingController implements ISvgShapeFormattingControlle
 ```
 
 ## **Create Slides Thumbnail Image**
-title: Aspose.Slides for Android via Java help you generate thumbnail images of the slides. To generate the thumbnail of any desired slide using title: Aspose.Slides for Android via Java:
+Aspose.Slides for Android via Java help you generate thumbnail images of the slides. To generate the thumbnail of any desired slide using Aspose.Slides for Android via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain the reference of any desired slide by using its ID or index.
@@ -156,7 +156,7 @@ try {
 ```
 
 ## **Create Thumbnail from Slide in Notes Slides View**
-To generate the thumbnail of any desired slide in Notes Slide View using title: Aspose.Slides for Android via Java:
+To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for Android via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain the reference of any desired slide by using its ID or index.

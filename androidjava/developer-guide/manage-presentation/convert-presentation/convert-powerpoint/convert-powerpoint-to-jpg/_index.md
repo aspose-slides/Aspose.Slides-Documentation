@@ -83,7 +83,7 @@ try {
 ```
 
 ## **Render Comments when saving Presentation into Image**
-title: Aspose.Slides for Android via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
+Aspose.Slides for Android via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
 
 ```java
 Presentation pres = new Presentation("presentation.pptx");

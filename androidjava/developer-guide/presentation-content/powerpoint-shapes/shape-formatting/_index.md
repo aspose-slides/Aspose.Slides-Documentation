@@ -3,7 +3,7 @@ title: Shape Formatting
 type: docs
 weight: 20
 url: /androidjava/shape-formatting/
-keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Format shape in PowerPoint presentation in Java"
 ---
 
@@ -13,7 +13,7 @@ In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, 
 
 
 
-**title: Aspose.Slides for Android via Java** provides interfaces and properties that allow you to format shapes based on known options in PowerPoint.
+**Aspose.Slides for Android via Java** provides interfaces and properties that allow you to format shapes based on known options in PowerPoint.
 
 ## **Format Lines**
 

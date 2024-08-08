@@ -3,7 +3,7 @@ title: Manage Ink
 type: docs
 weight: 95
 url: /androidjava/manage-ink/
-keywords: "Ink in PowerPoint, Ink tools, Java Ink, Draw in PowerPoint, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Ink in PowerPoint, Ink tools, Java Ink, Draw in PowerPoint, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Use ink tools to draw objects in PowerPoint Java"
 ---
 
