@@ -54,7 +54,7 @@ In general, title: Aspose.Slides for Android via Java can easily handle presenta
 **Q: When converting PPT to PDF or images, why are the fonts different in the output documents?**
 
 **A**: This issue might indicate that the fonts used in the presentation are missing from the operating system on which the code was executed. You should install the fonts on the operating system or load them as external fonts using the [FontsLoader](https://reference.aspose.com/slides/androidjava/com.aspose.slides/fontsloader/) class as shown below:
-```cs
-var folders = new String[] { "path_to_a_folder_with_fonts" };
+```java
+String[] folders = new String[] { "path_to_a_folder_with_fonts" };
 FontsLoader.loadExternalFonts(folders);
 ```

@@ -30,24 +30,24 @@ title: Aspose.Slides for Android via Java does not provide a simple method to ex
 
 The following code example extracts the entire presentation slide background as an image.
 ```java
-var slideIndex = 0;
-var imageScale = 1;
+int slideIndex = 0;
+int imageScale = 1;
 
-var presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 
-var slideSize = presentation.getSlideSize().getSize();
-var slide = presentation.getSlides().get_Item(slideIndex);
+Dimension2D slideSize = presentation.getSlideSize().getSize();
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-var tempPresentation = new Presentation();
+Presentation tempPresentation = new Presentation();
 
-var slideWidth = (float)slideSize.getWidth();
-var slideHeight = (float)slideSize.getHeight();
+float slideWidth = (float)slideSize.getWidth();
+float slideHeight = (float)slideSize.getHeight();
 tempPresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.DoNotScale);
 
-var clonedSlide = tempPresentation.getSlides().addClone(slide);
+ISlide clonedSlide = tempPresentation.getSlides().addClone(slide);
 clonedSlide.getShapes().clear();
 
-var background = clonedSlide.getImage(imageScale, imageScale);
+IImage background = clonedSlide.getImage(imageScale, imageScale);
 background.save("output.png", ImageFormat.Png);
 
 tempPresentation.dispose();
