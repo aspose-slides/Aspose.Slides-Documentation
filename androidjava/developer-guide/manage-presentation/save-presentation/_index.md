@@ -12,12 +12,12 @@ url: /androidjava/save-presentation/
 
 {{% /alert %}} 
 
-The [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With title: Aspose.Slides for Android via Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
+The [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Android via Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
 
 ## **Save Presentation to File**
 Save a presentation to file by calling the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) method. Simply pass the file name and [**SaveFormat**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SaveFormat) to the [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) method.
 
-The examples that follow show how to save a presentation with title: Aspose.Slides for Android via Java.
+The examples that follow show how to save a presentation with Aspose.Slides for Android via Java.
 
 ```java
 // Instantiate a Presentation object that represents a PPT file
@@ -56,7 +56,7 @@ try {
 ```
 
 ## **Save Presentation with Predefined View Type**
-title: Aspose.Slides for Android via Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewType) enumerator.
+Aspose.Slides for Android via Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewType) enumerator.
 
 ```java
 // Opening the presentation file

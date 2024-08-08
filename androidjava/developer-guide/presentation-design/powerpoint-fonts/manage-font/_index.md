@@ -10,11 +10,11 @@ description: Presentations usually contain both text and images. This article sh
 ## **Manage Font Related Properties**
 {{% alert color="primary" %}} 
 
-Presentations usually contain both text and images. The text can be formatted in a various way, either to highlight specific sections and words or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use title: Aspose.Slides for Android via Java to configure the font properties of paragraphs of text on slides.
+Presentations usually contain both text and images. The text can be formatted in a various way, either to highlight specific sections and words or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for Android via Java to configure the font properties of paragraphs of text on slides.
 
 {{% /alert %}} 
 
-To manage font properties of a paragraph using title: Aspose.Slides for Android via Java:
+To manage font properties of a paragraph using Aspose.Slides for Android via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. Obtain a slide's reference by using its index.
@@ -93,7 +93,7 @@ try {
 ## **Set Text Font Properties**
 {{% alert color="primary" %}} 
 
-As mentioned in **Managing Font Related Properties**, a [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) is used to hold text with similar formatting style in a paragraph. This article shows how to use title: Aspose.Slides for Android via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
+As mentioned in **Managing Font Related Properties**, a [Portion](https://reference.aspose.com/slides/androidjava/com.aspose.slides/classes/Portion) is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Android via Java to create a textbox with some text and then define a particular font, and various other properties of the font family category.
 
 {{% /alert %}} 
 
@@ -114,7 +114,7 @@ The implementation of the above steps is given below.
 
 |![todo:image_alt_text](http://i.imgur.com/n5r12dS.jpg)|
 | :- |
-|**Figure: Text with some font properties set by title: Aspose.Slides for Android via Java**|
+|**Figure: Text with some font properties set by Aspose.Slides for Android via Java**|
 
 ```java
 // Instantiate a Presentation object that represents a PPTX file

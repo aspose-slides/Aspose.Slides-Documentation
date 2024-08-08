@@ -8,7 +8,7 @@ url: /androidjava/doughnut-chart/
 ## **Change Center Gap in Doughnut Chart**
 {{% alert color="primary" %}} 
 
-title: Aspose.Slides for Android via Java now supports specifying the size of the hole in a doughnut chart. In this topic, we will see with example how to specify the size of the hole in a doughnut chart.
+Aspose.Slides for Android via Java now supports specifying the size of the hole in a doughnut chart. In this topic, we will see with example how to specify the size of the hole in a doughnut chart.
 
 {{% /alert %}} 
 

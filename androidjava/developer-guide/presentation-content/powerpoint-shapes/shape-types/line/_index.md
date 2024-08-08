@@ -8,7 +8,7 @@ url: /androidjava/Line/
 
 {{% alert color="primary" %}} 
 
-title: Aspose.Slides for Android via Java supports adding different kinds of shapes to the slides. In this topic, we will start working with shapes by adding lines to the slides. Using title: Aspose.Slides for Android via Java, developers can not only create simple lines, but some fancy lines can also be drawn on the slides.
+Aspose.Slides for Android via Java supports adding different kinds of shapes to the slides. In this topic, we will start working with shapes by adding lines to the slides. Using Aspose.Slides for Android via Java, developers can not only create simple lines, but some fancy lines can also be drawn on the slides.
 
 {{% /alert %}} 
 
@@ -42,14 +42,14 @@ try {
 
 ## **Create Arrow Shaped Line**
 
-title: Aspose.Slides for Android via Java also allows developers to configure some properties of the line to make it look more appealing. Let's try to configure few properties of a line to make it look like an arrow. Please follow the steps below to do so:
+Aspose.Slides for Android via Java also allows developers to configure some properties of the line to make it look more appealing. Let's try to configure few properties of a line to make it look like an arrow. Please follow the steps below to do so:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
 - Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShapeCollection) object.
-- Set the [Line Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineStyle) to one of the styles as offered by title: Aspose.Slides for Android via Java.
+- Set the [Line Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineStyle) to one of the styles as offered by Aspose.Slides for Android via Java.
 - Set the Width of the line.
-- Set the [Dash Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineDashStyle) of the line to one of the styles offered by title: Aspose.Slides for Android via Java.
+- Set the [Dash Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineDashStyle) of the line to one of the styles offered by Aspose.Slides for Android via Java.
 - Set the [Arrow Head Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) and [Length](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) of the start point of the line.
 - Set the [Arrow Head Style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadStyle) and [Length](https://reference.aspose.com/slides/androidjava/com.aspose.slides/LineArrowheadLength) of the end point of the line.
 - Write the modified presentation as a PPTX file.

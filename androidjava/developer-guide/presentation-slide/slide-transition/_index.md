@@ -11,17 +11,17 @@ description: "PowerPoint slide transition, PowerPoint morph transition in Java"
 ## **Overview**
 {{% alert color="primary" %}} 
 
-title: Aspose.Slides for Android via Java also allows developers to manage or customize the slide transition effects of the slides. In this topic, we will discuss about controlling slide transitions with a great ease using title: Aspose.Slides for Android via Java.
+Aspose.Slides for Android via Java also allows developers to manage or customize the slide transition effects of the slides. In this topic, we will discuss about controlling slide transitions with a great ease using Aspose.Slides for Android via Java.
 
 {{% /alert %}} 
 
-To make it easier to understand, we have demonstrated the use of title: Aspose.Slides for Android via Java to manage simple slide transitions. Developers can not only apply different slide transition effects on the slides, but also customize the behavior of these transition effects.
+To make it easier to understand, we have demonstrated the use of Aspose.Slides for Android via Java to manage simple slide transitions. Developers can not only apply different slide transition effects on the slides, but also customize the behavior of these transition effects.
 
 ## **Add Slide Transition**
 To create a simple slide transition effect, follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
-1. Apply a Slide Transition Type on the slide from one of the transition effects offered by title: Aspose.Slides for Android via Java through TransitionType enum
+1. Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for Android via Java through TransitionType enum
 1. Write the modified presentation file.
 
 ```java
@@ -45,7 +45,7 @@ try {
 In the above section, we just applied a simple transition effect on the slide. Now, to make that simple transition effect even better and controlled, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
-1. Apply a Slide Transition Type on the slide from one of the transition effects offered by title: Aspose.Slides for Android via Java
+1. Apply a Slide Transition Type on the slide from one of the transition effects offered by Aspose.Slides for Android via Java
 1. You can also set the transition to Advance On Click, after a specific time period or both.
 1. If the slide transition is enabled to Advance On Click, the transition will only advance when someone will click the mouse. Moreover, if the Advance After Time property is set, the transition will advance automatically after the specified advance time will be passed.
 1. Write the modified presentation as a presentation file.
@@ -85,7 +85,7 @@ try {
 ## **Morph Transition**
 {{% alert color="primary" %}} 
 
-title: Aspose.Slides for Android via Java now supports the [Morph Transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMorphTransition). They represent new morph transition introduced in PowerPoint 2019.
+Aspose.Slides for Android via Java now supports the [Morph Transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IMorphTransition). They represent new morph transition introduced in PowerPoint 2019.
 
 {{% /alert %}} 
 
@@ -139,7 +139,7 @@ try {
 ```
 
 ## **Set Transition Effects**
-title: Aspose.Slides for Android via Java supports setting the transition effects like, from black, from left, from right etc. In order to set the Transition Effect. Please follow the steps below:
+Aspose.Slides for Android via Java supports setting the transition effects like, from black, from left, from right etc. In order to set the Transition Effect. Please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 - Get the reference of the slide.

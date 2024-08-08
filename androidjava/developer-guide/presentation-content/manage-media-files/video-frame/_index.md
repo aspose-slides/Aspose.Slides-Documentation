@@ -3,7 +3,7 @@ title: Video Frame
 type: docs
 weight: 10
 url: /androidjava/video-frame/
-keywords: "Add video, create video frame, extract video, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Add video, create video frame, extract video, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Add Video frame to PowerPoint presentation in Java"
 ---
 

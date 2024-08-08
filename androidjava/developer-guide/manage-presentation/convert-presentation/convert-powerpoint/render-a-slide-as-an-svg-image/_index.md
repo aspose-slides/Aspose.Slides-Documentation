@@ -15,7 +15,7 @@ You may want to use SVG files when you need to
 - **use charts and graphs from your slides in *different mediums or platforms**.* Most readers can interpret SVG files. 
 - **use the *smallest possible sizes of images***. SVG files are generally smaller than their high-resolution equivalents in other formats, especially those formats based on bitmap (JPEG or PNG).
 
-title: Aspose.Slides for Android via Java allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
+Aspose.Slides for Android via Java allows you to export slides in your presentations as SVG images. Go through these steps to generate SVG images:
 
 1. Create an instance of the Presentation class.
 2. Iterate through all the slides in the presentation.
@@ -23,7 +23,7 @@ title: Aspose.Slides for Android via Java allows you to export slides in your pr
 
 {{% alert color="primary" %}} 
 
-You may want to try out our [free web application](https://products.aspose.app/slides/conversion/ppt-to-svg) in which we implemented the PPT to SVG conversion function from title: Aspose.Slides for Android via Java.
+You may want to try out our [free web application](https://products.aspose.app/slides/conversion/ppt-to-svg) in which we implemented the PPT to SVG conversion function from Aspose.Slides for Android via Java.
 
 {{% /alert %}} 
 

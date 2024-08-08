@@ -9,7 +9,7 @@ url: /androidjava/create-shape-thumbnails/
 ## **Overview**
 {{% alert color="primary" %}} 
 
-title: Aspose.Slides for Android via Java can be used to create presentation files in which each page corresponds to a slide. The slides can be viewed by opening the presentation files using Microsoft PowerPoint. However, developers sometimes need to view the images of the shapes separately in an image viewer. In such cases, title: Aspose.Slides for Android via Java helps them generate thumbnail images of the slide shapes.
+Aspose.Slides for Android via Java can be used to create presentation files in which each page corresponds to a slide. The slides can be viewed by opening the presentation files using Microsoft PowerPoint. However, developers sometimes need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for Android via Java helps them generate thumbnail images of the slide shapes.
 
 {{% /alert %}} 
 
@@ -20,7 +20,7 @@ In this topic, we will show how to generate slide thumbnails in different situat
 - Generating a shape thumbnail in the bounds of a shape's appearance.
 
 ## **Generating Shape Thumbnails from Slides**
-To generate a shape thumbnail from any slide using title: Aspose.Slides for Android via Java, do this:
+To generate a shape thumbnail from any slide using Aspose.Slides for Android via Java, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.
@@ -48,7 +48,7 @@ try {
 ```
 
 ## **Generating Shape Thumbnails with User-Defined Scaling Factor**
-To generate the shape thumbnail of a slide using title: Aspose.Slides for Android via Java, do this:
+To generate the shape thumbnail of a slide using Aspose.Slides for Android via Java, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class.
 1. Obtain the reference of any slide using its ID or index.

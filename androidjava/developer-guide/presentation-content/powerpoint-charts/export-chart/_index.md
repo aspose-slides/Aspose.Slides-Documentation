@@ -6,7 +6,7 @@ url: /androidjava/export-chart/
 ---
 
 ## **Get Chart Image**
-title: Aspose.Slides for Android via Java provides support for extracting image of specific chart. Below sample example is given. 
+Aspose.Slides for Android via Java provides support for extracting image of specific chart. Below sample example is given. 
 
 ```java
 Presentation pres = new Presentation();

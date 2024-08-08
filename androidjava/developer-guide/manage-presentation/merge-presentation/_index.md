@@ -25,7 +25,7 @@ When you merge one presentation to another, you are effectively combining their 
 
 Most presentation programs (PowerPoint or OpenOffice) lack functions that allow users to combine presentations in such manner. 
 
-[**title: Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/), however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data.
+[**Aspose.Slides for Android via Java**](https://products.aspose.com/slides/androidjava/), however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data.
 
 **See also**
 

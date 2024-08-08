@@ -9,7 +9,7 @@ description: Manage smart art node and child node in PowerPoint Presentations in
 ---
 
 ## **Add SmartArt Node in PowerPoint Presentation using Java**
-title: Aspose.Slides for Android via Java has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
+Aspose.Slides for Android via Java has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
 1. Obtain the reference of first slide by using its Index.
@@ -307,7 +307,7 @@ try {
 ```
 
 ## **Set Custom Position for Child Node in SmartArt**
-Now title: Aspose.Slides for Android via Java support for setting [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setX-float-) and [Y](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setY-float-) properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes. Also with custom position settings, user may set the nodes as per requirements.
+Now Aspose.Slides for Android via Java support for setting [SmartArtShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setX-float-) and [Y](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IShape#setY-float-) properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes. Also with custom position settings, user may set the nodes as per requirements.
 
 ```java
 // Instantiate Presentation Class
@@ -345,7 +345,7 @@ try{
 ## **Check Assistant Node**
 {{% alert color="primary" %}} 
 
-In this article we will further investigate features of SmartArt shapes added in presentation slides programmatically using title: Aspose.Slides for Android via Java.
+In this article we will further investigate features of SmartArt shapes added in presentation slides programmatically using Aspose.Slides for Android via Java.
 
 {{% /alert %}} 
 
@@ -404,7 +404,7 @@ try {
 |**Figure: Assistant Nodes Changed in SmartArt shape inside slide**|
 
 ## **Set Node’s Fill Format**
-title: Aspose.Slides for Android via Java makes it possible to add custom SmartArt shapes and set their fill format. This article explains how to create and access SmartArt shapes and set their fill format using title: Aspose.Slides for Android via Java.
+Aspose.Slides for Android via Java makes it possible to add custom SmartArt shapes and set their fill format. This article explains how to create and access SmartArt shapes and set their fill format using Aspose.Slides for Android via Java.
 
 Please follow the steps below:
 

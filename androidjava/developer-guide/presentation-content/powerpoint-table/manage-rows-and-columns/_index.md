@@ -3,7 +3,7 @@ title: Manage Rows and Columns
 type: docs
 weight: 20
 url: /androidjava/manage-rows-and-columns/
-keywords: "Table, table rows and columns, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "Manage table rows and columns in PowerPoint presentations in Java"
 ---
 

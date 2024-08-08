@@ -114,7 +114,7 @@ try {
 ```
 
 ## **Create Picture Organization Chart**
-title: Aspose.Slides for Android via Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
+Aspose.Slides for Android via Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.

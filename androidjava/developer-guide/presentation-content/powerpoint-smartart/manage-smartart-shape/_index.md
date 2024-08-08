@@ -7,7 +7,7 @@ url: /androidjava/manage-smartart-shape/
 
 
 ## **Create SmartArt Shape**
-title: Aspose.Slides for Android via Java has provided an API to create SmartArt shapes. To create a SmartArt shape in a slide, please follow the steps below:
+Aspose.Slides for Android via Java has provided an API to create SmartArt shapes. To create a SmartArt shape in a slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Index.

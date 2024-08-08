@@ -4,7 +4,7 @@ linktitle: Custom Font
 type: docs
 weight: 20
 url: /androidjava/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, Java, title: Aspose.Slides for Android via Java"
+keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
 description: "PowerPoint custom fonts in Java"
 ---
 

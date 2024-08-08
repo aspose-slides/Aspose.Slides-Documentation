@@ -12,7 +12,7 @@ A hyperlink is a reference to an object or data or a place in something. These a
 * Links to websites inside texts, shapes, or media
 * Links to slides
 
-title: Aspose.Slides for Android via Java allows you to perform many tasks involving hyperlinks in presentations.
+Aspose.Slides for Android via Java allows you to perform many tasks involving hyperlinks in presentations.
 
 {{% alert color="primary" %}} 
 

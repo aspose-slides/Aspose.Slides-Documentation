@@ -6,7 +6,7 @@ url: /androidjava/group/
 ---
 
 ## **Add Group Shape**
-Aspose.Slides support working with group shapes on slides. This feature helps developers support richer presentations. title: Aspose.Slides for Android via Java supports adding or accessing group shapes. It is possible to add shapes to an added group shape to populate it or access any property of group shape. To add a group shape to a slide using title: Aspose.Slides for Android via Java:
+Aspose.Slides support working with group shapes on slides. This feature helps developers support richer presentations. Aspose.Slides for Android via Java supports adding or accessing group shapes. It is possible to add shapes to an added group shape to populate it or access any property of group shape. To add a group shape to a slide using Aspose.Slides for Android via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its Index
@@ -46,7 +46,7 @@ try {
 ```
 
 ## **Access AltText Property**
-This topic shows simple steps, complete with code examples, for adding a group shape and accessing AltText property of group shapes on slides. To access AltText of a group shape in a slide using title: Aspose.Slides for Android via Java:
+This topic shows simple steps, complete with code examples, for adding a group shape and accessing AltText property of group shapes on slides. To access AltText of a group shape in a slide using Aspose.Slides for Android via Java:
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class that represents PPTX file.
 1. Obtain the reference of a slide by using its Index.

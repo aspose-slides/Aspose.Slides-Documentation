@@ -7,7 +7,7 @@ description: Change Text in a Placeholder in PowerPoint Slides using Java. Set P
 ---
 
 ## **Change Text in Placeholder**
-Using [title: Aspose.Slides for Android via Java](/slides/androidjava/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
+Using [Aspose.Slides for Android via Java](/slides/androidjava/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
 
 **Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
 
