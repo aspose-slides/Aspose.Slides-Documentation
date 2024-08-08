@@ -26,10 +26,6 @@ To install Aspose.Slides using Packagist, run this command: `composer require as
 1. Download [“Aspose.Slides for PHP via Java”](https://downloads.aspose.com/slides/php-java) and extract it to aspose.slides folder. Copy `jar/aspose-slides-x.x-php.jar` file to `webapps\JavaBridge\WEB-INF\lib` folder. If you want to **use php 8**, replace the original `Java.inc` from php-java bridge with `Java.inc` from `Java.inc.php8.zip`.
 1. Restart Apache Tomcat service.
 1. Run `example.php` in `aspose.slides` folder to run the example with this command:
-```php
-
 ```
 php example.php
-```php
-
 ```
