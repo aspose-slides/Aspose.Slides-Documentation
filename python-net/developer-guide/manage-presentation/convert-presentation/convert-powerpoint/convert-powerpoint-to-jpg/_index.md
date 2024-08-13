@@ -24,7 +24,7 @@ Here are the steps to convert PPT/PPTX to JPG:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get the slide object of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type from [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) collection.
-3. Create the thumbnail of each slide and then convert it into JPG. [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method is used to get a thumbnail of a slide, it returns [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=netframework-4.8) object as a result. [GetThumbnail](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type, the scales of the resulting thumbnail are passed into the method.
+3. Create the thumbnail of each slide and then convert it into JPG. [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method is used to get a thumbnail of a slide, it returns [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) object as a result. [GetImage](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type, the scales of the resulting thumbnail are passed into the method.
 4. After you get the slide thumbnail, call [**IImage.Save(string filename, ImageFormat format)**]((https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) method from the thumbnail object. Pass the resulting file name and the image format into it. 
 
 {{% alert color="primary" %}} 
@@ -42,7 +42,7 @@ for sld in pres.slides:
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
-To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.GetThumbnail(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
+To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
 
 ```py
 import aspose.slides as slides
