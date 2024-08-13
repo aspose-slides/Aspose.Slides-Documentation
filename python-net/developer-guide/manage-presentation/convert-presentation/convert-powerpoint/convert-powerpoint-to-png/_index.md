@@ -21,7 +21,7 @@ Go through these steps:
 
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 2. Get the slide object from the [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) collection under the [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) interface. 
-3. Use a [ISlideGetThumbnail](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method to get the thumbnail for each slide. 
+3. Use a [ISlide.GetImage](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method to get the thumbnail for each slide. 
 4. Use the [IPresentation.SaveMethod(String, SaveFormat, ISaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/) method to save the slide thumbnail to the PNG format. 
 
 This Python code shows you how to convert a PowerPoint presentation to PNG:
