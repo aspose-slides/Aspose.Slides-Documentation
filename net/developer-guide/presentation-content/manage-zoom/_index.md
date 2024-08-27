@@ -3,7 +3,16 @@ title: Manage Zoom
 type: docs
 weight: 60
 url: /net/manage-zoom/
-keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: 
+- zoom
+- zoom frame
+- add zoom
+- format zoom frame
+- summary zoom
+- PowerPoint presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Add zoom or zoom frames to PowerPoint presentations in C# or .NET"
 ---
 
@@ -97,10 +106,12 @@ using (Presentation pres = new Presentation())
     autoshape.TextFrame.Text = "Second Slide";
 
     // Creates a new image for the zoom object
-    IPPImage image = pres.Images.AddImage(Image.FromFile("image.png"));
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
     //Adds the ZoomFrame object
-    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, image);
+    pres.Slides[0].Shapes.AddZoomFrame(20, 20, 300, 200, slide, ppImage);
 
     // Saves the presentation
     pres.Save("presentation.pptx", SaveFormat.Pptx);
@@ -153,9 +164,12 @@ using (Presentation pres = new Presentation())
     IZoomFrame zoomFrame2 = pres.Slides[0].Shapes.AddZoomFrame(200, 250, 250, 200, slide3);
 
     // Creates a new image for the zoom object
-    IPPImage image = pres.Images.AddImage(Image.FromFile("image.png"));
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
+
     // Sets custom image for zoomFrame1 object
-    zoomFrame1.Image = image;
+    zoomFrame1.ZoomImage = ppImage;
 
     // Sets a zoom frame format for the zoomFrame2 object
     zoomFrame2.LineFormat.Width = 5;
@@ -238,10 +252,12 @@ using (Presentation pres = new Presentation())
     pres.Sections.AddSection("Section 1", slide);
 
     // Creates a new image for the zoom object
-    IPPImage image = pres.Images.AddImage(Image.FromFile("image.png"));
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
     // Adds SectionZoomFrame object
-    ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1], image);
+    ISectionZoomFrame sectionZoomFrame = pres.Slides[0].Shapes.AddSectionZoomFrame(20, 20, 300, 200, pres.Sections[1], ppImage);
 
     // Saves the presentation
     pres.Save("presentation.pptx", SaveFormat.Pptx);
@@ -290,8 +306,11 @@ using (Presentation pres = new Presentation())
     sectionZoomFrame.Width = 100;
     sectionZoomFrame.Height = 75;
 
-    IPPImage image = pres.Images.AddImage(Image.FromFile("image.png"));
-    sectionZoomFrame.Image = image;
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
+
+    sectionZoomFrame.ZoomImage = ppImage;
 
     sectionZoomFrame.ReturnToParent = true;
     sectionZoomFrame.ShowBackground = false;
@@ -479,10 +498,12 @@ using (Presentation pres = new Presentation())
     // Gets the first SummaryZoomSection object
     ISummaryZoomSection summarySection = summaryZoomFrame.SummaryZoomCollection[0];
 
-    // Formatting for SummaryZoomSection object
-    IPPImage image = pres.Images.AddImage(Image.FromFile("image.png"));
-    summarySection.Image = image;
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
+    // Formatting for SummaryZoomSection object
+    summarySection.ZoomImage = ppImage;
     summarySection.ReturnToParent = false;
 
     summarySection.LineFormat.FillFormat.FillType = FillType.Solid;

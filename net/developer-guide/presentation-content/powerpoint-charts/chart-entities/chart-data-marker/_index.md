@@ -2,7 +2,13 @@
 title: Chart Data Marker
 type: docs
 url: /net/chart-data-marker/
-keywords: "Chart marker options, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords:
+- chart marker options
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Set chart marker options in PowerPoint presentations in C# or .NET"
 ---
 
@@ -20,7 +26,7 @@ In the example given below, we have set the chart marker options on data points 
 
 ```c#
 // Create an instance of Presentation class
-Presentation presentation = new Presentation();
+using Presentation presentation = new Presentation();
 
 ISlide slide = presentation.Slides[0];
 
@@ -38,13 +44,13 @@ chart.ChartData.Series.Clear();
 
 // Add new series
 chart.ChartData.Series.Add(fact.GetCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.Type);
-            
+
 // Set the picture
-System.Drawing.Image image1 = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
+using IImage image1 = Images.FromFile("aspose-logo.jpg");
 IPPImage imgx1 = presentation.Images.AddImage(image1);
 
 // Set the picture
-System.Drawing.Image image2 = (System.Drawing.Image)new Bitmap("Tulips.jpg");
+using IImage image2 = Images.FromFile("Tulips.jpg");
 IPPImage imgx2 = presentation.Images.AddImage(image2);
 
 // Take first chart series

@@ -583,9 +583,19 @@ private static void AddExcelChartInPresentation(PresentationEx pres, SlideEx sld
 
 	oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, "Excel.Sheet.8", chartOleData);
 
-	oof.Image = pres.Images.AddImage((System.Drawing.Image)imgChart);
+    using (MemoryStream imageStream = new MemoryStream())
 
-}
+    {
+
+        imgChart.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+
+        imageStream.Position = 0;
+
+        IPPImage ppImage = pres.Images.AddImage(imageStream);
+
+        oof.SubstitutePictureFormat.Picture.Image = ppImage;
+
+    }
 
 }
 

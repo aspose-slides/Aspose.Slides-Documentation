@@ -8,32 +8,25 @@ url: /python-net/set-caption-to-ole-icon/
 A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon. The code snippet below shows a sample of creating Excel object and setting its caption.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+    # Add an OLE object to the slide
+    with open("oleSourceFile.xlsx", "rb") as ole_stream:
+        data_info = slides.dom.ole.OleEmbeddedDataInfo(ole_stream.read(), "xlsx")
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
+    ole_frame = slide.shapes.add_ole_object_frame(20, 20, 50, 50, data_info)
 
-    # Add Ole objects
-    allbytes = read_all_bytes("oleSourceFile.bin")
-    dataInfo = slides.dom.ole.OleEmbeddedDataInfo(allbytes, "xls")
-    
-    oof = slide.shapes.add_ole_object_frame(20, 20, 50, 50, dataInfo)
-    oof.is_object_icon = True
+    # Add an image to the presentation's image collection
+    with slides.Images.from_file("oleIconFile.ico") as image:
+        pp_image = presentation.images.add_image(image)
 
-    # Add image object
-    imgBuf = read_all_bytes("oleIconFile.ico")
-    with open("oleIconFile.ico", "rb") as stream:
-        image = pres.images.add_image(slides.Bitmap(stream))
-        oof.substitute_pictureFormat.picture.image = image
+    # Set the image as an icon for the OLE object
+    ole_frame.is_object_icon = True
+    ole_frame.substitute_pictureFormat.picture.image = pp_image
 
-    # Set caption to OLE icon
-    oof.substitute_picture_title = "Caption example"
+    # Set a caption to the OLE icon
+    ole_frame.substitute_picture_title = "Caption example"
 ```
-
-

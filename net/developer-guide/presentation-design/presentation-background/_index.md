@@ -3,7 +3,12 @@ title: Presentation Background
 type: docs
 weight: 20
 url: /net/presentation-background/
-keywords: "PowerPoint background, set background, C#, Csharp, Aspose.Slides for .NET"
+keywords:
+- PowerPoint background
+- set background
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Set background in PowerPoint presentation in C# or .NET"
 ---
 
@@ -111,24 +116,21 @@ This C# code shows you how to set an image as the background for a slide:
 // Creates an instance of the Presentation class
 using (Presentation pres = new Presentation("SetImageAsBackground.pptx"))
 {
-
     // Sets conditions for background image
     pres.Slides[0].Background.Type = BackgroundType.OwnBackground;
     pres.Slides[0].Background.FillFormat.FillType = FillType.Picture;
     pres.Slides[0].Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
 
-    // Loads the image
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap(dataDir + "Tulips.jpg");
+    // Loads an image and adds it to the presentation's image collection
+    IImage image = Images.FromFile("Tulips.jpg");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
-    // Adds image to presentation's images collection
-    IPPImage imgx = pres.Images.AddImage(img);
-
-    pres.Slides[0].Background.FillFormat.PictureFillFormat.Picture.Image = imgx;
+    pres.Slides[0].Background.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
     // Writes the presentation to disk
     pres.Save("ContentBG_Img_out.pptx", SaveFormat.Pptx);
 }
-
 ```
 
 ### **Change Transparency of Background Image**

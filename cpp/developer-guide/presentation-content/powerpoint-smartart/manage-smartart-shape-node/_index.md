@@ -3,6 +3,15 @@ title: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /cpp/manage-smartart-shape-node/
+keywords:
+- SmartArt
+- SmartArt node
+- SmartArt child node
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
+description: "Manage SmartArt nodes and child nodes in PowerPoint presentations in C++"
 ---
 
 
@@ -10,7 +19,7 @@ url: /cpp/manage-smartart-shape-node/
 ## **Add SmartArt Node**
 Aspose.Slides for C++ has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and load the presentation with SmartArt Shape.
 - Obtain the reference of first slide by using its Index.
 - Traverse through every shape inside first slide.
 - Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
@@ -143,4 +152,16 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 
 The example below generating a thumbnail of SmartArt child node
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-CreateSmartArtChildNoteThumbnail-CreateSmartArtChildNoteThumbnail.cpp" >}}
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto smartArt = slide->get_Shapes()->AddSmartArt(10, 10, 400, 300, SmartArtLayoutType::BasicCycle);
+auto node = smartArt->get_Node(1);
+
+auto image = node->get_Shape(0)->GetImage();
+image->Save(u"SmartArt_ChildNote_Thumbnail_out.jpeg", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```

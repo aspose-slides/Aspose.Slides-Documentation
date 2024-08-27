@@ -311,19 +311,27 @@ pres.Save("OutputChart.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 ```
 
 ```c#
-static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wbStream, Bitmap imgChart)
+static void AddExcelChartInPresentation(Presentation presentation, ISlide slide, Stream workbookStream, Bitmap chartImage)
 {
-    float oleWidth = pres.SlideSize.Size.Width;
-    float oleHeight = pres.SlideSize.Size.Height;
-    int x = 0;
-    byte[] chartOleData = new byte[wbStream.Length];
-    wbStream.Position = 0;
-    wbStream.Read(chartOleData, 0, chartOleData.Length);
-    
+    float oleWidth = presentation.SlideSize.Size.Width;
+    float oleHeight = presentation.SlideSize.Size.Height;
+
+    byte[] chartOleData = new byte[workbookStream.Length];
+    workbookStream.Position = 0;
+    workbookStream.Read(chartOleData, 0, chartOleData.Length);
+
     OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oof = null;
-    oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, dataInfo);
-    oof.SubstitutePictureFormat.Picture.Image = pres.Images.AddImage((System.Drawing.Image)imgChart);
+    IOleObjectFrame oleFrame = slide.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
+
+    using (MemoryStream imageStream = new MemoryStream())
+    {
+        chartImage.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+
+	imageStream.Position = 0;
+        IPPImage image = presentation.Images.AddImage(imageStream);
+
+        oleFrame.SubstitutePictureFormat.Picture.Image = image;
+    }
 }
 ```
 

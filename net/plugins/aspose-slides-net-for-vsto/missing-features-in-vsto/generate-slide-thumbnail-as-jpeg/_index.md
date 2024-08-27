@@ -12,26 +12,20 @@ To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 - Get the thumbnail image of the referenced slide on a specified scale.
 - Save the thumbnail image in any desired image format.
 ## **Example**
-``` 
-
- //Instantiate a Presentation class that represents the presentation file
-
+```cs
+//Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
-
 {
+    //Access the first slide
+    ISlide sld = pres.Slides[0];
 
-  //Access the first slide
-
-  ISlide sld = pres.Slides[0];
-
-  //Create a full scale image
-
-  Bitmap bmp = sld.GetThumbnail(1f, 1f);
-
-  //Save the image to disk in JPEG format
-
-  bmp.Save("Test Thumbnail.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
+    //Create a full scale image
+    using (IImage image = sld.GetImage(1f, 1f))
+    {
+        //Save the image to disk in JPEG format
+        image.Save("Test Thumbnail.jpg", ImageFormat.Jpeg);
+    }
+}
 ``` 
 ## **Download Running Example**
 - [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/Slide Thumbnail to JPEG/)

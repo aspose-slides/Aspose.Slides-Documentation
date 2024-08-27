@@ -65,24 +65,28 @@ Using Aspose.Slides for .NET, perform the following steps:
 
 
 ```c#
-//Creating empty presentation
-Presentation pres = new Presentation();
+// Create an empty presentation
+using (Presentation pres = new Presentation())
+{
+    // Access the first slide
+    ISlide slide = pres.Slides[0];
 
-//Accessing the First slide
-ISlide slide = pres.Slides[0];
+    // Add an image to the image collection of the presentation
+    IImage image = Images.FromFile("aspose.jpg");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
-//Adding the picture object to pictures collection of the presentation
-System.Drawing.Image pic = (System.Drawing.Image)new Bitmap("C:\\Data\\aspose.jpg");
+    // Add a picture frame whose height and width match the height and width of the image
+    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-IPPImage imgx = pres.Images.AddImage(pic);
+    // Get the main animation sequence of the slide
+    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
 
-//Add Picture Frame with height and width equivalent of Picture
-IPictureFrame PicFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+    // Add the Fly from Left animation effect to the picture frame
+    IEffect effect = sequence.AddEffect(pictureFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
-//Applying animation on picture frame
-//PicFrame.AnimationSettings.EntryEffect = ShapeEntryEffect.BoxIn;
-
-//Saving Presentation
-pres.Save("c:\\data\\AsposeAnim.ppt", SaveFormat.Ppt);
+    // Save the presentation
+    pres.Save("AsposeAnim.ppt", SaveFormat.Ppt);
+}
 ```
 

@@ -13,38 +13,28 @@ To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 - Get the thumbnail image of the referenced slide on a specified scale.
 - Save the thumbnail image in any desired image format.
 ## **Example**
-``` 
-
- //Instantiate a Presentation class that represents the presentation file
-
+```cs
+//Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation("TestPresentation.pptx"))
-
 {
+    //Access the first slide
+    ISlide sld = pres.Slides[0];
 
-  //Access the first slide
+    //User defined dimension
+    int desiredX = 1200;
+    int desiredY = 800;
 
-  ISlide sld = pres.Slides[0];
+    //Getting scaled value  of X and Y
+    float scaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
+    float scaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
 
-  //User defined dimension
-
-  int desiredX = 1200;
-
-  int desiredY = 800;
-
-  //Getting scaled value  of X and Y
-
-  float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-
-  float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-  //Create a full scale image
-
-  Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-
-  //Save the image to disk in JPEG format
-
-  bmp.Save("Thumbnail2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
+    //Create a full scale image
+    using (IImage image = sld.GetImage(scaleX, scaleY))
+    {
+        //Save the image to disk in JPEG format
+        image.Save("Thumbnail2.jpg", ImageFormat.Jpeg);
+    }
+}
 ``` 
 ## **Download Running Example**
 - [CodePlex](https://asposeslidesvsto.codeplex.com/SourceControl/latest#Aspose.Slides Features missing in VSTO/User Defined Thumbnail/)

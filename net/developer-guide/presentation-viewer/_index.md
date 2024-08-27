@@ -3,7 +3,13 @@ title: Presentation Viewer
 type: docs
 weight: 50
 url: /net/presentation-viewer/
-keywords: "View PowerPoint presentation, view ppt, view PPTX, C#, Csharp, Aspose.Slides for .NET"
+keywords: 
+- view PowerPoint presentation
+- view ppt
+- view PPTX
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "View PowerPoint presentation in C# or .NET "
 ---
 
@@ -105,16 +111,15 @@ Aspose.Slides for .NET help you generate thumbnail images of the slides. To gene
 // Instantiate a Presentation class that represents the presentation file
 using (Presentation pres = new Presentation("ThumbnailFromSlide.pptx"))
 {
-
     // Access the first slide
     ISlide sld = pres.Slides[0];
 
     // Create a full scale image
-    Bitmap bmp = sld.GetThumbnail(1f, 1f);
-
-    // Save the image to disk in JPEG format
-    bmp.Save("Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
+    using (IImage image = sld.GetImage(1f, 1f))
+    {
+        // Save the image to disk in JPEG format
+        image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    }
 }
 ```
 
@@ -143,10 +148,11 @@ using (Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.
 
 
     // Create a full scale image
-    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-
-    // Save the image to disk in JPEG format
-    bmp.Save("Thumbnail2_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+    using (IImage image = sld.GetImage(ScaleX, ScaleY))
+    {
+        // Save the image to disk in JPEG format
+        image.Save("Thumbnail2_out.jpg", ImageFormat.Jpeg);
+    }
 }
 ```
 
@@ -176,11 +182,12 @@ using (Presentation pres = new Presentation("ThumbnailFromSlideInNotes.pptx"))
     float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
     float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
 
-   
     // Create a full scale image                
-    Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-    // Save the image to disk in JPEG format
-    bmp.Save("Notes_tnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+    using (IImage image = sld.GetImage(ScaleX, ScaleY))
+    {
+        // Save the image to disk in JPEG format
+        image.Save("Notes_tnail_out.jpg", ImageFormat.Jpeg);
+    }
 }
 ```
 
