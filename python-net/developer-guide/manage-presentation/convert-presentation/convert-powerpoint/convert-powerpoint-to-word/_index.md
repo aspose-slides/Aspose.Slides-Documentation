@@ -45,7 +45,9 @@ builder = words.DocumentBuilder(doc)
 for index in range(presentation.slides.length):
     slide = presentation.slides[index]
     # generates and inserts slide image
-    slide.get_image(2,2).save("slide_{i}.png".format(i = index), slides.ImageFormat.PNG)
+    with slide.get_image(2, 2) as image:
+        image.save("slide_{i}.png".format(i = index), slides.ImageFormat.PNG)
+
     builder.insert_image("slide_{i}.png".format(i = index))
     
     for shape in slide.shapes:
@@ -54,5 +56,6 @@ for index in range(presentation.slides.length):
             builder.writeln(shape.text_frame.text)
    
     builder.insert_break(words.BreakType.PAGE_BREAK)
+
 doc.save("presentation.docx")
 ```

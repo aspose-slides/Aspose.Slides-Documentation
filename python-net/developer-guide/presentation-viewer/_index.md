@@ -68,10 +68,9 @@ with slides.Presentation("pres.pptx") as pres:
     sld = pres.slides[0]
 
     # Create a full scale image
-    bmp = sld.get_image(1, 1)
-
-    # save the image to disk in JPEG format
-    bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+    with sld.get_image(1, 1) as bmp:
+        # save the image to disk in JPEG format
+        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
 ```
 
 
@@ -99,10 +98,9 @@ with slides.Presentation("pres.pptx") as pres:
 
 
     # Create a full scale image
-    bmp = sld.get_image(ScaleX, ScaleY)
-
-    # save the image to disk in JPEG format
-    bmp.save("Thumbnail2_out.jpg", slides.ImageFormat.JPEG)
+    with sld.get_image(ScaleX, ScaleY) as bmp:
+        # save the image to disk in JPEG format
+        bmp.save("Thumbnail2_out.jpg", slides.ImageFormat.JPEG)
 ```
 
 
@@ -134,8 +132,8 @@ with slides.Presentation("pres.pptx") as pres:
 
    
     # Create a full scale image                
-    bmp = sld.get_image(ScaleX, ScaleY)
-    # save the image to disk in JPEG format
-    bmp.save("Notes_tnail_out.jpg", slides.ImageFormat.JPEG)
+    with sld.get_image(ScaleX, ScaleY) as bmp:
+        # save the image to disk in JPEG format
+        bmp.save("Notes_tnail_out.jpg", slides.ImageFormat.JPEG)
 ```
 
