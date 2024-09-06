@@ -33,7 +33,8 @@ pres = slides.Presentation("pres.pptx")
 
 for index in range(pres.slides.length):
     slide = pres.slides[index]
-    slide.get_image().save("slide_{i}.png".format(i = index), slides.ImageFormat.PNG)
+    with slide.get_image() as image:
+        image.save("slide_{i}.png".format(i = index), slides.ImageFormat.PNG)
 ```
 
 ## **Convert PowerPoint to PNG With Custom Dimensions**
@@ -51,7 +52,8 @@ scaleX = 2
 scaleY = 2
 for index in range(pres.slides.length):
     slide = pres.slides[index]
-    slide.get_image(scaleX, scaleY).save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
+    with slide.get_image(scaleX, scaleY) as image:
+        image.save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
 ```
 
 ## **Convert PowerPoint to PNG With Custom Size**
@@ -70,6 +72,7 @@ size = drawing.Size(960, 720)
 
 for index in range(pres.slides.length):
     slide = pres.slides[index]
-    slide.get_image(size).save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
+    with slide.get_image(size) as image:
+        image.save("slide_{index}.png".format(index=index), slides.ImageFormat.PNG)
 ```
 

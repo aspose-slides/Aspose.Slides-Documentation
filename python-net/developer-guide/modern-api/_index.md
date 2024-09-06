@@ -39,8 +39,8 @@ with slides.Presentation() as pres:
     image = slides.Images.from_file("image.png")
     pp_image = pres.images.add_image(image)
     pres.slides[0].shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10.0, 10.0, 100.0, 100.0, pp_image)
-    slide_image = pres.slides[0].get_image(drawing.Size(1920, 1080))
-    slide_image.save("slide1.jpeg", slides.ImageFormat.JPEG)
+    with pres.slides[0].get_image(drawing.Size(1920, 1080)) as slide_image:
+        slide_image.save("slide1.jpeg", slides.ImageFormat.JPEG)
 ```
 
 ## Replacing old code with Modern API
@@ -64,7 +64,8 @@ Modern API:
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as pres:
-    pres.slides[0].get_image().save("slide1.png")
+    with pres.slides[0].get_image() as image:
+        image.save("slide1.png")
 ```
 
 ### Getting a shape thumbnail
@@ -84,7 +85,8 @@ Modern API:
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as pres:
-    pres.slides[0].shapes[0].get_image().save("shape.png")
+    with pres.slides[0].shapes[0].get_image() as image:
+        image.save("shape.png")
 ```
 
 ### Getting a presentation thumbnail

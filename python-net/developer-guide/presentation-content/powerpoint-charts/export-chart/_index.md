@@ -15,7 +15,7 @@ import aspose.slides.charts as charts
 import aspose.slides as slides
 
 with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-	img = chart.get_image()
-	img.save("image.png", slides.ImageFormat.PNG)
+    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    with chart.get_image() as img:
+        img.save("image.png", slides.ImageFormat.PNG)
 ```

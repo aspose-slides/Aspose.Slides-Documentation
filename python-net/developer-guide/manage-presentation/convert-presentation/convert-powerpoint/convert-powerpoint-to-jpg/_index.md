@@ -37,8 +37,8 @@ import aspose.slides as slides
 pres = slides.Presentation("pres.pptx")
 
 for sld in pres.slides:
-    bmp = sld.get_image(1, 1)
-    bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
+    with sld.get_image(1, 1) as bmp:
+        bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
@@ -55,8 +55,8 @@ scaleX = (float)(1.0 / pres.slide_size.size.width) * desiredX
 scaleY = (float)(1.0 / pres.slide_size.size.height) * desiredY
 
 for sld in pres.slides:
-    bmp = sld.get_image(scaleX, scaleY)
-    bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
+    with sld.get_image(scaleX, scaleY) as bmp:
+        bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
 ```
 
 {{% alert title="Tip" color="primary" %}}
