@@ -2,7 +2,7 @@
 title: Paragraph
 type: docs
 weight: 60
-url: /java/paragraph/
+url: /nodejs-java/paragraph/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Text Formatting
 type: docs
 weight: 50
-url: /java/text-formatting/
+url: /nodejs-java/text-formatting/
 keywords:
 - highlight text
 - regular expression

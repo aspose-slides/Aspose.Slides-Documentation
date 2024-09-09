@@ -2,7 +2,7 @@
 title: Rectangle
 type: docs
 weight: 80
-url: /java/rectangle/
+url: /nodejs-java/rectangle/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Chart Formatting
 type: docs
 weight: 60
-url: /java/chart-formatting/
+url: /nodejs-java/chart-formatting/
 ---
 
 ## **Format Chart Entities**

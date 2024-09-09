@@ -2,7 +2,7 @@
 title: Adding Text Dynamically using VSTO and Aspose.Slides for Java
 type: docs
 weight: 20
-url: /java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+url: /nodejs-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 

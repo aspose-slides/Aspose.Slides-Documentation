@@ -3,7 +3,7 @@ title: Create or Update PowerPoint Presentation Charts in Java
 linktitle: Create Chart
 type: docs
 weight: 10
-url: /java/create-chart/
+url: /nodejs-java/create-chart/
 keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Create chart in PowerPoint presentation in Java"
 ---

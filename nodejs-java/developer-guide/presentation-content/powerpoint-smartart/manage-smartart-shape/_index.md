@@ -2,7 +2,7 @@
 title: Manage SmartArt Shape
 type: docs
 weight: 20
-url: /java/manage-smartart-shape/
+url: /nodejs-java/manage-smartart-shape/
 ---
 
 

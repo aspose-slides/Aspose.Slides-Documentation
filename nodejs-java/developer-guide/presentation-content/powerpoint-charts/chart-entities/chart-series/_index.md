@@ -1,7 +1,7 @@
 ---
 title: Chart Series
 type: docs
-url: /java/chart-series/
+url: /nodejs-java/chart-series/
 keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Chart series in PowerPoint presentations in Java"
 ---

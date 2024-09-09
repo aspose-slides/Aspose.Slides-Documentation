@@ -2,7 +2,7 @@
 title: Compare Slides
 type: docs
 weight: 50
-url: /java/compare-slides/
+url: /nodejs-java/compare-slides/
 ---
 
 ## **Compare Two Slides**

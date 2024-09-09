@@ -2,7 +2,7 @@
 title: Public API and Backwards Incompatible Changes in Aspose.Slides for Java 15.10.0
 type: docs
 weight: 180
-url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
+url: /nodejs-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
 ---
 
 {{% alert color="primary" %}} 

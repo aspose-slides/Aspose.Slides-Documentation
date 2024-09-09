@@ -2,7 +2,7 @@
 title: Manage Autofit Settings
 type: docs
 weight: 30
-url: /java/manage-autofit-settings/
+url: /nodejs-java/manage-autofit-settings/
 keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Set the autofit settings for textbox in PowerPoint in Java"
 ---

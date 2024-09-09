@@ -2,7 +2,7 @@
 title: Presentation Properties
 type: docs
 weight: 70
-url: /java/presentation-properties/
+url: /nodejs-java/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

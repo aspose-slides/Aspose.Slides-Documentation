@@ -2,7 +2,7 @@
 title: Access Slide in Presentation
 type: docs
 weight: 20
-url: /java/access-slide-in-presentation/
+url: /nodejs-java/access-slide-in-presentation/
 keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  Java, Aspose.Slides"
 description: "Access PowerPoint slide by index, ID, or position in Java. Edit slide properties"
 ---

@@ -2,7 +2,7 @@
 title: Re-sizing Shapes on Slide
 type: docs
 weight: 110
-url: /java/re-sizing-shapes-on-slide/
+url: /nodejs-java/re-sizing-shapes-on-slide/
 ---
 
 ## **Re-sizing Shapes on Slide**

@@ -2,7 +2,7 @@
 title: Applying Protection to Presentation
 type: docs
 weight: 60
-url: /java/applying-protection-to-presentation/
+url: /nodejs-java/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 

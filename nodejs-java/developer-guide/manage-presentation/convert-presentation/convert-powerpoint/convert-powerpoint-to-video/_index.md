@@ -2,7 +2,7 @@
 title: Convert PowerPoint to Video
 type: docs
 weight: 130
-url: /java/convert-powerpoint-to-video/
+url: /nodejs-java/convert-powerpoint-to-video/
 keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Video, MP4, PPT to video, PPT to MP4, Java, Aspose.Slides"
 description: "Convert PowerPoint to Video in Java"
 ---

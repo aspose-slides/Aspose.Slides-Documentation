@@ -1,7 +1,7 @@
 ---
 title: Callout
 type: docs
-url: /java/callout/
+url: /nodejs-java/callout/
 ---
 
 ## **Using Callouts**

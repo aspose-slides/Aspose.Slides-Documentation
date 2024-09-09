@@ -2,7 +2,7 @@
 title: PowerPoint Fonts
 type: docs
 weight: 30
-url: /java/powerpoint-fonts/
+url: /nodejs-java/powerpoint-fonts/
 ---
 
 

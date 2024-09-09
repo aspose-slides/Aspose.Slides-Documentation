@@ -2,7 +2,7 @@
 title: Line
 type: docs
 weight: 50
-url: /java/Line/
+url: /nodejs-java/Line/
 ---
 
 

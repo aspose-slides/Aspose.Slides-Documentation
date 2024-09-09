@@ -2,7 +2,7 @@
 title: Manage Placeholder
 type: docs
 weight: 10
-url: /java/manage-placeholder/
+url: /nodejs-java/manage-placeholder/
 description: Change Text in a Placeholder in PowerPoint Slides using Java. Set Prompt Text in a Placeholder in PowerPoint Slides using Java.
 ---
 

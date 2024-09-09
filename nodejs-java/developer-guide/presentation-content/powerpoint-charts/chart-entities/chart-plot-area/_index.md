@@ -1,7 +1,7 @@
 ---
 title: Chart Plot Area
 type: docs
-url: /java/chart-plot-area/
+url: /nodejs-java/chart-plot-area/
 ---
 
 

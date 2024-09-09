@@ -2,7 +2,7 @@
 title: Presentation Background
 type: docs
 weight: 20
-url: /java/presentation-background/
+url: /nodejs-java/presentation-background/
 keywords: "PowerPoint background, set background in Java"
 description: "Set background in PowerPoint presentation in Java"
 ---

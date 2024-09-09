@@ -2,7 +2,7 @@
 title: Manage Blob
 type: docs
 weight: 10
-url: /java/manage-blob/
+url: /nodejs-java/manage-blob/
 description: Manage Blob in PowerPoint Presentation using Java. Use Blob to reduce memory consumption in PowerPoint Presentation using Java. Add large file through Blob to PowerPoint Presentation using Java. Export large file through Blob from PowerPoint Presentation using Java. Load a large PowerPoint Presentation as Blob using Java.
 ---
 

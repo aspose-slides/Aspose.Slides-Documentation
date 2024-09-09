@@ -2,7 +2,7 @@
 title: Audio Frame
 type: docs
 weight: 10
-url: /java/audio-frame/
+url: /nodejs-java/audio-frame/
 keywords: "Add audio, Audio frame, Audio properties, Extract audio, Java, Aspose.Slides for Java"
 description: "Add audio to PowerPoint presentation in Java"
 ---

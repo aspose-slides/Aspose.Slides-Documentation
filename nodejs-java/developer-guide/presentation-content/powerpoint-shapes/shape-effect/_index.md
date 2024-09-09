@@ -2,7 +2,7 @@
 title: Shape Effect
 type: docs
 weight: 30
-url: /java/shape-effect
+url: /nodejs-java/shape-effect
 keywords: "Shape effect, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Apply effect to PowerPoint shape in Java"
 ---

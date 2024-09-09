@@ -2,7 +2,7 @@
 title: Presentation Viewer
 type: docs
 weight: 50
-url: /java/presentation-viewer/
+url: /nodejs-java/presentation-viewer/
 keywords: "PowerPoint PPT Viewer"
 description: "PowerPoint PPT Viewer in Java"
 ---

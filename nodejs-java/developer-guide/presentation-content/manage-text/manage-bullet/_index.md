@@ -2,7 +2,7 @@
 title: Manage Bullet
 type: docs
 weight: 60
-url: /java/manage-bullet/
+url: /nodejs-java/manage-bullet/
 keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for Java"
 description: "Create bullet and numbered lists in PowerPoint presentation in Java"
 ---

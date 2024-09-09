@@ -2,7 +2,7 @@
 title: Manage Presentation
 type: docs
 weight: 10
-url: /java/manage-presentation/
+url: /nodejs-java/manage-presentation/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Working Solution for Chart Resizing in PPTX
 type: docs
 weight: 40
-url: /java/working-solution-for-chart-resizing-in-pptx/
+url: /nodejs-java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

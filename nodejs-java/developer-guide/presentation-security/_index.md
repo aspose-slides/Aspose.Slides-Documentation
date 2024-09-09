@@ -2,6 +2,6 @@
 title: Presentation Security
 type: docs
 weight: 60
-url: /java/presentation-security/
+url: /nodejs-java/presentation-security/
 ---
 

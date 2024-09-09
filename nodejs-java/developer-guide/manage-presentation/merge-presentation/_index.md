@@ -2,7 +2,7 @@
 title: Merge Presentation
 type: docs
 weight: 40
-url: /java/merge-presentation/
+url: /nodejs-java/merge-presentation/
 keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, Java"
 description: "Merge or combine PowerPoint Presentation in Java"
 ---

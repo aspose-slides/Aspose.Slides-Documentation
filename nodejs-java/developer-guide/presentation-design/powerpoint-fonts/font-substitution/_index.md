@@ -3,7 +3,7 @@ title: Font Substitution - PowerPoint Java API
 linktitle: Font Substitution
 type: docs
 weight: 70
-url: /java/font-substitution/
+url: /nodejs-java/font-substitution/
 keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Substitute font in PowerPoint in Java"
 ---

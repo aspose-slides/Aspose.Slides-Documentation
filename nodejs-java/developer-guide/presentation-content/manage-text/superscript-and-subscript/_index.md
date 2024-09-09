@@ -2,7 +2,7 @@
 title: Superscript and Subscript
 type: docs
 weight: 80
-url: /java/superscript-and-subscript/
+url: /nodejs-java/superscript-and-subscript/
 ---
 
 ## **Manage Super Script and Sub Script Text**

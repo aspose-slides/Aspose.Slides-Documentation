@@ -2,7 +2,7 @@
 title: Create Fallback Font
 type: docs
 weight: 10
-url: /java/create-fallback-font/
+url: /nodejs-java/create-fallback-font/
 ---
 
 Aspose.Slides supports [IFontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IFontFallBackRule) interface and [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:

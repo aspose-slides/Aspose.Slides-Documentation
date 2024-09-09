@@ -2,7 +2,7 @@
 title: Read Only Presentation
 type: docs
 weight: 30
-url: /java/read-only-presentation/
+url: /nodejs-java/read-only-presentation/
 
 ---
 

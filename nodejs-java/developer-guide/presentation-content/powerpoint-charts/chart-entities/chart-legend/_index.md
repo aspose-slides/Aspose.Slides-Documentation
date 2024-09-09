@@ -1,7 +1,7 @@
 ---
 title: Chart Legend
 type: docs
-url: /java/chart-legend/
+url: /nodejs-java/chart-legend/
 ---
 
 ## **Legend Positioning**

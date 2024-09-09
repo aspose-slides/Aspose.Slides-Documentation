@@ -1,7 +1,7 @@
 ---
 title: Bubble Chart
 type: docs
-url: /java/bubble-chart/
+url: /nodejs-java/bubble-chart/
 ---
 
 ## **Bubble Chart Size Scaling**

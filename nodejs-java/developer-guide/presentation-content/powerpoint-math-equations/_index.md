@@ -2,7 +2,7 @@
 title: PowerPoint Math Equations
 type: docs
 weight: 80
-url: /java/powerpoint-math-equations/
+url: /nodejs-java/powerpoint-math-equations/
 keywords: " PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
 description: "PowerPoint Math Equations, PowerPoint Math Symbols, PowerPoint Formula, PowerPoint Math Text"
 ---

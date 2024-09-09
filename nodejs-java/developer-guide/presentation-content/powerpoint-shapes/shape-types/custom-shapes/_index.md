@@ -2,7 +2,7 @@
 title: Custom Shape
 type: docs
 weight: 20
-url: /java/custom-shape/
+url: /nodejs-java/custom-shape/
 keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, Aspose.Slides for Java"
 description: "Add custom shape in PowerPoint presentation in Java"
 ---

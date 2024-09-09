@@ -2,7 +2,7 @@
 title: Create Shape Thumbnails
 type: docs
 weight: 70
-url: /java/create-shape-thumbnails/
+url: /nodejs-java/create-shape-thumbnails/
 ---
 
 

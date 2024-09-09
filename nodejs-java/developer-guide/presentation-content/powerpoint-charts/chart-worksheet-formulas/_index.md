@@ -2,7 +2,7 @@
 title: Chart Worksheet Formulas
 type: docs
 weight: 70
-url: /java/chart-worksheet-formulas/
+url: /nodejs-java/chart-worksheet-formulas/
 keywords: "powerpoint equations, powerpoint spreadsheet formulas"
 description: "PowerPoint Equations and Spreadsheet Formulas"
 ---

@@ -2,7 +2,7 @@
 title: Portion
 type: docs
 weight: 70
-url: /java/portion/
+url: /nodejs-java/portion/
 ---
 
 ## **Get Position Coordinates of Portion**

@@ -2,7 +2,7 @@
 title: Slide Layout
 type: docs
 weight: 60
-url: /java/slide-layout/
+url: /nodejs-java/slide-layout/
 keyword: "Set slide size, set slide options, specify slide size, Footer visibility, Child footer, Content scaling, page size, Java, Aspose.Slides"
 description: "Set PowerPoint slide size and options in Java"
 ---
