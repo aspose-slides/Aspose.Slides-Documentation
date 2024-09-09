@@ -3,7 +3,7 @@ title: Presentation Theme
 type: docs
 weight: 10
 url: /nodejs-java/presentation-theme/
-keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Theme, PowerPoint theme, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "PowerPoint presentation theme in Java"
 ---
 

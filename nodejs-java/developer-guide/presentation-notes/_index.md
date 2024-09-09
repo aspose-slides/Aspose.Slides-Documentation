@@ -14,7 +14,7 @@ Aspose.Slides supports removing notes slides from a presentation. In this topic,
 
 {{% /alert %}} 
 
-Aspose.Slides for Java provides the feature of removing notes of any slide as well as add style to existing notes. Developers can remove notes in the following ways:
+Aspose.Slides for Node.js via Java provides the feature of removing notes of any slide as well as add style to existing notes. Developers can remove notes in the following ways:
 
 * Remove Notes of a Specific Slide of a presentation.
 * Remove Notes of All Slides of a Presentation

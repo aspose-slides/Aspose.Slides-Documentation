@@ -11,7 +11,7 @@ keywords:
 - font replacement
 - PowerPoint presentation
 - Java
-- Aspose.Slides for Java
+- Aspose.Slides for Node.js via Java
 description: PowerPoint font selection sequence in Java
 ---
 

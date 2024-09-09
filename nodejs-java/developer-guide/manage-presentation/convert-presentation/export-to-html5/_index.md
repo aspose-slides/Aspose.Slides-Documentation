@@ -3,7 +3,7 @@ title: Export to HTML5
 type: docs
 weight: 40
 url: /nodejs-java/export-to-html5/
-keywords: "PowerPoint to HTML, HTML 5, HTML export, Export presentation, Convert PowerPoint to HTML, Java, Aspose.Slides for Java"
+keywords: "PowerPoint to HTML, HTML 5, HTML export, Export presentation, Convert PowerPoint to HTML, Java, Aspose.Slides for Node.js via Java"
 description: "Export PowerPoint to HTML5 in Java"
 ---
 

@@ -8,7 +8,7 @@ url: /nodejs-java/shape-manipulations/
 ## **Find Shape in Slide**
 This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
 
-After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Java and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) that does the trick to find a specific shape in a slide and then simply returns that shape.
+After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Node.js via Java and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [findShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideUtil#findShape-aspose.slides.IBaseSlide-java.lang.String-) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
 ```javascript
     // Instantiate a Presentation class that represents the presentation file
@@ -30,7 +30,7 @@ After setting the alternative text of any desired shape, you can then open that 
 ```
 
 ## **Clone Shape**
-To clone a shape to a slide using Aspose.Slides for Java:
+To clone a shape to a slide using Aspose.Slides for Node.js via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain the reference of a slide by using its index.
@@ -62,7 +62,7 @@ The example below adds a group shape to a slide.
 ```
 
 ## **Remove Shape**
-Aspose.Slides for Java allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
+Aspose.Slides for Node.js via Java allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access the first slide.
@@ -97,7 +97,7 @@ Aspose.Slides for Java allows developers to remove any shape. To remove the shap
 ```
 
 ## **Hide Shape**
-Aspose.Slides for Java allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
+Aspose.Slides for Node.js via Java allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access the first slide.
@@ -132,7 +132,7 @@ Aspose.Slides for Java allows developers to hide any shape. To hide the shape fr
 ```
 
 ## **Change Shapes Order**
-Aspose.Slides for Java allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
+Aspose.Slides for Node.js via Java allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access the first slide.
@@ -163,7 +163,7 @@ Aspose.Slides for Java allows developers to reorder the shapes. Reordering the s
 ```
 
 ## **Get Interop Shape ID**
-Aspose.Slides for Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
+Aspose.Slides for Node.js via Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("Presentation.pptx");
@@ -178,7 +178,7 @@ Aspose.Slides for Java allows developers to get a unique shape identifier in sli
 ```
 
 ## **Set Alternative Text for Shape**
-Aspose.Slides for Java allows developers to set AlternateText of any shape.
+Aspose.Slides for Node.js via Java allows developers to set AlternateText of any shape.
 Shapes in a presentation could be distinguished by the [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) or [Shape Name](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#setName-java.lang.String-) method.
 [setAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#setAlternativeText-java.lang.String-) and [getAlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getAlternativeText--) methods could be read or set by using Aspose.Slides as well as Microsoft PowerPoint.
 By using this method, you can tag a shape and can perform different operations as Removing a shape,
@@ -220,7 +220,7 @@ To set the AlternateText of a shape, please follow the steps below:
 ```
 
 ## **Access Layout Formats for Shape**
-Aspose.Slides for Java provides a simple API to access layout formats for a shape. This article demonstrates how you can access layout formats.
+Aspose.Slides for Node.js via Java provides a simple API to access layout formats for a shape. This article demonstrates how you can access layout formats.
 
 Below sample code is given.
 
@@ -241,7 +241,7 @@ Below sample code is given.
 ```
 
 ## **Render Shape as SVG**
-Now Aspose.Slides for Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class and [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
+Now Aspose.Slides for Node.js via Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class and [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("TestExportShapeToSvg.pptx");

@@ -8,7 +8,7 @@ url: /nodejs-java/doughnut-chart/
 ## **Change Center Gap in Doughnut Chart**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java now supports specifying the size of the hole in a doughnut chart. In this topic, we will see with example how to specify the size of the hole in a doughnut chart.
+Aspose.Slides for Node.js via Java now supports specifying the size of the hole in a doughnut chart. In this topic, we will see with example how to specify the size of the hole in a doughnut chart.
 
 {{% /alert %}} 
 

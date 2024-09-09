@@ -3,12 +3,12 @@ title: Audio Frame
 type: docs
 weight: 10
 url: /nodejs-java/audio-frame/
-keywords: "Add audio, Audio frame, Audio properties, Extract audio, Java, Aspose.Slides for Java"
+keywords: "Add audio, Audio frame, Audio properties, Extract audio, Java, Aspose.Slides for Node.js via Java"
 description: "Add audio to PowerPoint presentation in Java"
 ---
 
 ## **Create Audio Frame**
-Aspose.Slides for Java allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 
+Aspose.Slides for Node.js via Java allows you to add audio files to slides. The audio files are embedded in slides as audio frames.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -81,7 +81,7 @@ This Java code shows you how to change an audio frame's thumbnail or preview ima
 
 ## **Change Audio Play Options**
 
-Aspose.Slides for Java allows you to change options that control an audio's playback or properties. For example, you can adjust an audio's volume, set the audio to play looped, or even hide the audio icon.
+Aspose.Slides for Node.js via Java allows you to change options that control an audio's playback or properties. For example, you can adjust an audio's volume, set the audio to play looped, or even hide the audio icon.
 
 The **Audio Options** pane in Microsoft PowerPoint:
 
@@ -131,7 +131,7 @@ This Java code demonstrates an operation in which an audio's options are adjuste
 
 ## **Extract Audio**
 
-Aspose.Slides for Java allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
+Aspose.Slides for Node.js via Java allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
 <<<<<<< HEAD
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class and load the presentation with slide transitions.

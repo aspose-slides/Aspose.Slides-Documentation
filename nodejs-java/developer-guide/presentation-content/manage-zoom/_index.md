@@ -3,7 +3,7 @@ title: Manage Zoom
 type: docs
 weight: 60
 url: /nodejs-java/manage-zoom/
-keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Add zoom or zoom frames to PowerPoint presentations in Java"
 ---
 
@@ -69,7 +69,7 @@ This Java code shows you how to create a zoom frame on a slide:
     }
 ```
 ### **Creating Zoom Frames with Custom Images**
-With Aspose.Slides for Java, you can create a zoom frame with a different slide preview image this way: 
+With Aspose.Slides for Node.js via Java, you can create a zoom frame with a different slide preview image this way:
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create a new slide to which you intend to link the zoom frame. 
 3.	Add an identification text and background to the slide.
@@ -224,7 +224,7 @@ This Java code shows you how to create a zoom frame on a slide:
 ```
 ### **Creating Section Zoom Frames with Custom Images**
 
-Using Aspose.Slides for Java, you can create a section zoom frame with a different slide preview image this way: 
+Using Aspose.Slides for Node.js via Java, you can create a section zoom frame with a different slide preview image this way:
 
 1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create a new slide.

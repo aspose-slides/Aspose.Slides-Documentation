@@ -7,9 +7,9 @@ url: /nodejs-java/faqs/
 
 ## **Supported File Formats**
 
-**Q: What file formats does Aspose.Slides for Java support?**
+**Q: What file formats does Aspose.Slides for Node.js via Java support?**
 
-**A**: Aspose.Slides for Java supports the file formats described in [Supported File Formats](/slides/java/supported-file-formats/).
+**A**: Aspose.Slides for Node.js via Java supports the file formats described in [Supported File Formats](/slides/java/supported-file-formats/).
 
 ## **Exceptions**
 
@@ -17,7 +17,7 @@ url: /nodejs-java/faqs/
 
 **A**: There is no specific formula for calculating the presentation size supported by Aspose.Slides. There should be enough space to accommodate the whole presentation structure and images in memory. Normally, images in the memory occupy more space than the hard disk, especially when images have additional effects.
 
-In general, Aspose.Slides for Java can easily handle presentation files of around 300 MB on a server with 4 GB RAM.
+In general, Aspose.Slides for Node.js via Java can easily handle presentation files of around 300 MB on a server with 4 GB RAM.
 
 ## **Working with Slides**
 
@@ -29,7 +29,7 @@ In general, Aspose.Slides for Java can easily handle presentation files of aroun
 
 **A**: Since the size of slides is defined at presentation level in Microsoft PowerPoint documents, there is no way to do this.
 
-**Q: Does Aspose.Slides for Java support previewing a slide before saving?**
+**Q: Does Aspose.Slides for Node.js via Java support previewing a slide before saving?**
 
 **A**: You can render the presentation slides to images and can use these images for previewing the slides.
 
@@ -37,7 +37,7 @@ In general, Aspose.Slides for Java can easily handle presentation files of aroun
 
 **Q: Is it possible to retrieve all the text from a presentation?**
 
-**A**: Aspose.Slides for Java provides the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/) class that provides various methods for retrieving whole text from the presentations.
+**A**: Aspose.Slides for Node.js via Java provides the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/) class that provides various methods for retrieving whole text from the presentations.
 
 ## **Formatting and Images**
 
@@ -45,7 +45,7 @@ In general, Aspose.Slides for Java can easily handle presentation files of aroun
 
 **A**: You can change the color of all table borders or just the border around the entire table. For changing all borders, please use the `getCellFormat` method from the [ICell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/icell/) interface. For the border of the entire table, you should iterate cells and change the color of the outer borders.
 
-**Q: What measure does Aspose.Slides for Java use to place pictures?**
+**Q: What measure does Aspose.Slides for Node.js via Java use to place pictures?**
 
 **A**: The coordinates and sizes of all shapes on the slides are measured in points (72 dpi).
 

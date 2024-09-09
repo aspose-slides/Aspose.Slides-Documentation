@@ -3,7 +3,7 @@ title: Chart Workbook
 type: docs
 weight: 70
 url: /nodejs-java/chart-workbook/
-keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Chart workbook in PowerPoint presentation in Java"
 ---
 

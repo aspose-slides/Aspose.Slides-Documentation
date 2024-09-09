@@ -7,7 +7,7 @@ url: /nodejs-java/rectangle/
 
 {{% alert color="primary" %}} 
 
-Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is **Rectangle**. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides for Java.
+Like previous topics, this one is also about adding a shape and this time the shape we will discuss about is **Rectangle**. In this topic, we have described that how developers can add simple or formatted rectangles to their slides using Aspose.Slides for Node.js via Java.
 
 {{% /alert %}} 
 

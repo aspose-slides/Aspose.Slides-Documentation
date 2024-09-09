@@ -3,7 +3,7 @@ title: Manage Autofit Settings
 type: docs
 weight: 30
 url: /nodejs-java/manage-autofit-settings/
-keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Set the autofit settings for textbox in PowerPoint in Java"
 ---
 
@@ -23,7 +23,7 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations.
+Aspose.Slides for Node.js via Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations.
 
 ## **Resize Shape to Fit Text**
 

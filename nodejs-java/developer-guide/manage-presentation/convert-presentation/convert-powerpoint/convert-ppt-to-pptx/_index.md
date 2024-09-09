@@ -47,9 +47,9 @@ Find other live [**Aspose.Slides Conversion**](https://products.aspose.app/slide
 {{% /alert %}} 
 
 ## **Convert PPT to PPTX**
-Aspose.Slides for Java now facilitates the developers to access the PPT using [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class instance and converting that to respective [PPTX](https://docs.fileformat.com/presentation/pptx/) format. Presently, it supports partial conversion of [PPT ](https://docs.fileformat.com/presentation/ppt/)to PPTX. For more details about what features are supported and unsupported in PPT to PPTX conversion, please proceed to this documentation [link](/slides/java/ppt-to-pptx-conversion/).
+Aspose.Slides for Node.js via Java now facilitates the developers to access the PPT using [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class instance and converting that to respective [PPTX](https://docs.fileformat.com/presentation/pptx/) format. Presently, it supports partial conversion of [PPT ](https://docs.fileformat.com/presentation/ppt/)to PPTX. For more details about what features are supported and unsupported in PPT to PPTX conversion, please proceed to this documentation [link](/slides/java/ppt-to-pptx-conversion/).
 
-Aspose.Slides for Java offers [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class that represents a **PPTX** presentation file. Presentation class can now also access **PPT** through Presentation when the object is instantiated. The following example shows how to convert a PPT presentation into PPTX Presentation.
+Aspose.Slides for Node.js via Java offers [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class that represents a **PPTX** presentation file. Presentation class can now also access **PPT** through Presentation when the object is instantiated. The following example shows how to convert a PPT presentation into PPTX Presentation.
 
 ```javascript
     // Instantiate a Presentation object that represents a PPTX file

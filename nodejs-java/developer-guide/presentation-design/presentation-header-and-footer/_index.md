@@ -13,7 +13,7 @@ description: "PowerPoint header and footer in Java"
 
 {{% /alert %}} 
 
-[Aspose.Slides for Java](/slides/java/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
+[Aspose.Slides for Node.js via Java](/slides/java/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
 
 ## **Manage Header and Footer in Presentation**
 Notes of some specific slide could be removed as shown in example below:
@@ -42,7 +42,7 @@ Notes of some specific slide could be removed as shown in example below:
 ```
 
 ## **Manage Header and Footer in Handout and Notes Slides**
-Aspose.Slides for Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
+Aspose.Slides for Node.js via Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
 - Load a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) containing a video.
 - Change Header and Footer settings for notes master and all notes slides.

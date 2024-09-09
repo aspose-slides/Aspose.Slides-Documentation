@@ -3,7 +3,7 @@ title: Video Frame
 type: docs
 weight: 10
 url: /nodejs-java/video-frame/
-keywords: "Add video, create video frame, extract video, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Add video, create video frame, extract video, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Add Video frame to PowerPoint presentation in Java"
 ---
 

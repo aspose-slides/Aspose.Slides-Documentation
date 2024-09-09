@@ -3,7 +3,7 @@ title: Convert PowerPoint to PNG
 type: docs
 weight: 30
 url: /nodejs-java/convert-powerpoint-to-png/
-keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, java, Aspose.Slides for Java
+keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, java, Aspose.Slides for Node.js via Java
 description: Convert PowerPoint presentation to PNG
 ---
 

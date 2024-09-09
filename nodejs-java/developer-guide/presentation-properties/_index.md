@@ -12,7 +12,7 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 - System Defined (Built-in) Properties
 - User-Defined (Custom) Properties
 
-**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Java, developers can access and modify the values of built-in properties as well as custom properties.
+**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for Node.js via Java, developers can access and modify the values of built-in properties as well as custom properties.
 
 {{% /alert %}} 
 
@@ -21,7 +21,7 @@ Microsoft PowerPoint 2007 allows managing the document properties of the present
 
 {{% alert color="primary" %}} 
 
-Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Java x.x.x will be displayed against these fields.
+Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for Node.js via Java x.x.x will be displayed against these fields.
 
 {{% /alert %}} 
 
@@ -37,9 +37,9 @@ In the above **Properties Dialog**, you can see that there are many tab pages li
 
 
 
-Working with Document Properties Using Aspose.Slides for Java
+Working with Document Properties Using Aspose.Slides for Node.js via Java
 
-As we have described earlier that Aspose.Slides for Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Java API. Aspose.Slides for Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
+As we have described earlier that Aspose.Slides for Node.js via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Node.js via Java API. Aspose.Slides for Node.js via Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
 Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
@@ -75,7 +75,7 @@ These properties as exposed by [IDocumentProperties](https://reference.aspose.co
 ```
 
 ## **Modify Built-in Properties**
-Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for Java.
+Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for Node.js via Java.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("Presentation.pptx");
@@ -83,7 +83,7 @@ Modifying the built-in properties of presentation files is as easy as that of ac
         // Create a reference to IDocumentProperties object associated with Presentation
         var dp = pres.getDocumentProperties();
         // Set the built-in properties
-        dp.setAuthor("Aspose.Slides for Java");
+        dp.setAuthor("Aspose.Slides for Node.js via Java");
         dp.setTitle("Modifying Presentation Properties");
         dp.setSubject("Aspose Subject");
         dp.setComments("Aspose Description");
@@ -104,7 +104,7 @@ This example modifies the built-in properties of the presentation that can be vi
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Add Custom Document Properties**
-Aspose.Slides for Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+Aspose.Slides for Node.js via Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -133,7 +133,7 @@ Aspose.Slides for Java also allows developers to add the custom the values for p
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Access and Modify Custom Properties**
-Aspose.Slides for Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
+Aspose.Slides for Node.js via Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("Presentation.pptx");
@@ -234,7 +234,7 @@ A new template can be created from scratch and then used to update multiple pres
 ```
 
 ## **Check if Presentation is Modified or Created**
-Aspose.Slides for Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
+Aspose.Slides for Node.js via Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
 
 ```javascript
     var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("props.pptx");

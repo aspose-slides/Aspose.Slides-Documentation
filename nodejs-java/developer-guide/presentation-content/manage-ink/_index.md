@@ -3,7 +3,7 @@ title: Manage Ink
 type: docs
 weight: 95
 url: /nodejs-java/manage-ink/
-keywords: "Ink in PowerPoint, Ink tools, Java Ink, Draw in PowerPoint, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Ink in PowerPoint, Ink tools, Java Ink, Draw in PowerPoint, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Use ink tools to draw objects in PowerPoint Java"
 ---
 

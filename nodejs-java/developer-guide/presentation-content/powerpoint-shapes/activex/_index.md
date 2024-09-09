@@ -8,7 +8,7 @@ url: /nodejs-java/activex/
 
 {{% alert color="primary" %}} 
 
-ActiveX controls are used in presentations. Aspose.Slides for Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IShapeCollection). They are part of the separate [IControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IControlCollection) instead. In this topic, we will show you how to work with them.
+ActiveX controls are used in presentations. Aspose.Slides for Node.js via Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IShapeCollection). They are part of the separate [IControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IControlCollection) instead. In this topic, we will show you how to work with them.
 
 {{% /alert %}} 
 
@@ -43,7 +43,7 @@ This sample code, based on the steps above, shows to how to add Media Player Act
 ## **Modifying ActiveX Control**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java 7.1.0 and newer versions are equipped with components for managing ActiveX controls. You can access the already added ActiveX control in your presentation and modify or delete it through its properties.
+Aspose.Slides for Node.js via Java 7.1.0 and newer versions are equipped with components for managing ActiveX controls. You can access the already added ActiveX control in your presentation and modify or delete it through its properties.
 
 {{% /alert %}} 
 

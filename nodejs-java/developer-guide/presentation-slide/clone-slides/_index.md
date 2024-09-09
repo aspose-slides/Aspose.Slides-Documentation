@@ -7,7 +7,7 @@ url: /nodejs-java/clone-slides/
 
 
 ## **Clone Slides in Presentation**
-Cloning is the process of making an exact copy or replica of something. Aspose.Slides for Java also makes it possible to make a copy or clone of any slide and then insert that cloned slide to the current or any other opened presentation. The process of slide cloning creates a new slide that can be modified by developers without changing the original slide. There are several possible ways to clone a slide:
+Cloning is the process of making an exact copy or replica of something. Aspose.Slides for Node.js via Java also makes it possible to make a copy or clone of any slide and then insert that cloned slide to the current or any other opened presentation. The process of slide cloning creates a new slide that can be modified by developers without changing the original slide. There are several possible ways to clone a slide:
 
 - Clone at End within a Presentation.
 - Clone at Another Position within Presentation.
@@ -15,7 +15,7 @@ Cloning is the process of making an exact copy or replica of something. Aspose.S
 - Clone at Another Position in another Presentation.
 - Clone at a specific position in another Presentation.
 
-In Aspose.Slides for Java, (a collection of [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide) objects) exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) object provides the [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) and [insertClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#insertClone-int-aspose.slides.ISlide-) methods to perform the above types of slide cloning
+In Aspose.Slides for Node.js via Java, (a collection of [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide) objects) exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) object provides the [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) and [insertClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#insertClone-int-aspose.slides.ISlide-) methods to perform the above types of slide cloning
 
 ## **Clone at End within a Presentation**
 If you want to clone a slide and then use it within the same presentation file at the end of the existing slides, use the [addClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) method according to the steps listed below:
@@ -175,7 +175,7 @@ In the example given below, we have cloned a slide with a master (lying at the z
 ```
 
 ## **Clone at End in Specified Section**
-If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ISection-) method exposed by the [**ISlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) interface. Aspose.Slides for Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
+If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ISection-) method exposed by the [**ISlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) interface. Aspose.Slides for Node.js via Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
 
 The following code snippet shows you how to clone a slide and insert the cloned slide into a specified section.
 

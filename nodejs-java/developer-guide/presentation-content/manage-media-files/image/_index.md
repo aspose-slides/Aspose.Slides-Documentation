@@ -186,7 +186,7 @@ This sample code shows you how to use the described method to convert an SVG fil
 ```
 
 ## **Adding Images as EMF in Slides**
-Aspose.Slides for Java allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
+Aspose.Slides for Node.js via Java allows you to generate EMF images from excel sheets and add the images as EMF in slides with Aspose.Cells. 
 
 This sample code shows you how to perform the described task:
 

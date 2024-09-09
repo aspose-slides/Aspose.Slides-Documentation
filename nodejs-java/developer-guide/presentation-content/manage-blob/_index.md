@@ -10,7 +10,7 @@ description: Manage Blob in PowerPoint Presentation using Java. Use Blob to redu
 
 **BLOB** (**Binary Large Object**) is usually a large item (photo, presentation, document, or media) saved in binary formats. 
 
-Aspose.Slides for Java allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved. 
+Aspose.Slides for Node.js via Java allows you to use BLOBs for objects in a way that reduces memory consumption when large files are involved.
 
 {{% alert title="Info" color="info" %}}
 
@@ -55,7 +55,7 @@ This Java shows you how to add a large video file through the BLOB process to a 
 
 
 ### **Export Large File Through BLOB from Presentation**
-Aspose.Slides for Java allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low. 
+Aspose.Slides for Node.js via Java allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low.
 
 This code in Java demonstrates the described operation:
 

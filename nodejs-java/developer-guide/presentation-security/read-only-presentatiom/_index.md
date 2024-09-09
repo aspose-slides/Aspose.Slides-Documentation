@@ -17,7 +17,7 @@ The Read-Only recommendation is a simple yet effective deterrent that discourage
 
 > If a presentation with the **Read-Only** protection gets opened in an older Microsoft PowerPoint application—which does not support the recently introduced function—the **Read-Only** recommendation gets ignored (the presentation is opened normally).
 
-Aspose.Slides for Java allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in Java using Aspose.Slides:
+Aspose.Slides for Node.js via Java allows you to set a presentation to **Read-Only**, which means users (after they open the presentation) see the **Read-Only** recommendation. This sample code shows you how to set a presentation to **Read-Only** in Java using Aspose.Slides:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

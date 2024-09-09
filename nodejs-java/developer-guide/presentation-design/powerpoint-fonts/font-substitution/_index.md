@@ -4,7 +4,7 @@ linktitle: Font Substitution
 type: docs
 weight: 70
 url: /nodejs-java/font-substitution/
-keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Substitute font in PowerPoint in Java"
 ---
 

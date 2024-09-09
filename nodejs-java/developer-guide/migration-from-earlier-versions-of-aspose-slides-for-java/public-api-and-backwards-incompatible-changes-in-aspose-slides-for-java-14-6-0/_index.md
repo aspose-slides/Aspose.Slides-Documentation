@@ -1,5 +1,5 @@
 ---
-title: Public API and Backwards Incompatible Changes in Aspose.Slides for Java 14.6.0
+title: Public API and Backwards Incompatible Changes in Aspose.Slides for Node.js via Java 14.6.0
 type: docs
 weight: 50
 url: /nodejs-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
@@ -7,7 +7,7 @@ url: /nodejs-java/public-api-and-backwards-incompatible-changes-in-aspose-slides
 
 {{% alert color="primary" %}} 
 
-This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) classes, methods, properties and so on, any new restrictions and other changes introduced with the Aspose.Slides for Java 14.6.0 API.
+This page lists all [added](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) classes, methods, properties and so on, any new restrictions and other changes introduced with the Aspose.Slides for Node.js via Java 14.6.0 API.
 
 {{% /alert %}} 
 ## **Public API Changes**

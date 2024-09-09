@@ -5,7 +5,7 @@ url: /nodejs-java/bubble-chart/
 ---
 
 ## **Bubble Chart Size Scaling**
-Aspose.Slides for Java provides support for Bubble chart size scaling. In Aspose.Slides for Java [**IChartSeries.getBubbleSizeScale**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeries#getBubbleSizeScale--), [**IChartSeriesGroup.getBubbleSizeScale**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeriesGroup#getBubbleSizeScale--) and [**IChartSeriesGroup.setBubbleSizeScale**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeriesGroup#setBubbleSizeScale-int-) methods have been added. Below sample example is given. 
+Aspose.Slides for Node.js via Java provides support for Bubble chart size scaling. In Aspose.Slides for Node.js via Java [**IChartSeries.getBubbleSizeScale**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeries#getBubbleSizeScale--), [**IChartSeriesGroup.getBubbleSizeScale**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeriesGroup#getBubbleSizeScale--) and [**IChartSeriesGroup.setBubbleSizeScale**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeriesGroup#setBubbleSizeScale-int-) methods have been added. Below sample example is given. 
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

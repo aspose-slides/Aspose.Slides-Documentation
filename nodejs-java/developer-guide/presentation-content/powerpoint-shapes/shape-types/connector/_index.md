@@ -3,7 +3,7 @@ title: Connector
 type: docs
 weight: 10
 url: /nodejs-java/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Connect PowerPoint shapes in Java"
 ---
 

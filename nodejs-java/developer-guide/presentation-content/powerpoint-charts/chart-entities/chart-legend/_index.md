@@ -38,7 +38,7 @@ In the example given below, we have set the position and size for Chart legend.
 ```
 
 ## **Set Font Size of Legend**
-The Aspose.Slides for Java lets developers allow to set font size of legend. Please follow the steps below: 
+The Aspose.Slides for Node.js via Java lets developers allow to set font size of legend. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Creating the default chart.
@@ -66,7 +66,7 @@ The Aspose.Slides for Java lets developers allow to set font size of legend. Pl
 ```
 
 ## **Set Font Size of Individual Legend**
-The Aspose.Slides for Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
+The Aspose.Slides for Node.js via Java lets developers allow to set font size of individual legend entries. Please follow the steps below: 
 
 - Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Creating the default chart.

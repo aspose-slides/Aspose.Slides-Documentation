@@ -12,12 +12,12 @@ url: /nodejs-java/save-presentation/
 
 {{% /alert %}} 
 
-The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
+The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Node.js via Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
 
 ## **Save Presentation to File**
 Save a presentation to file by calling the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method. Simply pass the file name and [**SaveFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveFormat) to the [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method.
 
-The examples that follow show how to save a presentation with Aspose.Slides for Java.
+The examples that follow show how to save a presentation with Aspose.Slides for Node.js via Java.
 
 ```javascript
     // Instantiate a Presentation object that represents a PPT file
@@ -55,7 +55,7 @@ It is possible to save a presentation to a stream by passing an output stream to
 ```
 
 ## **Save Presentation with Predefined View Type**
-Aspose.Slides for Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewType) enumerator.
+Aspose.Slides for Node.js via Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewType) enumerator.
 
 ```javascript
     // Opening the presentation file

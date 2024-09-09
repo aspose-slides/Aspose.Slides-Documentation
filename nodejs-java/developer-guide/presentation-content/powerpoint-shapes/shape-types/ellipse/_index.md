@@ -8,7 +8,7 @@ url: /nodejs-java/ellipse/
 
 {{% alert color="primary" %}} 
 
-In this topic, we will introduce developers about adding ellipse shapes to their slides using Aspose.Slides for Java. Aspose.Slides for Java provides an easier set of APIs to draw different kinds of shapes with just a few lines of code.
+In this topic, we will introduce developers about adding ellipse shapes to their slides using Aspose.Slides for Node.js via Java. Aspose.Slides for Node.js via Java provides an easier set of APIs to draw different kinds of shapes with just a few lines of code.
 
 {{% /alert %}} 
 

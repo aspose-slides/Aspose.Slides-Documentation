@@ -3,7 +3,7 @@ title: Common Exceptions and Errors Involving Fonts on Linux
 type: docs
 weight: 200
 url: /nodejs-java/technical-articles/common-errors-involving-fonts
-keywords: "Font exception, Font error, Linux, Java, Aspose.Slides for Java"
+keywords: "Font exception, Font error, Linux, Java, Aspose.Slides for Node.js via Java"
 description: "Font exceptions and errors on Linux"
 ---
 

@@ -9,7 +9,7 @@ description: "PowerPoint PPT Viewer in Java"
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java is used to create presentation files, complete with slides. These slides can be viewed by opening presentations using Microsoft PowerPoint. But sometimes, developers may also need to view slides as images in their favorite image viewer or create their own presentation viewer. In such cases, Aspose.Slides for Java lets you export an individual slide to an image. This article describes how to do it.
+Aspose.Slides for Node.js via Java is used to create presentation files, complete with slides. These slides can be viewed by opening presentations using Microsoft PowerPoint. But sometimes, developers may also need to view slides as images in their favorite image viewer or create their own presentation viewer. In such cases, Aspose.Slides for Node.js via Java lets you export an individual slide to an image. This article describes how to do it.
 
 {{% /alert %}} 
 
@@ -21,7 +21,7 @@ You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer
 [![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
 
 ## **Generate SVG Image from Slide**
-To generate an SVG image from any desired slide with Aspose.Slides for Java, please follow the steps below:
+To generate an SVG image from any desired slide with Aspose.Slides for Node.js via Java, please follow the steps below:
 
 - Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Obtain the desired slide's reference by using its ID or index.
@@ -46,7 +46,7 @@ To generate an SVG image from any desired slide with Aspose.Slides for Java, ple
 ```
 
 ## **Generate SVG with Custom Shape IDS**
-Aspose.Slides for Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
+Aspose.Slides for Node.js via Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pptxFileName.pptx");
@@ -82,7 +82,7 @@ Aspose.Slides for Java can be used to generate [SVG](https://docs.fileformat.co
 ```
 
 ## **Create Slides Thumbnail Image**
-Aspose.Slides for Java help you generate thumbnail images of the slides. To generate the thumbnail of any desired slide using Aspose.Slides for Java:
+Aspose.Slides for Node.js via Java help you generate thumbnail images of the slides. To generate the thumbnail of any desired slide using Aspose.Slides for Node.js via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain the reference of any desired slide by using its ID or index.
@@ -145,7 +145,7 @@ Aspose.Slides for Java help you generate thumbnail images of the slides. To gene
 ```
 
 ## **Create Thumbnail from Slide in Notes Slides View**
-To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for Java:
+To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for Node.js via Java:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain the reference of any desired slide by using its ID or index.

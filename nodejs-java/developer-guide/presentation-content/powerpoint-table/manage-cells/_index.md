@@ -3,7 +3,7 @@ title: Manage Cells
 type: docs
 weight: 30
 url: /nodejs-java/manage-cells/
-keywords: "Table, merged cells, split cells, image in table cell, Java, Aspose.Slides for Java"
+keywords: "Table, merged cells, split cells, image in table cell, Java, Aspose.Slides for Node.js via Java"
 description: "Table cells in PowerPoint presentations in Java"
 ---
 

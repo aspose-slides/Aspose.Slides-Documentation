@@ -3,7 +3,7 @@ title: Manage Rows and Columns
 type: docs
 weight: 20
 url: /nodejs-java/manage-rows-and-columns/
-keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Manage table rows and columns in PowerPoint presentations in Java"
 ---
 

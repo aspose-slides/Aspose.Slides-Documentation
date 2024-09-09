@@ -23,7 +23,7 @@ New methods [**getShowLabelAsDataCallout()**](https://reference.aspose.com/slide
 ```
 
 ## **Set Callout for Doughnut Chart**
-Aspose.Slides for Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
+Aspose.Slides for Node.js via Java provides support for setting series data label callout shape for a Doughnut chart. Below sample example is given. 
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

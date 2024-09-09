@@ -4,7 +4,7 @@ linktitle: Custom Font
 type: docs
 weight: 20
 url: /nodejs-java/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "Fonts, custom fonts, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "PowerPoint custom fonts in Java"
 ---
 

@@ -3,7 +3,7 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /nodejs-java/shape-animation/
-keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Java"
+keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
 description: "Apply PowerPoint animation in Java"
 ---
 
@@ -28,7 +28,7 @@ PowerPoint provides many options and tools for animations and animation effects 
 
 ## **Apply Animation to TextBox**
 
-Aspose.Slides for Java allows you to apply animation to the text in a shape. 
+Aspose.Slides for Node.js via Java allows you to apply animation to the text in a shape.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide reference through its index.
@@ -187,7 +187,7 @@ This Java code shows you how to get the all effects applied to a specific shape:
 
 ## **Change Animation Effect Timing Properties**
 
-Aspose.Slides for Java allows you to change the Timing properties of an animation effect.
+Aspose.Slides for Node.js via Java allows you to change the Timing properties of an animation effect.
 
 This is the Animation Timing pane in Microsoft PowerPoint:
 
@@ -301,7 +301,7 @@ This Java code shows you how to extract the sound embedded in an animation effec
 
 ## **After Animation**
 
-Aspose.Slides for Java allows you to change the After animation property of an animation effect.
+Aspose.Slides for Node.js via Java allows you to change the After animation property of an animation effect.
 
 This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
 

@@ -5,7 +5,7 @@ weight: 90
 url: /nodejs-java/slide-section/
 ---
 
-With Aspose.Slides for Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides. 
+With Aspose.Slides for Node.js via Java, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides.
 
 You may want to create sections and use them to organize or divide slides in a presentation into logical parts in these situations:
 
@@ -16,7 +16,7 @@ Ideally, you should create a section that houses similar slides—the slides hav
 
 ## Creating Sections in Presentations
 
-To add a section that will house slides in a presentation, Aspose.Slides for Java provides the [addSection()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) method that allows you to specify the name of the section you intend to create and the slide from which the section starts.
+To add a section that will house slides in a presentation, Aspose.Slides for Node.js via Java provides the [addSection()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) method that allows you to specify the name of the section you intend to create and the slide from which the section starts.
 
 This sample code shows you to create a section in a presentation in Java:
 

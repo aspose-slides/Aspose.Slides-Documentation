@@ -8,7 +8,7 @@ url: /nodejs-java/animated-charts/
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**addEffect**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISequence#addEffect-aspose.slides.IChart-int-int-int-int-int-) method and two enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectChartMajorGroupingType) and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectChartMinorGroupingType).
+Aspose.Slides for Node.js via Java supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**addEffect**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISequence#addEffect-aspose.slides.IChart-int-int-int-int-int-) method and two enums [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectChartMajorGroupingType) and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectChartMinorGroupingType).
 
 {{% /alert %}} 
 

@@ -7,7 +7,7 @@ url: /nodejs-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-micros
 
 {{% alert color="primary" %}} 
 
- Charts are visual representations of your data and widely used in presentation slides. This article will show you the code to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide programmatically by using [VSTO](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) and [Aspose.Slides for Java](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Charts are visual representations of your data and widely used in presentation slides. This article will show you the code to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide programmatically by using [VSTO](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) and [Aspose.Slides for Node.js via Java](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creating and Embedding an Excel Chart**
@@ -38,14 +38,14 @@ Using VSTO, the following steps are performed:
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-CreateNewChartInExcel.cs" >}}
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-CreateandEmbedExcelChartAsOLEUsingVSTO-UseCopyPaste.cs" >}}
-### **Aspose.Slides for Java Example**
+### **Aspose.Slides for Node.js via Java Example**
 Using Aspose.Slides for .NET, the following steps are performed:
 
 1. Create a workbook using Aspose.Cells for Java.
 1. Create a Microsoft Excel chart.
 1. Set the OLE size of the Excel Chart.
 1. Get an image of the chart.
-1. Embed the Excel chart as an OLE Object inside PPTX presentation using Aspose.Slides for Java.
+1. Embed the Excel chart as an OLE Object inside PPTX presentation using Aspose.Slides for Node.js via Java.
 1. Replace the object changed image with the image obtained in step 3 to cater for the object changed issue.
 1. Write the output presentation to disk in PPTX format.
 

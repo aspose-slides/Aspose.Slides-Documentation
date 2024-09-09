@@ -8,7 +8,7 @@ description: "How to edit PowerPoint chart axis in Java"
 
 
 ## **Getting the Max Values on the Vertical Axis on Charts**
-Aspose.Slides for Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
+Aspose.Slides for Node.js via Java allows you to obtain the minimum and maximum values on a vertical axis. Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access the first slide.
@@ -115,7 +115,7 @@ Using the **CategoryAxisType** property, you can specify your preferred category
 ```
 
 ## **Setting the Date Format for Category Axis Value**
-Aspose.Slides for Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
+Aspose.Slides for Node.js via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -148,7 +148,7 @@ Aspose.Slides for Java allows you to set the date format for a category axis val
 ```
 
 ## **Setting the Rotation Angle for Chart Axis Title**
-Aspose.Slides for Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
+Aspose.Slides for Node.js via Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -165,7 +165,7 @@ Aspose.Slides for Java allows you to set the rotation angle for a chart axis tit
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
-Aspose.Slides for Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
+Aspose.Slides for Node.js via Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -181,7 +181,7 @@ Aspose.Slides for Java allows you to set the position axis in a category or valu
 ```
 
 ## **Enabling the Display Unit label on Chart Value Axis**
-Aspose.Slides for Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
+Aspose.Slides for Node.js via Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

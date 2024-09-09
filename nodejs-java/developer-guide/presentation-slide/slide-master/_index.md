@@ -3,7 +3,7 @@ title: Slide Master
 type: docs
 weight: 70
 url: /nodejs-java/slide-master/
-keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, Java, Aspose.Slides for Java"
+keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, Java, Aspose.Slides for Node.js via Java"
 description: "Add or edit slide master in PowerPoint presentation in Java"
 ---
 

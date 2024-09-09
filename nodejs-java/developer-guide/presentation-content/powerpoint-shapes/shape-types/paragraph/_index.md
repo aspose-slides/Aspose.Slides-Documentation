@@ -7,7 +7,7 @@ url: /nodejs-java/paragraph/
 
 
 ## Get Paragraph and Portion Coordinates in TextFrame ##
-Using Aspose.Slides for Java, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get [the coordinates of portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion#getCoordinates--) inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with position of portion inside a paragraph.
+Using Aspose.Slides for Node.js via Java, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get [the coordinates of portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion#getCoordinates--) inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with position of portion inside a paragraph.
 
 ```javascript
     var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);

@@ -87,7 +87,7 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
 ```
 
 ## **Render Comments when saving Presentation into Image**
-Aspose.Slides for Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
+Aspose.Slides for Node.js via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("presentation.pptx");

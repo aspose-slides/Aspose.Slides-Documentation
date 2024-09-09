@@ -112,7 +112,7 @@ Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.co
 ```
 
 ## **Create Picture Organization Chart**
-Aspose.Slides for Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
+Aspose.Slides for Node.js via Java provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
