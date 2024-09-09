@@ -9,7 +9,7 @@ description: "Use ink tools to draw objects in PowerPoint Java"
 
 PowerPoint provides the ink function to allow you to draw non-standard figures, which can be used to highlight other objects, show connections and processes, and draw attention to specific items on a slide. 
 
-Aspose.Slides provides all the Ink types (e.g. [Ink](https://reference.aspose.com/slides/java/com.aspose.slides/ink/) class) you need to create and manage ink objects. 
+Aspose.Slides provides all the Ink types (e.g. [Ink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ink/) class) you need to create and manage ink objects.
 
 ## **Differences between Regular Object and Ink Objects**
 
@@ -36,7 +36,7 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 This Java code shows you how to set the color for a brush:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         var ink = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var traces = ink.getTraces();
@@ -55,7 +55,7 @@ This Java code shows you how to set the color for a brush:
 This Java code shows you how to set the size for a brush:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         var ink = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var traces = ink.getTraces();

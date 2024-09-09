@@ -41,13 +41,13 @@ Code that attempts to assign an undefined frame to IShape.setFrame(IShapeFrame) 
 
 ```javascript
     var shape = $missing$;
-    shape.setFrame(new  com.aspose.slides.ShapeFrame(java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), com.aspose.slides.NullableBool.NotDefined, com.aspose.slides.NullableBool.NotDefined, java.getStaticFieldValue("java.lang.Float", "NaN")));
+    shape.setFrame(new  aspose.slides.ShapeFrame(java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), aspose.slides.NullableBool.NotDefined, aspose.slides.NullableBool.NotDefined, java.getStaticFieldValue("java.lang.Float", "NaN")));
 ```
 
 or
 
 ```javascript
-    java.getStaticFieldValue("slide", "Shapes").AddAutoShape(com.aspose.slides.ShapeType.RoundCornerRectangle, java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"));
+    java.getStaticFieldValue("slide", "Shapes").AddAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"));
 ```
 
 Such code can lead to unclear situations. So restrictions have been added for using undefined values for IShape.Frame. The values of x, y, width, height, flipH, flipV and rotationAngle must be defined (not Float.NaN or NullableBool.NotDefined). The example code above now throws an ArgumentException exception.
@@ -86,7 +86,7 @@ But the IShape.getRawFrame() frame can be undefined. This make sense when a shap
 
 ```javascript
     var shape = $missing$;// shape is linked to placeholder
-    shape.setRawFrame(new  com.aspose.slides.ShapeFrame(java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), 100, java.getStaticFieldValue("java.lang.Float", "NaN"), com.aspose.slides.NullableBool.NotDefined, com.aspose.slides.NullableBool.NotDefined, 0));
+    shape.setRawFrame(new  aspose.slides.ShapeFrame(java.getStaticFieldValue("java.lang.Float", "NaN"), java.getStaticFieldValue("java.lang.Float", "NaN"), 100, java.getStaticFieldValue("java.lang.Float", "NaN"), aspose.slides.NullableBool.NotDefined, aspose.slides.NullableBool.NotDefined, 0));
     // now shape inherits x, y, height, flipH, flipV values form placeholder and overrides width=100 and rotationAngle=0.
 ```
 ### **Changed Properties**

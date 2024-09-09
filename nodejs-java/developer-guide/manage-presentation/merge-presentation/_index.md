@@ -58,20 +58,20 @@ You can apply options that determine whether
 * each slide in the output presentation retains a unique style
 * a specific style is used for all the slides in the output presentation. 
 
-To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) methods (from the [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides. 
+To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) methods (from the [ISlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides.
 
 The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
 
 ## **Merge Presentations** 
 
-Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
+Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) method that allows you to combine slides while the slides retain their layouts and styles (default parameters).
 
 This Java code shows you how to merge presentations:
 
 ```javascript
-    var pres1 = new  com.aspose.slides.Presentation("pres1.pptx");
+    var pres1 = new  aspose.slides.Presentation("pres1.pptx");
     try {
-        var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
+        var pres2 = new  aspose.slides.Presentation("pres2.pptx");
         try {
             pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide);
@@ -81,7 +81,7 @@ This Java code shows you how to merge presentations:
                 pres2.dispose();
             }
         }
-        pres1.save("combined.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres1 != null) {
             pres1.dispose();
@@ -91,14 +91,14 @@ This Java code shows you how to merge presentations:
 
 ## **Merge Presentations with Slide Master**
 
-Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
+Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation.
 
 This code in Java demonstrates the described operation:
 
 ```javascript
-    var pres1 = new  com.aspose.slides.Presentation("pres1.pptx");
+    var pres1 = new  aspose.slides.Presentation("pres1.pptx");
     try {
-        var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
+        var pres2 = new  aspose.slides.Presentation("pres2.pptx");
         try {
             pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
@@ -108,7 +108,7 @@ This code in Java demonstrates the described operation:
                 pres2.dispose();
             }
         }
-        pres1.save("combined.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres1 != null) {
             pres1.dispose();
@@ -118,20 +118,20 @@ This code in Java demonstrates the described operation:
 
 {{% alert title="Note" color="warning" %}} 
 
-The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/PptxEditException) will be thrown. 
+The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) will be thrown.
 
 {{% /alert %}}
 
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) method instead when merging. 
+If you want the slides in the output presentation to have a different slide layout, use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) method instead when merging.
 
 ## **Merge Specific Slides From Presentations**
 
 This Java code shows you how to select and combine specific slides from different presentations to get one output presentation:
 
 ```javascript
-    var pres1 = new  com.aspose.slides.Presentation("pres1.pptx");
+    var pres1 = new  aspose.slides.Presentation("pres1.pptx");
     try {
-        var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
+        var pres2 = new  aspose.slides.Presentation("pres2.pptx");
         try {
             pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
@@ -141,7 +141,7 @@ This Java code shows you how to select and combine specific slides from differen
                 pres2.dispose();
             }
         }
-        pres1.save("combined.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres1 != null) {
             pres1.dispose();
@@ -154,9 +154,9 @@ This Java code shows you how to select and combine specific slides from differen
 This Java code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```javascript
-    var pres1 = new  com.aspose.slides.Presentation("pres1.pptx");
+    var pres1 = new  aspose.slides.Presentation("pres1.pptx");
     try {
-        var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
+        var pres2 = new  aspose.slides.Presentation("pres2.pptx");
         try {
             pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
@@ -166,7 +166,7 @@ This Java code shows you how to combine slides from presentations while applying
                 pres2.dispose();
             }
         }
-        pres1.save("combined.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres1 != null) {
             pres1.dispose();
@@ -187,11 +187,11 @@ To merge 2 presentations with different slide sizes, you have to resize one of t
 This sample code demonstrates the described operation:
 
 ```javascript
-    var pres1 = new  com.aspose.slides.Presentation("pres1.pptx");
+    var pres1 = new  aspose.slides.Presentation("pres1.pptx");
     try {
-        var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
+        var pres2 = new  aspose.slides.Presentation("pres2.pptx");
         try {
-            pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), com.aspose.slides.SlideSizeScaleType.EnsureFit);
+            pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
             pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide);
             });
@@ -200,7 +200,7 @@ This sample code demonstrates the described operation:
                 pres2.dispose();
             }
         }
-        pres1.save("combined.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres1 != null) {
             pres1.dispose();
@@ -213,9 +213,9 @@ This sample code demonstrates the described operation:
 This Java code shows you how to merge a specific slide to a section in a presentation:
 
 ```javascript
-    var pres1 = new  com.aspose.slides.Presentation("pres1.pptx");
+    var pres1 = new  aspose.slides.Presentation("pres1.pptx");
     try {
-        var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
+        var pres2 = new  aspose.slides.Presentation("pres2.pptx");
         try {
             pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
@@ -225,7 +225,7 @@ This Java code shows you how to merge a specific slide to a section in a present
                 pres2.dispose();
             }
         }
-        pres1.save("combined.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres1 != null) {
             pres1.dispose();

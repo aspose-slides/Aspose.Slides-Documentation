@@ -21,16 +21,16 @@ This Java code demonstrates the font substitution process:
 
 ```javascript
     // Loads a presentation
-    var pres = new  com.aspose.slides.Presentation("Fonts.pptx");
+    var pres = new  aspose.slides.Presentation("Fonts.pptx");
     try {
         // Loads the source font that will be replaced
-        var sourceFont = new  com.aspose.slides.FontData("SomeRareFont");
+        var sourceFont = new  aspose.slides.FontData("SomeRareFont");
         // Loads the new font
-        var destFont = new  com.aspose.slides.FontData("Arial");
+        var destFont = new  aspose.slides.FontData("Arial");
         // Adds a font rule for font replacement
-        var fontSubstRule = new  com.aspose.slides.FontSubstRule(sourceFont, destFont, com.aspose.slides.FontSubstCondition.WhenInaccessible);
+        var fontSubstRule = new  aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
         // Adds the rule to font substitute rules collection
-        var fontSubstRuleCollection = new  com.aspose.slides.FontSubstRuleCollection();
+        var fontSubstRuleCollection = new  aspose.slides.FontSubstRuleCollection();
         fontSubstRuleCollection.add(fontSubstRule);
         // Adds a font rule collection to the rule list
         pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
@@ -38,7 +38,7 @@ This Java code demonstrates the font substitution process:
         var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
         // Saves the image to disk in the JPEG format
         try {
-            slideImage.save("Thumbnail_out.jpg", com.aspose.slides.ImageFormat.Jpeg);
+            slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             if (slideImage != null) {
                 slideImage.dispose();

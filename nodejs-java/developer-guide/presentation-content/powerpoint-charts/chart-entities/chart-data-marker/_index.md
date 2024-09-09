@@ -7,7 +7,7 @@ url: /java/chart-data-marker/
 ## **Set Chart Marker Options**
 The markers can be set on chart data points inside particular series. In order to set chart marker options. Please follow the steps below:
 
-- Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+- Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Creating the default chart.
 - Set the picture.
 - Take first chart series.
@@ -18,12 +18,12 @@ In the example given below, we have set the chart marker options on data points 
 
 ```javascript
     // Creating empty presentation
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Access first slide
         var slide = pres.getSlides().get_Item(0);
         // Creating the default chart
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.LineWithMarkers, 0, 0, 400, 400);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 0, 0, 400, 400);
         // Getting the default chart data WorkSheet index
         var defaultWorksheetIndex = 0;
         // Getting the chart data WorkSheet
@@ -40,21 +40,21 @@ In the example given below, we have set the chart marker options on data points 
         var series = chart.getChartData().getSeries().get_Item(0);
         // Add new point (1:3) there.
         var point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 4.5));
-        point.getMarker().getFormat().getFill().setFillType(com.aspose.slides.FillType.Picture);
+        point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
         point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx1);
         point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 2.5));
-        point.getMarker().getFormat().getFill().setFillType(com.aspose.slides.FillType.Picture);
+        point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
         point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx2);
         point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 3.5));
-        point.getMarker().getFormat().getFill().setFillType(com.aspose.slides.FillType.Picture);
+        point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
         point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx1);
         point = series.getDataPoints().addDataPointForLineSeries(fact.getCell(defaultWorksheetIndex, 4, 1, 4.5));
-        point.getMarker().getFormat().getFill().setFillType(com.aspose.slides.FillType.Picture);
+        point.getMarker().getFormat().getFill().setFillType(aspose.slides.FillType.Picture);
         point.getMarker().getFormat().getFill().getPictureFillFormat().getPicture().setImage(imgx2);
         // Changing the chart series marker
         series.getMarker().setSize(15);
         // Save presentation with chart
-        pres.save("ScatterChart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("ScatterChart.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {

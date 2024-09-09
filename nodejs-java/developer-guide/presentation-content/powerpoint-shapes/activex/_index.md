@@ -8,16 +8,16 @@ url: /java/activex/
 
 {{% alert color="primary" %}} 
 
-ActiveX controls are used in presentations. Aspose.Slides for Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IShapeCollection). They are part of the separate [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection) instead. In this topic, we will show you how to work with them. 
+ActiveX controls are used in presentations. Aspose.Slides for Java allows you to add and manage ActiveX controls, but they are a bit trickier to manage when compared to normal presentation shapes. We implemented support for adding Media Player Active control in Aspose.Slides. Note that ActiveX controls are not shapes; they are not part of the presentation's [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IShapeCollection). They are part of the separate [IControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IControlCollection) instead. In this topic, we will show you how to work with them.
 
 {{% /alert %}} 
 
 ## **Adding Media Player ActiveX Control to Slide**
 To add an ActiveX Media Player control, do this:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class and generate an empty presentation instance.
-1. Access the target slide in [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation).
-1. Add the Media Player ActiveX control using the [addControl](https://reference.aspose.com/slides/java/com.aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class and generate an empty presentation instance.
+1. Access the target slide in [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
+1. Add the Media Player ActiveX control using the [addControl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [IControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IControlCollection).
 1. Access the Media Player ActiveX control and set the video path by using its properties.
 1. Save the presentation as a PPTX file.
 
@@ -25,14 +25,14 @@ This sample code, based on the steps above, shows to how to add Media Player Act
 
 ```javascript
     // Create empty presentation instance
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adding the Media Player ActiveX control
-        pres.getSlides().get_Item(0).getControls().addControl(com.aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
+        pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
         // Access the Media Player ActiveX control and set the video path
         pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
         // Save the Presentation
-        pres.save("Output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -49,10 +49,10 @@ Aspose.Slides for Java 7.1.0 and newer versions are equipped with components for
 
 To manage a simple ActiveX control like a text box and simple command button on a slide, do this:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class and load the presentation with ActiveX controls in it.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class and load the presentation with ActiveX controls in it.
 1. Obtain a slide reference by its index.
-1. Access the ActiveX controls in the slide by accessing the [IControlCollection](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControlCollection).
-1. Access the TextBox1 ActiveX control using the [IControl](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IControl) object.
+1. Access the ActiveX controls in the slide by accessing the [IControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IControlCollection).
+1. Access the TextBox1 ActiveX control using the [IControl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IControl) object.
 1. Change the properties of the TextBox1 ActiveX control that include text, font, font height, and frame position.
 1. Access the second access control called CommandButton1.
 1. Change the button caption, font, and position.
@@ -63,7 +63,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
 
 ```javascript
     // Accessing the presentation with ActiveX controls
-    var pres = new  com.aspose.slides.Presentation("ActiveX.pptm");
+    var pres = new  aspose.slides.Presentation("ActiveX.pptm");
     try {
         // Accessing the first slide in presentation
         var slide = pres.getSlides().get_Item(0);
@@ -134,12 +134,12 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
         // moving 100 points down
         pres.getSlides().get_Item(0).getControls().forEach(function(ctl) {
             var frame = ctl.getFrame();
-            ctl.setFrame(new  com.aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
+            ctl.setFrame(new  aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
         });
-        pres.save("withActiveX-edited_java.pptm", com.aspose.slides.SaveFormat.Pptm);
+        pres.save("withActiveX-edited_java.pptm", aspose.slides.SaveFormat.Pptm);
         // removing controls
         pres.getSlides().get_Item(0).getControls().clear();
-        pres.save("withActiveX-cleared_java.pptm", com.aspose.slides.SaveFormat.Pptm);
+        pres.save("withActiveX-cleared_java.pptm", aspose.slides.SaveFormat.Pptm);
     } catch (e) {
     } finally {
         if (pres != null) {

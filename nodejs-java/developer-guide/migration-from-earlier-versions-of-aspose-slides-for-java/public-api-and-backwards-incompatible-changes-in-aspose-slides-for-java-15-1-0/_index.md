@@ -31,21 +31,21 @@ This is the collection of IFontSubstRule instances used to substitute fonts duri
 The following example shows how to replace a font in a presentation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("PresContainsArialFont.pptx");
-    var sourceFont = new  com.aspose.slides.FontData("Arial");
-    var destFont = new  com.aspose.slides.FontData("Times New Roman");
+    var pres = new  aspose.slides.Presentation("PresContainsArialFont.pptx");
+    var sourceFont = new  aspose.slides.FontData("Arial");
+    var destFont = new  aspose.slides.FontData("Times New Roman");
     pres.getFontsManager().replaceFont(sourceFont, destFont);
-    pres.save("PresContainsTimesNoewRomanFont.pptx", com.aspose.slides.SaveFormat.Pptx);
+    pres.save("PresContainsTimesNoewRomanFont.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 
 Another example, shows font substitution for rendering when it is inaccessible:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("PresContainsSomeRareFontFont.pptx");
-    var sourceFont = new  com.aspose.slides.FontData("SomeRareFont");
-    var destFont = new  com.aspose.slides.FontData("Arial");
-    var fontSubstRule = new  com.aspose.slides.FontSubstRule(sourceFont, destFont, com.aspose.slides.FontSubstCondition.WhenInaccessible);
-    var fontSubstRuleCollection = new  com.aspose.slides.FontSubstRuleCollection();
+    var pres = new  aspose.slides.Presentation("PresContainsSomeRareFontFont.pptx");
+    var sourceFont = new  aspose.slides.FontData("SomeRareFont");
+    var destFont = new  aspose.slides.FontData("Arial");
+    var fontSubstRule = new  aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+    var fontSubstRuleCollection = new  aspose.slides.FontSubstRuleCollection();
     fontSubstRuleCollection.add(fontSubstRule);
     pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
     // Arial font will be used instead of SomeRareFont when inaccessible

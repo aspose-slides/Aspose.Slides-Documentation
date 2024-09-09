@@ -11,8 +11,8 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **Obsolete methods in com.aspose.slides.DataLabelCollection class have been deleted**
-Obsolete methods in com.aspose.slides.DataLabelCollection class have been deleted:
+#### **Obsolete methods in aspose.slides.DataLabelCollection class have been deleted**
+Obsolete methods in aspose.slides.DataLabelCollection class have been deleted:
 
 DataLabelCollection.getNumberFormat()
 DataLabelCollection.setNumberFormat(String value)
@@ -47,8 +47,8 @@ New methods getFirstSlideNumber() and setFirstSlideNumber() allow to get or to s
 When a new first slide number value is specified all slide numbers are recalculated.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation(path);
+    var pres = new  aspose.slides.Presentation(path);
     var firstSlideNumber = pres.getFirstSlideNumber();
     pres.setFirstSlideNumber(10);
-    pres.save(newPath, com.aspose.slides.SaveFormat.Pptx);
+    pres.save(newPath, aspose.slides.SaveFormat.Pptx);
 ```

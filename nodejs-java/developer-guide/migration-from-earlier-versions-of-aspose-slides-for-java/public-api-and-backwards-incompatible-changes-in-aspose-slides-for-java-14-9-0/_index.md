@@ -18,13 +18,13 @@ New methods added:
 - IPPImage.replaceImage(IPPImage newImage)
 
 ```javascript
-    var presentation = new  com.aspose.slides.Presentation("presentation.pptx");
+    var presentation = new  aspose.slides.Presentation("presentation.pptx");
     // The first way
     // ...
     var imageData = presentation.getImages().get_Item(0).replaceImage(imageData);
     // The second way
     presentation.getImages().get_Item(1).replaceImage(presentation.getImages().get_Item(0));
-    presentation.save("presentation_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 ### **Added Methods for Saving Slides Keeping Page Numbers**
 The following methods have been added:
@@ -44,9 +44,9 @@ These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTM
 
 
 ```javascript
-    var presentation = new  com.aspose.slides.Presentation(presentationFileName);
+    var presentation = new  aspose.slides.Presentation(presentationFileName);
     var slides = new int[]{ 2, 3, 5 };// Array of slides positions
-    presentation.save(outFileName, slides, com.aspose.slides.SaveFormat.Pdf);
+    presentation.save(outFileName, slides, aspose.slides.SaveFormat.Pdf);
 ```
 ### **Added the SmartArtLayoutType.Custom Enum Value**
 This type of SmartArt layout represents diagram with custom template. Custom diagrams only can be loaded from presentation file and can't be created via method ShapeCollection.addSmartArt(x, y, width, height, SmartArtLayoutType.Custom)
@@ -62,14 +62,14 @@ SmartArtShape does not supported IShape properties RawFrame, Frame, Rotation, X,
 Example of usage:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.BasicBlockList);
+    var pres = new  aspose.slides.Presentation();
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
     var node = smart.getAllNodes().get_Item(0);
     node.getShapes().forEach(function(shape) {
-        shape.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        shape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
         shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     });
-    pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 ### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
 The Aspose.Slides.SmartArt.SmartArtShapeCollection class (and its interface Aspose.Slides.SmartArt.ISmartArtShapeCollection) add access to individual shapes inside SmartArt diagram. Collection contains shapes associated with SmartArtNode. Property SmartArtNode.Shapes returns collections of all shapes associated with the node.
@@ -83,12 +83,12 @@ Depending of SmartArtLayoutType one SmartArtShape can be shared between several 
 ﻿
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.BasicBlockList);
+    var pres = new  aspose.slides.Presentation();
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
     var node = smart.getAllNodes().get_Item(0);
     node.getShapes().forEach(function(shape) {
-        shape.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        shape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
         shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     });
-    pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 ```

@@ -7,7 +7,7 @@ url: /java/pie-chart/
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**
 Aspose.Slides for Java now supports second plot options for Pie of Pie or Bar of Pie chart. In this topic, we will show you how to specify those options using Aspose.Slides. To specify the properties, do this:
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Specify the second plot options of chart.
 1. Write presentation to disk.
@@ -16,17 +16,17 @@ In the example given below, we have set different properties of Pie of Pie chart
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Add chart on slide
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
         // Set different properties
         chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
         chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-        chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(com.aspose.slides.PieSplitType.ByPercentage);
+        chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
         chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
         // Write presentation to disk
-        pres.save("SecondPlotOptionsforCharts_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -37,7 +37,7 @@ In the example given below, we have set different properties of Pie of Pie chart
 ## **Set Automatic Pie Chart Slice Colors**
 Aspose.Slides for Java provides a simple API for setting automatic pie chart slide colors. The sample code applies setting the above said properties.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Set chart Title.
@@ -52,13 +52,13 @@ Write the modified presentation to a PPTX file.
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Add chart with default data
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
         // Setting chart Title
         chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(com.aspose.slides.NullableBool.True);
+        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
         chart.getChartTitle().setHeight(20);
         chart.setTitle(true);
         // Set first series to Show Values
@@ -81,7 +81,7 @@ Write the modified presentation to a PPTX file.
         series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
         series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
         series.getParentSeriesGroup().setColorVaried(true);
-        pres.save("Pie.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

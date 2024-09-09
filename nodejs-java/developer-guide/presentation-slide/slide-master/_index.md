@@ -45,21 +45,21 @@ Before you work with a slide master, you may want to understand how they are use
 * Every presentation has at least one Slide Master by default. 
 * A presentation can contain several Slide Masters. You can add several Slide Masters and use them to style different parts of a presentation in different ways. 
 
-In **Aspose.Slides**, a Slide Master is represented by [**IMasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslide/) type. 
+In **Aspose.Slides**, a Slide Master is represented by [**IMasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslide/) type.
 
-Aspose.Slides' [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)object contains the [**getMasters** ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getMasters--)list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) type, which contains a list of all master slides that are defined in a presentation. 
+Aspose.Slides' [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)object contains the [**getMasters** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--)list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/) type, which contains a list of all master slides that are defined in a presentation.
 
-Besides CRUD operations, the [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/) interface contains these useful methods: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterlayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) and [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/java/com.aspose.slides/imasterslidecollection/#insertClone-int-com.aspose.slides.IMasterSlide-) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups. 
+Besides CRUD operations, the [IMasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/) interface contains these useful methods: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) and [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups.
 
 When a new slide is added to a presentation, a Slide Master is applied to it automatically. The Slide Master of the previous slide is selected by default. 
 
-**Note**: Presentation slides are stored in [getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlides--) list, and every new slide is added to the end of the collection by default. If a presentation contains a single Slide Master, that slide master is selected for all new slides. This is the reason you do not have to define the Slide Master for every new slide you create.
+**Note**: Presentation slides are stored in [getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlides--) list, and every new slide is added to the end of the collection by default. If a presentation contains a single Slide Master, that slide master is selected for all new slides. This is the reason you do not have to define the Slide Master for every new slide you create.
 
 The principle is the same for PowerPoint and Aspose.Slides. For example, in PowerPoint, when you add a new presentation, you can just press on the bottom line under the last slide and then a new slide (with the last presentation's Slide Master) will be created:
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-In Aspose.Slides, you can perform the equivalent task with the [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) method under the [Presentation ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)class.
+In Aspose.Slides, you can perform the equivalent task with the [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islidecollection/#addClone-aspose.slides.ISlide-) method under the [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)class.
 
 
 ## **Slide Master in Slides hierarchy**
@@ -72,31 +72,31 @@ Slide Master outranks all setups items: Slide Master -> Slide Layout -> Slide:
 
 
 
-Each [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) object has a [**getLayoutSlides**](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getLayoutSlides--) property with a list of Slide Layouts. A [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) type has a [**getLayoutSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getLayoutSlide--) property with a link on a Slide Layout applied to the slide. The interaction between a slide and Slide Master occurs through a Slide Layout.
+Each [IMasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide) object has a [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide#getLayoutSlides--) property with a list of Slide Layouts. A [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) type has a [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getLayoutSlide--) property with a link on a Slide Layout applied to the slide. The interaction between a slide and Slide Master occurs through a Slide Layout.
 
 {{% alert color="info" title="Note" %}}
 
-* In Aspose.Slides, all the slide setups (Slide Master, Slide Layout, and the slide itself) are actually slide objects implementing the [**IBaseSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) interface.
-* Therefore, Slide Master and Slide Layout may implement the same properties and you need to know how their values will be applied to a  [Slide](https://reference.aspose.com/slides/java/com.aspose.slides/Slide) object. The Slide Master is applied first to a slide and then the Slide Layout is applied. For example, if the Slide Master and Slide Layout both have a background value, the Slide will end up with the background from the Slide Layout.
+* In Aspose.Slides, all the slide setups (Slide Master, Slide Layout, and the slide itself) are actually slide objects implementing the [**IBaseSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide) interface.
+* Therefore, Slide Master and Slide Layout may implement the same properties and you need to know how their values will be applied to a  [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) object. The Slide Master is applied first to a slide and then the Slide Layout is applied. For example, if the Slide Master and Slide Layout both have a background value, the Slide will end up with the background from the Slide Layout.
 
 {{% /alert %}}
 
 
 ## **What A Slide Master Comprises**
 
-To understand how a Slide Master can be changed, you need to know its constituents. These are [MasterSlide](https://reference.aspose.com/slides/java/aspose.slides/masterslide/) core properties. 
+To understand how a Slide Master can be changed, you need to know its constituents. These are [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) core properties.
 
-- [getBackground](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getBackground--) get/set slide background.
-- [getBodyStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getBodyStyle--) - get/set text styles of the slide’s body.
-- [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getShapes--) get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
-- [getControls](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#getControls--) get/set ActiveX controls.
-- [getThemeManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterThemeable#getThemeManager--) - get theme manager.
-- [getHeaderFooterManager](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getHeaderFooterManager--) - get header and footer manager.
+- [getBackground](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#getBackground--) get/set slide background.
+- [getBodyStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide#getBodyStyle--) - get/set text styles of the slide’s body.
+- [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#getShapes--) get/set all the shapes of the Slide Master (placeholders, picture frames, etc).
+- [getControls](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#getControls--) get/set ActiveX controls.
+- [getThemeManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterThemeable#getThemeManager--) - get theme manager.
+- [getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide#getHeaderFooterManager--) - get header and footer manager.
 
 Slide Master methods:
 
-- [getDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#getDependingSlides--) - get all Slides depending on the Slide Master.
-- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) - allows you to create a new Slide Master based on the current Slide Master and a new theme. The new Slide Master will then be applied to all dependent slides.
+- [getDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide#getDependingSlides--) - get all Slides depending on the Slide Master.
+- [applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide#applyExternalThemeToDependingSlides-java.lang.String-) - allows you to create a new Slide Master based on the current Slide Master and a new theme. The new Slide Master will then be applied to all dependent slides.
 
 
 ## **Get Slide Master**
@@ -110,7 +110,7 @@ In PowerPoint, Slide Master can be accessed from the View -> Slide Master menu:
 Using Aspose.Slides, you can access a Slide Master this way: 
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Gives access to the Presentation's master slide
         var masterSlide = pres.getMasters().get_Item(0);
@@ -119,7 +119,7 @@ Using Aspose.Slides, you can access a Slide Master this way:
     }
 ```
 
-The [IMasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlide) interface represents a Slide Master. The [Masters](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getMasters--) property (related to [IMasterSlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterSlideCollection) type) contains a list of all Slide Masters that are defined in the presentation. 
+The [IMasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide) interface represents a Slide Master. The [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) property (related to [IMasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlideCollection) type) contains a list of all Slide Masters that are defined in the presentation. 
 
 
 ## **Add Image to Slide Master**
@@ -133,10 +133,10 @@ For example, you can place your company's logo and a few images on the Slide Mas
 You can add images to a slide master with Aspose.Slides:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -144,8 +144,8 @@ You can add images to a slide master with Aspose.Slides:
                 image.dispose();
             }
         }
-        pres.getMasters().get_Item(0).getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -220,13 +220,13 @@ The title style and formatting will change for all slides based on the slide mas
 When you change a master slide's background color, all the normal slides in the presentation will get the new color. This Java code demonstrates the operation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var master = pres.getMasters().get_Item(0);
-        master.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
-        master.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+        master.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -244,11 +244,11 @@ When you change a master slide's background color, all the normal slides in the 
 
 ## **Clone Slide Master to Another Presentation**
 
-To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Java code shows you how to clone a Slide Master to another presentation:
+To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Java code shows you how to clone a Slide Master to another presentation:
 
 ```javascript
-    var presSource = new  com.aspose.slides.Presentation();
-    var presTarget = new  com.aspose.slides.Presentation();
+    var presSource = new  aspose.slides.Presentation();
+    var presTarget = new  aspose.slides.Presentation();
     try {
         var master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
     } finally {
@@ -267,7 +267,7 @@ In PowerPoint, you can add new Slide Masters and Layouts (from the "Slide Master
 
 ![todo:image_alt_text](slide-master_9.jpg)
 
-Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlideCollection#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) method:
+Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method:
 
 ```javascript
     // Adds a new master slide
@@ -277,7 +277,7 @@ Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone*
 
 ## **Compare Slide Masters**
 
-A Master Slide implements the [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) interface containing the [**equals**](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide#equals-com.aspose.slides.IBaseSlide-) method, which can then be used to compare slides. It returns `true` for Master Slides identical in structure and static content. 
+A Master Slide implements the [IBaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide) interface containing the [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#equals-aspose.slides.IBaseSlide-) method, which can then be used to compare slides. It returns `true` for Master Slides identical in structure and static content.
 
 Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison does not take unique identifier values (e.g. SlideId) and dynamic content (e.g. current date value in Date Placeholder) into account. 
 
@@ -290,12 +290,12 @@ This code shows you how to set a Slide Master as a presentation's default view i
 
 ```javascript
     // Instantiates a Presentation class that represents the presentation file
-    var presentation = new  com.aspose.slides.Presentation();
+    var presentation = new  aspose.slides.Presentation();
     try {
         // Sets the Default View as SlideMasterView
-        presentation.getViewProperties().setLastView(com.aspose.slides.ViewType.SlideMasterView);
+        presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
         // Saves the presentation
-        presentation.save("PresView.pptx", com.aspose.slides.SaveFormat.Pptx);
+        presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         presentation.dispose();
     }
@@ -303,13 +303,13 @@ This code shows you how to set a Slide Master as a presentation's default view i
 
 ## **Remove Unused Master Slide**
 
-Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Java code shows you how to remove a master slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Java code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        com.aspose.slides.Compress.removeUnusedMasterSlides(pres);
-        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        aspose.slides.Compress.removeUnusedMasterSlides(pres);
+        pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

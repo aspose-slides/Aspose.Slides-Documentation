@@ -35,11 +35,11 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 You can add one or several images on your computer onto a slide in a presentation. This sample code in Java shows you how to add an image to a slide:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -47,8 +47,8 @@ You can add one or several images on your computer onto a slide in a presentatio
                 image.dispose();
             }
         }
-        slide.getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -63,7 +63,7 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in Java:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var imageUrl = java.newInstanceSync("URL", "[REPLACE WITH URL]");
@@ -78,14 +78,14 @@ This sample code shows you how to add an image from the web to a slide in Java:
             }
             outputStream.flush();
             var image = pres.getImages().addImage(outputStream.toByteArray());
-            slide.getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, image);
+            slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, image);
         } finally {
             if (inputStream != null) {
                 inputStream.close();
             }
             outputStream.close();
         }
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -101,12 +101,12 @@ A slide master is the top slide that stores and controls information (theme, lay
 This Java sample code shows you how to add an image to a slide master:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var masterSlide = slide.getLayoutSlide().getMasterSlide();
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -114,8 +114,8 @@ This Java sample code shows you how to add an image to a slide master:
                 image.dispose();
             }
         }
-        masterSlide.getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        masterSlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -128,7 +128,7 @@ This Java sample code shows you how to add an image to a slide master:
 You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Adding SVG to Presentations**
-You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) method that belongs to the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
+You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method that belongs to the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface.
 
 To create an image object based on SVG image, you can do it this way:
 
@@ -139,13 +139,13 @@ To create an image object based on SVG image, you can do it this way:
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```javascript
     // Instantiate Presentation class that represents PPTX file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var svgContent = java.newInstanceSync("java.lang.String", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "image.svg")));
-        var svgImage = new  com.aspose.slides.SvgImage(svgContent);
+        var svgImage = new  aspose.slides.SvgImage(svgContent);
         var ppImage = pres.getImages().addImage(svgImage);
-        pres.getSlides().get_Item(0).getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
-        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
+        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -159,24 +159,24 @@ Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [addGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) method of the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface that takes an [ISvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgImage) object as the first argument.
+The functionality is provided by one of the overloads of the [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) method of the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface that takes an [ISvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISvgImage) object as the first argument.
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 
 ```javascript
     // Create new presentation
-    var presentation = new  com.aspose.slides.Presentation();
+    var presentation = new  aspose.slides.Presentation();
     try {
         // Read SVG file content
         var svgContent = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "image.svg"));
         // Create SvgImage object
-        var svgImage = new  com.aspose.slides.SvgImage(svgContent);
+        var svgImage = new  aspose.slides.SvgImage(svgContent);
         // Get slide size
         var slideSize = presentation.getSlideSize().getSize();
         // Convert SVG image to group of shapes scaling it to slide size
         presentation.getSlides().get_Item(0).getShapes().addGroupShape(svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
         // Save presentation in PPTX format
-        presentation.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (presentation != null) {
@@ -199,7 +199,7 @@ This sample code shows you how to perform the described task:
     options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
     // Save the workbook to stream
     var sr = java.newInstanceSync("SheetRender", sheet, options);
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         pres.getSlides().removeAt(0);
         var EmfSheetName = "";
@@ -207,7 +207,7 @@ This sample code shows you how to perform the described task:
             EmfSheetName = ((("test" + sheet.getName()) + " Page") + (j + 1)) + ".out.emf";
             sr.toImage(j, EmfSheetName);
             var picture;
-            var image = com.aspose.slides.Images.fromFile(EmfSheetName);
+            var image = aspose.slides.Images.fromFile(EmfSheetName);
             try {
                 picture = pres.getImages().addImage(image);
             } finally {
@@ -215,10 +215,10 @@ This sample code shows you how to perform the described task:
                     image.dispose();
                 }
             }
-            var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(com.aspose.slides.SlideLayoutType.Blank));
-            var m = slide.getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), picture);
+            var slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
+            var m = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), picture);
         }
-        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {

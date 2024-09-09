@@ -33,7 +33,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
 3. Use this code snippet to convert the PowerPoint to Word:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation(inputPres);
+    var pres = new  aspose.slides.Presentation(inputPres);
     try {
         var doc = java.newInstanceSync("Document", );
         var builder = java.newInstanceSync("DocumentBuilder", doc);
@@ -43,7 +43,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
             builder.insertImage(bitmap);
             // inserts slide's texts
             slide.getShapes().forEach(function(shape) {
-                if (shape instanceof com.aspose.slides.AutoShape) {
+                if (shape instanceof aspose.slides.AutoShape) {
                     builder.writeln(shape.getTextFrame().getText());
                 }
             });

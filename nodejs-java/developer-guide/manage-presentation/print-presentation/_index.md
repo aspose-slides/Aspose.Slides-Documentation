@@ -17,9 +17,9 @@ To print a presentation, follow these steps:
 
 1. Create an instance of the `PrintRequestAttributeSet` and specify printing attributes such as orientation and page range.
 2. Create an instance of the `RenderingOptions` and specify options for slide notes layout.
-3. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class, specifying the presentation file.
+3. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class, specifying the presentation file.
 4. Create an instance of the `PrinterJob` to specify the desired printer.
-5. Generate an array of Slide Images using the [getImages](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getImages-com.aspose.slides.IRenderingOptions-int---java.awt.Dimension-) method.
+5. Generate an array of Slide Images using the [getImages](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getImages-aspose.slides.IRenderingOptions-int---java.awt.Dimension-) method.
 6. Set the `IImage` array as Printable for `PrinterJob`.
 7. Call the `print` method of the `PrinterJob` class.
 

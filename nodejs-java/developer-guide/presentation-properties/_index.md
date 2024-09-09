@@ -39,16 +39,16 @@ In the above **Properties Dialog**, you can see that there are many tab pages li
 
 Working with Document Properties Using Aspose.Slides for Java
 
-As we have described earlier that Aspose.Slides for Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Java API. Aspose.Slides for Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
+As we have described earlier that Aspose.Slides for Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Java API. Aspose.Slides for Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
-Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) object to access the document properties of the presentation files as described below:
+Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
 ## **Access Built-in Properties**
-These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
+These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```javascript
     // Instantiate the Presentation class that represents the presentation
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Create a reference to IDocumentProperties object associated with Presentation
         var dp = pres.getDocumentProperties();
@@ -78,7 +78,7 @@ These properties as exposed by [IDocumentProperties](https://reference.aspose.co
 Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for Java.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Create a reference to IDocumentProperties object associated with Presentation
         var dp = pres.getDocumentProperties();
@@ -89,7 +89,7 @@ Modifying the built-in properties of presentation files is as easy as that of ac
         dp.setComments("Aspose Description");
         dp.setManager("Aspose Manager");
         // Save your presentation to a file
-        pres.save("DocProps.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("DocProps.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -107,7 +107,7 @@ This example modifies the built-in properties of the presentation that can be vi
 Aspose.Slides for Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Getting Document Properties
         var dProps = pres.getDocumentProperties();
@@ -120,7 +120,7 @@ Aspose.Slides for Java also allows developers to add the custom the values for p
         // Removing selected property
         dProps.removeCustomProperty(getPropertyName);
         // Saving presentation
-        pres.save("CustomDemo.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("CustomDemo.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -136,7 +136,7 @@ Aspose.Slides for Java also allows developers to add the custom the values for p
 Aspose.Slides for Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Create a reference to DocumentProperties object associated with Presentation
         var dp = pres.getDocumentProperties();
@@ -149,7 +149,7 @@ Aspose.Slides for Java also allows developers to access the values of custom pro
             dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
         }
         // Save your presentation to a file
-        pres.save("CustomDemoModified.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("CustomDemoModified.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -171,17 +171,17 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 ## **Advanced Document Properties**
 {{% alert color="primary" %}} 
 
-New methods [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo), logic of the [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
+New methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo), logic of the [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
 
 {{% /alert %}} 
 
-The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) and [UpdateDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationInfo) interface. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
+The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#readDocumentProperties--) and [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo) interface. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 
 ```javascript
     // read the info of presentation
-    var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
+    var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
     // obtain the current properties
     var props = info.readDocumentProperties();
     // set the new values of Author and Title fields
@@ -195,7 +195,7 @@ The typical scenario load the properties, change some value and update the docum
 There is another way to use properties of a particular presentation as a template to update properties in other presentations:
 
 ```javascript
-    var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
+    var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
     var template = info.readDocumentProperties();
     template.setAuthor("Template Author");
     template.setTitle("Template Title");
@@ -216,7 +216,7 @@ There is another way to use properties of a particular presentation as a templat
 A new template can be created from scratch and then used to update multiple presentations:
 
 ```javascript
-    var template = new  com.aspose.slides.DocumentProperties();
+    var template = new  aspose.slides.DocumentProperties();
     template.setAuthor("Template Author");
     template.setTitle("Template Title");
     template.setCategory("Template Category");
@@ -237,7 +237,7 @@ A new template can be created from scratch and then used to update multiple pres
 Aspose.Slides for Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
 
 ```javascript
-    var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("props.pptx");
+    var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("props.pptx");
     var props = info.readDocumentProperties();
     var app = props.getNameOfApplication();
     var ver = props.getAppVersion();
@@ -252,13 +252,13 @@ Aspose.Slides provides the LanguageId property (exposed by the PortionFormat cla
 This Java code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation(pptxFileName);
+    var pres = new  aspose.slides.Presentation(pptxFileName);
     try {
         var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
         paragraph.getPortions().clear();
-        var newPortion = new  com.aspose.slides.Portion();
-        var font = new  com.aspose.slides.FontData("SimSun");
+        var newPortion = new  aspose.slides.Portion();
+        var font = new  aspose.slides.FontData("SimSun");
         var portionFormat = newPortion.getPortionFormat();
         portionFormat.setComplexScriptFont(font);
         portionFormat.setEastAsianFont(font);
@@ -278,12 +278,12 @@ This Java code shows you how to set the proofing language for a PowerPoint: xxx 
 This Java code shows you how to set the default language for an entire PowerPoint presentation:
 
 ```javascript
-    var loadOptions = new  com.aspose.slides.LoadOptions();
+    var loadOptions = new  aspose.slides.LoadOptions();
     loadOptions.setDefaultTextLanguage("en-US");
-    var pres = new  com.aspose.slides.Presentation(loadOptions);
+    var pres = new  aspose.slides.Presentation(loadOptions);
     try {
         // Adds a new rectangle shape with text
-        var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
+        var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
         shp.getTextFrame().setText("New Text");
         // Checks the first portion language
         console.log(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());

@@ -21,15 +21,15 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 
 ## **Convert PowerPoint to Markdown**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class to represent a presentation object.
-2. Use the [Save ](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-)method to save the object as a markdown file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class to represent a presentation object.
+2. Use the [Save ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save-aspose.slides.IXamlOptions-)method to save the object as a markdown file.
 
 This Java code shows you how to convert PowerPoint to markdown:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        pres.save("pres.md", com.aspose.slides.SaveFormat.Md);
+        pres.save("pres.md", aspose.slides.SaveFormat.Md);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -44,11 +44,11 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This Java code shows you how to convert PowerPoint to CommonMark:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        var markdownSaveOptions = new  com.aspose.slides.MarkdownSaveOptions();
-        markdownSaveOptions.setFlavor(com.aspose.slides.Flavor.CommonMark);
-        pres.save("pres.md", com.aspose.slides.SaveFormat.Md, markdownSaveOptions);
+        var markdownSaveOptions = new  aspose.slides.MarkdownSaveOptions();
+        markdownSaveOptions.setFlavor(aspose.slides.Flavor.CommonMark);
+        pres.save("pres.md", aspose.slides.SaveFormat.Md, markdownSaveOptions);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -56,26 +56,26 @@ This Java code shows you how to convert PowerPoint to CommonMark:
     }
 ```
 
-The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/java/com.aspose.slides/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) class.
+The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownsaveoptions/) class.
 
 ## **Convert Presentation Containing Images to Markdown**
 
-The [MarkdownSaveOptions](https://reference.aspose.com/slides/java/com.aspose.slides/markdownsaveoptions/) class provides properties and enumerations that allow you to use certain options or settings for the resulting markdown file. The [MarkdownExportType](https://reference.aspose.com/slides/java/com.aspose.slides/markdownexporttype/) enum, for example, can be set to values that determine how images are rendered or handled: `Sequential`, `TextOnly`, `Visual`.
+The [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownsaveoptions/) class provides properties and enumerations that allow you to use certain options or settings for the resulting markdown file. The [MarkdownExportType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/markdownexporttype/) enum, for example, can be set to values that determine how images are rendered or handled: `Sequential`, `TextOnly`, `Visual`.
 
 ### **Convert Images Sequentially**
 
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Java code shows you how to convert a presentation containing images to markdown:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        var markdownSaveOptions = new  com.aspose.slides.MarkdownSaveOptions();
+        var markdownSaveOptions = new  aspose.slides.MarkdownSaveOptions();
         markdownSaveOptions.setShowHiddenSlides(true);
         markdownSaveOptions.setShowSlideNumber(true);
-        markdownSaveOptions.setFlavor(com.aspose.slides.Flavor.Github);
-        markdownSaveOptions.setExportType(com.aspose.slides.MarkdownExportType.Sequential);
-        markdownSaveOptions.setNewLineType(com.aspose.slides.NewLineType.Windows);
-        pres.save("doc.md", new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, com.aspose.slides.SaveFormat.Md, markdownSaveOptions);
+        markdownSaveOptions.setFlavor(aspose.slides.Flavor.Github);
+        markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Sequential);
+        markdownSaveOptions.setNewLineType(aspose.slides.NewLineType.Windows);
+        pres.save("doc.md", new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, aspose.slides.SaveFormat.Md, markdownSaveOptions);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -90,14 +90,14 @@ If you want the images to appear together in the resulting markdown, you have to
 This Java code demonstrates the operation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         final var outPath = "c:/documents";
-        var markdownSaveOptions = new  com.aspose.slides.MarkdownSaveOptions();
-        markdownSaveOptions.setExportType(com.aspose.slides.MarkdownExportType.Visual);
+        var markdownSaveOptions = new  aspose.slides.MarkdownSaveOptions();
+        markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Visual);
         markdownSaveOptions.setImagesSaveFolderName("md-images");
         markdownSaveOptions.setBasePath(outPath);
-        pres.save("pres.md", com.aspose.slides.SaveFormat.Md, markdownSaveOptions);
+        pres.save("pres.md", aspose.slides.SaveFormat.Md, markdownSaveOptions);
     } finally {
         if (pres != null) {
             pres.dispose();

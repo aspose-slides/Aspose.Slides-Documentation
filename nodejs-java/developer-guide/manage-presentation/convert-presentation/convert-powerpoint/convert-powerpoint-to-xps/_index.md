@@ -39,12 +39,12 @@ Microsoft eventually implemented support for printing operations in PDF through 
 
 ## XPS Conversion with Aspose.Slides
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/java/) for Java, you can use the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class to convert the entire presentation into an XPS document. 
+In [**Aspose.Slides**](https://products.aspose.com/slides/java/) for Java, you can use the [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class to convert the entire presentation into an XPS document.
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 
-- Default settings (without [**XPSOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/xpsoptions))
-- Custom settings (with [**XPSOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/xpsoptions))
+- Default settings (without [**XPSOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xpsoptions))
+- Custom settings (with [**XPSOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/xpsoptions))
 
 ### **Converting Presentations to XPS Using Default Settings**
 
@@ -52,10 +52,10 @@ This sample code in Java shows you how to convert a presentation to an XPS docum
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("Convert_XPS.pptx");
+    var pres = new  aspose.slides.Presentation("Convert_XPS.pptx");
     try {
         // Saving the presentation to XPS document
-        pres.save("XPS_Output_Without_XPSOption.xps", com.aspose.slides.SaveFormat.Xps);
+        pres.save("XPS_Output_Without_XPSOption.xps", aspose.slides.SaveFormat.Xps);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -69,14 +69,14 @@ This sample code shows you how to convert a presentation to an XPS document usin
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("Convert_XPS_Options.pptx");
+    var pres = new  aspose.slides.Presentation("Convert_XPS_Options.pptx");
     try {
         // Instantiate the TiffOptions class
-        var options = new  com.aspose.slides.XpsOptions();
+        var options = new  aspose.slides.XpsOptions();
         // Save MetaFiles as PNG
         options.setSaveMetafilesAsPng(true);
         // Save the presentation to XPS document
-        pres.save("XPS_Output_With_Options.xps", com.aspose.slides.SaveFormat.Xps, options);
+        pres.save("XPS_Output_With_Options.xps", aspose.slides.SaveFormat.Xps, options);
     } finally {
         if (pres != null) {
             pres.dispose();

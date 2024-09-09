@@ -8,24 +8,24 @@ url: /java/save-presentation/
 ## **Overview**
 {{% alert color="primary" %}} 
 
-[Opening Presentation](/slides/java/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
+[Opening Presentation](/slides/java/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
 
 {{% /alert %}} 
 
-The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
+The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
 
 ## **Save Presentation to File**
-Save a presentation to file by calling the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method. Simply pass the file name and [**SaveFormat**](https://reference.aspose.com/slides/java/com.aspose.slides/SaveFormat) to the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method.
+Save a presentation to file by calling the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method. Simply pass the file name and [**SaveFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveFormat) to the [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method.
 
 The examples that follow show how to save a presentation with Aspose.Slides for Java.
 
 ```javascript
     // Instantiate a Presentation object that represents a PPT file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // ...do some work here...
         // Save your presentation to a file
-        pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("demoPass.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -34,17 +34,17 @@ The examples that follow show how to save a presentation with Aspose.Slides for 
 ```
 
 ## **Save Presentation to Stream**
-It is possible to save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
+It is possible to save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.io.OutputStream-int-) method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
 
 ```javascript
     // Instantiate a Presentation object that represents a PPT file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 200, 200);
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 200, 200);
         // Add text to shape
         shape.getTextFrame().setText("This demo shows how to Create PowerPoint file and save it to Stream.");
         var os = java.newInstanceSync("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
-        pres.save(os, com.aspose.slides.SaveFormat.Pptx);
+        pres.save(os, aspose.slides.SaveFormat.Pptx);
         os.close();
     } catch (e) {
     } finally {
@@ -55,16 +55,16 @@ It is possible to save a presentation to a stream by passing an output stream to
 ```
 
 ## **Save Presentation with Predefined View Type**
-Aspose.Slides for Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/java/com.aspose.slides/ViewType) enumerator.
+Aspose.Slides for Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewType) enumerator.
 
 ```javascript
     // Opening the presentation file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Setting view type
-        pres.getViewProperties().setLastView(com.aspose.slides.ViewType.SlideMasterView);
+        pres.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
         // Saving presentation
-        pres.save("newDemo.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("newDemo.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -73,23 +73,23 @@ Aspose.Slides for Java provides a facility to set the view type for the generate
 ```
 
 ## **Saving Presentations to Strict Office Open XML Format**
-Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) class where you can set the Conformance property while saving the presentation file. If you set its value as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict), then the output presentation file will be saved in Strict Open XML format.
+Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxoptions) class where you can set the Conformance property while saving the presentation file. If you set its value as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Conformance#Iso29500_2008_Strict), then the output presentation file will be saved in Strict Open XML format.
 
-The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict).
+The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Conformance#Iso29500_2008_Strict).
 
 ```javascript
     // Instantiate a Presentation object that represents a PPT file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Get the first slide
         var slide = pres.getSlides().get_Item(0);
         // Add an autoshape of type line
-        slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Line, 50, 150, 300, 0);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
         // Set Strict Office Open XML Format save options
-        var options = new  com.aspose.slides.PptxOptions();
-        options.setConformance(com.aspose.slides.Conformance.Iso29500_2008_Strict);
+        var options = new  aspose.slides.PptxOptions();
+        options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
         // Save your presentation to a file
-        pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx, options);
+        pres.save("demoPass.pptx", aspose.slides.SaveFormat.Pptx, options);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -101,22 +101,22 @@ The following sample code creates a presentation and saves it in the Strict Offi
 
 An Office Open XML file is a ZIP-archive that has a 4 GB (2^32 bytes) limit on uncompressed size of a file, compressed size of a file, and total size of the archive, as well as a limit of 65,535 (2^16-1) files in the archive. ZIP64 format extensions increase the limits to 2^64.
 
-The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
+The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
 
 This property provides the following modes:
 
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#IfNecessary) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
-- [Zip64Mode.Never](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#Never) means that ZIP64 format extensions will not be used. 
-- [Zip64Mode.Always](https://reference.aspose.com/slides/java/com.aspose.slides/zip64mode/#Always) means that ZIP64 format extensions will always be used.
+- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zip64mode/#IfNecessary) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
+- [Zip64Mode.Never](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zip64mode/#Never) means that ZIP64 format extensions will not be used.
+- [Zip64Mode.Always](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zip64mode/#Always) means that ZIP64 format extensions will always be used.
 
 The following code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Sample.pptx");
+    var pres = new  aspose.slides.Presentation("Sample.pptx");
     try {
-        var pptxOptions = new  com.aspose.slides.PptxOptions();
-        pptxOptions.setZip64Mode(com.aspose.slides.Zip64Mode.Always);
-        pres.save("Sample-zip64.pptx", com.aspose.slides.SaveFormat.Pptx, pptxOptions);
+        var pptxOptions = new  aspose.slides.PptxOptions();
+        pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
+        pres.save("Sample-zip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -126,28 +126,28 @@ The following code demonstrates how to save the presentation to PPTX format with
 
 {{% alert title="NOTE" color="warning" %}}
 
-Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/java/com.aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
+Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
 
 {{% /alert %}}
 
 ## **Save Progress Updates in Percentage**
-New [**IProgressCallback**](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/java/com.aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
+New [**IProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
 
-The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface:
+The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface:
 
 ```javascript
     // Opening the presentation file
-    var pres = new  com.aspose.slides.Presentation("ConvertToPDF.pptx");
+    var pres = new  aspose.slides.Presentation("ConvertToPDF.pptx");
     try {
-        var saveOptions = new  com.aspose.slides.PdfOptions();
+        var saveOptions = new  aspose.slides.PdfOptions();
         saveOptions.setProgressCallback(java.newInstanceSync("ExportProgressHandler", ));
-        pres.save("ConvertToPDF.pdf", com.aspose.slides.SaveFormat.Pdf, saveOptions);
+        pres.save("ConvertToPDF.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
     } finally {
         pres.dispose();
     }
 ```
 ```javascript
-    class ExportProgressHandler implements com.aspose.slides.IProgressCallback {
+    class ExportProgressHandler implements aspose.slides.IProgressCallback {
         public void reporting(double progressValue) {
             // Use progress percentage value here
             var progress = java.callStaticMethodSync("java.lang.Double", "valueOf", progressValue).intValue();

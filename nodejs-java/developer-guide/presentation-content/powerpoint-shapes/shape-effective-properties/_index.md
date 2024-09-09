@@ -16,7 +16,7 @@ those values are called **local** values. At any level, **local** values could b
 This sample code shows you how to get effective values:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
@@ -31,12 +31,12 @@ This sample code shows you how to get effective values:
 ```
 
 ## **Getting Effective Properties of the Camera**
-Aspose.Slides for Java allows developers to get effective properties of the camera. For this purpose, the [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) interface was added to Aspose.Slides. The [ICameraEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) interface represents an immutable object that contains effective camera properties. An instance of [**ICameraEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICameraEffectiveData) interface is used as part of the [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) interface, which is an [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) class.
+Aspose.Slides for Java allows developers to get effective properties of the camera. For this purpose, the [**ICameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICameraEffectiveData) interface was added to Aspose.Slides. The [ICameraEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICameraEffectiveData) interface represents an immutable object that contains effective camera properties. An instance of [**ICameraEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICameraEffectiveData) interface is used as part of the [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IThreeDFormatEffectiveData) interface, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
 This sample code sample shows you how to get effective properties for the camera:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
         console.log("= Effective camera properties =");
@@ -51,12 +51,12 @@ This sample code sample shows you how to get effective properties for the camera
 ```
 
 ## **Getting Effective Properties of Light Rig**
-Aspose.Slides for Java allows developers to get effective properties of Light Rig. For this purpose, the [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) interface was added to Aspose.Slides. The [ILightRigEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) interface represents an immutable object that contains effective light rig properties. An instance of the [**ILightRigEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRigEffectiveData) interface is used as part of [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IThreeDFormatEffectiveData) interface, which is an [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) class.
+Aspose.Slides for Java allows developers to get effective properties of Light Rig. For this purpose, the [**ILightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ILightRigEffectiveData) interface was added to Aspose.Slides. The [ILightRigEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ILightRigEffectiveData) interface represents an immutable object that contains effective light rig properties. An instance of the [**ILightRigEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ILightRigEffectiveData) interface is used as part of [**IThreeDFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IThreeDFormatEffectiveData) interface, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for the [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
 This sample code sample shows you how to get effective properties of Light Rig:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
         console.log("= Effective light rig properties =");
@@ -70,12 +70,12 @@ This sample code sample shows you how to get effective properties of Light Rig:
 ```
 
 ## **Getting Effective Properties of Bevel Shape**
-Aspose.Slides for Java allows developers to get effective properties of Bevel Shape. For this purpose, the [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) interface was added to Aspose.Slides. The [IShapeBevelEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) interface represents an immutable object that contains effective shape's face relief properties. An instance of the [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData) interface is used as part of [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeBevelEffectiveData)) interface, which is an [effective values](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat#getEffective--) pair for [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) class.
+Aspose.Slides for Java allows developers to get effective properties of Bevel Shape. For this purpose, the [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeBevelEffectiveData) interface was added to Aspose.Slides. The [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeBevelEffectiveData) interface represents an immutable object that contains effective shape's face relief properties. An instance of the [**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeBevelEffectiveData) interface is used as part of [**IThreeDFormatEffectiveData**]([**IShapeBevelEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeBevelEffectiveData)) interface, which is an [effective values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getEffective--) pair for [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) class.
 
 This sample code sample shows you how to get effective properties for the Bevel Shape:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
         console.log("= Effective shape's top face relief properties =");
@@ -90,12 +90,12 @@ This sample code sample shows you how to get effective properties for the Bevel 
 ```
 
 ## **Getting Effective Properties of a Text Frame**
-Using Aspose.Slides for Java, you can get effective properties of a Text Frame. For this purpose, the [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormatEffectiveData) interface was added to Aspose.Slides. It contains effective text frame formatting properties. 
+Using Aspose.Slides for Java, you can get effective properties of a Text Frame. For this purpose, the [**ITextFrameFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormatEffectiveData) interface was added to Aspose.Slides. It contains effective text frame formatting properties. 
 
 This sample code shows you how to get effective text frame formatting properties:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
@@ -115,12 +115,12 @@ This sample code shows you how to get effective text frame formatting properties
 ```
 
 ## **Getting Effective Properties of a Text Style**
-Using Aspose.Slides for Java, you can get effective properties of Text Style. For this purpose, the [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ITextStyleEffectiveData) interface was added to Aspose.Slides. It contains effective text style properties. 
+Using Aspose.Slides for Java, you can get effective properties of Text Style. For this purpose, the [**ITextStyleEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextStyleEffectiveData) interface was added to Aspose.Slides. It contains effective text style properties.
 
 This sample code sample shows you how to get effective text style properties:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
@@ -143,13 +143,13 @@ This sample code sample shows you how to get effective text style properties:
 Using Aspose.Slides for Java, you can get effective properties of Font Height. Here, we are providing a code that shows the portion's effective font height value changing after local font height values are set on different presentation structure levels:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var newShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 400, 75, false);
+        var newShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 75, false);
         newShape.addTextFrame("");
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().clear();
-        var portion0 = new  com.aspose.slides.Portion("Sample text with first portion");
-        var portion1 = new  com.aspose.slides.Portion(" and second portion.");
+        var portion0 = new  aspose.slides.Portion("Sample text with first portion");
+        var portion1 = new  aspose.slides.Portion(" and second portion.");
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion0);
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion1);
         console.log("Effective font height just after creation:");
@@ -171,7 +171,7 @@ Using Aspose.Slides for Java, you can get effective properties of Font Height. H
         console.log("Effective font height after setting portion #1 font height:");
         console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
         console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
-        pres.save("SetLocalFontHeightValues.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("SetLocalFontHeightValues.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -180,10 +180,10 @@ Using Aspose.Slides for Java, you can get effective properties of Font Height. H
 ```
 
 ## **Getting Effective Fill Format for Table**
-Using Aspose.Slides for Java, you can get effective fill formatting for different table logic parts. For this purpose, the [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/java/com.aspose.slides/ICellFormatEffectiveData) interface was added in Aspose.Slides. It contains effective fill formatting properties. Please note this: cell formatting always gets priority over row formatting; row gets priority over column; and column gets priority over the whole table. 
+Using Aspose.Slides for Java, you can get effective fill formatting for different table logic parts. For this purpose, the [**ICellFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICellFormatEffectiveData) interface was added in Aspose.Slides. It contains effective fill formatting properties. Please note this: cell formatting always gets priority over row formatting; row gets priority over column; and column gets priority over the whole table.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
     try {
         var tbl = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var tableFormatEffective = tbl.getTableFormat().getEffective();

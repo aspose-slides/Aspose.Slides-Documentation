@@ -21,11 +21,11 @@ While humans easily write the code for some equation formats like LaTeX, they st
 This sample code shows you how to export a math equation from a presentation to MathML:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);
         var mathParagraph = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph();
-        mathParagraph.add(new  com.aspose.slides.MathematicalText("a").setSuperscript("2").join("+").join(new  com.aspose.slides.MathematicalText("b").setSuperscript("2")).join("=").join(new  com.aspose.slides.MathematicalText("c").setSuperscript("2")));
+        mathParagraph.add(new  aspose.slides.MathematicalText("a").setSuperscript("2").join("+").join(new  aspose.slides.MathematicalText("b").setSuperscript("2")).join("=").join(new  aspose.slides.MathematicalText("c").setSuperscript("2")));
         var stream = java.newInstanceSync("java.io.FileOutputStream", "mathml.xml");
         mathParagraph.writeAsMathMl(stream);
     } catch (e) {

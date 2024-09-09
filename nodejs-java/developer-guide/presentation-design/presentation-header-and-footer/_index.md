@@ -20,7 +20,7 @@ Notes of some specific slide could be removed as shown in example below:
 
 ```javascript
     // Load Presentation
-    var pres = new  com.aspose.slides.Presentation("headerTest.pptx");
+    var pres = new  aspose.slides.Presentation("headerTest.pptx");
     try {
         // Setting Footer
         pres.getHeaderFooterManager().setAllFootersText("My Footer text");
@@ -31,7 +31,7 @@ Notes of some specific slide could be removed as shown in example below:
             updateHeaderFooterText(masterNotesSlide);
         }
         // Save presentation
-        pres.save("HeaderFooterJava.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -44,7 +44,7 @@ Notes of some specific slide could be removed as shown in example below:
 ## **Manage Header and Footer in Handout and Notes Slides**
 Aspose.Slides for Java supports Header and Footer in Handout and notes slides. Please follow the steps below:
 
-- Load a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) containing a video.
+- Load a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) containing a video.
 - Change Header and Footer settings for notes master and all notes slides.
 - Set master notes slide and all child Footer placeholders visible.
 - Set master notes slide and all child Date and time placeholders visible.
@@ -57,7 +57,7 @@ Aspose.Slides for Java supports Header and Footer in Handout and notes slides. P
 Code Snippet provided in below Example.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("presentation.pptx");
+    var pres = new  aspose.slides.Presentation("presentation.pptx");
     try {
         // Change Header and Footer settings for notes master and all notes slides
         var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
@@ -91,7 +91,7 @@ Code Snippet provided in below Example.
             headerFooterManager.setFooterText("New footer text");// set text to notes slide Footer placeholder
             headerFooterManager.setDateTimeText("New date and time text");// set text to notes slide Date-time placeholder
         }
-        pres.save("testresult.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

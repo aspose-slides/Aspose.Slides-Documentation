@@ -7,21 +7,21 @@ keywords: "Table, table rows and columns, PowerPoint presentation, Java, Aspose.
 description: "Manage table rows and columns in PowerPoint presentations in Java"
 ---
 
-To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/java/com.aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) interface, and many other types. 
+To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) interface, and many other types.
 
 ## **Set First Row as Header**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation. 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and load the presentation.
 2. Get a slide's reference through its index. 
-3. Create an [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) object and set it to null.
-4. Iterate through all [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) objects to find the relevant table. 
+3. Create an [ITable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object and set it to null.
+4. Iterate through all [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ishape/) objects to find the relevant table.
 5. Set the table's first row as its header. 
 
 This Java code shows you how to set a table's first row as its header:
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  com.aspose.slides.Presentation("table.pptx");
+    var pres = new  aspose.slides.Presentation("table.pptx");
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -29,14 +29,14 @@ This Java code shows you how to set a table's first row as its header:
         var tbl = null;
         // Iterates through the shapes and sets a reference to the table
         sld.getShapes().forEach(function(shp) {
-            if (shp instanceof com.aspose.slides.ITable) {
+            if (shp instanceof aspose.slides.ITable) {
                 tbl = shp;
                 // Sets the first row of a table as its header
                 tbl.setFirstRow(true);
             }
         });
         // Saves the presentation to disk
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -47,11 +47,11 @@ This Java code shows you how to set a table's first row as its header:
 
 ## **Clone Table's Row or Column**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
+5. Add an [ITable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
 6. Clone the table row.
 7. Clone the table column.
 8. Save the modified presentation.
@@ -60,7 +60,7 @@ This Java code shows you how to clone a PowerPoint table's row or column:
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  com.aspose.slides.Presentation("Test.pptx");
+    var pres = new  aspose.slides.Presentation("Test.pptx");
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -86,7 +86,7 @@ This Java code shows you how to clone a PowerPoint table's row or column:
         // Clones 2nd column at 4th column index
         table.getColumns().insertClone(3, table.getColumns().get_Item(1), false);
         // Saves the presentation to disk
-        pres.save("table_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -96,11 +96,11 @@ This Java code shows you how to clone a PowerPoint table's row or column:
 
 ## **Remove Row or Column from Table**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
+5. Add an [ITable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ishapecollection/#addTable-float-float-double---double---) method.
 6. Remove the table row.
 7. Remove the table column.
 8. Save the modified presentation. 
@@ -108,7 +108,7 @@ This Java code shows you how to clone a PowerPoint table's row or column:
 This Java code shows you how to remove a row or column from a table:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var colWidth = new double[]{ 100, 50, 30 };
@@ -116,7 +116,7 @@ This Java code shows you how to remove a row or column from a table:
         var table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
         table.getRows().removeAt(1, false);
         table.getColumns().removeAt(1, false);
-        pres.save("TestTable_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("TestTable_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -126,37 +126,37 @@ This Java code shows you how to remove a row or column from a table:
 
 ## **Set Text Formatting on Table Row Level**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) object from the slide. 
-4. Set the first-row cells' [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-). 
-5. Set the first-row cells' [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Set the second-row cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+3. Access the relevant [ITable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object from the slide.
+4. Set the first-row cells' [setFontHeight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-).
+5. Set the first-row cells' [setAlignment(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
+6. Set the second-row cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation.
 
 This Java code demonstrates the operation.
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Let's assume that the first shape on the first slide is a table
         var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         // Sets first row cells' font height
-        var portionFormat = new  com.aspose.slides.PortionFormat();
+        var portionFormat = new  aspose.slides.PortionFormat();
         portionFormat.setFontHeight(25);
         someTable.getRows().get_Item(0).setTextFormat(portionFormat);
         // Sets the first row cells' text alignment and right margin
-        var paragraphFormat = new  com.aspose.slides.ParagraphFormat();
-        paragraphFormat.setAlignment(com.aspose.slides.TextAlignment.Right);
+        var paragraphFormat = new  aspose.slides.ParagraphFormat();
+        paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
         paragraphFormat.setMarginRight(20);
         someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
         // Sets the second row cells' text vertical type
-        var textFrameFormat = new  com.aspose.slides.TextFrameFormat();
-        textFrameFormat.setTextVerticalType(com.aspose.slides.TextVerticalType.Vertical);
+        var textFrameFormat = new  aspose.slides.TextFrameFormat();
+        textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
         someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
         // Saves the presentation to disk
-        pres.save("result.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -166,36 +166,36 @@ This Java code demonstrates the operation.
 
 ## **Set Text Formatting on Table Column Level**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class and load the presentation, 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and load the presentation,
 2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/ITable) object from the slide. 
-4. Set the first-column cells' [setFontHeight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/baseportionformat/#setFontHeight-float-).
-5. Set the first-column cells' [setAlignment(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-). 
-6. Set the second-column cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).
+3. Access the relevant [ITable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object from the slide.
+4. Set the first-column cells' [setFontHeight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-).
+5. Set the first-column cells' [setAlignment(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraphformat/#setMarginRight-float-).
+6. Set the second-column cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation. 
 
 This Java code demonstrates the operation: 
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Let's assume that the first shape on the first slide is a table
         var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         // Sets the first column cells' font height
-        var portionFormat = new  com.aspose.slides.PortionFormat();
+        var portionFormat = new  aspose.slides.PortionFormat();
         portionFormat.setFontHeight(25);
         someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
         // Sets the first column cells' text alignment and right margin in one call
-        var paragraphFormat = new  com.aspose.slides.ParagraphFormat();
-        paragraphFormat.setAlignment(com.aspose.slides.TextAlignment.Right);
+        var paragraphFormat = new  aspose.slides.ParagraphFormat();
+        paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
         paragraphFormat.setMarginRight(20);
         someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
         // Sets the second column cells' text vertical type
-        var textFrameFormat = new  com.aspose.slides.TextFrameFormat();
-        textFrameFormat.setTextVerticalType(com.aspose.slides.TextVerticalType.Vertical);
+        var textFrameFormat = new  aspose.slides.TextFrameFormat();
+        textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
         someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
-        pres.save("result.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -208,11 +208,11 @@ This Java code demonstrates the operation:
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[]{ 100, 150 }, new double[]{ 5, 5, 5 });
-        table.setStylePreset(com.aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
-        pres.save("table.pptx", com.aspose.slides.SaveFormat.Pptx);
+        table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
+        pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

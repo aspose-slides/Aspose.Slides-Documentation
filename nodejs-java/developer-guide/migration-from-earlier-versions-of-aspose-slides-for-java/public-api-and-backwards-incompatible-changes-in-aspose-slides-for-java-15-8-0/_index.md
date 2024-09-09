@@ -15,8 +15,8 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 Specifies the size of the hole in a doughnut chart.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Doughnut, 50, 50, 400, 400);
+    var pres = new  aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Doughnut, 50, 50, 400, 400);
     chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize(90);
-    pres.save("ChartSeries.API.DoughnutHoleSize.pptx", com.aspose.slides.SaveFormat.Pptx);
+    pres.save("ChartSeries.API.DoughnutHoleSize.pptx", aspose.slides.SaveFormat.Pptx);
 ```

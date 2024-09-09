@@ -7,7 +7,7 @@ url: /java/paragraph/
 
 
 ## Get Paragraph and Portion Coordinates in TextFrame ##
-Using Aspose.Slides for Java, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get [the coordinates of portion](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with position of portion inside a paragraph.
+Using Aspose.Slides for Java, developers can now get the rectangular coordinates for Paragraph inside paragraphs collection of TextFrame. It also allows you to get [the coordinates of portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion#getCoordinates--) inside portion collection of a paragraph. In this topic, we are going to demonstrate with the help of an example that how to get the rectangular coordinates for paragraph along with position of portion inside a paragraph.
 
 ```javascript
     var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -21,10 +21,10 @@ Using Aspose.Slides for Java, developers can now get the rectangular coordinates
 
 
 ## **Get Rectangular Coordinates of Paragraph**
-Using [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) method developers can get paragraph bounds rectangle.
+Using [**getRect()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IParagraph#getRect--) method developers can get paragraph bounds rectangle.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("HelloWorld.pptx");
+    var pres = new  aspose.slides.Presentation("HelloWorld.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var textFrame = shape.getTextFrame();
@@ -39,12 +39,12 @@ Using [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
 
-To get the [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/Portion) or [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getRect--) and [IParagraph.getRect](https://reference.aspose.com/slides/java/com.aspose.slides/IParagraph#getRect--) methods.
+To get the [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion) or [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion#getRect--) and [IParagraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IParagraph#getRect--) methods.
 
 This sample code demonstrates the described operation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("source.pptx");
+    var pres = new  aspose.slides.Presentation("source.pptx");
     try {
         var tbl = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var cell = tbl.getRows().get_Item(1).get_Item(1);
@@ -55,15 +55,15 @@ This sample code demonstrates the described operation:
                 continue;
             }
             var rect = para.getRect();
-            var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, rect.getX() + x, rect.getY() + y, rect.getWidth(), rect.getHeight());
-            shape.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+            var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, rect.getX() + x, rect.getY() + y, rect.getWidth(), rect.getHeight());
+            shape.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
             shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-            shape.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+            shape.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
             para.getPortions().forEach(function(portion) {
                 if (portion.getText().contains("0")) {
                     rect = portion.getRect();
-                    shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, rect.getX() + x, rect.getY() + y, rect.getWidth(), rect.getHeight());
-                    shape.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+                    shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, rect.getX() + x, rect.getY() + y, rect.getWidth(), rect.getHeight());
+                    shape.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
                 }
             });
         });

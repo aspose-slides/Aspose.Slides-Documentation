@@ -23,28 +23,28 @@ In PowerPoint, these are the 4 important parameters or options that control the 
 
 ![autofit-options-powerpoint](autofit-options-powerpoint.png)
 
-Aspose.Slides for Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations. 
+Aspose.Slides for Java provides similar options—some properties under the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class—that allow you to control the autofit behavior for textboxes in presentations.
 
 ## **Resize Shape to Fit Text**
 
-If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) to `Shape`.
+If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `Shape`.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
 This Java code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
         var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-        textFrameFormat.setAutofitType(com.aspose.slides.TextAutofitType.Shape);
-        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Shape);
+        pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -56,24 +56,24 @@ If the text becomes longer or bigger, the textbox will be automatically resized 
 
 ## **Do Not Autofit**
 
-If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) to `None`. 
+If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `None`.
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
 This Java code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
         var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-        textFrameFormat.setAutofitType(com.aspose.slides.TextAutofitType.None);
-        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.None);
+        pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -85,24 +85,24 @@ When the text becomes too long for its box, it spills out.
 
 ## **Shrink Text on Overflow**
 
-If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) to `Normal`.
+If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `Normal`.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
 This Java code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
         var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-        textFrameFormat.setAutofitType(com.aspose.slides.TextAutofitType.Normal);
-        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Normal);
+        pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -118,22 +118,22 @@ When the **Shrink text on overflow** option is used, the setting gets applied on
 
 ## **Wrap Text**
 
-If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [WrapText](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat#getWrapText--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrameFormat) class) to `true`. 
+If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [WrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getWrapText--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `true`.
 
 This Java code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
         var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-        textFrameFormat.setWrapText(com.aspose.slides.NullableBool.True);
-        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        textFrameFormat.setWrapText(aspose.slides.NullableBool.True);
+        pres.save("Output-presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

@@ -20,16 +20,16 @@ You may want to check out Aspose's [FREE PowerPoint to Poster converter](https:/
 
 ## **Convert PowerPoint to TIFF**
 
-Using the [Save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) method exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class, you can quickly convert an entire PowerPoint presentation to TIFF. The resulting TIFF images correspond to the slides' default size. 
+Using the [Save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) method exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class, you can quickly convert an entire PowerPoint presentation to TIFF. The resulting TIFF images correspond to the slides' default size.
 
 This Java code shows you how to convert PowerPoint to TIFF:
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("presentation.pptx");
+    var pres = new  aspose.slides.Presentation("presentation.pptx");
     try {
         // Saves the presentation as TIFF
-        pres.save("tiff-image.tiff", com.aspose.slides.SaveFormat.Tiff);
+        pres.save("tiff-image.tiff", aspose.slides.SaveFormat.Tiff);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -39,17 +39,17 @@ This Java code shows you how to convert PowerPoint to TIFF:
 
 ## **Convert PowerPoint to Black-and-White TIFF**
 
-In Aspose.Slides 23.10, Aspose.Slides added a new property ([BwConversionMode](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-)) to the [TiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/) class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the [CompressionType](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) property is set to `CCITT4` or `CCITT3`.
+In Aspose.Slides 23.10, Aspose.Slides added a new property ([BwConversionMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-)) to the [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the [CompressionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) property is set to `CCITT4` or `CCITT3`.
 
 This Java code shows you how to convert a colored slide or image to black-and-white TIFF:
 
 ```javascript
-    var tiffOptions = new  com.aspose.slides.TiffOptions();
-    tiffOptions.setCompressionType(com.aspose.slides.TiffCompressionTypes.CCITT4);
-    tiffOptions.setBwConversionMode(com.aspose.slides.BlackWhiteConversionMode.Dithering);
-    var presentation = new  com.aspose.slides.Presentation("sample.pptx");
+    var tiffOptions = new  aspose.slides.TiffOptions();
+    tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.CCITT4);
+    tiffOptions.setBwConversionMode(aspose.slides.BlackWhiteConversionMode.Dithering);
+    var presentation = new  aspose.slides.Presentation("sample.pptx");
     try {
-        presentation.save("output.tiff", com.aspose.slides.SaveFormat.Tiff, tiffOptions);
+        presentation.save("output.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
     } finally {
         if (presentation != null) {
             presentation.dispose();
@@ -59,16 +59,16 @@ This Java code shows you how to convert a colored slide or image to black-and-wh
 
 ## **Convert PowerPoint to TIFF with Custom Size**
 
-If you require a TIFF image with defined dimensions, you can define your preferred figures through the properties provided under [TiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/). Using the [ImageSize](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) property, for example, you can set a size for the resulting image. 
+If you require a TIFF image with defined dimensions, you can define your preferred figures through the properties provided under [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/). Using the [ImageSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) property, for example, you can set a size for the resulting image.
 
 This Java code shows you how to convert PowerPoint to TIFF images with custom size:
 
 ```javascript
     // Instantiates a Presentation object that represents a Presentation file
-    var pres = new  com.aspose.slides.Presentation("presentation.pptx");
+    var pres = new  aspose.slides.Presentation("presentation.pptx");
     try {
         // Instantiates the TiffOptions class
-        var opts = new  com.aspose.slides.TiffOptions();
+        var opts = new  aspose.slides.TiffOptions();
         // Sets the compression type
         // Possible values are:
         // Default - Specifies the default compression scheme (LZW).
@@ -77,7 +77,7 @@ This Java code shows you how to convert PowerPoint to TIFF images with custom si
         // CCITT4
         // LZW
         // RLE
-        opts.setCompressionType(com.aspose.slides.TiffCompressionTypes.Default);
+        opts.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
         // Depth – depends on the compression type and cannot be set manually.
         // Sets the image DPI
         opts.setDpiX(200);
@@ -85,9 +85,9 @@ This Java code shows you how to convert PowerPoint to TIFF images with custom si
         // Sets the Image Size
         opts.setImageSize(java.newInstanceSync("java.awt.Dimension", 1728, 1078));
         var options = opts.getNotesCommentsLayouting();
-        options.setNotesPosition(com.aspose.slides.NotesPositions.BottomFull);
+        options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
         // Saves the presentation to TIFF with specified size
-        pres.save("tiff-ImageSize.tiff", com.aspose.slides.SaveFormat.Tiff, opts);
+        pres.save("tiff-ImageSize.tiff", aspose.slides.SaveFormat.Tiff, opts);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -98,16 +98,16 @@ This Java code shows you how to convert PowerPoint to TIFF images with custom si
 
 ## **Convert PowerPoint to TIFF with Custom Image Pixel Format**
 
-Using the [PixelFormat](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) property under the [TiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/tiffoptions/) class, you can specify your preferred pixel format for the resulting TIFF image. 
+Using the [PixelFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat-int-) property under the [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/) class, you can specify your preferred pixel format for the resulting TIFF image.
 
 This Java code shows you how to convert PowerPoint to TIFF image with custom pixel format:
 
 ```javascript
     // Instantiates a Presentation object that represents a Presentation file
-    var pres = new  com.aspose.slides.Presentation("presentation.pptx");
+    var pres = new  aspose.slides.Presentation("presentation.pptx");
     try {
-        var options = new  com.aspose.slides.TiffOptions();
-        options.setPixelFormat(com.aspose.slides.ImagePixelFormat.Format8bppIndexed);
+        var options = new  aspose.slides.TiffOptions();
+        options.setPixelFormat(aspose.slides.ImagePixelFormat.Format8bppIndexed);
         /* ImagePixelFormat contains the following values (as stated in the documentation):
         Format1bppIndexed; // 1 bits per pixel, indexed.
         Format4bppIndexed; // 4 bits per pixel, indexed.
@@ -116,7 +116,7 @@ This Java code shows you how to convert PowerPoint to TIFF image with custom pix
         Format32bppArgb;   // 32 bits per pixel, ARGB.
          */
         // Saves the presentation to TIFF with specified image size
-        pres.save("Tiff-PixelFormat.tiff", com.aspose.slides.SaveFormat.Tiff, options);
+        pres.save("Tiff-PixelFormat.tiff", aspose.slides.SaveFormat.Tiff, options);
     } finally {
         if (pres != null) {
             pres.dispose();

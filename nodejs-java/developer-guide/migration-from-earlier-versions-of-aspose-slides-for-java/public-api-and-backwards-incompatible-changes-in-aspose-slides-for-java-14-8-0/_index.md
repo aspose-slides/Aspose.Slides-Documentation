@@ -19,8 +19,8 @@ This method is not only for specific series but for all series of the parent ser
 - Use IChartSeriesGroup.getOverlap() and setOverlap(byte) methods to manage the value.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
+    var pres = new  aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
     var series = chart.getChartData().getSeries();
     if (series.get_Item(0).getOverlap() == 0) {
         series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
@@ -30,26 +30,26 @@ This method is not only for specific series but for all series of the parent ser
 This method of creating shape thumbnails allows developers to generate a shape thumbnail in the bounds of its appearance. It takes into account all shape effects. The generated shape thumbnail is restricted by the slide bounds.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(com.aspose.slides.ShapeThumbnailBounds.Appearance, 1, 1);
+    var pres = new  aspose.slides.Presentation();
+    var st = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThumbnail(aspose.slides.ShapeThumbnailBounds.Appearance, 1, 1);
 ```
 ### **Added the VbaProject Class and IVbaProject Interface, Changed the Presentation.getVbaProject() and setVbaProject(VbaProject) Methods**
 A new feature allows developers to create and edit VBA projects in a presentation.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     // Create new VBA Project
-    pres.setVbaProject(new  com.aspose.slides.VbaProject());
+    pres.setVbaProject(new  aspose.slides.VbaProject());
     // Add empty module to the VBA project
     var module = pres.getVbaProject().getModules().addEmptyModule("Module");
     // Set module source code
     module.setSourceCode("Sub Test(oShape As Shape)\r\n    MsgBox \"Test\"\r\nEnd Sub");
     // Create reference to <stdole>
-    var stdoleReference = new  com.aspose.slides.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
+    var stdoleReference = new  aspose.slides.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     // Create reference to Office
-    var officeReference = new  com.aspose.slides.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
+    var officeReference = new  aspose.slides.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     // Add references to the VBA project
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
-    pres.save("data\\test.pptm", com.aspose.slides.SaveFormat.Pptm);
+    pres.save("data\\test.pptm", aspose.slides.SaveFormat.Pptm);
 ```

@@ -96,7 +96,7 @@ In PowerPoint, you can create charts through the insert function, which provides
 
 {{% alert color="primary" %}} 
 
-To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType) class. The fields under this class correspond to different chart types. 
+To allow you create charts, Aspose.Slides provides the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType) class. The fields under this class correspond to different chart types.
 
 {{% /alert %}} 
 
@@ -109,7 +109,7 @@ _Steps: Create Chart_
 
 _Code Steps:_
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a chart with some data and specify your preferred chart type. 
 4. Add a title for the chart. 
@@ -125,15 +125,15 @@ This Java code shows you how to create a normal chart:
 
 ```javascript
     // Instantiates a presentation class that represents a PPTX file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
         // Adds a chart with its default data
-        var chart = sld.getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
+        var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
         // Sets the chart Title
         chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(com.aspose.slides.NullableBool.True);
+        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
         chart.getChartTitle().setHeight(20);
         chart.hasTitle();
         // Sets the first series to show values
@@ -161,7 +161,7 @@ This Java code shows you how to create a normal chart:
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
         // Sets the fill color for series
-        series.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
         // Takes the second chart series
         series = chart.getChartData().getSeries().get_Item(1);
@@ -170,7 +170,7 @@ This Java code shows you how to create a normal chart:
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
         // Sets the fill color for the series
-        series.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
         // Create custom labels for each categories for the new series
         // Sets the first label to show Category name
@@ -184,7 +184,7 @@ This Java code shows you how to create a normal chart:
         lbl.getDataLabelFormat().setShowSeriesName(true);
         lbl.getDataLabelFormat().setSeparator("/");
         // Saves the presentation with chart
-        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -208,22 +208,22 @@ You may want to use a scattered chart when
 
 1. Please follow the steps mentioned above in [Creating Normal Charts](#creating-normal-charts)
 2. For third step, Add a chart with some data and specify your chart type as one of the following
-   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
-   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
-   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
-   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
-   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/java/com.aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
+   1. [ChartType.ScatterWithMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithMarkers) - _Represents Scatter Chart._
+   2. [ChartType.ScatterWithSmoothLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLinesAndMarkers) - _Represents Scatter Chart connected by curves, with data markers._
+   3. [ChartType.ScatterWithSmoothLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithSmoothLines) - _Represents Scatter Chart connected by curves, without data markers._
+   4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
+   5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
 
 This Java code shows you how to create a scattered charts with a different series of markers: 
 
 ```javascript
     // Instantiates a presentation class that represents a PPTX file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var slide = pres.getSlides().get_Item(0);
         // Creates the default chart
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
         // Gets the default chart data worksheet index
         var defaultWorksheetIndex = 0;
         // Gets the chart data worksheet
@@ -240,10 +240,10 @@ This Java code shows you how to create a scattered charts with a different serie
         // Adds a new point (2:10)
         series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
         // Changes the series type
-        series.setType(com.aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
+        series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
         // Changes the chart series marker
         series.getMarker().setSize(10);
-        series.getMarker().setSymbol(com.aspose.slides.MarkerStyleType.Star);
+        series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
         // Takes the second chart series
         series = chart.getChartData().getSeries().get_Item(1);
         // Adds a new point (5:2) there
@@ -256,8 +256,8 @@ This Java code shows you how to create a scattered charts with a different serie
         series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
         // Changes the chart series marker
         series.getMarker().setSize(10);
-        series.getMarker().setSymbol(com.aspose.slides.MarkerStyleType.Circle);
-        pres.save("AsposeChart_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
+        pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -273,10 +273,10 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 <a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
-3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Pie).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Pie).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -290,15 +290,15 @@ This Java code shows you how to create a pie chart:
 
 ```javascript
     // Instantiates a presentation class that represents a PPTX file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var slides = pres.getSlides().get_Item(0);
         // Adds a chart with default data
-        var chart = slides.getShapes().addChart(com.aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+        var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
         // Sets the chart Title
         chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(com.aspose.slides.NullableBool.True);
+        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
         chart.getChartTitle().setHeight(20);
         chart.setTitle(true);
         // Sets the first series to show values
@@ -325,32 +325,32 @@ This Java code shows you how to create a pie chart:
         // series.IsColorVaried = true;
         chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
         var point = series.getDataPoints().get_Item(0);
-        point.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
         // Sets the Sector border
-        point.getFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        point.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
         point.getFormat().getLine().setWidth(3.0);
-        point.getFormat().getLine().setStyle(com.aspose.slides.LineStyle.ThinThick);
-        point.getFormat().getLine().setDashStyle(com.aspose.slides.LineDashStyle.DashDot);
+        point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
+        point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
         var point1 = series.getDataPoints().get_Item(1);
-        point1.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        point1.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
         // Sets the Sector border
-        point1.getFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        point1.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
         point1.getFormat().getLine().setWidth(3.0);
-        point1.getFormat().getLine().setStyle(com.aspose.slides.LineStyle.Single);
-        point1.getFormat().getLine().setDashStyle(com.aspose.slides.LineDashStyle.LargeDashDot);
+        point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
+        point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
         var point2 = series.getDataPoints().get_Item(2);
-        point2.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        point2.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
         // Sets the Sector border
-        point2.getFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        point2.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
         point2.getFormat().getLine().setWidth(2.0);
-        point2.getFormat().getLine().setStyle(com.aspose.slides.LineStyle.ThinThin);
-        point2.getFormat().getLine().setDashStyle(com.aspose.slides.LineDashStyle.LargeDashDotDot);
+        point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
+        point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
         // Creates custom labels for each of categories for new series
         var lbl1 = series.getDataPoints().get_Item(0).getLabel();
         // lbl.ShowCategoryName = true;
@@ -367,7 +367,7 @@ This Java code shows you how to create a pie chart:
         // Sets the Rotation Angle for Pie Chart Sectors
         chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
         // Saves the presentation with a chart
-        pres.save("PieChart_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -379,7 +379,7 @@ This Java code shows you how to create a pie chart:
 
 Line charts (also known as a line graphs) are best used in situations where you want demonstrate changes in value over time. Using a line chart, you can compare lots of data at once, track changes and trends over time, highlight anomalies in data series, etc.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Get a slide's reference through its index.
 1. Add a chart with default data along with the desired type (in this case, `ChartType.Line`).
 1. Access the chart data IChartDataWorkbook.
@@ -391,10 +391,10 @@ Line charts (also known as a line graphs) are best used in situations where you 
 This Java code shows you how to create a line chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Line, 10, 50, 600, 350);
-        pres.save("lineChart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+        pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -405,9 +405,9 @@ This Java code shows you how to create a line chart:
 By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
 
 ```javascript
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
     lineChart.getChartData().getSeries().forEach(function(series) {
-        series.getFormat().getLine().setDashStyle(com.aspose.slides.LineDashStyle.Dash);
+        series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
     });
 ```
 
@@ -419,10 +419,10 @@ Tree map charts are best used for sales data when you want to show the relative 
 <a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).TreeMap).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).TreeMap).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -431,9 +431,9 @@ Tree map charts are best used for sales data when you want to show the relative 
 This Java code shows you how to create a tree map chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
         chart.getChartData().getCategories().clear();
         chart.getChartData().getSeries().clear();
         var wb = chart.getChartData().getChartDataWorkbook();
@@ -454,7 +454,7 @@ This Java code shows you how to create a tree map chart:
         leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
         leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
         chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-        var series = chart.getChartData().getSeries().add(com.aspose.slides.ChartType.Treemap);
+        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
         series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
         series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
         series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
@@ -464,8 +464,8 @@ This Java code shows you how to create a tree map chart:
         series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
         series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
         series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
-        series.setParentLabelLayout(com.aspose.slides.ParentLabelLayoutType.Overlapping);
-        pres.save("Treemap.pptx", com.aspose.slides.SaveFormat.Pptx);
+        series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+        pres.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -479,10 +479,10 @@ This Java code shows you how to create a tree map chart:
 <a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).OpenHighLowClose).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -492,9 +492,9 @@ This Java code shows you how to create a tree map chart:
 Sample Java code used to create a stock chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
         chart.getChartData().getSeries().clear();
         chart.getChartData().getCategories().clear();
         var wb = chart.getChartData().getChartDataWorkbook();
@@ -522,11 +522,11 @@ Sample Java code used to create a stock chart:
         series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
         series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
         chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
-        chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         chart.getChartData().getSeries().forEach(function(ser) {
-            ser.getFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+            ser.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
         });
-        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -540,10 +540,10 @@ Sample Java code used to create a stock chart:
 <a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).BoxAndWhisker).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -552,9 +552,9 @@ Sample Java code used to create a stock chart:
 This Java code shows you how to create a box and whisker chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
         chart.getChartData().getCategories().clear();
         chart.getChartData().getSeries().clear();
         var wb = chart.getChartData().getChartDataWorkbook();
@@ -565,8 +565,8 @@ This Java code shows you how to create a box and whisker chart:
         chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
         chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
         chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
-        var series = chart.getChartData().getSeries().add(com.aspose.slides.ChartType.BoxAndWhisker);
-        series.setQuartileMethod(com.aspose.slides.QuartileMethodType.Exclusive);
+        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+        series.setQuartileMethod(aspose.slides.QuartileMethodType.Exclusive);
         series.setShowMeanLine(true);
         series.setShowMeanMarkers(true);
         series.setShowInnerPoints(true);
@@ -577,7 +577,7 @@ This Java code shows you how to create a box and whisker chart:
         series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
         series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
         series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
-        pres.save("BoxAndWhisker.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -592,17 +592,17 @@ This Java code shows you how to create a box and whisker chart:
 <a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart in Java</strong></a>
 
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Funnel).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Funnel).
 4. Write the modified presentation to a PPTX file
 
 The Java code shows you how to create a funnel chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
         chart.getChartData().getCategories().clear();
         chart.getChartData().getSeries().clear();
         var wb = chart.getChartData().getChartDataWorkbook();
@@ -613,14 +613,14 @@ The Java code shows you how to create a funnel chart:
         chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
         chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
         chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
-        var series = chart.getChartData().getSeries().add(com.aspose.slides.ChartType.Funnel);
+        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
         series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
         series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
         series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
         series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
         series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
         series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
-        pres.save("Funnel.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -634,17 +634,17 @@ The Java code shows you how to create a funnel chart:
 <a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).sunburst).
+3. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).sunburst).
 4. Write the modified presentation to a PPTX file
 
 This Java code shows you how to create a sunburst chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
         chart.getChartData().getCategories().clear();
         chart.getChartData().getSeries().clear();
         var wb = chart.getChartData().getChartDataWorkbook();
@@ -665,7 +665,7 @@ This Java code shows you how to create a sunburst chart:
         leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
         leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
         chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-        var series = chart.getChartData().getSeries().add(com.aspose.slides.ChartType.Sunburst);
+        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
         series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
         series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
         series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
@@ -675,7 +675,7 @@ This Java code shows you how to create a sunburst chart:
         series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
         series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
         series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-        pres.save("Sunburst.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -689,10 +689,10 @@ This Java code shows you how to create a sunburst chart:
 <a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).Histogram).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Histogram).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Write the modified presentation to a PPTX file
@@ -700,20 +700,20 @@ This Java code shows you how to create a sunburst chart:
 This Java code shows you how to create an histogram chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
+    var pres = new  aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
     chart.getChartData().getCategories().clear();
     chart.getChartData().getSeries().clear();
     var wb = chart.getChartData().getChartDataWorkbook();
     wb.clear(0);
-    var series = chart.getChartData().getSeries().add(com.aspose.slides.ChartType.Histogram);
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
     series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
-    chart.getAxes().getHorizontalAxis().setAggregationType(com.aspose.slides.AxisAggregationType.Automatic);
+    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
 ### **Creating Radar Charts**
@@ -722,7 +722,7 @@ This Java code shows you how to create an histogram chart:
 <a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
 4. Write the modified presentation to a PPTX file
@@ -730,10 +730,10 @@ This Java code shows you how to create an histogram chart:
 This Java code shows you how to create an radar chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Radar, 20, 20, 400, 300);
-        pres.save("Radar-chart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
+        pres.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -747,10 +747,10 @@ This Java code shows you how to create an radar chart:
 <a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
 <a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart in Java</strong></a>
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/java/com.aspose.slides/ChartType).ClusteredColumn).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook).
+3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
+4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -759,9 +759,9 @@ This Java code shows you how to create an radar chart:
 This Java code shows you how to create a multicategory chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var ch = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
+        var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
         ch.getChartData().getSeries().clear();
         ch.getChartData().getCategories().clear();
         var fact = ch.getChartData().getChartDataWorkbook();
@@ -780,7 +780,7 @@ This Java code shows you how to create a multicategory chart:
         category.getGroupingLevels().setGroupingItem(1, "Group4");
         category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
         // Adding Series
-        var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), com.aspose.slides.ChartType.ClusteredColumn);
+        var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
@@ -790,7 +790,7 @@ This Java code shows you how to create a multicategory chart:
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
         // Save presentation with chart
-        pres.save("AsposeChart_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -809,10 +809,10 @@ A map chart is a visualization of an area containing data. Map charts are best u
 This Java code shows you how to create a map chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Map, 50, 50, 500, 400);
-        pres.save("mapChart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
+        pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -837,7 +837,7 @@ This Java code shows you how to create a combination chart in PowerPoint:
 <a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in Java</strong></a> |
 <a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart in Java</strong></a>
 
-1. Instantiate a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart you want to update. 
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class that represents the presentation containing the chart you want to update.
 2. Obtain the reference of a slide by using its Index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data worksheet.
@@ -848,7 +848,7 @@ This Java code shows you how to create a combination chart in PowerPoint:
 This Java code shows you how to update a chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Access first slideMarker
         var sld = pres.getSlides().get_Item(0);
@@ -883,9 +883,9 @@ This Java code shows you how to update a chart:
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
         series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
-        chart.setType(com.aspose.slides.ChartType.ClusteredCylinder);
+        chart.setType(aspose.slides.ChartType.ClusteredCylinder);
         // Save presentation with chart
-        pres.save("AsposeChartModified_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -897,7 +897,7 @@ This Java code shows you how to update a chart:
 
 To set the data range for a chart, do this:
 
-1. Instantiate a [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class that represents the presentation containing the chart.
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class that represents the presentation containing the chart.
 2. Get a slide's reference through its index.
 3. Traverse through all shapes to find the desired chart.
 4. Access the chart data and set the range.
@@ -906,12 +906,12 @@ To set the data range for a chart, do this:
 This Java code shows you how to set the data range for a chart:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var chart = slide.getShapes().get_Item(0);
         chart.getChartData().setRange("Sheet1!A1:B4");
-        pres.save("SetDataRange_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("SetDataRange_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -925,10 +925,10 @@ When you use a default marker in charts, each chart series get different default
 This Java code shows you how to set a chart series market automatically:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
         chart.getChartData().getSeries().clear();
         chart.getChartData().getCategories().clear();
         var fact = chart.getChartData().getChartDataWorkbook();
@@ -952,7 +952,7 @@ This Java code shows you how to set a chart series market automatically:
         series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
         chart.setLegend(true);
         chart.getLegend().setOverlay(false);
-        pres.save("DefaultMarkersInChart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

@@ -9,17 +9,17 @@ description: "Animated text in PowerPoint with Java"
 
 ## Adding Animation Effects to Paragraphs
 
-We added the [**addEffect()**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence#addEffect-com.aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/java/com.aspose.slides/Sequence) and [**ISequence**](https://reference.aspose.com/slides/java/com.aspose.slides/ISequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
+We added the [**addEffect()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence#addEffect-aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence) and [**ISequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```javascript
-    var presentation = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var presentation = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // select paragraph to add effect
         var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
         var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
         // add Fly animation effect to selected paragraph
-        var effect = presentation.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(paragraph, com.aspose.slides.EffectType.Fly, com.aspose.slides.EffectSubtype.Left, com.aspose.slides.EffectTriggerType.OnClick);
-        presentation.save("AnimationEffectinParagraph.pptx", com.aspose.slides.SaveFormat.Pptx);
+        var effect = presentation.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(paragraph, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
+        presentation.save("AnimationEffectinParagraph.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (presentation != null) {
             presentation.dispose();
@@ -34,7 +34,7 @@ You may decide to find out the animation effects added to a paragraph—for exam
 Aspose.Slides for Java allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
         var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);

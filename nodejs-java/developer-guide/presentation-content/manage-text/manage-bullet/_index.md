@@ -36,14 +36,14 @@ This is a summary of the steps (step 1 to step 15) in the **Creating Bullets** p
 ## Creating Bullets
 This topic is also the part of the topic series of managing text paragraphs. This page will illustrate how we can manage paragraph bullets. Bullets are more useful where something is to be described in steps. Moreover, text looks well organized with the use of bullets. Bulleted paragraphs are always easier to read and understand. We will see how developers can use this small yet powerful feature of Aspose.Slides for Java. Please follow the steps below to manage the paragraph bullets using Aspose.Slides for Java:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object.
-1. Add an [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentationText) in selected slide.
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) of the added shape.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide) object.
+1. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationText) in selected slide.
+1. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) of the added shape.
 1. Remove the default paragraph in the TextFrame.
-1. Create the first paragraph instance using [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/Paragraph) class.
+1. Create the first paragraph instance using [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Paragraph) class.
 1. Set the bullet type of the paragraph.
-1. Set the bullet type to [Symbol](https://reference.aspose.com/slides/java/com.aspose.slides/BulletType#Symbol) and the set the bullet character.
+1. Set the bullet type to [Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BulletType#Symbol) and the set the bullet character.
 1. Set the Paragraph Text.
 1. Set the Paragraph Indent to set the bullet.
 1. Set the Color of Bullet.
@@ -56,27 +56,27 @@ This sample code in Java—an implementation of the steps above—shows you to c
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accessing first slide
         var slide = pres.getSlides().get_Item(0);
         // Adding and accessing Autoshape
-        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
         // Accessing the text frame of created autoshape
         var txtFrm = aShp.getTextFrame();
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().removeAt(0);
         // Creating a paragraph
-        var para = new  com.aspose.slides.Paragraph();
+        var para = new  aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
-        para.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
         para.getParagraphFormat().getBullet().setChar(8226);
         // Setting paragraph text
         para.setText("Welcome to Aspose.Slides");
         // Setting bullet indent
         para.getParagraphFormat().setIndent(25);
         // Setting bullet color
-        para.getParagraphFormat().getBullet().getColor().setColorType(com.aspose.slides.ColorType.RGB);
+        para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
         para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         // set IsBulletHardColor to true to use own bullet color
         para.getParagraphFormat().getBullet().isBulletHardColor();
@@ -85,7 +85,7 @@ This sample code in Java—an implementation of the steps above—shows you to c
         // Adding Paragraph to text frame
         txtFrm.getParagraphs().add(para);
         // saving the presentation as a PPTX file
-        pres.save("Bullet.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Bullet.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         pres.dispose();
     }
@@ -105,32 +105,32 @@ In any case, the image you choose will be reduced to a very small size, so we st
 
 To create a picture bullet, go through these steps:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide) object
 1. Add an autoshape in selected slide
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape
-1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe)
+1. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) of the added shape
+1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe)
 1. Create the first paragraph instance using Paragraph class
-1. Load Image from disc in [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPPImage)
+1. Load Image from disc in [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IPPImage)
 1. Set the bullet type to Picture and the set the image
 1. Set the Paragraph Text
 1. Set the Paragraph Indent to set the bullet
 1. Set the Color of Bullet
 1. Set the Height of Bullets
-1. Add the created paragraph in [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection
+1. Add the created paragraph in [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) paragraph collection
 1. Add the second paragraph and repeat the process given in previous steps
 1. Save the presentation
 
 This Java code shows you to create a picture bullet in a slide:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accessing the first slide
         var slide = pres.getSlides().get_Item(0);
         // Instantiate the image for bullets
         var picture;
-        var image = com.aspose.slides.Images.fromFile("asp1.jpg");
+        var image = aspose.slides.Images.fromFile("asp1.jpg");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -139,23 +139,23 @@ This Java code shows you to create a picture bullet in a slide:
             }
         }
         // Adding and accessing Autoshape
-        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
         // Accessing the text frame of created autoshape
         var txtFrm = aShp.getTextFrame();
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().removeAt(0);
         // Creating new paragraph
-        var para = new  com.aspose.slides.Paragraph();
+        var para = new  aspose.slides.Paragraph();
         para.setText("Welcome to Aspose.Slides");
         // Setting paragraph bullet style and image
-        para.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Picture);
+        para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Picture);
         para.getParagraphFormat().getBullet().getPicture().setImage(picture);
         // Setting Bullet Height
         para.getParagraphFormat().getBullet().setHeight(100);
         // Adding Paragraph to text frame
         txtFrm.getParagraphs().add(para);
         // Writing the presentation as a PPTX file
-        pres.save("Bullet.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Bullet.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -168,69 +168,69 @@ This Java code shows you to create a picture bullet in a slide:
 
 To create a bullet list that contains items on different levels—additional lists under the main bullet list—go through these steps:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide) object.
 1. Add an autoshape in selected slide.
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
-1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+1. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) of the added shape.
+1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe).
 1. Create the first paragraph instance using Paragraph class and with depth set to 0.
 1. Create the second paragraph instance using Paragraph class and with depth set to 1.
 1. Create the third paragraph instance using Paragraph class and with depth set to 2.
 1. Create the fourth paragraph instance using Paragraph class and with depth set to 3.
-1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
+1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
 This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in Java:
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accessing first slide
         var slide = pres.getSlides().get_Item(0);
         // Adding and accessing Autoshape
-        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
         // Accessing the text frame of created autoshape
         var txtFrm = aShp.addTextFrame("");
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().clear();
         // Creating first paragraph
-        var para1 = new  com.aspose.slides.Paragraph();
+        var para1 = new  aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para1.setText("Content");
-        para1.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
         para1.getParagraphFormat().getBullet().setChar(8226);
-        para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         // Setting bullet level
         para1.getParagraphFormat().setDepth(0);
         // Creating second paragraph
-        var para2 = new  com.aspose.slides.Paragraph();
+        var para2 = new  aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para2.setText("Second level");
-        para2.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
         para2.getParagraphFormat().getBullet().setChar('-');
-        para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         // Setting bullet level
         para2.getParagraphFormat().setDepth(1);
         // Creating third paragraph
-        var para3 = new  com.aspose.slides.Paragraph();
+        var para3 = new  aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para3.setText("Third level");
-        para3.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
         para3.getParagraphFormat().getBullet().setChar(8226);
-        para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         // Setting bullet level
         para3.getParagraphFormat().setDepth(2);
         // Creating fourth paragraph
-        var para4 = new  com.aspose.slides.Paragraph();
+        var para4 = new  aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para4.setText("Fourth Level");
-        para4.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
         para4.getParagraphFormat().getBullet().setChar('-');
-        para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         // Setting bullet level
         para4.getParagraphFormat().setDepth(3);
@@ -240,7 +240,7 @@ This code, which is an implementation of the steps above, shows you how to creat
         txtFrm.getParagraphs().add(para3);
         txtFrm.getParagraphs().add(para4);
         // saving the presentation as a PPTX file
-        pres.save("MultilevelBullet.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("MultilevelBullet.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -251,52 +251,52 @@ This code, which is an implementation of the steps above, shows you how to creat
 ## Create Custom Numbered List
 Aspose.Slides for Java provides a simple API to manage paragraphs with custom numbers formatting. To add a custom number list in a paragraph, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
-1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide) object.
+1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
+1. Access the desired slide in slide collection using [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide) object.
 1. Add an autoshape in selected slide.
-1. Access the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) of the added shape.
-1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe).
+1. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) of the added shape.
+1. Remove the default paragraph in the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe).
 1. Create the first paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 2
 1. Create the second paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 3
 1. Create the third paragraph instance using Paragraph class and set **NumberedBulletStartWith** to 7
-1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/textframe) paragraph collection.
+1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
 This Java code shows you how to create a numbered list in a slide:
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accessing first slide
         var slide = pres.getSlides().get_Item(0);
         // Adding and accessing Autoshape
-        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
         // Accessing the text frame of created autoshape
         var txtFrm = aShp.addTextFrame("");
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().clear();
         // First list
-        var paragraph1 = new  com.aspose.slides.Paragraph();
+        var paragraph1 = new  aspose.slides.Paragraph();
         paragraph1.setText("bullet 2");
         paragraph1.getParagraphFormat().setDepth(4);
         paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(2);
-        paragraph1.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Numbered);
+        paragraph1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
         txtFrm.getParagraphs().add(paragraph1);
-        var paragraph2 = new  com.aspose.slides.Paragraph();
+        var paragraph2 = new  aspose.slides.Paragraph();
         paragraph2.setText("bullet 3");
         paragraph2.getParagraphFormat().setDepth(4);
         paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(3);
-        paragraph2.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Numbered);
+        paragraph2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
         txtFrm.getParagraphs().add(paragraph2);
         // Second list
-        var paragraph5 = new  com.aspose.slides.Paragraph();
+        var paragraph5 = new  aspose.slides.Paragraph();
         paragraph5.setText("bullet 5");
         paragraph5.getParagraphFormat().setDepth(4);
         paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(5);
-        paragraph5.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Numbered);
+        paragraph5.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
         txtFrm.getParagraphs().add(paragraph5);
-        pres.save(resourcesOutputPath + "SetCustomBulletsNumber-slides.pptx.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save(resourcesOutputPath + "SetCustomBulletsNumber-slides.pptx.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

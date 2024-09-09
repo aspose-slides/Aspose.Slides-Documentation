@@ -23,7 +23,7 @@ In general, Aspose.Slides for Java can easily handle presentation files of aroun
 
 **Q: Can I change the size of the slides in a presentation?**
 
-**A**: You can use the `getSlideSize` method exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class to define the size of the slides in a presentation.
+**A**: You can use the `getSlideSize` method exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class to define the size of the slides in a presentation.
 
 **Q: Is there a way to define slides of different size in a presentation?**
 
@@ -37,13 +37,13 @@ In general, Aspose.Slides for Java can easily handle presentation files of aroun
 
 **Q: Is it possible to retrieve all the text from a presentation?**
 
-**A**: Aspose.Slides for Java provides the [SlideUtil](https://reference.aspose.com/slides/java/com.aspose.slides/slideutil/) class that provides various methods for retrieving whole text from the presentations.
+**A**: Aspose.Slides for Java provides the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/) class that provides various methods for retrieving whole text from the presentations.
 
 ## **Formatting and Images**
 
 **Q: How can I set the color of a table border?**
 
-**A**: You can change the color of all table borders or just the border around the entire table. For changing all borders, please use the `getCellFormat` method from the [ICell](https://reference.aspose.com/slides/java/com.aspose.slides/icell/) interface. For the border of the entire table, you should iterate cells and change the color of the outer borders.
+**A**: You can change the color of all table borders or just the border around the entire table. For changing all borders, please use the `getCellFormat` method from the [ICell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/icell/) interface. For the border of the entire table, you should iterate cells and change the color of the outer borders.
 
 **Q: What measure does Aspose.Slides for Java use to place pictures?**
 
@@ -53,7 +53,7 @@ In general, Aspose.Slides for Java can easily handle presentation files of aroun
 
 **Q: When converting PPT to PDF or images, why are the fonts different in the output documents?**
 
-**A**: This issue might indicate that the fonts used in the presentation are missing from the operating system on which the code was executed. You should install the fonts on the operating system or load them as external fonts using the [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/) class as shown below:
+**A**: This issue might indicate that the fonts used in the presentation are missing from the operating system on which the code was executed. You should install the fonts on the operating system or load them as external fonts using the [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/) class as shown below:
 ```cs
 var folders = new String[] { "path_to_a_folder_with_fonts" };
 FontsLoader.loadExternalFonts(folders);

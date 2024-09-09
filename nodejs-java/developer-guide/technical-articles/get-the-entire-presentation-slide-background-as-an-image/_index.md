@@ -19,7 +19,7 @@ keywords:
 In PowerPoint presentations, the slide background can consist of many elements. In addition to the image set as the [slide background](/slides/java/presentation-background/), the final background can be influenced by the presentation theme, color scheme, and the shapes placed on the master slide and layout slide.
 
 Aspose.Slides for Java does not provide a simple method to extract the entire presentation slide background as an image, but you can follow the steps below to do this:
-1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Load the presentation using the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 1. Get the slide size from the presentation.
 1. Select a slide.
 1. Create a temporary presentation.
@@ -32,17 +32,17 @@ The following code example extracts the entire presentation slide background as 
 ```javascript
     var slideIndex = 0;
     var imageScale = 1;
-    var presentation = new  com.aspose.slides.Presentation("sample.pptx");
+    var presentation = new  aspose.slides.Presentation("sample.pptx");
     var slideSize = presentation.getSlideSize().getSize();
     var slide = presentation.getSlides().get_Item(slideIndex);
-    var tempPresentation = new  com.aspose.slides.Presentation();
+    var tempPresentation = new  aspose.slides.Presentation();
     var slideWidth = slideSize.getWidth();
     var slideHeight = slideSize.getHeight();
-    tempPresentation.getSlideSize().setSize(slideWidth, slideHeight, com.aspose.slides.SlideSizeScaleType.DoNotScale);
+    tempPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.DoNotScale);
     var clonedSlide = tempPresentation.getSlides().addClone(slide);
     clonedSlide.getShapes().clear();
     var background = clonedSlide.getImage(imageScale, imageScale);
-    background.save("output.png", com.aspose.slides.ImageFormat.Png);
+    background.save("output.png", aspose.slides.ImageFormat.Png);
     tempPresentation.dispose();
     presentation.dispose();
 ```

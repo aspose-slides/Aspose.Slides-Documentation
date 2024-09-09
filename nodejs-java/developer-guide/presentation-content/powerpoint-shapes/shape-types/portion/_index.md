@@ -6,11 +6,11 @@ url: /java/portion/
 ---
 
 ## **Get Position Coordinates of Portion**
-[**getCoordinates()**](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) method has been added to [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPortion) and [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) class which allows retrieving the coordinates of the beginning of the portion.
+[**getCoordinates()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion#getCoordinates--) method has been added to [IPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/interfaces/IPortion) and [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/classes/Portion) class which allows retrieving the coordinates of the beginning of the portion.
 
 ```javascript
     // Instantiate Prseetation class that represents the PPTX
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Reshaping the context of presentation
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);

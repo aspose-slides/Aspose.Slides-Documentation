@@ -12,16 +12,16 @@ The following example shows how to convert a presentation to a PDF notes documen
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var presIn = new  com.aspose.slides.Presentation("SelectedSlides.pptx");
-    var presOut = new  com.aspose.slides.Presentation();
+    var presIn = new  aspose.slides.Presentation("SelectedSlides.pptx");
+    var presOut = new  aspose.slides.Presentation();
     try {
         var slide = presIn.getSlides().get_Item(0);
         presOut.getSlides().insertClone(0, slide);
         // Setting Slide Type and Size
-        presOut.getSlideSize().setSize(612.0, 792.0, com.aspose.slides.SlideSizeScaleType.EnsureFit);
-        var pdfOptions = new  com.aspose.slides.PdfOptions();
-        pdfOptions.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomFull);
-        presOut.save("PDF-SelectedSlide.pdf", com.aspose.slides.SaveFormat.Pdf, pdfOptions);
+        presOut.getSlideSize().setSize(612.0, 792.0, aspose.slides.SlideSizeScaleType.EnsureFit);
+        var pdfOptions = new  aspose.slides.PdfOptions();
+        pdfOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+        presOut.save("PDF-SelectedSlide.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
     } finally {
         if (presIn != null) {
             presIn.dispose();
@@ -33,14 +33,14 @@ The following example shows how to convert a presentation to a PDF notes documen
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
-The [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) method exposed by [**Presentation**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. The code snippets below update the sample presentation to PDF in Notes Slide view.
+The [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method exposed by [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. The code snippets below update the sample presentation to PDF in Notes Slide view.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("presentation.pptx");
+    var pres = new  aspose.slides.Presentation("presentation.pptx");
     try {
-        var pdfOptions = new  com.aspose.slides.PdfOptions();
-        pdfOptions.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomFull);
-        pres.save(resourcesOutputPath + "PDF-Notes.pdf", com.aspose.slides.SaveFormat.Pdf, pdfOptions);
+        var pdfOptions = new  aspose.slides.PdfOptions();
+        pdfOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+        pres.save(resourcesOutputPath + "PDF-Notes.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
     } finally {
         if (pres != null) {
             pres.dispose();

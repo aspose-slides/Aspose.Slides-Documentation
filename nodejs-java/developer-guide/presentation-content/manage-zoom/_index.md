@@ -23,13 +23,13 @@ Slide zooms help you drill into multiple pieces of information while you feel li
 
 ![overview_image](slidezoomsel.png)
 
-For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/java/com.aspose.slides/ZoomImageType) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IZoomFrame) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
+For slide zoom objects, Aspose.Slides provides the [ZoomImageType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ZoomImageType) enumeration, the [IZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IZoomFrame) interface, and some methods under the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface.
 
 ### **Creating Zoom Frames**
 
 You can add a zoom frame on a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create new slides to which you intend to link the zoom frames. 
 3.	Add an identification text and background to the created slides.
 4.  Add zoom frames (containing the references to created slides) to the first slide.
@@ -38,30 +38,30 @@ You can add a zoom frame on a slide this way:
 This Java code shows you how to create a zoom frame on a slide:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds new slides to the presentation
         var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
         var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
         // Creates a background for the second slide
-        slide2.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
-        slide2.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+        slide2.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
         // Creates a text box for the second slide
-        var autoshape = slide2.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+        var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
         autoshape.getTextFrame().setText("Second Slide");
         // Creates a background for the third slide
-        slide3.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
-        slide3.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+        slide3.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
         // Create a text box for the third slide
-        autoshape = slide3.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+        autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
         autoshape.getTextFrame().setText("Trird Slide");
         // Adds ZoomFrame objects
         pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
         pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -70,30 +70,30 @@ This Java code shows you how to create a zoom frame on a slide:
 ```
 ### **Creating Zoom Frames with Custom Images**
 With Aspose.Slides for Java, you can create a zoom frame with a different slide preview image this way: 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create a new slide to which you intend to link the zoom frame. 
 3.	Add an identification text and background to the slide.
-4.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+4.  Create an [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
 5.  Add zoom frames (containing the reference to created slide) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
 This Java code shows you how to create a zoom frame with a different image:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds a new slide to the presentation
         var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
         // Creates a background for the second slide
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
         // Creates a text box for the third slide
-        var autoshape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+        var autoshape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
         autoshape.getTextFrame().setText("Second Slide");
         // Creates a new image for the zoom object
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -104,7 +104,7 @@ This Java code shows you how to create a zoom frame with a different image:
         // Adds the ZoomFrame object
         pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -117,11 +117,11 @@ In the previous sections, we showed you how to create simple zoom frames. To cre
 
 You can control a zoom frame's formatting on a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create new slides to link to which you intend to link the zoom frame. 
 3.	Add some identification text and background to the created slides.
 4.  Add zoom frames (containing the references to the created slides) to the first slide.
-5.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+5.  Create an [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
 6.  Set a custom image for the first zoom frame object.
 7.  Change the line format for the second zoom frame object.
 8.  Remove the background from an image of the second zoom frame object.
@@ -130,31 +130,31 @@ You can control a zoom frame's formatting on a slide this way:
 This Java code shows you how to change a zoom frame's formatting on a slide: 
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds new slides to the presentation
         var slide2 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
         var slide3 = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
         // Creates a background for the second slide
-        slide2.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
-        slide2.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide2.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+        slide2.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide2.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
         // Creates a text box for the second slide
-        var autoshape = slide2.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+        var autoshape = slide2.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
         autoshape.getTextFrame().setText("Second Slide");
         // Creates a background for the third slide
-        slide3.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
-        slide3.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide3.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+        slide3.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide3.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "darkGray"));
         // Creates a text box for the third slide
-        autoshape = slide3.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
+        autoshape = slide3.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 500, 200);
         autoshape.getTextFrame().setText("Trird Slide");
         // Adds ZoomFrame objects
         var zoomFrame1 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 250, 200, slide2);
         var zoomFrame2 = pres.getSlides().get_Item(0).getShapes().addZoomFrame(200, 250, 250, 200, slide3);
         // Creates a new image for the zoom object
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -166,13 +166,13 @@ This Java code shows you how to change a zoom frame's formatting on a slide:
         zoomFrame1.setImage(picture);
         // Sets a zoom frame format for the zoomFrame2 object
         zoomFrame2.getLineFormat().setWidth(5);
-        zoomFrame2.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        zoomFrame2.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         zoomFrame2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "pink"));
-        zoomFrame2.getLineFormat().setDashStyle(com.aspose.slides.LineDashStyle.DashDot);
+        zoomFrame2.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
         // Setting for Do not show background for zoomFrame2 object
         zoomFrame2.setShowBackground(false);
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -187,13 +187,13 @@ A section zoom is a link to a section in your presentation. You can use section 
 
 ![overview_image](seczoomsel.png)
 
-For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionZoomFrame) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
+For section zoom objects, Aspose.Slides provides the [ISectionZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISectionZoomFrame) interface and some methods under the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface.
 
 ### **Creating Section Zoom Frames**
 
 You can add a section zoom frame to a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create a new slide. 
 3.	Add an identification background to the created slide.
 4.  Create a new section to which you intend to link the zoom frame. 
@@ -203,19 +203,19 @@ You can add a section zoom frame to a slide this way:
 This Java code shows you how to create a zoom frame on a slide:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds a new slide to the presentation
         var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new Section to the presentation
         pres.getSections().addSection("Section 1", slide);
         // Adds a SectionZoomFrame object
         var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1));
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -226,29 +226,29 @@ This Java code shows you how to create a zoom frame on a slide:
 
 Using Aspose.Slides for Java, you can create a section zoom frame with a different slide preview image this way: 
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create a new slide.
 3.	Add an identification background to created slide.
 4.	Create a new section to which you intend to link the zoom frame. 
-5.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+5.  Create an [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
 5.  Add a section zoom frame (containing a reference to the created section) to the first slide.
 6.	Write the modified presentation as a PPTX file.
 
 This Java code shows you how to create a zoom frame with a different image:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds new slide to the presentation
         var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new Section to the presentation
         pres.getSections().addSection("Section 1", slide);
         // Creates a new image for the zoom object
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -259,7 +259,7 @@ This Java code shows you how to create a zoom frame with a different image:
         // Adds SectionZoomFrame object
         var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -273,13 +273,13 @@ To create more complicated section zoom frames, you have to alter a simple frame
 
 You can control a section zoom frame's formatting on a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create a new slide.
 3.	Add identification background to created slide.
 4.	Create a new section to which you intend to link the zoom frame. 
 5.	Add a section zoom frame (containing references to created section) to the first slide.
 6.	Change the size and position for the created section zoom object.
-7.	Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+7.	Create an [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPPImage) object by adding an image to the Images collection associated with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
 8.	Set a custom image for the created section zoom frame object.
 9.	Set the *return to the original slide from the linked section* ability. 
 10.	Remove the background from an image of the section zoom frame object.
@@ -290,13 +290,13 @@ You can control a section zoom frame's formatting on a slide this way:
 This Java code shows you how to change a section zoom frame's formatting:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds a new slide to the presentation
         var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "yellow"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new Section to the presentation
         pres.getSections().addSection("Section 1", slide);
         // Add SectionZoomFrame object
@@ -307,7 +307,7 @@ This Java code shows you how to change a section zoom frame's formatting:
         sectionZoomFrame.setWidth(100);
         sectionZoomFrame.setHeight(75);
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(image);
         } finally {
@@ -318,13 +318,13 @@ This Java code shows you how to change a section zoom frame's formatting:
         sectionZoomFrame.setImage(picture);
         sectionZoomFrame.setReturnToParent(true);
         sectionZoomFrame.setShowBackground(false);
-        sectionZoomFrame.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        sectionZoomFrame.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         sectionZoomFrame.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-        sectionZoomFrame.getLineFormat().setDashStyle(com.aspose.slides.LineDashStyle.DashDot);
+        sectionZoomFrame.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
         sectionZoomFrame.getLineFormat().setWidth(2.5);
         sectionZoomFrame.setTransitionDuration(1.5);
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -340,13 +340,13 @@ A summary zoom is like a landing page where all the pieces of your presentation 
 
 ![overview_image](sumzoomsel.png)
 
-For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) interface.
+For summary zoom objects, Aspose.Slides provides the [ISummaryZoomFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISummaryZoomFrame), [ISummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISummaryZoomSection), and [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISummaryZoomSectionCollection) interfaces and some methods under the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface.
 
 ### **Creating Summary Zoom**
 
 You can add a summary zoom frame to a slide this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add the summary zoom frame to the first slide.
 4.	Write the modified presentation as a PPTX file.
@@ -354,40 +354,40 @@ You can add a summary zoom frame to a slide this way:
 This Java code shows you how to create a summary zoom frame on a slide:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds a new slide to the presentation
         var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 1", slide);
         // Adds a new slide to the presentation
         slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 2", slide);
         // Adds a new slide to the presentation
         slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 3", slide);
         // Adds a new slide to the presentation
         slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "green"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 4", slide);
         // Adds a SummaryZoomFrame object
         var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -397,9 +397,9 @@ This Java code shows you how to create a summary zoom frame on a slide:
 
 ### **Adding and Removing Summary Zoom Section**
 
-All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ISummaryZoomSectionCollection) interface this way:
+All sections in a summary zoom frame are represented by [ISummaryZoomSection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISummaryZoomSection) objects, which are stored in the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISummaryZoomSectionCollection) object. You can add or remove a summary zoom section object through the [ISummaryZoomSectionCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISummaryZoomSectionCollection) interface this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add a summary zoom frame into the first slide.
 4.  Add a new slide and section to the presentation.
@@ -410,29 +410,29 @@ All sections in a summary zoom frame are represented by [ISummaryZoomSection](ht
 This Java code shows you how to add and remove sections in a summary zoom frame:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds a new slide to the presentation
         var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 1", slide);
         // Adds a new slide to the presentation
         slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 2", slide);
         // Adds SummaryZoomFrame object
         var summaryZoomFrame = pres.getSlides().get_Item(0).getShapes().addSummaryZoomFrame(150, 50, 300, 200);
         // Adds a new slide to the presentation
         slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "magenta"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         var section3 = pres.getSections().addSection("Section 3", slide);
         // Adds a section to the Summary Zoom
@@ -440,7 +440,7 @@ This Java code shows you how to add and remove sections in a summary zoom frame:
         // Removes section from the Summary Zoom
         summaryZoomFrame.getSummaryZoomCollection().removeSummaryZoomSection(pres.getSections().get_Item(1));
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -454,11 +454,11 @@ To create more complicated summary zoom section objects, you have to alter a sim
 
 You can control the formatting for a summary zoom section object in a summary zoom frame this way:
 
-1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1.	Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2.	Create new slides with identification background and new sections for created slides.
 3.  Add a summary zoom frame to the first slide.
 4.  Get a summary zoom section object for the first object from the `ISummaryZoomSectionCollection`.
-7.  Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/IPPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) object that will be used to fill the frame.
+7.  Create an [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPPImage) object by adding an image to the images collection associated with the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) object that will be used to fill the frame.
 8.  Set a custom image for the created section zoom frame object.
 9.  Set the *return to the original slide from the linked section* ability. 
 11. Change the line format for the second zoom frame object.
@@ -468,20 +468,20 @@ You can control the formatting for a summary zoom section object in a summary zo
 This Java code shows you how to change the formatting for a summary zoom section object:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds a new slide to the presentation
         var slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "gray"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 1", slide);
         // Adds a new slide to the presentation
         slide = pres.getSlides().addEmptySlide(pres.getSlides().get_Item(0).getLayoutSlide());
-        slide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        slide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         slide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "cyan"));
-        slide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        slide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
         // Adds a new section to the presentation
         pres.getSections().addSection("Section 2", slide);
         // Adds a SummaryZoomFrame object
@@ -490,7 +490,7 @@ This Java code shows you how to change the formatting for a summary zoom section
         var summarySection = summaryZoomFrame.getSummaryZoomCollection().get_Item(0);
         // Formatting for SummaryZoomSection object
         var picture;
-        var image = com.aspose.slides.Images.fromFile("image.png");
+        var image = aspose.slides.Images.fromFile("image.png");
         try {
             picture = pres.getImages().addImage(picture);
         } finally {
@@ -500,13 +500,13 @@ This Java code shows you how to change the formatting for a summary zoom section
         }
         summarySection.setImage(picture);
         summarySection.setReturnToParent(false);
-        summarySection.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        summarySection.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         summarySection.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "black"));
-        summarySection.getLineFormat().setDashStyle(com.aspose.slides.LineDashStyle.DashDot);
+        summarySection.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.DashDot);
         summarySection.getLineFormat().setWidth(1.5);
         summarySection.setTransitionDuration(1.5);
         // Saves the presentation
-        pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {

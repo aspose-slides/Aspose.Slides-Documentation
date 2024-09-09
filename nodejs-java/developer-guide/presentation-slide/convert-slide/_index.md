@@ -12,15 +12,15 @@ Aspose.Slides for Java allows you to convert slides (in presentations) to images
 To convert a slide to an image, do this: 
 
 1. First,
-   * convert the slide to a Images first by using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method or
+   * convert the slide to a Images first by using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method or
 
 2. Second, set additional options for conversion and convertible slide objects through
-   * the [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) interface or
-   * the [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions) interface. 
+   * the [ITiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) interface or
+   * the [IRenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IRenderingOptions) interface.
 
 ## **About Bitmap and Other Image Formats**
 
-In Java, a [Images](https://reference.aspose.com/slides/java/com.aspose.slides/Images)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
+In Java, a [Images](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
 
 {{% alert title="Info" color="info" %}}
 
@@ -33,14 +33,14 @@ Aspose recently developed an online [Text to GIF](https://products.aspose.app/sl
 This Java code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Converts the first slide in the presentation to a Images object
         var slideImage = pres.getSlides().get_Item(0).getImage();
         // Saves the image in the PNG format
         try {
             // save the image on the disk.
-            slideImage.save("Slide_0.png", com.aspose.slides.ImageFormat.Png);
+            slideImage.save("Slide_0.png", aspose.slides.ImageFormat.Png);
         } finally {
             if (slideImage != null) {
                 slideImage.dispose();
@@ -53,18 +53,18 @@ This Java code shows you how to convert the first slide of a presentation to a b
     }
 ```
 
-This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
+This sample code shows you how to convert the first slide of a presentation to a bitmap object using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Gets the presentation slide size
         var slideSize = java.newInstanceSync("java.awt.Dimension", slideSize.getWidth(), slideSize.getHeight());
         // Creates a Images with the slide size
-        var slideImage = sld.getImage(new  com.aspose.slides.RenderingOptions(), slideSize);
+        var slideImage = sld.getImage(new  aspose.slides.RenderingOptions(), slideSize);
         try {
             // save the image on the disk.
-            slideImage.save("Slide_0.png", com.aspose.slides.ImageFormat.Png);
+            slideImage.save("Slide_0.png", aspose.slides.ImageFormat.Png);
         } finally {
             if (slideImage != null) {
                 slideImage.dispose();
@@ -85,19 +85,19 @@ You can convert a slide to a Images object and then use the object directly some
 
 ## **Converting Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-com.aspose.slides.IRenderingOptions-) method, you can convert a slide to an image with specific dimensions (length and width).
+You may need to get an image of a certain size. Using an overload from the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-aspose.slides.IRenderingOptions-) method, you can convert a slide to an image with specific dimensions (length and width).
 
-This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method in Java:
+This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method in Java:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Converts the first slide in the presentation to a Bitmap with the specified size
         var slideImage = pres.getSlides().get_Item(0).getImage(java.newInstanceSync("java.awt.Dimension", 1820, 1040));
         // Saves the image in the JPEG format
         try {
             // save the image on the disk.
-            slideImage.save("Slide_0.jpg", com.aspose.slides.ImageFormat.Jpeg);
+            slideImage.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             if (slideImage != null) {
                 slideImage.dispose();
@@ -114,25 +114,25 @@ This sample code demonstrates the proposed conversion using the [getImage](https
 
 Some slides contain notes and comments. 
 
-Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) and [IRenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IRenderingOptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
+Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) and [IRenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IRenderingOptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
 
 {{% alert title="Info" color="info" %}} 
 
-With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface, you get to specify your preferred position for notes and comments in the resulting image. 
+With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions) interface, you get to specify your preferred position for notes and comments in the resulting image.
 
 {{% /alert %}} 
 
 This Java code demonstrates the conversion process for a slide with notes and comments:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("PresentationNotesComments.pptx");
+    var pres = new  aspose.slides.Presentation("PresentationNotesComments.pptx");
     try {
         // Creates the rendering options
-        var options = new  com.aspose.slides.RenderingOptions();
+        var options = new  aspose.slides.RenderingOptions();
         // Sets the position of the notes on the page
-        options.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomTruncated);
+        options.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
         // Sets the position of the comments on the page
-        options.getNotesCommentsLayouting().setCommentsPosition(com.aspose.slides.CommentsPositions.Right);
+        options.getNotesCommentsLayouting().setCommentsPosition(aspose.slides.CommentsPositions.Right);
         // Sets the width of the comment output area
         options.getNotesCommentsLayouting().setCommentsAreaWidth(500);
         // Sets the color for the comments area
@@ -141,7 +141,7 @@ This Java code demonstrates the conversion process for a slide with notes and co
         var slideImage = pres.getSlides().get_Item(0).getImage(options, 2.0, 2.0);
         // Saves the image in the GIF format
         try {
-            slideImage.save("Slide_Notes_Comments_0.gif", com.aspose.slides.ImageFormat.Gif);
+            slideImage.save("Slide_Notes_Comments_0.gif", aspose.slides.ImageFormat.Gif);
         } finally {
             if (slideImage != null) {
                 slideImage.dispose();
@@ -154,23 +154,23 @@ This Java code demonstrates the conversion process for a slide with notes and co
     }
 ```
 
-This Java code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
+This Java code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("PresentationNotes.pptx");
+    var pres = new  aspose.slides.Presentation("PresentationNotes.pptx");
     try {
         // Gets the presentation notes size
         var notesSize = pres.getNotesSize().getSize();
         // Creates the rendering options
-        var options = new  com.aspose.slides.RenderingOptions();
+        var options = new  aspose.slides.RenderingOptions();
         // Sets the position of the notes
-        options.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomTruncated);
+        options.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
         // Creates a Images with the notes' size
         var slideImage = pres.getSlides().get_Item(0).getImage(options, notesSize);
         // Saves the image in PNG format
         try {
             // save the image on the disk.
-            slideImage.save("Slide_0.png", com.aspose.slides.ImageFormat.Png);
+            slideImage.save("Slide_0.png", aspose.slides.ImageFormat.Png);
         } finally {
             if (slideImage != null) {
                 slideImage.dispose();
@@ -185,30 +185,30 @@ This Java code demonstrates the conversion process for a slide with notes using 
 
 {{% alert title="Note" color="warning" %}} 
 
-In any slide to image conversion process, the [NotesPositions](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions#setNotesPosition-int-) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be large, which means it might not fit into the specified image size. 
+In any slide to image conversion process, the [NotesPositions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions#setNotesPosition-int-) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be large, which means it might not fit into the specified image size.
 
 {{% /alert %}} 
 
 ## **Converting Slides to Images Using ITiffOptions**
 
-The [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image. 
+The [ITiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
 
 This Java code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("PresentationNotesComments.pptx");
+    var pres = new  aspose.slides.Presentation("PresentationNotesComments.pptx");
     try {
         // Gets a slide by its index
         var slide = pres.getSlides().get_Item(0);
         // Creates a TiffOptions object
-        var options = new  com.aspose.slides.TiffOptions();
+        var options = new  aspose.slides.TiffOptions();
         options.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));
         // Set the font used in case source font is not found
         options.setDefaultRegularFont("Arial Black");
         // Set the position of the notes on the page
-        options.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomTruncated);
+        options.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
         // Sets the pixel format (black and white)
-        options.setPixelFormat(com.aspose.slides.ImagePixelFormat.Format1bppIndexed);
+        options.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);
         // Sets the resolution
         options.setDpiX(300);
         options.setDpiY(300);
@@ -216,7 +216,7 @@ This Java code demonstrates a conversion process where ITiffOptions is used to o
         var slideImage = slide.getImage(options);
         // Saves the image in TIFF format
         try {
-            slideImage.save("PresentationNotesComments.tiff", com.aspose.slides.ImageFormat.Tiff);
+            slideImage.save("PresentationNotesComments.tiff", aspose.slides.ImageFormat.Tiff);
         } finally {
             if (slideImage != null) {
                 slideImage.dispose();
@@ -242,7 +242,7 @@ Aspose.Slides allows you to convert all slides in a single presentation to image
 This sample code shows you how to convert all slides in a presentation to images in Java:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Render presentation to images array slide by slide
         for (var i = 0; i < pres.getSlides().size(); i++) {
@@ -254,7 +254,7 @@ This sample code shows you how to convert all slides in a presentation to images
             var slideImage = pres.getSlides().get_Item(i).getImage(2.0, 2.0);
             // Save the image in PNG format
             try {
-                slideImage.save(("Slide_" + i) + ".png", com.aspose.slides.ImageFormat.Png);
+                slideImage.save(("Slide_" + i) + ".png", aspose.slides.ImageFormat.Png);
             } finally {
                 if (slideImage != null) {
                     slideImage.dispose();

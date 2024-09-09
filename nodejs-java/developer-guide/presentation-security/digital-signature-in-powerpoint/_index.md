@@ -20,25 +20,25 @@ Presentation may contain more than one digital signatures. After the digital sig
 
 
 
-To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature**](https://reference.aspose.com/slides/java/com.aspose.slides/IDigitalSignature) interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IDigitalSignatureCollection) interface and [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/java/com.aspose.slides/IPresentation#getDigitalSignatures--) method. Currently, digital signatures are supported for PPTX format only.
+To sign presentation or check the authenticity of presentation signatures, **Aspose.Slides API** provides [**IDigitalSignature**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IDigitalSignature) interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IDigitalSignatureCollection) interface and [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentation#getDigitalSignatures--) method. Currently, digital signatures are supported for PPTX format only.
 ## **Add Digital Signature from PFX Certificate**
 The code sample below demonstrates how to add digital signature from a PFX certificate:
 
-1. Open PFX file and pass PFX password to [**DigitalSignature**](https://reference.aspose.com/slides/java/com.aspose.slides/DigitalSignature) object.
+1. Open PFX file and pass PFX password to [**DigitalSignature**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DigitalSignature) object.
 1. Add created signature to the presentation object.
 
 ```javascript
     // Opening the presentation file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Create DigitalSignature object with PFX file and PFX password
-        var signature = new  com.aspose.slides.DigitalSignature("testsignature1.pfx", "testpass1");
+        var signature = new  aspose.slides.DigitalSignature("testsignature1.pfx", "testpass1");
         // Comment new digital signature
         signature.setComments("Aspose.Slides digital signing test.");
         // Add digital signature to presentation
         pres.getDigitalSignatures().add(signature);
         // Save presentation
-        pres.save("SomePresentationSigned.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("SomePresentationSigned.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         pres.dispose();
     }
@@ -48,7 +48,7 @@ Now its possible to check if the presentation was digitally signed and has not 
 
 ```javascript
     // Open presentation
-    var pres = new  com.aspose.slides.Presentation("SomePresentationSigned.pptx");
+    var pres = new  aspose.slides.Presentation("SomePresentationSigned.pptx");
     try {
         if (pres.getDigitalSignatures().size() > 0) {
             var allSignaturesAreValid = true;

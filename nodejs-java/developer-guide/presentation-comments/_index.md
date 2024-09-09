@@ -15,17 +15,17 @@ You may want to use comments to provide feedback or communicate with your collea
 
 To allow you to use comments in PowerPoint presentations, Aspose.Slides for Java provides
 
-* The [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class, which contains the collections of authors (from the [ICommentAuthorCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICommentAuthorCollection) interface). The authors add comments to slides. 
-* The  [ICommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/ICommentCollection) interface, which contains the collection of comments for individual authors. 
-* The  [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc. 
-* The [CommentAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/CommentAuthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc. 
+* The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class, which contains the collections of authors (from the [ICommentAuthorCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICommentAuthorCollection) interface). The authors add comments to slides.
+* The  [ICommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICommentCollection) interface, which contains the collection of comments for individual authors.
+* The  [IComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IComment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc.
+* The [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc.
 
 ## **Add Slide Comment**
 This Java code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds an empty slide
         pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
@@ -43,7 +43,7 @@ This Java code shows you how to add a comment to a slide in a PowerPoint present
         var Comments = slide.getSlideComments(author);
         // Accesses the comment at index 0 for slide 1
         var str = Comments[0].getText();
-        pres.save("Comments_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Comments_out.pptx", aspose.slides.SaveFormat.Pptx);
         if (Comments.length > 0) {
             // Selects the Author's comments collection at index 0
             var commentCollection = Comments[0].getAuthor().getComments();
@@ -61,7 +61,7 @@ This Java code shows you how to access an existing comment on a slide in a Power
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  com.aspose.slides.Presentation("Comments1.pptx");
+    var pres = new  aspose.slides.Presentation("Comments1.pptx");
     try {
         pres.getCommentAuthors().forEach(function(commentAuthor) {
             var author = commentAuthor;
@@ -79,12 +79,12 @@ This Java code shows you how to access an existing comment on a slide in a Power
 
 
 ## **Reply Comments**
-A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [getParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#getParentComment--) or [setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) methods (from the [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment) interface), you can set or get a parent comment. 
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IComment#getParentComment--) or [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IComment#setParentComment-aspose.slides.IComment-) methods (from the [IComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IComment) interface), you can set or get a parent comment.
 
 This Java code shows you how to add comments and get replies to them:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds a comment
         var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
@@ -115,10 +115,10 @@ This Java code shows you how to add comments and get replies to them:
             console.log((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
             console.log();
         }
-        pres.save("parent_comment.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
         // Removes comment1 and all replies to it
         comment1.remove();
-        pres.save("remove_comment.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("remove_comment.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -128,8 +128,8 @@ This Java code shows you how to add comments and get replies to them:
 
 {{% alert color="warning" title="Attention" %}} 
 
-* When the [Remove](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#remove--) method (from the [IComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment) interface) is used to delete a comment, the replies to the comment also get deleted. 
-* If the [setParentComment](https://reference.aspose.com/slides/java/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) setting results in a circular reference, [PptxEditException](https://reference.aspose.com/slides/java/com.aspose.slides/PptxEditException) will be thrown.
+* When the [Remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IComment#remove--) method (from the [IComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IComment) interface) is used to delete a comment, the replies to the comment also get deleted.
+* If the [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IComment#setParentComment-aspose.slides.IComment-) setting results in a circular reference, [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) will be thrown.
 
 {{% /alert %}}
 
@@ -137,16 +137,16 @@ This Java code shows you how to add comments and get replies to them:
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/ModernComment) class. The [addModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) and [insertModernComment](https://reference.aspose.com/slides/java/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) methods were added to the [CommentCollection](https://reference.aspose.com/slides/java/com.aspose.slides/CommentCollection) class. 
+In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ModernComment) class. The [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) and [insertModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) methods were added to the [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) class.
 
 This Java code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
         var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("Point2D.Float", 100, 100), java.newInstanceSync("Date", ));
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -161,7 +161,7 @@ This Java code shows you how to add a modern comment to a slide in a PowerPoint 
 This Java code shows you how to remove all comments and authors in a presentation:
 
 ```javascript
-    var presentation = new  com.aspose.slides.Presentation("example.pptx");
+    var presentation = new  aspose.slides.Presentation("example.pptx");
     try {
         // Deletes all comments from the presentation
         presentation.getCommentAuthors().forEach(function(author) {
@@ -169,7 +169,7 @@ This Java code shows you how to remove all comments and authors in a presentatio
         });
         // Deletes all authors
         presentation.getCommentAuthors().clear();
-        presentation.save("example_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (presentation != null) {
             presentation.dispose();
@@ -182,7 +182,7 @@ This Java code shows you how to remove all comments and authors in a presentatio
 This Java code shows you how to delete specific comments on a slide:
 
 ```javascript
-    var presentation = new  com.aspose.slides.Presentation();
+    var presentation = new  aspose.slides.Presentation();
     try {
         var slide = presentation.getSlides().get_Item(0);
         // add comments...
@@ -201,7 +201,7 @@ This Java code shows you how to delete specific comments on a slide:
                 commentAuthor.getComments().remove(comment);
             }
         });
-        presentation.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (presentation != null) {
             presentation.dispose();

@@ -11,18 +11,18 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 
 {{% /alert %}} 
 ## **Public API Changes**
-#### **renderToGraphics methods were added to com.aspose.slides.ISlide, Slide**
+#### **renderToGraphics methods were added to aspose.slides.ISlide, Slide**
 The following methods have been added:
 
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, int width, int height);
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics, float scale);
 renderToGraphics(boolean withNotes, java.awt.Graphics2D graphics);
-were added to com.aspose.slides.ISlide interface and to com.aspose.slides.Slide class. These methods allow render a slide to specified Graphics2D object.
+were added to aspose.slides.ISlide interface and to aspose.slides.Slide class. These methods allow render a slide to specified Graphics2D object.
 
 ```javascript
     var bufferedImage = java.newInstanceSync("BufferedImage", 960, 720, java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
     var g2d = bufferedImage.createGraphics();
-    var pres = new  com.aspose.slides.Presentation("SomePresentation.pptx");
+    var pres = new  aspose.slides.Presentation("SomePresentation.pptx");
     pres.getSlides().get_Item(0).renderToGraphics(false, g2d, bufferedImage.getWidth(), bufferedImage.getHeight());
     g2d.dispose();
     java.callStaticMethodSync("javax.imageio.ImageIO", "write", bufferedImage, "png", fileName);

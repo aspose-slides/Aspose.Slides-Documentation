@@ -29,17 +29,17 @@ This Java shows you how to add a large video file through the BLOB process to a 
 ```javascript
     var pathToVeryLargeVideo = "veryLargeVideo.avi";
     // Creates a new presentation to which the video will be added
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var fileStream = java.newInstanceSync("java.io.FileInputStream", pathToVeryLargeVideo);
         try {
             // Let's add the video to the presentation - we chose the KeepLocked behavior because we do
             // not intend to access the "veryLargeVideo.avi" file.
-            var video = pres.getVideos().addVideo(fileStream, com.aspose.slides.LoadingStreamBehavior.KeepLocked);
+            var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
             pres.getSlides().get_Item(0).getShapes().addVideoFrame(0, 0, 480, 270, video);
             // Saves the presentation. While a large presentation gets outputted, the memory consumption
             // stays low through the pres object's lifecycle
-            pres.save("presentationWithLargeVideo.pptx", com.aspose.slides.SaveFormat.Pptx);
+            pres.save("presentationWithLargeVideo.pptx", aspose.slides.SaveFormat.Pptx);
         } finally {
             if (fileStream != null) {
                 fileStream.close();
@@ -61,11 +61,11 @@ This code in Java demonstrates the described operation:
 
 ```javascript
     var hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
-    var loadOptions = new  com.aspose.slides.LoadOptions();
+    var loadOptions = new  aspose.slides.LoadOptions();
     // Locks the source file and does NOT load it into memory
-    loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(com.aspose.slides.PresentationLockingBehavior.KeepLocked);
+    loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
     // create the Presentation's instance, lock the "hugePresentationWithAudiosAndVideos.pptx" file.
-    var pres = new  com.aspose.slides.Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions);
+    var pres = new  aspose.slides.Presentation(hugePresentationWithAudiosAndVideosFile, loadOptions);
     try {
         // Let's save each video to a file. To prevent high memory usage, we need a buffer that will be used
         // to transfer the data from the presentation's video stream to a stream for a newly created video file.
@@ -101,24 +101,24 @@ This code in Java demonstrates the described operation:
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://reference.aspose.com/slides/java/com.aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/java/com.aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB. 
+With methods from the [**IImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
 
 This Java code shows you how to add a large image through the BLOB process:
 
 ```javascript
     var pathToLargeImage = "large_image.jpg";
     // creates a new presentation to which the image will be added.
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var fileStream = java.newInstanceSync("java.io.FileInputStream", pathToLargeImage);
         try {
             // Let's add the image to the presentation - we choose KeepLocked behavior because we do
             // NOT intend to access the "largeImage.png" file.
-            var img = pres.getImages().addImage(fileStream, com.aspose.slides.LoadingStreamBehavior.KeepLocked);
-            pres.getSlides().get_Item(0).getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 0, 0, 300, 200, img);
+            var img = pres.getImages().addImage(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+            pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, 300, 200, img);
             // Saves the presentation. While a large presentation gets outputted, the memory consumption
             // stays low through the pres object's lifecycle
-            pres.save("presentationWithLargeImage.pptx", com.aspose.slides.SaveFormat.Pptx);
+            pres.save("presentationWithLargeImage.pptx", aspose.slides.SaveFormat.Pptx);
         } finally {
             if (fileStream != null) {
                 fileStream.close();
@@ -139,9 +139,9 @@ Typically, to load a large presentation, computers require a lot of temporary me
 Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this Java code:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("large.pptx");
+    var pres = new  aspose.slides.Presentation("large.pptx");
     try {
-        pres.save("large.pdf", com.aspose.slides.SaveFormat.Pdf);
+        pres.save("large.pdf", aspose.slides.SaveFormat.Pdf);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -156,12 +156,12 @@ But this method consumes around 1.6 GB of temporary memory.
 Through the process involving a BLOB, you can load up a large presentation while using little memory. This Java code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```javascript
-    var loadOptions = new  com.aspose.slides.LoadOptions();
-    loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(com.aspose.slides.PresentationLockingBehavior.KeepLocked);
+    var loadOptions = new  aspose.slides.LoadOptions();
+    loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
     loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-    var pres = new  com.aspose.slides.Presentation("large.pptx", loadOptions);
+    var pres = new  aspose.slides.Presentation("large.pptx", loadOptions);
     try {
-        pres.save("large.pdf", com.aspose.slides.SaveFormat.Pdf);
+        pres.save("large.pdf", aspose.slides.SaveFormat.Pdf);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -174,8 +174,8 @@ Through the process involving a BLOB, you can load up a large presentation while
 When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
 
 ```javascript
-    var loadOptions = new  com.aspose.slides.LoadOptions();
-    loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(com.aspose.slides.PresentationLockingBehavior.KeepLocked);
+    var loadOptions = new  aspose.slides.LoadOptions();
+    loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
     loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
     loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 ```

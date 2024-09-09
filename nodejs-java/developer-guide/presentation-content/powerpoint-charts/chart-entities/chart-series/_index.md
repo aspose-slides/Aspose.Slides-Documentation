@@ -16,7 +16,7 @@ With the [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.sl
 
 Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred value for `Overlap`. 
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Add a clustered column chart on a slide.
 1. Access the first chart series.
 1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
@@ -25,17 +25,17 @@ Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred va
 This Java code shows you how to set the overlap for a chart series:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Adds chart
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
         var series = chart.getChartData().getSeries();
         if (series.get_Item(0).getOverlap() == 0) {
             // Sets series overlap
             series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
         }
         // Writes the presentation file to disk
-        pres.save("SetChartSeriesOverlap_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("SetChartSeriesOverlap_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -46,7 +46,7 @@ This Java code shows you how to set the overlap for a chart series:
 ## **Change Series Color**
 Aspose.Slides for Java allows you to change a series' color this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Add chart on the slide.
 1. Access the series whose color you want to change. 
 1. Set your preferred fill type and fill color.
@@ -55,14 +55,14 @@ Aspose.Slides for Java allows you to change a series' color this way:
 This Java code shows you how to change a series' color:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("test.pptx");
+    var pres = new  aspose.slides.Presentation("test.pptx");
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Pie, 50, 50, 600, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
         var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
         point.setExplosion(30);
-        point.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -73,7 +73,7 @@ This Java code shows you how to change a series' color:
 ## **Change Series Category's Color**
 Aspose.Slides for Java allows you to change a series category's color this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Add chart on the slide.
 1. Access the series category whose color you want to change.
 1. Set your preferred fill type and fill color.
@@ -82,13 +82,13 @@ Aspose.Slides for Java allows you to change a series category's color this way:
 This code in Java shows you how to change a series category's color:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
         var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-        point.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -110,12 +110,12 @@ Aspose.Slides for Java allows you to update or change a series name in its chart
 This Java code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
         var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
         seriesCell.setValue("New name");
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -126,9 +126,9 @@ This Java code shows you how to change a series' name in its chart data `ChartDa
 This Java code shows you how to change a series name in its legend through`Series`:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
         var series = chart.getChartData().getSeries().get_Item(0);
         var name = series.getName();
         name.getAsCells().get_Item(0).setValue("New name");
@@ -143,7 +143,7 @@ This Java code shows you how to change a series name in its legend through`Serie
 
 Aspose.Slides for Java allows you to set the automatic fill color for chart series inside a plot area this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
 1. Access the chart series and set the fill color to Automatic.
@@ -152,16 +152,16 @@ Aspose.Slides for Java allows you to set the automatic fill color for chart seri
 This Java code shows you how to set the automatic fill color for a chart series:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Creates a clustered column chart
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
         // Sets series fill format to automatic
         for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
             chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
         }
         // Writes the presentation file to disk
-        pres.save("AutoFillSeries_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("AutoFillSeries_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -172,7 +172,7 @@ This Java code shows you how to set the automatic fill color for a chart series:
 ## **Set Chart Series Invert Fill Colors**
 Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
 1. Access the chart series and set the fill color to invert.
@@ -182,9 +182,9 @@ This Java code demonstrates the operation:
 
 ```javascript
     var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
         var workBook = chart.getChartData().getChartDataWorkbook();
         chart.getChartData().getSeries().clear();
         chart.getChartData().getCategories().clear();
@@ -200,10 +200,10 @@ This Java code demonstrates the operation:
         series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
         var seriesColor = series.getAutomaticSeriesColor();
         series.setInvertIfNegative(true);
-        series.getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
         series.getInvertedSolidFillColor().setColor(inverColor);
-        pres.save("SetInvertFillColorChart_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -218,9 +218,9 @@ Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNega
 This Java code demonstrates the operation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
         var series = chart.getChartData().getSeries();
         chart.getChartData().getSeries().clear();
         var chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
@@ -230,7 +230,7 @@ This Java code demonstrates the operation:
         chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
         chartSeries.setInvertIfNegative(false);
         chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-        pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -241,7 +241,7 @@ This Java code demonstrates the operation:
 ## **Clear Specific Data Points' Data**
 Aspose.Slides for Java allows you to clear the `DataPoints` data for a specific chart series this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain the reference of a slide through its index.
 3. Obtain the reference of a chart through its index.
 4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
@@ -251,7 +251,7 @@ Aspose.Slides for Java allows you to clear the `DataPoints` data for a specific 
 This Java code demonstrates the operation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("TestChart.pptx");
+    var pres = new  aspose.slides.Presentation("TestChart.pptx");
     try {
         var sl = pres.getSlides().get_Item(0);
         var chart = sl.getShapes().get_Item(0);
@@ -260,7 +260,7 @@ This Java code demonstrates the operation:
             dataPoint.getYValue().getAsCell().setValue(null);
         });
         chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-        pres.save("ClearSpecificChartSeriesDataPointsData.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -271,7 +271,7 @@ This Java code demonstrates the operation:
 ## **Set Series Gap Width**
 Aspose.Slides for Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
 1. Access any chart series.
@@ -282,12 +282,12 @@ This code in Java shows you how to set a series' Gap Width:
 
 ```javascript
     // Creates empty presentation
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accesses the presentation's first slide
         var slide = pres.getSlides().get_Item(0);
         // Adds a chart with default data
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
         // Sets the index of the chart data sheet
         var defaultWorksheetIndex = 0;
         // Gets the chart data worksheet
@@ -311,7 +311,7 @@ This code in Java shows you how to set a series' Gap Width:
         // Sets GapWidth value
         series.getParentSeriesGroup().setGapWidth(50);
         // Saves presentation to disk
-        pres.save("GapWidth_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("GapWidth_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

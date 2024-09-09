@@ -42,34 +42,34 @@ Aspose.Slides for Java provides a simple API for managing different chart entiti
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Accessing the first slide
         var slide = pres.getSlides().get_Item(0);
         // Adding the sample chart
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
         // Setting Chart Title
         chart.hasTitle();
         chart.getChartTitle().addTextFrameForOverriding("");
         var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
         chartTitle.setText("Sample Chart");
-        chartTitle.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        chartTitle.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
         chartTitle.getPortionFormat().setFontHeight(20);
-        chartTitle.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
-        chartTitle.getPortionFormat().setFontItalic(com.aspose.slides.NullableBool.True);
+        chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+        chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
         // Setting Major grid lines format for value axis
-        chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
         chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-        chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(com.aspose.slides.LineDashStyle.DashDot);
+        chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
         // Setting Minor grid lines format for value axis
-        chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
         chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
         // Setting value axis number format
         chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
-        chart.getAxes().getVerticalAxis().setDisplayUnit(com.aspose.slides.DisplayUnitType.Thousands);
+        chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Thousands);
         chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
         // Setting chart maximum, minimum values
         chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
@@ -82,70 +82,70 @@ Aspose.Slides for Java provides a simple API for managing different chart entiti
         chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
         // Setting Value Axis Text Properties
         var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-        txtVal.setFontBold(com.aspose.slides.NullableBool.True);
+        txtVal.setFontBold(aspose.slides.NullableBool.True);
         txtVal.setFontHeight(16);
-        txtVal.setFontItalic(com.aspose.slides.NullableBool.True);
-        txtVal.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
-        txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", com.aspose.slides.PresetColor.DarkGreen));
-        txtVal.setLatinFont(new  com.aspose.slides.FontData("Times New Roman"));
+        txtVal.setFontItalic(aspose.slides.NullableBool.True);
+        txtVal.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+        txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
+        txtVal.setLatinFont(new  aspose.slides.FontData("Times New Roman"));
         // Setting value axis title
         chart.getAxes().getVerticalAxis().hasTitle();
         chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
         var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
         valtitle.setText("Primary Axis");
-        valtitle.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        valtitle.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
         valtitle.getPortionFormat().setFontHeight(20);
-        valtitle.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
-        valtitle.getPortionFormat().setFontItalic(com.aspose.slides.NullableBool.True);
+        valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+        valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
         // Setting Major grid lines format for Category axis
-        chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
         chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
         // Setting Minor grid lines format for Category axis
-        chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
         chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
         // Setting Category Axis Text Properties
         var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-        txtCat.setFontBold(com.aspose.slides.NullableBool.True);
+        txtCat.setFontBold(aspose.slides.NullableBool.True);
         txtCat.setFontHeight(16);
-        txtCat.setFontItalic(com.aspose.slides.NullableBool.True);
-        txtCat.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        txtCat.setFontItalic(aspose.slides.NullableBool.True);
+        txtCat.getFillFormat().setFillType(aspose.slides.FillType.Solid);
         txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-        txtCat.setLatinFont(new  com.aspose.slides.FontData("Arial"));
+        txtCat.setLatinFont(new  aspose.slides.FontData("Arial"));
         // Setting Category Title
         chart.getAxes().getHorizontalAxis().hasTitle();
         chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
         var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
         catTitle.setText("Sample Category");
-        catTitle.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        catTitle.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
         catTitle.getPortionFormat().setFontHeight(20);
-        catTitle.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
-        catTitle.getPortionFormat().setFontItalic(com.aspose.slides.NullableBool.True);
+        catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+        catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
         // Setting category axis label position
-        chart.getAxes().getHorizontalAxis().setTickLabelPosition(com.aspose.slides.TickLabelPositionType.Low);
+        chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
         // Setting category axis label rotation angle
         chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
         // Setting Legends Text Properties
         var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-        txtleg.setFontBold(com.aspose.slides.NullableBool.True);
+        txtleg.setFontBold(aspose.slides.NullableBool.True);
         txtleg.setFontHeight(16);
-        txtleg.setFontItalic(com.aspose.slides.NullableBool.True);
-        txtleg.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
-        txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", com.aspose.slides.PresetColor.DarkRed));
+        txtleg.setFontItalic(aspose.slides.NullableBool.True);
+        txtleg.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+        txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
         // Set show chart legends without overlapping chart
         chart.getLegend().setOverlay(true);
         // chart.ChartData.Series[0].PlotOnSecondAxis=true;
         chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
         // Setting secondary value axis
         chart.getAxes().getSecondaryVerticalAxis().isVisible();
-        chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(com.aspose.slides.LineStyle.ThickBetweenThin);
+        chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
         chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
         // Setting secondary value axis Number format
         chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-        chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(com.aspose.slides.DisplayUnitType.Hundreds);
+        chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Hundreds);
         chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
         // Setting chart maximum, minimum values
         chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
@@ -158,15 +158,15 @@ Aspose.Slides for Java provides a simple API for managing different chart entiti
         chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
         // Setting chart back wall color
         chart.getBackWall().setThickness(1);
-        chart.getBackWall().getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        chart.getBackWall().getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-        chart.getFloor().getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
+        chart.getFloor().getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
         chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
         // Setting Plot area color
-        chart.getPlotArea().getFormat().getFill().setFillType(com.aspose.slides.FillType.Solid);
-        chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", com.aspose.slides.PresetColor.LightCyan));
+        chart.getPlotArea().getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+        chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
         // Save Presentation
-        pres.save("FormattedChart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -186,12 +186,12 @@ Below sample example is given.
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
         chart.getTextFormat().getPortionFormat().setFontHeight(20);
         chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-        pres.save("FontPropertiesForChart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -202,7 +202,7 @@ Below sample example is given.
 ## **Set Format of Numerics**
 Aspose.Slides for Java provides a simple API for managing chart data format:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain a slide's reference by its index.
 1. Add a chart with default data along with the any of desired type (this example uses **ChartType.ClusteredColumn**).
 1. Set the preset number format from the possible preset values.
@@ -214,12 +214,12 @@ Aspose.Slides for Java provides a simple API for managing chart data format:
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Access the first presentation slide
         var slide = pres.getSlides().get_Item(0);
         // Adding a default clustered column chart
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
         // Accessing the chart series collection
         var series = chart.getChartData().getSeries();
         // Traverse through every chart series
@@ -231,7 +231,7 @@ Aspose.Slides for Java provides a simple API for managing chart data format:
             });
         });
         // Saving presentation
-        pres.save("PresetNumberFormat.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -280,9 +280,9 @@ The possible preset number format values along with their preset index and that 
 |**49**|@|
 
 ## **Set Chart Area Rounded Borders**
-Aspose.Slides for Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) have been added to [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/IChart) interface and [Chart](https://reference.aspose.com/slides/java/com.aspose.slides/Chart) class. 
+Aspose.Slides for Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChart#setRoundedCorners-boolean-) have been added to [IChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChart) interface and [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) class. 
 
-1. Instantiate [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class object.
+1. Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class object.
 1. Add chart on the slide.
 1. Set fill type and fill color of chart
 1. Set round corner property True.
@@ -292,14 +292,14 @@ Below sample example is given. 
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
-        chart.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
-        chart.getLineFormat().setStyle(com.aspose.slides.LineStyle.Single);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+        chart.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+        chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
         chart.setRoundedCorners(true);
-        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

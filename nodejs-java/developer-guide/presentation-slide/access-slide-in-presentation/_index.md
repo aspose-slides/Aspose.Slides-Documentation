@@ -13,11 +13,11 @@ Aspose.Slides allows you to access slides in two ways: by index and by ID.
 
 All slides in a presentation are arranged numerically based on the slide position starting from 0. The first slide is accessible through index 0; the second slide is accessed through index 1; etc.
 
-The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) objects). This Java code shows you how to access a slide through its index: 
+The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide/) objects). This Java code shows you how to access a slide through its index:
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    var pres = new  aspose.slides.Presentation("demo.pptx");
     try {
         // Accesses a slide using its slide index
         var slide = pres.getSlides().get_Item(0);
@@ -28,11 +28,11 @@ The Presentation class, representing a presentation file, exposes all slides as 
 
 ## **Access Slide by ID**
 
-Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class) to target that ID. This Java code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method:
+Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class) to target that ID. This Java code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method:
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    var pres = new  aspose.slides.Presentation("demo.pptx");
     try {
         // Gets a slide ID
         var id = pres.getSlides().get_Item(0).getSlideId();
@@ -47,23 +47,23 @@ Each slide in a presentation has a unique ID associated with it. You can use the
 
 Aspose.Slides allow you to change a slide position. For example, you can specify that the first slide should become the second slide.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 1. Get the slide's reference (whose position you want to change) through its index
-1. Set a new position for the slide through the [setSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#setSlideNumber-int-) property. 
+1. Set a new position for the slide through the [setSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide/#setSlideNumber-int-) property.
 1. Save the modified presentation.
 
 This Java code demonstrates an operation in which the slide in position 1 is moved to position 2: 
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    var pres = new  aspose.slides.Presentation("Presentation.pptx");
     try {
         // Gets the slide whose position will be changed
         var sld = pres.getSlides().get_Item(0);
         // Sets the new position for the slide
         sld.setSlideNumber(2);
         // Saves the modified presentation
-        pres.save("helloworld_Pos.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("helloworld_Pos.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         pres.dispose();
     }
@@ -74,9 +74,9 @@ The first slide became the second; the second slide became the first. When you c
 
 ## **Set Slide Number**
 
-Using the [setFirstSlideNumber](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-) property (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class), you can specify a new number for the first slide in a presentation. This operation causes other slide numbers to be recalculated.
+Using the [setFirstSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#setFirstSlideNumber-int-) property (exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class), you can specify a new number for the first slide in a presentation. This operation causes other slide numbers to be recalculated.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 1. Get the slide number.
 1. Set the slide number.
 1. Save the modified presentation.
@@ -85,14 +85,14 @@ This Java code demonstrates an operation where the first slide number is set to 
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("HelloWorld.pptx");
+    var pres = new  aspose.slides.Presentation("HelloWorld.pptx");
     try {
         // Gets the slide number
         var firstSlideNumber = pres.getFirstSlideNumber();
         // Sets the slide number
         pres.setFirstSlideNumber(10);
         // Saves the modified presentation
-        pres.save("Set_Slide_Number_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Set_Slide_Number_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         pres.dispose();
     }
@@ -101,9 +101,9 @@ This Java code demonstrates an operation where the first slide number is set to 
 If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```javascript
-    var presentation = new  com.aspose.slides.Presentation();
+    var presentation = new  aspose.slides.Presentation();
     try {
-        var layoutSlide = presentation.getLayoutSlides().getByType(com.aspose.slides.SlideLayoutType.Blank);
+        var layoutSlide = presentation.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
         presentation.getSlides().addEmptySlide(layoutSlide);
         presentation.getSlides().addEmptySlide(layoutSlide);
         presentation.getSlides().addEmptySlide(layoutSlide);
@@ -114,7 +114,7 @@ If you prefer to skip the first slide, you can start the numbering from the seco
         // Hides the slide number for the first slide
         presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
         // Saves the modified presentation
-        presentation.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+        presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (presentation != null) {
             presentation.dispose();

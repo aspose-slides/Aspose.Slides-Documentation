@@ -26,7 +26,7 @@ In some cases, you may be unable to grant access to folders due to restrictions 
 
 **Workaround**
 
-Use [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) to load the required fonts without installing them:
+Use [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsLoader) to load the required fonts without installing them:
 
 ```javascript
 ```
@@ -67,7 +67,7 @@ This exception occurs when
 
 1. Check and confirm that access to the font folder for the Java process has been granted.
 
-2. Install some fonts or use [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader).
+2. Install some fonts or use [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsLoader).
 
 3. Install fonts.
 
@@ -91,7 +91,7 @@ This exception occurs when
 ```javascript
      ```
 
-   * Using [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader): 
+   * Using [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsLoader):
 
 ```javascript
      ```
@@ -99,7 +99,7 @@ This exception occurs when
 ```javascript
      ```
 
-## **Exception: NoClassDefFoundError: Could not initialize class com.aspose.slides.internal.ey.this**
+## **Exception: NoClassDefFoundError: Could not initialize class aspose.slides.internal.ey.this**
 
 This exception occurs on a Linux system that lacks fontconfig and fonts. 
 

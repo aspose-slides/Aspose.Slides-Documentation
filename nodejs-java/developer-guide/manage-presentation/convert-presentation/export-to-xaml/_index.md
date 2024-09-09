@@ -25,9 +25,9 @@ XAML, which is an XML-based language, is Microsoft’s variant for describing a 
 This Java code shows you how to export a presentation to XAML with default settings:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        pres.save(new  com.aspose.slides.XamlOptions());
+        pres.save(new  aspose.slides.XamlOptions());
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -37,14 +37,14 @@ This Java code shows you how to export a presentation to XAML with default setti
 
 ## Exporting Presentations to XAML With Custom Options
 
-You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/java/com.aspose.slides/IXamlOptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML. 
+You get to select options from the [IXamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IXamlOptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML.
 
-For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/java/com.aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample Java code: 
+For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IXamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample Java code:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        var xamlOptions = new  com.aspose.slides.XamlOptions();
+        var xamlOptions = new  aspose.slides.XamlOptions();
         xamlOptions.setExportHiddenSlides(true);
         pres.save(xamlOptions);
     } finally {

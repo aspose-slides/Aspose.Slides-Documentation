@@ -11,7 +11,7 @@ A new [Aspose.Slides for Java API](https://docs.aspose.com/slides/java/) has bee
 
 {{% /alert %}} 
 ## **Support for Legacy code**
-In order to use the legacy code developed with Aspose.Slides for Java versions earlier to 14.x.x, you need to make some minor changes in your code and the code will work as earlier. All the classes that were present in old Aspose.Slides for Java under com.aspose.slides and com.aspose.slides.pptx namespaces are now merged in single com.aspose.slides namespace. Please take a look over the following simple code snippet for creating a normal chart from scratch in presentation using legacy Aspose.Slides API and follow the steps describing how to migrate to new merged API.
+In order to use the legacy code developed with Aspose.Slides for Java versions earlier to 14.x.x, you need to make some minor changes in your code and the code will work as earlier. All the classes that were present in old Aspose.Slides for Java under aspose.slides and aspose.slides.pptx namespaces are now merged in single aspose.slides namespace. Please take a look over the following simple code snippet for creating a normal chart from scratch in presentation using legacy Aspose.Slides API and follow the steps describing how to migrate to new merged API.
 ## **Legacy Aspose.Slides for Java approach**
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-CreateChartEx-CreateChartEx.java" >}}
 ## **New Aspose.Slides for Java 14.x.x approach**

@@ -6,14 +6,14 @@ url: /java/compare-slides/
 ---
 
 ## **Compare Two Slides**
-Equals method has been added to [IBaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IBaseSlide) interface and [BaseSlide](https://reference.aspose.com/slides/java/com.aspose.slides/BaseSlide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content. 
+Equals method has been added to [IBaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide) interface and [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide) class. It returns true for the slides/layout and slides/master slides which identical by its structure and static content. 
 
 Two slides are equal if all shapes, styles, texts, animation and other settings. etc. are equal. The comparison doesn't take into account unique identifier values, e.g. SlideId and dynamic content, e.g. current date value in Date Placeholder.
 
 ```javascript
-    var presentation1 = new  com.aspose.slides.Presentation("AccessSlides.pptx");
+    var presentation1 = new  aspose.slides.Presentation("AccessSlides.pptx");
     try {
-        var presentation2 = new  com.aspose.slides.Presentation("HelloWorld.pptx");
+        var presentation2 = new  aspose.slides.Presentation("HelloWorld.pptx");
         try {
             for (var i = 0; i < presentation1.getMasters().size(); i++) {
                 for (var j = 0; j < presentation2.getMasters().size(); j++) {

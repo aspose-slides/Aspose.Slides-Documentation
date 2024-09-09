@@ -14,12 +14,12 @@ Aspose.Slides for Java provides a simple API for setting these properties. This 
 1. Write the modified presentation to a PPTX file.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Access first slide
         var slide = pres.getSlides().get_Item(0);
         // Add chart with default data
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.StackedColumn3D, 0, 0, 500, 500);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn3D, 0, 0, 500, 500);
         // Setting the index of chart data sheet
         var defaultWorksheetIndex = 0;
         // Getting the chart data worksheet
@@ -48,7 +48,7 @@ Aspose.Slides for Java provides a simple API for setting these properties. This 
         // Set OverLap value
         series.getParentSeriesGroup().setOverlap(100);
         // Write presentation to disk
-        pres.save("Rotation3D_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Rotation3D_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

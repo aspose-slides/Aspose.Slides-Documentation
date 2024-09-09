@@ -20,13 +20,13 @@ In the example given below, we have added a line to the first slide of the prese
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Get the first slide
         var slide = pres.getSlides().get_Item(0);
         // Add an autoshape of type line
-        slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Line, 50, 150, 300, 0);
-        pres.save("NewPresentation_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
+        pres.save("NewPresentation_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

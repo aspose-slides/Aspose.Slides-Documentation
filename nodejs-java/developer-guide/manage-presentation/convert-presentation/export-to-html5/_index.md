@@ -20,9 +20,9 @@ The export to HTML5 process here allows you to convert PowerPoint to HTML withou
 This Java code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        pres.save("pres.html", com.aspose.slides.SaveFormat.Html5);
+        pres.save("pres.html", aspose.slides.SaveFormat.Html5);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -39,12 +39,12 @@ In this case, you get clean HTML.
 You may want to specify settings for shape animations and slide transitions this way:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        var html5Options = new  com.aspose.slides.Html5Options();
+        var html5Options = new  aspose.slides.Html5Options();
         html5Options.setAnimateShapes(false);
         html5Options.setAnimateTransitions(false);
-        pres.save("pres5.html", com.aspose.slides.SaveFormat.Html5, html5Options);
+        pres.save("pres5.html", aspose.slides.SaveFormat.Html5, html5Options);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -57,9 +57,9 @@ You may want to specify settings for shape animations and slide transitions this
 This Java demonstrates the standard PowerPoint to HTML process:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        pres.save("pres.html", com.aspose.slides.SaveFormat.Html);
+        pres.save("pres.html", aspose.slides.SaveFormat.Html);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -93,12 +93,12 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This Java code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
-        var html5Options = new  com.aspose.slides.Html5Options();
+        var html5Options = new  aspose.slides.Html5Options();
         html5Options.setAnimateShapes(true);
         html5Options.setAnimateTransitions(true);
-        pres.save("HTML5-slide-view.html", com.aspose.slides.SaveFormat.Html5, html5Options);
+        pres.save("HTML5-slide-view.html", aspose.slides.SaveFormat.Html5, html5Options);
     } finally {
         if (pres != null) {
             pres.dispose();

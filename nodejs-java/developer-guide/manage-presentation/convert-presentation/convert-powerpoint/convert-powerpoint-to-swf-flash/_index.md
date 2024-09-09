@@ -8,16 +8,16 @@ description: "Convert PowerPoint PPT, PPTX to SWF in Java"
 ---
 
 ## **Convert PPT(X) to SWF**
-The [Save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class can be used to convert the whole presentation into **SWF** document. The following example shows how to convert a presentation into **SWF** document by using options provided by [**SWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/SwfOptions) class.You can also include comments in generated SWF using [**ISWFOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/ISwfOptions) class and [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/INotesCommentsLayoutingOptions) interface.
+The [Save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method exposed by [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class can be used to convert the whole presentation into **SWF** document. The following example shows how to convert a presentation into **SWF** document by using options provided by [**SWFOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SwfOptions) class.You can also include comments in generated SWF using [**ISWFOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISwfOptions) class and [**INotesCommentsLayoutingOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions) interface.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("Sample.pptx");
+    var pres = new  aspose.slides.Presentation("Sample.pptx");
     try {
-        var swfOptions = new  com.aspose.slides.SwfOptions();
+        var swfOptions = new  aspose.slides.SwfOptions();
         swfOptions.setViewerIncluded(false);
-        swfOptions.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomFull);
+        swfOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
         // Saving presentation
-        pres.save("Sample.swf", com.aspose.slides.SaveFormat.Swf, swfOptions);
+        pres.save("Sample.swf", aspose.slides.SaveFormat.Swf, swfOptions);
     } finally {
         if (pres != null) {
             pres.dispose();

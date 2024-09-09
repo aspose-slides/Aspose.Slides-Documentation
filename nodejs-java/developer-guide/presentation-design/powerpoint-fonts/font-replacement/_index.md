@@ -21,16 +21,16 @@ This Java code demonstrates font replacement:
 
 ```javascript
     // Loads a presentation
-    var pres = new  com.aspose.slides.Presentation("Fonts.pptx");
+    var pres = new  aspose.slides.Presentation("Fonts.pptx");
     try {
         // Loads the source font that will be replaced
-        var sourceFont = new  com.aspose.slides.FontData("Arial");
+        var sourceFont = new  aspose.slides.FontData("Arial");
         // Loads the new font
-        var destFont = new  com.aspose.slides.FontData("Times New Roman");
+        var destFont = new  aspose.slides.FontData("Times New Roman");
         // Replaces the fonts
         pres.getFontsManager().replaceFont(sourceFont, destFont);
         // Saves the presentation
-        pres.save("UpdatedFont_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("UpdatedFont_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

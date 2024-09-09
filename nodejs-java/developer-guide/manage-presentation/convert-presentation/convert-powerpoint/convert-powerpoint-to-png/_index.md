@@ -19,21 +19,21 @@ The PNG (Portable Network Graphics) format is not as popular as JPEG (Joint Phot
 
 Go through these steps:
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get the slide object from the [Presentation.getSlides()](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getSlides--) collection under the [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) interface. 
-3. Use a [ISlide.getImage()](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide) method to get the thumbnail for each slide.
-4. Use the  [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/java/com.aspose.slides/IImage#save(String formatName, int imageFormat)) method to save the slide thumbnail to the PNG format.
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
+2. Get the slide object from the [Presentation.getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) collection under the [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide) interface.
+3. Use a [ISlide.getImage()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide) method to get the thumbnail for each slide.
+4. Use the  [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IImage#save(String formatName, int imageFormat)) method to save the slide thumbnail to the PNG format.
 
 This Java code shows you how to convert a PowerPoint presentation to PNG:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         for (var index = 0; index < pres.getSlides().size(); index++) {
             var slide = pres.getSlides().get_Item(index);
             var slideImage = slide.getImage();
             try {
-                slideImage.save(("image_java_" + index) + ".png", com.aspose.slides.ImageFormat.Png);
+                slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
             } finally {
                 if (slideImage != null) {
                     slideImage.dispose();
@@ -54,7 +54,7 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in Java demonstrates the described operation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         var scaleX = 2.0;
         var scaleY = 2.0;
@@ -62,7 +62,7 @@ This code in Java demonstrates the described operation:
             var slide = pres.getSlides().get_Item(index);
             var slideImage = slide.getImage(scaleX, scaleY);
             try {
-                slideImage.save(("image_java_" + index) + ".png", com.aspose.slides.ImageFormat.Png);
+                slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
             } finally {
                 if (slideImage != null) {
                     slideImage.dispose();
@@ -83,14 +83,14 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         var size = java.newInstanceSync("java.awt.Dimension", 960, 720);
         for (var index = 0; index < pres.getSlides().size(); index++) {
             var slide = pres.getSlides().get_Item(index);
             var slideImage = slide.getImage(size);
             try {
-                slideImage.save(("image_java_" + index) + ".png", com.aspose.slides.ImageFormat.Png);
+                slideImage.save(("image_java_" + index) + ".png", aspose.slides.ImageFormat.Png);
             } finally {
                 if (slideImage != null) {
                     slideImage.dispose();

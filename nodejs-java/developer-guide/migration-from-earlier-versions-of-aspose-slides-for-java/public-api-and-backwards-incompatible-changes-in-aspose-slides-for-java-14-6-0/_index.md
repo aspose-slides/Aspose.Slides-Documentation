@@ -16,8 +16,8 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 The IPresentation.getViewProperty() method provides access to IViewProperties and allows you to change the presentation view type and notes visibility when a presentation is opened in Microsoft PowerPoint.
 
 ```javascript
-    var p = new  com.aspose.slides.Presentation();
-    p.getViewProperties().setLastView(com.aspose.slides.ViewType.SlideMasterView);
+    var p = new  aspose.slides.Presentation();
+    p.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
 ```
 #### **Added the Aspose.Slides.IShapeCollection.addClone(...) and .insertClone(...) Methods**
 The methods
@@ -32,9 +32,9 @@ The methods
 adds/inserts a copy of a specified shape into the collection. 
 
 ```javascript
-    var srcPres = new  com.aspose.slides.Presentation("data/Source Frame.pptx");
+    var srcPres = new  aspose.slides.Presentation("data/Source Frame.pptx");
     var sourceShapes = srcPres.getSlides().get_Item(0).getShapes();
-    var blankLayout = srcPres.getMasters().get_Item(0).getLayoutSlides().getByType(com.aspose.slides.SlideLayoutType.Blank);
+    var blankLayout = srcPres.getMasters().get_Item(0).getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
     var destSlide = srcPres.getSlides().addEmptySlide(blankLayout);
     var destShapes = destSlide.getShapes();
     destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
@@ -48,71 +48,71 @@ adds/inserts a copy of a specified shape into the collection.
 This interface specifies the types of values in the ChartDataPoint.ErrorBarsCustomValues properties list.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
+    var pres = new  aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
     var series = chart.getChartData().getSeries().get_Item(0);
     var errBarX = series.getErrorBarsXFormat();
     var errBarY = series.getErrorBarsYFormat();
     errBarX.setVisible(true);
     errBarY.setVisible(true);
-    errBarX.setValueType(com.aspose.slides.ErrorBarValueType.Custom);
-    errBarY.setValueType(com.aspose.slides.ErrorBarValueType.Custom);
+    errBarX.setValueType(aspose.slides.ErrorBarValueType.Custom);
+    errBarY.setValueType(aspose.slides.ErrorBarValueType.Custom);
     var points = series.getDataPoints();
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYPlusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYMinusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues(aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues(aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYPlusValues(aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYMinusValues(aspose.slides.DataSourceType.DoubleLiterals);
     for (var i = 0; i < points.size(); i++) {
         points.get_Item(i).getErrorBarsCustomValues().getXMinus().setAsLiteralDouble(i + 1);
         points.get_Item(i).getErrorBarsCustomValues().getXPlus().setAsLiteralDouble(i + 1);
         points.get_Item(i).getErrorBarsCustomValues().getYMinus().setAsLiteralDouble(i + 1);
         points.get_Item(i).getErrorBarsCustomValues().getYPlus().setAsLiteralDouble(i + 1);
     }
-    pres.save("data/ErrorBarsCustomValues.pptx", com.aspose.slides.SaveFormat.Pptx);
+    pres.save("data/ErrorBarsCustomValues.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 #### **Added the Aspose.Slides.Charts.IErrorBarsCustomValues Interface**
 When the IErrorBarsFormat.ValueType property is equal to Custom to specify value use the ErrorBarCustomValues property of the specific data point in the DataPoints collection of the series.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
+    var pres = new  aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
     var series = chart.getChartData().getSeries().get_Item(0);
     var errBarX = series.getErrorBarsXFormat();
     var errBarY = series.getErrorBarsYFormat();
     errBarX.setVisible(true);
     errBarY.setVisible(true);
-    errBarX.setValueType(com.aspose.slides.ErrorBarValueType.Custom);
-    errBarY.setValueType(com.aspose.slides.ErrorBarValueType.Custom);
+    errBarX.setValueType(aspose.slides.ErrorBarValueType.Custom);
+    errBarY.setValueType(aspose.slides.ErrorBarValueType.Custom);
     var points = series.getDataPoints();
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYPlusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYMinusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues(aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues(aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYPlusValues(aspose.slides.DataSourceType.DoubleLiterals);
+    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYMinusValues(aspose.slides.DataSourceType.DoubleLiterals);
     for (var i = 0; i < points.size(); i++) {
         points.get_Item(i).getErrorBarsCustomValues().getXMinus().setAsLiteralDouble(i + 1);
         points.get_Item(i).getErrorBarsCustomValues().getXPlus().setAsLiteralDouble(i + 1);
         points.get_Item(i).getErrorBarsCustomValues().getYMinus().setAsLiteralDouble(i + 1);
         points.get_Item(i).getErrorBarsCustomValues().getYPlus().setAsLiteralDouble(i + 1);
     }
-    pres.save("data/ErrorBarsCustomValues.pptx", com.aspose.slides.SaveFormat.Pptx);
+    pres.save("data/ErrorBarsCustomValues.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 #### **Added the Aspose.Slides.Charts.IErrorBarsFormat Interface**
 This interface represents error bars of chart series.
 In case of custom value type to specify value use the ErrorBarCustomValues property of a specific data point in the DataPoins collection of the series.
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
+    var pres = new  aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
     var errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
     var errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
     errBarX.setVisible(true);
     errBarY.setVisible(true);
-    errBarX.setValueType(com.aspose.slides.ErrorBarValueType.Fixed);
+    errBarX.setValueType(aspose.slides.ErrorBarValueType.Fixed);
     errBarX.setValue(0.1);
-    errBarY.setValueType(com.aspose.slides.ErrorBarValueType.Percentage);
+    errBarY.setValueType(aspose.slides.ErrorBarValueType.Percentage);
     errBarY.setValue(5);
-    errBarX.setType(com.aspose.slides.ErrorBarType.Plus);
+    errBarX.setType(aspose.slides.ErrorBarType.Plus);
     errBarY.getFormat().getLine().setWidth(2);
     errBarX.setEndCap(true);
-    pres.save("data/ErrorBars.pptx", com.aspose.slides.SaveFormat.Pptx);
+    pres.save("data/ErrorBars.pptx", aspose.slides.SaveFormat.Pptx);
 ```

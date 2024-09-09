@@ -25,13 +25,13 @@ Notes of some specific slide could be removed as shown in example below:
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("presWithNotes.pptx");
+    var pres = new  aspose.slides.Presentation("presWithNotes.pptx");
     try {
         // Removing notes of first slide
         var mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
         mgr.removeNotesSlide();
         // Saving presentation to disk
-        pres.save("test.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -44,7 +44,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("presWithNotes.pptx");
+    var pres = new  aspose.slides.Presentation("presWithNotes.pptx");
     try {
         // Removing notes of all slides
         var mgr = null;
@@ -53,7 +53,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
             mgr.removeNotesSlide();
         }
         // Saving presentation to disk
-        pres.save("test.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("test.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -62,11 +62,11 @@ Notes of all the slides of a presentation could be removed as shown in example b
 ```
 
 ## **Add NotesStyle**
-[getNotesStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
+[getNotesStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterNotesSlide#getNotesStyle--) method has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    var pres = new  aspose.slides.Presentation("demo.pptx");
     try {
         var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
         if (notesMaster != null) {
@@ -74,9 +74,9 @@ Notes of all the slides of a presentation could be removed as shown in example b
             var notesStyle = notesMaster.getNotesStyle();
             // Set symbol bullet for the first level paragraphs
             var paragraphFormat = notesStyle.getLevel(0);
-            paragraphFormat.getBullet().setType(com.aspose.slides.BulletType.Symbol);
+            paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
         }
-        pres.save("NotesSlideWithNotesStyle.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

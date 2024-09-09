@@ -8,12 +8,12 @@ description: "Chart workbook in PowerPoint presentation in Java"
 ---
 
 ## **Set Chart Data from Workbook**
-Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 This Java code demonstrates a sample operation:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation("chart.pptx");
+    var pres = new  aspose.slides.Presentation("chart.pptx");
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var data = chart.getChartData();
@@ -30,7 +30,7 @@ This Java code demonstrates a sample operation:
 
 ## **Set WorkBook Cell as Chart DataLabel**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Add a Bubble chart with some data.
 1. Access the chart series.
@@ -44,10 +44,10 @@ This Java code shows you to set a workbook cell as a chart data label:
     var lbl1 = "Label 1 cell value";
     var lbl2 = "Label 2 cell value";
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  com.aspose.slides.Presentation("chart2.pptx");
+    var pres = new  aspose.slides.Presentation("chart2.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
-        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
+        var chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
         var series = chart.getChartData().getSeries();
         var dataLabelCollection = series.get_Item(0).getLabels();
         dataLabelCollection.getDefaultDataLabelFormat().setShowLabelValueFromCell(true);
@@ -55,7 +55,7 @@ This Java code shows you to set a workbook cell as a chart data label:
         dataLabelCollection.get_Item(0).setValueFromCell(wb.getCell(0, "A10", lbl0));
         dataLabelCollection.get_Item(1).setValueFromCell(wb.getCell(0, "A11", lbl1));
         dataLabelCollection.get_Item(2).setValueFromCell(wb.getCell(0, "A12", lbl2));
-        pres.save("resultchart.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("resultchart.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -65,12 +65,12 @@ This Java code shows you to set a workbook cell as a chart data label:
 
 ## **Manage Worksheets**
 
-This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Pie, 50, 50, 400, 500);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
         var wb = chart.getChartData().getChartDataWorkbook();
         for (var i = 0; i < wb.getWorksheets().size(); i++) {
             console.log(wb.getWorksheets().get_Item(i).getName());
@@ -87,15 +87,15 @@ This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheet
 This Java code shows you how to specify a type for a data source:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
         var val = chart.getChartData().getSeries().get_Item(0).getName();
-        val.setDataSourceType(com.aspose.slides.DataSourceType.StringLiterals);
+        val.setDataSourceType(aspose.slides.DataSourceType.StringLiterals);
         val.setData("LiteralString");
         val = chart.getChartData().getSeries().get_Item(1).getName();
         val.setData(chart.getChartData().getChartDataWorkbook().getCell(0, "B1", "NewCell"));
-        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -116,10 +116,10 @@ Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you ca
 This Java code demonstrates the external workbook creation process:
 
 ```javascript
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         final var workbookPath = "externalWorkbook1.xlsx";
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Pie, 50, 50, 400, 600);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
         var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
         try {
             var workbookData = chart.getChartData().readWorkbookStream();
@@ -130,7 +130,7 @@ This Java code demonstrates the external workbook creation process:
             }
         }
         chart.getChartData().setExternalWorkbook(workbookPath);
-        pres.save("externalWorkbook.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {
     } finally {
         if (pres != null) {
@@ -149,19 +149,19 @@ This Java code shows you how to set an external workbook:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  com.aspose.slides.Presentation("chart.pptx");
+    var pres = new  aspose.slides.Presentation("chart.pptx");
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
         var chartData = chart.getChartData();
         chartData.setExternalWorkbook("externalWorkbook.xlsx");
-        chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), com.aspose.slides.ChartType.Pie);
+        chartData.getSeries().add(chartData.getChartDataWorkbook().getCell(0, "B1"), aspose.slides.ChartType.Pie);
         chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B2"));
         chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B3"));
         chartData.getSeries().get_Item(0).getDataPoints().addDataPointForPieSeries(chartData.getChartDataWorkbook().getCell(0, "B4"));
         chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A2"));
         chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A3"));
         chartData.getCategories().add(chartData.getChartDataWorkbook().getCell(0, "A4"));
-        pres.save("Presentation_with_externalWorkbook.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Presentation_with_externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -176,12 +176,12 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  com.aspose.slides.Presentation("chart.pptx");
+    var pres = new  aspose.slides.Presentation("chart.pptx");
     try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
         var chartData = chart.getChartData();
         chartData.setExternalWorkbook("http://path/doesnt/exists", false);
-        pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("Presentation_with_externalWorkbookWithUpdateChartData.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -191,7 +191,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 
 ### **Get Chart External Data Source Workbook Path**
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 1. Get a slide's reference through its index.
 1. Create an object for the chart shape.
 1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.
@@ -201,16 +201,16 @@ This Java code demonstrates the operation:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  com.aspose.slides.Presentation("chart.pptx");
+    var pres = new  aspose.slides.Presentation("chart.pptx");
     try {
         var slide = pres.getSlides().get_Item(1);
         var chart = slide.getShapes().get_Item(0);
         var sourceType = chart.getChartData().getDataSourceType();
-        if (sourceType == com.aspose.slides.ChartDataSourceType.ExternalWorkbook) {
+        if (sourceType == aspose.slides.ChartDataSourceType.ExternalWorkbook) {
             var path = chart.getChartData().getExternalWorkbookPath();
         }
         // Saves the presentation
-        pres.save("result.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -226,12 +226,12 @@ This Java code is an implementation of the described process:
 
 ```javascript
     // Creates an instance of tthe Presentation class
-    var pres = new  com.aspose.slides.Presentation("chart.pptx");
+    var pres = new  aspose.slides.Presentation("chart.pptx");
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var chartData = chart.getChartData();
         chartData.getSeries().get_Item(0).getDataPoints().get_Item(0).getValue().getAsCell().setValue(100);
-        pres.save("presentation_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("presentation_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();

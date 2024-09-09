@@ -14,23 +14,23 @@ Like previous topics, this one is also about adding a shape and this time the sh
 ## **Add Rectangle to Slide**
 To add a simple rectangle to a selected slide of the presentation, please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
+- Add an [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
 - Write the modified presentation as a PPTX file.
 
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```javascript
     // Instantiate Prseetation class that represents the PPTX
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);
         // Add AutoShape of ellipse type
-        var shp = sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
+        var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
         // Write the PPTX file to disk
-        pres.save("RecShp1.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("RecShp1.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -41,11 +41,11 @@ In the example given below, we have added a simple rectangle to the first slide 
 ## **Add Formatted Rectangle to Slide**
 To add a formatted rectangle to a slide, please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) class.
+- Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection) object.
-- Set the [Fill Type](https://reference.aspose.com/slides/java/com.aspose.slides/FillType) of the Rectangle to Solid.
-- Set the Color of the Rectangle using [SolidFillColor.setColor](https://reference.aspose.com/slides/java/com.aspose.slides/IColorFormat#setColor-java.awt.Color-) method as exposed by [IFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/IFillFormat) object associated with the [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) object.
+- Add an [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
+- Set the [Fill Type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) of the Rectangle to Solid.
+- Set the Color of the Rectangle using [SolidFillColor.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IColorFormat#setColor-java.awt.Color-) method as exposed by [IFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IFillFormat) object associated with the [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) object.
 - Set the Color of the lines of the Rectangle.
 - Set the Width of the lines of the Rectangle.
 - Write the modified presentation as PPTX file.
@@ -54,21 +54,21 @@ The above steps are implemented in the example given below.
 
 ```javascript
     // Instantiate Prseetation class that represents the PPTX
-    var pres = new  com.aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);
         // Add AutoShape of ellipse type
-        var shp = sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
+        var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
         // Apply some formatting to ellipse shape
-        shp.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        shp.getFillFormat().setFillType(aspose.slides.FillType.Solid);
         shp.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
         // Apply some formatting to the line of Ellipse
-        shp.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        shp.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         shp.getLineFormat().setWidth(5);
         // Write the PPTX file to disk
-        pres.save("RecShp2.pptx", com.aspose.slides.SaveFormat.Pptx);
+        pres.save("RecShp2.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
             pres.dispose();
