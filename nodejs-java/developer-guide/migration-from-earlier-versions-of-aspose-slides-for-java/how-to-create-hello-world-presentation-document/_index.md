@@ -7,7 +7,7 @@ url: /nodejs-java/how-to-create-hello-world-presentation-document/
 
 {{% alert color="primary" %}} 
 
-A new [Aspose.Slides for Node.js via Java API](/slides/java/) has been released and now this single product supports the capability to generate PowerPoint documents from scratch and editing the existing ones.
+A new [Aspose.Slides for Node.js via Java API](/slides/nodejs-java/) has been released and now this single product supports the capability to generate PowerPoint documents from scratch and editing the existing ones.
 
 {{% /alert %}} 
 ## **Support for Legacy code**

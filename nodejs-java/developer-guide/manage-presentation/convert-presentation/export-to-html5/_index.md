@@ -9,7 +9,7 @@ description: "Export PowerPoint to HTML5 in Javascript"
 
 {{% alert title="Info" color="info" %}}
 
-In [Aspose.Slides 21.9](/slides/java/aspose-slides-for-java-21-9-release-notes/), we implemented support for HTML5 export.
+In [Aspose.Slides 21.9](/slides/nodejs-java/aspose-slides-for-java-21-9-release-notes/), we implemented support for HTML5 export.
 
 {{% /alert %}} 
 

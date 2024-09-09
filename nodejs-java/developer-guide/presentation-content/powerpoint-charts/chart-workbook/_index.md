@@ -106,7 +106,7 @@ This Java code shows you how to specify a type for a data source:
 ## **External Workbook**
 
 {{% alert color="primary" %}} 
-In [Aspose.Slides 19.4](https://docs.aspose.com/slides/java/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-19-4-release-notes/), we implemented support for external workbooks as a data source for charts.
 {{% /alert %}} 
 
 ### **Create External Workbook**

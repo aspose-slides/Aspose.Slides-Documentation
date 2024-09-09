@@ -40,6 +40,6 @@ This Java code demonstrates font replacement:
 
 {{% alert title="Note" color="warning" %}} 
 
-To set rules that determine what happens in certain conditions (if a font cannot be accessed, for example), see [**Font Substitution**](/slides/java/font-substitution/). 
+To set rules that determine what happens in certain conditions (if a font cannot be accessed, for example), see [**Font Substitution**](/slides/nodejs-java/font-substitution/).
 
 {{% /alert %}}

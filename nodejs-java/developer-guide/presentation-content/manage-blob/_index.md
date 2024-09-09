@@ -22,7 +22,7 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 
 ### **Add Large File through BLOB to a Presentation**
 
-[Aspose.Slides](/slides/java/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
+[Aspose.Slides](/slides/nodejs-java/) for Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
 This Java shows you how to add a large video file through the BLOB process to a presentation:
 

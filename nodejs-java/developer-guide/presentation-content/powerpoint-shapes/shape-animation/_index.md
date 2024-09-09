@@ -7,7 +7,7 @@ keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint p
 description: "Apply PowerPoint animation in Javascript"
 ---
 
-Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/java/animated-charts/). They give life to presentations or its constituents. 
+Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/nodejs-java/animated-charts/). They give life to presentations or its constituents.
 
 ### **Why Use Animations in Presentations?**
 
@@ -67,7 +67,7 @@ This Java code shows you how to apply the `Fade` effect to AutoShape and set the
 
 {{%  alert color="primary"  %}} 
 
-Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraph). See [**Animated Text**](/slides/java/animated-text/).
+Besides applying animations to text, you can also apply animations to a single [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraph). See [**Animated Text**](/slides/nodejs-java/animated-text/).
 
 {{% /alert %}} 
 

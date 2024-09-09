@@ -123,7 +123,7 @@ This Java code demonstrates an operation where a preferred connection dot is spe
 
 ## **Adjust Connector Point**
 
-You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/java/connector/#types-of-connectors)** 
+You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/nodejs-java/connector/#types-of-connectors)**
 
 #### **Simple Case**
 
@@ -170,7 +170,7 @@ To perform more complicated adjustments, you have to take these things into acco
 * Adjustment point values reflect the percentage of a connector shape's width/height. 
   * The shape is bounded by the connector's start and end points multiplied by 1000. 
   * The first point, second point, and third point defines the percentage from the width, the percentage from the height, and the percentage from the width (again) respectively.
-* For calculations that determine the coordinates of a connector's adjustment points, you have to take the connector's rotation and its reflection into account. **Note** that the rotation angle for all connectors shown under **[Types of connectors](/slides/java/connector/#types-of-connectors)** is 0.
+* For calculations that determine the coordinates of a connector's adjustment points, you have to take the connector's rotation and its reflection into account. **Note** that the rotation angle for all connectors shown under **[Types of connectors](/slides/nodejs-java/connector/#types-of-connectors)** is 0.
 
 #### **Case 1**
 

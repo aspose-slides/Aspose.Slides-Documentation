@@ -7,7 +7,7 @@ url: /nodejs-java/render-presentation-with-fallback-font/
 
 The following example includes these steps:
 
-1. We [create fallback font rules collection](/slides/java/create-fallback-fonts-collection/).
+1. We [create fallback font rules collection](/slides/nodejs-java/create-fallback-fonts-collection/).
 1. [Remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) a fallback font rule and [addFallBackFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) to another rule.
 1. Set rules collection to [getFontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--) method.
 1. With [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method we can save presentation in the same format, or save it in another one. After fallback font rules collection is set to [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager), these rules are applied during any operations over the presentation: save, render, convert, etc.
@@ -51,5 +51,5 @@ The following example includes these steps:
 ```
 
 {{% alert color="primary" %}} 
-Read more about [Save and Convertion in Presentation](/slides/java/creating-saving-and-converting-a-presentation/).
+Read more about [Save and Convertion in Presentation](/slides/nodejs-java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

@@ -17,7 +17,7 @@ Aspose.Slides for Node.js via Java is a component that can be used to manipulate
 
 {{% /alert %}} 
 ## **Creating a Presentation**
-Below are two code examples that illustrate how VSTO and Aspose.Slides for Node.js via Java can be used to achieve the same goal. The first example is [VSTO](/slides/java/create-a-new-presentation/); [the second example](/slides/java/create-a-new-presentation/) uses Aspose.Slides.
+Below are two code examples that illustrate how VSTO and Aspose.Slides for Node.js via Java can be used to achieve the same goal. The first example is [VSTO](/slides/nodejs-java/create-a-new-presentation/); [the second example](/slides/nodejs-java/create-a-new-presentation/) uses Aspose.Slides.
 ### **VSTO Example**
 **The VSTO output** 
 

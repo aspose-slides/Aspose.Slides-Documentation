@@ -24,7 +24,7 @@ Alternatively, you can make changes directly to a specific slide layout in a pre
 
 {{% alert title="Info" color="info" %}}
 
-For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/java/slide-master/) article.
+For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/nodejs-java/slide-master/) article.
 
 {{% /alert %}}
 

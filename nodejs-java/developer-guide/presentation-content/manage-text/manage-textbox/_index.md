@@ -17,7 +17,7 @@ Aspose.Slides also provides the [IShape](https://reference.aspose.com/slides/nod
 
 {{% alert title="Note" color="warning" %}} 
 
-Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/java/manage-textbox/#update-text) section on this page.
+Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/nodejs-java/manage-textbox/#update-text) section on this page.
 
 {{% /alert %}}
 

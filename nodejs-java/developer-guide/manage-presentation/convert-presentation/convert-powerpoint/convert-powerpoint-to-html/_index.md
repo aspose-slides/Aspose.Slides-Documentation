@@ -23,7 +23,7 @@ This article explains how to convert PowerPoint Presentation in HTML format usin
 For Java sample code to convert PowerPoint to HTML, please see the section below i.e. [Convert PowerPoint to HTML](#convert-powerpoint-to-html). The code can load number of formats like PPT, PPTX and ODP in Presentation object and save it to HTML format.
 
 ## **About PowerPoint to HTML Conversion**
-Using [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/java/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**.
+Using [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), applications and developers can convert a PowerPoint presentation to HTML: **PPTX to HTML** or **PPT to HTML**.
 
 **Aspose.Slides** provides many options (mostly from the [**HtmlOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) class) that define the PowerPoint to HTML conversion process:
 
@@ -50,10 +50,10 @@ You may want to check out other [free converters from Aspose](https://products.a
 
 Besides the conversion processes described here, Aspose.Slides also supports these conversion operations involving the HTML format: 
 
-* [HTML to image](https://products.aspose.com/slides/java/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/java/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/java/conversion/html-to-xml/)
-* [HTML to TIFF](https://products.aspose.com/slides/java/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/nodejs-java/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/nodejs-java/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/nodejs-java/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/html-to-tiff/)
 
 {{% /alert %}}
 

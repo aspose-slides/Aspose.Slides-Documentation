@@ -16,7 +16,7 @@ Consider a chart created in MS Excel. The chart is then placed inside a PowerPoi
 - An OLE object may appear as an icon. In this case, when you double-click the icon, the chart gets opened in its associated application (Excel), or you are asked to select an application for object opening or editing. 
 - An OLE object may display actual contents—for example, the contents of a chart. In this case, the chart is activated in PowerPoint, the chart interface loads, and you get to modify the chart's data within the PowerPoint app.
 
-[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/java/) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame)).
+[Aspose.Slides for Node.js via Java](https://products.aspose.com/slides/nodejs-java/) allows you to insert OLE Objects into slides as OLE Object Frames ([OleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleObjectFrame)).
 
 ## **Adding OLE Object Frames to Slides**
 Assuming you already created a chart in Microsoft Excel and want to embed that chart in a slide as an OLE Object Frame using Aspose.Slides for Node.js via Java, you can do it this way:

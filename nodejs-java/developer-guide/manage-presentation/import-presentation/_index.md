@@ -7,7 +7,7 @@ keywords: "Import PowerPoint, PDF to Presentation, PDF to PPTX, PDF to PPT, Java
 description: "Import PowerPoint presentation from PDF. Convert PDF to PowerPoint"
 ---
 
-Using [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/java/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
+Using [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), you can import presentations from files in other formats. Aspose.Slides provides the [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) class to allow you to import presentations from PDFs, HTML documents, etc.
 
 ## **Import PowerPoint from PDF**
 
@@ -73,9 +73,9 @@ This Java code demonstrates the HTML to PowerPoint operation:
 
 You may also use Aspose.Slides to convert HTML to other popular file formats: 
 
-* [HTML to image](https://products.aspose.com/slides/java/conversion/html-to-image/)
-* [HTML to JPG](https://products.aspose.com/slides/java/conversion/html-to-jpg/)
-* [HTML to XML](https://products.aspose.com/slides/java/conversion/html-to-xml/)
-* [HTML to TIFF](https://products.aspose.com/slides/java/conversion/html-to-tiff/)
+* [HTML to image](https://products.aspose.com/slides/nodejs-java/conversion/html-to-image/)
+* [HTML to JPG](https://products.aspose.com/slides/nodejs-java/conversion/html-to-jpg/)
+* [HTML to XML](https://products.aspose.com/slides/nodejs-java/conversion/html-to-xml/)
+* [HTML to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/html-to-tiff/)
 
 {{% /alert %}}

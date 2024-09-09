@@ -52,7 +52,7 @@ This Java code shows you how to create a picture frame:
 
 {{% alert color="warning" %}} 
 
-Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another. You may want to see these pages: convert [image to JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
+Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another. You may want to see these pages: convert [image to JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
 
 {{% /alert %}}
 

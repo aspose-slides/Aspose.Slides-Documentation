@@ -7,7 +7,7 @@ url: /nodejs-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 
 {{% alert color="primary" %}} 
 
- Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for Node.js via Java](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/nodejs-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for Node.js via Java](/slides/nodejs-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Creating a Chart**

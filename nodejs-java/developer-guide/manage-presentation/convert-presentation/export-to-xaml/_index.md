@@ -10,7 +10,7 @@ url: /nodejs-java/export-to-xaml/
 
 {{% alert color="primary" %}} 
 
-In [Aspose.Slides 21.6](https://docs.aspose.com/slides/java/aspose-slides-for-java-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML. 
+In [Aspose.Slides 21.6](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-21-6-release-notes/), we implemented support for XAML export. You can now export your presentations to XAML.
 
 {{% /alert %}} 
 

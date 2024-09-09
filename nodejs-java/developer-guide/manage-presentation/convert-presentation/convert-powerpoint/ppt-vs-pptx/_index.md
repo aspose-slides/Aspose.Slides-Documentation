@@ -39,5 +39,5 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 ```
 
 {{% alert color="primary" %}} 
-Read more [**How to Convert Presentations PPT to PPTX**.](/slides/java/convert-ppt-to-pptx/)
+Read more [**How to Convert Presentations PPT to PPTX**.](/slides/nodejs-java/convert-ppt-to-pptx/)
 {{% /alert %}} 

@@ -9,7 +9,7 @@ url: /nodejs-java/faqs/
 
 **Q: What file formats does Aspose.Slides for Node.js via Java support?**
 
-**A**: Aspose.Slides for Node.js via Java supports the file formats described in [Supported File Formats](/slides/java/supported-file-formats/).
+**A**: Aspose.Slides for Node.js via Java supports the file formats described in [Supported File Formats](/slides/nodejs-java/supported-file-formats/).
 
 ## **Exceptions**
 

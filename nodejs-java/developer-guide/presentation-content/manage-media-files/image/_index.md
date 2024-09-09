@@ -18,13 +18,13 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 {{% alert title="Info" color="info" %}}
 
-If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [Picture Frame](https://docs.aspose.com/slides/java/picture-frame/). 
+If you want to add an image as a frame object—especially if you plan to use standard formatting options on it to change its size, add effects, and so on—see [Picture Frame](https://docs.aspose.com/slides/nodejs-java/picture-frame/).
 
 {{% /alert %}} 
 
 {{% alert title="Note" color="warning" %}}
 
-You can manipulate input/output operations involving images and PowerPoint presentations to convert an image from one format to another. See these pages: convert [image to JPG](https://products.aspose.com/slides/java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/java/conversion/svg-to-png/).
+You can manipulate input/output operations involving images and PowerPoint presentations to convert an image from one format to another. See these pages: convert [image to JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
 
 {{% /alert %}}
 
@@ -125,7 +125,7 @@ This Java sample code shows you how to add an image to a slide master:
 
 ## **Adding Images as Slide Background**
 
-You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/java/presentation-background/#setting-images-as-background-for-slides)*.
+You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Adding SVG to Presentations**
 You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method that belongs to the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface.

@@ -7,7 +7,7 @@ url: /nodejs-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-micros
 
 {{% alert color="primary" %}} 
 
- Charts are visual representations of your data and widely used in presentation slides. This article will show you the code to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide programmatically by using [VSTO](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) and [Aspose.Slides for Node.js via Java](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Charts are visual representations of your data and widely used in presentation slides. This article will show you the code to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide programmatically by using [VSTO](/slides/nodejs-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) and [Aspose.Slides for Node.js via Java](/slides/nodejs-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creating and Embedding an Excel Chart**

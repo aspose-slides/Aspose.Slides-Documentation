@@ -131,7 +131,7 @@ This sample code shows you how to add a hyperlink to a **video**:
 
 {{%  alert  title="Tip"  color="primary"  %}} 
 
-You may want to see *[Manage OLE](/slides/java/manage-ole/)*.
+You may want to see *[Manage OLE](/slides/nodejs-java/manage-ole/)*.
 
 {{% /alert %}}
 

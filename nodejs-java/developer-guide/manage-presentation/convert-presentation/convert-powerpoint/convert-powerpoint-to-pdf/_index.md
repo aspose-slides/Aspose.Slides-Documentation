@@ -171,9 +171,9 @@ This Java code shows you how to detect font substitutions:
 
 {{%  alert color="primary"  %}} 
 
-For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+For more information on getting callbacks for font substitutions in a rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/nodejs-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/java/font-substitution/) article.
+For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/nodejs-java/font-substitution/) article.
 
 {{% /alert %}} 
 
@@ -270,7 +270,7 @@ This Java code demonstrates a PowerPoint to PDF conversion operation in which mu
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides support for PDF conversion operations extends to allowing you allow convert PDF to the most popular file formats. You can do [PDF to HTML](https://products.aspose.com/slides/java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/java/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/java/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/java/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/java/conversion/pdf-to-xml/)—are also supported.
+Aspose.Slides support for PDF conversion operations extends to allowing you allow convert PDF to the most popular file formats. You can do [PDF to HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-xml/)—are also supported.
 
 {{% /alert %}}
 

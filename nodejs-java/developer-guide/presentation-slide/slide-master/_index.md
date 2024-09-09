@@ -156,7 +156,7 @@ You can add images to a slide master with Aspose.Slides:
 
 {{% alert color="primary" title="See also" %}} 
 
-For more information on adding images to a slide, see the [Picture Frame](/slides/java/picture-frame/#create-picture-frame) article.
+For more information on adding images to a slide, see the [Picture Frame](/slides/nodejs-java/picture-frame/#create-picture-frame) article.
 {{% /alert %}}
 
 
@@ -209,8 +209,8 @@ The title style and formatting will change for all slides based on the slide mas
 
 {{% alert color="primary" title="See also" %}} 
 
-* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/java/manage-placeholder/)
-* [Text Formatting](https://docs.aspose.com/slides/java/text-formatting/)
+* [Set Prompt Text in Placeholder](https://docs.aspose.com/slides/nodejs-java/manage-placeholder/)
+* [Text Formatting](https://docs.aspose.com/slides/nodejs-java/text-formatting/)
 
 {{% /alert %}}
 
@@ -236,9 +236,9 @@ When you change a master slide's background color, all the normal slides in the 
 
 {{% alert color="primary" title="See also" %}} 
 
-- [Presentation Background](https://docs.aspose.com/slides/java/presentation-background/)
+- [Presentation Background](https://docs.aspose.com/slides/nodejs-java/presentation-background/)
 
-- [Presentation Theme](https://docs.aspose.com/slides/java/presentation-theme/)
+- [Presentation Theme](https://docs.aspose.com/slides/nodejs-java/presentation-theme/)
 
   {{% /alert %}}
 

@@ -33,6 +33,6 @@ By using Aspose.Cells for Java along with Aspose.Slides for Node.js via Java, we
 
 {{% /alert %}} 
 ## **Related Sections**
-[Working Solution for Chart Resizing](/slides/java/working-solution-for-chart-resizing-in-pptx/)
+[Working Solution for Chart Resizing](/slides/nodejs-java/working-solution-for-chart-resizing-in-pptx/)
 
-[Object Changed Issue](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Object Changed Issue](/slides/nodejs-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

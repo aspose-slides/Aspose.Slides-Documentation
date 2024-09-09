@@ -9,7 +9,7 @@ description: "Convert PowerPoint to Markdown in Javascript"
 
 {{% alert color="info" %}} 
 
-Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 23.7](https://docs.aspose.com/slides/java/aspose-slides-for-java-23-7-release-notes/).
+Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 23.7](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-23-7-release-notes/).
 
 {{% /alert %}} 
 

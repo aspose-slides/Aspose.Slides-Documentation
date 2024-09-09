@@ -28,7 +28,7 @@ Let’s start with adding a new Sunburst chart to the presentation:
 ```
 
 {{% alert color="primary" title="See also" %}} 
-- [**Creating Sunburst Chart**](/slides/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Creating Sunburst Chart**](/slides/nodejs-java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

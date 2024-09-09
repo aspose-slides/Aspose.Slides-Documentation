@@ -53,6 +53,6 @@ This Java code demonstrates the font substitution process:
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-You may want to see [**Font Replacement**](/slides/java/font-replacement/). 
+You may want to see [**Font Replacement**](/slides/nodejs-java/font-replacement/).
 
 {{% /alert %}}

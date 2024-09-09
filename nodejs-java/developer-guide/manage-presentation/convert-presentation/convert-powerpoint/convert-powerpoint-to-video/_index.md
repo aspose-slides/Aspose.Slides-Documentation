@@ -20,7 +20,7 @@ You may want to check our [**PowerPoint to Video Online Converter**](https://pro
 
 ## **PowerPoint to Video Conversion in Aspose.Slides**
 
-In [Aspose.Slides 22.11](https://docs.aspose.com/slides/java/aspose-slides-for-java-22-11-release-notes/), we implemented support for presentation to video conversion. 
+In [Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-22-11-release-notes/), we implemented support for presentation to video conversion.
 
 * Use **Aspose.Slides** to generate a set of frames (from the presentation slides) that correspond to a certain FPS (frames per second)
 * Use a third-party utility like **ffmpeg** ([for java](https://github.com/bramp/ffmpeg-cli-wrapper)) to create a video based on the frames. 
@@ -96,7 +96,7 @@ You can apply animations to objects on slides and use transitions between slides
 
 {{% alert color="primary" %}} 
 
-You may want to see these articles: [PowerPoint Animation](https://docs.aspose.com/slides/java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/java/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/java/shape-effect/).
+You may want to see these articles: [PowerPoint Animation](https://docs.aspose.com/slides/nodejs-java/powerpoint-animation/), [Shape Animation](https://docs.aspose.com/slides/nodejs-java/shape-animation/), and [Shape Effect](https://docs.aspose.com/slides/nodejs-java/shape-effect/).
 
 {{% /alert %}} 
 
@@ -262,7 +262,7 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
     }
 ```
 
-Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/java/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.
+Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.
 
 ## **Supported Animations and Effects**
 

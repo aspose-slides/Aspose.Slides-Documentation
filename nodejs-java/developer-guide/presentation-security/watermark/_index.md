@@ -11,7 +11,7 @@ description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in p
 ## **About Watermark**
 **Watermark** in presentation is a text or image stamp, used upon a slide or all presentation slides. Usually, watermark is used to indicate that the presentation is a draft (e.g. "Draft" watermark); that it contains confidential information (e.g. "Confidential" watermak); specify which company it belongs to (e.g. "Company name" watermark); identify presentation author, etc. Watermark helps to prevent presentation copyrights violation, indicating that the presentation should not be copied. Watermarks are used with both PowerPoint and OpenOffice presentation formats. In Aspose.Slides you can add watermark to PowerPoint PPT, PPTX and OpenOffice ODP file formats.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/java/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class and to add image watermark - [**PictureFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/). [PictureFrame]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/)) implements [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interface and can use all the power of flexible settings of shape object. [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) is not a shape and its settings are limited. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) into [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) object.
+In [**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class and to add image watermark - [**PictureFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/). [PictureFrame]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/)) implements [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interface and can use all the power of flexible settings of shape object. [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) is not a shape and its settings are limited. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) into [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) object.
 
 There are two ways watermark can be applied: to a single slide and to all presentation slides. Slide Master is used to apply watermark to all presentation slides - watermark is added into Slide Master, completely designed there and applied to all slides without modifying a permission to modify watermark on slides.
 
@@ -41,7 +41,7 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
 
 
 {{% alert color="primary" title="See also" %}} 
-- [How to use ](/slides/java/slide-master/)[TextFrame](/slides/java/adding-and-formatting-text/)
+- [How to use ](/slides/nodejs-java/slide-master/)[TextFrame](/slides/nodejs-java/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Add Text Watermark to Presentation**
@@ -65,7 +65,7 @@ All the other logic is the same as in adding watermark into a single slide - cre
 
 
 {{% alert color="primary" title="See also" %}} 
-- [How to use ](/slides/java/slide-master/)[Slide Master](/slides/java/slide-master/)
+- [How to use ](/slides/nodejs-java/slide-master/)[Slide Master](/slides/nodejs-java/slide-master/)
 {{% /alert %}}
 
 ### **Set Font of Text Watermark**
@@ -144,7 +144,7 @@ If its needed to prevent watermark from editing, use [**AutoShape.getShapeLock**
 ```
 
 {{% alert color="primary" title="See also" %}} 
-- [How to Lock Shapes from Editing](/slides/java/presentation-locking/)
+- [How to Lock Shapes from Editing](/slides/nodejs-java/presentation-locking/)
 {{% /alert %}}
 
 ## **Bring Watermark to Front**

@@ -7,7 +7,7 @@ url: /nodejs-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 
 {{% alert color="primary" %}} 
 
-A common task that developers are developers to accomplish is adding text to slides dynamically. This article shows code examples for adding text dynamically using [VSTO](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) and [Aspose.Slides for Node.js via Java](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+A common task that developers are developers to accomplish is adding text to slides dynamically. This article shows code examples for adding text dynamically using [VSTO](/slides/nodejs-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) and [Aspose.Slides for Node.js via Java](/slides/nodejs-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **Adding Text Dynamically**

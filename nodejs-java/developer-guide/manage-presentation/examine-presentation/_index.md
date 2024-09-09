@@ -61,7 +61,7 @@ This Java code shows you how to edit a presentation's properties:
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 
-- [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
-- [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
-- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
-- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).
+- [Checking whether a Presentation is Encrypted](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-encrypted)
+- [Checking whether a Presentation is Write Protected (read-only)](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-write-protected)
+- [Checking whether a Presentation is Password Protected Before Loading it](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#checking-whether-a-presentation-is-password-protected-before-loading-it)
+- [Confirming the Password Used to Protect a Presentation](https://docs.aspose.com/slides/nodejs-java/password-protected-presentation/#validating-or-confirming-that-a-specific-password-has-been-used-to-protect-a-presentation).

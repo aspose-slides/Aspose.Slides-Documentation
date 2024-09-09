@@ -9,11 +9,11 @@ description: "PowerPoint header and footer in Javascript"
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/java/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
+[Aspose.Slides](/slides/nodejs-java/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
 
 {{% /alert %}} 
 
-[Aspose.Slides for Node.js via Java](/slides/java/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
+[Aspose.Slides for Node.js via Java](/slides/nodejs-java/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on presentation master level.
 
 ## **Manage Header and Footer in Presentation**
 Notes of some specific slide could be removed as shown in example below:

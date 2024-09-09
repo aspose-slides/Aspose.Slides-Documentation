@@ -8,7 +8,7 @@ url: /nodejs-java/save-presentation/
 ## **Overview**
 {{% alert color="primary" %}} 
 
-[Opening Presentation](/slides/java/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
+[Opening Presentation](/slides/nodejs-java/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
 
 {{% /alert %}} 
 

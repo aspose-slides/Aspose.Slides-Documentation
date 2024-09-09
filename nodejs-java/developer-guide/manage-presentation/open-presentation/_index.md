@@ -75,7 +75,7 @@ This Java demonstrates an operation in which a large presentation (say 2GB in si
 
 To circumvent certain limitations when interacting with a stream, Aspose.Slides may copy the stream's content. Loading a large presentation through its stream will result in the copying of the presentation's contents and cause slow loading. Therefore, when you intend to load a large presentation, we strongly recommend that you use the presentation file path and not its stream.
 
-When you want to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/java/manage-blob/) to reduce memory consumption.
+When you want to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/nodejs-java/manage-blob/) to reduce memory consumption.
 
 {{%/alert %}} 
 

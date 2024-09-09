@@ -25,11 +25,11 @@ When you merge one presentation to another, you are effectively combining their 
 
 Most presentation programs (PowerPoint or OpenOffice) lack functions that allow users to combine presentations in such manner. 
 
-[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/java/), however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data.
+[**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data.
 
 **See also**
 
-[Clone Slides](https://docs.aspose.com/slides/java/clone-slides/). 
+[Clone Slides](https://docs.aspose.com/slides/nodejs-java/clone-slides/).
 
 {{% /alert %}}
 
@@ -45,9 +45,9 @@ With Aspose.Slides, you can merge
 
 Besides presentations, Aspose.Slides allows you to merge other files:
 
-* [Images](https://products.aspose.com/slides/java/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/java/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/java/merger/png-to-png/)
-* Documents, such as [PDF to PDF](https://products.aspose.com/slides/java/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/java/merger/html-to-html/)
-* And two different files such as [image to PDF](https://products.aspose.com/slides/java/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/java/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/java/merger/tiff-to-pdf/).
+* [Images](https://products.aspose.com/slides/nodejs-java/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/nodejs-java/merger/png-to-png/)
+* Documents, such as [PDF to PDF](https://products.aspose.com/slides/nodejs-java/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/nodejs-java/merger/html-to-html/)
+* And two different files such as [image to PDF](https://products.aspose.com/slides/nodejs-java/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/nodejs-java/merger/tiff-to-pdf/).
 
 {{% /alert %}}
 

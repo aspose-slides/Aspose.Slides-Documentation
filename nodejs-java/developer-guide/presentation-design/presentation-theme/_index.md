@@ -9,7 +9,7 @@ description: "PowerPoint presentation theme in Javascript"
 
 A presentation theme defines the properties of design elements. When you select a presentation theme, you are essentially choosing a specific set of visual elements and their properties.
 
-In PowerPoint, a theme comprises colors, [fonts](/slides/java/powerpoint-fonts/), [background styles](/slides/java/presentation-background/), and effects.
+In PowerPoint, a theme comprises colors, [fonts](/slides/nodejs-java/powerpoint-fonts/), [background styles](/slides/nodejs-java/presentation-background/), and effects.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -137,7 +137,7 @@ The font in all text boxes will be updated.
 
 {{% alert color="primary" title="TIP" %}} 
 
-You may want to see [PowerPoint fonts](/slides/java/powerpoint-fonts/).
+You may want to see [PowerPoint fonts](/slides/nodejs-java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -177,7 +177,7 @@ This Java code shows you how to set the background for a presentation:
 
 {{% alert color="primary" title="TIP" %}} 
 
-You may want to see [PowerPoint Background](/slides/java/presentation-background/).
+You may want to see [PowerPoint Background](/slides/nodejs-java/presentation-background/).
 
 {{% /alert %}}
 
