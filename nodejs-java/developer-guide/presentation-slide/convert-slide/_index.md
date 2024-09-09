@@ -4,7 +4,7 @@ type: docs
 weight: 35
 url: /nodejs-java/convert-slide/
 keywords: "Convert slide to image, export slide as image, save slide as image, slide to image, slide to PNG, slide to JPEG, slide to Bitmap, Java, java, Aspose.Slides"
-description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in Java"
+description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in Javascript"
 ---
 
 Aspose.Slides for Node.js via Java allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others.

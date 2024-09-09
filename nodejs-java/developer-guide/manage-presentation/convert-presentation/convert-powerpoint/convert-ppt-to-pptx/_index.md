@@ -4,7 +4,7 @@ linktitle: Convert PPT to PPTX
 type: docs
 weight: 20
 url: /nodejs-java/convert-ppt-to-pptx/
-keywords: "Java Convert PPT to PPTX, PowerPoint PPT to PPTX in Java"
+keywords: "Java Convert PPT to PPTX, PowerPoint PPT to PPTX in Javascript"
 description: "Convert PowerPoint PPT to PPTX in Java."
 ---
 

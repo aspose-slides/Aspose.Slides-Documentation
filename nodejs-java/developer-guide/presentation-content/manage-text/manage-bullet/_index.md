@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /nodejs-java/manage-bullet/
 keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create bullet and numbered lists in PowerPoint presentation in Java"
+description: "Create bullet and numbered lists in PowerPoint presentation in Javascript"
 ---
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for Node.js via Java** also allows you to use bullets and numbers in slides in your presentations.

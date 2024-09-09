@@ -5,7 +5,7 @@ type: docs
 weight: 70
 url: /nodejs-java/font-substitution/
 keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Substitute font in PowerPoint in Java"
+description: "Substitute font in PowerPoint in Javascript"
 ---
 
 Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:

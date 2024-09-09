@@ -4,7 +4,7 @@ type: docs
 weight: 30
 url: /nodejs-java/shape-effect
 keywords: "Shape effect, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Apply effect to PowerPoint shape in Java"
+description: "Apply effect to PowerPoint shape in Javascript"
 ---
 
 While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/java/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.

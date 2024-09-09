@@ -4,7 +4,7 @@ type: docs
 weight: 100
 url: /nodejs-java/presentation-comments/
 keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add comments and replies in PowerPoint presentation in Java"
+description: "Add comments and replies in PowerPoint presentation in Javascript"
 ---
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 

@@ -5,7 +5,7 @@ type: docs
 weight: 10
 url: /nodejs-java/create-chart/
 keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create chart in PowerPoint presentation in Java"
+description: "Create chart in PowerPoint presentation in Javascript"
 ---
 
 ## Overview

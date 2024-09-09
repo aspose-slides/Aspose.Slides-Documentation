@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /nodejs-java/connector/
 keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Connect PowerPoint shapes in Java"
+description: "Connect PowerPoint shapes in Javascript"
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 

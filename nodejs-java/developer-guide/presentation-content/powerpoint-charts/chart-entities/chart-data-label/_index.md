@@ -3,7 +3,7 @@ title: Chart Data Label
 type: docs
 url: /nodejs-java/chart-data-label/
 keywords: "Chart data label,label distance, Java, Aspose.Slides for Node.js via Java"
-description: "Set PowerPoint chart data label and distance in Java"
+description: "Set PowerPoint chart data label and distance in Javascript"
 ---
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.

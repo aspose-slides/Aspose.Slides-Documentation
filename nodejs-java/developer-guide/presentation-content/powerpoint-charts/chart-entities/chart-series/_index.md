@@ -3,7 +3,7 @@ title: Chart Series
 type: docs
 url: /nodejs-java/chart-series/
 keywords: "Chart series, series color, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Chart series in PowerPoint presentations in Java"
+description: "Chart series in PowerPoint presentations in Javascript"
 ---
 
 A series is a row or column of numbers plotted in a chart.

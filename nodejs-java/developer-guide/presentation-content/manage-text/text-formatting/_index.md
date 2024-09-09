@@ -20,7 +20,7 @@ keywords:
 - default text style
 - Java
 - Aspose.Slides for Node.js via Java
-description: "Manage and manipulate text and text frame properties in Java"
+description: "Manage and manipulate text and text frame properties in Javascript"
 ---
 
 ## **Highlight Text**

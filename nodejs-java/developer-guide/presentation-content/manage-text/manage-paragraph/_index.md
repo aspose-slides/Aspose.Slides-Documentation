@@ -4,7 +4,7 @@ type: docs
 weight: 40
 url: /nodejs-java/manage-paragraph/
 keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in Java"
+description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in Javascript"
 ---
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.

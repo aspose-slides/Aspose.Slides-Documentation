@@ -4,7 +4,7 @@ type: docs
 weight: 70
 url: /nodejs-java/convert-powerpoint-to-xps/
 keywords: "PPT, PPTX to XPS"
-description: "Convert PowerPoint PPT(X) to XPS in Java"
+description: "Convert PowerPoint PPT(X) to XPS in Javascript"
 ---
 
 ## **About XPS**

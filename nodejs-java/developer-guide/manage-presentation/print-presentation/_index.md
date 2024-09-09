@@ -4,7 +4,7 @@ type: docs
 weight: 50
 url: /nodejs-java/print-presentation/
 keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Java, Printer, PrinterJob, PrintService"
-description: "Print PowerPoint Presentation in Java"
+description: "Print PowerPoint Presentation in Javascript"
 ---
 
 In Aspose.Slides for Node.js via Java 24.4, we have introduced a [Modern API](https://docs.aspose.com/slides/java/modern-api/) that limits print support. However, we have taken a new approach to help you overcome this limitation. In this article, we will show you how to print a presentation using the current API.

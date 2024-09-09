@@ -3,8 +3,8 @@ title: Convert OpenOffice ODP
 type: docs
 weight: 10
 url: /nodejs-java/convert-openoffice-odp/
-keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF in Java"
-description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML in Java"
+keywords: "Convert ODP to PDF, ODP to HTML, ODP to TIFF in Javascript"
+description: "Convert ODP to PDF, ODP to PPT, ODP to PPTX, ODP to HTML in Javascript"
 ---
 
 [**Aspose.Slides API**](https://products.aspose.com/slides/java/) allows to convert OpenOffice ODP presentation to many types. The API to convert ODP to other types is the same as for PowerPoint types. You may use the following examples to convert ODP, just changing the source file on the ODP presentation file:

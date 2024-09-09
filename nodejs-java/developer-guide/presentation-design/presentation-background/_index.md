@@ -3,8 +3,8 @@ title: Presentation Background
 type: docs
 weight: 20
 url: /nodejs-java/presentation-background/
-keywords: "PowerPoint background, set background in Java"
-description: "Set background in PowerPoint presentation in Java"
+keywords: "PowerPoint background, set background in Javascript"
+description: "Set background in PowerPoint presentation in Javascript"
 ---
 
 Solid colors, gradient colors, and pictures are often used as background images for slides. You can set the background either for a **normal slide** (single slide) or **master slide** (several slides at once)

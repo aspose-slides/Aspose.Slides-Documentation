@@ -5,7 +5,7 @@ type: docs
 weight: 40
 url: /nodejs-java/embedded-font/
 keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Use embedded fonts in PowerPoint presentation in Java"
+description: "Use embedded fonts in PowerPoint presentation in Javascript"
 
 ---
 

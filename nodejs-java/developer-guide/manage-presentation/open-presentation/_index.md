@@ -5,7 +5,7 @@ type: docs
 weight: 20
 url: /nodejs-java/open-presentation/
 keywords: "Open PowerPoint, PPTX, PPT, Open Presentation, Load Presentation, Java"
-description: "Open or load Presentation PPT, PPTX, ODP in Java"
+description: "Open or load Presentation PPT, PPTX, ODP in Javascript"
 ---
 
 Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you to open existing presentations. After you load a presentation, you can get information about the presentation, edit the presentation (content on its slides), add new slides or remove existing ones, etc. 

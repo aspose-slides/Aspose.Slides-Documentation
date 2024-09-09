@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /nodejs-java/shape-animation/
 keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Apply PowerPoint animation in Java"
+description: "Apply PowerPoint animation in Javascript"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/java/animated-charts/). They give life to presentations or its constituents. 

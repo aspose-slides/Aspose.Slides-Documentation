@@ -4,7 +4,7 @@ type: docs
 weight: 140
 url: /nodejs-java/convert-powerpoint-to-markdown/
 keywords: "Convert PowerPoint to Markdown, Convert ppt to md, PowerPoint, PPT, PPTX, Presentation, Markdown, Java, Aspose.Slides for Node.js via Java"
-description: "Convert PowerPoint to Markdown in Java"
+description: "Convert PowerPoint to Markdown in Javascript"
 ---
 
 {{% alert color="info" %}} 

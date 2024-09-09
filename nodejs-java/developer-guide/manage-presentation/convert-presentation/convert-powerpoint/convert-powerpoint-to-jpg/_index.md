@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /nodejs-java/convert-powerpoint-to-jpg/
 keywords: "Convert PowerPoint to JPG, PPTX to JPEG, PPT to JPEG"
-description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in Java"
+description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in Javascript"
 ---
 
 

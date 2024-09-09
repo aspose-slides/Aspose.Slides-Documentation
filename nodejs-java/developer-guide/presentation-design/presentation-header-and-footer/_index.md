@@ -3,8 +3,8 @@ title: Presentation Header and Footer
 type: docs
 weight: 140
 url: /nodejs-java/presentation-header-and-footer/
-keywords: "PowerPoint header and footer in Java"
-description: "PowerPoint header and footer in Java"
+keywords: "PowerPoint header and footer in Javascript"
+description: "PowerPoint header and footer in Javascript"
 ---
 
 {{% alert color="primary" %}} 

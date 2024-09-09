@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /nodejs-java/manage-zoom/
 keywords: "Zoom, Zoom frame, Add zoom, Format zoom frame, Summary zoom, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add zoom or zoom frames to PowerPoint presentations in Java"
+description: "Add zoom or zoom frames to PowerPoint presentations in Javascript"
 ---
 
 ## **Overview**

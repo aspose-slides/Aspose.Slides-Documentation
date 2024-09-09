@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /nodejs-java/manage-hyperlinks/
 keywords: "PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, Java"
-description: "How to add hyperlink to a PowerPoint Presentation in Java"
+description: "How to add hyperlink to a PowerPoint Presentation in Javascript"
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:

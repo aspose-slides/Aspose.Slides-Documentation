@@ -3,7 +3,7 @@ title: Chart Axis
 type: docs
 url: /nodejs-java/chart-axis/
 keywords: "PowerPoint Chart Axis, Presentation Charts, Java, Manipulate Chart Axis, Chart data"
-description: "How to edit PowerPoint chart axis in Java"
+description: "How to edit PowerPoint chart axis in Javascript"
 ---
 
 

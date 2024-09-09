@@ -3,8 +3,8 @@ title: Presentation Notes
 type: docs
 weight: 110
 url: /nodejs-java/presentation-notes/
-keywords: "PowerPoint speaker notes in Java"
-description: "Presentation notes, speaker notes in Java"
+keywords: "PowerPoint speaker notes in Javascript"
+description: "Presentation notes, speaker notes in Javascript"
 ---
 
 

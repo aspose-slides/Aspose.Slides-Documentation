@@ -4,7 +4,7 @@ type: docs
 weight: 80
 url: /nodejs-java/convert-powerpoint-to-swf-flash/
 keywords: "PPT, PPTX to SWF"
-description: "Convert PowerPoint PPT, PPTX to SWF in Java"
+description: "Convert PowerPoint PPT, PPTX to SWF in Javascript"
 ---
 
 ## **Convert PPT(X) to SWF**
