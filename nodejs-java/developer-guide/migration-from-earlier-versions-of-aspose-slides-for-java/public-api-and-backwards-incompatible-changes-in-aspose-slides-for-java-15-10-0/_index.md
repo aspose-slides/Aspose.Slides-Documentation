@@ -14,12 +14,7 @@ This page lists all [added](/slides/java/public-api-and-backwards-incompatible-c
 #### **Chart series animation API has been added to ISequence**
 The new 2 methods have been added to com.aspose.slides.ISequence interface.
 
-``` java
-
- IEffect addEffect(IChart chart, int type, int index, int effectType, int subtype, int triggerType);
-
-IEffect addEffect(IChart chart, int type, int seriesIndex, int categoriesIndex, int effectType, int subtype, int triggerType);
-
+```javascript
 ```
 
 These methods are intended to support the chart's elements animations:
@@ -33,312 +28,102 @@ The two new enums EffectChartMajorGroupingType and EffectChartMinorGroupingType 
 
 To add a series animation to the chart the following code may be used:
 
-``` java
-
- Presentation pres = new Presentation(inFileName);
-
-try {
-
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	IShapeCollection shapes = slide.getShapes();
-
-	IChart chart = (IChart) shapes.get_Item(0);
-
-	slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
-
-		EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.BySeries, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	pres.save(outFileName, SaveFormat.Pptx);
-
-} finally {
-
-	if(pres != null) pres.dispose();
-
-}
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation(inFileName);
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var shapes = slide.getShapes();
+        var chart = shapes.get_Item(0);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectType.Fade, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.BySeries, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.BySeries, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.BySeries, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.BySeries, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        pres.save(outFileName, com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 Categories animation:
 
-``` java
-
- Presentation pres = new Presentation(inFileName);
-
-try
-
-{
-
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	IShapeCollection shapes = slide.getShapes();
-
-	IChart chart = (IChart) shapes.get_Item(0);
-
-	slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
-
-		EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.ByCategory, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.ByCategory, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.ByCategory, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMajorGroupingType.ByCategory, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	pres.save(outFileName, SaveFormat.Pptx);
-
-} finally {
-
-	if(pres != null) pres.dispose();
-
-}
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation(inFileName);
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var shapes = slide.getShapes();
+        var chart = shapes.get_Item(0);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectType.Fade, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.ByCategory, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.ByCategory, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.ByCategory, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMajorGroupingType.ByCategory, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        pres.save(outFileName, com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 Series elements animation:
 
-``` java
-
- Presentation pres = new Presentation(inFileName);
-
-try
-
-{
-
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	IShapeCollection shapes = slide.getShapes();
-
-	IChart chart = (IChart) shapes.get_Item(0);
-
-	slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
-
-		EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 0, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 0, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 0, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 0, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 1, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 1, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 1, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 1, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 2, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 2, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 2, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInSeries, 2, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	pres.save(outFileName, SaveFormat.Pptx);
-
-} finally {
-
-	if(pres != null) pres.dispose();
-
-}
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation(inFileName);
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var shapes = slide.getShapes();
+        var chart = shapes.get_Item(0);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectType.Fade, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 0, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 0, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 0, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 0, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 1, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 1, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 1, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 1, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 2, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 2, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 2, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInSeries, 2, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        pres.save(outFileName, com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 Categories elements animation:
 
-``` java
-
- Presentation pres = new Presentation(inFileName);
-
-try
-
-{
-
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	IShapeCollection shapes = slide.getShapes();
-
-	IChart chart = (IChart) shapes.get_Item(0);
-
-	slide.getTimeline().getMainSequence().addEffect(chart, EffectType.Fade, EffectSubtype.None,
-
-		EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 0, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 0, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 0, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 0, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 1, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 1, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 1, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 1, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 2, 0,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 2, 1,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 2, 2,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	((Sequence)slide.getTimeline().getMainSequence()).addEffect(chart,
-
-		EffectChartMinorGroupingType.ByElementInCategory, 2, 3,
-
-		EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-	pres.save(outFileName, SaveFormat.Pptx);
-
-} finally {
-
-	if(pres != null) pres.dispose();
-
-}
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation(inFileName);
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var shapes = slide.getShapes();
+        var chart = shapes.get_Item(0);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectType.Fade, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 0, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 0, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 0, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 0, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 1, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 1, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 1, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 1, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 2, 0, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 2, 1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 2, 2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        slide.getTimeline().getMainSequence().addEffect(chart, com.aspose.slides.EffectChartMinorGroupingType.ByElementInCategory, 2, 3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        pres.save(outFileName, com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 #### **New com.aspose.slides.VideoPlayerHtmlController added to support export od media files to HTML**
 The new public class com.aspose.slides.VideoPlayerHtmlController has been added. Using the instance of this class user can export video and audio files into HTML.
@@ -351,36 +136,21 @@ baseUri: The base URI which will be used to generate links
 
 Usage example:
 
-``` java
-
- Presentation pres = new Presentation("example.pptx");
-
-try
-
-{
-
-	final String path = "path";
-
-	final String fileName = "video.html";
-
-	final String baseUri = "http://www.example.com/";
-
-	VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
-
-	HtmlOptions htmlOptions = new HtmlOptions(controller);
-
-	SVGOptions svgOptions = new SVGOptions(controller);
-
-	htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
-
-	htmlOptions.setSlideImageFormat(SlideImageFormat.svg(svgOptions));
-
-	pres.save(path + fileName, SaveFormat.Html, htmlOptions);
-
-} finally {
-
-	if(pres != null) pres.dispose();
-
-}
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation("example.pptx");
+    try {
+        final var path = "path";
+        final var fileName = "video.html";
+        final var baseUri = "http://www.example.com/";
+        var controller = new  com.aspose.slides.VideoPlayerHtmlController(path, fileName, baseUri);
+        var htmlOptions = new  com.aspose.slides.HtmlOptions(controller);
+        var svgOptions = new  com.aspose.slides.SVGOptions(controller);
+        htmlOptions.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createCustomFormatter(controller));
+        htmlOptions.setSlideImageFormat(com.aspose.slides.SlideImageFormat.svg(svgOptions));
+        pres.save(path + fileName, com.aspose.slides.SaveFormat.Html, htmlOptions);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

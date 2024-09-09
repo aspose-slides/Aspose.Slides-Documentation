@@ -18,148 +18,91 @@ Method com.aspose.slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts sets d
 ### **Method IConnector.reroute() has been added**
 Method com.aspose.slides.IConnector.reroute() reroutes connector so that it take the shortest possible path between the shapes it connect. To do this, the reroute() method may change the StartShapeConnectionSiteIndex and EndShapeConnectionSiteIndex.
 
-``` java
-
- Presentation input = new Presentation();
-
-IShapeCollection shapes = input.getSlides().get_Item(0).getShapes();
-
-IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-
-connector.setStartShapeConnectedTo(ellipse);
-
-connector.setEndShapeConnectedTo(rectangle);
-
-connector.reroute();
-
-input.save("output.pptx", SaveFormat.Pptx);
-
+```javascript
+    var input = new  com.aspose.slides.Presentation();
+    var shapes = input.getSlides().get_Item(0).getShapes();
+    var connector = shapes.addConnector(com.aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+    var ellipse = shapes.addAutoShape(com.aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
+    var rectangle = shapes.addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 300, 100, 100);
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
+    input.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Method IPresentation.getSlideById(long) has been added**
 Method Aspose.Slides.IPresentation.getSlideById(int) returns a Slide, MasterSlide or LayoutSlide by slide Id.
 
-``` java
-
- Presentation presentation = new Presentation();
-
-long id = presentation.getSlides().get_Item(0).getSlideId();
-
-IBaseSlide slide = presentation.getSlideById(id);
-
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    var id = presentation.getSlides().get_Item(0).getSlideId();
+    var slide = presentation.getSlideById(id);
 ```
 ### **Method ISmartArt.getNodes() has been added**
 Method com.aspose.slides.ISmartArt.getNodes() returns collection of root nodes in SmartArt object.
 
-``` java
-
- Presentation pres = new Presentation();
-
-ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.VerticalBulletList);
-
-ISmartArtNode node = smart.getNodes().get_Item(1); // select second root node
-
-node.getTextFrame().setText("Second root node");
-
-pres.save("out.pptx", SaveFormat.Pptx);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.VerticalBulletList);
+    var node = smart.getNodes().get_Item(1);// select second root node
+    node.getTextFrame().setText("Second root node");
+    pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Method ISmartArt.setLayout(int) has been added**
 Method for property com.aspose.slides.ISmartArt.setLayout(int) has been added. It allows change layout type of an existing diagram.
 
-``` java
-
- Presentation pres = new Presentation();
-
-ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicBlockList);
-
-smart.setLayout(SmartArtLayoutType.BasicProcess);
-
-pres.save("out.pptx", SaveFormat.Pptx);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.BasicBlockList);
+    smart.setLayout(com.aspose.slides.SmartArtLayoutType.BasicProcess);
+    pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Method ISmartArtNode.isHidden() has been added**
 Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a hidden node in the data model.
 
-``` java
-
- Presentation pres = new Presentation();
-
-ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.RadialCycle);
-
-ISmartArtNode node = smart.getAllNodes().addNode();
-
-boolean hidden = node.isHidden(); //returns true
-
-if(hidden) {
-
-    //do some actions or notifications
-
-}
-
-pres.Save("out.pptx", SaveFormat.Pptx);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.RadialCycle);
+    var node = smart.getAllNodes().addNode();
+    var hidden = node.isHidden();// returns true
+    if (hidden) {
+        // do some actions or notifications
+    }
+    pres.Save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Methods ISmartArt.isReversed(), setReserved() have been added**
 Property com.aspose.slides.ISmartArt.IsReversed allows get or sets the state of the SmartArt diagram with regard to (left-to-right) LTR or (right-to-left) RTL, if the diagram supports reversal.
 
-``` java
-
- Presentation presentation = new Presentation();
-
-ISmartArt smart = presentation.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicProcess);
-
-smart.setReversed(true);
-
-presentation.save("out.pptx", SaveFormat.Pptx);
-
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    var smart = presentation.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.BasicProcess);
+    smart.setReversed(true);
+    presentation.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Methods ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) have been added**
 Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) allow get or sets organization chart type associated with current node.
 
-``` java
-
- Presentation pres = new Presentation();
-
-ISmartArt smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, SmartArtLayoutType.OrganizationChart);
-
-smart.getNodes().get_Item(0).setOrganizationChartLayout(OrganizationChartLayoutType.LeftHanging);
-
-pres.save("out.pptx", SaveFormat.Pptx);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.OrganizationChart);
+    smart.getNodes().get_Item(0).setOrganizationChartLayout(com.aspose.slides.OrganizationChartLayoutType.LeftHanging);
+    pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Property IShape.getConnectionSiteCount() has been added**
 Property com.aspose.slides.getConnectionSiteCount() returns the number of connection sites on the shape.
 
-``` java
-
- Presentation input = new Presentation();
-
-IShapeCollection shapes = input.getSlides().get_Item(0).getShapes();
-
-IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-
-IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-
-IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 200, 100, 100);
-
-connector.setStartShapeConnectedTo(ellipse);
-
-connector.setEndShapeConnectedTo(rectangle);
-
-long wantedIndex = 6;
-
-if (ellipse.getConnectionSiteCount() > wantedIndex) {
-
-  connector.setStartShapeConnectionSiteIndex(wantedIndex);
-
-}
-
-input.save("output.pptx", SaveFormat.Pptx);
-
+```javascript
+    var input = new  com.aspose.slides.Presentation();
+    var shapes = input.getSlides().get_Item(0).getShapes();
+    var connector = shapes.addConnector(com.aspose.slides.ShapeType.BentConnector2, 0, 0, 10, 10);
+    var ellipse = shapes.addAutoShape(com.aspose.slides.ShapeType.Ellipse, 0, 100, 100, 100);
+    var rectangle = shapes.addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 200, 100, 100);
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+    var wantedIndex = 6;
+    if (ellipse.getConnectionSiteCount() > wantedIndex) {
+        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    }
+    input.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Minor Changes**
 This is the list of minor API changes:

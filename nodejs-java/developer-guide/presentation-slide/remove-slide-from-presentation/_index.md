@@ -19,21 +19,19 @@ If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides
 
 This Java code shows you how to remove a slide through its reference:
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    // Accesses a slide through its index in the slides collection
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Removes a slide through its reference
-    pres.getSlides().remove(slide);
-    
-    // Saves the modified presentation
-    pres.save("modified.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        // Accesses a slide through its index in the slides collection
+        var slide = pres.getSlides().get_Item(0);
+        // Removes a slide through its reference
+        pres.getSlides().remove(slide);
+        // Saves the modified presentation
+        pres.save("modified.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 
@@ -45,47 +43,48 @@ try {
 
 This Java code shows you how to remove a slide through its index:
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    // Removes a slide through its slide index
-    pres.getSlides().removeAt(0);
-    
-    // Saves the modified presentation
-    pres.save("modified.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        // Removes a slide through its slide index
+        pres.getSlides().removeAt(0);
+        // Saves the modified presentation
+        pres.save("modified.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 ## **Remove Unused Layout Slide**
 
 Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class) to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.removeUnusedLayoutSlides(pres);
-
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        com.aspose.slides.Compress.removeUnusedLayoutSlides(pres);
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Remove Unused Master Slide**
 
 Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Java code shows you how to remove a master slide from a PowerPoint presentation:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
- try {
-     Compress.removeUnusedMasterSlides(pres);
-
-     pres.save("pres-out.pptx", SaveFormat.Pptx);
- } finally {
-     if (pres != null) pres.dispose();
- }
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        com.aspose.slides.Compress.removeUnusedMasterSlides(pres);
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 

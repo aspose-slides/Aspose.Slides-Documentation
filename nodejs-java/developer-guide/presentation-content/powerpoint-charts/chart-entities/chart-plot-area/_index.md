@@ -17,20 +17,21 @@ Aspose.Slides for Java provides a simple API for . 
 1. Gets actual width of the chart element.
 1. Gets actual height of the chart element.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    Chart chart = (Chart)pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 350);
-    chart.validateChartLayout();
-
-    double x = chart.getPlotArea().getActualX();
-    double y = chart.getPlotArea().getActualY();
-    double w = chart.getPlotArea().getActualWidth();
-    double h = chart.getPlotArea().getActualHeight();
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 350);
+        chart.validateChartLayout();
+        var x = chart.getPlotArea().getActualX();
+        var y = chart.getPlotArea().getActualY();
+        var w = chart.getPlotArea().getActualWidth();
+        var h = chart.getPlotArea().getActualHeight();
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Layout Mode of Chart Plot Area**
@@ -41,20 +42,21 @@ Aspose.Slides for Java provides a simple API to set the layout mode of the chart
 
 Sample code is given below.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-    chart.getPlotArea().setX(0.2f);
-    chart.getPlotArea().setY(0.2f);
-    chart.getPlotArea().setWidth(0.7f);
-    chart.getPlotArea().setHeight(0.7f);
-    chart.getPlotArea().setLayoutTargetType(LayoutTargetType.Inner);
-
-    pres.save("SetLayoutMode_outer.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var chart = slide.getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+        chart.getPlotArea().setX(0.2);
+        chart.getPlotArea().setY(0.2);
+        chart.getPlotArea().setWidth(0.7);
+        chart.getPlotArea().setHeight(0.7);
+        chart.getPlotArea().setLayoutTargetType(com.aspose.slides.LayoutTargetType.Inner);
+        pres.save("SetLayoutMode_outer.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

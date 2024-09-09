@@ -30,44 +30,24 @@ This is the collection of IFontSubstRule instances used to substitute fonts duri
 
 The following example shows how to replace a font in a presentation:
 
-``` java
-
- Presentation pres = new Presentation("PresContainsArialFont.pptx");
-
-IFontData sourceFont = new FontData("Arial");
-
-IFontData destFont = new FontData("Times New Roman");
-
-pres.getFontsManager().replaceFont(sourceFont, destFont);
-
-pres.save("PresContainsTimesNoewRomanFont.pptx", SaveFormat.Pptx);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation("PresContainsArialFont.pptx");
+    var sourceFont = new  com.aspose.slides.FontData("Arial");
+    var destFont = new  com.aspose.slides.FontData("Times New Roman");
+    pres.getFontsManager().replaceFont(sourceFont, destFont);
+    pres.save("PresContainsTimesNoewRomanFont.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 
 Another example, shows font substitution for rendering when it is inaccessible:
 
-``` java
-
-
-
-Presentation pres = new Presentation("PresContainsSomeRareFontFont.pptx");
-
-IFontData sourceFont = new FontData("SomeRareFont");
-
-IFontData destFont = new FontData("Arial");
-
-IFontSubstRule fontSubstRule = new FontSubstRule(
-
-sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-
-fontSubstRuleCollection.add(fontSubstRule);
-
-pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-
-// Arial font will be used instead of SomeRareFont when inaccessible
-
-pres.getSlides().get_Item(0).getThumbnail(1, 1);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation("PresContainsSomeRareFontFont.pptx");
+    var sourceFont = new  com.aspose.slides.FontData("SomeRareFont");
+    var destFont = new  com.aspose.slides.FontData("Arial");
+    var fontSubstRule = new  com.aspose.slides.FontSubstRule(sourceFont, destFont, com.aspose.slides.FontSubstCondition.WhenInaccessible);
+    var fontSubstRuleCollection = new  com.aspose.slides.FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
+    // Arial font will be used instead of SomeRareFont when inaccessible
+    pres.getSlides().get_Item(0).getThumbnail(1, 1);
 ```

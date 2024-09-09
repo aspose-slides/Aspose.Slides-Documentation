@@ -20,22 +20,20 @@ Aspose.Slides for Java allows developers to add empty slides to their presentati
 - Do some work with the newly added empty slide.
 - Finally, write the presentation file using the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) object.
 
-```java
-// Instantiate Presentation class that represents the presentation file
-Presentation pres = new Presentation();
-try {
-    // Instantiate SlideCollection calss
-    ISlideCollection slds = pres.getSlides();
-
-    for (int i = 0; i < pres.getLayoutSlides().size(); i++) {
-        // Add an empty slide to the Slides collection
-        slds.addEmptySlide(pres.getLayoutSlides().get_Item(i));
+```javascript
+    // Instantiate Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Instantiate SlideCollection calss
+        var slds = pres.getSlides();
+        for (var i = 0; i < pres.getLayoutSlides().size(); i++) {
+            // Add an empty slide to the Slides collection
+            slds.addEmptySlide(pres.getLayoutSlides().get_Item(i));
+        }
+        // Do some work on the newly added slide
+        // Save the PPTX file to the Disk
+        pres.save("EmptySlide.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
     }
-    // Do some work on the newly added slide
-
-    // Save the PPTX file to the Disk
-    pres.save("EmptySlide.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
 ```

@@ -27,20 +27,18 @@ If you want to clone a slide and then use it within the same presentation file a
 
 In the example given below, we have cloned a slide (lying at the first position – zero index – of the presentation) to the end of the presentation.
 
-```java
-// Instantiate Presentation class that represents a presentation file
-Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx");
-try {
-    // Clone the desired slide to the end of the collection of slides in the same presentation
-    ISlideCollection slds = pres.getSlides();
-
-    slds.addClone(pres.getSlides().get_Item(0));
-
-    // Write the modified presentation to disk
-    pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiate Presentation class that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("CloneWithinSamePresentationToEnd.pptx");
+    try {
+        // Clone the desired slide to the end of the collection of slides in the same presentation
+        var slds = pres.getSlides();
+        slds.addClone(pres.getSlides().get_Item(0));
+        // Write the modified presentation to disk
+        pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 ## **Clone at Another Position with in Presentation**
@@ -53,21 +51,19 @@ If you want to clone a slide and then use it within the same presentation file b
 
 In the example given below, we have cloned a slide (lying at the zero index – position 1 – of the presentation) to index 1 – Position 2 – of the presentation.
 
-```java
-// Instantiate Presentation class that represents a presentation file
-Presentation pres = new Presentation("CloneWithInSamePresentation.pptx");
-try {
-    // Clone the desired slide to the end of the collection of slides in the same presentation
-    ISlideCollection slds = pres.getSlides();
-
-    // Clone the desired slide to the specified index in the same presentation
-    slds.insertClone(2, pres.getSlides().get_Item(1));
-
-    // Write the modified presentation to disk
-    pres.save("Aspose_CloneWithInSamePresentation_out.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiate Presentation class that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("CloneWithInSamePresentation.pptx");
+    try {
+        // Clone the desired slide to the end of the collection of slides in the same presentation
+        var slds = pres.getSlides();
+        // Clone the desired slide to the specified index in the same presentation
+        slds.insertClone(2, pres.getSlides().get_Item(1));
+        // Write the modified presentation to disk
+        pres.save("Aspose_CloneWithInSamePresentation_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 ## **Clone at End in another Presentation**
@@ -81,26 +77,24 @@ If you need to clone a slide from one presentation and use it in another present
 
 In the example given below, we have cloned a slide (from the first index of the source presentation) to the end of the destination presentation.
 
-```java
-// Instantiate Presentation class to load the source presentation file
-Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
-try {
-    // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
-    Presentation destPres = new Presentation();
+```javascript
+    // Instantiate Presentation class to load the source presentation file
+    var srcPres = new  com.aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
     try {
-        // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
-        ISlideCollection slds = destPres.getSlides();
-
-        slds.addClone(srcPres.getSlides().get_Item(0));
-
-        // Write the destination presentation to disk
-        destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
+        // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
+        var destPres = new  com.aspose.slides.Presentation();
+        try {
+            // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
+            var slds = destPres.getSlides();
+            slds.addClone(srcPres.getSlides().get_Item(0));
+            // Write the destination presentation to disk
+            destPres.save("Aspose2_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        } finally {
+            destPres.dispose();
+        }
     } finally {
-        destPres.dispose();
+        srcPres.dispose();
     }
-} finally {
-    srcPres.dispose();
-}
 ```
 
 ## **Clone at Another Position in another Presentation**
@@ -114,26 +108,24 @@ If you need to clone a slide from one presentation and use it in another present
 
 In the example given below, we have cloned a slide (from the zero index of the source presentation) to index 1 (position 2) of the destination presentation.
 
-```java
-// Instantiate Presentation class to load the source presentation file
-Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx");
-try {
-    // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
-    Presentation destPres = new Presentation();
+```javascript
+    // Instantiate Presentation class to load the source presentation file
+    var srcPres = new  com.aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
     try {
-        // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
-        ISlideCollection slds = destPres.getSlides();
-
-        slds.insertClone(2, srcPres.getSlides().get_Item(0));
-
-        // Write the destination presentation to disk
-        destPres.save("Aspose2_out.pptx", SaveFormat.Pptx);
+        // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
+        var destPres = new  com.aspose.slides.Presentation();
+        try {
+            // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
+            var slds = destPres.getSlides();
+            slds.insertClone(2, srcPres.getSlides().get_Item(0));
+            // Write the destination presentation to disk
+            destPres.save("Aspose2_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        } finally {
+            destPres.dispose();
+        }
     } finally {
-        destPres.dispose();
+        srcPres.dispose();
     }
-} finally {
-    srcPres.dispose();
-}
 ```
 
 ## **Clone at specific position in another Presentation**
@@ -150,40 +142,36 @@ If you need to clone a slide with a master slide from one presentation from and 
 
 In the example given below, we have cloned a slide with a master (lying at the zero index of the source presentation) to the end of the destination presentation using a master from source slide.
 
-```java
-// Instantiate Presentation class to load the source presentation file
-Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx");
-try {
-    // Instantiate Presentation class for destination presentation (where slide is to be cloned)
-    Presentation destPres = new Presentation();
+```javascript
+    // Instantiate Presentation class to load the source presentation file
+    var srcPres = new  com.aspose.slides.Presentation("CloneToAnotherPresentationWithMaster.pptx");
     try {
-        // Instantiate ISlide from the collection of slides in source presentation along with
-        // Master slide
-        ISlide SourceSlide = srcPres.getSlides().get_Item(0);
-        IMasterSlide SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
-
-        // Clone the desired master slide from the source presentation to the collection of masters in the
-        // Destination presentation
-        IMasterSlideCollection masters = destPres.getMasters();
-        IMasterSlide DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
-
-        // Clone the desired master slide from the source presentation to the collection of masters in the
-        // Destination presentation
-        IMasterSlide iSlide = masters.addClone(SourceMaster);
-
-        // Clone the desired slide from the source presentation with the desired master to the end of the
-        // Collection of slides in the destination presentation
-        ISlideCollection slds = destPres.getSlides();
-        slds.addClone(SourceSlide, iSlide, true);
-
-        // Save the destination presentation to disk
-        destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
+        // Instantiate Presentation class for destination presentation (where slide is to be cloned)
+        var destPres = new  com.aspose.slides.Presentation();
+        try {
+            // Instantiate ISlide from the collection of slides in source presentation along with
+            // Master slide
+            var SourceSlide = srcPres.getSlides().get_Item(0);
+            var SourceMaster = SourceSlide.getLayoutSlide().getMasterSlide();
+            // Clone the desired master slide from the source presentation to the collection of masters in the
+            // Destination presentation
+            var masters = destPres.getMasters();
+            var DestMaster = SourceSlide.getLayoutSlide().getMasterSlide();
+            // Clone the desired master slide from the source presentation to the collection of masters in the
+            // Destination presentation
+            var iSlide = masters.addClone(SourceMaster);
+            // Clone the desired slide from the source presentation with the desired master to the end of the
+            // Collection of slides in the destination presentation
+            var slds = destPres.getSlides();
+            slds.addClone(SourceSlide, iSlide, true);
+            // Save the destination presentation to disk
+            destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        } finally {
+            destPres.dispose();
+        }
     } finally {
-        destPres.dispose();
+        srcPres.dispose();
     }
-} finally {
-    srcPres.dispose();
-}
 ```
 
 ## **Clone at End in Specified Section**
@@ -191,18 +179,18 @@ If you want to clone a slide and then use it within the same presentation file b
 
 The following code snippet shows you how to clone a slide and insert the cloned slide into a specified section.
 
-```java
-IPresentation presentation = new Presentation();
-try {
-    presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 50, 300, 100);
-    presentation.getSections().addSection("Section 1", presentation.getSlides().get_Item(0));
-
-    ISection section2 = presentation.getSections().appendEmptySection("Section 2");
-    presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
-    
-	// Save the destination presentation to disk
-    presentation.save(dataDir + "CloneSlideIntoSpecifiedSection.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        presentation.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 50, 300, 100);
+        presentation.getSections().addSection("Section 1", presentation.getSlides().get_Item(0));
+        var section2 = presentation.getSections().appendEmptySection("Section 2");
+        presentation.getSlides().addClone(presentation.getSlides().get_Item(0), section2);
+        // Save the destination presentation to disk
+        presentation.save(dataDir + "CloneSlideIntoSpecifiedSection.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
 ```

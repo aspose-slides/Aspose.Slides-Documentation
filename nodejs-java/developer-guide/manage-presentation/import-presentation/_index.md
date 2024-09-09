@@ -21,14 +21,16 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 
 This Java code demonstrates the PDF to PowerPoint operation:
 
-```java
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().addFromPdf("InputPDF.pdf");
-    pres.save("OutputPresentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        pres.getSlides().addFromPdf("InputPDF.pdf");
+        pres.save("OutputPresentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert  title="Tip" color="primary" %}} 
@@ -47,21 +49,24 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 
 This Java code demonstrates the HTML to PowerPoint operation: 
 
-```java
-Presentation presentation = new Presentation();
-try {
-    FileInputStream htmlStream = new FileInputStream("page.html");
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
     try {
-        presentation.getSlides().addFromHtml(htmlStream);
+        var htmlStream = java.newInstanceSync("java.io.FileInputStream", "page.html");
+        try {
+            presentation.getSlides().addFromHtml(htmlStream);
+        } finally {
+            if (htmlStream != null) {
+                htmlStream.close();
+            }
+        }
+        presentation.save("MyPresentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
     } finally {
-        if (htmlStream != null) htmlStream.close();
+        if (presentation != null) {
+            presentation.dispose();
+        }
     }
-
-    presentation.save("MyPresentation.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 {{% alert title="Note" color="warning" %}} 

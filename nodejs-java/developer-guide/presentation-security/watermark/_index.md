@@ -24,19 +24,18 @@ You can design watermark in any way however there are usually attend common feat
 ### **Add Text Watermark to Slide**
 To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) type. This type is not inherited from [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) object into [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) object. To add watermark into the shape, use [**addTextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method with watermark text passed into it:
 
-```java
-// Open presentation
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
-
-    ITextFrame watermarkTextFrame = watermarkShape.addTextFrame("Watermark");
-    
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+```javascript
+    // Open presentation
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        var slide = presentation.getSlides().get_Item(0);
+        var watermarkShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Triangle, 0, 0, 0, 0);
+        var watermarkTextFrame = watermarkShape.addTextFrame("Watermark");
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
 ```
 
 
@@ -50,19 +49,18 @@ If you want to add watermark in presentation (means, all slides at once),
 add it into [**MasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/MasterSlide). 
 All the other logic is the same as in adding watermark into a single slide - create an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) object and then add watermark into it with [**addTextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method:
 
-```java
-// Open presentation
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
-
-    IAutoShape watermarkShape = master.getShapes().addAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
-
-    ITextFrame watermarkTextFrame = watermarkShape.addTextFrame("Watermark");
-
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Open presentation
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var master = pres.getMasters().get_Item(0);
+        var watermarkShape = master.getShapes().addAutoShape(com.aspose.slides.ShapeType.Triangle, 0, 0, 0, 0);
+        var watermarkTextFrame = watermarkShape.addTextFrame("Watermark");
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 
@@ -73,26 +71,24 @@ try {
 ### **Set Font of Text Watermark**
 You can change the font of text watermark:
 
-```java
-IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-watermarkPortion.getPortionFormat().setFontBold(NullableBool.True);
-
-watermarkPortion.getPortionFormat().setFontHeight(52);
+```javascript
+    var watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    watermarkPortion.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+    watermarkPortion.getPortionFormat().setFontHeight(52);
 ```
 
 
 ### **Set Text Watermark Transparency**
 To set the transparency of text watermark use this code:
 
-```java
-int alpha = 150, red = 200, green = 200, blue = 200;
-
-IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-watermarkPortion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-
-watermarkPortion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+```javascript
+    var alpha = 150;
+    var red = 200;
+    var green = 200;
+    var blue = 200;
+    var watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    watermarkPortion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+    watermarkPortion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", red, green, blue, alpha));
 ```
 
 
@@ -101,22 +97,14 @@ It is possible to center watermark on a slide and for that you can do the follow
 
 
 
-```java
-Point2D.Float center = new Point2D.Float((float)  pres.getSlideSize().getSize().getWidth() / 2, (float) pres.getSlideSize().getSize().getHeight() / 2);
-
-float width = 300;
-
-float height = 300;
-
-float x = (float) center.getX() - width / 2;
-
-float y = (float) center.getY() - height / 2;
-
-
-//...
-
-
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, x, y, width, height);
+```javascript
+    var center = java.newInstanceSync("Point2D.Float", pres.getSlideSize().getSize().getWidth() / 2, pres.getSlideSize().getSize().getHeight() / 2);
+    var width = 300;
+    var height = 300;
+    var x = center.getX() - (width / 2);
+    var y = center.getY() - (height / 2);
+    // ...
+    var watermarkShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Triangle, x, y, width, height);
 ```
 
 
@@ -124,22 +112,20 @@ IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, x
 ### **Add Image Watermark to Presentation**
 To add image watermark into all presentation slides, you may do the following:
 
-```java
-IPPImage picture;
-IImage image = Images.fromFile("watermark.png");
-try {
-    picture = pres.getImages().addImage(image);
-} finally {
-    if (image != null) image.dispose();
-}
-// ...
-
-
-watermarkShape.getFillFormat().setFillType(FillType.Picture);
-
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
-watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+```javascript
+    var picture;
+    var image = com.aspose.slides.Images.fromFile("watermark.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) {
+            image.dispose();
+        }
+    }
+    // ...
+    watermarkShape.getFillFormat().setFillType(com.aspose.slides.FillType.Picture);
+    watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(com.aspose.slides.PictureFillMode.Stretch);
 ```
 
 
@@ -148,18 +134,13 @@ watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(Picture
 ## **Lock Watermark from Editing**
 If its needed to prevent watermark from editing, use [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape#getShapeLock--) method on the shape, that wraps its. With this method you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
 
-```java
-// Lock Shapes from modifying
-
-watermarkShape.getShapeLock().setSelectLocked(true);
-
-watermarkShape.getShapeLock().setSizeLocked(true);
-
-watermarkShape.getShapeLock().setTextLocked(true);
-
-watermarkShape.getShapeLock().setPositionLocked(true);
-
-watermarkShape.getShapeLock().setGroupingLocked(true);
+```javascript
+    // Lock Shapes from modifying
+    watermarkShape.getShapeLock().setSelectLocked(true);
+    watermarkShape.getShapeLock().setSizeLocked(true);
+    watermarkShape.getShapeLock().setTextLocked(true);
+    watermarkShape.getShapeLock().setPositionLocked(true);
+    watermarkShape.getShapeLock().setGroupingLocked(true);
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -169,37 +150,23 @@ watermarkShape.getShapeLock().setGroupingLocked(true);
 ## **Bring Watermark to Front**
 In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.reorder**](https://reference.aspose.com/slides/java/com.aspose.slides/SlideCollection#reorder-int-com.aspose.slides.ISlide...-) method. For that, you need to call this method from presentation slides list and pass shape reference and its order number into the method. This way its possible to put shape to the front or back of the slide. This feature is especially useful if you need to place watermark on front of presentation:
 
-```java
-slide.getShapes().reorder(slide.getShapes().size() - 1, watermarkShape);
+```javascript
+    slide.getShapes().reorder(slide.getShapes().size() - 1, watermarkShape);
 ```
 
 
 ## **Set Watermark Rotation**
 Here is an example how to set the rotation of watermark (and its parent shape):
 
-```java
-float h = (float) pres.getSlideSize().getSize().getHeight();
-
-float w = (float) pres.getSlideSize().getSize().getWidth();
-
-watermarkShape.setX((w - watermarkShape.getWidth()) / 2);
-
-watermarkShape.setY((h - watermarkShape.getHeight()) / 2);
-
-watermarkShape.setRotation(calculateRotation(h, w));
+```javascript
+    var h = pres.getSlideSize().getSize().getHeight();
+    var w = pres.getSlideSize().getSize().getWidth();
+    watermarkShape.setX((w - watermarkShape.getWidth()) / 2);
+    watermarkShape.setY((h - watermarkShape.getHeight()) / 2);
+    watermarkShape.setRotation(calculateRotation(h, w));
 ```
 
-```java
-private int calculateRotation(float height, float width)
-{
-    double pageHeight = height;
-    
-    double pageWidth = width;
-    
-    double rotation = Math.atan((pageHeight / pageWidth)) * 180 / Math.PI;
-    
-    return (int) rotation;
-}
+```javascript
 ```
 
 
@@ -208,24 +175,21 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 
 
 
-```java
-watermarkShape.setName("watermark");
+```javascript
+    watermarkShape.setName("watermark");
 ```
 
 
 ## **Remove Watermark**
 To remove watermark shape and its child controls from slide, use [AutoShape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getName--) method to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.remove**](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeCollection#remove-com.aspose.slides.IShape-) method:
 
-```java
-for (int i = 0; i < slide.getShapes().size(); i++)
-{
-    AutoShape shape = (AutoShape)slide.getShapes().get_Item(i);
-
-    if ("watermark".equals(shape.getName()))
-    {
-        slide.getShapes().remove(watermarkShape);
+```javascript
+    for (var i = 0; i < slide.getShapes().size(); i++) {
+        var shape = slide.getShapes().get_Item(i);
+        if ("watermark".equals(shape.getName())) {
+            slide.getShapes().remove(watermarkShape);
+        }
     }
-}
 ```
 
 

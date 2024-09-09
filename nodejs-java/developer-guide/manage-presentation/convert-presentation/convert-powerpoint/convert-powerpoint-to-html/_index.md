@@ -66,58 +66,58 @@ Using Aspose.Slides, you can convert an entire PowerPoint presentation to HTML t
 
 This code shows you how to convert a PowerPoint to HTML in Java:
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("Convert_HTML.pptx");
-try {
-    HtmlOptions htmlOpt = new HtmlOptions();
-	
-    htmlOpt.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOpt.setHtmlFormatter(HtmlFormatter.createDocumentFormatter("", false));
-
-    // Saving the presentation to HTML
-    pres.save("ConvertWholePresentationToHTML_out.html", SaveFormat.Html, htmlOpt);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("Convert_HTML.pptx");
+    try {
+        var htmlOpt = new  com.aspose.slides.HtmlOptions();
+        htmlOpt.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomFull);
+        htmlOpt.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createDocumentFormatter("", false));
+        // Saving the presentation to HTML
+        pres.save("ConvertWholePresentationToHTML_out.html", com.aspose.slides.SaveFormat.Html, htmlOpt);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 
 ## **Convert PowerPoint to Responsive HTML**
 Aspose.Slides provides the [ResponsiveHtmlController](https://reference.aspose.com/slides/java/com.aspose.slides/ResponsiveHtmlController) class that allows you to generate responsive HTML files. This code shows you how to convert a PowerPoint presentation to responsive HTML in Java:
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("Convert_HTML.pptx");
-try {
-    ResponsiveHtmlController controller = new ResponsiveHtmlController();
-    HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
-
-    // Saving the presentation to HTML
-    pres.save("ConvertPresentationToResponsiveHTML_out.html", SaveFormat.Html, htmlOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("Convert_HTML.pptx");
+    try {
+        var controller = new  com.aspose.slides.ResponsiveHtmlController();
+        var htmlOptions = new  com.aspose.slides.HtmlOptions();
+        htmlOptions.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createCustomFormatter(controller));
+        // Saving the presentation to HTML
+        pres.save("ConvertPresentationToResponsiveHTML_out.html", com.aspose.slides.SaveFormat.Html, htmlOptions);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Convert PowerPoint to HTML with Notes**
 This code shows you how to convert a PowerPoint to HTML with notes in Java:
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    HtmlOptions opt = new HtmlOptions();
-	
-    INotesCommentsLayoutingOptions options = opt.getNotesCommentsLayouting();
-    options.setNotesPosition(NotesPositions.BottomFull);
-
-    // Saving notes pages
-    pres.save("Output.html", SaveFormat.Html, opt);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    try {
+        var opt = new  com.aspose.slides.HtmlOptions();
+        var options = opt.getNotesCommentsLayouting();
+        options.setNotesPosition(com.aspose.slides.NotesPositions.BottomFull);
+        // Saving notes pages
+        pres.save("Output.html", com.aspose.slides.SaveFormat.Html, opt);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Convert PowerPoint to HTML with Original Fonts**
@@ -128,21 +128,20 @@ To prevent certain fonts from being embedded, you can pass an array of font name
 
 The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/java/com.aspose.slides/EmbedAllFontsHtmlController) class supports inheritance and provides the [WriteFont](https://reference.aspose.com/slides/java/com.aspose.slides/EmbedAllFontsHtmlController#writeFont-com.aspose.slides.IHtmlGenerator-com.aspose.slides.IFontData-com.aspose.slides.IFontData-java.lang.String-java.lang.String-byte:A-) method, which is meant to be overwritten. 
 
-```java
-Presentation pres = new Presentation("input.pptx");
-try {
-    // exclude default presentation fonts
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    EmbedAllFontsHtmlController embedFontsController = new EmbedAllFontsHtmlController(fontNameExcludeList);
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter(embedFontsController));
-
-    pres.save("input-PFDinDisplayPro-Regular-installed.html", SaveFormat.Html, htmlOptionsEmbed);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("input.pptx");
+    try {
+        // exclude default presentation fonts
+        var fontNameExcludeList = new java.lang.String[]{ "Calibri", "Arial" };
+        var embedFontsController = new  com.aspose.slides.EmbedAllFontsHtmlController(fontNameExcludeList);
+        var htmlOptionsEmbed = new  com.aspose.slides.HtmlOptions();
+        htmlOptionsEmbed.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createCustomFormatter(embedFontsController));
+        pres.save("input-PFDinDisplayPro-Regular-installed.html", com.aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Convert PowerPoint to HTML with High-quality Images**
@@ -151,30 +150,32 @@ By default, when you convert PowerPoint to HTML, Aspose.Slides outputs small HTM
 
 This Java code shows you how to convert a PowerPoint presentation to HTML while obtaining high quality images at 150 DPI (i.e. `PicturesCompression.Dpi150`):
 
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setPicturesCompression(PicturesCompression.Dpi150);
-    
-    pres.save("OutputDoc-dpi150.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("InputDoc.pptx");
+    try {
+        var htmlOpts = new  com.aspose.slides.HtmlOptions();
+        htmlOpts.setPicturesCompression(com.aspose.slides.PicturesCompression.Dpi150);
+        pres.save("OutputDoc-dpi150.html", com.aspose.slides.SaveFormat.Html, htmlOpts);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 This code in Java shows you how to output HTML with full quality images:
 
-```java
-Presentation pres = new Presentation("InputDoc.pptx");
-try {
-    HtmlOptions htmlOpts = new HtmlOptions();
-    htmlOpts.setDeletePicturesCroppedAreas(false);
-
-    pres.save("Outputdoc-noCrop.html", SaveFormat.Html, htmlOpts);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("InputDoc.pptx");
+    try {
+        var htmlOpts = new  com.aspose.slides.HtmlOptions();
+        htmlOpts.setDeletePicturesCroppedAreas(false);
+        pres.save("Outputdoc-noCrop.html", com.aspose.slides.SaveFormat.Html, htmlOpts);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Convert Slide to HTML**
@@ -182,51 +183,47 @@ To convert a specific slide in a PowerPoint to HTML, you have to instantiate the
 
 This Java code shows you how to convert a slide in a PowerPoint presentation to HTML:
 
-```java
-Presentation pres = new Presentation("Individual-Slide.pptx");
-try {
-    HtmlOptions htmlOptions = new HtmlOptions();
-    htmlOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-	
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(new CustomFormattingController()));
-
-    // Saving File
-    for (int i = 0; i < pres.getSlides().size(); i++)
-        pres.save("Individual Slide" + (i + 1) + "_out.html", new int[]{i + 1},SaveFormat.Html, htmlOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("Individual-Slide.pptx");
+    try {
+        var htmlOptions = new  com.aspose.slides.HtmlOptions();
+        htmlOptions.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomFull);
+        htmlOptions.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createCustomFormatter(java.newInstanceSync("CustomFormattingController", )));
+        // Saving File
+        for (var i = 0; i < pres.getSlides().size(); i++) {
+            pres.save(("Individual Slide" + (i + 1)) + "_out.html", new int[]{ i + 1 }, com.aspose.slides.SaveFormat.Html, htmlOptions);
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
-```java
-public class CustomFormattingController implements IHtmlFormattingController
-{
-    @Override
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeDocumentEnd(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeSlideStart(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(String.format(SlideHeader, generator.getSlideIndex() + 1));
+```javascript
+    public class CustomFormattingController implements com.aspose.slides.IHtmlFormattingController {
+        @java.lang.Override
+        public void writeDocumentStart(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.IPresentation presentation) {
+        }
+        @java.lang.Override
+        public void writeDocumentEnd(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.IPresentation presentation) {
+        }
+        @java.lang.Override
+        public void writeSlideStart(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.ISlide slide) {
+            generator.addHtml(java.callStaticMethodSync("java.lang.String", "format", SlideHeader, generator.getSlideIndex() + 1));
+        }
+        @java.lang.Override
+        public void writeSlideEnd(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.ISlide slide) {
+            generator.addHtml(SlideFooter);
+        }
+        @java.lang.Override
+        public void writeShapeStart(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.IShape shape) {
+        }
+        @java.lang.Override
+        public void writeShapeEnd(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.IShape shape) {
+        }
+        private final var SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
+        private final var SlideFooter = "</div>";
     }
-
-    @Override
-    public void writeSlideEnd(IHtmlGenerator generator, ISlide slide) 
-	{
-        generator.addHtml(SlideFooter);
-    }
-
-    @Override
-    public void writeShapeStart(IHtmlGenerator generator, IShape shape) { }
-
-    @Override
-    public void writeShapeEnd(IHtmlGenerator generator, IShape shape) { }
-
-    private final String SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-    private final String SlideFooter = "</div>";
-}
 ```
 
 
@@ -235,52 +232,38 @@ Using new CSS style files, you can easily change the style of the HTML file resu
 
 The Java code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    CustomHeaderAndFontsController htmlController = new CustomHeaderAndFontsController("styles.css");
-    HtmlOptions options = new HtmlOptions();
-    options.setHtmlFormatter(HtmlFormatter.createCustomFormatter(htmlController));
-
-    pres.save("pres.html", SaveFormat.Html, options);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        var htmlController = java.newInstanceSync("CustomHeaderAndFontsController", "styles.css");
+        var options = new  com.aspose.slides.HtmlOptions();
+        options.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createCustomFormatter(htmlController));
+        pres.save("pres.html", com.aspose.slides.SaveFormat.Html, options);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
-```java
-public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
-{
-    private final int m_basePath = 0;
-
-    // Custom header template
-    final static String Header = "<!DOCTYPE html>\n" +
-            "<html>\n" +
-            "<head>\n" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
-            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
-            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
-            "</head>";
-
-    private final String m_cssFileName;
-
-    public CustomHeaderAndFontsController(String cssFileName) 
-    {
-        m_cssFileName = cssFileName;
+```javascript
+    public class CustomHeaderAndFontsController extends com.aspose.slides.EmbedAllFontsHtmlController {
+        private final var m_basePath = 0;
+        // Custom header template
+        static final var Header = ((((("<!DOCTYPE html>\n" + "<html>\n") + "<head>\n") + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n") + "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n") + "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n") + "</head>";
+        private final var m_cssFileName;
+        public CustomHeaderAndFontsController(java.lang.String cssFileName) {
+            m_cssFileName = cssFileName;
+        }
+        public void writeDocumentStart(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.IPresentation presentation) {
+            generator.addHtml(java.callStaticMethodSync("java.lang.String", "format", CustomHeaderAndFontsController.Header, m_cssFileName));
+            writeAllFonts(generator, presentation);
+        }
+        public void writeAllFonts(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.IPresentation presentation) {
+            generator.addHtml("<!-- Embedded fonts -->");
+            super.writeAllFonts(generator, presentation);
+        }
     }
-
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml(String.format(Header, m_cssFileName));
-        writeAllFonts(generator, presentation);
-    }
-
-    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation) 
-    {
-        generator.addHtml("<!-- Embedded fonts -->");
-        super.writeAllFonts(generator, presentation);
-    }
-}
 ```
 
 ## **Link All Fonts When Converting Presentation to HTML**
@@ -289,78 +272,63 @@ If you do not want to embed fonts (to avoid increasing the size of the resulting
 
 This Java code shows you how to convert a PowerPoint to HTML while linking all fonts and excluding "Calibri" and "Arial" (since they already exist in the system): 
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try
-{
-    //Exclude default presentation fonts
-    String[] fontNameExcludeList = { "Calibri", "Arial" };
-
-    LinkAllFontsHtmlController linkcont = new LinkAllFontsHtmlController(fontNameExcludeList,"C:/Windows/Fonts/");
-
-    HtmlOptions htmlOptionsEmbed = new HtmlOptions();
-    htmlOptionsEmbed.setHtmlFormatter(HtmlFormatter.createCustomFormatter((IHtmlFormattingController) linkcont));
-
-    pres.save("pres.html", SaveFormat.Html, htmlOptionsEmbed);
-}
-finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        // Exclude default presentation fonts
+        var fontNameExcludeList = new java.lang.String[]{ "Calibri", "Arial" };
+        var linkcont = java.newInstanceSync("LinkAllFontsHtmlController", fontNameExcludeList, "C:/Windows/Fonts/");
+        var htmlOptionsEmbed = new  com.aspose.slides.HtmlOptions();
+        htmlOptionsEmbed.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createCustomFormatter(linkcont));
+        pres.save("pres.html", com.aspose.slides.SaveFormat.Html, htmlOptionsEmbed);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 This Java code shows you how `LinkAllFontsHtmlController` is implemented:
 
-```java
-public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
-{
-    private final String m_basePath;
-
-    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
-    {
-        super(fontNameExcludeList);
-        m_basePath = basePath;
-    }
-
-    public void writeFont
-    (
-            IHtmlGenerator generator,
-            IFontData originalFont,
-            IFontData substitutedFont,
-            String fontStyle,
-            String fontWeight,
-            byte[] fontData)
-    {
-        try {
-            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
-            String path = fontName + ".woff"; // some path sanitaze may be needed
-            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
-
-            generator.addHtml("<style>");
-            generator.addHtml("@font-face { ");
-            generator.addHtml("font-family: '" + fontName + "'; ");
-            generator.addHtml("src: url('" + path + "')");
-
-            generator.addHtml(" }");
-            generator.addHtml("</style>");
-        } catch (IOException ex) {
-            ex.printStackTrace();
+```javascript
+    public class LinkAllFontsHtmlController extends com.aspose.slides.EmbedAllFontsHtmlController {
+        private final var m_basePath;
+        public LinkAllFontsHtmlController(java.lang.String[] fontNameExcludeList, java.lang.String basePath) {
+            super(fontNameExcludeList);
+            m_basePath = basePath;
+        }
+        public void writeFont(com.aspose.slides.IHtmlGenerator generator, com.aspose.slides.IFontData originalFont, com.aspose.slides.IFontData substitutedFont, java.lang.String fontStyle, java.lang.String fontWeight, byte[] fontData) {
+            try {
+                var fontName = (substitutedFont == null) ? originalFont.getFontName() : substitutedFont.getFontName();
+                var path = fontName + ".woff";// some path sanitaze may be needed
+                java.callStaticMethodSync("java.nio.file.Files", "write", java.newInstanceSync("java.io.File", m_basePath + path).toPath(), fontData, java.getStaticFieldValue("java.nio.file.StandardOpenOption", "CREATE"));
+                generator.addHtml("<style>");
+                generator.addHtml("@font-face { ");
+                generator.addHtml(("font-family: '" + fontName) + "'; ");
+                generator.addHtml(("src: url('" + path) + "')");
+                generator.addHtml(" }");
+                generator.addHtml("</style>");
+            } catch (ex) {
+                ex.printStackTrace();
+            }
         }
     }
-}
 ```
 
 ## **Convert PowerPoint to Responsive HTML**
 This Java code shows you how to convert a PowerPoint presentation to responsive HTML:
 
-```java
-Presentation pres = new Presentation("SomePresentation.pptx");
-try {
-    HtmlOptions saveOptions = new HtmlOptions();
-    saveOptions.setSvgResponsiveLayout(true);
-    pres.save("SomePresentation-out.html", SaveFormat.Html, saveOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("SomePresentation.pptx");
+    try {
+        var saveOptions = new  com.aspose.slides.HtmlOptions();
+        saveOptions.setSvgResponsiveLayout(true);
+        pres.save("SomePresentation-out.html", com.aspose.slides.SaveFormat.Html, saveOptions);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 
@@ -374,31 +342,28 @@ Using Aspose.Slides for Java, you can export media files this way:
 
 This Java code shows you how to add a video to the presentation and then save it as HTML: 
 
-```java
-// Loading a presentation
-Presentation pres = new Presentation();
-try {
-    String path = "./out/";
-    final String fileName = "ExportMediaFiles_out.html";
-    final String baseUri = "http://www.example.com/";
-
-    byte[] videoData = Files.readAllBytes(Paths.get("my_video.avi"));
-    IVideo video = pres.getVideos().addVideo(videoData);
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-
-    VideoPlayerHtmlController controller = new VideoPlayerHtmlController(path, fileName, baseUri);
-
-    // Setting HTML options
-    HtmlOptions htmlOptions = new HtmlOptions(controller);
-    SVGOptions svgOptions = new SVGOptions(controller);
-
-    htmlOptions.setHtmlFormatter(HtmlFormatter.createCustomFormatter(controller));
-    htmlOptions.setSlideImageFormat(SlideImageFormat.svg(svgOptions));
-
-    // Saving the file
-    pres.save(fileName, SaveFormat.Html, htmlOptions);
-} catch(Exception e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Loading a presentation
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var path = "./out/";
+        final var fileName = "ExportMediaFiles_out.html";
+        final var baseUri = "http://www.example.com/";
+        var videoData = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "my_video.avi"));
+        var video = pres.getVideos().addVideo(videoData);
+        pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
+        var controller = new  com.aspose.slides.VideoPlayerHtmlController(path, fileName, baseUri);
+        // Setting HTML options
+        var htmlOptions = new  com.aspose.slides.HtmlOptions(controller);
+        var svgOptions = new  com.aspose.slides.SVGOptions(controller);
+        htmlOptions.setHtmlFormatter(com.aspose.slides.HtmlFormatter.createCustomFormatter(controller));
+        htmlOptions.setSlideImageFormat(com.aspose.slides.SlideImageFormat.svg(svgOptions));
+        // Saving the file
+        pres.save(fileName, com.aspose.slides.SaveFormat.Html, htmlOptions);
+    } catch (e) {
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

@@ -25,15 +25,17 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 
 {{% /alert %}} 
 
-```java
-// Instantiate a Presentation object that represents a PPT file
-Presentation pres = new Presentation("PPTtoPPTX.ppt");
-try {
-// Saving the PPT presentation to PPTX format
-    pres.save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a PPT file
+    var pres = new  com.aspose.slides.Presentation("PPTtoPPTX.ppt");
+    try {
+        // Saving the PPT presentation to PPTX format
+        pres.save("PPTtoPPTX_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert color="primary" %}} 

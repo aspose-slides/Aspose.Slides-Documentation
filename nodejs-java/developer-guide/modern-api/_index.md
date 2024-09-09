@@ -59,6 +59,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 ## Replacing old code with Modern API
@@ -72,6 +73,7 @@ var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
 var slideImage = pres.getSlides().get_Item(0).getThumbnail(size);
 var file = java.newInstanceSync("java.io.File", "image.png");
 imageio.write(slideImage, "PNG", file);
+```javascript
 ```
 New:
 ``` javascript
@@ -79,6 +81,7 @@ var size = java.newInstanceSync("java.awt.Dimension", 1920, 1080);
 var slideImage = pres.getSlides().get_Item(0).getImage(size);
 slideImage.save("image.png", aspose.slides.ImageFormat.Png);
 slideImage.dispose();
+```javascript
 ```
 
 ### Getting a slide thumbnail
@@ -95,6 +98,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 Modern API:
@@ -108,6 +112,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 ### Getting a shape thumbnail
@@ -124,6 +129,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 Modern API:
@@ -137,6 +143,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 ### Getting a presentation thumbnail
@@ -158,6 +165,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 Modern API:
@@ -182,6 +190,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 ### Adding a picture to a presentation
@@ -200,6 +209,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 Modern API:
@@ -215,6 +225,7 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```javascript
 ```
 
 ## Methods to be removed and their replacement in Modern API

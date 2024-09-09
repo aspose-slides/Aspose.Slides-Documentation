@@ -23,62 +23,63 @@ Aspose.Slides for Java provides the feature of removing notes of any slide as we
 ## **Remove Notes from Slide**
 Notes of some specific slide could be removed as shown in example below:
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("presWithNotes.pptx");
-try {
-    // Removing notes of first slide
-    INotesSlideManager mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
-    mgr.removeNotesSlide();
-
-    // Saving presentation to disk
-    pres.save("test.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("presWithNotes.pptx");
+    try {
+        // Removing notes of first slide
+        var mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
+        mgr.removeNotesSlide();
+        // Saving presentation to disk
+        pres.save("test.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Remove Notes from Presentation**
 Notes of all the slides of a presentation could be removed as shown in example below:
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("presWithNotes.pptx");
-try {
-    // Removing notes of all slides
-    INotesSlideManager mgr = null;
-    for (int i = 0; i < pres.getSlides().size(); i++) {
-        mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
-        mgr.removeNotesSlide();
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("presWithNotes.pptx");
+    try {
+        // Removing notes of all slides
+        var mgr = null;
+        for (var i = 0; i < pres.getSlides().size(); i++) {
+            mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
+            mgr.removeNotesSlide();
+        }
+        // Saving presentation to disk
+        pres.save("test.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-    
-    // Saving presentation to disk
-    pres.save("test.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Add NotesStyle**
 [getNotesStyle](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide#getNotesStyle--) method has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/IMasterNotesSlide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/MasterNotesSlide) class respectively. This property specifies the style of a notes text. The implementation is demonstrated in the example below.
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    IMasterNotesSlide notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    
-    if (notesMaster != null)
-    {
-        // Get MasterNotesSlide text style
-        ITextStyle notesStyle = notesMaster.getNotesStyle();
-    
-        //Set symbol bullet for the first level paragraphs
-        IParagraphFormat paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(BulletType.Symbol);
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
+        if (notesMaster != null) {
+            // Get MasterNotesSlide text style
+            var notesStyle = notesMaster.getNotesStyle();
+            // Set symbol bullet for the first level paragraphs
+            var paragraphFormat = notesStyle.getLevel(0);
+            paragraphFormat.getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        }
+        pres.save("NotesSlideWithNotesStyle.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-    pres.save("NotesSlideWithNotesStyle.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

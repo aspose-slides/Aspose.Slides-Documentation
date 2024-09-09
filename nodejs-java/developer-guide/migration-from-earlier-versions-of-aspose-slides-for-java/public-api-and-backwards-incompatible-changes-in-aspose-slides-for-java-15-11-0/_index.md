@@ -46,14 +46,9 @@ DataLabelCollection.setShowBubbleSize(boolean value)
 New methods getFirstSlideNumber() and setFirstSlideNumber() allow to get or to set the number of first slide in a presentation.
 When a new first slide number value is specified all slide numbers are recalculated.
 
-``` java
-
- Presentation pres = new Presentation(path);
-
-int firstSlideNumber = pres.getFirstSlideNumber();
-
-pres.setFirstSlideNumber(10);
-
-pres.save(newPath, SaveFormat.Pptx);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation(path);
+    var firstSlideNumber = pres.getFirstSlideNumber();
+    pres.setFirstSlideNumber(10);
+    pres.save(newPath, com.aspose.slides.SaveFormat.Pptx);
 ```

@@ -23,67 +23,58 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for Java
 ## **Add Slide Comment**
 This Java code shows you how to add a comment to a slide in a PowerPoint presentation:
 
-```java
-// Instantiates the Presentation class
-Presentation pres = new Presentation();
-try {
-    // Adds an empty slide
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-
-    // Adds an author
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
-
-    // Sets the position for comments
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
-
-    // Adds slide comment for an author on slide 1
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
-    // Adds slide comment for an author on slide 2
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
-    // Accesses ISlide 1
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // When null is passed as an argument, comments from all authors are brought to the selected slide
-    IComment[] Comments = slide.getSlideComments(author);
-
-    // Accesses the comment at index 0 for slide 1
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // Selects the Author's comments collection at index 0
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+```javascript
+    // Instantiates the Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Adds an empty slide
+        pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+        // Adds an author
+        var author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
+        // Sets the position for comments
+        var point = java.newInstanceSync("Point2D.Float", 0.2, 0.2);
+        // Adds slide comment for an author on slide 1
+        author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, java.newInstanceSync("Date", ));
+        // Adds slide comment for an author on slide 2
+        author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, java.newInstanceSync("Date", ));
+        // Accesses ISlide 1
+        var slide = pres.getSlides().get_Item(0);
+        // When null is passed as an argument, comments from all authors are brought to the selected slide
+        var Comments = slide.getSlideComments(author);
+        // Accesses the comment at index 0 for slide 1
+        var str = Comments[0].getText();
+        pres.save("Comments_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+        if (Comments.length > 0) {
+            // Selects the Author's comments collection at index 0
+            var commentCollection = Comments[0].getAuthor().getComments();
+            var Comment = commentCollection.get_Item(0).getText();
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Access Slide Comments**
 This Java code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
-```java
-// Instantiates the Presentation class
-Presentation pres = new Presentation("Comments1.pptx");
-try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+```javascript
+    // Instantiates the Presentation class
+    var pres = new  com.aspose.slides.Presentation("Comments1.pptx");
+    try {
+        for (var commentAuthor : pres.getCommentAuthors()) {
+            var author = commentAuthor;
+            for (var comment1 : author.getComments()) {
+                var comment = comment1;
+                java.getStaticFieldValue("java.lang.System", "out").println(((((((("ISlide :" + comment.getSlide().getSlideNumber()) + " has comment: ") + comment.getText()) + " with Author: ") + comment.getAuthor().getName()) + " posted on time :") + comment.getCreatedTime()) + "\n");
+            }
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 
@@ -92,56 +83,47 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 
 This Java code shows you how to add comments and get replies to them:
 
-```java
-Presentation pres = new Presentation();
-try {
-    // Adds a comment
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-
-    // Adds a reply to comment1
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    reply1.setParentComment(comment1);
-
-    // Adds another reply to comment1
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
-    reply2.setParentComment(comment1);
-
-    // Add a reply to an existing reply
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
-    subReply.setParentComment(reply2);
-
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    reply3.setParentComment(comment3);
-
-    // Displays the comments hierarchy on console
-    ISlide slide = pres.getSlides().get_Item(0);
-    IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
-        IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
-            System.out.print("\t");
-            comment = comment.getParentComment();
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Adds a comment
+        var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
+        var comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date", ));
+        // Adds a reply to comment1
+        var author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
+        var reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date", ));
+        reply1.setParentComment(comment1);
+        // Adds another reply to comment1
+        var reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date", ));
+        reply2.setParentComment(comment1);
+        // Add a reply to an existing reply
+        var subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date", ));
+        subReply.setParentComment(reply2);
+        var comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date", ));
+        var comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date", ));
+        var reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date", ));
+        reply3.setParentComment(comment3);
+        // Displays the comments hierarchy on console
+        var slide = pres.getSlides().get_Item(0);
+        var comments = slide.getSlideComments(null);
+        for (var i = 0; i < comments.length; i++) {
+            var comment = comments[i];
+            while (comment.getParentComment() != null) {
+                java.getStaticFieldValue("java.lang.System", "out").print("\t");
+                comment = comment.getParentComment();
+            }
+            java.getStaticFieldValue("java.lang.System", "out").println((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
+            java.getStaticFieldValue("java.lang.System", "out").println();
         }
-
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+        pres.save("parent_comment.pptx", com.aspose.slides.SaveFormat.Pptx);
+        // Removes comment1 and all replies to it
+        comment1.remove();
+        pres.save("remove_comment.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
-
-    // Removes comment1 and all replies to it
-    comment1.remove();
-
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 {{% alert color="warning" title="Attention" %}} 
@@ -159,16 +141,17 @@ In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/java/aspose-sli
 
 This Java code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
-```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
+        var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("Point2D.Float", 100, 100), java.newInstanceSync("Date", ));
+        pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Remove Comment**
@@ -177,59 +160,52 @@ try {
 
 This Java code shows you how to remove all comments and authors in a presentation:
 
-```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // Deletes all comments from the presentation
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
-        author.getComments().clear();
+```javascript
+    var presentation = new  com.aspose.slides.Presentation("example.pptx");
+    try {
+        // Deletes all comments from the presentation
+        for (var author : presentation.getCommentAuthors()) {
+            author.getComments().clear();
+        }
+        // Deletes all authors
+        presentation.getCommentAuthors().clear();
+        presentation.save("example_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
     }
-
-    // Deletes all authors
-    presentation.getCommentAuthors().clear();
-
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 ### **Delete Specific Comments**
 
 This Java code shows you how to delete specific comments on a slide:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // add comments...
-    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
-
-    // remove all comments that contain "comment 1" text
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        var slide = presentation.getSlides().get_Item(0);
+        // add comments...
+        var author = presentation.getCommentAuthors().addAuthor("Author", "A");
+        author.getComments().addComment("comment 1", slide, java.newInstanceSync("Point2D.Float", 0.2, 0.2), java.newInstanceSync("Date", ));
+        author.getComments().addComment("comment 2", slide, java.newInstanceSync("Point2D.Float", 0.3, 0.2), java.newInstanceSync("Date", ));
+        // remove all comments that contain "comment 1" text
+        for (var commentAuthor : presentation.getCommentAuthors()) {
+            var toRemove = java.newInstanceSync("ArrayList", );
+            for (var comment : slide.getSlideComments(commentAuthor)) {
+                if (comment.getText().equals("comment 1")) {
+                    toRemove.add(comment);
+                }
+            }
+            for (var comment : toRemove) {
+                commentAuthor.getComments().remove(comment);
             }
         }
-
-        for (IComment comment : toRemove)
-        {
-            commentAuthor.getComments().remove(comment);
+        presentation.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
         }
     }
-
-    presentation.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 

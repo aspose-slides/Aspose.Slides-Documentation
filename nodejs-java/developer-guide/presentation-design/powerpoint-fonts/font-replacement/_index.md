@@ -19,24 +19,23 @@ Aspose.Slides allows you to replace a font this way:
 
 This Java code demonstrates font replacement:
 
-```java
-// Loads a presentation
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    // Loads the source font that will be replaced
-    IFontData sourceFont = new FontData("Arial");
-    
-    // Loads the new font
-    IFontData destFont = new FontData("Times New Roman");
-    
-    // Replaces the fonts
-    pres.getFontsManager().replaceFont(sourceFont, destFont);
-    
-    // Saves the presentation
-    pres.save("UpdatedFont_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Loads a presentation
+    var pres = new  com.aspose.slides.Presentation("Fonts.pptx");
+    try {
+        // Loads the source font that will be replaced
+        var sourceFont = new  com.aspose.slides.FontData("Arial");
+        // Loads the new font
+        var destFont = new  com.aspose.slides.FontData("Times New Roman");
+        // Replaces the fonts
+        pres.getFontsManager().replaceFont(sourceFont, destFont);
+        // Saves the presentation
+        pres.save("UpdatedFont_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert title="Note" color="warning" %}} 

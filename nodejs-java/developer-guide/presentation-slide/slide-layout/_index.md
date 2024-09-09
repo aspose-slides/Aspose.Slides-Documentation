@@ -38,72 +38,70 @@ For more information on working with Master Slides in particular, see the [Slide
 
 This Java code shows you how to add a slide layout to a PowerPoint presentation:
 
-```java
-// Instantiates a Presentation class that represents the presentation file
-Presentation pres = new Presentation("AccessSlides.pptx");
-try {
-    // Goes through layout slide types
-    IMasterLayoutSlideCollection layoutSlides = pres.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null) {
-        // The situation where a presentation doesn't contain some layout types.
-        // presentation File only contains Blank and Custom layout types.
-        // But layout slides with Custom types have different slide names,
-        // like "Title", "Title and Content", etc. And it is possible to use these
-       // names for layout slide selection.
-        // You can also use a set of placeholder shape types. For example,
-        // Title slide should have only Title placeholder type, etc.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName() == "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
+```javascript
+    // Instantiates a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("AccessSlides.pptx");
+    try {
+        // Goes through layout slide types
+        var layoutSlides = pres.getMasters().get_Item(0).getLayoutSlides();
+        var layoutSlide = null;
+        if (layoutSlides.getByType(com.aspose.slides.SlideLayoutType.TitleAndObject) != null) {
+            layoutSlide = layoutSlides.getByType(com.aspose.slides.SlideLayoutType.TitleAndObject);
+        } else {
+            layoutSlide = layoutSlides.getByType(com.aspose.slides.SlideLayoutType.Title);
         }
         if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName() == "Title") {
-                    layoutSlide = titleLayoutSlide;
+            // The situation where a presentation doesn't contain some layout types.
+            // presentation File only contains Blank and Custom layout types.
+            // But layout slides with Custom types have different slide names,
+            // like "Title", "Title and Content", etc. And it is possible to use these
+            // names for layout slide selection.
+            // You can also use a set of placeholder shape types. For example,
+            // Title slide should have only Title placeholder type, etc.
+            for (var titleAndObjectLayoutSlide : layoutSlides) {
+                if (titleAndObjectLayoutSlide.getName() == "Title and Object") {
+                    layoutSlide = titleAndObjectLayoutSlide;
                     break;
                 }
             }
             if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
+                for (var titleLayoutSlide : layoutSlides) {
+                    if (titleLayoutSlide.getName() == "Title") {
+                        layoutSlide = titleLayoutSlide;
+                        break;
+                    }
+                }
                 if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
+                    layoutSlide = layoutSlides.getByType(com.aspose.slides.SlideLayoutType.Blank);
+                    if (layoutSlide == null) {
+                        layoutSlide = layoutSlides.add(com.aspose.slides.SlideLayoutType.TitleAndObject, "Title and Object");
+                    }
                 }
             }
         }
+        // Adds empty slide with added layout slide
+        pres.getSlides().insertEmptySlide(0, layoutSlide);
+        // Saves the presentation to disk
+        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
     }
-
-    // Adds empty slide with added layout slide
-    pres.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Saves the presentation to disk
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
 ```
 
 ## **Remove Unused Layout Slide**
 
 Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/java/com.aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Java code shows you how to remove a layout slide from a PowerPoint presentation:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.removeUnusedLayoutSlides(pres);
-
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        com.aspose.slides.Compress.removeUnusedLayoutSlides(pres);
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 
@@ -111,29 +109,27 @@ try {
 
 To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [getType()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getType--) and [getSize()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getSize--) properties (from the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class). This Java demonstrates the operation:
 
-```java
-// Instantiates a Presentation object that represents presentation file
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    Presentation auxPresentation = new Presentation();
+```javascript
+    // Instantiates a Presentation object that represents presentation file
+    var presentation = new  com.aspose.slides.Presentation("demo.pptx");
     try {
-        // Sets the slide size for the generated presentation to that of the source
-        auxPresentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit);
-        //getType());
-        auxPresentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize);
-        
-        // Clones the required slide
-        auxPresentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-        auxPresentation.getSlides().removeAt(0);
-        
-        // Saves the presentation to disk
-        auxPresentation.save("size.pptx", SaveFormat.Pptx);
+        var auxPresentation = new  com.aspose.slides.Presentation();
+        try {
+            // Sets the slide size for the generated presentation to that of the source
+            auxPresentation.getSlideSize().setSize(540, 720, com.aspose.slides.SlideSizeScaleType.EnsureFit);
+            // getType());
+            auxPresentation.getSlideSize().setSize(com.aspose.slides.SlideSizeType.A4Paper, com.aspose.slides.SlideSizeScaleType.Maximize);
+            // Clones the required slide
+            auxPresentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+            auxPresentation.getSlides().removeAt(0);
+            // Saves the presentation to disk
+            auxPresentation.save("size.pptx", com.aspose.slides.SaveFormat.Pptx);
+        } finally {
+            auxPresentation.dispose();
+        }
     } finally {
-        auxPresentation.dispose();
+        presentation.dispose();
     }
-} finally {
-    presentation.dispose();
-}
 ```
 
 
@@ -147,27 +143,27 @@ try {
 
 This Java code shows you how to set the visibility for a slide footer (and perform related tasks):
 
-```java
-Presentation presentation = new Presentation("presentation.ppt");
-try {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.getSlides().get_Item(0).getHeaderFooterManager();
-    if (!headerFooterManager.isFooterVisible()) // Method isFooterVisible is used to specify that a slide footer placeholder is missing
-    {
-        headerFooterManager.setFooterVisibility(true); // Method setFooterVisibility is used to set a slide footer placeholder to visible
+```javascript
+    var presentation = new  com.aspose.slides.Presentation("presentation.ppt");
+    try {
+        var headerFooterManager = presentation.getSlides().get_Item(0).getHeaderFooterManager();
+        // Method isFooterVisible is used to specify that a slide footer placeholder is missing
+        if (!headerFooterManager.isFooterVisible()) {
+            headerFooterManager.setFooterVisibility(true);// Method setFooterVisibility is used to set a slide footer placeholder to visible
+        }
+        // Method isSlideNumberVisible is used to specify that a slide page number placeholder is missing
+        if (!headerFooterManager.isSlideNumberVisible()) {
+            headerFooterManager.setSlideNumberVisibility(true);// Method setSlideNumberVisibility is used to set a slide page number placeholder to visible
+        }
+        // Method isDateTimeVisible is used to specify that a slide date-time placeholder is missing
+        if (!headerFooterManager.isDateTimeVisible()) {
+            headerFooterManager.setDateTimeVisibility(true);// Method SetFooterVisibility is used to set a slide date-time placeholder to visible
+        }
+        headerFooterManager.setFooterText("Footer text");// Method SetFooterText is used to set a text for a slide footer placeholder.
+        headerFooterManager.setDateTimeText("Date and time text");// Method SetDateTimeText is used to set a text for a slide date-time placeholder.
+    } finally {
+        presentation.dispose();
     }
-    if (!headerFooterManager.isSlideNumberVisible()) // Method isSlideNumberVisible is used to specify that a slide page number placeholder is missing
-    {
-        headerFooterManager.setSlideNumberVisibility(true); // Method setSlideNumberVisibility is used to set a slide page number placeholder to visible
-    }
-    if (!headerFooterManager.isDateTimeVisible()) // Method isDateTimeVisible is used to specify that a slide date-time placeholder is missing
-    {
-        headerFooterManager.setDateTimeVisibility(true); // Method SetFooterVisibility is used to set a slide date-time placeholder to visible
-    }
-    headerFooterManager.setFooterText("Footer text"); // Method SetFooterText is used to set a text for a slide footer placeholder.
-    headerFooterManager.setDateTimeText("Date and time text"); // Method SetDateTimeText is used to set a text for a slide date-time placeholder.
-} finally {
-    presentation.dispose();
-}
 ```
 
 ## **Set Child Footer Visibility Inside Slide**
@@ -181,19 +177,18 @@ try {
 
 This Java code demonstrates the operation:
 
-```java
-Presentation presentation = new Presentation("presentation.ppt");
-try {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-    headerFooterManager.setFooterAndChildFootersVisibility(true); // Method setFooterAndChildFootersVisibility is used to set the master slide and all child footer placeholders to visible
-    headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // Method setSlideNumberAndChildSlideNumbersVisibility is used to set the master slide and all child page number placeholders to visible
-    headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // Method setDateTimeAndChildDateTimesVisibility is used to set a master slide and all child date-time placeholders to visible
-
-    headerFooterManager.setFooterAndChildFootersText("Footer text"); // Method setFooterAndChildFootersText is used to set texts for the master slide and all child footer placeholders
-    headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // Method setDateTimeAndChildDateTimesText is used for set text for the master slide and all child date-time placeholders
-} finally {
-    presentation.dispose();
-}
+```javascript
+    var presentation = new  com.aspose.slides.Presentation("presentation.ppt");
+    try {
+        var headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
+        headerFooterManager.setFooterAndChildFootersVisibility(true);// Method setFooterAndChildFootersVisibility is used to set the master slide and all child footer placeholders to visible
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// Method setSlideNumberAndChildSlideNumbersVisibility is used to set the master slide and all child page number placeholders to visible
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// Method setDateTimeAndChildDateTimesVisibility is used to set a master slide and all child date-time placeholders to visible
+        headerFooterManager.setFooterAndChildFootersText("Footer text");// Method setFooterAndChildFootersText is used to set texts for the master slide and all child footer placeholders
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// Method setDateTimeAndChildDateTimesText is used for set text for the master slide and all child date-time placeholders
+    } finally {
+        presentation.dispose();
+    }
 ```
 
 ## **Set Slide Size with Respect to Content Scaling**
@@ -207,19 +202,18 @@ try {
 
 This Java code demonstrates the operation: 
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation presentation = new Presentation("demo.pptx");
-try {
-    // Sets the slide size for the generated presentations to that of the source
-    presentation.getSlideSize().setSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used to set slide size with scale content to ensure fit
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used to set slide size with maximum size of content
-
-    // Saves the presentation to disk
-    presentation.save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var presentation = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        // Sets the slide size for the generated presentations to that of the source
+        presentation.getSlideSize().setSize(540, 720, com.aspose.slides.SlideSizeScaleType.EnsureFit);// Method SetSize is used to set slide size with scale content to ensure fit
+        presentation.getSlideSize().setSize(com.aspose.slides.SlideSizeType.A4Paper, com.aspose.slides.SlideSizeScaleType.Maximize);// Method SetSize is used to set slide size with maximum size of content
+        // Saves the presentation to disk
+        presentation.save("Set_Size&Type_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
 ```
 
 ## **Set Page Size when Generating PDF**
@@ -228,20 +222,18 @@ Certain presentations (like posters) are often converted to PDF docs. If you are
 
 Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This Java code shows you how to use the [getType()](https://reference.aspose.com/slides/java/com.aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
 
-```java
-// Instantiates a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation();
-try {
-    // Sets the SlideSize.Type Property  
-    presentation.getSlideSize().setSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFit);
-    
-    // Sets different properties for PDF Options
-    PdfOptions opts = new  PdfOptions();
-    opts.setSufficientResolution(600);
-    
-    // Saves the presentation to disk
-    presentation.save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
-} finally {
-    presentation.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        // Sets the SlideSize.Type Property
+        presentation.getSlideSize().setSize(com.aspose.slides.SlideSizeType.A4Paper, com.aspose.slides.SlideSizeScaleType.EnsureFit);
+        // Sets different properties for PDF Options
+        var opts = new  com.aspose.slides.PdfOptions();
+        opts.setSufficientResolution(600);
+        // Saves the presentation to disk
+        presentation.save("SetPDFPageSize_out.pdf", com.aspose.slides.SaveFormat.Pdf, opts);
+    } finally {
+        presentation.dispose();
+    }
 ```

@@ -28,11 +28,14 @@ In some cases, you may be unable to grant access to folders due to restrictions 
 
 Use [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader) to load the required fonts without installing them:
 
+```javascript
 ```
 FontsLoader.loadExternalFonts(pathToFontsFolders);
+```javascript
 ```
 
 If the TEMP directory cannot be accessed, use this code to specify another directory as the TEMP for Java:
+```javascript
 ```
 String newTempFolder = "pathToTmpFolder";
 String oldValue = System.getProperty("java.io.tmpdir");
@@ -50,6 +53,7 @@ try {
 } finally {
     System.setProperty("java.io.tmpdir", oldValue);
 }
+```javascript
 ```
 
 ## **Exception: InvalidOperationException: Cannot find any fonts installed on the system**
@@ -69,24 +73,30 @@ This exception occurs when
 
    * Ubuntu: 
 
+```javascript
      ```
      sudo apt-get update
      sudo apt-get install -y fonts-dejavu-core
      fc-cache -fv
+```javascript
      ```
 
    * CentOS: 
 
+```javascript
      ```
      sudo yum makecache
      sudo yum -y install dejavu-sans-fonts
      fc-cache -fv
+```javascript
      ```
 
    * Using [FontsLoader](https://reference.aspose.com/slides/java/com.aspose.slides/FontsLoader): 
 
+```javascript
      ```
      FontsLoader.loadExternalFonts(pathToFontsFolders);
+```javascript
      ```
 
 ## **Exception: NoClassDefFoundError: Could not initialize class com.aspose.slides.internal.ey.this**
@@ -99,32 +109,40 @@ Install fontconfig:
 
 * Ubuntu:
 
+```javascript
   ```
   sudo apt-get update
   sudo apt-get -y install fontconfig
+```javascript
   ```
 
 * CentOS:
 
+```javascript
   ```
   sudo yum makecache
   sudo yum -y install fontconfig
+```javascript
   ```
 
 Additionally, some open-jdk versions (for example, **alpine JDK**) also **require installed fonts**.
 
 * Ubuntu:
 
+```javascript
   ```
   sudo apt-get install -y fonts-dejavu-core
   fc-cache -fv
+```javascript
   ```
 
 * CentOS:
 
+```javascript
   ```
   sudo yum -y install dejavu-sans-fonts
   fc-cache -fv
+```javascript
   ```
 
 ## **Exception: UnsatisfiedLinkError: libfreetype.so.6: cannot open shared object file: No such file or directory**
@@ -137,18 +155,22 @@ Install libfreetype and fontconfig:
 
 * Ubuntu: 
 
+```javascript
   ```
   sudo apt-get update
   sudo apt-get install libfreetype6
   sudo apt-get -y install fontconfig
+```javascript
   ```
 
 * CentOS: 
 
+```javascript
   ```
   sudo yum makecache
   sudo yum install libfreetype6
   sudo yum -y install fontconfig
+```javascript
   ```
 
 {{% alert title="TIP" color="primary" %}} 

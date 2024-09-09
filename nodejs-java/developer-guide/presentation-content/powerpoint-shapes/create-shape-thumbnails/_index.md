@@ -29,22 +29,25 @@ To generate a shape thumbnail from any slide using Aspose.Slides for Java, do th
 
 This sample code shows you how to generate a shape thumbnail from a slide:
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("Thumbnail.pptx");
-try {
-    // Create a full scale image
-    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-    
-    // Save the image to disk in PNG format
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("Thumbnail.pptx");
     try {
-          slideImage.save("output.png", ImageFormat.Png);
+        // Create a full scale image
+        var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
+        // Save the image to disk in PNG format
+        try {
+            slideImage.save("output.png", com.aspose.slides.ImageFormat.Png);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Generating Shape Thumbnails with User-Defined Scaling Factor**
@@ -57,22 +60,25 @@ To generate the shape thumbnail of a slide using Aspose.Slides for Java, do this
 
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("Thumbnail.pptx");
-try {
-    // Create a full scale image
-    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 1, 1);
-
-    // Save the image to disk in PNG format
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("Thumbnail.pptx");
     try {
-          slideImage.save("output.png", ImageFormat.Png);
+        // Create a full scale image
+        var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(com.aspose.slides.ShapeThumbnailBounds.Shape, 1, 1);
+        // Save the image to disk in PNG format
+        try {
+            slideImage.save("output.png", com.aspose.slides.ImageFormat.Png);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Generating Shape Thumbnail of Bounds**
@@ -85,20 +91,23 @@ This method of creating thumbnails of shapes allows developers to generate a thu
 
 This sample code is based on the steps above:
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("Thumbnail.pptx");
-try {
-    // Create a full scale image
-    IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
-
-    // Save the image to disk in PNG format
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("Thumbnail.pptx");
     try {
-          slideImage.save("output.png", ImageFormat.Png);
+        // Create a full scale image
+        var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(com.aspose.slides.ShapeThumbnailBounds.Appearance, 1, 1);
+        // Save the image to disk in PNG format
+        try {
+            slideImage.save("output.png", com.aspose.slides.ImageFormat.Png);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

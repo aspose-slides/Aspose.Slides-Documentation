@@ -32,31 +32,27 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
 2. Add *aspose-slides-x.x-jdk16.jar* and *aspose-words-x.x-jdk16.jar* to your CLASSPATH.
 3. Use this code snippet to convert the PowerPoint to Word:
 
-```java
-Presentation pres = new Presentation(inputPres);
-try {
-    Document doc = new Document();
-    DocumentBuilder builder = new DocumentBuilder(doc);
-    for (ISlide slide : pres.getSlides())
-    {
-        // generates and inserts slide image
-        BufferedImage bitmap = slide.getThumbnail(1, 1);
-
-        builder.insertImage(bitmap);
-
-        // inserts slide's texts
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof AutoShape)
-            {
-                builder.writeln(((AutoShape)shape).getTextFrame().getText());
+```javascript
+    var pres = new  com.aspose.slides.Presentation(inputPres);
+    try {
+        var doc = java.newInstanceSync("Document", );
+        var builder = java.newInstanceSync("DocumentBuilder", doc);
+        for (var slide : pres.getSlides()) {
+            // generates and inserts slide image
+            var bitmap = slide.getThumbnail(1, 1);
+            builder.insertImage(bitmap);
+            // inserts slide's texts
+            for (var shape : slide.getShapes()) {
+                if (shape instanceof com.aspose.slides.AutoShape) {
+                    builder.writeln(shape.getTextFrame().getText());
+                }
             }
+            builder.insertBreak(java.getStaticFieldValue("BreakType", "PAGE_BREAK"));
         }
-
-        builder.insertBreak(BreakType.PAGE_BREAK);
+        doc.save(outputDoc);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-    doc.save(outputDoc);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

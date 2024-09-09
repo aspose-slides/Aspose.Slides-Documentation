@@ -15,37 +15,34 @@ Aspose.Slides for Java provides the [SlideUtil](https://reference.aspose.com/sli
 use the [getAllTextBoxes](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#getAllTextBoxes-com.aspose.slides.IBaseSlide-) overloaded static method exposed by the [SlideUtil](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil) class. This method accepts the Slide object as a parameter.
 Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
 
-```java
-//Instatiate Presentation class that represents a PPTX file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        //Get an Array of ITextFrame objects from all slides in the PPTX
-        ITextFrame[] textFramesPPTX = SlideUtil.getAllTextBoxes(slide);
-
-        //Loop through the Array of TextFrames
-        for (int i = 0; i < textFramesPPTX.length; i++) {
-            //Loop through paragraphs in current ITextFrame
-            for (IParagraph para : textFramesPPTX[i].getParagraphs()) {
-                //Loop through portions in the current IParagraph
-                for (IPortion port : para.getPortions()) {
-                    //Display text in the current portion
-                    System.out.println(port.getText());
-
-                    //Display font height of the text
-                    System.out.println(port.getPortionFormat().getFontHeight());
-
-                    //Display font name of the text
-                    if (port.getPortionFormat().getLatinFont() != null)
-                        System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+```javascript
+    // Instatiate Presentation class that represents a PPTX file
+    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        for (var slide : pres.getSlides()) {
+            // Get an Array of ITextFrame objects from all slides in the PPTX
+            var textFramesPPTX = com.aspose.slides.SlideUtil.getAllTextBoxes(slide);
+            // Loop through the Array of TextFrames
+            for (var i = 0; i < textFramesPPTX.length; i++) {
+                // Loop through paragraphs in current ITextFrame
+                for (var para : textFramesPPTX[i].getParagraphs()) {
+                    // Loop through portions in the current IParagraph
+                    for (var port : para.getPortions()) {
+                        // Display text in the current portion
+                        java.getStaticFieldValue("java.lang.System", "out").println(port.getText());
+                        // Display font height of the text
+                        java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getFontHeight());
+                        // Display font name of the text
+                        if (port.getPortionFormat().getLatinFont() != null) {
+                            java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getLatinFont().getFontName());
+                        }
+                    }
                 }
             }
         }
+    } finally {
+        pres.dispose();
     }
-} finally {
-    pres.dispose();
-}
 ```
 
 ## **Extract Text from Presentation**
@@ -56,46 +53,38 @@ To scan the text from the whole presentation, use the
 1. Second, a boolean value determining whether the master slide is to be included when the text is scanned from the presentation.
    The method returns an array of [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
 
-```java
-//Instatiate Presentation class that represents a PPTX file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    //Get an Array of ITextFrame objects from all slides in the PPTX
-    ITextFrame[] textFramesPPTX = SlideUtil.getAllTextFrames(pres, true);
-
-    //Loop through the Array of TextFrames
-    for (int i = 0; i < textFramesPPTX.length; i++) 
-    {
-        //Loop through paragraphs in current ITextFrame
-        for (IParagraph para : textFramesPPTX[i].getParagraphs())
-        {
-            //Loop through portions in the current IParagraph
-            for (IPortion port : para.getPortions())
-            {
-                //Display text in the current portion
-                System.out.println(port.getText());
-
-                //Display font height of the text
-                System.out.println(port.getPortionFormat().getFontHeight());
-
-                //Display font name of the text
-                if (port.getPortionFormat().getLatinFont() != null)
-                    System.out.println(port.getPortionFormat().getLatinFont().getFontName());
+```javascript
+    // Instatiate Presentation class that represents a PPTX file
+    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        // Get an Array of ITextFrame objects from all slides in the PPTX
+        var textFramesPPTX = com.aspose.slides.SlideUtil.getAllTextFrames(pres, true);
+        // Loop through the Array of TextFrames
+        for (var i = 0; i < textFramesPPTX.length; i++) {
+            // Loop through paragraphs in current ITextFrame
+            for (var para : textFramesPPTX[i].getParagraphs()) {
+                // Loop through portions in the current IParagraph
+                for (var port : para.getPortions()) {
+                    // Display text in the current portion
+                    java.getStaticFieldValue("java.lang.System", "out").println(port.getText());
+                    // Display font height of the text
+                    java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getFontHeight());
+                    // Display font name of the text
+                    if (port.getPortionFormat().getLatinFont() != null) {
+                        java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getLatinFont().getFontName());
+                    }
+                }
             }
         }
+    } finally {
+        pres.dispose();
     }
-} finally {
-    pres.dispose();
-}
 ```
 
 ## **Categorized and Fast Text Extraction**
 The new static method getPresentationText has been added to Presentation class. There are three overloads for this method:
 
-```java
-public IPresentationText getPresentationText(String file, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode);
-public IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
+```javascript
 ``` 
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/java/com.aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:
@@ -115,12 +104,12 @@ There is also a [SlideText](https://reference.aspose.com/slides/java/com.aspose.
 
 The new API can be used like this:
 
-```java
-IPresentationText text1 = PresentationFactory.getInstance().getPresentationText("presentation.pptx", TextExtractionArrangingMode.Unarranged);
-System.out.println(text1.getSlidesText()[0].getText());
-System.out.println(text1.getSlidesText()[0].getLayoutText());
-System.out.println(text1.getSlidesText()[0].getMasterText());
-System.out.println(text1.getSlidesText()[0].getNotesText());
+```javascript
+    var text1 = com.aspose.slides.PresentationFactory.getInstance().getPresentationText("presentation.pptx", com.aspose.slides.TextExtractionArrangingMode.Unarranged);
+    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getText());
+    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getLayoutText());
+    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getMasterText());
+    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getNotesText());
 ```
 
 

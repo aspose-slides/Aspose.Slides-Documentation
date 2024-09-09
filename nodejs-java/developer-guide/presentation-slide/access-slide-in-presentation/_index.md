@@ -15,33 +15,32 @@ All slides in a presentation are arranged numerically based on the slide positio
 
 The Presentation class, representing a presentation file, exposes all slides as an [ISlideCollection](https://reference.aspose.com/slides/java/com.aspose.slides/islidecollection/) collection (collection of [ISlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) objects). This Java code shows you how to access a slide through its index: 
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    // Accesses a slide using its slide index
-    ISlide slide = pres.getSlides().get_Item(0);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        // Accesses a slide using its slide index
+        var slide = pres.getSlides().get_Item(0);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 ## **Access Slide by ID**
 
 Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class) to target that ID. This Java code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#getSlideById-long-) method:
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation pres = new Presentation("demo.pptx");
-try {
-    // Gets a slide ID
-    int id = (int) pres.getSlides().get_Item(0).getSlideId();
-    
-    // Accesses the slide through its ID
-    IBaseSlide slide = pres.getSlideById(id);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("demo.pptx");
+    try {
+        // Gets a slide ID
+        var id = pres.getSlides().get_Item(0).getSlideId();
+        // Accesses the slide through its ID
+        var slide = pres.getSlideById(id);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 ## **Change Slide Position**
@@ -55,21 +54,19 @@ Aspose.Slides allow you to change a slide position. For example, you can specify
 
 This Java code demonstrates an operation in which the slide in position 1 is moved to position 2: 
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Gets the slide whose position will be changed
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Sets the new position for the slide
-    sld.setSlideNumber(2);
-    
-    // Saves the modified presentation
-    pres.save("helloworld_Pos.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    try {
+        // Gets the slide whose position will be changed
+        var sld = pres.getSlides().get_Item(0);
+        // Sets the new position for the slide
+        sld.setSlideNumber(2);
+        // Saves the modified presentation
+        pres.save("helloworld_Pos.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 The first slide became the second; the second slide became the first. When you change a slide's position, other slides are automatically adjusted.
@@ -86,45 +83,41 @@ Using the [setFirstSlideNumber](https://reference.aspose.com/slides/java/com.asp
 
 This Java code demonstrates an operation where the first slide number is set to 10: 
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation pres = new Presentation("HelloWorld.pptx");
-try {
-    // Gets the slide number
-    int firstSlideNumber = pres.getFirstSlideNumber();
-
-    // Sets the slide number
-    pres.setFirstSlideNumber(10);
-	
-    // Saves the modified presentation
-    pres.save("Set_Slide_Number_out.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("HelloWorld.pptx");
+    try {
+        // Gets the slide number
+        var firstSlideNumber = pres.getFirstSlideNumber();
+        // Sets the slide number
+        pres.setFirstSlideNumber(10);
+        // Saves the modified presentation
+        pres.save("Set_Slide_Number_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
-    presentation.getSlides().addEmptySlide(layoutSlide);
-    presentation.getSlides().addEmptySlide(layoutSlide);
-    presentation.getSlides().addEmptySlide(layoutSlide);
-
-    // Sets the number for the first presentation slide
-    presentation.setFirstSlideNumber(0);
-
-    // Shows slide numbers for all slides
-    presentation.getHeaderFooterManager().setAllSlideNumbersVisibility(true);
-
-    // Hides the slide number for the first slide
-    presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
-
-    // Saves the modified presentation
-    presentation.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        var layoutSlide = presentation.getLayoutSlides().getByType(com.aspose.slides.SlideLayoutType.Blank);
+        presentation.getSlides().addEmptySlide(layoutSlide);
+        presentation.getSlides().addEmptySlide(layoutSlide);
+        presentation.getSlides().addEmptySlide(layoutSlide);
+        // Sets the number for the first presentation slide
+        presentation.setFirstSlideNumber(0);
+        // Shows slide numbers for all slides
+        presentation.getHeaderFooterManager().setAllSlideNumbersVisibility(true);
+        // Hides the slide number for the first slide
+        presentation.getSlides().get_Item(0).getHeaderFooterManager().setSlideNumberVisibility(false);
+        // Saves the modified presentation
+        presentation.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
 ```

@@ -16,30 +16,34 @@ To open an existing presentation, you simply have to instantiate the [Presentati
 
 This Java code shows you how to open a presentation and also find out the number of slides it contains: 
 
-```java
-// Instantiates the Presentation class and passes the file path to its constructor
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Prints the total number of slides present in the presentation
-    System.out.println(pres.getSlides().size());
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiates the Presentation class and passes the file path to its constructor
+    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    try {
+        // Prints the total number of slides present in the presentation
+        java.getStaticFieldValue("java.lang.System", "out").println(pres.getSlides().size());
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Open Password Protected Presentation**
 
 When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Java code demonstrates the operation:
 
-```java
- LoadOptions loadOptions = new LoadOptions();
- loadOptions.setPassword("YOUR_PASSWORD");
- Presentation pres = new Presentation("pres.pptx", loadOptions);
- try {
- // Do some work with the decrypted presentation
- } finally {
-     if (pres != null) pres.dispose();
- }
+```javascript
+    var loadOptions = new  com.aspose.slides.LoadOptions();
+    loadOptions.setPassword("YOUR_PASSWORD");
+    var pres = new  com.aspose.slides.Presentation("pres.pptx", loadOptions);
+    try {
+        // Do some work with the decrypted presentation
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## Open Large Presentation
@@ -48,23 +52,23 @@ Aspose.Slides provides options (the [BlobManagementOptions](https://reference.as
 
 This Java demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
 
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(PresentationLockingBehavior.KeepLocked);
-loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
-loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0L);
-
-Presentation pres = new Presentation("veryLargePresentation.pptx", loadOptions);
-try {
-    // The large presentation has been loaded and can be used, but the memory consumption is still low.
-    // makes changes to the presentation.
-    pres.getSlides().get_Item(0).setName("Very large presentation");
-
-    // The presentation will be saved to the other file. The memory consumption stays low during the operation
-    pres.save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
+```javascript
+    var loadOptions = new  com.aspose.slides.LoadOptions();
+    loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(com.aspose.slides.PresentationLockingBehavior.KeepLocked);
+    loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
+    loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0);
+    var pres = new  com.aspose.slides.Presentation("veryLargePresentation.pptx", loadOptions);
+    try {
+        // The large presentation has been loaded and can be used, but the memory consumption is still low.
+        // makes changes to the presentation.
+        pres.getSlides().get_Item(0).setName("Very large presentation");
+        // The presentation will be saved to the other file. The memory consumption stays low during the operation
+        pres.save("veryLargePresentation-copy.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert color="info" title="Info" %}}
@@ -80,39 +84,35 @@ When you want to create a presentation that contains large objects (video, audio
 
 Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This Java code shows you how to use the `IResourceLoadingCallback` interface:
 
-```java
-LoadOptions opts = new LoadOptions();
-opts.setResourceLoadingCallback(new ImageLoadingHandler());
-
-Presentation pres = new Presentation("presentation.pptx", opts);
+```javascript
+    var opts = new  com.aspose.slides.LoadOptions();
+    opts.setResourceLoadingCallback(java.newInstanceSync("ImageLoadingHandler", ));
+    var pres = new  com.aspose.slides.Presentation("presentation.pptx", opts);
 ```
 
-```java
-class ImageLoadingHandler implements IResourceLoadingCallback 
-{
-    public int resourceLoading(IResourceLoadingArgs args) 
-    {
-        if (args.getOriginalUri().endsWith(".jpg")) 
-        {
-            try // loads substitute image
-            {
-                byte[] imageBytes = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
-                args.setData(imageBytes);
-                return ResourceLoadingAction.UserProvided;
-            } catch (RuntimeException ex) {
-                return ResourceLoadingAction.Skip;
-            }  catch (IOException ex) {
-                ex.printStackTrace();
+```javascript
+    class ImageLoadingHandler implements com.aspose.slides.IResourceLoadingCallback {
+        public int resourceLoading(com.aspose.slides.IResourceLoadingArgs args) {
+            if (args.getOriginalUri().endsWith(".jpg")) {
+                // loads substitute image
+                try {
+                    var imageBytes = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.newInstanceSync("java.io.File", "aspose-logo.jpg").toPath());
+                    args.setData(imageBytes);
+                    return com.aspose.slides.ResourceLoadingAction.UserProvided;
+                } catch (ex) {
+                    return com.aspose.slides.ResourceLoadingAction.Skip;
+                } catch (ex) {
+                    ex.printStackTrace();
+                }
+            } else if (args.getOriginalUri().endsWith(".png")) {
+                // sets substitute url
+                args.setUri("http://www.google.com/images/logos/ps_logo2.png");
+                return com.aspose.slides.ResourceLoadingAction.Default;
             }
-        } else if (args.getOriginalUri().endsWith(".png")) {
-            // sets substitute url
-            args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-            return ResourceLoadingAction.Default;
+            // skips all other images
+            return com.aspose.slides.ResourceLoadingAction.Skip;
         }
-        // skips all other images
-        return ResourceLoadingAction.Skip;
     }
-}
 ```
 
 ## Load Presentation Without Embedded Binary Objects
@@ -129,16 +129,17 @@ This property can be useful for removing potentially malicious binary content.
 
 The code demonstrates how to load and save a presentation without any malware content:
 
-```java
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setDeleteEmbeddedBinaryObjects(true);
-
-Presentation pres = new Presentation("malware.ppt", loadOptions);
-try {
-    pres.save("clean.ppt", SaveFormat.Ppt);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var loadOptions = new  com.aspose.slides.LoadOptions();
+    loadOptions.setDeleteEmbeddedBinaryObjects(true);
+    var pres = new  com.aspose.slides.Presentation("malware.ppt", loadOptions);
+    try {
+        pres.save("clean.ppt", com.aspose.slides.SaveFormat.Ppt);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## Open and Save Presentation
@@ -148,15 +149,16 @@ Steps to Open and Save Presentation:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class and pass the file you want to open. 
 2. Save the presentation.  
 
-```java
-// Instantiates a Presentation object that represents a PPT file
-Presentation pres = new Presentation();
-try {
-    // ...do some work here...
-    
-    // Saves your presentation to a file
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a PPT file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // ...do some work here...
+        // Saves your presentation to a file
+        pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

@@ -25,28 +25,16 @@ IChartDataPoint.remove()
 
 IChartCategory.remove()
 
-``` java
-
- Presentation pres = new Presentation();
-
-IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 450, 400, true);
-
-chart.getChartData().getCategories().get_Item(0).remove(); // remove with ChartCategory.remove()
-
-chart.getChartData().getCategories().remove(chart.getChartData().getCategories().get_Item(0)); // remove with ChartCategoryCollection.remove()
-
-for (IChartSeries ser : chart.getChartData().getSeries())
-
-{
-
-    ser.getDataPoints().get_Item(0).remove(); // remove with ChartDataPoint.remove()
-
-    ser.getDataPoints().remove(ser.getDataPoints().get_Item(0)); // ChartDataPointCollection.remove()
-
-}
-
-pres.save("presentation.pptx", SaveFormat.Pptx);
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 400, true);
+    chart.getChartData().getCategories().get_Item(0).remove();// remove with ChartCategory.remove()
+    chart.getChartData().getCategories().remove(chart.getChartData().getCategories().get_Item(0));// remove with ChartCategoryCollection.remove()
+    for (var ser : chart.getChartData().getSeries()) {
+        ser.getDataPoints().get_Item(0).remove();// remove with ChartDataPoint.remove()
+        ser.getDataPoints().remove(ser.getDataPoints().get_Item(0));// ChartDataPointCollection.remove()
+    }
+    pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Obsolete Aspose.Slides.ParagraphFormat methods have been removed**
 The methods getBulletChar(), getBulletColor(), getBulletColorFormat(), getBulletFont(), getBulletHeight(), getBulletType(), isBulletHardColor(), isBulletHardFont(), getNumberedBulletStartWith(), getNumberedBulletStyle() and corresponding set methods have been removed. They were marked as obsolete long time ago.

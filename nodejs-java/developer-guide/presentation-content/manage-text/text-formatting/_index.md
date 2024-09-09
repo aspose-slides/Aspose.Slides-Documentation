@@ -30,19 +30,19 @@ It allows to highlight text part with background color using text sample, simila
 
 The code snippet below shows how to use this feature:
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    TextHighlightingOptions textHighlightingOptions = new TextHighlightingOptions();
-    textHighlightingOptions.setWholeWordsOnly(true);
-    
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("title", Color.BLUE); // highlighting all words 'important'
-    ((AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightText("to", Color.MAGENTA, textHighlightingOptions);// highlighting all separate 'the' occurrences
-    
-    pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    try {
+        var textHighlightingOptions = new  com.aspose.slides.TextHighlightingOptions();
+        textHighlightingOptions.setWholeWordsOnly(true);
+        pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// highlighting all words 'important'
+        pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// highlighting all separate 'the' occurrences
+        pres.save("OutputPresentation-highlight.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert color="primary" %}} 
@@ -59,17 +59,17 @@ It allows to highlight text part with background color using regex, similar to T
 
 The code snippet below shows how to use this feature:
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    TextHighlightingOptions options = new TextHighlightingOptions();
-    
-    ((AutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0)).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.awt.Color.YELLOW, options); // highlighting all words with 10 symbols or longer
-    
-    pres.save("OutputPresentation-highlight.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    try {
+        var options = new  com.aspose.slides.TextHighlightingOptions();
+        pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// highlighting all words with 10 symbols or longer
+        pres.save("OutputPresentation-highlight.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Text Background Color**
@@ -78,89 +78,75 @@ Aspose.Slides allows you to specify your preferred color for the background of a
 
 This Java code shows you how to set the background color for an entire text:
 
-```java
-Presentation pres = new Presentation();
-try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-
-    Paragraph para = new Paragraph();
-
-    Portion portion1 = new Portion("Black");
-    portion1.getPortionFormat().setFontBold(NullableBool.True);
-
-    Portion portion2 = new Portion(" Red ");
-
-    Portion portion3 = new Portion("Black");
-    portion3.getPortionFormat().setFontBold(NullableBool.True);
-
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-
-    pres.save("text.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-Presentation presentation = new Presentation("text.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    StreamSupport.stream(autoShape.getTextFrame().getParagraphs().spliterator(), false)
-            .map(p -> p.getPortions())
-            .forEach(c -> c.forEach(ic -> ic.getPortionFormat().getHighlightColor().setColor(Color.BLUE)));
-
-    presentation.save("text-red.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
+        autoShape.getTextFrame().getParagraphs().clear();
+        var para = new  com.aspose.slides.Paragraph();
+        var portion1 = new  com.aspose.slides.Portion("Black");
+        portion1.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        var portion2 = new  com.aspose.slides.Portion(" Red ");
+        var portion3 = new  com.aspose.slides.Portion("Black");
+        portion3.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        para.getPortions().add(portion1);
+        para.getPortions().add(portion2);
+        para.getPortions().add(portion3);
+        autoShape.getTextFrame().getParagraphs().add(para);
+        pres.save("text.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
+    var presentation = new  com.aspose.slides.Presentation("text.pptx");
+    try {
+        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        java.callStaticMethodSync("StreamSupport", "stream", autoShape.getTextFrame().getParagraphs().spliterator(), false).map(p -> p.getPortions()).forEach(c -> c.forEach(ic -> ic.getPortionFormat().getHighlightColor().setColor(Color.BLUE)));
+        presentation.save("text-red.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
 ```
 
 This Java code shows you how to set the background color for only a portion of a text:
 
-```java
-Presentation pres = new Presentation();
-try {
-    IAutoShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
-    autoShape.getTextFrame().getParagraphs().clear();
-    
-    Paragraph para = new Paragraph();
-
-    Portion portion1 = new Portion("Black");
-    portion1.getPortionFormat().setFontBold(NullableBool.True);
-
-    Portion portion2 = new Portion(" Red ");
-
-    Portion portion3 = new Portion("Black");
-    portion3.getPortionFormat().setFontBold(NullableBool.True);
-    
-    para.getPortions().add(portion1);
-    para.getPortions().add(portion2);
-    para.getPortions().add(portion3);
-    autoShape.getTextFrame().getParagraphs().add(para);
-    
-    pres.save("text.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
-Presentation presentation = new Presentation("text.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    Optional<IPortion> redPortion = StreamSupport.stream(autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false)
-            .filter(p -> p.getText().contains("Red"))
-            .findFirst();
-
-    if(redPortion.isPresent())
-        redPortion.get().getPortionFormat().getHighlightColor().setColor(Color.RED);
-
-    presentation.save("text-red.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
+        autoShape.getTextFrame().getParagraphs().clear();
+        var para = new  com.aspose.slides.Paragraph();
+        var portion1 = new  com.aspose.slides.Portion("Black");
+        portion1.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        var portion2 = new  com.aspose.slides.Portion(" Red ");
+        var portion3 = new  com.aspose.slides.Portion("Black");
+        portion3.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        para.getPortions().add(portion1);
+        para.getPortions().add(portion2);
+        para.getPortions().add(portion3);
+        autoShape.getTextFrame().getParagraphs().add(para);
+        pres.save("text.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
+    var presentation = new  com.aspose.slides.Presentation("text.pptx");
+    try {
+        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        var redPortion = java.callStaticMethodSync("StreamSupport", "stream", autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false).filter(p -> p.getText().contains("Red")).findFirst();
+        if (redPortion.isPresent()) {
+            redPortion.get().getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+        }
+        presentation.save("text-red.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
 ```
 
 ## **Align Text Paragraphs**
@@ -176,34 +162,31 @@ Text formatting is one of the key elements while creating any kind of documents 
 
 The implementation of the above steps is given below.
 
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("ParagraphsAlignment.pptx");
-try {
-    // Accessing first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
-    ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
-
-    // Change the text in both placeholders
-    tf1.setText("Center Align by Aspose");
-    tf2.setText("Center Align by Aspose");
-
-    // Getting the first paragraph of the placeholders
-    IParagraph para1 = tf1.getParagraphs().get_Item(0);
-    IParagraph para2 = tf2.getParagraphs().get_Item(0);
-
-    // Aligning the text paragraph to center
-    para1.getParagraphFormat().setAlignment(TextAlignment.Center);
-    para2.getParagraphFormat().setAlignment(TextAlignment.Center);
-
-    //Writing the presentation as a PPTX file
-    pres.save("Centeralign_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a PPTX file
+    var pres = new  com.aspose.slides.Presentation("ParagraphsAlignment.pptx");
+    try {
+        // Accessing first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+        var tf1 = slide.getShapes().get_Item(0).getTextFrame();
+        var tf2 = slide.getShapes().get_Item(1).getTextFrame();
+        // Change the text in both placeholders
+        tf1.setText("Center Align by Aspose");
+        tf2.setText("Center Align by Aspose");
+        // Getting the first paragraph of the placeholders
+        var para1 = tf1.getParagraphs().get_Item(0);
+        var para2 = tf2.getParagraphs().get_Item(0);
+        // Aligning the text paragraph to center
+        para1.getParagraphFormat().setAlignment(com.aspose.slides.TextAlignment.Center);
+        para2.getParagraphFormat().setAlignment(com.aspose.slides.TextAlignment.Center);
+        // Writing the presentation as a PPTX file
+        pres.save("Centeralign_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Transparency for Text**
@@ -216,24 +199,22 @@ This article demonstrates how to set transparency property to any text shape us
 
 The implementation of the above steps is given below.
 
-```java
-Presentation pres = new Presentation("transparency.pptx");
-try {
-    IAutoShape shape = (IAutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IEffectFormat effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
-
-    IOuterShadow outerShadowEffect = effects.getOuterShadowEffect();
-
-    Color shadowColor = outerShadowEffect.getShadowColor().getColor();
-    System.out.println(shadowColor.toString() + " - transparency is: "+ (shadowColor.getAlpha() / 255f) * 100);
-
-    // set transparency to zero percent
-    outerShadowEffect.getShadowColor().setColor(new Color(shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
-
-    pres.save("transparency-2.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("transparency.pptx");
+    try {
+        var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+        var effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
+        var outerShadowEffect = effects.getOuterShadowEffect();
+        var shadowColor = outerShadowEffect.getShadowColor().getColor();
+        java.getStaticFieldValue("java.lang.System", "out").println((shadowColor.toString() + " - transparency is: ") + ((shadowColor.getAlpha() / 255.0) * 100));
+        // set transparency to zero percent
+        outerShadowEffect.getShadowColor().setColor(java.newInstanceSync("java.awt.Color", shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
+        pres.save("transparency-2.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Character Spacing for Text**
@@ -242,16 +223,13 @@ Aspose.Slides allows you to set the space between letters in a textbox. This way
 
 This Java code shows you how to expand the spacing for one line of text and condense the spacing for another line:
 
-```java
-Presentation presentation = new Presentation("in.pptx");
-
-IAutoShape textBox1 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-IAutoShape textBox2 = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(1);
-
-textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20); // expand
-textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2); // condense
-
-presentation.save("out.pptx", SaveFormat.Pptx);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation("in.pptx");
+    var textBox1 = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    var textBox2 = presentation.getSlides().get_Item(0).getShapes().get_Item(1);
+    textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20);// expand
+    textBox2.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(-2);// condense
+    presentation.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 
 ## **Manage Paragraph's Font Properties**
@@ -272,52 +250,45 @@ Presentations usually contain both text and images. The text can be formatted in
 
 The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
 
-```java
-// Instantiate a Presentation object that represents a PPTX file
-Presentation pres = new Presentation("FontProperties.pptx");
-try {
-    // Accessing a slide using its slide position
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-    ITextFrame tf1 = ((IAutoShape)slide.getShapes().get_Item(0)).getTextFrame();
-    ITextFrame tf2 = ((IAutoShape)slide.getShapes().get_Item(1)).getTextFrame();
-
-    // Accessing the first Paragraph
-    IParagraph para1 = tf1.getParagraphs().get_Item(0);
-    IParagraph para2 = tf2.getParagraphs().get_Item(0);
-
-    // Accessing the first portion
-    IPortion port1 = para1.getPortions().get_Item(0);
-    IPortion port2 = para2.getPortions().get_Item(0);
-
-    // Define new fonts
-    FontData fd1 = new FontData("Elephant");
-    FontData fd2 = new FontData("Castellar");
-
-    // Assign new fonts to portion
-    port1.getPortionFormat().setLatinFont(fd1);
-    port2.getPortionFormat().setLatinFont(fd2);
-
-    // Set font to Bold
-    port1.getPortionFormat().setFontBold(NullableBool.True);
-    port2.getPortionFormat().setFontBold(NullableBool.True);
-
-    // Set font to Italic
-    port1.getPortionFormat().setFontItalic(NullableBool.True);
-    port2.getPortionFormat().setFontItalic(NullableBool.True);
-
-    // Set font color
-    port1.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-    port2.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
-
-    //Write the PPTX to disk
-    pres.save("WelcomeFont_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a PPTX file
+    var pres = new  com.aspose.slides.Presentation("FontProperties.pptx");
+    try {
+        // Accessing a slide using its slide position
+        var slide = pres.getSlides().get_Item(0);
+        // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+        var tf1 = slide.getShapes().get_Item(0).getTextFrame();
+        var tf2 = slide.getShapes().get_Item(1).getTextFrame();
+        // Accessing the first Paragraph
+        var para1 = tf1.getParagraphs().get_Item(0);
+        var para2 = tf2.getParagraphs().get_Item(0);
+        // Accessing the first portion
+        var port1 = para1.getPortions().get_Item(0);
+        var port2 = para2.getPortions().get_Item(0);
+        // Define new fonts
+        var fd1 = new  com.aspose.slides.FontData("Elephant");
+        var fd2 = new  com.aspose.slides.FontData("Castellar");
+        // Assign new fonts to portion
+        port1.getPortionFormat().setLatinFont(fd1);
+        port2.getPortionFormat().setLatinFont(fd2);
+        // Set font to Bold
+        port1.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        port2.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        // Set font to Italic
+        port1.getPortionFormat().setFontItalic(com.aspose.slides.NullableBool.True);
+        port2.getPortionFormat().setFontItalic(com.aspose.slides.NullableBool.True);
+        // Set font color
+        port1.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+        port2.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+        // Write the PPTX to disk
+        pres.save("WelcomeFont_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Manage Font Family of Text**
@@ -336,52 +307,41 @@ A portion is used to hold text with similar formatting style in a paragraph. Thi
 
 The implementation of the above steps is given below.
 
-```java
-// Instantiate Presentation
-Presentation pres = new Presentation();
-try {
-
-    // Get first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 50);
-
-    // Remove any fill style associated with the AutoShape
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // Access the TextFrame associated with the AutoShape
-    ITextFrame tf = ashp.getTextFrame();
-    tf.setText("Aspose TextBox");
-
-    // Access the Portion associated with the TextFrame
-    IPortion port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-    // Set the Font for the Portion
-    port.getPortionFormat().setLatinFont(new FontData("Times New Roman"));
-
-    // Set Bold property of the Font
-    port.getPortionFormat().setFontBold(NullableBool.True);
-
-    // Set Italic property of the Font
-    port.getPortionFormat().setFontItalic(NullableBool.True);
-
-    // Set Underline property of the Font
-    port.getPortionFormat().setFontUnderline(TextUnderlineType.Single);
-
-    // Set the Height of the Font
-    port.getPortionFormat().setFontHeight(25);
-
-    // Set the color of the Font
-    port.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-
-    // Write the PPTX to disk 
-    pres.save("SetTextFontProperties_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
+```javascript
+    // Instantiate Presentation
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Add an AutoShape of Rectangle type
+        var ashp = sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
+        // Remove any fill style associated with the AutoShape
+        ashp.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        // Access the TextFrame associated with the AutoShape
+        var tf = ashp.getTextFrame();
+        tf.setText("Aspose TextBox");
+        // Access the Portion associated with the TextFrame
+        var port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
+        // Set the Font for the Portion
+        port.getPortionFormat().setLatinFont(new  com.aspose.slides.FontData("Times New Roman"));
+        // Set Bold property of the Font
+        port.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        // Set Italic property of the Font
+        port.getPortionFormat().setFontItalic(com.aspose.slides.NullableBool.True);
+        // Set Underline property of the Font
+        port.getPortionFormat().setFontUnderline(com.aspose.slides.TextUnderlineType.Single);
+        // Set the Height of the Font
+        port.getPortionFormat().setFontHeight(25);
+        // Set the color of the Font
+        port.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        // Write the PPTX to disk
+        pres.save("SetTextFontProperties_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Font Size for Text**
@@ -390,30 +350,27 @@ Aspose.Slides allows you to choose your preferred font size for existing text in
 
 This Java code shows you how to set the font size for texts contained in a paragraph:
 
-```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // Gets the first shape, for example.
-    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    if (shape instanceof IAutoShape )
-    {
-        IAutoShape autoShape = (AutoShape) shape;
-        // Gets the first paragraph, for example.
-        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-
-        // Sets the default font size to 20 pt for all text portions in the paragraph. 
-        paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
-
-        // Sets the font size to 20 pt for current text portions in the paragraph. 
-        for(IPortion portion : paragraph.getPortions())
-        {
-            portion.getPortionFormat().setFontHeight(20);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation("example.pptx");
+    try {
+        // Gets the first shape, for example.
+        var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+        if (shape instanceof com.aspose.slides.IAutoShape) {
+            var autoShape = shape;
+            // Gets the first paragraph, for example.
+            var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+            // Sets the default font size to 20 pt for all text portions in the paragraph.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
+            // Sets the font size to 20 pt for current text portions in the paragraph.
+            for (var portion : paragraph.getPortions()) {
+                portion.getPortionFormat().setFontHeight(20);
+            }
+        }
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
         }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 ## **Set Text Rotation**
@@ -427,38 +384,34 @@ Aspose.Slides for Java allows developers to rotate the text. Text could be set t
 5. [Rotate the text](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
 6. Save file to disk.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Get the first slide 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-    
-    // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-    
-    // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
-    
-    // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-    
-    // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // Save Presentation
-    pres.save("RotateText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Add an AutoShape of Rectangle type
+        var ashp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
+        // Add TextFrame to the Rectangle
+        ashp.addTextFrame("");
+        ashp.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        // Accessing the text frame
+        var txtFrame = ashp.getTextFrame();
+        txtFrame.getTextFrameFormat().setTextVerticalType(com.aspose.slides.TextVerticalType.Vertical270);
+        // Create the Paragraph object for text frame
+        var para = txtFrame.getParagraphs().get_Item(0);
+        // Create Portion object for paragraph
+        var portion = para.getPortions().get_Item(0);
+        portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Save Presentation
+        pres.save("RotateText_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Custom Rotation Angle for TextFrame**
@@ -471,38 +424,34 @@ Aspose.Slides for Java now supports, Setting custom rotation angle for textframe
 
 In the example given below, we set the RotationAngle property.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-
-    // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setRotationAngle(25);
-
-    // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Text rotation example.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    // Save Presentation
-    pres.save(resourcesOutputPath+"RotateText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Add an AutoShape of Rectangle type
+        var ashp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
+        // Add TextFrame to the Rectangle
+        ashp.addTextFrame("");
+        ashp.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        // Accessing the text frame
+        var txtFrame = ashp.getTextFrame();
+        txtFrame.getTextFrameFormat().setRotationAngle(25);
+        // Create the Paragraph object for text frame
+        var para = txtFrame.getParagraphs().get_Item(0);
+        // Create Portion object for paragraph
+        var portion = para.getPortions().get_Item(0);
+        portion.setText("Text rotation example.");
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Save Presentation
+        pres.save(resourcesOutputPath + "RotateText_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Line Spacing of Paragraph**
@@ -524,29 +473,27 @@ This is how you specify the line spacing for a specific paragraph:
 
 This Java code shows you how to specify the line spacing for a paragraph:
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    // Obtain a slide's reference by its index
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Access the TextFrame
-    ITextFrame tf1 = ((IAutoShape)sld.getShapes().get_Item(0)).getTextFrame();
-    
-    // Access the Paragraph
-    IParagraph para = tf1.getParagraphs().get_Item(0);
-    
-    // Set properties of Paragraph
-    para.getParagraphFormat().setSpaceWithin(80);
-    para.getParagraphFormat().setSpaceBefore(40);
-    para.getParagraphFormat().setSpaceAfter(40);
-    
-    // Save Presentation
-    pres.save("LineSpacing_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation("Fonts.pptx");
+    try {
+        // Obtain a slide's reference by its index
+        var sld = pres.getSlides().get_Item(0);
+        // Access the TextFrame
+        var tf1 = sld.getShapes().get_Item(0).getTextFrame();
+        // Access the Paragraph
+        var para = tf1.getParagraphs().get_Item(0);
+        // Set properties of Paragraph
+        para.getParagraphFormat().setSpaceWithin(80);
+        para.getParagraphFormat().setSpaceBefore(40);
+        para.getParagraphFormat().setSpaceAfter(40);
+        // Save Presentation
+        pres.save("LineSpacing_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set the AutofitType Property for TextFrame**
@@ -559,38 +506,34 @@ In this topic, we will explore the different formatting properties of text frame
 5. [Set the AutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) of the TextFrame.
 6. Save file to disk.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Access the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 150);
-
-    // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-
-    // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-
-    // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-
-    // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    // Save Presentation
-    pres.save(resourcesOutputPath + "formatText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Access the first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Add an AutoShape of Rectangle type
+        var ashp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 150, 75, 350, 150);
+        // Add TextFrame to the Rectangle
+        ashp.addTextFrame("");
+        ashp.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        // Accessing the text frame
+        var txtFrame = ashp.getTextFrame();
+        txtFrame.getTextFrameFormat().setAutofitType(com.aspose.slides.TextAutofitType.Shape);
+        // Create the Paragraph object for text frame
+        var para = txtFrame.getParagraphs().get_Item(0);
+        // Create Portion object for paragraph
+        var portion = para.getPortions().get_Item(0);
+        portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Save Presentation
+        pres.save(resourcesOutputPath + "formatText_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Anchor of TextFrame**
@@ -603,38 +546,34 @@ Aspose.Slides for Java allows developers to Anchor of any TextFrame. TextAnchorT
 5. [Set TextAnchorType](https://reference.aspose.com/slides/java/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) of the TextFrame.
 6. Save file to disk.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Get the first slide 
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Add an AutoShape of Rectangle type
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 350, 350);
-    
-    // Add TextFrame to the Rectangle
-    ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(FillType.NoFill);
-    
-    // Accessing the text frame
-    ITextFrame txtFrame = ashp.getTextFrame();
-    txtFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
-    
-    // Create the Paragraph object for text frame
-    IParagraph para = txtFrame.getParagraphs().get_Item(0);
-    
-    // Create Portion object for paragraph
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    
-    // Save Presentation
-    pres.save("AnchorText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Add an AutoShape of Rectangle type
+        var ashp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
+        // Add TextFrame to the Rectangle
+        ashp.addTextFrame("");
+        ashp.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        // Accessing the text frame
+        var txtFrame = ashp.getTextFrame();
+        txtFrame.getTextFrameFormat().setAnchoringType(com.aspose.slides.TextAnchorType.Bottom);
+        // Create the Paragraph object for text frame
+        var para = txtFrame.getParagraphs().get_Item(0);
+        // Create Portion object for paragraph
+        var portion = para.getPortions().get_Item(0);
+        portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Save Presentation
+        pres.save("AnchorText_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Tabs and EffectiveTabs in Presentation**
@@ -654,19 +593,17 @@ All text tabulations are given in pixels.
 
 If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `getDefaultTextStyle` method from the [IPresentation](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
 
-```java
-Presentation presentation = new Presentation();
-try {
-    // Get the top level paragraph format.
-    IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
-
-    if (paragraphFormat != null) {
-        paragraphFormat.getDefaultPortionFormat().setFontHeight(14);
-        paragraphFormat.getDefaultPortionFormat().setFontBold(NullableBool.True);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        // Get the top level paragraph format.
+        var paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
+        if (paragraphFormat != null) {
+            paragraphFormat.getDefaultPortionFormat().setFontHeight(14);
+            paragraphFormat.getDefaultPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        }
+        presentation.save("DefaultTextStyle.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
     }
-
-    presentation.save("DefaultTextStyle.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
 ```

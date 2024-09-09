@@ -10,36 +10,23 @@ This topic will describe a simple technique to make it easier for developers to 
 
 After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Java and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [findShape](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) that does the trick to find a specific shape in a slide and then simply returns that shape.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
-
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Alternative text of the shape to be found
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("FindingShapeInSlide.pptx");
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        // Alternative text of the shape to be found
+        var shape = findShape(slide, "Shape1");
+        if (shape != null) {
+            java.getStaticFieldValue("java.lang.System", "out").println("Shape Name: " + shape.getName());
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
-```java
-// Method implementation to find a shape in a slide using its alternative text
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Iterating through all shapes inside the slide
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // If the alternative text of the slide matches with the required one then
-        // Return the shape
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
+```javascript
 ```
 
 ## **Clone Shape**
@@ -54,23 +41,24 @@ To clone a shape to a slide using Aspose.Slides for Java:
 
 The example below adds a group shape to a slide.
 
-```java
-// Instantiate Presentation class
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-
-    // Write the PPTX file to disk
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate Presentation class
+    var pres = new  com.aspose.slides.Presentation("Source Frame.pptx");
+    try {
+        var sourceShapes = pres.getSlides().get_Item(0).getShapes();
+        var blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(com.aspose.slides.SlideLayoutType.Blank);
+        var destSlide = pres.getSlides().addEmptySlide(blankLayout);
+        var destShapes = destSlide.getShapes();
+        destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
+        destShapes.addClone(sourceShapes.get_Item(2));
+        destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+        // Write the PPTX file to disk
+        pres.save("CloneShape_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Remove Shape**
@@ -82,33 +70,30 @@ Aspose.Slides for Java allows developers to remove any shape. To remove the shap
 1. Remove the shape.
 1. Save file to disk.
 
-```java
-// Create Presentation object
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Add autoshape of rectangle type
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
+```javascript
+    // Create Presentation object
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Add autoshape of rectangle type
+        sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
+        sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+        var altText = "User Defined";
+        var iCount = sld.getShapes().size();
+        for (var i = 0; i < iCount; i++) {
+            var ashp = sld.getShapes().get_Item(0);
+            if (alttext.equals(ashp.getAlternativeText())) {
+                sld.getShapes().remove(ashp);
+            }
+        }
+        // Save presentation to disk
+        pres.save("RemoveShape_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-
-    // Save presentation to disk
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Hide Shape**
@@ -120,33 +105,30 @@ Aspose.Slides for Java allows developers to hide any shape. To hide the shape fr
 1. Hide the shape.
 1. Save file to disk.
 
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Add autoshape of rectangle type
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
+```javascript
+    // Instantiate Presentation class that represents the PPTX
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Add autoshape of rectangle type
+        sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
+        sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+        var alttext = "User Defined";
+        var iCount = sld.getShapes().size();
+        for (var i = 0; i < iCount; i++) {
+            var ashp = sld.getShapes().get_Item(i);
+            if (alttext.equals(ashp.getAlternativeText())) {
+                ashp.setHidden(true);
+            }
+        }
+        // Save presentation to disk
+        pres.save("Hiding_Shapes_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-
-    // Save presentation to disk
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Change Shapes Order**
@@ -160,40 +142,39 @@ Aspose.Slides for Java allows developers to reorder the shapes. Reordering the s
 1. Reorder the shapes.
 1. Save file to disk.
 
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("ChangeShapeOrder.pptx");
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var shp3 = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
+        shp3.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        shp3.addTextFrame(" ");
+        var para = shp3.getTextFrame().getParagraphs().get_Item(0);
+        var portion = para.getPortions().get_Item(0);
+        portion.setText("Watermark Text Watermark Text Watermark Text");
+        shp3 = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Triangle, 200, 365, 400, 150);
+        slide.getShapes().reorder(2, shp3);
+        pres.save("Reshape_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Get Interop Shape ID**
 Aspose.Slides for Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Getting unique shape identifier in slide scope
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
+    try {
+        // Getting unique shape identifier in slide scope
+        var officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Alternative Text for Shape**
@@ -212,33 +193,30 @@ To set the AlternateText of a shape, please follow the steps below:
 1. Set the AlternativeText.
 1. Save file to disk.
 
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Add autoshape of rectangle type
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
+```javascript
+    // Instantiate Presentation class that represents the PPTX
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Add autoshape of rectangle type
+        var shp1 = sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
+        var shp2 = sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
+        shp2.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+        for (var i = 0; i < sld.getShapes().size(); i++) {
+            var shape = sld.getShapes().get_Item(i);
+            if (shape != null) {
+                shape.setAlternativeText("User Defined");
+            }
+        }
+        // Save presentation to disk
+        pres.save("Set_AlternativeText_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-
-    // Save presentation to disk
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Access Layout Formats for Shape**
@@ -246,38 +224,42 @@ Aspose.Slides for Java provides a simple API to access layout formats for a shap
 
 Below sample code is given.
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        for (var layoutSlide : pres.getLayoutSlides()) {
+            for (var shape : layoutSlide.getShapes()) {
+                var fillFormats = shape.getFillFormat();
+                var lineFormats = shape.getLineFormat();
+            }
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Render Shape as SVG**
 Now Aspose.Slides for Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) class and [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
+```javascript
+    var pres = new  com.aspose.slides.Presentation("TestExportShapeToSvg.pptx");
     try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
+        var stream = java.newInstanceSync("java.io.FileOutputStream", "SingleShape.svg");
+        try {
+            pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
+        } finally {
+            if (stream != null) {
+                stream.close();
+            }
+        }
+    } catch (e) {
     } finally {
-        if (stream != null) stream.close();
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Shapes Alignment**
@@ -287,34 +269,32 @@ Aspose.Slides allows to align shapes either relative to the slide margins or rel
 
 Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide.
 
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("example.pptx");
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var shape1 = slide.getShapes().get_Item(1);
+        var shape2 = slide.getShapes().get_Item(2);
+        var shape3 = slide.getShapes().get_Item(4);
+        com.aspose.slides.SlideUtil.alignShapes(com.aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]{ slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3) });
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 **Example 2**
 
 The example below shows how to align the entire collection of shapes relative to the very bottom shape in the collection.
 
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("example.pptx");
+    try {
+        com.aspose.slides.SlideUtil.alignShapes(com.aspose.slides.ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

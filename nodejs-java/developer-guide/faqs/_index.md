@@ -57,4 +57,5 @@ In general, Aspose.Slides for Java can easily handle presentation files of aroun
 ```cs
 var folders = new String[] { "path_to_a_folder_with_fonts" };
 FontsLoader.loadExternalFonts(folders);
+```javascript
 ```

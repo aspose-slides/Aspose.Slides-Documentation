@@ -28,36 +28,37 @@ If the video file you want to add to your slide is stored locally, you can creat
 
 This Java code shows you how to add a video stored locally to a presentation:
 
-```java
-// Instantiates the Presentation class
-Presentation pres = new Presentation("pres.pptx");
-try {
-    // Loads the video
-    FileInputStream fileStream = new FileInputStream("Wildlife.mp4");
-    
-    IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
-
-    // Gets the first slide and adds a videoframe
-    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-
-    // Saves the presentation to disk
-    pres.save("pres-with-video.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiates the Presentation class
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        // Loads the video
+        var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
+        var video = pres.getVideos().addVideo(fileStream, com.aspose.slides.LoadingStreamBehavior.KeepLocked);
+        // Gets the first slide and adds a videoframe
+        pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+        // Saves the presentation to disk
+        pres.save("pres-with-video.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) method:
 
-``` java
-Presentation pres = new Presentation();
-try {
-	ISlide sld = pres.getSlides().get_Item(0);
-	IVideoFrame vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var sld = pres.getSlides().get_Item(0);
+        var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 
@@ -73,38 +74,20 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 
 This Java code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
-```java
-// Instantiates a Presentation object that represents a presentation file 
-Presentation pres = new Presentation();
-try {
-    addVideoFromYouTube(pres, "Tj75Arhq5ho");
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        addVideoFromYouTube(pres, "Tj75Arhq5ho");
+        pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
-```java
-private static void addVideoFromYouTube(Presentation pres, String videoID)
-{
-    // Adds a videoFrame
-    IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
-            10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
-    videoFrame.setPlayMode(VideoPlayModePreset.Auto);
-
-    // Loads thumbnail
-    String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
-    URL url;
-
-    try {
-        url = new URL(thumbnailUri);
-        videoFrame.getPictureFormat().getPicture().setImage(pres.getImages().addImage(url.openStream()));
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
+```javascript
 ```
 
 ## **Extract Video From Slide**
@@ -118,35 +101,32 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 
 This Java code shows you how to extract the video on a presentation slide:
 
-```java
-// Instantiates a Presentation object that represents a presentation file 
-Presentation pres = new Presentation("VideoSample.pptx");
-try {
-    for (ISlide slide : pres.getSlides()) 
-    {
-        for (IShape shape : slide.getShapes()) 
-        {
-            if (shape instanceof VideoFrame) 
-            {
-                IVideoFrame vf = (IVideoFrame) shape;
-                String type = vf.getEmbeddedVideo().getContentType();
-                int ss = type.lastIndexOf('-');
-                byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
-
-                //Gets the File Extension
-                int charIndex = type.indexOf("/");
-                type = type.substring(charIndex + 1);
-
-                FileOutputStream fop = new FileOutputStream("testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("VideoSample.pptx");
+    try {
+        for (var slide : pres.getSlides()) {
+            for (var shape : slide.getShapes()) {
+                if (shape instanceof com.aspose.slides.VideoFrame) {
+                    var vf = shape;
+                    var type = vf.getEmbeddedVideo().getContentType();
+                    var ss = type.lastIndexOf('-');
+                    var buffer = vf.getEmbeddedVideo().getBinaryData();
+                    // Gets the File Extension
+                    var charIndex = type.indexOf("/");
+                    type = type.substring(charIndex + 1);
+                    var fop = java.newInstanceSync("java.io.FileOutputStream", "testing2." + type);
+                    fop.write(buffer);
+                    fop.flush();
+                    fop.close();
+                }
             }
         }
+    } catch (e) {
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 

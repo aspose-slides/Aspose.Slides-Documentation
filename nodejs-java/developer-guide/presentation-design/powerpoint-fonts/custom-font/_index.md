@@ -28,23 +28,22 @@ Aspose.Slides allows you to load fonts that are rendered in presentations withou
 
 This Java code demonstrates the font loading process:
 
-```java
-// Folders to seek fonts
-String[] folders = new String[] { externalFontsDir };
-
-// Loads the custom font directory fonts
-FontsLoader.loadExternalFonts(folders);
-
-// Do Some work and perform presentation/slide rendering
-Presentation pres = new Presentation("DefaultFonts.pptx");
-try {
-    pres.save("NewFonts_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-
-    // Clears Font Cachce
-    FontsLoader.clearCache();
-}
+```javascript
+    // Folders to seek fonts
+    var folders = new java.lang.String[]{ externalFontsDir };
+    // Loads the custom font directory fonts
+    com.aspose.slides.FontsLoader.loadExternalFonts(folders);
+    // Do Some work and perform presentation/slide rendering
+    var pres = new  com.aspose.slides.Presentation("DefaultFonts.pptx");
+    try {
+        pres.save("NewFonts_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+        // Clears Font Cachce
+        com.aspose.slides.FontsLoader.clearCache();
+    }
 ```
 
 ## **Get Custom Fonts Folder**
@@ -52,10 +51,10 @@ Aspose.Slides provides the [getFontFolders](https://reference.aspose.com/slides/
 
 This Java code shows you how to use [getFontFolders](https://reference.aspose.com/slides/java/com.aspose.slides/fontsloader/#getFontFolders--):
 
-```java
-// This line outputs folders where font files are searched.
-// Those are folders added through the LoadExternalFonts method and system font folders.
-String[] fontFolders = FontsLoader.getFontFolders();
+```javascript
+    // This line outputs folders where font files are searched.
+    // Those are folders added through the LoadExternalFonts method and system font folders.
+    var fontFolders = com.aspose.slides.FontsLoader.getFontFolders();
 ```
 
 ## **Specify Custom Fonts Used With Presentation**
@@ -63,21 +62,21 @@ Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspos
 
 This Java code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) property:
 
-```java
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
-
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });
-loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFont1, memoryFont2 });
-
-Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
-try {
-    // Work with the presentation
-    // CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var memoryFont1 = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", "customfonts/CustomFont1.ttf");
+    var memoryFont2 = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", "customfonts/CustomFont2.ttf");
+    var loadOptions = new  com.aspose.slides.LoadOptions();
+    loadOptions.getDocumentLevelFontSources().setFontFolders(new java.lang.String[]{ "assets/fonts", "global/fonts" });
+    loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][]{ memoryFont1, memoryFont2 });
+    var pres = new  com.aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
+    try {
+        // Work with the presentation
+        // CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Manage Fonts Externally**
@@ -86,23 +85,18 @@ Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slide
 
 This Java code demonstrates the byte array font loading process:
 
-```java
-FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
-FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
-FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
-
-try
-{
-    Presentation pres = new Presentation("");
+```javascript
+    com.aspose.slides.FontsLoader.loadExternalFont(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALN.TTF")));
+    com.aspose.slides.FontsLoader.loadExternalFont(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNBI.TTF")));
+    com.aspose.slides.FontsLoader.loadExternalFont(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNI.TTF")));
     try {
-        // external font loaded during the presentation lifetime
+        var pres = new  com.aspose.slides.Presentation("");
+        try {
+            // external font loaded during the presentation lifetime
+        } finally {
+        }
     } finally {
-        
+        com.aspose.slides.FontsLoader.clearCache();
     }
-}
-finally
-{
-    FontsLoader.clearCache();
-}
 ```
 

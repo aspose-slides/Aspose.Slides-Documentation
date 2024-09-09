@@ -34,6 +34,7 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/java/aspose-slides-for-j
      <artifactId>ffmpeg</artifactId>
      <version>0.7.0</version>
    </dependency>
+```javascript
 ```
 
 2. Download ffmpeg [here](https://ffmpeg.org/download.html).
@@ -42,60 +43,51 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/java/aspose-slides-for-j
 
 This Java code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    // Adds a smile shape and then animates it
-    IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
-    ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
-    IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
-    IEffect effectOut = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.BottomRight, EffectTriggerType.AfterPrevious);
-    effectIn.getTiming().setDuration(2f);
-    effectOut.setPresetClassType(EffectPresetClassType.Exit);
-
-    final int fps = 33;
-    ArrayList<String> frames = new ArrayList<String>();
-
-    PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
-    try
-    {
-        PresentationPlayer player = new PresentationPlayer(animationsGenerator, fps);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        // Adds a smile shape and then animates it
+        var smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.SmileyFace, 110, 20, 500, 500);
+        var mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
+        var effectIn = mainSequence.addEffect(smile, com.aspose.slides.EffectType.Fly, com.aspose.slides.EffectSubtype.TopLeft, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        var effectOut = mainSequence.addEffect(smile, com.aspose.slides.EffectType.Fly, com.aspose.slides.EffectSubtype.BottomRight, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        effectIn.getTiming().setDuration(2.0);
+        effectOut.setPresetClassType(com.aspose.slides.EffectPresetClassType.Exit);
+        final var fps = 33;
+        var frames = java.newInstanceSync("ArrayList", );
+        var animationsGenerator = new  com.aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
-            player.setFrameTick((sender, arguments) ->
-            {
-                try {
-                    String frame = String.format("frame_%04d.png", sender.getFrameIndex());
-                    arguments.getFrame().save(frame, ImageFormat.Png);
-                    frames.add(frame);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+            var player = new  com.aspose.slides.PresentationPlayer(animationsGenerator, fps);
+            try {
+                player.setFrameTick((sender, arguments) -> {
+                    try {
+                        var frame = java.callStaticMethodSync("java.lang.String", "format", "frame_%04d.png", sender.getFrameIndex());
+                        arguments.getFrame().save(frame, com.aspose.slides.ImageFormat.Png);
+                        frames.add(frame);
+                    } catch (e) {
+                        throw java.newInstanceSync("java.lang.RuntimeException", e);
+                    }
+                });
+                animationsGenerator.run(presentation.getSlides());
+            } finally {
+                if (player != null) {
+                    player.dispose();
                 }
-            });
-            animationsGenerator.run(presentation.getSlides());
+            }
         } finally {
-            if (player != null) player.dispose();
+            if (animationsGenerator != null) {
+                animationsGenerator.dispose();
+            }
         }
-    } finally {
-        if (animationsGenerator != null) animationsGenerator.dispose();
+        // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
+        var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
+        var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
+        var builder = java.newInstanceSync("FFmpegBuilder", ).addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
+        var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
+        executor.createJob(builder).run();
+    } catch (e) {
+        e.printStackTrace();
     }
-
-    // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
-    FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
-    FFprobe ffprobe = new FFprobe("path/to/ffprobe");
-
-    FFmpegBuilder builder = new FFmpegBuilder()
-            .addExtraArgs("-start_number", "1")
-            .setInput("frame_%04d.png")
-            .addOutput("output.avi")
-            .setVideoFrameRate(FFmpeg.FPS_24)
-            .setFormat("avi")
-            .done();
-
-    FFmpegExecutor executor = new FFmpegExecutor(ffmpeg, ffprobe);
-    executor.createJob(builder).run();
-} catch (IOException e) {
-    e.printStackTrace();
-}
 ```
 
 ## **Video Effects**
@@ -110,98 +102,79 @@ You may want to see these articles: [PowerPoint Animation](https://docs.aspose.c
 
 Animations and transitions make slideshows more engaging and interesting—and they do the same thing for videos. Let's add another slide and transition to the code for the previous presentation:
 
-```java
-// Adds a smile shape and animates it
-
-// ...
-
-// Adds a new slide and animated transition
-
-ISlide newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
-
-newSlide.getBackground().setType(BackgroundType.OwnBackground);
-
-newSlide.getBackground().getFillFormat().setFillType(FillType.Solid);
-
-newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
-
-newSlide.getSlideShowTransition().setType(TransitionType.Push);
+```javascript
+    // Adds a smile shape and animates it
+    // ...
+    // Adds a new slide and animated transition
+    var newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
+    newSlide.getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+    newSlide.getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+    newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    newSlide.getSlideShowTransition().setType(com.aspose.slides.TransitionType.Push);
 ```
 
 Aspose.Slides also supports animation for texts. So we animate paragraphs on objects, which will appear one after the other (with the delay set to a second):
 
-```java
-Presentation presentation = new Presentation();
-try {
-    // Adds text and animations
-    IAutoShape autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 210, 120, 300, 300);
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Aspose Slides for Java"));
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("convert PowerPoint Presentation with text to video"));
-
-    Paragraph para3 = new Paragraph();
-    para3.getPortions().add(new Portion("paragraph by paragraph"));
-    IParagraphCollection paragraphCollection = autoShape.getTextFrame().getParagraphs();
-    paragraphCollection.add(para1);
-    paragraphCollection.add(para2);
-    paragraphCollection.add(para3);
-    paragraphCollection.add(new Paragraph());
-
-    ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
-    IEffect effect1 = mainSequence.addEffect(para1, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect2 = mainSequence.addEffect(para2, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect3 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    IEffect effect4 = mainSequence.addEffect(para3, EffectType.Appear, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    effect1.getTiming().setTriggerDelayTime(1f);
-    effect2.getTiming().setTriggerDelayTime(1f);
-    effect3.getTiming().setTriggerDelayTime(1f);
-    effect4.getTiming().setTriggerDelayTime(1f);
-
-    final int fps = 33;
-    ArrayList<String> frames = new ArrayList<String>();
-
-    PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
-    try
-    {
-        PresentationPlayer player = new PresentationPlayer(animationsGenerator, fps);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        // Adds text and animations
+        var autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 210, 120, 300, 300);
+        var para1 = new  com.aspose.slides.Paragraph();
+        para1.getPortions().add(new  com.aspose.slides.Portion("Aspose Slides for Java"));
+        var para2 = new  com.aspose.slides.Paragraph();
+        para2.getPortions().add(new  com.aspose.slides.Portion("convert PowerPoint Presentation with text to video"));
+        var para3 = new  com.aspose.slides.Paragraph();
+        para3.getPortions().add(new  com.aspose.slides.Portion("paragraph by paragraph"));
+        var paragraphCollection = autoShape.getTextFrame().getParagraphs();
+        paragraphCollection.add(para1);
+        paragraphCollection.add(para2);
+        paragraphCollection.add(para3);
+        paragraphCollection.add(new  com.aspose.slides.Paragraph());
+        var mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
+        var effect1 = mainSequence.addEffect(para1, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        var effect2 = mainSequence.addEffect(para2, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        var effect3 = mainSequence.addEffect(para3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        var effect4 = mainSequence.addEffect(para3, com.aspose.slides.EffectType.Appear, com.aspose.slides.EffectSubtype.None, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        effect1.getTiming().setTriggerDelayTime(1.0);
+        effect2.getTiming().setTriggerDelayTime(1.0);
+        effect3.getTiming().setTriggerDelayTime(1.0);
+        effect4.getTiming().setTriggerDelayTime(1.0);
+        final var fps = 33;
+        var frames = java.newInstanceSync("ArrayList", );
+        var animationsGenerator = new  com.aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
-            player.setFrameTick((sender, arguments) ->
-            {
-                try {
-                    String frame = String.format("frame_%04d.png", sender.getFrameIndex());
-                    arguments.getFrame().save(frame, ImageFormat.Png);
-                    frames.add(frame);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+            var player = new  com.aspose.slides.PresentationPlayer(animationsGenerator, fps);
+            try {
+                player.setFrameTick((sender, arguments) -> {
+                    try {
+                        var frame = java.callStaticMethodSync("java.lang.String", "format", "frame_%04d.png", sender.getFrameIndex());
+                        arguments.getFrame().save(frame, com.aspose.slides.ImageFormat.Png);
+                        frames.add(frame);
+                    } catch (e) {
+                        throw java.newInstanceSync("java.lang.RuntimeException", e);
+                    }
+                });
+                animationsGenerator.run(presentation.getSlides());
+            } finally {
+                if (player != null) {
+                    player.dispose();
                 }
-            });
-            animationsGenerator.run(presentation.getSlides());
+            }
         } finally {
-            if (player != null) player.dispose();
+            if (animationsGenerator != null) {
+                animationsGenerator.dispose();
+            }
         }
-    } finally {
-        if (animationsGenerator != null) animationsGenerator.dispose();
+        // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
+        var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
+        var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
+        var builder = java.newInstanceSync("FFmpegBuilder", ).addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
+        var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
+        executor.createJob(builder).run();
+    } catch (e) {
+        e.printStackTrace();
     }
-
-    // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
-    FFmpeg ffmpeg = new FFmpeg("path/to/ffmpeg");
-    FFprobe ffprobe = new FFprobe("path/to/ffprobe");
-
-    FFmpegBuilder builder = new FFmpegBuilder()
-            .addExtraArgs("-start_number", "1")
-            .setInput("frame_%04d.png")
-            .addOutput("output.avi")
-            .setVideoFrameRate(FFmpeg.FPS_24)
-            .setFormat("avi")
-            .done();
-
-    FFmpegExecutor executor = new FFmpegExecutor(ffmpeg, ffprobe);
-    executor.createJob(builder).run();
-} catch (IOException e) {
-    e.printStackTrace();
-}
 ```
 
 ## **Video Conversion Classes**
@@ -214,72 +187,79 @@ When animations are generated, a `NewAnimation` event is generated for each subs
 
 To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/), the [Duration](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#getDuration--) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `GetFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    // Adds a smile shape and animates it
-    IAutoShape smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.SmileyFace, 110, 20, 500, 500);
-    ISequence mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
-    IEffect effectIn = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.TopLeft, EffectTriggerType.AfterPrevious);
-    IEffect effectOut = mainSequence.addEffect(smile, EffectType.Fly, EffectSubtype.BottomRight, EffectTriggerType.AfterPrevious);
-    effectIn.getTiming().setDuration(2f);
-    effectOut.setPresetClassType(EffectPresetClassType.Exit);
-
-    PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
     try {
-        animationsGenerator.setNewAnimation(animationPlayer ->
-        {
-            System.out.println(String.format("Animation total duration: %f", animationPlayer.getDuration()));
-            animationPlayer.setTimePosition(0); // initial animation state
-            try {
-                // initial animation state bitmap
-                animationPlayer.getFrame().save("firstFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+        // Adds a smile shape and animates it
+        var smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.SmileyFace, 110, 20, 500, 500);
+        var mainSequence = presentation.getSlides().get_Item(0).getTimeline().getMainSequence();
+        var effectIn = mainSequence.addEffect(smile, com.aspose.slides.EffectType.Fly, com.aspose.slides.EffectSubtype.TopLeft, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        var effectOut = mainSequence.addEffect(smile, com.aspose.slides.EffectType.Fly, com.aspose.slides.EffectSubtype.BottomRight, com.aspose.slides.EffectTriggerType.AfterPrevious);
+        effectIn.getTiming().setDuration(2.0);
+        effectOut.setPresetClassType(com.aspose.slides.EffectPresetClassType.Exit);
+        var animationsGenerator = new  com.aspose.slides.PresentationAnimationsGenerator(presentation);
+        try {
+            animationsGenerator.setNewAnimation(animationPlayer -> {
+                java.getStaticFieldValue("java.lang.System", "out").println(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
+                animationPlayer.setTimePosition(0);// initial animation state
+                try {
+                    // initial animation state bitmap
+                    animationPlayer.getFrame().save("firstFrame.png", com.aspose.slides.ImageFormat.Png);
+                } catch (e) {
+                    throw java.newInstanceSync("java.lang.RuntimeException", e);
+                }
+                animationPlayer.setTimePosition(animationPlayer.getDuration());// final state of the animation
+                try {
+                    // last frame of the animation
+                    animationPlayer.getFrame().save("lastFrame.png", com.aspose.slides.ImageFormat.Png);
+                } catch (e) {
+                    throw java.newInstanceSync("java.lang.RuntimeException", e);
+                }
+            });
+        } finally {
+            if (animationsGenerator != null) {
+                animationsGenerator.dispose();
             }
-            animationPlayer.setTimePosition(animationPlayer.getDuration()); // final state of the animation
-            try {
-                // last frame of the animation
-                animationPlayer.getFrame().save("lastFrame.png", ImageFormat.Png);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
+        }
     } finally {
-        if (animationsGenerator != null) animationsGenerator.dispose();
+        if (presentation != null) {
+            presentation.dispose();
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/java/com.aspose.slides/presentationplayer/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/java/com.aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
 
-```java
-Presentation presentation = new Presentation("animated.pptx");
-try {
-    PresentationAnimationsGenerator animationsGenerator = new PresentationAnimationsGenerator(presentation);
+```javascript
+    var presentation = new  com.aspose.slides.Presentation("animated.pptx");
     try {
-        PresentationPlayer player = new PresentationPlayer(animationsGenerator, 33);
+        var animationsGenerator = new  com.aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
-            player.setFrameTick((sender, arguments) ->
-            {
-                try {
-                    arguments.getFrame().save("frame_" + sender.getFrameIndex() + ".png", ImageFormat.Png);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
+            var player = new  com.aspose.slides.PresentationPlayer(animationsGenerator, 33);
+            try {
+                player.setFrameTick((sender, arguments) -> {
+                    try {
+                        arguments.getFrame().save(("frame_" + sender.getFrameIndex()) + ".png", com.aspose.slides.ImageFormat.Png);
+                    } catch (e) {
+                        throw java.newInstanceSync("java.lang.RuntimeException", e);
+                    }
+                });
+                animationsGenerator.run(presentation.getSlides());
+            } finally {
+                if (player != null) {
+                    player.dispose();
                 }
-            });
-            animationsGenerator.run(presentation.getSlides());
+            }
         } finally {
-            if (player != null) player.dispose();
+            if (animationsGenerator != null) {
+                animationsGenerator.dispose();
+            }
         }
     } finally {
-        if (animationsGenerator != null) animationsGenerator.dispose();
+        if (presentation != null) {
+            presentation.dispose();
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 Then the generated frames can be compiled to produce a video. See the [Convert PowerPoint to Video](https://docs.aspose.com/slides/java/convert-powerpoint-to-video/#convert-powerpoint-to-video) section.

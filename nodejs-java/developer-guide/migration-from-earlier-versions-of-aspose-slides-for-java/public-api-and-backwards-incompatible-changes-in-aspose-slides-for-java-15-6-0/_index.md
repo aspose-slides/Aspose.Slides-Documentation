@@ -20,22 +20,14 @@ Method com.aspose.slides.INotesSlideManager.RemoveNotesSlide() has been added fo
 #### **Method com.aspose.slides.ISlide.getNotesSlideManager() has been added. Methods ISlide.getNotesSlide() and ISlide.addNotesSlide() have been marked as Deprecated**
 ISlide.getNotesSlide(), ISlide.addNotesSlide() methods have been marked as Deprecated. Use new method ISlide.getNotesSlideManager() instead.
 
-``` java
-
- ISlide slide = ...;
-
-INotesSlide notes;
-
-// notes = slide.addNotesSlide(); - deprecated
-
-// notes = slide.getNotesSlide(); - deprecated
-
-notes = slide.getNotesSlideManager().getNotesSlide();
-
-notes = slide.getNotesSlideManager().addNotesSlide();
-
-slide.getNotesSlideManager().removeNotesSlide();
-
+```javascript
+    var slide = $missing$;
+    var notes;
+    // notes = slide.addNotesSlide(); - deprecated
+    // notes = slide.getNotesSlide(); - deprecated
+    notes = slide.getNotesSlideManager().getNotesSlide();
+    notes = slide.getNotesSlideManager().addNotesSlide();
+    slide.getNotesSlideManager().removeNotesSlide();
 ```
 #### **Method getAppVersion() has been added to com.aspose.slides.IDocumentProperties**
 Method com.aspose.slides.IDocumentProperties.getAppVersion() has been added in order to get builtin document property, which represents internal version numbers used by Microsoft PowerPoint.

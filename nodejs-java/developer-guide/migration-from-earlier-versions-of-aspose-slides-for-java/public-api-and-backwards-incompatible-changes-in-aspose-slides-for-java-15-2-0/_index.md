@@ -31,20 +31,12 @@ The signature of the IGradientStopCollection method void insert(int index, float
 getAutomaticSeriesColor() method returns an automatic color of series based on series index and chart style. This color is used by default if FillType equals NotDefined.
 ﻿
 
-``` java
-
- Presentation pres = new Presentation();
-
-IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-
-{
-
-    chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-
-}
-
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
+    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
+    }
 ```
 ### **Method for removing chart data point and chart category by its index has been added**
 IChartDataPointCollection.removeAt(int index) method has been added for removing chart data point by its index.

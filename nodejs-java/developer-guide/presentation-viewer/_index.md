@@ -28,66 +28,57 @@ To generate an SVG image from any desired slide with Aspose.Slides for Java, ple
 - Get the SVG image in a memory stream.
 - Save the memory stream to file.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Create a memory stream object
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
-
-    // Generate SVG image of slide and save in memory stream
-    sld.writeAsSvg(svgStream);
-
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("CreateSlidesSVGImage.pptx");
+    try {
+        // Access the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Create a memory stream object
+        var svgStream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
+        // Generate SVG image of slide and save in memory stream
+        sld.writeAsSvg(svgStream);
+        svgStream.close();
+    } catch (e) {
+    } finally {
+        pres.dispose();
+    }
 ```
 
 ## **Generate SVG with Custom Shape IDS**
 Aspose.Slides for Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
-```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pptxFileName.pptx");
     try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
-
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
+        var stream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
+        try {
+            var svgOptions = new  com.aspose.slides.SVGOptions();
+            svgOptions.setShapeFormattingController(java.newInstanceSync("CustomSvgShapeFormattingController", ));
+            pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
+        } finally {
+            if (stream != null) {
+                stream.close();
+            }
+        }
+    } catch (e) {
     } finally {
-        if (stream != null) stream.close();
+        pres.dispose();
     }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
 ```
-```java
-class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
-{
-    private int m_shapeIndex;
-
-    public CustomSvgShapeFormattingController()
-    {
-        m_shapeIndex = 0;
+```javascript
+    class CustomSvgShapeFormattingController implements com.aspose.slides.ISvgShapeFormattingController {
+        private var m_shapeIndex;
+        public CustomSvgShapeFormattingController() {
+            m_shapeIndex = 0;
+        }
+        public CustomSvgShapeFormattingController(int shapeStartIndex) {
+            m_shapeIndex = shapeStartIndex;
+        }
+        public void formatShape(com.aspose.slides.ISvgShape svgShape, com.aspose.slides.IShape shape) {
+            svgShape.setId(java.callStaticMethodSync("java.lang.String", "format", "shape-%d", m_shapeIndex++));
+        }
     }
-    
-    public CustomSvgShapeFormattingController(int shapeStartIndex)
-    {
-        m_shapeIndex = shapeStartIndex;
-    }
-
-    public void formatShape(ISvgShape svgShape, IShape shape)
-    {
-        svgShape.setId(String.format("shape-%d", m_shapeIndex++));
-    }
-}
 ```
 
 ## **Create Slides Thumbnail Image**
@@ -98,25 +89,25 @@ Aspose.Slides for Java help you generate thumbnail images of the slides. To gene
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Create a full scale image
-    IImage slideImage = sld.getImage(1f, 1f);
-
-    // Save the image to disk in JPEG format
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("ThumbnailFromSlide.pptx");
     try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+        // Access the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Create a full scale image
+        var slideImage = sld.getImage(1.0, 1.0);
+        // Save the image to disk in JPEG format
+        try {
+            slideImage.save("Thumbnail_out.jpg", com.aspose.slides.ImageFormat.Jpeg);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        pres.dispose();
     }
-} finally {
-    pres.dispose();
-}
 ```
 
 ## **Create Thumbnail with User Defined Dimensions**
@@ -126,33 +117,31 @@ try {
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // Create a full scale image
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
-
-    // Save the image to disk in JPEG format
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("ThumbnailWithUserDefinedDimensions.pptx");
     try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+        // Access the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // User defined dimension
+        var desiredX = 1200;
+        var desiredY = 800;
+        // Getting scaled value  of X and Y
+        var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
+        var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
+        // Create a full scale image
+        var slideImage = sld.getImage(ScaleX, ScaleY);
+        // Save the image to disk in JPEG format
+        try {
+            slideImage.save("Thumbnail_out.jpg", com.aspose.slides.ImageFormat.Jpeg);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        pres.dispose();
     }
-} finally {
-    pres.dispose();
-}
 ```
 
 ## **Create Thumbnail from Slide in Notes Slides View**
@@ -165,34 +154,31 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
-```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // Create a full scale image
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
-
-    // Save the image to disk in JPEG format
+```javascript
+    // Instantiate a Presentation class that represents the presentation file
+    var pres = new  com.aspose.slides.Presentation("ThumbnailWithUserDefinedDimensions.pptx");
     try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+        // Access the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // User defined dimension
+        var desiredX = 1200;
+        var desiredY = 800;
+        // Getting scaled value  of X and Y
+        var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
+        var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
+        var opts = new  com.aspose.slides.RenderingOptions();
+        opts.getNotesCommentsLayouting().setNotesPosition(com.aspose.slides.NotesPositions.BottomTruncated);
+        // Create a full scale image
+        var slideImage = sld.getImage(opts, ScaleX, ScaleY);
+        // Save the image to disk in JPEG format
+        try {
+            slideImage.save("Thumbnail_out.jpg", com.aspose.slides.ImageFormat.Jpeg);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
     } finally {
-         if (slideImage != null) slideImage.dispose();
+        pres.dispose();
     }
-} finally {
-    pres.dispose();
-}
 ```

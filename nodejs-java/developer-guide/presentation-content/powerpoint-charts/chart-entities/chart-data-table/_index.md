@@ -15,19 +15,18 @@ Aspose.Slides for Java provides support for changing color of categories in a se
 
  Below sample example is given. 
 
-```java
-// Creating empty presentation
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-
-    chart.setDataTable(true);
-
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(NullableBool.True);
-    chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Creating empty presentation
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
+        chart.setDataTable(true);
+        chart.getChartDataTable().getTextFormat().getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);
+        chart.getChartDataTable().getTextFormat().getPortionFormat().setFontHeight(20);
+        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

@@ -50,60 +50,43 @@ This Java code shows you how to
 
 **Add a line** to the end of a path
 
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
+```javascript
 ```
 **Add a line** to a specified position on a path:
 
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
+```javascript
 ```
 **Add a cubic Bezier curve** at the end of a path:
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
+```javascript
 ```
 **Add a cubic Bezier curve** to the specified position on a path:
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
+```javascript
 ```
 **Add a quadratic Bezier curve** at the end of a path:
 
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
+```javascript
 ```
 **Add quadratic Bezier curve** to a specified position on a path:
 
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
+```javascript
 ```
 **Append a given arc** to a path:
 
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
+```javascript
 ```
 **Close the current figure** of a path:
 
-``` java
-public void closeFigure();
+```javascript
 ```
 **Set the position for the next point**:
 
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
+```javascript
 ```
 **Remove the path segment** at a given index:
 
-``` java
-public void removeAt(int index);
+```javascript
 ```
 
 ## **Add Custom Points to Shape**
@@ -115,19 +98,19 @@ public void removeAt(int index);
 
 This Java code shows you how to add custom points to a shape:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
-
-    geometryPath.lineTo(100, 50, 1);
-    geometryPath.lineTo(100, 50, 4);
-    shape.setGeometryPath(geometryPath);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
+        var geometryPath = shape.getGeometryPaths()[0];
+        geometryPath.lineTo(100, 50, 1);
+        geometryPath.lineTo(100, 50, 4);
+        shape.setGeometryPath(geometryPath);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 ![example1_image](custom_shape_1.png)
 
@@ -140,18 +123,18 @@ try {
 
 This Java code shows you how to remove points from a shape:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
-
-    IGeometryPath path = shape.getGeometryPaths()[0];
-    path.removeAt(2);
-    shape.setGeometryPath(path);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Heart, 100, 100, 300, 300);
+        var path = shape.getGeometryPaths()[0];
+        path.removeAt(2);
+        shape.setGeometryPath(path);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 ![example2_image](custom_shape_2.png)
 
@@ -165,45 +148,36 @@ try {
 
 This Java shows you how to create a custom shape:
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
-
-float R = 100, r = 50;
-int step = 72;
-
-for (int angle = -90; angle < 270; angle += step)
-{
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
-
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
-}
-
-GeometryPath starPath = new GeometryPath();
-starPath.moveTo(points.get(0));
-
-for (int i = 1; i < points.size(); i++)
-{
-    starPath.lineTo(points.get(i));
-}
-
-starPath.closeFigure();
-
-Presentation pres = new Presentation();
-try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
-
-    shape.setGeometryPath(starPath);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
+```javascript
+    var points = java.newInstanceSync("ArrayList", );
+    var R = 100;
+    var r = 50;
+    var step = 72;
+    for (var angle = -90; angle < 270; angle += step) {
+        var radians = angle * (java.getStaticFieldValue("java.lang.Math", "PI") / 180.0);
+        var x = R * java.callStaticMethodSync("java.lang.Math", "cos", radians);
+        var y = R * java.callStaticMethodSync("java.lang.Math", "sin", radians);
+        points.add(java.newInstanceSync("Point2D.Float", x + R, y + R));
+        radians = (java.getStaticFieldValue("java.lang.Math", "PI") * (angle + (step / 2))) / 180.0;
+        x = r * java.callStaticMethodSync("java.lang.Math", "cos", radians);
+        y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
+        points.add(java.newInstanceSync("Point2D.Float", x + R, y + R));
+    }
+    var starPath = new  com.aspose.slides.GeometryPath();
+    starPath.moveTo(points.get(0));
+    for (var i = 1; i < points.size(); i++) {
+        starPath.lineTo(points.get(i));
+    }
+    starPath.closeFigure();
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+        shape.setGeometryPath(starPath);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 ![example3_image](custom_shape_3.png)
 
@@ -217,30 +191,28 @@ try {
 
 This Java code shows you to create a composite custom shape:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
-
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
-
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
+        var geometryPath0 = new  com.aspose.slides.GeometryPath();
+        geometryPath0.moveTo(0, 0);
+        geometryPath0.lineTo(shape.getWidth(), 0);
+        geometryPath0.lineTo(shape.getWidth(), shape.getHeight() / 3);
+        geometryPath0.lineTo(0, shape.getHeight() / 3);
+        geometryPath0.closeFigure();
+        var geometryPath1 = new  com.aspose.slides.GeometryPath();
+        geometryPath1.moveTo(0, (shape.getHeight() / 3) * 2);
+        geometryPath1.lineTo(shape.getWidth(), (shape.getHeight() / 3) * 2);
+        geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
+        geometryPath1.lineTo(0, shape.getHeight());
+        geometryPath1.closeFigure();
+        shape.setGeometryPaths(new com.aspose.slides.GeometryPath[]{ geometryPath0, geometryPath1 });
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 ![example4_image](custom_shape_4.png)
 
@@ -248,48 +220,41 @@ try {
 
 This Java code shows you how to create a custom shape with curved corners (inwards);
 
-```java
-float shapeX = 20f;
-float shapeY = 20f;
-float shapeWidth = 300f;
-float shapeHeight = 200f;
-
-float leftTopSize = 50f;
-float rightTopSize = 20f;
-float rightBottomSize = 40f;
-float leftBottomSize = 10f;
-
-Presentation pres = new Presentation();
-try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
-
-    GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
-    geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
-    geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
-    geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
-    geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
-    geometryPath.closeFigure();
-
-    childShape.setGeometryPath(geometryPath);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres!= null) pres.dispose();
-}
+```javascript
+    var shapeX = 20.0;
+    var shapeY = 20.0;
+    var shapeWidth = 300.0;
+    var shapeHeight = 200.0;
+    var leftTopSize = 50.0;
+    var rightTopSize = 20.0;
+    var rightBottomSize = 40.0;
+    var leftBottomSize = 10.0;
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+        var geometryPath = new  com.aspose.slides.GeometryPath();
+        var point1 = java.newInstanceSync("Point2D.Float", leftTopSize, 0);
+        var point2 = java.newInstanceSync("Point2D.Float", shapeWidth - rightTopSize, 0);
+        var point3 = java.newInstanceSync("Point2D.Float", shapeWidth, shapeHeight - rightBottomSize);
+        var point4 = java.newInstanceSync("Point2D.Float", leftBottomSize, shapeHeight);
+        var point5 = java.newInstanceSync("Point2D.Float", 0, leftTopSize);
+        geometryPath.moveTo(point1);
+        geometryPath.lineTo(point2);
+        geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
+        geometryPath.lineTo(point3);
+        geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
+        geometryPath.lineTo(point4);
+        geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
+        geometryPath.lineTo(point5);
+        geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
+        geometryPath.closeFigure();
+        childShape.setGeometryPath(geometryPath);
+        pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Convert GeometryPath to java.awt.Shape** 
@@ -301,41 +266,35 @@ try {
 
 This Java code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
-``` java
-Presentation pres = new Presentation();
-try {
-    // Create new shape
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
-
-    // Get geometry path of the shape
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
-
-    // Create new graphics path with text
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Create new shape
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 300, 100);
+        // Get geometry path of the shape
+        var originalPath = shape.getGeometryPaths()[0];
+        originalPath.setFillMode(com.aspose.slides.PathFillModeType.None);
+        // Create new graphics path with text
+        var graphicsPath;
+        var font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
+        var text = "Text in shape";
+        var img = java.newInstanceSync("BufferedImage", 100, 100, java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
+        var g2 = img.createGraphics();
+        try {
+            var glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
+            graphicsPath = glyphVector.getOutline(20.0, -glyphVector.getVisualBounds().getY() + 10);
+        } finally {
+            g2.dispose();
+        }
+        // Convert graphics path to geometry path
+        var textPath = com.aspose.slides.ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+        textPath.setFillMode(com.aspose.slides.PathFillModeType.Normal);
+        // Set combination of new geometry path and origin geometry path to the shape
+        shape.setGeometryPaths(new com.aspose.slides.IGeometryPath[]{ originalPath, textPath });
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-    finally {
-        g2.dispose();
-    }
-
-    // Convert graphics path to geometry path
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // Set combination of new geometry path and origin geometry path to the shape
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 ![example5_image](custom_shape_5.png)

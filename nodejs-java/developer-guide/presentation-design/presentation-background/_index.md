@@ -23,20 +23,21 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 
 This Java code shows you how to set a solid color (blue) as the background for a normal slide: 
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("MasterBG.pptx");
-try {
-    // Sets the background color for the first ISlide to Blue
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    
-    // Writes the presentation to disk
-    pres.save("ContentBG.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Creates an instance of the Presentation class
+    var pres = new  com.aspose.slides.Presentation("MasterBG.pptx");
+    try {
+        // Sets the background color for the first ISlide to Blue
+        pres.getSlides().get_Item(0).getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        pres.getSlides().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        // Writes the presentation to disk
+        pres.save("ContentBG.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Solid Color as Background for Master Slide**
@@ -51,20 +52,21 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 
 This Java code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
-try {
-    // Sets the background color for the Master ISlide to Forest Green
-    pres.getMasters().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Solid);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-    
-    // Writes the presentation to disk
-    pres.save("MasterBG.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Creates an instance of the Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Sets the background color for the Master ISlide to Forest Green
+        pres.getMasters().get_Item(0).getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        pres.getMasters().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        // Writes the presentation to disk
+        pres.save("MasterBG.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Gradient Color as Background for Slide**
@@ -79,20 +81,21 @@ A gradient is a graphical effect based on a gradual change in color. Gradient co
 
 This Java code shows you how to set a gradient color as the background for a slide:
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("MasterBG.pptx");
-try {
-    // Apply Gradient effect to the Background
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Gradient);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getGradientFormat().setTileFlip(TileFlip.FlipBoth);
-    
-    // Writes the presentation to disk
-    pres.save("ContentBG_Grad.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Creates an instance of the Presentation class
+    var pres = new  com.aspose.slides.Presentation("MasterBG.pptx");
+    try {
+        // Apply Gradient effect to the Background
+        pres.getSlides().get_Item(0).getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Gradient);
+        pres.getSlides().get_Item(0).getBackground().getFillFormat().getGradientFormat().setTileFlip(com.aspose.slides.TileFlip.FlipBoth);
+        // Writes the presentation to disk
+        pres.save("ContentBG_Grad.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Set Image as Background for Slide**
@@ -109,65 +112,58 @@ Besides solid colors and gradient colors, Aspose.Slides also allows you to set i
 
 This Java code shows you how to set an image as the background for a slide: 
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
-try {
-    // Sets conditions for background image
-    pres.getSlides().get_Item(0).getBackground().setType(BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(FillType.Picture);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat()
-            .setPictureFillMode(PictureFillMode.Stretch);
-    
-    // Loads the image
-    IPPImage imgx;
-    IImage image = Images.fromFile("Desert.jpg");
+```javascript
+    // Creates an instance of the Presentation class
+    var pres = new  com.aspose.slides.Presentation();
     try {
-        imgx = pres.getImages().addImage(image);
+        // Sets conditions for background image
+        pres.getSlides().get_Item(0).getBackground().setType(com.aspose.slides.BackgroundType.OwnBackground);
+        pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(com.aspose.slides.FillType.Picture);
+        pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(com.aspose.slides.PictureFillMode.Stretch);
+        // Loads the image
+        var imgx;
+        var image = com.aspose.slides.Images.fromFile("Desert.jpg");
+        try {
+            imgx = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) {
+                image.dispose();
+            }
+        }
+        // Adds image to presentation's images collection
+        pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
+        // Writes the presentation to disk
+        pres.save("ContentBG_Img.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
     } finally {
-        if (image != null) image.dispose();
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-    // Adds image to presentation's images collection
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
-    
-    // Writes the presentation to disk
-    pres.save("ContentBG_Img.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ### **Change Transparency of Background Image**
 
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Java code shows you how to change the transparency for a slide background image:
 
-```java
-int transparencyValue = 30; // for example
-
-// Gets a collection of picture transform operations
-IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-
-// Finds a transparency effect with fixed percentage.
-AlphaModulateFixed transparencyOperation = null;
-for (IImageTransformOperation operation : imageTransform)
-{
-    if (operation instanceof AlphaModulateFixed)
-    {
-        transparencyOperation = (AlphaModulateFixed)operation;
-        break;
+```javascript
+    var transparencyValue = 30;// for example
+    // Gets a collection of picture transform operations
+    var imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+    // Finds a transparency effect with fixed percentage.
+    var transparencyOperation = null;
+    for (var operation : imageTransform) {
+        if (operation instanceof com.aspose.slides.AlphaModulateFixed) {
+            transparencyOperation = operation;
+            break;
+        }
     }
-}
-
-// Sets the new transparency value.
-if (transparencyOperation == null)
-{
-    imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
-}
-else
-{
-    transparencyOperation.setAmount(100 - transparencyValue);
-}
+    // Sets the new transparency value.
+    if (transparencyOperation == null) {
+        imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);
+    } else {
+        transparencyOperation.setAmount(100 - transparencyValue);
+    }
 ```
 
 ## **Get Value of Slide Background**
@@ -178,19 +174,21 @@ Using the [Background](https://reference.aspose.com/slides/java/com.aspose.slide
 
 This Java code shows you how to get a slide's effective background value:
 
-```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation("SamplePresentation.pptx");
-try {
-    IBackgroundEffectiveData effBackground = pres.getSlides().get_Item(0).getBackground().getEffective();
-    
-    if (effBackground.getFillFormat().getFillType() == FillType.Solid)
-        System.out.println("Fill color: " + effBackground.getFillFormat().getSolidFillColor());
-    else
-        System.out.println("Fill type: " + effBackground.getFillFormat().getFillType());
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Creates an instance of the Presentation class
+    var pres = new  com.aspose.slides.Presentation("SamplePresentation.pptx");
+    try {
+        var effBackground = pres.getSlides().get_Item(0).getBackground().getEffective();
+        if (effBackground.getFillFormat().getFillType() == com.aspose.slides.FillType.Solid) {
+            java.getStaticFieldValue("java.lang.System", "out").println("Fill color: " + effBackground.getFillFormat().getSolidFillColor());
+        } else {
+            java.getStaticFieldValue("java.lang.System", "out").println("Fill type: " + effBackground.getFillFormat().getFillType());
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 

@@ -26,39 +26,39 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 This Java code shows you how to add a website hyperlink to a text:
 
-```java
-Presentation presentation = new Presentation();
-try {
-	IAutoShape shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: File Format APIs");
-	
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-	portionFormat.setFontHeight(32);
-
-	presentation.save("presentation-out.pptx", SaveFormat.Pptx);
-} finally {
-	if (presentation != null) presentation.dispose();
-}
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
+    try {
+        var shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);
+        shape1.addTextFrame("Aspose: File Format APIs");
+        var portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        portionFormat.setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+        portionFormat.setFontHeight(32);
+        presentation.save("presentation-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (presentation != null) {
+            presentation.dispose();
+        }
+    }
 ```
 
 ### **Adding URL Hyperlinks to Shapes or Frames**
 
 This sample code in Java shows you how to add a website hyperlink to a shape:
 
-```java
-Presentation pres = new Presentation();
-try {
-	IShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50);
-
-	shape.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	shape.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50);
+        shape.setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        shape.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ### **Adding URL Hyperlinks to Media**
@@ -67,64 +67,66 @@ Aspose.Slides allows you to add hyperlinks to images, audio, and video files.
 
 This sample code shows you how to add a hyperlink to an **image**:
 
-```java
-Presentation pres = new Presentation();
-try {
-	// Adds image to presentation
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
     try {
-    picture = pres.getImages().addImage(picture);
+        // Adds image to presentation
+        var picture;
+        var image = com.aspose.slides.Images.fromFile("image.png");
+        try {
+            picture = pres.getImages().addImage(picture);
+        } finally {
+            if (image != null) {
+                image.dispose();
+            }
+        }
+        // Creates picture frame on slide 1 based on previously added image
+        var pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(com.aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
+        pictureFrame.setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
     } finally {
-          if (image != null) image.dispose();
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-	// Creates picture frame on slide 1 based on previously added image
-	IPictureFrame pictureFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-	pictureFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
 ```
 
 This sample code shows you how to add a hyperlink to an **audio file**:
 
-```java
-Presentation pres = new Presentation();
-try {
-	IAudio audio = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("audio.mp3")));
-	IAudioFrame audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
-
-	audioFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var audio = pres.getAudios().addAudio(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "audio.mp3")));
+        var audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
+        audioFrame.setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 This sample code shows you how to add a hyperlink to a **video**:
 
-```java
-Presentation pres = new Presentation();
-try {
-	IVideo video = pres.getVideos().addVideo(Files.readAllBytes(Paths.get("video.avi")));
-	IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
-
-	videoFrame.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-
-	pres.save("pres-out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var video = pres.getVideos().addVideo(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "video.avi")));
+        var videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
+        videoFrame.setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{%  alert  title="Tip"  color="primary"  %}} 
@@ -139,33 +141,30 @@ Since hyperlinks allow you to add references to objects or places, you can use t
 
 This sample code shows you how to create a table of contents with hyperlinks:
 
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide firstSlide = pres.getSlides().get_Item(0);
-	ISlide secondSlide = pres.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
-
-	IAutoShape contentTable = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 300, 100);
-	contentTable.getFillFormat().setFillType(FillType.NoFill);
-	contentTable.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-	contentTable.getTextFrame().getParagraphs().clear();
-
-	Paragraph paragraph = new Paragraph();
-	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-	paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-	paragraph.setText("Title of slide 2 .......... ");
-
-	Portion linkPortion = new Portion();
-	linkPortion.setText("Page 2");
-	linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
-
-	paragraph.getPortions().add(linkPortion);
-	contentTable.getTextFrame().getParagraphs().add(paragraph);
-
-	pres.save("link_to_slide.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var firstSlide = pres.getSlides().get_Item(0);
+        var secondSlide = pres.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
+        var contentTable = firstSlide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 40, 40, 300, 100);
+        contentTable.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        contentTable.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
+        contentTable.getTextFrame().getParagraphs().clear();
+        var paragraph = new  com.aspose.slides.Paragraph();
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        paragraph.setText("Title of slide 2 .......... ");
+        var linkPortion = new  com.aspose.slides.Portion();
+        linkPortion.setText("Page 2");
+        linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
+        paragraph.getPortions().add(linkPortion);
+        contentTable.getTextFrame().getParagraphs().add(paragraph);
+        pres.save("link_to_slide.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Formatting Hyperlinks**
@@ -176,25 +175,25 @@ With the [ColorSource](https://reference.aspose.com/slides/java/com.aspose.slide
 
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
-```java
-Presentation pres = new Presentation();
-try {
-	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 450, 50, false);
-	shape1.addTextFrame("This is a sample of colored hyperlink.");
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setColorSource(HyperlinkColorSource.PortionFormat);
-	portionFormat.getFillFormat().setFillType(FillType.Solid);
-	portionFormat.getFillFormat().getSolidFillColor().setColor(Color.RED);
-
-	IAutoShape shape2 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 200, 450, 50, false);
-	shape2.addTextFrame("This is a sample of usual hyperlink.");
-	shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-
-	pres.save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 450, 50, false);
+        shape1.addTextFrame("This is a sample of colored hyperlink.");
+        var portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        portionFormat.setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        portionFormat.getHyperlinkClick().setColorSource(com.aspose.slides.HyperlinkColorSource.PortionFormat);
+        portionFormat.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        portionFormat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+        var shape2 = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 200, 450, 50, false);
+        shape2.addTextFrame("This is a sample of usual hyperlink.");
+        shape2.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        pres.save("presentation-out-hyperlink.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Removing Hyperlinks in Presentations**
@@ -203,47 +202,45 @@ try {
 
 This Java code shows you how to remove the hyperlink from a text in a presentation slide:
 
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	for (IShape shape : slide.getShapes())
-	{
-		IAutoShape autoShape = (IAutoShape)shape;
-		if (autoShape != null)
-		{
-			for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs())
-			{
-				for (IPortion portion : paragraph.getPortions())
-				{
-					portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
-				}
-			}
-		}
-	}
-
-	pres.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        for (var shape : slide.getShapes()) {
+            var autoShape = shape;
+            if (autoShape != null) {
+                for (var paragraph : autoShape.getTextFrame().getParagraphs()) {
+                    for (var portion : paragraph.getPortions()) {
+                        portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
+                    }
+                }
+            }
+        }
+        pres.save("pres-removed-hyperlinks.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ### **Removing Hyperlinks from Shapes or Frames**
 
 This Java code shows you how to remove the hyperlink from a shape in a presentation slide: 
 
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	for (IShape shape : slide.getShapes())
-	{
-		shape.getHyperlinkManager().removeHyperlinkClick();
-	}
-	pres.save("pres-removed-hyperlinks.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        for (var shape : slide.getShapes()) {
+            shape.getHyperlinkManager().removeHyperlinkClick();
+        }
+        pres.save("pres-removed-hyperlinks.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Mutable Hyperlink**
@@ -258,21 +255,21 @@ The [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/Hyper
 
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
-```java
-Presentation pres = new Presentation();
-try {
-	IAutoShape shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 600, 50, false);
-	shape1.addTextFrame("Aspose: File Format APIs");
-
-	IPortionFormat portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat(); 
-	portionFormat.setHyperlinkClick(new Hyperlink("https://www.aspose.com/"));
-	portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
-	portionFormat.setFontHeight(32);
-
-	pres.save("presentation-out.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);
+        shape1.addTextFrame("Aspose: File Format APIs");
+        var portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
+        portionFormat.setHyperlinkClick(new  com.aspose.slides.Hyperlink("https://www.aspose.com/"));
+        portionFormat.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
+        portionFormat.setFontHeight(32);
+        pres.save("presentation-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Supported Properties in IHyperlinkQueries**

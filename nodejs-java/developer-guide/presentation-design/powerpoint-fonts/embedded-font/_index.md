@@ -19,90 +19,83 @@ Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slide
 
 This Java code shows you how to get and remove embedded fonts from a presentation:
 
-```java
-// Instantiates a Presentation object that represents a presentation file
-Presentation pres = new Presentation("EmbeddedFonts.pptx");
-try {
-    // Renders a slide containing a text frame that uses embedded "FunSized"
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-    //Save the image to disk in JPEG format
+```javascript
+    // Instantiates a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("EmbeddedFonts.pptx");
     try {
-        slideImage.save("picture1_out.jpg", ImageFormat.Jpeg);
+        // Renders a slide containing a text frame that uses embedded "FunSized"
+        var slideImage = pres.getSlides().get_Item(0).getImage(java.newInstanceSync("java.awt.Dimension", 960, 720));
+        // Save the image to disk in JPEG format
+        try {
+            slideImage.save("picture1_out.jpg", com.aspose.slides.ImageFormat.Jpeg);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
+        var fontsManager = pres.getFontsManager();
+        // Gets all embedded fonts
+        var embeddedFonts = fontsManager.getEmbeddedFonts();
+        // Finds the "Calibri" font
+        var calibriEmbeddedFont = null;
+        for (var i = 0; i < embeddedFonts.length; i++) {
+            java.getStaticFieldValue("java.lang.System", "out").println("" + embeddedFonts[i].getFontName());
+            if ("Calibri".equals(embeddedFonts[i].getFontName())) {
+                calibriEmbeddedFont = embeddedFonts[i];
+                break;
+            }
+        }
+        // Removes "Calibri" font
+        fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
+        // Renders the presentation; "Calibri" font is replaced with an existing one
+        slideImage = pres.getSlides().get_Item(0).getImage(java.newInstanceSync("java.awt.Dimension", 960, 720));
+        // Save the image to disk in JPEG format
+        try {
+            slideImage.save("picture2_out.jpg", com.aspose.slides.ImageFormat.Jpeg);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
+            }
+        }
+        // Saves the presentation without embedded "Calibri" font to disk
+        pres.save("WithoutManageEmbeddedFonts_out.ppt", com.aspose.slides.SaveFormat.Ppt);
     } finally {
-        if (slideImage != null) slideImage.dispose();
-    }
-
-    IFontsManager fontsManager = pres.getFontsManager();
-
-    // Gets all embedded fonts
-    IFontData[] embeddedFonts = fontsManager.getEmbeddedFonts();
-
-    // Finds the "Calibri" font
-    IFontData calibriEmbeddedFont = null;
-    for (int i = 0; i < embeddedFonts.length; i++) {
-        System.out.println(""+ embeddedFonts[i].getFontName());
-        if ("Calibri".equals(embeddedFonts[i].getFontName())) {
-            calibriEmbeddedFont = embeddedFonts[i];
-            break;
+        if (pres != null) {
+            pres.dispose();
         }
     }
-
-    // Removes "Calibri" font
-    fontsManager.removeEmbeddedFont(calibriEmbeddedFont);
-
-    // Renders the presentation; "Calibri" font is replaced with an existing one
-     slideImage = pres.getSlides().get_Item(0).getImage(new Dimension(960, 720));
-
-     //Save the image to disk in JPEG format
-     try {
-         slideImage.save("picture2_out.jpg", ImageFormat.Jpeg);
-     } finally {
-         if (slideImage != null) slideImage.dispose();
-     }
-
-    // Saves the presentation without embedded "Calibri" font to disk
-    pres.save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Add Embedded Fonts to Presentation**
 
 Using the [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/java/com.aspose.slides/fontsmanager/#addEmbeddedFont-com.aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This Java code shows you how to embed and add fonts to a presentation:
 
-```java
-// Loads the presentation
-Presentation pres = new Presentation("Fonts.pptx");
-try {
-    IFontData[] allFonts = pres.getFontsManager().getFonts();
-    IFontData[] embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-
-    for (IFontData font : allFonts)
-    {
-        boolean embeddedFontsContainsFont = false;
-        for (int i = 0; i < embeddedFonts.length; i++)
-        {
-            if (embeddedFonts[i].equals(font))
-            {
-                embeddedFontsContainsFont = true;
-                break;
+```javascript
+    // Loads the presentation
+    var pres = new  com.aspose.slides.Presentation("Fonts.pptx");
+    try {
+        var allFonts = pres.getFontsManager().getFonts();
+        var embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        for (var font : allFonts) {
+            var embeddedFontsContainsFont = false;
+            for (var i = 0; i < embeddedFonts.length; i++) {
+                if (embeddedFonts[i].equals(font)) {
+                    embeddedFontsContainsFont = true;
+                    break;
+                }
+            }
+            if (!embeddedFontsContainsFont) {
+                pres.getFontsManager().addEmbeddedFont(font, com.aspose.slides.EmbedFontCharacters.All);
+                embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
             }
         }
-        if (!embeddedFontsContainsFont)
-        {
-            pres.getFontsManager().addEmbeddedFont(font, EmbedFontCharacters.All);
-
-            embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
+        // Saves the presentation to disk
+        pres.save("AddEmbeddedFont_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-
-    // Saves the presentation to disk
-    pres.save("AddEmbeddedFont_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Compress Embedded Fonts**
@@ -111,13 +104,15 @@ To allow you to compress the fonts embedded in a presentation and reduce its fil
 
 This Java code shows you how to compress embedded PowerPoint fonts:
 
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    Compress.compressEmbeddedFonts(pres);
-    pres.save("pres-out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("pres.pptx");
+    try {
+        com.aspose.slides.Compress.compressEmbeddedFonts(pres);
+        pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 

@@ -33,24 +33,23 @@ If you want the text in a box to always fit into that box after changes are made
 
 This Java code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
-
-    Portion portion = new Portion("lorem ipsum...");
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
-
-    ITextFrameFormat textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(TextAutofitType.Shape);
-
-    pres.save("Output-presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
+        var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
+        textFrameFormat.setAutofitType(com.aspose.slides.TextAutofitType.Shape);
+        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 If the text becomes longer or bigger, the textbox will be automatically resized (increase in height) to ensure all the text fits into it. If the text becomes shorter, the reverse occurs. 
@@ -63,24 +62,23 @@ If you want a textbox or shape to retain its dimensions no matter the changes ma
 
 This Java code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
-	
-    Portion portion = new Portion("lorem ipsum...");
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
-	
-    ITextFrameFormat textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(TextAutofitType.None);
-	
-    pres.save("Output-presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
+        var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
+        textFrameFormat.setAutofitType(com.aspose.slides.TextAutofitType.None);
+        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 When the text becomes too long for its box, it spills out. 
@@ -93,24 +91,23 @@ If a text becomes too long for its box, through the **Shrink text on overflow** 
 
 This Java code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
-	
-    Portion portion = new Portion("lorem ipsum...");
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
-	
-    ITextFrameFormat textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setAutofitType(TextAutofitType.Normal);
-	
-    pres.save("Output-presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
+        var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
+        textFrameFormat.setAutofitType(com.aspose.slides.TextAutofitType.Normal);
+        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert title="Info" color="info" %}}
@@ -125,24 +122,23 @@ If you want the text in a shape to get wrapped inside that shape when the text g
 
 This Java code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
-```java
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30, 350, 100);
-
-    Portion portion = new Portion("lorem ipsum...");
-    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
-
-    ITextFrameFormat textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
-    textFrameFormat.setWrapText(NullableBool.True);
-
-    pres.save("Output-presentation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var autoShape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
+        var portion = new  com.aspose.slides.Portion("lorem ipsum...");
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        portion.getPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
+        var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
+        textFrameFormat.setWrapText(com.aspose.slides.NullableBool.True);
+        pres.save("Output-presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert title="Note" color="warning" %}} 

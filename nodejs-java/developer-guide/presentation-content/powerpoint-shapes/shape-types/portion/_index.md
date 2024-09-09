@@ -8,24 +8,22 @@ url: /java/portion/
 ## **Get Position Coordinates of Portion**
 [**getCoordinates()**](https://reference.aspose.com/slides/java/com.aspose.slides/IPortion#getCoordinates--) method has been added to [IPortion](https://reference.aspose.com/slides/java/com.aspose.slides/interfaces/IPortion) and [Portion](https://reference.aspose.com/slides/java/com.aspose.slides/classes/Portion) class which allows retrieving the coordinates of the beginning of the portion.
 
-```java
-// Instantiate Prseetation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
-    // Reshaping the context of presentation
-    IAutoShape shape = (IAutoShape) pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    
-    ITextFrame textFrame = (ITextFrame) shape.getTextFrame();
-    
-    for (IParagraph paragraph : textFrame.getParagraphs()) 
-    {
-        for (IPortion portion : paragraph.getPortions()) 
-        {
-            Point2D.Float point = portion.getCoordinates();
-            System.out.println("X: " + point.x + " Y: " + point.y);
+```javascript
+    // Instantiate Prseetation class that represents the PPTX
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Reshaping the context of presentation
+        var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+        var textFrame = shape.getTextFrame();
+        for (var paragraph : textFrame.getParagraphs()) {
+            for (var portion : paragraph.getPortions()) {
+                var point = portion.getCoordinates();
+                java.getStaticFieldValue("java.lang.System", "out").println((("X: " + point.x) + " Y: ") + point.y);
+            }
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

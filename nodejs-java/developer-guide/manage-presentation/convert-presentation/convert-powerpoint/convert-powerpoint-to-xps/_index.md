@@ -50,34 +50,36 @@ When converting a presentation to XPS, you have to save the presentation using e
 
 This sample code in Java shows you how to convert a presentation to an XPS document using standard settings:
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("Convert_XPS.pptx");
-try {
-    // Saving the presentation to XPS document
-    pres.save("XPS_Output_Without_XPSOption.xps", SaveFormat.Xps);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("Convert_XPS.pptx");
+    try {
+        // Saving the presentation to XPS document
+        pres.save("XPS_Output_Without_XPSOption.xps", com.aspose.slides.SaveFormat.Xps);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 
 ### **Converting Presentations to XPS Using Custom Settings**
 This sample code shows you how to convert a presentation to an XPS document using custom settings in Java:
 
-```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation pres = new Presentation("Convert_XPS_Options.pptx");
-try {
-    // Instantiate the TiffOptions class
-    XpsOptions options = new XpsOptions();
-
-    // Save MetaFiles as PNG
-    options.setSaveMetafilesAsPng(true);
-
-    // Save the presentation to XPS document
-    pres.save("XPS_Output_With_Options.xps", SaveFormat.Xps, options);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("Convert_XPS_Options.pptx");
+    try {
+        // Instantiate the TiffOptions class
+        var options = new  com.aspose.slides.XpsOptions();
+        // Save MetaFiles as PNG
+        options.setSaveMetafilesAsPng(true);
+        // Save the presentation to XPS document
+        pres.save("XPS_Output_With_Options.xps", com.aspose.slides.SaveFormat.Xps, options);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

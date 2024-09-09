@@ -14,32 +14,31 @@ Aspose.Slides for Java provides a simple API for managing error bar values. The 
 1. Setting bars values and format.
 1. Write the modified presentation to a PPTX file.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Creating a bubble chart
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
-
-    // Adding Error bars and setting its format
-    IErrorBarsFormat errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
-    IErrorBarsFormat errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
-
-    errBarX.isVisible();
-    errBarY.isVisible();
-    errBarX.setValueType((byte) ErrorBarValueType.Fixed);
-    errBarX.setValue(0.1f);
-    errBarY.setValueType((byte) ErrorBarValueType.Percentage);
-    errBarY.setValue(5);
-    errBarX.setType((byte) ErrorBarType.Plus);
-    errBarY.getFormat().getLine().setWidth(2.0f);
-    errBarX.hasEndCap();
-
-    // Saving presentation
-    pres.save("ErrorBars.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Creating a bubble chart
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
+        // Adding Error bars and setting its format
+        var errBarX = chart.getChartData().getSeries().get_Item(0).getErrorBarsXFormat();
+        var errBarY = chart.getChartData().getSeries().get_Item(0).getErrorBarsYFormat();
+        errBarX.isVisible();
+        errBarY.isVisible();
+        errBarX.setValueType(com.aspose.slides.ErrorBarValueType.Fixed);
+        errBarX.setValue(0.1);
+        errBarY.setValueType(com.aspose.slides.ErrorBarValueType.Percentage);
+        errBarY.setValue(5);
+        errBarX.setType(com.aspose.slides.ErrorBarType.Plus);
+        errBarY.getFormat().getLine().setWidth(2.0);
+        errBarX.hasEndCap();
+        // Saving presentation
+        pres.save("ErrorBars.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Add Custom Error Bar Value**
@@ -53,41 +52,39 @@ Aspose.Slides for Java provides a simple API for managing custom error bar value
 1. Setting bars values and format.
 1. Write the modified presentation to a PPTX file.
 
-```java
-// Create an instance of Presentation class
-Presentation pres = new Presentation();
-try {
-    // Creating a bubble chart
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Bubble, 50, 50, 400, 300, true);
-
-    // Adding custom Error bars and setting its format
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    IErrorBarsFormat errBarX = series.getErrorBarsXFormat();
-    IErrorBarsFormat errBarY = series.getErrorBarsYFormat();
-    errBarX.isVisible();
-    errBarY.isVisible();
-    errBarX.setValueType((byte) ErrorBarValueType.Custom);
-    errBarY.setValueType((byte) ErrorBarValueType.Custom);
-
-    // Accessing chart series data point and setting error bars values for
-    // individual point
-    IChartDataPointCollection points = series.getDataPoints();
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues((byte) DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues((byte) DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYPlusValues((byte) DataSourceType.DoubleLiterals);
-    points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYMinusValues((byte) DataSourceType.DoubleLiterals);
-
-    // Setting error bars for chart series points
-    for (int i = 0; i < points.size(); i++) {
-        points.get_Item(i).getErrorBarsCustomValues().getXMinus().setAsLiteralDouble(i + 1);
-        points.get_Item(i).getErrorBarsCustomValues().getXPlus().setAsLiteralDouble(i + 1);
-        points.get_Item(i).getErrorBarsCustomValues().getYMinus().setAsLiteralDouble(i + 1);
-        points.get_Item(i).getErrorBarsCustomValues().getYPlus().setAsLiteralDouble(i + 1);
+```javascript
+    // Create an instance of Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Creating a bubble chart
+        var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
+        // Adding custom Error bars and setting its format
+        var series = chart.getChartData().getSeries().get_Item(0);
+        var errBarX = series.getErrorBarsXFormat();
+        var errBarY = series.getErrorBarsYFormat();
+        errBarX.isVisible();
+        errBarY.isVisible();
+        errBarX.setValueType(com.aspose.slides.ErrorBarValueType.Custom);
+        errBarY.setValueType(com.aspose.slides.ErrorBarValueType.Custom);
+        // Accessing chart series data point and setting error bars values for
+        // individual point
+        var points = series.getDataPoints();
+        points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXPlusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
+        points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForXMinusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
+        points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYPlusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
+        points.getDataSourceTypeForErrorBarsCustomValues().setDataSourceTypeForYMinusValues(com.aspose.slides.DataSourceType.DoubleLiterals);
+        // Setting error bars for chart series points
+        for (var i = 0; i < points.size(); i++) {
+            points.get_Item(i).getErrorBarsCustomValues().getXMinus().setAsLiteralDouble(i + 1);
+            points.get_Item(i).getErrorBarsCustomValues().getXPlus().setAsLiteralDouble(i + 1);
+            points.get_Item(i).getErrorBarsCustomValues().getYMinus().setAsLiteralDouble(i + 1);
+            points.get_Item(i).getErrorBarsCustomValues().getYPlus().setAsLiteralDouble(i + 1);
+        }
+        // Saving presentation
+        pres.save("ErrorBarsCustomValues.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-
-    // Saving presentation
-    pres.save("ErrorBarsCustomValues.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

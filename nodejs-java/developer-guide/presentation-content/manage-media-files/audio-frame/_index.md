@@ -19,30 +19,28 @@ Aspose.Slides for Java allows you to add audio files to slides. The audio files 
 
 This Java code shows you how to add an embedded audio frame to a slide:
 
-```Java
-// Instantiates a Presentation class that represents a presentation file
-Presentation pres = new Presentation();
-try {
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Loads the wav sound file to stream
-    FileInputStream fstr = new FileInputStream(new File("audio.wav"));
-
-    // Adds the Audio Frame
-    IAudioFrame audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
-    fstr.close();
-    
-    // Sets the Play Mode and Volume of the Audio
-    audioFrame.setPlayMode(AudioPlayModePreset.Auto);
-    audioFrame.setVolume(AudioVolumeMode.Loud);
-
-    // Writes the PowerPoint file to disk
-    pres.save("AudioFrameEmbed_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation class that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Gets the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Loads the wav sound file to stream
+        var fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
+        // Adds the Audio Frame
+        var audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
+        fstr.close();
+        // Sets the Play Mode and Volume of the Audio
+        audioFrame.setPlayMode(com.aspose.slides.AudioPlayModePreset.Auto);
+        audioFrame.setVolume(com.aspose.slides.AudioVolumeMode.Loud);
+        // Writes the PowerPoint file to disk
+        pres.save("AudioFrameEmbed_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Change Audio Frame Thumbnail**
@@ -51,34 +49,34 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 
 This Java code shows you how to change an audio frame's thumbnail or preview image:
 
-```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Adds an audio frame to the slide with a specified position and size.
-    FileInputStream audioStream = new FileInputStream("sample2.mp3");
-    IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
-    audioStream.close();
-
-    // Adds an image to presentation resources.
-    IPPImage picture;
-    IImage image = Images.fromFile("eagle.jpeg");
+```javascript
+    var presentation = new  com.aspose.slides.Presentation();
     try {
-        picture = presentation.getImages().addImage(image);
+        var slide = presentation.getSlides().get_Item(0);
+        // Adds an audio frame to the slide with a specified position and size.
+        var audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
+        var audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+        audioStream.close();
+        // Adds an image to presentation resources.
+        var picture;
+        var image = com.aspose.slides.Images.fromFile("eagle.jpeg");
+        try {
+            picture = presentation.getImages().addImage(image);
+        } finally {
+            if (image != null) {
+                image.dispose();
+            }
+        }
+        // Sets the image for the audio frame.
+        audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
+        // Saves the modified presentation to disk
+        presentation.save("example_out.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
     } finally {
-        if (image != null) image.dispose();
+        if (presentation != null) {
+            presentation.dispose();
+        }
     }
-
-    // Sets the image for the audio frame.
-    audioFrame.getPictureFormat().getPicture().setImage(picture); // <-----
-
-    //Saves the modified presentation to disk
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (presentation != null) presentation.dispose();
-}
 ```
 
 ## **Change Audio Play Options**
@@ -105,35 +103,30 @@ This is how you change the Audio Play options:
 
 This Java code demonstrates an operation in which an audio's options are adjusted:
 
-```java 
-Presentation pres = new Presentation("AudioFrameEmbed_out.pptx");
-try {
-    // Gets the AudioFrame shape
-    AudioFrame audioFrame = (AudioFrame)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Sets the Play mode to play on click
-    audioFrame.setPlayMode(AudioPlayModePreset.OnClick);
-
-    // Sets the volume to Low
-    audioFrame.setVolume(AudioVolumeMode.Low);
-
-    // Sets the audio to play across slides
-    audioFrame.setPlayAcrossSlides(true);
-
-    // Disables loop for the audio
-    audioFrame.setPlayLoopMode(false);
-
-    // Hides the AudioFrame during the slide show
-    audioFrame.setHideAtShowing(true);
-
-    // Rewinds the audio to start after playing
-    audioFrame.setRewindAudio(true);
-
-    // Saves the PowerPoint file to disk
-    pres.save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
+    try {
+        // Gets the AudioFrame shape
+        var audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+        // Sets the Play mode to play on click
+        audioFrame.setPlayMode(com.aspose.slides.AudioPlayModePreset.OnClick);
+        // Sets the volume to Low
+        audioFrame.setVolume(com.aspose.slides.AudioVolumeMode.Low);
+        // Sets the audio to play across slides
+        audioFrame.setPlayAcrossSlides(true);
+        // Disables loop for the audio
+        audioFrame.setPlayLoopMode(false);
+        // Hides the AudioFrame during the slide show
+        audioFrame.setHideAtShowing(true);
+        // Rewinds the audio to start after playing
+        audioFrame.setRewindAudio(true);
+        // Saves the PowerPoint file to disk
+        pres.save("AudioFrameEmbed_changed.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Extract Audio**
@@ -153,20 +146,20 @@ Aspose.Slides for Java allows you to extract the sound used in slide show transi
 
 This code in Java shows you how to extract the audio used in a slide:
 
-```java
-// Instantiates a Presentation class that represents a presentation file
-Presentation pres = new Presentation("AudioSlide.pptx");
-try {
-    // Accesses the desired slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Gets the slideshow transition effects for the slide
-    ISlideShowTransition transition = slide.getSlideShowTransition();
-    
-    //Extracts the sound in byte array
-    byte[] audio = transition.getSound().getBinaryData();
-    System.out.println("Length: " + audio.length);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiates a Presentation class that represents a presentation file
+    var pres = new  com.aspose.slides.Presentation("AudioSlide.pptx");
+    try {
+        // Accesses the desired slide
+        var slide = pres.getSlides().get_Item(0);
+        // Gets the slideshow transition effects for the slide
+        var transition = slide.getSlideShowTransition();
+        // Extracts the sound in byte array
+        var audio = transition.getSound().getBinaryData();
+        java.getStaticFieldValue("java.lang.System", "out").println("Length: " + audio.length);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

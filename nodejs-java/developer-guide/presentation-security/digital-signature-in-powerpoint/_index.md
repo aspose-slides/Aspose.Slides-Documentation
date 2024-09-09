@@ -27,52 +27,46 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Open PFX file and pass PFX password to [**DigitalSignature**](https://reference.aspose.com/slides/java/com.aspose.slides/DigitalSignature) object.
 1. Add created signature to the presentation object.
 
-```java
-// Opening the presentation file
-Presentation pres = new Presentation();
-try {
-    // Create DigitalSignature object with PFX file and PFX password 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", "testpass1");
-
-    // Comment new digital signature
-    signature.setComments("Aspose.Slides digital signing test.");
-
-    // Add digital signature to presentation
-    pres.getDigitalSignatures().add(signature);
-
-    // Save presentation
-    pres.save("SomePresentationSigned.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Opening the presentation file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Create DigitalSignature object with PFX file and PFX password
+        var signature = new  com.aspose.slides.DigitalSignature("testsignature1.pfx", "testpass1");
+        // Comment new digital signature
+        signature.setComments("Aspose.Slides digital signing test.");
+        // Add digital signature to presentation
+        pres.getDigitalSignatures().add(signature);
+        // Save presentation
+        pres.save("SomePresentationSigned.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
-```java
-// Open presentation
-Presentation pres = new Presentation("SomePresentationSigned.pptx");
-try {
-    if (pres.getDigitalSignatures().size() > 0)
-    {
-        boolean allSignaturesAreValid = true;
-
-        System.out.println("Signatures used to sign the presentation: ");
-
-        // Check if all digital signatures are valid
-        for (IDigitalSignature signature : pres.getDigitalSignatures())
-        {
-            System.out.println(signature.getComments() + ", "
-                    + signature.getSignTime().toString() + " -- " + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+```javascript
+    // Open presentation
+    var pres = new  com.aspose.slides.Presentation("SomePresentationSigned.pptx");
+    try {
+        if (pres.getDigitalSignatures().size() > 0) {
+            var allSignaturesAreValid = true;
+            java.getStaticFieldValue("java.lang.System", "out").println("Signatures used to sign the presentation: ");
+            // Check if all digital signatures are valid
+            for (var signature : pres.getDigitalSignatures()) {
+                java.getStaticFieldValue("java.lang.System", "out").println((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
+                allSignaturesAreValid &= signature.isValid();
+            }
+            if (allSignaturesAreValid) {
+                java.getStaticFieldValue("java.lang.System", "out").println("Presentation is genuine, all signatures are valid.");
+            } else {
+                java.getStaticFieldValue("java.lang.System", "out").println("Presentation has been modified since signing.");
+            }
         }
-
-        if (allSignaturesAreValid)
-            System.out.println("Presentation is genuine, all signatures are valid.");
-        else
-            System.out.println("Presentation has been modified since signing.");
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

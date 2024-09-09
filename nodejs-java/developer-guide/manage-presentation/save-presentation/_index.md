@@ -19,57 +19,57 @@ Save a presentation to file by calling the [Presentation](https://reference.aspo
 
 The examples that follow show how to save a presentation with Aspose.Slides for Java.
 
-```java
-// Instantiate a Presentation object that represents a PPT file
-Presentation pres = new Presentation();
-try {
-    // ...do some work here...
-    
-    // Save your presentation to a file
-    pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
-} finally {
-    if(pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a PPT file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // ...do some work here...
+        // Save your presentation to a file
+        pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Save Presentation to Stream**
 It is possible to save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.io.OutputStream-int-) method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
 
-```java
-// Instantiate a Presentation object that represents a PPT file
-Presentation pres = new Presentation();
-try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 200, 200);
-
-    // Add text to shape
-    shape.getTextFrame().setText("This demo shows how to Create PowerPoint file and save it to Stream.");
-
-    OutputStream os = new FileOutputStream("Save_As_Stream_out.pptx");
-
-    pres.save(os, com.aspose.slides.SaveFormat.Pptx);
-
-    os.close();
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation object that represents a PPT file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 200, 200);
+        // Add text to shape
+        shape.getTextFrame().setText("This demo shows how to Create PowerPoint file and save it to Stream.");
+        var os = java.newInstanceSync("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
+        pres.save(os, com.aspose.slides.SaveFormat.Pptx);
+        os.close();
+    } catch (e) {
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Save Presentation with Predefined View Type**
 Aspose.Slides for Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/java/com.aspose.slides/ViewType) enumerator.
 
-```java
-// Opening the presentation file
-Presentation pres = new Presentation();
-try {
-    // Setting view type
-    pres.getViewProperties().setLastView((byte) ViewType.SlideMasterView);
-    
-    // Saving presentation
-    pres.save("newDemo.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Opening the presentation file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Setting view type
+        pres.getViewProperties().setLastView(com.aspose.slides.ViewType.SlideMasterView);
+        // Saving presentation
+        pres.save("newDemo.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Saving Presentations to Strict Office Open XML Format**
@@ -77,26 +77,24 @@ Aspose.Slides allows you to save the presentation in Strict Office Open XML for
 
 The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/java/com.aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/java/com.aspose.slides/Conformance#Iso29500_2008_Strict).
 
-```java
-// Instantiate a Presentation object that represents a PPT file
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Add an autoshape of type line
-    slide.getShapes().addAutoShape(ShapeType.Line, 50, 150, 300, 0);
-    
-    //Set Strict Office Open XML Format save options
-    PptxOptions options = new PptxOptions();
-    options.setConformance(Conformance.Iso29500_2008_Strict);
-    
-    // Save your presentation to a file
-    pres.save("demoPass.pptx", SaveFormat.Pptx, options);
-} finally {
-    if (pres != null) pres.dispose();
-}
-
+```javascript
+    // Instantiate a Presentation object that represents a PPT file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Add an autoshape of type line
+        slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Line, 50, 150, 300, 0);
+        // Set Strict Office Open XML Format save options
+        var options = new  com.aspose.slides.PptxOptions();
+        options.setConformance(com.aspose.slides.Conformance.Iso29500_2008_Strict);
+        // Save your presentation to a file
+        pres.save("demoPass.pptx", com.aspose.slides.SaveFormat.Pptx, options);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Saving Presentations to Office Open XML format in Zip64 mode**
@@ -113,16 +111,17 @@ This property provides the following modes:
 
 The following code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
 
-```java
-Presentation pres = new Presentation("Sample.pptx");
-try {
-    PptxOptions pptxOptions = new PptxOptions();
-    pptxOptions.setZip64Mode(Zip64Mode.Always);
-    
-    pres.save("Sample-zip64.pptx", SaveFormat.Pptx, pptxOptions);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    var pres = new  com.aspose.slides.Presentation("Sample.pptx");
+    try {
+        var pptxOptions = new  com.aspose.slides.PptxOptions();
+        pptxOptions.setZip64Mode(com.aspose.slides.Zip64Mode.Always);
+        pres.save("Sample-zip64.pptx", com.aspose.slides.SaveFormat.Pptx, pptxOptions);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 {{% alert title="NOTE" color="warning" %}}
@@ -136,27 +135,25 @@ New [**IProgressCallback**](https://reference.aspose.com/slides/java/com.aspose.
 
 The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/java/com.aspose.slides/IProgressCallback) interface:
 
-```java
-// Opening the presentation file
-Presentation pres = new Presentation("ConvertToPDF.pptx");
-try {
-    ISaveOptions saveOptions = new PdfOptions();
-    saveOptions.setProgressCallback((IProgressCallback) new ExportProgressHandler());
-    pres.save("ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
-} finally {
-    pres.dispose();
-}
-```
-```java
-class ExportProgressHandler implements IProgressCallback 
-{
-    public void reporting(double progressValue) 
-	{
-        // Use progress percentage value here
-        int progress = Double.valueOf(progressValue).intValue();
-        System.out.println(progress + "% file converted");
+```javascript
+    // Opening the presentation file
+    var pres = new  com.aspose.slides.Presentation("ConvertToPDF.pptx");
+    try {
+        var saveOptions = new  com.aspose.slides.PdfOptions();
+        saveOptions.setProgressCallback(java.newInstanceSync("ExportProgressHandler", ));
+        pres.save("ConvertToPDF.pdf", com.aspose.slides.SaveFormat.Pdf, saveOptions);
+    } finally {
+        pres.dispose();
     }
-}
+```
+```javascript
+    class ExportProgressHandler implements com.aspose.slides.IProgressCallback {
+        public void reporting(double progressValue) {
+            // Use progress percentage value here
+            var progress = java.callStaticMethodSync("java.lang.Double", "valueOf", progressValue).intValue();
+            java.getStaticFieldValue("java.lang.System", "out").println(progress + "% file converted");
+        }
+    }
 ```
 
 {{% alert title="Info" color="info" %}}

@@ -54,53 +54,41 @@ This topic is also the part of the topic series of managing text paragraphs. Thi
 
 This sample code in Java—an implementation of the steps above—shows you to create a bullet list in a slide:
 
-```java
-// Instantiate a Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
-    // Accessing first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Adding and accessing Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-    
-    // Accessing the text frame of created autoshape
-    ITextFrame txtFrm = aShp.getTextFrame();
-    
-    // Removing the default exisiting paragraph
-    txtFrm.getParagraphs().removeAt(0);
-    
-    // Creating a paragraph
-    Paragraph para = new Paragraph();
-    
-    // Setting paragraph bullet style and symbol
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char) 8226);
-    
-    // Setting paragraph text
-    para.setText("Welcome to Aspose.Slides");
-    
-    // Setting bullet indent
-    para.getParagraphFormat().setIndent(25);
-    
-    // Setting bullet color
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    
-    // set IsBulletHardColor to true to use own bullet color
-    para.getParagraphFormat().getBullet().isBulletHardColor();
-    
-    // Setting Bullet Height
-    para.getParagraphFormat().getBullet().setHeight(100);
-    
-    // Adding Paragraph to text frame
-    txtFrm.getParagraphs().add(para);
-    
-    // saving the presentation as a PPTX file
-    pres.save("Bullet.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation class that represents a PPTX file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Accessing first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Adding and accessing Autoshape
+        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        // Accessing the text frame of created autoshape
+        var txtFrm = aShp.getTextFrame();
+        // Removing the default exisiting paragraph
+        txtFrm.getParagraphs().removeAt(0);
+        // Creating a paragraph
+        var para = new  com.aspose.slides.Paragraph();
+        // Setting paragraph bullet style and symbol
+        para.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para.getParagraphFormat().getBullet().setChar(8226);
+        // Setting paragraph text
+        para.setText("Welcome to Aspose.Slides");
+        // Setting bullet indent
+        para.getParagraphFormat().setIndent(25);
+        // Setting bullet color
+        para.getParagraphFormat().getBullet().getColor().setColorType(com.aspose.slides.ColorType.RGB);
+        para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // set IsBulletHardColor to true to use own bullet color
+        para.getParagraphFormat().getBullet().isBulletHardColor();
+        // Setting Bullet Height
+        para.getParagraphFormat().getBullet().setHeight(100);
+        // Adding Paragraph to text frame
+        txtFrm.getParagraphs().add(para);
+        // saving the presentation as a PPTX file
+        pres.save("Bullet.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        pres.dispose();
+    }
 ```
 
 ## Creating Picture Bullets
@@ -135,49 +123,45 @@ To create a picture bullet, go through these steps:
 
 This Java code shows you to create a picture bullet in a slide:
 
-```java
-Presentation pres = new Presentation();
-try {
-    // Accessing the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Instantiate the image for bullets
-    IPPImage picture;
-    IImage image = Images.fromFile("asp1.jpg");
+```javascript
+    var pres = new  com.aspose.slides.Presentation();
     try {
-        picture = pres.getImages().addImage(image);
+        // Accessing the first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Instantiate the image for bullets
+        var picture;
+        var image = com.aspose.slides.Images.fromFile("asp1.jpg");
+        try {
+            picture = pres.getImages().addImage(image);
+        } finally {
+            if (image != null) {
+                image.dispose();
+            }
+        }
+        // Adding and accessing Autoshape
+        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        // Accessing the text frame of created autoshape
+        var txtFrm = aShp.getTextFrame();
+        // Removing the default exisiting paragraph
+        txtFrm.getParagraphs().removeAt(0);
+        // Creating new paragraph
+        var para = new  com.aspose.slides.Paragraph();
+        para.setText("Welcome to Aspose.Slides");
+        // Setting paragraph bullet style and image
+        para.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Picture);
+        para.getParagraphFormat().getBullet().getPicture().setImage(picture);
+        // Setting Bullet Height
+        para.getParagraphFormat().getBullet().setHeight(100);
+        // Adding Paragraph to text frame
+        txtFrm.getParagraphs().add(para);
+        // Writing the presentation as a PPTX file
+        pres.save("Bullet.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
     } finally {
-        if (image != null) image.dispose();
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-
-    // Adding and accessing Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Accessing the text frame of created autoshape
-    ITextFrame txtFrm = aShp.getTextFrame();
-    // Removing the default exisiting paragraph
-    txtFrm.getParagraphs().removeAt(0);
-
-    // Creating new paragraph
-    Paragraph para = new Paragraph();
-    para.setText("Welcome to Aspose.Slides");
-
-    // Setting paragraph bullet style and image
-    para.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    para.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // Setting Bullet Height
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // Adding Paragraph to text frame
-    txtFrm.getParagraphs().add(para);
-
-    // Writing the presentation as a PPTX file
-    pres.save("Bullet.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## Creating Multilevel Bullets
@@ -198,77 +182,70 @@ To create a bullet list that contains items on different levels—additional lis
 
 This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in Java:
 
-```java
-// Instantiate a Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
-    // Accessing first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Adding and accessing Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-    
-    // Accessing the text frame of created autoshape
-    ITextFrame txtFrm = aShp.addTextFrame("");
-    
-    // Removing the default exisiting paragraph
-    txtFrm.getParagraphs().clear();
-    
-    // Creating first paragraph
-    Paragraph para1 = new Paragraph();
-    // Setting paragraph bullet style and symbol
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char) 8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Setting bullet level
-    para1.getParagraphFormat().setDepth ((short)0);
-    
-    // Creating second paragraph
-    Paragraph para2 = new Paragraph();
-    // Setting paragraph bullet style and symbol
-    para2.setText("Second level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Setting bullet level
-    para2.getParagraphFormat().setDepth ((short)1);
-    
-    // Creating third paragraph
-    Paragraph para3 = new Paragraph();
-    // Setting paragraph bullet style and symbol
-    para3.setText("Third level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char) 8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Setting bullet level
-    para3.getParagraphFormat().setDepth ((short)2);
-    
-    // Creating fourth paragraph
-    Paragraph para4 = new Paragraph();
-    // Setting paragraph bullet style and symbol
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType ((byte)FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    //Setting bullet level
-    para4.getParagraphFormat().setDepth ((short)3);
-    
-    // Adding Paragraph to text frame
-    txtFrm.getParagraphs().add(para1);
-    txtFrm.getParagraphs().add(para2);
-    txtFrm.getParagraphs().add(para3);
-    txtFrm.getParagraphs().add(para4);
-    
-    // saving the presentation as a PPTX file
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation class that represents a PPTX file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Accessing first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Adding and accessing Autoshape
+        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        // Accessing the text frame of created autoshape
+        var txtFrm = aShp.addTextFrame("");
+        // Removing the default exisiting paragraph
+        txtFrm.getParagraphs().clear();
+        // Creating first paragraph
+        var para1 = new  com.aspose.slides.Paragraph();
+        // Setting paragraph bullet style and symbol
+        para1.setText("Content");
+        para1.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para1.getParagraphFormat().getBullet().setChar(8226);
+        para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Setting bullet level
+        para1.getParagraphFormat().setDepth(0);
+        // Creating second paragraph
+        var para2 = new  com.aspose.slides.Paragraph();
+        // Setting paragraph bullet style and symbol
+        para2.setText("Second level");
+        para2.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para2.getParagraphFormat().getBullet().setChar('-');
+        para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Setting bullet level
+        para2.getParagraphFormat().setDepth(1);
+        // Creating third paragraph
+        var para3 = new  com.aspose.slides.Paragraph();
+        // Setting paragraph bullet style and symbol
+        para3.setText("Third level");
+        para3.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para3.getParagraphFormat().getBullet().setChar(8226);
+        para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Setting bullet level
+        para3.getParagraphFormat().setDepth(2);
+        // Creating fourth paragraph
+        var para4 = new  com.aspose.slides.Paragraph();
+        // Setting paragraph bullet style and symbol
+        para4.setText("Fourth Level");
+        para4.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Symbol);
+        para4.getParagraphFormat().getBullet().setChar('-');
+        para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        // Setting bullet level
+        para4.getParagraphFormat().setDepth(3);
+        // Adding Paragraph to text frame
+        txtFrm.getParagraphs().add(para1);
+        txtFrm.getParagraphs().add(para2);
+        txtFrm.getParagraphs().add(para3);
+        txtFrm.getParagraphs().add(para4);
+        // saving the presentation as a PPTX file
+        pres.save("MultilevelBullet.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## Create Custom Numbered List
@@ -287,47 +264,42 @@ Aspose.Slides for Java provides a simple API to manage paragraphs with custom nu
 
 This Java code shows you how to create a numbered list in a slide:
 
-```java
-// Instantiate a Presentation class that represents a PPTX file
-Presentation pres = new Presentation();
-try {
-    // Accessing first slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Adding and accessing Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Accessing the text frame of created autoshape
-    ITextFrame txtFrm = aShp.addTextFrame("");
-
-    // Removing the default exisiting paragraph
-    txtFrm.getParagraphs().clear();
-
-    // First list
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    txtFrm.getParagraphs().add(paragraph1);
-
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    txtFrm.getParagraphs().add(paragraph2);
-
-    // Second list
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 5");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)5);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    txtFrm.getParagraphs().add(paragraph5);
-
-    pres.save(resourcesOutputPath + "SetCustomBulletsNumber-slides.pptx.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation class that represents a PPTX file
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Accessing first slide
+        var slide = pres.getSlides().get_Item(0);
+        // Adding and accessing Autoshape
+        var aShp = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+        // Accessing the text frame of created autoshape
+        var txtFrm = aShp.addTextFrame("");
+        // Removing the default exisiting paragraph
+        txtFrm.getParagraphs().clear();
+        // First list
+        var paragraph1 = new  com.aspose.slides.Paragraph();
+        paragraph1.setText("bullet 2");
+        paragraph1.getParagraphFormat().setDepth(4);
+        paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(2);
+        paragraph1.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Numbered);
+        txtFrm.getParagraphs().add(paragraph1);
+        var paragraph2 = new  com.aspose.slides.Paragraph();
+        paragraph2.setText("bullet 3");
+        paragraph2.getParagraphFormat().setDepth(4);
+        paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(3);
+        paragraph2.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Numbered);
+        txtFrm.getParagraphs().add(paragraph2);
+        // Second list
+        var paragraph5 = new  com.aspose.slides.Paragraph();
+        paragraph5.setText("bullet 5");
+        paragraph5.getParagraphFormat().setDepth(4);
+        paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(5);
+        paragraph5.getParagraphFormat().getBullet().setType(com.aspose.slides.BulletType.Numbered);
+        txtFrm.getParagraphs().add(paragraph5);
+        pres.save(resourcesOutputPath + "SetCustomBulletsNumber-slides.pptx.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

@@ -27,53 +27,46 @@ This property returns or sets the superscript or subscript text (value from -100
 
 The implementation of the above steps is given below.
 
-```java
-// Instantiate a Presentation class that represents a PPTX
-Presentation pres = new Presentation();
-try {
-    // Get slide
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Create text box
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    ITextFrame textFrame = shape.getTextFrame();
-    textFrame.getParagraphs().clear();
-
-    // Create paragraph for superscript text
-    IParagraph superPar = new Paragraph();
-
-    // Create portion with usual text
-    IPortion portion1 = new Portion();
-    portion1.setText("SlideTitle");
-    superPar.getPortions().add(portion1);
-
-    // Create portion with superscript text
-    IPortion superPortion = new Portion();
-    superPortion.getPortionFormat().setEscapement(30);
-    superPortion.setText("TM");
-    superPar.getPortions().add(superPortion);
-
-    // Create paragraph for subscript text
-    IParagraph paragraph2 = new Paragraph();
-
-    // Create portion with usual text
-    IPortion portion2 = new Portion();
-    portion2.setText("a");
-    paragraph2.getPortions().add(portion2);
-
-    // Create portion with subscript text
-    IPortion subPortion = new Portion();
-    subPortion.getPortionFormat().setEscapement(-25);
-    subPortion.setText("i");
-    paragraph2.getPortions().add(subPortion);
-
-    // Add paragraphs to text box
-    textFrame.getParagraphs().add(superPar);
-    textFrame.getParagraphs().add(paragraph2);
-
-    pres.save("formatText.pptx",SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate a Presentation class that represents a PPTX
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get slide
+        var slide = pres.getSlides().get_Item(0);
+        // Create text box
+        var shape = slide.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
+        var textFrame = shape.getTextFrame();
+        textFrame.getParagraphs().clear();
+        // Create paragraph for superscript text
+        var superPar = new  com.aspose.slides.Paragraph();
+        // Create portion with usual text
+        var portion1 = new  com.aspose.slides.Portion();
+        portion1.setText("SlideTitle");
+        superPar.getPortions().add(portion1);
+        // Create portion with superscript text
+        var superPortion = new  com.aspose.slides.Portion();
+        superPortion.getPortionFormat().setEscapement(30);
+        superPortion.setText("TM");
+        superPar.getPortions().add(superPortion);
+        // Create paragraph for subscript text
+        var paragraph2 = new  com.aspose.slides.Paragraph();
+        // Create portion with usual text
+        var portion2 = new  com.aspose.slides.Portion();
+        portion2.setText("a");
+        paragraph2.getPortions().add(portion2);
+        // Create portion with subscript text
+        var subPortion = new  com.aspose.slides.Portion();
+        subPortion.getPortionFormat().setEscapement(-25);
+        subPortion.setText("i");
+        paragraph2.getPortions().add(subPortion);
+        // Add paragraphs to text box
+        textFrame.getParagraphs().add(superPar);
+        textFrame.getParagraphs().add(paragraph2);
+        pres.save("formatText.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 

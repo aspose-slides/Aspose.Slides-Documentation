@@ -20,28 +20,26 @@ Before working on a presentation, you may want to find out what format (PPT, PPT
 
 You can check a presentation's format without loading the presentation. See this Java code:
 
-```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-System.out.println(info.getLoadFormat()); // PPTX
-
-IPresentationInfo info2 = PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-System.out.println(info2.getLoadFormat()); // PPT
-
-IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-System.out.println(info3.getLoadFormat()); // ODP
+```javascript
+    var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
+    java.getStaticFieldValue("java.lang.System", "out").println(info.getLoadFormat());// PPTX
+    var info2 = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
+    java.getStaticFieldValue("java.lang.System", "out").println(info2.getLoadFormat());// PPT
+    var info3 = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
+    java.getStaticFieldValue("java.lang.System", "out").println(info3.getLoadFormat());// ODP
 ```
 
 ## **Get a Presentation Properties**
 
 This Java code shows you how to get a presentation’s properties (information about the presentation):
 
-```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-IDocumentProperties props = info.readDocumentProperties();
-System.out.println(props.getCreatedTime());
-System.out.println(props.getSubject());
-System.out.println(props.getTitle());
-// .. 
+```javascript
+    var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
+    var props = info.readDocumentProperties();
+    java.getStaticFieldValue("java.lang.System", "out").println(props.getCreatedTime());
+    java.getStaticFieldValue("java.lang.System", "out").println(props.getSubject());
+    java.getStaticFieldValue("java.lang.System", "out").println(props.getTitle());
+    // ..
 ```
 
 You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/documentproperties/#DocumentProperties--) class.
@@ -52,12 +50,11 @@ Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://r
 
 This Java code shows you how to edit a presentation's properties:
 
-```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-
-IDocumentProperties props = info.readDocumentProperties();
-props.setTitle("My title");
-info.updateDocumentProperties(props);
+```javascript
+    var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
+    var props = info.readDocumentProperties();
+    props.setTitle("My title");
+    info.updateDocumentProperties(props);
 ```
 
 ### **Useful Links**

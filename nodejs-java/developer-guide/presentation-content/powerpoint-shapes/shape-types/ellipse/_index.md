@@ -22,21 +22,21 @@ To add a simple ellipse to a selected slide of the presentation, please follow t
 
 In the example given below, we have added an ellipse to the first slide
 
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    // Add AutoShape of ellipse type
-    sld.getShapes().addAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
-    
-    // Write the PPTX file to disk
-    pres.save("EllipseShp1.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate Presentation class that represents the PPTX
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Add AutoShape of ellipse type
+        sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Ellipse, 50, 150, 150, 50);
+        // Write the PPTX file to disk
+        pres.save("EllipseShp1.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Create Formatted Ellipse**
@@ -53,28 +53,26 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 
 In the example given below, we have added a formatted ellipse to the first slide of the presentation.
 
-```java
-// Instantiate Presentation class that represents the PPTX
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Add AutoShape of ellipse type
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Ellipse, 50, 150, 150, 50);
-
-    // Apply some formatting to ellipse shape
-    shp.getFillFormat().setFillType(FillType.Solid);
-    shp.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.Chocolate));
-
-    // Apply some formatting to the line of Ellipse
-    shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shp.getLineFormat().setWidth(5);
-
-    // Write the PPTX file to disk
-    pres.save("EllipseShp1.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate Presentation class that represents the PPTX
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Add AutoShape of ellipse type
+        var shp = sld.getShapes().addAutoShape(com.aspose.slides.ShapeType.Ellipse, 50, 150, 150, 50);
+        // Apply some formatting to ellipse shape
+        shp.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        shp.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", com.aspose.slides.PresetColor.Chocolate));
+        // Apply some formatting to the line of Ellipse
+        shp.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
+        shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+        shp.getLineFormat().setWidth(5);
+        // Write the PPTX file to disk
+        pres.save("EllipseShp1.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```

@@ -16,33 +16,30 @@ Aspose.Slides support working with group shapes on slides. This feature helps de
 
 The example below adds a group shape to a slide.
 
-```java
-// Instantiate Presentation class
-Presentation pres = new Presentation();
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Accessing the shape collection of slides
-    IShapeCollection slideShapes = sld.getShapes();
-
-    // Adding a group shape to the slide
-    IGroupShape groupShape = slideShapes.addGroupShape();
-    
-    // Adding shapes inside Added group shape
-    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 300, 100, 100, 100);
-    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 100, 100);
-    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 300, 300, 100, 100);
-    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 500, 300, 100, 100);
-
-    // Adding group shape frame
-    groupShape.setFrame(new ShapeFrame(100, 300, 500, 40, NullableBool.False, NullableBool.False, 0));
-
-    // Write the PPTX file to disk
-    pres.save("GroupShape.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+```javascript
+    // Instantiate Presentation class
+    var pres = new  com.aspose.slides.Presentation();
+    try {
+        // Get the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Accessing the shape collection of slides
+        var slideShapes = sld.getShapes();
+        // Adding a group shape to the slide
+        var groupShape = slideShapes.addGroupShape();
+        // Adding shapes inside Added group shape
+        groupShape.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 300, 100, 100, 100);
+        groupShape.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 500, 100, 100, 100);
+        groupShape.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 300, 300, 100, 100);
+        groupShape.getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 500, 300, 100, 100);
+        // Adding group shape frame
+        groupShape.setFrame(new  com.aspose.slides.ShapeFrame(100, 300, 500, 40, com.aspose.slides.NullableBool.False, com.aspose.slides.NullableBool.False, 0));
+        // Write the PPTX file to disk
+        pres.save("GroupShape.pptx", com.aspose.slides.SaveFormat.Pptx);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 ```
 
 ## **Access AltText Property**
@@ -56,32 +53,28 @@ This topic shows simple steps, complete with code examples, for adding a group s
 
 The example below accesses alternative text of group shape.
 
-```java
-// Instantiate Presentation class that represents PPTX file
-Presentation pres = new Presentation("AltText.pptx");
-try {
-    // Get the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
-    
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        // Accessing the shape collection of slides
-        IShape shape = sld.getShapes().get_Item(i);
-    
-        if (shape instanceof GroupShape)
-        {
-            // Accessing the group shape.
-            IGroupShape grphShape = (IGroupShape)shape;
-            for (int j = 0; j < grphShape.getShapes().size(); j++)
-            {
-                IShape shape2 = grphShape.getShapes().get_Item(j);
-                
-                // Accessing the AltText property
-                System.out.println(shape2.getAlternativeText());
+```javascript
+    // Instantiate Presentation class that represents PPTX file
+    var pres = new  com.aspose.slides.Presentation("AltText.pptx");
+    try {
+        // Get the first slide
+        var sld = pres.getSlides().get_Item(0);
+        for (var i = 0; i < sld.getShapes().size(); i++) {
+            // Accessing the shape collection of slides
+            var shape = sld.getShapes().get_Item(i);
+            if (shape instanceof com.aspose.slides.GroupShape) {
+                // Accessing the group shape.
+                var grphShape = shape;
+                for (var j = 0; j < grphShape.getShapes().size(); j++) {
+                    var shape2 = grphShape.getShapes().get_Item(j);
+                    // Accessing the AltText property
+                    java.getStaticFieldValue("java.lang.System", "out").println(shape2.getAlternativeText());
+                }
             }
         }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```

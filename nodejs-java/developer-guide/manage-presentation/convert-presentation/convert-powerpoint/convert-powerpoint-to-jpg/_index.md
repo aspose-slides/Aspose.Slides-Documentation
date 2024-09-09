@@ -33,78 +33,84 @@ Here are the steps to convert PPT/PPTX to JPG:
 
 {{% /alert %}} 
 
-```java
-Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
-try {
-    for (ISlide sld : pres.getSlides()) {
-        // Creates a full scale image
-        IImage slideImage = sld.getImage(1f, 1f);
-
-        // Saves the image to disk in JPEG format
-        try {
-              slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+```javascript
+    var pres = new  com.aspose.slides.Presentation("PowerPoint-Presentation.pptx");
+    try {
+        for (var sld : pres.getSlides()) {
+            // Creates a full scale image
+            var slideImage = sld.getImage(1.0, 1.0);
+            // Saves the image to disk in JPEG format
+            try {
+                slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), com.aspose.slides.ImageFormat.Jpeg);
+            } finally {
+                if (slideImage != null) {
+                    slideImage.dispose();
+                }
+            }
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/java/com.aspose.slides/ISlide#getImage-float-float-) methods:
 
-```java
-Presentation pres = new Presentation("PowerPoint-Presentation.pptx");
-try {
-    // Defines dimensions
-    int desiredX = 1200;
-    int desiredY = 800;
-    // Gets scaled values of X and Y
-    float ScaleX = (float) (1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float) (1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-
-    for (ISlide sld : pres.getSlides())
-    {
-        // Creates a full scale image
-        IImage slideImage = sld.getImage(ScaleX, ScaleY);
-
-        // Saves the image to disk in JPEG format
-        try {
-              slideImage.save(String.format("Slide_%d.jpg", sld.getSlideNumber()), ImageFormat.Jpeg);
-        } finally {
-             if (slideImage != null) slideImage.dispose();
+```javascript
+    var pres = new  com.aspose.slides.Presentation("PowerPoint-Presentation.pptx");
+    try {
+        // Defines dimensions
+        var desiredX = 1200;
+        var desiredY = 800;
+        // Gets scaled values of X and Y
+        var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
+        var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
+        for (var sld : pres.getSlides()) {
+            // Creates a full scale image
+            var slideImage = sld.getImage(ScaleX, ScaleY);
+            // Saves the image to disk in JPEG format
+            try {
+                slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), com.aspose.slides.ImageFormat.Jpeg);
+            } finally {
+                if (slideImage != null) {
+                    slideImage.dispose();
+                }
+            }
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
         }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 ## **Render Comments when saving Presentation into Image**
 Aspose.Slides for Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Java code demonstrates the operation:
 
-```java
-Presentation pres = new Presentation("presentation.pptx");
-try {
-    NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-    notesOptions.setNotesPosition(NotesPositions.BottomTruncated);
-
-    IRenderingOptions opts = new RenderingOptions();
-    opts.setSlidesLayoutOptions(notesOptions);
-
-    for (ISlide sld : pres.getSlides()) {
-        IImage slideImage = sld.getImage(opts, new Dimension(740, 960));
-        try {
-             slideImage.save(String.format("Slide_%d.png", sld.getSlideNumber()));
-        } finally {
-                     if (slideImage != null) slideImage.dispose();
+```javascript
+    var pres = new  com.aspose.slides.Presentation("presentation.pptx");
+    try {
+        var notesOptions = new  com.aspose.slides.NotesCommentsLayoutingOptions();
+        notesOptions.setNotesPosition(com.aspose.slides.NotesPositions.BottomTruncated);
+        var opts = new  com.aspose.slides.RenderingOptions();
+        opts.setSlidesLayoutOptions(notesOptions);
+        for (var sld : pres.getSlides()) {
+            var slideImage = sld.getImage(opts, java.newInstanceSync("java.awt.Dimension", 740, 960));
+            try {
+                slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.png", sld.getSlideNumber()));
+            } finally {
+                if (slideImage != null) {
+                    slideImage.dispose();
                 }
+            }
+        }
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
     }
-} finally {
-    if (pres != null) pres.dispose();
-}
 ```
 
 {{% alert title="Tip" color="primary" %}}
