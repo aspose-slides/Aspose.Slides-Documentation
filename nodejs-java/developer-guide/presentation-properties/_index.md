@@ -53,20 +53,20 @@ These properties as exposed by [IDocumentProperties](https://reference.aspose.co
         // Create a reference to IDocumentProperties object associated with Presentation
         var dp = pres.getDocumentProperties();
         // Display the built-in properties
-        java.getStaticFieldValue("java.lang.System", "out").println("Category : " + dp.getCategory());
-        java.getStaticFieldValue("java.lang.System", "out").println("Current Status : " + dp.getContentStatus());
-        java.getStaticFieldValue("java.lang.System", "out").println("Creation Date : " + dp.getCreatedTime());
-        java.getStaticFieldValue("java.lang.System", "out").println("Author : " + dp.getAuthor());
-        java.getStaticFieldValue("java.lang.System", "out").println("Description : " + dp.getComments());
-        java.getStaticFieldValue("java.lang.System", "out").println("KeyWords : " + dp.getKeywords());
-        java.getStaticFieldValue("java.lang.System", "out").println("Last Modified By : " + dp.getLastSavedBy());
-        java.getStaticFieldValue("java.lang.System", "out").println("Supervisor : " + dp.getManager());
-        java.getStaticFieldValue("java.lang.System", "out").println("Modified Date : " + dp.getLastSavedTime());
-        java.getStaticFieldValue("java.lang.System", "out").println("Presentation Format : " + dp.getPresentationFormat());
-        java.getStaticFieldValue("java.lang.System", "out").println("Last Print Date : " + dp.getLastPrinted());
-        java.getStaticFieldValue("java.lang.System", "out").println("Is Shared between producers : " + dp.getSharedDoc());
-        java.getStaticFieldValue("java.lang.System", "out").println("Subject : " + dp.getSubject());
-        java.getStaticFieldValue("java.lang.System", "out").println("Title : " + dp.getTitle());
+        console.log("Category : " + dp.getCategory());
+        console.log("Current Status : " + dp.getContentStatus());
+        console.log("Creation Date : " + dp.getCreatedTime());
+        console.log("Author : " + dp.getAuthor());
+        console.log("Description : " + dp.getComments());
+        console.log("KeyWords : " + dp.getKeywords());
+        console.log("Last Modified By : " + dp.getLastSavedBy());
+        console.log("Supervisor : " + dp.getManager());
+        console.log("Modified Date : " + dp.getLastSavedTime());
+        console.log("Presentation Format : " + dp.getPresentationFormat());
+        console.log("Last Print Date : " + dp.getLastPrinted());
+        console.log("Is Shared between producers : " + dp.getSharedDoc());
+        console.log("Subject : " + dp.getSubject());
+        console.log("Title : " + dp.getTitle());
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -143,8 +143,8 @@ Aspose.Slides for Java also allows developers to access the values of custom pro
         // Access and modify custom properties
         for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
             // Display names and values of custom properties
-            java.getStaticFieldValue("java.lang.System", "out").println("Custom Property Name : " + dp.getCustomPropertyName(i));
-            java.getStaticFieldValue("java.lang.System", "out").println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
+            console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
+            console.log("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
             // Modify values of custom properties
             dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
         }
@@ -241,8 +241,8 @@ Aspose.Slides for Java provides the facility to check if a presentation is modif
     var props = info.readDocumentProperties();
     var app = props.getNameOfApplication();
     var ver = props.getAppVersion();
-    java.getStaticFieldValue("java.lang.System", "out").println("Application Name: " + app);
-    java.getStaticFieldValue("java.lang.System", "out").println("Application Version: " + ver);
+    console.log("Application Name: " + app);
+    console.log("Application Version: " + ver);
 ```
 
 ## **Set Proofing Language**
@@ -286,7 +286,7 @@ This Java code shows you how to set the default language for an entire PowerPoin
         var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
         shp.getTextFrame().setText("New Text");
         // Checks the first portion language
-        java.getStaticFieldValue("java.lang.System", "out").println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
+        console.log(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
     } finally {
         if (pres != null) {
             pres.dispose();

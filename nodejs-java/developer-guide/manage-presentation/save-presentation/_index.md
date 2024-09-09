@@ -151,7 +151,7 @@ The following code snippets below show how to use [IProgressCallback](https://re
         public void reporting(double progressValue) {
             // Use progress percentage value here
             var progress = java.callStaticMethodSync("java.lang.Double", "valueOf", progressValue).intValue();
-            java.getStaticFieldValue("java.lang.System", "out").println(progress + "% file converted");
+            console.log(progress + "% file converted");
         }
     }
 ```

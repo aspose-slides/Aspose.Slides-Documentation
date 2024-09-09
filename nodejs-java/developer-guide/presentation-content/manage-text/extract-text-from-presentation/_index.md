@@ -29,12 +29,12 @@ Upon execution, the Slide method scans the entire text from the slide passed as
                     // Loop through portions in the current IParagraph
                     for (var port : para.getPortions()) {
                         // Display text in the current portion
-                        java.getStaticFieldValue("java.lang.System", "out").println(port.getText());
+                        console.log(port.getText());
                         // Display font height of the text
-                        java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getFontHeight());
+                        console.log(port.getPortionFormat().getFontHeight());
                         // Display font name of the text
                         if (port.getPortionFormat().getLatinFont() != null) {
-                            java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getLatinFont().getFontName());
+                            console.log(port.getPortionFormat().getLatinFont().getFontName());
                         }
                     }
                 }
@@ -66,12 +66,12 @@ To scan the text from the whole presentation, use the
                 // Loop through portions in the current IParagraph
                 for (var port : para.getPortions()) {
                     // Display text in the current portion
-                    java.getStaticFieldValue("java.lang.System", "out").println(port.getText());
+                    console.log(port.getText());
                     // Display font height of the text
-                    java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getFontHeight());
+                    console.log(port.getPortionFormat().getFontHeight());
                     // Display font name of the text
                     if (port.getPortionFormat().getLatinFont() != null) {
-                        java.getStaticFieldValue("java.lang.System", "out").println(port.getPortionFormat().getLatinFont().getFontName());
+                        console.log(port.getPortionFormat().getLatinFont().getFontName());
                     }
                 }
             }
@@ -106,10 +106,10 @@ The new API can be used like this:
 
 ```javascript
     var text1 = com.aspose.slides.PresentationFactory.getInstance().getPresentationText("presentation.pptx", com.aspose.slides.TextExtractionArrangingMode.Unarranged);
-    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getText());
-    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getLayoutText());
-    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getMasterText());
-    java.getStaticFieldValue("java.lang.System", "out").println(text1.getSlidesText()[0].getNotesText());
+    console.log(text1.getSlidesText()[0].getText());
+    console.log(text1.getSlidesText()[0].getLayoutText());
+    console.log(text1.getSlidesText()[0].getMasterText());
+    console.log(text1.getSlidesText()[0].getNotesText());
 ```
 
 

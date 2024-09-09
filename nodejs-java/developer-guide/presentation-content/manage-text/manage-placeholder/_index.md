@@ -64,7 +64,7 @@ This Java code shows you how to set the prompt text in a placeholder:
                     text = "Add Subtitle";
                 }
                 shape.getTextFrame().setText(text);
-                java.getStaticFieldValue("java.lang.System", "out").println("Placeholder with text: " + text);
+                console.log("Placeholder with text: " + text);
             }
         }
         pres.save("Placeholders_PromptText.pptx", com.aspose.slides.SaveFormat.Pptx);
@@ -89,7 +89,7 @@ This Java code shows you how to set the transparency for a picture background (i
         if (operationCollection.get_Item(i) instanceof com.aspose.slides.AlphaModulateFixed) {
             var alphaModulate = operationCollection.get_Item(i);
             var currentValue = 100 - alphaModulate.getAmount();
-            java.getStaticFieldValue("java.lang.System", "out").println("Current transparency value: " + currentValue);
+            console.log("Current transparency value: " + currentValue);
             var alphaValue = 40;
             alphaModulate.setAmount(100 - alphaValue);
         }

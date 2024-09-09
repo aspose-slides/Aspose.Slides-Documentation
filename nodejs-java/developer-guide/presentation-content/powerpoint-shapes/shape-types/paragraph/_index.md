@@ -29,7 +29,7 @@ Using [**getRect()**](https://reference.aspose.com/slides/java/com.aspose.slides
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var textFrame = shape.getTextFrame();
         var rect = textFrame.getParagraphs().get_Item(0).getRect();
-        java.getStaticFieldValue("java.lang.System", "out").println((((((("X: " + rect.x) + " Y: ") + rect.y) + " Width: ") + rect.width) + " Height: ") + rect.height);
+        console.log((((((("X: " + rect.x) + " Y: ") + rect.y) + " Width: ") + rect.width) + " Height: ") + rect.height);
     } finally {
         if (pres != null) {
             pres.dispose();

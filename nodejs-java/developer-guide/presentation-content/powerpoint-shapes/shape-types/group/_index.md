@@ -68,7 +68,7 @@ The example below accesses alternative text of group shape.
                 for (var j = 0; j < grphShape.getShapes().size(); j++) {
                     var shape2 = grphShape.getShapes().get_Item(j);
                     // Accessing the AltText property
-                    java.getStaticFieldValue("java.lang.System", "out").println(shape2.getAlternativeText());
+                    console.log(shape2.getAlternativeText());
                 }
             }
         }

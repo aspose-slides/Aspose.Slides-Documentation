@@ -130,7 +130,7 @@ Aspose.Slides allows you to get the transparency of an image. This Java code dem
         if (effect instanceof com.aspose.slides.IAlphaModulateFixed) {
             var alphaModulateFixed = effect;
             var transparencyValue = 100 - alphaModulateFixed.getAmount();
-            java.getStaticFieldValue("java.lang.System", "out").println("Picture transparency: " + transparencyValue);
+            console.log("Picture transparency: " + transparencyValue);
         }
     }
 ```

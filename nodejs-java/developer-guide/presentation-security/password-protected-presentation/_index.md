@@ -197,7 +197,7 @@ This Java code shows you how to examine a presentation to see if it is password 
 
 ```javascript
     var presentationInfo = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");
-    java.getStaticFieldValue("java.lang.System", "out").println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
+    console.log("The presentation is password protected: " + presentationInfo.isPasswordProtected());
 ```
 
 ## **Checking whether a Presentation is Encrypted**

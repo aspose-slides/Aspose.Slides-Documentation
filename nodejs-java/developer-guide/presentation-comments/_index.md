@@ -67,7 +67,7 @@ This Java code shows you how to access an existing comment on a slide in a Power
             var author = commentAuthor;
             for (var comment1 : author.getComments()) {
                 var comment = comment1;
-                java.getStaticFieldValue("java.lang.System", "out").println(((((((("ISlide :" + comment.getSlide().getSlideNumber()) + " has comment: ") + comment.getText()) + " with Author: ") + comment.getAuthor().getName()) + " posted on time :") + comment.getCreatedTime()) + "\n");
+                console.log(((((((("ISlide :" + comment.getSlide().getSlideNumber()) + " has comment: ") + comment.getText()) + " with Author: ") + comment.getAuthor().getName()) + " posted on time :") + comment.getCreatedTime()) + "\n");
             }
         }
     } finally {
@@ -112,8 +112,8 @@ This Java code shows you how to add comments and get replies to them:
                 java.getStaticFieldValue("java.lang.System", "out").print("\t");
                 comment = comment.getParentComment();
             }
-            java.getStaticFieldValue("java.lang.System", "out").println((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
-            java.getStaticFieldValue("java.lang.System", "out").println();
+            console.log((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
+            console.log();
         }
         pres.save("parent_comment.pptx", com.aspose.slides.SaveFormat.Pptx);
         // Removes comment1 and all replies to it

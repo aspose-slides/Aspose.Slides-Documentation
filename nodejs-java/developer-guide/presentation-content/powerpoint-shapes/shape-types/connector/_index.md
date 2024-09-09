@@ -336,7 +336,7 @@ This Java code demonstrates an operation in which we calculated the angle for a 
                 var ashp = shape;
                 dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
             }
-            java.getStaticFieldValue("java.lang.System", "out").println(dir);
+            console.log(dir);
         }
     } finally {
         if (pres != null) {

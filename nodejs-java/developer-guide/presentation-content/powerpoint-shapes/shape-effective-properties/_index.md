@@ -39,10 +39,10 @@ This sample code sample shows you how to get effective properties for the camera
     var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
-        java.getStaticFieldValue("java.lang.System", "out").println("= Effective camera properties =");
-        java.getStaticFieldValue("java.lang.System", "out").println("Type: " + threeDEffectiveData.getCamera().getCameraType());
-        java.getStaticFieldValue("java.lang.System", "out").println("Field of view: " + threeDEffectiveData.getCamera().getFieldOfViewAngle());
-        java.getStaticFieldValue("java.lang.System", "out").println("Zoom: " + threeDEffectiveData.getCamera().getZoom());
+        console.log("= Effective camera properties =");
+        console.log("Type: " + threeDEffectiveData.getCamera().getCameraType());
+        console.log("Field of view: " + threeDEffectiveData.getCamera().getFieldOfViewAngle());
+        console.log("Zoom: " + threeDEffectiveData.getCamera().getZoom());
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -59,9 +59,9 @@ This sample code sample shows you how to get effective properties of Light Rig:
     var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
-        java.getStaticFieldValue("java.lang.System", "out").println("= Effective light rig properties =");
-        java.getStaticFieldValue("java.lang.System", "out").println("Type: " + threeDEffectiveData.getLightRig().getLightType());
-        java.getStaticFieldValue("java.lang.System", "out").println("Direction: " + threeDEffectiveData.getLightRig().getDirection());
+        console.log("= Effective light rig properties =");
+        console.log("Type: " + threeDEffectiveData.getLightRig().getLightType());
+        console.log("Direction: " + threeDEffectiveData.getLightRig().getDirection());
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -78,10 +78,10 @@ This sample code sample shows you how to get effective properties for the Bevel 
     var pres = new  com.aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
-        java.getStaticFieldValue("java.lang.System", "out").println("= Effective shape's top face relief properties =");
-        java.getStaticFieldValue("java.lang.System", "out").println("Type: " + threeDEffectiveData.getBevelTop().getBevelType());
-        java.getStaticFieldValue("java.lang.System", "out").println("Width: " + threeDEffectiveData.getBevelTop().getWidth());
-        java.getStaticFieldValue("java.lang.System", "out").println("Height: " + threeDEffectiveData.getBevelTop().getHeight());
+        console.log("= Effective shape's top face relief properties =");
+        console.log("Type: " + threeDEffectiveData.getBevelTop().getBevelType());
+        console.log("Width: " + threeDEffectiveData.getBevelTop().getWidth());
+        console.log("Height: " + threeDEffectiveData.getBevelTop().getHeight());
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -99,14 +99,14 @@ This sample code shows you how to get effective text frame formatting properties
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
-        java.getStaticFieldValue("java.lang.System", "out").println("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-        java.getStaticFieldValue("java.lang.System", "out").println("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-        java.getStaticFieldValue("java.lang.System", "out").println("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
-        java.getStaticFieldValue("java.lang.System", "out").println("Margins");
-        java.getStaticFieldValue("java.lang.System", "out").println("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-        java.getStaticFieldValue("java.lang.System", "out").println("   Top: " + effectiveTextFrameFormat.getMarginTop());
-        java.getStaticFieldValue("java.lang.System", "out").println("   Right: " + effectiveTextFrameFormat.getMarginRight());
-        java.getStaticFieldValue("java.lang.System", "out").println("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
+        console.log("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
+        console.log("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
+        console.log("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
+        console.log("Margins");
+        console.log("   Left: " + effectiveTextFrameFormat.getMarginLeft());
+        console.log("   Top: " + effectiveTextFrameFormat.getMarginTop());
+        console.log("   Right: " + effectiveTextFrameFormat.getMarginRight());
+        console.log("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -126,11 +126,11 @@ This sample code sample shows you how to get effective text style properties:
         var effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
         for (var i = 0; i <= 8; i++) {
             var effectiveStyleLevel = effectiveTextStyle.getLevel(i);
-            java.getStaticFieldValue("java.lang.System", "out").println(("= Effective paragraph formatting for style level #" + i) + " =");
-            java.getStaticFieldValue("java.lang.System", "out").println("Depth: " + effectiveStyleLevel.getDepth());
-            java.getStaticFieldValue("java.lang.System", "out").println("Indent: " + effectiveStyleLevel.getIndent());
-            java.getStaticFieldValue("java.lang.System", "out").println("Alignment: " + effectiveStyleLevel.getAlignment());
-            java.getStaticFieldValue("java.lang.System", "out").println("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+            console.log(("= Effective paragraph formatting for style level #" + i) + " =");
+            console.log("Depth: " + effectiveStyleLevel.getDepth());
+            console.log("Indent: " + effectiveStyleLevel.getIndent());
+            console.log("Alignment: " + effectiveStyleLevel.getAlignment());
+            console.log("Font alignment: " + effectiveStyleLevel.getFontAlignment());
         }
     } finally {
         if (pres != null) {
@@ -152,25 +152,25 @@ Using Aspose.Slides for Java, you can get effective properties of Font Height. H
         var portion1 = new  com.aspose.slides.Portion(" and second portion.");
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion0);
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion1);
-        java.getStaticFieldValue("java.lang.System", "out").println("Effective font height just after creation:");
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+        console.log("Effective font height just after creation:");
+        console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
+        console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
         pres.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-        java.getStaticFieldValue("java.lang.System", "out").println("Effective font height after setting entire presentation default font height:");
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+        console.log("Effective font height after setting entire presentation default font height:");
+        console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
+        console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
         newShape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-        java.getStaticFieldValue("java.lang.System", "out").println("Effective font height after setting paragraph default font height:");
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+        console.log("Effective font height after setting paragraph default font height:");
+        console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
+        console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setFontHeight(55);
-        java.getStaticFieldValue("java.lang.System", "out").println("Effective font height after setting portion #0 font height:");
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+        console.log("Effective font height after setting portion #0 font height:");
+        console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
+        console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(1).getPortionFormat().setFontHeight(18);
-        java.getStaticFieldValue("java.lang.System", "out").println("Effective font height after setting portion #1 font height:");
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
-        java.getStaticFieldValue("java.lang.System", "out").println("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
+        console.log("Effective font height after setting portion #1 font height:");
+        console.log("Portion #0: " + portion0.getPortionFormat().getEffective().getFontHeight());
+        console.log("Portion #1: " + portion1.getPortionFormat().getEffective().getFontHeight());
         pres.save("SetLocalFontHeightValues.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {

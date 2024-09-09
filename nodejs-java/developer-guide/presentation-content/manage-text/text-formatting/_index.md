@@ -206,7 +206,7 @@ The implementation of the above steps is given below.
         var effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
         var outerShadowEffect = effects.getOuterShadowEffect();
         var shadowColor = outerShadowEffect.getShadowColor().getColor();
-        java.getStaticFieldValue("java.lang.System", "out").println((shadowColor.toString() + " - transparency is: ") + ((shadowColor.getAlpha() / 255.0) * 100));
+        console.log((shadowColor.toString() + " - transparency is: ") + ((shadowColor.getAlpha() / 255.0) * 100));
         // set transparency to zero percent
         outerShadowEffect.getShadowColor().setColor(java.newInstanceSync("java.awt.Color", shadowColor.getRed(), shadowColor.getGreen(), shadowColor.getBlue(), 255));
         pres.save("transparency-2.pptx", com.aspose.slides.SaveFormat.Pptx);

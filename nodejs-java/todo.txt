@@ -1,0 +1,4 @@
+foreach
+java.getStaticFieldValue("java.lang.System", "out").printlnSync(
+java.callStaticMethodSync("pres",
+catch (java.io.IOException e)

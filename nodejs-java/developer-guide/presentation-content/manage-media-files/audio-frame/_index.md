@@ -156,7 +156,7 @@ This code in Java shows you how to extract the audio used in a slide:
         var transition = slide.getSlideShowTransition();
         // Extracts the sound in byte array
         var audio = transition.getSound().getBinaryData();
-        java.getStaticFieldValue("java.lang.System", "out").println("Length: " + audio.length);
+        console.log("Length: " + audio.length);
     } finally {
         if (pres != null) {
             pres.dispose();

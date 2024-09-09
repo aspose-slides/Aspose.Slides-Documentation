@@ -48,7 +48,7 @@ The following code will be used to access the SmartArt shapes added in presentat
             if (shape instanceof com.aspose.slides.ISmartArt) {
                 // Typecast shape to SmartArtEx
                 var smart = shape;
-                java.getStaticFieldValue("java.lang.System", "out").println("Shape Name:" + smart.getName());
+                console.log("Shape Name:" + smart.getName());
             }
         }
     } finally {
@@ -78,7 +78,7 @@ The following sample code will help to access the [SmartArt](https://reference.a
                 var smart = shape;
                 // Checking SmartArt Layout
                 if (smart.getLayout() == com.aspose.slides.SmartArtLayoutType.BasicBlockList) {
-                    java.getStaticFieldValue("java.lang.System", "out").println("Do some thing here....");
+                    console.log("Do some thing here....");
                 }
             }
         }

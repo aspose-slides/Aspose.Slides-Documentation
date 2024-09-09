@@ -37,7 +37,7 @@ You can determine the resulting color's effective value this way:
 ```javascript
     var fillEffective = shape.getFillFormat().getEffective();
     var effectiveColor = fillEffective.getSolidFillColor();
-    java.getStaticFieldValue("java.lang.System", "out").println(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
+    console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
 ```
 
 To further demonstrate the color change operation, we create another element and assign the accent color (from the initial operation) to it. Then we change the color in the theme:
@@ -153,7 +153,7 @@ For example, after you save a presentation in the PowerPoint app, you can run th
     var pres = new  com.aspose.slides.Presentation("pres.pptx");
     try {
         var numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
-        java.getStaticFieldValue("java.lang.System", "out").println("Number of background fill styles for theme is " + numberOfBackgroundFills);
+        console.log("Number of background fill styles for theme is " + numberOfBackgroundFills);
     } finally {
         if (pres != null) {
             pres.dispose();

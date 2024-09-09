@@ -21,7 +21,7 @@ This Java code shows you how to open a presentation and also find out the number
     var pres = new  com.aspose.slides.Presentation("Presentation.pptx");
     try {
         // Prints the total number of slides present in the presentation
-        java.getStaticFieldValue("java.lang.System", "out").println(pres.getSlides().size());
+        console.log(pres.getSlides().size());
     } finally {
         if (pres != null) {
             pres.dispose();

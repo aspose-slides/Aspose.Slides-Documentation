@@ -277,9 +277,9 @@ This Java code shows you how to lock the aspect ratio for a table:
     var pres = new  com.aspose.slides.Presentation("pres.pptx");
     try {
         var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-        java.getStaticFieldValue("java.lang.System", "out").println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
+        console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
         table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// invert
-        java.getStaticFieldValue("java.lang.System", "out").println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
+        console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
         pres.save("pres-out.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {

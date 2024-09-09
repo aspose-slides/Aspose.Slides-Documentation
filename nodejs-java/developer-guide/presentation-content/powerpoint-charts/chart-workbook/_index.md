@@ -73,7 +73,7 @@ This Java code demonstrates an operation where the [IChartDataWorkbook.Worksheet
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Pie, 50, 50, 400, 500);
         var wb = chart.getChartData().getChartDataWorkbook();
         for (var i = 0; i < wb.getWorksheets().size(); i++) {
-            java.getStaticFieldValue("java.lang.System", "out").println(wb.getWorksheets().get_Item(i).getName());
+            console.log(wb.getWorksheets().get_Item(i).getName());
         }
     } finally {
         if (pres != null) {

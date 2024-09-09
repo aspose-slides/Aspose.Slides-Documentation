@@ -18,7 +18,7 @@ Two slides are equal if all shapes, styles, texts, animation and other settings.
             for (var i = 0; i < presentation1.getMasters().size(); i++) {
                 for (var j = 0; j < presentation2.getMasters().size(); j++) {
                     if (presentation1.getMasters().get_Item(i).equals(presentation2.getMasters().get_Item(j))) {
-                        java.getStaticFieldValue("java.lang.System", "out").println(java.callStaticMethodSync("java.lang.String", "format", "SomePresentation1 MasterSlide#%d is equal to SomePresentation2 MasterSlide#%d", i, j));
+                        console.log(java.callStaticMethodSync("java.lang.String", "format", "SomePresentation1 MasterSlide#%d is equal to SomePresentation2 MasterSlide#%d", i, j));
                     }
                 }
             }

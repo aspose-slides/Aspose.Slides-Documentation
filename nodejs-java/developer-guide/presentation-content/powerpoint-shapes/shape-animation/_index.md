@@ -176,7 +176,7 @@ This Java code shows you how to get the all effects applied to a specific shape:
         // Gets all animation effects applied to the shape.
         var shapeEffects = sequence.getEffectsByShape(shape);
         if (shapeEffects.length > 0) {
-            java.getStaticFieldValue("java.lang.System", "out").println(((("The shape " + shape.getName()) + " has ") + shapeEffects.length) + " animation effects.");
+            console.log(((("The shape " + shape.getName()) + " has ") + shapeEffects.length) + " animation effects.");
         }
     } finally {
         if (pres != null) {

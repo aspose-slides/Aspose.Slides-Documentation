@@ -212,7 +212,7 @@ This Java shows you how to set the file type for an embedded OLE object:
     try {
         var slide = pres.getSlides().get_Item(0);
         var oleObjectFrame = slide.getShapes().get_Item(0);
-        java.getStaticFieldValue("java.lang.System", "out").println("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
+        console.log("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
         oleObjectFrame.setEmbeddedData(new  com.aspose.slides.OleEmbeddedDataInfo(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "embedOle.zip")), "zip"));
         pres.save("embeddedChanged.pptx", com.aspose.slides.SaveFormat.Pptx);
     } catch (e) {

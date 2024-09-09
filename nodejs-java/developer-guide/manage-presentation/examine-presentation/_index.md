@@ -22,11 +22,11 @@ You can check a presentation's format without loading the presentation. See this
 
 ```javascript
     var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-    java.getStaticFieldValue("java.lang.System", "out").println(info.getLoadFormat());// PPTX
+    console.log(info.getLoadFormat());// PPTX
     var info2 = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-    java.getStaticFieldValue("java.lang.System", "out").println(info2.getLoadFormat());// PPT
+    console.log(info2.getLoadFormat());// PPT
     var info3 = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-    java.getStaticFieldValue("java.lang.System", "out").println(info3.getLoadFormat());// ODP
+    console.log(info3.getLoadFormat());// ODP
 ```
 
 ## **Get a Presentation Properties**
@@ -36,9 +36,9 @@ This Java code shows you how to get a presentation’s properties (information a
 ```javascript
     var info = com.aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
     var props = info.readDocumentProperties();
-    java.getStaticFieldValue("java.lang.System", "out").println(props.getCreatedTime());
-    java.getStaticFieldValue("java.lang.System", "out").println(props.getSubject());
-    java.getStaticFieldValue("java.lang.System", "out").println(props.getTitle());
+    console.log(props.getCreatedTime());
+    console.log(props.getSubject());
+    console.log(props.getTitle());
     // ..
 ```
 

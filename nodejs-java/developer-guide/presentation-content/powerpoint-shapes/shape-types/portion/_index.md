@@ -18,7 +18,7 @@ url: /java/portion/
         for (var paragraph : textFrame.getParagraphs()) {
             for (var portion : paragraph.getPortions()) {
                 var point = portion.getCoordinates();
-                java.getStaticFieldValue("java.lang.System", "out").println((("X: " + point.x) + " Y: ") + point.y);
+                console.log((("X: " + point.x) + " Y: ") + point.y);
             }
         }
     } finally {

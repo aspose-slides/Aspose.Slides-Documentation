@@ -17,7 +17,7 @@ Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose
         for (var smartArtNode : smartArtNodes) {
             for (var nodeShape : smartArtNode.getShapes()) {
                 if (nodeShape.getTextFrame() != null) {
-                    java.getStaticFieldValue("java.lang.System", "out").println(nodeShape.getTextFrame().getText());
+                    console.log(nodeShape.getTextFrame().getText());
                 }
             }
         }

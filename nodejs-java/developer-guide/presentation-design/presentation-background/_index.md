@@ -180,9 +180,9 @@ This Java code shows you how to get a slide's effective background value:
     try {
         var effBackground = pres.getSlides().get_Item(0).getBackground().getEffective();
         if (effBackground.getFillFormat().getFillType() == com.aspose.slides.FillType.Solid) {
-            java.getStaticFieldValue("java.lang.System", "out").println("Fill color: " + effBackground.getFillFormat().getSolidFillColor());
+            console.log("Fill color: " + effBackground.getFillFormat().getSolidFillColor());
         } else {
-            java.getStaticFieldValue("java.lang.System", "out").println("Fill type: " + effBackground.getFillFormat().getFillType());
+            console.log("Fill type: " + effBackground.getFillFormat().getFillType());
         }
     } finally {
         if (pres != null) {

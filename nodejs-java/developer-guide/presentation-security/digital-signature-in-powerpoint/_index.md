@@ -52,16 +52,16 @@ Now its possible to check if the presentation was digitally signed and has not 
     try {
         if (pres.getDigitalSignatures().size() > 0) {
             var allSignaturesAreValid = true;
-            java.getStaticFieldValue("java.lang.System", "out").println("Signatures used to sign the presentation: ");
+            console.log("Signatures used to sign the presentation: ");
             // Check if all digital signatures are valid
             for (var signature : pres.getDigitalSignatures()) {
-                java.getStaticFieldValue("java.lang.System", "out").println((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
+                console.log((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
                 allSignaturesAreValid &= signature.isValid();
             }
             if (allSignaturesAreValid) {
-                java.getStaticFieldValue("java.lang.System", "out").println("Presentation is genuine, all signatures are valid.");
+                console.log("Presentation is genuine, all signatures are valid.");
             } else {
-                java.getStaticFieldValue("java.lang.System", "out").println("Presentation has been modified since signing.");
+                console.log("Presentation has been modified since signing.");
             }
         }
     } finally {

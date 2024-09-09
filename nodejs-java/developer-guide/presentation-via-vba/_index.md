@@ -104,8 +104,8 @@ This Java code shows you how to extract VBA macros from a presentation containin
         // Checks whether the Presentation contains a VBA Project
         if (pres.getVbaProject() != null) {
             for (var module : pres.getVbaProject().getModules()) {
-                java.getStaticFieldValue("java.lang.System", "out").println(module.getName());
-                java.getStaticFieldValue("java.lang.System", "out").println(module.getSourceCode());
+                console.log(module.getName());
+                console.log(module.getSourceCode());
             }
         }
     } finally {

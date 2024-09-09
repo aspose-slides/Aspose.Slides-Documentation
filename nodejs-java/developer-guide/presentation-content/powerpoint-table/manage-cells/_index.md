@@ -24,7 +24,7 @@ This Java code shows you how to identify merged table cells in a presentation:
             for (var j = 0; j < table.getColumns().size(); j++) {
                 var currentCell = table.getRows().get_Item(i).get_Item(j);
                 if (currentCell.isMergedCell()) {
-                    java.getStaticFieldValue("java.lang.System", "out").println(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
+                    console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
                 }
             }
         }

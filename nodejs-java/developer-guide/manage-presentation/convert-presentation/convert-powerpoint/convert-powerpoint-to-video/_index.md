@@ -200,7 +200,7 @@ To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/
         var animationsGenerator = new  com.aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
             animationsGenerator.setNewAnimation(animationPlayer -> {
-                java.getStaticFieldValue("java.lang.System", "out").println(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
+                console.log(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
                 animationPlayer.setTimePosition(0);// initial animation state
                 try {
                     // initial animation state bitmap
