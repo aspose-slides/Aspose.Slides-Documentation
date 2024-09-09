@@ -58,14 +58,14 @@ This Java code shows you how to remove the borders from table cells:
         // Adds table shape to slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
-        for (var row : tbl.getRows()) {
-            for (var cell : row) {
+        tbl.getRows().forEach(function(row) {
+            row.forEach(function(cell) {
                 cell.getCellFormat().getBorderTop().getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
                 cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
                 cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
                 cell.getCellFormat().getBorderRight().getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
-            }
-        }
+            });
+        });
         // Writes the PPTX to disk
         pres.save("table_out.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -90,8 +90,8 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
         // Adds a table shape to the slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
-        for (var row : tbl.getRows()) {
-            for (var cell : row) {
+        tbl.getRows().forEach(function(row) {
+            row.forEach(function(cell) {
                 cell.getCellFormat().getBorderTop().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderTop().setWidth(5);
@@ -104,8 +104,8 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
                 cell.getCellFormat().getBorderRight().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderRight().setWidth(5);
-            }
-        }
+            });
+        });
         // Merges cells (1, 1) x (2, 1)
         tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
         // Merges cells (1, 2) x (2, 2)
@@ -132,8 +132,8 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
         // Adds a table shape to the slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
-        for (var row : tbl.getRows()) {
-            for (var cell : row) {
+        tbl.getRows().forEach(function(row) {
+            row.forEach(function(cell) {
                 cell.getCellFormat().getBorderTop().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderTop().setWidth(5);
@@ -146,8 +146,8 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
                 cell.getCellFormat().getBorderRight().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderRight().setWidth(5);
-            }
-        }
+            });
+        });
         // Merges cells (1, 1) x (2, 1)
         tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
         // Merges cells (1, 2) x (2, 2)
@@ -182,8 +182,8 @@ This Java code demonstrates the process we described:
         // Adds a table shape to the slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
-        for (var row : tbl.getRows()) {
-            for (var cell : row) {
+        tbl.getRows().forEach(function(row) {
+            row.forEach(function(cell) {
                 cell.getCellFormat().getBorderTop().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderTop().setWidth(5);
@@ -196,8 +196,8 @@ This Java code demonstrates the process we described:
                 cell.getCellFormat().getBorderRight().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderRight().setWidth(5);
-            }
-        }
+            });
+        });
         // Merges cells (1, 1) x (2, 1)
         tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
         // Merges cells (1, 2) x (2, 2)

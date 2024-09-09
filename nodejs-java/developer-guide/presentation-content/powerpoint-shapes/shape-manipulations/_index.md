@@ -227,12 +227,12 @@ Below sample code is given.
 ```javascript
     var pres = new  com.aspose.slides.Presentation("pres.pptx");
     try {
-        for (var layoutSlide : pres.getLayoutSlides()) {
-            for (var shape : layoutSlide.getShapes()) {
+        pres.getLayoutSlides().forEach(function(layoutSlide) {
+            layoutSlide.getShapes().forEach(function(shape) {
                 var fillFormats = shape.getFillFormat();
                 var lineFormats = shape.getLineFormat();
-            }
-        }
+            });
+        });
     } finally {
         if (pres != null) {
             pres.dispose();

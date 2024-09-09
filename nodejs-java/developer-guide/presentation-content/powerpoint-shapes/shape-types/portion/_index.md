@@ -15,12 +15,12 @@ url: /java/portion/
         // Reshaping the context of presentation
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var textFrame = shape.getTextFrame();
-        for (var paragraph : textFrame.getParagraphs()) {
-            for (var portion : paragraph.getPortions()) {
+        textFrame.getParagraphs().forEach(function(paragraph) {
+            paragraph.getPortions().forEach(function(portion) {
                 var point = portion.getCoordinates();
                 console.log((("X: " + point.x) + " Y: ") + point.y);
-            }
-        }
+            });
+        });
     } finally {
         if (pres != null) {
             pres.dispose();

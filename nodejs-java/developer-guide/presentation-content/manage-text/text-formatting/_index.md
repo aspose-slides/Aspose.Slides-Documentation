@@ -362,9 +362,9 @@ This Java code shows you how to set the font size for texts contained in a parag
             // Sets the default font size to 20 pt for all text portions in the paragraph.
             paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
             // Sets the font size to 20 pt for current text portions in the paragraph.
-            for (var portion : paragraph.getPortions()) {
+            paragraph.getPortions().forEach(function(portion) {
                 portion.getPortionFormat().setFontHeight(20);
-            }
+            });
         }
     } finally {
         if (presentation != null) {

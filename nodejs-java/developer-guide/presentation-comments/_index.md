@@ -63,13 +63,13 @@ This Java code shows you how to access an existing comment on a slide in a Power
     // Instantiates the Presentation class
     var pres = new  com.aspose.slides.Presentation("Comments1.pptx");
     try {
-        for (var commentAuthor : pres.getCommentAuthors()) {
+        pres.getCommentAuthors().forEach(function(commentAuthor) {
             var author = commentAuthor;
-            for (var comment1 : author.getComments()) {
+            author.getComments().forEach(function(comment1) {
                 var comment = comment1;
                 console.log(((((((("ISlide :" + comment.getSlide().getSlideNumber()) + " has comment: ") + comment.getText()) + " with Author: ") + comment.getAuthor().getName()) + " posted on time :") + comment.getCreatedTime()) + "\n");
-            }
-        }
+            });
+        });
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -164,9 +164,9 @@ This Java code shows you how to remove all comments and authors in a presentatio
     var presentation = new  com.aspose.slides.Presentation("example.pptx");
     try {
         // Deletes all comments from the presentation
-        for (var author : presentation.getCommentAuthors()) {
+        presentation.getCommentAuthors().forEach(function(author) {
             author.getComments().clear();
-        }
+        });
         // Deletes all authors
         presentation.getCommentAuthors().clear();
         presentation.save("example_out.pptx", com.aspose.slides.SaveFormat.Pptx);
@@ -190,17 +190,17 @@ This Java code shows you how to delete specific comments on a slide:
         author.getComments().addComment("comment 1", slide, java.newInstanceSync("Point2D.Float", 0.2, 0.2), java.newInstanceSync("Date", ));
         author.getComments().addComment("comment 2", slide, java.newInstanceSync("Point2D.Float", 0.3, 0.2), java.newInstanceSync("Date", ));
         // remove all comments that contain "comment 1" text
-        for (var commentAuthor : presentation.getCommentAuthors()) {
+        presentation.getCommentAuthors().forEach(function(commentAuthor) {
             var toRemove = java.newInstanceSync("ArrayList", );
-            for (var comment : slide.getSlideComments(commentAuthor)) {
+            slide.getSlideComments(commentAuthor).forEach(function(comment) {
                 if (comment.getText().equals("comment 1")) {
                     toRemove.add(comment);
                 }
-            }
-            for (var comment : toRemove) {
+            });
+            toRemove.forEach(function(comment) {
                 commentAuthor.getComments().remove(comment);
             }
-        }
+        });
         presentation.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (presentation != null) {

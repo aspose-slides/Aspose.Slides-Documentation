@@ -406,9 +406,9 @@ By default, points on a line chart are joined by straight continuous lines. If y
 
 ```javascript
     var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    for (var series : lineChart.getChartData().getSeries()) {
+    lineChart.getChartData().getSeries().forEach(function(series) {
         series.getFormat().getLine().setDashStyle(com.aspose.slides.LineDashStyle.Dash);
-    }
+    });
 ```
 
 ### **Creating Tree Map Charts**
@@ -523,9 +523,9 @@ Sample Java code used to create a stock chart:
         series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
         chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
         chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
-        for (var ser : chart.getChartData().getSeries()) {
+        chart.getChartData().getSeries().forEach(function(ser) {
             ser.getFormat().getLine().getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
-        }
+        });
         pres.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {

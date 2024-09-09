@@ -76,7 +76,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.asp
     try {
         var allFonts = pres.getFontsManager().getFonts();
         var embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-        for (var font : allFonts) {
+        allFonts.forEach(function(font) {
             var embeddedFontsContainsFont = false;
             for (var i = 0; i < embeddedFonts.length; i++) {
                 if (embeddedFonts[i].equals(font)) {
@@ -88,7 +88,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/java/com.asp
                 pres.getFontsManager().addEmbeddedFont(font, com.aspose.slides.EmbedFontCharacters.All);
                 embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
             }
-        }
+        });
         // Saves the presentation to disk
         pres.save("AddEmbeddedFont_out.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {

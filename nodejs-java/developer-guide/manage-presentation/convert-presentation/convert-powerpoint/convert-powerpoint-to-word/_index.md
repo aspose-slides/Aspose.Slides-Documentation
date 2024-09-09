@@ -37,18 +37,18 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
     try {
         var doc = java.newInstanceSync("Document", );
         var builder = java.newInstanceSync("DocumentBuilder", doc);
-        for (var slide : pres.getSlides()) {
+        pres.getSlides().forEach(function(slide) {
             // generates and inserts slide image
             var bitmap = slide.getThumbnail(1, 1);
             builder.insertImage(bitmap);
             // inserts slide's texts
-            for (var shape : slide.getShapes()) {
+            slide.getShapes().forEach(function(shape) {
                 if (shape instanceof com.aspose.slides.AutoShape) {
                     builder.writeln(shape.getTextFrame().getText());
                 }
-            }
+            });
             builder.insertBreak(java.getStaticFieldValue("BreakType", "PAGE_BREAK"));
-        }
+        });
         doc.save(outputDoc);
     } finally {
         if (pres != null) {

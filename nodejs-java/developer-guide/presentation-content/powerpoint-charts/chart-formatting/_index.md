@@ -223,13 +223,13 @@ Aspose.Slides for Java provides a simple API for managing chart data format:
         // Accessing the chart series collection
         var series = chart.getChartData().getSeries();
         // Traverse through every chart series
-        for (var ser : series) {
+        series.forEach(function(ser) {
             // Traverse through every data cell in series
-            for (var cell : ser.getDataPoints()) {
+            ser.getDataPoints().forEach(function(cell) {
                 // Setting the number format
                 cell.getValue().getAsCell().setPresetNumberFormat(10);// 0.00%
-            }
-        }
+            });
+        });
         // Saving presentation
         pres.save("PresetNumberFormat.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {

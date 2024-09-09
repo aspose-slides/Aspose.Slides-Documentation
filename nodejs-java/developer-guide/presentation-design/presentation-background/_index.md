@@ -152,12 +152,12 @@ You may want to adjust the transparency of a slide's background image to make th
     var imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
     // Finds a transparency effect with fixed percentage.
     var transparencyOperation = null;
-    for (var operation : imageTransform) {
+    imageTransform.forEach(function(operation) {
         if (operation instanceof com.aspose.slides.AlphaModulateFixed) {
             transparencyOperation = operation;
             break;
         }
-    }
+    });
     // Sets the new transparency value.
     if (transparencyOperation == null) {
         imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);

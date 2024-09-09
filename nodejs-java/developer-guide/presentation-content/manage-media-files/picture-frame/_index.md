@@ -126,13 +126,13 @@ Aspose.Slides allows you to get the transparency of an image. This Java code dem
     var presentation = new  com.aspose.slides.Presentation(folderPath + "Test.pptx");
     var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    for (var effect : imageTransform) {
+    imageTransform.forEach(function(effect) {
         if (effect instanceof com.aspose.slides.IAlphaModulateFixed) {
             var alphaModulateFixed = effect;
             var transparencyValue = 100 - alphaModulateFixed.getAmount();
             console.log("Picture transparency: " + transparencyValue);
         }
-    }
+    });
 ```
 
 ## **Picture Frame Formatting**
@@ -214,9 +214,9 @@ To avoid large presentation sizes, you can add images (or videos) through links 
                     break;
             }
         }
-        for (var shape : shapesToRemove) {
+        shapesToRemove.forEach(function(shape) {
             presentation.getSlides().get_Item(0).getShapes().remove(shape);
-        }
+        });
         presentation.save("output.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (presentation != null) {

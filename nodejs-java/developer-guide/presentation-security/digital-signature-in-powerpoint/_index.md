@@ -54,10 +54,10 @@ Now its possible to check if the presentation was digitally signed and has not 
             var allSignaturesAreValid = true;
             console.log("Signatures used to sign the presentation: ");
             // Check if all digital signatures are valid
-            for (var signature : pres.getDigitalSignatures()) {
+            pres.getDigitalSignatures().forEach(function(signature) {
                 console.log((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
                 allSignaturesAreValid &= signature.isValid();
-            }
+            });
             if (allSignaturesAreValid) {
                 console.log("Presentation is genuine, all signatures are valid.");
             } else {

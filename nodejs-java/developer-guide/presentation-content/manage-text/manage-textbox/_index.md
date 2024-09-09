@@ -180,22 +180,22 @@ This Java code demonstrates an operation where all the texts in a presentation a
 ```javascript
     var pres = new  com.aspose.slides.Presentation("text.pptx");
     try {
-        for (var slide : pres.getSlides()) {
-            for (var shape : slide.getShapes()) {
+        pres.getSlides().forEach(function(slide) {
+            slide.getShapes().forEach(function(shape) {
                 // Checks if shape supports text frame (IAutoShape).
                 if (shape instanceof com.aspose.slides.IAutoShape) {
                     var autoShape = shape;
                     // Iterates through paragraphs in text frame
-                    for (var paragraph : autoShape.getTextFrame().getParagraphs()) {
+                    autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
                         // Iterates through each portion in paragraph
-                        for (var portion : paragraph.getPortions()) {
+                        paragraph.getPortions().forEach(function(portion) {
                             portion.setText(portion.getText().replace("years", "months"));// Changes text
                             portion.getPortionFormat().setFontBold(com.aspose.slides.NullableBool.True);// Changes formatting
-                        }
-                    }
+                        });
+                    });
                 }
-            }
-        }
+            });
+        });
         // Saves modified presentation
         pres.save("text-changed.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {

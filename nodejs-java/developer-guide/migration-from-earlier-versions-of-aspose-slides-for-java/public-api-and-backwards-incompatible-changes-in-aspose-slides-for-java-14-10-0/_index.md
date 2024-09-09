@@ -30,10 +30,10 @@ IChartCategory.remove()
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(com.aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 400, true);
     chart.getChartData().getCategories().get_Item(0).remove();// remove with ChartCategory.remove()
     chart.getChartData().getCategories().remove(chart.getChartData().getCategories().get_Item(0));// remove with ChartCategoryCollection.remove()
-    for (var ser : chart.getChartData().getSeries()) {
+    chart.getChartData().getSeries().forEach(function(ser) {
         ser.getDataPoints().get_Item(0).remove();// remove with ChartDataPoint.remove()
         ser.getDataPoints().remove(ser.getDataPoints().get_Item(0));// ChartDataPointCollection.remove()
-    }
+    });
     pres.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **Obsolete Aspose.Slides.ParagraphFormat methods have been removed**

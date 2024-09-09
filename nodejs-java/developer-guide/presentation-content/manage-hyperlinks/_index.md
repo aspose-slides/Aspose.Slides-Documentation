@@ -206,16 +206,16 @@ This Java code shows you how to remove the hyperlink from a text in a presentati
     var pres = new  com.aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        for (var shape : slide.getShapes()) {
+        slide.getShapes().forEach(function(shape) {
             var autoShape = shape;
             if (autoShape != null) {
-                for (var paragraph : autoShape.getTextFrame().getParagraphs()) {
-                    for (var portion : paragraph.getPortions()) {
+                autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
+                    paragraph.getPortions().forEach(function(portion) {
                         portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
-                    }
-                }
+                    });
+                });
             }
-        }
+        });
         pres.save("pres-removed-hyperlinks.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
@@ -232,9 +232,9 @@ This Java code shows you how to remove the hyperlink from a shape in a presentat
     var pres = new  com.aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        for (var shape : slide.getShapes()) {
+        slide.getShapes().forEach(function(shape) {
             shape.getHyperlinkManager().removeHyperlinkClick();
-        }
+        });
         pres.save("pres-removed-hyperlinks.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {

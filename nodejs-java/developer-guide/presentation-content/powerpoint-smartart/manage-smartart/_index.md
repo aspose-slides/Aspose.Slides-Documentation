@@ -14,13 +14,13 @@ Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose
         var slide = pres.getSlides().get_Item(0);
         var smartArt = slide.getShapes().get_Item(0);
         var smartArtNodes = smartArt.getAllNodes();
-        for (var smartArtNode : smartArtNodes) {
-            for (var nodeShape : smartArtNode.getShapes()) {
+        smartArtNodes.forEach(function(smartArtNode) {
+            smartArtNode.getShapes().forEach(function(nodeShape) {
                 if (nodeShape.getTextFrame() != null) {
                     console.log(nodeShape.getTextFrame().getText());
                 }
-            }
-        }
+            });
+        });
     } finally {
         if (pres != null) {
             pres.dispose();

@@ -28,12 +28,12 @@ This Java code shows how to change the text in a placeholder:
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
         // Iterates through shapes to find the placeholder
-        for (var shp : sld.getShapes()) {
+        sld.getShapes().forEach(function(shp) {
             if (shp.getPlaceholder() != null) {
                 // Changes the text in each placeholder
                 shp.getTextFrame().setText("This is Placeholder");
             }
-        }
+        });
         // Saves the presentation to disk
         pres.save("output_out.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -53,7 +53,7 @@ This Java code shows you how to set the prompt text in a placeholder:
     try {
         var slide = pres.getSlides().get_Item(0);
         // Iterates through the slide
-        for (var shape : slide.getSlide().getShapes()) {
+        slide.getSlide().getShapes().forEach(function(shape) {
             if ((shape.getPlaceholder() != null) && (shape instanceof com.aspose.slides.AutoShape)) {
                 var text = "";
                 // PowerPoint displays "Click to add title"
@@ -66,7 +66,7 @@ This Java code shows you how to set the prompt text in a placeholder:
                 shape.getTextFrame().setText(text);
                 console.log("Placeholder with text: " + text);
             }
-        }
+        });
         pres.save("Placeholders_PromptText.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {

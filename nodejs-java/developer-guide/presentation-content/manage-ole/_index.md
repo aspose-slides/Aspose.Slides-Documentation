@@ -130,11 +130,11 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
         var slide = pres.getSlides().get_Item(0);
         var ole = null;
         // Traverses all shapes for Ole frame
-        for (var shape : slide.getShapes()) {
+        slide.getShapes().forEach(function(shape) {
             if (shape instanceof com.aspose.slides.OleObjectFrame) {
                 ole = shape;
             }
-        }
+        });
         if (ole != null) {
             var msln = java.newInstanceSync("java.io.ByteArrayInputStream", ole.getEmbeddedData().getEmbeddedFileData());
             try {

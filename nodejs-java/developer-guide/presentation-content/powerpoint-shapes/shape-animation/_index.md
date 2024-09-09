@@ -285,13 +285,13 @@ This Java code shows you how to extract the sound embedded in an animation effec
         var slide = presentation.getSlides().get_Item(0);
         // Gets the main sequence of the slide.
         var sequence = slide.getTimeline().getMainSequence();
-        for (var effect : sequence) {
+        sequence.forEach(function(effect) {
             if (effect.getSound() == null) {
                 continue;
             }
             // Extracts the effect sound in byte array
             var audio = effect.getSound().getBinaryData();
-        }
+        });
     } finally {
         if (presentation != null) {
             presentation.dispose();

@@ -16,11 +16,11 @@ Aspose.Slides for Java provides a facility for extracting flash objects from a p
     try {
         var controls = pres.getSlides().get_Item(0).getControls();
         var flashControl = null;
-        for (var control : controls) {
+        controls.forEach(function(control) {
             if (control.getName() == "ShockwaveFlash1") {
                 flashControl = control;
             }
-        }
+        });
     } finally {
         if (pres != null) {
             pres.dispose();

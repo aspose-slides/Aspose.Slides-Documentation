@@ -28,13 +28,13 @@ This Java code shows you how to set a table's first row as its header:
         // Initializes the null TableEx
         var tbl = null;
         // Iterates through the shapes and sets a reference to the table
-        for (var shp : sld.getShapes()) {
+        sld.getShapes().forEach(function(shp) {
             if (shp instanceof com.aspose.slides.ITable) {
                 tbl = shp;
                 // Sets the first row of a table as its header
                 tbl.setFirstRow(true);
             }
-        }
+        });
         // Saves the presentation to disk
         pres.save("pres.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {

@@ -36,7 +36,7 @@ Here are the steps to convert PPT/PPTX to JPG:
 ```javascript
     var pres = new  com.aspose.slides.Presentation("PowerPoint-Presentation.pptx");
     try {
-        for (var sld : pres.getSlides()) {
+        pres.getSlides().forEach(function(sld) {
             // Creates a full scale image
             var slideImage = sld.getImage(1.0, 1.0);
             // Saves the image to disk in JPEG format
@@ -47,7 +47,7 @@ Here are the steps to convert PPT/PPTX to JPG:
                     slideImage.dispose();
                 }
             }
-        }
+        });
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -67,7 +67,7 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
         // Gets scaled values of X and Y
         var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
         var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
-        for (var sld : pres.getSlides()) {
+        pres.getSlides().forEach(function(sld) {
             // Creates a full scale image
             var slideImage = sld.getImage(ScaleX, ScaleY);
             // Saves the image to disk in JPEG format
@@ -78,7 +78,7 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
                     slideImage.dispose();
                 }
             }
-        }
+        });
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -96,7 +96,7 @@ Aspose.Slides for Java provides a facility that allows you to render comments in
         notesOptions.setNotesPosition(com.aspose.slides.NotesPositions.BottomTruncated);
         var opts = new  com.aspose.slides.RenderingOptions();
         opts.setSlidesLayoutOptions(notesOptions);
-        for (var sld : pres.getSlides()) {
+        pres.getSlides().forEach(function(sld) {
             var slideImage = sld.getImage(opts, java.newInstanceSync("java.awt.Dimension", 740, 960));
             try {
                 slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.png", sld.getSlideNumber()));
@@ -105,7 +105,7 @@ Aspose.Slides for Java provides a facility that allows you to render comments in
                     slideImage.dispose();
                 }
             }
-        }
+        });
     } finally {
         if (pres != null) {
             pres.dispose();

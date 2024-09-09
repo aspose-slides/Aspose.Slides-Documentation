@@ -132,10 +132,10 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
             control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
         }
         // moving 100 points down
-        for (var ctl : pres.getSlides().get_Item(0).getControls()) {
+        pres.getSlides().get_Item(0).getControls().forEach(function(ctl) {
             var frame = ctl.getFrame();
             ctl.setFrame(new  com.aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-        }
+        });
         pres.save("withActiveX-edited_java.pptm", com.aspose.slides.SaveFormat.Pptm);
         // removing controls
         pres.getSlides().get_Item(0).getControls().clear();

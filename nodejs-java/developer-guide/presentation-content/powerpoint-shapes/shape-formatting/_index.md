@@ -433,10 +433,10 @@ This Java code shows you how to reset the formatting in a slide and revert the p
 ```javascript
     var pres = new  com.aspose.slides.Presentation();
     try {
-        for (var slide : pres.getSlides()) {
+        pres.getSlides().forEach(function(slide) {
             // each shape on the slide that has a placeholder on the layout will be reverted
             slide.reset();
-        }
+        });
     } finally {
         if (pres != null) {
             pres.dispose();

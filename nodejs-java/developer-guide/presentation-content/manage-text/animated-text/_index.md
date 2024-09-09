@@ -38,12 +38,12 @@ Aspose.Slides for Java allows you to get all the animation effects applied to pa
     try {
         var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
         var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-        for (var paragraph : autoShape.getTextFrame().getParagraphs()) {
+        autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
             var effects = sequence.getEffectsByParagraph(paragraph);
             if (effects.length > 0) {
                 console.log(((("Paragraph \"" + paragraph.getText()) + "\" has ") + effects[0].getType()) + " effect.");
             }
-        }
+        });
     } finally {
         pres.dispose();
     }

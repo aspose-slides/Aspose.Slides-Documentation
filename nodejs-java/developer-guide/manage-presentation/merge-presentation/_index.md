@@ -73,9 +73,9 @@ This Java code shows you how to merge presentations:
     try {
         var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
         try {
-            for (var slide : pres2.getSlides()) {
+            pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide);
-            }
+            });
         } finally {
             if (pres2 != null) {
                 pres2.dispose();
@@ -100,9 +100,9 @@ This code in Java demonstrates the described operation:
     try {
         var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
         try {
-            for (var slide : pres2.getSlides()) {
+            pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-            }
+            });
         } finally {
             if (pres2 != null) {
                 pres2.dispose();
@@ -133,9 +133,9 @@ This Java code shows you how to select and combine specific slides from differen
     try {
         var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
         try {
-            for (var slide : pres2.getSlides()) {
+            pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-            }
+            });
         } finally {
             if (pres2 != null) {
                 pres2.dispose();
@@ -158,9 +158,9 @@ This Java code shows you how to combine slides from presentations while applying
     try {
         var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
         try {
-            for (var slide : pres2.getSlides()) {
+            pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-            }
+            });
         } finally {
             if (pres2 != null) {
                 pres2.dispose();
@@ -192,9 +192,9 @@ This sample code demonstrates the described operation:
         var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
         try {
             pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), com.aspose.slides.SlideSizeScaleType.EnsureFit);
-            for (var slide : pres2.getSlides()) {
+            pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide);
-            }
+            });
         } finally {
             if (pres2 != null) {
                 pres2.dispose();
@@ -217,9 +217,9 @@ This Java code shows you how to merge a specific slide to a section in a present
     try {
         var pres2 = new  com.aspose.slides.Presentation("pres2.pptx");
         try {
-            for (var slide : pres2.getSlides()) {
+            pres2.getSlides().forEach(function(slide) {
                 pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-            }
+            });
         } finally {
             if (pres2 != null) {
                 pres2.dispose();

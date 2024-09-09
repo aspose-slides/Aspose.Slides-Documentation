@@ -65,10 +65,10 @@ Example of usage:
     var pres = new  com.aspose.slides.Presentation();
     var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.BasicBlockList);
     var node = smart.getAllNodes().get_Item(0);
-    for (var shape : node.getShapes()) {
+    node.getShapes().forEach(function(shape) {
         shape.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
         shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    }
+    });
     pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```
 ### **SmartArtShapeCollection class, ISmartArtShapeCollection interface and ISmartArtNode.getShapes() method have been added**
@@ -86,9 +86,9 @@ Depending of SmartArtLayoutType one SmartArtShape can be shared between several 
     var pres = new  com.aspose.slides.Presentation();
     var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, com.aspose.slides.SmartArtLayoutType.BasicBlockList);
     var node = smart.getAllNodes().get_Item(0);
-    for (var shape : node.getShapes()) {
+    node.getShapes().forEach(function(shape) {
         shape.getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
         shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    }
+    });
     pres.save("out.pptx", com.aspose.slides.SaveFormat.Pptx);
 ```

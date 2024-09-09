@@ -94,8 +94,8 @@ This Java code shows you how to specify the numbering for cells in a table:
         // Adds a table shape to slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
-        for (var row : tbl.getRows()) {
-            for (var cell : row) {
+        tbl.getRows().forEach(function(row) {
+            row.forEach(function(cell) {
                 cell.getCellFormat().getBorderTop().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderTop().setWidth(5);
@@ -108,8 +108,8 @@ This Java code shows you how to specify the numbering for cells in a table:
                 cell.getCellFormat().getBorderRight().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
                 cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 cell.getCellFormat().getBorderRight().setWidth(5);
-            }
-        }
+            });
+        });
         // Saves presentation to disk
         pres.save("StandardTables_out.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -146,13 +146,13 @@ This Java code shows you how to access and work with an existing table:
         // Initializes null TableEx
         var tbl = null;
         // Iterates through the shapes and sets a reference to the table found
-        for (var shp : sld.getShapes()) {
+        sld.getShapes().forEach(function(shp) {
             if (shp instanceof com.aspose.slides.ITable) {
                 tbl = shp;
                 // Sets the text for the first column of the second row
                 tbl.get_Item(0, 1).getTextFrame().setText("New");
             }
-        }
+        });
         // Saves the modified presentation to disk
         pres.save("table1_out.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {

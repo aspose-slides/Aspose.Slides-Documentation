@@ -255,10 +255,10 @@ This Java code demonstrates the operation:
     try {
         var sl = pres.getSlides().get_Item(0);
         var chart = sl.getShapes().get_Item(0);
-        for (var dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints()) {
+        chart.getChartData().getSeries().get_Item(0).getDataPoints().forEach(function(dataPoint) {
             dataPoint.getXValue().getAsCell().setValue(null);
             dataPoint.getYValue().getAsCell().setValue(null);
-        }
+        });
         chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
         pres.save("ClearSpecificChartSeriesDataPointsData.pptx", com.aspose.slides.SaveFormat.Pptx);
     } finally {

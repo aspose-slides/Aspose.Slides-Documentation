@@ -12,11 +12,11 @@ Using Aspose.Slides for Java, developers can now get the rectangular coordinates
 ```javascript
     var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     var textFrame = shape.getTextFrame();
-    for (var paragraph : textFrame.getParagraphs()) {
-        for (var portion : paragraph.getPortions()) {
+    textFrame.getParagraphs().forEach(function(paragraph) {
+        paragraph.getPortions().forEach(function(portion) {
             var point = portion.getCoordinates();
-        }
-    }
+        });
+    });
 ```
 
 
@@ -50,7 +50,7 @@ This sample code demonstrates the described operation:
         var cell = tbl.getRows().get_Item(1).get_Item(1);
         var x = tbl.getX() + tbl.getRows().get_Item(1).get_Item(1).getOffsetX();
         var y = tbl.getY() + tbl.getRows().get_Item(1).get_Item(1).getOffsetY();
-        for (var para : cell.getTextFrame().getParagraphs()) {
+        cell.getTextFrame().getParagraphs().forEach(function(para) {
             if (para.getText().equals("")) {
                 continue;
             }
@@ -59,14 +59,14 @@ This sample code demonstrates the described operation:
             shape.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
             shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
             shape.getLineFormat().getFillFormat().setFillType(com.aspose.slides.FillType.Solid);
-            for (var portion : para.getPortions()) {
+            para.getPortions().forEach(function(portion) {
                 if (portion.getText().contains("0")) {
                     rect = portion.getRect();
                     shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(com.aspose.slides.ShapeType.Rectangle, rect.getX() + x, rect.getY() + y, rect.getWidth(), rect.getHeight());
                     shape.getFillFormat().setFillType(com.aspose.slides.FillType.NoFill);
                 }
-            }
-        }
+            });
+        });
     } finally {
         if (pres != null) {
             pres.dispose();
