@@ -109,7 +109,7 @@ This Java code shows you how to add comments and get replies to them:
         for (var i = 0; i < comments.length; i++) {
             var comment = comments[i];
             while (comment.getParentComment() != null) {
-                java.getStaticFieldValue("java.lang.System", "out").print("\t");
+                console.log("\t");
                 comment = comment.getParentComment();
             }
             console.log((comments[i].getAuthor().getName() + " : ") + comments[i].getText());

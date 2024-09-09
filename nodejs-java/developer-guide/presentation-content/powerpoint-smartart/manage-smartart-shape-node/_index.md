@@ -108,7 +108,7 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
                     // Accessing SmartArt node at index i
                     var node = smart.getAllNodes().get_Item(i);
                     // Printing the SmartArt node parameters
-                    java.getStaticFieldValue("java.lang.System", "out").print((((node.getTextFrame().getText() + " ") + node.getLevel()) + " ") + node.getPosition());
+                    console.log((((node.getTextFrame().getText() + " ") + node.getLevel()) + " ") + node.getPosition());
                 }
             }
         }
@@ -152,7 +152,7 @@ The following sample code will help to access the child nodes belonging to respe
                         // Accessing the child node in SmartArt node
                         var node = node0.getChildNodes().get_Item(j);
                         // Printing the SmartArt child node parameters
-                        java.getStaticFieldValue("java.lang.System", "out").print((((((("j = " + j) + ", Text = ") + node.getTextFrame().getText()) + ",  Level = ") + node.getLevel()) + ", Position = ") + node.getPosition());
+                        console.log((((((("j = " + j) + ", Text = ") + node.getTextFrame().getText()) + ",  Level = ") + node.getLevel()) + ", Position = ") + node.getPosition());
                     }
                 }
             }
@@ -189,7 +189,7 @@ In this example, we will learn to access the child nodes at some particular posi
         var position = 1;
         var chNode = node.getChildNodes().get_Item(position);
         // Printing the SmartArt child node parameters
-        java.getStaticFieldValue("java.lang.System", "out").print((((("Text = " + chNode.getTextFrame().getText()) + ",  Level = ") + chNode.getLevel()) + ", Position = ") + chNode.getPosition());
+        console.log((((("Text = " + chNode.getTextFrame().getText()) + ",  Level = ") + chNode.getLevel()) + ", Position = ") + chNode.getPosition());
     } finally {
         if (pres != null) {
             pres.dispose();
