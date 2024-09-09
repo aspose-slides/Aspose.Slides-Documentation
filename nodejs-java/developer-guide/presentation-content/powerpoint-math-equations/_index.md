@@ -220,7 +220,20 @@ Creates a fraction of the specified type with this numerator and specified denom
 
 Encloses the element in specified characters such as parenthesis or another character as framing.
 
-```javascript
+```java
+/**
+ * <p>
+ * Enclose a math element in parenthesis
+ * </p>
+ */
+public IMathDelimiter enclose();
+
+/**
+ * <p>
+ * Encloses this element in specified characters such as parenthesis or another characters as framing
+ * </p>
+ */
+public IMathDelimiter enclose(char beginningCharacter, char endingCharacter);
 ``` 
 
 
@@ -237,7 +250,20 @@ For example:
 
 Takes a function of an argument using the current object as the function name.
 
-```javascript
+```java
+/**
+ * <p>
+ * Takes a function of an argument using this instance as the function name
+ * </p>
+ */
+public IMathFunction function(IMathElement functionArgument);
+
+/**
+ * <p>
+ * Takes a function of an argument using this instance as the function name
+ * </p>
+ */
+public IMathFunction function(String functionArgument);
 ``` 
 
 
