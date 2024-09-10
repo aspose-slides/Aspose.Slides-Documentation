@@ -144,9 +144,9 @@ This Javascript code shows you how to apply the `PathFootball` (path football) e
         // Adds commands for moving since created path is empty.
         var motionBhv = fxUserPath.getBehaviors().get_Item(0);
         var pts = new Point2D$Float[1];
-        pts[0] = java.newInstanceSync("Point2D$Float", 0.076, 0.59);
+        pts[0] = java.newInstanceSync("com.aspose.slides.Point2D$Float", 0.076, 0.59);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-        pts[0] = java.newInstanceSync("Point2D$Float", -0.076, -0.59);
+        pts[0] = java.newInstanceSync("com.aspose.slides.Point2D$Float", -0.076, -0.59);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
         // Writes the PPTX file to disk
