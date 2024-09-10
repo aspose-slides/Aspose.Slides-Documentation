@@ -153,7 +153,7 @@ You may want to adjust the transparency of a slide's background image to make th
     // Finds a transparency effect with fixed percentage.
     var transparencyOperation = null;
     imageTransform.forEach(function(operation) {
-        if (operation instanceof aspose.slides.AlphaModulateFixed) {
+        if (java.instanceOf(operation, "com.aspose.slides.AlphaModulateFixed")) {
             transparencyOperation = operation;
             break;
         }

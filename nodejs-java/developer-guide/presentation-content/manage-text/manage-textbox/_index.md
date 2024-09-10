@@ -72,7 +72,7 @@ This Java code shows you how to check whether a shape was created as a text box:
     var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         java.callStaticMethodSync("ForEach", "shape", pres, (shape, slide, index) -> {
-            if (shape instanceof AutoShape) {
+            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
                 var autoShape = shape;
                 System.out.println(autoShape.isTextBox() ? "shape is text box" : "shape is text not box");
             }
@@ -183,7 +183,7 @@ This Java code demonstrates an operation where all the texts in a presentation a
         pres.getSlides().forEach(function(slide) {
             slide.getShapes().forEach(function(shape) {
                 // Checks if shape supports text frame (IAutoShape).
-                if (shape instanceof aspose.slides.IAutoShape) {
+                if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
                     var autoShape = shape;
                     // Iterates through paragraphs in text frame
                     autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {

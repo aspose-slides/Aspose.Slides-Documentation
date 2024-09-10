@@ -54,7 +54,7 @@ This Java code shows you how to set the prompt text in a placeholder:
         var slide = pres.getSlides().get_Item(0);
         // Iterates through the slide
         slide.getSlide().getShapes().forEach(function(shape) {
-            if ((shape.getPlaceholder() != null) && (shape instanceof aspose.slides.AutoShape)) {
+            if ((shape.getPlaceholder() != null) && (java.instanceOf(shape, "com.aspose.slides.AutoShape"))) {
                 var text = "";
                 // PowerPoint displays "Click to add title"
                 if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.CenteredTitle) {
@@ -86,7 +86,7 @@ This Java code shows you how to set the transparency for a picture background (i
     var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     var operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
     for (var i = 0; i < operationCollection.size(); i++) {
-        if (operationCollection.get_Item(i) instanceof aspose.slides.AlphaModulateFixed) {
+        if (java.instanceOf(operationCollection.get_Item(i), "com.aspose.slides.AlphaModulateFixed")) {
             var alphaModulate = operationCollection.get_Item(i);
             var currentValue = 100 - alphaModulate.getAmount();
             console.log("Current transparency value: " + currentValue);

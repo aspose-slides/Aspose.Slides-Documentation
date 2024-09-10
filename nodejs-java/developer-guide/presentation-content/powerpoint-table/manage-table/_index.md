@@ -147,7 +147,7 @@ This Java code shows you how to access and work with an existing table:
         var tbl = null;
         // Iterates through the shapes and sets a reference to the table found
         sld.getShapes().forEach(function(shp) {
-            if (shp instanceof aspose.slides.ITable) {
+            if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
                 tbl = shp;
                 // Sets the text for the first column of the second row
                 tbl.get_Item(0, 1).getTextFrame().setText("New");

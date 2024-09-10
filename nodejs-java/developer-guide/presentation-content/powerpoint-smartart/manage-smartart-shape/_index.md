@@ -45,7 +45,7 @@ The following code will be used to access the SmartArt shapes added in presentat
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArtEx
                 var smart = shape;
                 console.log("Shape Name:" + smart.getName());
@@ -73,7 +73,7 @@ The following sample code will help to access the [SmartArt](https://reference.a
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArtEx
                 var smart = shape;
                 // Checking SmartArt Layout
@@ -109,7 +109,7 @@ In this example, we will learn to change the quick style for any SmartArt shape.
         // Traverse through every shape inside first slide
         slide.getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArtEx
                 var smart = shape;
                 // Checking SmartArt style
@@ -150,7 +150,7 @@ In this example, we will learn to change the color style for any SmartArt shape.
         // Traverse through every shape inside first slide
         slide.getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArtEx
                 var smart = shape;
                 // Checking SmartArt color type

@@ -101,7 +101,7 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/n
     try {
         var firstSlide = presentation.getSlides().get_Item(0);
         var firstShape = firstSlide.getShapes().get_Item(0);
-        if (firstShape instanceof aspose.slides.IPictureFrame) {
+        if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
             var pictureFrame = firstShape;
             try {
                 var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
@@ -127,7 +127,7 @@ Aspose.Slides allows you to get the transparency of an image. This Java code dem
     var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
     imageTransform.forEach(function(effect) {
-        if (effect instanceof aspose.slides.IAlphaModulateFixed) {
+        if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
             var alphaModulateFixed = effect;
             var transparencyValue = 100 - alphaModulateFixed.getAmount();
             console.log("Picture transparency: " + transparencyValue);

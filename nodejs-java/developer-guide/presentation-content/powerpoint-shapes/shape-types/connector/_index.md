@@ -327,12 +327,12 @@ This Java code demonstrates an operation in which we calculated the angle for a 
         for (var i = 0; i < slide.getShapes().size(); i++) {
             var dir = 0.0;
             var shape = slide.getShapes().get_Item(i);
-            if (shape instanceof aspose.slides.AutoShape) {
+            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
                 var ashp = shape;
                 if (ashp.getShapeType() == aspose.slides.ShapeType.Line) {
                     dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
                 }
-            } else if (shape instanceof aspose.slides.Connector) {
+            } else if (java.instanceOf(shape, "com.aspose.slides.Connector")) {
                 var ashp = shape;
                 dir = getDirection(ashp.getWidth(), ashp.getHeight(), ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
             }

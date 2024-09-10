@@ -131,7 +131,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
         var ole = null;
         // Traverses all shapes for Ole frame
         slide.getShapes().forEach(function(shape) {
-            if (shape instanceof aspose.slides.OleObjectFrame) {
+            if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
                 ole = shape;
             }
         });

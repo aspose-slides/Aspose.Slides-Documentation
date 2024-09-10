@@ -355,7 +355,7 @@ This Java code shows you how to set the font size for texts contained in a parag
     try {
         // Gets the first shape, for example.
         var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-        if (shape instanceof aspose.slides.IAutoShape) {
+        if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
             var autoShape = shape;
             // Gets the first paragraph, for example.
             var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);

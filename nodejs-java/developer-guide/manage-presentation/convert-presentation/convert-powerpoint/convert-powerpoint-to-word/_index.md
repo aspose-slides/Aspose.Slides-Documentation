@@ -43,7 +43,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
             builder.insertImage(bitmap);
             // inserts slide's texts
             slide.getShapes().forEach(function(shape) {
-                if (shape instanceof aspose.slides.AutoShape) {
+                if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
                     builder.writeln(shape.getTextFrame().getText());
                 }
             });

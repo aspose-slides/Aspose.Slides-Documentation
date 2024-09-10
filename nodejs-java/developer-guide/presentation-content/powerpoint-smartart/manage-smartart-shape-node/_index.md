@@ -26,7 +26,7 @@ Aspose.Slides for Node.js via Java has provided the simplest API to manage the S
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.SmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
                 // Typecast shape to SmartArt
                 var smart = shape;
                 // Adding a new SmartArt Node
@@ -100,7 +100,7 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
         // Traverse through every shape inside first slide
         slide.getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArt
                 var smart = shape;
                 // Traverse through all nodes inside SmartArt
@@ -140,7 +140,7 @@ The following sample code will help to access the child nodes belonging to respe
         // Traverse through every shape inside first slide
         slide.getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArt
                 var smart = shape;
                 // Traverse through all nodes inside SmartArt
@@ -216,7 +216,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArt
                 var smart = shape;
                 if (smart.getAllNodes().size() > 0) {
@@ -255,7 +255,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.SmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
                 // Typecast shape to SmartArt
                 var smart = shape;
                 if (smart.getAllNodes().size() > 0) {
@@ -338,7 +338,7 @@ In the following sample code we will investigate how to identify **Assistant Nod
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
             // Check if shape is of SmartArt type
-            if (shape instanceof aspose.slides.ISmartArt) {
+            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
                 // Typecast shape to SmartArt
                 var smart = shape;
                 // Traversing through all nodes of SmartArt shape

@@ -62,7 +62,7 @@ The example below accesses alternative text of group shape.
         for (var i = 0; i < sld.getShapes().size(); i++) {
             // Accessing the shape collection of slides
             var shape = sld.getShapes().get_Item(i);
-            if (shape instanceof aspose.slides.GroupShape) {
+            if (java.instanceOf(shape, "com.aspose.slides.GroupShape")) {
                 // Accessing the group shape.
                 var grphShape = shape;
                 for (var j = 0; j < grphShape.getShapes().size(); j++) {

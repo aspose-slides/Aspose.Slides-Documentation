@@ -107,7 +107,7 @@ This Java code shows you how to extract the video on a presentation slide:
     try {
         pres.getSlides().forEach(function(slide) {
             slide.getShapes().forEach(function(shape) {
-                if (shape instanceof aspose.slides.VideoFrame) {
+                if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
                     var vf = shape;
                     var type = vf.getEmbeddedVideo().getContentType();
                     var ss = type.lastIndexOf('-');
