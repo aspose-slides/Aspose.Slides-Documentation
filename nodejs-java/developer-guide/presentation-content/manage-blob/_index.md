@@ -45,7 +45,7 @@ This Java shows you how to add a large video file through the BLOB process to a 
                 fileStream.close();
             }
         }
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -94,7 +94,7 @@ This code in Java demonstrates the described operation:
             // Memory consumption will remain low regardless of the size of the video or presentation.
         }
         // If necessary, you can apply the same steps for audio files.
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         pres.dispose();
     }
@@ -124,7 +124,7 @@ This Java code shows you how to add a large image through the BLOB process:
                 fileStream.close();
             }
         }
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

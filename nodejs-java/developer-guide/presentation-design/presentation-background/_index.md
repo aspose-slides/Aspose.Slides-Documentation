@@ -134,7 +134,7 @@ This Java code shows you how to set an image as the background for a slide:
         pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(imgx);
         // Writes the presentation to disk
         pres.save("ContentBG_Img.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

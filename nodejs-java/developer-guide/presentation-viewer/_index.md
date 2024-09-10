@@ -39,7 +39,7 @@ To generate an SVG image from any desired slide with Aspose.Slides for Node.js v
         // Generate SVG image of slide and save in memory stream
         sld.writeAsSvg(svgStream);
         svgStream.close();
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         pres.dispose();
     }
@@ -61,7 +61,7 @@ Aspose.Slides for Node.js via Java can be used to generate [SVG](https://docs.f
                 stream.close();
             }
         }
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         pres.dispose();
     }

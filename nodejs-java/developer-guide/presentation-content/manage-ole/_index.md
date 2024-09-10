@@ -55,7 +55,7 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
         var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
         // Writes the PPTX file to disk
         pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -99,7 +99,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
                 fstr.close();
             }
         }
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -164,7 +164,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
             }
         }
         pres.save("OleEdit_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -191,7 +191,7 @@ This Java code shows you how to embed HTML and ZIP in a slide:
         var oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
         oleFrameZip.setObjectIcon(true);
         pres.save("embeddedOle.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -215,7 +215,7 @@ This Java shows you how to set the file type for an embedded OLE object:
         console.log("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
         oleObjectFrame.setEmbeddedData(new  aspose.slides.OleEmbeddedDataInfo(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "embedOle.zip")), "zip"));
         pres.save("embeddedChanged.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -249,7 +249,7 @@ This Java code shows you how to set the icon image and title for an embedded obj
         oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
         oleObjectFrame.setObjectIcon(false);
         pres.save("embeddedOle-newImage.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -286,7 +286,7 @@ This Java code shows you how to extract a file embedded in a slide as an OLE obj
                 }
             }
         }
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

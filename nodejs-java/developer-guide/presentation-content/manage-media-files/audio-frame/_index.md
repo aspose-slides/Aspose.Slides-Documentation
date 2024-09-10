@@ -35,7 +35,7 @@ This Java code shows you how to add an embedded audio frame to a slide:
         audioFrame.setVolume(aspose.slides.AudioVolumeMode.Loud);
         // Writes the PowerPoint file to disk
         pres.save("AudioFrameEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -71,7 +71,7 @@ This Java code shows you how to change an audio frame's thumbnail or preview ima
         audioFrame.getPictureFormat().getPicture().setImage(picture);// <-----
         // Saves the modified presentation to disk
         presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (presentation != null) {
             presentation.dispose();

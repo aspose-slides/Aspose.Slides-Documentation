@@ -140,7 +140,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
         // removing controls
         pres.getSlides().get_Item(0).getControls().clear();
         pres.save("withActiveX-cleared_java.pptm", aspose.slides.SaveFormat.Pptm);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

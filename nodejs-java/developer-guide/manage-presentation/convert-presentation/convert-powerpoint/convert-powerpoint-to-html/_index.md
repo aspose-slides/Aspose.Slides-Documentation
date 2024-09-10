@@ -309,7 +309,7 @@ This Java code shows you how `LinkAllFontsHtmlController` is implemented:
                 generator.addHtml(" }");
                 generator.addHtml("</style>");
             } catch (ex) {
-                ex.printStackTrace();
+                console.log(ex);
             }
         }
     }
@@ -360,7 +360,7 @@ This Java code shows you how to add a video to the presentation and then save it
         htmlOptions.setSlideImageFormat(aspose.slides.SlideImageFormat.svg(svgOptions));
         // Saving the file
         pres.save(fileName, aspose.slides.SaveFormat.Html, htmlOptions);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

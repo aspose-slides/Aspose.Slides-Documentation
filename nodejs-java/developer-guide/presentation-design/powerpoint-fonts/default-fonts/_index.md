@@ -42,7 +42,7 @@ The implementation of the above is given below.
         pres.save("output_out.pdf", aspose.slides.SaveFormat.Pdf);
         // Generate XPS
         pres.save("output_out.xps", aspose.slides.SaveFormat.Xps);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

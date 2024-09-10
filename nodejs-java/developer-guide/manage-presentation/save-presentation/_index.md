@@ -46,7 +46,7 @@ It is possible to save a presentation to a stream by passing an output stream to
         var os = java.newInstanceSync("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
         pres.save(os, aspose.slides.SaveFormat.Pptx);
         os.close();
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

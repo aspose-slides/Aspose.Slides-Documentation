@@ -254,7 +254,7 @@ Now Aspose.Slides for Node.js via Java support for rendering a shape as svg. Met
                 stream.close();
             }
         }
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

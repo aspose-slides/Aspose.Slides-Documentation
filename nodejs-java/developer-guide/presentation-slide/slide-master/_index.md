@@ -146,7 +146,7 @@ You can add images to a slide master with Aspose.Slides:
         }
         pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
         pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

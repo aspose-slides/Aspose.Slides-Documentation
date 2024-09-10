@@ -85,7 +85,7 @@ This sample code shows you how to add a hyperlink to an **image**:
         pictureFrame.setHyperlinkClick(new  aspose.slides.Hyperlink("https://www.aspose.com/"));
         pictureFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
         pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -103,7 +103,7 @@ This sample code shows you how to add a hyperlink to an **audio file**:
         audioFrame.setHyperlinkClick(new  aspose.slides.Hyperlink("https://www.aspose.com/"));
         audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
         pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -121,7 +121,7 @@ This sample code shows you how to add a hyperlink to a **video**:
         videoFrame.setHyperlinkClick(new  aspose.slides.Hyperlink("https://www.aspose.com/"));
         videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
         pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

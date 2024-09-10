@@ -280,7 +280,7 @@ This Java code shows you how to place an image inside a table cell when creating
         cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
         // Saves the PPTX file to Disk
         pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

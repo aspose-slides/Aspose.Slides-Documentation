@@ -61,7 +61,7 @@ This Java code demonstrates the HTML to PowerPoint operation:
             }
         }
         presentation.save("MyPresentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (presentation != null) {
             presentation.dispose();

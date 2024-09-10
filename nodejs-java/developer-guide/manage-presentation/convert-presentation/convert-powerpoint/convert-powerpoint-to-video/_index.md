@@ -64,7 +64,7 @@ This Java code shows you how to convert a presentation (containing a figure and 
                         var frame = java.callStaticMethodSync("java.lang.String", "format", "frame_%04d.png", sender.getFrameIndex());
                         arguments.getFrame().save(frame, aspose.slides.ImageFormat.Png);
                         frames.add(frame);
-                    } catch (e) {
+                    } catch (e) {console.log(e);
                         throw java.newInstanceSync("java.lang.RuntimeException", e);
                     }
                 });
@@ -85,8 +85,8 @@ This Java code shows you how to convert a presentation (containing a figure and 
         var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
         var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
         executor.createJob(builder).run();
-    } catch (e) {
-        e.printStackTrace();
+    } catch (e) {console.log(e);
+        console.log(e);
     }
 ```
 
@@ -151,7 +151,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
                         var frame = java.callStaticMethodSync("java.lang.String", "format", "frame_%04d.png", sender.getFrameIndex());
                         arguments.getFrame().save(frame, aspose.slides.ImageFormat.Png);
                         frames.add(frame);
-                    } catch (e) {
+                    } catch (e) {console.log(e);
                         throw java.newInstanceSync("java.lang.RuntimeException", e);
                     }
                 });
@@ -172,8 +172,8 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
         var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
         var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
         executor.createJob(builder).run();
-    } catch (e) {
-        e.printStackTrace();
+    } catch (e) {console.log(e);
+        console.log(e);
     }
 ```
 
@@ -205,14 +205,14 @@ To work with [IPresentationAnimationPlayer](https://reference.aspose.com/slides/
                 try {
                     // initial animation state bitmap
                     animationPlayer.getFrame().save("firstFrame.png", aspose.slides.ImageFormat.Png);
-                } catch (e) {
+                } catch (e) {console.log(e);
                     throw java.newInstanceSync("java.lang.RuntimeException", e);
                 }
                 animationPlayer.setTimePosition(animationPlayer.getDuration());// final state of the animation
                 try {
                     // last frame of the animation
                     animationPlayer.getFrame().save("lastFrame.png", aspose.slides.ImageFormat.Png);
-                } catch (e) {
+                } catch (e) {console.log(e);
                     throw java.newInstanceSync("java.lang.RuntimeException", e);
                 }
             });
@@ -240,7 +240,7 @@ To make all animations in a presentation play at once, the [PresentationPlayer](
                 player.setFrameTick((sender, arguments) -> {
                     try {
                         arguments.getFrame().save(("frame_" + sender.getFrameIndex()) + ".png", aspose.slides.ImageFormat.Png);
-                    } catch (e) {
+                    } catch (e) {console.log(e);
                         throw java.newInstanceSync("java.lang.RuntimeException", e);
                     }
                 });

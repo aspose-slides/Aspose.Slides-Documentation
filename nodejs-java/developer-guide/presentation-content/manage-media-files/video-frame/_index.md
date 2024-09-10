@@ -39,7 +39,7 @@ This Java code shows you how to add a video stored locally to a presentation:
         pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
         // Saves the presentation to disk
         pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -122,7 +122,7 @@ This Java code shows you how to extract the video on a presentation slide:
                 }
             });
         });
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

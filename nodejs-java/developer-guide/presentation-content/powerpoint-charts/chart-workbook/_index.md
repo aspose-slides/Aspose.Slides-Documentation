@@ -131,7 +131,7 @@ This Java code demonstrates the external workbook creation process:
         }
         chart.getChartData().setExternalWorkbook(workbookPath);
         pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

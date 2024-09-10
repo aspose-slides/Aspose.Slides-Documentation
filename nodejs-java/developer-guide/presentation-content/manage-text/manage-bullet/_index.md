@@ -156,7 +156,7 @@ This Java code shows you to create a picture bullet in a slide:
         txtFrm.getParagraphs().add(para);
         // Writing the presentation as a PPTX file
         pres.save("Bullet.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

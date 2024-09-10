@@ -105,7 +105,7 @@ This Java code shows you how to create a zoom frame with a different image:
         pres.getSlides().get_Item(0).getShapes().addZoomFrame(20, 20, 300, 200, slide, picture);
         // Saves the presentation
         pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -173,7 +173,7 @@ This Java code shows you how to change a zoom frame's formatting on a slide:
         zoomFrame2.setShowBackground(false);
         // Saves the presentation
         pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -260,7 +260,7 @@ This Java code shows you how to create a zoom frame with a different image:
         var sectionZoomFrame = pres.getSlides().get_Item(0).getShapes().addSectionZoomFrame(20, 20, 300, 200, pres.getSections().get_Item(1), picture);
         // Saves the presentation
         pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -325,7 +325,7 @@ This Java code shows you how to change a section zoom frame's formatting:
         sectionZoomFrame.setTransitionDuration(1.5);
         // Saves the presentation
         pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -507,7 +507,7 @@ This Java code shows you how to change the formatting for a summary zoom section
         summarySection.setTransitionDuration(1.5);
         // Saves the presentation
         pres.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

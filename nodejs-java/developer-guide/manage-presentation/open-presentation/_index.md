@@ -102,7 +102,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
                 } catch (ex) {
                     return aspose.slides.ResourceLoadingAction.Skip;
                 } catch (ex) {
-                    ex.printStackTrace();
+                    console.log(ex);
                 }
             } else if (args.getOriginalUri().endsWith(".png")) {
                 // sets substitute url

@@ -55,7 +55,7 @@ In the example given below, we have set the chart marker options on data points 
         series.getMarker().setSize(15);
         // Save presentation with chart
         pres.save("ScatterChart.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

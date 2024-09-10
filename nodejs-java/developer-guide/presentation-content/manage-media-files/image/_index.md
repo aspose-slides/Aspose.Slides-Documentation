@@ -86,7 +86,7 @@ This sample code shows you how to add an image from the web to a slide in Java:
             outputStream.close();
         }
         pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -146,7 +146,7 @@ This sample code shows you how to implement the steps above to add an SVG image 
         var ppImage = pres.getImages().addImage(svgImage);
         pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
         pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -177,7 +177,7 @@ This sample code shows you how to use the described method to convert an SVG fil
         presentation.getSlides().get_Item(0).getShapes().addGroupShape(svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
         // Save presentation in PPTX format
         presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (presentation != null) {
             presentation.dispose();
@@ -219,7 +219,7 @@ This sample code shows you how to perform the described task:
             var m = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), picture);
         }
         pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

@@ -104,7 +104,7 @@ This Java code shows you how to apply the `Fly` effect to a picture frame:
         var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
         // Save the PPTX file to disk
         pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

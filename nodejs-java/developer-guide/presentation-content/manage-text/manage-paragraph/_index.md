@@ -224,7 +224,7 @@ This Java code shows you how to add and manage picture bullets:
         presentation.save("ParagraphPictureBulletsPPTX_out.pptx", aspose.slides.SaveFormat.Pptx);
         // Writes the presentation as a PPT file
         presentation.save("ParagraphPictureBulletsPPT_out.ppt", aspose.slides.SaveFormat.Ppt);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (presentation != null) {
             presentation.dispose();
@@ -559,7 +559,7 @@ This Java code shows you how to export PowerPoint paragraph texts to HTML:
         // Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
         writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
         writer.close();
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

@@ -241,7 +241,7 @@ This Java code shows you how to fill a shape with a picture:
         shp.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
         // Writes the PPTX file to disk
         pres.save("RectShpPic_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();

@@ -42,7 +42,7 @@ This Java code shows you how to create a picture frame:
         sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
         // Write the PPTX file to disk
         pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -84,7 +84,7 @@ This Java code shows you how to create a picture frame with relative scale:
         pf.setRelativeScaleWidth(1.35);
         // Write the PPTX file to disk
         pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -112,7 +112,7 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/n
                 }
             }
         }
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         presentation.dispose();
     }
@@ -172,7 +172,7 @@ This Java code demonstrates the picture frame formatting process:
         pf.setRotation(45);
         // Writes the PPTX file to disk
         pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -251,7 +251,7 @@ This Java code shows you how to crop an existing image on a slide:
         picFrame.getPictureFormat().setCropBottom(31);
         // Saves the result
         pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -313,7 +313,7 @@ This Java code shows you how to lock a shape's aspect ratio:
         var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
         // set shape to have to preserve aspect ratio on resizing
         pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -376,7 +376,7 @@ This Java code demonstrates a process in which a StretchOff property is used:
         aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
         // Writes the PPTX file to disk
         pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {
+    } catch (e) {console.log(e);
     } finally {
         if (pres != null) {
             pres.dispose();
