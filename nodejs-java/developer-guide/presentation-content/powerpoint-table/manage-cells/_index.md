@@ -53,8 +53,8 @@ This Javascript code shows you how to remove the borders from table cells:
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 50, 50, 50, 50 };
-        var dblRows = new double[]{ 50, 30, 30, 30, 30 };
+        var dblCols = java.newArray("double", [50, 50, 50, 50]);
+        var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
         // Adds table shape to slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
@@ -85,8 +85,8 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
         // Accesses first slide
         var sld = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 70, 70, 70, 70 };
-        var dblRows = new double[]{ 70, 70, 70, 70 };
+        var dblCols = java.newArray("double", [70, 70, 70, 70]);
+        var dblRows = java.newArray("double", [70, 70, 70, 70]);
         // Adds a table shape to the slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
@@ -127,8 +127,8 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
         // Accesses first slide
         var sld = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 70, 70, 70, 70 };
-        var dblRows = new double[]{ 70, 70, 70, 70 };
+        var dblCols = java.newArray("double", [70, 70, 70, 70]);
+        var dblRows = java.newArray("double", [70, 70, 70, 70]);
         // Adds a table shape to the slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
@@ -177,8 +177,8 @@ This Javascript code demonstrates the process we described:
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 70, 70, 70, 70 };
-        var dblRows = new double[]{ 70, 70, 70, 70 };
+        var dblCols = java.newArray("double", [70, 70, 70, 70]);
+        var dblRows = java.newArray("double", [70, 70, 70, 70]);
         // Adds a table shape to the slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
@@ -221,8 +221,8 @@ This Javascript code shows you how to change a table cell's background color:
     var presentation = new  aspose.slides.Presentation();
     try {
         var slide = presentation.getSlides().get_Item(0);
-        var dblCols = new double[]{ 150, 150, 150, 150 };
-        var dblRows = new double[]{ 50, 50, 50, 50, 50 };
+        var dblCols = java.newArray("double", [150, 150, 150, 150]);
+        var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
         // create a new table
         var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
         // set the background color for a cell
@@ -259,8 +259,8 @@ This Javascript code shows you how to place an image inside a table cell when cr
         // Accesses the first slide
         var islide = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 150, 150, 150, 150 };
-        var dblRows = new double[]{ 100, 100, 100, 100, 90 };
+        var dblCols = java.newArray("double", [150, 150, 150, 150]);
+        var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
         // Adds a table shape to the slide
         var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
         // Create an IPPImage object using the image file

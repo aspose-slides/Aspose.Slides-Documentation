@@ -33,8 +33,8 @@ This Javascript code shows you how to create a table in a presentation:
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 50, 50, 50 };
-        var dblRows = new double[]{ 50, 30, 30, 30, 30 };
+        var dblCols = java.newArray("double", [50, 50, 50]);
+        var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
         // Adds a table shape to slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
@@ -89,8 +89,8 @@ This Javascript code shows you how to specify the numbering for cells in a table
         // Accesses first slide
         var sld = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 70, 70, 70, 70 };
-        var dblRows = new double[]{ 70, 70, 70, 70 };
+        var dblCols = java.newArray("double", [70, 70, 70, 70]);
+        var dblRows = java.newArray("double", [70, 70, 70, 70]);
         // Adds a table shape to slide
         var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Sets the border format for each cell
@@ -182,8 +182,8 @@ This Javascript code shows you how to align the text in a table:
         // Gets the first slide
         var slide = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 120, 120, 120, 120 };
-        var dblRows = new double[]{ 100, 100, 100, 100 };
+        var dblCols = java.newArray("double", [120, 120, 120, 120]);
+        var dblRows = java.newArray("double", [100, 100, 100, 100]);
         // Adds the table shape to the slide
         var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
         tbl.get_Item(1, 0).getTextFrame().setText("10");
@@ -257,7 +257,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 ```javascript
     var pres = new  aspose.slides.Presentation();
     try {
-        var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[]{ 100, 150 }, new double[]{ 5, 5, 5 });
+        var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
         table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
         pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

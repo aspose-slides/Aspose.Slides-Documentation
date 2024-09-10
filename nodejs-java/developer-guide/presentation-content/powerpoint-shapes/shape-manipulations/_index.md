@@ -276,7 +276,7 @@ Source code below aligns shapes with indices 1,2 and 4 along the top border of t
         var shape1 = slide.getShapes().get_Item(1);
         var shape2 = slide.getShapes().get_Item(2);
         var shape3 = slide.getShapes().get_Item(4);
-        aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]{ slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3) });
+        aspose.slides.SlideUtil.alignShapes(aspose.slides.ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), java.newArray("int", [slide.getShapes().indexOf(shape1), slide.getShapes().indexOf(shape2), slide.getShapes().indexOf(shape3)]));
     } finally {
         if (pres != null) {
             pres.dispose();

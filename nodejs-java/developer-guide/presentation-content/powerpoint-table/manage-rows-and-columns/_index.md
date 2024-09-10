@@ -65,8 +65,8 @@ This Javascript code shows you how to clone a PowerPoint table's row or column:
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
         // Defines columns with widths and rows with heights
-        var dblCols = new double[]{ 50, 50, 50 };
-        var dblRows = new double[]{ 50, 30, 30, 30, 30 };
+        var dblCols = java.newArray("double", [50, 50, 50]);
+        var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
         // Adds a table shape to slide
         var table = sld.getShapes().addTable(100, 50, dblCols, dblRows);
         // Adds some text to the row 1 cell 1
@@ -111,8 +111,8 @@ This Javascript code shows you how to remove a row or column from a table:
     var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var colWidth = new double[]{ 100, 50, 30 };
-        var rowHeight = new double[]{ 30, 50, 30 };
+        var colWidth = java.newArray("double", [100, 50, 30]);
+        var rowHeight = java.newArray("double", [30, 50, 30]);
         var table = slide.getShapes().addTable(100, 100, colWidth, rowHeight);
         table.getRows().removeAt(1, false);
         table.getColumns().removeAt(1, false);
@@ -210,7 +210,7 @@ Aspose.Slides allows you to retrieve the style properties for a table so that yo
 ```javascript
     var pres = new  aspose.slides.Presentation();
     try {
-        var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[]{ 100, 150 }, new double[]{ 5, 5, 5 });
+        var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
         table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
         pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {

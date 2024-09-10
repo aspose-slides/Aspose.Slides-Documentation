@@ -75,7 +75,7 @@ If you want the images to appear individually one after the other in the resulti
         markdownSaveOptions.setFlavor(aspose.slides.Flavor.Github);
         markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Sequential);
         markdownSaveOptions.setNewLineType(aspose.slides.NewLineType.Windows);
-        pres.save("doc.md", new int[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, aspose.slides.SaveFormat.Md, markdownSaveOptions);
+        pres.save("doc.md", java.newArray("int", [1, 2, 3, 4, 5, 6, 7, 8, 9]), aspose.slides.SaveFormat.Md, markdownSaveOptions);
     } finally {
         if (pres != null) {
             pres.dispose();

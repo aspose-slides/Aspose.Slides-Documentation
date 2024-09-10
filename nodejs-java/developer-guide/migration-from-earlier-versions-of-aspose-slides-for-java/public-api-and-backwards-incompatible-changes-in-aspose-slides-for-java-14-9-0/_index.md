@@ -45,7 +45,7 @@ These methods allow to save specified presentation slides to PDF, XPS, TIFF, HTM
 
 ```javascript
     var presentation = new  aspose.slides.Presentation(presentationFileName);
-    var slides = new int[]{ 2, 3, 5 };// Array of slides positions
+    var slides = java.newArray("int", [2, 3, 5]);// Array of slides positions
     presentation.save(outFileName, slides, aspose.slides.SaveFormat.Pdf);
 ```
 ### **Added the SmartArtLayoutType.Custom Enum Value**

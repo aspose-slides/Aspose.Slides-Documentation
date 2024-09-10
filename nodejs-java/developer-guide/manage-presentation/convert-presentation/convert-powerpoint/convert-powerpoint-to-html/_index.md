@@ -191,7 +191,7 @@ This Javascript code shows you how to convert a slide in a PowerPoint presentati
         htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(java.newInstanceSync("CustomFormattingController")));
         // Saving File
         for (var i = 0; i < pres.getSlides().size(); i++) {
-            pres.save(("Individual Slide" + (i + 1)) + "_out.html", new int[]{ i + 1 }, aspose.slides.SaveFormat.Html, htmlOptions);
+            pres.save(("Individual Slide" + (i + 1)) + "_out.html", java.newArray("int", [i + 1]), aspose.slides.SaveFormat.Html, htmlOptions);
         }
     } finally {
     if (pres != null) pres.dispose();

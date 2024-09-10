@@ -186,7 +186,7 @@ This Javascript code shows you how to convert specific slides in a PowerPoint pr
     var pres = new  aspose.slides.Presentation("PowerPoint.pptx");
     try {
         // Sets an array of slides positions
-        var slides = new int[]{ 1, 3 };
+        var slides = java.newArray("int", [1, 3]);
         // Saves the presentation as a PDF
         pres.save("PPTX-to-PDF.pdf", slides, aspose.slides.SaveFormat.Pdf);
     } finally {
