@@ -61,7 +61,7 @@ Aspose.Slides exports presentations to PDF in a way that makes the contents of t
 
 The standard PowerPoint PDF conversion operation is executed using default options. In this case, Aspose.Slides tries to convert the provided presentation to PDF using optimal settings at the maximum quality levels.
 
-This Java code shows you how to convert a PowerPoint to PDF:
+This Javascript code shows you how to convert a PowerPoint to PDF:
 
 ```javascript
     // Instantiates a Presentation class that represents a PowerPoint file
@@ -119,7 +119,7 @@ The code example below demonstrates an operation in which a PowerPoint presentat
 
 If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
 
-This Java code shows you how to convert a PowerPoint presentation to PDF with hidden slides included:
+This Javascript code shows you how to convert a PowerPoint presentation to PDF with hidden slides included:
 
 ```javascript
     // Instantiates a Presentation class that represents a PowerPoint file
@@ -140,7 +140,7 @@ This Java code shows you how to convert a PowerPoint presentation to PDF with hi
 
 ### **Convert PowerPoint to Password Protected PDF**
 
-This Java code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) class):
+This Javascript code shows you how to convert a PowerPoint to a password-protected PDF (using protection parameters from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) class):
 
 ```javascript
     // Instantiates a Presentation object that represents a PowerPoint file
@@ -164,7 +164,7 @@ This Java code shows you how to convert a PowerPoint to a password-protected PDF
 
 Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process.
 
-This Java code shows you how to detect font substitutions: 
+This Javascript code shows you how to detect font substitutions:
 
 ```javascript
 ```
@@ -179,7 +179,7 @@ For more information on font substitution, see the [Font Substitution](https://d
 
 ## **Convert Selected Slides in PowerPoint to PDF**
 
-This Java code shows you how to convert specific slides in a PowerPoint presentation to PDF:
+This Javascript code shows you how to convert specific slides in a PowerPoint presentation to PDF:
 
 ```javascript
     // Instantiates a Presentation object that represents a PowerPoint file
@@ -198,7 +198,7 @@ This Java code shows you how to convert specific slides in a PowerPoint presenta
 
 ## **Convert PowerPoint to PDF with Custom Slide Size**
 
-This Java code shows you how to convert a PowerPoint when its slide size is specified to a PDF:
+This Javascript code shows you how to convert a PowerPoint when its slide size is specified to a PDF:
 
 ```javascript
     // Instantiates a Presentation object that represents a PowerPoint file
@@ -228,7 +228,7 @@ This Java code shows you how to convert a PowerPoint when its slide size is spec
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
 
-This Java code shows you how to convert a PowerPoint to PDF notes:
+This Javascript code shows you how to convert a PowerPoint to PDF notes:
 
 ```javascript
     // Instantiates a Presentation class that represents a PowerPoint file
@@ -249,7 +249,7 @@ This Java code shows you how to convert a PowerPoint to PDF notes:
 
 Aspose.Slides allows you to use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). You can export a PowerPoint document to PDF using any of these compliance standards: **PDF/A1a**, **PDF/A1b**, and **PDF/UA**.
 
-This Java code demonstrates a PowerPoint to PDF conversion operation in which multiple PDFs based on different compliance standards are obtained:
+This Javascript code demonstrates a PowerPoint to PDF conversion operation in which multiple PDFs based on different compliance standards are obtained:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");

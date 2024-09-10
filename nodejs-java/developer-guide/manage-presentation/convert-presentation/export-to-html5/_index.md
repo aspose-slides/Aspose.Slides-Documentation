@@ -17,7 +17,7 @@ The export to HTML5 process here allows you to convert PowerPoint to HTML withou
 
 ## **Export PowerPoint to HTML5**
 
-This Java code shows how you to export a presentation to HTML5 without web extensions and dependencies:
+This Javascript code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");
@@ -90,7 +90,7 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 
 **Aspose.Slides** allows you to convert a PowerPoint presentation to an HTML5 document in which the slides are presented in a slide view mode. In this case, when you open the resulting HTML5 file in a browser, you see the presentation in slide view mode on a web page. 
 
-This Java code demonstrates the PowerPoint to HTML5 Slide View export process:
+This Javascript code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");

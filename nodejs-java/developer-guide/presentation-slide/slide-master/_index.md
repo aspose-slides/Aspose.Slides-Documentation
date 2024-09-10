@@ -217,7 +217,7 @@ The title style and formatting will change for all slides based on the slide mas
 
 ## **Change Background on Slide Master**
 
-When you change a master slide's background color, all the normal slides in the presentation will get the new color. This Java code demonstrates the operation:
+When you change a master slide's background color, all the normal slides in the presentation will get the new color. This Javascript code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -244,7 +244,7 @@ When you change a master slide's background color, all the normal slides in the 
 
 ## **Clone Slide Master to Another Presentation**
 
-To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Java code shows you how to clone a Slide Master to another presentation:
+To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Javascript code shows you how to clone a Slide Master to another presentation:
 
 ```javascript
     var presSource = new  aspose.slides.Presentation();
@@ -303,7 +303,7 @@ This code shows you how to set a Slide Master as a presentation's default view i
 
 ## **Remove Unused Master Slide**
 
-Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Java code shows you how to remove a master slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Javascript code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");

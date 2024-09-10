@@ -148,7 +148,7 @@ The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-jav
 
 By default, when you convert PowerPoint to HTML, Aspose.Slides outputs small HTML with images at 72 DPI and deleted cropped areas. To obtain HTML files with higher quality images, you have to set the `PicturesCompression` property (from the `HtmlOptions` class) to 96 (i.e., `PicturesCompression.Dpi96`) or higher [values](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PicturesCompression).
 
-This Java code shows you how to convert a PowerPoint presentation to HTML while obtaining high quality images at 150 DPI (i.e. `PicturesCompression.Dpi150`):
+This Javascript code shows you how to convert a PowerPoint presentation to HTML while obtaining high quality images at 150 DPI (i.e. `PicturesCompression.Dpi150`):
 
 ```javascript
     var pres = new  aspose.slides.Presentation("InputDoc.pptx");
@@ -181,7 +181,7 @@ This code in Java shows you how to output HTML with full quality images:
 ## **Convert Slide to HTML**
 To convert a specific slide in a PowerPoint to HTML, you have to instantiate the same [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class (used to convert entire presentations to HTML) and then use the [Save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method to save the file as HTML. The [HtmlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HtmlOptions) class can be used to specify additional conversion options:
 
-This Java code shows you how to convert a slide in a PowerPoint presentation to HTML:
+This Javascript code shows you how to convert a slide in a PowerPoint presentation to HTML:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("Individual-Slide.pptx");
@@ -234,7 +234,7 @@ public class CustomFormattingController implements IHtmlFormattingController
 ## **Save CSS and Images When Exporting To HTML**
 Using new CSS style files, you can easily change the style of the HTML file resulting from the PowerPoint to HTML conversion process. 
 
-The Java code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
+The Javascript code in this example shows you how to use overridable methods to create a custom HTML document with a link to a CSS file:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");
@@ -288,7 +288,7 @@ public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 
 If you do not want to embed fonts (to avoid increasing the size of the resulting HTML), you can link all fonts by implementing your own  `LinkAllFontsHtmlController` version. 
 
-This Java code shows you how to convert a PowerPoint to HTML while linking all fonts and excluding "Calibri" and "Arial" (since they already exist in the system): 
+This Javascript code shows you how to convert a PowerPoint to HTML while linking all fonts and excluding "Calibri" and "Arial" (since they already exist in the system):
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");
@@ -306,7 +306,7 @@ This Java code shows you how to convert a PowerPoint to HTML while linking all f
     }
 ```
 
-This Java code shows you how `LinkAllFontsHtmlController` is implemented:
+This Javascript code shows you how `LinkAllFontsHtmlController` is implemented:
 
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
@@ -348,7 +348,7 @@ public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 ```
 
 ## **Convert PowerPoint to Responsive HTML**
-This Java code shows you how to convert a PowerPoint presentation to responsive HTML:
+This Javascript code shows you how to convert a PowerPoint presentation to responsive HTML:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("SomePresentation.pptx");
@@ -372,7 +372,7 @@ Using Aspose.Slides for Node.js via Java, you can export media files this way:
 1. Add a video to the slide.
 1. Write the presentation as a HTML file.
 
-This Java code shows you how to add a video to the presentation and then save it as HTML: 
+This Javascript code shows you how to add a video to the presentation and then save it as HTML:
 
 ```javascript
     // Loading a presentation

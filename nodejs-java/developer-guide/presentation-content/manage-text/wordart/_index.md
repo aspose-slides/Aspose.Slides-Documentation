@@ -29,7 +29,7 @@ With Aspose.Slides for Node.js via Java, you can easily create your own WordArt 
 
 **Using Aspose.Slides** 
 
-First, we create a simple text using this Java code: 
+First, we create a simple text using this Javascript code:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -219,7 +219,7 @@ The resulting text and its shape:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-We apply a 3D effect to the text with this Java code:
+We apply a 3D effect to the text with this Javascript code:
 
 ```javascript
     textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);

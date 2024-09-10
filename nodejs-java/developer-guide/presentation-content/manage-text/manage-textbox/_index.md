@@ -31,7 +31,7 @@ To create a textbox on a slide, go through these steps:
 4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
 
-This Java code—an implementation of the steps above—shows you how to add text to a slide:
+This Javascript code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```javascript
     // Instantiates Presentation
@@ -66,7 +66,7 @@ Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/nod
 
 ![Text box and shape](istextbox.png)
 
-This Java code shows you how to check whether a shape was created as a text box: 
+This Javascript code shows you how to check whether a shape was created as a text box:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");
@@ -118,7 +118,7 @@ This code in Java demonstrates the described operation:
 ## **Add Column In Text Frame**
 Aspose.Slides for Node.js via Java provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#setColumnCount-int-) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
 
-This Java code shows you how to add a column inside a text frame:
+This Javascript code shows you how to add a column inside a text frame:
 
 ```javascript
     var outPptxFileName = "ColumnsTest.pptx";
@@ -175,7 +175,7 @@ This Java code shows you how to add a column inside a text frame:
 
 Aspose.Slides allows you to change or update the text contained in a text box or all the texts contained in a presentation. 
 
-This Java code demonstrates an operation where all the texts in a presentation are updated or changed:
+This Javascript code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("text.pptx");
@@ -219,7 +219,7 @@ You can insert a link inside a text box. When the text box is clicked, users are
 6. Assign the `IHyperlinkManager` object to the [HyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick--) property associated with your preferred portion of the `TextFrame`.
 7. Finally, write the PPTX file through the `Presentation` object. 
 
-This Java code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
+This Javascript code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```javascript
     // Instantiates a Presentation class that represents a PPTX

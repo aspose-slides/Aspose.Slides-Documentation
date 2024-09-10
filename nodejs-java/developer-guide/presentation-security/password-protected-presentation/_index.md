@@ -193,7 +193,7 @@ If you want users to retain the ability to access the properties of a presentati
 
 Before you load a presentation, you might want to check and confirm that the presentation has not been protected with a password. This way, you get to avoid errors and similar issues, which come up when a password protected presentation is loaded without its password.
 
-This Java code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
+This Javascript code shows you how to examine a presentation to see if it is password protected (without loading the presentation itself):
 
 ```javascript
     var presentationInfo = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("example.pptx");

@@ -121,7 +121,7 @@ To create a picture bullet, go through these steps:
 1. Add the second paragraph and repeat the process given in previous steps
 1. Save the presentation
 
-This Java code shows you to create a picture bullet in a slide:
+This Javascript code shows you to create a picture bullet in a slide:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -262,7 +262,7 @@ Aspose.Slides for Node.js via Java provides a simple API to manage paragraphs wi
 1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
-This Java code shows you how to create a numbered list in a slide:
+This Javascript code shows you how to create a numbered list in a slide:
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file

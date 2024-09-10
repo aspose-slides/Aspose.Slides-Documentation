@@ -19,7 +19,7 @@ Aspose.Slides provides properties and methods under the [EffectFormat](https://r
 
 ## **Apply Shadow Effect**
 
-This Java code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
+This Javascript code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -39,7 +39,7 @@ This Java code shows you how to apply the outer shadow effect ([OuterShadowEffec
 
 ## **Apply Reflection Effect**
 
-This Java code shows you how to apply the reflection effect to a shape:
+This Javascript code shows you how to apply the reflection effect to a shape:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -60,7 +60,7 @@ This Java code shows you how to apply the reflection effect to a shape:
 
 ## **Apply Glow Effect**
 
-This Java code shows you how to apply the glow effect to a shape:
+This Javascript code shows you how to apply the glow effect to a shape:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -79,7 +79,7 @@ This Java code shows you how to apply the glow effect to a shape:
 
 ## **Apply Soft Edges Effect**
 
-This Java code shows you how to apply the soft edges to a shape:
+This Javascript code shows you how to apply the soft edges to a shape:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

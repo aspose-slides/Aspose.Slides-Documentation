@@ -30,7 +30,7 @@ Aspose recently developed an online [Text to GIF](https://products.aspose.app/sl
 
 ## **Converting Slides to Bitmap and Saving the Images in PNG**
 
-This Java code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
+This Javascript code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("Presentation.pptx");
@@ -122,7 +122,7 @@ With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/no
 
 {{% /alert %}} 
 
-This Java code demonstrates the conversion process for a slide with notes and comments:
+This Javascript code demonstrates the conversion process for a slide with notes and comments:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("PresentationNotesComments.pptx");
@@ -154,7 +154,7 @@ This Java code demonstrates the conversion process for a slide with notes and co
     }
 ```
 
-This Java code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
+This Javascript code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("PresentationNotes.pptx");
@@ -193,7 +193,7 @@ In any slide to image conversion process, the [NotesPositions](https://reference
 
 The [ITiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
 
-This Java code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
+This Javascript code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("PresentationNotesComments.pptx");

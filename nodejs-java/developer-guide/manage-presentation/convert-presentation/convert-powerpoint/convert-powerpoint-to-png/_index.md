@@ -24,7 +24,7 @@ Go through these steps:
 3. Use a [ISlide.getImage()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide) method to get the thumbnail for each slide.
 4. Use the  [**IImage.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IImage#save(String formatName, int imageFormat)) method to save the slide thumbnail to the PNG format.
 
-This Java code shows you how to convert a PowerPoint presentation to PNG:
+This Javascript code shows you how to convert a PowerPoint presentation to PNG:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");

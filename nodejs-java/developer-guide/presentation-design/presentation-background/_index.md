@@ -21,7 +21,7 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 4. Use the [SolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/) to specify a solid color for the background.
 5. Save the modified presentation.
 
-This Java code shows you how to set a solid color (blue) as the background for a normal slide: 
+This Javascript code shows you how to set a solid color (blue) as the background for a normal slide:
 
 ```javascript
     // Creates an instance of the Presentation class
@@ -50,7 +50,7 @@ Aspose.Slides allows you to set a solid color as the background for the master s
 4. Use the [SolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor--) property exposed by [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/) to specify a solid color for the background.
 5. Save the modified presentation.
 
-This Java code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
+This Javascript code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
 
 ```javascript
     // Creates an instance of the Presentation class
@@ -79,7 +79,7 @@ A gradient is a graphical effect based on a gradual change in color. Gradient co
 4. Use the [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/) to specify your preferred gradient setting.
 5. Save the modified presentation.
 
-This Java code shows you how to set a gradient color as the background for a slide:
+This Javascript code shows you how to set a gradient color as the background for a slide:
 
 ```javascript
     // Creates an instance of the Presentation class
@@ -110,7 +110,7 @@ Besides solid colors and gradient colors, Aspose.Slides also allows you to set i
 6. Use the [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getPictureFillFormat--) property exposed by [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/) to set the image as the background.
 7. Save the modified presentation.
 
-This Java code shows you how to set an image as the background for a slide: 
+This Javascript code shows you how to set an image as the background for a slide:
 
 ```javascript
     // Creates an instance of the Presentation class
@@ -144,7 +144,7 @@ This Java code shows you how to set an image as the background for a slide:
 
 ### **Change Transparency of Background Image**
 
-You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Java code shows you how to change the transparency for a slide background image:
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Javascript code shows you how to change the transparency for a slide background image:
 
 ```javascript
     var transparencyValue = 30;// for example
@@ -172,7 +172,7 @@ Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.c
 
 Using the [Background](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getBackground--) property from the [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/) class, you can get the effective value for a slide background.
 
-This Java code shows you how to get a slide's effective background value:
+This Javascript code shows you how to get a slide's effective background value:
 
 ```javascript
     // Creates an instance of the Presentation class

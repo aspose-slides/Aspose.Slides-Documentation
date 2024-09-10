@@ -22,7 +22,7 @@ Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred va
 1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series. 
 1. Write the modified presentation to a PPTX file.
 
-This Java code shows you how to set the overlap for a chart series:
+This Javascript code shows you how to set the overlap for a chart series:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -52,7 +52,7 @@ Aspose.Slides for Node.js via Java allows you to change a series' color this way
 1. Set your preferred fill type and fill color.
 1. Save the modified presentation.
 
-This Java code shows you how to change a series' color:
+This Javascript code shows you how to change a series' color:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("test.pptx");
@@ -107,7 +107,7 @@ In our example (sample image),
 
 Aspose.Slides for Node.js via Java allows you to update or change a series name in its chart data and legend.
 
-This Java code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
+This Javascript code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -123,7 +123,7 @@ This Java code shows you how to change a series' name in its chart data `ChartDa
     }
 ```
 
-This Java code shows you how to change a series name in its legend through`Series`:
+This Javascript code shows you how to change a series name in its legend through`Series`:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -149,7 +149,7 @@ Aspose.Slides for Node.js via Java allows you to set the automatic fill color fo
 1. Access the chart series and set the fill color to Automatic.
 1. Save the presentation to a PPTX file.
 
-This Java code shows you how to set the automatic fill color for a chart series:
+This Javascript code shows you how to set the automatic fill color for a chart series:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -178,7 +178,7 @@ Aspose.Slides allows you to set the invert fill color for chart series inside a 
 1. Access the chart series and set the fill color to invert.
 1. Save the presentation to a PPTX file.
 
-This Java code demonstrates the operation:
+This Javascript code demonstrates the operation:
 
 ```javascript
     var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
@@ -215,7 +215,7 @@ This Java code demonstrates the operation:
 ## **Set Series to Invert When Value is Negative**
 Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNegative` and `ChartDataPoint.InvertIfNegative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
 
-This Java code demonstrates the operation:
+This Javascript code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -248,7 +248,7 @@ Aspose.Slides for Node.js via Java allows you to clear the `DataPoints` data for
 5. Clear all`DataPoints` for specific chart series.
 6. Write the modified presentation to a PPTX file.
 
-This Java code demonstrates the operation:
+This Javascript code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("TestChart.pptx");

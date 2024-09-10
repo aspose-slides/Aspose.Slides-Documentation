@@ -14,7 +14,7 @@ description: "Table cells in PowerPoint presentations in Javascript"
 3. Iterate through the table's rows and columns to find merge cells.
 4. Print message when merged cells are found.
 
-This Java code shows you how to identify merged table cells in a presentation:
+This Javascript code shows you how to identify merged table cells in a presentation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("SomePresentationWithTable.pptx");
@@ -44,7 +44,7 @@ This Java code shows you how to identify merged table cells in a presentation:
 6. Iterate through every cell to clear the top, bottom, right, and left borders.
 7. Save the modified presentation as a PPTX file.
 
-This Java code shows you how to remove the borders from table cells:
+This Javascript code shows you how to remove the borders from table cells:
 
 ```javascript
     // Instantiates Presentation class that represents a PPTX file
@@ -76,7 +76,7 @@ This Java code shows you how to remove the borders from table cells:
 ```
 
 ## **Numbering in Merged Cells**
-If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This Java code demonstrates the process:
+If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This Javascript code demonstrates the process:
 
 ```javascript
     // Instantiates Presentation class that represents a PPTX file
@@ -168,7 +168,7 @@ In previous examples, when table cells got merged, the numeration or number syst
 
 This time, we take a regular table (a table without merged cells) and then try to split cell (1,1) to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
 
-This Java code demonstrates the process we described:
+This Javascript code demonstrates the process we described:
 
 ```javascript
     // Instantiates the Presentation class that represents a PPTX file
@@ -215,7 +215,7 @@ This Java code demonstrates the process we described:
 
 ## **Change Table Cell Background Color**
 
-This Java code shows you how to change a table cell's background color:
+This Javascript code shows you how to change a table cell's background color:
 
 ```javascript
     var presentation = new  aspose.slides.Presentation();
@@ -250,7 +250,7 @@ This Java code shows you how to change a table cell's background color:
 9. Add the image to the table's first cell.
 10. Save the modified presentation as a PPTX file
 
-This Java code shows you how to place an image inside a table cell when creating a table:
+This Javascript code shows you how to place an image inside a table cell when creating a table:
 
 ```javascript
     // Instantiates the Presentation class that represents a PPTX file

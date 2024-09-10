@@ -24,7 +24,7 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 ### **Adding URL Hyperlinks to Texts**
 
-This Java code shows you how to add a website hyperlink to a text:
+This Javascript code shows you how to add a website hyperlink to a text:
 
 ```javascript
     var presentation = new  aspose.slides.Presentation();
@@ -200,7 +200,7 @@ This sample code demonstrates an operation where hyperlinks with different color
 
 ### **Removing Hyperlinks from Texts**
 
-This Java code shows you how to remove the hyperlink from a text in a presentation slide:
+This Javascript code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -226,7 +226,7 @@ This Java code shows you how to remove the hyperlink from a text in a presentati
 
 ### **Removing Hyperlinks from Shapes or Frames**
 
-This Java code shows you how to remove the hyperlink from a shape in a presentation slide: 
+This Javascript code shows you how to remove the hyperlink from a shape in a presentation slide:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

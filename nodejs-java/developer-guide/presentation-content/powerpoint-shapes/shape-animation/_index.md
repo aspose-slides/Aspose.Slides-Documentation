@@ -39,7 +39,7 @@ Aspose.Slides for Node.js via Java allows you to apply animation to the text in 
 7. Set the `TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
 8. Write the presentation to disk as a PPTX file.
 
-This Java code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
+This Javascript code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
@@ -80,7 +80,7 @@ Besides applying animations to text, you can also apply animations to a single [
 5. Add an animation effect to [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe).
 6. Write the presentation to disk as a PPTX file.
 
-This Java code shows you how to apply the `Fly` effect to a picture frame:
+This Javascript code shows you how to apply the `Fly` effect to a picture frame:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
@@ -123,7 +123,7 @@ This Java code shows you how to apply the `Fly` effect to a picture frame:
 7. Add commands for moving to the `UserPath`.
 8. Write the presentation to disk as a PPTX file.
 
-This Java code shows you how to apply the `PathFootball` (path football) effect to a shape:
+This Javascript code shows you how to apply the `PathFootball` (path football) effect to a shape:
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file.
@@ -162,7 +162,7 @@ This Java code shows you how to apply the `PathFootball` (path football) effect 
 
 You may decide to find out the all animation effects applied to a single shape. 
 
-This Java code shows you how to get the all effects applied to a specific shape:
+This Javascript code shows you how to get the all effects applied to a specific shape:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
@@ -205,7 +205,7 @@ This is how you change the Effect Timing properties:
 2. Set new values for the [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IEffect#getTiming--) properties you need.
 3. Save the modified PPTX file.
 
-This Java code demonstrates the operation:
+This Javascript code demonstrates the operation:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
@@ -239,7 +239,7 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 
 ### **Add Animation Effect Sound**
 
-This Java code shows you how to add an animation effect sound and stop it when the next effect starts:
+This Javascript code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("AnimExample_out.pptx");
@@ -276,7 +276,7 @@ This Java code shows you how to add an animation effect sound and stop it when t
 3. Get the main sequence of effects. 
 4. Extract the [setSound(IAudio value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-) embedded to each animation effect.
 
-This Java code shows you how to extract the sound embedded in an animation effect:
+This Javascript code shows you how to extract the sound embedded in an animation effect:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
@@ -316,7 +316,7 @@ PowerPoint Effect **After animation** drop-down list matches these properties:
   * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
 - [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ieffect/#setAfterAnimationColor-aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
 
-This Java code shows you how to change an after animation effect:
+This Javascript code shows you how to change an after animation effect:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
@@ -355,7 +355,7 @@ This is how you can change the Effect Animate text properties:
 3. Set new values for the [setAnimateTextType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ieffect/#setAnimateTextType-int-) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ieffect/#setDelayBetweenTextParts-float-) properties.
 4. Save the modified PPTX file.
 
-This Java code demonstrates the operation:
+This Javascript code demonstrates the operation:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.

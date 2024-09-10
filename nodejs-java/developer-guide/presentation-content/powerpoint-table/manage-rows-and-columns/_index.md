@@ -17,7 +17,7 @@ To allow you to manage a table's rows and columns in a PowerPoint presentation, 
 4. Iterate through all [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ishape/) objects to find the relevant table.
 5. Set the table's first row as its header. 
 
-This Java code shows you how to set a table's first row as its header:
+This Javascript code shows you how to set a table's first row as its header:
 
 ```javascript
     // Instantiates the Presentation class
@@ -56,7 +56,7 @@ This Java code shows you how to set a table's first row as its header:
 7. Clone the table column.
 8. Save the modified presentation.
 
-This Java code shows you how to clone a PowerPoint table's row or column:
+This Javascript code shows you how to clone a PowerPoint table's row or column:
 
 ```javascript
     // Instantiates the Presentation class
@@ -105,7 +105,7 @@ This Java code shows you how to clone a PowerPoint table's row or column:
 7. Remove the table column.
 8. Save the modified presentation. 
 
-This Java code shows you how to remove a row or column from a table:
+This Javascript code shows you how to remove a row or column from a table:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -134,7 +134,7 @@ This Java code shows you how to remove a row or column from a table:
 6. Set the second-row cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation.
 
-This Java code demonstrates the operation.
+This Javascript code demonstrates the operation.
 
 ```javascript
     // Creates an instance of the Presentation class
@@ -174,7 +174,7 @@ This Java code demonstrates the operation.
 6. Set the second-column cells' [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation. 
 
-This Java code demonstrates the operation: 
+This Javascript code demonstrates the operation:
 
 ```javascript
     // Creates an instance of the Presentation class
@@ -205,7 +205,7 @@ This Java code demonstrates the operation:
 
 ## **Get Table Style Properties**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Java code shows you how to get the style properties from a table preset style:
+Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Javascript code shows you how to get the style properties from a table preset style:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

@@ -17,7 +17,7 @@ Aspose.Slides for Node.js via Java allows you to add audio files to slides. The 
 5. Set [PlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AudioPlayModePreset) and `Volume` exposed by the [IAudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAudioFrame) object.
 6. Save the modified presentation.
 
-This Java code shows you how to add an embedded audio frame to a slide:
+This Javascript code shows you how to add an embedded audio frame to a slide:
 
 ```javascript
     // Instantiates a Presentation class that represents a presentation file
@@ -47,7 +47,7 @@ This Java code shows you how to add an embedded audio frame to a slide:
 
 When you add an audio file to a presentation, the audio appears as a frame with a standard default image (see the image in the section below). You change the audio frame's preview image (set your preferred image).
 
-This Java code shows you how to change an audio frame's thumbnail or preview image:
+This Javascript code shows you how to change an audio frame's thumbnail or preview image:
 
 ```javascript
     var presentation = new  aspose.slides.Presentation();
@@ -101,7 +101,7 @@ This is how you change the Audio Play options:
 2. Set new values for the Audio Frame properties you want to adjust.
 3. Save the modified PowerPoint file.
 
-This Java code demonstrates an operation in which an audio's options are adjusted:
+This Javascript code demonstrates an operation in which an audio's options are adjusted:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("AudioFrameEmbed_out.pptx");

@@ -66,7 +66,7 @@ The `AddClone` method returns an `ISlide` object, which is a clone of the source
 
 Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) method that allows you to combine slides while the slides retain their layouts and styles (default parameters).
 
-This Java code shows you how to merge presentations:
+This Javascript code shows you how to merge presentations:
 
 ```javascript
     var pres1 = new  aspose.slides.Presentation("pres1.pptx");
@@ -126,7 +126,7 @@ If you want the slides in the output presentation to have a different slide layo
 
 ## **Merge Specific Slides From Presentations**
 
-This Java code shows you how to select and combine specific slides from different presentations to get one output presentation:
+This Javascript code shows you how to select and combine specific slides from different presentations to get one output presentation:
 
 ```javascript
     var pres1 = new  aspose.slides.Presentation("pres1.pptx");
@@ -151,7 +151,7 @@ This Java code shows you how to select and combine specific slides from differen
 
 ## **Merge Presentations With Slide Layout**
 
-This Java code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
+This Javascript code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```javascript
     var pres1 = new  aspose.slides.Presentation("pres1.pptx");
@@ -210,7 +210,7 @@ This sample code demonstrates the described operation:
 
 ## **Merge Slides to Presentation Section**
 
-This Java code shows you how to merge a specific slide to a section in a presentation:
+This Javascript code shows you how to merge a specific slide to a section in a presentation:
 
 ```javascript
     var pres1 = new  aspose.slides.Presentation("pres1.pptx");

@@ -43,7 +43,7 @@ This sample code—an implementation of the steps above—shows you how to get t
 ## **Swapping the Data between Axes**
 Aspose.Slides allows you to quickly swap the data between axes—the data represented on the vertical axis (y-axis) moves to the horizontal axis (x-axis) and vice versa. 
 
-This Java code shows you how to perform the data swap task between axes on a chart:
+This Javascript code shows you how to perform the data swap task between axes on a chart:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -62,7 +62,7 @@ This Java code shows you how to perform the data swap task between axes on a cha
 
 ## **Disabling the Vertical Axis for Line Charts**
 
-This Java code shows you how to hide the vertical axis for a line chart:
+This Javascript code shows you how to hide the vertical axis for a line chart:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -115,7 +115,7 @@ Using the **CategoryAxisType** property, you can specify your preferred category
 ```
 
 ## **Setting the Date Format for Category Axis Value**
-Aspose.Slides for Node.js via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Java code:
+Aspose.Slides for Node.js via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Javascript code:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -148,7 +148,7 @@ Aspose.Slides for Node.js via Java allows you to set the date format for a categ
 ```
 
 ## **Setting the Rotation Angle for Chart Axis Title**
-Aspose.Slides for Node.js via Java allows you to set the rotation angle for a chart axis title. This Java code demonstrates the operation:
+Aspose.Slides for Node.js via Java allows you to set the rotation angle for a chart axis title. This Javascript code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -165,7 +165,7 @@ Aspose.Slides for Node.js via Java allows you to set the rotation angle for a ch
 ```
 
 ## **Setting the Position Axis in a Category or Value Axis**
-Aspose.Slides for Node.js via Java allows you to set the position axis in a category or value axis. This Java code shows how to perform the task:
+Aspose.Slides for Node.js via Java allows you to set the position axis in a category or value axis. This Javascript code shows how to perform the task:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -181,7 +181,7 @@ Aspose.Slides for Node.js via Java allows you to set the position axis in a cate
 ```
 
 ## **Enabling the Display Unit label on Chart Value Axis**
-Aspose.Slides for Node.js via Java allows you to configure a chart to show a unit label on its chart value axis. This Java code demonstrates the operation:
+Aspose.Slides for Node.js via Java allows you to configure a chart to show a unit label on its chart value axis. This Javascript code demonstrates the operation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

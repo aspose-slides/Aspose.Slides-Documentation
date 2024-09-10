@@ -39,9 +39,9 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slide
 
 2. Download ffmpeg [here](https://ffmpeg.org/download.html).
 
-4. Run the PowerPoint to video Java code.
+4. Run the PowerPoint to video Javascript code.
 
-This Java code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
+This Javascript code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```javascript
     var presentation = new  aspose.slides.Presentation();

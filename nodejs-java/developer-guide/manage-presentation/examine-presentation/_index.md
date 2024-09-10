@@ -18,7 +18,7 @@ The [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 
 Before working on a presentation, you may want to find out what format (PPT, PPTX, ODP, and others) the presentation is in at the moment.
 
-You can check a presentation's format without loading the presentation. See this Java code:
+You can check a presentation's format without loading the presentation. See this Javascript code:
 
 ```javascript
     var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
@@ -31,7 +31,7 @@ You can check a presentation's format without loading the presentation. See this
 
 ## **Get a Presentation Properties**
 
-This Java code shows you how to get a presentation’s properties (information about the presentation):
+This Javascript code shows you how to get a presentation’s properties (information about the presentation):
 
 ```javascript
     var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
@@ -48,7 +48,7 @@ You may want to see the [properties under the DocumentProperties](https://refere
 
 Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
 
-This Java code shows you how to edit a presentation's properties:
+This Javascript code shows you how to edit a presentation's properties:
 
 ```javascript
     var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");

@@ -33,7 +33,7 @@ You can use a brush to draw lines connecting trace elements' points. The brush h
 
 ### **Set Ink Brush Color**
 
-This Java code shows you how to set the color for a brush:
+This Javascript code shows you how to set the color for a brush:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");
@@ -52,7 +52,7 @@ This Java code shows you how to set the color for a brush:
 
 ### **Set Ink Brush Size** 
 
-This Java code shows you how to set the size for a brush:
+This Javascript code shows you how to set the size for a brush:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");

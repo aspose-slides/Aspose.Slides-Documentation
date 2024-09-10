@@ -29,7 +29,7 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `IPortion` object.
 9. Save the modified presentation.
 
-This Java code is an implementation of the steps for adding paragraphs containing portions:
+This Javascript code is an implementation of the steps for adding paragraphs containing portions:
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file
@@ -109,7 +109,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 13. Add the second paragraph and repeat the process given in steps 7 to 13.
 14. Save the presentation.
 
-This Java code shows you how to add a paragraph bullet:
+This Javascript code shows you how to add a paragraph bullet:
 
 ```javascript
     // Instantiates a Presentation class that represents a PPTX file
@@ -186,7 +186,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 14. Add the second paragraph and repeat the process based on the previous steps.
 15. Save the modified presentation.
 
-This Java code shows you how to add and manage picture bullets:
+This Javascript code shows you how to add and manage picture bullets:
 
 ```javascript
     // Instantiates a Presentation class that represents a PPTX file
@@ -249,7 +249,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 10. Add the new paragraphs to the `TextFrame` paragraph collection.
 11. Save the modified presentation.
 
-This Java code shows you how to add and manage multilevel bullets:
+This Javascript code shows you how to add and manage multilevel bullets:
 
 ```javascript
     // Instantiates a Presentation class that represents a PPTX file
@@ -329,7 +329,7 @@ The [IBulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slide
 9. Add the new paragraphs to the `TextFrame` paragraph collection.
 10. Save the modified presentation.
 
-This Java code shows you how to add and manage paragraphs with custom numbering or formatting:
+This Javascript code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```javascript
     var presentation = new  aspose.slides.Presentation();
@@ -377,7 +377,7 @@ This Java code shows you how to add and manage paragraphs with custom numbering 
 1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) through their BulletOffset property.
 1. Write the modified presentation as a PPT file.
 
-This Java code shows you how to set a paragraph indent:
+This Javascript code shows you how to set a paragraph indent:
 
 ```javascript
     // Instantiate Presentation Class
@@ -426,7 +426,7 @@ This Java code shows you how to set a paragraph indent:
 
 ## **Set Hanging Indent for Paragraph**
 
-This Java code shows you how to set the hanging indent for a paragraph:
+This Javascript code shows you how to set the hanging indent for a paragraph:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -461,7 +461,7 @@ This Java code shows you how to set the hanging indent for a paragraph:
 1. Set the End properties for the paragraphs.
 1. Write the modified presentation as a PPTX file.
 
-This Java code shows you how to set the End properties for paragraphs in PowerPoint: 
+This Javascript code shows you how to set the End properties for paragraphs in PowerPoint:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -500,7 +500,7 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/).
 9. Save the modified presentation.
 
-This Java code is an implementation of the steps for importing HTML texts in paragraphs:
+This Javascript code is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```javascript
     // Create Empty presentation instance
@@ -540,7 +540,7 @@ Aspose.Slides provides enhanced support for exporting texts (contained in paragr
 5. Create an instance of `StreamWriter` and add the new HTML file.
 6. Provide a starting index to StreamWriter and export your preferred paragraphs.
 
-This Java code shows you how to export PowerPoint paragraph texts to HTML:
+This Javascript code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```javascript
     // Load the presentation file

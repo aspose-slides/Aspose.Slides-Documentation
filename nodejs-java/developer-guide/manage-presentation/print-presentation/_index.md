@@ -11,7 +11,7 @@ In Aspose.Slides for Node.js via Java 24.4, we have introduced a [Modern API](ht
 
 ## Print Presentation
 
-This Java code snippet demonstrates how to print a PowerPoint presentation using Aspose.Slides for Node.js via Java API.
+This Javascript code snippet demonstrates how to print a PowerPoint presentation using Aspose.Slides for Node.js via Java API.
 
 To print a presentation, follow these steps:
 

@@ -17,7 +17,7 @@ Aspose.Slides allows you to replace a font this way:
 4. Replace the font. 
 5. Write the modified presentation as a PPTX file.
 
-This Java code demonstrates font replacement:
+This Javascript code demonstrates font replacement:
 
 ```javascript
     // Loads a presentation

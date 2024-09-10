@@ -14,7 +14,7 @@ Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you
 
 To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its constructor.
 
-This Java code shows you how to open a presentation and also find out the number of slides it contains: 
+This Javascript code shows you how to open a presentation and also find out the number of slides it contains:
 
 ```javascript
     // Instantiates the Presentation class and passes the file path to its constructor
@@ -31,7 +31,7 @@ This Java code shows you how to open a presentation and also find out the number
 
 ## **Open Password Protected Presentation**
 
-When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Java code demonstrates the operation:
+When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Javascript code demonstrates the operation:
 
 ```javascript
     var loadOptions = new  aspose.slides.LoadOptions();
@@ -82,7 +82,7 @@ When you want to create a presentation that contains large objects (video, audio
 
 ## Load Presentation
 
-Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This Java code shows you how to use the `IResourceLoadingCallback` interface:
+Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This Javascript code shows you how to use the `IResourceLoadingCallback` interface:
 
 ```javascript
     var opts = new  aspose.slides.LoadOptions();

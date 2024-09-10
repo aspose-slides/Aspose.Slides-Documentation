@@ -31,7 +31,7 @@ If you want the text in a box to always fit into that box after changes are made
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-This Java code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
+This Javascript code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -60,7 +60,7 @@ If you want a textbox or shape to retain its dimensions no matter the changes ma
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-This Java code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
+This Javascript code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -89,7 +89,7 @@ If a text becomes too long for its box, through the **Shrink text on overflow** 
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-This Java code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
+This Javascript code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -120,7 +120,7 @@ When the **Shrink text on overflow** option is used, the setting gets applied on
 
 If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [WrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getWrapText--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `true`.
 
-This Java code shows you how to use the Wrap Text setting in a PowerPoint presentation:
+This Javascript code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

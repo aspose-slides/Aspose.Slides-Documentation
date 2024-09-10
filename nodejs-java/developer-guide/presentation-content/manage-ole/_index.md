@@ -176,7 +176,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
 
 Besides Excel charts, Aspose.Slides for Node.js via Java allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, the object automatically gets launched in the relevant program, or the user gets directed to select an appropriate program to open the object.
 
-This Java code shows you how to embed HTML and ZIP in a slide:
+This Javascript code shows you how to embed HTML and ZIP in a slide:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -229,7 +229,7 @@ After you embed an OLE object, a preview consisting of an icon image and title g
 
 If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Node.js via Java.
 
-This Java code shows you how to set the icon image and title for an embedded object: 
+This Javascript code shows you how to set the icon image and title for an embedded object:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -265,7 +265,7 @@ Aspose.Slides for Node.js via Java allows you to extract the files embedded in s
 2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe) shape.
 3. Access the embedded file's data from the OLE Object Frame and write it to disk. 
 
-This Java code shows you how to extract a file embedded in a slide as an OLE object:
+This Javascript code shows you how to extract a file embedded in a slide as an OLE object:
 
 ```javascript
     var pres = new  aspose.slides.Presentation("embeddedOle.pptx");

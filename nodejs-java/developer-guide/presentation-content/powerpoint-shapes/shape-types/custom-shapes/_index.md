@@ -46,7 +46,7 @@ To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [*
 
 ## **Simple Editing Operations**
 
-This Java code shows you how to
+This Javascript code shows you how to
 
 **Add a line** to the end of a path
 
@@ -96,7 +96,7 @@ This Java code shows you how to
 4. Add a new point between the two bottom points on the path.
 5. Apply the path to the shape.
 
-This Java code shows you how to add custom points to a shape:
+This Javascript code shows you how to add custom points to a shape:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -121,7 +121,7 @@ This Java code shows you how to add custom points to a shape:
 3. Remove the segment for the path.
 4. Apply the path to the shape.
 
-This Java code shows you how to remove points from a shape:
+This Javascript code shows you how to remove points from a shape:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -189,7 +189,7 @@ This Java shows you how to create a custom shape:
   3. Create a second instance of the [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class.
   4. Apply the paths to the shape.
 
-This Java code shows you to create a composite custom shape:
+This Javascript code shows you to create a composite custom shape:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -218,7 +218,7 @@ This Java code shows you to create a composite custom shape:
 
 ## **Create Custom Shape With Curved Corners**
 
-This Java code shows you how to create a custom shape with curved corners (inwards);
+This Javascript code shows you how to create a custom shape with curved corners (inwards);
 
 ```javascript
     var shapeX = 20.0;
@@ -264,7 +264,7 @@ This Java code shows you how to create a custom shape with curved corners (inwar
 3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) instance using [ShapeUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeUtil).
 4. Apply the paths to the shape.
 
-This Java code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
+This Javascript code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

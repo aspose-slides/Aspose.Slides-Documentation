@@ -30,7 +30,7 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/node
 1. Associate the references with the VBA project.
 1. Save the presentation.
 
-This Java code shows you how to add a VBA macro from scratch to a presentation:
+This Javascript code shows you how to add a VBA macro from scratch to a presentation:
 
 ```javascript
     // Creates an instance of the presentation class
@@ -72,7 +72,7 @@ Using the [VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 1. Access the Macro module and remove it.
 1. Save the modified presentation.
 
-This Java code shows you how to remove a VBA macro:
+This Javascript code shows you how to remove a VBA macro:
 
 ```javascript
     // Loads the presentation containing the macro
@@ -95,7 +95,7 @@ This Java code shows you how to remove a VBA macro:
 2. Check if the presentation contains a VBA Project.
 3. Loop through all the modules contained in the VBA Project to view the macros.
 
-This Java code shows you how to extract VBA macros from a presentation containing macros:
+This Javascript code shows you how to extract VBA macros from a presentation containing macros:
 
 ```javascript
     // Loads the presentation containing the macro
