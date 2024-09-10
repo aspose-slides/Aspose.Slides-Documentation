@@ -149,7 +149,7 @@ This Java code shows you how to remove points from a shape:
 This Java shows you how to create a custom shape:
 
 ```javascript
-    var points = java.newInstanceSync("ArrayList", );
+    var points = java.newInstanceSync("ArrayList");
     var R = 100;
     var r = 50;
     var step = 72;

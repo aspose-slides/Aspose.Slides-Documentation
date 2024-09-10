@@ -54,7 +54,7 @@ This Java code shows you how to convert a presentation (containing a figure and 
         effectIn.getTiming().setDuration(2.0);
         effectOut.setPresetClassType(aspose.slides.EffectPresetClassType.Exit);
         final var fps = 33;
-        var frames = java.newInstanceSync("ArrayList", );
+        var frames = java.newInstanceSync("ArrayList");
         var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
             var player = new  aspose.slides.PresentationPlayer(animationsGenerator, fps);
@@ -82,7 +82,7 @@ This Java code shows you how to convert a presentation (containing a figure and 
         // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
         var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
         var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
-        var builder = java.newInstanceSync("FFmpegBuilder", ).addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
+        var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
         var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
         executor.createJob(builder).run();
     } catch (e) {
@@ -141,7 +141,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
         effect3.getTiming().setTriggerDelayTime(1.0);
         effect4.getTiming().setTriggerDelayTime(1.0);
         final var fps = 33;
-        var frames = java.newInstanceSync("ArrayList", );
+        var frames = java.newInstanceSync("ArrayList");
         var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
             var player = new  aspose.slides.PresentationPlayer(animationsGenerator, fps);
@@ -169,7 +169,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
         // Configure ffmpeg binaries folder. See this page: https://github.com/rosenbjerg/FFMpegCore#installation
         var ffmpeg = java.newInstanceSync("FFmpeg", "path/to/ffmpeg");
         var ffprobe = java.newInstanceSync("FFprobe", "path/to/ffprobe");
-        var builder = java.newInstanceSync("FFmpegBuilder", ).addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
+        var builder = java.newInstanceSync("FFmpegBuilder").addExtraArgs("-start_number", "1").setInput("frame_%04d.png").addOutput("output.avi").setVideoFrameRate(java.getStaticFieldValue("FFmpeg", "FPS_24")).setFormat("avi").done();
         var executor = java.newInstanceSync("FFmpegExecutor", ffmpeg, ffprobe);
         executor.createJob(builder).run();
     } catch (e) {

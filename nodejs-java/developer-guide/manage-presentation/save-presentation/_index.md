@@ -140,7 +140,7 @@ The following code snippets below show how to use [IProgressCallback](https://re
     var pres = new  aspose.slides.Presentation("ConvertToPDF.pptx");
     try {
         var saveOptions = new  aspose.slides.PdfOptions();
-        saveOptions.setProgressCallback(java.newInstanceSync("ExportProgressHandler", ));
+        saveOptions.setProgressCallback(java.newInstanceSync("ExportProgressHandler"));
         pres.save("ConvertToPDF.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
     } finally {
         pres.dispose();

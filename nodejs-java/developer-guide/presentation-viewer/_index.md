@@ -54,7 +54,7 @@ Aspose.Slides for Node.js via Java can be used to generate [SVG](https://docs.f
         var stream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
         try {
             var svgOptions = new  aspose.slides.SVGOptions();
-            svgOptions.setShapeFormattingController(java.newInstanceSync("CustomSvgShapeFormattingController", ));
+            svgOptions.setShapeFormattingController(java.newInstanceSync("CustomSvgShapeFormattingController"));
             pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
         } finally {
             if (stream != null) {

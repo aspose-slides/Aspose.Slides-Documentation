@@ -35,7 +35,7 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
 ```javascript
     var pres = new  aspose.slides.Presentation(inputPres);
     try {
-        var doc = java.newInstanceSync("Document", );
+        var doc = java.newInstanceSync("Document");
         var builder = java.newInstanceSync("DocumentBuilder", doc);
         pres.getSlides().forEach(function(slide) {
             // generates and inserts slide image

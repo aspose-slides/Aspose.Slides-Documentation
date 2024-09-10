@@ -188,7 +188,7 @@ This Java code shows you how to convert a slide in a PowerPoint presentation to 
     try {
         var htmlOptions = new  aspose.slides.HtmlOptions();
         htmlOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-        htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(java.newInstanceSync("CustomFormattingController", )));
+        htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(java.newInstanceSync("CustomFormattingController")));
         // Saving File
         for (var i = 0; i < pres.getSlides().size(); i++) {
             pres.save(("Individual Slide" + (i + 1)) + "_out.html", new int[]{ i + 1 }, aspose.slides.SaveFormat.Html, htmlOptions);

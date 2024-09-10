@@ -86,7 +86,7 @@ Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/s
 
 ```javascript
     var opts = new  aspose.slides.LoadOptions();
-    opts.setResourceLoadingCallback(java.newInstanceSync("ImageLoadingHandler", ));
+    opts.setResourceLoadingCallback(java.newInstanceSync("ImageLoadingHandler"));
     var pres = new  aspose.slides.Presentation("presentation.pptx", opts);
 ```
 

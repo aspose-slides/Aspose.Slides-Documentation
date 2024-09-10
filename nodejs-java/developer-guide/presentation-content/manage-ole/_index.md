@@ -38,7 +38,7 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
         var sld = pres.getSlides().get_Item(0);
         // Loads an excel file to stream
         var fs = java.newInstanceSync("java.io.FileInputStream", "book1.xlsx");
-        var mstream = java.newInstanceSync("java.io.ByteArrayOutputStream", );
+        var mstream = java.newInstanceSync("java.io.ByteArrayOutputStream");
         var buf = new byte[4096];
         while (true) {
             var bytesRead = fs.read(buf, 0, buf.length);
@@ -140,7 +140,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
             try {
                 // Reads object data in Workbook
                 var Wb = java.newInstanceSync("Workbook", msln);
-                var msout = java.newInstanceSync("java.io.ByteArrayOutputStream", );
+                var msout = java.newInstanceSync("java.io.ByteArrayOutputStream");
                 try {
                     // Modifies the workbook data
                     Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");

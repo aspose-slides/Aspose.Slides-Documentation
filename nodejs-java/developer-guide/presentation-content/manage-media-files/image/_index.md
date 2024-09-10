@@ -66,10 +66,10 @@ This sample code shows you how to add an image from the web to a slide in Java:
     var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var imageUrl = java.newInstanceSync("URL", "[REPLACE WITH URL]");
+        var imageUrl = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
         var connection = imageUrl.openConnection();
         var inputStream = connection.getInputStream();
-        var outputStream = java.newInstanceSync("java.io.ByteArrayOutputStream", );
+        var outputStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
         try {
             var buffer = new byte[1024];
             var read;
@@ -77,7 +77,7 @@ This sample code shows you how to add an image from the web to a slide in Java:
                 outputStream.write(buffer, 0, read);
             }
             outputStream.flush();
-            var image = pres.getImages().addImage(outputStream.toByteArray());
+            var image = pres.getImages().addImageFromStream(outputStream);
             slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, image);
         } finally {
             if (inputStream != null) {
@@ -193,7 +193,7 @@ This sample code shows you how to perform the described task:
 ```javascript
     var book = java.newInstanceSync("Workbook", "chart.xlsx");
     var sheet = book.getWorksheets().get(0);
-    var options = java.newInstanceSync("ImageOrPrintOptions", );
+    var options = java.newInstanceSync("ImageOrPrintOptions");
     options.setHorizontalResolution(200);
     options.setVerticalResolution(200);
     options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));

@@ -30,7 +30,7 @@ This sample code, based on the steps above, shows to how to add Media Player Act
         // Adding the Media Player ActiveX control
         pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
         // Access the Media Player ActiveX control and set the video path
-        pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("URL", "Wildlife.wmv");
+        pres.getSlides().get_Item(0).getControls().get_Item(0).getProperties().set_Item("java.net.URL", "Wildlife.wmv");
         // Save the Presentation
         pres.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -95,7 +95,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
             graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
             graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
             graphics.dispose();
-            var baos = java.newInstanceSync("java.io.ByteArrayOutputStream", );
+            var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
             java.callStaticMethodSync("javax.imageio.ImageIO", "write", image, "PNG", baos);
             control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
         }
@@ -127,7 +127,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
             graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
             graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
             graphics.dispose();
-            var baos = java.newInstanceSync("java.io.ByteArrayOutputStream", );
+            var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
             java.callStaticMethodSync("javax.imageio.ImageIO", "write", image, "PNG", baos);
             control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
         }
