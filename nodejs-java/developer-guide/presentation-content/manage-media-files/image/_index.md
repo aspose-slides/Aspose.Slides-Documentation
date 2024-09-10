@@ -191,9 +191,9 @@ Aspose.Slides for Node.js via Java allows you to generate EMF images from excel 
 This sample code shows you how to perform the described task:
 
 ```javascript
-    var book = java.newInstanceSync("Workbook", "chart.xlsx");
+    var book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
     var sheet = book.getWorksheets().get(0);
-    var options = java.newInstanceSync("ImageOrPrintOptions");
+    var options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
     options.setHorizontalResolution(200);
     options.setVerticalResolution(200);
     options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
