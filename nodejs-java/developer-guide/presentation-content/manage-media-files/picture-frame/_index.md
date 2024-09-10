@@ -193,7 +193,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
 ```javascript
     var presentation = new  aspose.slides.Presentation("input.pptx");
     try {
-        var shapesToRemove = java.newInstanceSync("ArrayList");
+        var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
         var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
         for (var i = 0; i < shapesCount; i++) {
             var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);

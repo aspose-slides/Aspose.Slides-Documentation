@@ -32,7 +32,7 @@ This Java code shows you how to add a comment to a slide in a PowerPoint present
         // Adds an author
         var author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
         // Sets the position for comments
-        var point = java.newInstanceSync("Point2D.Float", 0.2, 0.2);
+        var point = java.newInstanceSync("Point2D$Float", 0.2, 0.2);
         // Adds slide comment for an author on slide 1
         author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, java.newInstanceSync("Date"));
         // Adds slide comment for an author on slide 2
@@ -88,20 +88,20 @@ This Java code shows you how to add comments and get replies to them:
     try {
         // Adds a comment
         var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-        var comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date"));
+        var comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D$Float", 10, 10), java.newInstanceSync("Date"));
         // Adds a reply to comment1
         var author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-        var reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date"));
+        var reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D$Float", 10, 10), java.newInstanceSync("Date"));
         reply1.setParentComment(comment1);
         // Adds another reply to comment1
-        var reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date"));
+        var reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D$Float", 10, 10), java.newInstanceSync("Date"));
         reply2.setParentComment(comment1);
         // Add a reply to an existing reply
-        var subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date"));
+        var subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D$Float", 10, 10), java.newInstanceSync("Date"));
         subReply.setParentComment(reply2);
-        var comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date"));
-        var comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date"));
-        var reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D.Float", 10, 10), java.newInstanceSync("Date"));
+        var comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D$Float", 10, 10), java.newInstanceSync("Date"));
+        var comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D$Float", 10, 10), java.newInstanceSync("Date"));
+        var reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), java.newInstanceSync("Point2D$Float", 10, 10), java.newInstanceSync("Date"));
         reply3.setParentComment(comment3);
         // Displays the comments hierarchy on console
         var slide = pres.getSlides().get_Item(0);
@@ -137,7 +137,7 @@ This Java code shows you how to add comments and get replies to them:
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ModernComment) class. The [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) and [insertModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) methods were added to the [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) class.
+In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ModernComment) class. The [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) and [insertModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) methods were added to the [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) class.
 
 This Java code shows you how to add a modern comment to a slide in a PowerPoint presentation: 
 
@@ -145,7 +145,7 @@ This Java code shows you how to add a modern comment to a slide in a PowerPoint 
     var pres = new  aspose.slides.Presentation();
     try {
         var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-        var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("Point2D.Float", 100, 100), java.newInstanceSync("Date"));
+        var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("Point2D$Float", 100, 100), java.newInstanceSync("Date"));
         pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         if (pres != null) {
@@ -187,11 +187,11 @@ This Java code shows you how to delete specific comments on a slide:
         var slide = presentation.getSlides().get_Item(0);
         // add comments...
         var author = presentation.getCommentAuthors().addAuthor("Author", "A");
-        author.getComments().addComment("comment 1", slide, java.newInstanceSync("Point2D.Float", 0.2, 0.2), java.newInstanceSync("Date"));
-        author.getComments().addComment("comment 2", slide, java.newInstanceSync("Point2D.Float", 0.3, 0.2), java.newInstanceSync("Date"));
+        author.getComments().addComment("comment 1", slide, java.newInstanceSync("Point2D$Float", 0.2, 0.2), java.newInstanceSync("Date"));
+        author.getComments().addComment("comment 2", slide, java.newInstanceSync("Point2D$Float", 0.3, 0.2), java.newInstanceSync("Date"));
         // remove all comments that contain "comment 1" text
         presentation.getCommentAuthors().forEach(function(commentAuthor) {
-            var toRemove = java.newInstanceSync("ArrayList");
+            var toRemove = java.newInstanceSync("java.util.ArrayList");
             slide.getSlideComments(commentAuthor).forEach(function(comment) {
                 if (comment.getText().equals("comment 1")) {
                     toRemove.add(comment);

@@ -54,7 +54,7 @@ This Java code shows you how to convert a presentation (containing a figure and 
         effectIn.getTiming().setDuration(2.0);
         effectOut.setPresetClassType(aspose.slides.EffectPresetClassType.Exit);
         final var fps = 33;
-        var frames = java.newInstanceSync("ArrayList");
+        var frames = java.newInstanceSync("java.util.ArrayList");
         var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
             var player = new  aspose.slides.PresentationPlayer(animationsGenerator, fps);
@@ -141,7 +141,7 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
         effect3.getTiming().setTriggerDelayTime(1.0);
         effect4.getTiming().setTriggerDelayTime(1.0);
         final var fps = 33;
-        var frames = java.newInstanceSync("ArrayList");
+        var frames = java.newInstanceSync("java.util.ArrayList");
         var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
             var player = new  aspose.slides.PresentationPlayer(animationsGenerator, fps);

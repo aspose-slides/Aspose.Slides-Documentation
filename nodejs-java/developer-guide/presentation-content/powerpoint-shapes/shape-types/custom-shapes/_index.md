@@ -149,7 +149,7 @@ This Java code shows you how to remove points from a shape:
 This Java shows you how to create a custom shape:
 
 ```javascript
-    var points = java.newInstanceSync("ArrayList");
+    var points = java.newInstanceSync("java.util.ArrayList");
     var R = 100;
     var r = 50;
     var step = 72;
@@ -157,11 +157,11 @@ This Java shows you how to create a custom shape:
         var radians = angle * (java.getStaticFieldValue("java.lang.Math", "PI") / 180.0);
         var x = R * java.callStaticMethodSync("java.lang.Math", "cos", radians);
         var y = R * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-        points.add(java.newInstanceSync("Point2D.Float", x + R, y + R));
+        points.add(java.newInstanceSync("Point2D$Float", x + R, y + R));
         radians = (java.getStaticFieldValue("java.lang.Math", "PI") * (angle + (step / 2))) / 180.0;
         x = r * java.callStaticMethodSync("java.lang.Math", "cos", radians);
         y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-        points.add(java.newInstanceSync("Point2D.Float", x + R, y + R));
+        points.add(java.newInstanceSync("Point2D$Float", x + R, y + R));
     }
     var starPath = new  aspose.slides.GeometryPath();
     starPath.moveTo(points.get(0));
@@ -233,11 +233,11 @@ This Java code shows you how to create a custom shape with curved corners (inwar
     try {
         var childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
         var geometryPath = new  aspose.slides.GeometryPath();
-        var point1 = java.newInstanceSync("Point2D.Float", leftTopSize, 0);
-        var point2 = java.newInstanceSync("Point2D.Float", shapeWidth - rightTopSize, 0);
-        var point3 = java.newInstanceSync("Point2D.Float", shapeWidth, shapeHeight - rightBottomSize);
-        var point4 = java.newInstanceSync("Point2D.Float", leftBottomSize, shapeHeight);
-        var point5 = java.newInstanceSync("Point2D.Float", 0, leftTopSize);
+        var point1 = java.newInstanceSync("Point2D$Float", leftTopSize, 0);
+        var point2 = java.newInstanceSync("Point2D$Float", shapeWidth - rightTopSize, 0);
+        var point3 = java.newInstanceSync("Point2D$Float", shapeWidth, shapeHeight - rightBottomSize);
+        var point4 = java.newInstanceSync("Point2D$Float", leftBottomSize, shapeHeight);
+        var point5 = java.newInstanceSync("Point2D$Float", 0, leftTopSize);
         geometryPath.moveTo(point1);
         geometryPath.lineTo(point2);
         geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);

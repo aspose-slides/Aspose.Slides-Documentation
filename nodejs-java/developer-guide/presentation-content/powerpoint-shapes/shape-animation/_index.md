@@ -143,10 +143,10 @@ This Java code shows you how to apply the `PathFootball` (path football) effect 
         var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
         // Adds commands for moving since created path is empty.
         var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-        var pts = new Point2D.Float[1];
-        pts[0] = java.newInstanceSync("Point2D.Float", 0.076, 0.59);
+        var pts = new Point2D$Float[1];
+        pts[0] = java.newInstanceSync("Point2D$Float", 0.076, 0.59);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-        pts[0] = java.newInstanceSync("Point2D.Float", -0.076, -0.59);
+        pts[0] = java.newInstanceSync("Point2D$Float", -0.076, -0.59);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
         // Writes the PPTX file to disk
