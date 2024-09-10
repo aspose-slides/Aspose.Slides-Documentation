@@ -306,7 +306,7 @@ This Javascript code shows you how to convert a PowerPoint to HTML while linking
     }
 ```
 
-This Javascript code shows you how `LinkAllFontsHtmlController` is implemented:
+This Java code shows you how `LinkAllFontsHtmlController` is implemented:
 
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
