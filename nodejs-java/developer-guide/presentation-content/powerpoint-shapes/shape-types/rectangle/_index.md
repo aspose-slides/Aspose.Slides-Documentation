@@ -16,7 +16,7 @@ To add a simple rectangle to a selected slide of the presentation, please follow
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
+- Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) object.
 - Write the modified presentation as a PPTX file.
 
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
@@ -43,9 +43,9 @@ To add a formatted rectangle to a slide, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
+- Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) of Rectangle type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) object.
 - Set the [Fill Type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) of the Rectangle to Solid.
-- Set the Color of the Rectangle using [SolidFillColor.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IColorFormat#setColor-java.awt.Color-) method as exposed by [IFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IFillFormat) object associated with the [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) object.
+- Set the Color of the Rectangle using [SolidFillColor.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ColorFormat#setColor-java.awt.Color-) method as exposed by [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillFormat) object associated with the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) object.
 - Set the Color of the lines of the Rectangle.
 - Set the Width of the lines of the Rectangle.
 - Write the modified presentation as PPTX file.

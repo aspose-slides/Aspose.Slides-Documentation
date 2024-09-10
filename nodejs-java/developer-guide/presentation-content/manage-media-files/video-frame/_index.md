@@ -14,7 +14,7 @@ PowerPoint allows you to add videos to a slide in a presentation in two ways:
 * Add or embed a local video (stored on your machine)
 * Add an online video (from a web source such as YouTube).
 
-To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [IVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ivideo/) interface, [IVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ivideoframe/) interface, and other relevant types.
+To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) interface, [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) interface, and other relevant types.
 
 ## **Create Embedded Video Frame**
 
@@ -22,8 +22,8 @@ If the video file you want to add to your slide is stored locally, you can creat
 
 1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)class.
 1. Get a slide's reference through its index. 
-1. Add an [IVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ivideo/) object and pass the video file path to embed the video with the presentation.
-1. Add an [IVideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ivideoframe/) object to create a frame for the video.
+1. Add an [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) object and pass the video file path to embed the video with the presentation.
+1. Add an [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) object to create a frame for the video.
 1. Save the modified presentation. 
 
 This Javascript code shows you how to add a video stored locally to a presentation:
@@ -47,7 +47,7 @@ This Javascript code shows you how to add a video stored locally to a presentati
     }
 ```
 
-Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) method:
+Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) method:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();
@@ -68,7 +68,7 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)class
 1. Get a slide's reference through its index. 
-1. Add an [IVideo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ivideo/) object and pass the link to the video.
+1. Add an [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) object and pass the link to the video.
 1. Set a thumbnail for the video frame. 
 1. Save the presentation. 
 
@@ -95,8 +95,8 @@ This Javascript code shows you how to add a video from the web to a slide in a P
 Besides adding videos to slides, Aspose.Slides allows you to extract videos embedded in presentations.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class to load the presentation containing the video.
-2. Iterate through all the [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide/) objects.
-3. Iterate through all the [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ishape/) objects to find a [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
+2. Iterate through all the [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) objects.
+3. Iterate through all the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) objects to find a [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 4. Save the video to disk.
 
 This Javascript code shows you how to extract the video on a presentation slide:

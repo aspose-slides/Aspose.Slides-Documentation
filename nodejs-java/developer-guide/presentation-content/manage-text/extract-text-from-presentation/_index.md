@@ -25,7 +25,7 @@ Upon execution, the Slide method scans the entire text from the slide passed as
             // Loop through the Array of TextFrames
             for (var i = 0; i < textFramesPPTX.length; i++) {
                 // Loop through paragraphs in current ITextFrame
-                for (var para : textFramesPPTX[i].getParagraphs()) {
+                for (var para : textFramesPPTX[].getParagraphs()) {
                     // Loop through portions in the current IParagraph
                     para.getPortions().forEach(function(port) {
                         // Display text in the current portion
@@ -62,7 +62,7 @@ To scan the text from the whole presentation, use the
         // Loop through the Array of TextFrames
         for (var i = 0; i < textFramesPPTX.length; i++) {
             // Loop through paragraphs in current ITextFrame
-            for (var para : textFramesPPTX[i].getParagraphs()) {
+            for (var para : textFramesPPTX[].getParagraphs()) {
                 // Loop through portions in the current IParagraph
                 para.getPortions().forEach(function(port) {
                     // Display text in the current portion
@@ -93,14 +93,14 @@ The [TextExtractionArrangingMode](https://reference.aspose.com/slides/nodejs-jav
 
 **Unarranged** mode can be used when speed is critical, it's faster than Arranged mode.
 
-[IPresentationText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationText) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationText#getSlidesText--) method which returns an array of [ISlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideText) objects. Every object represent the text on the corresponding slide. [ISlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideText) object have the following methods:
+[PresentationText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText) represents the raw text extracted from the presentation. It contains a [getSlidesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText#getSlidesText--) method which returns an array of [SlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText) objects. Every object represent the text on the corresponding slide. [SlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText) object have the following methods:
 
-- [ISlideText.getText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideText#getText--) - The text on the slide's shapes
-- [ISlideText.getMasterText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideText#getMasterText--) - The text on the master page's shapes for this slide
-- [ISlideText.getLayoutText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideText#getLayoutText--) - The text on the layout page's shapes for this slide
-- [ISlideText.getNotesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideText#getNotesText--) - The text on the notes page's shapes for this slide
+- [SlideText.getText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText#getText--) - The text on the slide's shapes
+- [SlideText.getMasterText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText#getMasterText--) - The text on the master page's shapes for this slide
+- [SlideText.getLayoutText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText#getLayoutText--) - The text on the layout page's shapes for this slide
+- [SlideText.getNotesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText#getNotesText--) - The text on the notes page's shapes for this slide
 
-There is also a [SlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText) class which implements the [ISlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideText) interface.
+There is also a [SlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText) class which implements the [SlideText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideText) interface.
 
 The new API can be used like this:
 

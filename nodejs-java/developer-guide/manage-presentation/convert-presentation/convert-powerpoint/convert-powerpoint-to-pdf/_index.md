@@ -117,7 +117,7 @@ The code example below demonstrates an operation in which a PowerPoint presentat
 
 ### **Convert PowerPoint to PDF with Hidden Slides**
 
-If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
+If a presentation contains hidden slides, you can use a custom option—the [ShowHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions#getShowHiddenSlides--) property from the [PdfOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PdfOptions) class—to instruct Aspose.Slides to include the hidden slides as pages in the resulting PDF.
 
 This Javascript code shows you how to convert a PowerPoint presentation to PDF with hidden slides included:
 

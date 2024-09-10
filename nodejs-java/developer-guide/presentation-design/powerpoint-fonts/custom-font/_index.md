@@ -58,9 +58,9 @@ This Javascript code shows you how to use [getFontFolders](https://reference.asp
 ```
 
 ## **Specify Custom Fonts Used With Presentation**
-Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) property to allow you to specify external fonts that will be used with the presentation.
+Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) property to allow you to specify external fonts that will be used with the presentation.
 
-This Javascript code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iloadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) property:
+This Javascript code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) property:
 
 ```javascript
     var memoryFont1 = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", "customfonts/CustomFont1.ttf");

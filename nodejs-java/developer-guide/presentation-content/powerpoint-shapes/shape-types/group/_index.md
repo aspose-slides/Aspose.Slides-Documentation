@@ -49,7 +49,7 @@ This topic shows simple steps, complete with code examples, for adding a group s
 1. Obtain the reference of a slide by using its Index.
 1. Accessing the shape collection of slides.
 1. Accessing the group shape.
-1. Accessing the [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getAlternativeText--) property.
+1. Accessing the [AlternativeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getAlternativeText--) property.
 
 The example below accesses alternative text of group shape.
 

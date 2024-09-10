@@ -276,7 +276,7 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
 3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Pie).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
+4. Access the chart data [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -422,7 +422,7 @@ Tree map charts are best used for sales data when you want to show the relative 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a chart with default data along with the desired type (in this case, [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).TreeMap).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
+4. Access the chart data [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -482,7 +482,7 @@ This Javascript code shows you how to create a tree map chart:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
 3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).OpenHighLowClose).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
+4. Access the chart data [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -543,7 +543,7 @@ Sample Javascript code used to create a stock chart:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).BoxAndWhisker).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
+4. Access the chart data [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.
@@ -692,7 +692,7 @@ This Javascript code shows you how to create a sunburst chart:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Histogram).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
+4. Access the chart data [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Write the modified presentation to a PPTX file
@@ -750,7 +750,7 @@ This Javascript code shows you how to create an radar chart:
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).ClusteredColumn).
-4. Access the chart data [IChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook).
+4. Access the chart data [ChartDataWorkbook](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
 5. Clear the default series and categories.
 6. Add new series and categories.
 7. Add new chart data for the chart series.

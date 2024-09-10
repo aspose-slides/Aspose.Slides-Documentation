@@ -19,7 +19,7 @@ Aspose.Slides **never** runs the macros in a presentation.
 
 ## **Add VBA Macros**
 
-Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ivbaproject/) interface to manage VBA embedded in a presentation.
+Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/) interface to manage VBA embedded in a presentation.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 1. Use the [VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/#VbaProject--) constructor to add a new VBA project.
