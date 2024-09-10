@@ -194,37 +194,41 @@ This Java code shows you how to convert a slide in a PowerPoint presentation to 
             pres.save(("Individual Slide" + (i + 1)) + "_out.html", new int[]{ i + 1 }, aspose.slides.SaveFormat.Html, htmlOptions);
         }
     } finally {
-        if (pres != null) {
-            pres.dispose();
+    if (pres != null) pres.dispose();
+}
+```
+```java
+public class CustomFormattingController implements IHtmlFormattingController
+{
+    @Override
+    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) { }
+
+    @Override
+    public void writeDocumentEnd(IHtmlGenerator generator, IPresentation presentation) { }
+
+    @Override
+    public void writeSlideStart(IHtmlGenerator generator, ISlide slide)
+	{
+        generator.addHtml(String.format(SlideHeader, generator.getSlideIndex() + 1));
+    }
+
+    @Override
+    public void writeSlideEnd(IHtmlGenerator generator, ISlide slide)
+	{
+        generator.addHtml(SlideFooter);
         }
+
+    @Override
+    public void writeShapeStart(IHtmlGenerator generator, IShape shape) { }
+
+    @Override
+    public void writeShapeEnd(IHtmlGenerator generator, IShape shape) { }
+
+    private final String SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
+    private final String SlideFooter = "</div>";
     }
 ```
-```javascript
-    public class CustomFormattingController implements aspose.slides.IHtmlFormattingController {
-        @java.lang.Override
-        public void writeDocumentStart(aspose.slides.IHtmlGenerator generator, aspose.slides.IPresentation presentation) {
-        }
-        @java.lang.Override
-        public void writeDocumentEnd(aspose.slides.IHtmlGenerator generator, aspose.slides.IPresentation presentation) {
-        }
-        @java.lang.Override
-        public void writeSlideStart(aspose.slides.IHtmlGenerator generator, aspose.slides.ISlide slide) {
-            generator.addHtml(java.callStaticMethodSync("java.lang.String", "format", SlideHeader, generator.getSlideIndex() + 1));
-        }
-        @java.lang.Override
-        public void writeSlideEnd(aspose.slides.IHtmlGenerator generator, aspose.slides.ISlide slide) {
-            generator.addHtml(SlideFooter);
-        }
-        @java.lang.Override
-        public void writeShapeStart(aspose.slides.IHtmlGenerator generator, aspose.slides.IShape shape) {
-        }
-        @java.lang.Override
-        public void writeShapeEnd(aspose.slides.IHtmlGenerator generator, aspose.slides.IShape shape) {
-        }
-        private final var SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-        private final var SlideFooter = "</div>";
-    }
-```
+
 
 
 ## **Save CSS and Images When Exporting To HTML**
@@ -243,27 +247,41 @@ The Java code in this example shows you how to use overridable methods to create
         if (pres != null) {
             pres.dispose();
         }
-    }
 ```
 
-```javascript
-    public class CustomHeaderAndFontsController extends aspose.slides.EmbedAllFontsHtmlController {
-        private final var m_basePath = 0;
-        // Custom header template
-        static final var Header = ((((("<!DOCTYPE html>\n" + "<html>\n") + "<head>\n") + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n") + "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n") + "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n") + "</head>";
-        private final var m_cssFileName;
-        public CustomHeaderAndFontsController(java.lang.String cssFileName) {
-            m_cssFileName = cssFileName;
-        }
-        public void writeDocumentStart(aspose.slides.IHtmlGenerator generator, aspose.slides.IPresentation presentation) {
-            generator.addHtml(java.callStaticMethodSync("java.lang.String", "format", CustomHeaderAndFontsController.Header, m_cssFileName));
-            writeAllFonts(generator, presentation);
-        }
-        public void writeAllFonts(aspose.slides.IHtmlGenerator generator, aspose.slides.IPresentation presentation) {
-            generator.addHtml("<!-- Embedded fonts -->");
-            super.writeAllFonts(generator, presentation);
-        }
+```java
+public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
+{
+    private final int m_basePath = 0;
+
+    // Custom header template
+    final static String Header = "<!DOCTYPE html>\n" +
+            "<html>\n" +
+            "<head>\n" +
+            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
+            "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9\">\n" +
+            "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">\n" +
+            "</head>";
+
+    private final String m_cssFileName;
+
+    public CustomHeaderAndFontsController(String cssFileName)
+    {
+        m_cssFileName = cssFileName;
     }
+
+    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation)
+    {
+        generator.addHtml(String.format(Header, m_cssFileName));
+        writeAllFonts(generator, presentation);
+    }
+
+    public void writeAllFonts(IHtmlGenerator generator, IPresentation presentation)
+    {
+        generator.addHtml("<!-- Embedded fonts -->");
+        super.writeAllFonts(generator, presentation);
+    }
+}
 ```
 
 ## **Link All Fonts When Converting Presentation to HTML**
@@ -290,29 +308,43 @@ This Java code shows you how to convert a PowerPoint to HTML while linking all f
 
 This Java code shows you how `LinkAllFontsHtmlController` is implemented:
 
-```javascript
-    public class LinkAllFontsHtmlController extends aspose.slides.EmbedAllFontsHtmlController {
-        private final var m_basePath;
-        public LinkAllFontsHtmlController(java.lang.String[] fontNameExcludeList, java.lang.String basePath) {
-            super(fontNameExcludeList);
-            m_basePath = basePath;
-        }
-        public void writeFont(aspose.slides.IHtmlGenerator generator, aspose.slides.IFontData originalFont, aspose.slides.IFontData substitutedFont, java.lang.String fontStyle, java.lang.String fontWeight, byte[] fontData) {
-            try {
-                var fontName = (substitutedFont == null) ? originalFont.getFontName() : substitutedFont.getFontName();
-                var path = fontName + ".woff";// some path sanitaze may be needed
-                java.callStaticMethodSync("java.nio.file.Files", "write", java.newInstanceSync("java.io.File", m_basePath + path).toPath(), fontData, java.getStaticFieldValue("java.nio.file.StandardOpenOption", "CREATE"));
-                generator.addHtml("<style>");
-                generator.addHtml("@font-face { ");
-                generator.addHtml(("font-family: '" + fontName) + "'; ");
-                generator.addHtml(("src: url('" + path) + "')");
-                generator.addHtml(" }");
-                generator.addHtml("</style>");
-            } catch (ex) {
-                console.log(ex);
-            }
+```java
+public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
+{
+    private final String m_basePath;
+
+    public LinkAllFontsHtmlController(String[] fontNameExcludeList, String basePath)
+    {
+        super(fontNameExcludeList);
+        m_basePath = basePath;
+    }
+
+    public void writeFont
+    (
+            IHtmlGenerator generator,
+            IFontData originalFont,
+            IFontData substitutedFont,
+            String fontStyle,
+            String fontWeight,
+            byte[] fontData)
+    {
+        try {
+            String fontName = substitutedFont == null ? originalFont.getFontName() : substitutedFont.getFontName();
+            String path = fontName + ".woff"; // some path sanitaze may be needed
+            Files.write(new File(m_basePath + path).toPath(), fontData, StandardOpenOption.CREATE);
+
+            generator.addHtml("<style>");
+            generator.addHtml("@font-face { ");
+            generator.addHtml("font-family: '" + fontName + "'; ");
+            generator.addHtml("src: url('" + path + "')");
+
+            generator.addHtml(" }");
+            generator.addHtml("</style>");
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
+}
 ```
 
 ## **Convert PowerPoint to Responsive HTML**
