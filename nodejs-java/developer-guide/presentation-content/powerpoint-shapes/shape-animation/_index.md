@@ -145,7 +145,7 @@ This Javascript code shows you how to apply the `PathFootball` (path football) e
         var motionBhv = fxUserPath.getBehaviors().get_Item(0);
         var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-        pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", -0.076, -0.59);
+        pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
         motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
         // Writes the PPTX file to disk

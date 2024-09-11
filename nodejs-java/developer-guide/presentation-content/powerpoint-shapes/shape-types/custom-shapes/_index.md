@@ -157,11 +157,11 @@ This Java shows you how to create a custom shape:
         var radians = angle * (java.getStaticFieldValue("java.lang.Math", "PI") / 180.0);
         var x = R * java.callStaticMethodSync("java.lang.Math", "cos", radians);
         var y = R * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-        points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", x + R, y + R));
+        points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
         radians = (java.getStaticFieldValue("java.lang.Math", "PI") * (angle + (step / 2))) / 180.0;
         x = r * java.callStaticMethodSync("java.lang.Math", "cos", radians);
         y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-        points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", x + R, y + R));
+        points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
     }
     var starPath = new  aspose.slides.GeometryPath();
     starPath.moveTo(points.get(0));

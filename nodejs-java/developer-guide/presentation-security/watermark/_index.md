@@ -98,7 +98,7 @@ It is possible to center watermark on a slide and for that you can do the follow
 
 
 ```javascript
-    var center = java.newInstanceSync("com.aspose.slides.Point2DFloat", pres.getSlideSize().getSize().getWidth() / 2, pres.getSlideSize().getSize().getHeight() / 2);
+    var center = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(pres.getSlideSize().getSize().getWidth() / 2), java.newFloat(pres.getSlideSize().getSize().getHeight() / 2));
     var width = 300;
     var height = 300;
     var x = center.getX() - (width / 2);
