@@ -34,19 +34,19 @@ Let’s start with adding a new Sunburst chart to the presentation:
 
 If there is a need to format data points of the chart, we should use the following:
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
-[ChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) classes 
-and [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) method 
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevelsManager), 
+[IChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevel) classes 
+and [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPoint#getDataPointLevels--) method 
 provide access to format data points of Treemap and Sunburst charts. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager)
+[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevelsManager)
 is used for accessing multi-level categories - it represents the container of 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) objects.
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevel) objects.
 Basically it is a wrapper for 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartCategoryLevelsManager) with
+[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartCategoryLevelsManager) with
 the properties added specific for data points. 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) class has
-two methods: [**getFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) and 
-[**getDataLabel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) which
+[**IChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevel) class has
+two methods: [**getFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevel#getFormat--) and 
+[**getDataLabel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevel#getLabel--) which
 provide access to corresponding settings.
 ## **Show Data Point Value**
 Show value of "Leaf 4" data point:

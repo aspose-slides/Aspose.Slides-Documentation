@@ -82,7 +82,7 @@ When you want to create a presentation that contains large objects (video, audio
 
 ## Load Presentation
 
-Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/resourceloadingcallback/) with a single method to allow you to manage external resources. This Javascript code shows you how to use the `IResourceLoadingCallback` interface:
+Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This Javascript code shows you how to use the `IResourceLoadingCallback` interface:
 
 ```javascript
     var opts = new  aspose.slides.LoadOptions();
@@ -119,11 +119,11 @@ Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/sl
 
 The PowerPoint presentation can contain the following types of the embedded binary objects:
 
-- VBA Project ([Presentation.VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/));
-- OLE Object embedded data ([OleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData--));
-- ActiveX Control binary data ([Control.ActiveXControlBinary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getActiveXControlBinary--));
+- VBA Project ([IPresentation.VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/));
+- OLE Object embedded data ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
+- ActiveX Control binary data ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/icontrol/#getActiveXControlBinary--));
 
-Using the [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) property, you can load the presentation without any embedded binary objects.
+Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) property, you can load the presentation without any embedded binary objects.
 
 This property can be useful for removing potentially malicious binary content.
 

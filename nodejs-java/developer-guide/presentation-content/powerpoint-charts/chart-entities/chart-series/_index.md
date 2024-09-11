@@ -12,7 +12,7 @@ A series is a row or column of numbers plotted in a chart.
 
 ## **Set Chart Series Overlap**
 
-With the [ChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only.
+With the [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
 
 Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred value for `Overlap`. 
 

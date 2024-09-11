@@ -157,7 +157,7 @@ try {
     var bitmaps = pres.getThumbnails(new aspose.slides.RenderingOptions(), size);
     for (var index = 0; index < bitmaps.length; index++)
     {
-        var thumbnail = bitmaps[ndex];
+        var thumbnail = bitmaps[index];
         var imageio = java.import("javax.imageio.ImageIO");
         var file = java.newInstanceSync("java.io.File", "slide" + index + ".png");
         imageio.write(thumbnail, "PNG", file);
@@ -179,7 +179,7 @@ try {
     {
         for (var index = 0; index < images.length; index++)
         {
-            var thumbnail = images[ndex];
+            var thumbnail = images[index];
             thumbnail.save("slide" + index + ".png", aspose.slides.ImageFormat.Png);
         }
     }

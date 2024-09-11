@@ -40,7 +40,7 @@ This Javascript code shows you how to identify merged table cells in a presentat
 2. Get a slide's reference through its index. 
 3. Define an array of columns with width.
 4. Define an array of rows with height.
-5. Add a table to the slide through the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) method.
+5. Add a table to the slide through the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
 6. Iterate through every cell to clear the top, bottom, right, and left borders.
 7. Save the modified presentation as a PPTX file.
 
@@ -243,7 +243,7 @@ This Javascript code shows you how to change a table cell's background color:
 2. Get a slide's reference through its index.
 3. Define an array of columns with width.
 4. Define an array of rows with height.
-5. Add a table to the slide through the [AddTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) method.
+5. Add a table to the slide through the [AddTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
 6. Create a `Images` object to hold the image file.
 7. Add the `IImage` image to `IPPImage` Object.
 8. Set the `FillFormat` for the Table Cell to `Picture`.

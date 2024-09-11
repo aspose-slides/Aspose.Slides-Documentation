@@ -12,7 +12,7 @@ Images make presentations more engaging and interesting. In Microsoft PowerPoint
 
 {{% alert  title="Tip" color="primary" %}} 
 
-Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/mport/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/mport/png-to-ppt)—that allow people to create presentations quickly from images.
+Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
 
 {{% /alert %}} 
 
@@ -24,7 +24,7 @@ If you want to add an image as a frame object—especially if you plan to use st
 
 {{% alert title="Note" color="warning" %}}
 
-You can manipulate input/output operations involving images and PowerPoint presentations to convert an image from one format to another. See these pages: convert [mage to JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
+You can manipulate input/output operations involving images and PowerPoint presentations to convert an image from one format to another. See these pages: convert [image to JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
 
 {{% /alert %}}
 
@@ -128,7 +128,7 @@ This Java sample code shows you how to add an image to a slide master:
 You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Adding SVG to Presentations**
-You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method that belongs to the [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) interface.
+You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method that belongs to the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface.
 
 To create an image object based on SVG image, you can do it this way:
 
@@ -159,7 +159,7 @@ Aspose.Slides' conversion of SVG to a set of shapes is similar to the PowerPoint
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-The functionality is provided by one of the overloads of the [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) method of the [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) interface that takes an [SvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgImage) object as the first argument.
+The functionality is provided by one of the overloads of the [addGroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) method of the [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) interface that takes an [ISvgImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISvgImage) object as the first argument.
 
 This sample code shows you how to use the described method to convert an SVG file to a set of shapes:
 

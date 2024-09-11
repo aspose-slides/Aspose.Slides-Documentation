@@ -77,7 +77,7 @@ In the above section, we just applied a simple transition effect on the slide. N
 ## **Morph Transition**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Node.js via Java now supports the [Morph Transition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MorphTransition). They represent new morph transition introduced in PowerPoint 2019.
+Aspose.Slides for Node.js via Java now supports the [Morph Transition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMorphTransition). They represent new morph transition introduced in PowerPoint 2019.
 
 {{% /alert %}} 
 

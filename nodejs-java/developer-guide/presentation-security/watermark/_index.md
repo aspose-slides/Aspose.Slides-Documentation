@@ -11,7 +11,7 @@ description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in p
 ## **About Watermark**
 **Watermark** in presentation is a text or image stamp, used upon a slide or all presentation slides. Usually, watermark is used to indicate that the presentation is a draft (e.g. "Draft" watermark); that it contains confidential information (e.g. "Confidential" watermak); specify which company it belongs to (e.g. "Company name" watermark); identify presentation author, etc. Watermark helps to prevent presentation copyrights violation, indicating that the presentation should not be copied. Watermarks are used with both PowerPoint and OpenOffice presentation formats. In Aspose.Slides you can add watermark to PowerPoint PPT, PPTX and OpenOffice ODP file formats.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class and to add image watermark - [**PictureFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/). [PictureFrame]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/)) implements [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) interface and can use all the power of flexible settings of shape object. [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) is not a shape and its settings are limited. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) into [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) object.
+In [**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class and to add image watermark - [**PictureFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/). [PictureFrame]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame/)) implements [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interface and can use all the power of flexible settings of shape object. [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) is not a shape and its settings are limited. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) into [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) object.
 
 There are two ways watermark can be applied: to a single slide and to all presentation slides. Slide Master is used to apply watermark to all presentation slides - watermark is added into Slide Master, completely designed there and applied to all slides without modifying a permission to modify watermark on slides.
 
@@ -22,7 +22,7 @@ You can set the name of watermark, so in future, if you want to delete the water
 You can design watermark in any way however there are usually attend common features within watermarks, like: center alignment, rotation, front position, etc. We will consider how to use them in the examples below.
 ## **Text Watermark**
 ### **Add Text Watermark to Slide**
-To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) type. This type is not inherited from [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) object into [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object. To add watermark into the shape, use [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) method with watermark text passed into it:
+To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) type. This type is not inherited from [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) object into [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) object. To add watermark into the shape, use [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method with watermark text passed into it:
 
 ```javascript
     // Open presentation
@@ -47,7 +47,7 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
 ### **Add Text Watermark to Presentation**
 If you want to add watermark in presentation (means, all slides at once), 
 add it into [**MasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide).
-All the other logic is the same as in adding watermark into a single slide - create an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object and then add watermark into it with [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) method:
+All the other logic is the same as in adding watermark into a single slide - create an [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) object and then add watermark into it with [**addTextFrame**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method:
 
 ```javascript
     // Open presentation
@@ -171,7 +171,7 @@ Here is an example how to set the rotation of watermark (and its parent shape):
 
 
 ## **Set Name to Watermark**
-Aspose.Slides allows to set the name of shape. By shape name you can access it in future to modify or delete. To set the name of watermark parent shape - set it into [**AutoShape.getName**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) method:
+Aspose.Slides allows to set the name of shape. By shape name you can access it in future to modify or delete. To set the name of watermark parent shape - set it into [**AutoShape.getName**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getName--) method:
 
 
 
@@ -181,7 +181,7 @@ Aspose.Slides allows to set the name of shape. By shape name you can access it i
 
 
 ## **Remove Watermark**
-To remove watermark shape and its child controls from slide, use [AutoShape.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getName--) method to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.remove**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#remove-aspose.slides.IShape-) method:
+To remove watermark shape and its child controls from slide, use [AutoShape.getName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getName--) method to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.remove**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#remove-aspose.slides.IShape-) method:
 
 ```javascript
     for (var i = 0; i < slide.getShapes().size(); i++) {

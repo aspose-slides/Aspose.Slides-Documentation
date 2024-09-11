@@ -60,7 +60,7 @@ The rotation of 3D model in PowerPoint can be done via menu:
 
 ![todo:image_alt_text](img_02_01.png)
 
-To rotate 3D model with Aspose.Slides API, use **[ThreeDFormat.getCamera()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getCamera--)**
+To rotate 3D model with Aspose.Slides API, use **[IThreeDFormat.getCamera()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getCamera--)**
 method, set the rotation of the camera relatively to 3D shape:
 
 ```javascript
@@ -78,8 +78,8 @@ method, set the rotation of the camera relatively to 3D shape:
 ```
 
 ## 3D Depth and Extrusion
-**[ThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)**
-and **[ThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** methods
+**[IThreeDFormat.getExtrusionHeight()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getExtrusionHeight--)**
+and **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat#getExtrusionColor--)** methods
 are used to create extrusion on shape:
 
 ```javascript

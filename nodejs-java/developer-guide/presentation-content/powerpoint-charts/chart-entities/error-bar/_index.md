@@ -5,7 +5,7 @@ url: /nodejs-java/error-bar/
 ---
 
 ## **Add Error Bar**
-Aspose.Slides for Node.js via Java provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartSeriesCollection) collection of series:
+Aspose.Slides for Node.js via Java provides a simple API for managing error bar values. The sample code applies when using a custom value type. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeriesCollection) collection of series:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Add a bubble chart on desired slide.
@@ -42,7 +42,7 @@ Aspose.Slides for Node.js via Java provides a simple API for managing error bar 
 ```
 
 ## **Add Custom Error Bar Value**
-Aspose.Slides for Node.js via Java provides a simple API for managing custom error bar values. The sample code applies when the [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ErrorBarsFormat#getValue--) property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartSeriesCollection) collection of series:
+Aspose.Slides for Node.js via Java provides a simple API for managing custom error bar values. The sample code applies when the [**IErrorBarsFormat.ValueType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IErrorBarsFormat#getValue--) property is equal to **Custom**. To specify a value, use the **ErrorBarCustomValues** property of a specific data point in the [**DataPoints**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartSeriesCollection) collection of series:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Add a bubble chart on desired slide.

@@ -14,7 +14,7 @@ You can add an image to a slide through a picture frame. This way, you get to fo
 
 {{% alert  title="Tip" color="primary" %}} 
 
-Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/mport/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/mport/png-to-ppt)—that allow people to create presentations quickly from images.
+Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
 
 {{% /alert %}} 
 
@@ -22,7 +22,7 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Create an [PPImage]() object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
+3. Create an [IPPImage]() object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IImageCollection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
 5. Create a [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
 6. Add a picture frame (containing the picture) to the slide.
@@ -52,7 +52,7 @@ This Javascript code shows you how to create a picture frame:
 
 {{% alert color="warning" %}} 
 
-Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another. You may want to see these pages: convert [mage to JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
+Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another. You may want to see these pages: convert [image to JPG](https://products.aspose.com/slides/nodejs-java/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/nodejs-java/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/nodejs-java/conversion/svg-to-png/).
 
 {{% /alert %}}
 
@@ -63,7 +63,7 @@ By altering an image's relative scaling, you can create a more complicated pictu
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Add an image to the presentation image collection.
-4. Create an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
+4. Create an [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPPImage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IImageCollection) associated with the presentation object that will be used to fill the shape.
 5. Specify the image's relative width and height in the picture frame.
 6. Write the modified presentation as a PPTX file.
 
@@ -141,9 +141,9 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Create an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
+3. Create an [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPPImage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IImageCollection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
-5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method exposed by the [Shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) object associated with the referenced slide.
+5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method exposed by the [IShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object associated with the referenced slide.
 6. Add the picture frame (containing the picture) to the slide.
 7. Set the picture frame's line color.
 8. Set the picture frame's line width.
@@ -261,7 +261,7 @@ This Javascript code shows you how to crop an existing image on a slide:
 
 ## Delete Cropped Areas of Picture
 
-If you want to delete the cropped areas of an image contained in a frame, you can use the [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) method. This method returns the cropped image or the origin image if cropping is unnecessary.
+If you want to delete the cropped areas of an image contained in a frame, you can use the [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) method. This method returns the cropped image or the origin image if cropping is unnecessary.
 
 This Javascript code demonstrates the operation:
 
@@ -284,7 +284,7 @@ This Javascript code demonstrates the operation:
 
 {{% alert title="NOTE" color="warning" %}} 
 
-The [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) method adds the cropped image to the presentation image collection. If the image is only used in the processed [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), this setup can reduce the presentation size. Otherwise, the number of images in the resulting presentation will increase.
+The [deletePictureCroppedAreas()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) method adds the cropped image to the presentation image collection. If the image is only used in the processed [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), this setup can reduce the presentation size. Otherwise, the number of images in the resulting presentation will increase.
 
 This method converts WMF/EMF metafiles to raster PNG image in the cropping operation. 
 
@@ -292,7 +292,7 @@ This method converts WMF/EMF metafiles to raster PNG image in the cropping opera
 
 ## **Lock Aspect Ratio**
 
-If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) method to set the *Lock Aspect Ratio* setting.
+If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [setAspectRatioLocked](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) method to set the *Lock Aspect Ratio* setting.
 
 This Javascript code shows you how to lock a shape's aspect ratio:
 
@@ -329,7 +329,7 @@ This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape an
 
 ## **Use StretchOff Property**
 
-Using the [StretchOffsetLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetRight--) and [StretchOffsetBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat#setStretchOffsetBottom-float-) properties from the [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat) interface and [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFillFormat) class, you can specify a fill rectangle.
+Using the [StretchOffsetLeft](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPictureFillFormat#setStretchOffsetLeft-float-), [StretchOffsetTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPictureFillFormat#setStretchOffsetTop--), [StretchOffsetRight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPictureFillFormat#setStretchOffsetRight--) and [StretchOffsetBottom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPictureFillFormat#setStretchOffsetBottom-float-) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPictureFillFormat) interface and [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPictureFillFormat) class, you can specify a fill rectangle.
 
 When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
 

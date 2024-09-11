@@ -14,7 +14,7 @@ Aspose.Slides for Node.js via Java allows you to add audio files to slides. The 
 2. Get a slide's reference through its index.
 3. Load the audio file stream you want to embed in the slide.
 4. Add the embedded audio frame (containing the audio file) to the slide.
-5. Set [PlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AudioPlayModePreset) and `Volume` exposed by the [AudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AudioFrame) object.
+5. Set [PlayMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AudioPlayModePreset) and `Volume` exposed by the [IAudioFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAudioFrame) object.
 6. Save the modified presentation.
 
 This Javascript code shows you how to add an embedded audio frame to a slide:
@@ -136,11 +136,11 @@ Aspose.Slides for Node.js via Java allows you to extract the sound used in slide
 <<<<<<< HEAD
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class and load the presentation with slide transitions.
 2. Access the desired slide.
-3. Access the [slideshow transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) for the slide.
+3. Access the [slideshow transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#getSlideShowTransition--) for the slide.
 =======
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class and load the presentation containing the audio.
 2. Get the relevant slide's reference through its index.
-3. Access the [slideshow transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideShowTransition--) for the slide.
+3. Access the [slideshow transitions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#getSlideShowTransition--) for the slide.
 >>>>>>> master
 4. Extract the sound in byte data.
 

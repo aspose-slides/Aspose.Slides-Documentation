@@ -39,9 +39,9 @@ This Javascript code shows you how to get and remove embedded fonts from a prese
         // Finds the "Calibri" font
         var calibriEmbeddedFont = null;
         for (var i = 0; i < embeddedFonts.length; i++) {
-            console.log("" + embeddedFonts[].getFontName());
-            if ("Calibri".equals(embeddedFonts[].getFontName())) {
-                calibriEmbeddedFont = embeddedFonts[];
+            console.log("" + embeddedFonts[i].getFontName());
+            if ("Calibri".equals(embeddedFonts[i].getFontName())) {
+                calibriEmbeddedFont = embeddedFonts[i];
                 break;
             }
         }
@@ -79,7 +79,7 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/nodejs-java/
         allFonts.forEach(function(font) {
             var embeddedFontsContainsFont = false;
             for (var i = 0; i < embeddedFonts.length; i++) {
-                if (embeddedFonts[].equals(font)) {
+                if (embeddedFonts[i].equals(font)) {
                     embeddedFontsContainsFont = true;
                     break;
                 }

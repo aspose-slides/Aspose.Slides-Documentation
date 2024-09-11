@@ -8,9 +8,9 @@ url: /nodejs-java/presentation-localization/
 ## **Change Language for Presentation and Shape's Text**
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) of [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) type to the slide.
+- Add an [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) of [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) type to the slide.
 - Add some text to the TextFrame.
-- [Setting Language Id](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BasePortionFormat#setLanguageId-java.lang.String-) to text.
+- [Setting Language Id](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-) to text.
 - Write the presentation as a PPTX file.
 
 The implementation of the above steps is demonstrated below in an example.
