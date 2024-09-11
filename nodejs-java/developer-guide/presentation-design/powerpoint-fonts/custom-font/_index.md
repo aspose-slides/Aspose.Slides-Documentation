@@ -86,9 +86,9 @@ Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slide
 This Javascript code demonstrates the byte array font loading process:
 
 ```javascript
-    aspose.slides.FontsLoader.loadExternalFont(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALN.TTF")));
-    aspose.slides.FontsLoader.loadExternalFont(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNBI.TTF")));
-    aspose.slides.FontsLoader.loadExternalFont(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNI.TTF")));
+    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALN.TTF")));
+    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNBI.TTF")));
+    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNI.TTF")));
     try {
         var pres = new  aspose.slides.Presentation("");
         try {
@@ -96,7 +96,7 @@ This Javascript code demonstrates the byte array font loading process:
         } finally {
         }
     } finally {
-        aspose.slides.FontsLoader.clearCache();
+        java.callStaticMethodSync("com.aspose.slides.FontsLoader", "clearCache");
     }
 ```
 
