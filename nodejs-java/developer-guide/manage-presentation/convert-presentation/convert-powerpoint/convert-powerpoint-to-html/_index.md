@@ -197,6 +197,7 @@ This Javascript code shows you how to convert a slide in a PowerPoint presentati
     if (pres != null) pres.dispose();
 }
 ```
+You will need to implement CustomFormattingController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
 ```java
 public class CustomFormattingController implements IHtmlFormattingController
 {
@@ -248,7 +249,7 @@ The Javascript code in this example shows you how to use overridable methods to 
             pres.dispose();
         }
 ```
-
+You also will need to implement CustomHeaderAndFontsController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
 ```java
 public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 {
@@ -307,7 +308,7 @@ This Javascript code shows you how to convert a PowerPoint to HTML while linking
 ```
 
 This Java code shows you how `LinkAllFontsHtmlController` is implemented:
-
+You also will need to implement LinkAllFontsHtmlController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {
