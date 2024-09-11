@@ -49,7 +49,7 @@ In **Aspose.Slides**, a Slide Master is represented by [**IMasterSlide**](https
 
 Aspose.Slides' [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)object contains the [**getMasters** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--)list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/) type, which contains a list of all master slides that are defined in a presentation.
 
-Besides CRUD operations, the [IMasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/) interface contains these useful methods: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) and [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups.
+Besides CRUD operations, the [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/) interface contains these useful methods: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) and [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups.
 
 When a new slide is added to a presentation, a Slide Master is applied to it automatically. The Slide Master of the previous slide is selected by default. 
 
@@ -72,7 +72,7 @@ Slide Master outranks all setups items: Slide Master -> Slide Layout -> Slide:
 
 
 
-Each [IMasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide) object has a [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide#getLayoutSlides--) property with a list of Slide Layouts. A [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) type has a [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getLayoutSlide--) property with a link on a Slide Layout applied to the slide. The interaction between a slide and Slide Master occurs through a Slide Layout.
+Each [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide) object has a [**getLayoutSlides**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide#getLayoutSlides--) property with a list of Slide Layouts. A [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) type has a [**getLayoutSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getLayoutSlide--) property with a link on a Slide Layout applied to the slide. The interaction between a slide and Slide Master occurs through a Slide Layout.
 
 {{% alert color="info" title="Note" %}}
 
@@ -119,7 +119,7 @@ Using Aspose.Slides, you can access a Slide Master this way:
     }
 ```
 
-The [IMasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide) interface represents a Slide Master. The [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) property (related to [IMasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlideCollection) type) contains a list of all Slide Masters that are defined in the presentation. 
+The [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlide) interface represents a Slide Master. The [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) property (related to [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMasterSlideCollection) type) contains a list of all Slide Masters that are defined in the presentation. 
 
 
 ## **Add Image to Slide Master**
@@ -277,7 +277,7 @@ Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone*
 
 ## **Compare Slide Masters**
 
-A Master Slide implements the [IBaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide) interface containing the [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#equals-aspose.slides.IBaseSlide-) method, which can then be used to compare slides. It returns `true` for Master Slides identical in structure and static content.
+A Master Slide implements the [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide) interface containing the [**equals**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#equals-aspose.slides.IBaseSlide-) method, which can then be used to compare slides. It returns `true` for Master Slides identical in structure and static content.
 
 Two Master Slides are equal if their shapes, styles, texts, animation and other settings, etc are equal. The comparison does not take unique identifier values (e.g. SlideId) and dynamic content (e.g. current date value in Date Placeholder) into account. 
 

@@ -15,8 +15,8 @@ Before talking about adding slides to the presentation files, let us discuss som
 Aspose.Slides for Node.js via Java allows developers to add empty slides to their presentation. To add an empty slide in the presentation, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
-- Instantiate [ISlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) class by setting a reference to the [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) (collection of content Slide objects) property exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object.
-- Add an empty slide to the presentation at the end of the content slides collection by calling the [**addEmptySlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addEmptySlide-aspose.slides.ILayoutSlide-) methods exposed by [ISlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) object.
+- Instantiate [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) class by setting a reference to the [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) (collection of content Slide objects) property exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object.
+- Add an empty slide to the presentation at the end of the content slides collection by calling the [**addEmptySlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addEmptySlide-aspose.slides.ILayoutSlide-) methods exposed by [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) object.
 - Do some work with the newly added empty slide.
 - Finally, write the presentation file using the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object.
 

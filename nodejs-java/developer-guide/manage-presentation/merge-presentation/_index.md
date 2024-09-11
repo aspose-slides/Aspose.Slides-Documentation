@@ -45,7 +45,7 @@ With Aspose.Slides, you can merge
 
 Besides presentations, Aspose.Slides allows you to merge other files:
 
-* [Images](https://products.aspose.com/slides/nodejs-java/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/nodejs-java/merger/png-to-png/)
+* [mages](https://products.aspose.com/slides/nodejs-java/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/nodejs-java/merger/png-to-png/)
 * Documents, such as [PDF to PDF](https://products.aspose.com/slides/nodejs-java/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/nodejs-java/merger/html-to-html/)
 * And two different files such as [image to PDF](https://products.aspose.com/slides/nodejs-java/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/nodejs-java/merger/tiff-to-pdf/).
 
@@ -58,7 +58,7 @@ You can apply options that determine whether
 * each slide in the output presentation retains a unique style
 * a specific style is used for all the slides in the output presentation. 
 
-To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) methods (from the [ISlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides.
+To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection#addClone-aspose.slides.ISlide-) methods (from the [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlideCollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides.
 
 The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
 

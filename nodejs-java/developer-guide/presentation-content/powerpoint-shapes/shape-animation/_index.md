@@ -32,10 +32,10 @@ Aspose.Slides for Node.js via Java allows you to apply animation to the text in 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide reference through its index.
-3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape).
-4. Add text to [IAutoShape.TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
+3. Add a `rectangle` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape).
+4. Add text to [AutoShape.TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
 5. Get a main sequence of effects.
-6. Add an animation effect to [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape).
+6. Add an animation effect to [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape).
 7. Set the `TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
 8. Write the presentation to disk as a PPTX file.
 
@@ -116,8 +116,8 @@ This Javascript code shows you how to apply the `Fly` effect to a picture frame:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
-3. Add a `rectangle` [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape).
-4. Add a `Bevel` [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape) (when this object is clicked, the animation gets played).
+3. Add a `rectangle` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape).
+4. Add a `Bevel` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape) (when this object is clicked, the animation gets played).
 5. Create a sequence of effects on the bevel shape.
 6. Create a custom `UserPath`.
 7. Add commands for moving to the `UserPath`.

@@ -163,7 +163,7 @@ Aspose.Slides for Node.js via Java allows developers to reorder the shapes. Reor
 ```
 
 ## **Get Interop Shape ID**
-Aspose.Slides for Node.js via Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) was added to [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
+Aspose.Slides for Node.js via Java allows developers to get a unique shape identifier in slide scope in contrast to the [getUniqueId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getUniqueId--) method, which allows obtaining a unique identifier in presentation scope. Method [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) was added to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interfaces and [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class respectively. The value returned by [getOfficeInteropShapeId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#getOfficeInteropShapeId--) method corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("Presentation.pptx");
@@ -241,7 +241,7 @@ Below sample code is given.
 ```
 
 ## **Render Shape as SVG**
-Now Aspose.Slides for Node.js via Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class and [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
+Now Aspose.Slides for Node.js via Java support for rendering a shape as svg. Method [writeAsSvg](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (and its overload) has been added to [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class and [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("TestExportShapeToSvg.pptx");

@@ -171,7 +171,7 @@ This sample code shows you how to create a table of contents with hyperlinks:
 
 ### **Color**
 
-With the [ColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource-int-) property in the [IHyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
+With the [ColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource-int-) property in the [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
 
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
@@ -247,11 +247,11 @@ This Javascript code shows you how to remove the hyperlink from a shape in a pre
 
 The [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) class is mutable. With this class, you can change the values for these properties:
 
-- [IHyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
-- [IHyperlink.setTooltip(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
-- [IHyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setHistory-boolean-)
-- [IHyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
-- [IHyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
+- [Hyperlink.setTargetFrame(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setTargetFrame-java.lang.String-)
+- [Hyperlink.setTooltip(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setTooltip-java.lang.String-)
+- [Hyperlink.setHistory(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setHistory-boolean-)
+- [Hyperlink.setHighlightClick(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setHighlightClick-boolean-)
+- [Hyperlink.setStopSoundOnClick(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlink#setStopSoundOnClick-boolean-)
 
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
@@ -274,16 +274,16 @@ The code snippet shows you how to add a hyperlink to a slide and edit its toolti
 
 ## **Supported Properties in IHyperlinkQueries**
 
-You can access [IHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries) from a presentation, slide, or text for which the hyperlink is defined.
+You can access [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries) from a presentation, slide, or text for which the hyperlink is defined.
 
-- [IPresentation.getHyperlinkQueries()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentation#getHyperlinkQueries--)
-- [IBaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
-- [ITextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
+- [Presentation.getHyperlinkQueries()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentation#getHyperlinkQueries--)
+- [BaseSlide.getHyperlinkQueries()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IBaseSlide#getHyperlinkQueries--)
+- [TextFrame.getHyperlinkQueries()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame#getHyperlinkQueries--)
 
-The [IHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries) class supports these methods and properties:
+The [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries) class supports these methods and properties:
 
-- [IHyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
-- [IHyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
-- [IHyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
-- [IHyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
+- [HyperlinkQueries.getHyperlinkClicks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#getHyperlinkClicks--)
+- [HyperlinkQueries.getHyperlinkMouseOvers()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#getHyperlinkMouseOvers--)
+- [HyperlinkQueries.getAnyHyperlinks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#getAnyHyperlinks--)
+- [HyperlinkQueries.removeAllHyperlinks()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IHyperlinkQueries#removeAllHyperlinks--)
 

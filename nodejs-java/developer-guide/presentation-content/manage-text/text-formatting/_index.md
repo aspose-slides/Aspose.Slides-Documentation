@@ -24,7 +24,7 @@ description: "Manage and manipulate text and text frame properties in Javascript
 ---
 
 ## **Highlight Text**
-Method [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class.
+Method [highlightText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame#highlightText-java.lang.String-java.awt.Color-) has been added to [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class.
 
 It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
 
@@ -53,7 +53,7 @@ Aspose provides a simple, [free online PowerPoint editing service](https://produ
 
 ## **Highlight Text using Regular Expression**
 
-Method [highlightRegex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-aspose.slides.ITextHighlightingOptions-) has been added to [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class.
+Method [highlightRegex](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame#highlightRegex-java.lang.String-java.awt.Color-aspose.slides.ITextHighlightingOptions-) has been added to [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) interface and [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) class.
 
 It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
 
@@ -238,8 +238,8 @@ Presentations usually contain both text and images. The text can be formatted in
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Obtain a slide's reference by using its index.
-1. Access the Placeholder shapes in the slide and typecast them to [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
-1. Get the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) from the [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) exposed by [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
+1. Access the Placeholder shapes in the slide and typecast them to [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
+1. Get the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) from the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrame) exposed by [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
 1. Justify the paragraph.
 1. Access a Paragraph's text Portion.
 1. Define the font using FontData and set the Font of the text Portion accordingly.
@@ -296,11 +296,11 @@ A portion is used to hold text with similar formatting style in a paragraph. Thi
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain the reference of a slide by using its index.
-3. Add an [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) of the type [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) to the slide.
-4. Remove the fill style associated with the [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
+3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape) of the type [Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType#Rectangle) to the slide.
+4. Remove the fill style associated with the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
 5. Access the AutoShape's TextFrame.
 6. Add some text to the TextFrame.
-7. Access the Portion object associated with the [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
+7. Access the Portion object associated with the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
 8. Define the font to be used for the [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion).
 9. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the Portion object.
 10. Write the modified presentation as a PPTX file.
@@ -380,7 +380,7 @@ Aspose.Slides for Node.js via Java allows developers to rotate the text. Text co
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Access the first slide.
 3. Add any Shape to the slide.
-4. Access the [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
+4. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
 5. [Rotate the text](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#setTextVerticalType-byte-).
 6. Save file to disk.
 
@@ -415,7 +415,7 @@ Aspose.Slides for Node.js via Java allows developers to rotate the text. Text co
 ```
 
 ## **Set Custom Rotation Angle for TextFrame**
-Aspose.Slides for Node.js via Java now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new methods [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-) and [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#getRotationAngle--) have been added to [IChartTextBlockFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartTextBlockFormat) and [ITextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat) interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle, Please follow the steps below:
+Aspose.Slides for Node.js via Java now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new methods [setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#setRotationAngle-float-) and [getRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#getRotationAngle--) have been added to [ChartTextBlockFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartTextBlockFormat) and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat) interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle, Please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Add a chart on slide.
@@ -502,7 +502,7 @@ In this topic, we will explore the different formatting properties of text frame
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation)class.
 2. Access the first slide.
 3. Add any shape to the slide.
-4. Access the [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
+4. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
 5. [Set the AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#setAutofitType-byte-) of the TextFrame.
 6. Save file to disk.
 
@@ -542,7 +542,7 @@ Aspose.Slides for Node.js via Java allows developers to Anchor of any TextFrame.
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Access the first slide.
 3. Add any shape to the slide.
-4. Access the [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
+4. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape).
 5. [Set TextAnchorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITextFrameFormat#setAnchoringType-byte-) of the TextFrame.
 6. Save file to disk.
 
@@ -591,7 +591,7 @@ All text tabulations are given in pixels.
 
 ## **Set Default Text Style**
 
-If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `getDefaultTextStyle` method from the [IPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ipresentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
+If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `getDefaultTextStyle` method from the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ipresentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
 
 ```javascript
     var presentation = new  aspose.slides.Presentation();

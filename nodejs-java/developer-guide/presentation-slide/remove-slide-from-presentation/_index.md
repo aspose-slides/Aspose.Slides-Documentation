@@ -8,7 +8,7 @@ description: "Remove slide from PowerPoint by reference or index in Javascript"
 
 ---
 
-If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide/) object, you can specify the slide you want to remove.
+If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class that encapsulates [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide/) object, you can specify the slide you want to remove.
 
 ## **Remove Slide by Reference**
 

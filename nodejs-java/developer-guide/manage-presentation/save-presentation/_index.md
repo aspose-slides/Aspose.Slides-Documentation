@@ -133,7 +133,7 @@ Saving in the Zip64Mode.Never mode will throw a [PptxException](https://referenc
 ## **Save Progress Updates in Percentage**
 New [**IProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
 
-The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface:
+The following code snippets below show how to use [ProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface:
 
 ```javascript
     // Opening the presentation file

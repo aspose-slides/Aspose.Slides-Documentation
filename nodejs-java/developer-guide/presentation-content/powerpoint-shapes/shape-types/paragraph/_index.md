@@ -39,7 +39,7 @@ Using [**getRect()**](https://reference.aspose.com/slides/nodejs-java/aspose.sli
 
 ## **Get size of paragraph and portion inside table cell text frame** ##
 
-To get the [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion) or [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Paragraph) size and coordinates in a table cell text frame, you can use the [IPortion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion#getRect--) and [IParagraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IParagraph#getRect--) methods.
+To get the [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Portion) or [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Paragraph) size and coordinates in a table cell text frame, you can use the [Portion.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPortion#getRect--) and [Paragraph.getRect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IParagraph#getRect--) methods.
 
 This sample code demonstrates the described operation:
 

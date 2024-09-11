@@ -338,7 +338,7 @@ Let's consider an expression: 
 
 ![todo:image_alt_text](powerpoint-math-equations_8.png)
 
-Such expressions can be created through a combination of classes [MathFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction) and [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLimit), and operations of the [IMathElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMathElement) as follows:
+Such expressions can be created through a combination of classes [MathFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction) and [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLimit), and operations of the [MathElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IMathElement) as follows:
 
 ```javascript
     var mathExpression = new  aspose.slides.MathematicalText("lim").setLowerLimit("x→∞").function("x");

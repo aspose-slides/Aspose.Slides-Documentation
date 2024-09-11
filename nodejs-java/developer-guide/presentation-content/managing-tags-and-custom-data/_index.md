@@ -12,7 +12,7 @@ PPTX files—items with the .pptx extension—are stored in the PresentationML f
 
 With a *slide* being one of the elements in presentations, a *slide part* contains the content of a single slide. A slide part is allowed to have explicit relationships to many parts—such as User Defined Tags—defined by ISO/IEC 29500. 
 
-Custom data (specific to a presentation) or user can exist as tags ([ITagCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITagCollection)) and CustomXmlParts ([ICustomXmlPartCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICustomXmlPartCollection)).
+Custom data (specific to a presentation) or user can exist as tags ([TagCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITagCollection)) and CustomXmlParts ([CustomXmlPartCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICustomXmlPartCollection)).
 
 {{% alert color="primary" %}} 
 
@@ -22,7 +22,7 @@ Tags are essentially string-key pair values.
 
 ## Getting the Values for Tags
 
-In slides, a tag corresponds to the [IDocumentProperties.getKeywords()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IDocumentProperties#getKeywords--) and [IDocumentProperties.setKeywords()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for Node.js via Java for [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation):
+In slides, a tag corresponds to the [DocumentProperties.getKeywords()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IDocumentProperties#getKeywords--) and [DocumentProperties.setKeywords()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IDocumentProperties#setKeywords-java.lang.String-) methods. This sample code shows you how to get a tag’s value with Aspose.Slides for Node.js via Java for [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation):
 
 ```javascript
     var pres = new  aspose.slides.Presentation("pres.pptx");

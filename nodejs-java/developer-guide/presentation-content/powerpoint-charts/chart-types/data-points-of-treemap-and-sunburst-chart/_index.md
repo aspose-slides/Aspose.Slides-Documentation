@@ -35,7 +35,7 @@ Let’s start with adding a new Sunburst chart to the presentation:
 If there is a need to format data points of the chart, we should use the following:
 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevel) classes 
+[ChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevel) classes 
 and [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPoint#getDataPointLevels--) method 
 provide access to format data points of Treemap and Sunburst charts. 
 [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataPointLevelsManager)

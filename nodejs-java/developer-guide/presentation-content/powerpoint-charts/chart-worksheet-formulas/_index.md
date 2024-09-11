@@ -42,7 +42,7 @@ Typically, spreadsheets store the last calculated formula values. If after prese
 
 ## **Add Chart Spreadsheet Formula to Presentation**
 First, add a chart to the first slide of a new presentation with 
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addChart-int-float-float-float-float-).
+[ShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addChart-int-float-float-float-float-).
 The worksheet of the chart is automatically created and can be accessed with 
 [**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartData#getChartDataWorkbook--) method:
 

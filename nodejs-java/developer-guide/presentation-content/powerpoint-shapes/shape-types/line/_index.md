@@ -18,7 +18,7 @@ To add a simple plain line to a selected slide of the presentation, please follo
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
+- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
 - Write the modified presentation as a PPTX file.
 
 In the example given below, we have added a line to the first slide of the presentation.
@@ -46,7 +46,7 @@ Aspose.Slides for Node.js via Java also allows developers to configure some prop
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
+- Add an AutoShape of Line type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
 - Set the [Line Style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LineStyle) to one of the styles as offered by Aspose.Slides for Node.js via Java.
 - Set the Width of the line.
 - Set the [Dash Style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LineDashStyle) of the line to one of the styles offered by Aspose.Slides for Node.js via Java.

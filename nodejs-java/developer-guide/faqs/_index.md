@@ -43,7 +43,7 @@ In general, Aspose.Slides for Node.js via Java can easily handle presentation fi
 
 **Q: How can I set the color of a table border?**
 
-**A**: You can change the color of all table borders or just the border around the entire table. For changing all borders, please use the `getCellFormat` method from the [ICell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/icell/) interface. For the border of the entire table, you should iterate cells and change the color of the outer borders.
+**A**: You can change the color of all table borders or just the border around the entire table. For changing all borders, please use the `getCellFormat` method from the [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/icell/) interface. For the border of the entire table, you should iterate cells and change the color of the outer borders.
 
 **Q: What measure does Aspose.Slides for Node.js via Java use to place pictures?**
 

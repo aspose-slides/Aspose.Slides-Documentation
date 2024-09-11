@@ -15,12 +15,12 @@ To convert a slide to an image, do this:
    * convert the slide to a Images first by using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISlide#getImage-java.awt.Dimension-) method or
 
 2. Second, set additional options for conversion and convertible slide objects through
-   * the [ITiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) interface or
-   * the [IRenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IRenderingOptions) interface.
+   * the [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) interface or
+   * the [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IRenderingOptions) interface.
 
 ## **About Bitmap and Other Image Formats**
 
-In Java, a [Images](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
+In Java, a [mages](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
 
 {{% alert title="Info" color="info" %}}
 
@@ -114,11 +114,11 @@ This sample code demonstrates the proposed conversion using the [getImage](https
 
 Some slides contain notes and comments. 
 
-Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) and [IRenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IRenderingOptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
+Aspose.Slides provides two interfaces—[TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) and [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IRenderingOptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
 
 {{% alert title="Info" color="info" %}} 
 
-With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions) interface, you get to specify your preferred position for notes and comments in the resulting image.
+With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/INotesCommentsLayoutingOptions) interface, you get to specify your preferred position for notes and comments in the resulting image.
 
 {{% /alert %}} 
 
@@ -191,7 +191,7 @@ In any slide to image conversion process, the [NotesPositions](https://reference
 
 ## **Converting Slides to Images Using ITiffOptions**
 
-The [ITiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
+The [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
 
 This Javascript code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 

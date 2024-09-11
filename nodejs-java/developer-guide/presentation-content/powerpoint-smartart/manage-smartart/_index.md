@@ -6,7 +6,7 @@ url: /nodejs-java/manage-smartart/
 ---
 
 ## **Get Text from SmartArt**
-Now TextFrame method has been added to [ISmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtShape) interface and [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
+Now TextFrame method has been added to [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtShape) interface and [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
 ```javascript
     var pres = new  aspose.slides.Presentation("Presentation.pptx");
@@ -55,7 +55,7 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
 ```
 
 ## **Check Hidden Property of SmartArt**
-Please note: method [ISmartArtNode.isHidden()]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtNode#isHidden--)) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt). Please follow the steps below:
+Please note: method [SmartArtNode.isHidden()]((https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtNode#isHidden--)) returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt). Please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Add [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) RadialCycle.
@@ -87,7 +87,7 @@ In the example given below, we have added a connector between two shapes.
 ```
 
 ## **Get or Set Organization Chart Type**
-Methods [ISmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtNode#getOrganizationChartLayout--), [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
+Methods [SmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtNode#getOrganizationChartLayout--), [setOrganizationChartLayout(int)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISmartArtNode#setOrganizationChartLayout-int-) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Add [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addSmartArt-float-float-float-float-int-) on slide.

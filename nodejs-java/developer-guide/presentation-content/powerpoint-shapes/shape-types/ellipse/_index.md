@@ -17,7 +17,7 @@ To add a simple ellipse to a selected slide of the presentation, please follow t
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Ellipse type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
+- Add an AutoShape of Ellipse type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
 - Write the modified presentation as a PPTX file.
 
 In the example given below, we have added an ellipse to the first slide
@@ -44,9 +44,9 @@ To add a better formatted ellipse to a slide, please follow the steps below:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 - Obtain the reference of a slide by using its Index.
-- Add an AutoShape of Ellipse type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [IShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
+- Add an AutoShape of Ellipse type using [addAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addAutoShape-int-float-float-float-float-) method exposed by [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection) object.
 - Set the Fill Type of the Ellipse to Solid.
-- Set the Color of the Ellipse using SolidFillColor.Color property as exposed by [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IFillFormat) object associated with the [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) object.
+- Set the Color of the Ellipse using SolidFillColor.Color property as exposed by [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IFillFormat) object associated with the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) object.
 - Set the Color of the lines of the Ellipse.
 - Set the Width of the lines of the Ellipse.
 - Write the modified presentation as a PPTX file.

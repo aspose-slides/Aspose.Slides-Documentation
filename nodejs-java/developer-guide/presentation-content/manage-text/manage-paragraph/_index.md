@@ -9,9 +9,9 @@ description: "Create and manage Paragraph, text, indent, and properties in Power
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
 
-* Aspose.Slides provides the [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/itextframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
-* Aspose.Slides provides the [IParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraph/) interface to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).
-* Aspose.Slides provides [IPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iportion/) interface to allow you to add objects that represent texts and their formatting properties.
+* Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/itextframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
+* Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraph/) interface to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).
+* Aspose.Slides provides [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iportion/) interface to allow you to add objects that represent texts and their formatting properties.
 
 An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
 
@@ -21,10 +21,10 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
-3. Add a Rectangle [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape/) to the slide.
-4. Get the ITextFrame associated with the [IAutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape/).
-5. Create two [IParagraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraph/) objects and add them to the `IParagraphs` collection of the [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/itextframe/).
-6. Create three [IPortion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iportion/) objects for each new `IParagraph` (two Portion objects for default Paragraph) and add each `IPortion` object to the IPortion collection of each `IParagraph`.
+3. Add a Rectangle [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape/) to the slide.
+4. Get the ITextFrame associated with the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape/).
+5. Create two [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iparagraph/) objects and add them to the `IParagraphs` collection of the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/itextframe/).
+6. Create three [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iportion/) objects for each new `IParagraph` (two Portion objects for default Paragraph) and add each `IPortion` object to the IPortion collection of each `IParagraph`.
 7. Set some text for each portion.
 8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `IPortion` object.
 9. Save the modified presentation.
@@ -176,7 +176,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/itextframe/).
 5. Remove the default paragraph in the `TextFrame`.
 6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class.
-7. Load the image in [IPPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ippimage/).
+7. Load the image in [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ippimage/).
 8. Set the bullet type to [Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ippimage/) and set the image.
 9. Set the Paragraph `Text`.
 10. Set the Paragraph `Indent` for the bullet.
@@ -316,7 +316,7 @@ This Javascript code shows you how to add and manage multilevel bullets:
 
 ## **Manage Paragraph with Custom Numbered List**
 
-The [IBulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ibulletformat/) interface provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) property and others that allow you to manage paragraphs with custom numbering or formatting.
+The [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ibulletformat/) interface provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) property and others that allow you to manage paragraphs with custom numbering or formatting.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the slide containing the paragraph.
@@ -493,7 +493,7 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
 3. Add an [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iautoshape/) to the slide.
-4. Add and access `autoshape` [ITextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/itextframe/).
+4. Add and access `autoshape` [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/itextframe/).
 5. Remove the default paragraph in the `ITextFrame`.
 6. Read the source HTML file in a TextReader.
 7. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class.

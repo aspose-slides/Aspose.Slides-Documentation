@@ -65,7 +65,7 @@ This Javascript code shows you to set a workbook cell as a chart data label:
 
 ## **Manage Worksheets**
 
-This Javascript code demonstrates an operation where the [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This Javascript code demonstrates an operation where the [ChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

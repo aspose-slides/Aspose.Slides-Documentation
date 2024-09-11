@@ -21,7 +21,7 @@ Using Aspose.Slides, you can specify your preferred line style for a shape. Thes
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 4. Set a color for the shape lines.
 5. Set the width for the shape lines.
 6. Set the [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LineStyle) for the shape line
@@ -124,7 +124,7 @@ This is how you use Aspose.Slides to apply a gradient fill to a shape:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 4. Set the Shape's [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) to `Gradient`.
 5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
 6. Write the modified presentation as a PPTX file.
@@ -166,7 +166,7 @@ This is how you use Aspose.Slides to apply a pattern fill to a shape:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 4. Set the Shape's [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) to `Pattern`.
 5. Set your preferred pattern style for the shape. 
 6. Set the [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat#getBackColor--) for the [PatternFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat).
@@ -207,7 +207,7 @@ This is how you use Aspose.Slides to fill a shape with a picture:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 4. Set the Shape's [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) to `Picture`.
 5. Set the Picture Fill Mode to Tile.
 6. Create an `IPPImage` object using the image that will be used to fill the shape.
@@ -257,7 +257,7 @@ This is how you use Aspose.Slides to apply solid color fill to a shape:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 4. Set the Shape's [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) to `Solid`.
 5. Set your preferred color for the Shape.
 6. Write the modified presentation as a PPTX file.
@@ -293,7 +293,7 @@ Aspose.Slides allows you to set the transparency level for a shape this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 4. Use `new Color` with the alpha component set.
 5. Save the object as a PowerPoint file. 
 
@@ -324,7 +324,7 @@ Aspose.Slides allows you to rotate a shape added to a slide this way:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 4. Rotate the shape by the needed degrees. 
 5. Write the modified presentation as a PPTX file.
 
@@ -355,7 +355,7 @@ Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeD
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 3. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) properties.
 4. Write the presentation to disk.
 
@@ -397,7 +397,7 @@ Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying it
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
+3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShape) to the slide.
 3. Specify your preferred figures for [CameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ICamera#getCameraType--) and [LightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ILightRig#getLightType--).
 4. Write the presentation to disk. 
 

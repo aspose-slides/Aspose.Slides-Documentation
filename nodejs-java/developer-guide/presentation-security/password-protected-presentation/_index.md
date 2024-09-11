@@ -76,7 +76,7 @@ Aspose.Slides allows you to perform other tasks involving password protection an
 
 You can encrypt a presentation by setting a password. Then, to modify the locked presentation, a user has to provide the password. 
 
-To encrypt or password protect a presentation, you have to use the encrypt method (from [IProtectionManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProtectionManager)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation.
+To encrypt or password protect a presentation, you have to use the encrypt method (from [ProtectionManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProtectionManager)) to set a password for the presentation. You pass the password to the encrypt method and use the save method to save the now encrypted presentation.
 
 This sample code shows you how to encrypt a presentation:
 
