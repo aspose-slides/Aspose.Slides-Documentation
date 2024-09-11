@@ -13,7 +13,7 @@ Aspose.Slides allows you to access slides in two ways: by index and by ID.
 
 All slides in a presentation are arranged numerically based on the slide position starting from 0. The first slide is accessible through index 0; the second slide is accessed through index 1; etc.
 
-The Presentation class, representing a presentation file, exposes all slides as an [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islidecollection/) collection (collection of [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide/) objects). This Javascript code shows you how to access a slide through its index:
+The Presentation class, representing a presentation file, exposes all slides as an [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) collection (collection of [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) objects). This Javascript code shows you how to access a slide through its index:
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
@@ -49,7 +49,7 @@ Aspose.Slides allow you to change a slide position. For example, you can specify
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 1. Get the slide's reference (whose position you want to change) through its index
-1. Set a new position for the slide through the [setSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islide/#setSlideNumber-int-) property.
+1. Set a new position for the slide through the [setSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#setSlideNumber-int-) property.
 1. Save the modified presentation.
 
 This Javascript code demonstrates an operation in which the slide in position 1 is moved to position 2:

@@ -31,7 +31,7 @@ For more information on working with Master Slides in particular, see the [Slide
 ## **Add Slide Layout to Presentation**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-1. Access the [MasterSlide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterlayoutslidecollection/).
+1. Access the [MasterSlide collection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/).
 1. Go through the existing layout slides to confirm that the required layout slide already exists in the Layout Slide collection. Otherwise, add the Layout slide you want. 
 1. Add an empty slide based on the new layout slide.
 1. Save the presentation. 

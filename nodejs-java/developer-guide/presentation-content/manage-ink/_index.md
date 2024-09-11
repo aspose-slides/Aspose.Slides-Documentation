@@ -9,7 +9,7 @@ description: "Use ink tools to draw objects in PowerPoint Java"
 
 PowerPoint provides the ink function to allow you to draw non-standard figures, which can be used to highlight other objects, show connections and processes, and draw attention to specific items on a slide. 
 
-Aspose.Slides provides all the Ink types (e.g. [nk](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ink/) class) you need to create and manage ink objects.
+Aspose.Slides provides all the Ink types (e.g. [nk](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nk/) class) you need to create and manage ink objects.
 
 ## **Differences between Regular Object and Ink Objects**
 

@@ -591,7 +591,7 @@ All text tabulations are given in pixels.
 
 ## **Set Default Text Style**
 
-If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `getDefaultTextStyle` method from the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ipresentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
+If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `getDefaultTextStyle` method from the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) interface and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
 
 ```javascript
     var presentation = new  aspose.slides.Presentation();

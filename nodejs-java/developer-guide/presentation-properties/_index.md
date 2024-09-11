@@ -39,12 +39,12 @@ In the above **Properties Dialog**, you can see that there are many tab pages li
 
 Working with Document Properties Using Aspose.Slides for Node.js via Java
 
-As we have described earlier that Aspose.Slides for Node.js via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Node.js via Java API. Aspose.Slides for Node.js via Java provides a class [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
+As we have described earlier that Aspose.Slides for Node.js via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Node.js via Java API. Aspose.Slides for Node.js via Java provides a class [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
 
 Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
 ## **Access Built-in Properties**
-These properties as exposed by [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
+These properties as exposed by [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```javascript
     // Instantiate the Presentation class that represents the presentation
@@ -171,7 +171,7 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 ## **Advanced Document Properties**
 {{% alert color="primary" %}} 
 
-New methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo), logic of the [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
+New methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationInfo), logic of the [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
 
 {{% /alert %}} 
 

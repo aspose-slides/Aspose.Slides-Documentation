@@ -45,11 +45,11 @@ Before you work with a slide master, you may want to understand how they are use
 * Every presentation has at least one Slide Master by default. 
 * A presentation can contain several Slide Masters. You can add several Slide Masters and use them to style different parts of a presentation in different ways. 
 
-In **Aspose.Slides**, a Slide Master is represented by [**IMasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslide/) type.
+In **Aspose.Slides**, a Slide Master is represented by [**IMasterSlide**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslide/) type.
 
-Aspose.Slides' [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)object contains the [**getMasters** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--)list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/) type, which contains a list of all master slides that are defined in a presentation.
+Aspose.Slides' [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)object contains the [**getMasters** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters--)list of [**IMasterSlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) type, which contains a list of all master slides that are defined in a presentation.
 
-Besides CRUD operations, the [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/) interface contains these useful methods: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) and [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imasterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups.
+Besides CRUD operations, the [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/) interface contains these useful methods: [**addClone(ILayoutSlide sourceLayout)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/#addClone-aspose.slides.ILayoutSlide-) and [**insertClone(int index, IMasterSlide sourceMaster)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslidecollection/#insertClone-int-aspose.slides.IMasterSlide-) methods. Those methods are inherited from the basic slide cloning function. But when dealing with Slide Masters, those methods allow you to implement complicated setups.
 
 When a new slide is added to a presentation, a Slide Master is applied to it automatically. The Slide Master of the previous slide is selected by default. 
 
@@ -59,7 +59,7 @@ The principle is the same for PowerPoint and Aspose.Slides. For example, in Powe
 
 ![todo:image_alt_text](slide-master_1.jpg)
 
-In Aspose.Slides, you can perform the equivalent task with the [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/islidecollection/#addClone-aspose.slides.ISlide-) method under the [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)class.
+In Aspose.Slides, you can perform the equivalent task with the [addClone(ISlide sourceSlide)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-) method under the [Presentation ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)class.
 
 
 ## **Slide Master in Slides hierarchy**
