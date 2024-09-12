@@ -89,28 +89,31 @@ Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/sl
     opts.setResourceLoadingCallback(java.newInstanceSync("ImageLoadingHandler"));
     var pres = new  aspose.slides.Presentation("presentation.pptx", opts);
 ```
-
-```javascript
-    class ImageLoadingHandler implements aspose.slides.IResourceLoadingCallback {
-        public int resourceLoading(aspose.slides.IResourceLoadingArgs args) {
-            if (args.getOriginalUri().endsWith(".jpg")) {
-                // loads substitute image
-                try {
-                    var imageBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "aspose-logo.jpg"));
+You will need to implement ImageLoadingHandler in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
+```java
+class ImageLoadingHandler implements IResourceLoadingCallback
+{
+    public int resourceLoading(IResourceLoadingArgs args)
+    {
+        if (args.getOriginalUri().endsWith(".jpg"))
+        {
+            try // loads substitute image
+            {
+                byte[] imageBytes = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
                     args.setData(imageBytes);
-                    return aspose.slides.ResourceLoadingAction.UserProvided;
-                } catch (ex) {
-                    return aspose.slides.ResourceLoadingAction.Skip;
-                } catch (ex) {
-                    console.log(ex);
+                return ResourceLoadingAction.UserProvided;
+            } catch (RuntimeException ex) {
+                return ResourceLoadingAction.Skip;
+            }  catch (IOException ex) {
+                ex.printStackTrace();
                 }
             } else if (args.getOriginalUri().endsWith(".png")) {
                 // sets substitute url
                 args.setUri("http://www.google.com/images/logos/ps_logo2.png");
-                return aspose.slides.ResourceLoadingAction.Default;
+            return ResourceLoadingAction.Default;
             }
             // skips all other images
-            return aspose.slides.ResourceLoadingAction.Skip;
+        return ResourceLoadingAction.Skip;
         }
     }
 ```
