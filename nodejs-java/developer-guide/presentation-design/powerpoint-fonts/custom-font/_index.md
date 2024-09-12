@@ -63,8 +63,8 @@ Aspose.Slides provides the [setDocumentLevelFontSources](https://reference.aspos
 This Javascript code shows you how to use the [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) property:
 
 ```javascript
-    var memoryFont1 = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", "customfonts/CustomFont1.ttf");
-    var memoryFont2 = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", "customfonts/CustomFont2.ttf");
+    var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
+    var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
     var loadOptions = new  aspose.slides.LoadOptions();
     loadOptions.getDocumentLevelFontSources().setFontFolders(java.newArray("String", ["assets/fonts", "global/fonts"]);
     loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][]{ memoryFont1, memoryFont2 });

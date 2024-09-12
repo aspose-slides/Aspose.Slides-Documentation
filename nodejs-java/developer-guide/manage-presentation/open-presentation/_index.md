@@ -96,7 +96,7 @@ Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/sl
             if (args.getOriginalUri().endsWith(".jpg")) {
                 // loads substitute image
                 try {
-                    var imageBytes = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.newInstanceSync("java.io.File", "aspose-logo.jpg").toPath());
+                    var imageBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "aspose-logo.jpg"));
                     args.setData(imageBytes);
                     return aspose.slides.ResourceLoadingAction.UserProvided;
                 } catch (ex) {
