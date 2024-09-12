@@ -182,11 +182,11 @@ This Javascript code shows you how to embed HTML and ZIP in a slide:
     var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var htmlBytes = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "embedOle.html"));
+        var htmlBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.html"));
         var dataInfoHtml = new  aspose.slides.OleEmbeddedDataInfo(htmlBytes, "html");
         var oleFrameHtml = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
         oleFrameHtml.setObjectIcon(true);
-        var zipBytes = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "embedOle.zip"));
+        var zipBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.zip"));
         var dataInfoZip = new  aspose.slides.OleEmbeddedDataInfo(zipBytes, "zip");
         var oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
         oleFrameZip.setObjectIcon(true);
@@ -213,7 +213,7 @@ This Java shows you how to set the file type for an embedded OLE object:
         var slide = pres.getSlides().get_Item(0);
         var oleObjectFrame = slide.getShapes().get_Item(0);
         console.log("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
-        oleObjectFrame.setEmbeddedData(new  aspose.slides.OleEmbeddedDataInfo(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "embedOle.zip")), "zip"));
+        oleObjectFrame.setEmbeddedData(new  aspose.slides.OleEmbeddedDataInfo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.zip")), "zip"));
         pres.save("embeddedChanged.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {console.log(e);
     } finally {

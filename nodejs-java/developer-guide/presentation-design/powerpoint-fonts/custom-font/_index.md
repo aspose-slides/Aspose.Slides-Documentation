@@ -66,7 +66,7 @@ This Javascript code shows you how to use the [setDocumentLevelFontSources](http
     var memoryFont1 = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", "customfonts/CustomFont1.ttf");
     var memoryFont2 = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", "customfonts/CustomFont2.ttf");
     var loadOptions = new  aspose.slides.LoadOptions();
-    loadOptions.getDocumentLevelFontSources().setFontFolders(new java.lang.String[]{ "assets/fonts", "global/fonts" });
+    loadOptions.getDocumentLevelFontSources().setFontFolders(java.newArray("String", ["assets/fonts", "global/fonts"]);
     loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][]{ memoryFont1, memoryFont2 });
     var pres = new  aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
     try {
@@ -86,9 +86,9 @@ Aspose.Slides provides the [loadExternalFont](https://reference.aspose.com/slide
 This Javascript code demonstrates the byte array font loading process:
 
 ```javascript
-    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALN.TTF")));
-    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNBI.TTF")));
-    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "ARIALNI.TTF")));
+    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
+    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
+    java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));
     try {
         var pres = new  aspose.slides.Presentation("");
         try {

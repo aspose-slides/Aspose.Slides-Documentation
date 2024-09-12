@@ -26,7 +26,7 @@ This sample code shows you how to export a math equation from a presentation to 
         var autoShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 500, 50);
         var mathParagraph = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph();
         mathParagraph.add(new  aspose.slides.MathematicalText("a").setSuperscript("2").join("+").join(new  aspose.slides.MathematicalText("b").setSuperscript("2")).join("=").join(new  aspose.slides.MathematicalText("c").setSuperscript("2")));
-        var stream = java.newInstanceSync("java.io.FileOutputStream", "mathml.xml");
+        var stream = null;
         mathParagraph.writeAsMathMl(stream);
     } catch (e) {console.log(e);
     } finally {

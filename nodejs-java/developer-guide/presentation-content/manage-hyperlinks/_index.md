@@ -98,7 +98,7 @@ This sample code shows you how to add a hyperlink to an **audio file**:
 ```javascript
     var pres = new  aspose.slides.Presentation();
     try {
-        var audio = pres.getAudios().addAudio(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "audio.mp3")));
+        var audio = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.mp3")));
         var audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
         audioFrame.setHyperlinkClick(new  aspose.slides.Hyperlink("https://www.aspose.com/"));
         audioFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");
@@ -116,7 +116,7 @@ This sample code shows you how to add a hyperlink to a **video**:
 ```javascript
     var pres = new  aspose.slides.Presentation();
     try {
-        var video = pres.getVideos().addVideo(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "video.avi")));
+        var video = pres.getVideos().addVideo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "video.avi")));
         var videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
         videoFrame.setHyperlinkClick(new  aspose.slides.Hyperlink("https://www.aspose.com/"));
         videoFrame.getHyperlinkClick().setTooltip("More than 70% Fortune 100 companies trust Aspose APIs");

@@ -244,7 +244,7 @@ This Javascript code shows you how to add an animation effect sound and stop it 
     var pres = new  aspose.slides.Presentation("AnimExample_out.pptx");
     try {
         // Adds audio to presentation audio collection
-        var effectSound = pres.getAudios().addAudio(java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "sampleaudio.wav")));
+        var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
         var firstSlide = pres.getSlides().get_Item(0);
         // Gets the main sequence of the slide.
         var sequence = firstSlide.getTimeline().getMainSequence();

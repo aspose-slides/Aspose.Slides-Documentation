@@ -141,7 +141,7 @@ This sample code shows you how to implement the steps above to add an SVG image 
     // Instantiate Presentation class that represents PPTX file
     var pres = new  aspose.slides.Presentation();
     try {
-        var svgContent = java.newInstanceSync("java.lang.String", java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "image.svg")));
+        var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
         var svgImage = new  aspose.slides.SvgImage(svgContent);
         var ppImage = pres.getImages().addImage(svgImage);
         pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
@@ -168,7 +168,7 @@ This sample code shows you how to use the described method to convert an SVG fil
     var presentation = new  aspose.slides.Presentation();
     try {
         // Read SVG file content
-        var svgContent = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "image.svg"));
+        var svgContent = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg"));
         // Create SvgImage object
         var svgImage = new  aspose.slides.SvgImage(svgContent);
         // Get slide size

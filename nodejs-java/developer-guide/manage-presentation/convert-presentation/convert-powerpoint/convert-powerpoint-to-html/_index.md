@@ -382,7 +382,7 @@ This Javascript code shows you how to add a video to the presentation and then s
         var path = "./out/";
         final var fileName = "ExportMediaFiles_out.html";
         final var baseUri = "http://www.example.com/";
-        var videoData = java.callStaticMethodSync("java.nio.file.Files", "readAllBytes", java.callStaticMethodSync("java.nio.file.Paths", "get", "my_video.avi"));
+        var videoData = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "my_video.avi"));
         var video = pres.getVideos().addVideo(videoData);
         pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
         var controller = new  aspose.slides.VideoPlayerHtmlController(path, fileName, baseUri);
