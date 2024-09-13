@@ -207,7 +207,7 @@ This Javascript code shows you to create a composite custom shape:
         geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
         geometryPath1.lineTo(0, shape.getHeight());
         geometryPath1.closeFigure();
-        shape.setGeometryPaths(new aspose.slides.GeometryPath[]{ geometryPath0, geometryPath1 });
+        shape.setGeometryPaths(java.newArray("com.aspose.slides.GeometryPath",[geometryPath0, geometryPath1]));
     } finally {
         if (pres != null) {
             pres.dispose();
@@ -290,7 +290,7 @@ This Javascript code—an implementation of the steps above—demonstrates the *
         var textPath = aspose.slides.ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
         textPath.setFillMode(aspose.slides.PathFillModeType.Normal);
         // Set combination of new geometry path and origin geometry path to the shape
-        shape.setGeometryPaths(new aspose.slides.IGeometryPath[]{ originalPath, textPath });
+        shape.setGeometryPaths(java.newArray("com.aspose.slides.IGeometryPath", [originalPath, textPath]));
     } finally {
         if (pres != null) {
             pres.dispose();

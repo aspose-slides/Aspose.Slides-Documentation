@@ -30,7 +30,7 @@ This Javascript code demonstrates the font loading process:
 
 ```javascript
     // Folders to seek fonts
-    var folders = new java.lang.String[]{ externalFontsDir };
+    var folders = java.newArray("String", [externalFontsDir]);
     // Loads the custom font directory fonts
     aspose.slides.FontsLoader.loadExternalFonts(folders);
     // Do Some work and perform presentation/slide rendering

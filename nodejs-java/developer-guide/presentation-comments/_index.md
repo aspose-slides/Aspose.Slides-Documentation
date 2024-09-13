@@ -107,12 +107,12 @@ This Javascript code shows you how to add comments and get replies to them:
         var slide = pres.getSlides().get_Item(0);
         var comments = slide.getSlideComments(null);
         for (var i = 0; i < comments.length; i++) {
-            var comment = comments[];
+            var comment = comments[i];
             while (comment.getParentComment() != null) {
                 console.log("\t");
                 comment = comment.getParentComment();
             }
-            console.log((comments[].getAuthor().getName() + " : ") + comments[].getText());
+            console.log((comments[i].getAuthor().getName() + " : ") + comments[i].getText());
             console.log();
         }
         pres.save("parent_comment.pptx", aspose.slides.SaveFormat.Pptx);
