@@ -124,7 +124,6 @@ var java = require("java");
 java.callStaticMethodSync("java.lang.Math" , "toIntExact", file.length())
 ```
 **Create an array of given size in Java through node-java**
-file.length() return long value
 ```javascript
 var java = require("java");
 java.newArray("byte", java.newInstanceSync("java.util.ArrayList", arraySize).toArray());
