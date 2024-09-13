@@ -40,7 +40,7 @@ This Javascript code shows you how to get and remove embedded fonts from a prese
         var calibriEmbeddedFont = null;
         for (var i = 0; i < embeddedFonts.length; i++) {
             console.log("" + embeddedFonts[i].getFontName());
-            if ("Calibri".equals(embeddedFonts[i].getFontName())) {
+            if ("Calibri" == embeddedFonts[i].getFontName()) {
                 calibriEmbeddedFont = embeddedFonts[i];
                 break;
             }

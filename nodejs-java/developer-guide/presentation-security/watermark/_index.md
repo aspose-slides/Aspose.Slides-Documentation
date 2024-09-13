@@ -186,7 +186,7 @@ To remove watermark shape and its child controls from slide, use [AutoShape.getN
 ```javascript
     for (var i = 0; i < slide.getShapes().size(); i++) {
         var shape = slide.getShapes().get_Item(i);
-        if ("watermark".equals(shape.getName())) {
+        if ("watermark" == shape.getName()) {
             slide.getShapes().remove(watermarkShape);
         }
     }
