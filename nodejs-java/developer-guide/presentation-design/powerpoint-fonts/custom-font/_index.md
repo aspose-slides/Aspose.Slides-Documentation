@@ -30,7 +30,7 @@ This Javascript code demonstrates the font loading process:
 
 ```javascript
     // Folders to seek fonts
-    var folders = java.newArray("String", [externalFontsDir]);
+    var folders = java.newArray("java.lang.String", [externalFontsDir]);
     // Loads the custom font directory fonts
     aspose.slides.FontsLoader.loadExternalFonts(folders);
     // Do Some work and perform presentation/slide rendering
@@ -66,8 +66,8 @@ This Javascript code shows you how to use the [setDocumentLevelFontSources](http
     var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
     var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
     var loadOptions = new  aspose.slides.LoadOptions();
-    loadOptions.getDocumentLevelFontSources().setFontFolders(java.newArray("String", ["assets/fonts", "global/fonts"]);
-    loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][]{ memoryFont1, memoryFont2 });
+    loadOptions.getDocumentLevelFontSources().setFontFolders(java.newArray("java.lang.String", ["assets/fonts", "global/fonts"]));
+    loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [java.newArray("byte", ["item1", "item2", "item3"])]));
     var pres = new  aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
     try {
         // Work with the presentation

@@ -132,7 +132,7 @@ The [EmbedAllFontsHtmlController](https://reference.aspose.com/slides/nodejs-jav
     var pres = new  aspose.slides.Presentation("input.pptx");
     try {
         // exclude default presentation fonts
-        var fontNameExcludeList = java.newArray("String", ["Calibri", "Arial"]);
+        var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
         var embedFontsController = new  aspose.slides.EmbedAllFontsHtmlController(fontNameExcludeList);
         var htmlOptionsEmbed = new  aspose.slides.HtmlOptions();
         htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(embedFontsController));
@@ -295,7 +295,7 @@ This Javascript code shows you how to convert a PowerPoint to HTML while linking
     var pres = new  aspose.slides.Presentation("pres.pptx");
     try {
         // Exclude default presentation fonts
-        var fontNameExcludeList = java.newArray("String", [Calibri", "Arial"]);
+        var fontNameExcludeList = java.newArray("java.lang.String", [Calibri", "Arial"]));
         var linkcont = java.newInstanceSync("LinkAllFontsHtmlController", fontNameExcludeList, "C:/Windows/Fonts/");
         var htmlOptionsEmbed = new  aspose.slides.HtmlOptions();
         htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(linkcont));

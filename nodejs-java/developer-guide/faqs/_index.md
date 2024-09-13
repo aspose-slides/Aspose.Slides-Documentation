@@ -55,6 +55,6 @@ In general, Aspose.Slides for Node.js via Java can easily handle presentation fi
 
 **A**: This issue might indicate that the fonts used in the presentation are missing from the operating system on which the code was executed. You should install the fonts on the operating system or load them as external fonts using the [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/) class as shown below:
 ```javascript
-var folders = java.newArray("String", ["path_to_a_folder_with_fonts"]);
+var folders = java.newArray("java.lang.String", ["path_to_a_folder_with_fonts"]));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", folders);
 ```

@@ -13,7 +13,7 @@ Aspose.Slides supports [FontFallBackRule](https://reference.aspose.com/slides/no
     var firstRule = new  aspose.slides.FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya");
     var secondRule = new  aspose.slides.FontFallBackRule(0x3040, 0x309f, "MS Mincho, MS Gothic");
     // Using multiple ways you can add fonts list:
-    var fontNames = java.newArray("String", ["Segoe UI Emoji, Segoe UI Symbol", "Arial"]);
+    var fontNames = java.newArray("java.lang.String", ["Segoe UI Emoji, Segoe UI Symbol", "Arial"]));
     var thirdRule = new  aspose.slides.FontFallBackRule(0x1f300, 0x1f64f, fontNames);
 ```
 
