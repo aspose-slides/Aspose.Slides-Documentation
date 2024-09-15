@@ -56,35 +56,20 @@ You can add one or several images on your computer onto a slide in a presentatio
     }
 ```
 
-## **Adding Images From the Web to Slides**
+## **Adding Images From the Stream to Slides**
 
 If the image you want to add to a slide is unavailable on your computer, you can add the image directly from the web. 
 
 This sample code shows you how to add an image from the web to a slide in Java:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+	var pres = new  aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
-        var imageUrl = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
-        var connection = imageUrl.openConnection();
-        var inputStream = connection.getInputStream();
-        var outputStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        try {
-            var buffer = new byte[1024];
-            var read;
-            while ((read = inputStream.read(buffer, 0, buffer.length)) != (-1)) {
-                outputStream.write(buffer, 0, read);
-            }
-            outputStream.flush();
-            var image = pres.getImages().addImageFromStream(outputStream);
-            slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, image);
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
-            outputStream.close();
-        }
+		var readStream = fs.readFileSync("sample.png");
+		var byteArray = Array.from(readStream);
+		var image = pres.getImages().addImage(java.newArray("byte", byteArray));
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, image);
         pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {console.log(e);
     } finally {
