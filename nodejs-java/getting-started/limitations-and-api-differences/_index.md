@@ -85,6 +85,30 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
+**Aspose.Slides for Node.js via Java through node-java**
+```javascript
+var aspose = aspose || {};
+var java = require("java");
+var fs = require("fs");
+aspose.slides = require("aspose.slides.via.java");
+
+    var pres = new  aspose.slides.Presentation("embeddedOle.pptx");
+    try {
+        var slide = pres.getSlides().get_Item(0);
+        var oleObjectFrame = slide.getShapes().get_Item(0);
+        console.log("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
+		var readStream = fs.readFileSync("embedOle.zip");
+        var byteArray = Array.from(readStream);
+		var zipBytes = java.newArray("byte", byteArray);
+        oleObjectFrame.setEmbeddedData(new  aspose.slides.OleEmbeddedDataInfo(zipBytes, "zip"));
+        pres.save("embeddedChanged.pptx", aspose.slides.SaveFormat.Pptx);
+    } catch (e) {
+				console.log(e);
+    } finally {
+        if (pres != null) {
+            pres.dispose();
+        }
+    }
 **Aspose.Slides for Node.js via Java**
 ```javascript
 var aspose = aspose || {};
