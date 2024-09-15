@@ -63,14 +63,19 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in Java:
 
 ```javascript
-	var pres = new  aspose.slides.Presentation();
+    var pres = new  aspose.slides.Presentation();
     try {
-        var slide = pres.getSlides().get_Item(0);
-		var readStream = fs.readFileSync("sample.png");
-		var byteArray = Array.from(readStream);
-		var image = pres.getImages().addImage(java.newArray("byte", byteArray));
-        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, image);
-        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+        // Accesses the first slide
+        var sld = pres.getSlides().get_Item(0);
+        // Loads an excel file to stream
+        var readStream = fs.readFileSync("book1.xlsx");
+        var byteArray = Array.from(readStream);
+        // Creates a data object for embedding
+        var dataInfo = new  aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
+        // Adds an Ole Object Frame shape
+        var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
+        // Writes the PPTX file to disk
+        pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
     } catch (e) {console.log(e);
     } finally {
         if (pres != null) {

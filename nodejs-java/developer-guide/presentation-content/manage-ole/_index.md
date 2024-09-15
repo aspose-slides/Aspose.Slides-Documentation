@@ -37,20 +37,10 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
         // Loads an excel file to stream
-        var fs = java.newInstanceSync("java.io.FileInputStream", "book1.xlsx");
-        var mstream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        var buf = new byte[4096];
-        while (true) {
-            var bytesRead = fs.read(buf, 0, buf.length);
-            if (bytesRead <= 0) {
-                break;
-            }
-            mstream.write(buf, 0, bytesRead);
-        }
-        fs.close();
+        var readStream = fs.readFileSync("book1.xlsx");
+        var byteArray = Array.from(readStream);
         // Creates a data object for embedding
-        var dataInfo = new  aspose.slides.OleEmbeddedDataInfo(mstream.toByteArray(), "xlsx");
-        mstream.close();
+        var dataInfo = new  aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
         // Adds an Ole Object Frame shape
         var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
         // Writes the PPTX file to disk
