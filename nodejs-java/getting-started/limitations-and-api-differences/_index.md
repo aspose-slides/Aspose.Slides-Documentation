@@ -121,12 +121,17 @@ https://github.com/joeferner/node-java
 file.length() return long value
 ```javascript
 var java = require("java");
-java.callStaticMethodSync("java.lang.Math" , "toIntExact", file.length())
+var intValue = java.callStaticMethodSync("java.lang.Math" , "toIntExact", file.length())
+```
+**Create an java array from javascript array**
+```javascript
+var java = require("java");
+var javaArray = java.newArray("java.lang.String", ["item1", "item2", "item3"]);
 ```
 **Create an array of given size in Java through node-java**
 ```javascript
 var java = require("java");
-java.newArray("byte", java.newInstanceSync("java.util.ArrayList", arraySize).toArray());
+var byteArray = java.newArray("byte", java.newInstanceSync("java.util.ArrayList", arraySize).toArray());
 ```
 **.forEach usage**
 Example of an code snippet:
