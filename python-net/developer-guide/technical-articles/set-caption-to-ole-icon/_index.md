@@ -25,7 +25,7 @@ with slides.Presentation() as presentation:
 
     # Set the image as an icon for the OLE object
     ole_frame.is_object_icon = True
-    ole_frame.substitute_pictureFormat.picture.image = pp_image
+    ole_frame.substitute_picture_format.picture.image = pp_image
 
     # Set a caption to the OLE icon
     ole_frame.substitute_picture_title = "Caption example"
