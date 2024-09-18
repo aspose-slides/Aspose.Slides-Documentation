@@ -108,10 +108,9 @@ with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
     options.notes_comments_layouting.comments_area_color = draw.Color.antique_white
                 
     # Converts the first slide of the presentation to a Bitmap object
-    bmp = pres.slides[0].get_image(options, 2, 2)
-
-    # Saves the image in the GIF format
-    bmp.save("Slide_Notes_Comments_0.gif", slides.ImageFormat.GIF)
+    with pres.slides[0].get_image(options, 2, 2) as bmp:
+        # Saves the image in the GIF format
+        bmp.save("Slide_Notes_Comments_0.gif", slides.ImageFormat.GIF)
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -174,7 +173,7 @@ with slides.Presentation("Presentation.pptx") as pres:
             continue
 
         # Converts the slide to a Bitmap object
-        with pres.slides[i].get_image2) as bmp:
+        with pres.slides[i].get_image() as bmp:
             # Saves the image in the JPEG format
             bmp.save("image_{0}.jpeg".format(i), slides.ImageFormat.JPEG)
 ```

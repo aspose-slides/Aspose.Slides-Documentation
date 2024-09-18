@@ -207,7 +207,6 @@ with slides.Presentation() as presentation:
     text_frame_format.three_d_format.light_rig.direction = slides.LightingDirection.TOP
     text_frame_format.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
     text_frame_format.three_d_format.light_rig.set_rotation(0, 0, 40)
-
     text_frame_format.three_d_format.camera.camera_type = slides.CameraPresetType.PERSPECTIVE_CONTRASTING_RIGHT_FACING
    
     with slide.get_image(image_scale, image_scale) as thumbnail:
