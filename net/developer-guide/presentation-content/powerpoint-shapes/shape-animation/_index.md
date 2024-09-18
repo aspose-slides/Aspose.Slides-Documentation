@@ -3,7 +3,14 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /net/shape-animation/
-keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: 
+- PowerPoint animation
+- animation effect
+- apply animation
+- PowerPoint presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Apply PowerPoint animation in C# or .NET"
 ---
 
@@ -89,11 +96,12 @@ This C# code shows you how to apply the `Fly` effect to a picture frame:
 using (Presentation pres = new Presentation())
 {
     // Load Image to be added in presentaiton image collection
-    Image img = new Bitmap("aspose-logo.jpg");
-    IPPImage image = pres.Images.AddImage(img);
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
     // Adds picture frame to slide
-    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
     // Gets the main sequence of the slide.
     ISequence sequence = pres.Slides[0].Timeline.MainSequence;
@@ -102,7 +110,7 @@ using (Presentation pres = new Presentation())
     IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
 
     // Save the PPTX file to disk
-    pres.Save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
+    pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
 }
 ```
 

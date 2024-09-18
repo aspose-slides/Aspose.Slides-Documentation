@@ -4,8 +4,16 @@ linktitle: Embedded Font
 type: docs
 weight: 40
 url: /net/embedded-font/
-keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation C#, Csharp, Aspose.Slides for .NET"
-description: "Use embedded fonts in PowerPoint presentation in C# or .NET"
+keywords:
+- fonts
+- embedded fonts
+- add fonts
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: "Use embedded fonts in PowerPoint presentations in C# or .NET"
 ---
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
@@ -19,28 +27,34 @@ Aspose.Slides provides the [GetEmbeddedFonts](https://reference.aspose.com/slide
 This C# code shows you how to get and remove embedded fonts from a presentation:
 
 ```c#
-// Instantiates a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation("EmbeddedFonts.pptx"))
 {
+    ISlide slide = presentation.Slides[0];
+
     // Renders a slide containing a text frame that uses embedded "FunSized"
-    presentation.Slides[0].GetThumbnail(new Size(960, 720)).Save("picture1_out.png", ImageFormat.Png);
+    using (IImage image = slide.GetImage(new Size(960, 720)))
+    {
+        image.Save("picture1_out.png", ImageFormat.Png);
+    }
 
     IFontsManager fontsManager = presentation.FontsManager;
 
-    // Gets all embedded fonts
     IFontData[] embeddedFonts = fontsManager.GetEmbeddedFonts();
 
     // Finds the "Calibri" font
-    IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate(IFontData data)
+    IFontData funSizedEmbeddedFont = Array.Find(embeddedFonts, delegate (IFontData data)
     {
         return data.FontName == "Calibri";
     });
 
-    // Removes "Calibri" font
+    // Removes the "Calibri" font
     fontsManager.RemoveEmbeddedFont(funSizedEmbeddedFont);
 
-    // Renders the presentation; "Calibri" font is replaced with an existing one
-    presentation.Slides[0].GetThumbnail(new Size(960, 720)).Save("picture2_out.png", ImageFormat.Png);
+    // Renders the presentation; the "Calibri" font is replaced with an existing one
+    using (IImage image = slide.GetImage(new Size(960, 720)))
+    {
+        image.Save("picture2_out.png", ImageFormat.Png);
+    }
 
     // Saves the presentation without embedded "Calibri" font to disk
     presentation.Save("WithoutManageEmbeddedFonts_out.ppt", SaveFormat.Ppt);

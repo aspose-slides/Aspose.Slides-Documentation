@@ -3,7 +3,17 @@ title: Manage PowerPoint Paragraph in C#
 type: docs
 weight: 40
 url: /net/manage-paragraph/
-keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: 
+- add paragraph
+- manage paragraphs
+- paragraph indent
+- paragraph properties
+- HTML text
+- export paragraph text
+- PowerPoint presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in C# or .NET"
 ---
 
@@ -216,8 +226,9 @@ Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
 // Instantiates the image for bullets
-Image image = new Bitmap("bullets.png");
+IImage image = Images.FromFile("bullets.png");
 IPPImage ippxImage = presentation.Images.AddImage(image);
+image.Dispose();
 
 // Adds and accesses Autoshape
 IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);

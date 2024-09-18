@@ -3,7 +3,14 @@ title: Render Presentation with Fallback Font
 type: docs
 weight: 30
 url: /net/render-presentation-with-fallback-font/
-keywords: "Fallback font, render PowerPoint, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: 
+- fallback font
+- render PowerPoint
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Render PowerPoint with fallback font in C# or .NET"
 ---
 
@@ -38,11 +45,14 @@ if (rulesList.Count > 0)
 
 using (Presentation pres = new Presentation("input.pptx"))
 {
-	//Assigning a prepared rules list for using
-	pres.FontsManager.FontFallBackRulesCollection = rulesList;
+    //Assigning a prepared rules list for using
+    pres.FontsManager.FontFallBackRulesCollection = rulesList;
 
-	// Rendering of thumbnail with using of initialized rules collection and saving to PNG
-	pres.Slides[0].GetThumbnail(1f, 1f).Save("Slide_0.png", ImageFormat.Png);
+    // Rendering of thumbnail with using of initialized rules collection and saving to PNG
+    using (IImage image = pres.Slides[0].GetImage(1f, 1f))
+    {
+        image.Save("Slide_0.png", ImageFormat.Png);
+    }
 }
 ```
 

@@ -29,7 +29,7 @@ Presentation presentation = new Presentation("1.ppt", lo);
 //Generating slide thumbnail
 foreach (ISlide slide in presentation.Slides)
 {
-    Image image = slide.GetThumbnail();
+    IImage image = slide.GetImage();
 }
 ```
 

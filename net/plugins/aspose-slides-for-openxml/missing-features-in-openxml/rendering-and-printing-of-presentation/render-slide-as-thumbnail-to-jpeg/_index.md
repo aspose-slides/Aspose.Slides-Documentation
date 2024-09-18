@@ -1,5 +1,5 @@
 ---
-title: Render Slide As thumbnail to JPEG
+title: Render Slide as Thumbnail to JPEG
 type: docs
 weight: 60
 url: /net/render-slide-as-thumbnail-to-jpeg/
@@ -15,35 +15,25 @@ To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 1. Save the thumbnail image in any desired image format.
 
 ``` csharp
+string filePath = @"..\..\..\Sample Files\";
+string srcFileName = filePath + "Slide Thumbnail to JPEG.pptx";
+string destFileName = filePath + "Slide Thumbnail to JPEG.jpg";
 
- string FilePath = @"..\..\..\Sample Files\";
-
-string srcFileName = FilePath + "Slide Thumbnail to JPEG.pptx";
-
-string destFileName = FilePath + "Slide Thumbnail to JPEG.jpg";
-
-//Instantiate a Presentation class that represents the presentation file
-
+//Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation(srcFileName))
-
 {
-
     //Access the first slide
-
     ISlide sld = pres.Slides[0];
 
     //Create a full scale image
-
-    Bitmap bmp = sld.GetThumbnail(1f, 1f);
-
-    //Save the image to disk in JPEG format
-
-    bmp.Save(destFileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-
+    using (IImage image = sld.GetImage(1f, 1f))
+    {
+        //Save the image to disk in JPEG format
+        image.Save(destFileName, ImageFormat.Jpeg);
+    }
 }
-
-
 ``` 
+
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)
 - [Github](https://github.com/aspose-slides/Aspose.Slides-for-.NET/releases/tag/MissingFeaturesAsposeSlidesForOpenXMLv1.1)

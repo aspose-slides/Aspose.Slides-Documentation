@@ -3,7 +3,19 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /net/picture-frame/
-keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords: 
+- add picture frame
+- create picture frame
+- add image
+- create image
+- extract image
+- StretchOff property
+- picture frame formatting
+- picture frame properties
+- PowerPoint presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Add picture frame to PowerPoint presentation in C# or .NET"
 ---
 
@@ -33,24 +45,24 @@ This C# code shows you how to create a picture frame:
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation pres = new Presentation())
 {
-
     // Gets the first slide
-    ISlide sld = pres.Slides[0];
+    ISlide slide = pres.Slides[0];
 
-    // Instantiates the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
+    // Loads an image and adds it to the presentation image collection
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
-    // Adds a picture frame with the picture's equivalent height and width
-    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+    // Adds a picture frame with the same height and width
+    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Applies some formatting to the PictureFrameEx
-    pf.LineFormat.FillFormat.FillType = FillType.Solid;
-    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pf.LineFormat.Width = 20;
-    pf.Rotation = 45;
+    // Applies some formatting to the picture frame
+    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    pictureFrame.LineFormat.Width = 20;
+    pictureFrame.Rotation = 45;
 
-    // Writes the PPTX file to disk
+    // Writes the presentation to a PPTX file
     pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -78,17 +90,17 @@ This C# code shows you how to create a picture frame with relative scale:
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
-
-    // Loads the image that will be added to the presentation image collection
-    Image img = new Bitmap("aspose-logo.jpg");
-    IPPImage image = presentation.Images.AddImage(img);
+    // Loads an image and adds it to the presentation image collection
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
     // Adds a picture frame to the slide
-    IPictureFrame pf = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
 
     // Sets the relative scale width and height
-    pf.RelativeScaleHeight = 0.8f;
-    pf.RelativeScaleWidth = 1.35f;
+    pictureFrame.RelativeScaleHeight = 0.8f;
+    pictureFrame.RelativeScaleWidth = 1.35f;
 
     // Saves the presentation
     presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
@@ -155,27 +167,27 @@ This C# code demonstrates the picture frame formatting process:
 
 ```c#
 // Instantiates the Presentation class that represents a PPTX file
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-
     // Gets the first slide
-    ISlide sld = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
-    // Instantiates the ImageEx class
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("aspose-logo.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
+    // Loads an image and adds it to the presentation image collection
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
     // Adds a picture frame with the picture's equivalent height and width
-    IPictureFrame pf = sld.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, imgx.Width, imgx.Height, imgx);
+    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
 
-    // Applies some formatting to PictureFrameEx
-    pf.LineFormat.FillFormat.FillType = FillType.Solid;
-    pf.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pf.LineFormat.Width = 20;
-    pf.Rotation = 45;
+    // Applies some formatting to the picture frame
+    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    pictureFrame.LineFormat.Width = 20;
+    pictureFrame.Rotation = 45;
 
-    // Writes the PPTX file to disk
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
+    // Writes the presentation to a PPTX file
+    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -246,8 +258,10 @@ This C# code shows you how to crop an existing image on a slide:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    // Creates new image object
-    IPPImage newImage = presentation.Images.AddImage(Image.FromFile(imagePath));
+    // Creates a new image object
+    IImage image = Images.FromFile(imagePath);
+    IPPImage newImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
     // Adds a PictureFrame to a Slide
     IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
@@ -305,8 +319,10 @@ using (Presentation pres = new Presentation("pres.pptx"))
 {
     ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
     ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
-    using Image image = Image.FromFile(Path.Combine("image.png"));
+
+    IImage image = Images.FromFile("image.png");
     IPPImage presImage = pres.Images.AddImage(image);
+    image.Dispose();
 
     IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
 
@@ -342,21 +358,19 @@ This C# code demonstrates a process in which a StretchOff property is used:
 ```c#
 using (Presentation pres = new Presentation())
 {
-    IPPImage ppImage;
-    using (Image bitmap = new Bitmap("image.png"))
-    {
-        ppImage = pres.Images.AddImage(bitmap);
-    }
+    IImage image = Images.FromFile("image.png");
+    IPPImage ppImage = pres.Images.AddImage(image);
+    image.Dispose();
 
     IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-    
+
     // Sets the image stretched from each side in the shape body
     pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
     pictureFrame.PictureFormat.StretchOffsetLeft = 24;
     pictureFrame.PictureFormat.StretchOffsetRight = 24;
     pictureFrame.PictureFormat.StretchOffsetTop = 24;
     pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-    
+
     pres.Save("imageStretch.pptx", SaveFormat.Pptx);
 }
 ```

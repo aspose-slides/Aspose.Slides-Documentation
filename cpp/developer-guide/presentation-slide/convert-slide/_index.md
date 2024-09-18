@@ -3,7 +3,16 @@ title: Convert Slide
 type: docs
 weight: 41
 url: /cpp/convert-slide/
-keywords: "Convert slide to image, export slide as image, save slide as image, slide to image, slide to PNG, slide to JPEG, slide to Bitmap, C++, Aspose.Slides"
+keywords: 
+- convert slide to image
+- export slide as image
+- save slide as image
+- slide to image
+- slide to PNG
+- slide to JPEG
+- slide to bitmap
+- C++
+- Aspose.Slides for C++
 description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in C++"
 ---
 
@@ -11,10 +20,11 @@ Aspose.Slides for C++ allows you to convert slides (in presentations) to images.
 
 To convert a slide to an image, do this: 
 
-1. First, convert the slide to a Bitmap first by using the [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) method
-2. Second, set additional options for conversion and convertible slide objects through
+1. First, set the conversion parameters and the slide objects to convert using:
    * the [ITiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_tiff_options) interface or
    * the [IRenderingOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_rendering_options) interface. 
+
+2. Second, convert the slide to an image by using the [GetImage](https://reference.aspose.com/slides/cpp/aspose.slides/islide/getimage/) method.
 
 ## **About Bitmap and Other Image Formats**
 

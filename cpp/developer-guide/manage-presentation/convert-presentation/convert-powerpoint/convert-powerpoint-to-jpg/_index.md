@@ -3,7 +3,18 @@ title: Convert Powerpoint PPT to JPG
 type: docs
 weight: 60
 url: /cpp/convert-powerpoint-to-jpg/
-keywords: "Convert PowerPoint to JPG"
+keywords:
+- Convert PowerPoint presentation
+- JPG
+- JPEG
+- PowerPoint to JPG
+- PowerPoint to JPEG
+- PPT to JPG
+- PPTX to JPG
+- PPT to JPEG
+- PPTX to JPEG
+- C++
+- Aspose.Slides
 description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in C++"
 ---
 
@@ -13,17 +24,23 @@ In some cases, it is necessary to convert the entire presentation into a set of 
 the same as PowerPoint allows. The C++ code shows you how to convert a presentation to JPG images:
 
 ```c++
+auto imageScale = 1.0f;
+
 auto pres = System::MakeObject<Presentation>(u"PowerPoint-Presentation.ppt");
 
-for (auto&& sld : pres->get_Slides())
+for (auto&& slide : pres->get_Slides())
 {
     // Creates a full scale image
-    System::SharedPtr<IImage> image = sld->GetImage(1.0f, 1.0f);
+    System::SharedPtr<IImage> image = slide->GetImage(imageScale, imageScale);
 
     // Saves the image to disk in JPEG format
-    image->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
-                ImageFormat::Jpeg);
+    auto imageFileName = System::String::Format(u"Slide_{0}.jpg", slide->get_SlideNumber());
+    image->Save(imageFileName, ImageFormat::Jpeg);
+
+    image->Dispose();
 }
+
+pres->Dispose();
 ```
 
 {{% alert color="primary" %}} 
@@ -41,19 +58,24 @@ auto pres = System::MakeObject<Presentation>(u"PowerPoint-Presentation.pptx");
 
 // Defines dimensions
 int32_t desiredX = 1200, desiredY = 800;
-// Gets scaled values of X and Y
-float ScaleX = (float)(1.0 / pres->get_SlideSize()->get_Size().get_Width()) * desiredX;
-float ScaleY = (float)(1.0 / pres->get_SlideSize()->get_Size().get_Height()) * desiredY;
 
-for (auto&& sld : pres->get_Slides())
+// Gets scaled values of X and Y
+float scaleX = (float)(1.0 / pres->get_SlideSize()->get_Size().get_Width()) * desiredX;
+float scaleY = (float)(1.0 / pres->get_SlideSize()->get_Size().get_Height()) * desiredY;
+
+for (auto&& slide : pres->get_Slides())
 {
     // Creates a full scale image
-    System::SharedPtr<IImage> image = sld->GetImage(ScaleX, ScaleY);
+    System::SharedPtr<IImage> image = slide->GetImage(scaleX, scaleY);
 
     // Saves the image to disk in JPEG format
-    image->Save(System::String::Format(u"Slide_{0}.jpg", sld->get_SlideNumber()),
-                ImageFormat::Jpeg);
+    auto imageFileName = System::String::Format(u"Slide_{0}.jpg", slide->get_SlideNumber());
+    image->Save(imageFileName, ImageFormat::Jpeg);
+
+    image->Dispose();
 }
+
+pres->Dispose();
 ```
 
 {{% alert title="Tip" color="primary" %}}

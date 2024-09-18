@@ -4,8 +4,15 @@ linktitle: Font Substitution
 type: docs
 weight: 70
 url: /net/font-substitution/
-keywords: "Font, substitute font, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: C# PowerPoint API lets you substitute font inside the Presentation
+keywords: 
+- font
+- substitute font
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: C# PowerPoint API lets you substitute fonts inside presentations
 ---
 
 ## **Getting Font Substitution**
@@ -57,10 +64,11 @@ fontSubstRuleCollection.Add(fontSubstRule);
 // Adds the font rule collection to the rule list
 presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
 
-Bitmap bmp = presentation.Slides[0].GetThumbnail(1f, 1f);
-
-// Saves the image to disk in the JPEG format
-bmp.Save("Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
+{
+    // Saves the image to disk in the JPEG format
+    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+}
 ```
 
 {{%  alert title="NOTE"  color="warning"   %}} 

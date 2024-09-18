@@ -3,7 +3,14 @@ title: Manage Cells
 type: docs
 weight: 30
 url: /net/manage-cells/
-keywords: "Table, merged cells, split cells, image in table cell, C#, Csharp, Aspose.Slides for .NET"
+keywords:
+- table
+- merged cells
+- split cells
+- image in table cell
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Table cells in PowerPoint presentations in C# or .NET"
 ---
 
@@ -284,27 +291,25 @@ This C# code shows you how to place an image inside a table cell when creating a
 // Instantiates the Presentation class that represents a PPTX file
 using (Presentation presentation = new Presentation())
 {
-
     // Accesses the first slide
-    ISlide islide = presentation.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
     // Defines columns with widths and rows with heights
-    double[] dblCols = {150, 150, 150, 150};
-    double[] dblRows = {100, 100, 100, 100, 90};
+    double[] dblCols = { 150, 150, 150, 150 };
+    double[] dblRows = { 100, 100, 100, 100, 90 };
 
     // Adds a table shape to the slide
-    ITable tbl = islide.Shapes.AddTable(50, 50, dblCols, dblRows);
+    ITable table = slide.Shapes.AddTable(50, 50, dblCols, dblRows);
 
-    // Creates a bitmap Image object to hold the image file
-    Bitmap image = new Bitmap("aspose-logo.jpg");
-
-    // Creates an IPPImage object using the bitmap object
-    IPPImage imgx1 = presentation.Images.AddImage(image);
+    // Loads an image from a file and adds it to the presentation resources
+    IImage image = Images.FromFile("aspose-logo.jpg");
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
     // Adds the image to the first table cell
-    tbl[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
-    tbl[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-    tbl[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = imgx1;
+    table[0, 0].CellFormat.FillFormat.FillType = FillType.Picture;
+    table[0, 0].CellFormat.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+    table[0, 0].CellFormat.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
     // Saves the PPTX file to disk
     presentation.Save("Image_In_TableCell_out.pptx", SaveFormat.Pptx);
