@@ -5,10 +5,12 @@ weight: 40
 url: /net/export-to-html5/
 keywords:
 - PowerPoint to HTML
+- slides to HTML
 - HTML5
 - HTML export
 - export presentation
-- convert PowerPoint to HTML
+- convert presentation
+- convert slides
 - C#
 - Csharp
 - Aspose.Slides for .NET
@@ -103,7 +105,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
 
-Let's say we have the following presentation.
+Let's say we have the following PowerPoint presentation saved in the "sample.pptx" file.
 
 ![Two comments on the presentation slide](two_comments_pptx.png)
 
@@ -123,6 +125,6 @@ using var presentation = new Presentation("sample.pptx");
 presentation.Save("output.html", SaveFormat.Html5, html5Options);
 ```
 
-The result is shown in the image below.
+The "output.html" document is shown in the image below.
 
 ![The comments in the output HTML5 document](two_comments_html5.png)
