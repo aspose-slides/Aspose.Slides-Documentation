@@ -3,7 +3,16 @@ title: Export to HTML5
 type: docs
 weight: 40
 url: /python-net/export-to-html5/
-keywords: "PowerPoint to HTML, HTML 5, HTML export, Export presentation, Convert PowerPoint to HTML, Python, Aspose.Slides for Python"
+keywords:
+- PowerPoint to HTML
+- slides to HTML
+- HTML5
+- HTML export
+- export presentation
+- convert presentation
+- convert slides
+- Java
+- Aspose.Slides for Python via .NET
 description: "Export PowerPoint to HTML5 in Python"
 ---
 
@@ -93,3 +102,25 @@ with slides.Presentation("pres.pptx") as pres:
     pres.save("HTML5-slide-view.html", slides.export.SaveFormat.HTML5, options)
 ```
 
+## Convert a Presentation to an HTML5 Document with Comments
+
+Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
+
+Let's say we have the following PowerPoint presentation saved in the "sample.pptx" file.
+
+![Two comments on the presentation slide](two_comments_pptx.png)
+
+When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `notes_comments_layouting` property of the [Html5Options](https://reference.aspose.com/slides/python-net/aspose.slides.export/html5options/) class.
+
+The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
+```py
+html5_options = Html5Options()
+html5_options.notes_comments_layouting.comments_position = CommentsPositions.RIGHT
+
+with Presentation("sample.pptx") as presentation:
+    presentation.save("output.html", SaveFormat.HTML5, html5_options)
+```
+
+The "output.html" document is shown in the image below.
+
+![The comments in the output HTML5 document](two_comments_html5.png)

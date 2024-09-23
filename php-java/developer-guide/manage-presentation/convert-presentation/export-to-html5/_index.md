@@ -3,8 +3,17 @@ title: Export to HTML5
 type: docs
 weight: 40
 url: /php-java/export-to-html5/
-keywords: "PowerPoint to HTML, HTML 5, HTML export, Export presentation, Convert PowerPoint to HTML, Java, Aspose.Slides for PHP via Java"
-description: "Export PowerPoint to HTML5 "
+keywords:
+- PowerPoint to HTML
+- slides to HTML
+- HTML5
+- HTML export
+- export presentation
+- convert presentation
+- convert slides
+- PHP
+- Aspose.Slides for PHP via Java
+description: "Export PowerPoint to HTML5 in PHP"
 ---
 
 {{% alert title="Info" color="info" %}}
@@ -107,3 +116,26 @@ This PHP code demonstrates the PowerPoint to HTML5 Slide View export process:
   }
 ```
 
+## Convert a Presentation to an HTML5 Document with Comments
+
+Comments in PowerPoint are a tool that allows users to leave notes or feedback on presentation slides. They are especially useful in collaborative projects, where multiple people can add their suggestions or remarks to specific slide elements without altering the main content. Each comment shows the author's name, making it easy to track who left the remark.
+
+Let's say we have the following PowerPoint presentation saved in the "sample.pptx" file.
+
+![Two comments on the presentation slide](two_comments_pptx.png)
+
+When you convert a PowerPoint presentation to an HTML5 document, you can easily specify whether to include comments from the presentation in the output document. To do this, you need to specify the display parameters for comments in the `getNotesCommentsLayouting` method of the `Html5Options` class.
+
+The following code example converts a presentation to an HTML5 document with comments displayed to the right of the slides.
+```php
+$html5Options = new Html5Options();
+$html5Options->getNotesCommentsLayouting()->setCommentsPosition(CommentsPositions::Right);
+
+$presentation = new Presentation("sample.pptx");
+$presentation->save("output.html", SaveFormat::Html5, $html5Options);
+$presentation->dispose();
+```
+
+The "output.html" document is shown in the image below.
+
+![The comments in the output HTML5 document](two_comments_html5.png)
