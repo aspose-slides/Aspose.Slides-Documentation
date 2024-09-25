@@ -1,6 +1,6 @@
 ---
 title: Технические статьи
-type: документы
+type: docs
 weight: 270
-url: /php-java/технические-статьи/
+url: /php-java/technical-articles/
 ---

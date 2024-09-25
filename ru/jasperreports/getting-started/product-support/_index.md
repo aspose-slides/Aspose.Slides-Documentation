@@ -1,6 +1,6 @@
 ---
 title: Поддержка продукта
-type: документация
+type: docs
 weight: 110
-url: /jasperreports/podderzhka-produkta/
+url: /jasperreports/product-support/
 ---

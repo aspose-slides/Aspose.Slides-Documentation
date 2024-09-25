@@ -1,6 +1,6 @@
 ---
 title: Содержимое презентации
-type: документы
+type: docs
 weight: 30
-url: /androidjava/soderzhimoe-prezentatsii/
+url: /androidjava/presentation-content/
 ---

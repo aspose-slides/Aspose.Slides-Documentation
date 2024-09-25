@@ -1,6 +1,6 @@
 ---
-title: Сущности диаграммы
-type: документация
+title: Чарт-ентити
+type: docs
 weight: 30
 url: /net/chart-entities/
 ---

@@ -1,6 +1,6 @@
 ---
-title: Безопасность презентации
+title: Безопасность Презентаций
 type: docs
 weight: 60
-url: /python-net/безопасность-презентации/
+url: /python-net/presentation-security/
 ---

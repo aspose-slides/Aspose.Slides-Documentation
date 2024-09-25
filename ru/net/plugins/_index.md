@@ -1,6 +1,6 @@
 ---
 title: Плагины
-type: документы
+type: docs
 weight: 30
 url: /net/plugins/
 ---

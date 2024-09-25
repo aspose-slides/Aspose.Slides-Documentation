@@ -2,7 +2,7 @@
 title: Создание таблицы на слайде PowerPoint
 type: docs
 weight: 50
-url: /net/создание-таблицы-на-слайде-powerpoint/
+url: /net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
@@ -47,7 +47,7 @@ foreach (PowerPoint.Row row in tbl.Rows)
         PowerPoint.TextFrame tf = cell.Shape.TextFrame;
         //Добавление текста
         tf.TextRange.Text = "T" + i.ToString() + j.ToString();
-        //Установка размера шрифта текста как 10
+        //Установка размера шрифта текста на 10
         tf.TextRange.Paragraphs(0, tf.TextRange.Text.Length).Font.Size = 10;
     }
 }
@@ -91,7 +91,7 @@ foreach (IRow row in tbl.Rows)
 		ITextFrame tf = cell.TextFrame;
 		//Добавление текста
 		tf.Text = "T" + cell.FirstRowIndex.ToString() + cell.FirstColumnIndex.ToString();
-		//Установка размера шрифта 10
+		//Установка размера шрифта на 10
 		tf.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 10;
 		tf.Paragraphs[0].ParagraphFormat.Bullet.Type = BulletType.None;
 	}

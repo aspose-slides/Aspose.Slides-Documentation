@@ -1,6 +1,6 @@
 ---
 title: Фигуры PowerPoint
-type: документы
+type: docs
 weight: 90
 url: /php-java/powerpoint-shapes/
 ---

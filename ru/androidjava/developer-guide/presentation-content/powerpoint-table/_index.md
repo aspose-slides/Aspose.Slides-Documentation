@@ -1,6 +1,6 @@
 ---
 title: Таблица PowerPoint
-type: документы
+type: docs
 weight: 110
 url: /androidjava/powerpoint-table/
 ---

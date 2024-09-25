@@ -1,6 +1,6 @@
 ---
 title: Начало работы
-type: документы
+type: docs
 weight: 10
 url: /net/getting-started/
 ---

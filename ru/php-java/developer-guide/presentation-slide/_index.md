@@ -1,6 +1,6 @@
 ---
-title: Презентационный слайд
-type: документы
+title: Слайд презентации
+type: docs
 weight: 20
-url: /php-java/презентационный-слайд/
+url: /php-java/presentation-slide/
 ---

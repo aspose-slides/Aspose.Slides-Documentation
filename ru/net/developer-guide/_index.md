@@ -1,6 +1,6 @@
 ---
 title: Руководство для разработчиков
-type: документы
+type: docs
 weight: 20
-url: /net/rukovodstvo-dlya-razrabotchikov/
+url: /net/developer-guide/
 ---

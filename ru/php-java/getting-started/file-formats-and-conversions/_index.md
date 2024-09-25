@@ -1,6 +1,6 @@
 ---
-title: Форматы файлов и конверсии
+title: Форматы файлов и преобразования
 type: docs
 weight: 40
-url: /php-java/форматы-файлов-и-конверсии/
+url: /php-java/file-formats-and-conversions/
 ---

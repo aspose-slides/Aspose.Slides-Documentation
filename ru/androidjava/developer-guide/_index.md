@@ -1,6 +1,6 @@
 ---
-title: Руководство для разработчиков
+title: Руководство для разработчика
 type: docs
 weight: 20
-url: /androidjava/руководство-разработчика/
+url: /androidjava/developer-guide/
 ---

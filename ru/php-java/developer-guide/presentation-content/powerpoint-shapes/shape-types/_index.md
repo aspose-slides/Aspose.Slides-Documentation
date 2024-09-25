@@ -1,6 +1,6 @@
 ---
-title: Типы фигур
+title: Типы форм
 type: docs
 weight: 10
-url: /php-java/типы-форм/
+url: /php-java/shape-types/
 ---

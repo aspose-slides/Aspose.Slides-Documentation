@@ -1,6 +1,6 @@
----
-title: Технические статьи
-type: документы
-weight: 270
-url: /cpp/технические-статьи/
----
+---  
+title: Технические статьи  
+type: docs  
+weight: 270  
+url: /cpp/technical-articles/  
+---  

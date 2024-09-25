@@ -1,6 +1,6 @@
 ---
 title: Типы графиков
-type: документы
+type: docs
 weight: 20
 url: /androidjava/chart-types/
 ---

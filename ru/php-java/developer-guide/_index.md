@@ -1,6 +1,6 @@
 ---
 title: Руководство для разработчиков
-type: документы
+type: docs
 weight: 20
-url: /php-java/руководство-для-разработчиков/
+url: /php-java/developer-guide/
 ---

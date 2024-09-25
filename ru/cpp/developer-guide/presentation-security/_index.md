@@ -2,5 +2,5 @@
 title: Безопасность презентации
 type: docs
 weight: 60
-url: /cpp/безопасность-презентации/
+url: /cpp/presentation-security/
 ---

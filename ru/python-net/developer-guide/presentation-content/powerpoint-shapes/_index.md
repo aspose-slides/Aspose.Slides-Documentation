@@ -1,6 +1,6 @@
 ---
 title: Фигуры PowerPoint
-type: документация
+type: docs
 weight: 90
 url: /python-net/powerpoint-shapes/
 ---

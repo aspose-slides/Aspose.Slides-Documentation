@@ -1,6 +1,6 @@
 ---
-title: Содержание презентации
-type: документы
+title: Содержимое Презентации
+type: docs
 weight: 30
-url: /python-net/soderzhanie-prezentatsii/
+url: /python-net/presentation-content/
 ---

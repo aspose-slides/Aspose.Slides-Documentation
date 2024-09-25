@@ -1,6 +1,6 @@
 ---
 title: Технические статьи
-type: документы
+type: docs
 weight: 270
-url: /androidjava/технические-статьи/
+url: /androidjava/technical-articles/
 ---

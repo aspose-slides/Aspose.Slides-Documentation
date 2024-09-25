@@ -1,6 +1,6 @@
 ---
-title: Экспортировать график
-type: документы
+title: Экспорт графика
+type: docs
 weight: 90
 url: /java/export-chart/
 ---

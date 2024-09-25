@@ -2,10 +2,8 @@
 title: Использование Aspose.Slides с ReportViewer 2010 и 2012
 type: docs
 weight: 80
-url: /reportingservices/использование-aspose-slides-с-reportviewer-2010-и-2012/
+url: /reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/
 ---
-
-﻿
 
 {{% alert color="primary" %}} 
 
@@ -13,15 +11,15 @@ url: /reportingservices/использование-aspose-slides-с-reportviewer
 
 {{% /alert %}} 
 
-Класс RplRenderer рендерит [Формат бинарного потока макета страницы отчета (RPL)](https://docs.microsoft.com/en-us/openspecs/sql_server_protocols/ms-rpl/9c4ff7ba-f6da-4092-9670-aa0e54e73887) в презентацию PowerPoint. 
+Класс RplRenderer отображает [файл двоичного потока макета страницы отчета (RPL)](https://docs.microsoft.com/en-us/openspecs/sql_server_protocols/ms-rpl/9c4ff7ba-f6da-4092-9670-aa0e54e73887) в презентацию PowerPoint.
 
 {{% alert color="primary" %}} 
 
-RplRenderer использует [мягкие разрыв страницы](https://docs.microsoft.com/en-us/sql/reporting-services/report-design/rendering-behaviors-report-builder-and-ssrs) для управления размером страницы, используя теги RDL InteractiveHeight и InteractiveWidth. 
+RplRenderer использует [мягкие разрывы страниц](https://docs.microsoft.com/en-us/sql/reporting-services/report-design/rendering-behaviors-report-builder-and-ssrs) для управления размером страницы, используя теги RDL InteractiveHeight и InteractiveWidth.
 
 {{% /alert %}} 
 ## **Пример кода**
-Этот код покажет, как экспортировать отчет из ReportViewer 2010/2012 в PPT/PPTX с использованием RplRenderer. Выполните метод RenderToPpt для рендеринга текущего отчета в PPT.
+Этот код покажет, как экспортировать отчет из ReportViewer 2010/2012 в PPT/PPTX с использованием RplRenderer. Выполните метод RenderToPpt, чтобы отобразить текущий отчет в PPT.
 
 [**C#**]()
 
@@ -48,11 +46,11 @@ namespace Slides.ReportViewer2010
 
     {        /// <summary>
 
-        /// Рендерит текущий отчет в презентацию PowerPoint
+        /// Отображает текущий отчет в презентации Powerpoint
 
         /// </summary>
 
-        /// <param name="reportViewer">Объект просмотрщика отчетов.</param>
+        /// <param name="reportViewer">Объект просмотра отчетов.</param>
 
         /// <param name="format">Формат выходной презентации.</param>
 
@@ -62,11 +60,11 @@ namespace Slides.ReportViewer2010
 
         {
 
-            // Включить экспорт в RPL
+            //Включить функцию экспорта в RPL
 
             EnableRplRenderExtension(reportViewer);
 
-            // создать файл для нашей презентации
+            //создать файл для нашей презентации
 
             using (FileStream pptSteam = new FileStream(filename, FileMode.Create))
 
@@ -74,15 +72,15 @@ namespace Slides.ReportViewer2010
 
                 Aspose.Slides.ReportingServices.RplRenderer renderer = new Aspose.Slides.ReportingServices.RplRenderer();
 
-                // начать процесс рендеринга
+                //начать процесс рендеринга
 
-                // здесь мы выбираем экспорт в формате PPT и предоставляем выходной поток
+                //здесь мы выбираем экспорт в формате PPT и предоставляем outputStream
 
                 renderer.StartRendering(format);
 
                 int page = 1;
 
-                // этот цикл перебирает все страницы отчета
+                //этот цикл проходит через все страницы отчета
 
                 while (true)
 
@@ -92,13 +90,13 @@ namespace Slides.ReportViewer2010
 
                     {
 
-                        // если rplStream пуст, значит, мы достигли конца отчета
+                        //если rplStream пуст, значит, мы достигли конца отчета
 
                         if (rplStream.Length == 0)
 
                             break;
 
-                        // добавить страницу отчета как слайд в документ
+                        //добавить страницу отчета как слайд в документ
 
                         renderer.RenderPage(rplStream);
 
@@ -108,7 +106,7 @@ namespace Slides.ReportViewer2010
 
                 }
 
-                // вызвать метод finish, чтобы сбросить нашу новую презентацию в выходной поток
+                //вызовите метод finish, чтобы сбросить нашу новую презентацию в выходной поток
 
                 renderer.FinishRendering(pptSteam);
 
@@ -126,7 +124,7 @@ namespace Slides.ReportViewer2010
 
         /// </summary>
 
-        /// <param name="reportViewer">Просмотрщик отчетов.</param>
+        /// <param name="reportViewer">Просмотр отчетов.</param>
 
         public static void EnableRplRenderExtension(ReportViewer reportViewer)
 
@@ -193,7 +191,7 @@ namespace Slides.ReportViewer2010
 
             if (!rplExportEnabled)
 
-                throw new Exception("Не удается включить экспорт RPL. Пожалуйста, убедитесь, что вы используете ReportViewer 2010 или ReportViewer 2012.");
+                throw new Exception("Не удается включить экспорт RPL. Убедитесь, что вы используете ReportViewer 2010 или ReportViewer 2012.");
 
         }
 
@@ -201,11 +199,11 @@ namespace Slides.ReportViewer2010
 
         /// <summary>
 
-        /// Рендерит конкретную страницу в RPL
+        /// Отображает конкретную страницу в RPL
 
         /// </summary>
 
-        /// <param name="reportViewer">Просмотрщик отчетов.</param>
+        /// <param name="reportViewer">Просмотр отчетов.</param>
 
         /// <param name="page">Страница.</param>
 
@@ -294,6 +292,6 @@ ToolStrip toolStrip = (ToolStrip) reportViewer.Controls.Find("toolStrip1", true)
 {{% alert color="primary" %}} 
 
 - Пример проекта можно скачать по [этой ссылке ](http://www.aspose.com/docs/download/attachments/24150112/Slides.ReportViewer2010.zip)
-- Пример проекта веб-формы можно скачать по [этой ссылке](http://www.aspose.com/docs/download/attachments/24150112/Report+Viewer+WebForm.zip)
+- Пример проекта веб-форм можно скачать по [этой ссылке](http://www.aspose.com/docs/download/attachments/24150112/Report+Viewer+WebForm.zip)
 
 {{% /alert %}}

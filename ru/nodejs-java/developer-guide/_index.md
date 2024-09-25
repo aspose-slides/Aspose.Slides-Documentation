@@ -1,6 +1,6 @@
 ---
-title: Руководство для разработчика
+title: Руководство для разработчиков
 type: docs
 weight: 20
-url: /nodejs-java/руководство-для-разработчика/
+url: /nodejs-java/developer-guide/
 ---

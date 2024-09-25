@@ -1,6 +1,6 @@
 ---
-title: Преобразовать Презентацию
-type: документы
+title: Преобразование презентации
+type: docs
 weight: 70
-url: /androidjava/preobrazovat-prezentatsiyu/
+url: /androidjava/convert-presentation/
 ---

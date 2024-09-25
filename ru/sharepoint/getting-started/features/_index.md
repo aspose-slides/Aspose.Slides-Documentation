@@ -1,6 +1,6 @@
 ---
 title: Особенности
-type: документы
+type: docs
 weight: 30
 url: /sharepoint/features/
 ---

@@ -1,6 +1,6 @@
 ---
-title: Известные Проблемы
+title: Известные проблемы
 type: docs
 weight: 330
-url: /php-java/известные-проблемы/
+url: /php-java/known-issues/
 ---

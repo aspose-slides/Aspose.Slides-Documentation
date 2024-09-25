@@ -1,6 +1,6 @@
 ---
 title: Управление медиафайлами
-type: документы
+type: docs
 weight: 30
-url: /cpp/upravlenie-mediafaylami
+url: /cpp/manage-media-files
 ---

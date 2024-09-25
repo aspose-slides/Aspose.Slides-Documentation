@@ -1,6 +1,6 @@
 ---
 title: Типы фигур
-type: документация
+type: docs
 weight: 10
-url: /java/tipy-figur/
+url: /java/shape-types/
 ---

@@ -1,6 +1,6 @@
 ---
 title: Дизайн Презентаций
-type: доки
+type: docs
 weight: 40
-url: /net/dizayn-prezentatsiy/
+url: /net/presentation-design/
 ---

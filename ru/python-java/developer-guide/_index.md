@@ -1,6 +1,6 @@
 ---
-title: Руководство для разработчика
-type: документация
+title: Руководство для разработчиков
+type: docs
 weight: 20
-url: /python-java/руководство-для-разработчика/
+url: /python-java/developer-guide/
 ---

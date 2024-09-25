@@ -1,6 +1,6 @@
 ---
 title: Содержимое презентации
-type: документы
+type: docs
 weight: 30
-url: /java/soglasovannie-soderzhimoe/
+url: /java/presentation-content/
 ---

@@ -1,6 +1,6 @@
 ---
 title: Типы графиков
-type: документация
+type: docs
 weight: 20
 url: /python-net/chart-types/
 ---

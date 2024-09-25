@@ -2,5 +2,5 @@
 title: Технические статьи
 type: docs
 weight: 270
-url: /net/технические-статьи/
+url: /net/technical-articles/
 ---

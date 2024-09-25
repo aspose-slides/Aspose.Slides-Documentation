@@ -1,6 +1,6 @@
 ---
 title: Технические статьи
-type: документы
+type: docs
 weight: 270
-url: /python-net/технические-статьи/
+url: /python-net/technical-articles/
 ---

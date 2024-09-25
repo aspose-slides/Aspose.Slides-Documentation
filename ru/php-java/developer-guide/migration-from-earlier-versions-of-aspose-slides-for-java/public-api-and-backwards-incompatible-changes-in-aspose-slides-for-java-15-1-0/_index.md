@@ -1,32 +1,32 @@
 ---
-title: Общий API и несовместимые изменения в Aspose.Slides для PHP через Java 15.1.0
+title: Публичный API и несовместимые изменения в Aspose.Slides для PHP через Java 15.1.0
 type: docs
 weight: 100
-url: /php-java/общий-api-и-нснсовместимые-изменения-в-aspose-slides-для-java-15-1-0/
+url: /php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница перечисляет все [добавленные](/slides/php-java/общий-api-и-нснсовместимые-изменения-в-aspose-slides-для-java-15-1-0/) классы, методы, свойства и так далее, любые новые ограничения и другие [изменения](/slides/php-java/общий-api-и-нснсовместимые-изменения-в-aspose-slides-для-java-15-1-0/), введенные с API Aspose.Slides для PHP через Java 15.1.0.
+Эта страница содержит список всех [добавленных](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/) классов, методов, свойств и так далее, любых новых ограничений и других [изменений](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-1-0/), введённых с API Aspose.Slides для PHP через Java 15.1.0.
 
 {{% /alert %}} {{% alert color="primary" %}} 
 
-Есть известные проблемы с некоторыми изображениями маркеров и объектами WordArt, которые будут исправлены в Aspose.Slides для PHP через Java 15.2.0.
+Известны проблемы с некоторыми маркерами изображений и объектами WordArt, которые будут исправлены в Aspose.Slides для PHP через Java 15.2.0.
 
 {{% /alert %}} 
-## **Изменения в общем API**
+## **Изменения в публичном API**
 ### **Добавлена функциональность замены шрифтов**
 Добавлена возможность глобально заменять шрифты по всей презентации и временно для рендеринга.
 
-Введен новый метод getFontsManager() класса Presentation. Класс FontsManager имеет следующие члены:
+Представлен новый метод getFontsManager() класса Presentation. Класс FontsManager имеет следующие члены:
 
 **IFontSubstRuleCollection getFontSubstRuleList**() метод
 
-Это коллекция экземпляров IFontSubstRule, используемых для замены шрифтов во время рендеринга. IFontSubstRule имеет методы getSourceFont() и getDestFont(), реализующие интерфейс IFontData, а также метод getReplaceFontCondition(), позволяющий выбрать условие замены ("WhenInaccessible" или "Always").
+Это коллекция экземпляров IFontSubstRule, используемых для замены шрифтов во время рендеринга. IFontSubstRule имеет методы getSourceFont() и getDestFont(), реализующие интерфейс IFontData, и метод getReplaceFontCondition(), который позволяет выбрать условие замены ("WhenInaccessible" или "Always").
 
-**IFontData[] getFonts()** метод можно использовать для получения всех шрифтов, используемых в текущей презентации.
+**IFontData[] getFonts()** метод может быть использован для получения всех шрифтов, используемых в текущей презентации.
 
-**replaceFont(...)** методы могут быть использованы для постоянной замены шрифта в презентации. 
+**replaceFont(...)** методы могут быть использованы для постоянной замены шрифта в презентации. 
 
 Следующий пример показывает, как заменить шрифт в презентации:
 
@@ -35,8 +35,7 @@ url: /php-java/общий-api-и-нснсовместимые-изменения
   $sourceFont = new FontData("Arial");
   $destFont = new FontData("Times New Roman");
   $pres->getFontsManager()->replaceFont($sourceFont, $destFont);
-  $pres->save("PresContainsTimesNewRomanFont.pptx", SaveFormat::Pptx);
-
+  $pres->save("PresContainsTimesNoewRomanFont.pptx", SaveFormat::Pptx);
 ```
 
 Другой пример показывает замену шрифта для рендеринга, когда он недоступен:
@@ -49,7 +48,6 @@ url: /php-java/общий-api-и-нснсовместимые-изменения
   $fontSubstRuleCollection = new FontSubstRuleCollection();
   $fontSubstRuleCollection->add($fontSubstRule);
   $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-  # Шрифт Arial будет использоваться вместо SomeRareFont, когда он недоступен
+  # Шрифт Arial будет использован вместо SomeRareFont, когда он недоступен
   $pres->getSlides()->get_Item(0)->getThumbnail(1, 1);
-
 ```
