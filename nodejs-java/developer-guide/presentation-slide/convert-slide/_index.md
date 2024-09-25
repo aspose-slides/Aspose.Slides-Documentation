@@ -20,7 +20,7 @@ To convert a slide to an image, do this:
 
 ## **About Bitmap and Other Image Formats**
 
-In Java, a [mages](https://reference.aspose.com/slides/nodejs-java/aspose.slides/mages)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
+In Java, a [Imagess](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
 
 {{% alert title="Info" color="info" %}}
 

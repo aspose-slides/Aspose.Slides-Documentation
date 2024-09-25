@@ -59,7 +59,7 @@ This Javascript code shows you how to convert a colored slide or image to black-
 
 ## **Convert PowerPoint to TIFF with Custom Size**
 
-If you require a TIFF image with defined dimensions, you can define your preferred figures through the properties provided under [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/). Using the [mageSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) property, for example, you can set a size for the resulting image.
+If you require a TIFF image with defined dimensions, you can define your preferred figures through the properties provided under [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/). Using the [ImagesSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) property, for example, you can set a size for the resulting image.
 
 This Javascript code shows you how to convert PowerPoint to TIFF images with custom size:
 

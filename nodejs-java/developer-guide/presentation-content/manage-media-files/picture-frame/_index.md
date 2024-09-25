@@ -22,7 +22,7 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Create an [PPImage]() object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
+3. Create an [PPImage]() object by adding an image to the [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
 5. Create a [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
 6. Add a picture frame (containing the picture) to the slide.
@@ -63,7 +63,7 @@ By altering an image's relative scaling, you can create a more complicated pictu
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Add an image to the presentation image collection.
-4. Create an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
+4. Create an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) object by adding an image to the [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
 5. Specify the image's relative width and height in the picture frame.
 6. Write the modified presentation as a PPTX file.
 
@@ -141,9 +141,9 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Create an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) object by adding an image to the [Imagescollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
+3. Create an [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PPImage) object by adding an image to the [ImagesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) associated with the presentation object that will be used to fill the shape.
 4. Specify the image's width and height.
-5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method exposed by the [Shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) object associated with the referenced slide.
+5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) method exposed by the [Shapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) object associated with the referenced slide.
 6. Add the picture frame (containing the picture) to the slide.
 7. Set the picture frame's line color.
 8. Set the picture frame's line width.

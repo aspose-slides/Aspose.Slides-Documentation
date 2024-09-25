@@ -118,13 +118,13 @@ This Java sample code shows you how to add an image to a slide master:
 You may decide to use a picture as the background for a specific slide or several slides. In that case, you have to see *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Adding SVG to Presentations**
-You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.IPPImage-) method that belongs to the [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) interface.
+You can add or insert any image into a presentation by using the [addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) method that belongs to the [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection) interface.
 
 To create an image object based on SVG image, you can do it this way:
 
 1. Create SvgImage object to insert it to ImageShapeCollection
 2. Create PPImage object from ISvgImage
-3. Create PictureFrame object using IPPImage interface
+3. Create PictureFrame object using PPImage interface
 
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```javascript

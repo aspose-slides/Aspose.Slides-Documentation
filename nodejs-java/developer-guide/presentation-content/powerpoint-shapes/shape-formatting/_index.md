@@ -210,8 +210,8 @@ This is how you use Aspose.Slides to fill a shape with a picture:
 3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) to the slide.
 4. Set the Shape's [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) to `Picture`.
 5. Set the Picture Fill Mode to Tile.
-6. Create an `IPPImage` object using the image that will be used to fill the shape.
-7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
+6. Create an `PPImage` object using the image that will be used to fill the shape.
+7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `PPImage`.
 8. Write the modified presentation as a PPTX file.
 
 This Javascript code shows you how to fill a shape with a picture:

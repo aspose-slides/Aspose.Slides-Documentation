@@ -245,7 +245,7 @@ This Javascript code shows you how to change a table cell's background color:
 4. Define an array of rows with height.
 5. Add a table to the slide through the [AddTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) method.
 6. Create a `Images` object to hold the image file.
-7. Add the `IImage` image to `IPPImage` Object.
+7. Add the `IImage` image to `PPImage` Object.
 8. Set the `FillFormat` for the Table Cell to `Picture`.
 9. Add the image to the table's first cell.
 10. Save the modified presentation as a PPTX file
@@ -263,7 +263,7 @@ This Javascript code shows you how to place an image inside a table cell when cr
         var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
         // Adds a table shape to the slide
         var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-        // Create an IPPImage object using the image file
+        // Create an PPImage object using the image file
         var picture;
         var image = aspose.slides.Images.fromFile("image.jpg");
         try {

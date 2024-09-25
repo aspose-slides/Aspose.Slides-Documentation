@@ -257,7 +257,7 @@ try {
 ### ImageCollection
 | Method Signature                          | Replacement Method Signature               |
 |-------------------------------------------|--------------------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+| public final PPImage addImage(BufferedImage image) | public final PPImage addImage(IImage image) |
 
 ### PPImage
 | Method Signature                     | Replacement Method Signature   |

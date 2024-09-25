@@ -45,7 +45,7 @@ With Aspose.Slides, you can merge
 
 Besides presentations, Aspose.Slides allows you to merge other files:
 
-* [mages](https://products.aspose.com/slides/nodejs-java/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/nodejs-java/merger/png-to-png/)
+* [Imagess](https://products.aspose.com/slides/nodejs-java/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/nodejs-java/merger/png-to-png/)
 * Documents, such as [PDF to PDF](https://products.aspose.com/slides/nodejs-java/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/nodejs-java/merger/html-to-html/)
 * And two different files such as [image to PDF](https://products.aspose.com/slides/nodejs-java/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/nodejs-java/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/nodejs-java/merger/tiff-to-pdf/).
 
