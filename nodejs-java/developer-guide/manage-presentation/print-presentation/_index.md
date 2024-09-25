@@ -30,6 +30,3 @@ Please note that printing Notes must require changing the page orientation to `O
 {{% /alert %}} 
 
 If you encounter any issues or need further assistance, feel free to reach out to [our support team](https://forum.aspose.com/c/slides/11).
-
-```javascript
-```

@@ -1,5 +1,0 @@
-nodejs-java/aspose.slides/I
-[mages]
-IPPImage
-IImageCollection
-Imagescollection

@@ -68,7 +68,7 @@ aspose.slides.Presentation.createPresentationFromStream(readStream, function(err
    console.log('saved to file');
 });
 ```
-### **Read Files as Byte[] in Java through node-java**
+### **Read Files as Byte[] in Java**
 **Aspose.Slides for Java**
 ```java
 Presentation pres = new Presentation("embeddedOle.pptx");
@@ -85,7 +85,7 @@ try {
     if (pres != null) pres.dispose();
 }
 ```
-**Aspose.Slides for Node.js via Java through node-java**
+**Aspose.Slides for Node.js via Java Approach 1**
 ```javascript
 var aspose = aspose || {};
 var java = require("java");
@@ -109,7 +109,7 @@ aspose.slides = require("aspose.slides.via.java");
             pres.dispose();
         }
     }
-**Aspose.Slides for Node.js via Java**
+**Aspose.Slides for Node.js via Java Approach 2**
 ```javascript
 var aspose = aspose || {};
 var java = require("java");
@@ -138,8 +138,8 @@ aspose.slides = require("aspose.slides.via.java");
     }
 ```
 ## **Troubleshooting the Usage of Aspose.Slides for Node.js via Java**
-Aspose.Slides for Node.js via Java works with Java through the node-java library, so please refer to its documentation for assistance.
-https://github.com/joeferner/node-java
+Aspose.Slides for Node.js via Java works with Java through the [java](https://github.com/joeferner/node-java) library, so please refer to its documentation for assistance.
+
 ### **Solutions to some common issues**
 **Cast long to int**
 file.length() return long value
@@ -152,7 +152,7 @@ var intValue = java.callStaticMethodSync("java.lang.Math" , "toIntExact", file.l
 var java = require("java");
 var javaArray = java.newArray("java.lang.String", ["item1", "item2", "item3"]);
 ```
-**Create an array of given size in Java through node-java**
+**Create an array of given size in Java**
 ```javascript
 var java = require("java");
 var byteArray = java.newArray("byte", java.newInstanceSync("java.util.ArrayList", arraySize).toArray());
