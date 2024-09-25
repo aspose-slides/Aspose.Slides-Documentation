@@ -5,7 +5,7 @@ weight: 20
 url: /nodejs-java/create-fallback-fonts-collection/
 ---
 
-Instances of [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection), that implements [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IFontFallBackRulesCollection) interface. It is possible to add or remove rules from the collection.
+Instances of [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection), that implements [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) interface. It is possible to add or remove rules from the collection.
 
 Then this collection may be assigned to [FontFallBackRulesCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRulesCollection) method of the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class. FontsManager controls fonts across the presentation. Read more [About FontsManager and FontsLoader](/slides/nodejs-java/about-fontsmanager-and-fontsloader/).
 

@@ -30,7 +30,7 @@ Microsoft continues to implement strong support for XPS in Windows (even in Wind
   - **XPS**: Built-in XPS viewer and printing to XPS feature available. 
   - **PDF**: No PDF reader. No printing to PDF feature. 
 
-|<p>**Input PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Output XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
+|<p>**nput PPT(X):</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_1.png)**</p>|<p>**Output XPS:</p><p>**![todo:image_alt_text](convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document_2.png)**</p>|
 | :- | :- |
 
 

@@ -259,7 +259,7 @@ These descriptions are connected to the ThreeDFormat.getLightRig() and ThreeDFor
 {{% /alert %}} 
 
 ## **Apply Outer Shadow Effects to Texts**
-Aspose.Slides for Node.js via Java provides the [**IOuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IOuterShadow) and [**IInnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/classes/TextFrame). Go through these steps:
+Aspose.Slides for Node.js via Java provides the [**OuterShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IOuterShadow) and [**InnerShadow**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IInnerShadow) classes that allow you to apply shadow effects to a text carried by [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/classes/TextFrame). Go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 2. Obtain the reference of a slide by using its index.

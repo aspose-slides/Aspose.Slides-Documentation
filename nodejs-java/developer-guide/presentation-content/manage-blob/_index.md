@@ -101,7 +101,7 @@ This code in Java demonstrates the described operation:
 ```
 
 ### **Add Image as BLOB in Presentation**
-With methods from the [**IImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IImageCollection) interface and [**ImageCollection** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
+With methods from the [**ImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) interface and [**mageCollection** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
 
 This Javascript code shows you how to add a large image through the BLOB process:
 

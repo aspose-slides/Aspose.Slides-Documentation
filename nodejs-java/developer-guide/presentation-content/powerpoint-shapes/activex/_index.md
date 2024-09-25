@@ -17,7 +17,7 @@ To add an ActiveX Media Player control, do this:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class and generate an empty presentation instance.
 1. Access the target slide in [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. Add the Media Player ActiveX control using the [addControl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IControlCollection#addControl-int-float-float-float-float-) method exposed by [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IControlCollection).
+1. Add the Media Player ActiveX control using the [addControl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ControlCollection#addControl-int-float-float-float-float-) method exposed by [ControlCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nterfaces/IControlCollection).
 1. Access the Media Player ActiveX control and set the video path by using its properties.
 1. Save the presentation as a PPTX file.
 

@@ -38,7 +38,7 @@ This topic is also the part of the topic series of managing text paragraphs. Thi
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 1. Access the desired slide in slide collection using [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide) object.
-1. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IPresentationText) in selected slide.
+1. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText) in selected slide.
 1. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) of the added shape.
 1. Remove the default paragraph in the TextFrame.
 1. Create the first paragraph instance using [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Paragraph) class.

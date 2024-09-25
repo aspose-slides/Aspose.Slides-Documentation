@@ -28,7 +28,7 @@ Assuming you already created a chart in Microsoft Excel and want to embed that c
 1. Write the modified presentation as a PPTX file.
 
 In the example below, we added a chart from an Excel file to a slide as an OLE Object Frame using Aspose.Slides for Node.js via Java.
-**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IOleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
+**Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```javascript
     // Instantiates Prseetation class that represents the PPTX file

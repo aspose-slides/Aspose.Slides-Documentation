@@ -101,7 +101,7 @@ The following sample code creates a presentation and saves it in the Strict Offi
 
 An Office Open XML file is a ZIP-archive that has a 4 GB (2^32 bytes) limit on uncompressed size of a file, compressed size of a file, and total size of the archive, as well as a limit of 65,535 (2^16-1) files in the archive. ZIP64 format extensions increase the limits to 2^64.
 
-The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
+The new [**PptxOptions.Zip64Mode**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
 
 This property provides the following modes:
 
@@ -131,9 +131,9 @@ Saving in the Zip64Mode.Never mode will throw a [PptxException](https://referenc
 {{% /alert %}}
 
 ## **Save Progress Updates in Percentage**
-New [**IProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
+New [**ProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) interface has been added to [**SaveOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions)abstract class. [**ProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) interface represents a callback object for saving progress updates in percentage.  
 
-The following code snippets below show how to use [ProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IProgressCallback) interface:
+The following code snippets below show how to use [ProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) interface:
 
 ```javascript
     // Opening the presentation file

@@ -8,7 +8,7 @@ description: "Chart workbook in PowerPoint presentation in Javascript"
 ---
 
 ## **Set Chart Data from Workbook**
-Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
 This Javascript code demonstrates a sample operation:
 
@@ -65,7 +65,7 @@ This Javascript code shows you to set a workbook cell as a chart data label:
 
 ## **Manage Worksheets**
 
-This Javascript code demonstrates an operation where the [ChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This Javascript code demonstrates an operation where the [ChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```javascript
     var pres = new  aspose.slides.Presentation();

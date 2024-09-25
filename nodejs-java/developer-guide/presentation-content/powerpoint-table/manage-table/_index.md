@@ -9,7 +9,7 @@ description: "Create and manage table in PowerPoint presentations in Javascript"
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
 
-Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) interface, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) class, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) interface, and other types to allow you to create, update, and manage tables in all kinds of presentations.
+Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) interface, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) class, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) interface, and other types to allow you to create, update, and manage tables in all kinds of presentations.
 
 ## **Create Table from Scratch**
 
@@ -17,7 +17,7 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-ja
 2. Get a slide's reference through its index. 
 3. Define an array of `columnWidth`.
 4. Define an array of `rowHeight`.
-5. Add an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object to the slide through the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-) method.
+5. Add an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object to the slide through the [addTable](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addTable-float-float-double:A-double:A-) method.
 6. Iterate through each [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) to apply formatting to the top, bottom, right, and left borders.
 7. Merge the first two cells of the table's first row. 
 8. Access an [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/)'s [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
@@ -125,13 +125,13 @@ This Javascript code shows you how to specify the numbering for cells in a table
 
 2. Get a reference to the slide containing the table through its index. 
 
-3. Create an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object and set it to null.
+3. Create an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object and set it to null.
 
 4. Iterate through all [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) objects till the table is found.
 
    If you suspect the slide you are dealing with contains a single table, you can simply check all the shapes it contains. When a shape is identified as a table, you can typecast it as a [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object. But if the slide you are dealing with contains several tables, then you are better off searching for the table you need through its [setAlternativeText(String value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setAlternativeText-java.lang.String-).
 
-5. Use the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object to work with the table. In the example below, we added a new row to the table.
+5. Use the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object to work with the table. In the example below, we added a new row to the table.
 
 6. Save the modified presentation.
 
@@ -167,7 +167,7 @@ This Javascript code shows you how to access and work with an existing table:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Add an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object to the slide.
+3. Add an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object to the slide.
 4. Access an [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) object from the table.
 5. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/).
 6. Align the text vertically.
@@ -215,7 +215,7 @@ This Javascript code shows you how to align the text in a table:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
-3. Access an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITable) object from the Slide.
+3. Access an [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) object from the Slide.
 4. Set the [setFontHeight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setFontHeight-float-) for the text.
 5. Set the [setAlignment(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) and [setMarginRight(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setMarginRight-float-).
 6. Set the [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).

@@ -12,7 +12,7 @@ In PowerPoint Slides, the use of editable chats for graphical display of the dat
 {{% /alert %}} 
 ## **Required Steps**
 Following sequence of steps is required to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide:# Create an Excel Chart using Aspose.Cells for Java.# Set the OLE size of the Excel Chart. using Aspose.Cells for Java.# Get the image of the Excel Chart with Aspose.Cells for Java.# Embed the Excel Chart as an OLE Object inside PPTX presentation using Aspose.Slides for Node.js via Java.# Replace the object changed image with the image obtained in step 3 to cater Object Changed Issue# Save the output presentation to disk in PPTX format
-## **Implementation of the Required Steps**
+## **mplementation of the Required Steps**
 The implementation of the above steps in Java is as under:
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Slides-Charts-EmbedChartAsOLEObject-EmbedChartAsOLEObject.java" >}}

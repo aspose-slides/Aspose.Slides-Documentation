@@ -1,4 +1,5 @@
-foreach
-java.getStaticFieldValue("java.lang.System", "out").printlnSync(
-java.callStaticMethodSync("pres",
-catch (java.io.IOException e)
+nodejs-java/aspose.slides/I
+[mages]
+IPPImage
+IImageCollection
+Imagescollection

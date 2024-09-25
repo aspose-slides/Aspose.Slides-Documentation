@@ -33,7 +33,7 @@ Aspose.Slides for Node.js via Java allows you to apply animation to the text in 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide reference through its index.
 3. Add a `rectangle` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape).
-4. Add text to [AutoShape.TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
+4. Add text to [AutoShape.TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-).
 5. Get a main sequence of effects.
 6. Add an animation effect to [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape).
 7. Set the `TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
@@ -192,16 +192,16 @@ This is the Animation Timing pane in Microsoft PowerPoint:
 
 ![example1_image](shape-animation.png)
 
-These are the correspondences between PowerPoint Timing and [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IEffect#getTiming--) properties:
+These are the correspondences between PowerPoint Timing and [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Effect#getTiming--) properties:
 
-- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiming#getTriggerType--) property.
-- PowerPoint Timing **Duration** matches the [Effect.Timing.Duration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiming#getDuration--) property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle.
-- PowerPoint Timing **Delay** matches the [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ITiming#getTriggerDelayTime--) property.
+- PowerPoint Timing **Start** drop-down list matches the [Effect.Timing.TriggerType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getTriggerType--) property.
+- PowerPoint Timing **Duration** matches the [Effect.Timing.Duration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getDuration--) property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle.
+- PowerPoint Timing **Delay** matches the [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getTriggerDelayTime--) property.
 
 This is how you change the Effect Timing properties:
 
 1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set new values for the [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/IEffect#getTiming--) properties you need.
+2. Set new values for the [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Effect#getTiming--) properties you need.
 3. Save the modified PPTX file.
 
 This Javascript code demonstrates the operation:
