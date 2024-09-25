@@ -10,7 +10,7 @@ The normal view consists of three content regions: the slide itself, a side cont
 
 Method [**ViewProperties.*getNormalViewProperties***](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) has been added to provide access to normal view properties of presentation. 
 
-[**NormalViewProperties**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NormalViewProperties), [**NormalViewRestoredProperties**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NormalViewRestoredProperties) interfaces and its descendants, [**SplitterBarStateType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SplitterBarStateType) enum have been added.
+[**NormalViewProperties**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NormalViewProperties), [**NormalViewRestoredProperties**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NormalViewRestoredProperties) classs and its descendants, [**SplitterBarStateType**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SplitterBarStateType) enum have been added.
 
 {{% /alert %}} 
 

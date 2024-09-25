@@ -25,9 +25,9 @@ Added the following classes and enums to the public API:
 
 - IImage - represents the raster or vector image.
 - ImageFormat - represents the file format of the image.
-- Images - methods to instantiate and work with the IImage interface.
+- Images - methods to instantiate and work with the IImage class.
 
-Please note that IImage is disposable (it implements the IDisposable interface and its use should be wrapped in using or dispose-it in another convenient way).
+Please note that IImage is disposable (it implements the IDisposable class and its use should be wrapped in using or dispose-it in another convenient way).
 
 A typical scenario of using the new API may look as follows:
 

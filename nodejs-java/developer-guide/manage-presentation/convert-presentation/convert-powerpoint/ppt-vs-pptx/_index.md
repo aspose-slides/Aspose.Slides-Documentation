@@ -17,7 +17,7 @@ Although PPTX provides much broader functionality, PPT remains quite popular. Th
 
 However, conversion between old PPT and new PPTX format is the most complicated challenge among other Microsoft Office formats. Although the specification of PPT format is open, it is difficult to work with it. PowerPoint can create special parts (MetroBlob) in PPT files to store information from PPTX that is not supported by PPT format and can't be displayed in old PowerPoint versions. This information can be restored when a PPT file is loaded in a modern PowerPoint version or converted to PPTX format.
 
-Aspose.Slides provides a common interface to work with all presentation formats. It allows converting from PPT to PPTX and PPTX to PPT in a very simple way. Aspose.Slides completely supports conversion from PPT to PPTX and also supports conversion from PPTX to PPT with some restrictions. We recommend using PPTX format wherever possible.
+Aspose.Slides provides a common class to work with all presentation formats. It allows converting from PPT to PPTX and PPTX to PPT in a very simple way. Aspose.Slides completely supports conversion from PPT to PPTX and also supports conversion from PPTX to PPT with some restrictions. We recommend using PPTX format wherever possible.
 
 {{% alert color="primary" %}} 
 

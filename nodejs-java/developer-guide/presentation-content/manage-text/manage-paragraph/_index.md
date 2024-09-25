@@ -7,11 +7,11 @@ keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragr
 description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in Javascript"
 ---
 
-Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
+Aspose.Slides provides all the classs and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
 
-* Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
-* Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) interface to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).
-* Aspose.Slides provides [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) interface to allow you to add objects that represent texts and their formatting properties.
+* Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) class to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
+* Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).
+* Aspose.Slides provides [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) class to allow you to add objects that represent texts and their formatting properties.
 
 An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
 
@@ -316,7 +316,7 @@ This Javascript code shows you how to add and manage multilevel bullets:
 
 ## **Manage Paragraph with Custom Numbered List**
 
-The [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) interface provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) property and others that allow you to manage paragraphs with custom numbering or formatting.
+The [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) class provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) property and others that allow you to manage paragraphs with custom numbering or formatting.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the slide containing the paragraph.

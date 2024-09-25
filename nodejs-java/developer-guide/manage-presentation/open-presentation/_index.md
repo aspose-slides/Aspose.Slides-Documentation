@@ -82,7 +82,7 @@ When you want to create a presentation that contains large objects (video, audio
 
 ## Load Presentation
 
-Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/resourceloadingcallback/) with a single method to allow you to manage external resources. This Javascript code shows you how to use the `IResourceLoadingCallback` interface:
+Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/resourceloadingcallback/) with a single method to allow you to manage external resources. This Javascript code shows you how to use the `IResourceLoadingCallback` class:
 
 ```javascript
     var opts = new  aspose.slides.LoadOptions();

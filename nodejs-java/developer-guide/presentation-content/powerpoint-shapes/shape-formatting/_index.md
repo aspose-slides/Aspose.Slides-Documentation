@@ -13,7 +13,7 @@ In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, 
 
 
 
-**Aspose.Slides for Node.js via Java** provides interfaces and properties that allow you to format shapes based on known options in PowerPoint.
+**Aspose.Slides for Node.js via Java** provides classs and properties that allow you to format shapes based on known options in PowerPoint.
 
 ## **Format Lines**
 

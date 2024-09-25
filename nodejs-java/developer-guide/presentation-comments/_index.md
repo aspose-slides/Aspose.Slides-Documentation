@@ -15,8 +15,8 @@ You may want to use comments to provide feedback or communicate with your collea
 
 To allow you to use comments in PowerPoint presentations, Aspose.Slides for Node.js via Java provides
 
-* The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class, which contains the collections of authors (from the [CommentAuthorCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthorCollection) interface). The authors add comments to slides.
-* The  [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) interface, which contains the collection of comments for individual authors.
+* The [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class, which contains the collections of authors (from the [CommentAuthorCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthorCollection) class). The authors add comments to slides.
+* The  [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) class, which contains the collection of comments for individual authors.
 * The  [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) class, which contains information on authors and their comments: who added the comment, the time the comment was added, the comment's position, etc.
 * The [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc.
 
@@ -79,7 +79,7 @@ This Javascript code shows you how to access an existing comment on a slide in a
 
 
 ## **Reply Comments**
-A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#getParentComment--) or [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) methods (from the [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) interface), you can set or get a parent comment.
+A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#getParentComment--) or [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) methods (from the [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) class), you can set or get a parent comment.
 
 This Javascript code shows you how to add comments and get replies to them:
 
@@ -128,7 +128,7 @@ This Javascript code shows you how to add comments and get replies to them:
 
 {{% alert color="warning" title="Attention" %}} 
 
-* When the [Remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#remove--) method (from the [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) interface) is used to delete a comment, the replies to the comment also get deleted.
+* When the [Remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#remove--) method (from the [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) class) is used to delete a comment, the replies to the comment also get deleted.
 * If the [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) setting results in a circular reference, [PptxEditException](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PptxEditException) will be thrown.
 
 {{% /alert %}}

@@ -171,7 +171,7 @@ This sample code shows you how to create a table of contents with hyperlinks:
 
 ### **Color**
 
-With the [ColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource-int-) property in the [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) interface, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
+With the [ColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource-int-) property in the [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) class, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
 
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 

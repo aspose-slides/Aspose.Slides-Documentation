@@ -15,8 +15,8 @@ To convert a slide to an image, do this:
    * convert the slide to a Images first by using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-java.awt.Dimension-) method or
 
 2. Second, set additional options for conversion and convertible slide objects through
-   * the [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TiffOptions) interface or
-   * the [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/RenderingOptions) interface.
+   * the [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TiffOptions) class or
+   * the [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/RenderingOptions) class.
 
 ## **About Bitmap and Other Image Formats**
 
@@ -114,11 +114,11 @@ This sample code demonstrates the proposed conversion using the [getImage](https
 
 Some slides contain notes and comments. 
 
-Aspose.Slides provides two interfaces—[TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TiffOptions) and [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/RenderingOptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NotesCommentsLayoutingOptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
+Aspose.Slides provides two classs—[TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TiffOptions) and [RenderingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/RenderingOptions)—that allow you to control the rendering of presentation slides to images. Both classs house the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NotesCommentsLayoutingOptions) class that allows you to add notes and comments on a slide when you are converting that slide to an image.
 
 {{% alert title="Info" color="info" %}} 
 
-With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NotesCommentsLayoutingOptions) interface, you get to specify your preferred position for notes and comments in the resulting image.
+With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/NotesCommentsLayoutingOptions) class, you get to specify your preferred position for notes and comments in the resulting image.
 
 {{% /alert %}} 
 
@@ -191,7 +191,7 @@ In any slide to image conversion process, the [NotesPositions](https://reference
 
 ## **Converting Slides to Images Using ITiffOptions**
 
-The [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TiffOptions) interface gives you more control (in terms of parameters) over the resulting image. Using this interface, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
+The [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TiffOptions) class gives you more control (in terms of parameters) over the resulting image. Using this class, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
 
 This Javascript code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 

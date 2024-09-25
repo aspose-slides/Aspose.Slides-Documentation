@@ -16,7 +16,7 @@ In [Aspose.Slides 21.6](https://docs.aspose.com/slides/nodejs-java/aspose-slides
 
 # About XAML
 
-XAML is a descriptive programming language that allows you to build or write user interfaces for apps, especially those that use WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), and Xamarin forms.  
+XAML is a descriptive programming language that allows you to build or write user classs for apps, especially those that use WPF (Windows Presentation Foundation), UWP (Universal Windows Platform), and Xamarin forms.
 
 XAML, which is an XML-based language, is Microsoft’s variant for describing a GUI. You are likely to use a designer to work on XAML files most of the time, but you can still write and edit your GUI. 
 
@@ -37,7 +37,7 @@ This Javascript code shows you how to export a presentation to XAML with default
 
 ## Exporting Presentations to XAML With Custom Options
 
-You get to select options from the [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions) interface that control the export process and determine how Aspose.Slides exports your presentation to XAML.
+You get to select options from the [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions) class that control the export process and determine how Aspose.Slides exports your presentation to XAML.
 
 For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample Javascript code:
 

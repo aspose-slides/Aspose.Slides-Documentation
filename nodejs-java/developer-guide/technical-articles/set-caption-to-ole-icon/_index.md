@@ -5,7 +5,7 @@ weight: 130
 url: /nodejs-java/set-caption-to-ole-icon/
 ---
 
-New methods **getSubstitutePictureTitle** and **setSubstitutePictureTitle** has been added to **OleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon. The code snippet below shows a sample of creating Excel object and setting its caption.
+New methods **getSubstitutePictureTitle** and **setSubstitutePictureTitle** has been added to **OleObjectFrame** class and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon. The code snippet below shows a sample of creating Excel object and setting its caption.
 
 
 

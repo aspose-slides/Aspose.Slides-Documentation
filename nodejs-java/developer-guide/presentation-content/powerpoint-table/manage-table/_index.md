@@ -9,7 +9,7 @@ description: "Create and manage table in PowerPoint presentations in Javascript"
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
 
-Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) interface, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) class, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) interface, and other types to allow you to create, update, and manage tables in all kinds of presentations.
+Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Table) class, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) class, [Cell](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/) class, and other types to allow you to create, update, and manage tables in all kinds of presentations.
 
 ## **Create Table from Scratch**
 

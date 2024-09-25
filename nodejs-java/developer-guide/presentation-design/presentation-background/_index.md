@@ -168,7 +168,7 @@ You may want to adjust the transparency of a slide's background image to make th
 
 ## **Get Value of Slide Background**
 
-Aspose.Slides provides the [BackgroundEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/backgroundeffectivedata/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/backgroundeffectivedata/#getFillFormat--) and effective [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/backgroundeffectivedata/#getEffectFormat--).
+Aspose.Slides provides the [BackgroundEffectiveData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/backgroundeffectivedata/) class to allow you to get the effective values of slide backgrounds. This class contains information on the effective [FillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/backgroundeffectivedata/#getFillFormat--) and effective [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/backgroundeffectivedata/#getEffectFormat--).
 
 Using the [Background](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getBackground--) property from the [BaseSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/) class, you can get the effective value for a slide background.
 

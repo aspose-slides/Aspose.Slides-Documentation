@@ -7,17 +7,17 @@ description: Create Text Box on PowerPoint Slides using Java. Add Column in Text
 ---
 
 
-Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Node.js via Java provides the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) interface that allows you to add a shape containing some text.
+Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Node.js via Java provides the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) class that allows you to add a shape containing some text.
 
 {{% alert title="Info" color="info" %}}
 
-Aspose.Slides also provides the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) interface that allows you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. But shapes added through the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) interface may contain text.
+Aspose.Slides also provides the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class that allows you to add shapes to slides. However, not all shapes added through the `IShape` class can hold text. But shapes added through the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) class may contain text.
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/nodejs-java/manage-textbox/#update-text) section on this page.
+Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` class. Only then will you be able to work with [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/nodejs-java/manage-textbox/#update-text) section on this page.
 
 {{% /alert %}}
 
@@ -86,7 +86,7 @@ This Javascript code shows you how to check whether a shape was created as a tex
 
 ## **Add Column In Text Box**
 
-Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) properties (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) interface and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
+Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) properties (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
 
 This code in Java demonstrates the described operation: 
 
@@ -116,7 +116,7 @@ This code in Java demonstrates the described operation:
 
 
 ## **Add Column In Text Frame**
-Aspose.Slides for Node.js via Java provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
+Aspose.Slides for Node.js via Java provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
 
 This Javascript code shows you how to add a column inside a text frame:
 

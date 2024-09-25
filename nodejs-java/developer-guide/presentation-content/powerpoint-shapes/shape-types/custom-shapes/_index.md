@@ -33,7 +33,7 @@ Before you start editing PowerPoint shapes through edit points, you might want t
   * A straight point is a point where 2 handles exist in a straight line and that line's line segments joins in a smooth curve. In this case, the handles don't have to be separated from the anchor point by an equal distance. 
 * By moving or editing anchor points (which changes the angle of lines), you can change the way a shape looks. 
 
-To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class and [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) interface.
+To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class and [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class.
 
 * A [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) instance represents a geometry path of the [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape) object.
 * To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#getGeometryPaths--) method.

@@ -131,9 +131,9 @@ Saving in the Zip64Mode.Never mode will throw a [PptxException](https://referenc
 {{% /alert %}}
 
 ## **Save Progress Updates in Percentage**
-New [**ProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) interface has been added to [**SaveOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions)abstract class. [**ProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) interface represents a callback object for saving progress updates in percentage.  
+New [**ProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) class has been added to [**SaveOptions**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions) class and [**SaveOptions** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SaveOptions)abstract class. [**ProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) class represents a callback object for saving progress updates in percentage.  
 
-The following code snippets below show how to use [ProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) interface:
+The following code snippets below show how to use [ProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) class:
 
 ```javascript
     // Opening the presentation file

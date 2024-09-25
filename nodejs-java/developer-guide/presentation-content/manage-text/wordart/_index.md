@@ -86,7 +86,7 @@ The resulting text:
 
 **Using Microsoft PowerPoint**
 
-From the program’s interface, you can apply these effects to a text, text block, shape, or similar element:
+From the program’s class, you can apply these effects to a text, text block, shape, or similar element:
 
 ![todo:image_alt_text](image-20200930114129-5.png)
 

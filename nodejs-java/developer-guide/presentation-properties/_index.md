@@ -175,7 +175,7 @@ New methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-
 
 {{% /alert %}} 
 
-The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) and [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) have been added to [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) interface. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
+The two new methods [ReadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) and [UpdateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) have been added to [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo) class. They provide quick access to document properties and allow to change and update properties without loading a whole presentation.
 
 The typical scenario load the properties, change some value and update the document can be implemented in the following way:
 

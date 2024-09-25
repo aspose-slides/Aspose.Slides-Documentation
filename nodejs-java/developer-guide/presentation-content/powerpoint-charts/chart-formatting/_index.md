@@ -280,7 +280,7 @@ The possible preset number format values along with their preset index and that 
 |**49**|@|
 
 ## **Set Chart Area Rounded Borders**
-Aspose.Slides for Node.js via Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) have been added to [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) interface and [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) class. 
+Aspose.Slides for Node.js via Java provides support for setting chart area. Methods [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) and [**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) have been added to [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) class and [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart) class. 
 
 1. Instantiate [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class object.
 1. Add chart on the slide.

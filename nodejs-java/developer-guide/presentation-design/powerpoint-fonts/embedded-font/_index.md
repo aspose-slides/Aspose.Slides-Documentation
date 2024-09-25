@@ -11,7 +11,7 @@ description: "Use embedded fonts in PowerPoint presentation in Javascript"
 
 **Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
 
-The [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class, and their interfaces contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
+The [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class, [FontData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class, and their classs contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations.
 
 ## **Get or Remove Embedded Fonts from Presentation**
 

@@ -65,13 +65,13 @@ The [**MathParagraph**](https://reference.aspose.com/slides/nodejs-java/aspose.
     mathParagraph.add(new  aspose.slides.MathBlock(fraction));
 ``` 
 
-Each mathematical element is represented by some class that implements the [**MathElement**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement) interface. This interface provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
+Each mathematical element is represented by some class that implements the [**MathElement**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement) class. This class provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
 
 ```javascript
     var mathBlock = new  aspose.slides.MathematicalText("c").setSuperscript("2").join("=").join(new  aspose.slides.MathematicalText("a").setSuperscript("2")).join("+").join(new  aspose.slides.MathematicalText("b").setSuperscript("2"));
 ``` 
 
-Operations of the interface [**MathElement**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement) are implemented in any type of element, including the [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock).
+Operations of the class [**MathElement**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement) are implemented in any type of element, including the [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock).
 
 The full source code sample:
 
@@ -97,7 +97,7 @@ Mathematical expressions are formed from sequences of mathematical elements. The
 
 There are a lot of mathematical element types that can be used to construct a mathematical block. Each of these elements can be included (aggregated) in another element. That is, elements are actually containers for others, forming a tree-like structure. The simplest type of element that does not contain other elements of the mathematical text.
 
-Each type of math element implements the [**MathElement** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement)interface, allowing the use of the common set of math operations on different types of math elements.
+Each type of math element implements the [**MathElement** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement)class, allowing the use of the common set of math operations on different types of math elements.
 ### **MathematicalText class**
 The [**MathematicalText**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathematicalText) class represents a mathematical text - the underlying element of all mathematical constructions. Mathematical text may represent operands and operators, variables, and any other linear text.
 
@@ -188,7 +188,7 @@ Example: 
 
 
 ## **Mathematical Operations**
-Each mathematical element and mathematical expression (via [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock)) implements the [**MathElement** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement)interface. It allows you to use operations on the existing structure and form more complex mathematical expressions. All operations have two parameter sets: either [**MathElement** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement)or string as arguments. Instances of the [**MathematicalText** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathematicalText)class are implicitly created from specified strings when string arguments are used. Math operations available in Aspose.Slides are listed below.
+Each mathematical element and mathematical expression (via [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock)) implements the [**MathElement** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement)class. It allows you to use operations on the existing structure and form more complex mathematical expressions. All operations have two parameter sets: either [**MathElement** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement)or string as arguments. Instances of the [**MathematicalText** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathematicalText)class are implicitly created from specified strings when string arguments are used. Math operations available in Aspose.Slides are listed below.
 ### **Join method**
 - [join(String)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement#join-java.lang.String-)
 - [join(IMathElement)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement#join-aspose.slides.IMathElement-)

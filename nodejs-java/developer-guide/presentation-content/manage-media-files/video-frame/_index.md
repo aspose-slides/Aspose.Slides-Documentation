@@ -14,7 +14,7 @@ PowerPoint allows you to add videos to a slide in a presentation in two ways:
 * Add or embed a local video (stored on your machine)
 * Add an online video (from a web source such as YouTube).
 
-To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) interface, [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) interface, and other relevant types.
+To allow you to add videos (video objects) to a presentation, Aspose.Slides provides the [Video](https://reference.aspose.com/slides/nodejs-java/aspose.slides/video/) class, [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) class, and other relevant types.
 
 ## **Create Embedded Video Frame**
 

@@ -175,7 +175,7 @@ In the example given below, we have cloned a slide with a master (lying at the z
 ```
 
 ## **Clone at End in Specified Section**
-If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ISection-) method exposed by the [**SlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection) interface. Aspose.Slides for Node.js via Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
+If you want to clone a slide and then use it within the same presentation file but at a different section, then use the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.ISection-) method exposed by the [**SlideCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection) class. Aspose.Slides for Node.js via Java makes it possible to clone a slide from the first section and then insert that cloned slide to the second section of the same presentation.
 
 The following code snippet shows you how to clone a slide and insert the cloned slide into a specified section.
 
