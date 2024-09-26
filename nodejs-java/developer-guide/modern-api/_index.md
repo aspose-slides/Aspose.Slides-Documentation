@@ -25,9 +25,9 @@ Added the following classes and enums to the public API:
 
 - IImage - represents the raster or vector image.
 - ImageFormat - represents the file format of the image.
-- Images - methods to instantiate and work with the IImage interface.
+- Images - methods to instantiate and work with the IImage class.
 
-Please note that IImage is disposable (it implements the IDisposable interface and its use should be wrapped in using or dispose-it in another convenient way).
+Please note that IImage is disposable (it implements the IDisposable class and its use should be wrapped in using or dispose-it in another convenient way).
 
 A typical scenario of using the new API may look as follows:
 
@@ -257,7 +257,7 @@ try {
 ### ImageCollection
 | Method Signature                          | Replacement Method Signature               |
 |-------------------------------------------|--------------------------------------------|
-| public final IPPImage addImage(BufferedImage image) | public final IPPImage addImage(IImage image) |
+| public final PPImage addImage(BufferedImage image) | public final PPImage addImage(IImage image) |
 
 ### PPImage
 | Method Signature                     | Replacement Method Signature   |
@@ -282,9 +282,9 @@ Methods with [Graphics2D](https://docs.oracle.com/javase/8/docs/api/java/awt/Gra
 
 The part of the API that uses it will be removed:
 
-[Slide](https://reference.aspose.com/slides/java/com.aspose.slides/slide/)
+[Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/)
 
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
-- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/java/com.aspose.slides/slide/#renderToGraphics-com.aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, float scaleX, float scaleY)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-float-float-)
+- [public final void renderToGraphics(IRenderingOptions options, Graphics2D graphics, Dimension renderingSize)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#renderToGraphics-aspose.slides.IRenderingOptions-java.awt.Graphics2D-java.awt.Dimension-)
 
