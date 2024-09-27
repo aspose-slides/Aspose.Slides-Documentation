@@ -2,7 +2,7 @@
 title: Лицензирование по измерению
 type: docs
 weight: 100
-url: /php-java/metered-licensing/
+url: /ru/php-java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

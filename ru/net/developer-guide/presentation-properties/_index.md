@@ -3,7 +3,7 @@ title: Свойства презентации - доступ к свойств�
 linktitle: Свойства презентации
 type: docs
 weight: 70
-url: /net/presentation-properties/
+url: /ru/net/presentation-properties/
 keywords: "как удалить последние изменения в powerpoint, свойства PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Свойства презентации PowerPoint на C# или .NET"
 ---

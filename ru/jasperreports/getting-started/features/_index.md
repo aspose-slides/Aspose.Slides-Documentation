@@ -2,5 +2,5 @@
 title: Особенности
 type: docs
 weight: 30
-url: /jasperreports/features/
+url: /ru/jasperreports/features/
 ---

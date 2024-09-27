@@ -2,14 +2,14 @@
 title: Презентационная тема
 type: docs
 weight: 10
-url: /php-java/presentation-theme/
+url: /ru/php-java/presentation-theme/
 keywords: "Тема, тема PowerPoint, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Тема презентации PowerPoint"
 ---
 
 Темы презентации определяют свойства элементов дизайна. Выбирая тему презентации, вы фактически выбираете определенный набор визуальных элементов и их свойства.
 
-В PowerPoint тема включает в себя цвета, [шрифты](/slides/php-java/powerpoint-fonts/), [стили фона](/slides/php-java/presentation-background/) и эффекты.
+В PowerPoint тема включает в себя цвета, [шрифты](/slides/ru/php-java/powerpoint-fonts/), [стили фона](/slides/ru/php-java/presentation-background/) и эффекты.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -137,7 +137,7 @@ description: "Тема презентации PowerPoint"
 
 {{% alert color="primary" title="СОВЕТ" %}} 
 
-Вы можете ознакомиться с [шрифтами PowerPoint](/slides/php-java/powerpoint-fonts/).
+Вы можете ознакомиться с [шрифтами PowerPoint](/slides/ru/php-java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -177,7 +177,7 @@ description: "Тема презентации PowerPoint"
 
 {{% alert color="primary" title="СОВЕТ" %}} 
 
-Вы можете ознакомиться с [фоном PowerPoint](/slides/php-java/presentation-background/).
+Вы можете ознакомиться с [фоном PowerPoint](/slides/ru/php-java/presentation-background/).
 
 {{% /alert %}}
 

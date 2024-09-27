@@ -2,7 +2,7 @@
 title: Поддерживаемые форматы файлов
 type: docs
 weight: 20
-url: /jasperreports/supported-file-formats/
+url: /ru/jasperreports/supported-file-formats/
 ---
 
 ## **Поддерживаемые версии Microsoft PowerPoint**

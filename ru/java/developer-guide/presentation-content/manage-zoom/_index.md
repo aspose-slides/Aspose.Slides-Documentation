@@ -2,7 +2,7 @@
 title: Управление Зумом
 type: docs
 weight: 60
-url: /java/manage-zoom/
+url: /ru/java/manage-zoom/
 keywords: "Zoom, Zoom фрейм, Добавить зум, Форматировать зум фрейм, Сводка зум, Презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Добавьте зум или зум фреймы в презентации PowerPoint на Java"
 ---

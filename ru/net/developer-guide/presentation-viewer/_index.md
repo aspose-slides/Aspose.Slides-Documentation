@@ -2,7 +2,7 @@
 title: Просмотрщик презентаций
 type: docs
 weight: 50
-url: /net/presentation-viewer/
+url: /ru/net/presentation-viewer/
 keywords: "Просмотр презентации PowerPoint, просмотр ppt, просмотр PPTX, C#, Csharp, Aspose.Slides для .NET"
 description: "Просмотр презентации PowerPoint на C# или .NET"
 ---

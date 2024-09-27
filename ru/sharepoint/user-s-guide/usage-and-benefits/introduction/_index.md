@@ -2,7 +2,7 @@
 title: Введение
 type: docs
 weight: 10
-url: /sharepoint/introduction/
+url: /ru/sharepoint/introduction/
 ---
 
 {{% alert color="primary" %}} 
@@ -15,7 +15,7 @@ Aspose.Slides для SharePoint — это гибкое решение для к
 
 Данная статья охватывает следующее: 
 
-- [Заметка о библиотеке документов SharePoint](/slides/sharepoint/sharepoint-document-library/).
-- [Преимущества использования Aspose.Slides для SharePoint](/slides/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
-- [Как конвертировать документы Microsoft PowerPoint в другие форматы](/slides/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
-- [Резюме](/slides/sharepoint/summary/)
+- [Заметка о библиотеке документов SharePoint](/slides/ru/sharepoint/sharepoint-document-library/).
+- [Преимущества использования Aspose.Slides для SharePoint](/slides/ru/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
+- [Как конвертировать документы Microsoft PowerPoint в другие форматы](/slides/ru/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+- [Резюме](/slides/ru/sharepoint/summary/)

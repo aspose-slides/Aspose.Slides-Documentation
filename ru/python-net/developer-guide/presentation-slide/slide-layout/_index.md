@@ -2,7 +2,7 @@
 title: Макет слайда
 type: docs
 weight: 60
-url: /python-net/slide-layout/
+url: /ru/python-net/slide-layout/
 keyword: "Установить размер слайда, установить параметры слайда, указать размер слайда, видимость нижнего колонтитула, нижний колонтитул для содержимого, масштабирование содержимого, размер страницы, Python, Aspose.Slides"
 description: "Установить размер и параметры слайда PowerPoint в Python"
 ---

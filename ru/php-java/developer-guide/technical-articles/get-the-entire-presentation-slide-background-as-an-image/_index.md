@@ -2,7 +2,7 @@
 title: Получение фона слайда всей презентации в виде изображения
 type: docs
 weight: 95
-url: /php-java/get-the-entire-presentation-slide-background-as-an-image/
+url: /ru/php-java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - слайд
 - фон
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides для PHP через Java
 ---
 
-В презентациях PowerPoint фон слайда может состоять из множества элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/php-java/presentation-background/), на окончательный фон могут влиять тема презентации, цветовая схема и формы, расположенные на слайде мастер и слайде макета.
+В презентациях PowerPoint фон слайда может состоять из множества элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/ru/php-java/presentation-background/), на окончательный фон могут влиять тема презентации, цветовая схема и формы, расположенные на слайде мастер и слайде макета.
 
 Aspose.Slides для PHP через Java не предоставляет простого метода для извлечения фона всей презентации слайда в виде изображения, но вы можете следовать приведённым ниже шагам, чтобы сделать это:
 1. Загрузите презентацию, используя класс [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/).

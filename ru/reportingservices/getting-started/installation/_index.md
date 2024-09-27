@@ -2,5 +2,5 @@
 title: Установка
 type: docs
 weight: 40
-url: /reportingservices/installation/
+url: /ru/reportingservices/installation/
 ---

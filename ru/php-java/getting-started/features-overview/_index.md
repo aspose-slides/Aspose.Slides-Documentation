@@ -2,7 +2,7 @@
 title: Обзор функций
 type: docs
 weight: 20
-url: /php-java/features-overview/
+url: /ru/php-java/features-overview/
 ---
 
 ## **Поддерживаемые платформы**

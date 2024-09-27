@@ -2,7 +2,7 @@
 title: Создание новой презентации
 type: docs
 weight: 10
-url: /net/create-a-new-presentation/
+url: /ru/net/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides для .NET - это компонент, который можно
 
 {{% /alert %}} 
 ## **Создание презентации**
-Ниже приведены два примера кода, которые иллюстрируют, как VSTO и Aspose.Slides для .NET могут быть использованы для достижения одной и той же цели. Первый пример - [VSTO](/slides/net/create-a-new-presentation/); [второй пример](/slides/net/create-a-new-presentation/) использует Aspose.Slides.
+Ниже приведены два примера кода, которые иллюстрируют, как VSTO и Aspose.Slides для .NET могут быть использованы для достижения одной и той же цели. Первый пример - [VSTO](/slides/ru/net/create-a-new-presentation/); [второй пример](/slides/ru/net/create-a-new-presentation/) использует Aspose.Slides.
 ### **Пример VSTO**
 **Вывод VSTO** 
 

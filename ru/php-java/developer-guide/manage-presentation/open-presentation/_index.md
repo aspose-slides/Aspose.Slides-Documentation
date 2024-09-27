@@ -3,7 +3,7 @@ title: Открыть презентацию
 linktitle: Открыть презентацию
 type: docs
 weight: 20
-url: /php-java/open-presentation/
+url: /ru/php-java/open-presentation/
 keywords: "Открыть PowerPoint, PPTX, PPT, Открыть презентацию, Загрузить презентацию, Java"
 description: "Откройте или загрузите презентацию PPT, PPTX, ODP"
 ---

@@ -2,12 +2,12 @@
 title: Создание и встраивание диаграммы Excel в виде OLE-объекта на слайд Microsoft PowerPoint
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- Диаграммы являются визуальными представлениями ваших данных и широко используются в слайдах презентаций. В этой статье мы покажем вам код для создания и встраивания диаграммы Excel в виде OLE-объекта в слайд PowerPoint программно, используя [VSTO](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides для .NET](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Диаграммы являются визуальными представлениями ваших данных и широко используются в слайдах презентаций. В этой статье мы покажем вам код для создания и встраивания диаграммы Excel в виде OLE-объекта в слайд PowerPoint программно, используя [VSTO](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides для .NET](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Создание и встраивание диаграммы Excel**

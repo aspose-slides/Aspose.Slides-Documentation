@@ -2,15 +2,15 @@
 title: Пользовательская настройка результатов рендеринга путем расширения Aspose.Slides для RS
 type: docs
 weight: 10
-url: /reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
+url: /ru/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
 ---
 
 {{% alert color="primary" %}} 
 
 Эта страница описывает, как создать расширение для Aspose.Slides для RS.
 
-- [Создание сборки расширения](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
-- [Интеграция расширения](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [Создание сборки расширения](/slides/ru/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [Интеграция расширения](/slides/ru/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
 
 {{% /alert %}} 
 

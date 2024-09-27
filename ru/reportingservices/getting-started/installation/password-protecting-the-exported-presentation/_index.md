@@ -2,7 +2,7 @@
 title: Защита экспортированной презентации паролем
 type: docs
 weight: 90
-url: /reportingservices/password-protecting-the-exported-presentation/
+url: /ru/reportingservices/password-protecting-the-exported-presentation/
 ---
 
 {{% alert color="primary" %}} 

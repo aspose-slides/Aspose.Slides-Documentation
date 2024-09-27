@@ -2,7 +2,7 @@
 title: Записки к презентации
 type: docs
 weight: 110
-url: /php-java/presentation-notes/
+url: /ru/php-java/presentation-notes/
 keywords: "Заметки докладчика PowerPoint"
 description: "Записки к презентации, заметки докладчика"
 ---

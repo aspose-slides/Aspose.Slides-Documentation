@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в анимированный GIF
 type: docs
 weight: 65
-url: /python-net/convert-powerpoint-to-animated-gif/
+url: /ru/python-net/convert-powerpoint-to-animated-gif/
 keywords: "Конвертация PowerPoint, PPT, PPTX, анимированный GIF, PPT в анимированный GIF, PPTX в анимированный GIF, Python, настройки по умолчанию, пользовательские настройки "
 description: "Конвертируйте презентацию PowerPoint в анимированный GIF: PPT в GIF, PPTX в GIF на Python"
 ---

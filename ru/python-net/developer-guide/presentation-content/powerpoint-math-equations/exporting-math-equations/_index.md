@@ -2,7 +2,7 @@
 title: Экспорт математических уравнений
 type: docs
 weight: 30
-url: /python-net/exporting-math-equations/
+url: /ru/python-net/exporting-math-equations/
 keywords: "Экспорт математических уравнений, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Экспорт математических уравнений PowerPoint на Python"
 ---

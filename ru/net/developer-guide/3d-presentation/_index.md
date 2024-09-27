@@ -2,7 +2,7 @@
 title: 3D Презентация
 type: docs
 weight: 232
-url: /net/3d-presentation/
+url: /ru/net/3d-presentation/
 keywords: "3D, 3D PowerPoint, 3D презентация, 3D вращение, 3D глубина, 3D экструзия, 3D градиент, 3D текст, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "3D презентация PowerPoint на C# или .NET"
 ---

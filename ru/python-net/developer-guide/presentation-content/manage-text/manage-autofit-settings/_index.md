@@ -2,7 +2,7 @@
 title: Управление настройками автоподбора
 type: docs
 weight: 30
-url: /python-net/manage-autofit-settings/
+url: /ru/python-net/manage-autofit-settings/
 keywords: "Текстовое поле, Автоподбор, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Настройка параметров автоподбора для текстового поля в PowerPoint на Python"
 ---

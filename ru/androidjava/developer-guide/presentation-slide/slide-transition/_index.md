@@ -2,7 +2,7 @@
 title: Переход слайдов
 type: docs
 weight: 80
-url: /androidjava/slide-transition/
+url: /ru/androidjava/slide-transition/
 keywords: "Переход слайда PowerPoint, морфинг в Java"
 description: "Переход слайда PowerPoint, морфинг слайда PowerPoint в Java"
 ---

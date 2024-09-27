@@ -2,5 +2,5 @@
 title: Известные проблемы
 type: docs
 weight: 330
-url: /java/known-issues/
+url: /ru/java/known-issues/
 ---

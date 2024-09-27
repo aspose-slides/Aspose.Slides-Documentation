@@ -2,7 +2,7 @@
 title: Управление тегами и пользовательскими данными
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
+url: /ru/net/managing-tags-and-custom-data
 keywords: "Теги, Пользовательские данные, Значение тегов, Добавить теги, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте теги и пользовательские данные в презентации PowerPoint на C# или .NET"
 ---

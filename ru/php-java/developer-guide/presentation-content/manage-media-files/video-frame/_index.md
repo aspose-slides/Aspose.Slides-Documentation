@@ -2,7 +2,7 @@
 title: Видеорама
 type: docs
 weight: 10
-url: /php-java/video-frame/
+url: /ru/php-java/video-frame/
 keywords: "Добавить видео, создать видеораму, извлечь видео, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Добавьте видеораму в презентацию PowerPoint"
 ---

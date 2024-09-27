@@ -2,7 +2,7 @@
 title: Спецификация парсера XML (XPS)
 type: docs
 weight: 50
-url: /java/xml-parser-specification-xps/
+url: /ru/java/xml-parser-specification-xps/
 ---
 
 {{% alert color="primary" %}} 

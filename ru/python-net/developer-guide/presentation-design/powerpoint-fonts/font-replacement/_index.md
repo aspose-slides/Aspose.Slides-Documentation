@@ -2,7 +2,7 @@
 title: Замена шрифтов
 type: docs
 weight: 60
-url: /python-net/font-replacement/
+url: /ru/python-net/font-replacement/
 keywords: "Шрифт, замена шрифта, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Явно замените шрифты в PowerPoint на Python"
 ---
@@ -40,6 +40,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{% alert title="Примечание" color="warning" %}} 
 
-Чтобы установить правила, определяющие, что происходит в определенных условиях (например, если шрифт недоступен), смотрите [**Замена шрифтов**](/slides/python-net/font-substitution/). 
+Чтобы установить правила, определяющие, что происходит в определенных условиях (например, если шрифт недоступен), смотрите [**Замена шрифтов**](/slides/ru/python-net/font-substitution/). 
 
 {{% /alert %}}

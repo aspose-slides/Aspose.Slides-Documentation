@@ -2,7 +2,7 @@
 title: Свойства презентации
 type: docs
 weight: 70
-url: /java/presentation-properties/
+url: /ru/java/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

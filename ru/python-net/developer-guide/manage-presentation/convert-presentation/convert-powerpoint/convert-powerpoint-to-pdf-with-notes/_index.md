@@ -2,7 +2,7 @@
 title: Конвертировать PowerPoint в PDF с заметками
 type: docs
 weight: 50
-url: /python-net/convert-powerpoint-to-pdf-with-notes/
+url: /ru/python-net/convert-powerpoint-to-pdf-with-notes/
 keywords: "конвертировать PowerPoint, Презентация, PowerPoint в PDF, заметки, Python, Aspose.Slides"
 description: "Конвертируйте PowerPoint в PDF с заметками с помощью Python"
 ---

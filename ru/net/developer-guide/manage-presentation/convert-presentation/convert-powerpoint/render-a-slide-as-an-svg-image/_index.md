@@ -3,7 +3,7 @@ title: Отобразить слайд в формате SVG в C#
 linktitle: Отобразить слайд в формате SVG
 type: docs
 weight: 50
-url: /net/render-a-slide-as-an-svg-image/
+url: /ru/net/render-a-slide-as-an-svg-image/
 description: В этой статье объясняется, как конвертировать презентацию PowerPoint в формат SVG с помощью C#. Вы можете конвертировать форматы PPT, PPTX, ODP в SVG-изображения.
 keywords: C# Конвертировать PowerPoint в SVG, C# PPT в SVG, C# PPTX в SVG
 ---

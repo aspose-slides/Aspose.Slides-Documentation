@@ -2,7 +2,7 @@
 title: Только для чтения Презентация
 type: docs
 weight: 30
-url: /net/tolko-dlya-chteniya-prezentatsiya/
+url: /ru/net/tolko-dlya-chteniya-prezentatsiya/
 keywords: "Режим только для чтения, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Презентация PowerPoint только для чтения на C# или .NET"
 ---

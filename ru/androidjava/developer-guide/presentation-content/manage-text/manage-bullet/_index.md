@@ -2,7 +2,7 @@
 title: Управление маркерами
 type: docs
 weight: 60
-url: /androidjava/manage-bullet/
+url: /ru/androidjava/manage-bullet/
 keywords: "Маркеры, Микшерованные списки, Числа, Нумерованные списки, Изображения маркеров, многоуровневые маркеры, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Создание маркерованных и нумерованных списков в презентации PowerPoint на Java"
 ---

@@ -2,7 +2,7 @@
 title: Доступ к презентации OpenDocument
 type: docs
 weight: 10
-url: /net/access-opendocument-presentation/
+url: /ru/net/access-opendocument-presentation/
 ---
 
 Aspose.Slides для .NET предлагает класс **Presentation**, который представляет файл презентации. Теперь класс **Presentation** также может получать доступ к **ODP** через конструктор **Presentation** при создании объекта.

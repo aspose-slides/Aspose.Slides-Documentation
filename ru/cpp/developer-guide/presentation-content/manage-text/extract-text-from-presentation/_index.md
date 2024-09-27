@@ -2,16 +2,16 @@
 title: Извлечение текста из презентации
 type: docs
 weight: 90
-url: /cpp/extract-text-from-presentation/
+url: /ru/cpp/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Не редкость, когда разработчикам необходимо извлекать текст из презентации. Для этого необходимо извлечь текст из всех фигур на всех слайдах презентации. Эта статья объясняет, как извлекать текст из презентаций Microsoft PowerPoint PPTX с помощью Aspose.Slides. Текст можно извлекать следующими способами:
 
-- [Извлечение текста одного слайда](/slides/cpp/extracting-text-from-the-presentation/)
-- [Извлечение текста с использованием метода GetAllTextBoxes](/slides/cpp/extracting-text-from-the-presentation/)
-- [Категоризированное и быстрое извлечение текста](/slides/cpp/extracting-text-from-the-presentation/)
+- [Извлечение текста одного слайда](/slides/ru/cpp/extracting-text-from-the-presentation/)
+- [Извлечение текста с использованием метода GetAllTextBoxes](/slides/ru/cpp/extracting-text-from-the-presentation/)
+- [Категоризированное и быстрое извлечение текста](/slides/ru/cpp/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **Извлечение текста из слайда**

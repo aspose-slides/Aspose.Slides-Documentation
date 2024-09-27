@@ -2,7 +2,7 @@
 title: Переход слайда
 type: docs
 weight: 90
-url: /python-net/slide-transition/
+url: /ru/python-net/slide-transition/
 keywords: "Добавить переход слайда, переход слайда PowerPoint, морфический переход, расширенный переход слайда, эффекты перехода, Python, Aspose.Slides"
 description: " Добавьте переход слайда PowerPoint и эффекты перехода в Python "
 ---

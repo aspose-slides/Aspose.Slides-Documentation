@@ -2,12 +2,12 @@
 title: Эффект формы
 type: docs
 weight: 30
-url: /net/shape-effect
+url: /ru/net/shape-effect
 keywords: "Эффект формы, Презентация PowerPoint C#, Csharp, Aspose.Slides для .NET"
 description: "Примените эффект к форме PowerPoint в C# или .NET"
 ---
 
-Хотя эффекты в PowerPoint могут использоваться для того, чтобы выделить форму, они отличаются от [заливок](/slides/net/shape-formatting/#gradient-fill) или обводок. С помощью эффектов PowerPoint вы можете создавать убедительные отражения на форме, размывать свечение формы и т. д.
+Хотя эффекты в PowerPoint могут использоваться для того, чтобы выделить форму, они отличаются от [заливок](/slides/ru/net/shape-formatting/#gradient-fill) или обводок. С помощью эффектов PowerPoint вы можете создавать убедительные отражения на форме, размывать свечение формы и т. д.
 
 <img src="shape-effect.png" alt="эффект формы" style="zoom:50%;" />
 

@@ -3,7 +3,7 @@ title: Замена шрифтов - PowerPoint C# API
 linktitle: Замена шрифтов
 type: docs
 weight: 70
-url: /net/font-substitution/
+url: /ru/net/font-substitution/
 keywords: "Шрифт, заменяющий шрифт, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: C# PowerPoint API позволяет вам заменять шрифт внутри презентации
 ---
@@ -65,6 +65,6 @@ bmp.Save("Thumbnail_out.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
 {{%  alert title="ПРИМЕЧАНИЕ"  color="warning"   %}} 
 
-Возможно, вам будет интересно посмотреть [**Замена шрифтов**](/slides/net/font-replacement/). 
+Возможно, вам будет интересно посмотреть [**Замена шрифтов**](/slides/ru/net/font-replacement/). 
 
 {{% /alert %}}

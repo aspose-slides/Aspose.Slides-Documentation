@@ -2,7 +2,7 @@
 title: Управление формой SmartArt
 type: docs
 weight: 20
-url: /cpp/manage-smartart-shape/
+url: /ru/cpp/manage-smartart-shape/
 ---
 
 

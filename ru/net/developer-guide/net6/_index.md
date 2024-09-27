@@ -2,7 +2,7 @@
 title: Поддержка .NET6
 type: docs
 weight: 235
-url: /net/net6/
+url: /ru/net/net6/
 keywords: ".NET6 Cloud AWS Azure"
 description: "Поддержка .NET6"
 ---

@@ -2,7 +2,7 @@
 title: Резюме
 type: docs
 weight: 50
-url: /sharepoint/summary/
+url: /ru/sharepoint/summary/
 ---
 
 {{% alert color="primary" %}} 

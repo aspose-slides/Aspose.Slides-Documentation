@@ -2,7 +2,7 @@
 title: Шрифт по умолчанию
 type: docs
 weight: 30
-url: /python-net/default-font/
+url: /ru/python-net/default-font/
 keywords: "Шрифты, шрифты по умолчанию, рендеринг презентации PowerPoint Python, Aspose.Slides для Python через .NET"
 description: "Шрифты по умолчанию PowerPoint в Python"
 ---

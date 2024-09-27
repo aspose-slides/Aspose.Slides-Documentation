@@ -2,7 +2,7 @@
 title: Эскизы форм
 type: docs
 weight: 70
-url: /cpp/shape-thumbnails/
+url: /ru/cpp/shape-thumbnails/
 ---
 
 

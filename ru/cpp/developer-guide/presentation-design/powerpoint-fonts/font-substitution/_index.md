@@ -2,7 +2,7 @@
 title: Замена шрифтов
 type: docs
 weight: 70
-url: /cpp/font-substitution/
+url: /ru/cpp/font-substitution/
 keywords: "Шрифт, заменяющий шрифт, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Замена шрифта в PowerPoint на C++"
 ---
@@ -48,6 +48,6 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 {{%  alert title="ПРИМЕЧАНИЕ"  color="warning"   %}} 
 
-Вам может быть интересно посмотреть [**Замена шрифта**](/slides/cpp/font-replacement/). 
+Вам может быть интересно посмотреть [**Замена шрифта**](/slides/ru/cpp/font-replacement/). 
 
 {{% /alert %}}

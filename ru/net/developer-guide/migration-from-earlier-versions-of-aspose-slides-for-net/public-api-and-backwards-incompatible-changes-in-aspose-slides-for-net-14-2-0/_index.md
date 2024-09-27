@@ -2,7 +2,7 @@
 title: Общий API и обратно несовместимые изменения в Aspose.Slides для .NET 14.2.0
 type: docs
 weight: 40
-url: /net/obshchiy-api-i-obratno-nesovmestimyye-izmeneniya-v-aspose-slides-dlya-net-14-2-0/
+url: /ru/net/obshchiy-api-i-obratno-nesovmestimyye-izmeneniya-v-aspose-slides-dlya-net-14-2-0/
 ---
 
 ## **Общий API и обратно несовместимые изменения**

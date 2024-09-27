@@ -1,7 +1,7 @@
 ---
 title: Ошибка Штриховка
 type: docs
-url: /python-net/error-bar/
+url: /ru/python-net/error-bar/
 keywords: "Ошибка штриховка, значения ошибки штриховки презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление ошибки штриховки в презентации PowerPoint на Python"
 ---

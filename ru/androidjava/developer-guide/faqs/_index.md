@@ -2,14 +2,14 @@
 title: Часто задаваемые вопросы
 type: docs
 weight: 340
-url: /androidjava/faqs/
+url: /ru/androidjava/faqs/
 ---
 
 ## **Поддерживаемые форматы файлов**
 
 **В: Какие форматы файлов поддерживает Aspose.Slides для Android через Java?**
 
-**О:** Aspose.Slides для Android через Java поддерживает форматы файлов, описанные в [Поддерживаемых форматах файлов](/slides/androidjava/supported-file-formats/).
+**О:** Aspose.Slides для Android через Java поддерживает форматы файлов, описанные в [Поддерживаемых форматах файлов](/slides/ru/androidjava/supported-file-formats/).
 
 ## **Исключения**
 

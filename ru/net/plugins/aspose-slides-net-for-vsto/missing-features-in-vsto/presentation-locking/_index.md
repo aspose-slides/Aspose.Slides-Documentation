@@ -2,7 +2,7 @@
 title: Блокировка презентации
 type: docs
 weight: 110
-url: /net/presentation-locking/
+url: /ru/net/presentation-locking/
 ---
 
 ## **Блокировка презентации**

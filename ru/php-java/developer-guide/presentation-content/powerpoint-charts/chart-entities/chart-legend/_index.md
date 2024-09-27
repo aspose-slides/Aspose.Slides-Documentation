@@ -1,7 +1,7 @@
 ---
 title: Легенда графика
 type: docs
-url: /php-java/chart-legend/
+url: /ru/php-java/chart-legend/
 ---
 
 ## **Позиционирование легенды**

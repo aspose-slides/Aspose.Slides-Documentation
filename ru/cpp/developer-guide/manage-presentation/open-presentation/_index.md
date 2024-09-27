@@ -3,7 +3,7 @@ title: Открыть Презентацию - C++ PowerPoint API
 linktitle: Открыть Презентацию
 type: docs
 weight: 20
-url: /cpp/open-presentation/
+url: /ru/cpp/open-presentation/
 keywords: "Открыть PowerPoint, PPTX, PPT, Открыть Презентацию, Загрузить Презентацию, C++, CPP"
 description: "Открыть или загрузить Презентацию PPT, PPTX, ODP на C++"
 ---

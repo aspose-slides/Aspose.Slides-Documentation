@@ -2,7 +2,7 @@
 title: Лицензирование с учётом объёма
 type: docs
 weight: 100
-url: /java/metered-licensing/
+url: /ru/java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

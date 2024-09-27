@@ -2,7 +2,7 @@
 title: Защищенная паролем презентация
 type: docs
 weight: 20
-url: /python-net/password-protected-presentation/
+url: /ru/python-net/password-protected-presentation/
 keywords: "Заблокировать PowerPoint, разблокировать PowerPoint, защитить PowerPoint, установить пароль, добавить пароль, зашифровать PowerPoint, расшифровать PowerPoint, Защита записи, безопасность PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Защита паролем PowerPoint, шифрование и безопасность в Python"
 
@@ -223,5 +223,5 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
 Он возвращает `True`, если презентация была зашифрована с указанным паролем. В противном случае он возвращает `False`. 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Цифровая подпись в PowerPoint](/slides/python-net/digital-signature-in-powerpoint/)
+- [Цифровая подпись в PowerPoint](/slides/ru/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}

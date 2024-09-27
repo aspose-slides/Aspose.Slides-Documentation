@@ -3,7 +3,7 @@ title: Создание презентации - C++ PowerPoint API
 linktitle: Создание презентации
 type: docs
 weight: 10
-url: /cpp/create-presentation/
+url: /ru/cpp/create-presentation/
 description: Чтобы создать презентацию PowerPoint с использованием C++ API, пожалуйста, следуйте шагам, указанным в этой статье. Код добавляет линию на первый слайд презентации.
 ---
 

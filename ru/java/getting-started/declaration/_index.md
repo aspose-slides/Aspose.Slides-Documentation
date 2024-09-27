@@ -2,7 +2,7 @@
 title: Декларация
 type: docs
 weight: 60
-url: /java/declaration/
+url: /ru/java/declaration/
 ---
 
 {{% alert color="primary" %}} 

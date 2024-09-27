@@ -2,12 +2,12 @@
 title: Создание коллекции резервных шрифтов
 type: docs
 weight: 20
-url: /java/create-fallback-fonts-collection/
+url: /ru/java/create-fallback-fonts-collection/
 ---
 
 Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), который реализует интерфейс [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). Возможно добавлять или удалять правила из коллекции.
 
-Затем эта коллекция может быть назначена методу [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) класса [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager управляет шрифтами в презентации. Читать далее [О FontsManager и FontsLoader](/slides/java/about-fontsmanager-and-fontsloader/).
+Затем эта коллекция может быть назначена методу [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) класса [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager управляет шрифтами в презентации. Читать далее [О FontsManager и FontsLoader](/slides/ru/java/about-fontsmanager-and-fontsloader/).
 
 Каждая [Презентация](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) имеет метод [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--), который содержит свои собственные экземпляры класса [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
 
@@ -30,5 +30,5 @@ try {
 После инициализации FontsManager с коллекцией резервных шрифтов, резервные шрифты применяются во время рендеринга презентации.
 
 {{% alert color="primary" %}} 
-Читать далее о том, как [Рендерить презентацию с резервным шрифтом](/slides/java/render-presentation-with-fallback-font/).
+Читать далее о том, как [Рендерить презентацию с резервным шрифтом](/slides/ru/java/render-presentation-with-fallback-font/).
 {{% /alert %}}

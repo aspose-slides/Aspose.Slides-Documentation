@@ -2,7 +2,7 @@
 title: Замена изображений внутри коллекции изображений презентации
 type: docs
 weight: 90
-url: /cpp/replacing-images-inside-presentation-image-collection/
+url: /ru/cpp/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Конвертировать PowerPoint в TIFF
 type: docs
 weight: 90
-url: /cpp/convert-powerpoint-to-tiff/
+url: /ru/cpp/convert-powerpoint-to-tiff/
 keywords: "Конвертировать презентацию PowerPoint, PowerPoint в TIFF, PPT в TIFF, PPTX в TIFF, C++, CPP, Aspose.Slides"
 description: "Конвертировать презентацию PowerPoint в TIFF на C++"
 ---

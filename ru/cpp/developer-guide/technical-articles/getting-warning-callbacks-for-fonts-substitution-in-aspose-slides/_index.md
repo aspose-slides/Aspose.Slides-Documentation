@@ -2,7 +2,7 @@
 title: Получение обратных вызовов предупреждений для замены шрифтов в Aspose.Slides
 type: docs
 weight: 70
-url: /cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /ru/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

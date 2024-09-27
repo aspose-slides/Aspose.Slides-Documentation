@@ -2,7 +2,7 @@
 title: Системные требования
 type: docs
 weight: 50
-url: /sharepoint/system-requirements/
+url: /ru/sharepoint/system-requirements/
 ---
 
 ## **Системные требования сервера**

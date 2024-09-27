@@ -2,7 +2,7 @@
 title: Водяной знак
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /ru/php-java/watermark/
 keywords: "водяной знак в презентации"
 description: "Используйте водяной знак в PowerPoint с помощью Aspose.Slides. Добавьте водяной знак в ppt-презентацию или удалите водяной знак. Вставьте изображение водяного знака или текстовый водяной знак."
 ---
@@ -41,7 +41,7 @@ description: "Используйте водяной знак в PowerPoint с п
 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/php-java/slide-master/)[TextFrame](/slides/php-java/adding-and-formatting-text/)
+- [Как использовать ](/slides/ru/php-java/slide-master/)[TextFrame](/slides/ru/php-java/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Добавить текстовый водяной знак в презентацию**
@@ -64,7 +64,7 @@ description: "Используйте водяной знак в PowerPoint с п
 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/php-java/slide-master/)[Слайд-мастер](/slides/php-java/slide-master/)
+- [Как использовать ](/slides/ru/php-java/slide-master/)[Слайд-мастер](/slides/ru/php-java/slide-master/)
 {{% /alert %}}
 
 ### **Установить шрифт текстового водяного знака**
@@ -146,7 +146,7 @@ description: "Используйте водяной знак в PowerPoint с п
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как заблокировать формы от редактирования](/slides/php-java/presentation-locking/)
+- [Как заблокировать формы от редактирования](/slides/ru/php-java/presentation-locking/)
 {{% /alert %}}
 
 ## **Переместить водяной знак на передний план**

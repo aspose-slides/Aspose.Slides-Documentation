@@ -3,7 +3,7 @@ title: Замена шрифтов - Java API PowerPoint
 linktitle: Замена шрифтов
 type: docs
 weight: 70
-url: /php-java/font-substitution/
+url: /ru/php-java/font-substitution/
 keywords: "Шрифт, заменяющий шрифт, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Замена шрифта в PowerPoint"
 ---
@@ -53,6 +53,6 @@ Aspose.Slides позволяет устанавливать правила дл�
 
 {{%  alert title="ПРИМЕЧАНИЕ"  color="warning"   %}} 
 
-Вы можете захотеть увидеть [**Замена шрифтов**](/slides/php-java/font-replacement/).
+Вы можете захотеть увидеть [**Замена шрифтов**](/slides/ru/php-java/font-replacement/).
 
 {{% /alert %}}

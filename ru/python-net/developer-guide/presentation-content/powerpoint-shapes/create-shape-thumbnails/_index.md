@@ -2,7 +2,7 @@
 title: Создание миниатюров форм
 type: docs
 weight: 70
-url: /python-net/create-shape-thumbnails/
+url: /ru/python-net/create-shape-thumbnails/
 keywords: "Миниатюра формы. Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Миниатюра формы в презентации PowerPoint на Python"
 ---

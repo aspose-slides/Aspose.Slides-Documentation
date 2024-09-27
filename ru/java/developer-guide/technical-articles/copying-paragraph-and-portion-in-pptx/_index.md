@@ -2,7 +2,7 @@
 title: Копирование абзаца и части в PPTX
 type: docs
 weight: 70
-url: /java/copying-paragraph-and-portion-in-pptx/
+url: /ru/java/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

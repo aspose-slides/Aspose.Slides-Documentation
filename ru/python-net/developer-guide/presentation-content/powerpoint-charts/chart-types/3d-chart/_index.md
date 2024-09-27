@@ -1,7 +1,7 @@
 ---
 title: 3D Диаграмма
 type: docs
-url: /python-net/3d-chart/
+url: /ru/python-net/3d-chart/
 keywords: "3d диаграмма, rotationX, rotationY, depthpercent, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Установите rotationX, rotationY и depthpercents для 3D диаграммы в презентации PowerPoint на Python"
 ---

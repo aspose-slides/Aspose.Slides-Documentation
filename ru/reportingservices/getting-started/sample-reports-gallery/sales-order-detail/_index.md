@@ -2,7 +2,7 @@
 title: Детали заказа на продажу
 type: docs
 weight: 50
-url: /reportingservices/sales-order-detail/
+url: /ru/reportingservices/sales-order-detail/
 ---
 
 ## **Функции:**

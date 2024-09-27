@@ -2,5 +2,5 @@
 title: Диаграммы PowerPoint
 type: docs
 weight: 70
-url: /php-java/powerpoint-charts/
+url: /ru/php-java/powerpoint-charts/
 ---

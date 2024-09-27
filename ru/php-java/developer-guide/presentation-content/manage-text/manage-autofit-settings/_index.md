@@ -2,7 +2,7 @@
 title: Управление настройками автоматической подгонки
 type: docs
 weight: 30
-url: /php-java/manage-autofit-settings/
+url: /ru/php-java/manage-autofit-settings/
 keywords: "Текстовое поле, Автоподгонка, Презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Настройка параметров автоматической подгонки для текстового поля в PowerPoint"
 ---

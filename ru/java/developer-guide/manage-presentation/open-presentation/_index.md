@@ -3,7 +3,7 @@ title: Открыть презентацию в Java
 linktitle: Открыть презентацию
 type: docs
 weight: 20
-url: /java/open-presentation/
+url: /ru/java/open-presentation/
 keywords: "Открыть PowerPoint, PPTX, PPT, Открыть презентацию, Загрузить презентацию, Java"
 description: "Открыть или загрузить презентацию PPT, PPTX, ODP в Java"
 ---

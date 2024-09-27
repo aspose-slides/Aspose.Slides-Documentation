@@ -2,7 +2,7 @@
 title: Ограничения API
 type: docs
 weight: 320
-url: /java/api-limitations/
+url: /ru/java/api-limitations/
 ---
 
 ## **Презентации и другие форматы экспорта**

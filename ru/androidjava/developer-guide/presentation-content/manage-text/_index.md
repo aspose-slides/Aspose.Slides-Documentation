@@ -2,5 +2,5 @@
 title: Управление текстом
 type: docs
 weight: 50
-url: /androidjava/manage-text/
+url: /ru/androidjava/manage-text/
 ---

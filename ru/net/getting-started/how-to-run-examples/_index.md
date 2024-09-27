@@ -2,7 +2,7 @@
 title: Как запустить примеры
 type: docs
 weight: 130
-url: /net/how-to-run-examples/
+url: /ru/net/how-to-run-examples/
 ---
 
 ## **Требования к программному обеспечению**

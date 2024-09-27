@@ -2,7 +2,7 @@
 title: Анимированные диаграммы
 type: docs
 weight: 80
-url: /androidjava/animated-charts/
+url: /ru/androidjava/animated-charts/
 ---
 
 

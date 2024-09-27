@@ -3,7 +3,7 @@ title: Сохранить Презентацию - Библиотека C++ Powe
 linktitle: Сохранить Презентацию
 type: docs
 weight: 80
-url: /cpp/save-presentation/
+url: /ru/cpp/save-presentation/
 description: C++ PowerPoint API или библиотека позволяет сохранить презентацию в файл или поток. Вы можете создать презентацию с нуля или изменить существующую.
 ---
 

@@ -2,7 +2,7 @@
 title: Линия
 type: docs
 weight: 50
-url: /php-java/Line/
+url: /ru/php-java/Line/
 ---
 
 

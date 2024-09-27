@@ -2,7 +2,7 @@
 title: Как запустить примеры
 type: docs
 weight: 140
-url: /php-java/how-to-run-the-examples/
+url: /ru/php-java/how-to-run-the-examples/
 ---
 
 ## **Скачивание с GitHub**

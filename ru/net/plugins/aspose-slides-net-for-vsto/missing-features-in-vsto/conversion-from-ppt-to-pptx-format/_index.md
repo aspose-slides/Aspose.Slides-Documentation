@@ -2,7 +2,7 @@
 title: Конвертация из формата PPT в формат PPTX  
 type: docs  
 weight: 20  
-url: /net/conversion-from-ppt-to-pptx-format/  
+url: /ru/net/conversion-from-ppt-to-pptx-format/  
 ---  
 
 Уникальная функция Aspose.Slides, которая предоставляет гибкость при конвертации версий без влияния на работу.  

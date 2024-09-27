@@ -2,14 +2,14 @@
 title: Тема Презентации
 type: docs
 weight: 10
-url: /androidjava/presentation-theme/
+url: /ru/androidjava/presentation-theme/
 keywords: "Тема, Тема PowerPoint, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Тема презентации PowerPoint на Java"
 ---
 
 Тема презентации определяет свойства элементов дизайна. При выборе темы презентации вы фактически выбираете конкретный набор визуальных элементов и их свойства.
 
-В PowerPoint тема включает цвета, [шрифты](/slides/androidjava/powerpoint-fonts/), [стили фона](/slides/androidjava/presentation-background/) и эффекты.
+В PowerPoint тема включает цвета, [шрифты](/slides/ru/androidjava/powerpoint-fonts/), [стили фона](/slides/ru/androidjava/presentation-background/) и эффекты.
 
 ![компоненты-темы](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Aria
 
 {{% alert color="primary" title="Совет" %}} 
 
-Вы можете ознакомиться с [шрифтами PowerPoint](/slides/androidjava/powerpoint-fonts/).
+Вы можете ознакомиться с [шрифтами PowerPoint](/slides/ru/androidjava/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="Совет" %}} 
 
-Вы можете ознакомиться с [фоном PowerPoint](/slides/androidjava/presentation-background/).
+Вы можете ознакомиться с [фоном PowerPoint](/slides/ru/androidjava/presentation-background/).
 
 {{% /alert %}}
 

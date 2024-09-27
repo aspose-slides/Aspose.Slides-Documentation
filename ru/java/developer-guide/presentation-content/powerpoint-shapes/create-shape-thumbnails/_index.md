@@ -2,7 +2,7 @@
 title: Создание эскизов фигур
 type: docs
 weight: 70
-url: /java/create-shape-thumbnails/
+url: /ru/java/create-shape-thumbnails/
 ---
 
 

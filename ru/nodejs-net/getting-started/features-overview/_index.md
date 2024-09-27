@@ -2,7 +2,7 @@
 title: Обзор возможностей
 type: docs
 weight: 20
-url: /nodejs-net/features-overview/
+url: /ru/nodejs-net/features-overview/
 ---
 
 ## **Поддерживаемые платформы**

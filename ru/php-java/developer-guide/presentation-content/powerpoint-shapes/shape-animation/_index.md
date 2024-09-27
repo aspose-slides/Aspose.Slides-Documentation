@@ -2,7 +2,7 @@
 title: Анимация Форм
 type: docs
 weight: 60
-url: /php-java/shape-animation/
+url: /ru/php-java/shape-animation/
 keywords: "анимация PowerPoint, эффект анимации, применить анимацию, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Применить анимацию PowerPoint"
 ---
@@ -67,7 +67,7 @@ Aspose.Slides для PHP через Java позволяет вам примен�
 
 {{%  alert color="primary"  %}} 
 
-Кроме применения анимаций к тексту, вы также можете применять анимации к отдельному [абзацу](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/php-java/animated-text/).
+Кроме применения анимаций к тексту, вы также можете применять анимации к отдельному [абзацу](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/ru/php-java/animated-text/).
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: Управление формой SmartArt
 type: docs
 weight: 20
-url: /java/manage-smartart-shape/
+url: /ru/java/manage-smartart-shape/
 ---
 
 

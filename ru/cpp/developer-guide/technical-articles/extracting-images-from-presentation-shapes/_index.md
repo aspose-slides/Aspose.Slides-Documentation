@@ -2,7 +2,7 @@
 title: Извлечение изображений из фигур презентации
 type: docs
 weight: 90
-url: /cpp/extracting-images-from-presentation-shapes/
+url: /ru/cpp/extracting-images-from-presentation-shapes/
 keywords: "Извлечение изображения, PowerPoint, PPT, PPTX, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Извлечение изображений из презентации PowerPoint на C++"
 

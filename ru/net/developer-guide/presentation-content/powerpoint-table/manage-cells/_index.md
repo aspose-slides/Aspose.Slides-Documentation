@@ -2,7 +2,7 @@
 title: Управление Ячейками
 type: docs
 weight: 30
-url: /net/manage-cells/
+url: /ru/net/manage-cells/
 keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, C#, Csharp, Aspose.Slides для .NET"
 description: "Ячейки таблицы в презентациях PowerPoint на C# или .NET"
 ---

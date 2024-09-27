@@ -2,12 +2,12 @@
 title: Эффект формы
 type: docs
 weight: 30
-url: /java/shape-effect
+url: /ru/java/shape-effect
 keywords: "Эффект формы, Презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Примените эффект к форме PowerPoint на Java"
 ---
 
-Хотя эффекты в PowerPoint могут использоваться для того, чтобы форма выделялась, они отличаются от [заливок](/slides/java/shape-formatting/#gradient-fill) или контуров. Используя эффекты PowerPoint, вы можете создать убедительные отражения на форме, рассеять свечение формы и т.д.
+Хотя эффекты в PowerPoint могут использоваться для того, чтобы форма выделялась, они отличаются от [заливок](/slides/ru/java/shape-formatting/#gradient-fill) или контуров. Используя эффекты PowerPoint, вы можете создать убедительные отражения на форме, рассеять свечение формы и т.д.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

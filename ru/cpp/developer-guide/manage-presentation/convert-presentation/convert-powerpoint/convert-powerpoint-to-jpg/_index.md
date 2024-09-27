@@ -2,7 +2,7 @@
 title: Преобразование Powerpoint PPT в JPG
 type: docs
 weight: 60
-url: /cpp/convert-powerpoint-to-jpg/
+url: /ru/cpp/convert-powerpoint-to-jpg/
 keywords: "Преобразовать PowerPoint в JPG"
 description: "Преобразовать PowerPoint в JPG: PPT в JPG, PPTX в JPG на C++"
 ---
@@ -67,4 +67,4 @@ Aspose предоставляет [БЕСПЛАТНОЕ веб-приложен�
 
 Смотрите другие варианты преобразования PPT/PPTX в изображение, такие как:
 
-- [Преобразование PPT/PPTX в SVG](/slides/cpp/render-a-slide-as-an-svg-image/)
+- [Преобразование PPT/PPTX в SVG](/slides/ru/cpp/render-a-slide-as-an-svg-image/)

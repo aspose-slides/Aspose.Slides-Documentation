@@ -2,7 +2,7 @@
 title: Управление OLE
 type: docs
 weight: 40
-url: /php-java/manage-ole/
+url: /ru/php-java/manage-ole/
 ---
 
 {{% alert color="primary" %}} 

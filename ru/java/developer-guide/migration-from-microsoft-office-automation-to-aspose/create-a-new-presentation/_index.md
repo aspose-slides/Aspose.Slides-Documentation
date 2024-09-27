@@ -2,7 +2,7 @@
 title: Создать новую презентацию
 type: docs
 weight: 10
-url: /java/create-a-new-presentation/
+url: /ru/java/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides для Java — это компонент, который можн
 
 {{% /alert %}} 
 ## **Создание презентации**
-Ниже приведены два примера кода, которые иллюстрируют, как VSTO и Aspose.Slides для Java могут быть использованы для достижения одной и той же цели. Первый пример — [VSTO](/slides/java/create-a-new-presentation/); [второй пример](/slides/java/create-a-new-presentation/) использует Aspose.Slides.
+Ниже приведены два примера кода, которые иллюстрируют, как VSTO и Aspose.Slides для Java могут быть использованы для достижения одной и той же цели. Первый пример — [VSTO](/slides/ru/java/create-a-new-presentation/); [второй пример](/slides/ru/java/create-a-new-presentation/) использует Aspose.Slides.
 ### **Пример VSTO**
 **Вывод VSTO** 
 

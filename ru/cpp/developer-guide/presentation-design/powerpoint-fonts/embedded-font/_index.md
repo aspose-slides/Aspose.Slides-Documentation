@@ -2,7 +2,7 @@
 title: Встроенные Шрифты
 type: docs
 weight: 40
-url: /cpp/embedded-font/
+url: /ru/cpp/embedded-font/
 keywords: "Шрифты, встроенные шрифты, добавить шрифты, презентация PowerPoint C++, CPP, Aspose.Slides для C++"
 description: "Используйте встроенные шрифты в презентации PowerPoint на C++"
 ---

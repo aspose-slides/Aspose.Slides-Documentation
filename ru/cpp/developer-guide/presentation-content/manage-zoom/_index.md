@@ -2,7 +2,7 @@
 title: Управление Зумом
 type: docs
 weight: 60
-url: /cpp/manage-zoom/
+url: /ru/cpp/manage-zoom/
 keywords: "Зум, Зум-фрейм, Добавить зум, Формат зум-фрейма, Сводный зум, Презентация PowerPoint, C++, Aspose.Slides для C++"
 description: "Добавление зума или зум-фреймов в презентации PowerPoint на C++"
 ---

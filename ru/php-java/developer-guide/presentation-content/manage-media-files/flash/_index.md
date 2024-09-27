@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /php-java/flash/
+url: /ru/php-java/flash/
 description: Извлечение объектов Flash из презентации PowerPoint с помощью PHP
 ---
 

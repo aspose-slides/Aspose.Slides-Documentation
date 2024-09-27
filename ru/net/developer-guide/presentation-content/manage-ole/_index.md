@@ -2,7 +2,7 @@
 title: Управление OLE
 type: docs
 weight: 40
-url: /net/manage-ole/
+url: /ru/net/manage-ole/
 keywords: "Добавить OLE, Добавить объект, Вставить объект, Связывание и встраивание объектов, OLE Object Frame, Вставить OLE, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET "
 description: "Добавьте OLE-объект в презентацию PowerPoint на C# или .NET"
 ---

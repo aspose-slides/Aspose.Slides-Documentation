@@ -3,7 +3,7 @@ title: Управление шрифтами - PowerPoint Java API
 linktitle: Управление шрифтами
 type: docs
 weight: 10
-url: /php-java/manage-fonts/
+url: /ru/php-java/manage-fonts/
 description: Презентации обычно содержат как текст, так и изображения. Эта статья показывает, как использовать PowerPoint Java API для настройки свойств шрифта абзацев текста на слайдах.
 ---
 

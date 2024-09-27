@@ -2,7 +2,7 @@
 title: Конвертация ODP в PPTX
 type: docs
 weight: 10
-url: /cpp/convert-odp-to-pptx/
+url: /ru/cpp/convert-odp-to-pptx/
 ---
 
 Aspose.Slides для .NET предлагает класс Presentation, который представляет файл презентации. Класс [**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) теперь также может получать доступ к ODP через конструктор Presentation при создании объекта. В следующем примере показано, как конвертировать презентацию ODP в презентацию PPTX.

@@ -2,7 +2,7 @@
 title: Рабочее решение для изменения размеров диаграмм в PPTX
 type: docs
 weight: 60
-url: /cpp/working-solution-for-chart-resizing-in-pptx/
+url: /ru/cpp/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

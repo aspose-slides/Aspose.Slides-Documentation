@@ -2,7 +2,7 @@
 title: Изображение
 type: docs
 weight: 10
-url: /python-net/image/
+url: /ru/python-net/image/
 keywords: "Добавить изображение, Добавить картинку, Презентация PowerPoint, EMF, SVG, Python, Aspose.Slides для Python через .NET"
 description: "Добавить изображение на слайд или в презентацию PowerPoint на Python"
 ---

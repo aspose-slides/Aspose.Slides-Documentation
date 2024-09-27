@@ -2,14 +2,14 @@
 title: Применение защиты к презентации
 type: docs
 weight: 10
-url: /cpp/applying-protection-to-presentation/
+url: /ru/cpp/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Распространенное применение Aspose.Slides - создание, обновление и сохранение презентаций Microsoft PowerPoint 2007 (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложения, использующего Aspose.Slides таким образом, получают доступ к результирующим презентациям. Защита их от редактирования является распространенной заботой. Важно, чтобы автоматически сгенерированные презентации сохраняли свое оригинальное форматирование и содержимое.
 
-В этой статье объясняется, как [создаются презентации и слайды](/slides/cpp/applying-protection-to-presentation/) и как Aspose.Slides для C++ может [применить защиту к](/slides/cpp/applying-protection-to-presentation/), а затем [удалить ее из](/slides/cpp/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и, на момент написания, недоступна в Microsoft PowerPoint. Она предоставляет разработчикам способ контроля того, как используются презентации, создаваемые их приложениями.
+В этой статье объясняется, как [создаются презентации и слайды](/slides/ru/cpp/applying-protection-to-presentation/) и как Aspose.Slides для C++ может [применить защиту к](/slides/ru/cpp/applying-protection-to-presentation/), а затем [удалить ее из](/slides/ru/cpp/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и, на момент написания, недоступна в Microsoft PowerPoint. Она предоставляет разработчикам способ контроля того, как используются презентации, создаваемые их приложениями.
 
 {{% /alert %}} 
 ## **Состав слайда**

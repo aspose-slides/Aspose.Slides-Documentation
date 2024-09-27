@@ -1,7 +1,7 @@
 ---
 title: Точки данных диаграммы Солнечного зайца и Древовидной диаграммы
 type: docs
-url: /androidjava/data-points-of-treemap-and-sunburst-chart/
+url: /ru/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "График солнечного зайца в Aspose.Slides для Android через Java"
 description: "График солнечного зайца, диаграмма солнечного зайца, диаграмма солнечного зайца, радиальная диаграмма, радиальный график или многоуровневая круговая диаграмма с Aspose.Slides для Android через Java."
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание диаграммы солнечного зайца**](/slides/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Создание диаграммы солнечного зайца**](/slides/ru/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

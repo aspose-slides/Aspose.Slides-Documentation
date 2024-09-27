@@ -2,7 +2,7 @@
 title: Многопоточность в Aspose.Slides
 type: docs
 weight: 200
-url: /python-net/multithreading/
+url: /ru/python-net/multithreading/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Математические уравнения PowerPoint
 type: docs
 weight: 80
-url: /androidjava/powerpoint-math-equations/
+url: /ru/androidjava/powerpoint-math-equations/
 keywords: " Математические уравнения PowerPoint, Математические символы PowerPoint, Формула PowerPoint, Математический текст PowerPoint"
 description: "Математические уравнения PowerPoint, Математические символы PowerPoint, Формула PowerPoint, Математический текст PowerPoint"
 ---

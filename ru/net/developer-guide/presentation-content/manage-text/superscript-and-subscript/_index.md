@@ -2,7 +2,7 @@
 title: Вверхний индекс и нижний индекс
 type: docs
 weight: 80
-url: /net/superscript-and-subscript/
+url: /ru/net/superscript-and-subscript/
 keywords: "Вверхний индекс, Нижний индекс, Добавить текст вверхнего индекса, Добавить текст нижнего индекса, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте текст верхнего и нижнего индексов в презентации PowerPoint на C# или .NET"
 ---

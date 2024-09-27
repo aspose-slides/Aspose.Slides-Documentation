@@ -2,7 +2,7 @@
 title: 3D Презентация
 type: docs
 weight: 232
-url: /python-net/3d-presentation/
+url: /ru/python-net/3d-presentation/
 keywords: "3D, 3D PowerPoint, 3D презентация, 3D поворот, 3D глубина, 3D экструзия, 3D градиент, 3D текст, PowerPoint презентация, Python, Aspose.Slides для Python"
 description: "3D PowerPoint презентация на Python"
 ---

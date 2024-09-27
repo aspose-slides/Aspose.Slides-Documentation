@@ -2,7 +2,7 @@
 title: Локализация Презентации
 type: docs
 weight: 100
-url: /androidjava/presentation-localization/
+url: /ru/androidjava/presentation-localization/
 ---
 
 ## **Изменить Язык для Презентации и Текста Фигуры**

@@ -2,14 +2,14 @@
 title: Применение защиты к презентации
 type: docs
 weight: 60
-url: /php-java/applying-protection-to-presentation/
+url: /ru/php-java/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Один из распространенных способов использования Aspose.Slides заключается в создании, обновлении и сохранении презентаций Microsoft PowerPoint 2007 (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложения, использующего Aspose.Slides таким образом, получают доступ к выходным презентациям. Защита их от редактирования является общей проблемой. Важно, чтобы автоматически сгенерированные презентации сохраняли свое исходное форматирование и содержимое.
 
-В этой статье объясняется, как [конструируются презентации и слайды](/slides/php-java/applying-protection-to-presentation/) и как Aspose.Slides для PHP через Java может [применить защиту к](/slides/php-java/applying-protection-to-presentation/), а затем [удалить ее из](/slides/php-java/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и на момент написания недоступна в Microsoft PowerPoint. Она предоставляет разработчикам способ контролировать, как используются презентации, создаваемые их приложениями.
+В этой статье объясняется, как [конструируются презентации и слайды](/slides/ru/php-java/applying-protection-to-presentation/) и как Aspose.Slides для PHP через Java может [применить защиту к](/slides/ru/php-java/applying-protection-to-presentation/), а затем [удалить ее из](/slides/ru/php-java/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и на момент написания недоступна в Microsoft PowerPoint. Она предоставляет разработчикам способ контролировать, как используются презентации, создаваемые их приложениями.
 
 {{% /alert %}} 
 ## **Состав слайда**

@@ -2,7 +2,7 @@
 title: Сравнить слайды
 type: docs
 weight: 50
-url: /androidjava/compare-slides/
+url: /ru/androidjava/compare-slides/
 ---
 
 ## **Сравнить два слайда**

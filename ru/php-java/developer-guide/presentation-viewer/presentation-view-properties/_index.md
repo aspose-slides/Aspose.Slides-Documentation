@@ -1,7 +1,7 @@
 ---
 title: Свойства нормального представления
 type: docs
-url: /php-java/presentation-view-properties/
+url: /ru/php-java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -57,7 +57,7 @@ url: /php-java/presentation-view-properties/
 ## **Установить значение по умолчанию для зума**
 {{% alert color="primary" %}} 
 
-Aspose.Slides для PHP через Java теперь поддерживает установку значения по умолчанию для зума презентации так, чтобы при открытии презентации зум был установлен заранее. Это можно сделать, установив [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) презентации. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) и [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) могут быть установлены программно. В этой теме мы увидим на примере, как установить [Свойства представления](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) для [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) в [Aspose.Slides](/slides/).
+Aspose.Slides для PHP через Java теперь поддерживает установку значения по умолчанию для зума презентации так, чтобы при открытии презентации зум был установлен заранее. Это можно сделать, установив [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) презентации. [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) и [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) могут быть установлены программно. В этой теме мы увидим на примере, как установить [Свойства представления](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) для [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) в [Aspose.Slides](/slides/ru/).
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: Переход между слайдами
 type: docs
 weight: 80
-url: /cpp/slide-transition/
+url: /ru/cpp/slide-transition/
 keywords: "Переход слайда PowerPoint, морфный переход"
 description: "Переход слайда PowerPoint, морфный переход PowerPoint с помощью Aspose.Slides."
 ---

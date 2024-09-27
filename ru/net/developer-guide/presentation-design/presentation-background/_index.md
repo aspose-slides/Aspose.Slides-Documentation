@@ -2,7 +2,7 @@
 title: Фон презентации
 type: docs
 weight: 20
-url: /net/presentation-background/
+url: /ru/net/presentation-background/
 keywords: "фон PowerPoint, установить фон, C#, Csharp, Aspose.Slides для .NET"
 description: "Установить фон в презентации PowerPoint на C# или .NET"
 ---

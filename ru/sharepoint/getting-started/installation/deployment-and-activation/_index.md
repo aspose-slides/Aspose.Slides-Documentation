@@ -2,7 +2,7 @@
 title: Развертывание и Активация
 type: docs
 weight: 20
-url: /sharepoint/deployment-and-activation/
+url: /ru/sharepoint/deployment-and-activation/
 ---
 
 ## **Развертывание**

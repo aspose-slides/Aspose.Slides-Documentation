@@ -2,7 +2,7 @@
 title: Собрать Слайды
 type: docs
 weight: 10
-url: /net/sobrat-slidy/
+url: /ru/net/sobrat-slidy/
 ---
 
 Он охватывает следующие функции:

@@ -2,7 +2,7 @@
 title: Рабочая тетрадь диаграмм
 type: docs
 weight: 70
-url: /php-java/chart-workbook/
+url: /ru/php-java/chart-workbook/
 keywords: "Рабочая тетрадь диаграмм, данные диаграмм, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Рабочая тетрадь диаграмм в презентации PowerPoint"
 ---

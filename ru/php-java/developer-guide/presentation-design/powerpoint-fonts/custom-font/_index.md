@@ -3,7 +3,7 @@ title: Пользовательский шрифт PowerPoint
 linktitle: Пользовательский шрифт
 type: docs
 weight: 20
-url: /php-java/custom-font/
+url: /ru/php-java/custom-font/
 keywords: "Шрифты, пользовательские шрифты, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Пользовательские шрифты PowerPoint"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Область построения графика
 type: docs
-url: /net/chart-plot-area/
+url: /ru/net/chart-plot-area/
 keywords: "Область построения графика Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Получите ширину, высоту области построения графика. Установите режим компоновки. Презентация PowerPoint на C# или .NET"
 ---

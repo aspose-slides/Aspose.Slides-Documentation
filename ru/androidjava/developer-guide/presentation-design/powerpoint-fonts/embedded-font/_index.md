@@ -3,7 +3,7 @@ title: Встроенные шрифты - PowerPoint Java API
 linktitle: Встроенные шрифты
 type: docs
 weight: 40
-url: /androidjava/embedded-font/
+url: /ru/androidjava/embedded-font/
 keywords: "Шрифты, встроенные шрифты, добавление шрифтов, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Использование встроенных шрифтов в презентации PowerPoint на Java"
 

@@ -1,7 +1,7 @@
 ---
 title: Параметры маркеров данных диаграммы
 type: docs
-url: /net/chart-data-marker/
+url: /ru/net/chart-data-marker/
 keywords: "Опции маркеров диаграммы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Установите параметры маркеров диаграммы в презентациях PowerPoint на C# или .NET"
 ---

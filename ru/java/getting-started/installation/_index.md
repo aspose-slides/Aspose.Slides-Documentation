@@ -2,7 +2,7 @@
 title: Установка
 type: docs
 weight: 70
-url: /java/installation/
+url: /ru/java/installation/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Добавить рамку для картинки в презентацию
 type: docs
 weight: 50
-url: /net/add-picture-frame-to-presentation/
+url: /ru/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**

@@ -2,7 +2,7 @@
 title: Форматирование текста
 type: docs
 weight: 110
-url: /net/format-text/
+url: /ru/net/format-text/
 ---
 
 Обе методы VSTO и Aspose.Slides выполняют следующие шаги:

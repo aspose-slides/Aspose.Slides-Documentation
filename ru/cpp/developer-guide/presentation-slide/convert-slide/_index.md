@@ -2,7 +2,7 @@
 title: Конвертация слайда
 type: docs
 weight: 41
-url: /cpp/convert-slide/
+url: /ru/cpp/convert-slide/
 keywords: "Конвертация слайда в изображение, экспорт слайда как изображение, сохранение слайда как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в Bitmap, C++, Aspose.Slides"
 description: "Конвертация слайда PowerPoint в изображение (Bitmap, PNG или JPG) на C++"
 ---

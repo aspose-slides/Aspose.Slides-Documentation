@@ -2,7 +2,7 @@
 title: Управление маркированными и нумерованными списками
 type: docs
 weight: 70
-url: /python-net/manage-bullet-and-numbered-lists/
+url: /ru/python-net/manage-bullet-and-numbered-lists/
 keywords: "Маркировка, Маркированные списки, Номера, Нумерованные списки, Изображения в маркировке, многоуровневые маркированные списки, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Создание маркированных и нумерованных списков в презентации PowerPoint на Python"
 ---

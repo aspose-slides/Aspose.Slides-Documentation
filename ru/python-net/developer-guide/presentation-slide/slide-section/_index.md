@@ -2,7 +2,7 @@
 title: Раздел слайдов
 type: docs
 weight: 100
-url: /python-net/slide-section/
+url: /ru/python-net/slide-section/
 keywords: "Создать раздел, Добавить раздел, Изменить имя раздела, Презентация PowerPoint, Python, Aspose.Slides"
 description: "Добавление и редактирование раздела в презентации PowerPoint на Python"
 ---

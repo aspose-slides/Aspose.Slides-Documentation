@@ -2,7 +2,7 @@
 title: Управление таблицей
 type: docs
 weight: 10
-url: /androidjava/manage-table/
+url: /ru/androidjava/manage-table/
 keywords: "Таблица, создать таблицу, доступ к таблице, соотношение сторон таблицы, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Создайте и управляйте таблицами в презентациях PowerPoint на Java"
 ---

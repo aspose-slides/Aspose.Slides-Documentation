@@ -2,7 +2,7 @@
 title: Эффективные свойства формы
 type: docs
 weight: 50
-url: /python-net/shape-effective-properties/
+url: /ru/python-net/shape-effective-properties/
 keywords: "Свойства формы, Свойства камеры, световая установка, фаска формы, текстовая рамка, стиль текста, значение высоты шрифта, формат заливки для таблицы, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Получите эффективные свойства форм в презентациях PowerPoint на Python"
 ---

@@ -3,7 +3,7 @@ title: Создание или управление узлом фигуры Smar
 linktitle: Управление узлом фигуры SmartArt
 type: docs
 weight: 30
-url: /php-java/manage-smartart-shape-node/
+url: /ru/php-java/manage-smartart-shape-node/
 keywords: smartart powerpoint, узлы smartart, позиция smartart, удалить smartart, добавить узлы smartart, презентация powerpoint, powerpoint java, powerpoint java api
 description: Управление узлом smart art и дочерними узлами в презентациях PowerPoint
 ---

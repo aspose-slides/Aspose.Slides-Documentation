@@ -2,7 +2,7 @@
 title: Современное API
 type: docs
 weight: 237
-url: /php-java/modern-api/
+url: /ru/php-java/modern-api/
 keywords: "Кроссплатформенное Современное API"
 description: "Современное API"
 ---

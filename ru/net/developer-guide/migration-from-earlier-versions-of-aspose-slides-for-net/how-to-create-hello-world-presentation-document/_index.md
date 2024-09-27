@@ -2,12 +2,12 @@
 title: Как создать документ представления Hello World
 type: docs
 weight: 10
-url: /net/how-to-create-hello-world-presentation-document/
+url: /ru/net/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-Выпущен новый [Aspose.Slides для .NET API](/slides/net/), который теперь поддерживает возможность создания документов PowerPoint с нуля и редактирования существующих.
+Выпущен новый [Aspose.Slides для .NET API](/slides/ru/net/), который теперь поддерживает возможность создания документов PowerPoint с нуля и редактирования существующих.
 
 {{% /alert %}} 
 ## **Поддержка устаревшего кода**

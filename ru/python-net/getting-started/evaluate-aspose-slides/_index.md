@@ -2,7 +2,7 @@
 title: Оценка Aspose.Slides
 type: docs
 weight: 120
-url: /python-net/evaluate-aspose-slides/
+url: /ru/python-net/evaluate-aspose-slides/
 ---
 
 Вы можете легко скачать Aspose.Slides для оценки. Оценочный пакет такой же, как и купленный пакет. Оценочная версия просто становится лицензированной после того, как вы добавите несколько строк кода для применения лицензии.

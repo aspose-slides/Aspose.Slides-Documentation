@@ -2,7 +2,7 @@
 title: Эллипс
 type: docs
 weight: 30
-url: /net/ellipse/
+url: /ru/net/ellipse/
 keywords: "Эллипс, фигура PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Создание эллипса в презентации PowerPoint на C# или .NET"
 ---

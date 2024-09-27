@@ -2,7 +2,7 @@
 title: Добавить изображение в ячейку таблицы
 type: docs
 weight: 10
-url: /net/add-image-in-table-cell/
+url: /ru/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**

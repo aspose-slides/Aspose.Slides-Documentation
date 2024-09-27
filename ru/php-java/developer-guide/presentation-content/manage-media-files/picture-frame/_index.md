@@ -2,7 +2,7 @@
 title: Рамка для изображения
 type: docs
 weight: 10
-url: /php-java/picture-frame/
+url: /ru/php-java/picture-frame/
 keywords: "Добавить рамку для изображения, создать рамку для изображения, добавить изображение, создать изображение, извлечь изображение, свойство StretchOff, форматирование рамки для изображения, свойства рамки для изображения, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Добавить рамку для изображения в презентацию PowerPoint"
 

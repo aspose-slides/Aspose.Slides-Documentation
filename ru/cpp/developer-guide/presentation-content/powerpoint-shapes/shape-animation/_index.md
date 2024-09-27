@@ -2,12 +2,12 @@
 title: Анимация форм
 type: docs
 weight: 60
-url: /cpp/shape-animation/
+url: /ru/cpp/shape-animation/
 keywords: "Анимация PowerPoint, Эффект анимации, Применить анимацию, Презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Примените анимацию PowerPoint в C++"
 ---
 
-Анимации — этоVisual эффекты, которые можно применять к текстам, изображениям, фигурам или [диаграммам](/slides/cpp/animated-charts/). Они придают жизнь презентациям или их компонентам.
+Анимации — этоVisual эффекты, которые можно применять к текстам, изображениям, фигурам или [диаграммам](/slides/ru/cpp/animated-charts/). Они придают жизнь презентациям или их компонентам.
 
 ### **Почему стоит использовать анимацию в презентациях?**
 
@@ -70,7 +70,7 @@ pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 {{%  alert color="primary"  %}} 
 
-Кроме применения анимаций к тексту, вы также можете применять анимации к отдельному [абзацу](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph). См. [**Анимированный текст**](/slides/cpp/animated-text/).
+Кроме применения анимаций к тексту, вы также можете применять анимации к отдельному [абзацу](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph). См. [**Анимированный текст**](/slides/ru/cpp/animated-text/).
 
 {{% /alert %}} 
 

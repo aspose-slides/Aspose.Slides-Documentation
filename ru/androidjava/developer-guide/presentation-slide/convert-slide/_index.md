@@ -2,7 +2,7 @@
 title: Преобразование слайда
 type: docs
 weight: 35
-url: /androidjava/convert-slide/
+url: /ru/androidjava/convert-slide/
 keywords: "Преобразовать слайд в изображение, экспортировать слайд как изображение, сохранить слайд как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в битмап, Java, java, Aspose.Slides"
 description: "Преобразование слайда PowerPoint в изображение (битмап, PNG или JPG) на Java"
 ---

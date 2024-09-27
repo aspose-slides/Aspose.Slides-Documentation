@@ -2,7 +2,7 @@
 title: Группа
 type: docs
 weight: 40
-url: /php-java/group/
+url: /ru/php-java/group/
 ---
 
 ## **Добавить группу фигур**

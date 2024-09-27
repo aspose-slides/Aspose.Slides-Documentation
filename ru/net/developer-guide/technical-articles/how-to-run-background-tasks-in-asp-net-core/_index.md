@@ -2,7 +2,7 @@
 title: Как запускать фоновые задачи в ASP.NET Core
 type: docs
 weight: 300
-url: /net/how-to-run-background-tasks-in-asp-net-core/
+url: /ru/net/how-to-run-background-tasks-in-asp-net-core/
 ---
 
 ## **Обзор**

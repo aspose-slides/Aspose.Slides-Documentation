@@ -2,14 +2,14 @@
 title: Проблема с изменением объекта при добавлении OleObjectFrame
 type: docs
 weight: 10
-url: /net/object-changed-issue-when-adding-oleobjectframe/
+url: /ru/net/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 {{% alert color="primary" %}} 
 
 Используя Aspose.Slides для .NET, при добавлении **[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)** на слайд, на выходном слайде отображается сообщение **Изменен объект** (и не на OLE объекте). Описанный процесс является преднамеренным действием и не является ошибкой. 
 
-Для получения дополнительной информации о работе с OLE объектами смотрите [Управление OLE](/slides/net/manage-ole/). 
+Для получения дополнительной информации о работе с OLE объектами смотрите [Управление OLE](/slides/ru/net/manage-ole/). 
 
 {{% /alert %}} 
 ## **Объяснение** и решение

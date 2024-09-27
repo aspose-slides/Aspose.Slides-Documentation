@@ -2,7 +2,7 @@
 title: Установка цвета фона для главного слайда
 type: docs
 weight: 140
-url: /net/setting-background-color-of-master-slide/
+url: /ru/net/setting-background-color-of-master-slide/
 ---
 
 ## **VSTO**

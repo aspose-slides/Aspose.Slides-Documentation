@@ -2,7 +2,7 @@
 title: Получить все внешние гиперссылки в презентации  
 type: docs  
 weight: 90  
-url: /net/get-all-the-external-hyperlinks-in-a-presentation/  
+url: /ru/net/get-all-the-external-hyperlinks-in-a-presentation/  
 ---  
 
 ## **OpenXML Презентация**  

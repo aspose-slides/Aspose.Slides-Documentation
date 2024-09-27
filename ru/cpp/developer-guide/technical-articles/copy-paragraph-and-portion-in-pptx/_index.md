@@ -2,7 +2,7 @@
 title: Копирование абзаца и части в PPTX
 type: docs
 weight: 30
-url: /cpp/copy-paragraph-and-portion-in-pptx/
+url: /ru/cpp/copy-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Презентация только для чтения
 type: docs
 weight: 30
-url: /php-java/read-only-presentation/
+url: /ru/php-java/read-only-presentation/
 
 ---
 

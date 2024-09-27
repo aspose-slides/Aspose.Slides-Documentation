@@ -2,12 +2,12 @@
 title: Эффект формы
 type: docs
 weight: 30
-url: /php-java/shape-effect
+url: /ru/php-java/shape-effect
 keywords: "Эффект формы, Презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Примените эффект к форме PowerPoint"
 ---
 
-Хотя эффекты в PowerPoint могут использоваться для того, чтобы форма выделялась, они отличаются от [заливок](/slides/php-java/shape-formatting/#gradient-fill) или контуров. Используя эффекты PowerPoint, вы можете создать убедительные отражения на форме, распространить свет вокруг формы и т.д.
+Хотя эффекты в PowerPoint могут использоваться для того, чтобы форма выделялась, они отличаются от [заливок](/slides/ru/php-java/shape-formatting/#gradient-fill) или контуров. Используя эффекты PowerPoint, вы можете создать убедительные отражения на форме, распространить свет вокруг формы и т.д.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

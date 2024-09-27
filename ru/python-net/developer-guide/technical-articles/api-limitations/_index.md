@@ -2,7 +2,7 @@
 title: Ограничения API
 type: docs
 weight: 210
-url: /python-net/api-limitations/
+url: /ru/python-net/api-limitations/
 ---
 
 ## **Презентации и другие форматы экспорта**

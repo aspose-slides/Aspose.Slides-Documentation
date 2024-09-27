@@ -3,7 +3,7 @@ title: Конвертация PowerPoint в HTML на Python
 linktitle: Конвертация PowerPoint в HTML
 type: docs
 weight: 30
-url: /python-net/convert-powerpoint-to-html/
+url: /ru/python-net/convert-powerpoint-to-html/
 keywords: "Python PowerPoint в HTML, Конвертация презентации PowerPoint, PPTX, PPT, PPT в HTML, PPTX в HTML, PowerPoint в HTML, Сохранить PowerPoint как HTML, Сохранить PPT как HTML, Сохранить PPTX как HTML, Python, Aspose.Slides, экспорт HTML"
 description: "Конвертация PowerPoint в HTML: Сохраните PPTX или PPT в HTML. Сохраните слайды как HTML"
 ---

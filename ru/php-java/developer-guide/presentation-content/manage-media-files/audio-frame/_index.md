@@ -2,7 +2,7 @@
 title: Аудио Фрейм
 type: docs
 weight: 10
-url: /php-java/audio-frame/
+url: /ru/php-java/audio-frame/
 keywords: "Добавить аудио, Аудио фрейм, Свойства аудио, Извлечь аудио, Java, Aspose.Slides для PHP через Java"
 description: "Добавить аудио в презентацию PowerPoint"
 ---

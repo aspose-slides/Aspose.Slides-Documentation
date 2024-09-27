@@ -2,7 +2,7 @@
 title: Найти и заменить в презентации
 type: docs
 weight: 20
-url: /net/find-and-replace-in-presentation/
+url: /ru/net/find-and-replace-in-presentation/
 ---
 
 Следуйте указанным шагам:

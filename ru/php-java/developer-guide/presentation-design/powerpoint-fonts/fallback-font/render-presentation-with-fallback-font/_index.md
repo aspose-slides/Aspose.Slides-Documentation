@@ -2,12 +2,12 @@
 title: Отображение презентации с запасным шрифтом
 type: docs
 weight: 30
-url: /php-java/render-presentation-with-fallback-font/
+url: /ru/php-java/render-presentation-with-fallback-font/
 ---
 
 Следующий пример включает в себя эти шаги:
 
-1. Мы [создаем коллекцию правил запасного шрифта](/slides/php-java/create-fallback-fonts-collection/).
+1. Мы [создаем коллекцию правил запасного шрифта](/slides/ru/php-java/create-fallback-fonts-collection/).
 1. [Удаляем](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) правило запасного шрифта и [добавляем запасные шрифты](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) к другому правилу.
 1. Устанавливаем коллекцию правил в метод [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--) .
 1. С помощью метода [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) мы можем сохранить презентацию в том же формате или сохранить её в другом. После того как коллекция правил запасного шрифта установлена в [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), эти правила применяются во время любых операций с презентацией: сохранение, отображение, преобразование и т.д.
@@ -51,5 +51,5 @@ url: /php-java/render-presentation-with-fallback-font/
 ```
 
 {{% alert color="primary" %}} 
-Узнайте больше о [Сохранении и Конвертации в Презентации](/slides/php-java/creating-saving-and-converting-a-presentation/).
+Узнайте больше о [Сохранении и Конвертации в Презентации](/slides/ru/php-java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Импорт презентации
 type: docs
 weight: 60
-url: /python-net/import-presentation/
+url: /ru/python-net/import-presentation/
 keywords: "Импорт PowerPoint, PDF в презентацию, PDF в PPTX, PDF в PPT, Python, Aspose.Slides для Python через .NET"
 description: "Импорт PowerPoint презентации из PDF. Конвертировать PDF в PowerPoint"
 ---

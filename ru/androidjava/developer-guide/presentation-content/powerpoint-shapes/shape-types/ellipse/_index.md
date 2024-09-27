@@ -2,7 +2,7 @@
 title: Эллипс
 type: docs
 weight: 30
-url: /androidjava/ellipse/
+url: /ru/androidjava/ellipse/
 ---
 
 

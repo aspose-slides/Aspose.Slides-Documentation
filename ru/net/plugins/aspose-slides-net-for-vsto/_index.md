@@ -2,7 +2,7 @@
 title: Aspose.Slides .NET для VSTO
 type: docs
 weight: 20
-url: /net/aspose-slides-net-for-vsto/
+url: /ru/net/aspose-slides-net-for-vsto/
 ---
 
 ## **Что такое VSTO?**
@@ -71,31 +71,31 @@ Windows 2000; Windows Server 2003; Windows Vista; Windows XP
 ## **Примеры кода**
 Этот раздел включает следующие темы
 
-- [Сравнение кода по общим функциям с VSTO](/slides/net/code-comparison-for-common-features-with-vsto/)
-  - [Добавление изображения в ячейку таблицы](/slides/net/add-image-in-table-cell/)
-  - [Добавление рамки для изображения с анимацией в VSTO и Aspose.Slides](/slides/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
-  - [Добавление фигур в презентацию](/slides/net/adding-shapes-to-presentation/)
-  - [Динамическое добавление текста](/slides/net/adding-text-dynamically/)
-  - [Добавление рамки для изображения в презентацию](/slides/net/add-picture-frame-to-presentation/)
-  - [Создание диаграммы](/slides/net/create-a-chart/)
-  - [Создание и встраивание диаграммы Excel как объекта OLE](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object/)
-  - [Создание новой презентации в VSTO и Aspose.Slides](/slides/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
-  - [Создание таблицы на слайде PowerPoint в VSTO и Aspose.Slides](/slides/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
-  - [Поиск и замена текста без потери форматирования в презентации](/slides/net/find-and-replace-text-without-losing-format-in-presentation/)
-  - [Форматирование текста](/slides/net/format-text/)
-  - [Открытие презентации в VSTO и Aspose.Slides](/slides/net/opening-a-presentation-in-vsto-and-aspose-slides/)
-  - [Удаление строки или столбца в таблице в VSTO и Aspose.Slides](/slides/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
-  - [Установка цвета фона главного слайда](/slides/net/setting-background-color-of-master-slide/)
-- [Недостающие функции в VSTO](/slides/net/missing-features-in-vsto/)
-  - [Добавление слайда макета в презентацию](/slides/net/add-layout-slide-to-presentation/)
-  - [Конвертация из формата PPT в PPTX](/slides/net/conversion-from-ppt-to-pptx-format/)
-  - [Конвертация документа OpenOffice](/slides/net/conversion-of-openoffice-document/)
-  - [Конвертация презентации в HTML](/slides/net/convert-presentation-to/)
-  - [Конвертация презентации в Tiff с заметками](/slides/net/convert-presentation-to-tiff-with-notes/)
-  - [Конвертация презентации в XPS](/slides/net/convert-presentation-to-xps/)
-  - [Создание слайда в виде SVG-изображения](/slides/net/create-slide-as-svg-image/)
-  - [Экспорт медиафайлов в HTML-файл](/slides/net/export-media-files-into-file/)
-  - [Генерация миниатюры слайда в формате JPEG](/slides/net/generate-slide-thumbnail-as-jpeg/)
-  - [Генерация миниатюры из слайда с пользовательскими размерами](/slides/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
-  - [Блокировка презентации](/slides/net/presentation-locking/)
-  - [Отображение фигур на слайде в виде изображений](/slides/net/rendering-shapes-on-slide-as-images/)
+- [Сравнение кода по общим функциям с VSTO](/slides/ru/net/code-comparison-for-common-features-with-vsto/)
+  - [Добавление изображения в ячейку таблицы](/slides/ru/net/add-image-in-table-cell/)
+  - [Добавление рамки для изображения с анимацией в VSTO и Aspose.Slides](/slides/ru/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
+  - [Добавление фигур в презентацию](/slides/ru/net/adding-shapes-to-presentation/)
+  - [Динамическое добавление текста](/slides/ru/net/adding-text-dynamically/)
+  - [Добавление рамки для изображения в презентацию](/slides/ru/net/add-picture-frame-to-presentation/)
+  - [Создание диаграммы](/slides/ru/net/create-a-chart/)
+  - [Создание и встраивание диаграммы Excel как объекта OLE](/slides/ru/net/create-and-embed-an-excel-chart-as-an-ole-object/)
+  - [Создание новой презентации в VSTO и Aspose.Slides](/slides/ru/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
+  - [Создание таблицы на слайде PowerPoint в VSTO и Aspose.Slides](/slides/ru/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
+  - [Поиск и замена текста без потери форматирования в презентации](/slides/ru/net/find-and-replace-text-without-losing-format-in-presentation/)
+  - [Форматирование текста](/slides/ru/net/format-text/)
+  - [Открытие презентации в VSTO и Aspose.Slides](/slides/ru/net/opening-a-presentation-in-vsto-and-aspose-slides/)
+  - [Удаление строки или столбца в таблице в VSTO и Aspose.Slides](/slides/ru/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
+  - [Установка цвета фона главного слайда](/slides/ru/net/setting-background-color-of-master-slide/)
+- [Недостающие функции в VSTO](/slides/ru/net/missing-features-in-vsto/)
+  - [Добавление слайда макета в презентацию](/slides/ru/net/add-layout-slide-to-presentation/)
+  - [Конвертация из формата PPT в PPTX](/slides/ru/net/conversion-from-ppt-to-pptx-format/)
+  - [Конвертация документа OpenOffice](/slides/ru/net/conversion-of-openoffice-document/)
+  - [Конвертация презентации в HTML](/slides/ru/net/convert-presentation-to/)
+  - [Конвертация презентации в Tiff с заметками](/slides/ru/net/convert-presentation-to-tiff-with-notes/)
+  - [Конвертация презентации в XPS](/slides/ru/net/convert-presentation-to-xps/)
+  - [Создание слайда в виде SVG-изображения](/slides/ru/net/create-slide-as-svg-image/)
+  - [Экспорт медиафайлов в HTML-файл](/slides/ru/net/export-media-files-into-file/)
+  - [Генерация миниатюры слайда в формате JPEG](/slides/ru/net/generate-slide-thumbnail-as-jpeg/)
+  - [Генерация миниатюры из слайда с пользовательскими размерами](/slides/ru/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
+  - [Блокировка презентации](/slides/ru/net/presentation-locking/)
+  - [Отображение фигур на слайде в виде изображений](/slides/ru/net/rendering-shapes-on-slide-as-images/)

@@ -2,7 +2,7 @@
 title: Управление абзацами PowerPoint в C#
 type: docs
 weight: 40
-url: /net/manage-paragraph/
+url: /ru/net/manage-paragraph/
 keywords: "Добавить абзац PowerPoint, Управлять абзацами, Отступ абзаца, Свойства абзаца, HTML текст, Экспорт текста абзаца, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Создавать и управлять абзацем, текстом, отступами и свойствами в презентациях PowerPoint на C# или .NET"
 ---

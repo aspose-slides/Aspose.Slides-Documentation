@@ -2,7 +2,7 @@
 title: Уравнения математики PowerPoint
 type: docs
 weight: 80
-url: /java/powerpoint-math-equations/
+url: /ru/java/powerpoint-math-equations/
 keywords: " Уравнения математики PowerPoint, Символы математики PowerPoint, Формула PowerPoint, Текст математики PowerPoint"
 description: "Уравнения математики PowerPoint, Символы математики PowerPoint, Формула PowerPoint, Текст математики PowerPoint"
 ---

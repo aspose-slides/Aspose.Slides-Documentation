@@ -2,7 +2,7 @@
 title: Анимация Форм
 type: docs
 weight: 60
-url: /androidjava/shape-animation/
+url: /ru/androidjava/shape-animation/
 keywords: "Анимация PowerPoint, Эффект анимации, Применить анимацию, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Применить анимацию PowerPoint на Java"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-Помимо применения анимаций к тексту, вы также можете применять анимации к отдельному [Абзацу](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/androidjava/animated-text/).
+Помимо применения анимаций к тексту, вы также можете применять анимации к отдельному [Абзацу](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/ru/androidjava/animated-text/).
 
 {{% /alert %}} 
 

@@ -2,12 +2,12 @@
 title: Отрисовка презентации с резервным шрифтом
 type: docs
 weight: 30
-url: /cpp/render-presentation-with-fallback-font/
+url: /ru/cpp/render-presentation-with-fallback-font/
 ---
 
 Следующий пример включает в себя эти шаги:
 
-1. Мы [создаем коллекцию правил резервных шрифтов](/slides/cpp/create-fallback-fonts-collection/).
+1. Мы [создаем коллекцию правил резервных шрифтов](/slides/ru/cpp/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#aaf12e563d822f6e05e27732a837bcf33) правило резервного шрифта и [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#a030268631ae616b775bdb6df8accf42c) к другому правилу.
 1. Установить коллекцию правил в свойство [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924).
 1. С помощью метода [Presentation::Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) мы можем сохранить презентацию в том же формате или сохранить её в другом. После установки коллекции правил резервных шрифтов в FontsManager, эти правила применяются во время любых операций с презентацией: сохранение, отрисовка, конвертация и т. д.
@@ -48,5 +48,5 @@ pres->get_Slides()->idx_get(0)->GetImage(1.f, 1.f)->Save(u"Slide_0.png", ImageFo
 ```
 
 {{% alert color="primary" %}} 
-Узнайте больше о [Сохранении и конвертации в презентации](/slides/cpp/creating-saving-and-converting-a-presentation/).
+Узнайте больше о [Сохранении и конвертации в презентации](/slides/ru/cpp/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

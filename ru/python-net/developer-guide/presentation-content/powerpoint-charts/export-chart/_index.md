@@ -2,7 +2,7 @@
 title: Экспортировать график
 type: docs
 weight: 90
-url: /python-net/export-chart/
+url: /ru/python-net/export-chart/
 keywords: "График, изображение графика, извлечение изображения графика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Получить изображения графиков в презентации PowerPoint на Python"
 ---

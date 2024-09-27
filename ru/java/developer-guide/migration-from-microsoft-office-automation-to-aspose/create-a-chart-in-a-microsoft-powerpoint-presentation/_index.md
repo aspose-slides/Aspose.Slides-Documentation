@@ -2,12 +2,12 @@
 title: Создание диаграммы в презентации Microsoft PowerPoint
 type: docs
 weight: 70
-url: /java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ru/java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Диаграммы — это визуальные представления данных, которые широко используются в презентациях. В этой статье показан код для создания диаграммы в Microsoft PowerPoint программно с помощью [VSTO](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для Java](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Диаграммы — это визуальные представления данных, которые широко используются в презентациях. В этой статье показан код для создания диаграммы в Microsoft PowerPoint программно с помощью [VSTO](/slides/ru/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для Java](/slides/ru/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Создание диаграммы**

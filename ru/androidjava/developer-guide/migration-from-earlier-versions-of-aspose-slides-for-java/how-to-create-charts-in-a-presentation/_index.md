@@ -2,7 +2,7 @@
 title: Как создать диаграммы в презентации
 type: docs
 weight: 30
-url: /androidjava/how-to-create-charts-in-a-presentation/
+url: /ru/androidjava/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

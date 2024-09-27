@@ -2,7 +2,7 @@
 title: Переход слайдов
 type: docs
 weight: 80
-url: /php-java/slide-transition/
+url: /ru/php-java/slide-transition/
 keywords: "Переход слайдов PowerPoint, морфный переход"
 description: "Переход слайдов PowerPoint, морфный переход PowerPoint"
 ---

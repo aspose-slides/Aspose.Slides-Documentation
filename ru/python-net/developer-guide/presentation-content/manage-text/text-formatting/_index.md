@@ -2,7 +2,7 @@
 title: Форматирование текста
 type: docs
 weight: 50
-url: /python-net/text-formatting/
+url: /ru/python-net/text-formatting/
 keywords:
 - выделение текста
 - регулярное выражение

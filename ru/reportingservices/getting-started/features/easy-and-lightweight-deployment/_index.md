@@ -2,7 +2,7 @@
 title: Легкое и легковесное развертывание  
 type: docs  
 weight: 50  
-url: /reportingservices/easy-and-lightweight-deployment/  
+url: /ru/reportingservices/easy-and-lightweight-deployment/  
 ---  
 
 {{% alert color="primary" %}}  

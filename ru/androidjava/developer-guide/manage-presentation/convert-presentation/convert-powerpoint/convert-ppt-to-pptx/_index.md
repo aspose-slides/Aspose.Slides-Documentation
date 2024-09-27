@@ -3,7 +3,7 @@ title: Конвертировать PPT в PPTX на Java
 linktitle: Конвертировать PPT в PPTX
 type: docs
 weight: 20
-url: /androidjava/convert-ppt-to-pptx/
+url: /ru/androidjava/convert-ppt-to-pptx/
 keywords: "Java Конвертировать PPT в PPTX, PowerPoint PPT в PPTX на Java"
 description: "Конвертировать PowerPoint PPT в PPTX на Java."
 ---
@@ -47,7 +47,7 @@ description: "Конвертировать PowerPoint PPT в PPTX на Java."
 {{% /alert %}} 
 
 ## **Конвертировать PPT в PPTX**
-Aspose.Slides для Android через Java теперь облегчает разработчикам доступ к PPT, используя экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и конвертируя его в соответствующий формат [PPTX](https://docs.fileformat.com/presentation/pptx/). В настоящее время он поддерживает частичную конвертацию [PPT](https://docs.fileformat.com/presentation/ppt/) в PPTX. Для получения дополнительных сведений о поддерживаемых и неподдерживаемых функциях при конвертации PPT в PPTX, пожалуйста, перейдите по этой документации [ссылке](/slides/androidjava/ppt-to-pptx-conversion/).
+Aspose.Slides для Android через Java теперь облегчает разработчикам доступ к PPT, используя экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) и конвертируя его в соответствующий формат [PPTX](https://docs.fileformat.com/presentation/pptx/). В настоящее время он поддерживает частичную конвертацию [PPT](https://docs.fileformat.com/presentation/ppt/) в PPTX. Для получения дополнительных сведений о поддерживаемых и неподдерживаемых функциях при конвертации PPT в PPTX, пожалуйста, перейдите по этой документации [ссылке](/slides/ru/androidjava/ppt-to-pptx-conversion/).
 
 Aspose.Slides для Android через Java предлагает класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation), который представляет собой файл презентации **PPTX**. Класс Presentation теперь также может получить доступ к **PPT** при инициализации объекта. Следующий пример показывает, как конвертировать презентацию PPT в презентацию PPTX.
 

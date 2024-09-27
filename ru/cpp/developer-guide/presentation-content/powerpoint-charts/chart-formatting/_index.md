@@ -2,7 +2,7 @@
 title: Форматирование диаграмм
 type: docs
 weight: 60
-url: /cpp/chart-formatting/
+url: /ru/cpp/chart-formatting/
 ---
 
 

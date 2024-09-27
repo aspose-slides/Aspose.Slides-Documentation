@@ -2,7 +2,7 @@
 title: Локализация Презентации
 type: docs
 weight: 100
-url: /python-net/presentation-localization/
+url: /ru/python-net/presentation-localization/
 keywords: "Изменить язык, Проверка орфографии, Орфографическая проверка, Орфографический проверщик, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Изменение или проверка языка в презентации PowerPoint. Проверка орфографии текста в Python"
 ---

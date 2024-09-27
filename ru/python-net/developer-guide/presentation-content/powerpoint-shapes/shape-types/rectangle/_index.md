@@ -2,7 +2,7 @@
 title: Прямоугольник
 type: docs
 weight: 80
-url: /python-net/rectangle/
+url: /ru/python-net/rectangle/
 keywords: "Создать прямоугольник, фигура PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Создать прямоугольник в презентации PowerPoint на Python"
 ---

@@ -2,7 +2,7 @@
 title: Изменить цвет заливки фигуры в презентации
 type: docs
 weight: 40
-url: /net/change-the-fill-color-of-a-shape-in-a-presentation/
+url: /ru/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
 ## **OpenXML Презентация**

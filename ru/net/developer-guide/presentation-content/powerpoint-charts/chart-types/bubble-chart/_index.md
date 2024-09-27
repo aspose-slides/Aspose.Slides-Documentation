@@ -1,7 +1,7 @@
 ---
 title: Диаграмма пузырьков
 type: docs
-url: /net/bubble-chart/
+url: /ru/net/bubble-chart/
 keywords: "Диаграмма пузырьков, размер диаграммы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Размер диаграммы пузырьков в презентациях PowerPoint на C# или .NET"
 ---

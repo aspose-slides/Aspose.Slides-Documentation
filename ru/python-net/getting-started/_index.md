@@ -3,7 +3,7 @@ title: Начало работы
 type: docs
 description: "Используйте это введение в Aspose.Slides для Python через .NET, чтобы начать осознавать ценность Aspose.Slides для вашего бизнеса."
 weight: 10
-url: /python-net/getting-started/
+url: /ru/python-net/getting-started/
 ---
 
 Это введение в начать работу предоставляет основную информацию о Aspose.Slides. Для пользователей, новых в Aspose.Slides, это самый быстрый способ узнать о базовых требованиях и возможностях и начать работать.

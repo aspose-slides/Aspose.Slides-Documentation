@@ -2,7 +2,7 @@
 title: Оценка Aspose.Slides
 type: docs
 weight: 80
-url: /jasperreports/evaluate-aspose-slides/
+url: /ru/jasperreports/evaluate-aspose-slides/
 ---
 
 Вы можете легко скачать Aspose.Slides для оценки. Загружаемый файл для оценки такой же, как и покупаемый. Оценочная версия просто становится лицензированной, когда вы добавляете несколько строк кода для применения лицензии.

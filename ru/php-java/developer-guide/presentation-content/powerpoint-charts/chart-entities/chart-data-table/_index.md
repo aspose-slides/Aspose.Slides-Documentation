@@ -1,7 +1,7 @@
 ---
 title: Таблица данных диаграммы
 type: docs
-url: /php-java/chart-data-table/
+url: /ru/php-java/chart-data-table/
 ---
 
 ## **Установка свойств шрифта для таблицы данных диаграммы**

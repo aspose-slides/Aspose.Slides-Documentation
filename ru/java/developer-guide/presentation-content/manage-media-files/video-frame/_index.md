@@ -2,7 +2,7 @@
 title: Видео Кадр
 type: docs
 weight: 10
-url: /java/video-frame/
+url: /ru/java/video-frame/
 keywords: "Добавить видео, создать видео кадр, извлечь видео, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Добавить видео кадр в презентацию PowerPoint на Java"
 ---

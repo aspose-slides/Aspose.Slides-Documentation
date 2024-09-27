@@ -2,7 +2,7 @@
 title: Получить полный фон слайда презентации в виде изображения
 type: docs
 weight: 95
-url: /androidjava/get-the-entire-presentation-slide-background-as-an-image/
+url: /ru/androidjava/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - слайд
 - фон
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides для Android через Java
 ---
 
-В презентациях PowerPoint фон слайда может состоять из многих элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/androidjava/presentation-background/), на финальный фон могут влиять тема презентации, цветовая схема и фигуры, размещенные на главном слайде и слайде разметки.
+В презентациях PowerPoint фон слайда может состоять из многих элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/ru/androidjava/presentation-background/), на финальный фон могут влиять тема презентации, цветовая схема и фигуры, размещенные на главном слайде и слайде разметки.
 
 Aspose.Slides для Android через Java не предоставляет простого метода для извлечения полного фона слайда презентации в виде изображения, но вы можете следовать приведенным ниже шагам, чтобы сделать это:
 1. Загрузите презентацию, используя класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).

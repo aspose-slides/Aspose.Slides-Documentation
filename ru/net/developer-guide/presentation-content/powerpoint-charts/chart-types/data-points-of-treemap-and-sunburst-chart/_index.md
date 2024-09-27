@@ -1,7 +1,7 @@
 ---
 title: Точки данных диаграммы "Карта дерева" и "Солнечный луч"
 type: docs
-url: /net/data-points-of-treemap-and-sunburst-chart/
+url: /ru/net/data-points-of-treemap-and-sunburst-chart/
 keywords: "Диаграмма солнечного луча, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте диаграмму солнечного луча в презентацию PowerPoint на C# или .NET"
 ---
@@ -25,7 +25,7 @@ using (Presentation pres = new Presentation())
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание диаграммы солнечного луча**](/slides/net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Создание диаграммы солнечного луча**](/slides/ru/net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

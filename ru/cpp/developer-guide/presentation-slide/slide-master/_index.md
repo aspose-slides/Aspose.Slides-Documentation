@@ -2,7 +2,7 @@
 title: Мастер Слайдов
 type: docs
 weight: 80
-url: /cpp/slide-master/
+url: /ru/cpp/slide-master/
 keywords: "Добавить Мастер Слайдов, мастер-слайд PPT, мастер-слайд PowerPoint, изображение в Мастере Слайдов, Заполнитель, Несколько Мастеров Слайдов, Сравнить Мастера Слайдов, C++, CPP, Aspose.Slides для C++"
 description: "Добавить или редактировать мастер слайдов в презентации PowerPoint на C++"
 ---
@@ -128,7 +128,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 {{% alert color="primary" title="Смотрите также" %}} 
 
-Для получения более подробной информации о добавлении изображений на слайд смотрите статью [Рамка для изображения](/slides/cpp/picture-frame/#create-picture-frame).
+Для получения более подробной информации о добавлении изображений на слайд смотрите статью [Рамка для изображения](/slides/ru/cpp/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Добавить Заполнитель в Мастер Слайдов**

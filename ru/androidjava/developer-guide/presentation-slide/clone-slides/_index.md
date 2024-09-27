@@ -2,7 +2,7 @@
 title: Клонировать слайды
 type: docs
 weight: 35
-url: /androidjava/clone-slides/
+url: /ru/androidjava/clone-slides/
 ---
 
 

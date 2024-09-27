@@ -2,7 +2,7 @@
 title: Уравнения математики в PowerPoint
 type: docs
 weight: 80
-url: /net/powerpoint-math-equations/
+url: /ru/net/powerpoint-math-equations/
 keywords: " Уравнения математики в PowerPoint, Символы математики в PowerPoint, Формулы в PowerPoint, Математический текст в PowerPoint, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Уравнения математики в PowerPoint, символы, формулы и математический текст на C# или .NET"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Метки данных диаграммы
 type: docs
-url: /net/chart-data-label/
+url: /ru/net/chart-data-label/
 keywords: "Метка данных диаграммы, расстояние между метками, C#, Csharp, Aspose.Slides для .NET"
 description: "Установка меток данных диаграммы PowerPoint и расстояния в C# или .NET"
 ---

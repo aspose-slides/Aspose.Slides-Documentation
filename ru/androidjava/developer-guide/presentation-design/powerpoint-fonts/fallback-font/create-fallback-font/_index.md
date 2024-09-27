@@ -2,7 +2,7 @@
 title: Создание запасного шрифта
 type: docs
 weight: 10
-url: /androidjava/create-fallback-font/
+url: /ru/androidjava/create-fallback-font/
 ---
 
 Aspose.Slides поддерживает интерфейс [IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule) и класс [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule), чтобы задать правила применения запасного шрифта. Класс [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) представляет собой ассоциацию между указанным диапазоном Unicode, используемым для поиска пропущенных глифов, и списком шрифтов, которые могут содержать необходимые глифы:
@@ -25,5 +25,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) может использоваться для организации списка объектов [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule), когда необходимо задать правила замены запасного шрифта для нескольких диапазонов Unicode.
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Создание коллекции запасных шрифтов](/slides/androidjava/create-fallback-fonts-collection/)
+- [Создание коллекции запасных шрифтов](/slides/ru/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Добавить комментарий к слайду
 type: docs
 weight: 10
-url: /net/add-a-comment-to-a-slide/
+url: /ru/net/add-a-comment-to-a-slide/
 ---
 
 ## **OpenXML Презентация:**

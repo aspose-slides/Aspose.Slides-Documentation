@@ -2,7 +2,7 @@
 title: Цифровая подпись в PowerPoint
 type: docs
 weight: 10
-url: /cpp/digital-signature-in-powerpoint/
+url: /ru/cpp/digital-signature-in-powerpoint/
 keywords: "Цифровой сертификат подписи, удостоверяющий центр"
 description: "Добавьте сертификат цифровой подписи и удостоверяющий центр в презентацию PowerPoint с помощью Aspose.Slides."
 ---

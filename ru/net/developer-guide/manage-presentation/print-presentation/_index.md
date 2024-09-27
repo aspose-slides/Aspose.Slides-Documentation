@@ -2,7 +2,7 @@
 title: Печать презентации
 type: docs
 weight: 50
-url: /net/print-presentation/
+url: /ru/net/print-presentation/
 keywords: "Печать PowerPoint, PPT, PPTX, Печать презентации, C#, Csharp, .NET, Принтер, Параметры печати"
 description: "Печать презентации PowerPoint на C# или .NET"
 ---

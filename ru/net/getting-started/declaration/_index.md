@@ -2,7 +2,7 @@
 title: Декларация
 type: docs
 weight: 110
-url: /net/declaration/
+url: /ru/net/declaration/
 ---
 
 {{% alert color="primary" %}} 

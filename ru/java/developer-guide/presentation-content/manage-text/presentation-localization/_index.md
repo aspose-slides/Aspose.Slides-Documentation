@@ -2,7 +2,7 @@
 title: Локализация Презентации
 type: docs
 weight: 100
-url: /java/presentation-localization/
+url: /ru/java/presentation-localization/
 ---
 
 ## **Смена языка текста в презентации и фигурах**

@@ -2,7 +2,7 @@
 title: Создать документ презентации
 type: docs
 weight: 60
-url: /net/create-a-presentation-document/
+url: /ru/net/create-a-presentation-document/
 ---
 
 ## **OpenXML SDK**

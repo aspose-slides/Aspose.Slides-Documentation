@@ -1,7 +1,7 @@
 ---
 title: 3D Чарт
 type: docs
-url: /androidjava/3d-chart/
+url: /ru/androidjava/3d-chart/
 ---
 
 ## **Установите свойства RotationX, RotationY и DepthPercents для 3D Чарта**

@@ -1,7 +1,7 @@
 ---
 title: Ось графика
 type: docs
-url: /php-java/chart-axis/
+url: /ru/php-java/chart-axis/
 keywords: "Ось графика PowerPoint, Графики презентаций, Java, Управление осью графика, Данные графика"
 description: "Как редактировать ось графика PowerPoint"
 ---

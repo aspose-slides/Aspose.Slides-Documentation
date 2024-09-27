@@ -1,7 +1,7 @@
 ---
 title: Пузырьковая Диаграмма
 type: docs
-url: /androidjava/bubble-chart/
+url: /ru/androidjava/bubble-chart/
 ---
 
 ## **Масштабирование Размеров Пузырьковой Диаграммы**

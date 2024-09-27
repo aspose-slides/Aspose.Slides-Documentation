@@ -2,7 +2,7 @@
 title: Форматирование фигур
 type: docs
 weight: 20
-url: /net/shape-formatting/
+url: /ru/net/shape-formatting/
 keywords: "Формат фигуры, формат линий, стили соединений, градиентная заливка, заливка узором, заливка изображением, заливка сплошным цветом, поворот фигур, 3D эффекты фаски, 3D эффект вращения, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Форматирование фигуры в презентации PowerPoint на C# или .NET"
 ---

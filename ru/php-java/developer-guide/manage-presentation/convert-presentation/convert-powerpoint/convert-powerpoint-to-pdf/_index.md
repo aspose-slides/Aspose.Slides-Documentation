@@ -3,7 +3,7 @@ title: Конвертация PowerPoint в PDF
 linktitle: Конвертация PowerPoint в PDF
 type: docs
 weight: 40
-url: /php-java/convert-powerpoint-to-pdf/
+url: /ru/php-java/convert-powerpoint-to-pdf/
 keywords: "Конвертация PowerPoint, Презентация, PowerPoint в PDF, PPT в PDF, PPTX в PDF, Сохранить PowerPoint как PDF, PDF/A1a, PDF/A1b, PDF/UA, Java"
 description: "Конвертация презентации PowerPoint в PDF. Сохраните PowerPoint как PDF с соблюдением стандартов совместимости или доступности."
 

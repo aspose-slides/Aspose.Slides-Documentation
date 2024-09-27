@@ -1,7 +1,7 @@
 ---
 title: Вызов
 type: docs
-url: /java/callout/
+url: /ru/java/callout/
 ---
 
 ## **Использование вызовов**

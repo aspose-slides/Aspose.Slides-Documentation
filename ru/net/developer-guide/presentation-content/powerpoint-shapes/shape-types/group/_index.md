@@ -2,7 +2,7 @@
 title: Группа
 type: docs
 weight: 40
-url: /net/group/
+url: /ru/net/group/
 keywords: "Форма группы, Форма PowerPoint, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавление формы группы в презентацию PowerPoint на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Клонирование слайдов
 type: docs
 weight: 40
-url: /cpp/clone-slides/
+url: /ru/cpp/clone-slides/
 ---
 
 

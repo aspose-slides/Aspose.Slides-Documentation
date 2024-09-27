@@ -2,7 +2,7 @@
 title: Создание новой презентации
 type: docs
 weight: 10
-url: /php-java/create-a-new-presentation/
+url: /ru/php-java/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides для PHP через Java — это компонент, кото
 
 {{% /alert %}} 
 ## **Создание презентации**
-Ниже приведены два примера кода, которые иллюстрируют, как VSTO и Aspose.Slides для PHP через Java могут быть использованы для достижения одной и той же цели. Первый пример — [VSTO](/slides/php-java/create-a-new-presentation/); [второй пример](/slides/php-java/create-a-new-presentation/) использует Aspose.Slides.
+Ниже приведены два примера кода, которые иллюстрируют, как VSTO и Aspose.Slides для PHP через Java могут быть использованы для достижения одной и той же цели. Первый пример — [VSTO](/slides/ru/php-java/create-a-new-presentation/); [второй пример](/slides/ru/php-java/create-a-new-presentation/) использует Aspose.Slides.
 ### **Пример VSTO**
 **Вывод VSTO** 
 

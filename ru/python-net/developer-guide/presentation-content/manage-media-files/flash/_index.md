@@ -2,7 +2,7 @@
 title: Флеш
 type: docs
 weight: 10
-url: /python-net/flash/
+url: /ru/python-net/flash/
 keywords: "Извлечение флеш, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Извлечение флеш-объекта из презентации PowerPoint на Python"
 ---

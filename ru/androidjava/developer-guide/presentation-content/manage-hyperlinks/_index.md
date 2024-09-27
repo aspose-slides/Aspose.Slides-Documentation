@@ -2,7 +2,7 @@
 title: Управление гиперссылками
 type: docs
 weight: 20
-url: /androidjava/manage-hyperlinks/
+url: /ru/androidjava/manage-hyperlinks/
 keywords: "Гиперссылка PowerPoint, текстовая гиперссылка, гиперссылка на слайд, гиперссылка на фигуру, гиперссылка на изображение, гиперссылка на видео, Java"
 description: "Как добавить гиперссылку в презентацию PowerPoint на Java"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="Совет"  color="primary"  %}} 
 
-Вы можете увидеть *[Управление OLE](/slides/androidjava/manage-ole/)*.
+Вы можете увидеть *[Управление OLE](/slides/ru/androidjava/manage-ole/)*.
 
 {{% /alert %}}
 

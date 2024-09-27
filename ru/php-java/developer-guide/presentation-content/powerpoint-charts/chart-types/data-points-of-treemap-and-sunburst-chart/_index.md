@@ -1,7 +1,7 @@
 ---
 title: Точки данных диаграммы Treemap и Sunburst
 type: docs
-url: /php-java/data-points-of-treemap-and-sunburst-chart/
+url: /ru/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "График Sunburst в Aspose.Slides для PHP через Java"
 description: "График Sunburst, диаграмма Sunburst, диаграмма Sunburst, радиальная диаграмма, радиальный график или многоуровневая круговая диаграмма с Aspose.Slides для PHP через Java."
@@ -28,7 +28,7 @@ description: "График Sunburst, диаграмма Sunburst, диаграм
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание диаграммы Sunburst**](/slides/php-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Создание диаграммы Sunburst**](/slides/ru/php-java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 Если необходимо отформатировать данные точек диаграммы, мы должны использовать следующее:

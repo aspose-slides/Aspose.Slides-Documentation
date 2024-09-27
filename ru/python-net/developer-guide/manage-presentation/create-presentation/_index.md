@@ -2,7 +2,7 @@
 title: Создать презентацию
 type: docs
 weight: 10
-url: /python-net/create-presentation/
+url: /ru/python-net/create-presentation/
 keywords: "Создать PowerPoint, PPTX, PPT, Создать презентацию, Инициализировать презентацию, Python, .NET"
 description: "Открыть презентацию PowerPoint в Python"
 ---

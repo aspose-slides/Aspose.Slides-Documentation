@@ -2,7 +2,7 @@
 title: Замена изображений в коллекции изображений презентации
 type: docs
 weight: 80
-url: /php-java/zamena-izobrazheniy-v-kollektsii-izobrazheniy-prezentatsii/
+url: /ru/php-java/zamena-izobrazheniy-v-kollektsii-izobrazheniy-prezentatsii/
 ---
 
 {{% alert color="primary" %}} 

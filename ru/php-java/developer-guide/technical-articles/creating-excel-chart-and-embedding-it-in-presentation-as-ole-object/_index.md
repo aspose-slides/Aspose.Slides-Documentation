@@ -2,7 +2,7 @@
 title: Создание диаграммы Excel и вставка ее в презентацию в виде OLE-объекта
 type: docs
 weight: 30
-url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ru/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -39,6 +39,6 @@ url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-obje
 
 {{% /alert %}} 
 ## **Связанные разделы**
-[Рабочее решение для изменения размера диаграммы](/slides/php-java/working-solution-for-chart-resizing-in-pptx/)
+[Рабочее решение для изменения размера диаграммы](/slides/ru/php-java/working-solution-for-chart-resizing-in-pptx/)
 
-[Проблема измененного объекта](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Проблема измененного объекта](/slides/ru/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

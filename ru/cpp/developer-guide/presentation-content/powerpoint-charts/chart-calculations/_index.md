@@ -2,7 +2,7 @@
 title: Вычисления графика
 type: docs
 weight: 50
-url: /cpp/chart-calculations/
+url: /ru/cpp/chart-calculations/
 ---
 
 ## **Вычислить фактические значения элементов графика**

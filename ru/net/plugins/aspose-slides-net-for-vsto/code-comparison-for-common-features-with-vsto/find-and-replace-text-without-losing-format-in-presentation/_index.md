@@ -2,7 +2,7 @@
 title: Найдите и замените текст без потери формата в презентации
 type: docs
 weight: 100
-url: /net/find-and-replace-text-without-losing-format-in-presentation/
+url: /ru/net/find-and-replace-text-without-losing-format-in-presentation/
 ---
 
 Обе метода следуют этим шагам:

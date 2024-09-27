@@ -2,7 +2,7 @@
 title: Экспорт графика
 type: docs
 weight: 90
-url: /net/export-chart/
+url: /ru/net/export-chart/
 keywords: "График, изображение графика, извлечение изображения графика, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Получение изображений графиков в презентации PowerPoint на C# или .NET"
 ---

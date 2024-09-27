@@ -2,7 +2,7 @@
 title: Порция
 type: docs
 weight: 70
-url: /php-java/portion/
+url: /ru/php-java/portion/
 ---
 
 ## **Получение координат позиции порции**

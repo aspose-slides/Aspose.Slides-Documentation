@@ -2,7 +2,7 @@
 title: Управление зумом
 type: docs
 weight: 60
-url: /php-java/manage-zoom/
+url: /ru/php-java/manage-zoom/
 keywords: "Zoom, рамка зума, добавить зум, формат рамки зума, сводный зум, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Добавить зум или рамки зума в презентации PowerPoint"
 ---

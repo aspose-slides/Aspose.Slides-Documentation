@@ -2,7 +2,7 @@
 title: Управление гибкими ссылками
 type: docs
 weight: 20
-url: /php-java/manage-hyperlinks/
+url: /ru/php-java/manage-hyperlinks/
 keywords: "Гиперссылка PowerPoint, текстовая гиперссылка, гиперссылка на слайд, гиперссылка на форму, гиперссылка на изображение, гиперссылка на видео, Java"
 description: "Как добавить гиперссылку в презентацию PowerPoint"
 ---
@@ -151,7 +151,7 @@ try {
 
 {{%  alert  title="Совет"  color="primary"  %}} 
 
-Вам может быть интересно увидеть *[Управление OLE](/slides/php-java/manage-ole/)*.
+Вам может быть интересно увидеть *[Управление OLE](/slides/ru/php-java/manage-ole/)*.
 
 {{% /alert %}}
 

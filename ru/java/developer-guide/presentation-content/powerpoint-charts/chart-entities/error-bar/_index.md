@@ -1,7 +1,7 @@
 ---
 title: Полоса Ошибки
 type: docs
-url: /java/error-bar/
+url: /ru/java/error-bar/
 ---
 
 ## **Добавить Полосу Ошибки**

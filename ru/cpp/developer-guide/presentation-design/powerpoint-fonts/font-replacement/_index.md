@@ -2,7 +2,7 @@
 title: Замена шрифтов
 type: docs
 weight: 60
-url: /cpp/font-replacement/
+url: /ru/cpp/font-replacement/
 keywords: "Шрифт, замена шрифта, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Явно замените шрифты в PowerPoint на C++"
 ---
@@ -38,6 +38,6 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 
 {{% alert title="Примечание" color="warning" %}}
 
-Чтобы установить правила, определяющие, что происходит при определенных условиях (например, если шрифт недоступен), смотрите [**Замена шрифтов**](/slides/cpp/font-substitution/).
+Чтобы установить правила, определяющие, что происходит при определенных условиях (например, если шрифт недоступен), смотрите [**Замена шрифтов**](/slides/ru/cpp/font-substitution/).
 
 {{% /alert %}}

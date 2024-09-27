@@ -2,7 +2,7 @@
 title: Управление ячейками
 type: docs
 weight: 30
-url: /androidjava/manage-cells/
+url: /ru/androidjava/manage-cells/
 keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, Java, Aspose.Slides для Android через Java"
 description: "Ячейки таблицы в презентациях PowerPoint на Java"
 ---

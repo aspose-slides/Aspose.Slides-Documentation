@@ -3,7 +3,7 @@ title: Создание презентации в .NET
 linktitle: Создание презентации
 type: docs
 weight: 10
-url: /net/create-presentation/
+url: /ru/net/create-presentation/
 keywords: "Создание PowerPoint, PPTX, PPT, Создание презентации, Инициализация презентации, C#, .NET"
 description: "Создание презентаций PowerPoint программным образом на C#, например, PPT, PPTX, ODP и т.д."
 ---

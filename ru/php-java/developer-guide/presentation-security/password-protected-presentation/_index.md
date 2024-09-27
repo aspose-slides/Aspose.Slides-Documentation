@@ -2,7 +2,7 @@
 title: Презентация с защитой паролем
 type: docs
 weight: 20
-url: /php-java/password-protected-presentation/
+url: /ru/php-java/password-protected-presentation/
 keywords: "Защитить презентацию PowerPoint"
 description: "Защитить презентацию PowerPoint. Презентация с защитой паролем"
 ---
@@ -255,5 +255,5 @@ Aspose.Slides позволяет проверить, защищена ли пр�
 Он вернет `true`, если презентация была зашифрована с указанным паролем. В противном случае он вернет `false`. 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Цифровая подпись в PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Цифровая подпись в PowerPoint](/slides/ru/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

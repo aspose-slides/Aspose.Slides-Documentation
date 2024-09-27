@@ -2,7 +2,7 @@
 title: Экспорт диаграммы
 type: docs
 weight: 90
-url: /php-java/export-chart/
+url: /ru/php-java/export-chart/
 ---
 
 ## **Получить изображение диаграммы**

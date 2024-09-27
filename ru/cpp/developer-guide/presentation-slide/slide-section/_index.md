@@ -2,7 +2,7 @@
 title: Секция слайдов
 type: docs
 weight: 100
-url: /cpp/slide-section/
+url: /ru/cpp/slide-section/
 ---
 
 С помощью Aspose.Slides для C++ вы можете организовать презентацию PowerPoint на секции. Вы можете создать секции, которые содержат конкретные слайды.

@@ -3,7 +3,7 @@ title: Конвертировать PowerPoint PPT в JPG на Python
 linktitle: Конвертировать PowerPoint PPT в JPG
 type: docs
 weight: 60
-url: /python-net/convert-powerpoint-to-jpg/
+url: /ru/python-net/convert-powerpoint-to-jpg/
 keywords: "python ppt в изображение, Конвертировать презентацию PowerPoint, JPG, JPEG, PowerPoint в JPG, PowerPoint в JPEG, PPT в JPG, PPTX в JPG, PPT в JPEG, PPTX в JPEG, Python, Aspose.Slides"
 description: "Конвертировать PowerPoint в JPG на Python. Сохранить слайд как изображение JPG"
 ---
@@ -71,4 +71,4 @@ Aspose предоставляет [БЕСПЛАТНОЕ веб-приложен�
 
 Смотрите другие варианты конвертации PPT/PPTX в изображение, такие как:
 
-- [Конвертация PPT/PPTX в SVG](/slides/python-net/render-a-slide-as-an-svg-image/).
+- [Конвертация PPT/PPTX в SVG](/slides/ru/python-net/render-a-slide-as-an-svg-image/).

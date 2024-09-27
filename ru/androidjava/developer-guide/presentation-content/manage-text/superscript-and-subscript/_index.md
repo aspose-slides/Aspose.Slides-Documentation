@@ -2,7 +2,7 @@
 title: Супер.script и Суб.script
 type: docs
 weight: 80
-url: /androidjava/superscript-and-subscript/
+url: /ru/androidjava/superscript-and-subscript/
 ---
 
 ## **Управление текстом супер.script и суб.script**

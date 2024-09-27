@@ -2,7 +2,7 @@
 title: Управление Ячейками
 type: docs
 weight: 30
-url: /cpp/manage-cells/
+url: /ru/cpp/manage-cells/
 keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, C++, CPP, Aspose.Slides для C++"
 description: "Ячейки таблицы в презентациях PowerPoint на C++"
 ---

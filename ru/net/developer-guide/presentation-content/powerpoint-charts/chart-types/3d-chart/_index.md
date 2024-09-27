@@ -1,7 +1,7 @@
 ---
 title: 3D График
 type: docs
-url: /net/3d-chart/
+url: /ru/net/3d-chart/
 keywords: "3d график, rotationX, rotationY, depthpercent, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Установите rotationX, rotationY и depthpercents для 3D графика в презентации PowerPoint на C# или .NET"
 ---

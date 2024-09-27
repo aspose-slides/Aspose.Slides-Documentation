@@ -2,7 +2,7 @@
 title: Установка Aspose.Slides для Reporting Services
 type: docs
 weight: 10
-url: /reportingservices/installing-aspose-slides-for-reporting-services/
+url: /ru/reportingservices/installing-aspose-slides-for-reporting-services/
 ---
 
 {{% alert color="primary" %}} 
@@ -26,12 +26,12 @@ Aspose.Slides для Reporting Services можно установить на с�
 
 ### **Ссылки на статьи по установке**
 
-- [Установка с помощью установщика MSI](/slides/reportingservices/install-with-msi-installer/).
-- [Установка вручную](/slides/reportingservices/install-manually/).
-- [Повторная установка Aspose.Slides для Reporting Services](/slides/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [Интеграция вручную с Visual Studio 2005 или 2008 Report Designer](/slides/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [Настройка заголовка расширения рендеринга Microsoft PowerPoint](/slides/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [Лицензирование Aspose.Slides для Reporting Services](/slides/reportingservices/license-aspose-slides-for-reporting-services/).
+- [Установка с помощью установщика MSI](/slides/ru/reportingservices/install-with-msi-installer/).
+- [Установка вручную](/slides/ru/reportingservices/install-manually/).
+- [Повторная установка Aspose.Slides для Reporting Services](/slides/ru/reportingservices/re-installing-aspose-slides-for-reporting-services/).
+- [Интеграция вручную с Visual Studio 2005 или 2008 Report Designer](/slides/ru/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
+- [Настройка заголовка расширения рендеринга Microsoft PowerPoint](/slides/ru/reportingservices/customizing-powerpoint-rendering-extension-caption/).
+- [Лицензирование Aspose.Slides для Reporting Services](/slides/ru/reportingservices/license-aspose-slides-for-reporting-services/).
 
 {{% alert title="Примечание" color="warning" %}} 
 

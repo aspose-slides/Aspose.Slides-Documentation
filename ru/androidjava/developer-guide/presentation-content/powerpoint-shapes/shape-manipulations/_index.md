@@ -2,7 +2,7 @@
 title: Манипуляции с формами
 type: docs
 weight: 40
-url: /androidjava/shape-manipulations/
+url: /ru/androidjava/shape-manipulations/
 ---
 
 ## **Найти форму на слайде**

@@ -2,13 +2,13 @@
 title: Сохранить презентацию
 type: docs
 weight: 80
-url: /androidjava/save-presentation/
+url: /ru/androidjava/save-presentation/
 ---
 
 ## **Обзор**
 {{% alert color="primary" %}} 
 
-[Открытие презентации](/slides/androidjava/open-presentation/) описывает, как использовать класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) для открытия презентации. Эта статья объясняет, как создавать и сохранять презентации.
+[Открытие презентации](/slides/ru/androidjava/open-presentation/) описывает, как использовать класс [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) для открытия презентации. Эта статья объясняет, как создавать и сохранять презентации.
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: 3D Презентация
 type: docs
 weight: 232
-url: /cpp/3d-presentation/
+url: /ru/cpp/3d-presentation/
 ---
 
 ## Общий обзор

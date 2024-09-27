@@ -1,7 +1,7 @@
 ---
 title: Всплывающее сообщение
 type: docs
-url: /cpp/callout/
+url: /ru/cpp/callout/
 ---
 
 ## **Использование всплывающего сообщения**

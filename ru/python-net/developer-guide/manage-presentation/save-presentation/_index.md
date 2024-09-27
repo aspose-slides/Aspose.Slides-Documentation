@@ -2,7 +2,7 @@
 title: Сохранить презентацию
 type: docs
 weight: 80
-url: /python-net/save-presentation/
+url: /ru/python-net/save-presentation/
 keywords: "Сохранить PowerPoint, PPT, PPTX, Сохранить презентацию, файл, поток, Python"
 description: "Сохранить презентацию PowerPoint в виде файла или потока на Python"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Свойства режима представления
 type: docs
-url: /cpp/presentation-view-properties/
+url: /ru/cpp/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 

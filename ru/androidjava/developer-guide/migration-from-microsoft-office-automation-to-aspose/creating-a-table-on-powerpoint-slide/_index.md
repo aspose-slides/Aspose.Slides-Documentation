@@ -2,12 +2,12 @@
 title: Создание таблицы на слайде PowerPoint
 type: docs
 weight: 50
-url: /androidjava/creating-a-table-on-powerpoint-slide/
+url: /ru/androidjava/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Таблицы широко используются для отображения данных на презентационных слайдах. В этой статье показано, как программно создать таблицу 15 x 15 с размером шрифта 10, сначала с помощью [VSTO 2008](/slides/androidjava/creating-a-table-on-powerpoint-slide/), а затем с помощью [Aspose.Slides для Android через Java](/slides/androidjava/creating-a-table-on-powerpoint-slide/).
+Таблицы широко используются для отображения данных на презентационных слайдах. В этой статье показано, как программно создать таблицу 15 x 15 с размером шрифта 10, сначала с помощью [VSTO 2008](/slides/ru/androidjava/creating-a-table-on-powerpoint-slide/), а затем с помощью [Aspose.Slides для Android через Java](/slides/ru/androidjava/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Создание таблиц**

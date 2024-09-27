@@ -1,7 +1,7 @@
 ---
 title: Тенденции
 type: docs
-url: /cpp/trend-line/
+url: /ru/cpp/trend-line/
 ---
 
 ## **Добавить линию тренда**

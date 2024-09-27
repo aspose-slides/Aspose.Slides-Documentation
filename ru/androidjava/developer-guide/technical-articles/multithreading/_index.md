@@ -2,7 +2,7 @@
 title: Многопоточность в Aspose.Slides
 type: docs
 weight: 310
-url: /androidjava/multithreading/
+url: /ru/androidjava/multithreading/
 ---
 
 {{% alert color="primary" %}} 

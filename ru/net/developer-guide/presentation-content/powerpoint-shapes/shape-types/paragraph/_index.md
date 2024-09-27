@@ -2,7 +2,7 @@
 title: Параграф
 type: docs
 weight: 60
-url: /net/paragraph/
+url: /ru/net/paragraph/
 keywords: "Параграф, порция, координаты параграфа, координаты порции, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Параграф и порция в презентации PowerPoint на C# или .NET"
 ---

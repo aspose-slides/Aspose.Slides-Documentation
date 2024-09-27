@@ -2,7 +2,7 @@
 title: Доступ к слайду в презентации
 type: docs
 weight: 20
-url: /net/access-slide-in-presentation/
+url: /ru/net/access-slide-in-presentation/
 keywords: "Доступ к PowerPoint-презентации, доступ к слайду, редактирование свойств слайда, изменение позиции слайда, установка номера слайда, индекса, ID, позиции C#, Csharp, .NET, Aspose.Slides"
 description: "Доступ к слайду PowerPoint по индексу, ID или позиции на C# или .NET. Редактирование свойств слайда"
 ---

@@ -2,7 +2,7 @@
 title: Параграф
 type: docs
 weight: 60
-url: /cpp/paragraph/
+url: /ru/cpp/paragraph/
 ---
 
 ## **Получение координат параграфа и порции в TextFrame**

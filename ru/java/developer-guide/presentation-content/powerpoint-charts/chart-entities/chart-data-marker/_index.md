@@ -1,7 +1,7 @@
 ---
 title: Маркеры данных графика
 type: docs
-url: /java/chart-data-marker/
+url: /ru/java/chart-data-marker/
 ---
 
 ## **Установка параметров маркера графика**

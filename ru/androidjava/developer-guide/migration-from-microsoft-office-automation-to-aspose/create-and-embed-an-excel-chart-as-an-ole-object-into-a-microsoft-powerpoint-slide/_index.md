@@ -2,12 +2,12 @@
 title: Создание и встраивание диаграммы Excel в виде OLE-объекта в слайд Microsoft PowerPoint
 type: docs
 weight: 60
-url: /androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ru/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- Диаграммы являются визуальными представлениями ваших данных и широко используются в презентациях. В этой статье мы покажем вам код для создания и встраивания диаграммы Excel в виде OLE-объекта в слайд PowerPoint программно, используя [VSTO](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides для Android через Java](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Диаграммы являются визуальными представлениями ваших данных и широко используются в презентациях. В этой статье мы покажем вам код для создания и встраивания диаграммы Excel в виде OLE-объекта в слайд PowerPoint программно, используя [VSTO](/slides/ru/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides для Android через Java](/slides/ru/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Создание и встраивание диаграммы Excel**

@@ -2,7 +2,7 @@
 title: Экспорт математических уравнений
 type: docs
 weight: 30
-url: /cpp/exporting-math-equations/
+url: /ru/cpp/exporting-math-equations/
 
 ---
 

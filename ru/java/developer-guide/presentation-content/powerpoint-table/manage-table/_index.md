@@ -2,7 +2,7 @@
 title: Управление таблицей
 type: docs
 weight: 10
-url: /java/manage-table/
+url: /ru/java/manage-table/
 keywords: "Таблица, создать таблицу, доступ к таблице, аспектное соотношение таблицы, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Создайте и управляйте таблицей в презентациях PowerPoint на Java"
 ---

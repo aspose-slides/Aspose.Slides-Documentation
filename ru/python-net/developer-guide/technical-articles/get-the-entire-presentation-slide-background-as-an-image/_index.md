@@ -2,7 +2,7 @@
 title: Получить фоновое изображение всей презентации слайдов
 type: docs
 weight: 95
-url: /python-net/get-the-entire-presentation-slide-background-as-an-image/
+url: /ru/python-net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - слайд
 - фон
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides для Python
 ---
 
-В презентациях PowerPoint фон слайда может состоять из множества элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/python-net/presentation-background/), финальный фон может зависеть от темы презентации, цветовой схемы и форм, размещенных на основном слайде и слайде макета.
+В презентациях PowerPoint фон слайда может состоять из множества элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/ru/python-net/presentation-background/), финальный фон может зависеть от темы презентации, цветовой схемы и форм, размещенных на основном слайде и слайде макета.
 
 Aspose.Slides для Python не предоставляет простого метода для извлечения всего фонового изображения презентации слайда, но вы можете следовать приведенным ниже шагам, чтобы сделать это:
 1. Загрузите презентацию, используя класс [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).

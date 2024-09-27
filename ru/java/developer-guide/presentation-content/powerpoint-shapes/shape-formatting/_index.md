@@ -2,7 +2,7 @@
 title: Форматирование фигур
 type: docs
 weight: 20
-url: /java/shape-formatting/
+url: /ru/java/shape-formatting/
 keywords: "Формат фигуры, формат линий, формат стилей соединения, градиентная заливка, паттерн-заливка, заливка изображением, сплошная заливка, вращение фигур, 3d эффекты скоса, 3d эффект вращения, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Форматирование фигур в презентации PowerPoint на Java"
 ---

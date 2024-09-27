@@ -2,7 +2,7 @@
 title: Получить весь текст на всех слайдах
 type: docs
 weight: 100
-url: /net/get-all-the-text-in-all-the-slides/
+url: /ru/net/get-all-the-text-in-all-the-slides/
 ---
 
 ## **OpenXML SDK**

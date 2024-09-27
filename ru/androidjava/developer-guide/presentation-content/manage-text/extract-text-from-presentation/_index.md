@@ -2,7 +2,7 @@
 title: Извлечение текста из презентации
 type: docs
 weight: 90
-url: /androidjava/extract-text-from-presentation/
+url: /ru/androidjava/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,12 +2,12 @@
 title: Публичный API и изменения, несовместимые с предыдущими версиями в Aspose.Slides для Java 16.1.0
 type: docs
 weight: 200
-url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
+url: /ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница содержит все [добавленные](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) или [удаленные](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) классы, методы, свойства и так далее, а также другие изменения, внесенные в API Aspose.Slides для Java 16.1.0.
+Эта страница содержит все [добавленные](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) или [удаленные](/slides/ru/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) классы, методы, свойства и так далее, а также другие изменения, внесенные в API Aspose.Slides для Java 16.1.0.
 
 {{% /alert %}} 
 ## **Изменения в публичном API**

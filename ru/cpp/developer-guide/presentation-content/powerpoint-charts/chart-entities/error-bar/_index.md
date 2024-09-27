@@ -1,7 +1,7 @@
 ---
 title: Ошибочная Полоса
 type: docs
-url: /cpp/error-bar/
+url: /ru/cpp/error-bar/
 ---
 
 ## **Добавить Ошибочную Полосу**

@@ -2,7 +2,7 @@
 title: Параграф
 type: docs
 weight: 60
-url: /php-java/paragraph/
+url: /ru/php-java/paragraph/
 ---
 
 ## Получение координат параграфа и частей текста в TextFrame ##

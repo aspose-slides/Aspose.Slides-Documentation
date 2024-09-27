@@ -2,7 +2,7 @@
 title: Изменение размеров фигур на слайде
 type: docs
 weight: 110
-url: /java/re-sizing-shapes-on-slide/
+url: /ru/java/re-sizing-shapes-on-slide/
 ---
 
 ## **Изменение размеров фигур на слайде**

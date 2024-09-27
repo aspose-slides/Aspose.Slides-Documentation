@@ -1,7 +1,7 @@
 ---
 title: Метка данных на диаграмме
 type: docs
-url: /python-net/chart-data-label/
+url: /ru/python-net/chart-data-label/
 keywords: "Меткам данных диаграммы, расстояние меток, Python, Aspose.Slides для Python через .NET"
 description: "Установите метку данных диаграммы PowerPoint и расстояние в Python"
 ---

@@ -2,7 +2,7 @@
 title: Программа для просмотра презентаций
 type: docs
 weight: 50
-url: /python-net/presentation-viewer/
+url: /ru/python-net/presentation-viewer/
 keywords: "Просмотр презентации PowerPoint, просмотр ppt, просмотр PPTX, Python, Aspose.Slides для Python через .NET"
 description: "Просмотр презентации PowerPoint на Python"
 ---

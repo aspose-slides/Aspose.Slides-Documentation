@@ -2,7 +2,7 @@
 title: Клонирование слайдов
 type: docs
 weight: 35
-url: /php-java/clone-slides/
+url: /ru/php-java/clone-slides/
 ---
 
 ## **Клонирование слайдов в презентации**

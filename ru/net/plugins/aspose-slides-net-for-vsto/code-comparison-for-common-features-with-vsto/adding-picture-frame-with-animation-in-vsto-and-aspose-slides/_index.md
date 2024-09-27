@@ -2,7 +2,7 @@
 title: Добавление рамки для изображения с анимацией в VSTO и Aspose.Слайды
 type: docs
 weight: 20
-url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
+url: /ru/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
 ---
 
 Приведенные ниже образцы кода создают презентацию со слайдом, добавляют изображение с рамкой для изображения и применяют анимацию к нему.

@@ -3,7 +3,7 @@ title: Слияние презентаций PowerPoint PPT, PPTX с помощ�
 linktitle: Слить Презентацию
 type: docs
 weight: 40
-url: /net/merge-presentation/
+url: /ru/net/merge-presentation/
 keywords: "Слияние PowerPoint, PPTX, PPT, объединение PowerPoint, слияние презентации, объединение презентации, C#, Csharp, .NET"
 description: "Слияние или объединение презентаций PowerPoint на C# или .NET"
 ---

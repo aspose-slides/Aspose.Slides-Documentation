@@ -1,7 +1,7 @@
 ---
 title: Ось графика
 type: docs
-url: /net/chart-axis/
+url: /ru/net/chart-axis/
 keywords: "Ось графика PowerPoint, Презентационные графики, C#, .NET, Манипуляция осью графика, Данные графика"
 description: "Редактирование оси графика PowerPoint на C# или .NET"
 ---

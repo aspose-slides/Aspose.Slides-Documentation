@@ -1,7 +1,7 @@
 ---
 title: Оси графиков
 type: docs
-url: /cpp/chart-axis/
+url: /ru/cpp/chart-axis/
 keywords: "Оси графиков PowerPoint, Графики презентаций, C++, Управление осями графиков, Данные графиков"
 description: "Как редактировать оси графиков PowerPoint на C++"
 ---

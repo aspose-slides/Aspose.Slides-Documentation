@@ -2,7 +2,7 @@
 title: Экспорт в XAML
 type: docs
 weight: 30
-url: /python-net/export-to-xaml/
+url: /ru/python-net/export-to-xaml/
 keywords: "Экспорт презентации PowerPoint, Конвертация PowerPoint, XAML, PowerPoint в XAML, PPT в XAML, PPTX в XAML, Python"
 description: "Экспорт или конвертация презентации PowerPoint в XAML"
 ---

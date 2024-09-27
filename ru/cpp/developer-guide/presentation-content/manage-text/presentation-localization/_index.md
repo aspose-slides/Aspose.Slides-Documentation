@@ -2,7 +2,7 @@
 title: Локализация презентации
 type: docs
 weight: 100
-url: /cpp/presentation-localization/
+url: /ru/cpp/presentation-localization/
 ---
 
 

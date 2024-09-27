@@ -2,7 +2,7 @@
 title: Надстрочный и подстрочный текст
 type: docs
 weight: 80
-url: /java/superscript-and-subscript/
+url: /ru/java/superscript-and-subscript/
 ---
 
 ## **Управление надстрочным и подстрочным текстом**

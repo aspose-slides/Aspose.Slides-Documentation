@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /net/activex/
+url: /ru/net/activex/
 keywords: "ActiveX, элементы управления ActiveX, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Управляйте элементами управления ActiveX в презентации PowerPoint на C# или .NET"
 ---

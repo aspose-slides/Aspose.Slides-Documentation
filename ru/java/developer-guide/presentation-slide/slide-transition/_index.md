@@ -2,7 +2,7 @@
 title: Смена слайдов
 type: docs
 weight: 80
-url: /java/slide-transition/
+url: /ru/java/slide-transition/
 keywords: "Смена слайдов PowerPoint, морфинг в Java"
 description: "Смена слайдов PowerPoint, морфинг PowerPoint в Java"
 ---

@@ -2,7 +2,7 @@
 title: Управление настройками автоматического изменения размера
 type: docs
 weight: 30
-url: /java/manage-autofit-settings/
+url: /ru/java/manage-autofit-settings/
 keywords: "Текстовое поле, Автоматическое изменение размера, Презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Установите настройки автоматического изменения размера для текстового поля в PowerPoint на Java"
 ---

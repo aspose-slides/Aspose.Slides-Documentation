@@ -1,7 +1,7 @@
 ---
 title: Маркеры данных графика
 type: docs
-url: /python-net/chart-data-marker/
+url: /ru/python-net/chart-data-marker/
 keywords: "Опции маркеров графиков, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Настройка параметров маркеров графиков в презентациях PowerPoint на Python"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Маркер данных диаграммы
 type: docs
-url: /androidjava/chart-data-marker/
+url: /ru/androidjava/chart-data-marker/
 ---
 
 ## **Настройка параметров маркера диаграммы**

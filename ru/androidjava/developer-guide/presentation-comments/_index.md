@@ -2,7 +2,7 @@
 title: Комментарии к презентации
 type: docs
 weight: 100
-url: /androidjava/presentation-comments/
+url: /ru/androidjava/presentation-comments/
 keywords: "Комментарии, комментарии PowerPoint, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Добавление комментариев и ответов в презентации PowerPoint на Java"
 ---

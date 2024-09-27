@@ -2,7 +2,7 @@
 title: Размер слайда
 type: docs
 weight: 70
-url: /androidjava/slide-size/
+url: /ru/androidjava/slide-size/
 
 ---
 

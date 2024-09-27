@@ -2,7 +2,7 @@
 title: Флеш
 type: docs
 weight: 10
-url: /cpp/flash/
+url: /ru/cpp/flash/
 ---
 
 ## **Извлечение флеш-объектов из презентации**

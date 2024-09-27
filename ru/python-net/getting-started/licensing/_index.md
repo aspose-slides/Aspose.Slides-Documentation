@@ -3,7 +3,7 @@ title: Лицензирование
 description: "Aspose.Slides для Python через .NET предоставляет различные планы для покупки или предлагает Бесплатную пробную версию и 30-дневную временную лицензию для оценки с использованием политик лицензирования и подписки."
 type: docs
 weight: 80
-url: /python-net/licensing/
+url: /ru/python-net/licensing/
 ---
 
 ## **Оценка Aspose.Slides**
@@ -41,7 +41,7 @@ url: /python-net/licensing/
 
 {{% alert color="primary" %}} 
 
-Вам может быть интересно посмотреть [Лицензирование по потреблению](/slides/python-net/metered-licensing/).
+Вам может быть интересно посмотреть [Лицензирование по потреблению](/slides/ru/python-net/metered-licensing/).
 
 {{% /alert %}} 
 

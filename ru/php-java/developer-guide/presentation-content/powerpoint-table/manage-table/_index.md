@@ -2,7 +2,7 @@
 title: Управление Таблицей
 type: docs
 weight: 10
-url: /php-java/manage-table/
+url: /ru/php-java/manage-table/
 keywords: "Таблица, создать таблицу, доступ к таблице, соотношение сторон таблицы, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Создание и управление таблицей в презентациях PowerPoint"
 ---

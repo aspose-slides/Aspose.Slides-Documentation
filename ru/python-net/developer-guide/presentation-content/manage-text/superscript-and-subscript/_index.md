@@ -2,7 +2,7 @@
 title: Надстрочные и подстрочные символы
 type: docs
 weight: 80
-url: /python-net/superscript-and-subscript/
+url: /ru/python-net/superscript-and-subscript/
 keywords: "Надстрочный текст, Подстрочный текст, Добавить надстрочный текст, Добавить подстрочный текст, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление надстрочного и подстрочного текста в презентации PowerPoint на Python"
 ---

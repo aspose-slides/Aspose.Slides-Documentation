@@ -2,7 +2,7 @@
 title: Локализация Презентации
 type: docs
 weight: 100
-url: /php-java/presentation-localization/
+url: /ru/php-java/presentation-localization/
 ---
 
 ## **Изменение языка текста презентации и фигур**

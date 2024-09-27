@@ -2,7 +2,7 @@
 title: Подсчет количества слайдов
 type: docs
 weight: 50
-url: /net/count-the-number-of-slides/
+url: /ru/net/count-the-number-of-slides/
 ---
 
 ## **OpenXML SDK**

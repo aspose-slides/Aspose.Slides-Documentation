@@ -2,7 +2,7 @@
 title: Водяной Знак
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /ru/python-net/watermark/
 keywords: "Водяной знак, добавить водяной знак, текстовый водяной знак, изображение водяного знака, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавить текстовый и изображений водяной знак в презентацию PowerPoint на Python"
 ---
@@ -38,7 +38,7 @@ with slides.Presentation() as presentation:
 
 
 {{% alert color="primary" title="См. также" %}} 
-- [Как использовать ](/slides/python-net/slide-master/)[TextFrame](/slides/python-net/adding-and-formatting-text/)
+- [Как использовать ](/slides/ru/python-net/slide-master/)[TextFrame](/slides/ru/python-net/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Добавить текстовый водяной знак в презентацию**
@@ -56,7 +56,7 @@ with slides.Presentation() as pres:
 
 
 {{% alert color="primary" title="См. также" %}} 
-- [Как использовать ](/slides/python-net/slide-master/)[Главный слайд](/slides/python-net/slide-master/)
+- [Как использовать ](/slides/ru/python-net/slide-master/)[Главный слайд](/slides/ru/python-net/slide-master/)
 {{% /alert %}}
 
 ### **Установить шрифт текстового водяного знака**
@@ -132,7 +132,7 @@ watermarkShape.shape_lock.grouping_locked = True
 
 
 {{% alert color="primary" title="См. также" %}} 
-- [Как заблокировать формы от редактирования](/slides/python-net/presentation-locking/)
+- [Как заблокировать формы от редактирования](/slides/ru/python-net/presentation-locking/)
 {{% /alert %}}
 
 ## **Перенести водяной знак на передний план**

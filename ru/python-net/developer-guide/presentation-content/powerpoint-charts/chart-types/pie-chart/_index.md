@@ -1,7 +1,7 @@
 ---
 title: Пироговая диаграмма
 type: docs
-url: /python-net/pie-chart/
+url: /ru/python-net/pie-chart/
 keywords: "Пироговая диаграмма, параметры графика, цвета срезов, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Параметры построения пироговой диаграммы и цвета срезов в презентации PowerPoint на Python"
 ---

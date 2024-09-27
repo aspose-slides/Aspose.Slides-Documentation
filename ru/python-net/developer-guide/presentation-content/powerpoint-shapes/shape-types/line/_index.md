@@ -2,7 +2,7 @@
 title: Линия
 type: docs
 weight: 50
-url: /python-net/line/
+url: /ru/python-net/line/
 keywords: "Линия, форма PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление линии в презентацию PowerPoint на Python"
 ---

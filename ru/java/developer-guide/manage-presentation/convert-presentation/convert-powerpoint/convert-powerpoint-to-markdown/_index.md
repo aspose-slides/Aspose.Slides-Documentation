@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в Markdown на Java
 type: docs
 weight: 140
-url: /java/convert-powerpoint-to-markdown/
+url: /ru/java/convert-powerpoint-to-markdown/
 keywords: "Конвертация PowerPoint в Markdown, Конвертировать ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, Java, Aspose.Slides для Java"
 description: "Конвертация PowerPoint в Markdown на Java"
 ---

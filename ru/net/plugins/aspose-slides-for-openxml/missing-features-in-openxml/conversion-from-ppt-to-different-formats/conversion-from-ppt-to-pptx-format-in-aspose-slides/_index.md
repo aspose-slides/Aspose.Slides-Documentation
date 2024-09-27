@@ -2,7 +2,7 @@
 title: Конвертация из формата PPT в формат PPTX в Aspose.Slides
 type: docs
 weight: 10
-url: /net/conversion-from-ppt-to-pptx-format-in-aspose-slides/
+url: /ru/net/conversion-from-ppt-to-pptx-format-in-aspose-slides/
 ---
 
 **Aspose.Slides** для .NET теперь позволяет разработчикам получать доступ к PPT с помощью экземпляра класса Presentation и конвертировать его в соответствующий формат PPTX. В настоящее время он поддерживает частичную конвертацию из PPT в PPTX. Для получения дополнительной информации о поддерживаемых и неподдерживаемых функциях при конвертации PPT в PPTX, пожалуйста, переходите по этой ссылке документации.

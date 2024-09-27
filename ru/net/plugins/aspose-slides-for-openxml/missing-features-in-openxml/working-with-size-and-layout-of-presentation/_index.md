@@ -2,7 +2,7 @@
 title: Работа с размером и макетом презентации
 type: docs
 weight: 90
-url: /net/working-with-size-and-layout-of-presentation/
+url: /ru/net/working-with-size-and-layout-of-presentation/
 ---
 
 **SlideSize.Type** и **SlideSize.Size** — это свойства класса презентации, которые могут быть установлены или получены, как показано ниже в примере.
@@ -47,6 +47,6 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-Для получения более подробной информации посетите [Работа с размером и макетом слайда](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Для получения более подробной информации посетите [Работа с размером и макетом слайда](/slides/ru/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

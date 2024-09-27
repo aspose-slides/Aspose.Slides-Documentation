@@ -2,7 +2,7 @@
 title: Управление Зумом
 type: docs
 weight: 60
-url: /androidjava/manage-zoom/
+url: /ru/androidjava/manage-zoom/
 keywords: "Zoom, Zoom frame, Добавить зум, Форматировать зум-каркас, Сводный зум, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Добавьте зум или зум-каркас в презентации PowerPoint на Java"
 ---

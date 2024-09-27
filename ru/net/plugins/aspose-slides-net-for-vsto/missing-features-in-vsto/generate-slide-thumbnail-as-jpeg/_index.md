@@ -2,7 +2,7 @@
 title: Генерация миниатюры слайда в формате JPEG
 type: docs
 weight: 90
-url: /net/generate-slide-thumbnail-as-jpeg/
+url: /ru/net/generate-slide-thumbnail-as-jpeg/
 ---
 
 Чтобы сгенерировать миниатюру любого желаемого слайда с помощью Aspose.Slides для .NET:
@@ -44,6 +44,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-Для получения дополнительной информации посетите [Создание изображения миниатюры слайдов](/slides/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
+Для получения дополнительной информации посетите [Создание изображения миниатюры слайдов](/slides/ru/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
 
 {{% /alert %}}

@@ -4,7 +4,7 @@ second_title: "Документация Aspose.Slides для PHP"
 description: Aspose.Slides для PHP через Java предоставляет множество ключевых функций, таких как управление текстом, формами, таблицами и анимациями, добавление аудио и видео на слайды, предварительный просмотр слайдов, экспорт слайдов в формат SVG, PDF и многое другое.
 type: docs
 weight: 45
-url: /php-java/
+url: /ru/php-java/
 is_root: true
 ---
 
@@ -32,13 +32,13 @@ Aspose.Slides для PHP через Java портирован из Aspose.Slides
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для PHP через Java](/slides/php-java/)
-- [Функции Aspose.Slides для PHP через Java](/slides/php-java/features-overview/)
-- [Ограничения и различия API Aspose.Slides для PHP через Java](/slides/php-java/limitations-and-api-differences/)
+- [Онлайн документация Aspose.Slides для PHP через Java](/slides/ru/php-java/)
+- [Функции Aspose.Slides для PHP через Java](/slides/ru/php-java/features-overview/)
+- [Ограничения и различия API Aspose.Slides для PHP через Java](/slides/ru/php-java/limitations-and-api-differences/)
 - [Примечания к выпуску Aspose.Slides для PHP через Java](https://releases.aspose.com/slides/php-java/release-notes/)
 - [Страница продукта Aspose.Slides для PHP через Java](https://products.aspose.com/slides/php-java/)
 - [Скачать пакет Aspose.Slides для PHP через Java](https://releases.aspose.com/slides/php-java/)
-- [Установка Aspose.Slides для PHP через Java](/slides/php-java/installation/)
+- [Установка Aspose.Slides для PHP через Java](/slides/ru/php-java/installation/)
 - [Справочная информация о API Aspose.Slides для PHP через Java](https://reference.aspose.com/slides/php-java/)
 - [Форум бесплатной поддержки Aspose.Slides для PHP через Java](https://forum.aspose.com/c/slides/11)
 - [Служба платной поддержки Aspose.Slides для PHP через Java](https://helpdesk.aspose.com/)

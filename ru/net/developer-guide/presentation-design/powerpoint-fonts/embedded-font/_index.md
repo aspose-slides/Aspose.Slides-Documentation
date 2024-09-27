@@ -3,7 +3,7 @@ title: Встраиваемые шрифты - PowerPoint C# API
 linktitle: Встраиваемый шрифт
 type: docs
 weight: 40
-url: /net/embedded-font/
+url: /ru/net/embedded-font/
 keywords: "Шрифты, встроенные шрифты, добавление шрифтов, PowerPoint презентация C#, Csharp, Aspose.Slides для .NET"
 description: "Используйте встроенные шрифты в PowerPoint-презентации на C# или .NET"
 ---

@@ -2,12 +2,12 @@
 title: Эффект формы
 type: docs
 weight: 30
-url: /androidjava/shape-effect
+url: /ru/androidjava/shape-effect
 keywords: "Эффект формы, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Применение эффекта к форме PowerPoint на Java"
 ---
 
-Хотя эффекты в PowerPoint могут использоваться для выделения формы, они отличаются от [заливок](/slides/androidjava/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint вы можете создать убедительные отражения на форме, распространить свечение формы и т. д.
+Хотя эффекты в PowerPoint могут использоваться для выделения формы, они отличаются от [заливок](/slides/ru/androidjava/shape-formatting/#gradient-fill) или контуров. С помощью эффектов PowerPoint вы можете создать убедительные отражения на форме, распространить свечение формы и т. д.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

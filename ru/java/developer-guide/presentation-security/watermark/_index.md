@@ -2,7 +2,7 @@
 title: Водяной знак
 type: docs
 weight: 40
-url: /java/watermark/
+url: /ru/java/watermark/
 keywords: "водяной знак в презентации"
 description: "Используйте водяной знак в PowerPoint с Aspose.Slides. Добавьте водяной знак в ppt-презентацию или удалите водяной знак. Вставьте изображение водяного знака или текстовый водяной знак."
 ---
@@ -39,7 +39,7 @@ try {
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/java/slide-master/)[TextFrame](/slides/java/adding-and-formatting-text/)
+- [Как использовать ](/slides/ru/java/slide-master/)[TextFrame](/slides/ru/java/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Добавить текстовый водяной знак в презентацию**
@@ -61,7 +61,7 @@ try {
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/java/slide-master/)[Мастер-слайд](/slides/java/slide-master/)
+- [Как использовать ](/slides/ru/java/slide-master/)[Мастер-слайд](/slides/ru/java/slide-master/)
 {{% /alert %}}
 
 ### **Установить шрифт текстового водяного знака**
@@ -148,7 +148,7 @@ watermarkShape.getShapeLock().setGroupingLocked(true);
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как заблокировать формы от редактирования](/slides/java/presentation-locking/)
+- [Как заблокировать формы от редактирования](/slides/ru/java/presentation-locking/)
 {{% /alert %}}
 
 ## **Переместить водяной знак на передний план**

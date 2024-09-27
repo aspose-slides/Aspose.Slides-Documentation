@@ -4,7 +4,7 @@ second_title: "Документация Aspose.Slides"
 description: Aspose.Slides для .NET — это API для управления Microsoft PowerPoint®, который позволяет .NET-приложениям читать и записывать документы PowerPoint® без использования Microsoft PowerPoint®.
 type: docs
 weight: 10
-url: /ru//net/
+url: /ru/ru//net/
 is_root: true
 ---
 
@@ -26,9 +26,9 @@ Aspose.Slides для .NET предлагает множество ключевы
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для .NET](/slides/net/)
-- [Функции Aspose.Slides для .NET](/slides/net/features-overview/)
-- [Ограничения Aspose.Slides для .NET](/slides/net/known-issues/)
+- [Онлайн документация Aspose.Slides для .NET](/slides/ru/net/)
+- [Функции Aspose.Slides для .NET](/slides/ru/net/features-overview/)
+- [Ограничения Aspose.Slides для .NET](/slides/ru/net/known-issues/)
 - [Примечания к релизу Aspose.Slides для .NET](https://releases.aspose.com/slides/net/release-notes/)
 - [Страница продукта Aspose.Slides для .NET](https://products.aspose.com/slides/net/)
 - [Скачать Aspose.Slides для .NET](https://releases.aspose.com/slides/net/)

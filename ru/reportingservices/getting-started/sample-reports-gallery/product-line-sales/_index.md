@@ -2,7 +2,7 @@
 title: Продажи по линейке продуктов
 type: docs
 weight: 40
-url: /reportingservices/product-line-sales/
+url: /ru/reportingservices/product-line-sales/
 ---
 
 ## **Особенности:**

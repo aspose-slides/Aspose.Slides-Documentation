@@ -2,7 +2,7 @@
 title: Отображение слайда как SVG изображение
 type: docs
 weight: 50
-url: /java/render-a-slide-as-an-svg-image/
+url: /ru/java/render-a-slide-as-an-svg-image/
 ---
 
 SVG — это аббревиатура для Scalable Vector Graphics, стандартного типа графики или формата, используемого для отображения двумерных изображений. SVG хранит изображения в виде векторов в XML с деталями, определяющими их поведение или внешний вид.

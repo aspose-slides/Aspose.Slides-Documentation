@@ -2,7 +2,7 @@
 title: Форматирование диаграмм
 type: docs
 weight: 60
-url: /net/chart-formatting/
+url: /ru/net/chart-formatting/
 keywords: "Сущности диаграмм, свойства диаграмм, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Форматируйте сущности диаграмм в презентациях PowerPoint на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Оценка Aspose.Slides
 type: docs
 weight: 120
-url: /nodejs-java/evaluate-aspose-slides/
+url: /ru/nodejs-java/evaluate-aspose-slides/
 ---
 
 

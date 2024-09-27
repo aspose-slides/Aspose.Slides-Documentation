@@ -2,7 +2,7 @@
 title: Обзор возможностей
 type: docs
 weight: 20
-url: /nodejs-java/features-overview/
+url: /ru/nodejs-java/features-overview/
 ---
 
 ## **Поддерживаемые платформы**

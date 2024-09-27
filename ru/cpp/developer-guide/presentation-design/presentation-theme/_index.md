@@ -2,14 +2,14 @@
 title: Тема презентации
 type: docs
 weight: 10
-url: /cpp/presentation-theme/
+url: /ru/cpp/presentation-theme/
 keywords: "Тема, тема PowerPoint, презентация PowerPoint, CPP, C++, Aspose.Slides для C++"
 description: "Тема презентации PowerPoint на C++"
 ---
 
 Тема презентации определяет свойства элементов дизайна. Когда вы выбираете тему презентации, вы, по сути, выбираете определенный набор визуальных элементов и их свойства.
 
-В PowerPoint тема включает цвета, [шрифты](/slides/cpp/powerpoint-fonts/), [стили фона](/slides/cpp/presentation-background/) и эффекты.
+В PowerPoint тема включает цвета, [шрифты](/slides/ru/cpp/powerpoint-fonts/), [стили фона](/slides/ru/cpp/presentation-background/) и эффекты.
 
 ![составляющие темы](theme-constituents.png)
 
@@ -149,7 +149,7 @@ pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject
 
 {{% alert color="primary" title="Совет" %}} 
 
-Вы можете посмотреть [шрифты PowerPoint](/slides/cpp/powerpoint-fonts/).
+Вы можете посмотреть [шрифты PowerPoint](/slides/ru/cpp/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -185,7 +185,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 
 {{% alert color="primary" title="Совет" %}} 
 
-Вы можете посмотреть [фон PowerPoint](/slides/cpp/presentation-background/).
+Вы можете посмотреть [фон PowerPoint](/slides/ru/cpp/presentation-background/).
 
 {{% /alert %}}
 

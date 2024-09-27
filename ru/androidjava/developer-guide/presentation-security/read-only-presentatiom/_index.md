@@ -2,7 +2,7 @@
 title: Презентация только для чтения
 type: docs
 weight: 30
-url: /androidjava/read-only-presentation/
+url: /ru/androidjava/read-only-presentation/
 
 ---
 

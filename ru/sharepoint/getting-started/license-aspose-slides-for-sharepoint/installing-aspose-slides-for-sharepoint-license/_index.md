@@ -2,7 +2,7 @@
 title: Установка лицензии Aspose.Slides для SharePoint
 type: docs
 weight: 10
-url: /sharepoint/installing-aspose-slides-for-sharepoint-license/
+url: /ru/sharepoint/installing-aspose-slides-for-sharepoint-license/
 ---
 
 {{% alert color="primary" %}} 

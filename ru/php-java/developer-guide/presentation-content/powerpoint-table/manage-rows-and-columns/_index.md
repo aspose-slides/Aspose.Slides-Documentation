@@ -2,7 +2,7 @@
 title: Управление строками и столбцами
 type: docs
 weight: 20
-url: /php-java/manage-rows-and-columns/
+url: /ru/php-java/manage-rows-and-columns/
 keywords: "Таблица, строки и столбцы таблицы, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Управление строками и столбцами таблицы в презентациях PowerPoint"
 ---

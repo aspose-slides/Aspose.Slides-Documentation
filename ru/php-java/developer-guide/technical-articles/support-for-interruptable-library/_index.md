@@ -2,7 +2,7 @@
 title: Поддержка для прерываемой библиотеки
 type: docs
 weight: 120
-url: /php-java/support-for-interruptable-library/
+url: /ru/php-java/support-for-interruptable-library/
 ---
 
 ## **Прерываемая библиотека**

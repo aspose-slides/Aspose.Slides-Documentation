@@ -2,7 +2,7 @@
 title: Резюме продаж сотрудников
 type: docs
 weight: 30
-url: /reportingservices/employee-sales-summary/
+url: /ru/reportingservices/employee-sales-summary/
 ---
 
 ## **Особенности:**

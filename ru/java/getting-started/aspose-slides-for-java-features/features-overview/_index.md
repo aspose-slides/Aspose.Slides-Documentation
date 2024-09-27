@@ -2,7 +2,7 @@
 title: Обзор возможностей
 type: docs
 weight: 10
-url: /java/features-overview/
+url: /ru/java/features-overview/
 ---
 
 ## **Поддерживаемые платформы**
@@ -18,11 +18,11 @@ Aspose.Slides для Java поддерживает большинство фор
 
 |**Особенность**|**Описание**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/java/microsoft-powerpoint-ppt/)|Aspose.Slides для Java обеспечивает самую быструю обработку этого формата документа презентации.|
-|[PresentationML (PPTX, XML)](/slides/java/presentationml-pptx-xml/)|Aspose.Slides для Java поддерживает обработку формата презентации OOXML (также известного как PresentationML или PPTX).|
-|[Конверсия PPT в PPTX](/slides/java/ppt-to-pptx-conversion/)|Aspose.Slides для Java поддерживает конверсию из PPT в PPTX.|
-|[Portable Document Format (PDF)](/slides/java/developer-guide/)|Поддерживаемые форматы файлов могут быть экспортированы в документах Adobe Portable Document Format (PDF) с помощью одного метода.|
-|[XML Parser Specification (XPS)](/slides/java/xml-parser-specification-xps/)|Все поддерживаемые форматы файлов могут быть экспортированы в документы XML Parser Specification (XPS) с помощью одного метода.|
+|[Microsoft PowerPoint (PPT)](/slides/ru/java/microsoft-powerpoint-ppt/)|Aspose.Slides для Java обеспечивает самую быструю обработку этого формата документа презентации.|
+|[PresentationML (PPTX, XML)](/slides/ru/java/presentationml-pptx-xml/)|Aspose.Slides для Java поддерживает обработку формата презентации OOXML (также известного как PresentationML или PPTX).|
+|[Конверсия PPT в PPTX](/slides/ru/java/ppt-to-pptx-conversion/)|Aspose.Slides для Java поддерживает конверсию из PPT в PPTX.|
+|[Portable Document Format (PDF)](/slides/ru/java/developer-guide/)|Поддерживаемые форматы файлов могут быть экспортированы в документах Adobe Portable Document Format (PDF) с помощью одного метода.|
+|[XML Parser Specification (XPS)](/slides/ru/java/xml-parser-specification-xps/)|Все поддерживаемые форматы файлов могут быть экспортированы в документы XML Parser Specification (XPS) с помощью одного метода.|
 |[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/java/convert-powerpoint-to-tiff/)|Поддерживаемые Aspose.Slides для Java форматы презентаций можно также экспортировать в формат Tagged Image File Format (TIFF).|
 |[Конверсия ODP в PPTX](https://docs.aspose.com/slides/java/convert-odp-to-pptx/)|Aspose.Slides для Java поддерживает загрузку OpenDocument Presentation (ODP) и конвертацию их в PPTX.|
 |[Конверсия презентации в HTML](https://docs.aspose.com/slides/java/convert-powerpoint-to-html/)|Aspose.Slides для Java поддерживает конвертацию PresentationEx в формат HTML.|

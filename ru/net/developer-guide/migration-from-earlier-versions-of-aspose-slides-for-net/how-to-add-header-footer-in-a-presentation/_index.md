@@ -2,12 +2,12 @@
 title: Как добавить заголовок и подвал в презентацию
 type: docs
 weight: 20
-url: /net/how-to-add-header-footer-in-a-presentation/
+url: /ru/net/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-Выпущен новый [Aspose.Slides для .NET API](/slides/net/), и теперь этот продукт поддерживает возможность генерировать документы PowerPoint с нуля и редактировать существующие.
+Выпущен новый [Aspose.Slides для .NET API](/slides/ru/net/), и теперь этот продукт поддерживает возможность генерировать документы PowerPoint с нуля и редактировать существующие.
 
 {{% /alert %}} 
 ## **Поддержка устаревшего кода**

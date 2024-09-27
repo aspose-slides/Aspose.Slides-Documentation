@@ -2,7 +2,7 @@
 title: Пользовательская Фигура
 type: docs
 weight: 20
-url: /cpp/custom-shape/
+url: /ru/cpp/custom-shape/
 keywords: "Фигура PowerPoint, пользовательская фигура, презентация PowerPoint, C++, Aspose.Slides для C++"
 description: "Добавьте пользовательскую фигуру в презентацию PowerPoint на C++"
 ---

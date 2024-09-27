@@ -2,7 +2,7 @@
 title: Слияние презентаций
 type: docs
 weight: 40
-url: /androidjava/merge-presentation/
+url: /ru/androidjava/merge-presentation/
 keywords: "Слияние PowerPoint, PPTX, PPT, объединить PowerPoint, слияние презентации, объединить презентацию, Java"
 description: "Слияние или объединение презентаций PowerPoint на Java"
 ---

@@ -2,7 +2,7 @@
 title: Управление медиа
 type: docs
 weight: 50
-url: /cpp/manage-media/
+url: /ru/cpp/manage-media/
 ---
 
 ## **Экспорт медиафайла в HTML**

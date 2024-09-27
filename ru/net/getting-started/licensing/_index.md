@@ -2,7 +2,7 @@
 title: Лицензирование
 type: docs
 weight: 80
-url: /net/licensing/
+url: /ru/net/licensing/
 ---
 
 ## **Оцените Aspose.Slides**

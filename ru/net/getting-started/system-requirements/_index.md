@@ -2,7 +2,7 @@
 title: Системные требования
 type: docs
 weight: 60
-url: /net/system-requirements/
+url: /ru/net/system-requirements/
 ---
 
 ## **Обзор**

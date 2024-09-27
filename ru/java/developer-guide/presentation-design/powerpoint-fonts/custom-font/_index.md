@@ -3,7 +3,7 @@ title: Пользовательский шрифт PowerPoint на Java
 linktitle: Пользовательский шрифт
 type: docs
 weight: 20
-url: /java/custom-font/
+url: /ru/java/custom-font/
 keywords: "Шрифты, пользовательские шрифты, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Пользовательские шрифты PowerPoint на Java"
 ---

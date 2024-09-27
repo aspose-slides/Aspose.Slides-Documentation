@@ -2,7 +2,7 @@
 title: Управление текстовым полем
 type: docs
 weight: 20
-url: /python-net/manage-textbox/
+url: /ru/python-net/manage-textbox/
 keywords: "Textbox, Текстовое поле, Добавить текстовое поле, Текстовое поле с гиперссылкой, Python, Aspose.Slides для Python через .NET"
 description: "Добавьте текстовое поле или текстовый фрейм в презентации PowerPoint на Python или .NET"
 ---

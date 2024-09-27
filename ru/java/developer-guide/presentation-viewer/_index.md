@@ -2,7 +2,7 @@
 title: Просмотрщик презентаций
 type: docs
 weight: 50
-url: /java/presentation-viewer/
+url: /ru/java/presentation-viewer/
 keywords: "Просмотрщик PowerPoint PPT"
 description: "Просмотрщик PowerPoint PPT на Java"
 ---

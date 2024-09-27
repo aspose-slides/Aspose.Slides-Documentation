@@ -2,7 +2,7 @@
 title: Управление OLE
 type: docs
 weight: 40
-url: /cpp/manage-ole/
+url: /ru/cpp/manage-ole/
 keywords: "Добавить OLE, Добавить объект, Включить объект Объектное связывание и встроенное использование, OLE Объектная рамка, Включить OLE, Презентация PowerPoint, C++, CPP, Aspose.Slides для C++ "
 description: "Добавить OLE объект в презентацию PowerPoint на C++"
 ---

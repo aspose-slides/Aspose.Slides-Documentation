@@ -2,12 +2,12 @@
 title: Эффект формы
 type: docs
 weight: 30
-url: /cpp/shape-effect
+url: /ru/cpp/shape-effect
 keywords: "Эффект формы, Презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Применение эффекта к форме PowerPoint на C++"
 ---
 
-Хотя эффекты в PowerPoint могут использоваться, чтобы сделать фигуру более заметной, они отличаются от [заполнений](/slides/cpp/shape-formatting/#gradient-fill) или контуров. Используя эффекты PowerPoint, вы можете создать правдоподобные отражения на фигурах, размыть сияние фигуры и т. д.
+Хотя эффекты в PowerPoint могут использоваться, чтобы сделать фигуру более заметной, они отличаются от [заполнений](/slides/ru/cpp/shape-formatting/#gradient-fill) или контуров. Используя эффекты PowerPoint, вы можете создать правдоподобные отражения на фигурах, размыть сияние фигуры и т. д.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

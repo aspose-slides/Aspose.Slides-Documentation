@@ -2,7 +2,7 @@
 title: Часть
 type: docs
 weight: 70
-url: /python-net/portion/
+url: /ru/python-net/portion/
 keywords: "Часть, Фигура PowerPoint, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Получить часть в презентации PowerPoint на Python"
 ---

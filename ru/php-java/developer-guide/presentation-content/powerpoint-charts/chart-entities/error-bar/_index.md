@@ -1,7 +1,7 @@
 ---
 title: Ошибка бар
 type: docs
-url: /php-java/error-bar/
+url: /ru/php-java/error-bar/
 ---
 
 ## **Добавить Ошибка бар**

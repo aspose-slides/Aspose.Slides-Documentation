@@ -2,12 +2,12 @@
 title: Создание таблицы на слайде PowerPoint
 type: docs
 weight: 50
-url: /net/creating-a-table-on-powerpoint-slide/
+url: /ru/net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Таблицы широко используются для отображения данных на слайдах презентаций. В этой статье показано, как программно создать таблицу 15 x 15 с размером шрифта 10, используя сначала [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/), а затем [Aspose.Slides для .NET](/slides/net/creating-a-table-on-powerpoint-slide/).
+Таблицы широко используются для отображения данных на слайдах презентаций. В этой статье показано, как программно создать таблицу 15 x 15 с размером шрифта 10, используя сначала [VSTO 2008](/slides/ru/net/creating-a-table-on-powerpoint-slide/), а затем [Aspose.Slides для .NET](/slides/ru/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Создание таблиц**

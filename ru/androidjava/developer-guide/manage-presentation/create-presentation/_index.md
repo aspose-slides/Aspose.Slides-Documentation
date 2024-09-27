@@ -3,7 +3,7 @@ title: Создание Презентации PowerPoint с использов�
 linktitle: Создать Презентацию
 type: docs
 weight: 10
-url: /androidjava/create-presentation/
+url: /ru/androidjava/create-presentation/
 keywords: создать ppt java, создать ppt презентацию, создать pptx java
 description: Узнайте, как создавать Презентации PowerPoint, например PPT, PPTX с использованием Java с нуля.
 ---

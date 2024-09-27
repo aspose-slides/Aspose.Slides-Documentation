@@ -2,7 +2,7 @@
 title: Доля
 type: docs
 weight: 70
-url: /net/portion/
+url: /ru/net/portion/
 keywords: "Доля, Форма PowerPoint, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Получить долю в презентации PowerPoint на C# или .NET"
 ---

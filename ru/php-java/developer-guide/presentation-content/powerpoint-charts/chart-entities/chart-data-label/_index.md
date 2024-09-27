@@ -1,7 +1,7 @@
 ---
 title: Метка данных графика
 type: docs
-url: /php-java/chart-data-label/
+url: /ru/php-java/chart-data-label/
 keywords: "Метка данных графика, расстояние метки, Java, Aspose.Slides для PHP через Java"
 description: "Задать метку данных графика PowerPoint и расстояние"
 ---

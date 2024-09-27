@@ -2,7 +2,7 @@
 title: Управление SmartArt
 type: docs
 weight: 10
-url: /androidjava/manage-smartart/
+url: /ru/androidjava/manage-smartart/
 ---
 
 ## **Получить текст из SmartArt**

@@ -2,7 +2,7 @@
 title: Рабочее решение проблемы изменения размера листа  
 type: docs  
 weight: 130  
-url: /cpp/working-solution-for-worksheet-resizing/  
+url: /ru/cpp/working-solution-for-worksheet-resizing/  
 ---  
 
 {{% alert color="primary" %}}  
@@ -314,4 +314,4 @@ System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::D
 h4. {_}Связанные разделы  
 {_}  
 
-[Создание и встраивание диаграммы Excel в качестве OLE-объекта в презентацию](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)  
+[Создание и встраивание диаграммы Excel в качестве OLE-объекта в презентацию](/slides/ru/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)  

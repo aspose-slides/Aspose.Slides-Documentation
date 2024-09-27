@@ -1,7 +1,7 @@
 ---
 title: Серия диаграмм
 type: docs
-url: /cpp/chart-series/
+url: /ru/cpp/chart-series/
 ---
 
 Серия – это строка или столбец чисел, нанесенных на диаграмму.

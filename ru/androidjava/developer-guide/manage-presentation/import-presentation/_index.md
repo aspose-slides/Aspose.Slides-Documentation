@@ -2,7 +2,7 @@
 title: Импорт Презентации
 type: docs
 weight: 60
-url: /androidjava/import-presentation/
+url: /ru/androidjava/import-presentation/
 keywords: "Импорт PowerPoint, PDF в Презентацию, PDF в PPTX, PDF в PPT, Java, Aspose.Slides для Android через Java"
 description: "Импорт презентации PowerPoint из PDF. Конвертировать PDF в PowerPoint"
 ---

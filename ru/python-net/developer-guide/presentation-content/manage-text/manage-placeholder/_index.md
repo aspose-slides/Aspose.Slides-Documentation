@@ -2,14 +2,14 @@
 title: Управление Заполнителем
 type: docs
 weight: 10
-url: /python-net/manage-placeholder/
+url: /ru/python-net/manage-placeholder/
 keywords: "Заполнитель, Текст заполнителя, Текст подсказки, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Изменение текста заполнителя и текста подсказки в презентациях PowerPoint на Python"
 ---
 
 ## **Изменить Текст в Заполнителе**
 
-С помощью [Aspose.Slides для Python через .NET](/slides/python-net/) вы можете находить и изменять заполнители на слайдах в презентациях. Aspose.Slides позволяет изменять текст в заполнителе.
+С помощью [Aspose.Slides для Python через .NET](/slides/ru/python-net/) вы можете находить и изменять заполнители на слайдах в презентациях. Aspose.Slides позволяет изменять текст в заполнителе.
 
 **Предварительные условия**: Вам нужна презентация, содержащая заполнитель. Вы можете создать такую презентацию в стандартном приложении Microsoft PowerPoint.
 

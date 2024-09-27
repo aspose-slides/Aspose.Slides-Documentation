@@ -2,7 +2,7 @@
 title: Заметки для презентации
 type: docs
 weight: 110
-url: /python-net/presentation-notes/
+url: /ru/python-net/presentation-notes/
 keywords: "Заметки, заметки PowerPoint, добавить заметки, удалить заметки, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление и удаление заметок в презентациях PowerPoint на Python"
 ---

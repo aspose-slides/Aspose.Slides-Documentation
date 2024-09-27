@@ -1,7 +1,7 @@
 ---
 title: Область построения графика
 type: docs
-url: /python-net/chart-plot-area/
+url: /ru/python-net/chart-plot-area/
 keywords: "Область построения графика презентации PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Получить ширину, высоту области построения графика. Установить режим компоновки. Презентация PowerPoint на Python"
 ---

@@ -2,7 +2,7 @@
 title: Динамическое добавление текста
 type: docs
 weight: 40
-url: /net/adding-text-dynamically/
+url: /ru/net/adding-text-dynamically/
 ---
 
 Оба метода следуют следующим шагам:

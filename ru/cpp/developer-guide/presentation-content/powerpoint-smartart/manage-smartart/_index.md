@@ -2,7 +2,7 @@
 title: Управление SmartArt
 type: docs
 weight: 10
-url: /cpp/manage-smartart/
+url: /ru/cpp/manage-smartart/
 ---
 
 ## **Получить текст из SmartArt**

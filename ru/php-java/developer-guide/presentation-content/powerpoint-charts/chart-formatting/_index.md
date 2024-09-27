@@ -2,7 +2,7 @@
 title: Форматирование диаграммы
 type: docs
 weight: 60
-url: /php-java/chart-formatting/
+url: /ru/php-java/chart-formatting/
 ---
 
 ## **Форматирование сущностей диаграммы**

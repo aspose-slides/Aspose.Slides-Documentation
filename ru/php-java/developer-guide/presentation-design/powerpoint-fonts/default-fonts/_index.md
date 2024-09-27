@@ -3,7 +3,7 @@ title: Шрифты по умолчанию - PowerPoint Java API
 linktitle: Шрифты по умолчанию
 type: docs
 weight: 30
-url: /php-java/default-font/
+url: /ru/php-java/default-font/
 description: PowerPoint Java API позволяет установить шрифт по умолчанию для рендеринга презентации в PDF, XPS или миниатюры. В этой статье показано, как определить шрифт DefaultRegular и шрифт DefaultAsian для использования в качестве шрифтов по умолчанию.
 ---
 

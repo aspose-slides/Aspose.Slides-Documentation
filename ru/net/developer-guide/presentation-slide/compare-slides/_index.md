@@ -2,7 +2,7 @@
 title: Сравнить слайды
 type: docs
 weight: 50
-url: /net/compare-slides/
+url: /ru/net/compare-slides/
 keywords: "Сравнить слайды PowerPoint, Сравнить два слайда, Презентация, C#, Csharp, .NET, Aspose.Slides"
 description: "Сравнить слайды презентации PowerPoint на C# или .NET"
 ---

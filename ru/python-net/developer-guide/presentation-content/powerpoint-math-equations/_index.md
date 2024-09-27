@@ -2,7 +2,7 @@
 title: Математические уравнения PowerPoint
 type: docs
 weight: 80
-url: /python-net/powerpoint-math-equations/
+url: /ru/python-net/powerpoint-math-equations/
 keywords: "Математические уравнения PowerPoint, Математические символы PowerPoint, Формула PowerPoint, Математический текст PowerPoint, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Математические уравнения PowerPoint, математические символы, формулы и математический текст на Python"
 ---

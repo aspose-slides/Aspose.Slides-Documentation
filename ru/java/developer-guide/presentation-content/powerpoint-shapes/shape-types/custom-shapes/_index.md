@@ -2,7 +2,7 @@
 title: Пользовательская форма
 type: docs
 weight: 20
-url: /java/custom-shape/
+url: /ru/java/custom-shape/
 keywords: "Форма PowerPoint, пользовательская форма, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Добавление пользовательской формы в презентацию PowerPoint на Java"
 ---

@@ -2,7 +2,7 @@
 title: Размер слайдов
 type: docs
 weight: 70
-url: /php-java/slide-size/
+url: /ru/php-java/slide-size/
 
 ---
 

@@ -2,7 +2,7 @@
 title: Управление таблицей
 type: docs
 weight: 10
-url: /cpp/manage-table/
+url: /ru/cpp/manage-table/
 keywords: "Таблица, создать таблицу, доступ к таблице, аспектное соотношение таблицы, презентация PowerPoint, C++, Aspose.Slides для C++"
 description: "Создание и управление таблицей в презентациях PowerPoint на C++"
 ---

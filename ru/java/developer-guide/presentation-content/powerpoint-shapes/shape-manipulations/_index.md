@@ -2,7 +2,7 @@
 title: Манипуляции с формами
 type: docs
 weight: 40
-url: /java/shape-manipulations/
+url: /ru/java/shape-manipulations/
 ---
 
 ## **Поиск формы на слайде**

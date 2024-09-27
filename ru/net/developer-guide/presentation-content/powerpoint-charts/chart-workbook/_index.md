@@ -2,7 +2,7 @@
 title: Рабочая тетрадь диаграмм
 type: docs
 weight: 70
-url: /net/chart-workbook/
+url: /ru/net/chart-workbook/
 keywords: "Рабочая тетрадь диаграмм, данные диаграммы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Рабочая тетрадь диаграмм в презентации PowerPoint на C# или .NET"
 ---

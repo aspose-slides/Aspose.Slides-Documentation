@@ -2,7 +2,7 @@
 title: Рабочая книга графиков
 type: docs
 weight: 70
-url: /androidjava/chart-workbook/
+url: /ru/androidjava/chart-workbook/
 keywords: "Рабочая книга графиков, данные графиков, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Рабочая книга графиков в презентации PowerPoint на Java"
 ---

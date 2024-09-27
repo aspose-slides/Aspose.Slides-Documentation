@@ -2,7 +2,7 @@
 title: Ресурсы
 type: docs
 weight: 20
-url: /jasperreports/resources/
+url: /ru/jasperreports/resources/
 ---
 
 {{% alert color="primary" %}} 

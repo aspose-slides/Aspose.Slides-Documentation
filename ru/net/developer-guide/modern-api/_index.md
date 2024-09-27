@@ -2,7 +2,7 @@
 title: Современный API
 type: docs
 weight: 237
-url: /net/modern-api/
+url: /ru/net/modern-api/
 keywords: "Кроссплатформенный Современный API System.Drawing"
 description: "Современный API"
 ---

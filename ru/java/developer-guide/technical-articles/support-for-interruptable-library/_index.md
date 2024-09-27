@@ -2,7 +2,7 @@
 title: Поддержка прерываемой библиотеки
 type: docs
 weight: 120
-url: /java/support-for-interruptable-library/
+url: /ru/java/support-for-interruptable-library/
 ---
 
 ## **Прерываемая библиотека**

@@ -2,7 +2,7 @@
 title: Управление чернилами  
 type: docs  
 weight: 95  
-url: /cpp/manage-ink/  
+url: /ru/cpp/manage-ink/  
 keywords: "Чернила в PowerPoint, Инструменты для рисования, C++ Ink, Рисовать в PowerPoint, Презентация PowerPoint, C++, CPP, Aspose.Slides для C++"  
 description: "Используйте инструменты для рисования, чтобы создавать объекты в PowerPoint C++"  
 ---  

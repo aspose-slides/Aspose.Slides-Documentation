@@ -1,7 +1,7 @@
 ---
 title: Свойства представления в нормальном режиме
 type: docs
-url: /python-net/presentation-view-properties/
+url: /ru/python-net/presentation-view-properties/
 keywords: "Просмотрщик PowerPoint, свойства просмотрщика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Свойства просмотрщика презентаций PowerPoint на Python"
 ---

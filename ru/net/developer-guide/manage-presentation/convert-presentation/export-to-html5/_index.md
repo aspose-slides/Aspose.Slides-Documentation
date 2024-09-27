@@ -2,14 +2,14 @@
 title: Экспорт в HTML5
 type: docs
 weight: 40
-url: /net/export-to-html5/
+url: /ru/net/export-to-html5/
 keywords: "PowerPoint в HTML, HTML 5, экспорт HTML, экспорт презентации, конвертация PowerPoint в HTML, C#, Csharp, Aspose.Slides для .NET"
 description: "Экспорт PowerPoint в HTML5 на C# или .NET"
 ---
 
 {{% alert title="Информация" color="info" %}}
 
-В [Aspose.Slides 21.9](/slides/net/aspose-slides-for-net-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5. Однако, если вы предпочитаете экспортировать ваш PowerPoint в HTML с использованием WebExtensions, смотрите [этот раздел](/slides/net/web-extensions/) вместо этого.
+В [Aspose.Slides 21.9](/slides/ru/net/aspose-slides-for-net-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5. Однако, если вы предпочитаете экспортировать ваш PowerPoint в HTML с использованием WebExtensions, смотрите [этот раздел](/slides/ru/net/web-extensions/) вместо этого.
 
 {{% /alert %}}
 

@@ -1,7 +1,7 @@
 ---
 title: Круговая диаграмма
 type: docs
-url: /cpp/pie-chart/
+url: /ru/cpp/pie-chart/
 ---
 
 

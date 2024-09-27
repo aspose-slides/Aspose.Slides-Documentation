@@ -2,5 +2,5 @@
 title: Шрифты PowerPoint
 type: docs
 weight: 30
-url: /python-net/powerpoint-fonts/
+url: /ru/python-net/powerpoint-fonts/
 ---

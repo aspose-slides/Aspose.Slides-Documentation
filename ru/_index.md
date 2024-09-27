@@ -2,7 +2,7 @@
 title: Семейство продуктов Aspose.Slides
 type: docs
 weight: 10
-url: /
+url: /ru/
 keywords: "Aspose.Slides для .NET, Aspose Slides, Aspose PowerPoint, Aspose PPT, Aspose Документация."
 description: Aspose.Slides — это API управления Microsoft PowerPoint®, который позволяет программным приложениям читать и записывать документы PowerPoint® без использования Microsoft PowerPoint®.
 ---
@@ -18,14 +18,14 @@ Aspose.Slides для .NET — это API управления Microsoft PowerPoi
 {{% /alert %}}
 
 Это ссылки на некоторые полезные ресурсы:
-- [Онлайн документация Aspose.Slides для .NET](/slides/net/)
-- [Особенности Aspose.Slides для .NET](/slides/net/features-overview/)
-- [Ограничения Aspose.Slides для .NET](/slides/net/known-issues/)
+- [Онлайн документация Aspose.Slides для .NET](/slides/ru/net/)
+- [Особенности Aspose.Slides для .NET](/slides/ru/net/features-overview/)
+- [Ограничения Aspose.Slides для .NET](/slides/ru/net/known-issues/)
 - [Примечания к версии Aspose.Slides для .NET](https://releases.aspose.com/slides/net/release-notes/)
 - [Страница продукта Aspose.Slides для .NET](https://products.aspose.com/slides/net/)
 - [Скачать новые версии Aspose.Slides для .NET](https://releases.aspose.com/slides/net/)
 - [Скачать пакет NuGet Aspose.Slides для .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Установить Aspose.Slides для .NET](/slides/net/installation/)
+- [Установить Aspose.Slides для .NET](/slides/ru/net/installation/)
 - [Справочник по API Aspose.Slides для .NET](https://reference.aspose.com/slides/net)
 - [Скачать примеры из репозитория GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Форум бесплатной поддержки Aspose.Slides для .NET](https://forum.aspose.com/c/slides/11)
@@ -43,14 +43,14 @@ Aspose.Slides для Java — это API управления Microsoft PowerPoi
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для Java](/slides/java/)
-- [Особенности Aspose.Slides для Java](/slides/java/features-overview/)
-- [Ограничения Aspose.Slides для Java](/slides/java/known-issues/)
+- [Онлайн документация Aspose.Slides для Java](/slides/ru/java/)
+- [Особенности Aspose.Slides для Java](/slides/ru/java/features-overview/)
+- [Ограничения Aspose.Slides для Java](/slides/ru/java/known-issues/)
 - [Примечания к версии Aspose.Slides для Java](https://releases.aspose.com/slides/java/release-notes/)
 - [Страница продукта Aspose.Slides для Java](https://products.aspose.com/slides/java/)
 - [Скачать Aspose.Slides для Java](https://releases.aspose.com/slides/java/)
 - [Репозиторий Maven Aspose.Slides для Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Установить Aspose.Slides для Java из репозитория Maven](/slides/java/installation/)
+- [Установить Aspose.Slides для Java из репозитория Maven](/slides/ru/java/installation/)
 - [Справочник по API Aspose.Slides для Java](https://reference.aspose.com/slides/java)
 - [Скачать примеры из репозитория GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
 - [Форум бесплатной поддержки Aspose.Slides для Java](https://forum.aspose.com/c/slides/11)
@@ -68,8 +68,8 @@ Aspose.Slides для C++ — это API управления Microsoft PowerPoin
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для C++](/slides/cpp/)
-- [Особенности Aspose.Slides для C++](/slides/cpp/features-overview/)
+- [Онлайн документация Aspose.Slides для C++](/slides/ru/cpp/)
+- [Особенности Aspose.Slides для C++](/slides/ru/cpp/features-overview/)
 - [Примечания к версии Aspose.Slides для C++](https://releases.aspose.com/slides/cpp/release-notes/)
 - [Страница продукта Aspose.Slides для C++](https://products.aspose.com/slides/cpp/)
 - [Скачать новые версии Aspose.Slides для C++](https://releases.aspose.com/slides/cpp/)
@@ -92,13 +92,13 @@ Aspose.Slides для Android через Java — это API управления
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для Java](/slides/java/)
-- [Особенности Aspose.Slides для Android через Java](/slides/androidjava/aspose-slides-for-android-via-java-features/)
+- [Онлайн документация Aspose.Slides для Java](/slides/ru/java/)
+- [Особенности Aspose.Slides для Android через Java](/slides/ru/androidjava/aspose-slides-for-android-via-java-features/)
 - [Примечания к версии Aspose.Slides для Android через Java](https://releases.aspose.com/slides/androidjava/release-notes/)
 - [Страница продукта Aspose.Slides для Android через Java](https://products.aspose.com/slides/android-java/)
 - [Скачать Aspose.Slides для Android через Java](https://releases.aspose.com/slides/androidjava/)
 - [Репозиторий Maven Aspose.Slides для Android через Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Установить Aspose.Slides для Android через Java](/slides/androidjava/install-aspose-slides-for-android-via-java/)
+- [Установить Aspose.Slides для Android через Java](/slides/ru/androidjava/install-aspose-slides-for-android-via-java/)
 - [Справочник по API Aspose.Slides для Android через Java](https://reference.aspose.com/slides/java)
 - [Форум бесплатной поддержки Aspose.Slides для Android через Java](https://forum.aspose.com/c/slides/11)
 - [Платная служба поддержки Aspose.Slides для Android через Java](https://helpdesk.aspose.com/)
@@ -114,14 +114,14 @@ Aspose.Slides для Python через .NET — это библиотека кл
 {{% /alert %}}
 
 Это ссылки на некоторые полезные ресурсы:
-- [Онлайн документация Aspose.Slides для Python через .NET](/slides/python-net/)
-- [Особенности Aspose.Slides для Python через .NET](/slides/python-net/features-overview/)
-- [Ограничения Aspose.Slides для Python через .NET](/slides/python-net/known-issues/)
+- [Онлайн документация Aspose.Slides для Python через .NET](/slides/ru/python-net/)
+- [Особенности Aspose.Slides для Python через .NET](/slides/ru/python-net/features-overview/)
+- [Ограничения Aspose.Slides для Python через .NET](/slides/ru/python-net/known-issues/)
 - [Примечания к версии Aspose.Slides для Python через .NET](https://releases.aspose.com/slides/python-net/release-notes/)
 - [Страница продукта Aspose.Slides для Python через .NET](https://products.aspose.com/slides/python-net/)
 - [Скачать Aspose.Slides для Python через .NET](https://releases.aspose.com/slides/python-net/)
-- [Установить Aspose.Slides для Python через .NET](/slides/python-net/installation/)
-- [Справочник по API Aspose.Slides для Python через .NET](/slides/python-net/api-reference/)
+- [Установить Aspose.Slides для Python через .NET](/slides/ru/python-net/installation/)
+- [Справочник по API Aspose.Slides для Python через .NET](/slides/ru/python-net/api-reference/)
 - [Форум бесплатной поддержки Aspose.Slides для Python через .NET](https://forum.aspose.com/c/slides/11)
 - [Платная служба поддержки Aspose.Slides для Python через .NET](https://helpdesk.aspose.com/)
 
@@ -136,13 +136,13 @@ Aspose.Slides для Node.js через Java — это библиотека к�
 {{% /alert %}}
 
 Это ссылки на некоторые полезные ресурсы:
-- [Онлайн документация Aspose.Slides для Node.js через Java](/slides/java/developer-guide/)
-- [Особенности Aspose.Slides для Node.js через Java](/slides/nodejs-java/features-overview/)
-- [Ограничения и различия API Aspose.Slides для Node.js через Java](/slides/nodejs-java/limitations-and-api-differences/)
+- [Онлайн документация Aspose.Slides для Node.js через Java](/slides/ru/java/developer-guide/)
+- [Особенности Aspose.Slides для Node.js через Java](/slides/ru/nodejs-java/features-overview/)
+- [Ограничения и различия API Aspose.Slides для Node.js через Java](/slides/ru/nodejs-java/limitations-and-api-differences/)
 - [Примечания к версии Aspose.Slides для Node.js через Java](https://releases.aspose.com/slides/nodejs-java/release-notes/)
 - [Страница продукта Aspose.Slides для Node.js через Java](https://products.aspose.com/slides/nodejs-java/)
 - [Скачать пакет Aspose.Slides для Node.js через Java](https://releases.aspose.com/slides/nodejs-java/)
-- [Установить Aspose.Slides для Node.js через Java](/slides/nodejs-java/installation/)
+- [Установить Aspose.Slides для Node.js через Java](/slides/ru/nodejs-java/installation/)
 - [Справочник по API Aspose.Slides для Node.js через Java](https://reference.aspose.com/slides/nodejs-java/)
 - [Форум бесплатной поддержки Aspose.Slides для Node.js через Java](https://forum.aspose.com/c/slides/11)
 - [Платная служба поддержки Aspose.Slides для Node.js через Java](https://helpdesk.aspose.com/)
@@ -158,13 +158,13 @@ Aspose.Slides для PHP через Java — это библиотека кла�
 {{% /alert %}}
 
 Это ссылки на некоторые полезные ресурсы:
-- [Онлайн документация Aspose.Slides для PHP через Java](/slides/java/)
-- [Особенности Aspose.Slides для PHP через Java](/slides/php-java/features-overview/)
-- [Ограничения и различия API Aspose.Slides для PHP через Java](/slides/php-java/limitations-and-api-differences/)
+- [Онлайн документация Aspose.Slides для PHP через Java](/slides/ru/java/)
+- [Особенности Aspose.Slides для PHP через Java](/slides/ru/php-java/features-overview/)
+- [Ограничения и различия API Aspose.Slides для PHP через Java](/slides/ru/php-java/limitations-and-api-differences/)
 - [Примечания к версии Aspose.Slides для PHP через Java](https://releases.aspose.com/slides/php-java/release-notes/)
 - [Страница продукта Aspose.Slides для PHP через Java](https://products.aspose.com/slides/php-java/)
 - [Скачать пакет Aspose.Slides для PHP через Java](https://releases.aspose.com/slides/php-java/)
-- [Установить Aspose.Slides для PHP через Java](/slides/php-java/installation/)
+- [Установить Aspose.Slides для PHP через Java](/slides/ru/php-java/installation/)
 - [Справочник по API Aspose.Slides для PHP через Java](https://docs.aspose.com/slides/php-java/api-reference/)
 - [Форум бесплатной поддержки Aspose.Slides для PHP через Java](https://forum.aspose.com/c/slides/11)
 - [Платная служба поддержки Aspose.Slides для PHP через Java](https://helpdesk.aspose.com/)
@@ -181,8 +181,8 @@ Aspose.Slides для Reporting Services — это единственное ре
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для Reporting Services](/slides/reportingservices/)
-- [Особенности Aspose.Slides для Reporting Services](/slides/reportingservices/features)
+- [Онлайн документация Aspose.Slides для Reporting Services](/slides/ru/reportingservices/)
+- [Особенности Aspose.Slides для Reporting Services](/slides/ru/reportingservices/features)
 - [Примечания к версии Aspose.Slides для Reporting Services](https://releases.aspose.com/slides/reportingservices/release-notes/)
 - [Страница продукта Aspose.Slides для Reporting Services](https://products.aspose.com/slides/reporting-services/)
 - [Скачать Aspose.Slides для Reporting Services](https://releases.aspose.com/slides/reportingservices/)
@@ -201,8 +201,8 @@ Aspose.Slides для SharePoint — это гибкое решение, кото
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для SharePoint](/slides/sharepoint/)
-- [Особенности Aspose.Slides для SharePoint](/slides/sharepoint/features/)
+- [Онлайн документация Aspose.Slides для SharePoint](/slides/ru/sharepoint/)
+- [Особенности Aspose.Slides для SharePoint](/slides/ru/sharepoint/features/)
 - [Примечания к версии Aspose.Slides для SharePoint](https://releases.aspose.com/slides/sharepoint/release-notes/)
 - [Страница продукта Aspose.Slides для SharePoint](https://products.aspose.com/slides/sharepoint/)
 - [Скачать Aspose.Slides для SharePoint](https://releases.aspose.com/slides/sharepoint/)
@@ -221,8 +221,8 @@ Aspose.Slides для JasperReports — это библиотека, специа
 
 Это ссылки на полезные ресурсы:
 
-- [Онлайн документация Aspose.Slides для JasperReports](/slides/jasperreports/)
-- [Особенности Aspose.Slides для JasperReports](/slides/jasperreports/features/)
+- [Онлайн документация Aspose.Slides для JasperReports](/slides/ru/jasperreports/)
+- [Особенности Aspose.Slides для JasperReports](/slides/ru/jasperreports/features/)
 - [Примечания к версии Aspose.Slides для JasperReports](https://releases.aspose.com/slides/jasperreport/release-notes/)
 - [Страница продукта Aspose.Slides для JasperReports](https://products.aspose.com/slides/jasperreports/)
 - [Скачать Aspose.Slides для JasperReports](https://releases.aspose.com/slides/jasperreport/)

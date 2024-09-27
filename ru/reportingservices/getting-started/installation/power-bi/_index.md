@@ -2,7 +2,7 @@
 title: Установка Aspose.Slides для Reporting Services в Power BI
 type: docs
 weight: 20
-url: /reportingservices/power-bi/
+url: /ru/reportingservices/power-bi/
 keywords: "Power BI, установка, Aspose.Slides для Reporting Services в Power BI"
 description: "Установка Aspose.Slides для Reporting Services в Power BI"
 ---

@@ -2,7 +2,7 @@
 title: Создание запасного шрифта
 type: docs
 weight: 10
-url: /net/create-fallback-font/
+url: /ru/net/create-fallback-font/
 keywords: "Шрифты, запасной шрифт, презентация PowerPoint C#, Csharp, Aspose.Slides для .NET"
 description: "Запасной шрифт в PowerPoint на C# или .NET"
 ---
@@ -30,5 +30,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) может быть использован для организации списка объектов [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule), когда необходимо указать правила замены запасного шрифта для нескольких диапазонов Юникода.
 
 {{% alert color="primary" title="См. также" %}} 
-- [Создание коллекции запасных шрифтов](/slides/net/create-fallback-fonts-collection/)
+- [Создание коллекции запасных шрифтов](/slides/ru/net/create-fallback-fonts-collection/)
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Рамка для изображения
 type: docs
 weight: 10
-url: /python-net/picture-frame/
+url: /ru/python-net/picture-frame/
 keywords: "Добавить рамку для изображения, создать рамку для изображения, добавить изображение, создать изображение, извлечь изображение, свойство StretchOff, форматирование рамки для изображения, свойства рамки для изображения, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление рамки для изображения в презентацию PowerPoint на Python"
 ---

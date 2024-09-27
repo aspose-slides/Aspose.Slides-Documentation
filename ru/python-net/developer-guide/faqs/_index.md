@@ -2,14 +2,14 @@
 title: Часто задаваемые вопросы
 type: docs
 weight: 340
-url: /python-net/faqs/
+url: /ru/python-net/faqs/
 ---
 
 ## **Поддерживаемые форматы файлов**
 
 **Q: Какие форматы файлов поддерживает Aspose.Slides для Python через .NET?**
 
-**A**: Aspose.Slides для Python через .NET поддерживает форматы файлов, описанные в [Поддерживаемые форматы файлов](/slides/python-net/supported-file-formats/).
+**A**: Aspose.Slides для Python через .NET поддерживает форматы файлов, описанные в [Поддерживаемые форматы файлов](/slides/ru/python-net/supported-file-formats/).
 
 ## **Исключения**
 

@@ -2,7 +2,7 @@
 title: Введение и настройка окружения
 type: docs
 weight: 10
-url: /reportingservices/introduction-&amp;-environment-setup/
+url: /ru/reportingservices/introduction-&amp;-environment-setup/
 ---
 
 {{% alert color="primary" %}} 

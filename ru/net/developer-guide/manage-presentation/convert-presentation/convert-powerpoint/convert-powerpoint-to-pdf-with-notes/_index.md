@@ -3,7 +3,7 @@ title: Конвертация PowerPoint в PDF с заметками на C#
 linktitle: Конвертация PowerPoint в PDF с заметками
 type: docs
 weight: 50
-url: /net/convert-powerpoint-to-pdf-with-notes/
+url: /ru/net/convert-powerpoint-to-pdf-with-notes/
 keywords: "конвертация PowerPoint, Презентация, PowerPoint в PDF, заметки, c#, csharp, .NET, Aspose.Slides"
 description: "Конвертируйте PowerPoint в PDF с заметками с помощью C# или .NET"
 ---

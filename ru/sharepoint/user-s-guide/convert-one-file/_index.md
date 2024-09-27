@@ -2,7 +2,7 @@
 title: Конвертировать один файл
 type: docs
 weight: 10
-url: /sharepoint/convert-one-file/
+url: /ru/sharepoint/convert-one-file/
 ---
 
 Чтобы конвертировать документ в библиотеке документов:

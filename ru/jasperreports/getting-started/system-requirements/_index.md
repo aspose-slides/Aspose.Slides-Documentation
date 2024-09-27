@@ -2,7 +2,7 @@
 title: Системные требования
 type: docs
 weight: 60
-url: /jasperreports/system-requirements/
+url: /ru/jasperreports/system-requirements/
 ---
 
 Aspose.Slides для JasperReports работает с:

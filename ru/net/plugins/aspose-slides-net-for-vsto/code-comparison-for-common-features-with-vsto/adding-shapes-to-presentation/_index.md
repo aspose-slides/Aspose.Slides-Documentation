@@ -2,7 +2,7 @@
 title: Добавление фигур в презентацию
 type: docs
 weight: 30
-url: /net/adding-shapes-to-presentation/
+url: /ru/net/adding-shapes-to-presentation/
 ---
 
 ## **VSTO**

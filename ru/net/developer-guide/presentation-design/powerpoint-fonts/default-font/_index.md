@@ -3,7 +3,7 @@ title: Шрифт по умолчанию - PowerPoint C# API
 linktitle: Шрифт по умолчанию
 type: docs
 weight: 30
-url: /net/default-font/
+url: /ru/net/default-font/
 keywords: "Шрифты, шрифты по умолчанию, рендеринг презентации PowerPoint C#, Csharp, Aspose.Slides для .NET"
 description: PowerPoint C# API позволяет установить шрифт по умолчанию для рендеринга презентации в PDF, XPS или миниатюры
 ---

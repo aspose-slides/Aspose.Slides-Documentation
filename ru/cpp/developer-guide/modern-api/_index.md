@@ -2,7 +2,7 @@
 title: Современный API
 type: docs
 weight: 280
-url: /cpp/modern-api/
+url: /ru/cpp/modern-api/
 keywords: "Современный API, Рисование"
 description: "Современный API"
 ---

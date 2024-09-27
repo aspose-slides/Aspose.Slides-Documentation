@@ -2,7 +2,7 @@
 title: Безопасность
 type: docs
 weight: 160
-url: /net/security/
+url: /ru/net/security/
 ---
 
 ## **Безопасность в Aspose.Slides**

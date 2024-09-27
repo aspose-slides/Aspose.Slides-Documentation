@@ -2,7 +2,7 @@
 title: Раздел слайдов
 type: docs
 weight: 90
-url: /java/slide-section/
+url: /ru/java/slide-section/
 ---
 
 С помощью Aspose.Slides для Java вы можете организовать презентацию PowerPoint на разделы. Вы можете создать разделы, которые содержат определенные слайды.

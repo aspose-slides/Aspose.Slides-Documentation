@@ -2,7 +2,7 @@
 title: Добавить слайд в презентацию
 type: docs
 weight: 10
-url: /net/add-slide-to-presentation/
+url: /ru/net/add-slide-to-presentation/
 keywords: "Добавить слайд в презентацию, C#, Csharp, .NET, Aspose.Slides"
 description: "Добавить слайд в презентацию на C# или .NET"
 ---

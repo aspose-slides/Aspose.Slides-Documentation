@@ -2,7 +2,7 @@
 title: Защищенная паролем презентация
 type: docs
 weight: 20
-url: /java/password-protected-presentation/
+url: /ru/java/password-protected-presentation/
 keywords: "Заблокировать презентацию PowerPoint на Java"
 description: "Заблокировать презентацию PowerPoint. Презентация PowerPoint с защитой паролем на Java"
 ---
@@ -237,5 +237,5 @@ try {
 Возвращает `true`, если презентация была зашифрована с указанным паролем. В противном случае возвращает `false`.
 
 {{% alert color="primary" title="См. также" %}} 
-- [Цифровая подпись в PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Цифровая подпись в PowerPoint](/slides/ru/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

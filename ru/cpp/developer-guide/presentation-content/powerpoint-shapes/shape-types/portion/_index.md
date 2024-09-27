@@ -2,7 +2,7 @@
 title: Часть
 type: docs
 weight: 70
-url: /cpp/portion/
+url: /ru/cpp/portion/
 ---
 
 ## **Получить координаты позиции части**

@@ -2,7 +2,7 @@
 title: Лицензирование по счётчику
 type: docs
 weight: 100
-url: /androidjava/metered-licensing/
+url: /ru/androidjava/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

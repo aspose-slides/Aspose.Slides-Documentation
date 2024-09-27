@@ -2,7 +2,7 @@
 title: Управление чернилами
 type: docs
 weight: 95
-url: /net/manage-ink/
+url: /ru/net/manage-ink/
 keywords: "Чернила в PowerPoint, инструменты чернил, C# чернила, рисовать в PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET "
 description: "Используйте инструменты чернил для рисования объектов в PowerPoint C#"
 ---

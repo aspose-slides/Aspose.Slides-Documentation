@@ -2,7 +2,7 @@
 title: Защищённая паролем презентация
 type: docs
 weight: 20
-url: /cpp/password-protected-presentation/
+url: /ru/cpp/password-protected-presentation/
 keywords: "Заблокировать презентацию PowerPoint"
 description: "Заблокировать презентацию PowerPoint. Презентация PowerPoint под защитой паролем с использованием Aspose.Slides."
 ---
@@ -214,5 +214,5 @@ bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my
 Этот метод вернёт `true`, если презентация была зашифрована с указанным паролем. В противном случае он вернёт `false`.
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Цифровая подпись в PowerPoint](/slides/cpp/digital-signature-in-powerpoint/)
+- [Цифровая подпись в PowerPoint](/slides/ru/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}

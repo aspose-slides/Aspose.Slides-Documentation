@@ -2,7 +2,7 @@
 title: Отобразить слайд в виде миниатюры в формате JPEG по заданным пользователем значениям
 type: docs
 weight: 70
-url: /net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
+url: /ru/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
 ---
 
 Для создания миниатюры любого необходимого слайда с использованием Aspose.Slides для .NET:

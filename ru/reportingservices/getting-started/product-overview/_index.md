@@ -2,7 +2,7 @@
 title: Обзор продукта
 type: docs
 weight: 10
-url: /reportingservices/product-overview/
+url: /ru/reportingservices/product-overview/
 ---
 
 {{% alert color="primary" %}} 

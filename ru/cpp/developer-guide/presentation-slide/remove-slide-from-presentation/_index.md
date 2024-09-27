@@ -2,7 +2,7 @@
 title: Удалить слайд из презентации
 type: docs
 weight: 30
-url: /cpp/remove-slide-from-presentation/
+url: /ru/cpp/remove-slide-from-presentation/
 keywords: "Удалить слайд, Удалить слайд, PowerPoint, Презентация, C++, Aspose.Slides"
 description: "Удалить слайд из PowerPoint по ссылке или индексу на C++"
 

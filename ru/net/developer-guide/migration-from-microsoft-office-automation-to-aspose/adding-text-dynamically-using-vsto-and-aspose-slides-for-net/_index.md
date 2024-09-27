@@ -2,12 +2,12 @@
 title: Динамическое добавление текста с использованием VSTO и Aspose.Slides для .NET
 type: docs
 weight: 20
-url: /net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
+url: /ru/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
 ---
 
 {{% alert color="primary" %}} 
 
-Общей задачей, которую разработчики должны решить, является динамическое добавление текста на слайды. В этой статье представлены примеры кода для динамического добавления текста с использованием [VSTO](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) и [Aspose.Slides для .NET](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
+Общей задачей, которую разработчики должны решить, является динамическое добавление текста на слайды. В этой статье представлены примеры кода для динамического добавления текста с использованием [VSTO](/slides/ru/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) и [Aspose.Slides для .NET](/slides/ru/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 
 {{% /alert %}} 
 ## **Динамическое добавление текста**

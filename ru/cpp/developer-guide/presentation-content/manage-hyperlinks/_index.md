@@ -2,7 +2,7 @@
 title: Управление гиперссылками
 type: docs
 weight: 20
-url: /cpp/manage-hyperlinks/
+url: /ru/cpp/manage-hyperlinks/
 keywords: "Гиперссылка PowerPoint, текстовая гиперссылка, гиперссылка на слайд, гиперссылка на фигуру, гиперссылка на изображение, гиперссылка на видео, C++"
 description: "Как добавить гиперссылку в презентацию PowerPoint на C++"
 ---

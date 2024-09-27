@@ -1,7 +1,7 @@
 ---
 title: Метка данных диаграммы
 type: docs
-url: /java/chart-data-label/
+url: /ru/java/chart-data-label/
 keywords: "Метка данных диаграммы, расстояние метки, Java, Aspose.Slides для Java"
 description: "Установка метки данных диаграммы PowerPoint и расстояния в Java"
 ---

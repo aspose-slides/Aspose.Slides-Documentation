@@ -2,7 +2,7 @@
 title: Аудио Фрейм
 type: docs
 weight: 10
-url: /python-net/audio-frame/
+url: /ru/python-net/audio-frame/
 keywords: "Добавить аудио, Аудио фрейм, Свойства аудио, Извлечь аудио, Python, Aspose.Slides для Python через .NET"
 description: "Добавление аудио в презентацию PowerPoint на Python"
 ---

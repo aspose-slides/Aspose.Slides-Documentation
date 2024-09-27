@@ -3,7 +3,7 @@ title: Конвертировать PowerPoint в HTML
 linktitle: Конвертировать PowerPoint в HTML
 type: docs
 weight: 30
-url: /php-java/convert-powerpoint-to-html/
+url: /ru/php-java/convert-powerpoint-to-html/
 keywords: "PHP PowerPoint в HTML, Конвертировать презентацию PowerPoint, PPTX, PPT, PPT в HTML, PPTX в HTML, PowerPoint в HTML, Сохранить PowerPoint как HTML, Сохранить PPT как HTML, Сохранить PPTX как HTML, Java, Aspose.Slides, экспорт HTML"
 description: "Конвертация PowerPoint в HTML: Сохранить PPTX или PPT как HTML. Сохранить слайды как HTML"
 ---

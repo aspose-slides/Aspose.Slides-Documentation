@@ -2,7 +2,7 @@
 title: Отображено как TIFF по заданным пользователем размерам
 type: docs
 weight: 40
-url: /net/rendered-as-tiff-by-user-defined-dimension/
+url: /ru/net/rendered-as-tiff-by-user-defined-dimension/
 ---
 
 Следующий пример показывает, как преобразовать презентацию в документ TIFF с пользовательским размером изображения, используя класс **TiffOptions**.

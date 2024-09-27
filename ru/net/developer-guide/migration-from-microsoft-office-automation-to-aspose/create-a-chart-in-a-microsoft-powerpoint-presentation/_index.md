@@ -2,12 +2,12 @@
 title: Создать график в презентации Microsoft PowerPoint
 type: docs
 weight: 80
-url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ru/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Графики — это визуальные представления данных, которые широко используются в презентациях. В этой статье представлен код для создания графика в Microsoft PowerPoint программным образом, используя [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Графики — это визуальные представления данных, которые широко используются в презентациях. В этой статье представлен код для создания графика в Microsoft PowerPoint программным образом, используя [VSTO](/slides/ru/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для .NET](/slides/ru/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Создание графика**

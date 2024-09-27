@@ -2,7 +2,7 @@
 title: Вычисления диаграмм
 type: docs
 weight: 50
-url: /php-java/chart-calculations/
+url: /ru/php-java/chart-calculations/
 ---
 
 ## **Вычисление фактических значений элементов диаграммы**

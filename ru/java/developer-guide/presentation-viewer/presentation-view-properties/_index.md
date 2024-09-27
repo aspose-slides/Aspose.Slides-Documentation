@@ -1,7 +1,7 @@
 ---
 title: Свойства представления
 type: docs
-url: /java/presentation-view-properties/
+url: /ru/java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -58,7 +58,7 @@ try {
 ## **Установка значения по умолчанию для масштаба**
 {{% alert color="primary" %}} 
 
-Aspose.Slides для Java теперь поддерживает установку значения масштаба по умолчанию для презентации, чтобы, когда презентация открыта, масштаб уже был установлен. Это можно сделать, установив [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) для презентации. [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) и [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) также могут быть установлены программно. В этой теме мы увидим на примере, как установить [Свойства представления](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) для [Презентации](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) в [Aspose.Slides](/slides/).
+Aspose.Slides для Java теперь поддерживает установку значения масштаба по умолчанию для презентации, чтобы, когда презентация открыта, масштаб уже был установлен. Это можно сделать, установив [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) для презентации. [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) и [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) также могут быть установлены программно. В этой теме мы увидим на примере, как установить [Свойства представления](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) для [Презентации](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) в [Aspose.Slides](/slides/ru/).
 
 {{% /alert %}} 
 

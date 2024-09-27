@@ -3,7 +3,7 @@ title: Конвертация PowerPoint в JPG на C#
 linktitle: Конвертация PowerPoint PPT в JPG
 type: docs
 weight: 60
-url: /net/convert-powerpoint-to-jpg/
+url: /ru/net/convert-powerpoint-to-jpg/
 keywords: "Конвертация презентации PowerPoint, JPG, JPEG, PowerPoint в JPG, PowerPoint в JPEG, PPT в JPG, PPTX в JPG, PPT в JPEG, PPTX в JPEG, C#, Csharp, .NET, Aspose.Slides"
 description: "Конвертация PowerPoint в JPG на C# или .NET. Сохранение слайда как изображения JPG"
 ---
@@ -121,4 +121,4 @@ Aspose предоставляет [БЕСПЛАТНОЕ веб-приложен�
 
 Смотрите другие варианты конвертации PPT/PPTX в изображения, такие как:
 
-- [Конвертация PPT/PPTX в SVG](/slides/net/render-a-slide-as-an-svg-image/).
+- [Конвертация PPT/PPTX в SVG](/slides/ru/net/render-a-slide-as-an-svg-image/).

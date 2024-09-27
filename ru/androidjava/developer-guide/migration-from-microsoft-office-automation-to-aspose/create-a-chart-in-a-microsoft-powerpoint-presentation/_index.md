@@ -2,12 +2,12 @@
 title: Создание графика в презентации Microsoft PowerPoint
 type: docs
 weight: 70
-url: /androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ru/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Графики - это визуальные представления данных, которые широко используются в презентациях. В этой статье показан код для программного создания графика в Microsoft PowerPoint с помощью [VSTO](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для Android с помощью Java](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Графики - это визуальные представления данных, которые широко используются в презентациях. В этой статье показан код для программного создания графика в Microsoft PowerPoint с помощью [VSTO](/slides/ru/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для Android с помощью Java](/slides/ru/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Создание графика**

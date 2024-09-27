@@ -2,7 +2,7 @@
 title: Автоматическое обновление объектов OLE с использованием надстройки MS PowerPoint
 type: docs
 weight: 10
-url: /php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /ru/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **Об обновлении объектов OLE автоматически**

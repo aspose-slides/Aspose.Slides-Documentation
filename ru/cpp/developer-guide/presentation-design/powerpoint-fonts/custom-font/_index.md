@@ -2,7 +2,7 @@
 title: Пользовательский шрифт в C++
 type: docs
 weight: 20
-url: /cpp/custom-font/
+url: /ru/cpp/custom-font/
 keywords: "Шрифты, пользовательские шрифты, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Пользовательские шрифты PowerPoint в C++"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Таблица данных диаграммы
 type: docs
-url: /java/chart-data-table/
+url: /ru/java/chart-data-table/
 ---
 
 ## **Настройка свойств шрифта для таблицы данных диаграммы**

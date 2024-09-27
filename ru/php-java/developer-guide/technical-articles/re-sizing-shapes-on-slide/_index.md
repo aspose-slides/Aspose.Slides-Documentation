@@ -2,7 +2,7 @@
 title: Изменение размеров фигур на слайде
 type: docs
 weight: 110
-url: /php-java/re-sizing-shapes-on-slide/
+url: /ru/php-java/re-sizing-shapes-on-slide/
 ---
 
 ## **Изменение размеров фигур на слайде**

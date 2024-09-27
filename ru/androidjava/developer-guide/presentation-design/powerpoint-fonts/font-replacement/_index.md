@@ -3,7 +3,7 @@ title: Замена шрифтов - PowerPoint Java API
 linktitle: Замена шрифтов
 type: docs
 weight: 60
-url: /androidjava/font-replacement/
+url: /ru/androidjava/font-replacement/
 description: Узнайте, как заменить шрифты, используя явный метод замены в PowerPoint с помощью Java API.
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="Примечание" color="warning" %}} 
 
-Чтобы установить правила, определяющие, что происходит в определенных условиях (например, если шрифт недоступен), см. [**Замена шрифтов**](/slides/androidjava/font-substitution/).
+Чтобы установить правила, определяющие, что происходит в определенных условиях (например, если шрифт недоступен), см. [**Замена шрифтов**](/slides/ru/androidjava/font-substitution/).
 
 {{% /alert %}}

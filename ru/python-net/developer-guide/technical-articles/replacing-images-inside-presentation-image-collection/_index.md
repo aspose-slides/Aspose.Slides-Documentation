@@ -2,7 +2,7 @@
 title: Замена изображений в коллекции изображений презентации
 type: docs
 weight: 110
-url: /python-net/replacing-images-inside-presentation-image-collection/
+url: /ru/python-net/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

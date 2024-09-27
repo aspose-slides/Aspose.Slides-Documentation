@@ -2,7 +2,7 @@
 title: Заметки к презентации
 type: docs
 weight: 110
-url: /java/presentation-notes/
+url: /ru/java/presentation-notes/
 keywords: "Заметки выступающего PowerPoint на Java"
 description: "Заметки к презентации, заметки выступающего на Java"
 ---

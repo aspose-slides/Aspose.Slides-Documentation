@@ -1,7 +1,7 @@
 ---
 title: Легенда графика
 type: docs
-url: /python-net/chart-legend/
+url: /ru/python-net/chart-legend/
 keywords: "Легенда графика, размер шрифта легенды, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Установите позиционирование и размер шрифта легенды графика в презентациях PowerPoint на Python"
 ---

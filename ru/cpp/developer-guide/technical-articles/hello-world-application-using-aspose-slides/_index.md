@@ -2,7 +2,7 @@
 title: Приложение Hello World с использованием Aspose.Slides
 type: docs
 weight: 80
-url: /cpp/hello-world-application-using-aspose-slides/
+url: /ru/cpp/hello-world-application-using-aspose-slides/
 ---
 
 ## **Шаги для создания приложения Hello World**

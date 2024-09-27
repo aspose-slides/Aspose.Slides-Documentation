@@ -2,5 +2,5 @@
 title: Безопасность презентации
 type: docs
 weight: 60
-url: /androidjava/presentation-security/
+url: /ru/androidjava/presentation-security/
 ---

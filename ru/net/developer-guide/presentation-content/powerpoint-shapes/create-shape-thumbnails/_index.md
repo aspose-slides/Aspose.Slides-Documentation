@@ -2,7 +2,7 @@
 title: Создание миниатюр фигур
 type: docs
 weight: 70
-url: /net/create-shape-thumbnails/
+url: /ru/net/create-shape-thumbnails/
 keywords: "Миниатюра фигуры. Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Миниатюра фигуры в презентации PowerPoint на C# или .NET"
 ---

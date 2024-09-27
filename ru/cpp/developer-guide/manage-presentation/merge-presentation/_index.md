@@ -3,7 +3,7 @@ title: Объединение Презентаций - C++ PowerPoint API
 linktitle: Объединение Презентаций
 type: docs
 weight: 40
-url: /cpp/merge-presentation/
+url: /ru/cpp/merge-presentation/
 keywords: "Объединение PowerPoint, PPTX, PPT, комбинирование PowerPoint, объединение презентации, комбинирование презентации, C++"
 description: Статья объясняет, как можно объединить презентации PowerPoint с использованием C++ PowerPoint API или библиотеки.
 ---

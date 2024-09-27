@@ -1,7 +1,7 @@
 ---
 title: Область построения диаграммы
 type: docs
-url: /androidjava/chart-plot-area/
+url: /ru/androidjava/chart-plot-area/
 ---
 
 

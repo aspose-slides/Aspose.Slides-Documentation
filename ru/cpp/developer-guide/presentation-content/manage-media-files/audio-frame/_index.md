@@ -2,7 +2,7 @@
 title: Аудио Кадр
 type: docs
 weight: 10
-url: /cpp/audio-frame/
+url: /ru/cpp/audio-frame/
 keywords: "Добавить аудио, Аудио кадр, Свойства аудио, Извлечь аудио, C++, CPP, Aspose.Slides для C++"
 description: "Добавьте аудио в презентацию PowerPoint на C++"
 ---

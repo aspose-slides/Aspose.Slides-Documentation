@@ -2,5 +2,5 @@
 title: Управление медиафайлами
 type: docs
 weight: 30
-url: /python-net/manage-media-files
+url: /ru/python-net/manage-media-files
 ---

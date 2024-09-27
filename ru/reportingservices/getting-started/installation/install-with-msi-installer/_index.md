@@ -2,7 +2,7 @@
 title: Установка с помощью MSI установщика
 type: docs
 weight: 20
-url: /reportingservices/install-with-msi-installer/
+url: /ru/reportingservices/install-with-msi-installer/
 ---
 
 ## **Установка**

@@ -2,7 +2,7 @@
 title: Добавьте слайд в презентацию
 type: docs
 weight: 10
-url: /php-java/add-slide-to-presentation/
+url: /ru/php-java/add-slide-to-presentation/
 ---
 
 ## **Добавьте слайд в презентацию**

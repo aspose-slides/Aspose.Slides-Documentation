@@ -2,7 +2,7 @@
 title: Настройка подписи расширения рендеринга PowerPoint
 type: docs
 weight: 60
-url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
+url: /ru/reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
 {{% alert color="primary" %}} 

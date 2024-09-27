@@ -2,7 +2,7 @@
 title: Управление текстовым полем
 type: docs
 weight: 20
-url: /net/manage-textbox/
+url: /ru/net/manage-textbox/
 keywords: "Текстовое поле, Текстовый фрейм, Добавить текстовое поле, Текстовое поле с гиперссылкой, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавление текстового поля или текстового фрейма в презентации PowerPoint на C# или .NET"
 ---

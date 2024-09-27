@@ -2,7 +2,7 @@
 title: Анимация форм
 type: docs
 weight: 60
-url: /java/shape-animation/
+url: /ru/java/shape-animation/
 keywords: "Анимация PowerPoint, Эффект анимации, Применить анимацию, Презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Примените анимацию PowerPoint в Java"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-Кроме применения анимаций к тексту, вы также можете применять анимации к отдельному [абзацу](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/java/animated-text/).
+Кроме применения анимаций к тексту, вы также можете применять анимации к отдельному [абзацу](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/ru/java/animated-text/).
 
 {{% /alert %}} 
 

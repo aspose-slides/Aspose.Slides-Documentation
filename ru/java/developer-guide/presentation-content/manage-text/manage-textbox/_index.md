@@ -2,7 +2,7 @@
 title: Управление текстовым полем
 type: docs
 weight: 20
-url: /java/manage-textbox/
+url: /ru/java/manage-textbox/
 description: Создайте текстовое поле на слайдах PowerPoint с использованием Java. Добавьте столбец в текстовое поле или текстовую рамку на слайдах PowerPoint с использованием Java. Добавьте текстовое поле с гиперссылкой на слайды PowerPoint с использованием Java.
 ---
 

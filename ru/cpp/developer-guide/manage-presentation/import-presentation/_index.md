@@ -3,7 +3,7 @@ title: Импорт презентации - C++ PowerPoint API
 linktitle: Импорт презентации
 type: docs
 weight: 60
-url: /cpp/import-presentation/
+url: /ru/cpp/import-presentation/
 keywords: "Импорт PowerPoint, PDF в презентацию, PDF в PPTX, PDF в PPT, C++, Aspose.Slides для C++"
 description: "Импорт презентации PowerPoint из PDF. Конвертировать PDF в PowerPoint"
 ---

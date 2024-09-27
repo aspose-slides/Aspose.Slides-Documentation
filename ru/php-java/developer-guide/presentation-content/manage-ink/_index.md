@@ -2,7 +2,7 @@
 title: Управление чернилами
 type: docs
 weight: 95
-url: /php-java/manage-ink/
+url: /ru/php-java/manage-ink/
 keywords: "Чернила в PowerPoint, инструменты чернил, Java Ink, рисовать в PowerPoint, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Используйте инструменты чернил для рисования объектов в PowerPoint на Java"
 ---

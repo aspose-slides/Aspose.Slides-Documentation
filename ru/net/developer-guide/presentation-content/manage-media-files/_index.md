@@ -2,5 +2,5 @@
 title: Управление медиафайлами
 type: docs
 weight: 30
-url: /net/manage-media-files
+url: /ru/net/manage-media-files
 ---

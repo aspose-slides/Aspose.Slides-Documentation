@@ -2,7 +2,7 @@
 title: Конвертация слайда
 type: docs
 weight: 35
-url: /php-java/convert-slide/
+url: /ru/php-java/convert-slide/
 keywords: "Конвертация слайда в изображение, экспорт слайда как изображение, сохранить слайд как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в Bitmap, Java, java, Aspose.Slides"
 description: "Конвертация слайда PowerPoint в изображение (Bitmap, PNG или JPG)"
 ---

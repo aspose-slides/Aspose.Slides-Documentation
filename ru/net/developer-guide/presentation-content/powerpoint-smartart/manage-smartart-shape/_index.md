@@ -2,7 +2,7 @@
 title: Управление фигурой SmartArt
 type: docs
 weight: 20
-url: /net/manage-smartart-shape/
+url: /ru/net/manage-smartart-shape/
 keywords: "фигура SmartArt, стиль фигуры SmartArt, цветовой стиль фигуры SmartArt, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Управление SmartArt в презентациях PowerPoint на C# или .NET"
 ---

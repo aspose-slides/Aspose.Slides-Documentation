@@ -2,7 +2,7 @@
 title: Параграф
 type: docs
 weight: 60
-url: /python-net/paragraph/
+url: /ru/python-net/paragraph/
 keywords: "Параграф, доля, координаты параграфа, координаты доли, презентация PowerPoint, Python, Aspose.Slides для Python via .NET"
 description: "Параграф и доля в презентации PowerPoint на Python"
 ---

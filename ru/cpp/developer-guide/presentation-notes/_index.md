@@ -2,7 +2,7 @@
 title: Заметки для презентации
 type: docs
 weight: 110
-url: /cpp/presentation-notes/
+url: /ru/cpp/presentation-notes/
 keywords: "Заметки для спикера презентации PowerPoint"
 ---
 

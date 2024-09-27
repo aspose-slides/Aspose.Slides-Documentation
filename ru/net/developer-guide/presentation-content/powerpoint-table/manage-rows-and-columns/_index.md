@@ -2,7 +2,7 @@
 title: Управление строками и столбцами
 type: docs
 weight: 20
-url: /net/manage-rows-and-columns/
+url: /ru/net/manage-rows-and-columns/
 keywords: "Таблица, строки и столбцы таблицы, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Управление строками и столбцами таблицы в презентациях PowerPoint на C# или .NET"
 

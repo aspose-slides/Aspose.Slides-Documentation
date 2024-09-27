@@ -2,7 +2,7 @@
 title: Конвертировать слайд
 type: docs
 weight: 35
-url: /java/convert-slide/
+url: /ru/java/convert-slide/
 keywords: "Конвертировать слайд в изображение, экспортировать слайд как изображение, сохранить слайд как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в Bitmap, Java, java, Aspose.Slides"
 description: "Конвертировать слайд PowerPoint в изображение (Bitmap, PNG или JPG) на Java"
 ---

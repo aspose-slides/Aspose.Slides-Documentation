@@ -2,7 +2,7 @@
 title: Эффективные свойства формы
 type: docs
 weight: 50
-url: /php-java/shape-effective-properties/
+url: /ru/php-java/shape-effective-properties/
 ---
 
 В этой теме мы обсудим **эффективные** и **локальные** свойства. Когда мы устанавливаем значения непосредственно на этих уровнях

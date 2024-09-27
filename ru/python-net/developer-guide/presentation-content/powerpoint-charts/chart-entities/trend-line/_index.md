@@ -1,7 +1,7 @@
 ---
 title: Линия тренда
 type: docs
-url: /python-net/trend-line/
+url: /ru/python-net/trend-line/
 keywords: "Линия тренда, пользовательская линия PowerPoint презентация, Python, Aspose.Slides для Python через .NET"
 description: "Добавьте линию тренда и пользовательскую линию в PowerPoint презентации с помощью Python"
 ---

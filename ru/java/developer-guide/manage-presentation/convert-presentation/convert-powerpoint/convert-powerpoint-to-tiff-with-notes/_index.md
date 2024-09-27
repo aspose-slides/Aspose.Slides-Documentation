@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в TIFF с заметками
 type: docs
 weight: 100
-url: /java/convert-powerpoint-to-tiff-with-notes/
+url: /ru/java/convert-powerpoint-to-tiff-with-notes/
 keywords: "Конвертация PowerPoint в TIFF с заметками"
 description: "Конвертируйте PowerPoint в TIFF с заметками в Aspose.Slides."
 ---

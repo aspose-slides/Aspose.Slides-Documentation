@@ -2,5 +2,5 @@
 title: Шрифты PowerPoint
 type: docs
 weight: 30
-url: /php-java/powerpoint-fonts/
+url: /ru/php-java/powerpoint-fonts/
 ---

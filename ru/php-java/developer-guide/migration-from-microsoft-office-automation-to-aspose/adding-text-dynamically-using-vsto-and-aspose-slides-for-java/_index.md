@@ -2,12 +2,12 @@
 title: Динамическое добавление текста с использованием VSTO и Aspose.Slides для PHP через Java
 type: docs
 weight: 20
-url: /php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+url: /ru/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-Общей задачей, которую разработчики должны выполнить, является динамическое добавление текста на слайды. В этой статье представлены примеры кода для динамического добавления текста с использованием [VSTO](/slides/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) и [Aspose.Slides для PHP через Java](/slides/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+Общей задачей, которую разработчики должны выполнить, является динамическое добавление текста на слайды. В этой статье представлены примеры кода для динамического добавления текста с использованием [VSTO](/slides/ru/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) и [Aspose.Slides для PHP через Java](/slides/ru/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **Динамическое добавление текста**

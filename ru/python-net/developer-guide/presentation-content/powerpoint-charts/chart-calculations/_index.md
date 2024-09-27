@@ -2,7 +2,7 @@
 title: Расчеты диаграмм
 type: docs
 weight: 50
-url: /python-net/chart-calculations/
+url: /ru/python-net/chart-calculations/
 keywords: "Расчеты диаграмм, элементы диаграммы, позиция элементов, значения диаграмм Python, Aspose.Slides для Python via .NET"
 description: "Расчеты и значения диаграмм PowerPoint на Python"
 ---

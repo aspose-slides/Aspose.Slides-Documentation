@@ -1,7 +1,7 @@
 ---
 title: Данные точек диаграммы дерева и солнечного графика
 type: docs
-url: /cpp/data-points-of-treemap-and-sunburst-chart/
+url: /ru/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords: "Солнечная графика"
 description: "Солнечная графика, солнечная диаграмма, солнечная диаграмма, радиальная диаграмма, радиальный график или многоуровневая круговая диаграмма с Aspose.Slides."
 ---
@@ -21,7 +21,7 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание солнечной диаграммы**](/slides/cpp/create-chart/#create-sunburst-chart)
+- [**Создание солнечной диаграммы**](/slides/ru/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
 

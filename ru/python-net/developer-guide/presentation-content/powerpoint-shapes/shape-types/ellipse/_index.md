@@ -2,7 +2,7 @@
 title: Эллипс
 type: docs
 weight: 30
-url: /python-net/ellipse/
+url: /ru/python-net/ellipse/
 keywords: "Эллипс, форма PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Создание эллипса в презентации PowerPoint на Python"
 ---

@@ -2,7 +2,7 @@
 title: Изменение размеров фигур на слайде
 type: docs
 weight: 100
-url: /cpp/re-sizing-shapes-on-slide/
+url: /ru/cpp/re-sizing-shapes-on-slide/
 ---
 
 #### **Изменение размеров фигур на слайде**

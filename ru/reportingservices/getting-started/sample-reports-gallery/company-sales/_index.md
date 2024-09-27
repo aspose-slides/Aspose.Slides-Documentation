@@ -2,7 +2,7 @@
 title: Продажи компании
 type: docs
 weight: 20
-url: /reportingservices/company-sales/
+url: /ru/reportingservices/company-sales/
 ---
 
 ## **Особенности:**

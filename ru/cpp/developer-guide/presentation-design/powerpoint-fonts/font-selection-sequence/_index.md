@@ -3,7 +3,7 @@ title: Последовательность выбора шрифтов в C++
 linktitle: Последовательность выбора шрифтов в C++
 type: docs
 weight: 80
-url: /cpp/font-selection-sequence/
+url: /ru/cpp/font-selection-sequence/
 keywords:
 - шрифт
 - выбор шрифта

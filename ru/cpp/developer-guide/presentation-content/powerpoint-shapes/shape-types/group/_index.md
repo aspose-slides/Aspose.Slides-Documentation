@@ -2,7 +2,7 @@
 title: Группа
 type: docs
 weight: 40
-url: /cpp/group/
+url: /ru/cpp/group/
 ---
 
 

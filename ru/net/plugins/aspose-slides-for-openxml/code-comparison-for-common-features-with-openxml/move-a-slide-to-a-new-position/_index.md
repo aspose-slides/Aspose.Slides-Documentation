@@ -2,7 +2,7 @@
 title: Перемещение слайда на новую позицию
 type: docs
 weight: 140
-url: /net/move-a-slide-to-a-new-position/
+url: /ru/net/move-a-slide-to-a-new-position/
 ---
 
 ## **OpenXML SDK**

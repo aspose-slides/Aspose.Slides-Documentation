@@ -2,7 +2,7 @@
 title: Создание слайда в формате SVG
 type: docs
 weight: 70
-url: /net/create-slide-as-svg-image/
+url: /ru/net/create-slide-as-svg-image/
 ---
 
 Чтобы сгенерировать SVG-изображение из любого нужного слайда с использованием Aspose.Slides.Pptx для .NET, выполните следующие шаги:
@@ -69,6 +69,6 @@ SvgStream.Close();
 
 {{% alert color="primary" %}} 
 
-Для получения дополнительной информации посетите [Создание SVG-изображения слайда](/slides/net/presentation-viewer/).
+Для получения дополнительной информации посетите [Создание SVG-изображения слайда](/slides/ru/net/presentation-viewer/).
 
 {{% /alert %}}

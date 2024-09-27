@@ -2,7 +2,7 @@
 title: Аудио Фрейм
 type: docs
 weight: 10
-url: /androidjava/audio-frame/
+url: /ru/androidjava/audio-frame/
 keywords: "Добавить аудио, Аудио фрейм, Свойства аудио, Извлечь аудио, Java, Aspose.Slides для Android через Java"
 description: "Добавить аудио в презентацию PowerPoint на Java"
 ---

@@ -2,7 +2,7 @@
 title: Ограничения и различия в API
 type: docs
 weight: 100
-url: /python-java/limitations-and-api-differences/
+url: /ru/python-java/limitations-and-api-differences/
 keywords: "узел, powerpoint, ограничение, api, различия"
 description: "Ограничения и различия в API Aspose.Slides для Python через Java."
 ---

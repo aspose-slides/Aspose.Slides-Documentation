@@ -2,7 +2,7 @@
 title: Обзор продукта
 type: docs
 weight: 10
-url: /sharepoint/product-overview/
+url: /ru/sharepoint/product-overview/
 ---
 
 {{% alert color="primary" %}} 

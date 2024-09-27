@@ -1,7 +1,7 @@
 ---
 title: 3D Диаграмма
 type: docs
-url: /cpp/3d-chart/
+url: /ru/cpp/3d-chart/
 ---
 
 ## **Установите свойства RotationX, RotationY и DepthPercents для 3D диаграммы**

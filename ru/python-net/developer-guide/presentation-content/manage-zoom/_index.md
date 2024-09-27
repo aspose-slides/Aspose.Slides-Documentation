@@ -2,7 +2,7 @@
 title: Управление Zoom
 type: docs
 weight: 60
-url: /python-net/manage-zoom/
+url: /ru/python-net/manage-zoom/
 keywords: "Zoom, Zoom фрейм, Добавить зум, Форматировать рамку зума, Сводка зума, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавьте зум или зум рамки к презентациям PowerPoint на Python"
 ---

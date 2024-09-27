@@ -1,7 +1,7 @@
 ---
 title: Таблица данных графика
 type: docs
-url: /python-net/chart-data-table/
+url: /ru/python-net/chart-data-table/
 keywords: "Свойства шрифтов, таблица данных графика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Установить свойства шрифтов для таблицы данных графика в презентациях PowerPoint на Python"
 ---

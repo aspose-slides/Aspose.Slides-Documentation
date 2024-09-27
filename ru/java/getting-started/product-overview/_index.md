@@ -2,7 +2,7 @@
 title: Обзор продукта
 type: docs
 weight: 10
-url: /java/product-overview/
+url: /ru/java/product-overview/
 ---
 
 ![todo:image_alt_text](product-overview_1.png)

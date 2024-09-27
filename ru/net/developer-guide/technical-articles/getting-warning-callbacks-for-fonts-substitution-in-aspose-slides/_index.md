@@ -2,7 +2,7 @@
 title: Получение обработчиков предупреждений для замены шрифтов в Aspose.Slides
 type: docs
 weight: 120
-url: /net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /ru/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

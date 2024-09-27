@@ -2,7 +2,7 @@
 title: Как запустить Aspose.Slides в Docker
 type: docs
 weight: 140
-url: /net/how-to-run-aspose-slides-in-docker/
+url: /ru/net/how-to-run-aspose-slides-in-docker/
 keywords: "Запуск Aspose.Slides в контейнере Docker, Aspose Docker, Aspose.Slides в Docker"
 description: "Запустите Aspose.Slides в контейнере Docker для Linux, Windows Server и любой ОС."
 ---
@@ -244,7 +244,7 @@ CMD ./build/netcore.linux.tests.sh
 
 ```
 
-Единственное отличие заключается в разделе *сборка последней стабильной libgdiplus*. Этот раздел устанавливает все необходимые инструменты для сборки libgdiplus, клонирует исходники, а затем собирает и устанавливает их в нужное место. Все остальное такое же, как и [Установка и настройка Docker на Linux (apt-get libgdiplus)](/slides/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/).
+Единственное отличие заключается в разделе *сборка последней стабильной libgdiplus*. Этот раздел устанавливает все необходимые инструменты для сборки libgdiplus, клонирует исходники, а затем собирает и устанавливает их в нужное место. Все остальное такое же, как и [Установка и настройка Docker на Linux (apt-get libgdiplus)](/slides/ru/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/).
 
 **Примечание**: Не забудьте использовать разные теги образа (имя) для получившегося образа в командах docker build и docker run:
 

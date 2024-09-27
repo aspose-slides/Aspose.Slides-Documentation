@@ -2,7 +2,7 @@
 title: Управление чернилами
 type: docs
 weight: 95
-url: /python-net/manage-ink/
+url: /ru/python-net/manage-ink/
 keywords: "чернила в PowerPoint, инструменты для рисования, Python Ink, рисовать в PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Используйте инструменты для рисования, чтобы рисовать объекты в PowerPoint на Python"
 ---

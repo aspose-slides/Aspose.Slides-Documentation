@@ -2,7 +2,7 @@
 title: Поддержка прерываемой библиотеки
 type: docs
 weight: 150
-url: /cpp/support-for-interruptable-library/
+url: /ru/cpp/support-for-interruptable-library/
 ---
 
 ## **Прерываемая библиотека**

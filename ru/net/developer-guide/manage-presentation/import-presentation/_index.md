@@ -3,7 +3,7 @@ title: Импорт PowerPoint из PDF или HTML
 linktitle: Импорт презентации
 type: docs
 weight: 60
-url: /net/import-presentation/
+url: /ru/net/import-presentation/
 keywords: "Импорт PowerPoint, PDF в PowerPoint, HTML в PowerPoint, PDF в PPT, HTML в PPT, C#, Csharp, Aspose.Slides для .NET"
 description: "Импорт PowerPoint из PDF или HTML. Конвертировать PDF в PowerPoint. Конвертировать HTML в PowerPoint"
 ---

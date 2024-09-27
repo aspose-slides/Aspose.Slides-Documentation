@@ -2,7 +2,7 @@
 title: Удаление слайда из презентации
 type: docs
 weight: 30
-url: /python-net/remove-slide-from-presentation/
+url: /ru/python-net/remove-slide-from-presentation/
 keywords: "Удаление слайда, Удалить слайд, PowerPoint, Презентация, Python, Aspose.Slides"
 description: "Удалите слайд из PowerPoint по ссылке или индексу в Python"
 

@@ -2,7 +2,7 @@
 title: Удаление строки или столбца в таблице в VSTO и Aspose.Slides
 type: docs
 weight: 130
-url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
+url: /ru/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

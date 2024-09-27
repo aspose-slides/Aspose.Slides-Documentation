@@ -2,7 +2,7 @@
 title: Управление маркерами
 type: docs
 weight: 60
-url: /java/manage-bullet/
+url: /ru/java/manage-bullet/
 keywords: "Маркеры, Списки с маркерами, Номера, Нумерованные списки, Изображения маркеров, многоуровневые маркеры, Презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Создайте списки с маркерами и нумерованные списки в презентации PowerPoint на Java"
 ---

@@ -2,7 +2,7 @@
 title: Управление абзацем PowerPoint в Java
 type: docs
 weight: 40
-url: /androidjava/manage-paragraph/
+url: /ru/androidjava/manage-paragraph/
 keywords: "Добавить абзац PowerPoint, Управление абзацами, Отступ абзаца, Свойства абзаца, HTML текст, Экспорт текста абзаца, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Создание и управление абзацем, текстом, отступом и свойствами в презентациях PowerPoint на Java"
 ---

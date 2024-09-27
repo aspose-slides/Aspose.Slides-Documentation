@@ -1,7 +1,7 @@
 ---
 title: Пузырьковая диаграмма
 type: docs
-url: /php-java/bubble-chart/
+url: /ru/php-java/bubble-chart/
 ---
 
 ## **Масштабирование размеров пузырьковой диаграммы**

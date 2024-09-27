@@ -2,7 +2,7 @@
 title: Общие исключения и ошибки, связанные с шрифтами в Linux
 type: docs
 weight: 200
-url: /php-java/technical-articles/common-errors-involving-fonts
+url: /ru/php-java/technical-articles/common-errors-involving-fonts
 keywords: "Исключение шрифта, Ошибка шрифта, Linux, Java, Aspose.Slides для PHP через Java"
 description: "Исключения и ошибки шрифтов в Linux"
 ---

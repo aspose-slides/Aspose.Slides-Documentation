@@ -2,7 +2,7 @@
 title: Справочник API
 type: docs
 weight: 50
-url: /java/api-reference/
+url: /ru/java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

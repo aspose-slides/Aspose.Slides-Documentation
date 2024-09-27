@@ -2,7 +2,7 @@
 title: Линия
 type: docs
 weight: 50
-url: /java/Line/
+url: /ru/java/Line/
 ---
 
 

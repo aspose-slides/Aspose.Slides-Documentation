@@ -2,7 +2,7 @@
 title: Конвертировать слайд
 type: docs
 weight: 41
-url: /net/convert-slide/
+url: /ru/net/convert-slide/
 keywords: "Конвертировать слайд в изображение, экспортировать слайд как изображение, сохранить слайд как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в Bitmap, C#, Csharp, .NET, Aspose.Slides"
 description: "Конвертировать слайд PowerPoint в изображение (Bitmap, PNG или JPG) на C# или .NET"
 ---

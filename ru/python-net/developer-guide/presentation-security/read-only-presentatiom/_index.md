@@ -2,7 +2,7 @@
 title: Презентация только для чтения
 type: docs
 weight: 30
-url: /python-net/read-only-presentation/
+url: /ru/python-net/read-only-presentation/
 keywords: "Режим только для чтения, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Презентация PowerPoint только для чтения на Python"
 ---

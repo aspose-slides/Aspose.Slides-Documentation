@@ -1,7 +1,7 @@
 ---
 title: Трендовая линия
 type: docs
-url: /php-java/trend-line/
+url: /ru/php-java/trend-line/
 ---
 
 ## **Добавление трендовой линии**

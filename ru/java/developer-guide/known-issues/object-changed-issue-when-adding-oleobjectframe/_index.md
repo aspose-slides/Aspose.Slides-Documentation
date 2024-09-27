@@ -2,7 +2,7 @@
 title: Проблема с изменением объекта при добавлении OleObjectFrame
 type: docs
 weight: 10
-url: /java/object-changed-issue-when-adding-oleobjectframe/
+url: /ru/java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **Описание проблемы**
@@ -10,7 +10,7 @@ url: /java/object-changed-issue-when-adding-oleobjectframe/
 ## **Критический анализ и объяснение**
 Прежде всего, важно знать, что сообщение **Object Changed**, показанное Aspose.Slides для Java после добавления **OleObjectFrame** на слайд, **НЕ** является ошибкой или багом в Aspose.Slides для Java. Это просто информация или сообщение, уведомляющее пользователей о том, что объект изменен, и изображение должно быть обновлено.
 
-Например, если вы добавите **Microsoft Excel Chart** в качестве **OleObjectFrame** на свой слайд (для получения дополнительных сведений и примера кода о добавлении **OleObjectFrame** на слайд, [нажмите здесь](/slides/java/adding-frame-to-the-slide/)) и затем откроете файл презентации с помощью MS PowerPoint, то слайд (на который был добавлен **OLE Object**) будет выглядеть следующим образом:
+Например, если вы добавите **Microsoft Excel Chart** в качестве **OleObjectFrame** на свой слайд (для получения дополнительных сведений и примера кода о добавлении **OleObjectFrame** на слайд, [нажмите здесь](/slides/ru/java/adding-frame-to-the-slide/)) и затем откроете файл презентации с помощью MS PowerPoint, то слайд (на который был добавлен **OLE Object**) будет выглядеть следующим образом:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

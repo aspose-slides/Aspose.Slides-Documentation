@@ -2,7 +2,7 @@
 title: Известные проблемы в Aspose.Slides для .NET 14.1.0
 type: docs
 weight: 20
-url: /net/known-issues-in-aspose-slides-for-net-14-1-0/
+url: /ru/net/known-issues-in-aspose-slides-for-net-14-1-0/
 ---
 
 Следующие известные проблемы и ограничения в Aspose.Slides для .NET 14.1.0.

@@ -2,7 +2,7 @@
 title: Создание таблицы на слайде PowerPoint в VSTO и Aspose.Slides  
 type: docs  
 weight: 90  
-url: /net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/  
+url: /ru/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/  
 ---  
 
 Следующие шаги добавляют таблицу на слайд Microsoft PowerPoint с использованием VSTO:

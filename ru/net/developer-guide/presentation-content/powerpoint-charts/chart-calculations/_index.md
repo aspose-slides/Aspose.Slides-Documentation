@@ -2,7 +2,7 @@
 title: Расчеты графиков
 type: docs
 weight: 50
-url: /net/chart-calculations/
+url: /ru/net/chart-calculations/
 keywords: "Расчеты графиков, элементы графика, позиция элемента, значения графиков C#, Csharp, Aspose.Slides для .NET"
 description: "Расчеты и значения графиков PowerPoint на C# или .NET"
 ---

@@ -3,7 +3,7 @@ title: Исследование презентации - C++ PowerPoint API
 linktitle: Исследование презентации
 type: docs
 weight: 30
-url: /cpp/examine-presentation/
+url: /ru/cpp/examine-presentation/
 description: C++ PowerPoint API позволяет вам исследовать презентацию, чтобы узнать её свойства и понять её поведение.
 ---
 

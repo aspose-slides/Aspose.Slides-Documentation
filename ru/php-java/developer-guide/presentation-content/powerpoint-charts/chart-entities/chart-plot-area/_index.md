@@ -1,7 +1,7 @@
 ---
 title: Область графика
 type: docs
-url: /php-java/chart-plot-area/
+url: /ru/php-java/chart-plot-area/
 ---
 
 

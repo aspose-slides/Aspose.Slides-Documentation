@@ -3,7 +3,7 @@ title: Создание или управление узлом формы SmartA
 linktitle: Управление узлом формы SmartArt
 type: docs
 weight: 30
-url: /androidjava/manage-smartart-shape-node/
+url: /ru/androidjava/manage-smartart-shape-node/
 keywords: smartart powerpoint, узлы smartart, позиция smartart, удалить smartart, добавить узлы smartart, презентация powerpoint, powerpoint java, powerpoint java api
 description: Управление узлом smart art и дочерними узлами в презентациях PowerPoint на Java
 ---

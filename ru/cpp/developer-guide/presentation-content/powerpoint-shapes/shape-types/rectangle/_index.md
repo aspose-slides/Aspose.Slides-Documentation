@@ -2,7 +2,7 @@
 title: Прямоугольник
 type: docs
 weight: 80
-url: /cpp/rectangle/
+url: /ru/cpp/rectangle/
 ---
 
 

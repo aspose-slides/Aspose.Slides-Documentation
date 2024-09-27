@@ -2,7 +2,7 @@
 title: Рабочая тетрадь диаграмм
 type: docs
 weight: 70
-url: /cpp/chart-workbook/
+url: /ru/cpp/chart-workbook/
 keywords: "Рабочая тетрадь диаграмм, данные диаграмм, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Рабочая тетрадь диаграмм в презентации PowerPoint на C++"
 ---

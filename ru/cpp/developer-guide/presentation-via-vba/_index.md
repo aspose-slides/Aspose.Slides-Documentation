@@ -2,7 +2,7 @@
 title: Презентация через VBA
 type: docs
 weight: 250
-url: /cpp/presentation-via-vba/
+url: /ru/cpp/presentation-via-vba/
 keywords: "Макрос, макросы, VBA, VBA макрос, добавить макрос, удалить макрос, добавить VBA, удалить VBA, извлечь макрос, извлечь VBA, макрос PowerPoint, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Добавляйте, удаляйте и извлекайте макросы VBA в презентациях PowerPoint на C++"
 ---

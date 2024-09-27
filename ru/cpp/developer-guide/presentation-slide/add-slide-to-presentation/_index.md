@@ -2,7 +2,7 @@
 title: Добавить слайд в презентацию
 type: docs
 weight: 10
-url: /cpp/add-slide-to-presentation/
+url: /ru/cpp/add-slide-to-presentation/
 ---
 
 ## **Добавить слайд в презентацию**

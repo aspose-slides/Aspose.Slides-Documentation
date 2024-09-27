@@ -3,7 +3,7 @@ l---
 title: Почему не автоматизация
 type: docs
 weight: 50
-url: /cpp/why-not-automation/
+url: /ru/cpp/why-not-automation/
 --- 
 
 ## **Важные вопросы**

@@ -2,7 +2,7 @@
 title: Анимированные графики
 type: docs
 weight: 80
-url: /java/animated-charts/
+url: /ru/java/animated-charts/
 ---
 
 

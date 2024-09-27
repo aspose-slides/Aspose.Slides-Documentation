@@ -1,7 +1,7 @@
 ---
 title: Пироговая диаграмма
 type: docs
-url: /net/pie-chart/
+url: /ru/net/pie-chart/
 keywords: "Пироговая диаграмма, параметры построения, цвета сегментов, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Параметры построения пироговой диаграммы и цвета сегментов в презентации PowerPoint на C# или .NET"
 ---

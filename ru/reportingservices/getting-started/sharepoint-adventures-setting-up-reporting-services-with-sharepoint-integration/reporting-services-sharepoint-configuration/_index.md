@@ -2,7 +2,7 @@
 title: Конфигурация служб отчетности SharePoint
 type: docs
 weight: 50
-url: /reportingservices/reporting-services-sharepoint-configuration/
+url: /ru/reportingservices/reporting-services-sharepoint-configuration/
 ---
 
 {{% alert color="primary" %}} 

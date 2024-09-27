@@ -2,7 +2,7 @@
 title: Видеофрейм
 type: docs
 weight: 10
-url: /python-net/video-frame/
+url: /ru/python-net/video-frame/
 keywords: "Добавить видео, создать видеофрейм, извлечь видео, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавить видеофрейм в презентацию PowerPoint на Python"
 ---

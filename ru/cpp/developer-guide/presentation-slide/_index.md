@@ -2,5 +2,5 @@
 title: Презентационный слайд
 type: docs
 weight: 20
-url: /cpp/presentation-slide/
+url: /ru/cpp/presentation-slide/
 ---

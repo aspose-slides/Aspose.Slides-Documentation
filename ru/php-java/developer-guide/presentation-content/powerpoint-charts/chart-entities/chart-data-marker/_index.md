@@ -1,7 +1,7 @@
 ---
 title: Маркер данных диаграммы
 type: docs
-url: /php-java/chart-data-marker/
+url: /ru/php-java/chart-data-marker/
 ---
 
 ## **Настройка параметров маркера диаграммы**

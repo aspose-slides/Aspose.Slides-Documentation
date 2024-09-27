@@ -2,7 +2,7 @@
 title: Проверка презентации
 type: docs
 weight: 30
-url: /net/examine-presentation/
+url: /ru/net/examine-presentation/
 keywords: "Проверка PowerPoint, PPTX, PPT, Проверка презентации, Свойства PowerPoint, Свойства презентации, C#, Csharp, .NET"
 description: "Проверка и получение свойств презентации PowerPoint на C# или .NET"
 ---

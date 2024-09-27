@@ -2,7 +2,7 @@
 title: Форматирование графиков
 type: docs
 weight: 60
-url: /python-net/chart-formatting/
+url: /ru/python-net/chart-formatting/
 keywords: "Элементы графика, свойства графика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Форматирование элементов графиков в презентациях PowerPoint на Python"
 ---

@@ -2,7 +2,7 @@
 title: Как добавить верхний и нижний колонтитул в презентацию
 type: docs
 weight: 20
-url: /androidjava/how-to-add-header-footer-in-a-presentation/
+url: /ru/androidjava/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

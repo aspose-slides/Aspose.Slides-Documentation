@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /python-net/wordart/
+url: /ru/python-net/wordart/
 keywords: "WordArt, Word Art, Создать WordArt, шаблон WordArt, эффекты WordArt, тени, эффекты отображения, эффекты свечения, трансформации WordArt, 3D эффекты, внешние тени, внутренние тени, Python, Aspose.Slides для Python через .NET"
 description: "Добавляйте, изменяйте и управляйте WordArt и эффектами в презентациях PowerPoint на Python или Aspose.Slides для Python через .NET"
 ---

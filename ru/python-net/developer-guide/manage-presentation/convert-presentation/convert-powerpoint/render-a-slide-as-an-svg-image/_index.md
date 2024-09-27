@@ -2,7 +2,7 @@
 title: Отрисовка слайда в формате SVG
 type: docs
 weight: 50
-url: /python-net/render-a-slide-as-an-svg-image/
+url: /ru/python-net/render-a-slide-as-an-svg-image/
 ---
 
 SVG—акроним от Scalable Vector Graphics—это стандартный графический тип или формат, используемый для отрисовки двумерных изображений. SVG хранит изображения в виде векторов в XML с деталями, которые определяют их поведение или внешний вид. 

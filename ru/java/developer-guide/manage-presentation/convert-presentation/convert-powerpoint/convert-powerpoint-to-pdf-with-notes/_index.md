@@ -2,7 +2,7 @@
 title: Преобразование PowerPoint в PDF с заметками
 type: docs
 weight: 50
-url: /java/convert-powerpoint-to-pdf-with-notes/
+url: /ru/java/convert-powerpoint-to-pdf-with-notes/
 keywords: "преобразование powerpoint в pdf с заметками на java"
 description: "Преобразование PowerPoint в PDF с заметками на Java"
 ---

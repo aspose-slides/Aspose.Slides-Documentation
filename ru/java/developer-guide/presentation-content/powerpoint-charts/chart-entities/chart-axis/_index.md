@@ -1,7 +1,7 @@
 ---
 title: Ось графика
 type: docs
-url: /java/chart-axis/
+url: /ru/java/chart-axis/
 keywords: "Ось графика PowerPoint, Графики презентаций, Java, Манипуляция осью графика, Данные графика"
 description: "Как редактировать ось графика PowerPoint на Java"
 ---

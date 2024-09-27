@@ -2,7 +2,7 @@
 title: Создание диаграммы Excel и встраивание её в презентацию как OLE объект
 type: docs
 weight: 30
-url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ru/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 
 {{% /alert %}} 
 ## **Связанные разделы**
-[Рабочее решение для изменения размера диаграммы](/slides/java/working-solution-for-chart-resizing-in-pptx/)
+[Рабочее решение для изменения размера диаграммы](/slides/ru/java/working-solution-for-chart-resizing-in-pptx/)
 
-[Проблема измененного объекта](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Проблема измененного объекта](/slides/ru/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

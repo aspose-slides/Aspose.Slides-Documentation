@@ -3,7 +3,7 @@ title: Форматирование текста
 linktitle: Форматирование текста
 type: docs
 weight: 50
-url: /net/text-formatting/
+url: /ru/net/text-formatting/
 keywords:
 - выделение текста
 - регулярное выражение

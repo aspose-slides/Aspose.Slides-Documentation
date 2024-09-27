@@ -2,7 +2,7 @@
 title: Системные требования  
 type: docs  
 weight: 80  
-url: /cpp/system-requirements/  
+url: /ru/cpp/system-requirements/  
 ---  
 
 ## **Поддерживаемые операционные системы**  

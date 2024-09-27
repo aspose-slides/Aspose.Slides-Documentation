@@ -2,7 +2,7 @@
 title: Поддерживаемые форматы файлов
 type: docs
 weight: 150
-url: /androidjava/supported-file-formats/
+url: /ru/androidjava/supported-file-formats/
 ---
 
 ## **Поддерживаемые версии Microsoft PowerPoint**

@@ -2,7 +2,7 @@
 title: Создание постраничных отчетов
 type: docs
 weight: 100
-url: /reportingservices/paginated-reports/
+url: /ru/reportingservices/paginated-reports/
 keywords: "Создание постраничных отчетов, Power BI, Aspose.Slides для Reporting Services"
 description: "Создание постраничных отчетов"
 ---

@@ -2,7 +2,7 @@
 title: Общие исключения и ошибки, связанные с шрифтами в Linux
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /ru/java/technical-articles/common-errors-involving-fonts
 keywords: "Исключение шрифта, Ошибка шрифта, Linux, Java, Aspose.Slides для Java"
 description: "Исключения и ошибки шрифтов в Linux"
 ---

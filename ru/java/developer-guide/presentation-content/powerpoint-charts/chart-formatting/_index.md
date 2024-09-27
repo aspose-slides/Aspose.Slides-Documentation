@@ -2,7 +2,7 @@
 title: Форматирование графиков
 type: docs
 weight: 60
-url: /java/chart-formatting/
+url: /ru/java/chart-formatting/
 ---
 
 ## **Форматирование сущностей графиков**

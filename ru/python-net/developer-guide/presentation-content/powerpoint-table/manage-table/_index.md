@@ -2,7 +2,7 @@
 title: Управление таблицей
 type: docs
 weight: 10
-url: /python-net/manage-table/
+url: /ru/python-net/manage-table/
 keywords: "Таблица, создание таблицы, доступ к таблице, соотношение сторон таблицы, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Создайте и управляйте таблицами в презентациях PowerPoint на Python"
 

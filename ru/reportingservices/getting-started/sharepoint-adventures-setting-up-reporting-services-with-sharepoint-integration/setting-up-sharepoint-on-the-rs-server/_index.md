@@ -2,7 +2,7 @@
 title: Настройка SharePoint на сервере RS  
 type: docs  
 weight: 40  
-url: /reportingservices/setting-up-sharepoint-on-the-rs-server/  
+url: /ru/reportingservices/setting-up-sharepoint-on-the-rs-server/  
 ---  
 
 {{% alert color="primary" %}}  

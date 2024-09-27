@@ -2,7 +2,7 @@
 title: Донатный график
 type: docs
 weight: 30
-url: /java/doughnut-chart/
+url: /ru/java/doughnut-chart/
 ---
 
 ## **Изменение размера центра в донатном графике**

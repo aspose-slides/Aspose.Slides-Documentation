@@ -2,7 +2,7 @@
 title: Слайд Мастер
 type: docs
 weight: 80
-url: /net/slide-master/
+url: /ru/net/slide-master/
 keywords: "Добавить Слайд Мастер, мастер-слайд PPT, слайд мастер PowerPoint, Изображение в Слайд Мастер, Заполнитель, Множество Слайд Мастеров, Сравнить Слайд Мастера, C#, Csharp, .NET, Aspose.Slides"
 description: "Добавить или редактировать слайд мастер в представлении PowerPoint на C# или .NET"
 ---
@@ -132,7 +132,7 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="primary" title="Смотрите также" %}} 
 
-Для получения дополнительной информации о добавлении изображений на слайд смотрите статью [Рамка для изображения](/slides/net/picture-frame/#create-picture-frame).
+Для получения дополнительной информации о добавлении изображений на слайд смотрите статью [Рамка для изображения](/slides/ru/net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

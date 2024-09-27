@@ -2,7 +2,7 @@
 title: Поддержка мирового уровня бесплатно
 type: docs
 weight: 20
-url: /sharepoint/mirovogo-urovnya-besplatnaya-tehnicheskaya-podderzhka/
+url: /ru/sharepoint/mirovogo-urovnya-besplatnaya-tehnicheskaya-podderzhka/
 ---
 
 {{% alert color="primary" %}} 

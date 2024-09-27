@@ -1,7 +1,7 @@
 ---
 title: Заголовки данных диаграммы
 type: docs
-url: /androidjava/chart-data-label/
+url: /ru/androidjava/chart-data-label/
 keywords: "Заголовок данных диаграммы, расстояние заголовка, Java, Aspose.Slides для Android через Java"
 description: "Установите заголовки данных диаграммы PowerPoint и расстояние в Java"
 ---

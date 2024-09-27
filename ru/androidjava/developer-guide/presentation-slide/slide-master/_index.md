@@ -2,7 +2,7 @@
 title: Слайд Мастер
 type: docs
 weight: 70
-url: /androidjava/slide-master/
+url: /ru/androidjava/slide-master/
 keywords: "Добавить Слайд Мастер, PPT мастер-слайд, слайд мастер PowerPoint, Изображение в Слайд Мастер, Заполнитель, Несколько Слайд Мастеров, Сравнить Слайд Мастера, Java, Aspose.Slides для Android через Java"
 description: "Добавить или редактировать слайд мастер в презентации PowerPoint на Java"
 ---
@@ -153,7 +153,7 @@ try {
 
 {{% alert color="primary" title="Смотрите также" %}} 
 
-Для получения дополнительной информации о добавлении изображений на слайд, смотрите статью [Рамка для изображения](/slides/androidjava/picture-frame/#create-picture-frame).
+Для получения дополнительной информации о добавлении изображений на слайд, смотрите статью [Рамка для изображения](/slides/ru/androidjava/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

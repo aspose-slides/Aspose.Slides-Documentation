@@ -2,7 +2,7 @@
 title: Управление SmartArt
 type: docs
 weight: 10
-url: /python-net/manage-smartart/
+url: /ru/python-net/manage-smartart/
 keywords: "SmartArt, текст из SmartArt, диаграмма типа организация, организационная диаграмма, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "SmartArt и организационная диаграмма в презентациях PowerPoint на Python"
 ---

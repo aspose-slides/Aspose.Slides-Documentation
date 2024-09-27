@@ -2,7 +2,7 @@
 title: Обзор возможностей
 type: docs
 weight: 20
-url: /net/features-overview/
+url: /ru/net/features-overview/
 ---
 
 ## **Поддерживаемые платформы**
@@ -18,12 +18,12 @@ Aspose.Slides для .NET поддерживает большинство фор
 
 |**Особенность**|**Описание**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/net/ppt-vs-pptx/)|Aspose.Slides для .NET обеспечивает самую быструю обработку для этого формата презентационных документов.|
-|[Преобразование PPT в PPTX](/slides/net/convert-ppt-to-pptx/)|Aspose.Slides для .NET поддерживает преобразование PPT в PPTX.|
-|[Portable Document Format (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Вы можете экспортировать все поддерживаемые форматы файлов в документы формата Adobe Portable Document Format (PDF) с помощью одного метода.|
+|[Microsoft PowerPoint (PPT)](/slides/ru/net/ppt-vs-pptx/)|Aspose.Slides для .NET обеспечивает самую быструю обработку для этого формата презентационных документов.|
+|[Преобразование PPT в PPTX](/slides/ru/net/convert-ppt-to-pptx/)|Aspose.Slides для .NET поддерживает преобразование PPT в PPTX.|
+|[Portable Document Format (PDF)](/slides/ru/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Вы можете экспортировать все поддерживаемые форматы файлов в документы формата Adobe Portable Document Format (PDF) с помощью одного метода.|
 |[XML Parser Specification (XPS)](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)|Вы можете экспортировать все поддерживаемые форматы файлов в документы спецификации XML Parser (XPS) с помощью одного метода.|
-|[Tagged Image File Format (TIFF)](/slides/net/convert-powerpoint-to-tiff/)|Вы можете экспортировать все поддерживаемые форматы презентационных файлов в формат Tagged Image File Format (TIFF).|
-|[Преобразование PPTX в HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides для .NET поддерживает преобразование PresentationEx в формат HTML.|
+|[Tagged Image File Format (TIFF)](/slides/ru/net/convert-powerpoint-to-tiff/)|Вы можете экспортировать все поддерживаемые форматы презентационных файлов в формат Tagged Image File Format (TIFF).|
+|[Преобразование PPTX в HTML](/slides/ru/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides для .NET поддерживает преобразование PresentationEx в формат HTML.|
 ## **Отрисовка и печать**
 Aspose.Slides для .NET поддерживает высококачественную отрисовку слайдов в презентационных документах в различные графические форматы. Ознакомьтесь с этими деталями:
 

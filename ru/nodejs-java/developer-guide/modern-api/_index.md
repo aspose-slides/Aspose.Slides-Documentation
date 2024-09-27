@@ -2,7 +2,7 @@
 title: Современный API
 type: docs
 weight: 237
-url: /nodejs-java/modern-api/
+url: /ru/nodejs-java/modern-api/
 keywords: "Кроссплатформенный Современный API"
 description: "Современный API"
 ---

@@ -2,7 +2,7 @@
 title: Кольцевая диаграмма
 type: docs
 weight: 30
-url: /python-net/doughnut-chart/
+url: /ru/python-net/doughnut-chart/
 keywords: "Кольцевая диаграмма, размер отверстия, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Укажите размер отверстия в кольцевой диаграмме в презентации PowerPoint на Python"
 ---

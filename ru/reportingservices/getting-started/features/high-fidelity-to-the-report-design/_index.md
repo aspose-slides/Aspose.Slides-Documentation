@@ -2,7 +2,7 @@
 title: Высокая точность к дизайну отчета
 type: docs
 weight: 40
-url: /reportingservices/high-fidelity-to-the-report-design/
+url: /ru/reportingservices/high-fidelity-to-the-report-design/
 ---
 
 {{% alert color="primary" %}} 

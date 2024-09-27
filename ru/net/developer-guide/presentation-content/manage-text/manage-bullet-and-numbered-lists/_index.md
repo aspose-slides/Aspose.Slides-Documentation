@@ -2,7 +2,7 @@
 title: Управление маркерами и нумерованными списками
 type: docs
 weight: 70
-url: /net/manage-bullet-and-numbered-lists
+url: /ru/net/manage-bullet-and-numbered-lists
 keywords: "Маркеры, Маркерные списки, Номера, Нумерованные списки, Изображения маркеров, многоуровневые маркеры, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Создание маркерных и нумерованных списков в презентации PowerPoint на C# или .NET"
 ---

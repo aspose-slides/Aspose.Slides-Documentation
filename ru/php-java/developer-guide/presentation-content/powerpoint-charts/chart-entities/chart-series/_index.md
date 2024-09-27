@@ -1,7 +1,7 @@
 ---
 title: Серии графиков
 type: docs
-url: /php-java/chart-series/
+url: /ru/php-java/chart-series/
 keywords: "Серии графиков, цвет серий, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Серии графиков в презентациях PowerPoint"
 ---

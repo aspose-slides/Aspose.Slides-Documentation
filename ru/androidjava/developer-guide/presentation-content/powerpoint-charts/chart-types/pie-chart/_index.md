@@ -1,7 +1,7 @@
 ---
 title: Круговая диаграмма
 type: docs
-url: /androidjava/pie-chart/
+url: /ru/androidjava/pie-chart/
 ---
 
 ## **Вторые параметры построения для круговой диаграммы и диаграммы "круг в круге"**

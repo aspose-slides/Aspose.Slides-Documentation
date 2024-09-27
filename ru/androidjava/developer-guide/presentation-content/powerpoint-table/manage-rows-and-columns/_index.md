@@ -2,7 +2,7 @@
 title: Управление строками и столбцами
 type: docs
 weight: 20
-url: /androidjava/manage-rows-and-columns/
+url: /ru/androidjava/manage-rows-and-columns/
 keywords: "Таблица, строки и столбцы таблицы, презентация PowerPoint, Java, Aspose.Slides для Android на Java"
 description: "Управление строками и столбцами таблицы в презентациях PowerPoint с помощью Java"
 ---

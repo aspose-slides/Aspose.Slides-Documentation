@@ -2,7 +2,7 @@
 title: Управление узлом SmartArt
 type: docs
 weight: 30
-url: /python-net/manage-smartart-shape-node/
+url: /ru/python-net/manage-smartart-shape-node/
 keywords: "Узел SmartArt, дочерний узел SmartArt, презентация PowerPoint, Python, Aspose.Slides для Python via .NET"
 description: "Умный узел и дочерний узел в презентациях PowerPoint на Python"
 ---

@@ -2,7 +2,7 @@
 title: Получение обратных вызовов предупреждений для подстановки шрифтов в Aspose.Slides
 type: docs
 weight: 120
-url: /python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /ru/python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

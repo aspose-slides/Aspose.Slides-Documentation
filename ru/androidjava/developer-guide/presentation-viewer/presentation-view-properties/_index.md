@@ -1,7 +1,7 @@
 ---
 title: Свойства представления нормального вида
 type: docs
-url: /androidjava/presentation-view-properties/
+url: /ru/androidjava/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -57,7 +57,7 @@ try {
 ## **Установка значения масштаба по умолчанию**
 {{% alert color="primary" %}} 
 
-Aspose.Slides для Android через Java теперь поддерживает установку значения масштаба по умолчанию для презентации, так чтобы при открытии презентации масштаб уже был установлен. Это можно сделать, установив [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) презентации. [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) и [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) также могут быть установлены программно. В этой теме мы увидим на примере, как задать [Свойства представления](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) для [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) в [Aspose.Slides](/slides/).
+Aspose.Slides для Android через Java теперь поддерживает установку значения масштаба по умолчанию для презентации, так чтобы при открытии презентации масштаб уже был установлен. Это можно сделать, установив [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) презентации. [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) и [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) также могут быть установлены программно. В этой теме мы увидим на примере, как задать [Свойства представления](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) для [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) в [Aspose.Slides](/slides/ru/).
 
 {{% /alert %}} 
 

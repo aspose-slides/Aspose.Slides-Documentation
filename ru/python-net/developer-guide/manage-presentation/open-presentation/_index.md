@@ -2,7 +2,7 @@
 title: Открыть Презентацию
 type: docs
 weight: 20
-url: /python-net/open-presentation/
+url: /ru/python-net/open-presentation/
 keywords: "Открыть PowerPoint, PPTX, PPT, Открыть Презентацию, Загрузить Презентацию, Python"
 description: "Открыть или загрузить презентацию PPT, PPTX, ODP в Python"
 ---

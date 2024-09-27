@@ -3,7 +3,7 @@ title: Конвертация PowerPoint в HTML на C++
 linktitle: Конвертация PowerPoint в HTML
 type: docs
 weight: 30
-url: /cpp/convert-powerpoint-to-html/
+url: /ru/cpp/convert-powerpoint-to-html/
 keywords: "C++ PowerPoint в HTML, Конвертировать презентацию PowerPoint, PPTX, PPT, PPT в HTML, PPTX в HTML, PowerPoint в HTML, Сохранить PowerPoint как HTML, Сохранить PPT как HTML, Сохранить PPTX как HTML, C++, CPP, Aspose.Slides, экспорт в HTML"
 description: "Конвертация PowerPoint в HTML на C++. Сохранение PPTX или PPT в HTML на C++. Сохранение слайдов в HTML на C++"
 ---

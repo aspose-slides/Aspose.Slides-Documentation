@@ -2,7 +2,7 @@
 title: Управление настройками автоматической подгонки
 type: docs
 weight: 30
-url: /net/manage-autofit-settings/
+url: /ru/net/manage-autofit-settings/
 keywords: "Textbox, Автоматическая подгонка, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Настройка параметров автоматической подгонки для текстового поля в PowerPoint на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Презентация через VBA
 type: docs
 weight: 250
-url: /php-java/presentation-via-vba/
+url: /ru/php-java/presentation-via-vba/
 keywords: "Макрос, макросы, VBA, VBA макрос, добавить макрос, удалить макрос, добавить VBA, удалить VBA, извлечь макрос, извлечь VBA, макрос PowerPoint, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Добавьте, удалите и извлеките VBA макросы в презентациях PowerPoint"
 ---

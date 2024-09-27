@@ -2,7 +2,7 @@
 title: Справочник по API
 type: docs
 weight: 50
-url: /nodejs-net/api-reference/
+url: /ru/nodejs-net/api-reference/
 ---
 
 {{% alert color="primary" %}} 

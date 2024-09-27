@@ -2,7 +2,7 @@
 title: Круговая диаграмма
 type: docs
 weight: 30
-url: /cpp/doughnut-chart/
+url: /ru/cpp/doughnut-chart/
 ---
 
 ## **Указать размеры центрального отверстия в круговой диаграмме**

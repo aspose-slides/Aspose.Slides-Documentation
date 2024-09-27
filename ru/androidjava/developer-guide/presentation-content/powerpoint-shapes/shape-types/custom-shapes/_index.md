@@ -2,7 +2,7 @@
 title: Пользовательская форма
 type: docs
 weight: 20
-url: /androidjava/custom-shape/
+url: /ru/androidjava/custom-shape/
 keywords: "Форма PowerPoint, пользовательская форма, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Добавление пользовательской формы в презентации PowerPoint на Java"
 ---

@@ -2,14 +2,14 @@
 title: Экспорт в HTML5
 type: docs
 weight: 40
-url: /cpp/export-to-html5/
+url: /ru/cpp/export-to-html5/
 keywords: "PowerPoint в HTML, HTML 5, экспорт в HTML, Экспорт презентации, Конвертировать PowerPoint в HTML, C++, Aspose.Slides для C++"
 description: "Экспорт PowerPoint в HTML5 на C++" 
 ---
 
 {{% alert title="Информация" color="info" %}}
 
-В [Aspose.Slides 21.9](/slides/cpp/aspose-slides-for-cpp-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5.
+В [Aspose.Slides 21.9](/slides/ru/cpp/aspose-slides-for-cpp-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5.
 
 {{% /alert %}}
 

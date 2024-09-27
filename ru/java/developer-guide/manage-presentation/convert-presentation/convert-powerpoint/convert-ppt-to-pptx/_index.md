@@ -3,7 +3,7 @@ title: Конвертация PPT в PPTX на Java
 linktitle: Конвертация PPT в PPTX
 type: docs
 weight: 20
-url: /java/convert-ppt-to-pptx/
+url: /ru/java/convert-ppt-to-pptx/
 keywords: "Java Конвертация PPT в PPTX, PowerPoint PPT в PPTX на Java"
 description: "Конвертация PowerPoint PPT в PPTX на Java."
 ---
@@ -47,7 +47,7 @@ description: "Конвертация PowerPoint PPT в PPTX на Java."
 {{% /alert %}}
 
 ## **Конвертация PPT в PPTX**
-Aspose.Slides для Java теперь облегчает разработчикам доступ к PPT с помощью экземпляра класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) и конвертацию его в соответствующий формат [PPTX](https://docs.fileformat.com/presentation/pptx/). В настоящее время он поддерживает частичную конвертацию [PPT](https://docs.fileformat.com/presentation/ppt/) в PPTX. Для получения дополнительных сведений о поддерживаемых и неподдерживаемых функциях в конвертации PPT в PPTX, пожалуйста, перейдите по этой документации [ссылки](/slides/java/ppt-to-pptx-conversion/).
+Aspose.Slides для Java теперь облегчает разработчикам доступ к PPT с помощью экземпляра класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) и конвертацию его в соответствующий формат [PPTX](https://docs.fileformat.com/presentation/pptx/). В настоящее время он поддерживает частичную конвертацию [PPT](https://docs.fileformat.com/presentation/ppt/) в PPTX. Для получения дополнительных сведений о поддерживаемых и неподдерживаемых функциях в конвертации PPT в PPTX, пожалуйста, перейдите по этой документации [ссылки](/slides/ru/java/ppt-to-pptx-conversion/).
 
 Aspose.Slides для Java предлагает класс [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation), который представляет файл презентации **PPTX**. Класс Presentation теперь также может получать доступ к **PPT** через Presentation при создании объекта. Следующий пример показывает, как конвертировать презентацию PPT в презентацию PPTX.
 

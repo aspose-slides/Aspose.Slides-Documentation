@@ -3,7 +3,7 @@ title: Открыть презентацию в C#
 linktitle: Открыть презентацию
 type: docs
 weight: 20
-url: /net/open-presentation/
+url: /ru/net/open-presentation/
 keywords: "Открыть PowerPoint, PPTX, PPT, Открыть презентацию, Загрузить презентацию, C#, Csharp, .NET"
 description: "Открыть или загрузить презентацию PPT, PPTX, ODP на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Добавление слайда в презентацию
 type: docs
 weight: 20
-url: /net/adding-slide-to-presentation/
+url: /ru/net/adding-slide-to-presentation/
 ---
 
 ## **OpenXML Презентация**

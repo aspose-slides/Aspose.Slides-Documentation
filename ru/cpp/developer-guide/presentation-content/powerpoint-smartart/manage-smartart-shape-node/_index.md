@@ -2,7 +2,7 @@
 title: Управление узлом SmartArt
 type: docs
 weight: 30
-url: /cpp/manage-smartart-shape-node/
+url: /ru/cpp/manage-smartart-shape-node/
 ---
 
 

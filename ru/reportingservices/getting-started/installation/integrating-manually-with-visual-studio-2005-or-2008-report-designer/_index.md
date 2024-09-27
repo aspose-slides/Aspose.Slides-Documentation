@@ -2,7 +2,7 @@
 title: Интеграция Aspose.Slides вручную с Visual Studio 2005 или 2008 Report Designer
 type: docs
 weight: 50
-url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
+url: /ru/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
 ---
 
 {{% alert color="primary" %}} 

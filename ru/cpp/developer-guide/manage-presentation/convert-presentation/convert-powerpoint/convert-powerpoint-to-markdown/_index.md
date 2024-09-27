@@ -2,7 +2,7 @@
 title: Преобразование PowerPoint в Markdown на C++
 type: docs
 weight: 140
-url: /cpp/convert-powerpoint-to-markdown/
+url: /ru/cpp/convert-powerpoint-to-markdown/
 keywords: "Преобразование PowerPoint в Markdown, Преобразовать ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, C++, CPP, Aspose.Slides для C++"
 description: "Преобразование PowerPoint в Markdown на C++"
 ---

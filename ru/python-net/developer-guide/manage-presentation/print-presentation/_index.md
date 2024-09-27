@@ -2,7 +2,7 @@
 title: Печать презентации
 type: docs
 weight: 50
-url: /python-net/print-presentation/
+url: /ru/python-net/print-presentation/
 keywords: "Печать PowerPoint, PPT, PPTX, Печать презентации, Python, Принтер, Параметры печати"
 description: "Печать презентации PowerPoint в Python"
 ---

@@ -2,7 +2,7 @@
 title: Ограничения и различия API
 type: docs
 weight: 100
-url: /php-java/limitations-and-api-differences/
+url: /ru/php-java/limitations-and-api-differences/
 ---
 
 ## **Различия в публичном API**

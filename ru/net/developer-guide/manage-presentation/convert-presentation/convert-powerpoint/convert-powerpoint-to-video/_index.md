@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в Видео
 type: docs
 weight: 130
-url: /net/convert-powerpoint-to-video/
+url: /ru/net/convert-powerpoint-to-video/
 keywords: "Конвертация PowerPoint, PPT, PPTX, Презентация, Видео, MP4, PPT в видео, PPT в MP4, C#, Csharp, .NET, Aspose.Slides"
 description: "Конвертация PowerPoint в Видео на C# или .NET"
 ---

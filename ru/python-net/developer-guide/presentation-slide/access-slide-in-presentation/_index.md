@@ -2,7 +2,7 @@
 title: Доступ к слайду в презентации
 type: docs
 weight: 20
-url: /python-net/access-slide-in-presentation/
+url: /ru/python-net/access-slide-in-presentation/
 keywords: "Доступ к презентации PowerPoint, Доступ к слайду, Изменение свойств слайда, Изменение позиции слайда, Установка номера слайда, индекса, ID, позиции Python, Aspose.Slides"
 description: "Доступ к слайду PowerPoint по индексу, ID или позиции на Python. Изменение свойств слайда"
 ---

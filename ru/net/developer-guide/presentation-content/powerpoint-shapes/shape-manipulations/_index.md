@@ -2,7 +2,7 @@
 title: Манипуляции с Формами
 type: docs
 weight: 40
-url: /net/shape-manipulations/
+url: /ru/net/shape-manipulations/
 keywords: "Форма PowerPoint, форма на слайде, найти форму, клонировать форму, удалить форму, скрыть форму, изменить порядок формы, получить идентификатор межоперационной формы, альтернативный текст формы, форматы макета формы, форма как SVG, выровнять форму, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Манипуляции с формами PowerPoint на C# или .NET"
 ---

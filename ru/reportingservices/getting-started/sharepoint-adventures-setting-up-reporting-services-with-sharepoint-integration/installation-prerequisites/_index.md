@@ -2,7 +2,7 @@
 title: Предварительные условия установки  
 type: docs  
 weight: 20  
-url: /reportingservices/installation-prerequisites/  
+url: /ru/reportingservices/installation-prerequisites/  
 ---  
 
 {{% alert color="primary" %}}  

@@ -2,7 +2,7 @@
 title: Размер слайдов
 type: docs
 weight: 70
-url: /net/slide-size/
+url: /ru/net/slide-size/
 keywords: "Установить слайд, изменить размер слайда, Презентация PowerPoint, пользовательский размер слайда, решить проблемы со слайдами, C#, Csharp, .NET, Aspose.Slides"
 descriptions: "Установите и измените размер слайда или соотношение сторон в PowerPoint на C# или .NET"
 ---

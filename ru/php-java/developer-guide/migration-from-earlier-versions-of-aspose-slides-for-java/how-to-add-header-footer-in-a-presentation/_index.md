@@ -2,7 +2,7 @@
 title: Как добавить заголовок и нижний колонтитул в презентацию
 type: docs
 weight: 20
-url: /php-java/how-to-add-header-footer-in-a-presentation/
+url: /ru/php-java/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Управление маркерами
 type: docs
 weight: 60
-url: /php-java/manage-bullet/
+url: /ru/php-java/manage-bullet/
 keywords: "Маркеры, Маркерные списки, Числа, Нумерованные списки, Изображения маркеров, многоуровневые маркеры, Презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Создание маркерных и нумерованных списков в презентации PowerPoint"
 ---

@@ -2,7 +2,7 @@
 title: Экспорт диаграммы
 type: docs
 weight: 90
-url: /cpp/export-chart/
+url: /ru/cpp/export-chart/
 ---
 
 ## **Получить изображение диаграммы**

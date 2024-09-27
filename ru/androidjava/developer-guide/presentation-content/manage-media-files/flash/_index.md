@@ -2,7 +2,7 @@
 title: Флеш
 type: docs
 weight: 10
-url: /androidjava/flash/
+url: /ru/androidjava/flash/
 description: Извлечение объектов Flash из презентации PowerPoint с использованием Java
 ---
 

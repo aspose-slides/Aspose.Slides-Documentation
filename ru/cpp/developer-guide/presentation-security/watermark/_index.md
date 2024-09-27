@@ -2,7 +2,7 @@
 title: Водяной знак
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /ru/cpp/watermark/
 keywords: "водяной знак в презентации"
 description: "Используйте водяной знак в PowerPoint с Aspose.Slides. Добавьте водяной знак в ppt-презентацию или удалите водяной знак. Вставьте изображение водяного знака или текстовый водяной знак."
 ---
@@ -36,7 +36,7 @@ auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Водяной знак
 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/cpp/slide-master/)[TextFrame](/slides/cpp/adding-and-formatting-text/)
+- [Как использовать ](/slides/ru/cpp/slide-master/)[TextFrame](/slides/ru/cpp/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Добавить текстовый водяной знак в презентацию**
@@ -55,7 +55,7 @@ auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Водяной знак
 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как использовать ](/slides/cpp/slide-master/)[Слайд-мастер](/slides/cpp/slide-master/)
+- [Как использовать ](/slides/ru/cpp/slide-master/)[Слайд-мастер](/slides/ru/cpp/slide-master/)
 {{% /alert %}}
 
 ### **Установить шрифт текстового водяного знака**
@@ -136,7 +136,7 @@ watermarkShape->get_AutoShapeLock()->set_GroupingLocked(true);
 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Как заблокировать формы от редактирования](/slides/cpp/presentation-locking/)
+- [Как заблокировать формы от редактирования](/slides/ru/cpp/presentation-locking/)
 {{% /alert %}}
 
 ## **Переместить водяной знак на передний план**

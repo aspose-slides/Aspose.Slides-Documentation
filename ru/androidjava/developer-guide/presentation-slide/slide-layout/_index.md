@@ -2,7 +2,7 @@
 title: Макет слайдов
 type: docs
 weight: 60
-url: /androidjava/slide-layout/
+url: /ru/androidjava/slide-layout/
 keyword: "Установить размер слайда, установить параметры слайда, указать размер слайда, видимость нижнего колонтитула, дочерний нижний колонтитул, масштабирование содержимого, размер страницы, Java, Aspose.Slides"
 description: "Установить размер и параметры слайда PowerPoint на Java"
 ---

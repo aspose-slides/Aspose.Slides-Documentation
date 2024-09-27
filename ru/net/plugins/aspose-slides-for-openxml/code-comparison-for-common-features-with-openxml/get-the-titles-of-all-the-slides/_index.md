@@ -2,7 +2,7 @@
 title: Получить названия всех слайдов
 type: docs
 weight: 120
-url: /net/get-the-titles-of-all-the-slides/
+url: /ru/net/get-the-titles-of-all-the-slides/
 ---
 
 ## **OpenXML SDK**

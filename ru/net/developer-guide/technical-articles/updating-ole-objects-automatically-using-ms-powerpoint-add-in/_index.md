@@ -2,7 +2,7 @@
 title: Автоматическое обновление OLE-объектов с помощью дополнения MS PowerPoint
 type: docs
 weight: 10
-url: /net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /ru/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **Об автоматическом обновлении OLE-объектов**

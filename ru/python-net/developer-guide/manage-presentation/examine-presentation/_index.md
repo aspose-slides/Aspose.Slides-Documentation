@@ -2,7 +2,7 @@
 title: Изучение Презентации
 type: docs
 weight: 30
-url: /python-net/examine-presentation/
+url: /ru/python-net/examine-presentation/
 keywords: "Проверка PowerPoint, PPTX, PPT, Проверка Презентации, Свойства PowerPoint, Свойства Презентации, Python"
 description: "Проверка и получение Свойств Презентации PowerPoint в Python"
 ---

@@ -2,7 +2,7 @@
 title: Форматирование фигур
 type: docs
 weight: 20
-url: /androidjava/shape-formatting/
+url: /ru/androidjava/shape-formatting/
 keywords: "Формат фигуры, формат линий, стиль соединения, градиентная заливка, заливка узором, заливка изображением, заливка сплошным цветом, вращение фигур, эффекты 3D-обводки, эффект 3D-вращения, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Форматирование фигуры в презентации PowerPoint на Java"
 ---

@@ -2,7 +2,7 @@
 title: Как создавать диаграммы в презентации
 type: docs
 weight: 30
-url: /php-java/how-to-create-charts-in-a-presentation/
+url: /ru/php-java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

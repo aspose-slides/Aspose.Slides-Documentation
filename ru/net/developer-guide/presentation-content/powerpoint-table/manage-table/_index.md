@@ -2,7 +2,7 @@
 title: Управление таблицей
 type: docs
 weight: 10
-url: /net/manage-table/
+url: /ru/net/manage-table/
 keywords: "Таблица, создать таблицу, доступ к таблице, соотношение сторон таблицы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Создайте и управляйте таблицей в презентациях PowerPoint на C# или .NET"
 ---

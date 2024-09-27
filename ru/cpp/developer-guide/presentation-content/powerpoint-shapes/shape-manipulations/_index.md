@@ -2,7 +2,7 @@
 title: Манипуляции с Формами
 type: docs
 weight: 40
-url: /cpp/shape-manipulations/
+url: /ru/cpp/shape-manipulations/
 ---
 
 ## **Найти Форму на Слайде**

@@ -2,7 +2,7 @@
 title: Форматирование фигур
 type: docs
 weight: 20
-url: /python-net/shape-formatting/
+url: /ru/python-net/shape-formatting/
 keywords: "Форматировать фигуры, форматировать линии, стиль соединения, градиентная заливка, заполнение узором, заливка изображением, заливка сплошным цветом, поворот фигур, эффекты 3D-скоса, эффект 3D-вращения, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Форматирование фигур в презентации PowerPoint на Python"
 ---

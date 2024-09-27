@@ -2,7 +2,7 @@
 title: Экспорт математических уравнений
 type: docs
 weight: 30
-url: /net/exporting-math-equations/
+url: /ru/net/exporting-math-equations/
 keywords: "Экспорт математических уравнений, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Экспорт математических уравнений PowerPoint на C# или .NET"
 ---

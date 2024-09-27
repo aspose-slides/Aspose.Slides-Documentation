@@ -2,7 +2,7 @@
 title: Шрифт по умолчанию
 type: docs
 weight: 30
-url: /cpp/default-font/
+url: /ru/cpp/default-font/
 ---
 
 ## **Установить шрифт по умолчанию**

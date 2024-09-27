@@ -2,7 +2,7 @@
 title: Лицензирование
 type: docs
 weight: 50
-url: /jasperreports/licensing/
+url: /ru/jasperreports/licensing/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Анимированные диаграммы
 type: docs
 weight: 80
-url: /net/animated-charts/
+url: /ru/net/animated-charts/
 keywords: "Диаграммы, Серии диаграмм, Анимация Презентации PowerPoint, PPTX, PPT, C#, Csharp, Aspose.Slides для .NET"
 description: "Серии диаграмм и анимации PowerPoint на C# или .NET"
 ---

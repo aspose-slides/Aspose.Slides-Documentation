@@ -2,7 +2,7 @@
 title: Раздел слайдов
 type: docs
 weight: 90
-url: /php-java/slide-section/
+url: /ru/php-java/slide-section/
 ---
 
 С помощью Aspose.Slides для PHP через Java вы можете организовать презентацию PowerPoint в разделы. Вы можете создавать разделы, которые содержат конкретные слайды.

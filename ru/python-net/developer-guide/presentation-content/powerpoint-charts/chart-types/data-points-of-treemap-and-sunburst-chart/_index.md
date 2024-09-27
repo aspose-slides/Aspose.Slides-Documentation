@@ -1,7 +1,7 @@
 ---
 title: Точки данных для графика с иерархией и графика Солнечного Всплеска
 type: docs
-url: /python-net/data-points-of-treemap-and-sunburst-chart/
+url: /ru/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords: "График с солнечным всплеском, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавьте график с солнечным всплеском в презентацию PowerPoint на Python"
 ---
@@ -22,7 +22,7 @@ with slides.Presentation() as pres:
 ```
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание графика солнечного всплеска**](/slides/python-net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Создание графика солнечного всплеска**](/slides/ru/python-net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

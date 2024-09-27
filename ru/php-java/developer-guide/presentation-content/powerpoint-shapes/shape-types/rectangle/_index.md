@@ -2,7 +2,7 @@
 title: Прямоугольник
 type: docs
 weight: 80
-url: /php-java/rectangle/
+url: /ru/php-java/rectangle/
 ---
 
 {{% alert color="primary" %}} 

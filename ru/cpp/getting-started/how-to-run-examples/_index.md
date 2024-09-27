@@ -2,7 +2,7 @@
 title: Как запустить примеры
 type: docs
 weight: 130
-url: /cpp/how-to-run-examples/
+url: /ru/cpp/how-to-run-examples/
 ---
 
 ## **Программные требования**

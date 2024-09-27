@@ -3,7 +3,7 @@ title: Замена шрифтов - Java API для PowerPoint
 linktitle: Замена шрифтов
 type: docs
 weight: 70
-url: /androidjava/font-substitution/
+url: /ru/androidjava/font-substitution/
 keywords: "Шрифт, заменяющий шрифт, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Замена шрифта в PowerPoint на Java"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="ПРИМЕЧАНИЕ"  color="warning"   %}} 
 
-Вам может быть интересно увидеть [**Замена шрифтов**](/slides/androidjava/font-replacement/).
+Вам может быть интересно увидеть [**Замена шрифтов**](/slides/ru/androidjava/font-replacement/).
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Конвертировать PowerPoint в PDF с заметками
 type: docs
 weight: 50
-url: /php-java/convert-powerpoint-to-pdf-with-notes/
+url: /ru/php-java/convert-powerpoint-to-pdf-with-notes/
 keywords: "конвертировать powerpoint в pdf с заметками на java"
 description: "Конвертировать PowerPoint в PDF с заметками"
 ---

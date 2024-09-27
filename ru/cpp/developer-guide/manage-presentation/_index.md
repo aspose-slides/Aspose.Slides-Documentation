@@ -2,5 +2,5 @@
 title: Управление презентацией
 type: docs
 weight: 10
-url: /cpp/manage-presentation/
+url: /ru/cpp/manage-presentation/
 ---

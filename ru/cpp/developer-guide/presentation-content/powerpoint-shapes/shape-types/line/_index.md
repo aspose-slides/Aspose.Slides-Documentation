@@ -2,7 +2,7 @@
 title: Линия
 type: docs
 weight: 50
-url: /cpp/Line/
+url: /ru/cpp/Line/
 ---
 
 ## **Создание простой линии**

@@ -2,7 +2,7 @@
 title: Рабочая тетрадь диаграмм
 type: docs
 weight: 70
-url: /java/chart-workbook/
+url: /ru/java/chart-workbook/
 keywords: "Рабочая тетрадь диаграмм, данные диаграммы, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Рабочая тетрадь диаграмм в презентации PowerPoint на Java"
 ---

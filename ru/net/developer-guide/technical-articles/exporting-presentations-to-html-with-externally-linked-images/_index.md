@@ -2,7 +2,7 @@
 title: Экспорт презентаций в HTML с внешними связанными изображениями
 type: docs
 weight: 100
-url: /net/exporting-presentations-to-html-with-externally-linked-images/
+url: /ru/net/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

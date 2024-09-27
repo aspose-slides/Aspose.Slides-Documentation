@@ -2,7 +2,7 @@
 title: Часто задаваемые вопросы
 type: docs
 weight: 110
-url: /reportingservices/chasto-zadavaemye-voprosy/
+url: /ru/reportingservices/chasto-zadavaemye-voprosy/
 ---
 
 {{% alert color="primary" %}} 

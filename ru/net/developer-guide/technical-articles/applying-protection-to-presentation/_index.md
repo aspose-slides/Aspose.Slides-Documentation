@@ -2,14 +2,14 @@
 title: Применение защиты к презентации
 type: docs
 weight: 70
-url: /net/applying-protection-to-presentation/
+url: /ru/net/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Обычное использование Aspose.Slides заключается в создании, обновлении и сохранении презентаций Microsoft PowerPoint 2007 (PPTX) в рамках автоматизированного рабочего процесса. Пользователи приложения, использующего Aspose.Slides таким образом, получают доступ к выходным презентациям. Защита их от редактирования является общем обоснованным беспокойством. Важно, чтобы автоматически сгенерированные презентации сохраняли свое исходное форматирование и содержимое.
 
-В этой статье объясняется, как [конструируются презентации и слайды](/slides/net/applying-protection-to-presentation/) и как Aspose.Slides для .NET может [применить защиту к](/slides/net/applying-protection-to-presentation/), а затем [удалить ее из](/slides/net/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и, на момент написания, недоступна в Microsoft PowerPoint. Она дает разработчикам возможность контролировать, как используются презентации, созданные их приложениями.
+В этой статье объясняется, как [конструируются презентации и слайды](/slides/ru/net/applying-protection-to-presentation/) и как Aspose.Slides для .NET может [применить защиту к](/slides/ru/net/applying-protection-to-presentation/), а затем [удалить ее из](/slides/ru/net/applying-protection-to-presentation/) презентации. Эта функция уникальна для Aspose.Slides и, на момент написания, недоступна в Microsoft PowerPoint. Она дает разработчикам возможность контролировать, как используются презентации, созданные их приложениями.
 
 {{% /alert %}} 
 ## **Состав слайда**

@@ -2,7 +2,7 @@
 title: Лицензирование  
 type: docs  
 weight: 120  
-url: /cpp/licensing/  
+url: /ru/cpp/licensing/  
 ---  
 
 ## **Оценка Aspose.Slides**  

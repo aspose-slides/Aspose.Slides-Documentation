@@ -2,12 +2,12 @@
 title: Добавление рамки для изображения с анимацией
 type: docs
 weight: 60
-url: /net/adding-picture-frame-with-animation/
+url: /ru/net/adding-picture-frame-with-animation/
 ---
 
 {{% alert color="primary" %}} 
 
-Рамки для изображений применяются к фигурам или изображениям в Microsoft PowerPoint для оформления изображений в презентации. Эта статья показывает, как создать рамку для изображения и применить к ней анимацию программным образом, сначала используя [VSTO 2008](/slides/net/adding-picture-frame-with-animation/), а затем [Aspose.Slides для .NET](/slides/net/adding-picture-frame-with-animation/). Сначала мы покажем, как применить рамку и анимацию, используя VSTO 2008. Затем мы покажем, как выполнить те же действия с помощью Aspose.Slides для .NET.
+Рамки для изображений применяются к фигурам или изображениям в Microsoft PowerPoint для оформления изображений в презентации. Эта статья показывает, как создать рамку для изображения и применить к ней анимацию программным образом, сначала используя [VSTO 2008](/slides/ru/net/adding-picture-frame-with-animation/), а затем [Aspose.Slides для .NET](/slides/ru/net/adding-picture-frame-with-animation/). Сначала мы покажем, как применить рамку и анимацию, используя VSTO 2008. Затем мы покажем, как выполнить те же действия с помощью Aspose.Slides для .NET.
 
 {{% /alert %}} 
 ## **Добавление рамок для изображений с анимацией**

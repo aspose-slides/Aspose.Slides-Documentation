@@ -2,14 +2,14 @@
 title: Тема Презентации
 type: docs
 weight: 10
-url: /net/presentation-theme/
+url: /ru/net/presentation-theme/
 keywords: "Тема, тема PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Тема презентации PowerPoint на C# или .NET"
 ---
 
 Тема презентации определяет свойства элементов дизайна. Когда вы выбираете тему презентации, вы в основном выбираете конкретный набор визуальных элементов и их свойства.
 
-В PowerPoint тема включает цвета, [шрифты](/slides/net/powerpoint-fonts/), [стили фона](/slides/net/presentation-background/) и эффекты.
+В PowerPoint тема включает цвета, [шрифты](/slides/ru/net/powerpoint-fonts/), [стили фона](/slides/ru/net/presentation-background/) и эффекты.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -152,7 +152,7 @@ pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
 {{% alert color="primary" title="СОВЕТ" %}} 
 
-Вы можете посмотреть [шрифты PowerPoint](/slides/net/powerpoint-fonts/).
+Вы можете посмотреть [шрифты PowerPoint](/slides/ru/net/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -189,7 +189,7 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 {{% alert color="primary" title="СОВЕТ" %}} 
 
-Вы можете посмотреть [фон PowerPoint](/slides/net/presentation-background/).
+Вы можете посмотреть [фон PowerPoint](/slides/ru/net/presentation-background/).
 
 {{% /alert %}}
 

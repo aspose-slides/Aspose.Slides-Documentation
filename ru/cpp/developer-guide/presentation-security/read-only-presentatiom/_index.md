@@ -2,7 +2,7 @@
 title: Презентация только для чтения
 type: docs
 weight: 30
-url: /cpp/read-only-presentation/
+url: /ru/cpp/read-only-presentation/
 
 ---
 

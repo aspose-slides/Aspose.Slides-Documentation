@@ -1,7 +1,7 @@
 ---
 title: Маркер данных диаграммы
 type: docs
-url: /cpp/chart-data-marker/
+url: /ru/cpp/chart-data-marker/
 ---
 
 ## **Установить маркер диаграммы**

@@ -2,7 +2,7 @@
 title: Расчеты диаграмм
 type: docs
 weight: 50
-url: /java/chart-calculations/
+url: /ru/java/chart-calculations/
 ---
 
 ## **Расчет фактических значений элементов диаграммы**

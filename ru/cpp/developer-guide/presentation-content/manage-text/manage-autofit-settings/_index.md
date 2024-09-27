@@ -2,7 +2,7 @@
 title: Управление настройками автоматической подгонки
 type: docs
 weight: 30
-url: /cpp/manage-autofit-settings/
+url: /ru/cpp/manage-autofit-settings/
 keywords: "Текстовое поле, Автоматическая подгонка, Презентация PowerPoint, C++, Aspose.Slides для C++"
 description: "Установите настройки автоматической подгонки для текстового поля в PowerPoint на C++"
 ---

@@ -2,7 +2,7 @@
 title: Группа
 type: docs
 weight: 40
-url: /python-net/group/
+url: /ru/python-net/group/
 keywords: "Группа фигур, Фигура PowerPoint, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление группы фигур в презентацию PowerPoint на Python"
 ---

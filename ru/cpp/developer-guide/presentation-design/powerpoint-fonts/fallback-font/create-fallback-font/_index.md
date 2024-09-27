@@ -2,7 +2,7 @@
 title: Создание резервного шрифта
 type: docs
 weight: 10
-url: /cpp/create-fallback-font/
+url: /ru/cpp/create-fallback-font/
 ---
 
 Aspose.Slides поддерживает интерфейс [IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) и класс [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) для указания правил применения резервного шрифта. Класс [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) представляет собой связь между указанным диапазоном Unicode, используемым для поиска недостающих глифов, и списком шрифтов, которые могут содержать подходящие глифы:
@@ -27,5 +27,5 @@ auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), st
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) может быть использован для организации списка объектов [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule), когда необходимо указать правила замены резервного шрифта для нескольких диапазонов Unicode.
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Создание коллекции резервных шрифтов](/slides/cpp/create-fallback-fonts-collection/)
+- [Создание коллекции резервных шрифтов](/slides/ru/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}

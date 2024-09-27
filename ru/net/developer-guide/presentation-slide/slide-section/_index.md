@@ -2,7 +2,7 @@
 title: Раздел слайдов
 type: docs
 weight: 100
-url: /net/slide-section/
+url: /ru/net/slide-section/
 keywords: "Создание раздела, Добавление раздела, Изменение имени раздела, Презентация PowerPoint, C#, Csharp, .NET, Aspose.Slides"
 description: "Добавление и редактирование раздела в презентации PowerPoint на C# или .NET"
 ---

@@ -2,14 +2,14 @@
 title: Экспорт в HTML5
 type: docs
 weight: 40
-url: /androidjava/export-to-html5/
+url: /ru/androidjava/export-to-html5/
 keywords: "PowerPoint в HTML, HTML 5, экспорт HTML, экспорт презентации, конвертирование PowerPoint в HTML, Java, Aspose.Slides для Android через Java"
 description: "Экспорт PowerPoint в HTML5 на Java"
 ---
 
 {{% alert title="Информация" color="info" %}}
 
-В [Aspose.Slides 21.9](/slides/androidjava/aspose-slides-for-java-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5.
+В [Aspose.Slides 21.9](/slides/ru/androidjava/aspose-slides-for-java-21-9-release-notes/) мы реализовали поддержку экспорта в HTML5.
 
 {{% /alert %}} 
 

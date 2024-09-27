@@ -1,7 +1,7 @@
 ---
 title: Легенда графика
 type: docs
-url: /net/chart-legend/
+url: /ru/net/chart-legend/
 keywords: "Легенда графика, размер шрифта легенды, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Настройка позиционирования и размера шрифта для легенды графика в презентациях PowerPoint на C# или .NET"
 ---

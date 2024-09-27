@@ -2,7 +2,7 @@
 title: Форматирование текста
 type: docs
 weight: 50
-url: /cpp/text-formatting/
+url: /ru/cpp/text-formatting/
 keywords:
 - выделить текст
 - регулярное выражение

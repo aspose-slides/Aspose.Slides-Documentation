@@ -2,7 +2,7 @@
 title: Фоновое изображение презентации
 type: docs
 weight: 20
-url: /python-net/presentation-background/
+url: /ru/python-net/presentation-background/
 keywords: "фон PowerPoint, установить фон, Python, Aspose.Slides для Python через .NET"
 description: "Установить фон в презентации PowerPoint на Python"
 ---

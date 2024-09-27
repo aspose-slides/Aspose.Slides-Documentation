@@ -2,7 +2,7 @@
 title: Установка вручную
 type: docs
 weight: 30
-url: /reportingservices/install-manually/
+url: /ru/reportingservices/install-manually/
 ---
 
 {{% alert color="primary" %}} 

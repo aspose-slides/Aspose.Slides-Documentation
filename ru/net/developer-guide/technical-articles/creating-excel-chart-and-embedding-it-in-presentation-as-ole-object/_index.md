@@ -2,7 +2,7 @@
 title: Создание графика Excel и встраивание его в презентацию как объект OLE
 type: docs
 weight: 50
-url: /net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ru/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -140,4 +140,4 @@ static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wb
 
 {{% /alert %}} 
 ## **Связанные разделы**
-[Рабочее решение для изменения размера графика](/slides/net/working-solution-for-chart-resizing-in-pptx/)[Проблема измененного объекта](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Рабочее решение для изменения размера графика](/slides/ru/net/working-solution-for-chart-resizing-in-pptx/)[Проблема измененного объекта](/slides/ru/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

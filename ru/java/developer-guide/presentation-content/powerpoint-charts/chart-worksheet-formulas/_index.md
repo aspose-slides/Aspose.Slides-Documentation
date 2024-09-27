@@ -2,7 +2,7 @@
 title: Формулы таблицы диаграмм
 type: docs
 weight: 70
-url: /java/chart-worksheet-formulas/
+url: /ru/java/chart-worksheet-formulas/
 keywords: "формулы powerpoint, формулы таблицы powerpoint"
 description: "Формулы в PowerPoint и таблицы"
 ---

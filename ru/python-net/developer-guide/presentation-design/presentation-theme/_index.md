@@ -2,14 +2,14 @@
 title: Тема презентации
 type: docs
 weight: 10
-url: /python-net/presentation-theme/
+url: /ru/python-net/presentation-theme/
 keywords: "Тема, тема PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Тема презентации PowerPoint на Python"
 ---
 
 Тема презентации определяет свойства элементов дизайна. Когда вы выбираете тему презентации, вы по сути выбираете конкретный набор визуальных элементов и их свойства.
 
-В PowerPoint тема включает цвета, [шрифты](/slides/python-net/powerpoint-fonts/), [стили фона](/slides/python-net/presentation-background/) и эффекты.
+В PowerPoint тема включает цвета, [шрифты](/slides/ru/python-net/powerpoint-fonts/), [стили фона](/slides/ru/python-net/presentation-background/) и эффекты.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -144,7 +144,7 @@ pres.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
 
 {{% alert color="primary" title="ПОДСКАЗКА" %}} 
 
-Вам может быть интересно посмотреть [шрифты PowerPoint](/slides/python-net/powerpoint-fonts/).
+Вам может быть интересно посмотреть [шрифты PowerPoint](/slides/ru/python-net/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -178,7 +178,7 @@ pres.masters[0].background.style_index = 2
 
 {{% alert color="primary" title="ПОДСКАЗКА" %}} 
 
-Вам может быть интересно посмотреть [фон PowerPoint](/slides/python-net/presentation-background/).
+Вам может быть интересно посмотреть [фон PowerPoint](/slides/ru/python-net/presentation-background/).
 
 {{% /alert %}}
 

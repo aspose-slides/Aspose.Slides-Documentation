@@ -1,7 +1,7 @@
 ---
 title: Таблица данных графика
 type: docs
-url: /cpp/chart-data-table/
+url: /ru/cpp/chart-data-table/
 ---
 
 ## **Установить свойства шрифта для таблицы данных графика**

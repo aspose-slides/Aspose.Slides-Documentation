@@ -2,7 +2,7 @@
 title: 3D Презентация
 type: docs
 weight: 232
-url: /java/3d-presentation/
+url: /ru/java/3d-presentation/
 ---
 
 ## Обзор

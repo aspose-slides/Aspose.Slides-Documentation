@@ -2,7 +2,7 @@
 title: Управление строками и колонками
 type: docs
 weight: 20
-url: /python-net/manage-rows-and-columns/
+url: /ru/python-net/manage-rows-and-columns/
 keywords: "Таблица, строки и колонки таблицы, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Управление строками и колонками таблицы в презентациях PowerPoint на Python"
 ---

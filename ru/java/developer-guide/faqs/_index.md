@@ -2,14 +2,14 @@
 title: Часто задаваемые вопросы
 type: docs
 weight: 340
-url: /java/faqs/
+url: /ru/java/faqs/
 ---
 
 ## **Поддерживаемые форматы файлов**
 
 **В: Какие форматы файлов поддерживает Aspose.Slides для Java?**
 
-**О**: Aspose.Slides для Java поддерживает форматы файлов, описанные в [Поддерживаемые форматы файлов](/slides/java/supported-file-formats/).
+**О**: Aspose.Slides для Java поддерживает форматы файлов, описанные в [Поддерживаемые форматы файлов](/slides/ru/java/supported-file-formats/).
 
 ## **Исключения**
 

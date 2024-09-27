@@ -2,7 +2,7 @@
 title: Доступ к слайду в презентации
 type: docs
 weight: 20
-url: /androidjava/access-slide-in-presentation/
+url: /ru/androidjava/access-slide-in-presentation/
 keywords: "Доступ к PowerPoint презентации, Доступ к слайду, Изменение свойств слайда, Изменение позиции слайда, Установка номера слайда, индекса, ID, позиции Java, Aspose.Slides"
 description: "Доступ к слайду PowerPoint по индексу, ID или позиции в Java. Изменение свойств слайда"
 ---

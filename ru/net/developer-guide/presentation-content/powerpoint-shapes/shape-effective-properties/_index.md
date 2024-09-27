@@ -2,7 +2,7 @@
 title: Эффективные Свойства Формы
 type: docs
 weight: 50
-url: /net/shape-effective-properties/
+url: /ru/net/shape-effective-properties/
 keywords: "Свойства формы, Свойства камеры, осветительное оборудование, фаска формы, текстовая рамка, стиль текста, значение высоты шрифта, формат заполнения для таблицы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Получение эффективных свойств формы в презентациях PowerPoint на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Размер слайда
 type: docs
 weight: 70
-url: /python-net/slide-size/
+url: /ru/python-net/slide-size/
 keywords: "Установить слайд, изменить размер слайда, PowerPoint Presentation, настраиваемый размер слайда, решить проблемы со слайдами, Python, Aspose.Slides"
 descriptions: "Установите и измените размер слайда или соотношение сторон в PowerPoint на Python"
 ---

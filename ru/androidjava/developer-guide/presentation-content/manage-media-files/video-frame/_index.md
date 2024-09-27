@@ -2,7 +2,7 @@
 title: Видеокадр
 type: docs
 weight: 10
-url: /androidjava/video-frame/
+url: /ru/androidjava/video-frame/
 keywords: "Добавить видео, создать видеокадр, извлечь видео, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Добавьте видеокадр в презентацию PowerPoint на Java"
 ---

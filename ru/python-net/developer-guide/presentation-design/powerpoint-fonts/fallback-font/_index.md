@@ -2,7 +2,7 @@
 title: Резервный Шрифт
 type: docs
 weight: 50
-url: /python-net/fallback-font/
+url: /ru/python-net/fallback-font/
 keywords: "Резервный шрифт, шрифт, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Резервный шрифт PowerPoint на Python"
 ---
@@ -14,6 +14,6 @@ Aspose.Slides позволяет создавать резервные шриф�
 
 Чтобы ознакомиться с этими функциями, используйте следующие ссылки:
 
-- [Создать Резервный Шрифт](/slides/python-net/create-fallback-font)
-- [Создать Коллекцию Резервных Шрифтов](/slides/python-net/create-fallback-fonts-collection)
-- [Отобразить Презентацию с Резервным Шрифтом](/slides/python-net/render-presentation-with-fallback-font)
+- [Создать Резервный Шрифт](/slides/ru/python-net/create-fallback-font)
+- [Создать Коллекцию Резервных Шрифтов](/slides/ru/python-net/create-fallback-fonts-collection)
+- [Отобразить Презентацию с Резервным Шрифтом](/slides/ru/python-net/render-presentation-with-fallback-font)

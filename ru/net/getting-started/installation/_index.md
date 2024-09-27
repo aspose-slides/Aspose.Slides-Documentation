@@ -2,7 +2,7 @@
 title: Установка
 type: docs
 weight: 70
-url: /net/installation/
+url: /ru/net/installation/
 keywords: "Скачать Aspose.Slides, Установить Aspose.Slides, Установка Aspose.Slides, Windows, macOS, .NET"
 description: "Установите Aspose.Slides для .NET в Windows или macOS"
 ---
@@ -81,6 +81,6 @@ NuGet предоставляет самый простой способ загр
 4. Введите *Aspose.Slides* в текстовое поле. 
 5. Нажмите **Aspose.Slides для .NET**, затем нажмите **Добавить пакет.** 
 6. Добавьте простой фрагмент кода.
-   * Вы можете скопировать код на [этой странице](/slides/net/create-presentation/).
+   * Вы можете скопировать код на [этой странице](/slides/ru/net/create-presentation/).
 7. Запустите приложение.
 8. Откройте папку вашего проекта *folder/bin/Debug/presentation_file_name*.

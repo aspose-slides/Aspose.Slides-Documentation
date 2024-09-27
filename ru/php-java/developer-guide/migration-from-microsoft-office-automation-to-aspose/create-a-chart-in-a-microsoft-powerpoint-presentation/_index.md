@@ -2,12 +2,12 @@
 title: Создание диаграммы в презентации Microsoft PowerPoint
 type: docs
 weight: 70
-url: /php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ru/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Диаграммы - это визуальные представления данных, которые широко используются в презентациях. Эта статья демонстрирует код для создания диаграммы в Microsoft PowerPoint программным способом с использованием [VSTO](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для PHP через Java](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Диаграммы - это визуальные представления данных, которые широко используются в презентациях. Эта статья демонстрирует код для создания диаграммы в Microsoft PowerPoint программным способом с использованием [VSTO](/slides/ru/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) и [Aspose.Slides для PHP через Java](/slides/ru/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Создание диаграммы**

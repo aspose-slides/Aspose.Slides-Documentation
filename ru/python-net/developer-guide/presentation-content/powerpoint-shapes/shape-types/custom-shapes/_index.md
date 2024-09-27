@@ -2,7 +2,7 @@
 title: Пользовательская Форма
 type: docs
 weight: 20
-url: /python-net/custom-shape/
+url: /ru/python-net/custom-shape/
 keywords: "Форма PowerPoint, пользовательская форма, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление пользовательской формы в презентацию PowerPoint на Python"
 ---

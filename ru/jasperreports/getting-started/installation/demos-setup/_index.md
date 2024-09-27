@@ -2,7 +2,7 @@
 title: Настройка демонстраций
 type: docs
 weight: 70
-url: /jasperreports/demos-setup/
+url: /ru/jasperreports/demos-setup/
 ---
 
 

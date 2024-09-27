@@ -2,7 +2,7 @@
 title: Управление текстовым полем
 type: docs
 weight: 20
-url: /cpp/manage-textbox/
+url: /ru/cpp/manage-textbox/
 keywords: "Текстовое поле, Текстовый фрейм, Добавить текстовое поле, Текстовое поле с гиперссылкой, C++, Aspose.Slides для C++"
 description: "Добавьте текстовое поле или текстовый фрейм в презентации PowerPoint на C++"
 ---

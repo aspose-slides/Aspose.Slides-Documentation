@@ -2,7 +2,7 @@
 title: Получите весь фон слайдов презентации в виде изображения
 type: docs
 weight: 95
-url: /java/get-the-entire-presentation-slide-background-as-an-image/
+url: /ru/java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - слайд
 - фон
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides для Java
 ---
 
-В презентациях PowerPoint фон слайда может состоять из множества элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/java/presentation-background/), на окончательный фон могут влиять тема презентации, цветовая схема и фигуры, размещенные на слайде-макете и главном слайде.
+В презентациях PowerPoint фон слайда может состоять из множества элементов. В дополнение к изображению, установленному в качестве [фона слайда](/slides/ru/java/presentation-background/), на окончательный фон могут влиять тема презентации, цветовая схема и фигуры, размещенные на слайде-макете и главном слайде.
 
 Aspose.Slides для Java не предоставляет простого метода извлечения всего фона слайда презентации в виде изображения, но вы можете следовать приведенным ниже шагам, чтобы сделать это:
 1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).

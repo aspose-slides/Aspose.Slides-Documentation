@@ -2,7 +2,7 @@
 title: Создание миниатюр форм
 type: docs
 weight: 70
-url: /php-java/create-shape-thumbnails/
+url: /ru/php-java/create-shape-thumbnails/
 ---
 
 

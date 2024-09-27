@@ -2,7 +2,7 @@
 title: Настройка служб отчетности
 type: docs
 weight: 30
-url: /reportingservices/setting-up-reporting-services/
+url: /ru/reportingservices/setting-up-reporting-services/
 ---
 
 {{% alert color="primary" %}} 

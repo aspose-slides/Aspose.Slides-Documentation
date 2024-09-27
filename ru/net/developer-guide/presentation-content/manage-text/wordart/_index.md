@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /net/wordart/
+url: /ru/net/wordart/
 keywords: "WordArt, Word Art, Создать WordArt, шаблон WordArt, эффекты WordArt, эффекты теней, эффекты отображения, эффекты свечения, трансформации WordArt, 3D эффекты, эффекты внешней тени, эффекты внутренней тени, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте, изменяйте и управляйте WordArt и эффектами в презентациях PowerPoint на C# или Aspose.Slides для .NET"
 ---

@@ -2,7 +2,7 @@
 title: Преобразование PowerPoint в анимированный GIF
 type: docs
 weight: 65
-url: /php-java/convert-powerpoint-to-animated-gif/
+url: /ru/php-java/convert-powerpoint-to-animated-gif/
 keywords: "Преобразование PowerPoint в анимированный GIF, PPT в GIF, PPTX в GIF"
 description: "Преобразование PowerPoint в анимированный GIF: PPT в GIF, PPTX в GIF с помощью API Aspose.Slides."
 ---

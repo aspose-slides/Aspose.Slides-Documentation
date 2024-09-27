@@ -2,7 +2,7 @@
 title: Форматирование фигур
 type: docs
 weight: 20
-url: /php-java/shape-formatting/
+url: /ru/php-java/shape-formatting/
 keywords: "Форматирование фигур, форматирование линий, стиль соединения, градиентная заливка, паттерн заливка, картинка заливка, заливка однородным цветом, поворот фигур, 3d эффекты фаски, 3d эффект вращения, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Форматирование фигур в презентации PowerPoint"
 ---

@@ -2,7 +2,7 @@
 title: Конвертировать PowerPoint в TIFF
 type: docs
 weight: 90
-url: /java/convert-powerpoint-to-tiff/
+url: /ru/java/convert-powerpoint-to-tiff/
 keywords: "Конвертировать презентацию PowerPoint, PowerPoint в TIFF, PPT в TIFF, PPTX в TIFF, Java, Aspose.Slides"
 description: "Конвертировать презентацию PowerPoint в TIFF на Java"
 

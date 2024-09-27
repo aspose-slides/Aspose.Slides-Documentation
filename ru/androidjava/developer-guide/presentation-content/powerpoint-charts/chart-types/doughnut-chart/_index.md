@@ -2,7 +2,7 @@
 title: Doughnut Chart
 type: docs
 weight: 30
-url: /androidjava/doughnut-chart/
+url: /ru/androidjava/doughnut-chart/
 ---
 
 ## **Изменение размера центра в Doughnut Chart**

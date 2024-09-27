@@ -2,7 +2,7 @@
 title: Вычисления графиков
 type: docs
 weight: 50
-url: /androidjava/chart-calculations/
+url: /ru/androidjava/chart-calculations/
 ---
 
 ## **Вычисление фактических значений элементов графика**

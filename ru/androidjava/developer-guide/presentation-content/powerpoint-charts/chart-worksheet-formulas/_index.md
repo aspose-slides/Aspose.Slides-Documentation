@@ -2,7 +2,7 @@
 title: Формулы рабочего листа диаграммы
 type: docs
 weight: 70
-url: /androidjava/chart-worksheet-formulas/
+url: /ru/androidjava/chart-worksheet-formulas/
 keywords: "равнения powerpoint, формулы электронных таблиц powerpoint"
 description: "Равнения PowerPoint и формулы электронных таблиц"
 ---

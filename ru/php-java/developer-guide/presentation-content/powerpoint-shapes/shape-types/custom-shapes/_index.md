@@ -2,7 +2,7 @@
 title: Пользовательская Форма
 type: docs
 weight: 20
-url: /php-java/custom-shape/
+url: /ru/php-java/custom-shape/
 keywords: "Форма PowerPoint, пользовательская форма, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Добавление пользовательской формы в презентацию PowerPoint"
 ---

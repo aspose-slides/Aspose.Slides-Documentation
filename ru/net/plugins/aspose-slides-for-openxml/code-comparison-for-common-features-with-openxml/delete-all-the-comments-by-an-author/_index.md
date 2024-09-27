@@ -2,7 +2,7 @@
 title: Удалить все комментарии автора
 type: docs
 weight: 70
-url: /net/delete-all-the-comments-by-an-author/
+url: /ru/net/delete-all-the-comments-by-an-author/
 ---
 
 ## **OpenXML SDK**

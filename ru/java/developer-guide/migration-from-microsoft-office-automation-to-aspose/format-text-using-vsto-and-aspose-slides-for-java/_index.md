@@ -2,12 +2,12 @@
 title: Форматирование текста с использованием VSTO и Aspose.Slides для Java
 type: docs
 weight: 30
-url: /java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /ru/java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-Иногда необходимо программно форматировать текст на слайдах. В этой статье описывается, как прочитать образец презентации с текстом на первом слайде, используя [VSTO](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/) и [Aspose.Slides для Java](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/). Код форматирует текст в третьем текстовом поле на слайде так, чтобы он выглядел как текст в последнем текстовом поле.
+Иногда необходимо программно форматировать текст на слайдах. В этой статье описывается, как прочитать образец презентации с текстом на первом слайде, используя [VSTO](/slides/ru/java/format-text-using-vsto-and-aspose-slides-for-java/) и [Aspose.Slides для Java](/slides/ru/java/format-text-using-vsto-and-aspose-slides-for-java/). Код форматирует текст в третьем текстовом поле на слайде так, чтобы он выглядел как текст в последнем текстовом поле.
 
 {{% /alert %}} 
 ## **Форматирование текста**

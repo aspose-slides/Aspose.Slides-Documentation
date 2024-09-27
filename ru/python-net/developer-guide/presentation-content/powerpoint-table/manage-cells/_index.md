@@ -2,7 +2,7 @@
 title: Управление ячейками
 type: docs
 weight: 30
-url: /python-net/manage-cells/
+url: /ru/python-net/manage-cells/
 keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, Python, Aspose.Slides для Python через .NET"
 description: "Ячейки таблицы в презентациях PowerPoint на Python"
 ---

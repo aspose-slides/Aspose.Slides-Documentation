@@ -2,7 +2,7 @@
 title: Замена изображений в коллекции изображений презентации
 type: docs
 weight: 80
-url: /java/replacing-images-inside-presentation-image-collection/
+url: /ru/java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

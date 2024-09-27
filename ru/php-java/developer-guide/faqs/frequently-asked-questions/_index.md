@@ -2,19 +2,19 @@
 title: Часто задаваемые вопросы
 type: docs
 weight: 10
-url: /php-java/frequently-asked-questions/
+url: /ru/php-java/frequently-asked-questions/
 ---
 
 {{% alert color="primary" %}} 
 
 Эта страница собирает ряд часто задаваемых вопросов о:
 
-- [Поддерживаемых форматах файлов](/slides/php-java/frequently-asked-questions/).
-- [Исключениях](/slides/php-java/frequently-asked-questions/).
-- [Работе со слайдами](/slides/php-java/frequently-asked-questions/).
-- [Клонировании слайдов](/slides/php-java/frequently-asked-questions/).
-- [Работе с презентациями](/slides/php-java/frequently-asked-questions/).
-- [Форматировании и изображениях](/slides/php-java/frequently-asked-questions/).
+- [Поддерживаемых форматах файлов](/slides/ru/php-java/frequently-asked-questions/).
+- [Исключениях](/slides/ru/php-java/frequently-asked-questions/).
+- [Работе со слайдами](/slides/ru/php-java/frequently-asked-questions/).
+- [Клонировании слайдов](/slides/ru/php-java/frequently-asked-questions/).
+- [Работе с презентациями](/slides/ru/php-java/frequently-asked-questions/).
+- [Форматировании и изображениях](/slides/ru/php-java/frequently-asked-questions/).
 
 {{% /alert %}} 
 ## **Поддерживаемые форматы файлов**
@@ -28,7 +28,7 @@ url: /php-java/frequently-asked-questions/
 - Шаблон Microsoft PowerPoint 2007 -2010 (POTX)
 - Слайд-шоу Microsoft PowerPoint 2007-2010 (PPSX)
 - Презентации в формате Open Document (ODP)
-  Узнайте больше о поддерживаемых форматах файлов в разделе [Форматы файлов и конверсии](/slides/php-java/file-formats-and-conversions/) документации.
+  Узнайте больше о поддерживаемых форматах файлов в разделе [Форматы файлов и конверсии](/slides/ru/php-java/file-formats-and-conversions/) документации.
 ## **Исключения**
 ### **Q: Я получаю исключение OutOfMemory при импорте большого файла PPT с изображениями в MemoryStream. Есть ли ограничение в Aspose.Slides по размеру файла?**
 **A** : Нет конкретной формулы для расчета поддержки размера презентации в Aspose.Slides. Должно быть достаточно места для размещения всей структуры презентации и изображений в ней. Обычно изображения в памяти занимают больше места, чем на жестком диске, особенно когда на них есть эффекты.

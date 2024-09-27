@@ -2,7 +2,7 @@
 title: Презентация через VBA
 type: docs
 weight: 250
-url: /androidjava/presentation-via-vba/
+url: /ru/androidjava/presentation-via-vba/
 keywords: "Макрос, макросы, VBA, VBA макрос, добавить макрос, удалить макрос, добавить VBA, удалить VBA, извлечь макрос, извлечь VBA, макрос PowerPoint, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Добавление, удаление и извлечение VBA макросов в презентациях PowerPoint на Java"
 ---

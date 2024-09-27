@@ -1,7 +1,7 @@
 ---
 title: График пузырьков
 type: docs
-url: /python-net/bubble-chart/
+url: /ru/python-net/bubble-chart/
 keywords: "График пузырьков, размер графика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Размер графика пузырьков в презентациях PowerPoint на Python"
 ---

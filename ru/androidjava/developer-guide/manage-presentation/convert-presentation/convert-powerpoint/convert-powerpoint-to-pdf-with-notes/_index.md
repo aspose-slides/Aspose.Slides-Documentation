@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в PDF с заметками
 type: docs
 weight: 50
-url: /androidjava/convert-powerpoint-to-pdf-with-notes/
+url: /ru/androidjava/convert-powerpoint-to-pdf-with-notes/
 keywords: "конвертация powerpoint в pdf с заметками на java"
 description: "Конвертация PowerPoint в PDF с заметками на Java"
 ---

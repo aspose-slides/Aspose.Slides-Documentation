@@ -2,7 +2,7 @@
 title: Управление OLE
 type: docs
 weight: 40
-url: /python-net/manage-ole/
+url: /ru/python-net/manage-ole/
 keywords: "Добавить OLE, Добавить объект, Встраивание объекта, Связывание и встраивание объектов, OLE объектный фрейм, Встраивание OLE, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавить OLE объект в презентацию PowerPoint на Python"
 ---

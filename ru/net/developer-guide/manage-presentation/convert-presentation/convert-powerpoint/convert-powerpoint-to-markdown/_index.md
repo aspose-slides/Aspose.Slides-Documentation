@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в Markdown на C#
 type: docs
 weight: 140
-url: /net/convert-powerpoint-to-markdown/
+url: /ru/net/convert-powerpoint-to-markdown/
 keywords: "Конвертация PowerPoint в Markdown, Конвертация ppt в md, PowerPoint, PPT, PPTX, Презентация, Markdown, C#, Csharp, .NET, Aspose.Slides"
 description: "Конвертация PowerPoint в Markdown на C#"
 ---

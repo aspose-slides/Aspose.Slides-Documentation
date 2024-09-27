@@ -2,7 +2,7 @@
 title: Управление текстовым полем
 type: docs
 weight: 20
-url: /php-java/manage-textbox/
+url: /ru/php-java/manage-textbox/
 description: Создание текстовых полей на слайдах PowerPoint с использованием PHP. Добавление столбца в текстовое поле или текстовую рамку на слайдах PowerPoint с использованием PHP. Добавление текстового поля с гиперссылкой на слайды PowerPoint с использованием PHP.
 ---
 

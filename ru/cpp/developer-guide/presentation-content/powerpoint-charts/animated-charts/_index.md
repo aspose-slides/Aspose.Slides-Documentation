@@ -2,7 +2,7 @@
 title: Анимированные диаграммы
 type: docs
 weight: 80
-url: /cpp/animated-charts/
+url: /ru/cpp/animated-charts/
 ---
 
 ## **Анимация в сериях диаграмм**

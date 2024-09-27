@@ -2,7 +2,7 @@
 title: Размер слайдов
 type: docs
 weight: 70
-url: /cpp/slide-size/
+url: /ru/cpp/slide-size/
 
 ---
 

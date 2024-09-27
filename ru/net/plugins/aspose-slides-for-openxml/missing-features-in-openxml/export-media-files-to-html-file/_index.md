@@ -2,7 +2,7 @@
 title: Экспорт медиафайлов в HTML файл
 type: docs
 weight: 40
-url: /net/export-media-files-to-html-file/
+url: /ru/net/export-media-files-to-html-file/
 ---
 
 Чтобы экспортировать медиафайлы в HTML, пожалуйста, выполните следующие шаги:
@@ -60,6 +60,6 @@ using (Presentation pres = new Presentation(srcFileName))
 
 {{% alert color="primary" %}} 
 
-Для получения дополнительной информации посетите [Экспорт медиафайлов в HTML файл](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
+Для получения дополнительной информации посетите [Экспорт медиафайлов в HTML файл](/slides/ru/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Слайд-Мастер
 type: docs
 weight: 80
-url: /python-net/slide-master/
+url: /ru/python-net/slide-master/
 keywords: "Добавить слайд-мастер, мастер-слайд PPT, слайд-мастер PowerPoint, Изображение на слайд-мастере, Заполнитель, Несколько слайд-мастеров, Сравнить слайд-мастера, Python, Aspose.Slides"
 description: "Добавление или редактирование слайд-мастера в презентации PowerPoint на Python"
 ---
@@ -133,7 +133,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="primary" title="См. также" %}} 
 
-Для получения дополнительной информации о добавлении изображений на слайд, см. статью [Рамка изображения](/slides/python-net/picture-frame/#create-picture-frame).
+Для получения дополнительной информации о добавлении изображений на слайд, см. статью [Рамка изображения](/slides/ru/python-net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Добавить заполнитель на слайд-мастер**

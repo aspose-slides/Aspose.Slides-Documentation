@@ -2,7 +2,7 @@
 title: Изображение
 type: docs
 weight: 10
-url: /net/image/
+url: /ru/net/image/
 keywords: "Добавить изображение, Добавить картинку, Презентация PowerPoint, EMF, SVG, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте изображение на слайд или в презентацию PowerPoint на C# или .NET"
 ---

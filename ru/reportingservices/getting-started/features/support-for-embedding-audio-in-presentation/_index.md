@@ -2,7 +2,7 @@
 title: Поддержка встраивания аудио в презентацию
 type: docs
 weight: 90
-url: /reportingservices/support-for-embedding-audio-in-presentation/
+url: /ru/reportingservices/support-for-embedding-audio-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

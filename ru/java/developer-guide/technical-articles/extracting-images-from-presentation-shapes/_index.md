@@ -2,7 +2,7 @@
 title: Извлечение изображений из фигур в презентации
 type: docs
 weight: 100
-url: /java/extracting-images-from-presentation-shapes/
+url: /ru/java/extracting-images-from-presentation-shapes/
 keywords: "Извлечение изображения, PowerPoint, PPT, PPTX, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Извлечение изображений из презентации PowerPoint на Java"
 

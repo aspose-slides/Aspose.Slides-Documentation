@@ -2,7 +2,7 @@
 title: Установить заголовок для OLE-иконки
 type: docs
 weight: 160
-url: /net/set-caption-to-ole-icon/
+url: /ru/net/set-caption-to-ole-icon/
 ---
 
 В интерфейс **IOleObjectFrame** и класс **OleObjectFrame** добавлено новое свойство **SubstitutePictureTitle**. Оно позволяет получать, устанавливать или изменять заголовок OLE-иконки. Приведенный ниже фрагмент кода демонстрирует пример создания объекта Excel и установки его заголовка.

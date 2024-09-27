@@ -2,7 +2,7 @@
 title: Фон презентации
 type: docs
 weight: 20
-url: /cpp/presentation-background/
+url: /ru/cpp/presentation-background/
 keywords: "фон PowerPoint, задать фон"
 description: "Установите фон в презентации PowerPoint в CPP"
 ---

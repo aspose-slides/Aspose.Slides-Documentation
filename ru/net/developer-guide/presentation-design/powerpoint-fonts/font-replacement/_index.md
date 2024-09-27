@@ -3,7 +3,7 @@ title: Замена шрифта - PowerPoint C# API
 linktitle: Замена шрифта
 type: docs
 weight: 60
-url: /net/font-replacement/
+url: /ru/net/font-replacement/
 keywords: "Шрифт, замена шрифта, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: С помощью C# PowerPoint API вы можете явно заменить шрифт другим шрифтом в презентации.
 ---
@@ -39,6 +39,6 @@ presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 
 {{% alert title="Примечание" color="warning" %}}
 
-Чтобы установить правила, определяющие, что происходит в определенных условиях (например, если шрифт недоступен), смотрите [**Замена шрифта**](/slides/net/font-substitution/).
+Чтобы установить правила, определяющие, что происходит в определенных условиях (например, если шрифт недоступен), смотрите [**Замена шрифта**](/slides/ru/net/font-substitution/).
 
 {{% /alert %}}

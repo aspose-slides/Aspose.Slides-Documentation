@@ -2,7 +2,7 @@
 title: Манипуляции с формами
 type: docs
 weight: 40
-url: /python-net/shape-manipulations/
+url: /ru/python-net/shape-manipulations/
 keywords: "Форма PowerPoint, форма на слайде, найти форму, клонировать форму, удалить форму, скрыть форму, изменить порядок формы, получить ID встроенной формы, альтернативный текст формы, форматы макета формы, форма как SVG, выравнять форму, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Манипулируйте формами PowerPoint в Python"
 ---

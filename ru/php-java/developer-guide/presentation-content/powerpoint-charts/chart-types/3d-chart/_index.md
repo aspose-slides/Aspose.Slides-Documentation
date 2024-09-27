@@ -1,7 +1,7 @@
 ---
 title: 3D график
 type: docs
-url: /php-java/3d-chart/
+url: /ru/php-java/3d-chart/
 ---
 
 ## **Установите свойства RotationX, RotationY и DepthPercents для 3D графика**

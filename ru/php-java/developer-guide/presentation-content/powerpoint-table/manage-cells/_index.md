@@ -2,7 +2,7 @@
 title: Управление ячейками
 type: docs
 weight: 30
-url: /php-java/manage-cells/
+url: /ru/php-java/manage-cells/
 keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, Java, Aspose.Slides для PHP через Java"
 description: "Ячейки таблиц в презентациях PowerPoint"
 ---

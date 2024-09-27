@@ -2,7 +2,7 @@
 title: Переход между слайдами
 type: docs
 weight: 90
-url: /net/slide-transition/
+url: /ru/net/slide-transition/
 keywords: "Добавить переход между слайдами, переход слайда PowerPoint, морфинг, продвинутый переход между слайдами, эффекты перехода, C#, Csharp, .NET, Aspose.Slides"
 description: "Добавьте переход между слайдами PowerPoint и эффекты перехода на C# или .NET"
 ---

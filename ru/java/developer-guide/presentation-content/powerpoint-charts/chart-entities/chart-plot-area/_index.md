@@ -1,7 +1,7 @@
 ---
 title: Область графика
 type: docs
-url: /java/chart-plot-area/
+url: /ru/java/chart-plot-area/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Прямоугольник
 type: docs
 weight: 80
-url: /net/rectangle/
+url: /ru/net/rectangle/
 keywords: "Создание прямоугольника, фигура PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Создание прямоугольника в презентации PowerPoint на C# или .NET"
 ---

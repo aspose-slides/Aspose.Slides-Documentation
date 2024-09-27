@@ -2,7 +2,7 @@
 title: Сравнить Слайды
 type: docs
 weight: 50
-url: /php-java/compare-slides/
+url: /ru/php-java/compare-slides/
 ---
 
 ## **Сравнить Два Слайда**

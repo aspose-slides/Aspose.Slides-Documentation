@@ -2,7 +2,7 @@
 title: Конвертировать слайд
 type: docs
 weight: 41
-url: /python-net/convert-slide/
+url: /ru/python-net/convert-slide/
 keywords: "Конвертировать слайд в изображение, экспортировать слайд как изображение, сохранить слайд как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в Bitmap, Python, Aspose.Slides"
 description: "Конвертировать слайд PowerPoint в изображение (Bitmap, PNG или JPG) на Python"
 ---

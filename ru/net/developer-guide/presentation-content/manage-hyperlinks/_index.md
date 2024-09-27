@@ -2,7 +2,7 @@
 title: Управление гиперссылками
 type: docs
 weight: 20
-url: /net/manage-hyperlinks/
+url: /ru/net/manage-hyperlinks/
 keywords: "Добавить гиперссылку, Презентация PowerPoint, Гиперссылка PowerPoint, текстовая гиперссылка, гиперссылка на слайд, гиперссылка на фигуру, гиперссылка на изображение, гиперссылка на видео, .NET, C#, Csharp"
 description: "Добавить гиперссылку в презентацию PowerPoint на C# или .NET"
 ---

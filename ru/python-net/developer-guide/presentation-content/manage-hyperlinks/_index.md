@@ -2,7 +2,7 @@
 title: Управление гиперссылками
 type: docs
 weight: 20
-url: /python-net/manage-hyperlinks/
+url: /ru/python-net/manage-hyperlinks/
 keywords: "Добавить гиперссылку, Презентация PowerPoint, Гиперссылка PowerPoint, текстовая гиперссылка, гиперссылка на слайд, гиперссылка на фигуру, гиперссылка на изображение, гиперссылка на видео, Python"
 description: "Добавить гиперссылку в презентацию PowerPoint на Python"
 ---

@@ -2,7 +2,7 @@
 title: Фон Презентации
 type: docs
 weight: 20
-url: /php-java/presentation-background/
+url: /ru/php-java/presentation-background/
 keywords: "фон PowerPoint, установить фон"
 description: "Установить фон в презентации PowerPoint"
 ---

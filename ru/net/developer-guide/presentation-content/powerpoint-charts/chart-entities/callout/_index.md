@@ -1,7 +1,7 @@
 ---
 title: Вызов
 type: docs
-url: /net/callout/
+url: /ru/net/callout/
 keywords: "Вызов графика, метка данных графика, C#, Csharp, Aspose.Slides для .NET"
 description: "Вызовы графиков PowerPoint и метки данных на C# или .NET"
 ---

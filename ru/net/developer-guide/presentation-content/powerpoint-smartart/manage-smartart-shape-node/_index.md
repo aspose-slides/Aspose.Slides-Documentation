@@ -2,7 +2,7 @@
 title: Управление узлом формы SmartArt
 type: docs
 weight: 30
-url: /net/manage-smartart-shape-node/
+url: /ru/net/manage-smartart-shape-node/
 keywords: "Узел SmartArt, дочерний узел SmartArt, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Умный узел и дочерний узел в презентациях PowerPoint на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в JPG
 type: docs
 weight: 60
-url: /java/convert-powerpoint-to-jpg/
+url: /ru/java/convert-powerpoint-to-jpg/
 keywords: "Конвертация PowerPoint в JPG, PPTX в JPEG, PPT в JPEG"
 description: "Конвертация PowerPoint в JPG: PPT в JPG, PPTX в JPG на Java"
 ---
@@ -119,4 +119,4 @@ Aspose предоставляет [БЕСПЛАТНОЕ веб-приложен�
 
 Смотрите другие варианты конвертации PPT/PPTX в изображение, такие как:
 
-- [Конвертация PPT/PPTX в SVG](/slides/java/render-a-slide-as-an-svg-image/).
+- [Конвертация PPT/PPTX в SVG](/slides/ru/java/render-a-slide-as-an-svg-image/).

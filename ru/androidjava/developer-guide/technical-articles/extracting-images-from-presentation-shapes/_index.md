@@ -2,7 +2,7 @@
 title: Извлечение изображений из фигур презентации
 type: docs
 weight: 100
-url: /androidjava/extracting-images-from-presentation-shapes/
+url: /ru/androidjava/extracting-images-from-presentation-shapes/
 keywords: "Извлечение изображения, PowerPoint, PPT, PPTX, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Извлечение изображений из презентации PowerPoint на Java"
 

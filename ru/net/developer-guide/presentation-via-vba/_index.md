@@ -2,7 +2,7 @@
 title: Презентация через VBA
 type: docs
 weight: 250
-url: /net/presentation-via-vba/
+url: /ru/net/presentation-via-vba/
 keywords: "Макро, макросы, VBA, VBA макро, добавить макро, удалить макро, добавить VBA, удалить VBA, извлечь макро, извлечь VBA, макро PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавление, удаление и извлечение VBA макросов в презентациях PowerPoint на C# или .NET"
 ---

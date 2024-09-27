@@ -2,7 +2,7 @@
 title: Прямоугольник
 type: docs
 weight: 80
-url: /androidjava/rectangle/
+url: /ru/androidjava/rectangle/
 ---
 
 {{% alert color="primary" %}} 

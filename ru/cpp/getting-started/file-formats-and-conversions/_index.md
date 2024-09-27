@@ -3,6 +3,6 @@ title: Форматы файлов и преобразования - C++ PowerPo
 linktitle: Форматы файлов и преобразования
 type: docs
 weight: 40
-url: /cpp/formats-faylov-i-preobrazovaniy/
+url: /ru/cpp/formats-faylov-i-preobrazovaniy/
 description: C++ PowerPoint API поддерживает преобразование форматов файлов PowerPoint, включая PPT, PPTX, XML, PDF, XPS и другие.
 ---

@@ -2,7 +2,7 @@
 title: Поддержка прерываемой библиотеки
 type: docs
 weight: 150
-url: /net/support-for-interruptable-library/
+url: /ru/net/support-for-interruptable-library/
 
 ---
 

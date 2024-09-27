@@ -2,7 +2,7 @@
 title: Плагин Aspose.Slides для Visual Studio
 type: docs
 weight: 10
-url: /net/aspose-slides-visual-studio-plugin/
+url: /ru/net/aspose-slides-visual-studio-plugin/
 ---
 
 ## **Введение**

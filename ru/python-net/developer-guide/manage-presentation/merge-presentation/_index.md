@@ -2,7 +2,7 @@
 title: Объединение Презентаций
 type: docs
 weight: 40
-url: /python-net/merge-presentation/
+url: /ru/python-net/merge-presentation/
 keywords: "Объединение PowerPoint, PPTX, PPT, комбинирование PowerPoint, объединение презентации, комбинирование презентации, Python"
 description: "Объединение или комбинирование презентаций PowerPoint с помощью Python"
 ---

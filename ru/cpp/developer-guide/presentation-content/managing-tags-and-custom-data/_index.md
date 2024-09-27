@@ -2,7 +2,7 @@
 title: Управление тегами и пользовательскими данными
 type: docs
 weight: 300
-url: /cpp/managing-tags-and-custom-data
+url: /ru/cpp/managing-tags-and-custom-data
 
 ---
 

@@ -2,7 +2,7 @@
 title: Справочник по API
 type: docs
 weight: 50
-url: /cpp/api-reference/
+url: /ru/cpp/api-reference/
 ---
 
 {{% alert color="primary" %}} 

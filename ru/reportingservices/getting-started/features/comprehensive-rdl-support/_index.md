@@ -2,7 +2,7 @@
 title: Полная поддержка RDL
 type: docs
 weight: 30
-url: /reportingservices/comprehensive-rdl-support/
+url: /ru/reportingservices/comprehensive-rdl-support/
 ---
 
 {{% alert color="primary" %}} 
@@ -36,4 +36,4 @@ Aspose.Slides для Reporting Services поддерживает следующ�
 
 ![todo:image_alt_text](comprehensive-rdl-support_2.png)
 
-Для получения дополнительных примеров отчетов смотрите раздел [Галерея образцов отчетов](/slides/reportingservices/sample-reports-gallery/). 
+Для получения дополнительных примеров отчетов смотрите раздел [Галерея образцов отчетов](/slides/ru/reportingservices/sample-reports-gallery/). 

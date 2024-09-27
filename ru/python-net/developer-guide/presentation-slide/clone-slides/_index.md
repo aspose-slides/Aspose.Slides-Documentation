@@ -2,7 +2,7 @@
 title: Клонировать слайды
 type: docs
 weight: 40
-url: /python-net/clone-slides/
+url: /ru/python-net/clone-slides/
 keywords: "Клонировать слайд, Копировать слайд, Сохранить копию слайда, PowerPoint, Презентация, Python, Aspose.Slides"
 description: "Клонировать слайд PowerPoint на Python"
 ---

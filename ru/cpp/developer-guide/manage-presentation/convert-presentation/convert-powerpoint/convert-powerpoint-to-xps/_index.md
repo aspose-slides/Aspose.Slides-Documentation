@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в XPS
 type: docs
 weight: 70
-url: /cpp/convert-powerpoint-to-xps
+url: /ru/cpp/convert-powerpoint-to-xps
 keywords: "Конвертировать, PowerPoint в XPS, Конверсия, PPT в XPS, PPTX в XPS"
 description: "Конвертируйте документы PowerPoint PPT, PPTX в XPS с помощью API Aspose.Slides."
 ---

@@ -2,14 +2,14 @@
 title: Отрисовка презентации с резервным шрифтом
 type: docs
 weight: 30
-url: /python-net/render-presentation-with-fallback-font/
+url: /ru/python-net/render-presentation-with-fallback-font/
 keywords: "Резервный шрифт, отрисовка PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Отрисовка PowerPoint с резервным шрифтом в Python"
 ---
 
 Следующий пример включает следующие шаги:
 
-1. Мы [создаем коллекцию правил резервных шрифтов](/slides/python-net/create-fallback-fonts-collection/).
+1. Мы [создаем коллекцию правил резервных шрифтов](/slides/ru/python-net/create-fallback-fonts-collection/).
 1. [Удаляем()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) правило резервного шрифта и [Добавляем резервные шрифты()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) к другому правилу.
 1. Устанавливаем коллекцию правил для свойства [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/).
 1. С помощью метода [Presentation.Save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) мы можем сохранить презентацию в том же формате или сохранить ее в другом. После установки коллекции правил резервных шрифтов на FontsManager, эти правила применяются при любых операциях с презентацией: сохранение, отрисовка, конвертация и т.д.
@@ -45,5 +45,5 @@ with slides.Presentation(path + "input.pptx") as pres:
 ```
 
 {{% alert color="primary" %}} 
-Читать далее о [Сохранении и конвертации презентации](/slides/python-net/creating-saving-and-converting-a-presentation/).
+Читать далее о [Сохранении и конвертации презентации](/slides/ru/python-net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

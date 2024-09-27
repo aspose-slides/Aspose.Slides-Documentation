@@ -2,7 +2,7 @@
 title: Сравнить слайды
 type: docs
 weight: 50
-url: /python-net/compare-slides/
+url: /ru/python-net/compare-slides/
 keywords: "Сравнить слайды PowerPoint, Сравнить два слайда, Презентация, Python, Aspose.Slides"
 description: "Сравнить слайды презентации PowerPoint на Python"
 ---

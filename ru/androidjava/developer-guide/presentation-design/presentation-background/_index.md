@@ -2,7 +2,7 @@
 title: Фон для Презентации
 type: docs
 weight: 20
-url: /androidjava/presentation-background/
+url: /ru/androidjava/presentation-background/
 keywords: "Фон PowerPoint, установить фон в Java"
 description: "Установить фон в презентации PowerPoint на Java"
 ---

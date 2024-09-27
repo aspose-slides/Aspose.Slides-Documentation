@@ -2,7 +2,7 @@
 title: Слияние презентаций
 type: docs
 weight: 40
-url: /php-java/merge-presentation/
+url: /ru/php-java/merge-presentation/
 keywords: "Слияние PowerPoint, PPTX, PPT, комбинирование PowerPoint, слияние презентации, комбинирование презентации, Java"
 description: "Слияние или комбинирование презентаций PowerPoint"
 ---

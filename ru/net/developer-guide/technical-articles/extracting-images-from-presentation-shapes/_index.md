@@ -2,7 +2,7 @@
 title: Извлечение изображений из фигур презентации
 type: docs
 weight: 90
-url: /net/extracting-images-from-presentation-shapes/
+url: /ru/net/extracting-images-from-presentation-shapes/
 keywords: "Извлечение изображения, PowerPoint, PPT, PPTX, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Извлечение изображений из презентации PowerPoint на C# или .NET"
 ---

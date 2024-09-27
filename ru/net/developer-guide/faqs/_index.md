@@ -2,14 +2,14 @@
 title: ЧАВО
 type: docs
 weight: 340
-url: /net/faqs/
+url: /ru/net/faqs/
 ---
 
 ## **Поддерживаемые форматы файлов**
 
 **В: Какие форматы файлов поддерживает Aspose.Slides для .NET?**
 
-**О**: Aspose.Slides для .NET поддерживает форматы файлов, описанные в [Поддерживаемые форматы файлов](/slides/net/supported-file-formats/).
+**О**: Aspose.Slides для .NET поддерживает форматы файлов, описанные в [Поддерживаемые форматы файлов](/slides/ru/net/supported-file-formats/).
 
 ## **Исключения**
 

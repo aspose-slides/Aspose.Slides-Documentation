@@ -2,7 +2,7 @@
 title: Установка Aspose.Slides для Android через Java
 type: docs
 weight: 90
-url: /androidjava/install-aspose-slides-for-android-via-java/
+url: /ru/androidjava/install-aspose-slides-for-android-via-java/
 ---
 
 

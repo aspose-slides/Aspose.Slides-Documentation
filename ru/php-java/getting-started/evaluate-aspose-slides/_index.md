@@ -2,7 +2,7 @@
 title: Оцените Aspose.Slides
 type: docs
 weight: 120
-url: /php-java/evaluate-aspose-slides/
+url: /ru/php-java/evaluate-aspose-slides/
 ---
 
 

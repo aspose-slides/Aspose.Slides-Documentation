@@ -2,7 +2,7 @@
 title: Ресурсы
 type: docs
 weight: 20
-url: /java/resources/
+url: /ru/java/resources/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,4 +17,4 @@ url: /java/resources/
 |[Блог Aspose.Slides](https://blog.aspose.com/category/slides/)|Часто проверяйте эту страницу, чтобы получить информацию о новых релизах и полезные советы по Aspose.Slides.|
 |[Скачивание Aspose.Slides для Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)|Скачайте последнюю версию Aspose.Slides оттуда. Мы выпускаем обновления часто.|
 |[Форум поддержки Aspose.Slides](https://forum.aspose.com/c/slides/11)|Задавайте свои вопросы и описывайте проблемы здесь для быстрого решения.|
-|[Документация по продукту Aspose.Slides для Java](/slides/java/)|Полная онлайн-документация, которая включает в себя эту документацию, а также справочник API Aspose.Slides.|
+|[Документация по продукту Aspose.Slides для Java](/slides/ru/java/)|Полная онлайн-документация, которая включает в себя эту документацию, а также справочник API Aspose.Slides.|

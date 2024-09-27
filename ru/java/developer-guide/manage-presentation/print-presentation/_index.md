@@ -2,7 +2,7 @@
 title: Печать презентации
 type: docs
 weight: 50
-url: /java/print-presentation/
+url: /ru/java/print-presentation/
 keywords: "Печать PowerPoint, PPT, PPTX, Печать презентации, Java, Принтер, PrinterJob, PrintService"
 description: "Печать презентации PowerPoint на Java"
 ---

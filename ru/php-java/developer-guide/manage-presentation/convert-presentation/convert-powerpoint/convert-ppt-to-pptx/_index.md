@@ -3,7 +3,7 @@ title: Конвертировать PPT в PPTX
 linktitle: Конвертировать PPT в PPTX
 type: docs
 weight: 20
-url: /php-java/convert-ppt-to-pptx/
+url: /ru/php-java/convert-ppt-to-pptx/
 keywords: "PHP Конвертировать PPT в PPTX, PowerPoint PPT в PPTX"
 description: "Конвертировать PowerPoint PPT в PPTX."
 ---
@@ -47,7 +47,7 @@ description: "Конвертировать PowerPoint PPT в PPTX."
 {{% /alert %}} 
 
 ## **Конвертация PPT в PPTX**
-Aspose.Slides для PHP через Java теперь дает возможность разработчикам получать доступ к PPT с помощью экземпляра класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) и конвертировать его в соответствующий формат [PPTX](https://docs.fileformat.com/presentation/pptx/). В настоящее время он поддерживает частичную конвертацию [PPT ](https://docs.fileformat.com/presentation/ppt/) в PPTX. Для получения дополнительной информации о поддерживаемых и неподдерживаемых функциях конвертации PPT в PPTX, пожалуйста, перейдите по этой ссылке на документацию [ссылку](/slides/php-java/ppt-to-pptx-conversion/).
+Aspose.Slides для PHP через Java теперь дает возможность разработчикам получать доступ к PPT с помощью экземпляра класса [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) и конвертировать его в соответствующий формат [PPTX](https://docs.fileformat.com/presentation/pptx/). В настоящее время он поддерживает частичную конвертацию [PPT ](https://docs.fileformat.com/presentation/ppt/) в PPTX. Для получения дополнительной информации о поддерживаемых и неподдерживаемых функциях конвертации PPT в PPTX, пожалуйста, перейдите по этой ссылке на документацию [ссылку](/slides/ru/php-java/ppt-to-pptx-conversion/).
 
 Aspose.Slides для PHP через Java предлагает класс [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation), который представляет файл **PPTX**. Класс Presentation теперь также может получать доступ к **PPT** через Presentation, когда объект инстанциирован. Следующий пример показывает, как конвертировать презентацию PPT в презентацию PPTX.
 

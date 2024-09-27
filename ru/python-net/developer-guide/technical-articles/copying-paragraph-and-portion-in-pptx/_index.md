@@ -2,7 +2,7 @@
 title: Копирование абзаца и доли в PPTX
 type: docs
 weight: 80
-url: /python-net/copying-paragraph-and-portion-in-pptx/
+url: /ru/python-net/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Извлечение изображений из форм презентаций
 type: docs
 weight: 100
-url: /php-java/extracting-images-from-presentation-shapes/
+url: /ru/php-java/extracting-images-from-presentation-shapes/
 keywords: "Извлечение изображения, PowerPoint, PPT, PPTX, презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Извлечение изображений из презентации PowerPoint"
 

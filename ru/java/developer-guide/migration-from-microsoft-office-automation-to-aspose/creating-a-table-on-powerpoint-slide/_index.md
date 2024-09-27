@@ -2,12 +2,12 @@
 title: Создание таблицы на слайде PowerPoint
 type: docs
 weight: 50
-url: /java/creating-a-table-on-powerpoint-slide/
+url: /ru/java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Таблицы широко используются для отображения данных на слайдах презентаций. Эта статья показывает, как программно создать таблицу 15 x 15 с размером шрифта 10, используя сначала [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/), а затем [Aspose.Slides для Java](/slides/java/creating-a-table-on-powerpoint-slide/).
+Таблицы широко используются для отображения данных на слайдах презентаций. Эта статья показывает, как программно создать таблицу 15 x 15 с размером шрифта 10, используя сначала [VSTO 2008](/slides/ru/java/creating-a-table-on-powerpoint-slide/), а затем [Aspose.Slides для Java](/slides/ru/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Создание таблиц**

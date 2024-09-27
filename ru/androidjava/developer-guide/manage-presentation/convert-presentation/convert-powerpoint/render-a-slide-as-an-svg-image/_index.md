@@ -2,7 +2,7 @@
 title: Отображение слайда как SVG-изображения
 type: docs
 weight: 50
-url: /androidjava/render-a-slide-as-an-svg-image/
+url: /ru/androidjava/render-a-slide-as-an-svg-image/
 ---
 
 SVG — аббревиатура от Scalable Vector Graphics — это стандартный тип или формат графики, используемый для отображения двумерных изображений. SVG хранит изображения векторно в XML с деталями, которые определяют их поведение или внешний вид.

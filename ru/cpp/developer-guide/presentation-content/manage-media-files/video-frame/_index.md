@@ -2,7 +2,7 @@
 title: Видеокадр
 type: docs
 weight: 10
-url: /cpp/video-frame/
+url: /ru/cpp/video-frame/
 keywords: "Добавить видео, создать видеокадр, извлечь видео, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Добавить видеокадр в презентацию PowerPoint на C++"
 

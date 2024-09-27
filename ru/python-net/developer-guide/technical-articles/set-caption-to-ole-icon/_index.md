@@ -2,7 +2,7 @@
 title: Установка заголовка для OLE-значка
 type: docs
 weight: 160
-url: /python-net/set-caption-to-ole-icon/
+url: /ru/python-net/set-caption-to-ole-icon/
 ---
 
 Новое свойство **SubstitutePictureTitle** было добавлено к интерфейсу **IOleObjectFrame** и классу **OleObjectFrame**. Оно позволяет получать, устанавливать или изменять заголовок OLE-значка. Приведенный ниже фрагмент кода демонстрирует пример создания объекта Excel и установки его заголовка.

@@ -2,12 +2,12 @@
 title: Форматирование текста с использованием VSTO и Aspose.Slides и .NET
 type: docs
 weight: 30
-url: /net/format-text-using-vsto-and-aspose-slides-and-net/
+url: /ru/net/format-text-using-vsto-and-aspose-slides-and-net/
 ---
 
 {{% alert color="primary" %}} 
 
-Иногда вам нужно программно форматировать текст на слайдах. В этой статье показано, как прочитать образцовую презентацию с текстом на первом слайде, используя либо [VSTO](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/), либо [Aspose.Slides для .NET](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/). Код форматирует текст в третьем текстовом поле на слайде, чтобы он выглядел как текст в последнем текстовом поле.
+Иногда вам нужно программно форматировать текст на слайдах. В этой статье показано, как прочитать образцовую презентацию с текстом на первом слайде, используя либо [VSTO](/slides/ru/net/format-text-using-vsto-and-aspose-slides-and-net/), либо [Aspose.Slides для .NET](/slides/ru/net/format-text-using-vsto-and-aspose-slides-and-net/). Код форматирует текст в третьем текстовом поле на слайде, чтобы он выглядел как текст в последнем текстовом поле.
 
 {{% /alert %}} 
 ## **Форматирование текста**

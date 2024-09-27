@@ -2,7 +2,7 @@
 title: Пользовательская Форма
 type: docs
 weight: 20
-url: /net/custom-shape/
+url: /ru/net/custom-shape/
 keywords: 
 - форма
 - пользовательская форма

@@ -2,12 +2,12 @@
 title: Форматирование текста с использованием VSTO и Aspose.Slides для PHP через Java
 type: docs
 weight: 30
-url: /php-java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /ru/php-java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-Иногда необходимо программно отформатировать текст на слайдах. Эта статья демонстрирует, как считать пример презентации с текстом на первом слайде, используя либо [VSTO](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/), либо [Aspose.Slides для PHP через Java](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/). Код форматирует текст в третьем текстовом поле на слайде так, чтобы он выглядел как текст в последнем текстовом поле.
+Иногда необходимо программно отформатировать текст на слайдах. Эта статья демонстрирует, как считать пример презентации с текстом на первом слайде, используя либо [VSTO](/slides/ru/php-java/format-text-using-vsto-and-aspose-slides-for-java/), либо [Aspose.Slides для PHP через Java](/slides/ru/php-java/format-text-using-vsto-and-aspose-slides-for-java/). Код форматирует текст в третьем текстовом поле на слайде так, чтобы он выглядел как текст в последнем текстовом поле.
 
 {{% /alert %}} 
 ## **Форматирование текста**

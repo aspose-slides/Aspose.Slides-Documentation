@@ -3,7 +3,7 @@ title: Последовательность выбора шрифтов
 linktitle: Последовательность выбора шрифтов
 type: docs
 weight: 80
-url: /php-java/font-selection-sequence/
+url: /ru/php-java/font-selection-sequence/
 keywords: "Шрифт, Выбор шрифта, Замена шрифта, Подмена шрифта, Презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: Последовательность выбора шрифтов в PowerPoint
 ---

@@ -2,7 +2,7 @@
 title: Презентация через VBA
 type: docs
 weight: 250
-url: /python-net/presentation-via-vba/
+url: /ru/python-net/presentation-via-vba/
 keywords: "Макрос, макросы, VBA, макрос VBA, добавить макрос, удалить макрос, добавить VBA, удалить VBA, извлечь макрос, извлечь VBA, макрос PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Добавление, удаление и извлечение VBA макросов в презентациях PowerPoint на Python"
 ---

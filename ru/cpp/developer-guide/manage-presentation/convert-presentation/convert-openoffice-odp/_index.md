@@ -2,7 +2,7 @@
 title: Конвертация OpenOffice ODP
 type: docs
 weight: 10
-url: /cpp/convert-openoffice-odp/
+url: /ru/cpp/convert-openoffice-odp/
 keywords: "Конвертация ODP в PDF, ODP в HTML, ODP в TIFF"
 description: "Конвертируйте ODP в PDF, ODP в PPT, ODP в PPTX, ODP в HTML и другие форматы с Aspose.Slides."
 ---
@@ -11,13 +11,13 @@ description: "Конвертируйте ODP в PDF, ODP в PPT, ODP в PPTX, OD
 
 Эти примеры показывают, как конвертировать документы ODP в другие форматы (просто измените исходный файл ODP):
 
-- [Конвертация ODP в HTML](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-html/)
-- [Конвертация ODP в PDF](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Конвертация ODP в TIFF](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
-- [Конвертация ODP в SWF Flash](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [Конвертация ODP в XPS](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [Конвертация ODP в PDF с заметками](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
-- [Конвертация ODP в TIFF с заметками](/slides/cpp/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+- [Конвертация ODP в HTML](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-html/)
+- [Конвертация ODP в PDF](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-pdf/)
+- [Конвертация ODP в TIFF](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff/)
+- [Конвертация ODP в SWF Flash](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
+- [Конвертация ODP в XPS](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
+- [Конвертация ODP в PDF с заметками](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
+- [Конвертация ODP в TIFF с заметками](/slides/ru/cpp/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
 
 Например, если вам нужно конвертировать презентацию ODP в PDF, это можно сделать следующим образом:
 

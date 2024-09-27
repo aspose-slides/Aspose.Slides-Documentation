@@ -2,7 +2,7 @@
 title: Как запустить примеры
 type: docs
 weight: 140
-url: /java/how-to-run-the-examples/
+url: /ru/java/how-to-run-the-examples/
 ---
 
 ## **Скачать с GitHub**

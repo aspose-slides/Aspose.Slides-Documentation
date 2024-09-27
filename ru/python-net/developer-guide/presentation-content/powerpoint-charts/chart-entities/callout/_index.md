@@ -1,7 +1,7 @@
 ---
 title: Выноски
 type: docs
-url: /python-net/callout/
+url: /ru/python-net/callout/
 keywords: "Выноски диаграммы, метки данных диаграммы, Python, Aspose.Slides для Python через .NET"
 description: "Выноски и метки данных диаграмм PowerPoint на Python"
 ---

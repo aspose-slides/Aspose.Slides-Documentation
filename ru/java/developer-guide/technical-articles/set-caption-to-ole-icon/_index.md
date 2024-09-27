@@ -2,7 +2,7 @@
 title: Установить подпись для OLE-значка
 type: docs
 weight: 130
-url: /java/set-caption-to-ole-icon/
+url: /ru/java/set-caption-to-ole-icon/
 ---
 
 Новые методы **getSubstitutePictureTitle** и **setSubstitutePictureTitle** были добавлены в интерфейс **IOleObjectFrame** и класс **OleObjectFrame**. Это позволяет получать, устанавливать или изменять подпись OLE-значка. Приведенный ниже фрагмент кода демонстрирует пример создания объекта Excel и установки его подписи.

@@ -1,7 +1,7 @@
 ---
 title: Вызов
 type: docs
-url: /php-java/vyzov/
+url: /ru/php-java/vyzov/
 ---
 
 ## **Использование вызовов**

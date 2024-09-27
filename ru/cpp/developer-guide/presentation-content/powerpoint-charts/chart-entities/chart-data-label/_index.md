@@ -1,7 +1,7 @@
 ---
 title: Метка данных диаграммы
 type: docs
-url: /cpp/chart-data-label/
+url: /ru/cpp/chart-data-label/
 keywords: "Метка данных диаграммы, расстояние метки, C++, CPP, Aspose.Slides для C++"
 description: "Установить метку данных диаграммы PowerPoint и расстояние в C++"
 ---

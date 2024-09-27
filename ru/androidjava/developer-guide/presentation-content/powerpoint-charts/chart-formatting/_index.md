@@ -2,7 +2,7 @@
 title: Форматирование диаграмм
 type: docs
 weight: 60
-url: /androidjava/chart-formatting/
+url: /ru/androidjava/chart-formatting/
 ---
 
 ## **Форматирование сущностей диаграммы**

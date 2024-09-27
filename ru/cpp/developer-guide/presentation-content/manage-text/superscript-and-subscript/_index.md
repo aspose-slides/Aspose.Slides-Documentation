@@ -2,7 +2,7 @@
 title: Надстрочные и подстрочные символы
 type: docs
 weight: 80
-url: /cpp/superscript-and-subscript/
+url: /ru/cpp/superscript-and-subscript/
 ---
 
 ## **Управление текстом с надстрочными и подстрочными символами**

@@ -2,7 +2,7 @@
 title: Отображение форм на слайде как изображений
 type: docs
 weight: 120
-url: /net/rendering-shapes-on-slide-as-images/
+url: /ru/net/rendering-shapes-on-slide-as-images/
 ---
 
 Это охватывает две основные функции:

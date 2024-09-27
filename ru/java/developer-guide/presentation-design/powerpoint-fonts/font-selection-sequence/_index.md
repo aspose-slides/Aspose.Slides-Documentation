@@ -3,7 +3,7 @@ title: Последовательность выбора шрифтов в Java
 linktitle: Последовательность выбора шрифтов в Java
 type: docs
 weight: 80
-url: /java/font-selection-sequence/
+url: /ru/java/font-selection-sequence/
 keywords:
 - шрифт
 - выбор шрифта

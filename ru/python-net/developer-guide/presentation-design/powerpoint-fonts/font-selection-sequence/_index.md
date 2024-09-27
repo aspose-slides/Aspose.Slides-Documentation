@@ -3,7 +3,7 @@ title: Последовательность выбора шрифтов в Pytho
 linktitle: Последовательность выбора шрифтов в Python
 type: docs
 weight: 80
-url: /python-net/font-selection-sequence/
+url: /ru/python-net/font-selection-sequence/
 keywords:
 - шрифт
 - выбор шрифта

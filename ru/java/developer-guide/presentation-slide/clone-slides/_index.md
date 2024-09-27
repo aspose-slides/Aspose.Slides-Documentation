@@ -2,7 +2,7 @@
 title: Клонирование слайдов
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /ru/java/clone-slides/
 ---
 
 ## **Клонирование слайдов в презентации**

@@ -2,7 +2,7 @@
 title: Измеряемое лицензирование
 type: docs
 weight: 90
-url: /net/metered-licensing/
+url: /ru/net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

@@ -1,7 +1,7 @@
 ---
 title: Площадка для построения диаграмм
 type: docs
-url: /cpp/chart-plot-area/
+url: /ru/cpp/chart-plot-area/
 ---
 
 ## **Получить ширину и высоту площадки для построения диаграмм**

@@ -2,7 +2,7 @@
 title: Управление настройками автоматической подгонки
 type: docs
 weight: 30
-url: /androidjava/manage-autofit-settings/
+url: /ru/androidjava/manage-autofit-settings/
 keywords: "Текстовое поле, Автоподгонка, Презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Установите настройки автоматической подгонки для текстового поля в PowerPoint в Java"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Данные точек дерева и диаграммы Солнце
 type: docs
-url: /java/data-points-of-treemap-and-sunburst-chart/
+url: /ru/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "График Солнца в Aspose.Slides для Java"
 description: "График Солнца, Диаграмма Солнца, Диаграмма Солнца, Радиальная диаграмма, Радиальный график или Многоуровневая круговая диаграмма с Aspose.Slides для Java."
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="См. также" %}} 
-- [**Создание диаграммы Солнца**](/slides/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Создание диаграммы Солнца**](/slides/ru/java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

@@ -2,5 +2,5 @@
 title: Типы фигур
 type: docs
 weight: 10
-url: /java/shape-types/
+url: /ru/java/shape-types/
 ---

@@ -2,7 +2,7 @@
 title: Встроенные шрифты
 type: docs
 weight: 40
-url: /python-net/embedded-font/
+url: /ru/python-net/embedded-font/
 keywords: "Шрифты, встроенные шрифты, добавление шрифтов, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Используйте встроенные шрифты в презентации PowerPoint на Python"
 ---

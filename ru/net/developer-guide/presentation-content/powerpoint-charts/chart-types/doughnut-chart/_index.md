@@ -2,7 +2,7 @@
 title: Донатная диаграмма
 type: docs
 weight: 30
-url: /net/doughnut-chart/
+url: /ru/net/doughnut-chart/
 keywords: "Донатная диаграмма, центральный зазор, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Укажите центральный зазор в донатной диаграмме в презентации PowerPoint на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Извлечение изображений из фигур презентации
 type: docs
 weight: 90
-url: /python-net/extracting-images-from-presentation-shapes/
+url: /ru/python-net/extracting-images-from-presentation-shapes/
 keywords: "Извлечение изображения, PowerPoint, PPT, PPTX, Презентация PowerPoint, Python, Aspose.Slides для Python"
 description: "Извлечение изображений из презентации PowerPoint на Python"
 ---

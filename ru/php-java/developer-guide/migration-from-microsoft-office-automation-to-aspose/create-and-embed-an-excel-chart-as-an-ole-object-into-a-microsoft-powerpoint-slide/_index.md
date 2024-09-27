@@ -2,12 +2,12 @@
 title: Создание и встраивание диаграммы Excel в качестве OLE-объекта на слайде Microsoft PowerPoint
 type: docs
 weight: 60
-url: /php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ru/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- Диаграммы являются визуальными представлениями ваших данных и широко используются на слайдах презентаций. Эта статья покажет вам код для создания и встраивания диаграммы Excel в качестве OLE-объекта в слайде PowerPoint программно, с использованием [VSTO](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides для PHP через Java](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Диаграммы являются визуальными представлениями ваших данных и широко используются на слайдах презентаций. Эта статья покажет вам код для создания и встраивания диаграммы Excel в качестве OLE-объекта в слайде PowerPoint программно, с использованием [VSTO](/slides/ru/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) и [Aspose.Slides для PHP через Java](/slides/ru/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Создание и встраивание диаграммы Excel**

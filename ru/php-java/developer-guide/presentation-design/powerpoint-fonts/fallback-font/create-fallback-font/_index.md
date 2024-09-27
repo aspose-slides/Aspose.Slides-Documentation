@@ -2,7 +2,7 @@
 title: Создать шрифт резервирования
 type: docs
 weight: 10
-url: /php-java/create-fallback-font/
+url: /ru/php-java/create-fallback-font/
 ---
 
 Aspose.Slides поддерживает интерфейс [IFontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRule) и класс [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) для указания правил применения шрифта резервирования. Класс [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) представляет собой связь между указанным диапазоном Юникода, используемым для поиска недостающих глифов, и списком шрифтов, которые могут содержать соответствующие глифы:
@@ -23,5 +23,5 @@ Aspose.Slides поддерживает интерфейс [IFontFallBackRule](ht
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) можно использовать для организации списка объектов [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule), когда необходимо указать правила замены шрифтов резервирования для нескольких диапазонов Юникода.
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Создать коллекцию шрифтов резервирования](/slides/php-java/create-fallback-fonts-collection/)
+- [Создать коллекцию шрифтов резервирования](/slides/ru/php-java/create-fallback-fonts-collection/)
 {{% /alert %}}

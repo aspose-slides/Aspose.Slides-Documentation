@@ -1,7 +1,7 @@
 ---
 title: Свойства представления
 type: docs
-url: /net/presentation-view-properties/
+url: /ru/net/presentation-view-properties/
 keywords: "просмотрщик PowerPoint, свойства просмотра, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Свойства просмотрщика презентаций PowerPoint на C# или .NET"
 ---

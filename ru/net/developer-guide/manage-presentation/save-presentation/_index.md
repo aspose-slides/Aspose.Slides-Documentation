@@ -3,7 +3,7 @@ title: Сохранение презентации в .NET
 linktitle: Сохранение презентации
 type: docs
 weight: 80
-url: /net/save-presentation/
+url: /ru/net/save-presentation/
 keywords: "Сохранить PowerPoint, PPT, PPTX, Сохранить презентацию, файл, поток, C#, Csharp, .NET"
 description: "Сохранить презентацию PowerPoint как файл или поток в C# или .NET"
 ---

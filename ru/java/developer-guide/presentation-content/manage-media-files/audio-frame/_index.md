@@ -2,7 +2,7 @@
 title: Аудио рамка
 type: docs
 weight: 10
-url: /java/audio-frame/
+url: /ru/java/audio-frame/
 keywords: "Добавить аудио, Аудио рамка, Свойства аудио, Извлечь аудио, Java, Aspose.Slides для Java"
 description: "Добавить аудио в презентацию PowerPoint на Java"
 ---

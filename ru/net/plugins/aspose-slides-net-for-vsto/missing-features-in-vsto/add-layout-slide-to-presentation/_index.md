@@ -2,7 +2,7 @@
 title: Добавить слайд макета в презентацию
 type: docs
 weight: 10
-url: /net/add-layout-slide-to-presentation/
+url: /ru/net/add-layout-slide-to-presentation/
 ---
 
 Aspose.Slides для .NET позволяет разработчикам добавлять новые слайды макетов в презентацию. Для добавления слайда макета выполните следующие шаги:
@@ -129,6 +129,6 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 {{% alert color="primary" %}} 
 
-Для получения дополнительной информации перейдите на страницу [Добавление слайда макета в презентацию](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Для получения дополнительной информации перейдите на страницу [Добавление слайда макета в презентацию](/slides/ru/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

@@ -1,7 +1,7 @@
 ---
 title: Ошибочная Полоса
 type: docs
-url: /net/error-bar/
+url: /ru/net/error-bar/
 keywords: "Ошибочная полоса, значения ошибочной полосы Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте ошибочную полосу в презентации PowerPoint на C# или .NET"
 ---

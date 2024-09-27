@@ -2,7 +2,7 @@
 title: Защищенная паролем презентация
 type: docs
 weight: 20
-url: /net/password-protected-presentation/
+url: /ru/net/password-protected-presentation/
 keywords: "Блокировка PowerPoint, разблокировка PowerPoint, защита PowerPoint, установка пароля, добавление пароля, шифрование PowerPoint, расшифровка PowerPoint, Защита от записи, безопасность PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Защита паролем PowerPoint, шифрование и безопасность на C# или .NET"
 
@@ -222,5 +222,5 @@ using (IPresentation pres = new Presentation("pres.pptx"))
 Код вернет `true`, если презентация была зашифрована с использованием указанного пароля. В противном случае он вернет `false`. 
 
 {{% alert color="primary" title="Смотрите также" %}} 
-- [Цифровая подпись в PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Цифровая подпись в PowerPoint](/slides/ru/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

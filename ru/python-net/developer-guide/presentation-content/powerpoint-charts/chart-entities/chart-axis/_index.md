@@ -1,7 +1,7 @@
 ---
 title: Ось графика
 type: docs
-url: /python-net/chart-axis/
+url: /ru/python-net/chart-axis/
 keywords: "Ось графика PowerPoint, Графики презентаций, Python, Манипуляция осью графика, Данные графика"
 description: "Редактирование оси графика PowerPoint на Python"
 ---

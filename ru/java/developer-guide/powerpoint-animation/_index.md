@@ -2,7 +2,7 @@
 title: Анимация PowerPoint
 type: docs
 weight: 150
-url: /java/powerpoint-animation/
+url: /ru/java/powerpoint-animation/
 keywords: "анимация PowerPoint"
 description: "Анимация PowerPoint, анимация слайдов PowerPoint с Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ Aspose.Slides поддерживает **150+ эффектов анимации*
 Aspose.Slides позволяет применять анимацию к фигурам, которые могут на самом деле быть текстом, прямоугольником, линией, рамкой, объектом OLE и т.д.
 
 {{% alert color="primary" %}} 
-Читать далее [**О анимации фигур**](/slides/java/shape-animation/).
+Читать далее [**О анимации фигур**](/slides/ru/java/shape-animation/).
 {{% /alert %}}
 
 ## **Анимированные диаграммы**
 Для создания анимированных диаграмм вы должны использовать все те же классы, что и для фигур. Однако возможно использовать анимацию PowerPoint только для категорий диаграмм или серий диаграмм. Вы также можете применить эффект анимации к элементу категории или серии.
 
 {{% alert color="primary" %}} 
-Читать далее [**О анимированных диаграммах**](/slides/java/animated-charts/).
+Читать далее [**О анимированных диаграммах**](/slides/ru/java/animated-charts/).
 {{% /alert %}}
 
 ## **Анимированный текст**
 Кроме анимированного текста, также возможно применять анимацию к абзацу.
 
 {{% alert color="primary" %}} 
-Читать далее [**О анимированном тексте**](/slides/java/animated-text/).
+Читать далее [**О анимированном тексте**](/slides/ru/java/animated-text/).
 {{% /alert %}}

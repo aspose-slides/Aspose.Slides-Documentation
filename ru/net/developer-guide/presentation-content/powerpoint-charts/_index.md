@@ -3,5 +3,5 @@ title: Диаграммы PowerPoint - Как создать и изменить
 linktitle: Диаграммы PowerPoint
 type: docs
 weight: 70
-url: /net/powerpoint-charts/
+url: /ru/net/powerpoint-charts/
 ---

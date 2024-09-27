@@ -2,7 +2,7 @@
 title: Управление OLE
 type: docs
 weight: 40
-url: /androidjava/manage-ole/
+url: /ru/androidjava/manage-ole/
 ---
 
 {{% alert color="primary" %}} 

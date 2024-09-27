@@ -2,7 +2,7 @@
 title: Управление абзацами PowerPoint
 type: docs
 weight: 40
-url: /php-java/manage-paragraph/
+url: /ru/php-java/manage-paragraph/
 keywords: "Добавить абзац PowerPoint, Управлять абзацами, Отступ абзаца, Свойства абзаца, HTML текст, Экспорт текста абзаца, Презентация PowerPoint, Java, Aspose.Slides для PHP через Java"
 description: "Создайте и управляйте абзацами, текстом, отступами и свойствами в презентациях PowerPoint"
 ---

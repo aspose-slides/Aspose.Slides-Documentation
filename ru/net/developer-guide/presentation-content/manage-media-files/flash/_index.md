@@ -2,7 +2,7 @@
 title: Флэш
 type: docs
 weight: 10
-url: /net/flash/
+url: /ru/net/flash/
 keywords: "Извлечение флэш, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Извлечение флэш-объекта из презентации PowerPoint на C# или .NET"
 ---

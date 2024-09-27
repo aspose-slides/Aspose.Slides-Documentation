@@ -2,7 +2,7 @@
 title: Обновление диаграммы
 type: docs
 weight: 10
-url: /cpp/update-chart/
+url: /ru/cpp/update-chart/
 ---
 
 

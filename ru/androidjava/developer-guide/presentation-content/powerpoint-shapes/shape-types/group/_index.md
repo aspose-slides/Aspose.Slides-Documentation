@@ -2,7 +2,7 @@
 title: Группа
 type: docs
 weight: 40
-url: /androidjava/group/
+url: /ru/androidjava/group/
 ---
 
 ## **Добавить группу форм**

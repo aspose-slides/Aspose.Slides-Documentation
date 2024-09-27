@@ -2,7 +2,7 @@
 title: Изучение Презентации
 type: docs
 weight: 30
-url: /php-java/examine-presentation/
+url: /ru/php-java/examine-presentation/
 
 ---
 

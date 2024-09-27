@@ -2,7 +2,7 @@
 title: Современное API
 type: docs
 weight: 280
-url: /python-net/modern-api/
+url: /ru/python-net/modern-api/
 keywords: "Современное API, Изображение"
 description: "Современное API"
 ---

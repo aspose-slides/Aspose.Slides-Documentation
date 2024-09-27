@@ -2,7 +2,7 @@
 title: Сравнить слайды
 type: docs
 weight: 50
-url: /cpp/compare-slides/
+url: /ru/cpp/compare-slides/
 ---
 
 ## **Сравнить два слайда**

@@ -2,7 +2,7 @@
 title: Объединение Презентаций
 type: docs
 weight: 40
-url: /java/merge-presentation/
+url: /ru/java/merge-presentation/
 keywords: "Объединение PowerPoint, PPTX, PPT, комбинирование PowerPoint, объединение презентации, комбинирование презентации, Java"
 description: "Объединение или комбинирование презентаций PowerPoint в Java"
 ---

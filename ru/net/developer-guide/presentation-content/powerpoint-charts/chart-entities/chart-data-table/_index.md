@@ -1,7 +1,7 @@
 ---
 title: Таблица данных графика
 type: docs
-url: /net/chart-data-table/
+url: /ru/net/chart-data-table/
 keywords: "Свойства шрифта, таблица данных графика, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Установите свойства шрифта для таблицы данных графика в презентациях PowerPoint на C# или .NET"
 ---

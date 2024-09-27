@@ -2,7 +2,7 @@
 title: Управление тегами и пользовательскими данными
 type: docs
 weight: 300
-url: /php-java/upravlenie-tegam-i-polzovatelskimi-dannymi
+url: /ru/php-java/upravlenie-tegam-i-polzovatelskimi-dannymi
 
 ---
 

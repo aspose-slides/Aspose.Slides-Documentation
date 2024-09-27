@@ -2,7 +2,7 @@
 title: Создание диаграммы Excel и встраивание её в презентацию в качестве OLE-объекта
 type: docs
 weight: 40
-url: /cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ru/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 

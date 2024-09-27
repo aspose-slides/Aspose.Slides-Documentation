@@ -2,7 +2,7 @@
 title: Формулы рабочей таблицы диаграммы
 type: docs
 weight: 70
-url: /net/chart-worksheet-formulas/
+url: /ru/net/chart-worksheet-formulas/
 keywords: "Диаграммная таблица, формула диаграммы, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Диаграммная таблица и формула в презентации PowerPoint на C# или .NET"
 ---

@@ -2,7 +2,7 @@
 title: Порция
 type: docs
 weight: 70
-url: /androidjava/portion/
+url: /ru/androidjava/portion/
 ---
 
 ## **Получение координат позиции порции**

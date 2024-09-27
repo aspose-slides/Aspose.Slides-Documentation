@@ -2,7 +2,7 @@
 title: Экспорт в XAML
 type: docs
 weight: 30
-url: /java/export-to-xaml/
+url: /ru/java/export-to-xaml/
 
 ---
 

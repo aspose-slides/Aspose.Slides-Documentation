@@ -2,7 +2,7 @@
 title: Рабочая тетрадь диаграмм
 type: docs
 weight: 70
-url: /python-net/chart-workbook/
+url: /ru/python-net/chart-workbook/
 keywords: "Рабочая тетрадь диаграмм, данные диаграмм, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Рабочая тетрадь диаграмм в презентации PowerPoint на Python"
 ---

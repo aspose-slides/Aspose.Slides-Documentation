@@ -2,12 +2,12 @@
 title: Отображение презентации с запасным шрифтом
 type: docs
 weight: 30
-url: /java/render-presentation-with-fallback-font/
+url: /ru/java/render-presentation-with-fallback-font/
 ---
 
 Следующий пример включает в себя следующие шаги:
 
-1. Мы [создаем коллекцию правил запасных шрифтов](/slides/java/create-fallback-fonts-collection/).
+1. Мы [создаем коллекцию правил запасных шрифтов](/slides/ru/java/create-fallback-fonts-collection/).
 1. [Удаляем](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) правило запасного шрифта и [добавляем запасные шрифты](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) к другому правилу.
 1. Устанавливаем коллекцию правил в метод [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--).
 1. С помощью метода [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) мы можем сохранить презентацию в том же формате или сохранить ее в другом. После установки коллекции правил запасного шрифта в [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager), эти правила применяются при любых операциях с презентацией: сохранение, отображение, конвертация и т.д.
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Узнайте больше о [Сохранении и конвертации в презентации](/slides/java/creating-saving-and-converting-a-presentation/).
+Узнайте больше о [Сохранении и конвертации в презентации](/slides/ru/java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

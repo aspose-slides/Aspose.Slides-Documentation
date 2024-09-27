@@ -2,7 +2,7 @@
 title: Рабочее решение для изменения размера графиков в PPTX
 type: docs
 weight: 60
-url: /net/working-solution-for-chart-resizing-in-pptx/
+url: /ru/net/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /net/working-solution-for-chart-resizing-in-pptx/
 
 {{% /alert %}} 
 ## **Предыстория**
-В [предыдущей статье](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) мы объяснили, как создать диаграмму Excel с использованием Aspose.Cells для .NET и далее встроить эту диаграмму в презентацию PowerPoint с использованием Aspose.Slides для .NET. Чтобы учесть [проблему измененного объекта](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/), мы назначили изображение диаграммы фрейму OLE объекта диаграммы. В выходной презентации, когда мы дважды щелкаем на фрейм OLE объекта, показывающем изображение диаграммы, диаграмма Excel активируется. Конечные пользователи могут внести любые изменения в фактическую книгу Excel, а затем вернуться к соответствующему слайду, щелкнув снаружи активной книги Excel. Размер фрейма OLE объекта изменится, когда пользователь вернется к слайду. Коэффициент изменения размера будет различен для различных размеров фрейма OLE объекта и встроенной книги Excel. 
+В [предыдущей статье](/slides/ru/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) мы объяснили, как создать диаграмму Excel с использованием Aspose.Cells для .NET и далее встроить эту диаграмму в презентацию PowerPoint с использованием Aspose.Slides для .NET. Чтобы учесть [проблему измененного объекта](/slides/ru/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/), мы назначили изображение диаграммы фрейму OLE объекта диаграммы. В выходной презентации, когда мы дважды щелкаем на фрейм OLE объекта, показывающем изображение диаграммы, диаграмма Excel активируется. Конечные пользователи могут внести любые изменения в фактическую книгу Excel, а затем вернуться к соответствующему слайду, щелкнув снаружи активной книги Excel. Размер фрейма OLE объекта изменится, когда пользователь вернется к слайду. Коэффициент изменения размера будет различен для различных размеров фрейма OLE объекта и встроенной книги Excel. 
 ## **Причина изменения размера**
 Поскольку у книги Excel есть свой собственный размер окна, она пытается сохранить свой изначальный размер при первом активации. С другой стороны, у фрейма OLE объекта будет свой размер. Согласно Microsoft, при активации книги Excel Excel и PowerPoint согласовывают размер и гарантируют, что он находится в правильных пропорциях как часть операции встраивания. Основываясь на различиях в размере окна Excel и размере / позиции фрейма OLE объекта, происходит изменение размера. 
 ## **Рабочее решение**
@@ -159,6 +159,6 @@ Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
 
 {{% /alert %}} 
 ## **Связанные разделы**
-[Создание и встраивание диаграммы Excel как OLE объекта в презентацию](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Создание и встраивание диаграммы Excel как OLE объекта в презентацию](/slides/ru/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Автоматическое обновление OLE объектов](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Автоматическое обновление OLE объектов](/slides/ru/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

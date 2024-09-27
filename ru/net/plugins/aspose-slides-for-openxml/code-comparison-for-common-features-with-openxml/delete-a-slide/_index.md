@@ -2,7 +2,7 @@
 title: Удалить слайд
 type: docs
 weight: 80
-url: /net/delete-a-slide/
+url: /ru/net/delete-a-slide/
 ---
 
 ## **OpenXML SDK**

@@ -2,7 +2,7 @@
 title: Лицензирование по замерам
 type: docs
 weight: 90
-url: /python-net/metered-licensing/
+url: /ru/python-net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

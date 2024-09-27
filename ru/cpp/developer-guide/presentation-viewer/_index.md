@@ -2,7 +2,7 @@
 title: Просмотрщик презентаций
 type: docs
 weight: 50
-url: /cpp/presentation-viewer/
+url: /ru/cpp/presentation-viewer/
 keywords: "Просмотрщик PowerPoint PPT"
 description: "Просмотрщик PowerPoint PPT на C++"
 ---

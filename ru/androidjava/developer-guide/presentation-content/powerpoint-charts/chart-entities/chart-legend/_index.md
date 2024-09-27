@@ -1,7 +1,7 @@
 ---
 title: Легенда диаграммы
 type: docs
-url: /androidjava/chart-legend/
+url: /ru/androidjava/chart-legend/
 ---
 
 ## **Позиционирование легенды**

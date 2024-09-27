@@ -2,7 +2,7 @@
 title: Экспорт медиафайлов в HTML-файл
 type: docs
 weight: 80
-url: /net/export-media-files-into-html-file/
+url: /ru/net/export-media-files-into-html-file/
 ---
 
 Чтобы экспортировать медиафайлы в HTML, выполните следующие шаги:

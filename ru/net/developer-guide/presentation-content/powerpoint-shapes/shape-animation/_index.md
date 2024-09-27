@@ -2,12 +2,12 @@
 title: Анимация форм
 type: docs
 weight: 60
-url: /net/shape-animation/
+url: /ru/net/shape-animation/
 keywords: "анимация PowerPoint, эффект анимации, применение анимации, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Применение анимации PowerPoint в C# или .NET"
 ---
 
-Анимации — это визуальные эффекты, которые можно применять к текстам, изображениям, формам или [диаграммам](/slides/net/animated-charts/). Они оживляют презентации или их элементы.
+Анимации — это визуальные эффекты, которые можно применять к текстам, изображениям, формам или [диаграммам](/slides/ru/net/animated-charts/). Они оживляют презентации или их элементы.
 
 ### **Почему стоит использовать анимации в презентациях?**
 
@@ -69,7 +69,7 @@ using (Presentation pres = new Presentation())
 
 {{%  alert color="primary"  %}} 
 
-Кроме применения анимаций к тексту, вы также можете применять анимации к одному [абзацу](https://reference.aspose.com/slides/net/aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/net/animated-text/).
+Кроме применения анимаций к тексту, вы также можете применять анимации к одному [абзацу](https://reference.aspose.com/slides/net/aspose.slides/iparagraph). См. [**Анимированный текст**](/slides/ru/net/animated-text/).
 
 {{% /alert %}} 
 

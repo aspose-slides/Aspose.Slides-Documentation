@@ -2,14 +2,14 @@
 title: Часто задаваемые вопросы
 type: docs
 weight: 340
-url: /cpp/faqs/
+url: /ru/cpp/faqs/
 ---
 
 ## **Поддерживаемые форматы файлов**
 
 **В: Какие форматы файлов поддерживает Aspose.Slides для C++?**
 
-**О:** Aspose.Slides для C++ поддерживает форматы файлов, описанные в [Поддерживаемых форматах файлов](/slides/cpp/supported-file-formats/).
+**О:** Aspose.Slides для C++ поддерживает форматы файлов, описанные в [Поддерживаемых форматах файлов](/slides/ru/cpp/supported-file-formats/).
 
 ## **Исключения**
 

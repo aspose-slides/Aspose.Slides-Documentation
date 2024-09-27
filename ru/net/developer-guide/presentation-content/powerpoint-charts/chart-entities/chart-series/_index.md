@@ -1,7 +1,7 @@
 ---
 title: Серия диаграмм
 type: docs
-url: /net/chart-series/
+url: /ru/net/chart-series/
 keywords: "Серии диаграмм, цвет серий, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Серии диаграмм в презентациях PowerPoint на C# или .NET"
 ---

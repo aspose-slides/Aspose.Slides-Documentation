@@ -1,7 +1,7 @@
 ---
 title: Диаграмма с пузырьками
 type: docs
-url: /cpp/bubble-chart/
+url: /ru/cpp/bubble-chart/
 ---
 
 ## **Масштабирование размеров пузырьков диаграммы**

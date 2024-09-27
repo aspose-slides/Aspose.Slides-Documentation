@@ -2,7 +2,7 @@
 title: Элипс
 type: docs
 weight: 30
-url: /php-java/ellipse/
+url: /ru/php-java/ellipse/
 ---
 
 

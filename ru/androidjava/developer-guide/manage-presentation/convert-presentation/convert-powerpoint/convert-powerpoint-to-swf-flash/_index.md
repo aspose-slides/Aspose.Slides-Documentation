@@ -2,7 +2,7 @@
 title: Конвертация PowerPoint в SWF Flash
 type: docs
 weight: 80
-url: /androidjava/convert-powerpoint-to-swf-flash/
+url: /ru/androidjava/convert-powerpoint-to-swf-flash/
 keywords: "PPT, PPTX в SWF"
 description: "Конвертация PowerPoint PPT, PPTX в SWF на Java"
 ---

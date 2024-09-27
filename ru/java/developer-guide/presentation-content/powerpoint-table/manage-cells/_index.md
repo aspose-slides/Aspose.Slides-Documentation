@@ -2,7 +2,7 @@
 title: Управление ячейками
 type: docs
 weight: 30
-url: /java/manage-cells/
+url: /ru/java/manage-cells/
 keywords: "Таблица, объединенные ячейки, разделенные ячейки, изображение в ячейке таблицы, Java, Aspose.Slides для Java"
 description: "Ячейки таблицы в презентациях PowerPoint на Java"
 ---

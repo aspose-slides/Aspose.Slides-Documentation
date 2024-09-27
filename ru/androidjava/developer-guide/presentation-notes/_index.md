@@ -2,7 +2,7 @@
 title: Презентационные заметки
 type: docs
 weight: 110
-url: /androidjava/presentation-notes/
+url: /ru/androidjava/presentation-notes/
 keywords: "Примечания к слайдам PowerPoint на Java"
 description: "Презентационные заметки, заметки к докладу на Java"
 ---

@@ -2,12 +2,12 @@
 title: Публичный API и несовместимые изменения в Aspose.Slides для .NET 15.4.0
 type: docs
 weight: 150
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+url: /ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Эта страница lists все [добавленные](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) или [удаленные](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) классы, методы, свойства и так далее, а также другие изменения, введенные в API Aspose.Slides для .NET 15.4.0.
+Эта страница lists все [добавленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) или [удаленные](/slides/ru/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) классы, методы, свойства и так далее, а также другие изменения, введенные в API Aspose.Slides для .NET 15.4.0.
 
 {{% /alert %}} 
 ## **Изменения публичного API**
@@ -16,7 +16,7 @@ Enum Aspose.Slides.SmartArt.OrganizationChartLayoutType представляет
 #### **Добавлен метод IBulletFormat.ApplyDefaultParagraphIndentsShifts**
 Метод Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts устанавливает значения по умолчанию для эффективного отступа абзаца и MarginLeft, когда включены маркеры (как это делает PowerPoint, если включены маркеры/нумерация абзаца). Если маркеры отключены, просто сбросить отступ абзаца и MarginLeft (как это делает PowerPoint, если отключены маркеры/нумерация абзаца).
 
-Смотрите примеры [здесь](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+Смотрите примеры [здесь](/slides/ru/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **Добавлен метод IConnector.Reroute**
 Метод Aspose.Slides.IConnector.Reroute перенаправляет соединитель, чтобы он принимал кратчайший возможный путь между фигурами, которые он соединяет. Для этого метод Reroute() может изменить StartShapeConnectionSiteIndex и EndShapeConnectionSiteIndex.
 

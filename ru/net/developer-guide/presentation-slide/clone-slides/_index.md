@@ -2,7 +2,7 @@
 title: Клонирование слайдов
 type: docs
 weight: 40
-url: /net/clone-slides/
+url: /ru/net/clone-slides/
 keywords: "Клонировать слайд, Копировать слайд, Сохранить копию слайда, PowerPoint, Презентация, C#, Csharp, .NET, Aspose.Slides"
 description: "Клонирование слайдов PowerPoint на C# или .NET"
 ---

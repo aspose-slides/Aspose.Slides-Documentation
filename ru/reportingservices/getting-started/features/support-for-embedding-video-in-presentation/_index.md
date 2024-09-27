@@ -2,7 +2,7 @@
 title: Поддержка встраивания видео в презентацию
 type: docs
 weight: 80
-url: /reportingservices/support-for-embedding-video-in-presentation/
+url: /ru/reportingservices/support-for-embedding-video-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

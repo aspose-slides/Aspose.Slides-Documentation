@@ -2,7 +2,7 @@
 title: Простой и доступный лицензирование
 type: docs
 weight: 60
-url: /reportingservices/simple-and-affordable-licensing/
+url: /ru/reportingservices/simple-and-affordable-licensing/
 ---
 
 ## Типы лицензий

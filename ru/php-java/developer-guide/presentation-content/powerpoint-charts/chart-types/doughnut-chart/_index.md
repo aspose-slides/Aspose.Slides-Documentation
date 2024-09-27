@@ -2,7 +2,7 @@
 title: Круговая диаграмма
 type: docs
 weight: 30
-url: /php-java/doughnut-chart/
+url: /ru/php-java/doughnut-chart/
 ---
 
 ## **Изменение центрального зазора в круговой диаграмме**

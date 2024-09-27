@@ -1,7 +1,7 @@
 ---
 title: Ошибочная Полоса
 type: docs
-url: /androidjava/error-bar/
+url: /ru/androidjava/error-bar/
 ---
 
 ## **Добавить Ошибочную Полосу**

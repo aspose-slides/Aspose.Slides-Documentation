@@ -2,7 +2,7 @@
 title: Примечания к презентации
 type: docs
 weight: 110
-url: /net/presentation-notes/
+url: /ru/net/presentation-notes/
 keywords: "Примечания, примечания PowerPoint, добавление заметок, удаление заметок, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавление и удаление заметок в презентациях PowerPoint на C# или .NET"
 ---

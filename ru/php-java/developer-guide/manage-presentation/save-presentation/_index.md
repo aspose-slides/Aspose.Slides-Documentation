@@ -2,13 +2,13 @@
 title: Сохранить Презентацию
 type: docs
 weight: 80
-url: /php-java/save-presentation/
+url: /ru/php-java/save-presentation/
 ---
 
 ## **Обзор**
 {{% alert color="primary" %}} 
 
-[Открытие Презентации](/slides/php-java/open-presentation/) описывает, как использовать класс [Презентация](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) для открытия презентации. Эта статья объясняет, как создавать и сохранять презентации.
+[Открытие Презентации](/slides/ru/php-java/open-presentation/) описывает, как использовать класс [Презентация](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) для открытия презентации. Эта статья объясняет, как создавать и сохранять презентации.
 
 {{% /alert %}} 
 

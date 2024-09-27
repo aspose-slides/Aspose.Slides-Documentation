@@ -2,7 +2,7 @@
 title: Свойства презентации
 type: docs
 weight: 70
-url: /cpp/presentation-properties/
+url: /ru/cpp/presentation-properties/
 ---
 
 

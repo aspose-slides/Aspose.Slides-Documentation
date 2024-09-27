@@ -2,7 +2,7 @@
 title: Локализация Презентации
 type: docs
 weight: 100
-url: /net/presentation-localization/
+url: /ru/net/presentation-localization/
 keywords: "Изменить язык, Проверка правописания, Проверка орфографии, Проверяющий правописание, Презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Измените или проверьте язык в презентации PowerPoint. Проверка орфографии текста в C# или .NET"
 ---

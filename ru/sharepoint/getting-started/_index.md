@@ -2,5 +2,5 @@
 title: Начало работы  
 type: docs  
 weight: 10  
-url: /sharepoint/nachalo-rabotyi/  
+url: /ru/sharepoint/nachalo-rabotyi/  
 ---  

@@ -2,7 +2,7 @@
 title: Обзор возможностей
 type: docs
 weight: 20
-url: /python-java/features-overview/
+url: /ru/python-java/features-overview/
 ---
 
 ## **Поддерживаемые платформы**

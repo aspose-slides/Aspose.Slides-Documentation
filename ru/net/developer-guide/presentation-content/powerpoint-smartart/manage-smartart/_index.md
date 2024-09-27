@@ -2,7 +2,7 @@
 title: Управление SmartArt
 type: docs
 weight: 10
-url: /net/manage-smartart/
+url: /ru/net/manage-smartart/
 keywords: "SmartArt, текст из SmartArt, организационная диаграмма, диаграмма организации с изображениями, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "SmartArt и организационная диаграмма в презентациях PowerPoint на C# или .NET"
 ---

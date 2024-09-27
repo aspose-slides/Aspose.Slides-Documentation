@@ -1,7 +1,7 @@
 ---
 title: Легенда графика
 type: docs
-url: /cpp/chart-legend/
+url: /ru/cpp/chart-legend/
 ---
 
 ## **Позиционирование легенды**

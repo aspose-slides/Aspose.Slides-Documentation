@@ -1,7 +1,7 @@
 ---
 title: Линия тренда
 type: docs
-url: /net/trend-line/
+url: /ru/net/trend-line/
 keywords: "Линия тренда, пользовательская линия презентации PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте линию тренда и пользовательскую линию в презентации PowerPoint на C# или .NET"
 ---

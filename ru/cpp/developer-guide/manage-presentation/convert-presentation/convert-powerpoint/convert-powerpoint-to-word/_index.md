@@ -2,7 +2,7 @@
 title: Преобразование PowerPoint в Word
 type: docs
 weight: 110
-url: /cpp/convert-powerpoint-to-word/
+url: /ru/cpp/convert-powerpoint-to-word/
 keywords: "Преобразовать PowerPoint, PPT, PPTX, Презентация, Word, DOCX, DOC, PPTX в DOCX, PPT в DOC, PPTX в DOC, PPT в DOCX, C++, Aspose.Slides"
 description: "Преобразуйте презентацию PowerPoint в Word на C++"
 ---

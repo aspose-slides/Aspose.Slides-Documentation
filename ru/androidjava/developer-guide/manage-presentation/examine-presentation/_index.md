@@ -2,7 +2,7 @@
 title: Изучение презентации
 type: docs
 weight: 30
-url: /androidjava/examine-presentation/
+url: /ru/androidjava/examine-presentation/
 
 ---
 

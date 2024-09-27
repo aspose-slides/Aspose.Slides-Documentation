@@ -2,7 +2,7 @@
 title: Устранение неисправностей при установке Aspose.Slides для Node.js через Java
 type: docs
 weight: 75
-url: /nodejs-java/troubleshooting-installation/
+url: /ru/nodejs-java/troubleshooting-installation/
 keySlides: "Скачивание Aspose.Slides, Установка Aspose.Slides, Устранение неисправностей в Aspose.Slides, Windows, macOS, Linux, Javascript, Node.js"
 description: "Устранение неисправностей при установке Aspose.Slides для Node.js через Java в Windows, Linux или macOS"
 ---

@@ -2,14 +2,14 @@
 title: Отображение презентации с резервным шрифтом
 type: docs
 weight: 30
-url: /net/render-presentation-with-fallback-font/
+url: /ru/net/render-presentation-with-fallback-font/
 keywords: "Резервный шрифт, отображение PowerPoint, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Отображение PowerPoint с резервным шрифтом на C# или .NET"
 ---
 
 Следующий пример включает в себя эти шаги:
 
-1. Мы [создаем коллекцию правил резервных шрифтов](/slides/net/create-fallback-fonts-collection/).
+1. Мы [создаем коллекцию правил резервных шрифтов](/slides/ru/net/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) правило резервного шрифта и [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) к другому правилу.
 1. Устанавливаем коллекцию правил в свойство [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection).
 1. С помощью метода [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) мы можем сохранить презентацию в том же формате или сохранить ее в другом. После того как коллекция правил резервных шрифтов установлена в FontsManager, эти правила применяются во время любых операций с презентацией: сохранение, отображение, конвертация и т.д.
@@ -47,5 +47,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 ```
 
 {{% alert color="primary" %}} 
-Читайте больше о [Сохранении и Конвертации в Презентации](/slides/net/creating-saving-and-converting-a-presentation/).
+Читайте больше о [Сохранении и Конвертации в Презентации](/slides/ru/net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

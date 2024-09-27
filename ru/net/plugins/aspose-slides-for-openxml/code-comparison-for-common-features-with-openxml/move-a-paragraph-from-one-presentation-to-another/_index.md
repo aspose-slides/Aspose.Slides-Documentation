@@ -2,7 +2,7 @@
 title: Перемещение абзаца из одной презентации в другую
 type: docs
 weight: 130
-url: /net/move-a-paragraph-from-one-presentation-to-another/
+url: /ru/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **OpenXML Презентация**

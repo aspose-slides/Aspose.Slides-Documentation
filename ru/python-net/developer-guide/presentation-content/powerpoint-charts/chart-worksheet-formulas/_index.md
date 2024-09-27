@@ -2,7 +2,7 @@
 title: Формулы листа диаграммы
 type: docs
 weight: 70
-url: /python-net/chart-worksheet-formulas/
+url: /ru/python-net/chart-worksheet-formulas/
 keywords: "Диаграммная таблица, формула диаграммы, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Диаграммная таблица и формула в презентации PowerPoint на Python"
 ---

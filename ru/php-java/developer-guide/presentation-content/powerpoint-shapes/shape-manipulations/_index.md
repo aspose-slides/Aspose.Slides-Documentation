@@ -2,7 +2,7 @@
 title: Манипуляции с формами
 type: docs
 weight: 40
-url: /php-java/manipulations-with-shapes/
+url: /ru/php-java/manipulations-with-shapes/
 ---
 
 ## **Найти форму на слайде**

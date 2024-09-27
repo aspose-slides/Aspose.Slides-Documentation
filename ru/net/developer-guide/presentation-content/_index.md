@@ -2,5 +2,5 @@
 title: Содержимое презентации
 type: docs
 weight: 30
-url: /net/presentation-content/
+url: /ru/net/presentation-content/
 ---

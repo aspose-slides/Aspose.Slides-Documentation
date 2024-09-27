@@ -2,7 +2,7 @@
 title: Импорт Презентации
 type: docs
 weight: 60
-url: /java/import-presentation/
+url: /ru/java/import-presentation/
 keywords: "Импорт PowerPoint, PDF в Презентацию, PDF в PPTX, PDF в PPT, Java, Aspose.Slides для Java"
 description: "Импорт презентации PowerPoint из PDF. Конвертация PDF в PowerPoint"
 ---

@@ -3,7 +3,7 @@ title: Пользовательский шрифт PowerPoint в C#
 linktitle: Пользовательский шрифт
 type: docs
 weight: 20
-url: /net/custom-font/
+url: /ru/net/custom-font/
 keywords: "Шрифты, пользовательские шрифты, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Пользовательские шрифты PowerPoint в C#"
 ---

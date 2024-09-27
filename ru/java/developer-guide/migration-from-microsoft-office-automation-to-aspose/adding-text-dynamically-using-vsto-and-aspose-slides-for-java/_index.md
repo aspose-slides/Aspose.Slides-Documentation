@@ -2,12 +2,12 @@
 title: Динамическое добавление текста с использованием VSTO и Aspose.Slides для Java
 type: docs
 weight: 20
-url: /java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+url: /ru/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-Распространенной задачей, которую разработчики должны выполнить, является динамическое добавление текста на слайды. Эта статья демонстрирует примеры кода для динамического добавления текста с использованием [VSTO](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) и [Aspose.Slides для Java](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+Распространенной задачей, которую разработчики должны выполнить, является динамическое добавление текста на слайды. Эта статья демонстрирует примеры кода для динамического добавления текста с использованием [VSTO](/slides/ru/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) и [Aspose.Slides для Java](/slides/ru/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **Динамическое добавление текста**

@@ -2,7 +2,7 @@
 title: Удалить слайд из презентации
 type: docs
 weight: 30
-url: /androidjava/remove-slide-from-presentation/
+url: /ru/androidjava/remove-slide-from-presentation/
 keywords: "Удалить слайд, Удалить слайд, PowerPoint, Презентация, Java, Aspose.Slides"
 description: "Удалить слайд из PowerPoint по ссылке или индексу в Java"
 

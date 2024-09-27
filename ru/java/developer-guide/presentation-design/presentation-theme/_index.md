@@ -2,14 +2,14 @@
 title: Тема Презентации
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /ru/java/presentation-theme/
 keywords: "Тема, тема PowerPoint, презентация PowerPoint, Java, Aspose.Slides для Java"
 description: "Тема презентации PowerPoint на Java"
 ---
 
 Тема презентации определяет свойства элементов дизайна. Когда вы выбираете тему презентации, вы, по сути, выбираете конкретный набор визуальных элементов и их свойства.
 
-В PowerPoint тема включает цвета, [шрифты](/slides/java/powerpoint-fonts/), [стили фона](/slides/java/presentation-background/) и эффекты.
+В PowerPoint тема включает цвета, [шрифты](/slides/ru/java/powerpoint-fonts/), [стили фона](/slides/ru/java/presentation-background/) и эффекты.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Aria
 
 {{% alert color="primary" title="Совет" %}} 
 
-Вам может быть интересно посмотреть [шрифты PowerPoint](/slides/java/powerpoint-fonts/).
+Вам может быть интересно посмотреть [шрифты PowerPoint](/slides/ru/java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="Совет" %}} 
 
-Вам может быть интересно посмотреть [фон PowerPoint](/slides/java/presentation-background/).
+Вам может быть интересно посмотреть [фон PowerPoint](/slides/ru/java/presentation-background/).
 
 {{% /alert %}}
 

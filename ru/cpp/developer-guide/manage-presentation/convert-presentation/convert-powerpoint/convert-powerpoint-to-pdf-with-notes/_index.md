@@ -2,7 +2,7 @@
 title: Конвертировать PowerPoint в PDF с комментариями
 type: docs
 weight: 50
-url: /cpp/convert-powerpoint-to-pdf-with-notes/
+url: /ru/cpp/convert-powerpoint-to-pdf-with-notes/
 keywords: "конвертировать powerpoint в pdf с комментариями"
 description: "Конвертируйте PowerPoint в PDF с комментариями. Конвертируйте PPT и PPTX в PDF с комментариями в Aspose.Slides."
 ---

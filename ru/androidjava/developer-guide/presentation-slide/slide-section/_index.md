@@ -2,7 +2,7 @@
 title: Секция слайдов
 type: docs
 weight: 90
-url: /androidjava/slide-section/
+url: /ru/androidjava/slide-section/
 ---
 
 С Aspose.Slides для Android через Java вы можете организовать презентацию PowerPoint на секции. Вы можете создать секции, которые содержат определенные слайды.

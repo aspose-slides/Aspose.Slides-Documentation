@@ -3,7 +3,7 @@ title: Конвертировать PowerPoint в PNG на C#
 linktitle: Конвертировать PowerPoint в PNG
 type: docs
 weight: 30
-url: /net/convert-powerpoint-to-png/
+url: /ru/net/convert-powerpoint-to-png/
 keywords: c# poweroint в png, c# ppt в png, c# pptx в png, c# odp в png, PowerPoint в PNG, PPT в PNG, PPTX в PNG, C#, Csharp, Aspose.Slides для .NET
 description: Конвертировать презентацию PowerPoint в PNG на C#. Конвертировать PPT в PNG на C#. Конвертировать PPTX в PNG на C#. Конвертировать ODP в PNG на C#
 ---

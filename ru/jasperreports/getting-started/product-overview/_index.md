@@ -2,7 +2,7 @@
 title: Обзор продукта
 type: docs
 weight: 10
-url: /jasperreports/product-overview/
+url: /ru/jasperreports/product-overview/
 ---
 
 {{% alert color="primary" %}} 

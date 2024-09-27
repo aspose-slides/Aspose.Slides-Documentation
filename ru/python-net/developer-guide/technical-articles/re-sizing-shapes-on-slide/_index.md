@@ -2,7 +2,7 @@
 title: Изменение размеров фигур на слайде
 type: docs
 weight: 130
-url: /python-net/re-sizing-shapes-on-slide/
+url: /ru/python-net/re-sizing-shapes-on-slide/
 ---
 
 ## **Изменение размеров фигур на слайде**

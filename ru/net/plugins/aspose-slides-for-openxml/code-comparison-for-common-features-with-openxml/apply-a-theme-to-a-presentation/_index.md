@@ -2,7 +2,7 @@
 title: Применение темы к презентации
 type: docs
 weight: 30
-url: /net/apply-a-theme-to-a-presentation/
+url: /ru/net/apply-a-theme-to-a-presentation/
 ---
 
 ## **OpenXML Презентация:**

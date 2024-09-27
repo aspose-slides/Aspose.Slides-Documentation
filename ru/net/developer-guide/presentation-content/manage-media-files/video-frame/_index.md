@@ -2,7 +2,7 @@
 title: Видеокадр
 type: docs
 weight: 10
-url: /net/video-frame/
+url: /ru/net/video-frame/
 keywords: "Добавить видео, создать видеокадр, извлечь видео, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте видеокадр в презентацию PowerPoint на C# или .NET"
 ---

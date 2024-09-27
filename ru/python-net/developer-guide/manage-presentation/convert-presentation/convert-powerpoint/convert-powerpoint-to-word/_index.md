@@ -2,7 +2,7 @@
 title: Конвертировать PowerPoint в Word
 type: docs
 weight: 110
-url: /python-net/convert-powerpoint-to-word/
+url: /ru/python-net/convert-powerpoint-to-word/
 keywords: "Конвертировать PowerPoint, PPT, PPTX, Презентация, Word, DOCX, DOC, PPTX в DOCX, PPT в DOC, PPTX в DOC, PPT в DOCX, Python, Aspose.Slides"
 description: "Конвертация презентации PowerPoint в Word на Python"
 ---

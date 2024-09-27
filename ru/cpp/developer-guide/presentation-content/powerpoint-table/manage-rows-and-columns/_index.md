@@ -2,7 +2,7 @@
 title: Управление строками и столбцами
 type: docs
 weight: 20
-url: /cpp/manage-rows-and-columns/
+url: /ru/cpp/manage-rows-and-columns/
 keywords: "Таблица, строки и столбцы таблицы, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Управление строками и столбцами таблицы в презентациях PowerPoint на C++"
 

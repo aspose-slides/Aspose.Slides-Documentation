@@ -2,7 +2,7 @@
 title: Слайд Мастер
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /ru/java/slide-master/
 keywords: "Добавить Слайд Мастер, PPT мастер-слайд, слайд мастер PowerPoint, Изображение в Слайд Мастер, Заполнитель, Несколько Слайд Мастеров, Сравнение Слайд Мастеров, Java, Aspose.Slides для Java"
 description: "Добавьте или измените слайд мастер в презентации PowerPoint на Java"
 ---
@@ -153,7 +153,7 @@ try {
 
 {{% alert color="primary" title="Смотрите также" %}} 
 
-Для получения дополнительной информации о добавлении изображений на слайд смотрите статью [Рамка для изображения](/slides/java/picture-frame/#create-picture-frame).
+Для получения дополнительной информации о добавлении изображений на слайд смотрите статью [Рамка для изображения](/slides/ru/java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 
