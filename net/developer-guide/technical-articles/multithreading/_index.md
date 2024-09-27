@@ -48,12 +48,17 @@ for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
     var slideNumber = slideIndex + 1;
     conversionTasks.Add(Task.Run(() =>
     {
-        var slide = slidePresentation.Slides[0];
+        try
+        {
+            var slide = slidePresentation.Slides[0];
 
-        using var image = slide.GetImage(imageScale, imageScale);
-        image.Save($"slide_{slideNumber}.png", ImageFormat.Png);
-
-        slidePresentation.Dispose();
+            using var image = slide.GetImage(imageScale, imageScale);
+            image.Save($"slide_{slideNumber}.png", ImageFormat.Png);
+        }
+        finally
+        {
+            slidePresentation.Dispose();
+        }
     }));
 }
 
