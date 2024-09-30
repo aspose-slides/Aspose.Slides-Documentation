@@ -4,17 +4,21 @@ type: docs
 weight: 30
 url: /net/examine-presentation/
 keywords:
-- check PowerPoint
-- check presentation
+- PowerPoint
+- presentation
 - presentation format
-- PowerPoint properties
 - presentation properties
+- document properties
+- get properties
+- read properties
+- change properties
+- modify properties
 - PPTX
 - PPT
 - C#
 - Csharp
 - .NET
-description: "Check and get PowerPoint Presentation Properties in C# or .NET"
+description: "Read and modify PowerPoint presentation properties in C# or .NET"
 ---
 
 Aspose.Slides for .NET allows you to examine a presentation to find out its properties and understand its behavior. 
@@ -65,7 +69,7 @@ Let's say we have a PowerPoint presentation with the document properties shown b
 
 ![Original document properties of the PowerPoint presentation](input_properties.png)
 
-This C# code shows you how to edit some presentation properties:
+This code example shows you how to edit some presentation properties:
 
 ```c#
 string fileName = "sample.pptx";

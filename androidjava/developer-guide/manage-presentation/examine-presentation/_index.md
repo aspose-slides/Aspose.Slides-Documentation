@@ -3,7 +3,21 @@ title: Examine Presentation
 type: docs
 weight: 30
 url: /androidjava/examine-presentation/
-
+keywords:
+- PowerPoint
+- presentation
+- presentation format
+- presentation properties
+- document properties
+- get properties
+- read properties
+- change properties
+- modify properties
+- PPTX
+- PPT
+- Android
+- Java
+description: "Read and modify PowerPoint presentation properties in Android via Java"
 ---
 
 Aspose.Slides for Android via Java allows you to examine a presentation to find out its properties and understand its behavior.
@@ -31,9 +45,9 @@ IPresentationInfo info3 = PresentationFactory.getInstance().getPresentationInfo(
 System.out.println(info3.getLoadFormat()); // ODP
 ```
 
-## **Get a Presentation Properties**
+## **Get Presentation Properties**
 
-This Java code shows you how to get a presentation’s properties (information about the presentation):
+This Java code shows you how to get presentation properties (information about the presentation):
 
 ```java
 IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
@@ -46,21 +60,34 @@ System.out.println(props.getTitle());
 
 You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/documentproperties/#DocumentProperties--) class.
 
-## **Update a Presentation Properties**
+## **Update Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to presentation properties.
 
-This Java code shows you how to edit a presentation's properties:
+Let's say we have a PowerPoint presentation with the document properties shown below.
+
+![Original document properties of the PowerPoint presentation](input_properties.png)
+
+This code example shows you how to edit some presentation properties:
 
 ```java
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
+String fileName = "sample.pptx";
 
-IDocumentProperties props = info.readDocumentProperties();
-props.setTitle("My title");
-info.updateDocumentProperties(props);
+IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo(fileName);
+
+IDocumentProperties properties = info.readDocumentProperties();
+properties.setTitle("My title");
+properties.setLastSavedTime(new Date());
+
+info.updateDocumentProperties(properties);
+info.writeBindedPresentation(fileName);
 ```
 
-### **Useful Links**
+The results of changing the document properties are shown below.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
+
+## **Useful Links**
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 
