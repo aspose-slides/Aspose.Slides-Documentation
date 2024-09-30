@@ -28,13 +28,16 @@ It is **not** safe to load, save, and/or clone an instance of a [Presentation](h
 Let's say we want to convert all the slides from a PowerPoint presentation to PNG images in parallel. Since it is unsafe to use a single `Presentation` instance in multiple threads, we split the presentation slides into separate presentations and convert the slides to images in parallel, using each presentation in a separate thread. The following code example shows how to do this.
 
 ```cs
-using var presentation = new Presentation("sample.pptx");
+var inputFilePath = "sample.pptx";
+var outputFilePathTemplate = "slide_{0}.png";
+var imageScale = 2;
+
+using var presentation = new Presentation(inputFilePath);
 
 var slideCount = presentation.Slides.Count;
 var slideSize = presentation.SlideSize.Size;
 
 var conversionTasks = new List<Task>(slideCount);
-var imageScale = 2;
 
 for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
@@ -53,7 +56,8 @@ for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
             var slide = slidePresentation.Slides[0];
 
             using var image = slide.GetImage(imageScale, imageScale);
-            image.Save($"slide_{slideNumber}.png", ImageFormat.Png);
+            var imageFilePath = string.Format(outputFilePathTemplate, slideNumber);
+            image.Save(imageFilePath, ImageFormat.Png);
         }
         finally
         {
