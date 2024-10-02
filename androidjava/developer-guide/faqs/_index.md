@@ -53,7 +53,7 @@ In general, Aspose.Slides for Android via Java can easily handle presentation fi
 
 **A**: Aspose.Slides for Android via Java provides the [SlideUtil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/slideutil/) class that provides various methods for retrieving whole text from the presentations.
 
-**Q: Why are paragraph sizes different on Windows and Linux operating systems?**
+**Q: Why are paragraph sizes different on PC and Android?**
 
 **A**: The calculation of paragraph sizes is based on the calculation of the text size representing the given paragraph. The text size calculation is based on the metrics of the font specified in the PowerPoint presentation. If the specified font is missing, it is replaced with the most similar font, but this font has metrics different from the original ones. As a result, the calculation of paragraph sizes in different systems will lead to different results depending on the set of installed fonts. To achieve the same result on different operating systems, you need to install the same fonts on the systems or load them at runtime as [external fonts](/slides/androidjava/custom-font/).
 
