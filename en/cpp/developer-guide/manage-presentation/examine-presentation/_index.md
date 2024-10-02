@@ -4,7 +4,20 @@ linktitle: Examine Presentation
 type: docs
 weight: 30
 url: /cpp/examine-presentation/
-description: C++ PowerPoint API allows you to examine a presentation to find out its properties and understand its behavior.
+keywords:
+- PowerPoint
+- presentation
+- presentation format
+- presentation properties
+- document properties
+- get properties
+- read properties
+- change properties
+- modify properties
+- PPTX
+- PPT
+- C++
+description: "Read and modify PowerPoint presentation properties in C++"
 ---
 
 Aspose.Slides for C++ allows you to examine a presentation to find out its properties and understand its behavior. 
@@ -35,9 +48,9 @@ auto info3 = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.odp
 Console::WriteLine(ObjectExt::ToString(info3->get_LoadFormat()));
 ```
 
-## **Get a Presentation Properties**
+## **Get Presentation Properties**
 
-This C++ code shows you how to get a presentation’s properties (information about the presentation):
+This C++ code shows you how to get presentation properties (information about the presentation):
 
 ``` cpp
 auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
@@ -48,21 +61,34 @@ Console::WriteLine(props->get_Title());
 // .. 
 ```
 
-## **Update a Presentation Properties**
+## **Update Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfo::UpdateDocumentProperties()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation_info#ac9fce3667003cdb8bf05816c589a6f88) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo::UpdateDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/presentationinfo/updatedocumentproperties/) method that allows you to make changes to presentation properties.
 
-This C++ code shows you how to edit a presentation's properties:
+Let's say we have a PowerPoint presentation with the document properties shown below.
 
-``` cpp
-auto info = PresentationFactory::get_Instance()->GetPresentationInfo(u"pres.pptx");
+![Original document properties of the PowerPoint presentation](input_properties.png)
 
-auto props = info->ReadDocumentProperties();
-props->set_Title(u"My title");
-info->UpdateDocumentProperties(props);
+This code example shows you how to edit some presentation properties:
+
+```cpp
+auto fileName = u"sample.pptx";
+
+auto info = PresentationFactory::get_Instance()->GetPresentationInfo(fileName);
+
+auto properties = info->ReadDocumentProperties();
+properties->set_Title(u"My title");
+properties->set_LastSavedTime(DateTime::get_Now());
+
+info->UpdateDocumentProperties(properties);
+info->WriteBindedPresentation(fileName);
 ```
 
-### **Useful Links**
+The results of changing the document properties are shown below.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
+
+## **Useful Links**
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 

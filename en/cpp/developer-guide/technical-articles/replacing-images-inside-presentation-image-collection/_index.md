@@ -33,9 +33,10 @@ SharedPtr<IPPImage> oldImage = presentation->get_Images()->idx_get(0);
 oldImage->ReplaceImage(data);
 
 // The second approach
-SharedPtr<Image> newImage = Image::FromFile(u"image1.png");
+SharedPtr<IImage> newImage = Images::FromFile(u"image1.png");
 oldImage = presentation->get_Images()->idx_get(1);
 oldImage->ReplaceImage(newImage);
+newImage->Dispose();
 
 // The third approach
 oldImage = presentation->get_Images()->idx_get(2);

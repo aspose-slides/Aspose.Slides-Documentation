@@ -3,7 +3,11 @@ title: .NET6 Support
 type: docs
 weight: 235
 url: /net/net6/
-keywords: ".NET6 Cloud AWS Azure"
+keywords: 
+- .NET 6
+- Cloud
+- AWS
+- Azure
 description: ".NET6 Support"
 ---
 
@@ -32,7 +36,7 @@ Sometimes, both System.Drawing and Slides for .NET6 dependencies have to be used
 * CS0433: The type 'Image' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
 * CS0433: The type 'Graphics' exists in both 'Aspose.Slides, Version=23.2.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56' and 'System.Drawing.Common, Version=6.0.0.0
 
-In this case, you can use [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) for Slides:
+In this case, you can use [extern alias](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias) for Aspose.Slides (version less than 24.8):
 1) Select Aspose.Slides assembly from the project's dependencies and then click **Properties**.
   ![Aspose Slides package properties](package_properties.png)
 2) Set an alias (for example, "Slides").
@@ -56,3 +60,13 @@ static Slides::System.Drawing.Image GetThumbnail(Presentation pres)
     return pres.Slides[0].GetThumbnail();
 }
 ```
+
+Starting with version 24.8, the deprecated public API with dependencies on System.Drawing has been removed. Regarding the code example above, you can get the slide image as below.
+
+```cs
+static Aspose.Slides.IImage GetThumbnail(Presentation presentation)
+{
+    return presentation.Slides[0].GetImage();
+}
+```
+The new API is described in more detail in [Modern API](/net/modern-api/).

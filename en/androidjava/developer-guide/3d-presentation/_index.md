@@ -3,6 +3,19 @@ title: 3D Presentation
 type: docs
 weight: 232
 url: /androidjava/3d-presentation/
+keywords:
+- 3D
+- 3D PowerPoint
+- 3D presentation
+- 3D rotation
+- 3D depth
+- 3D extrusion
+- 3D gradient
+- 3D text
+- PowerPoint presentation
+- Android
+- Aspose.Slides for Android via Java
+description: "3D PowerPoint presentation in Android"
 ---
 
 ## Overview
@@ -23,31 +36,29 @@ Let us have a quick look on the main methods of **[ThreeDFormat](https://referen
 we create a rectangle 2D shape with a text on it. By getting camera view on the shape, we change its rotation and make looking as a 3D model. Setting a flat light 
 and its direction to the top of the 3D model, bring more volume to the model. Changed materials, extrusion height and color make the 3D model look more alive.  
 ``` java 
-Presentation pres = new Presentation();
-try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
-    shape.getTextFrame().setText("3D");
-    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
- 
-    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-    shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
-    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
-    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-    shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
-    shape.getThreeDFormat().setExtrusionHeight(100);
-    shape.getThreeDFormat().getExtrusionColor().setColor(Color.BLUE);
- 
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
- 
-    pres.save("sandbox_3d.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+final float imageScale = 2;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.getTextFrame().setText("3D");
+shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
+
+shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
+shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+shape.getThreeDFormat().setMaterial(MaterialPresetType.Flat);
+shape.getThreeDFormat().setExtrusionHeight(100);
+shape.getThreeDFormat().getExtrusionColor().setColor(Color.BLUE);
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
+
+presentation.save("sandbox_3d.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 Here is the resulting 3D model:
@@ -63,15 +74,13 @@ To rotate 3D model with Aspose.Slides API, use **[IThreeDFormat.getCamera()](htt
 method, set the rotation of the camera relatively to 3D shape:
 
 ``` java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 // ... set other 3D scene parameters
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
 ```
 
 ## 3D Depth and Extrusion
@@ -80,17 +89,15 @@ and **[IThreeDFormat.getExtrusionColor()](https://reference.aspose.com/slides/an
 are used to create extrusion on shape:
 
 ``` java
-IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.getThreeDFormat().getCamera().setRotation(20, 30, 40);
 shape.getThreeDFormat().setExtrusionHeight(100);
 shape.getThreeDFormat().getExtrusionColor().setColor(new Color(128, 0, 128));
 // ... set other 3D scene parameters
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
 ```
 
 In PowerPoint, Depth of the shape is set via:
@@ -101,32 +108,31 @@ In PowerPoint, Depth of the shape is set via:
 3D gradient can bring more volume to PowerPoint 3D shape:
 
 ``` java
-Presentation pres = new Presentation();
-try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
-    shape.getTextFrame().setText("3D");
-    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
- 
-    shape.getFillFormat().setFillType(FillType.Gradient);
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.BLUE);
-    shape.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.ORANGE);
- 
-    shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
-    shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
-    shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
-    shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-    shape.getThreeDFormat().setExtrusionHeight(150);
-    shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
- 
-    try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
-} finally {
-    if (pres != null) pres.dispose();
-}
+final float imageScale = 2;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+shape.getTextFrame().setText("3D");
+shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
+
+shape.getFillFormat().setFillType(FillType.Gradient);
+shape.getFillFormat().getGradientFormat().getGradientStops().add(0, Color.BLUE);
+shape.getFillFormat().getGradientFormat().getGradientStops().add(100, Color.ORANGE);
+
+shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.OrthographicFront);
+shape.getThreeDFormat().getCamera().setRotation(10, 20, 30);
+shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Flat);
+shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+shape.getThreeDFormat().setExtrusionHeight(150);
+shape.getThreeDFormat().getExtrusionColor().setColor(new Color(255, 140, 0));
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
+
+presentation.dispose();
 ```
 
 Thats how it looks like:
@@ -135,26 +141,18 @@ Thats how it looks like:
   
 You may also create an image gradient:
 ``` java
-shape.getFillFormat().setFillType(FillType.Picture);
-try {
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
-// .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("sample_3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
-```
+byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+IPPImage image = presentation.getImages().addImage(imageData);
 
+shape.getFillFormat().setFillType(FillType.Picture);
+shape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+// ... setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("sample_3d.png", ImageFormat.Png);
+thumbnail.dispose();
+```
 
 Here is the result:
 
@@ -163,46 +161,43 @@ Here is the result:
 ## 3D Text (WordArt)
 To create a 3D text (WordArt), do the following:
 ``` java
-Presentation pres = new Presentation();
-try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
- 
-    shape.getFillFormat().setFillType(FillType.NoFill);
-    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
-    shape.getTextFrame().setText("3D Text");
- 
-    Portion portion = (Portion)shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(new Color(255, 140, 0));
-    portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
-    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.LargeGrid);
- 
-    shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
- 
-    ITextFrame textFrame = shape.getTextFrame();
-    // setup "Arch Up" WordArt transform effect
-    textFrame.getTextFrameFormat().setTransform(TextShapeType.ArchUp);
- 
-    textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(3.5f);
-    textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
-    textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-    textFrame.getTextFrameFormat().getThreeDFormat().getLightRig().setRotation(0, 0, 40);
- 
-    textFrame.getTextFrameFormat().getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
- 
-try {
-        IImage slideImage = pres.getSlides().get_Item(0).getImage(2, 2);
-        slideImage.save("text3d.png", ImageFormat.Png);
-    } finally {
-             if (slideImage != null) slideImage.dispose();
-         }
- 
-    pres.save("text3d.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
+final float imageScale = 2;
+
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+shape.getFillFormat().setFillType(FillType.NoFill);
+shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+shape.getTextFrame().setText("3D Text");
+
+Portion portion = (Portion)shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+portion.getPortionFormat().getFillFormat().setFillType(FillType.Pattern);
+portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(new Color(255, 140, 0));
+portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(Color.WHITE);
+portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.LargeGrid);
+
+shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
+
+ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
+// set the "Arch Up" WordArt transform effect
+textFrameFormat.setTransform(TextShapeType.ArchUp);
+
+textFrameFormat.getThreeDFormat().setExtrusionHeight(3.5f);
+textFrameFormat.getThreeDFormat().setDepth(3);
+textFrameFormat.getThreeDFormat().setMaterial(MaterialPresetType.Plastic);
+textFrameFormat.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
+textFrameFormat.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
+textFrameFormat.getThreeDFormat().getLightRig().setRotation(0, 0, 40);
+
+textFrameFormat.getThreeDFormat().getCamera().setCameraType(CameraPresetType.PerspectiveContrastingRightFacing);
+
+IImage thumbnail = slide.getImage(imageScale, imageScale);
+thumbnail.save("text3d.png", ImageFormat.Png);
+thumbnail.dispose();
+
+presentation.save("text3d.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 Here is the result:

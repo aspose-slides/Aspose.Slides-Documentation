@@ -4,8 +4,16 @@ linktitle: Default Font
 type: docs
 weight: 30
 url: /net/default-font/
-keywords: "Fonts, default fonts, render presentation PowerPoint presentation C#, Csharp, Aspose.Slides for .NET"
-description: PowerPoint C# API lets you set the default font for rendering the presentation to PDF, XPS or thumbnails
+keywords: 
+- font
+- default font
+- render presentation
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: PowerPoint C# API lets you set the default font for rendering presentations to PDF, XPS or thumbnails
 ---
 
 ## **Using Default Fonts for Rendering Presentation**
@@ -21,22 +29,20 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 The implementation of the above is given below.
 
 ```c#
-// Use load options to define the default regualr and asian fonts// Use load options to define the default regualr and asian fonts
+// Use the load options to specify default regular and Asian fonts
 LoadOptions loadOptions = new LoadOptions(LoadFormat.Auto);
 loadOptions.DefaultRegularFont = "Wingdings";
 loadOptions.DefaultAsianFont = "Wingdings";
 
-// Load the presentation
 using (Presentation pptx = new Presentation("DefaultFonts.pptx", loadOptions))
 {
-    // Generate slide thumbnail
-    pptx.Slides[0].GetThumbnail(1, 1).Save("output_out.png", ImageFormat.Png);
+    using (IImage image = pptx.Slides[0].GetImage(1, 1))
+    {
+        image.Save("DefaultFonts_out.png", ImageFormat.Png);
+    }
 
-    // Generate PDF
-    pptx.Save("output_out.pdf", SaveFormat.Pdf);
-
-    // Generate XPS
-    pptx.Save("output_out.xps", SaveFormat.Xps);
+    pptx.Save("DefaultFonts_out.pdf", SaveFormat.Pdf);
+    pptx.Save("DefaultFonts_out.xps", SaveFormat.Xps);
 }
 ```
 

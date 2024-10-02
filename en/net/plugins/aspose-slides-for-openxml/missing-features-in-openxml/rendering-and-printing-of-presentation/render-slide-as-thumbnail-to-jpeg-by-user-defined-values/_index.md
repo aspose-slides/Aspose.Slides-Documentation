@@ -1,5 +1,5 @@
 ---
-title: Render Slide As Thumbnail to JPEG by User defined Values
+title: Render Slide as Thumbnail to JPEG by User Defined Values
 type: docs
 weight: 70
 url: /net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
@@ -14,45 +14,31 @@ To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
 1. Save the thumbnail image in any desired image format.
 
 ``` csharp
+string filePath = @"..\..\..\Sample Files\";
+string srcFileName = filePath + "User Defined Thumbnail.pptx";
+string destFileName = filePath + "User Defined Thumbnail.jpg";
 
- string FilePath = @"..\..\..\Sample Files\";
-
-string srcFileName = FilePath + "User Defined Thumbnail.pptx";
-
-string destFileName = FilePath + "User Defined Thumbnail.jpg";
-
-//Instantiate a Presentation class that represents the presentation file
-
+//Instantiate the Presentation class that represents the presentation file
 using (Presentation pres = new Presentation(srcFileName))
-
 {
+    //Access the first slide
+    ISlide sld = pres.Slides[0];
 
-//Access the first slide
+    //User defined dimension
+    int desiredX = 1200;
+    int desiredY = 800;
 
-ISlide sld = pres.Slides[0];
+    //Getting scaled value  of X and Y
+    float scaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
+    float scaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
 
-//User defined dimension
-
-int desiredX = 1200;
-
-int desiredY = 800;
-
-//Getting scaled value  of X and Y
-
-float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-
-float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-//Create a full scale image
-
-Bitmap bmp = sld.GetThumbnail(ScaleX, ScaleY);
-
-//Save the image to disk in JPEG format
-
-bmp.Save(destFileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-
+    //Create a full scale image
+    using (IImage image = sld.GetImage(scaleX, scaleY))
+    {
+        //Save the image to disk in JPEG format
+        image.Save(destFileName, ImageFormat.Jpeg);
+    }
 }
-
 ``` 
 ## **Download Sample Code**
 - [Codeplex](https://asposeslidesopenxml.codeplex.com/releases/view/619597)

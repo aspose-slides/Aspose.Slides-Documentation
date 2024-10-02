@@ -3,7 +3,22 @@ title: Convert PowerPoint to Word
 type: docs
 weight: 110
 url: /net/convert-powerpoint-to-word/
-keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Word, DOCX, DOC, PPTX to DOCX, PPT to DOC, PPTX to DOC, PPT to DOCX, C#, Csharp, .NET, Aspose.Slides"
+keywords:
+- Convert PowerPoint
+- PPT
+- PPTX
+- Presentation
+- Word
+- DOCX
+- DOC
+- PPTX to DOCX
+- PPT to DOC
+- PPTX to DOC
+- PPT to DOCX
+- C#
+- Csharp
+- .NET
+- Aspose.Slides
 description: "Convert PowerPoint Presentation to Word in C# or .NET "
 ---
 
@@ -30,41 +45,41 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for .NE
 
 1. Add these namespaces to your program.cs file:
 
-   ```c#
-   using System;
-   using System.Drawing.Imaging;
-   using System.IO;
-   using Aspose.Slides;
-   using Aspose.Words;
-   using SkiaSharp;
-   ```
+```c#
+using Aspose.Slides;
+using Aspose.Words;
+using System.IO;
+```
 
 2. Use this code snippet to convert the PowerPoint to Word:
 
-   ```c#
-   using var presentation = new Presentation();
-   var doc = new Document();
-   var builder = new DocumentBuilder(doc);
-   foreach (var slide in presentation.Slides)
-   {
-      // generates and inserts slide image
-      using var bitmap = slide.GetThumbnail(1, 1);
-      using var stream = new MemoryStream();
-      bitmap.Save(stream, ImageFormat.Png);
-      stream.Seek(0, SeekOrigin.Begin);
-      using var skBitmap = SKBitmap.Decode(stream);
-      builder.InsertImage(skBitmap);
-   
-      // inserts slide's texts
-      foreach (var shape in slide.Shapes)
-      {
-         if (shape is AutoShape autoShape)
-         {
+```c#
+using var presentation = new Presentation("sample.pptx");
+
+var doc = new Document();
+var builder = new DocumentBuilder(doc);
+
+foreach (var slide in presentation.Slides)
+{
+    // generates a slide image and saves it to a memory stream
+    using var image = slide.GetImage(1, 1);
+    using var imageStream = new MemoryStream();
+    image.Save(imageStream, ImageFormat.Png);
+
+    imageStream.Seek(0, SeekOrigin.Begin);
+    builder.InsertImage(imageStream.ToArray());
+
+    // inserts slide's texts
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is AutoShape autoShape)
+        {
             builder.Writeln(autoShape.TextFrame.Text);
-         }
-      }
-   
-      builder.InsertBreak(BreakType.PageBreak);
-   }
-   doc.Save("document.docx");
-   ```
+        }
+    }
+
+    builder.InsertBreak(BreakType.PageBreak);
+}
+
+doc.Save("output.docx");
+```

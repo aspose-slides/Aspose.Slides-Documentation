@@ -3,7 +3,19 @@ title: 3D Presentation
 type: docs
 weight: 232
 url: /net/3d-presentation/
-keywords: "3D, 3D PowerPoint, 3D presentation, 3D rotation, 3D depth, 3D extrusion, 3D gradient, 3D text, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords:
+- 3D
+- 3D PowerPoint
+- 3D presentation
+- 3D rotation
+- 3D depth
+- 3D extrusion
+- 3D gradient
+- 3D text
+- PowerPoint presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "3D PowerPoint presentation in C# or .NET"
 ---
 
@@ -40,22 +52,30 @@ Metal, Plastic, Powder, Matte, etc.
 
 All 3D features can be applied to both shapes and text. Let us see how to access the properties mentioned above and then look on them in details step by step:
 ``` csharp 
-using (Presentation pres = new Presentation())
+const float imageScale = 2;
+
+using (Presentation presentation = new Presentation())
 {
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
     shape.TextFrame.Text = "3D";
     shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
-    
+
     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
     shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    shape.ThreeDFormat.Material = MaterialPresetType.Flat; 
+    shape.ThreeDFormat.Material = MaterialPresetType.Flat;
     shape.ThreeDFormat.ExtrusionHeight = 100;
     shape.ThreeDFormat.ExtrusionColor.Color = Color.Blue;
-    
-    pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
-    pres.Save("sandbox_3d.pptx", SaveFormat.Pptx);
+
+    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
+    {
+        thumbnail.Save("sample_3d.png");
+    }
+
+    presentation.Save("sandbox_3d.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -71,10 +91,14 @@ It's possible to rotate PowerPoint 3D shapes in 3D plane, which brings more inte
 In Aspose.Slides API 3D shape rotation can be managed using [IThreeDFormat.Camera](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/camera) property:
 
 ``` csharp
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 // ... set other 3D scene parameters
-pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
+
+using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
+{
+    thumbnail.Save("sample_3d.png");
+}
 ```
 
 ## 3D Depth and Extrusion
@@ -82,12 +106,16 @@ To bring the third dimension to your shape and make it a 3D shape, use [IThreeDF
 and [IThreeDFormat.ExtrusionColor.Color](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/properties/extrusioncolor) properties:
 
 ``` csharp
-IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
+IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 200, 200);
 shape.ThreeDFormat.Camera.SetRotation(20, 30, 40);
 shape.ThreeDFormat.ExtrusionHeight = 100;
 shape.ThreeDFormat.ExtrusionColor.Color = Color.Purple;
 // ... set other 3D scene parameters
-pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
+
+using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
+{
+    thumbnail.Save("sample_3d.png");
+}
 ```
 
 Usually, you use Depth menu in PowerPoint to set Depth for PowerPoint 3D shape:
@@ -99,24 +127,31 @@ Usually, you use Depth menu in PowerPoint to set Depth for PowerPoint 3D shape:
 Gradient can be used to fill the color of PowerPoint 3D shape. Let us create a shape with gradient fill color and apply a 3D effect on it:
 
 ``` csharp
-using (Presentation pres = new Presentation())
+const float imageScale = 2;
+
+using (Presentation presentation = new Presentation())
 {
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
     shape.TextFrame.Text = "3D Gradient";
     shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 64;
 
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientStops.Add(0, Color.Blue);
     shape.FillFormat.GradientFormat.GradientStops.Add(100, Color.Orange);
-   
+    
     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
     shape.ThreeDFormat.Camera.SetRotation(10, 20, 30);
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Flat;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
     shape.ThreeDFormat.ExtrusionHeight = 150;
     shape.ThreeDFormat.ExtrusionColor.Color = Color.DarkOrange;
-   
-    pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
+
+    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
+    {
+        thumbnail.Save("sample_3d.png");
+    }
 }
 ```
 
@@ -126,13 +161,19 @@ And here is the result:
 
 Except a gradient fill color, its possible to fill shapes with an image:
 ``` csharp
-shape.FillFormat.FillType = FillType.Picture;
-shape.FillFormat.PictureFillFormat.Picture.Image = pres.Images.AddImage(File.ReadAllBytes("image.jpg"));
-shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
-// .. setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
-pres.Slides[0].GetThumbnail(2, 2).Save("sample_3d.png");
-```
+byte[] imageData = File.ReadAllBytes("image.jpg");
+IPPImage image = presentation.Images.AddImage(imageData);
 
+shape.FillFormat.FillType = FillType.Picture;
+shape.FillFormat.PictureFillFormat.Picture.Image = image;
+shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+// ... setup 3D: shape.ThreeDFormat.Camera, shape.ThreeDFormat.LightRig, shape.ThreeDFormat.Extrusion* properties
+
+using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
+{
+    thumbnail.Save("sample_3d.png");
+}
+```
 
 That's how it looks like:
 
@@ -142,36 +183,44 @@ That's how it looks like:
 Aspose.Slides allows to apply 3D on text too. For creating a 3D text its possible to use WordArt transform effect:
 
 ``` csharp
-using (Presentation pres = new Presentation())
+const float imageScale = 2;
+
+using (Presentation presentation = new Presentation())
 {
-    IAutoShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 150, 250, 250);
     shape.FillFormat.FillType = FillType.NoFill;
     shape.LineFormat.FillFormat.FillType = FillType.NoFill;
     shape.TextFrame.Text = "3D Text";
-   
+
     Portion portion = (Portion)shape.TextFrame.Paragraphs[0].Portions[0];
     portion.PortionFormat.FillFormat.FillType = FillType.Pattern;
     portion.PortionFormat.FillFormat.PatternFormat.ForeColor.Color = Color.DarkOrange;
     portion.PortionFormat.FillFormat.PatternFormat.BackColor.Color = Color.White;
     portion.PortionFormat.FillFormat.PatternFormat.PatternStyle = PatternStyle.LargeGrid;
-   
+
     shape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 128;
-   
-    ITextFrame textFrame = shape.TextFrame;
-    // setup "Arch Up" WordArt transform effect
-    textFrame.TextFrameFormat.Transform = TextShapeType.ArchUp;
 
-    textFrame.TextFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
-    textFrame.TextFrameFormat.ThreeDFormat.Depth = 3;
-    textFrame.TextFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    textFrame.TextFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+    ITextFrameFormat textFrameFormat = shape.TextFrame.TextFrameFormat;
+    // set the "Arch Up" WordArt transform effect
+    textFrameFormat.Transform = TextShapeType.ArchUp;
 
-    textFrame.TextFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
-   
-    pres.Slides[0].GetThumbnail(2, 2).Save("text3d.png");
-    pres.Save("text3d.pptx", SaveFormat.Pptx);
+    textFrameFormat.ThreeDFormat.ExtrusionHeight = 3.5f;
+    textFrameFormat.ThreeDFormat.Depth = 3;
+    textFrameFormat.ThreeDFormat.Material = MaterialPresetType.Plastic;
+    textFrameFormat.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    textFrameFormat.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
+    textFrameFormat.ThreeDFormat.LightRig.SetRotation(0, 0, 40);
+
+    textFrameFormat.ThreeDFormat.Camera.CameraType = CameraPresetType.PerspectiveContrastingRightFacing;
+
+    using (IImage thumbnail = slide.GetImage(imageScale, imageScale))
+    {
+        thumbnail.Save("text3d.png");
+    }
+
+    presentation.Save("text3d.pptx", SaveFormat.Pptx);
 }
 ```
 

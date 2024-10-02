@@ -3,8 +3,13 @@ title: Presentation Viewer
 type: docs
 weight: 50
 url: /cpp/presentation-viewer/
-keywords: "PowerPoint PPT Viewer"
-description: "PowerPoint PPT Viewer in C++"
+keywords: 
+- view PowerPoint presentation
+- view ppt
+- view PPTX
+- C++
+- Aspose.Slides for C++
+description: "View PowerPoint presentation in C++"
 ---
 
 ## **Generate SVG Image from Slide**
@@ -32,7 +37,20 @@ Aspose.Slides for C++ is used to create presentation files containing slides. Th
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-RenderSlides-ThumbnailFromSlide.cpp" >}}
+```cpp
+// Instantiate the Presentation class
+auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlide.pptx");
+
+// Access the first slide
+auto slide = presentation->get_Slide(0);
+
+// Create a full scale image
+auto image = slide->GetImage(1, 1);
+image->Save(u"Thumbnail_out.jpg", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
 
 ## **Create Thumbnail with User Defined Dimensions**
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
@@ -40,7 +58,30 @@ Aspose.Slides for C++ is used to create presentation files containing slides. Th
 1. Get the thumbnail image of the referenced slide on a specified scale.
 1. Save the thumbnail image in any desired image format.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ThumbnailWithUserDefinedDimensions-ThumbnailWithUserDefinedDimensions.cpp" >}}
+```cpp
+// Instantiate the Presentation class
+auto presentation = MakeObject<Presentation>(u"ThumbnailWithUserDefinedDimensions.pptx");
+
+// Access the first slide
+auto slide = presentation->get_Slide(0);
+
+// User defined dimension
+auto desiredX = 1200;
+auto desiredY = 800;
+
+auto slideSize = presentation->get_SlideSize()->get_Size();
+
+// Getting scaled value of X and Y
+auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
+auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
+
+// Create a custom scale image
+auto image = slide->GetImage(scaleX, scaleY);
+image->Save(u"Thumbnail2_out.jpg", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
 
 ## **Create Thumbnail from Slide in Notes Slides View**
 To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for C++:
@@ -52,4 +93,27 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
-{{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-ThumbnailFromSlideInNotes-ThumbnailFromSlideInNotes.cpp" >}}
+```cpp
+// Instantiate the Presentation class
+auto presentation = MakeObject<Presentation>(u"ThumbnailFromSlideInNotes.pptx");
+
+// Access the first slide
+auto slide = presentation->get_Slide(0);
+
+// User defined dimension
+auto desiredX = 1200;
+auto desiredY = 800;
+
+auto slideSize = presentation->get_SlideSize()->get_Size();
+
+// Getting scaled value of X and Y
+auto scaleX = (float)(1.0 / slideSize.get_Width()) * desiredX;
+auto scaleY = (float)(1.0 / slideSize.get_Height()) * desiredY;
+
+// Create a full scale image
+auto image = slide->GetImage(scaleX, scaleY);
+image->Save(u"Notes_tnail_out.jpg", ImageFormat::Png);
+image->Dispose();
+
+presentation->Dispose();
+```
