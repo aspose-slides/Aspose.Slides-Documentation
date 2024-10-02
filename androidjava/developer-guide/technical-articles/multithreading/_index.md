@@ -29,44 +29,53 @@ Let's say we want to convert all the slides from a PowerPoint presentation to PN
 
 ```java
 String inputFilePath = "sample.pptx";
-String outputFilePathTemplate = "slide_%d.png";
+final String outputFilePathTemplate = "slide_%d.png";
 final float imageScale = 2;
 
 Presentation presentation = new Presentation(inputFilePath);
 
 int slideCount = presentation.getSlides().size();
-Dimension2D slideSize = presentation.getSlideSize().getSize();
+SizeF slideSize = presentation.getSlideSize().getSize();
 float slideWidth = (float) slideSize.getWidth();
 float slideHeight = (float) slideSize.getHeight();
 
-List<CompletableFuture<Void>> conversionTasks = new ArrayList<>(slideCount);
+List<Thread> threads = new ArrayList<Thread>(slideCount);
 
 for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
-    // Extract slide i into a separate presentation.
-    Presentation slidePresentation = new Presentation();
-    slidePresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.DoNotScale);
-    slidePresentation.getSlides().removeAt(0);
-    slidePresentation.getSlides().addClone(presentation.getSlides().get_Item(slideIndex));
+	// Extract slide i into a separate presentation.
+	final Presentation slidePresentation = new Presentation();
+	slidePresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.DoNotScale);
+	slidePresentation.getSlides().removeAt(0);
+	slidePresentation.getSlides().addClone(presentation.getSlides().get_Item(slideIndex));
 
-    // Convert the slide to an image in a separate task.
-    final int slideNumber = slideIndex + 1;
-    conversionTasks.add(CompletableFuture.runAsync(() -> {
-        IImage image = null;
-        try {
-            ISlide slide = slidePresentation.getSlides().get_Item(0);
+	// Convert the slide to an image in a separate task.
+	final int slideNumber = slideIndex + 1;
+	threads.add(new Thread(new Runnable() {
+		@Override
+		public void run() {
+			IImage image = null;
+			try {
+				ISlide slide = slidePresentation.getSlides().get_Item(0);
 
-            image = slide.getImage(imageScale, imageScale);
-            String imageFilePath = String.format(outputFilePathTemplate, slideNumber);
-            image.save(imageFilePath, ImageFormat.Png);
-        } finally {
-            if (image != null) image.dispose();
-            slidePresentation.dispose();
-        }
-    }));
+				image = slide.getImage(imageScale, imageScale);
+				String imageFilePath = String.format(outputFilePathTemplate, slideNumber);
+				image.save(imageFilePath, ImageFormat.Png);
+			} finally {
+				if (image != null) image.dispose();
+				slidePresentation.dispose();
+			}
+		}
+	}));
 }
 
 // Wait for all tasks to complete.
-CompletableFuture.allOf(conversionTasks.toArray(new CompletableFuture[0])).join();
+try {
+	for (Thread t : threads) {
+		t.join();
+	}
+} catch (InterruptedException e) {
+	e.printStackTrace();
+}
 
 presentation.dispose();
 ```
