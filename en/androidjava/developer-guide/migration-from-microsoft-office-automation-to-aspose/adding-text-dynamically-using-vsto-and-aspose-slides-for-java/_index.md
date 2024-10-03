@@ -23,7 +23,7 @@ The code snippets below results in a presentation with a plain slide and a strin
 
 **The presentation as created in VSTO** 
 
-![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_1.png)
+![todo:image_alt_text](pic_1.png)
 
 {{< gist "aspose-com-gists" "a56eda38c01ad33dc653116c7bae4293" "Examples-CSharp-VSTO-AddTextBoxVSTO-AddTextBoxVSTO.cs" >}}
 ## **Aspose.Slides for Android via Java Example**
@@ -31,6 +31,6 @@ The code snippets below use Aspose.Slides to create a presentation with a plain 
 
 **The presentation as created using Aspose.Slides for Android via Java**
 
-![todo:image_alt_text](adding-text-dynamically-using-vsto-and-aspose-slides-for-java_2.png)
+![todo:image_alt_text](pic_2.png)
 
 {{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Text-AddTextBox-AddTextBox.java" >}}
