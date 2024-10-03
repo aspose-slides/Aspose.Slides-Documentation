@@ -100,7 +100,7 @@ int alpha = 150, red = 200, green = 200, blue = 200;
 
 IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 fillFormat.setFillType(FillType.Solid);
-fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+fillFormat.getSolidFillColor().setColor(Color.argb(red, green, blue, alpha));
 ```
 
 ### **Center a Text Watermark**
@@ -108,7 +108,7 @@ fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
 It is possible to center the watermark on a slide, and for that, you can do the following:
 
 ```java
-Dimension2D slideSize = presentation.getSlideSize().getSize();
+SizeF slideSize = presentation.getSlideSize().getSize();
 
 float watermarkWidth = 400;
 float watermarkHeight = 40;
