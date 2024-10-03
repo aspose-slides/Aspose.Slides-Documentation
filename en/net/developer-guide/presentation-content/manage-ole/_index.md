@@ -17,7 +17,7 @@ keywords:
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: "Add OLE objects to PowerPoint presentations in C# or .NET"
+description: Add OLE objects to PowerPoint presentations in C# or .NET
 ---
 
 {{% alert title="Info" color="info" %}}
@@ -295,7 +295,7 @@ using (Presentation pres = new Presentation("embeddedOle.pptx"))
 
 ## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
 
-After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `UpdateAutomatic` property of the `OleObjectFrame` to `false`:
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `UpdateAutomatic` property of the [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) interface to `false`:
 
 ```cs
 oleObjectFrame.UpdateAutomatic = false;
