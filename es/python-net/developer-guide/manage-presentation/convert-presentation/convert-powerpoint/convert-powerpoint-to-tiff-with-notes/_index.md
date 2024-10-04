@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a TIFF con Notas
 type: docs
 weight: 100
-url: /python-net/convert-powerpoint-to-tiff-with-notes/
+url: /es/python-net/convert-powerpoint-to-tiff-with-notes/
 keywords: "Convertir PowerPoint a TIFF con notas"
 description: "Convertir PowerPoint a TIFF con notas en Aspose.Slides."
 ---

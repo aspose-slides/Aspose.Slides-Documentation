@@ -2,7 +2,7 @@
 title: Renderizar Diapositivas Como Imágenes SVG
 type: docs
 weight: 50
-url: /net/render-slide-as-svg-image/
+url: /es/net/render-slide-as-svg-image/
 ---
 
 SVG—un acrónimo para Gráficos Vectoriales Escalables—es un tipo o formato estándar de gráficos utilizado para renderizar imágenes bidimensionales. SVG almacena imágenes como vectores en XML con detalles que definen su comportamiento o apariencia. 

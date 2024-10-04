@@ -2,7 +2,7 @@
 title: Manipulaciones de Formas
 type: docs
 weight: 40
-url: /python-net/shape-manipulations/
+url: /es/python-net/shape-manipulations/
 keywords: "forma de PowerPoint, forma en la diapositiva, encontrar forma, clonar forma, eliminar forma, ocultar forma, cambiar orden de forma, obtener ID de forma interop, texto alternativo de forma, formatos de diseño de forma, forma como SVG, alinear forma, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Manipular formas de PowerPoint en Python"
 ---

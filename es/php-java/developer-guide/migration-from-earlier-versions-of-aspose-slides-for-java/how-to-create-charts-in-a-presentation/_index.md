@@ -2,7 +2,7 @@
 title: Cómo Crear Gráficos en una Presentación
 type: docs
 weight: 30
-url: /php-java/how-to-create-charts-in-a-presentation/
+url: /es/php-java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

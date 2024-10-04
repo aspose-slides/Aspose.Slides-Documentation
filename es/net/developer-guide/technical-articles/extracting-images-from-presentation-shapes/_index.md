@@ -2,7 +2,7 @@
 title: Extracción de imágenes de formas de presentación
 type: docs
 weight: 90
-url: /net/extracting-images-from-presentation-shapes/
+url: /es/net/extracting-images-from-presentation-shapes/
 keywords: "Extraer imagen, PowerPoint, PPT, PPTX, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Extraer imágenes de la presentación de PowerPoint en C# o .NET"
 ---

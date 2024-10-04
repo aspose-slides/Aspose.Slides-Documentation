@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /net/watermark/
+url: /es/net/watermark/
 keywords: "Marca de agua, añadir marca de agua, marca de agua de texto, marca de agua de imagen, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Añadir marcas de agua de texto e imagen a la presentación de PowerPoint en C# o .NET"
 ---
@@ -43,7 +43,7 @@ Para añadir una marca de agua de texto en PPT, PPTX o ODP puedes primero agrega
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/net/slide-master/)[TextFrame](/slides/net/adding-and-formatting-text/)
+- [Cómo usar ](/slides/es/net/slide-master/)[TextFrame](/slides/es/net/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Añadir Marca de Agua de Texto a la Presentación**
@@ -72,7 +72,7 @@ objeto y luego añade la marca de agua en él con el
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/net/slide-master/)[Slide Master](/slides/net/slide-master/)
+- [Cómo usar ](/slides/es/net/slide-master/)[Slide Master](/slides/es/net/slide-master/)
 {{% /alert %}}
 
 ### **Establecer Fuente de la Marca de Agua de Texto**
@@ -176,7 +176,7 @@ watermarkShape.ShapeLock.GroupingLocked = true;
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo bloquear formas de la edición](/slides/net/presentation-locking/)
+- [Cómo bloquear formas de la edición](/slides/es/net/presentation-locking/)
 {{% /alert %}}
 
 ## **Traer la Marca de Agua al Frente**

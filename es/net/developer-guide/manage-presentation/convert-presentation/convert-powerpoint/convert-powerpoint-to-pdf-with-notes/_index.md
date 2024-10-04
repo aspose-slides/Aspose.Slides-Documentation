@@ -3,7 +3,7 @@ title: Convertir PowerPoint a PDF con Notas en C#
 linktitle: Convertir PowerPoint a PDF con Notas
 type: docs
 weight: 50
-url: /net/convert-powerpoint-to-pdf-with-notes/
+url: /es/net/convert-powerpoint-to-pdf-with-notes/
 keywords: "convertir PowerPoint, Presentación, PowerPoint a PDF, notas, c#, csharp, .NET, Aspose.Slides"
 description: "Convertir PowerPoint a PDF con notas con C# o .NET"
 ---

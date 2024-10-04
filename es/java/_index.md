@@ -4,7 +4,7 @@ second_title: Documentación de Aspose.Slides
 description: Aspose.Slides para Java es el primer y único componente que proporciona la funcionalidad para gestionar documentos de PowerPoint®. Aspose.Slides para Java ofrece muchas características clave, como la gestión de texto, formas, exportación de diapositivas a SVG, PDF y otros formatos.
 type: docs
 weight: 20
-url: /java/
+url: /es/java/
 is_root: true
 ---
 
@@ -22,14 +22,14 @@ Aspose.Slides para Java es una API de gestión de Microsoft PowerPoint® que per
 
 Estos son enlaces a recursos útiles:
 
-- [Documentación en línea de Aspose.Slides para Java](/slides/java/)
-- [Características de Aspose.Slides para Java](/slides/java/features-overview/)
-- [Limitaciones de Aspose.Slides para Java](/slides/java/known-issues/)
+- [Documentación en línea de Aspose.Slides para Java](/slides/es/java/)
+- [Características de Aspose.Slides para Java](/slides/es/java/features-overview/)
+- [Limitaciones de Aspose.Slides para Java](/slides/es/java/known-issues/)
 - [Notas de la versión de Aspose.Slides para Java](https://releases.aspose.com/slides/java/release-notes/)
 - [Página del producto Aspose.Slides para Java](https://products.aspose.com/slides/java/)
 - [Descargar Aspose.Slides para Java](https://releases.aspose.com/slides/java/)
 - [Repositorio de Maven de Aspose.Slides para Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Instalar Aspose.Slides para Java desde el repositorio de Maven](/slides/java/installation/)
+- [Instalar Aspose.Slides para Java desde el repositorio de Maven](/slides/es/java/installation/)
 - [Guía de referencia de la API de Aspose.Slides para Java](https://reference.aspose.com/slides/java)
 - [Descargar ejemplos de un repositorio de GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
 - [Foro de soporte gratuito de Aspose.Slides para Java](https://forum.aspose.com/c/slides/11)

@@ -2,5 +2,5 @@
 title: Fuentes de PowerPoint
 type: docs
 weight: 30
-url: /python-net/powerpoint-fonts/
+url: /es/python-net/powerpoint-fonts/
 ---

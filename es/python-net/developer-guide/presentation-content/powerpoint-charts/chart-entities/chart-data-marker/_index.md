@@ -1,7 +1,7 @@
 ---
 title: Marcador de Datos de Gráfico
 type: docs
-url: /python-net/chart-data-marker/
+url: /es/python-net/chart-data-marker/
 keywords: "Opciones de marcador de gráfico, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Configurar opciones de marcador de gráfico en presentaciones de PowerPoint en Python"
 ---

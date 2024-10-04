@@ -2,7 +2,7 @@
 title: Porción
 type: docs
 weight: 70
-url: /androidjava/portion/
+url: /es/androidjava/portion/
 ---
 
 ## **Obtener coordenadas de posición de la porción**

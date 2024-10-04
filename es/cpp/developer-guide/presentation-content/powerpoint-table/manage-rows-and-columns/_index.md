@@ -2,7 +2,7 @@
 title: Gestionar Filas y Columnas
 type: docs
 weight: 20
-url: /cpp/manage-rows-and-columns/
+url: /es/cpp/manage-rows-and-columns/
 keywords: "Tabla, filas y columnas de tabla, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Gestionar filas y columnas de tablas en presentaciones de PowerPoint en C++"
 

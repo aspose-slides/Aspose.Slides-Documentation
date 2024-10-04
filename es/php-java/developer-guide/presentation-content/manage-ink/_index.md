@@ -2,7 +2,7 @@
 title: Administrar Tinta
 type: docs
 weight: 95
-url: /php-java/manage-ink/
+url: /es/php-java/manage-ink/
 keywords: "Tinta en PowerPoint, herramientas de tinta, Java Ink, Dibujar en PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Utiliza herramientas de tinta para dibujar objetos en PowerPoint Java"
 ---

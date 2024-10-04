@@ -2,7 +2,7 @@
 title: Formato de Presentación
 type: docs
 weight: 10
-url: /python-net/presentation-format/
+url: /es/python-net/presentation-format/
 ---
 
 Aspose.Slides para Python a través de .NET proporciona la clase [**PresentationFactory**](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/) que se utiliza para obtener el formato de presentación incluso antes de cargarlo.

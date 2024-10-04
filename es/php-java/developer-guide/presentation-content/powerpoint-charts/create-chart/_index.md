@@ -3,7 +3,7 @@ title: Crear o Actualizar Gráficos en Presentaciones de PowerPoint
 linktitle: Crear Gráfico
 type: docs
 weight: 10
-url: /php-java/create-chart/
+url: /es/php-java/create-chart/
 keywords: "Crear gráfico, gráfico disperso, gráfico circular, gráfico de mapa de árbol, gráfico de acciones, gráfico de caja y bigote, gráfico de histograma, gráfico de embudo, gráfico de estallido solar, gráfico multiclase, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Crear gráfico en presentación de PowerPoint"
 ---

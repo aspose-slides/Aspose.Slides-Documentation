@@ -2,18 +2,18 @@
 title: Encabezado y pie de página de presentación
 type: docs
 weight: 140
-url: /net/presentation-header-and-footer/
+url: /es/net/presentation-header-and-footer/
 keywords: "Encabezado, pie de página, establecer encabezado, establecer pie de página, establecer encabezado y pie de página, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Encabezado y pie de página de PowerPoint en C# o .NET"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/net/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que se mantienen en el nivel de maestro de diapositiva.
+[Aspose.Slides](/slides/es/net/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que se mantienen en el nivel de maestro de diapositiva.
 
 {{% /alert %}} 
 
-[Aspose.Slides para .NET](/slides/net/) proporciona la funcionalidad para gestionar encabezados y pies de página dentro de las diapositivas de presentación. De hecho, estos se gestionan a nivel de maestro de presentación.
+[Aspose.Slides para .NET](/slides/es/net/) proporciona la funcionalidad para gestionar encabezados y pies de página dentro de las diapositivas de presentación. De hecho, estos se gestionan a nivel de maestro de presentación.
 ## **Gestionar texto de Encabezado y Pie de Página**
 Las notas de una diapositiva específica podrían ser actualizadas como se muestra en el siguiente ejemplo:
 

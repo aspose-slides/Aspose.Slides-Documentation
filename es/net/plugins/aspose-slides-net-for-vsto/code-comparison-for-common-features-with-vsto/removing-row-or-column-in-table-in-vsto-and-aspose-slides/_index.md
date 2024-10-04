@@ -2,7 +2,7 @@
 title: Eliminación de fila o columna en la tabla en VSTO y Aspose.Slides
 type: docs
 weight: 130
-url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
+url: /es/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

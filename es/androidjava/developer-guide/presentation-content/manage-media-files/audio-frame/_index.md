@@ -2,7 +2,7 @@
 title: Marco de Audio
 type: docs
 weight: 10
-url: /androidjava/audio-frame/
+url: /es/androidjava/audio-frame/
 keywords: "Agregar audio, Marco de audio, Propiedades de audio, Extraer audio, Java, Aspose.Slides para Android a través de Java"
 description: "Agregar audio a la presentación de PowerPoint en Java"
 ---

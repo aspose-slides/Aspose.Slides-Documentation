@@ -3,7 +3,7 @@ title: Convertir PPT a PPTX en Java
 linktitle: Convertir PPT a PPTX
 type: docs
 weight: 20
-url: /androidjava/convert-ppt-to-pptx/
+url: /es/androidjava/convert-ppt-to-pptx/
 keywords: "Java Convertir PPT a PPTX, PowerPoint PPT a PPTX en Java"
 description: "Convertir PowerPoint PPT a PPTX en Java."
 ---
@@ -47,7 +47,7 @@ Encuentre otros ejemplos en vivo de [**Conversión de Aspose.Slides**](https://p
 {{% /alert %}} 
 
 ## **Convertir PPT a PPTX**
-Aspose.Slides para Android a través de Java ahora facilita a los desarrolladores acceder al PPT utilizando la instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) y convertir eso al respectivo formato [PPTX](https://docs.fileformat.com/presentation/pptx/). Actualmente, admite la conversión parcial de [PPT ](https://docs.fileformat.com/presentation/ppt/)a PPTX. Para obtener más detalles sobre qué características son soportadas y no soportadas en la conversión de PPT a PPTX, por favor proceda a este enlace de documentación [link](/slides/androidjava/ppt-to-pptx-conversion/).
+Aspose.Slides para Android a través de Java ahora facilita a los desarrolladores acceder al PPT utilizando la instancia de la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) y convertir eso al respectivo formato [PPTX](https://docs.fileformat.com/presentation/pptx/). Actualmente, admite la conversión parcial de [PPT ](https://docs.fileformat.com/presentation/ppt/)a PPTX. Para obtener más detalles sobre qué características son soportadas y no soportadas en la conversión de PPT a PPTX, por favor proceda a este enlace de documentación [link](/slides/es/androidjava/ppt-to-pptx-conversion/).
 
 Aspose.Slides para Android a través de Java ofrece la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) que representa un archivo de presentación **PPTX**. La clase Presentation ahora también puede acceder a **PPT** a través de Presentation cuando el objeto está instanciado. El siguiente ejemplo muestra cómo convertir una presentación PPT en presentación PPTX.
 

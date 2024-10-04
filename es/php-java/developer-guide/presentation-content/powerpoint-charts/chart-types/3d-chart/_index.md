@@ -1,7 +1,7 @@
 ---
 title: Gráfico 3D
 type: docs
-url: /php-java/3d-chart/
+url: /es/php-java/3d-chart/
 ---
 
 ## **Establecer las propiedades RotationX, RotationY y DepthPercents del Gráfico 3D**

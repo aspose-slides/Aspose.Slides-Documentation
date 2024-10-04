@@ -2,7 +2,7 @@
 title: Descripción general de características
 type: docs
 weight: 10
-url: /php-java/features-overview/
+url: /es/php-java/features-overview/
 ---
 
 ## **Plataformas Soportadas**
@@ -18,11 +18,11 @@ Aspose.Slides para PHP a través de Java soporta la mayoría de los formatos de 
 
 |**Característica**|**Descripción**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/php-java/microsoft-powerpoint-ppt/)|Aspose.Slides para PHP a través de Java proporciona el procesamiento más rápido para este formato de documento de presentación.|
-|[PresentationML (PPTX, XML)](/slides/php-java/presentationml-pptx-xml/)|Aspose.Slides para PHP a través de Java soporta el procesamiento del formato de presentación OOXML (también conocido como PresentationML o PPTX).|
-|[Conversión de PPT a PPTX](/slides/php-java/ppt-to-pptx-conversion/)|Aspose.Slides para PHP a través de Java soporta la conversión de PPT a PPTX.|
-|[Formato de Documento Portátil (PDF)](/slides/php-java/developer-guide/)|Los formatos de archivo soportados se pueden exportar a documentos en formato de Documento Portátil de Adobe (PDF) con un solo método.|
-|[Especificación de Parser XML (XPS)](/slides/php-java/xml-parser-specification-xps/)|Todos los formatos de archivo soportados se pueden exportar a documentos de Especificación de Parser XML (XPS) con un solo método.|
+|[Microsoft PowerPoint (PPT)](/slides/es/php-java/microsoft-powerpoint-ppt/)|Aspose.Slides para PHP a través de Java proporciona el procesamiento más rápido para este formato de documento de presentación.|
+|[PresentationML (PPTX, XML)](/slides/es/php-java/presentationml-pptx-xml/)|Aspose.Slides para PHP a través de Java soporta el procesamiento del formato de presentación OOXML (también conocido como PresentationML o PPTX).|
+|[Conversión de PPT a PPTX](/slides/es/php-java/ppt-to-pptx-conversion/)|Aspose.Slides para PHP a través de Java soporta la conversión de PPT a PPTX.|
+|[Formato de Documento Portátil (PDF)](/slides/es/php-java/developer-guide/)|Los formatos de archivo soportados se pueden exportar a documentos en formato de Documento Portátil de Adobe (PDF) con un solo método.|
+|[Especificación de Parser XML (XPS)](/slides/es/php-java/xml-parser-specification-xps/)|Todos los formatos de archivo soportados se pueden exportar a documentos de Especificación de Parser XML (XPS) con un solo método.|
 |[Formato de Archivo de Imagen Etiquetada (TIFF)](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-tiff/)|Los formatos de archivo de presentación soportados por Aspose.Slides para PHP a través de Java también se pueden exportar a Formato de Archivo de Imagen Etiquetada (TIFF).|
 |[Conversión de ODP a PPTX](https://docs.aspose.com/slides/php-java/convert-odp-to-pptx/)|Aspose.Slides para PHP a través de Java soporta la carga de Presentación OpenDocument (ODP) y la conversión a PPTX.|
 |[Conversión de Presentación a HTML](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-html/)|Aspose.Slides para PHP a través de Java soporta la conversión de PresentationEx a formato HTML.|

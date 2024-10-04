@@ -2,7 +2,7 @@
 title: Solución Funcionante para el Redimensionamiento de Gráficos en PPTX
 type: docs
 weight: 60
-url: /net/working-solution-for-chart-resizing-in-pptx/
+url: /es/net/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Se ha observado que los Gráficos de Excel incrustados como OLE en una Presentac
 
 {{% /alert %}} 
 ## **Antecedentes**
-En [artículo anterior](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) , hemos explicado cómo crear un Gráfico de Excel usando Aspose.Cells para .NET y luego incrustar este gráfico en una Presentación de PowerPoint usando Aspose.Slides para .NET. Para acomodar el [problema de objeto cambiado](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) , asignamos la imagen del gráfico al Marco de Objeto OLE del Gráfico. En la presentación de salida, cuando hacemos doble clic en el Marco de Objeto OLE que muestra la Imagen del Gráfico, el Gráfico de Excel se activa. Los usuarios finales pueden hacer cualquier cambio deseado en el Libro de Trabajo de Excel real y luego regresar a la Diapositiva correspondiente haciendo clic fuera del Libro de Trabajo de Excel activado. El tamaño del Marco de Objeto OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento será diferente para diferentes tamaños de Marco de Objeto OLE y Libro de Trabajo de Excel incrustado. 
+En [artículo anterior](/slides/es/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) , hemos explicado cómo crear un Gráfico de Excel usando Aspose.Cells para .NET y luego incrustar este gráfico en una Presentación de PowerPoint usando Aspose.Slides para .NET. Para acomodar el [problema de objeto cambiado](/slides/es/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) , asignamos la imagen del gráfico al Marco de Objeto OLE del Gráfico. En la presentación de salida, cuando hacemos doble clic en el Marco de Objeto OLE que muestra la Imagen del Gráfico, el Gráfico de Excel se activa. Los usuarios finales pueden hacer cualquier cambio deseado en el Libro de Trabajo de Excel real y luego regresar a la Diapositiva correspondiente haciendo clic fuera del Libro de Trabajo de Excel activado. El tamaño del Marco de Objeto OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento será diferente para diferentes tamaños de Marco de Objeto OLE y Libro de Trabajo de Excel incrustado. 
 ## **Causa del Redimensionamiento**
 Dado que el Libro de Trabajo de Excel tiene su propio tamaño de ventana, intenta mantener su tamaño original en la primera activación. Por otro lado, el Marco de Objeto OLE tendrá su propio tamaño. Según Microsoft, en la activación del Libro de Trabajo de Excel, Excel y PowerPoint negocian el tamaño y se aseguran de que esté en las proporciones correctas como parte de la operación de incrustación. Basado en las diferencias en el tamaño de la ventana de Excel y el tamaño / posición del Marco de Objeto OLE, ocurre el redimensionamiento. 
 ## **Solución Funcionante**
@@ -158,6 +158,6 @@ Existen dos enfoques para solucionar el problema de redimensionamiento del gráf
 
 {{% /alert %}} 
 ## **Secciones Relacionadas**
-[Creando e Incrustando un Gráfico de Excel como Objeto OLE en la Presentación](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Creando e Incrustando un Gráfico de Excel como Objeto OLE en la Presentación](/slides/es/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Actualizando Objetos OLE automáticamente](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Actualizando Objetos OLE automáticamente](/slides/es/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

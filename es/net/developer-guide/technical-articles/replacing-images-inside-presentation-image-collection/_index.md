@@ -2,7 +2,7 @@
 title: Reemplazar Imágenes dentro de la Colección de Imágenes de la Presentación
 type: docs
 weight: 110
-url: /net/replacing-images-inside-presentation-image-collection/
+url: /es/net/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Por Qué No Automatización
 type: docs
 weight: 50
-url: /java/why-not-automation/
+url: /es/java/why-not-automation/
 ---
 
 {{% alert color="primary" %}} 

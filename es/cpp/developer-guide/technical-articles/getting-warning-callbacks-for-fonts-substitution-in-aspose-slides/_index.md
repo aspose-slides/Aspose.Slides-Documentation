@@ -2,7 +2,7 @@
 title: Obtención de Callbacks de Advertencia para la Sustitución de Fuentes en Aspose.Slides
 type: docs
 weight: 70
-url: /cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /es/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

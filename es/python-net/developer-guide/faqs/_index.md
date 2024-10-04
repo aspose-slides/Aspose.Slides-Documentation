@@ -2,7 +2,7 @@
 title: Preguntas Frecuentes
 type: docs
 weight: 340
-url: /python-net/faqs/
+url: /es/python-net/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **P: ¿Qué formatos de archivo soporta Aspose.Slides para Python a través de .NET?**
 
-**R**: Aspose.Slides para Python a través de .NET soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/python-net/supported-file-formats/).
+**R**: Aspose.Slides para Python a través de .NET soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/es/python-net/supported-file-formats/).
 
 ## **Excepciones**
 
@@ -54,7 +54,7 @@ En general, Aspose.Slides para Python a través de .NET puede manejar fácilment
 
 **P: ¿Por qué los tamaños de párrafo son diferentes en sistemas operativos Windows y Linux?**
 
-**R**: El cálculo de los tamaños de párrafo se basa en el tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza con la fuente más similar, pero esta fuente tiene métricas diferentes de las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas llevará a resultados distintos dependiendo del conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, necesitas instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/python-net/custom-font/).
+**R**: El cálculo de los tamaños de párrafo se basa en el tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza con la fuente más similar, pero esta fuente tiene métricas diferentes de las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas llevará a resultados distintos dependiendo del conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, necesitas instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/es/python-net/custom-font/).
 
 ## **Formateo e Imágenes**
 

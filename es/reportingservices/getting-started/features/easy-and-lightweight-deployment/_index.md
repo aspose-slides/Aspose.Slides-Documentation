@@ -2,7 +2,7 @@
 title: Implementación Fácil y Ligera
 type: docs
 weight: 50
-url: /reportingservices/easy-and-lightweight-deployment/
+url: /es/reportingservices/easy-and-lightweight-deployment/
 ---
 
 {{% alert color="primary" %}} 

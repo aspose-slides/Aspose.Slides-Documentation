@@ -2,7 +2,7 @@
 title: Evaluar Aspose.Slides
 type: docs
 weight: 120
-url: /php-java/evaluate-aspose-slides/
+url: /es/php-java/evaluate-aspose-slides/
 ---
 
 Puedes descargar fácilmente Aspose.Slides para evaluación. El paquete de evaluación es el mismo que el paquete comprado. La versión de evaluación simplemente se convierte en licenciada después de que añadas algunas líneas de código para aplicar la licencia.

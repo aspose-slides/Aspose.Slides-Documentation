@@ -2,7 +2,7 @@
 title: Gestionar Filas y Columnas
 type: docs
 weight: 20
-url: /java/manage-rows-and-columns/
+url: /es/java/manage-rows-and-columns/
 keywords: "Tabla, filas y columnas de la tabla, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Gestionar filas y columnas de tablas en presentaciones de PowerPoint en Java"
 ---

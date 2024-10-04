@@ -2,7 +2,7 @@
 title: Gestionar SmartArt
 type: docs
 weight: 10
-url: /php-java/manage-smartart/
+url: /es/php-java/manage-smartart/
 ---
 
 ## **Obtener texto de SmartArt**

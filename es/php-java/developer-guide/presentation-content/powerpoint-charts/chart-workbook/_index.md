@@ -2,7 +2,7 @@
 title: Liberación de Gráficos
 type: docs
 weight: 70
-url: /php-java/chart-workbook/
+url: /es/php-java/chart-workbook/
 keywords: "Libro de gráficos, datos de gráficos, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Libro de gráficos en presentación de PowerPoint"
 ---

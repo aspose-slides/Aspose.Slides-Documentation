@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /androidjava/activex/
+url: /es/androidjava/activex/
 ---
 
 

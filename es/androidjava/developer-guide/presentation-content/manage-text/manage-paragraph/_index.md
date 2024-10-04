@@ -2,7 +2,7 @@
 title: Administrar párrafos de PowerPoint en Java
 type: docs
 weight: 40
-url: /androidjava/manage-paragraph/
+url: /es/androidjava/manage-paragraph/
 keywords: "Agregar párrafo de PowerPoint, Administrar párrafos, Sangría de párrafo, Propiedades de párrafo, Texto HTML, Exportar texto de párrafo, Presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Crear y gestionar párrafos, texto, sangrías y propiedades en presentaciones de PowerPoint en Java"
 ---

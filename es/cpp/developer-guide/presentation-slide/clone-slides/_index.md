@@ -2,7 +2,7 @@
 title: Clonar Diapositivas
 type: docs
 weight: 40
-url: /cpp/clone-slides/
+url: /es/cpp/clone-slides/
 ---
 
 

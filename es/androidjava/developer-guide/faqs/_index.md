@@ -2,7 +2,7 @@
 title: Preguntas Frecuentes
 type: docs
 weight: 340
-url: /androidjava/faqs/
+url: /es/androidjava/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **Q: ¿Qué formatos de archivo soporta Aspose.Slides para Android a través de Java?**
 
-**A**: Aspose.Slides para Android a través de Java soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/androidjava/supported-file-formats/).
+**A**: Aspose.Slides para Android a través de Java soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/es/androidjava/supported-file-formats/).
 
 ## **Excepciones**
 
@@ -55,7 +55,7 @@ En general, Aspose.Slides para Android a través de Java puede manejar fácilmen
 
 **Q: ¿Por qué los tamaños de los párrafos son diferentes en PC y Android?**
 
-**A**: El cálculo de los tamaños de los párrafos se basa en el cálculo del tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza con la fuente más similar, pero esta fuente tiene métricas diferentes a las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas llevará a diferentes resultados dependiendo del conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, necesita instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/androidjava/custom-font/).
+**A**: El cálculo de los tamaños de los párrafos se basa en el cálculo del tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza con la fuente más similar, pero esta fuente tiene métricas diferentes a las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas llevará a diferentes resultados dependiendo del conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, necesita instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/es/androidjava/custom-font/).
 
 ## **Formateo e Imágenes**
 

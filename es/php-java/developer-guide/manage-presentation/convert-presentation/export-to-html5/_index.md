@@ -2,7 +2,7 @@
 title: Exportar a HTML5
 type: docs
 weight: 40
-url: /php-java/export-to-html5/
+url: /es/php-java/export-to-html5/
 keywords:
 - PowerPoint a HTML
 - diapositivas a HTML
@@ -18,7 +18,7 @@ description: "Exportar PowerPoint a HTML5 en PHP"
 
 {{% alert title="Info" color="info" %}}
 
-En [Aspose.Slides 21.9](/slides/php-java/aspose-slides-for-java-21-9-release-notes/), implementamos soporte para la exportación a HTML5.
+En [Aspose.Slides 21.9](/slides/es/php-java/aspose-slides-for-java-21-9-release-notes/), implementamos soporte para la exportación a HTML5.
 
 {{% /alert %}} 
 

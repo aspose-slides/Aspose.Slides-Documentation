@@ -2,7 +2,7 @@
 title: Administrar hipervínculos
 type: docs
 weight: 20
-url: /java/manage-hyperlinks/
+url: /es/java/manage-hyperlinks/
 keywords: "Hipervínculo de PowerPoint, hipervínculo de texto, hipervínculo de diapositiva, hipervínculo de forma, hipervínculo de imagen, hipervínculo de video, Java"
 description: "Cómo agregar un hipervínculo a una presentación de PowerPoint en Java"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="Consejo"  color="primary"  %}} 
 
-Puede que desees ver *[Administrar OLE](/slides/java/manage-ole/)*.
+Puede que desees ver *[Administrar OLE](/slides/es/java/manage-ole/)*.
 
 {{% /alert %}}
 

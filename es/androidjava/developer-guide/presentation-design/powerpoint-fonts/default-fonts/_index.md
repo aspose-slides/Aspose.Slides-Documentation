@@ -3,7 +3,7 @@ title: Fuentes Predeterminadas - PowerPoint Java API
 linktitle: Fuentes Predeterminadas
 type: docs
 weight: 30
-url: /androidjava/default-font/
+url: /es/androidjava/default-font/
 description: PowerPoint Java API te permite establecer la fuente predeterminada para renderizar la presentación en PDF, XPS o miniaturas. Este artículo muestra cómo definir la FuentePredeterminadaRegular y la FuentePredeterminadaAsiática para usarlas como fuentes predeterminadas.
 ---
 

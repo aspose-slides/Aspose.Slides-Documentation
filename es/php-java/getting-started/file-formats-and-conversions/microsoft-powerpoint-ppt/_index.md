@@ -2,7 +2,7 @@
 title: Microsoft PowerPoint (PPT)
 type: docs
 weight: 10
-url: /php-java/microsoft-powerpoint-ppt/
+url: /es/php-java/microsoft-powerpoint-ppt/
 ---
 
 {{% alert color="primary" %}} 
@@ -27,7 +27,7 @@ Aspose.Slides para PHP a través de Java proporciona soporte para casi todas las
 Además de las tareas básicas relacionadas con la creación, lectura y escritura de archivos de documento PPT, hay varias características que proporciona Aspose.Slides para PHP a través de Java:
 
 - Importar otros formatos de archivo de Microsoft Office como [objetos OLE en documentos PPT]().
-- [Exportar documentos PPT a PDF](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/).
+- [Exportar documentos PPT a PDF](/slides/es/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/).
 - Exportar diapositivas en los documentos PPT a formatos SVG.
 - Renderizar diapositivas a cualquier formato de imagen compatible con el marco de Java.
 - Establecer el tamaño de las diapositivas en los documentos PPT.

@@ -2,7 +2,7 @@
 title: Marco de Video
 type: docs
 weight: 10
-url: /python-net/video-frame/
+url: /es/python-net/video-frame/
 keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Agregar marco de video a la presentación de PowerPoint en Python"
 ---

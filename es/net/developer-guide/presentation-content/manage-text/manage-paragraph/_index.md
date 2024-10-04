@@ -2,7 +2,7 @@
 title: Administrar párrafos de PowerPoint en C#
 type: docs
 weight: 40
-url: /net/manage-paragraph/
+url: /es/net/manage-paragraph/
 keywords: 
 - agregar párrafo
 - gestionar párrafos

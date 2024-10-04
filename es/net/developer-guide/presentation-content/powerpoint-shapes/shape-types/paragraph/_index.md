@@ -2,7 +2,7 @@
 title: Párrafo
 type: docs
 weight: 60
-url: /net/paragraph/
+url: /es/net/paragraph/
 keywords: "Párrafo, porción, coordenada de párrafo, coordenada de porción, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Párrafo y porción en presentación de PowerPoint en C# o .NET"
 ---

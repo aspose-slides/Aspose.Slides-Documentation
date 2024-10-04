@@ -2,7 +2,7 @@
 title: Sustitución de fuentes
 type: docs
 weight: 70
-url: /cpp/font-substitution/
+url: /es/cpp/font-substitution/
 keywords: "Fuente, fuente sustituta, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Sustituir fuente en PowerPoint en C++"
 ---
@@ -48,6 +48,6 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 {{%  alert title="NOTA"  color="warning"   %}} 
 
-Puede que quieras ver [**Reemplazo de Fuentes**](/slides/cpp/font-replacement/). 
+Puede que quieras ver [**Reemplazo de Fuentes**](/slides/es/cpp/font-replacement/). 
 
 {{% /alert %}}

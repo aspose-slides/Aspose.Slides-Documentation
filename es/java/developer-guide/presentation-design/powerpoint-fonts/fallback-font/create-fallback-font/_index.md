@@ -2,7 +2,7 @@
 title: Crear Fuente de Reserva
 type: docs
 weight: 10
-url: /java/create-fallback-font/
+url: /es/java/create-fallback-font/
 ---
 
 Aspose.Slides soporta la interfaz [IFontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRule) y la clase [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) para especificar las reglas para aplicar una fuente de reserva. La clase [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) representa una asociación entre el rango Unicode especificado, utilizado para buscar glifos faltantes, y una lista de fuentes que pueden contener glifos adecuados:
@@ -25,5 +25,5 @@ También es posible [remover](https://reference.aspose.com/slides/java/com.aspos
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) se puede usar para organizar una lista de objetos [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule), cuando hay necesidad de especificar reglas de reemplazo de fuentes de reserva para múltiples rangos Unicode.
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Crear Colección de Fuentes de Reserva](/slides/java/create-fallback-fonts-collection/)
+- [Crear Colección de Fuentes de Reserva](/slides/es/java/create-fallback-fonts-collection/)
 {{% /alert %}}

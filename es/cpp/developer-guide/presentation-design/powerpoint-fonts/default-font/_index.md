@@ -2,7 +2,7 @@
 title: Fuente Predeterminada
 type: docs
 weight: 30
-url: /cpp/default-font/
+url: /es/cpp/default-font/
 keywords: 
 - fuente
 - fuente predeterminada

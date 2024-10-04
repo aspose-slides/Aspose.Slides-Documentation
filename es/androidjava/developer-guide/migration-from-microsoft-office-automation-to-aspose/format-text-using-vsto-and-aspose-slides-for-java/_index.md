@@ -2,12 +2,12 @@
 title: Formatear texto usando VSTO y Aspose.Slides para Android a través de Java
 type: docs
 weight: 30
-url: /androidjava/format-text-using-vsto-and-aspose-slides-for-java/
+url: /es/androidjava/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-A veces, necesitas formatear el texto en las diapositivas programáticamente. Este artículo muestra cómo leer una presentación de muestra con algo de texto en la primera diapositiva utilizando [VSTO](/slides/androidjava/format-text-using-vsto-and-aspose-slides-for-java/) y [Aspose.Slides para Android a través de Java](/slides/androidjava/format-text-using-vsto-and-aspose-slides-for-java/). El código formatea el texto en el tercer cuadro de texto en la diapositiva para que se asemeje al texto en el último cuadro de texto.
+A veces, necesitas formatear el texto en las diapositivas programáticamente. Este artículo muestra cómo leer una presentación de muestra con algo de texto en la primera diapositiva utilizando [VSTO](/slides/es/androidjava/format-text-using-vsto-and-aspose-slides-for-java/) y [Aspose.Slides para Android a través de Java](/slides/es/androidjava/format-text-using-vsto-and-aspose-slides-for-java/). El código formatea el texto en el tercer cuadro de texto en la diapositiva para que se asemeje al texto en el último cuadro de texto.
 
 {{% /alert %}} 
 ## **Formateo de Texto**

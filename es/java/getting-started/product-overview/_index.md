@@ -2,7 +2,7 @@
 title: Descripción del Producto
 type: docs
 weight: 10
-url: /java/product-overview/
+url: /es/java/product-overview/
 ---
 
 ![todo:texto_alt_imagen](product-overview_1.png)

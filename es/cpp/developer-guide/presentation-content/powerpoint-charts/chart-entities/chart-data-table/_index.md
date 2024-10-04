@@ -1,7 +1,7 @@
 ---
 title: Tabla de Datos del Gráfico
 type: docs
-url: /cpp/chart-data-table/
+url: /es/cpp/chart-data-table/
 ---
 
 ## **Establecer Propiedades de Fuente para la Tabla de Datos del Gráfico**

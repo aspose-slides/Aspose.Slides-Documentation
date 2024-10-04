@@ -2,7 +2,7 @@
 title: Gestionar hipervínculos
 type: docs
 weight: 20
-url: /python-net/manage-hyperlinks/
+url: /es/python-net/manage-hyperlinks/
 keywords: "Agregar hipervínculo, Presentación de PowerPoint, Hipervínculo de PowerPoint, hipervínculo de texto, hipervínculo de diapositiva, hipervínculo de forma, hipervínculo de imagen, hipervínculo de video, Python"
 description: "Agregar hipervínculo a una presentación de PowerPoint en Python"
 ---

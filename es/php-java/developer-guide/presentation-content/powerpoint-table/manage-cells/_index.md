@@ -2,7 +2,7 @@
 title: Gestionar Celdas
 type: docs
 weight: 30
-url: /php-java/manage-cells/
+url: /es/php-java/manage-cells/
 keywords: "Tabla, celdas combinadas, celdas divididas, imagen en celda de tabla, Java, Aspose.Slides para PHP a través de Java"
 description: "Celdas de tabla en presentaciones de PowerPoint"
 ---

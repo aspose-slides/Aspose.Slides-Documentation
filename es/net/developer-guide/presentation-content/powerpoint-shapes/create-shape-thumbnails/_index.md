@@ -2,7 +2,7 @@
 title: Crear Miniaturas de Formas
 type: docs
 weight: 70
-url: /net/create-shape-thumbnails/
+url: /es/net/create-shape-thumbnails/
 keywords: 
 - miniatura de forma
 - imagen de forma

@@ -2,7 +2,7 @@
 title: Forma Personalizada
 type: docs
 weight: 20
-url: /androidjava/custom-shape/
+url: /es/androidjava/custom-shape/
 keywords: "forma de PowerPoint, forma personalizada, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Agregar forma personalizada en la presentación de PowerPoint en Java"
 ---

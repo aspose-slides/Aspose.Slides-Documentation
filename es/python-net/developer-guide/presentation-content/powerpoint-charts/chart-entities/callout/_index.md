@@ -1,7 +1,7 @@
 ---
 title: Llamadas de atención
 type: docs
-url: /python-net/callout/
+url: /es/python-net/callout/
 keywords: "Llamadas de atención de gráficos, etiqueta de datos de gráfico, Python, Aspose.Slides para Python a través de .NET"
 description: "Llamadas de atención y etiquetas de datos de gráficos de PowerPoint en Python"
 ---

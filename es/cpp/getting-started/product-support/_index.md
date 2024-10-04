@@ -2,7 +2,7 @@
 title: Soporte de Producto
 type: docs
 weight: 90
-url: /cpp/product-support/
+url: /es/cpp/product-support/
 ---
 
 ## **Soporte técnico**
@@ -27,4 +27,4 @@ Esta tabla enumera recursos técnicos importantes de Aspose.Slides para C++.
 |[Blog de Aspose.Slide](https://blog.aspose.com/category/slides/)|Consulte esto con frecuencia para obtener información sobre nuevas versiones y consejos útiles sobre Aspose.Slides.|
 |[Descarga de Aspose.Slides para C++](https://downloads.aspose.com/slides/cpp)|Todas las versiones nuevas y antiguas del producto se mantienen para referencia del cliente.|
 |[Foro de soporte de Aspose.Slides](https://forum.aspose.com/c/slides/11)|Publique sus preguntas y problemas aquí para una resolución rápida.|
-|[Documentación del producto Aspose.Slides para C++](/slides/cpp/)|Documentación completa en línea que incluye esta documentación así como la Referencia de API de Aspose.Slides.|
+|[Documentación del producto Aspose.Slides para C++](/slides/es/cpp/)|Documentación completa en línea que incluye esta documentación así como la Referencia de API de Aspose.Slides.|

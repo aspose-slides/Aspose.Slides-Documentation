@@ -2,7 +2,7 @@
 title: Administrar OLE
 type: docs
 weight: 40
-url: /androidjava/manage-ole/
+url: /es/androidjava/manage-ole/
 ---
 
 {{% alert color="primary" %}} 

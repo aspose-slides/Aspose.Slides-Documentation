@@ -2,7 +2,7 @@
 title: Transición de Diapositiva
 type: docs
 weight: 90
-url: /net/slide-transition/
+url: /es/net/slide-transition/
 keywords: "Agregar transición de diapositiva, transición de diapositiva de PowerPoint, transición de morph, transición de diapositiva avanzada, efectos de transición, C#, Csharp, .NET, Aspose.Slides"
 description: " Agregue transición de diapositiva de PowerPoint y efectos de transición en C# o .NET "
 ---

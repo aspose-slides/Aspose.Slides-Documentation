@@ -2,7 +2,7 @@
 title: Obtener llamadas de advertencia para la sustitución de fuentes en Aspose.Slides
 type: docs
 weight: 120
-url: /net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /es/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

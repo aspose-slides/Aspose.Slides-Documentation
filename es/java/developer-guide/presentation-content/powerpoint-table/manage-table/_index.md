@@ -2,7 +2,7 @@
 title: Gestionar Tabla
 type: docs
 weight: 10
-url: /java/manage-table/
+url: /es/java/manage-table/
 keywords: "Tabla, crear tabla, acceder a la tabla, relación de aspecto de la tabla, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Crear y gestionar tablas en presentaciones de PowerPoint en Java"
 ---

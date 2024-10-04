@@ -2,7 +2,7 @@
 title: Convertir Powerpoint a JPG
 type: docs
 weight: 60
-url: /androidjava/convert-powerpoint-to-jpg/
+url: /es/androidjava/convert-powerpoint-to-jpg/
 keywords:
 - Convertir presentación de PowerPoint
 - JPG
@@ -130,4 +130,4 @@ Usando los mismos principios descritos en este artículo, puedes convertir imág
 
 Consulta otras opciones para convertir PPT/PPTX en imágenes como:
 
-- [Conversión de PPT/PPTX a SVG](/slides/androidjava/render-a-slide-as-an-svg-image/).
+- [Conversión de PPT/PPTX a SVG](/slides/es/androidjava/render-a-slide-as-an-svg-image/).

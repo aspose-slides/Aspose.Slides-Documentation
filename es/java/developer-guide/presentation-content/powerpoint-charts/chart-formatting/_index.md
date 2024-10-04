@@ -2,7 +2,7 @@
 title: Formato de Gráficos
 type: docs
 weight: 60
-url: /java/chart-formatting/
+url: /es/java/chart-formatting/
 ---
 
 ## **Formatear Entidades de Gráficos**

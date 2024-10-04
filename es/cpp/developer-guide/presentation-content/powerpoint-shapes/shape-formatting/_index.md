@@ -2,7 +2,7 @@
 title: Formato de Formas
 type: docs
 weight: 20
-url: /cpp/shape-formatting/
+url: /es/cpp/shape-formatting/
 keywords: "Formato de forma, formato de líneas, estilos de unión de formato, relleno de degradado, relleno de patrón, relleno de imagen, relleno de color sólido, rotar formas, efectos de bisel 3d, efecto de rotación 3d, presentación de PowerPoint, C++, Aspose.Slides para C++"
 description: "Formato de forma en presentación de PowerPoint en C++"
 ---

@@ -2,7 +2,7 @@
 title: Marco de Video
 type: docs
 weight: 10
-url: /net/video-frame/
+url: /es/net/video-frame/
 keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Agregar marco de video a una presentación de PowerPoint en C# o .NET"
 ---

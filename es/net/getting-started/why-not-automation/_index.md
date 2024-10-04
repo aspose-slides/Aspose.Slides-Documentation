@@ -2,7 +2,7 @@
 title: Por Qué No Automatización
 type: docs
 weight: 40
-url: /net/why-not-automation/
+url: /es/net/why-not-automation/
 ---
 
 ## **Preguntas Importantes**

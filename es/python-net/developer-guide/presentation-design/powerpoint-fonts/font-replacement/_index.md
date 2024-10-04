@@ -2,7 +2,7 @@
 title: Reemplazo de Fuentes
 type: docs
 weight: 60
-url: /python-net/font-replacement/
+url: /es/python-net/font-replacement/
 keywords: "Fuente, reemplazar fuente, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Reemplazar fuentes explícitamente en PowerPoint en Python"
 ---
@@ -40,6 +40,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{% alert title="Nota" color="warning" %}} 
 
-Para establecer reglas que determinen lo que sucede en ciertas condiciones (si no se puede acceder a una fuente, por ejemplo), consulta [**Sustitución de Fuentes**](/slides/python-net/font-substitution/). 
+Para establecer reglas que determinen lo que sucede en ciertas condiciones (si no se puede acceder a una fuente, por ejemplo), consulta [**Sustitución de Fuentes**](/slides/es/python-net/font-substitution/). 
 
 {{% /alert %}}

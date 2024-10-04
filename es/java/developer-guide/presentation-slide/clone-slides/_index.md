@@ -2,7 +2,7 @@
 title: Clonar Diapositivas
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /es/java/clone-slides/
 ---
 
 

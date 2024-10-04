@@ -2,7 +2,7 @@
 title: Gráfico de Dona
 type: docs
 weight: 30
-url: /php-java/doughnut-chart/
+url: /es/php-java/doughnut-chart/
 ---
 
 ## **Cambiar el Espacio Central en el Gráfico de Dona**

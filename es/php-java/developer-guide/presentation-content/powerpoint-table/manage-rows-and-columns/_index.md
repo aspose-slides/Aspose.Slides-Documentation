@@ -2,7 +2,7 @@
 title: Gestionar Filas y Columnas
 type: docs
 weight: 20
-url: /php-java/manage-rows-and-columns/
+url: /es/php-java/manage-rows-and-columns/
 keywords: "Tabla, filas y columnas de tabla, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Gestionar filas y columnas de tabla en presentaciones de PowerPoint "
 ---

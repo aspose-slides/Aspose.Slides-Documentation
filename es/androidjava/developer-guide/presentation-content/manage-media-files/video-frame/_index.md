@@ -2,7 +2,7 @@
 title: Marco de Video
 type: docs
 weight: 10
-url: /androidjava/video-frame/
+url: /es/androidjava/video-frame/
 keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Agregar marco de video a presentación de PowerPoint en Java"
 ---

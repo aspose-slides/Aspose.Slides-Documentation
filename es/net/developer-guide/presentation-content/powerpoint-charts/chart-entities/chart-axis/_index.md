@@ -1,7 +1,7 @@
 ---
 title: Eje de Gráfico
 type: docs
-url: /net/chart-axis/
+url: /es/net/chart-axis/
 keywords: "Eje de Gráfico de PowerPoint, Gráficos de Presentación, C#, .NET, Manipular Eje de Gráfico, Datos de Gráfico"
 description: "Editar el eje de gráfico de PowerPoint en C# o .NET"
 ---

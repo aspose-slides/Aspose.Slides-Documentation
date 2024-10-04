@@ -2,7 +2,7 @@
 title: Agregar Diapositiva a la Presentación
 type: docs
 weight: 10
-url: /androidjava/add-slide-to-presentation/
+url: /es/androidjava/add-slide-to-presentation/
 ---
 
 ## **Agregar Diapositiva a la Presentación**

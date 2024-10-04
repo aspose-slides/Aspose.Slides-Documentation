@@ -2,7 +2,7 @@
 title: Administrar Tabla
 type: docs
 weight: 10
-url: /php-java/manage-table/
+url: /es/php-java/manage-table/
 keywords: "Tabla, crear tabla, acceder a tabla, relación de aspecto de la tabla, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Crear y administrar tablas en presentaciones de PowerPoint"
 ---

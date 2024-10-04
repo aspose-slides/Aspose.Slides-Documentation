@@ -2,7 +2,7 @@
 title: Marco de Audio
 type: docs
 weight: 10
-url: /php-java/audio-frame/
+url: /es/php-java/audio-frame/
 keywords: "Agregar audio, Marco de audio, Propiedades de audio, Extraer audio, Java, Aspose.Slides para PHP a través de Java"
 description: "Agregar audio a la presentación de PowerPoint"
 ---

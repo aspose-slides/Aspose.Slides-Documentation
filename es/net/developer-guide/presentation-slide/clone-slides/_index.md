@@ -2,7 +2,7 @@
 title: Clonar Diapositivas
 type: docs
 weight: 40
-url: /net/clone-slides/
+url: /es/net/clone-slides/
 keywords: "Clonar diapositiva, Copiar diapositiva, Guardar copia de la diapositiva, PowerPoint, Presentación, C#, Csharp, .NET, Aspose.Slides"
 description: "Clonar diapositiva de PowerPoint en C# o .NET"
 ---

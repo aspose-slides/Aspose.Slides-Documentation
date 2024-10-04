@@ -1,7 +1,7 @@
 ---
 title: Área del Gráfico
 type: docs
-url: /python-net/chart-plot-area/
+url: /es/python-net/chart-plot-area/
 keywords: "Área del Gráfico Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Obtener ancho, alto del área del gráfico. Establecer modo de diseño. Presentación de PowerPoint en Python"
 ---

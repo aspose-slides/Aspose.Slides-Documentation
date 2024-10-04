@@ -1,7 +1,7 @@
 ---
 title: Área de Trazado del Gráfico
 type: docs
-url: /net/chart-plot-area/
+url: /es/net/chart-plot-area/
 keywords: "Área de Trazado del Gráfico presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Obtenga el ancho, alto del área de trazado del gráfico. Establezca el modo de diseño. Presentación de PowerPoint en C# o .NET"
 ---

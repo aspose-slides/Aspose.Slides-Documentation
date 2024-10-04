@@ -2,7 +2,7 @@
 title: Error de Licenciamiento
 type: docs
 weight: 95
-url: /java/licensing-bug/
+url: /es/java/licensing-bug/
 ---
 
 Este artículo describe un error de licenciamiento encontrado en las versiones 23.2, 23.3, 23.4, 23.5, 23.6 y 23.7 de Aspose.Slides para Java. Este error hizo que las licencias perpetuas se volvieran temporalmente inutilizables después de que su suscripción expirara.

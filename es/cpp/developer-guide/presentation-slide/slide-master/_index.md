@@ -2,7 +2,7 @@
 title: Maestro de Diapositivas
 type: docs
 weight: 80
-url: /cpp/slide-master/
+url: /es/cpp/slide-master/
 keywords: "Agregar Maestro de Diapositivas, diapositiva maestra PPT, maestro de diapositivas PowerPoint, imagen al Maestro de Diapositivas, Marcador de posición, Múltiples Maestros de Diapositivas, Comparar Maestros de Diapositivas, C++, CPP, Aspose.Slides para C++"
 description: "Agregar o editar maestro de diapositivas en la presentación de PowerPoint en C++"
 ---
@@ -128,7 +128,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 {{% alert color="primary" title="Ver también" %}} 
 
-Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/cpp/picture-frame/#create-picture-frame).
+Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/es/cpp/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Agregar Marcador de Posición al Maestro de Diapositivas**

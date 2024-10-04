@@ -2,13 +2,13 @@
 title: Guardar Presentación
 type: docs
 weight: 80
-url: /php-java/guardar-presentacion/
+url: /es/php-java/guardar-presentacion/
 ---
 
 ## **Descripción general**
 {{% alert color="primary" %}} 
 
-[Abriendo Presentación](/slides/php-java/open-presentation/) describió cómo usar la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) para abrir una presentación. Este artículo explica cómo crear y guardar presentaciones.
+[Abriendo Presentación](/slides/es/php-java/open-presentation/) describió cómo usar la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) para abrir una presentación. Este artículo explica cómo crear y guardar presentaciones.
 
 {{% /alert %}} 
 

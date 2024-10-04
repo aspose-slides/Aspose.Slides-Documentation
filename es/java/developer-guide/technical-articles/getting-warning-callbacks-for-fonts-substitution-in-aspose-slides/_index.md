@@ -2,7 +2,7 @@
 title: Obtener Callbacks de Advertencia para la Sustitución de Fuentes en Aspose.Slides
 type: docs
 weight: 90
-url: /java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /es/java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

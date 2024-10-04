@@ -2,7 +2,7 @@
 title: Establecer Color de Fondo de la Diapositiva Maestra
 type: docs
 weight: 140
-url: /net/setting-background-color-of-master-slide/
+url: /es/net/setting-background-color-of-master-slide/
 ---
 
 ## **VSTO**

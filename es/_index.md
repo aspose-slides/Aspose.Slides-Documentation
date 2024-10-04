@@ -2,7 +2,7 @@
 title: Familia de Productos Aspose.Slides
 type: docs
 weight: 10
-url: /
+url: /es/
 keywords: "Aspose.Slides para .NET, Aspose Slides, Aspose PowerPoint, Aspose PPT, Documentación de Aspose."
 description: Aspose.Slides son APIs de gestión de Microsoft PowerPoint® que permiten a las aplicaciones de software leer y escribir documentos de PowerPoint® sin utilizar Microsoft PowerPoint®.
 ---
@@ -18,14 +18,14 @@ Aspose.Slides para .NET es una API de gestión de Microsoft PowerPoint® que per
 {{% /alert %}}
 
 Estos son enlaces a algunos recursos útiles:
-- [Documentación Online de Aspose.Slides para .NET](/slides/net/)
-- [Características de Aspose.Slides para .NET](/slides/net/features-overview/)
-- [Limitaciones de Aspose.Slides para .NET](/slides/net/known-issues/)
+- [Documentación Online de Aspose.Slides para .NET](/slides/es/net/)
+- [Características de Aspose.Slides para .NET](/slides/es/net/features-overview/)
+- [Limitaciones de Aspose.Slides para .NET](/slides/es/net/known-issues/)
 - [Notas de la versión de Aspose.Slides para .NET](https://releases.aspose.com/slides/net/release-notes/)
 - [Página del Producto Aspose.Slides para .NET](https://products.aspose.com/slides/net/)
 - [Descargar Nuevas Versiones de Aspose.Slides para .NET](https://releases.aspose.com/slides/net/)
 - [Descargar Paquete NuGet de Aspose.Slides para .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [Instalar Aspose.Slides para .NET](/slides/net/installation/)
+- [Instalar Aspose.Slides para .NET](/slides/es/net/installation/)
 - [Guía de Referencia de API de Aspose.Slides para .NET](https://reference.aspose.com/slides/net)
 - [Descargar Ejemplos en el Repositorio de GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Foro de Soporte Gratuito de Aspose.Slides para .NET](https://forum.aspose.com/c/slides/11)
@@ -43,14 +43,14 @@ Aspose.Slides para Java es una API de gestión de Microsoft PowerPoint® que per
 
 Estos son enlaces a recursos útiles:
 
-- [Documentación Online de Aspose.Slides para Java](/slides/java/)
-- [Características de Aspose.Slides para Java](/slides/java/features-overview/)
-- [Limitaciones de Aspose.Slides para Java](/slides/java/known-issues/)
+- [Documentación Online de Aspose.Slides para Java](/slides/es/java/)
+- [Características de Aspose.Slides para Java](/slides/es/java/features-overview/)
+- [Limitaciones de Aspose.Slides para Java](/slides/es/java/known-issues/)
 - [Notas de la versión de Aspose.Slides para Java](https://releases.aspose.com/slides/java/release-notes/)
 - [Página del Producto Aspose.Slides para Java](https://products.aspose.com/slides/java/)
 - [Descargar Aspose.Slides para Java](https://releases.aspose.com/slides/java/)
 - [Repositorio Maven de Aspose.Slides para Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Instalar Aspose.Slides para Java desde el Repositorio Maven](/slides/java/installation/)
+- [Instalar Aspose.Slides para Java desde el Repositorio Maven](/slides/es/java/installation/)
 - [Guía de Referencia de API de Aspose.Slides para Java](https://reference.aspose.com/slides/java)
 - [Descargar Ejemplos en el Repositorio de GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
 - [Foro de Soporte Gratuito de Aspose.Slides para Java](https://forum.aspose.com/c/slides/11)
@@ -68,8 +68,8 @@ Aspose.Slides para C++ es una API de gestión de Microsoft PowerPoint® que perm
 
 Estos son enlaces a recursos útiles:
 
-- [Documentación Online de Aspose.Slides para C++](/slides/cpp/)
-- [Características de Aspose.Slides para C++](/slides/cpp/features-overview/)
+- [Documentación Online de Aspose.Slides para C++](/slides/es/cpp/)
+- [Características de Aspose.Slides para C++](/slides/es/cpp/features-overview/)
 - [Notas de la versión de Aspose.Slides para C++](https://releases.aspose.com/slides/cpp/release-notes/)
 - [Página del Producto Aspose.Slides para C++](https://products.aspose.com/slides/cpp/)
 - [Descargar Nuevas Versiones de Aspose.Slides para C++](https://releases.aspose.com/slides/cpp/)
@@ -92,13 +92,13 @@ Aspose.Slides para Android a través de Java es una API de gestión de Microsoft
 
 Estos son enlaces a recursos útiles:
 
-- [Documentación Online de Aspose.Slides para Java](/slides/java/)
-- [Características de Aspose.Slides para Android a través de Java](/slides/androidjava/aspose-slides-for-android-via-java-features/)
+- [Documentación Online de Aspose.Slides para Java](/slides/es/java/)
+- [Características de Aspose.Slides para Android a través de Java](/slides/es/androidjava/aspose-slides-for-android-via-java-features/)
 - [Notas de la versión de Aspose.Slides para Android a través de Java](https://releases.aspose.com/slides/androidjava/release-notes/)
 - [Página del Producto Aspose.Slides para Android a través de Java](https://products.aspose.com/slides/android-java/)
 - [Descargar Aspose.Slides para Android a través de Java](https://releases.aspose.com/slides/androidjava/)
 - [Repositorio Maven de Aspose.Slides para Android a través de Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Instalar Aspose.Slides para Android a través de Java](/slides/androidjava/install-aspose-slides-for-android-via-java/)
+- [Instalar Aspose.Slides para Android a través de Java](/slides/es/androidjava/install-aspose-slides-for-android-via-java/)
 - [Guía de Referencia de API de Aspose.Slides para Android a través de Java](https://reference.aspose.com/slides/java)
 - [Foro de Soporte Gratuito de Aspose.Slides para Android a través de Java](https://forum.aspose.com/c/slides/11)
 - [Mesa de Ayuda de Soporte de Pago de Aspose.Slides para Android a través de Java](https://helpdesk.aspose.com/)
@@ -114,14 +114,14 @@ Aspose.Slides para Python a través de .NET es una biblioteca de clases que perm
 {{% /alert %}}
 
 Estos son enlaces a algunos recursos útiles:
-- [Documentación Online de Aspose.Slides para Python a través de .NET](/slides/python-net/)
-- [Características de Aspose.Slides para Python a través de .NET](/slides/python-net/features-overview/)
-- [Limitaciones de Aspose.Slides para Python a través de .NET](/slides/python-net/known-issues/)
+- [Documentación Online de Aspose.Slides para Python a través de .NET](/slides/es/python-net/)
+- [Características de Aspose.Slides para Python a través de .NET](/slides/es/python-net/features-overview/)
+- [Limitaciones de Aspose.Slides para Python a través de .NET](/slides/es/python-net/known-issues/)
 - [Notas de la versión de Aspose.Slides para Python a través de .NET](https://releases.aspose.com/slides/python-net/release-notes/)
 - [Página del Producto Aspose.Slides para Python a través de .NET](https://products.aspose.com/slides/python-net/)
 - [Descargar Aspose.Slides para Python a través de .NET](https://releases.aspose.com/slides/python-net/)
-- [Instalar Aspose.Slides para Python a través de .NET](/slides/python-net/installation/)
-- [Guía de Referencia de API de Aspose.Slides para Python a través de .NET](/slides/python-net/api-reference/)
+- [Instalar Aspose.Slides para Python a través de .NET](/slides/es/python-net/installation/)
+- [Guía de Referencia de API de Aspose.Slides para Python a través de .NET](/slides/es/python-net/api-reference/)
 - [Foro de Soporte Gratuito de Aspose.Slides para Python a través de .NET](https://forum.aspose.com/c/slides/11)
 - [Mesa de Ayuda de Soporte de Pago de Aspose.Slides para Python a través de .NET](https://helpdesk.aspose.com/)
 
@@ -136,13 +136,13 @@ Aspose.Slides para Node.js a través de Java es una biblioteca de clases que per
 {{% /alert %}}
 
 Estos son enlaces a algunos recursos útiles:
-- [Documentación Online de Aspose.Slides para Node.js a través de Java](/slides/java/developer-guide/)
-- [Características de Aspose.Slides para Node.js a través de Java](/slides/nodejs-java/features-overview/)
-- [Limitaciones y Diferencias de API de Aspose.Slides para Node.js a través de Java](/slides/nodejs-java/limitations-and-api-differences/)
+- [Documentación Online de Aspose.Slides para Node.js a través de Java](/slides/es/java/developer-guide/)
+- [Características de Aspose.Slides para Node.js a través de Java](/slides/es/nodejs-java/features-overview/)
+- [Limitaciones y Diferencias de API de Aspose.Slides para Node.js a través de Java](/slides/es/nodejs-java/limitations-and-api-differences/)
 - [Notas de la versión de Aspose.Slides para Node.js a través de Java](https://releases.aspose.com/slides/nodejs-java/release-notes/)
 - [Página del Producto Aspose.Slides para Node.js a través de Java](https://products.aspose.com/slides/nodejs-java/)
 - [Descargar Paquete de Aspose.Slides para Node.js a través de Java](https://releases.aspose.com/slides/nodejs-java/)
-- [Instalar Aspose.Slides para Node.js a través de Java](/slides/nodejs-java/installation/)
+- [Instalar Aspose.Slides para Node.js a través de Java](/slides/es/nodejs-java/installation/)
 - [Guía de Referencia de Aspose.Slides para Node.js a través de Java](https://reference.aspose.com/slides/nodejs-java/)
 - [Foro de Soporte Gratuito de Aspose.Slides para Node.js a través de Java](https://forum.aspose.com/c/slides/11)
 - [Mesa de Ayuda de Soporte de Pago de Aspose.Slides para Node.js a través de Java](https://helpdesk.aspose.com/)
@@ -158,13 +158,13 @@ Aspose.Slides para PHP a través de Java es una biblioteca de clases que permite
 {{% /alert %}}
 
 Estos son enlaces a algunos recursos útiles:
-- [Documentación Online de Aspose.Slides para PHP a través de Java](/slides/java/)
-- [Características de Aspose.Slides para PHP a través de Java](/slides/php-java/features-overview/)
-- [Limitaciones y Diferencias de API de Aspose.Slides para PHP a través de Java](/slides/php-java/limitations-and-api-differences/)
+- [Documentación Online de Aspose.Slides para PHP a través de Java](/slides/es/java/)
+- [Características de Aspose.Slides para PHP a través de Java](/slides/es/php-java/features-overview/)
+- [Limitaciones y Diferencias de API de Aspose.Slides para PHP a través de Java](/slides/es/php-java/limitations-and-api-differences/)
 - [Notas de la versión de Aspose.Slides para PHP a través de Java](https://releases.aspose.com/slides/php-java/release-notes/)
 - [Página del Producto Aspose.Slides para PHP a través de Java](https://products.aspose.com/slides/php-java/)
 - [Descargar Paquete de Aspose.Slides para PHP a través de Java](https://releases.aspose.com/slides/php-java/)
-- [Instalar Aspose.Slides para PHP a través de Java](/slides/php-java/installation/)
+- [Instalar Aspose.Slides para PHP a través de Java](/slides/es/php-java/installation/)
 - [Guía de Referencia de API de Aspose.Slides para PHP a través de Java](https://docs.aspose.com/slides/php-java/api-reference/)
 - [Foro de Soporte Gratuito de Aspose.Slides para PHP a través de Java](https://forum.aspose.com/c/slides/11)
 - [Mesa de Ayuda de Soporte de Pago de Aspose.Slides para PHP a través de Java](https://helpdesk.aspose.com/)
@@ -181,8 +181,8 @@ Aspose.Slides para Reporting Services es la única solución en el mercado que h
 
 Estos son enlaces a recursos útiles:
 
-- [Documentación Online de Aspose.Slides para Reporting Services](/slides/reportingservices/)
-- [Características de Aspose.Slides para Reporting Services](/slides/reportingservices/features)
+- [Documentación Online de Aspose.Slides para Reporting Services](/slides/es/reportingservices/)
+- [Características de Aspose.Slides para Reporting Services](/slides/es/reportingservices/features)
 - [Notas de la versión de Aspose.Slides para Reporting Services](https://releases.aspose.com/slides/reportingservices/release-notes/)
 - [Página del Producto Aspose.Slides para Reporting Services](https://products.aspose.com/slides/reporting-services/)
 - [Descargar Aspose.Slides para Reporting Services](https://releases.aspose.com/slides/reportingservices/)
@@ -201,8 +201,8 @@ Aspose.Slides para SharePoint es una solución flexible que hace posible convert
 
 Estos son enlaces a recursos útiles:
 
-- [Documentación Online de Aspose.Slides para SharePoint](/slides/sharepoint/)
-- [Características de Aspose.Slides para SharePoint](/slides/sharepoint/features/)
+- [Documentación Online de Aspose.Slides para SharePoint](/slides/es/sharepoint/)
+- [Características de Aspose.Slides para SharePoint](/slides/es/sharepoint/features/)
 - [Notas de la versión de Aspose.Slides para SharePoint](https://releases.aspose.com/slides/sharepoint/release-notes/)
 - [Página del Producto Aspose.Slides para SharePoint](https://products.aspose.com/slides/sharepoint/)
 - [Descargar Aspose.Slides para SharePoint](https://releases.aspose.com/slides/sharepoint/)
@@ -221,8 +221,8 @@ Aspose.Slides para JasperReports es una biblioteca especialmente diseñada y des
 
 Estos son enlaces a recursos útiles:
 
-- [Documentación Online de Aspose.Slides para JasperReports](/slides/jasperreports/)
-- [Características de Aspose.Slides para JasperReports](/slides/jasperreports/features/)
+- [Documentación Online de Aspose.Slides para JasperReports](/slides/es/jasperreports/)
+- [Características de Aspose.Slides para JasperReports](/slides/es/jasperreports/features/)
 - [Notas de la versión de Aspose.Slides para JasperReports](https://releases.aspose.com/slides/jasperreport/release-notes/)
 - [Página del Producto Aspose.Slides para JasperReports](https://products.aspose.com/slides/jasperreports/)
 - [Descargar Aspose.Slides para JasperReports](https://releases.aspose.com/slides/jasperreport/)

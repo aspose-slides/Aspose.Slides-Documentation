@@ -2,7 +2,7 @@
 title: Fondo de Presentación
 type: docs
 weight: 20
-url: /python-net/presentation-background/
+url: /es/python-net/presentation-background/
 keywords: "fondo de PowerPoint, establecer fondo, Python, Aspose.Slides para Python a través de .NET"
 description: "Establecer fondo en presentación de PowerPoint en Python"
 ---

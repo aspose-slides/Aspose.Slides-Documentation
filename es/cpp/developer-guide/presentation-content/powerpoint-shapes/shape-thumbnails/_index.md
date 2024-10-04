@@ -2,7 +2,7 @@
 title: Miniaturas de Formas
 type: docs
 weight: 70
-url: /cpp/shape-thumbnails/
+url: /es/cpp/shape-thumbnails/
 keywords: 
 - miniatura de forma
 - imagen de forma

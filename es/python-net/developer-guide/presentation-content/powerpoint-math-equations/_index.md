@@ -2,7 +2,7 @@
 title: Ecuaciones Matemáticas de PowerPoint
 type: docs
 weight: 80
-url: /python-net/powerpoint-math-equations/
+url: /es/python-net/powerpoint-math-equations/
 keywords: "Ecuaciones Matemáticas de PowerPoint, Símbolos Matemáticos de PowerPoint, Fórmula de PowerPoint, Texto Matemático de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Ecuaciones Matemáticas de PowerPoint, Símbolos Matemáticos, Fórmulas y Texto Matemático en Python"
 ---

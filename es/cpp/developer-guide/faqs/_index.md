@@ -2,7 +2,7 @@
 title: Preguntas Frecuentes
 type: docs
 weight: 340
-url: /cpp/faqs/
+url: /es/cpp/faqs/
 keywords:
 - Pregunta Frecuente
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **P: ¿Qué formatos de archivo soporta Aspose.Slides para C++?**
 
-**R**: Aspose.Slides para C++ soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/cpp/supported-file-formats/).
+**R**: Aspose.Slides para C++ soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/es/cpp/supported-file-formats/).
 
 ## **Excepciones**
 
@@ -54,7 +54,7 @@ En general, Aspose.Slides para C++ puede manejar fácilmente archivos de present
 
 **P: ¿Por qué los tamaños de párrafo son diferentes en los sistemas operativos Windows y Linux?**
 
-**R**: El cálculo de los tamaños de párrafo se basa en el cálculo del tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza por la fuente más similar, pero esta fuente tiene métricas diferentes a las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas dará lugar a resultados diferentes según el conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, debes instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/cpp/custom-font/).
+**R**: El cálculo de los tamaños de párrafo se basa en el cálculo del tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza por la fuente más similar, pero esta fuente tiene métricas diferentes a las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas dará lugar a resultados diferentes según el conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, debes instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/es/cpp/custom-font/).
 
 ## **Formateo e Imágenes**
 

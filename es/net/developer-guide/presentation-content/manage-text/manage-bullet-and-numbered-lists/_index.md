@@ -2,7 +2,7 @@
 title: Administrar Listas con Viñetas y Numeradas
 type: docs
 weight: 70
-url: /net/manage-bullet-and-numbered-lists
+url: /es/net/manage-bullet-and-numbered-lists
 keywords: "Viñetas, Listas con viñetas, Números, Listas numeradas, Viñetas de imagen, viñetas multinivel, Presentación de PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "Crea listas con viñetas y numeradas en una presentación de PowerPoint en C# o .NET"
 ---

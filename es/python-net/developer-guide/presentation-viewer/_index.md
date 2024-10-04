@@ -2,7 +2,7 @@
 title: Visor de Presentaciones
 type: docs
 weight: 50
-url: /python-net/presentation-viewer/
+url: /es/python-net/presentation-viewer/
 keywords: "Ver presentación de PowerPoint, ver ppt, ver PPTX, Python, Aspose.Slides para Python a través de .NET"
 description: "Ver presentación de PowerPoint en Python"
 ---

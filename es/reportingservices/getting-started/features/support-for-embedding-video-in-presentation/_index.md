@@ -2,7 +2,7 @@
 title: Soporte para la Incrustación de Video en Presentaciones
 type: docs
 weight: 80
-url: /reportingservices/support-for-embedding-video-in-presentation/
+url: /es/reportingservices/support-for-embedding-video-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Exportar Gráfico
 type: docs
 weight: 90
-url: /cpp/export-chart/
+url: /es/cpp/export-chart/
 keywords:
 - gráfico
 - imagen del gráfico

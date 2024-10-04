@@ -2,7 +2,7 @@
 title: Examinar Presentación
 type: docs
 weight: 30
-url: /php-java/examine-presentation/
+url: /es/php-java/examine-presentation/
 keywords:
 - PowerPoint
 - presentación

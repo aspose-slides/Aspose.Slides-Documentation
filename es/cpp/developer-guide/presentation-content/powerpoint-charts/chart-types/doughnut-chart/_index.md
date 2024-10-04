@@ -2,7 +2,7 @@
 title: Gráfico de Dona
 type: docs
 weight: 30
-url: /cpp/doughnut-chart/
+url: /es/cpp/doughnut-chart/
 ---
 
 ## **Especificar el Hueco Central en el Gráfico de Dona**

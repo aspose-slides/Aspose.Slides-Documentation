@@ -2,7 +2,7 @@
 title: Bloqueo de Presentación
 type: docs
 weight: 110
-url: /net/presentation-locking/
+url: /es/net/presentation-locking/
 ---
 
 ## **Bloqueo de Presentación**

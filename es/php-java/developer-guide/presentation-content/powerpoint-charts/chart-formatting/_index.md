@@ -2,7 +2,7 @@
 title: Formato de Gráficos
 type: docs
 weight: 60
-url: /php-java/chart-formatting/
+url: /es/php-java/chart-formatting/
 ---
 
 ## **Formato de Entidades de Gráfico**

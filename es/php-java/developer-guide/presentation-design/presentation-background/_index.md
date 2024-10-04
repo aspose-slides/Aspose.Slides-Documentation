@@ -2,7 +2,7 @@
 title: Fondo de Presentación
 type: docs
 weight: 20
-url: /php-java/presentation-background/
+url: /es/php-java/presentation-background/
 keywords: "fondo de PowerPoint, establecer fondo"
 description: "Establecer fondo en la presentación de PowerPoint"
 ---

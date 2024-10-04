@@ -2,7 +2,7 @@
 title: Soporte para .NET6
 type: docs
 weight: 235
-url: /net/net6/
+url: /es/net/net6/
 keywords: 
 - .NET 6
 - Nube

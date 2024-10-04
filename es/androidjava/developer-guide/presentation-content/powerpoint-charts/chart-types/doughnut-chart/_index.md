@@ -2,7 +2,7 @@
 title: Gráfico de Dona
 type: docs
 weight: 30
-url: /androidjava/doughnut-chart/
+url: /es/androidjava/doughnut-chart/
 ---
 
 ## **Cambiar el Espacio en el Centro del Gráfico de Dona**

@@ -3,7 +3,7 @@ title: Propiedades de la Presentación - Acceder o Modificar Propiedades de Pres
 linktitle: Propiedades de la Presentación
 type: docs
 weight: 70
-url: /net/presentation-properties/
+url: /es/net/presentation-properties/
 keywords: "cómo eliminar el último modificado por en powerpoint, propiedades de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Propiedades de presentación PowerPoint en C# o .NET"
 ---

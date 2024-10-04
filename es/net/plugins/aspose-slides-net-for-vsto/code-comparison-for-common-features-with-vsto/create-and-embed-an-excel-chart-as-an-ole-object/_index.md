@@ -2,7 +2,7 @@
 title: Crear e Incrustar un Gráfico de Excel como un Objeto OLE
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object/
+url: /es/net/create-and-embed-an-excel-chart-as-an-ole-object/
 ---
 
 Los dos ejemplos de código a continuación son largos y detallados porque la tarea que describen es compleja. Creas un libro de trabajo de Microsoft Excel, creas un gráfico y luego creas la presentación de Microsoft PowerPoint en la que incrustarás el gráfico. Los objetos OLE contienen enlaces al documento original, por lo que un usuario que haga doble clic en el archivo incrustado abrirá el archivo y su aplicación.

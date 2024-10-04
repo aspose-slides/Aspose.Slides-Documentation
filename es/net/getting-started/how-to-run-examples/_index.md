@@ -2,7 +2,7 @@
 title: Cómo Ejecutar Ejemplos
 type: docs
 weight: 130
-url: /net/how-to-run-examples/
+url: /es/net/how-to-run-examples/
 ---
 
 ## **Requisitos de Software**

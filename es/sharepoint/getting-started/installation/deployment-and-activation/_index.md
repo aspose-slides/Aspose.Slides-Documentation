@@ -2,7 +2,7 @@
 title: Implementación y Activación
 type: docs
 weight: 20
-url: /sharepoint/deployment-and-activation/
+url: /es/sharepoint/deployment-and-activation/
 ---
 
 ## **Implementación**

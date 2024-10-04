@@ -2,5 +2,5 @@
 title: Formas de PowerPoint
 type: docs
 weight: 90
-url: /java/powerpoint-shapes/
+url: /es/java/powerpoint-shapes/
 ---

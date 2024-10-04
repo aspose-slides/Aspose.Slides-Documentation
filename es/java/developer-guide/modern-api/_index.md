@@ -2,7 +2,7 @@
 title: API Moderna
 type: docs
 weight: 237
-url: /java/modern-api/
+url: /es/java/modern-api/
 keywords: "API Moderna Multiplataforma"
 description: "API Moderna"
 ---

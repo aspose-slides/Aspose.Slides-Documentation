@@ -2,7 +2,7 @@
 title: Marco de Imagen
 type: docs
 weight: 10
-url: /php-java/picture-frame/
+url: /es/php-java/picture-frame/
 keywords: "Agregar marco de imagen, crear marco de imagen, agregar imagen, crear imagen, extraer imagen, propiedad StretchOff, formateo de marco de imagen, propiedades del marco de imagen, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Agregar marco de imagen a la presentación de PowerPoint"
 

@@ -2,7 +2,7 @@
 title: Gestionar TextBox
 type: docs
 weight: 20
-url: /python-net/manage-textbox/
+url: /es/python-net/manage-textbox/
 keywords: "Textbox, Marco de texto, Añadir textbox, Textbox con hiperenlace, Python, Aspose.Slides para Python a través de .NET"
 description: "Añadir un textbox o marco de texto a presentaciones de PowerPoint en Python o .NET"
 ---

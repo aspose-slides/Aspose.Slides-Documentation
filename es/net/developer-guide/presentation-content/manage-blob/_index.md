@@ -2,7 +2,7 @@
 title: Gestionar Blob
 type: docs
 weight: 10
-url: /net/manage-blob/
+url: /es/net/manage-blob/
 keywords: "Agregar blob, Exportar blob, Agregar imagen como blob, Presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Agregar blob a la presentación de PowerPoint en C# o .NET. Exportar blob. Agregar imagen como blob"
 ---
@@ -17,7 +17,7 @@ Aspose.Slides para .NET te permite usar BLOBs para objetos de una manera que red
 
 ### **Agregar Archivo Grande a una Presentación a través de BLOB**
 
-[Aspose.Slides](/slides/net/) para .NET te permite agregar archivos grandes (en este caso, un archivo de video grande) mediante un proceso que involucra BLOBs para reducir el consumo de memoria.
+[Aspose.Slides](/slides/es/net/) para .NET te permite agregar archivos grandes (en este caso, un archivo de video grande) mediante un proceso que involucra BLOBs para reducir el consumo de memoria.
 
 Este C# te muestra cómo agregar un archivo de video grande a través del proceso BLOB a una presentación:
 

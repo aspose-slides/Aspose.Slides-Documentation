@@ -2,7 +2,7 @@
 title: Administrar Configuraciones de Autofit
 type: docs
 weight: 30
-url: /net/manage-autofit-settings/
+url: /es/net/manage-autofit-settings/
 keywords: "Textbox, Autofit, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Establecer las configuraciones de autofit para el cuadro de texto en PowerPoint en C# o .NET"
 ---

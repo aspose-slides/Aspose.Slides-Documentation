@@ -2,7 +2,7 @@
 title: Gráfico de Dona
 type: docs
 weight: 30
-url: /python-net/doughnut-chart/
+url: /es/python-net/doughnut-chart/
 keywords: "Gráfico de dona, agujero central, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Especificar el agujero central en un gráfico de dona en una presentación de PowerPoint en Python"
 ---

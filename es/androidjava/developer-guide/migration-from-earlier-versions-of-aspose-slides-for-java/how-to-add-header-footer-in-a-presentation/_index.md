@@ -2,7 +2,7 @@
 title: Cómo agregar encabezado y pie de página en una presentación
 type: docs
 weight: 20
-url: /androidjava/how-to-add-header-footer-in-a-presentation/
+url: /es/androidjava/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

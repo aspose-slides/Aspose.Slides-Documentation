@@ -2,7 +2,7 @@
 title: API Moderna
 type: docs
 weight: 280
-url: /python-net/modern-api/
+url: /es/python-net/modern-api/
 keywords: "API Moderna, Dibujo"
 description: "API Moderna"
 ---

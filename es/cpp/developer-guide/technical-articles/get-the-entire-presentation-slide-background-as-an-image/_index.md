@@ -2,7 +2,7 @@
 title: Obtener el Fondo Completo de la Diapositiva de Presentación como una Imagen
 type: docs
 weight: 95
-url: /cpp/get-the-entire-presentation-slide-background-as-an-image/
+url: /es/cpp/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositiva
 - fondo
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides para C++
 ---
 
-En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen establecida como el [fondo de diapositiva](/slides/cpp/presentation-background/), el fondo final puede estar influenciado por el tema de la presentación, el esquema de color y las formas colocadas en la diapositiva maestra y en la diapositiva de diseño.
+En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen establecida como el [fondo de diapositiva](/slides/es/cpp/presentation-background/), el fondo final puede estar influenciado por el tema de la presentación, el esquema de color y las formas colocadas en la diapositiva maestra y en la diapositiva de diseño.
 
 Aspose.Slides para C++ no proporciona un método sencillo para extraer el fondo completo de la diapositiva de presentación como una imagen, pero puedes seguir los pasos a continuación para hacerlo:
 1. Carga la presentación utilizando la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).

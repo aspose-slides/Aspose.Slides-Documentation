@@ -2,7 +2,7 @@
 title: Licencia Medida
 type: docs
 weight: 100
-url: /java/metered-licensing/
+url: /es/java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Establecer título para el ícono OLE
 type: docs
 weight: 160
-url: /net/set-caption-to-ole-icon/
+url: /es/net/set-caption-to-ole-icon/
 ---
 
 Se ha agregado una nueva propiedad **SubstitutePictureTitle** a la interfaz **IOleObjectFrame** y a la clase **OleObjectFrame**. Permite obtener, establecer o cambiar el título de un ícono OLE. El siguiente fragmento de código muestra un ejemplo de creación de un objeto de Excel y la configuración de su título.

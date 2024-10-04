@@ -2,5 +2,5 @@
 title: Fuentes de PowerPoint
 type: docs
 weight: 30
-url: /net/powerpoint-fonts/
+url: /es/net/powerpoint-fonts/
 ---

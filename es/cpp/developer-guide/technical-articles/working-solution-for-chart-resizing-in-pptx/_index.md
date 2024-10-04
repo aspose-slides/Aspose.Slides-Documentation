@@ -2,7 +2,7 @@
 title: Solución Funcional para el Redimensionamiento de Gráficos en PPTX
 type: docs
 weight: 60
-url: /cpp/working-solution-for-chart-resizing-in-pptx/
+url: /es/cpp/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

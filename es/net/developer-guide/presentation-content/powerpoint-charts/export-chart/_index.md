@@ -2,7 +2,7 @@
 title: Exportar Gráfico
 type: docs
 weight: 90
-url: /net/export-chart/
+url: /es/net/export-chart/
 keywords:
 - gráfico
 - imagen del gráfico

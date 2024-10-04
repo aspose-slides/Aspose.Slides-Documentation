@@ -2,7 +2,7 @@
 title: Administrar Tabla
 type: docs
 weight: 10
-url: /python-net/manage-table/
+url: /es/python-net/manage-table/
 keywords: "Tabla, crear tabla, acceder a tabla, relación de aspecto de tabla, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Crear y administrar tablas en presentaciones de PowerPoint en Python"
 

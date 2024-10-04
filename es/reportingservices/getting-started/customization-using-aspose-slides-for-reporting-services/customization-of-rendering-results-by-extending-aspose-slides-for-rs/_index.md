@@ -2,15 +2,15 @@
 title: Personalización de los Resultados de Renderización al Extender Aspose.Slides para RS
 type: docs
 weight: 10
-url: /reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
+url: /es/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
 ---
 
 {{% alert color="primary" %}} 
 
 Esta página describe cómo crear una extensión para Aspose.Slides para RS.
 
-- [Crear un ensamblaje de extensión](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
-- [Integrar la extensión](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [Crear un ensamblaje de extensión](/slides/es/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [Integrar la extensión](/slides/es/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: Aplicación Hola Mundo utilizando Aspose.Slides
 type: docs
 weight: 80
-url: /cpp/hello-world-application-using-aspose-slides/
+url: /es/cpp/hello-world-application-using-aspose-slides/
 ---
 
 ## **Pasos para Crear la Aplicación Hola Mundo**

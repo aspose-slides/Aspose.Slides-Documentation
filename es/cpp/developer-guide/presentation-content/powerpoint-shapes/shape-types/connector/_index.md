@@ -2,7 +2,7 @@
 title: Conector
 type: docs
 weight: 10
-url: /cpp/connector/
+url: /es/cpp/connector/
 keywords: "Conectar formas, conectores, formas de PowerPoint, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Conectar formas de PowerPoint en C++"
 ---
@@ -141,7 +141,7 @@ Este código C++ demuestra una operación en la que se especifica un punto de co
 
 ## **Ajustar Punto de Conector**
 
-Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden ser alterados de esta manera. Consulta la tabla bajo **[Tipos de conectores.](/slides/cpp/connector/#types-of-connectors)** 
+Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden ser alterados de esta manera. Consulta la tabla bajo **[Tipos de conectores.](/slides/es/cpp/connector/#types-of-connectors)** 
 
 #### **Caso Simple**
 
@@ -190,7 +190,7 @@ Para realizar ajustes más complicados, debes tener en cuenta estas cosas:
 * Los valores de los puntos de ajuste reflejan el porcentaje del ancho/altura de la forma de un conector. 
   * La forma está limitada por los puntos de inicio y final del conector multiplicados por 1000. 
   * El primer punto, el segundo punto y el tercer punto definen el porcentaje del ancho, el porcentaje de la altura y el porcentaje del ancho (de nuevo), respectivamente.
-* Para los cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación del conector y su reflejo. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/cpp/connector/#types-of-connectors)** es 0.
+* Para los cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación del conector y su reflejo. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/es/cpp/connector/#types-of-connectors)** es 0.
 
 #### **Caso 1**
 

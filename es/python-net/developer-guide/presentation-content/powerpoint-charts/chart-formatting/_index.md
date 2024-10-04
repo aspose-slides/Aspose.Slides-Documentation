@@ -2,7 +2,7 @@
 title: Formato de Gráficos
 type: docs
 weight: 60
-url: /python-net/chart-formatting/
+url: /es/python-net/chart-formatting/
 keywords: "Entidades de gráficos, propiedades de gráficos, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Formatear entidades de gráficos en presentaciones de PowerPoint en Python"
 ---

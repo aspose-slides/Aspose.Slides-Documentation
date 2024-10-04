@@ -2,7 +2,7 @@
 title: Configuración de Demos
 type: docs
 weight: 70
-url: /jasperreports/demos-setup/
+url: /es/jasperreports/demos-setup/
 ---
 
 Todas las demos proporcionadas con Aspose.Slides para JasperReports son demos estándar modificadas. Es mejor copiar todas las demos a la carpeta de demos de JasperReports:  

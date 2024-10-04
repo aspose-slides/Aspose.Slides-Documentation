@@ -2,7 +2,7 @@
 title: Conector
 type: docs
 weight: 10
-url: /net/connector/
+url: /es/net/connector/
 keywords: "Conectar formas, conectores, formas de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Conectar formas de PowerPoint en C# o .NET"
 ---
@@ -128,7 +128,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Ajustar Punto del Conector**
 
-Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo se pueden modificar de esta manera los conectores que tienen puntos de ajuste. Consulta la tabla bajo **[Tipos de conectores.](/slides/net/connector/#types-of-connectors)** 
+Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo se pueden modificar de esta manera los conectores que tienen puntos de ajuste. Consulta la tabla bajo **[Tipos de conectores.](/slides/es/net/connector/#types-of-connectors)** 
 
 #### **Caso Simple**
 
@@ -174,7 +174,7 @@ Para realizar ajustes más complicados, debes tener en cuenta estas cosas:
 * Los valores de los puntos de ajuste reflejan el porcentaje del ancho/alto de la forma del conector. 
   * La forma está delimitada por los puntos de inicio y fin del conector multiplicados por 1000. 
   * El primer punto, el segundo punto y el tercer punto definen el porcentaje del ancho, el porcentaje de la altura y el porcentaje del ancho (nuevamente), respectivamente.
-* Para los cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación y su reflexión. **Nota** que el ángulo de rotación para todos los conectores que se muestran bajo **[Tipos de conectores](/slides/net/connector/#types-of-connectors)** es 0.
+* Para los cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación y su reflexión. **Nota** que el ángulo de rotación para todos los conectores que se muestran bajo **[Tipos de conectores](/slides/es/net/connector/#types-of-connectors)** es 0.
 
 #### **Caso 1**
 

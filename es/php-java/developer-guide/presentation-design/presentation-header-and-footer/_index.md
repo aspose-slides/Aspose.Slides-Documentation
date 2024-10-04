@@ -2,18 +2,18 @@
 title: Encabezado y Pie de Página de Presentación
 type: docs
 weight: 140
-url: /php-java/presentation-header-and-footer/
+url: /es/php-java/presentation-header-and-footer/
 keywords: "Encabezado y pie de página de PowerPoint"
 description: "Encabezado y pie de página de PowerPoint"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/php-java/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que se mantienen a nivel de la diapositiva maestra.
+[Aspose.Slides](/slides/es/php-java/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que se mantienen a nivel de la diapositiva maestra.
 
 {{% /alert %}} 
 
-[Aspose.Slides para PHP a través de Java](/slides/php-java/) ofrece la función para gestionar encabezados y pies de página dentro de las diapositivas de presentación. Estos se gestionan en realidad a nivel de la presentación maestra.
+[Aspose.Slides para PHP a través de Java](/slides/es/php-java/) ofrece la función para gestionar encabezados y pies de página dentro de las diapositivas de presentación. Estos se gestionan en realidad a nivel de la presentación maestra.
 
 ## **Gestionar Encabezado y Pie de Página en la Presentación**
 Las notas de una diapositiva específica pueden eliminarse como se muestra en el ejemplo a continuación:

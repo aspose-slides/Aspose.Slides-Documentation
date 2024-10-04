@@ -2,7 +2,7 @@
 title: Generar Miniatura de Diapositiva como JPEG
 type: docs
 weight: 90
-url: /net/generate-slide-thumbnail-as-jpeg/
+url: /es/net/generate-slide-thumbnail-as-jpeg/
 ---
 
 Para generar la miniatura de cualquier diapositiva deseada usando Aspose.Slides para .NET:
@@ -38,6 +38,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-Para más detalles, visita [Creando Imagen de Miniatura de Diapositivas](/slides/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
+Para más detalles, visita [Creando Imagen de Miniatura de Diapositivas](/slides/es/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
 
 {{% /alert %}}

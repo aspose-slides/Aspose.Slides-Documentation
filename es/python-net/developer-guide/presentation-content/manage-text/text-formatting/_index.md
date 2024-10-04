@@ -2,7 +2,7 @@
 title: Formateo de Texto
 type: docs
 weight: 50
-url: /python-net/text-formatting/
+url: /es/python-net/text-formatting/
 keywords:
 - resaltar texto
 - expresión regular

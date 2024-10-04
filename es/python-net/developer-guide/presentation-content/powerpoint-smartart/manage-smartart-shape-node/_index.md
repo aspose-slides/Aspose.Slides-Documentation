@@ -2,7 +2,7 @@
 title: Gestionar el nodo de forma SmartArt
 type: docs
 weight: 30
-url: /python-net/manage-smartart-shape-node/
+url: /es/python-net/manage-smartart-shape-node/
 keywords: "nodo SmartArt, nodo hijo de SmartArt, presentación de PowerPoint, Python, Aspose.Slides para Python via .NET"
 description: "Nodo inteligente y nodo hijo en presentaciones de PowerPoint en Python"
 ---

@@ -2,13 +2,13 @@
 title: Gestionar Marcador de Posición
 type: docs
 weight: 10
-url: /cpp/manage-placeholder/
+url: /es/cpp/manage-placeholder/
 keywords: "Marcador de posición, Texto del marcador de posición, Texto del aviso, Presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Cambiar el texto del marcador de posición y el texto del aviso en presentaciones de PowerPoint en C++"
 ---
 
 ## **Cambiar el Texto en el Marcador de Posición**
-Usando [Aspose.Slides para C++](/slides/cpp/), puedes encontrar y modificar marcadores de posición en diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un marcador de posición.
+Usando [Aspose.Slides para C++](/slides/es/cpp/), puedes encontrar y modificar marcadores de posición en diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un marcador de posición.
 
 **Prerequisito**: Necesitas una presentación que contenga un marcador de posición. Puedes crear una presentación así en la aplicación estándar de Microsoft PowerPoint.
 

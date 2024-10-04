@@ -2,7 +2,7 @@
 title: Formato de Forma
 type: docs
 weight: 20
-url: /net/shape-formatting/
+url: /es/net/shape-formatting/
 keywords:
 - formato de forma
 - formato de líneas

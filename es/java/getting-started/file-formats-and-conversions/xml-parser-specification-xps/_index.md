@@ -2,7 +2,7 @@
 title: Especificación del Analizador XML (XPS)
 type: docs
 weight: 50
-url: /java/xml-parser-specification-xps/
+url: /es/java/xml-parser-specification-xps/
 ---
 
 {{% alert color="primary" %}} 

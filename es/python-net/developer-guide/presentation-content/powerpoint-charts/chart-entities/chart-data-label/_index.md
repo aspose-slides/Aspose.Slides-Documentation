@@ -1,7 +1,7 @@
 ---
 title: Etiqueta de Datos de Gráfico
 type: docs
-url: /python-net/chart-data-label/
+url: /es/python-net/chart-data-label/
 keywords: "Etiqueta de datos de gráfico, distancia de etiqueta, Python, Aspose.Slides para Python a través de .NET"
 description: "Establecer la etiqueta de datos de gráfico de PowerPoint y la distancia en Python"
 ---

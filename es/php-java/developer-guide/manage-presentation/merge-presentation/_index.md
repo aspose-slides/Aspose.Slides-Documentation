@@ -2,7 +2,7 @@
 title: Fusionar Presentación
 type: docs
 weight: 40
-url: /php-java/merge-presentation/
+url: /es/php-java/merge-presentation/
 keywords: "Fusionar PowerPoint, PPTX, PPT, combinar PowerPoint, fusionar presentación, combinar presentación, Java"
 description: "Fusionar o combinar presentación de PowerPoint"
 ---

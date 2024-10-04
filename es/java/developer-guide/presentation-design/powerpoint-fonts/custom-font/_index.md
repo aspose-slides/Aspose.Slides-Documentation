@@ -3,7 +3,7 @@ title: Fuente de PowerPoint personalizada en Java
 linktitle: Fuente personalizada
 type: docs
 weight: 20
-url: /java/custom-font/
+url: /es/java/custom-font/
 keywords: "Fuentes, fuentes personalizadas, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Fuentes personalizadas de PowerPoint en Java"
 ---

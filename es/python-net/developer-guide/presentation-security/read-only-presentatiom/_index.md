@@ -2,7 +2,7 @@
 title: Presentación de Solo Lectura
 type: docs
 weight: 30
-url: /python-net/read-only-presentation/
+url: /es/python-net/read-only-presentation/
 keywords: "Configuración de solo lectura, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Presentación de PowerPoint de solo lectura en Python"
 ---

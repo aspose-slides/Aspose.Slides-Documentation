@@ -2,7 +2,7 @@
 title: Formateo de Texto
 type: docs
 weight: 50
-url: /php-java/text-formatting/
+url: /es/php-java/text-formatting/
 ---
 
 ## **Resaltar Texto**

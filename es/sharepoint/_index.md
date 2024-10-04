@@ -4,7 +4,7 @@ second_title: Documentación de Aspose.Slides
 description: Aspose.Slides para SharePoint es una solución flexible que hace posible convertir documentos de PowerPoint® dentro de sitios de Microsoft SharePoint.
 type: docs
 weight: 60
-url: /sharepoint/
+url: /es/sharepoint/
 is_root: true
 ---
 
@@ -22,8 +22,8 @@ Aspose.Slides para SharePoint es una solución flexible que hace posible convert
 
 A continuación se presentan los enlaces a algunos recursos útiles que puede necesitar para llevar a cabo sus tareas.
 
-- [Documentación en línea de Aspose.Slides para SharePoint](/slides/sharepoint/)
-- [Características de Aspose.Slides para SharePoint](/slides/sharepoint/features/)
+- [Documentación en línea de Aspose.Slides para SharePoint](/slides/es/sharepoint/)
+- [Características de Aspose.Slides para SharePoint](/slides/es/sharepoint/features/)
 - [Notas de la versión de Aspose.Slides para SharePoint](https://releases.aspose.com/slides/sharepoint/release-notes/)
 - [Página del producto Aspose.Slides para SharePoint](https://products.aspose.com/slides/sharepoint/)
 - [Descargar Aspose.Slides para SharePoint](https://releases.aspose.com/slides/sharepoint/)

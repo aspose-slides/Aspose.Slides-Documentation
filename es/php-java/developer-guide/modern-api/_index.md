@@ -2,7 +2,7 @@
 title: API Moderna
 type: docs
 weight: 237
-url: /php-java/modern-api/
+url: /es/php-java/modern-api/
 keywords: "API Moderna CrossPlatform"
 description: "API Moderna"
 ---

@@ -2,7 +2,7 @@
 title: Convertir Diapositiva
 type: docs
 weight: 41
-url: /python-net/convert-slide/
+url: /es/python-net/convert-slide/
 keywords: 
 - convertir diapositiva a imagen
 - exportar diapositiva como imagen

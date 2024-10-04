@@ -2,7 +2,7 @@
 title: Multihilo en Aspose.Slides
 type: docs
 weight: 200
-url: /python-net/multithreading/
+url: /es/python-net/multithreading/
 keywords:
 - PowerPoint
 - presentación

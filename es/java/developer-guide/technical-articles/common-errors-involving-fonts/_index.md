@@ -2,7 +2,7 @@
 title: Excepciones y errores comunes relacionados con fuentes en Linux
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /es/java/technical-articles/common-errors-involving-fonts
 keywords: "Excepción de fuente, Error de fuente, Linux, Java, Aspose.Slides para Java"
 description: "Excepciones y errores de fuentes en Linux"
 ---

@@ -2,7 +2,7 @@
 title: Descripción del Producto
 type: docs
 weight: 10
-url: /php-java/product-overview/
+url: /es/php-java/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-php-via-java.png)
@@ -134,4 +134,4 @@ Esta tabla lista los importantes recursos técnicos de Aspose.Slides para PHP a 
 |[Blog de Aspose.Slide](https://blog.aspose.com/category/slides/)|Verifica esta página regularmente para obtener información sobre nuevas versiones y consejos útiles sobre Aspose.Slides.|
 |[Descarga de Aspose.Slides para PHP a través de Java](https://packagist.org/packages/aspose/slides)|Descarga la última versión de Aspose.Slides aquí. A menudo lanzamos nuevas versiones.|
 |[ Foro de soporte de Aspose.Slides](https://forum.aspose.com/c/slides/11)|Publica aquí tus preguntas y problemas para una resolución rápida.|
-|[Documentación del producto Aspose.Slides para PHP a través de Java](/slides/php-java/)|Documentación completa en línea que contiene este documento y la Referencia de la API de Aspose.Slides.|
+|[Documentación del producto Aspose.Slides para PHP a través de Java](/slides/es/php-java/)|Documentación completa en línea que contiene este documento y la Referencia de la API de Aspose.Slides.|

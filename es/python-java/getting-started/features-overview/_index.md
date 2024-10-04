@@ -2,7 +2,7 @@
 title: Descripción General de Características
 type: docs
 weight: 20
-url: /python-java/features-overview/
+url: /es/python-java/features-overview/
 ---
 
 ## **Plataformas Soportadas**

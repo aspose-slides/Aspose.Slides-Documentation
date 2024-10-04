@@ -2,7 +2,7 @@
 title: Gestionar BLOB
 type: docs
 weight: 10
-url: /python-net/manage-blob/
+url: /es/python-net/manage-blob/
 keywords: "Agregar blob, Exportar blob, Agregar imagen como blob, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Agregar blob a la presentación de PowerPoint en Python. Exportar blob. Agregar imagen como blob"
 ---
@@ -17,7 +17,7 @@ Aspose.Slides para Python a través de .NET te permite usar BLOBs para objetos d
 
 ### **Agregar Archivo Grande a través de BLOB a una Presentación**
 
-[Aspose.Slides](/slides/python-net/) para .NET te permite agregar archivos grandes (en este caso, un archivo de video grande) a través de un proceso que involucra BLOBs para reducir el consumo de memoria.
+[Aspose.Slides](/slides/es/python-net/) para .NET te permite agregar archivos grandes (en este caso, un archivo de video grande) a través de un proceso que involucra BLOBs para reducir el consumo de memoria.
 
 Este código de Python te muestra cómo agregar un archivo de video grande a través del proceso BLOB a una presentación:
 

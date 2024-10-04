@@ -1,7 +1,7 @@
 ---
 title: Marcador de Datos del Gráfico
 type: docs
-url: /php-java/chart-data-marker/
+url: /es/php-java/chart-data-marker/
 ---
 
 ## **Configurar Opciones de Marcador del Gráfico**

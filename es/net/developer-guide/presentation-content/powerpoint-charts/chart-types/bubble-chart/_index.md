@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Burbuja
 type: docs
-url: /net/bubble-chart/
+url: /es/net/bubble-chart/
 keywords: "Gráfico de burbuja, tamaño del gráfico, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Tamaño del gráfico de burbuja en presentaciones de PowerPoint en C# o .NET"
 ---

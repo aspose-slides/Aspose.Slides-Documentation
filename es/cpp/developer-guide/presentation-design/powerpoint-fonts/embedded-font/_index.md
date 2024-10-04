@@ -2,7 +2,7 @@
 title: Fuente incrustada
 type: docs
 weight: 40
-url: /cpp/embedded-font/
+url: /es/cpp/embedded-font/
 keywords: "Fuentes, fuentes incrustadas, añadir fuentes, presentación de PowerPoint C++, CPP, Aspose.Slides para C++"
 description: "Usar fuentes incrustadas en la presentación de PowerPoint en C++"
 ---

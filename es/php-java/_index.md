@@ -4,7 +4,7 @@ second_title: "Documentación de Aspose.Slides para PHP"
 description: Aspose.Slides para PHP a través de Java proporciona muchas características clave, como gestionar texto, formas, tablas y animaciones, añadir audio y vídeo a las diapositivas, previsualizar diapositivas, exportar diapositivas a SVG, PDF y más.
 type: docs
 weight: 45
-url: /php-java/
+url: /es/php-java/
 is_root: true
 ---
 
@@ -32,13 +32,13 @@ Aspose.Slides para PHP a través de Java se ha portado de Aspose.Slides para Jav
 
 Estos son enlaces útiles a recursos:
 
-- [Documentación en Línea de Aspose.Slides para PHP a través de Java](/slides/php-java/)
-- [Características de Aspose.Slides para PHP a través de Java](/slides/php-java/features-overview/)
-- [Limitaciones y Diferencias de API de Aspose.Slides para PHP a través de Java](/slides/php-java/limitations-and-api-differences/)
+- [Documentación en Línea de Aspose.Slides para PHP a través de Java](/slides/es/php-java/)
+- [Características de Aspose.Slides para PHP a través de Java](/slides/es/php-java/features-overview/)
+- [Limitaciones y Diferencias de API de Aspose.Slides para PHP a través de Java](/slides/es/php-java/limitations-and-api-differences/)
 - [Notas de la Versión de Aspose.Slides para PHP a través de Java](https://releases.aspose.com/slides/php-java/release-notes/)
 - [Página del Producto Aspose.Slides para PHP a través de Java](https://products.aspose.com/slides/php-java/)
 - [Descargar el Paquete Aspose.Slides para PHP a través de Java](https://releases.aspose.com/slides/php-java/)
-- [Instalar Aspose.Slides para PHP a través de Java](/slides/php-java/installation/)
+- [Instalar Aspose.Slides para PHP a través de Java](/slides/es/php-java/installation/)
 - [Referencia de API de Aspose.Slides para PHP a través de Java](https://reference.aspose.com/slides/php-java/)
 - [Foro de Soporte Gratuito de Aspose.Slides para PHP a través de Java](https://forum.aspose.com/c/slides/11)
 - [Mesa de Ayuda de Soporte Pagado de Aspose.Slides para PHP a través de Java](https://helpdesk.aspose.com/)

@@ -2,7 +2,7 @@
 title: Eliminar diapositiva de la presentación
 type: docs
 weight: 30
-url: /python-net/remove-slide-from-presentation/
+url: /es/python-net/remove-slide-from-presentation/
 keywords: "Eliminar diapositiva, Borrar diapositiva, PowerPoint, Presentación, Python, Aspose.Slides"
 description: "Eliminar diapositiva de PowerPoint por referencia o índice en Python"
 

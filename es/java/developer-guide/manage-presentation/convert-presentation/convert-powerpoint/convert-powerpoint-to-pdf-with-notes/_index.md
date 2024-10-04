@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a PDF con Notas
 type: docs
 weight: 50
-url: /java/convert-powerpoint-to-pdf-with-notes/
+url: /es/java/convert-powerpoint-to-pdf-with-notes/
 keywords: "convertir powerpoint a pdf con notas en java"
 description: "Convertir PowerPoint a PDF con notas en Java"
 ---

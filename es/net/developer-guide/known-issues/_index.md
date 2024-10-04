@@ -2,5 +2,5 @@
 title: Problemas Conocidos
 type: docs
 weight: 330
-url: /net/known-issues/
+url: /es/net/known-issues/
 ---

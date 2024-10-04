@@ -2,7 +2,7 @@
 title: Obtener el Fondo Completo de una Diapositiva de Presentación como Imagen
 type: docs
 weight: 95
-url: /net/get-the-entire-presentation-slide-background-as-an-image/
+url: /es/net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositiva
 - fondo
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides for .NET
 ---
 
-En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen configurada como el [fondo de la diapositiva](/slides/net/presentation-background/), el fondo final puede verse influenciado por el tema de la presentación, la paleta de colores y las formas colocadas en la diapositiva maestra y en la diapositiva de diseño.
+En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen configurada como el [fondo de la diapositiva](/slides/es/net/presentation-background/), el fondo final puede verse influenciado por el tema de la presentación, la paleta de colores y las formas colocadas en la diapositiva maestra y en la diapositiva de diseño.
 
 Aspose.Slides for .NET no proporciona un método simple para extraer el fondo completo de la diapositiva de la presentación como una imagen, pero puedes seguir los pasos a continuación para hacerlo:
 1. Cargar la presentación utilizando la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).

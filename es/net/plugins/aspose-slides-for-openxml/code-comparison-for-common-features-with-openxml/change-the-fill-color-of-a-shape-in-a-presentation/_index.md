@@ -2,7 +2,7 @@
 title: Cambiar el color de relleno de una forma en una presentación
 type: docs
 weight: 40
-url: /net/change-the-fill-color-of-a-shape-in-a-presentation/
+url: /es/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
 ## **Presentación OpenXML**

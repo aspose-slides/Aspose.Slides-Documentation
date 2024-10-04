@@ -2,7 +2,7 @@
 title: Administrar Tabla
 type: docs
 weight: 10
-url: /cpp/manage-table/
+url: /es/cpp/manage-table/
 keywords: "Tabla, crear tabla, acceder a tabla, relación de aspecto de tabla, presentación de PowerPoint, C++, Aspose.Slides para C++"
 description: "Crear y gestionar tablas en presentaciones de PowerPoint en C++"
 ---

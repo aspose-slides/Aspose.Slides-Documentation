@@ -2,7 +2,7 @@
 title: Crear Informes Paginados
 type: docs
 weight: 100
-url: /reportingservices/paginated-reports/
+url: /es/reportingservices/paginated-reports/
 keywords: "Crear Informes Paginados, Power BI, Aspose.Slides para Reporting Services"
 description: "Crear Informes Paginados"
 ---

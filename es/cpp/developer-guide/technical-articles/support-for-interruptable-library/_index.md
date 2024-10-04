@@ -2,7 +2,7 @@
 title: Soporte para Biblioteca Interrumpible
 type: docs
 weight: 150
-url: /cpp/support-for-interruptable-library/
+url: /es/cpp/support-for-interruptable-library/
 ---
 
 ## **Biblioteca Interrumpible**

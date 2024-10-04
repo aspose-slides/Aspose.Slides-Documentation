@@ -2,7 +2,7 @@
 title: Clonar Diapositivas
 type: docs
 weight: 40
-url: /python-net/clone-slides/
+url: /es/python-net/clone-slides/
 keywords: "Clonar diapositiva, Copiar diapositiva, Guardar copia de diapositiva, PowerPoint, Presentación, Python, Aspose.Slides"
 description: "Clonar diapositiva de PowerPoint en Python"
 ---

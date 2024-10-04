@@ -2,7 +2,7 @@
 title: Eliminar Diapositiva de la Presentación
 type: docs
 weight: 30
-url: /php-java/remove-slide-from-presentation/
+url: /es/php-java/remove-slide-from-presentation/
 keywords: "Eliminar diapositiva, Borrar diapositiva, PowerPoint, Presentación, Java, Aspose.Slides"
 description: "Eliminar diapositiva de PowerPoint por referencia o índice"
 

@@ -2,7 +2,7 @@
 title: Animación de PowerPoint
 type: docs
 weight: 150
-url: /net/powerpoint-animation/
+url: /es/net/powerpoint-animation/
 keywords: "Animación, efectos de animación, animación de PowerPoint, línea de tiempo de animación, animación interactiva, animación de formas, gráfico animado, texto animado, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Animación y efectos de presentación de PowerPoint en C# o .NET"
 ---
@@ -49,19 +49,19 @@ Esto se puede lograr si combinas varios comportamientos en una nueva animación 
 Aspose.Slides permite aplicar animación a formas, que pueden ser en realidad texto, rectángulo, línea, marco, objeto OLE, etc.
 
 {{% alert color="primary" %}} 
-Lee más sobre [**Animación de Formas**](/slides/net/shape-animation/).
+Lee más sobre [**Animación de Formas**](/slides/es/net/shape-animation/).
 {{% /alert %}}
 
 ## **Gráficos Animados**
 Para crear gráficos animados, debes usar todas las mismas clases que para las formas. Sin embargo, es posible usar la animación de PowerPoint solo en categorías de gráficos o series de gráficos. También puedes aplicar efectos de animación a un elemento de categoría o elemento de serie.
 
 {{% alert color="primary" %}} 
-Lee más sobre [**Gráficos Animados**](/slides/net/animated-charts/).
+Lee más sobre [**Gráficos Animados**](/slides/es/net/animated-charts/).
 {{% /alert %}}
 
 ## **Texto Animado**
 Además del texto animado, también es posible aplicar animación a un párrafo.
 
 {{% alert color="primary" %}} 
-Lee más sobre [**Texto Animado**](/slides/net/animated-text/).
+Lee más sobre [**Texto Animado**](/slides/es/net/animated-text/).
 {{% /alert %}}

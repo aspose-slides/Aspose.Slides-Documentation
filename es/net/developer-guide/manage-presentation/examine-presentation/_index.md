@@ -2,7 +2,7 @@
 title: Examinar Presentación
 type: docs
 weight: 30
-url: /net/examine-presentation/
+url: /es/net/examine-presentation/
 keywords:
 - PowerPoint
 - presentación

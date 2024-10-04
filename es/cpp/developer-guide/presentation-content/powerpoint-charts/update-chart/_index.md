@@ -2,7 +2,7 @@
 title: Actualizar Gráfico
 type: docs
 weight: 10
-url: /cpp/update-chart/
+url: /es/cpp/update-chart/
 ---
 
 

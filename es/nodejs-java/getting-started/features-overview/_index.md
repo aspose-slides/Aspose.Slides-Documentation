@@ -2,7 +2,7 @@
 title: Descripción General de Funciones
 type: docs
 weight: 20
-url: /nodejs-java/features-overview/
+url: /es/nodejs-java/features-overview/
 ---
 
 ## **Plataformas Soportadas**

@@ -2,7 +2,7 @@
 title: Obtener el Fondo Completo de la Diapositiva de Presentación como una Imagen
 type: docs
 weight: 95
-url: /python-net/get-the-entire-presentation-slide-background-as-an-image/
+url: /es/python-net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositiva
 - fondo
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides para Python
 ---
 
-En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen establecida como el [fondo de la diapositiva](/slides/python-net/presentation-background/), el fondo final puede ser influenciado por el tema de presentación, el esquema de colores y las formas colocadas en la diapositiva maestra y en la diapositiva de diseño.
+En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen establecida como el [fondo de la diapositiva](/slides/es/python-net/presentation-background/), el fondo final puede ser influenciado por el tema de presentación, el esquema de colores y las formas colocadas en la diapositiva maestra y en la diapositiva de diseño.
 
 Aspose.Slides para Python no proporciona un método simple para extraer el fondo completo de la diapositiva de presentación como una imagen, pero puedes seguir los pasos a continuación para hacerlo:
 1. Cargar la presentación utilizando la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).

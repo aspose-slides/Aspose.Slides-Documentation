@@ -2,7 +2,7 @@
 title: Agregar diapositiva de diseño a la presentación
 type: docs
 weight: 10
-url: /net/add-layout-slide-to-presentation/
+url: /es/net/add-layout-slide-to-presentation/
 ---
 
 Aspose.Slides para .NET permite a los desarrolladores agregar nuevas diapositivas de diseño en la presentación. Para agregar una diapositiva de diseño, siga los pasos a continuación:
@@ -129,6 +129,6 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 {{% alert color="primary" %}} 
 
-Para más detalles, visite [Agregar diapositiva de diseño a la presentación](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Para más detalles, visite [Agregar diapositiva de diseño a la presentación](/slides/es/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Formato de Documento Portátil (PDF)
 type: docs
 weight: 40
-url: /php-java/portable-document-format-pdf/
+url: /es/php-java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.Slides admite las siguientes características de presentación al convert
 - Viñetas.
 - Tablas.
 
-Puedes exportar presentaciones a PDFs directamente usando Aspose.Slides para PHP a través de Java: no necesitas ningún otro componente. Además, puedes personalizar la exportación de presentación a PDF con varias opciones como se explica en [Convertir a PDF](/slides/php-java/converting-a-presentation/).
+Puedes exportar presentaciones a PDFs directamente usando Aspose.Slides para PHP a través de Java: no necesitas ningún otro componente. Además, puedes personalizar la exportación de presentación a PDF con varias opciones como se explica en [Convertir a PDF](/slides/es/php-java/converting-a-presentation/).
 
 **La presentación de entrada** 
 

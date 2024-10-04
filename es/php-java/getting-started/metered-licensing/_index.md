@@ -2,7 +2,7 @@
 title: Licencias por Consumo
 type: docs
 weight: 100
-url: /php-java/metered-licensing/
+url: /es/php-java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

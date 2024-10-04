@@ -1,7 +1,7 @@
 ---
 title: Series de Gráficos
 type: docs
-url: /java/chart-series/
+url: /es/java/chart-series/
 keywords: "Series de gráficos, color de serie, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Series de gráficos en presentaciones de PowerPoint en Java"
 ---

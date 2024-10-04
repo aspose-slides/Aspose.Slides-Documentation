@@ -2,7 +2,7 @@
 title: Grupo
 type: docs
 weight: 40
-url: /net/group/
+url: /es/net/group/
 keywords: "Forma de grupo, forma de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Agregar forma de grupo a la presentación de PowerPoint en C# o .NET"
 ---

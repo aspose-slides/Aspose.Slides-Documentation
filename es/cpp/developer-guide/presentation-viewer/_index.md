@@ -2,7 +2,7 @@
 title: Visor de Presentaciones
 type: docs
 weight: 50
-url: /cpp/presentation-viewer/
+url: /es/cpp/presentation-viewer/
 keywords: 
 - ver presentación de PowerPoint
 - ver ppt

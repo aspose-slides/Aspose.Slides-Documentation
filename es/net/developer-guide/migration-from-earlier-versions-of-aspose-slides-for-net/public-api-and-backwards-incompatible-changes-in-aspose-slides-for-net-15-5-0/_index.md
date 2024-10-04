@@ -2,12 +2,12 @@
 title: API Público y Cambios Incompatibles con Versiones Anteriores en Aspose.Slides para .NET 15.5.0
 type: docs
 weight: 160
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/
+url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página enumera todas las clases [añadidas](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) o [eliminadas](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/), métodos, propiedades, y otros cambios introducidos con el API de Aspose.Slides para .NET 15.5.0.
+Esta página enumera todas las clases [añadidas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/) o [eliminadas](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-5-0/), métodos, propiedades, y otros cambios introducidos con el API de Aspose.Slides para .NET 15.5.0.
 
 {{% /alert %}} 
 ## **Cambios en la API Pública**

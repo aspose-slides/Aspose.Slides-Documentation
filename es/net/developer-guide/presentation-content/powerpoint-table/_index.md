@@ -2,5 +2,5 @@
 title: Tabla de PowerPoint
 type: docs
 weight: 110
-url: /net/powerpoint-table/
+url: /es/net/powerpoint-table/
 ---

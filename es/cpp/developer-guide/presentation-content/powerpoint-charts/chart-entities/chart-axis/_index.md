@@ -1,7 +1,7 @@
 ---
 title: Ejes de Gráfico
 type: docs
-url: /cpp/chart-axis/
+url: /es/cpp/chart-axis/
 keywords: "Eje de Gráfico de PowerPoint, Gráficos de Presentación, C++, Manipular Ejes de Gráfico, Datos de Gráficos"
 description: "Cómo editar el eje de gráfico de PowerPoint en C++"
 ---

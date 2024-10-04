@@ -2,7 +2,7 @@
 title: Fuente personalizada en C++
 type: docs
 weight: 20
-url: /cpp/custom-font/
+url: /es/cpp/custom-font/
 keywords: "Fuentes, fuentes personalizadas, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Fuentes personalizadas de PowerPoint en C++"
 ---

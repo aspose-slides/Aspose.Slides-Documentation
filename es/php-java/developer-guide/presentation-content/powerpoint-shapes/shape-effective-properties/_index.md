@@ -2,7 +2,7 @@
 title: Propiedades Efectivas de Forma
 type: docs
 weight: 50
-url: /php-java/shape-effective-properties/
+url: /es/php-java/shape-effective-properties/
 ---
 
 En este tema, discutiremos las propiedades **efectivas** y **locales**. Cuando establecemos valores directamente en estos niveles

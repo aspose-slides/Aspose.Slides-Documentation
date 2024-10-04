@@ -1,7 +1,7 @@
 ---
 title: Llamadas
 type: docs
-url: /net/callout/
+url: /es/net/callout/
 keywords: "Llamada de gráfico, etiqueta de datos de gráfico, C#, Csharp, Aspose.Slides para .NET"
 description: "Llamadas y etiquetas de datos de gráficos de PowerPoint en C# o .NET"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Series de Gráficos
 type: docs
-url: /cpp/chart-series/
+url: /es/cpp/chart-series/
 ---
 
 Una serie es una fila o columna de números trazados en un gráfico.

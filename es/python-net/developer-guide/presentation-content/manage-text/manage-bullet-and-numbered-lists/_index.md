@@ -2,7 +2,7 @@
 title: Administrar listas con viñetas y numeradas
 type: docs
 weight: 70
-url: /python-net/manage-bullet-and-numbered-lists/
+url: /es/python-net/manage-bullet-and-numbered-lists/
 keywords: "Viñetas, listas con viñetas, Números, listas numeradas, viñetas con imagen, viñetas de varios niveles, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Crea listas con viñetas y numeradas en presentaciones de PowerPoint en Python"
 ---

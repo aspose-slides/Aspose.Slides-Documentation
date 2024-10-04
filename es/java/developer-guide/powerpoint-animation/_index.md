@@ -2,7 +2,7 @@
 title: Animación de PowerPoint
 type: docs
 weight: 150
-url: /java/powerpoint-animation/
+url: /es/java/powerpoint-animation/
 keywords: "animación de PowerPoint"
 description: "Animación de PowerPoint, animación de diapositivas de PowerPoint con Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ Esto se puede lograr si combinas varios comportamientos en una nueva animación 
 Aspose.Slides permite aplicar animación a formas, que pueden ser en realidad texto, rectángulo, línea, marco, objeto OLE, etc.
 
 {{% alert color="primary" %}} 
-Lee más sobre [**Animación de Formas**](/slides/java/shape-animation/).
+Lee más sobre [**Animación de Formas**](/slides/es/java/shape-animation/).
 {{% /alert %}}
 
 ## **Gráficos Animados**
 Para crear gráficos animados, deberías usar todas las mismas clases que para las formas. Sin embargo, es posible utilizar la animación de PowerPoint solo en categorías de gráficos o series de gráficos. También puedes aplicar un efecto de animación a un elemento de categoría o a un elemento de serie.
 
 {{% alert color="primary" %}} 
-Lee más sobre [**Gráficos Animados**](/slides/java/animated-charts/).
+Lee más sobre [**Gráficos Animados**](/slides/es/java/animated-charts/).
 {{% /alert %}}
 
 ## **Texto Animado**
 Excepto texto animado, también es posible aplicar animación a un párrafo.
 
 {{% alert color="primary" %}} 
-Lee más sobre [**Texto Animado**](/slides/java/animated-text/).
+Lee más sobre [**Texto Animado**](/slides/es/java/animated-text/).
 {{% /alert %}}

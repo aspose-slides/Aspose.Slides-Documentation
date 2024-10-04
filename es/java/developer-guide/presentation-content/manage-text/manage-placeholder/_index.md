@@ -2,12 +2,12 @@
 title: Gestionar Marcador de Posición
 type: docs
 weight: 10
-url: /java/manage-placeholder/
+url: /es/java/manage-placeholder/
 description: Cambiar Texto en un Marcador de Posición en Diapositivas de PowerPoint utilizando Java. Establecer Texto de Sugerencia en un Marcador de Posición en Diapositivas de PowerPoint utilizando Java.
 ---
 
 ## **Cambiar Texto en el Marcador de Posición**
-Usando [Aspose.Slides for Java](/slides/java/), puedes encontrar y modificar marcadores de posición en diapositivas de presentaciones. Aspose.Slides te permite hacer cambios en el texto de un marcador de posición.
+Usando [Aspose.Slides for Java](/slides/es/java/), puedes encontrar y modificar marcadores de posición en diapositivas de presentaciones. Aspose.Slides te permite hacer cambios en el texto de un marcador de posición.
 
 **Prerequisito**: Necesitas una presentación que contenga un marcador de posición. Puedes crear tal presentación en la aplicación estándar de Microsoft PowerPoint.
 

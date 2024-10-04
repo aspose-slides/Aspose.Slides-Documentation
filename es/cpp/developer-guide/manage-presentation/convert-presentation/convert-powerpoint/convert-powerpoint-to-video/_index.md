@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a Video
 type: docs
 weight: 130
-url: /cpp/convert-powerpoint-to-video/
+url: /es/cpp/convert-powerpoint-to-video/
 keywords: "Convertir PowerPoint, PPT, PPTX, Presentación, Video, MP4, PPT a video, PPT a MP4, C++, Aspose.Slides"
 description: "Convertir PowerPoint a Video con la API de Aspose.Slides para C++"
 ---

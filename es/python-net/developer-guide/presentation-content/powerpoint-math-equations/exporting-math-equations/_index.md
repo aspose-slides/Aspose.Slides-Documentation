@@ -2,7 +2,7 @@
 title: Exportando Ecuaciones Matemáticas
 type: docs
 weight: 30
-url: /python-net/exporting-math-equations/
+url: /es/python-net/exporting-math-equations/
 keywords: "Exportar ecuaciones matemáticas, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Exportar ecuaciones matemáticas de PowerPoint en Python"
 ---

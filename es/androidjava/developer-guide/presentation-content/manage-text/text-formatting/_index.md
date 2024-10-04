@@ -2,7 +2,7 @@
 title: Formateo de Texto
 type: docs
 weight: 50
-url: /androidjava/text-formatting/
+url: /es/androidjava/text-formatting/
 keywords:
 - resaltar texto
 - expresión regular

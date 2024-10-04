@@ -2,7 +2,7 @@
 title: Visor de Presentaciones
 type: docs
 weight: 50
-url: /php-java/presentation-viewer/
+url: /es/php-java/presentation-viewer/
 keywords: "Visor de PPT de PowerPoint"
 description: "Visor de PPT de PowerPoint"
 ---

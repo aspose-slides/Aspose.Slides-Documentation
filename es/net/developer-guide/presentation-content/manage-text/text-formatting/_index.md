@@ -3,7 +3,7 @@ title: Formato de Texto
 linktitle: Formato de Texto
 type: docs
 weight: 50
-url: /net/text-formatting/
+url: /es/net/text-formatting/
 keywords:
 - resaltar texto
 - expresión regular

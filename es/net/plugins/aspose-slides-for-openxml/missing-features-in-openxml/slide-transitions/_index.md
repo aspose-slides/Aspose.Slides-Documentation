@@ -2,7 +2,7 @@
 title: Transiciones de Diapositivas
 type: docs
 weight: 80
-url: /net/slide-transitions/
+url: /es/net/slide-transitions/
 ---
 
 Para facilitar la comprensión, hemos demostrado el uso de Aspose.Slides para .NET para gestionar transiciones de diapositivas simples. Los desarrolladores no solo pueden aplicar diferentes efectos de transición de diapositivas en las diapositivas, sino también personalizar el comportamiento de estos efectos de transición. Para crear un efecto de transición de diapositivas simple, siga los pasos a continuación:
@@ -53,6 +53,6 @@ using (Presentation pres = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-Para más detalles, visite [Managing Slides Transitions](/slides/net/slide-transition/).
+Para más detalles, visite [Managing Slides Transitions](/slides/es/net/slide-transition/).
 
 {{% /alert %}}

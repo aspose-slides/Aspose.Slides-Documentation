@@ -2,7 +2,7 @@
 title: Rectángulo
 type: docs
 weight: 80
-url: /java/rectangle/
+url: /es/java/rectangle/
 ---
 
 {{% alert color="primary" %}} 

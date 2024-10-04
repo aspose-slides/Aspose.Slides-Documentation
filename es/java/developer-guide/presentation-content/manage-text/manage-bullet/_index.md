@@ -2,7 +2,7 @@
 title: Administrar Viñetas
 type: docs
 weight: 60
-url: /java/manage-bullet/
+url: /es/java/manage-bullet/
 keywords: "Viñetas, Listas con viñetas, Números, Listas numeradas, Viñetas de imágenes, viñetas multinivel, Presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Crear listas con viñetas y listas numeradas en presentaciones de PowerPoint en Java"
 ---

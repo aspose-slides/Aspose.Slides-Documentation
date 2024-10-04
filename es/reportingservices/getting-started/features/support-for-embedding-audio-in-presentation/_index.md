@@ -2,7 +2,7 @@
 title: Soporte para la incorporación de audio en presentaciones
 type: docs
 weight: 90
-url: /reportingservices/support-for-embedding-audio-in-presentation/
+url: /es/reportingservices/support-for-embedding-audio-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

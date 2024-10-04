@@ -2,7 +2,7 @@
 title: Ecuaciones Matemáticas de PowerPoint
 type: docs
 weight: 80
-url: /php-java/powerpoint-math-equations/
+url: /es/php-java/powerpoint-math-equations/
 keywords: "Ecuaciones Matemáticas de PowerPoint, Símbolos Matemáticos de PowerPoint, Fórmula de PowerPoint, Texto Matemático de PowerPoint"
 description: "Ecuaciones Matemáticas de PowerPoint, Símbolos Matemáticos de PowerPoint, Fórmula de PowerPoint, Texto Matemático de PowerPoint"
 ---

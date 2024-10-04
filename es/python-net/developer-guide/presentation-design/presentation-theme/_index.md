@@ -2,14 +2,14 @@
 title: Tema de Presentación
 type: docs
 weight: 10
-url: /python-net/presentation-theme/
+url: /es/python-net/presentation-theme/
 keywords: "Tema, tema de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Tema de presentación de PowerPoint en Python"
 ---
 
 Un tema de presentación define las propiedades de los elementos de diseño. Al seleccionar un tema de presentación, en esencia estás eligiendo un conjunto específico de elementos visuales y sus propiedades.
 
-En PowerPoint, un tema comprende colores, [fuentes](/slides/python-net/powerpoint-fonts/), [estilos de fondo](/slides/python-net/presentation-background/), y efectos.
+En PowerPoint, un tema comprende colores, [fuentes](/slides/es/python-net/powerpoint-fonts/), [estilos de fondo](/slides/es/python-net/presentation-background/), y efectos.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -144,7 +144,7 @@ La fuente en todos los cuadros de texto se actualizará.
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Puede que desees ver [fuentes de PowerPoint](/slides/python-net/powerpoint-fonts/).
+Puede que desees ver [fuentes de PowerPoint](/slides/es/python-net/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -178,7 +178,7 @@ pres.masters[0].background.style_index = 2
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Puede que desees ver [Fondo de PowerPoint](/slides/python-net/presentation-background/).
+Puede que desees ver [Fondo de PowerPoint](/slides/es/python-net/presentation-background/).
 
 {{% /alert %}}
 

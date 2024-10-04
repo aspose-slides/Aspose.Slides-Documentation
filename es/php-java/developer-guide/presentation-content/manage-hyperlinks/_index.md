@@ -2,7 +2,7 @@
 title: Administrar Hipervínculos
 type: docs
 weight: 20
-url: /php-java/manage-hyperlinks/
+url: /es/php-java/manage-hyperlinks/
 keywords: "Hipervínculo de PowerPoint, hipervínculo de texto, hipervínculo de diapositiva, hipervínculo de forma, hipervínculo de imagen, hipervínculo de video, Java"
 description: "Cómo agregar un hipervínculo a una Presentación de PowerPoint"
 ---
@@ -151,7 +151,7 @@ try {
 
 {{%  alert  title="Consejo"  color="primary"  %}} 
 
-Es posible que quieras ver *[Administrar OLE](/slides/php-java/manage-ole/)*.
+Es posible que quieras ver *[Administrar OLE](/slides/es/php-java/manage-ole/)*.
 
 {{% /alert %}}
 

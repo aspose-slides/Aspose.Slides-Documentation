@@ -2,7 +2,7 @@
 title: Reemplazo de Imágenes dentro de la Colección de Imágenes de Presentación
 type: docs
 weight: 80
-url: /java/replacing-images-inside-presentation-image-collection/
+url: /es/java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

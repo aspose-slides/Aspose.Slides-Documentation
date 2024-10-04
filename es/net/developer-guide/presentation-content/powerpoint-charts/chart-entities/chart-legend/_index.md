@@ -1,7 +1,7 @@
 ---
 title: Leyenda del Gráfico
 type: docs
-url: /net/chart-legend/
+url: /es/net/chart-legend/
 keywords: "Leyenda del gráfico, tamaño de fuente de la leyenda, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Establecer la posición y el tamaño de fuente para la leyenda del gráfico en presentaciones de PowerPoint en C# o .NET"
 ---

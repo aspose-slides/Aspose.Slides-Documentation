@@ -2,7 +2,7 @@
 title: Introducción y Configuración del Entorno
 type: docs
 weight: 10
-url: /reportingservices/introduction-&amp;-environment-setup/
+url: /es/reportingservices/introduction-&amp;-environment-setup/
 ---
 
 {{% alert color="primary" %}} 

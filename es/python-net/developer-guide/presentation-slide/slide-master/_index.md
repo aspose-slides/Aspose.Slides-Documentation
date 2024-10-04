@@ -2,7 +2,7 @@
 title: Diapositiva Maestra
 type: docs
 weight: 80
-url: /python-net/slide-master/
+url: /es/python-net/slide-master/
 keywords: "Agregar Diapositiva Maestra, diapositiva maestra PPT, diapositiva maestra PowerPoint, Imagen a Diapositiva Maestra, Marcador de posición, Múltiples Diapositivas Maestras, Comparar Diapositivas Maestras, Python, Aspose.Slides"
 description: "Agregar o editar diapositiva maestra en presentación de PowerPoint en Python"
 ---
@@ -133,7 +133,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="primary" title="Ver también" %}} 
 
-Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/python-net/picture-frame/#create-picture-frame).
+Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/es/python-net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Agregar Marcador de Posición a la Diapositiva Maestra**

@@ -2,7 +2,7 @@
 title: Gestionar Celdas
 type: docs
 weight: 30
-url: /net/manage-cells/
+url: /es/net/manage-cells/
 keywords:
 - tabla
 - celdas combinadas

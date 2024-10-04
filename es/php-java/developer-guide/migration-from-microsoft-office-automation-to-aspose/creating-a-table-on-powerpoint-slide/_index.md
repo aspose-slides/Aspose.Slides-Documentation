@@ -2,12 +2,12 @@
 title: Creando una Tabla en una Diapositiva de PowerPoint
 type: docs
 weight: 50
-url: /php-java/creating-a-table-on-powerpoint-slide/
+url: /es/php-java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Las tablas se utilizan ampliamente para mostrar datos en diapositivas de presentación. Este artículo muestra cómo crear una tabla de 15 x 15 con un tamaño de fuente de 10 programáticamente utilizando primero [VSTO 2008](/slides/php-java/creating-a-table-on-powerpoint-slide/) y luego [Aspose.Slides para PHP a través de Java](/slides/php-java/creating-a-table-on-powerpoint-slide/).
+Las tablas se utilizan ampliamente para mostrar datos en diapositivas de presentación. Este artículo muestra cómo crear una tabla de 15 x 15 con un tamaño de fuente de 10 programáticamente utilizando primero [VSTO 2008](/slides/es/php-java/creating-a-table-on-powerpoint-slide/) y luego [Aspose.Slides para PHP a través de Java](/slides/es/php-java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creando Tablas**

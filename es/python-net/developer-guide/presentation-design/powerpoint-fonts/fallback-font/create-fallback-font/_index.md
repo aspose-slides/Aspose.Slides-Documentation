@@ -2,7 +2,7 @@
 title: Crear Fuente de Respaldo
 type: docs
 weight: 10
-url: /python-net/create-fallback-font/
+url: /es/python-net/create-fallback-font/
 keywords: "Fuentes, fuente de respaldo, presentación de PowerPoint Python, Aspose.Slides para Python a través de .NET"
 description: "Fuente de respaldo en PowerPoint en Python"
 ---
@@ -29,5 +29,5 @@ También es posible [Remove()](https://reference.aspose.com/slides/python-net/as
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) se puede usar para organizar una lista de objetos [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/), cuando hay necesidad de especificar reglas de reemplazo de fuente de respaldo para múltiples rangos Unicode.
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Crear Colección de Fuentes de Respaldo](/slides/python-net/create-fallback-fonts-collection/)
+- [Crear Colección de Fuentes de Respaldo](/slides/es/python-net/create-fallback-fonts-collection/)
 {{% /alert %}}

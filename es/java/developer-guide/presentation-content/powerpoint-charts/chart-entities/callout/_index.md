@@ -1,7 +1,7 @@
 ---
 title: Llamada
 type: docs
-url: /java/callout/
+url: /es/java/callout/
 ---
 
 ## **Uso de Llamadas**

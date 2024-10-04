@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a PDF con Notas
 type: docs
 weight: 50
-url: /python-net/convert-powerpoint-to-pdf-with-notes/
+url: /es/python-net/convert-powerpoint-to-pdf-with-notes/
 keywords: "convertir PowerPoint, Presentación, PowerPoint a PDF, notas, Python, Aspose.Slides"
 description: "Convertir PowerPoint a PDF con notas usando Python"
 ---

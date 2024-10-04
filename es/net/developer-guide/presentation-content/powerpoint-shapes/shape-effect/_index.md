@@ -2,12 +2,12 @@
 title: Efecto de Forma
 type: docs
 weight: 30
-url: /net/shape-effect
+url: /es/net/shape-effect
 keywords: "Efecto de forma, presentación de PowerPoint C#, Csharp, Aspose.Slides para .NET"
 description: "Aplicar efecto a la forma de PowerPoint en C# o .NET"
 ---
 
-Si bien los efectos en PowerPoint pueden utilizarse para resaltar una forma, se diferencian de los [rellenos](/slides/net/shape-formatting/#gradient-fill) o contornos. Usando efectos de PowerPoint, puedes crear reflejos convincentes en una forma, extender el resplandor de una forma, etc.
+Si bien los efectos en PowerPoint pueden utilizarse para resaltar una forma, se diferencian de los [rellenos](/slides/es/net/shape-formatting/#gradient-fill) o contornos. Usando efectos de PowerPoint, puedes crear reflejos convincentes en una forma, extender el resplandor de una forma, etc.
 
 <img src="shape-effect.png" alt="efecto-de-forma" style="zoom:50%;" />
 

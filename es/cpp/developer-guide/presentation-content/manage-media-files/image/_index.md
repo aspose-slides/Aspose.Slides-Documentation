@@ -2,7 +2,7 @@
 title: Imagen
 type: docs
 weight: 10
-url: /cpp/image/
+url: /es/cpp/image/
 ---
 
 
@@ -18,7 +18,7 @@ Aspose proporciona convertidores gratuitos—[JPEG a PowerPoint](https://product
 
 {{% alert title="Información" color="info" %}}
 
-Si deseas agregar una imagen como un objeto de marco—especialmente si planeas usar opciones de formato estándar para cambiar su tamaño, agregar efectos, etc.—consulta [Marco de Imagen](/slides/cpp/picture-frame/). 
+Si deseas agregar una imagen como un objeto de marco—especialmente si planeas usar opciones de formato estándar para cambiar su tamaño, agregar efectos, etc.—consulta [Marco de Imagen](/slides/es/cpp/picture-frame/). 
 
 {{% /alert %}} 
 

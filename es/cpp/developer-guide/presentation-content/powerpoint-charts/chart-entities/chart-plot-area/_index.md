@@ -1,7 +1,7 @@
 ---
 title: Área de Trazado del Gráfico
 type: docs
-url: /cpp/chart-plot-area/
+url: /es/cpp/chart-plot-area/
 ---
 
 ## **Obtener Ancho, Alto del Área de Trazado del Gráfico**

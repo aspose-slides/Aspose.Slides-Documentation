@@ -2,7 +2,7 @@
 title: Fuente Embebida
 type: docs
 weight: 40
-url: /python-net/embedded-font/
+url: /es/python-net/embedded-font/
 keywords: "Fuentes, fuentes embebidas, agregar fuentes, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Usa fuentes embebidas en una presentación de PowerPoint en Python"
 ---

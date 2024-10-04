@@ -2,7 +2,7 @@
 title: Párrafo
 type: docs
 weight: 60
-url: /php-java/paragraph/
+url: /es/php-java/paragraph/
 ---
 
 

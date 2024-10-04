@@ -2,7 +2,7 @@
 title: Cómo crear gráficos en una presentación
 type: docs
 weight: 30
-url: /java/how-to-create-charts-in-a-presentation/
+url: /es/java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

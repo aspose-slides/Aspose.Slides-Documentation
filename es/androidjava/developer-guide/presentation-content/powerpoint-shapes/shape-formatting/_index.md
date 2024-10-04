@@ -2,7 +2,7 @@
 title: Formato de Formas
 type: docs
 weight: 20
-url: /androidjava/shape-formatting/
+url: /es/androidjava/shape-formatting/
 keywords: "Formato de formas, formato de líneas, estilos de unión, relleno degradado, relleno de patrones, relleno de imágenes, relleno de color sólido, rotar formas, efectos de bisel 3d, efecto de rotación 3d, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Formato de formas en presentación de PowerPoint en Java"
 ---

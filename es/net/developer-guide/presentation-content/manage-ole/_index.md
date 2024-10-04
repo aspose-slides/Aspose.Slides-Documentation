@@ -2,7 +2,7 @@
 title: Administrar OLE
 type: docs
 weight: 40
-url: /net/manage-ole/
+url: /es/net/manage-ole/
 keywords: "Agregar OLE, Agregar objeto, Integrar objeto Object Linking & Embedding, Marco de objeto OLE, Integrar OLE, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET "
 description: "Agregar objeto OLE a presentación de PowerPoint en C# o .NET"
 ---

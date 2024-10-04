@@ -2,12 +2,12 @@
 title: Gestionar Marcadores de Posición
 type: docs
 weight: 10
-url: /php-java/manage-placeholder/
+url: /es/php-java/manage-placeholder/
 description: Cambiar texto en un marcador de posición en diapositivas de PowerPoint usando PHP. Establecer texto de aviso en un marcador de posición en diapositivas de PowerPoint usando PHP.
 ---
 
 ## **Cambiar Texto en Marcador de Posición**
-Usando [Aspose.Slides para PHP a través de Java](/slides/php-java/), puedes encontrar y modificar marcadores de posición en las diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un marcador de posición.
+Usando [Aspose.Slides para PHP a través de Java](/slides/es/php-java/), puedes encontrar y modificar marcadores de posición en las diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un marcador de posición.
 
 **Requisito previo**: Necesitas una presentación que contenga un marcador de posición. Puedes crear una presentación de este tipo en la aplicación estándar de Microsoft PowerPoint.
 

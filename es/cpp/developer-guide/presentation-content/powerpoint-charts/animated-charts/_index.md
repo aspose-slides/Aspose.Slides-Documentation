@@ -2,7 +2,7 @@
 title: Gráficos Animados
 type: docs
 weight: 80
-url: /cpp/animated-charts/
+url: /es/cpp/animated-charts/
 ---
 
 

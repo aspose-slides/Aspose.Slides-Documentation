@@ -2,7 +2,7 @@
 title: Copiando Párrafo y Porción en PPTX
 type: docs
 weight: 80
-url: /python-net/copiando-parrafo-y-porcion-en-pptx/
+url: /es/python-net/copiando-parrafo-y-porcion-en-pptx/
 ---
 
 {{% alert color="primary" %}} 

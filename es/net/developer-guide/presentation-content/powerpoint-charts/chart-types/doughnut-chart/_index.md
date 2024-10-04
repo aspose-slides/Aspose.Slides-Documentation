@@ -2,7 +2,7 @@
 title: Gráfico de Dona
 type: docs
 weight: 30
-url: /net/doughnut-chart/
+url: /es/net/doughnut-chart/
 keywords: "Gráfico de dona, espacio central, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Especificar el espacio central en un gráfico de dona en una presentación de PowerPoint en C# o .NET"
 ---

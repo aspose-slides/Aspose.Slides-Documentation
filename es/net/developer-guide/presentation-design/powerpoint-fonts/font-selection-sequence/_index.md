@@ -3,7 +3,7 @@ title: Secuencia de selección de fuentes en C#
 linktitle: Secuencia de selección de fuentes en C#
 type: docs
 weight: 80
-url: /net/font-selection-sequence/
+url: /es/net/font-selection-sequence/
 keywords:
 - fuente
 - selección de fuentes

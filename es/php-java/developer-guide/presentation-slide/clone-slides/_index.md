@@ -2,7 +2,7 @@
 title: Clonar Diapositivas
 type: docs
 weight: 35
-url: /php-java/clone-slides/
+url: /es/php-java/clone-slides/
 ---
 
 

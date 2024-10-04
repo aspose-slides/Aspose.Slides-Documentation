@@ -2,7 +2,7 @@
 title: Fuente Predeterminada
 type: docs
 weight: 30
-url: /python-net/default-font/
+url: /es/python-net/default-font/
 keywords: "Fuentes, fuentes predeterminadas, presentación de PowerPoint en Python, Aspose.Slides para Python a través de .NET"
 description: "Fuentes predeterminadas de PowerPoint en Python"
 ---

@@ -2,7 +2,7 @@
 title: Eliminar diapositiva de la presentación
 type: docs
 weight: 30
-url: /androidjava/remove-slide-from-presentation/
+url: /es/androidjava/remove-slide-from-presentation/
 keywords: "Eliminar diapositiva, Borrar diapositiva, PowerPoint, Presentación, Java, Aspose.Slides"
 description: "Eliminar diapositiva de PowerPoint por referencia o índice en Java"
 

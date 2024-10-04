@@ -2,7 +2,7 @@
 title: Cálculos de Gráficos
 type: docs
 weight: 50
-url: /cpp/chart-calculations/
+url: /es/cpp/chart-calculations/
 ---
 
 ## **Calcular Valores Reales de Elementos del Gráfico**

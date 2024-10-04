@@ -2,7 +2,7 @@
 title: Porción
 type: docs
 weight: 70
-url: /php-java/portion/
+url: /es/php-java/portion/
 ---
 
 ## **Obtener las coordenadas de posición de la porción**

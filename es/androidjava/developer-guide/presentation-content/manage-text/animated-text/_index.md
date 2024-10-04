@@ -2,7 +2,7 @@
 title: Texto Animado
 type: docs
 weight: 60
-url: /androidjava/animated-text/
+url: /es/androidjava/animated-text/
 keywords: "Texto animado en PowerPoint"
 description: "Texto animado en PowerPoint con Java"
 ---

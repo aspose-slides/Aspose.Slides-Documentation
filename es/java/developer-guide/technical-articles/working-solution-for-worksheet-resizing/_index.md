@@ -2,7 +2,7 @@
 title: Solución Funcional para el Redimensionamiento de Hojas de Cálculo
 type: docs
 weight: 20
-url: /java/working-solution-for-worksheet-resizing/
+url: /es/java/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Se ha observado que las hojas de cálculo de Excel incorporadas como OLE en una 
 
 {{% /alert %}} 
 ## **Antecedentes**
-En el [artículo sobre la adición de Marcos Ole](), hemos explicado cómo agregar un Marco Ole en una presentación de PowerPoint utilizando Aspose.Slides para Java. Para acomodar el [problema de cambio de objeto](/slides/java/object-changed-issue-when-adding-oleobjectframe/), asignamos la imagen de la hoja de cálculo del área seleccionada al Marco de Objeto OLE del Gráfico. En la presentación de salida, cuando hacemos doble clic en el Marco de Objeto OLE que muestra la imagen de la hoja de cálculo, se activa el Gráfico de Excel. Los usuarios finales pueden realizar cualquier cambio deseado en el Libro de Trabajo de Excel real y luego regresar a la diapositiva correspondiente haciendo clic fuera del Libro de Trabajo de Excel activado. El tamaño del Marco de Objeto OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento será diferente para diferentes tamaños de Marco de Objeto OLE y Libro de Trabajo de Excel incrustado.
+En el [artículo sobre la adición de Marcos Ole](), hemos explicado cómo agregar un Marco Ole en una presentación de PowerPoint utilizando Aspose.Slides para Java. Para acomodar el [problema de cambio de objeto](/slides/es/java/object-changed-issue-when-adding-oleobjectframe/), asignamos la imagen de la hoja de cálculo del área seleccionada al Marco de Objeto OLE del Gráfico. En la presentación de salida, cuando hacemos doble clic en el Marco de Objeto OLE que muestra la imagen de la hoja de cálculo, se activa el Gráfico de Excel. Los usuarios finales pueden realizar cualquier cambio deseado en el Libro de Trabajo de Excel real y luego regresar a la diapositiva correspondiente haciendo clic fuera del Libro de Trabajo de Excel activado. El tamaño del Marco de Objeto OLE cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento será diferente para diferentes tamaños de Marco de Objeto OLE y Libro de Trabajo de Excel incrustado.
 ## **Causa del Redimensionamiento**
 Dado que el Libro de Trabajo de Excel tiene su propio tamaño de ventana, intenta mantener su tamaño original en la primera activación. Por otro lado, el Marco de Objeto OLE tendrá su propio tamaño. Según Microsoft, al activar el Libro de Trabajo de Excel, Excel y PowerPoint negocian el tamaño y aseguran que esté en las proporciones correctas como parte de la operación de incrustación. Según las diferencias en el tamaño de la ventana de Excel y el tamaño / posición del Marco de Objeto OLE, se produce el redimensionamiento.
 ## **Solución Funcional**

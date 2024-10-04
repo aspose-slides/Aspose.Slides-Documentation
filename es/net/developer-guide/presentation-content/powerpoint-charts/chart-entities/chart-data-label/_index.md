@@ -1,7 +1,7 @@
 ---
 title: Etiqueta de Datos de Gráfico
 type: docs
-url: /net/chart-data-label/
+url: /es/net/chart-data-label/
 keywords: "Etiqueta de datos de gráfico, distancia de etiqueta, C#, Csharp, Aspose.Slides para .NET"
 description: "Establecer etiqueta de datos de gráfico de PowerPoint y distancia en C# o .NET"
 ---

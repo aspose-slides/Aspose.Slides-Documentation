@@ -2,12 +2,12 @@
 title: Agregar marco de imagen con animación
 type: docs
 weight: 60
-url: /net/adding-picture-frame-with-animation/
+url: /es/net/adding-picture-frame-with-animation/
 ---
 
 {{% alert color="primary" %}} 
 
-Los marcos de imagen se aplican a formas o imágenes en Microsoft PowerPoint para enmarcar imágenes en una presentación. Este artículo muestra cómo crear un marco de imagen y aplicar animación a él programáticamente utilizando primero [VSTO 2008](/slides/net/adding-picture-frame-with-animation/) y luego [Aspose.Slides for .NET](/slides/net/adding-picture-frame-with-animation/). Primero, te mostramos cómo aplicar un marco y animación utilizando VSTO 2008. Luego te mostramos cómo realizar los mismos pasos utilizando Aspose.Slides for .NET.
+Los marcos de imagen se aplican a formas o imágenes en Microsoft PowerPoint para enmarcar imágenes en una presentación. Este artículo muestra cómo crear un marco de imagen y aplicar animación a él programáticamente utilizando primero [VSTO 2008](/slides/es/net/adding-picture-frame-with-animation/) y luego [Aspose.Slides for .NET](/slides/es/net/adding-picture-frame-with-animation/). Primero, te mostramos cómo aplicar un marco y animación utilizando VSTO 2008. Luego te mostramos cómo realizar los mismos pasos utilizando Aspose.Slides for .NET.
 
 {{% /alert %}} 
 ## **Agregar marcos de imagen con animación**

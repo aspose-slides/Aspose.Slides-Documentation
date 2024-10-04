@@ -2,7 +2,7 @@
 title: Presentación Protegida por Contraseña
 type: docs
 weight: 20
-url: /php-java/password-protected-presentation/
+url: /es/php-java/password-protected-presentation/
 keywords: "Bloquear presentación de PowerPoint"
 description: "Bloquear presentación de PowerPoint. Presentación de PowerPoint protegida por contraseña"
 ---
@@ -255,5 +255,5 @@ Este código de muestra te muestra cómo validar una contraseña:
 Devuelve `true` si la presentación ha sido cifrada con la contraseña especificada. De lo contrario, devuelve `false`.
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Firma Digital en PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Firma Digital en PowerPoint](/slides/es/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

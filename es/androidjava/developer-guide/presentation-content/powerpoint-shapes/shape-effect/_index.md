@@ -2,12 +2,12 @@
 title: Efecto de Forma
 type: docs
 weight: 30
-url: /androidjava/shape-effect
+url: /es/androidjava/shape-effect
 keywords: "Efecto de forma, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Aplicar efecto a la forma de PowerPoint en Java"
 ---
 
-Mientras que los efectos en PowerPoint se pueden utilizar para hacer que una forma destaque, difieren de los [rellenos](/slides/androidjava/shape-formatting/#gradient-fill) o contornos. Usando efectos de PowerPoint, puedes crear reflexiones convincentes en una forma, difundir el brillo de una forma, etc.
+Mientras que los efectos en PowerPoint se pueden utilizar para hacer que una forma destaque, difieren de los [rellenos](/slides/es/androidjava/shape-formatting/#gradient-fill) o contornos. Usando efectos de PowerPoint, puedes crear reflexiones convincentes en una forma, difundir el brillo de una forma, etc.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

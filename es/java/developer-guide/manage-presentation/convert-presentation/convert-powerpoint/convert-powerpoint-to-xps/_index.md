@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a XPS
 type: docs
 weight: 70
-url: /java/convert-powerpoint-to-xps/
+url: /es/java/convert-powerpoint-to-xps/
 keywords: "PPT, PPTX a XPS"
 description: "Convertir PowerPoint PPT(X) a XPS en Java"
 ---

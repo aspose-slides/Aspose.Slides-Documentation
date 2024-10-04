@@ -2,7 +2,7 @@
 title: Presentación a través de VBA
 type: docs
 weight: 250
-url: /androidjava/presentation-via-vba/
+url: /es/androidjava/presentation-via-vba/
 keywords: "Macro, macros, VBA, macro de VBA, agregar macro, eliminar macro, agregar VBA, eliminar VBA, extraer macro, extraer VBA, macro de PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Agregar, eliminar y extraer macros de VBA en presentaciones de PowerPoint en Java"
 ---

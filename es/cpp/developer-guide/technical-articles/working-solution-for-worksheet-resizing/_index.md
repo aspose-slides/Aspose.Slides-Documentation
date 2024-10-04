@@ -2,7 +2,7 @@
 title: Solución Funcional para el Redimensionamiento de Hojas de Cálculo
 type: docs
 weight: 130
-url: /cpp/working-solution-for-worksheet-resizing/
+url: /es/cpp/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -316,4 +316,4 @@ Hay dos enfoques para solucionar el problema de redimensionamiento de la hoja de
 h4. {_}Secciones Relacionadas 
 {_}
 
-[Creación e Incrustación de un Gráfico de Excel como Objeto OLE en la Presentación](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Creación e Incrustación de un Gráfico de Excel como Objeto OLE en la Presentación](/slides/es/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

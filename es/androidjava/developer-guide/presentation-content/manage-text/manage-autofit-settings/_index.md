@@ -2,7 +2,7 @@
 title: Administrar la Configuración de Autofit
 type: docs
 weight: 30
-url: /androidjava/manage-autofit-settings/
+url: /es/androidjava/manage-autofit-settings/
 keywords: "Cuadro de texto, Autofit, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Establecer la configuración de autofit para cuadro de texto en PowerPoint en Java"
 ---

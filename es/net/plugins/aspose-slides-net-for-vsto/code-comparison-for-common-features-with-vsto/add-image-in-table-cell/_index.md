@@ -2,7 +2,7 @@
 title: Agregar imagen en celda de tabla
 type: docs
 weight: 10
-url: /net/add-image-in-table-cell/
+url: /es/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**

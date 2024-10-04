@@ -2,7 +2,7 @@
 title: Conversión a HTML
 type: docs
 weight: 20
-url: /net/conversion-to-html/
+url: /es/net/conversion-to-html/
 ---
 
 **HTML** es uno de varios formatos ampliamente utilizados para intercambiar datos. **Aspose.Slides para .NET** proporciona soporte para convertir una presentación a HTML. A continuación se muestra un fragmento de código que te muestra cómo hacerlo.

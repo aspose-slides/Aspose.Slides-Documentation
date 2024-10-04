@@ -2,7 +2,7 @@
 title: Aspose.Slides para .NET 6 de Plataforma Cruzada
 type: docs
 weight: 237
-url: /net/slides-for-net-6-cross-platform
+url: /es/net/slides-for-net-6-cross-platform
 keywords: Aspose.Slides, .NET, Plataforma cruzada
 description: Aspose.Slides para .NET 6 de Plataforma Cruzada
 ---

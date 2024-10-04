@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Pastel
 type: docs
-url: /cpp/pie-chart/
+url: /es/cpp/pie-chart/
 ---
 
 

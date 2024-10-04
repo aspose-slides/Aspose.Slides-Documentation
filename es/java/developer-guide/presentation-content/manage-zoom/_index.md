@@ -2,7 +2,7 @@
 title: Gestionar Zoom
 type: docs
 weight: 60
-url: /java/manage-zoom/
+url: /es/java/manage-zoom/
 keywords: "Zoom, Marco de zoom, Agregar zoom, Formato de marco de zoom, Resumen de zoom, Presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Agregar zoom o marcos de zoom a presentaciones de PowerPoint en Java"
 ---

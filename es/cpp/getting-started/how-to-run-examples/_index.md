@@ -2,7 +2,7 @@
 title: Cómo ejecutar ejemplos
 type: docs
 weight: 130
-url: /cpp/how-to-run-examples/
+url: /es/cpp/how-to-run-examples/
 ---
 
 ## **Requisitos de software**

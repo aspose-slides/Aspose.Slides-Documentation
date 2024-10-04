@@ -3,7 +3,7 @@ l---
 title: Por qué No Automatización
 type: docs
 weight: 50
-url: /cpp/why-not-automation/
+url: /es/cpp/why-not-automation/
 ---
 
 ## **Preguntas Importantes**

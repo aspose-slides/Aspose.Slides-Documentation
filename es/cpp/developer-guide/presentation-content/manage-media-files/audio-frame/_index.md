@@ -2,7 +2,7 @@
 title: Marco de Audio
 type: docs
 weight: 10
-url: /cpp/audio-frame/
+url: /es/cpp/audio-frame/
 keywords: "Agregar audio, Marco de audio, Propiedades de audio, Extraer audio, C++, CPP, Aspose.Slides para C++"
 description: "Agregar audio a la presentación de PowerPoint en C++"
 ---

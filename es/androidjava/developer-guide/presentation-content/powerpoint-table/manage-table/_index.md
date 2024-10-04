@@ -2,7 +2,7 @@
 title: Administrar Tabla
 type: docs
 weight: 10
-url: /androidjava/manage-table/
+url: /es/androidjava/manage-table/
 keywords: "Tabla, crear tabla, acceder a la tabla, relación de aspecto de la tabla, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Crear y gestionar tablas en presentaciones de PowerPoint en Java"
 ---

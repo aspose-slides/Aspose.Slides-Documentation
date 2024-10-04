@@ -3,7 +3,7 @@ title: Fuente de Reemplazo - PowerPoint Java API
 linktitle: Fuente de Reemplazo
 type: docs
 weight: 50
-url: /androidjava/fallback-font/
+url: /es/androidjava/fallback-font/
 description: La fuente de reemplazo se utiliza cuando la fuente especificada para el texto está disponible en el sistema, pero esta fuente no contiene un glifo necesario. En este caso, es posible que la API de PowerPoint Java use una de las fuentes de reemplazo especificadas para la sustitución del glifo.
 ---
 
@@ -14,6 +14,6 @@ Aspose.Slides permite crear fuentes de reemplazo, añadirlas a la colección de 
 
 Para familiarizarse con estas características, use los siguientes enlaces:
 
-- [Crear Fuente de Reemplazo](/slides/androidjava/create-fallback-font)
-- [Crear Colección de Fuentes de Reemplazo](/slides/androidjava/create-fallback-fonts-collection)
-- [Renderizar Presentación con Fuente de Reemplazo](/slides/androidjava/render-presentation-with-fallback-font)
+- [Crear Fuente de Reemplazo](/slides/es/androidjava/create-fallback-font)
+- [Crear Colección de Fuentes de Reemplazo](/slides/es/androidjava/create-fallback-fonts-collection)
+- [Renderizar Presentación con Fuente de Reemplazo](/slides/es/androidjava/render-presentation-with-fallback-font)

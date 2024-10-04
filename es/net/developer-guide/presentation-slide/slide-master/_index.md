@@ -2,7 +2,7 @@
 title: Maestro de Diapositivas
 type: docs
 weight: 80
-url: /net/slide-master/
+url: /es/net/slide-master/
 keywords: "Agregar Maestro de Diapositivas, diapositiva maestra de PPT, maestro de diapositivas PowerPoint, Imagen en Maestro de Diapositivas, Marcador de posición, Varios Maestros de Diapositivas, Comparar Maestros de Diapositivas, C#, Csharp, .NET, Aspose.Slides"
 description: "Agregar o editar maestro de diapositivas en una presentación de PowerPoint en C# o .NET"
 ---
@@ -130,7 +130,7 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="primary" title="Ver también" %}}
 
-Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/net/picture-frame/#create-picture-frame).
+Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/es/net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /es/python-net/watermark/
 keywords: "Marca de agua, agregar marca de agua, marca de agua de texto, marca de agua de imagen, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Agregar marca de agua de texto e imagen a la presentación de PowerPoint en Python"
 ---
@@ -38,7 +38,7 @@ with slides.Presentation() as presentation:
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/python-net/slide-master/)[TextFrame](/slides/python-net/adding-and-formatting-text/)
+- [Cómo usar ](/slides/es/python-net/slide-master/)[TextFrame](/slides/es/python-net/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Agregar Marca de Agua de Texto a la Presentación**
@@ -56,7 +56,7 @@ with slides.Presentation() as pres:
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/python-net/slide-master/)[Patrón de Diapositiva](/slides/python-net/slide-master/)
+- [Cómo usar ](/slides/es/python-net/slide-master/)[Patrón de Diapositiva](/slides/es/python-net/slide-master/)
 {{% /alert %}}
 
 ### **Establecer Fuente de la Marca de Agua de Texto**
@@ -132,7 +132,7 @@ watermarkShape.shape_lock.grouping_locked = True
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo bloquear formas de edición](/slides/python-net/presentation-locking/)
+- [Cómo bloquear formas de edición](/slides/es/python-net/presentation-locking/)
 {{% /alert %}}
 
 ## **Traer Marca de Agua al Frente**

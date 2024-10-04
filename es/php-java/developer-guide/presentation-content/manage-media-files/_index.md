@@ -2,5 +2,5 @@
 title: Gestionar Archivos Multimedia
 type: docs
 weight: 30
-url: /php-java/manage-media-files
+url: /es/php-java/manage-media-files
 ---

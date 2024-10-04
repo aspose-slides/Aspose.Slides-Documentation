@@ -2,18 +2,18 @@
 title: Encabezado y pie de página de presentación
 type: docs
 weight: 140
-url: /java/presentation-header-and-footer/
+url: /es/java/presentation-header-and-footer/
 keywords: "Encabezado y pie de página de PowerPoint en Java"
 description: "Encabezado y pie de página de PowerPoint en Java"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/java/) proporciona soporte para trabajar con el texto de encabezados y pies de página de las diapositivas que se mantienen en el nivel de diseño de diapositivas.
+[Aspose.Slides](/slides/es/java/) proporciona soporte para trabajar con el texto de encabezados y pies de página de las diapositivas que se mantienen en el nivel de diseño de diapositivas.
 
 {{% /alert %}} 
 
-[Aspose.Slides para Java](/slides/java/) proporciona la función para gestionar encabezados y pies de página dentro de las diapositivas de presentación. Estos se gestionan en el nivel de diseño de presentación.
+[Aspose.Slides para Java](/slides/es/java/) proporciona la función para gestionar encabezados y pies de página dentro de las diapositivas de presentación. Estos se gestionan en el nivel de diseño de presentación.
 
 ## **Gestionar encabezado y pie de página en la presentación**
 Las notas de una diapositiva específica pueden ser eliminadas como se muestra en el ejemplo siguiente:

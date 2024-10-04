@@ -2,7 +2,7 @@
 title: Gestionar párrafos de PowerPoint en C++
 type: docs
 weight: 40
-url: /cpp/manage-paragraph/
+url: /es/cpp/manage-paragraph/
 keywords: "Añadir párrafo de PowerPoint, Gestionar párrafos, Sangrías de párrafo, Propiedades de párrafo, texto HTML, Exportar texto de párrafo, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Crear y gestionar párrafo, texto, sangría y propiedades en presentaciones de PowerPoint en C++"
 ---

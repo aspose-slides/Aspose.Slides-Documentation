@@ -2,7 +2,7 @@
 title: Cómo ejecutar tareas en segundo plano en ASP.NET Core
 type: docs
 weight: 300
-url: /net/how-to-run-background-tasks-in-asp-net-core/
+url: /es/net/how-to-run-background-tasks-in-asp-net-core/
 ---
 
 ## **Resumen**

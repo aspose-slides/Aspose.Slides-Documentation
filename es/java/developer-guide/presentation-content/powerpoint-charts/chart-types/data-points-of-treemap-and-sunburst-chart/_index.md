@@ -1,7 +1,7 @@
 ---
 title: Puntos de Datos del Gráfico Treemap y Sunburst
 type: docs
-url: /java/data-points-of-treemap-and-sunburst-chart/
+url: /es/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Gráfico Sunburst en Aspose.Slides para Java"
 description: "Gráfico Sunburst, Diagrama Sunburst, Gráfico Sunburst, Gráfico Radial o Gráfico Circular Multinivel con Aspose.Slides para Java."
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [**Creando Gráfico Sunburst**](/slides/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Creando Gráfico Sunburst**](/slides/es/java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

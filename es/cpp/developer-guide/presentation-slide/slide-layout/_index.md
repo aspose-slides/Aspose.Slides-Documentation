@@ -2,7 +2,7 @@
 title: Diseño de Diapositivas
 type: docs
 weight: 60
-url: /cpp/slide-layout/
+url: /es/cpp/slide-layout/
 keyword: "Configurar tamaño de diapositivas, establecer opciones de diapositivas, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escalado de contenido, tamaño de página, C++, CPP, Aspose.Slides"
 description: "Configurar el tamaño y las opciones de las diapositivas de PowerPoint en C++"
 ---

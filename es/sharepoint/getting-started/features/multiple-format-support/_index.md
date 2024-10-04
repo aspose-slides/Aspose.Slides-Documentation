@@ -2,7 +2,7 @@
 title: Soporte para Múltiples Formatos
 type: docs
 weight: 10
-url: /sharepoint/multiple-format-support/
+url: /es/sharepoint/multiple-format-support/
 ---
 
 {{% alert color="primary" %}} 

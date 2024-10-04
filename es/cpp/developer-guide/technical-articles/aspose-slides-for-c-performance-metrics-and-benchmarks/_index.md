@@ -2,7 +2,7 @@
 title: Aspose.Slides para C++ - Métricas de Rendimiento y Comparaciones  
 type: docs  
 weight: 20  
-url: /cpp/aspose-slides-for-c-performance-metrics-and-benchmarks/  
+url: /es/cpp/aspose-slides-for-c-performance-metrics-and-benchmarks/  
 ---  
 
 ## **Propósito**  

@@ -2,7 +2,7 @@
 title: Aplicar un tema a una presentación
 type: docs
 weight: 30
-url: /net/apply-a-theme-to-a-presentation/
+url: /es/net/apply-a-theme-to-a-presentation/
 ---
 
 ## **OpenXML Presentación:**

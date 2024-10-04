@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Burbujas
 type: docs
-url: /cpp/bubble-chart/
+url: /es/cpp/bubble-chart/
 ---
 
 ## **Escalado del Tamaño del Gráfico de Burbujas**

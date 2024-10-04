@@ -1,7 +1,7 @@
 ---
 title: Llamada
 type: docs
-url: /cpp/callout/
+url: /es/cpp/callout/
 ---
 
 ## **Uso de la Llamada**

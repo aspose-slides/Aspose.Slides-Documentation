@@ -2,7 +2,7 @@
 title: Licencias
 type: docs
 weight: 50
-url: /jasperreports/licensing/
+url: /es/jasperreports/licensing/
 ---
 
 {{% alert color="primary" %}} 

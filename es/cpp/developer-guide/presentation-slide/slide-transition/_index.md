@@ -2,7 +2,7 @@
 title: Transición de Diapositivas
 type: docs
 weight: 80
-url: /cpp/slide-transition/
+url: /es/cpp/slide-transition/
 keywords: "transición de diapositivas de PowerPoint, transición de morph"
 description: "Transición de diapositivas de PowerPoint, transición de morph de PowerPoint con Aspose.Slides."
 ---

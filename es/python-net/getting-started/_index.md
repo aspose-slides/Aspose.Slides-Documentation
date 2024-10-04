@@ -3,7 +3,7 @@ title: Introducción
 type: docs
 description: "Utilice esta introducción a Aspose.Slides para Python a través de .NET para comenzar a realizar el valor de Aspose.Slides para su negocio."
 weight: 10
-url: /python-net/getting-started/
+url: /es/python-net/getting-started/
 ---
 
 Esta Introducción proporciona esta introducción a los fundamentos de Aspose.Slides. Para los usuarios nuevos en Aspose.Slides, esta es la forma más rápida de aprender los requisitos básicos y capacidades y comenzar.

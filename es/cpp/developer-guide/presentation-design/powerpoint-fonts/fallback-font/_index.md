@@ -2,7 +2,7 @@
 title: Fuente de Respaldo
 type: docs
 weight: 50
-url: /cpp/fallback-font/
+url: /es/cpp/fallback-font/
 ---
 
 ## **Fuente de Respaldo**
@@ -12,6 +12,6 @@ Aspose.Slides permite crear fuentes de respaldo, addrlas a la colección de fuen
 
 Para familiarizarse con estas características, utilice los siguientes enlaces:
 
-- [Crear Fuente de Respaldo](/slides/cpp/create-fallback-font)
-- [Crear Colección de Fuentes de Respaldo](/slides/cpp/create-fallback-fonts-collection)
-- [Renderizar Presentación con Fuente de Respaldo](/slides/cpp/render-presentation-with-fallback-font)
+- [Crear Fuente de Respaldo](/slides/es/cpp/create-fallback-font)
+- [Crear Colección de Fuentes de Respaldo](/slides/es/cpp/create-fallback-fonts-collection)
+- [Renderizar Presentación con Fuente de Respaldo](/slides/es/cpp/render-presentation-with-fallback-font)

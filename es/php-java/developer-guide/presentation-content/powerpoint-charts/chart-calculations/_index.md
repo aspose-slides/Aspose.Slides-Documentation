@@ -2,7 +2,7 @@
 title: Cálculos de Gráficos
 type: docs
 weight: 50
-url: /php-java/chart-calculations/
+url: /es/php-java/chart-calculations/
 ---
 
 ## **Calcular Valores Actuales de Elementos de Gráfico**

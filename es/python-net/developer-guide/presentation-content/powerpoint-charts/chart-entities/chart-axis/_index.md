@@ -1,7 +1,7 @@
 ---
 title: Ejes del Gráfico
 type: docs
-url: /python-net/chart-axis/
+url: /es/python-net/chart-axis/
 keywords: "Ejes del Gráfico de PowerPoint, Gráficos de Presentación, Python, Manipular Ejes del Gráfico, Datos del gráfico"
 description: "Editar los ejes del gráfico de PowerPoint en Python"
 ---

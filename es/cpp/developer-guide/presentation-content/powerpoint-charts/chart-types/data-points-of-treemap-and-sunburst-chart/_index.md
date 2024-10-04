@@ -1,7 +1,7 @@
 ---
 title: Puntos de Datos de Gráfico de Treemap y Sunburst
 type: docs
-url: /cpp/data-points-of-treemap-and-sunburst-chart/
+url: /es/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords: "Gráfico Sunburst"
 description: "Gráfico Sunburst, Diagrama Sunburst, Gráfico Sunburst, Gráfico Radial o Gráfico Circular de Múltiples Niveles con Aspose.Slides."
 ---
@@ -23,7 +23,7 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [**Crear Gráfico Sunburst**](/slides/cpp/create-chart/#create-sunburst-chart)
+- [**Crear Gráfico Sunburst**](/slides/es/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
 

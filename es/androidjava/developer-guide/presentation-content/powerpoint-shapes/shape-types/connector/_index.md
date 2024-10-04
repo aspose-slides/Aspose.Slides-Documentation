@@ -2,7 +2,7 @@
 title: Conector
 type: docs
 weight: 10
-url: /androidjava/connector/
+url: /es/androidjava/connector/
 keywords: "Conectar formas, conectores, formas de PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Conectar formas de PowerPoint en Java"
 ---
@@ -133,7 +133,7 @@ try {
 
 ## **Ajustar punto del conector**
 
-Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden alterarse de esta manera. Consulta la tabla bajo **[Tipos de conectores.](/slides/androidjava/connector/#types-of-connectors)**
+Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden alterarse de esta manera. Consulta la tabla bajo **[Tipos de conectores.](/slides/es/androidjava/connector/#types-of-connectors)**
 
 #### **Caso simple**
 
@@ -182,7 +182,7 @@ Para realizar ajustes más complicados, debes tener en cuenta estas cosas:
 * Los valores de los puntos de ajuste reflejan el porcentaje de la altura/ancho de la forma del conector. 
   * La forma está delimitada por los puntos de inicio y fin del conector multiplicados por 1000. 
   * El primer punto, el segundo punto, y el tercer punto definen el porcentaje del ancho, el porcentaje de la altura, y el porcentaje del ancho (nuevamente) respectivamente.
-* Para cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación y la reflexión del conector. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/androidjava/connector/#types-of-connectors)** es 0.
+* Para cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación y la reflexión del conector. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/es/androidjava/connector/#types-of-connectors)** es 0.
 
 #### **Caso 1**
 

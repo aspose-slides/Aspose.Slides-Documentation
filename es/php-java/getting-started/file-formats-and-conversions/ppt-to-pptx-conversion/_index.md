@@ -2,12 +2,12 @@
 title: Conversión de PPT a PPTX
 type: docs
 weight: 30
-url: /php-java/ppt-to-pptx-conversion/
+url: /es/php-java/ppt-to-pptx-conversion/
 ---
 
 {{% alert color="primary" %}} 
 
-La conversión de PPT a PPTX es compatible desde Aspose.Slides para PHP a través de Java. La mayoría de las características de presentación - diapositivas maestras, estructura, etc. - se mantienen al convertir de un formato a otro, pero hay [algunas limitaciones](/slides/php-java/ppt-to-pptx-conversion/).
+La conversión de PPT a PPTX es compatible desde Aspose.Slides para PHP a través de Java. La mayoría de las características de presentación - diapositivas maestras, estructura, etc. - se mantienen al convertir de un formato a otro, pero hay [algunas limitaciones](/slides/es/php-java/ppt-to-pptx-conversion/).
 
 {{% /alert %}} 
 ## **Características Compatibles en la Conversión**

@@ -2,7 +2,7 @@
 title: Administrar Zoom
 type: docs
 weight: 60
-url: /androidjava/manage-zoom/
+url: /es/androidjava/manage-zoom/
 keywords: "Zoom, marco de zoom, agregar zoom, formato de marco de zoom, resumen de zoom, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Agrega zoom o marcos de zoom a presentaciones de PowerPoint en Java"
 ---

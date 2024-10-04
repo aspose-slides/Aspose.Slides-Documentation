@@ -3,7 +3,7 @@ title: Guardar Presentación - Biblioteca C++ PowerPoint
 linktitle: Guardar Presentación
 type: docs
 weight: 80
-url: /cpp/save-presentation/
+url: /es/cpp/save-presentation/
 description: La API o Biblioteca C++ PowerPoint te permite guardar presentaciones en un archivo o flujo. Puedes crear una presentación desde cero o modificar una existente.
 ---
 

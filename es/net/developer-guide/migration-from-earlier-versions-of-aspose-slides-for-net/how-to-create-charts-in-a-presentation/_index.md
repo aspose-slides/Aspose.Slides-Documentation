@@ -2,12 +2,12 @@
 title: Cómo crear gráficos en una presentación
 type: docs
 weight: 30
-url: /net/how-to-create-charts-in-a-presentation/
+url: /es/net/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-Se ha lanzado una nueva [Aspose.Slides para .NET API](/slides/net/) y ahora este único producto admite la capacidad de generar documentos de PowerPoint desde cero y editar los existentes.
+Se ha lanzado una nueva [Aspose.Slides para .NET API](/slides/es/net/) y ahora este único producto admite la capacidad de generar documentos de PowerPoint desde cero y editar los existentes.
 
 {{% /alert %}} 
 ## **Soporte para código heredado**

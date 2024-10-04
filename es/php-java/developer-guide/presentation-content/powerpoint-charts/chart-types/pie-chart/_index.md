@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Pastel
 type: docs
-url: /php-java/pie-chart/
+url: /es/php-java/pie-chart/
 ---
 
 ## **Opciones de Segundo Gráfico para Gráfico de Pastel de Pastel y Gráfico de Pastel de Barra**

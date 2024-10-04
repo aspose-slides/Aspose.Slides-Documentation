@@ -3,7 +3,7 @@ title: Gestionar Fuentes - PowerPoint Java API
 linktitle: Gestionar Fuentes
 type: docs
 weight: 10
-url: /java/manage-fonts/
+url: /es/java/manage-fonts/
 description: Las presentaciones generalmente contienen tanto texto como imágenes. Este artículo muestra cómo utilizar la API de PowerPoint Java para configurar las propiedades de fuente de los párrafos de texto en las diapositivas.
 ---
 

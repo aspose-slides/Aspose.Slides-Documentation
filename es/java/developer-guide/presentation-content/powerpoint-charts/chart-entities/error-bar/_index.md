@@ -1,7 +1,7 @@
 ---
 title: Barra de error
 type: docs
-url: /java/error-bar/
+url: /es/java/error-bar/
 ---
 
 ## **Agregar Barra de Error**

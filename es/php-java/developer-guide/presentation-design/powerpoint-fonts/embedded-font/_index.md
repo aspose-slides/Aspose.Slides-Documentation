@@ -3,7 +3,7 @@ title: Fuente Embebida - API de Java para PowerPoint
 linktitle: Fuente Embebida
 type: docs
 weight: 40
-url: /php-java/embedded-font/
+url: /es/php-java/embedded-font/
 keywords: "Fuentes, fuentes embebidas, agregar fuentes, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Usa fuentes embebidas en la presentación de PowerPoint"
 

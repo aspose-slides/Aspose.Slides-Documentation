@@ -2,7 +2,7 @@
 title: Solución Funcional para el Redimensionamiento de Hojas de Cálculo
 type: docs
 weight: 40
-url: /net/working-solution-for-worksheet-resizing/
+url: /es/net/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Se ha observado que las Hojas de Cálculo de Excel incrustadas como OLE en una P
 
 {{% /alert %}} 
 ## **Antecedentes**
-En [el artículo de Añadir Marco Ole](), hemos explicado cómo añadir un Marco Ole en la presentación de una Presentación de PowerPoint utilizando Aspose.Slides para .NET. Para acomodar el [problema de objeto modificado](/slides/net/object-changed-issue-when-adding-oleobjectframe/), asignamos la imagen de la hoja de cálculo del área seleccionada al Marco de OLE Object del Gráfico. En la presentación de salida, cuando hacemos doble clic en el Marco de OLE Object que muestra la Imagen de la hoja de cálculo, se activa el Gráfico de Excel. Los usuarios finales pueden realizar cualquier cambio deseado en el Libro de Trabajo de Excel real y luego regresar a la Diapositiva correspondiente haciendo clic fuera del Libro de Trabajo de Excel activado. El tamaño del Marco de OLE Object cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento será diferente para los diferentes tamaños del Marco de OLE Object y del Libro de Trabajo de Excel incrustado. 
+En [el artículo de Añadir Marco Ole](), hemos explicado cómo añadir un Marco Ole en la presentación de una Presentación de PowerPoint utilizando Aspose.Slides para .NET. Para acomodar el [problema de objeto modificado](/slides/es/net/object-changed-issue-when-adding-oleobjectframe/), asignamos la imagen de la hoja de cálculo del área seleccionada al Marco de OLE Object del Gráfico. En la presentación de salida, cuando hacemos doble clic en el Marco de OLE Object que muestra la Imagen de la hoja de cálculo, se activa el Gráfico de Excel. Los usuarios finales pueden realizar cualquier cambio deseado en el Libro de Trabajo de Excel real y luego regresar a la Diapositiva correspondiente haciendo clic fuera del Libro de Trabajo de Excel activado. El tamaño del Marco de OLE Object cambiará cuando el usuario regrese a la diapositiva. El factor de redimensionamiento será diferente para los diferentes tamaños del Marco de OLE Object y del Libro de Trabajo de Excel incrustado. 
 ## **Causa del Redimensionamiento**
 Dado que el Libro de Trabajo de Excel tiene su propio tamaño de ventana, intenta mantener su tamaño original en la primera activación. Por otro lado, el Marco de OLE Object tendrá su propio tamaño. Según Microsoft, al activar el Libro de Trabajo de Excel, Excel y PowerPoint negocian el tamaño y aseguran que esté en las proporciones correctas como parte de la operación de incrustación. Basado en las diferencias en el tamaño de las Ventanas de Excel y el tamaño / posición del Marco de OLE Object, ocurre el redimensionamiento. 
 ## **Solución Funcional**
@@ -281,6 +281,6 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 {{% alert color="primary" %}}  Hay dos enfoques para solucionar el problema de redimensionamiento de la hoja de cálculo. La selección del enfoque apropiado depende de los requisitos y del caso de uso. Ambos enfoques funcionan de la misma manera, ya sean las presentaciones creadas a partir de una plantilla o creadas desde cero. Además, no hay un límite en el tamaño del Marco de OLE Object en la solución. {{% /alert %}} 
 ## **Secciones Relacionadas**
-[Creando e Incrustando un Gráfico de Excel como Objeto OLE en una Presentación](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Creando e Incrustando un Gráfico de Excel como Objeto OLE en una Presentación](/slides/es/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Actualizando Objetos OLE automáticamente](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Actualizando Objetos OLE automáticamente](/slides/es/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

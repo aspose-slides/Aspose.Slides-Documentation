@@ -2,5 +2,5 @@
 title: Gestionar Texto
 type: docs
 weight: 50
-url: /java/manage-text/
+url: /es/java/manage-text/
 ---

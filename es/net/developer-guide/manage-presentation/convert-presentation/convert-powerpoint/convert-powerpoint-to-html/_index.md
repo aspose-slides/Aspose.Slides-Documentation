@@ -3,7 +3,7 @@ title: Convertir PowerPoint a HTML en C# .NET
 linktitle: Convertir PowerPoint a HTML
 type: docs
 weight: 30
-url: /net/convert-powerpoint-to-html/
+url: /es/net/convert-powerpoint-to-html/
 keywords: "C# PowerPoint a HTML, C# PPT a HTML, C# ODP a HTML, C# Slide a HTML, Convertir presentación de PowerPoint, PPTX, PPT, PPT a HTML, PPTX a HTML, PowerPoint a HTML, Guardar PowerPoint como HTML, Guardar PPT como HTML, Guardar PPTX como HTML, C#, Csharp, .NET, Aspose.Slides, exportación a HTML"
 description: "Convertir PowerPoint a HTML: Guardar PPTX o PPT como HTML. Guardar diapositivas como HTML"
 ---

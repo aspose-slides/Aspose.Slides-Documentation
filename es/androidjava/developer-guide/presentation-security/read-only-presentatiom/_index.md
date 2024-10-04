@@ -2,7 +2,7 @@
 title: Presentación de Solo Lectura
 type: docs
 weight: 30
-url: /androidjava/read-only-presentation/
+url: /es/androidjava/read-only-presentation/
 
 ---
 

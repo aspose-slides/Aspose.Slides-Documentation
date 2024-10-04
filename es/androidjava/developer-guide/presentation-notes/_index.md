@@ -2,7 +2,7 @@
 title: Notas de Presentación
 type: docs
 weight: 110
-url: /androidjava/presentation-notes/
+url: /es/androidjava/presentation-notes/
 keywords: "Notas del orador de PowerPoint en Java"
 description: "Notas de presentación, notas del orador en Java"
 ---

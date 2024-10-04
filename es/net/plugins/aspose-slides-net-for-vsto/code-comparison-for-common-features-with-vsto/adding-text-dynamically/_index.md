@@ -2,7 +2,7 @@
 title: Agregar Texto Dinámicamente
 type: docs
 weight: 40
-url: /net/adding-text-dynamically/
+url: /es/net/adding-text-dynamically/
 ---
 
 Ambos métodos siguen estos pasos:

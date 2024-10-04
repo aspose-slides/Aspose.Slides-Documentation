@@ -2,12 +2,12 @@
 title: Creando una Tabla en Diapositiva de PowerPoint
 type: docs
 weight: 50
-url: /java/creating-a-table-on-powerpoint-slide/
+url: /es/java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Las tablas se utilizan ampliamente para mostrar datos en diapositivas de presentaciones. Este artículo muestra cómo crear una tabla de 15 x 15 con un tamaño de fuente de 10 programáticamente utilizando primero [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/) y luego [Aspose.Slides para Java](/slides/java/creating-a-table-on-powerpoint-slide/).
+Las tablas se utilizan ampliamente para mostrar datos en diapositivas de presentaciones. Este artículo muestra cómo crear una tabla de 15 x 15 con un tamaño de fuente de 10 programáticamente utilizando primero [VSTO 2008](/slides/es/java/creating-a-table-on-powerpoint-slide/) y luego [Aspose.Slides para Java](/slides/es/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creando Tablas**

@@ -2,7 +2,7 @@
 title: Administrar Filas y Columnas
 type: docs
 weight: 20
-url: /androidjava/manage-rows-and-columns/
+url: /es/androidjava/manage-rows-and-columns/
 keywords: "Tabla, filas y columnas de tabla, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Administra filas y columnas de tablas en presentaciones de PowerPoint en Java"
 ---

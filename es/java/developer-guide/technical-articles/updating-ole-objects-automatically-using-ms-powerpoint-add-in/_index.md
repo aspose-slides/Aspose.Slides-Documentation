@@ -2,7 +2,7 @@
 title: Actualización automática de objetos OLE utilizando el complemento de MS PowerPoint
 type: docs
 weight: 10
-url: /java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /es/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **Acerca de la actualización automática de objetos OLE**

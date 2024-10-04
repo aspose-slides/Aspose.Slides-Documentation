@@ -2,7 +2,7 @@
 title: Marco de Video
 type: docs
 weight: 10
-url: /cpp/video-frame/
+url: /es/cpp/video-frame/
 keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Agregar marco de video a la presentación de PowerPoint en C++"
 

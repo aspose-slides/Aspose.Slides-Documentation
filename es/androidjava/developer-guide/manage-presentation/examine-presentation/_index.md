@@ -2,7 +2,7 @@
 title: Examinar Presentación
 type: docs
 weight: 30
-url: /androidjava/examine-presentation/
+url: /es/androidjava/examine-presentation/
 keywords:
 - PowerPoint
 - presentación

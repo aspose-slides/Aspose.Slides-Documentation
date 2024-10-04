@@ -2,7 +2,7 @@
 title: Comparar Diapositivas
 type: docs
 weight: 50
-url: /net/compare-slides/
+url: /es/net/compare-slides/
 keywords: "Comparar diapositivas de PowerPoint, Comparar dos diapositivas, Presentación, C#, Csharp, .NET, Aspose.Slides"
 description: "Comparar diapositivas de presentaciones de PowerPoint en C# o .NET"
 ---

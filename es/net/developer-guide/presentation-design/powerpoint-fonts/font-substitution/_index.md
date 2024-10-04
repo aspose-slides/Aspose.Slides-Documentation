@@ -3,7 +3,7 @@ title: Sustitución de Fuentes - API de PowerPoint C#
 linktitle: Sustitución de Fuentes
 type: docs
 weight: 70
-url: /net/font-substitution/
+url: /es/net/font-substitution/
 keywords: 
 - fuente
 - fuente de sustitución
@@ -73,6 +73,6 @@ using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
 
 {{%  alert title="NOTA"  color="warning"   %}} 
 
-Puede que quieras ver [**Reemplazo de Fuentes**](/slides/net/font-replacement/). 
+Puede que quieras ver [**Reemplazo de Fuentes**](/slides/es/net/font-replacement/). 
 
 {{% /alert %}}

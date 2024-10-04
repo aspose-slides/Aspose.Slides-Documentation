@@ -1,7 +1,7 @@
 ---
 title: Puntos de Datos del Gráfico Treemap y Sunburst
 type: docs
-url: /python-net/data-points-of-treemap-and-sunburst-chart/
+url: /es/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords: "Gráfico Sunburst, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Agregar gráfico Sunburst en presentación de PowerPoint en Python"
 ---
@@ -22,7 +22,7 @@ with slides.Presentation() as pres:
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [**Creando Gráfico Sunburst**](/slides/python-net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Creando Gráfico Sunburst**](/slides/es/python-net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

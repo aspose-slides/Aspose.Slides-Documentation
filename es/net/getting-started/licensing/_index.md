@@ -2,7 +2,7 @@
 title: Licenciamiento
 type: docs
 weight: 80
-url: /net/licensing/
+url: /es/net/licensing/
 ---
 
 ## **Evaluar Aspose.Slides**

@@ -2,7 +2,7 @@
 title: Exportando Ecuaciones Matemáticas
 type: docs
 weight: 30
-url: /androidjava/exporting-math-equations/
+url: /es/androidjava/exporting-math-equations/
 
 ---
 

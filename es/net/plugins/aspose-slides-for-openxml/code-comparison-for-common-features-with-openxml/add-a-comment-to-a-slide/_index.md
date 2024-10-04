@@ -2,7 +2,7 @@
 title: Agregar un comentario a una diapositiva
 type: docs
 weight: 10
-url: /net/add-a-comment-to-a-slide/
+url: /es/net/add-a-comment-to-a-slide/
 ---
 
 ## **Presentación OpenXML:**

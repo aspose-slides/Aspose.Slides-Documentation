@@ -2,7 +2,7 @@
 title: Formato de Gráficos
 type: docs
 weight: 60
-url: /net/chart-formatting/
+url: /es/net/chart-formatting/
 keywords: "Entidades de gráficos, propiedades de gráficos, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Formatear entidades de gráficos en presentaciones de PowerPoint en C# o .NET"
 ---

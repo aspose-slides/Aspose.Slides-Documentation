@@ -2,7 +2,7 @@
 title: Preguntas Frecuentes
 type: docs
 weight: 340
-url: /net/faqs/
+url: /es/net/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **P: ¿Qué formatos de archivo soporta Aspose.Slides para .NET?**
 
-**R**: Aspose.Slides para .NET soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/net/supported-file-formats/).
+**R**: Aspose.Slides para .NET soporta los formatos de archivo descritos en [Formatos de Archivo Soportados](/slides/es/net/supported-file-formats/).
 
 ## **Excepciones**
 
@@ -55,7 +55,7 @@ En general, Aspose.Slides para .NET puede manejar fácilmente archivos de presen
 
 **P: ¿Por qué los tamaños de párrafo son diferentes en los sistemas operativos Windows y Linux?**
 
-**R**: El cálculo de los tamaños de párrafo se basa en el cálculo del tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza por la fuente más similar, pero esta fuente tiene métricas diferentes de las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas dará lugar a diferentes resultados dependiendo del conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, es necesario instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/net/custom-font/).
+**R**: El cálculo de los tamaños de párrafo se basa en el cálculo del tamaño del texto que representa el párrafo dado. El cálculo del tamaño del texto se basa en las métricas de la fuente especificada en la presentación de PowerPoint. Si la fuente especificada falta, se reemplaza por la fuente más similar, pero esta fuente tiene métricas diferentes de las originales. Como resultado, el cálculo de los tamaños de párrafo en diferentes sistemas dará lugar a diferentes resultados dependiendo del conjunto de fuentes instaladas. Para lograr el mismo resultado en diferentes sistemas operativos, es necesario instalar las mismas fuentes en los sistemas o cargarlas en tiempo de ejecución como [fuentes externas](/slides/es/net/custom-font/).
 
 ## **Formato e Imágenes**
 

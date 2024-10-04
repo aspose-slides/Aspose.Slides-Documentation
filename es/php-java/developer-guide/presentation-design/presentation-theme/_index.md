@@ -2,14 +2,14 @@
 title: Tema de Presentación
 type: docs
 weight: 10
-url: /php-java/presentation-theme/
+url: /es/php-java/presentation-theme/
 keywords: "Tema, tema de PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Tema de presentación de PowerPoint"
 ---
 
 Un tema de presentación define las propiedades de los elementos de diseño. Al seleccionar un tema de presentación, esencialmente estás eligiendo un conjunto específico de elementos visuales y sus propiedades.
 
-En PowerPoint, un tema comprende colores, [fuentes](/slides/php-java/powerpoint-fonts/), [estilos de fondo](/slides/php-java/presentation-background/), y efectos.
+En PowerPoint, un tema comprende colores, [fuentes](/slides/es/php-java/powerpoint-fonts/), [estilos de fondo](/slides/es/php-java/presentation-background/), y efectos.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -135,7 +135,7 @@ La fuente en todos los cuadros de texto se actualizará.
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Es posible que desees ver [fuentes de PowerPoint](/slides/php-java/powerpoint-fonts/).
+Es posible que desees ver [fuentes de PowerPoint](/slides/es/php-java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -176,7 +176,7 @@ Este código PHP te muestra cómo establecer el fondo de una presentación:
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Es posible que desees ver [Fondo de PowerPoint](/slides/php-java/presentation-background/).
+Es posible que desees ver [Fondo de PowerPoint](/slides/es/php-java/presentation-background/).
 
 {{% /alert %}}
 

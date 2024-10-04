@@ -3,7 +3,7 @@ title: Combinar Presentación - API de PowerPoint de C++
 linktitle: Combinar Presentación
 type: docs
 weight: 40
-url: /cpp/merge-presentation/
+url: /es/cpp/merge-presentation/
 keywords: "Combinar PowerPoint, PPTX, PPT, combinar PowerPoint, combinar presentación, combinar presentación, C++"
 description: El artículo explica cómo puedes combinar o fusionar presentaciones de PowerPoint utilizando la API o biblioteca de PowerPoint de C++.
 ---

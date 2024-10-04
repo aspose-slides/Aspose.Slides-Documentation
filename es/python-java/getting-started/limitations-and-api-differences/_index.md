@@ -2,7 +2,7 @@
 title: Limitaciones y Diferencias en la API
 type: docs
 weight: 100
-url: /python-java/limitations-and-api-differences/
+url: /es/python-java/limitations-and-api-differences/
 keywords: "node, powerpoint, limitación, api, diferencias"
 description: "Limitaciones y diferencias en la api de Aspose.Slides para Python a través de Java."
 ---

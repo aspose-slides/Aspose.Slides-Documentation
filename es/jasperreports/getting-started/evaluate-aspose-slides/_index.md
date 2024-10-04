@@ -2,7 +2,7 @@
 title: Evaluar Aspose.Slides
 type: docs
 weight: 80
-url: /jasperreports/evaluate-aspose-slides/
+url: /es/jasperreports/evaluate-aspose-slides/
 ---
 
 Puedes descargar fácilmente Aspose.Slides para evaluación. La descarga de evaluación es la misma que la descarga comprada. La versión de evaluación simplemente se licencia cuando agregas unas pocas líneas de código para aplicar la licencia.

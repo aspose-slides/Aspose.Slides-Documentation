@@ -2,7 +2,7 @@
 title: Soporte Técnico
 type: docs
 weight: 10
-url: /jasperreports/soporte-tecnico/
+url: /es/jasperreports/soporte-tecnico/
 ---
 
 {{% alert color="primary" %}} 

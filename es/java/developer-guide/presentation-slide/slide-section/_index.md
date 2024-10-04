@@ -2,7 +2,7 @@
 title: Sección de Diapositivas
 type: docs
 weight: 90
-url: /java/slide-section/
+url: /es/java/slide-section/
 ---
 
 Con Aspose.Slides para Java, puedes organizar una Presentación de PowerPoint en secciones. Puedes crear secciones que contengan diapositivas específicas.

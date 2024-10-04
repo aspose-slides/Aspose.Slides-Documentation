@@ -2,7 +2,7 @@
 title: Administrar SmartArt
 type: docs
 weight: 10
-url: /java/manage-smartart/
+url: /es/java/manage-smartart/
 ---
 
 ## **Obtener texto de SmartArt**

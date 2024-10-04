@@ -2,5 +2,5 @@
 title: Guía del Desarrollador
 type: docs
 weight: 20
-url: /php-java/developer-guide/
+url: /es/php-java/developer-guide/
 ---

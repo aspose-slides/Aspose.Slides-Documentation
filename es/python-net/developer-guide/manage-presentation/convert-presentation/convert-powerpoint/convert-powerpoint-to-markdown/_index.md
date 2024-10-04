@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a Markdown en Python
 type: docs
 weight: 140
-url: /python-net/convert-powerpoint-to-markdown/
+url: /es/python-net/convert-powerpoint-to-markdown/
 keywords: "Convertir PowerPoint a Markdown, Convertir ppt a md, PowerPoint, PPT, PPTX, Presentación, Markdown, Python, Aspose.Slides para Python a través de .NET"
 description: "Convertir PowerPoint a Markdown en Python"
 ---

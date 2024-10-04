@@ -2,7 +2,7 @@
 title: Acceder a la Diapositiva en la Presentación
 type: docs
 weight: 20
-url: /cpp/access-slide-in-presentation/
+url: /es/cpp/access-slide-in-presentation/
 keywords: "Acceder a la Presentación de PowerPoint, Acceder diapositiva, Editar propiedades de la diapositiva, Cambiar posición de la diapositiva, Establecer número de diapositiva, índice, ID, posición C++, CPP, Aspose.Slides"
 description: "Acceder a la diapositiva de PowerPoint por índice, ID o posición en C++. Editar propiedades de la diapositiva"
 ---

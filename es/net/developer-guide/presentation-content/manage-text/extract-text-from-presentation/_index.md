@@ -2,7 +2,7 @@
 title: Extraer Texto de Presentaciones
 type: docs
 weight: 90
-url: /net/extract-text-from-presentation/
+url: /es/net/extract-text-from-presentation/
 keywords: "Extraer texto de diaposiva, Extraer texto de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Extraer texto de una diapositiva o presentación de PowerPoint en C# o .NET"
 ---
@@ -11,9 +11,9 @@ description: "Extraer texto de una diapositiva o presentación de PowerPoint en 
 
 No es raro que los desarrolladores necesiten extraer el texto de una presentación. Para hacerlo, es necesario extraer el texto de todas las formas en todas las diapositivas de una presentación. Este artículo explica cómo extraer texto de presentaciones Microsoft PowerPoint PPTX utilizando Aspose.Slides. El texto se puede extraer de las siguientes maneras:
 
-- [Extracción de texto de una diapositiva](/slides/net/extracting-text-from-the-presentation/)
-- [Extracción de texto utilizando el método GetAllTextBoxes](/slides/net/extracting-text-from-the-presentation/)
-- [Extracción de texto categorizada y rápida](/slides/net/extracting-text-from-the-presentation/)
+- [Extracción de texto de una diapositiva](/slides/es/net/extracting-text-from-the-presentation/)
+- [Extracción de texto utilizando el método GetAllTextBoxes](/slides/es/net/extracting-text-from-the-presentation/)
+- [Extracción de texto categorizada y rápida](/slides/es/net/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **Extraer Texto de Diapositiva**

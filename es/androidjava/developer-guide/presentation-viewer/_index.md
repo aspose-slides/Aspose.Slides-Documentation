@@ -2,7 +2,7 @@
 title: Visor de Presentaciones
 type: docs
 weight: 50
-url: /androidjava/presentation-viewer/
+url: /es/androidjava/presentation-viewer/
 keywords: "Visor de PPT de PowerPoint"
 description: "Visor de PPT de PowerPoint en Java"
 ---

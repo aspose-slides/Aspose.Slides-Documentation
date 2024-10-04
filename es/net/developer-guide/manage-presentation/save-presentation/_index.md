@@ -3,7 +3,7 @@ title: Guardar Presentación en .NET
 linktitle: Guardar Presentación
 type: docs
 weight: 80
-url: /net/save-presentation/
+url: /es/net/save-presentation/
 keywords: "Guardar PowerPoint, PPT, PPTX, Guardar Presentación, archivo, flujo, C#, Csharp, .NET"
 description: "Guardar Presentación de PowerPoint como archivo o flujo en C# o .NET"
 ---

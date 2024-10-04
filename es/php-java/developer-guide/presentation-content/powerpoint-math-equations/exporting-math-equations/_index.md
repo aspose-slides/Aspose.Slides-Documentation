@@ -2,7 +2,7 @@
 title: Exportando Ecuaciones Matemáticas
 type: docs
 weight: 30
-url: /php-java/exporting-math-equations/
+url: /es/php-java/exporting-math-equations/
 
 ---
 

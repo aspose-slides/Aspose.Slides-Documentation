@@ -2,14 +2,14 @@
 title: Tema de Presentación
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /es/java/presentation-theme/
 keywords: "Tema, tema de PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Tema de presentación de PowerPoint en Java"
 ---
 
 Un tema de presentación define las propiedades de los elementos de diseño. Al seleccionar un tema de presentación, esencialmente estás eligiendo un conjunto específico de elementos visuales y sus propiedades.
 
-En PowerPoint, un tema comprende colores, [fuentes](/slides/java/powerpoint-fonts/), [estilos de fondo](/slides/java/presentation-background/), y efectos.
+En PowerPoint, un tema comprende colores, [fuentes](/slides/es/java/powerpoint-fonts/), [estilos de fondo](/slides/es/java/presentation-background/), y efectos.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ La fuente en todos los cuadros de texto se actualizará.
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Es posible que desees ver [fuentes de PowerPoint](/slides/java/powerpoint-fonts/).
+Es posible que desees ver [fuentes de PowerPoint](/slides/es/java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Es posible que desees ver [Fondo de PowerPoint](/slides/java/presentation-background/).
+Es posible que desees ver [Fondo de PowerPoint](/slides/es/java/presentation-background/).
 
 {{% /alert %}}
 

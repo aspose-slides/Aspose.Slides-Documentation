@@ -2,7 +2,7 @@
 title: Fondo de Presentación
 type: docs
 weight: 20
-url: /net/presentation-background/
+url: /es/net/presentation-background/
 keywords:
 - fondo de PowerPoint
 - establecer fondo

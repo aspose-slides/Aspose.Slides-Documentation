@@ -2,7 +2,7 @@
 title: Visión General del Producto
 type: docs
 weight: 10
-url: /sharepoint/product-overview/
+url: /es/sharepoint/product-overview/
 ---
 
 {{% alert color="primary" %}} 

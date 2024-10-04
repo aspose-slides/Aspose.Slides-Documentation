@@ -2,7 +2,7 @@
 title: Agregar marco de imagen con animación en VSTO y Aspose.Slides
 type: docs
 weight: 20
-url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
+url: /es/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
 ---
 
 Los ejemplos de código a continuación crean una presentación con una diapositiva, agregan una imagen con un marco de imagen y aplican animación a ella.

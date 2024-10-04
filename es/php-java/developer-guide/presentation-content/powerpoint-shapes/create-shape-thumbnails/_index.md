@@ -2,7 +2,7 @@
 title: Crear miniaturas de formas
 type: docs
 weight: 70
-url: /php-java/create-shape-thumbnails/
+url: /es/php-java/create-shape-thumbnails/
 ---
 
 

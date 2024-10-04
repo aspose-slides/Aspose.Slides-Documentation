@@ -2,7 +2,7 @@
 title: Gestión de Etiquetas y Datos Personalizados
 type: docs
 weight: 300
-url: /python-net/gestion-de-etiquetas-y-datos-personalizados/
+url: /es/python-net/gestion-de-etiquetas-y-datos-personalizados/
 keywords: "Etiquetas, Datos personalizados, Valor para etiquetas, Agregar etiquetas, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Agrega etiquetas y datos personalizados a presentaciones de PowerPoint en Python"
 ---

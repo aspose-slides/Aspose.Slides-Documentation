@@ -3,7 +3,7 @@ title: Licenciamiento
 description: "Aspose.Slides para Python a través de .NET proporciona diferentes planes de compra o ofrece una Prueba Gratuita y una Licencia Temporal de 30 días para evaluación utilizando políticas de Licenciamiento y Suscripción."
 type: docs
 weight: 80
-url: /python-net/licensing/
+url: /es/python-net/licensing/
 ---
 
 ## **Evaluar Aspose.Slides**
@@ -41,7 +41,7 @@ Para probar Aspose.Slides sin limitaciones, puede solicitar una **Licencia Tempo
 
 {{% alert color="primary" %}} 
 
-Quizás quiera ver [Licenciamiento Medido](/slides/python-net/metered-licensing/).
+Quizás quiera ver [Licenciamiento Medido](/slides/es/python-net/metered-licensing/).
 
 {{% /alert %}} 
 

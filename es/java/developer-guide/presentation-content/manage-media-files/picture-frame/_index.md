@@ -2,7 +2,7 @@
 title: Marco de Imagen
 type: docs
 weight: 10
-url: /java/picture-frame/
+url: /es/java/picture-frame/
 keywords: "Agregar marco de imagen, crear marco de imagen, agregar imagen, crear imagen, extraer imagen, propiedad StretchOff, formato de marco de imagen, propiedades de marco de imagen, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Agregar un marco de imagen a una presentación de PowerPoint en Java"
 

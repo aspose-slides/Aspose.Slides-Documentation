@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Pastel
 type: docs
-url: /net/pie-chart/
+url: /es/net/pie-chart/
 keywords: "Gráfico de pastel, opciones de gráfico, colores de rebanadas, presentación de PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "Opciones de gráfico de pastel y colores de rebanadas en presentación de PowerPoint en C# o .NET"
 ---

@@ -3,7 +3,7 @@ title: Secuencia de selección de fuentes en Python
 linktitle: Secuencia de selección de fuentes en Python
 type: docs
 weight: 80
-url: /python-net/font-selection-sequence/
+url: /es/python-net/font-selection-sequence/
 keywords:
 - fuente
 - selección de fuentes

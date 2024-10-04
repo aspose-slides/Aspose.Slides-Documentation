@@ -2,7 +2,7 @@
 title: Conector
 type: docs
 weight: 10
-url: /python-net/connector/
+url: /es/python-net/connector/
 keywords: "Conectar formas, conectores, formas de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Conectar formas de PowerPoint en Python"
 ---
@@ -129,7 +129,7 @@ with slides.Presentation() as presentation:
 
 ## **Ajustar Punto del Conector**
 
-Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden ser alterados de esta manera. Consulta la tabla en **[Tipos de conectores.](/slides/python-net/connector/#types-of-connectors)** 
+Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden ser alterados de esta manera. Consulta la tabla en **[Tipos de conectores.](/slides/es/python-net/connector/#types-of-connectors)** 
 
 #### **Caso Simple**
 
@@ -178,7 +178,7 @@ Para realizar ajustes más complicados, debes tener en cuenta las siguientes cos
 * Los valores de los puntos de ajuste reflejan el porcentaje del ancho/altura de la forma del conector. 
   * La forma está limitada por los puntos de inicio y fin del conector multiplicados por 1000. 
   * El primer punto, el segundo punto y el tercer punto definen el porcentaje del ancho, el porcentaje de la altura, y el porcentaje del ancho (nuevamente), respectivamente.
-* Para cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación del conector y su reflexión. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/python-net/connector/#types-of-connectors)** es 0.
+* Para cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación del conector y su reflexión. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/es/python-net/connector/#types-of-connectors)** es 0.
 
 #### **Caso 1**
 

@@ -2,7 +2,7 @@
 title: Párrafo
 type: docs
 weight: 60
-url: /java/paragraph/
+url: /es/java/paragraph/
 ---
 
 

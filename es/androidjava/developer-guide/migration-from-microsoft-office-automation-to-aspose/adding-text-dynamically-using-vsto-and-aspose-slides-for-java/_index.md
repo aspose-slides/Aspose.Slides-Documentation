@@ -2,12 +2,12 @@
 title: Agregar texto dinámicamente utilizando VSTO y Aspose.Slides para Android a través de Java
 type: docs
 weight: 20
-url: /androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+url: /es/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-Una tarea común que los desarrolladores deben realizar es agregar texto a las diapositivas dinámicamente. Este artículo muestra ejemplos de código para agregar texto dinámicamente utilizando [VSTO](/slides/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) y [Aspose.Slides para Android a través de Java](/slides/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+Una tarea común que los desarrolladores deben realizar es agregar texto a las diapositivas dinámicamente. Este artículo muestra ejemplos de código para agregar texto dinámicamente utilizando [VSTO](/slides/es/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) y [Aspose.Slides para Android a través de Java](/slides/es/androidjava/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **Agregar texto dinámicamente**

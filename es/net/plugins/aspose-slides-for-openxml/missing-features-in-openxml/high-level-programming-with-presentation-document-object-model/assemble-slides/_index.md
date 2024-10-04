@@ -2,7 +2,7 @@
 title: Ensamblar Diapositivas
 type: docs
 weight: 10
-url: /net/assemble-slides/
+url: /es/net/assemble-slides/
 ---
 
 Cubre las siguientes características:

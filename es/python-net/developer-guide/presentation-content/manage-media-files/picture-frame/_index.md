@@ -2,7 +2,7 @@
 title: Marco de Imagen
 type: docs
 weight: 10
-url: /python-net/picture-frame/
+url: /es/python-net/picture-frame/
 keywords: "Agregar marco de imagen, crear marco de imagen, agregar imagen, crear imagen, extraer imagen, propiedad StretchOff, formato de marco de imagen, propiedades de marco de imagen, presentación de PowerPoint, Python, Aspose.Slides para Python vía .NET"
 description: "Agregar marco de imagen a presentación de PowerPoint en Python"
 ---

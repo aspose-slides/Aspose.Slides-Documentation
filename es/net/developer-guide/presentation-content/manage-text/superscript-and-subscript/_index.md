@@ -2,7 +2,7 @@
 title: Superíndice y Subíndice
 type: docs
 weight: 80
-url: /net/superscript-and-subscript/
+url: /es/net/superscript-and-subscript/
 keywords: "Superíndice, Subíndice, Agregar texto en superíndice, Agregar texto en subíndice, Presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Agregar texto en superíndice y subíndice a presentaciones de PowerPoint en C# o .NET"
 ---

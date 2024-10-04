@@ -2,5 +2,5 @@
 title: Gráficos de PowerPoint
 type: docs
 weight: 70
-url: /python-net/powerpoint-charts/
+url: /es/python-net/powerpoint-charts/
 ---

@@ -1,7 +1,7 @@
 ---
 title: Barra de Error
 type: docs
-url: /net/error-bar/
+url: /es/net/error-bar/
 keywords: "Barra de error, valores de barra de error presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Añadir barra de error a presentaciones de PowerPoint en C# o .NET"
 ---

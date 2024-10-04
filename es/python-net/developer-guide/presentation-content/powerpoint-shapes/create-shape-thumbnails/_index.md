@@ -2,7 +2,7 @@
 title: Crear miniaturas de formas
 type: docs
 weight: 70
-url: /python-net/create-shape-thumbnails/
+url: /es/python-net/create-shape-thumbnails/
 keywords: "Miniatura de forma. Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Miniatura de forma en presentación de PowerPoint en Python"
 ---

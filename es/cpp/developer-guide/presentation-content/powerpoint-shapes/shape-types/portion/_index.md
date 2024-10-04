@@ -2,7 +2,7 @@
 title: Porción
 type: docs
 weight: 70
-url: /cpp/portion/
+url: /es/cpp/portion/
 ---
 
 ## **Obtener coordenadas de posición de la porción**

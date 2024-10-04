@@ -2,7 +2,7 @@
 title: Exportando Presentaciones a HTML con Imágenes Enlazadas Externamente
 type: docs
 weight: 100
-url: /python-net/exporting-presentations-to-html-with-externally-linked-images/
+url: /es/python-net/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

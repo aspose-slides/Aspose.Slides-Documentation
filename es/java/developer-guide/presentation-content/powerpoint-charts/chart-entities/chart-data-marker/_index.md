@@ -1,7 +1,7 @@
 ---
 title: Marcador de Datos del Gráfico
 type: docs
-url: /java/chart-data-marker/
+url: /es/java/chart-data-marker/
 ---
 
 ## **Establecer Opciones de Marcador del Gráfico**

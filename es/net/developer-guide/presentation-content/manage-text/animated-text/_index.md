@@ -2,7 +2,7 @@
 title: Texto Animado
 type: docs
 weight: 60
-url: /net/animated-text/
+url: /es/net/animated-text/
 keywords: "Texto animado, Efectos de animación, Presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Agregue texto animado y efectos a la presentación de PowerPoint en C# o .NET"
 ---

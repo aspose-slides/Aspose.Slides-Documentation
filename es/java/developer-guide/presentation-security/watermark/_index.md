@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /java/watermark/
+url: /es/java/watermark/
 keywords: "marca de agua en presentación"
 description: "Usa marca de agua en PowerPoint con Aspose.Slides. Añade marca de agua en presentación ppt o elimina marca de agua. Inserta imagen de marca de agua o texto de marca de agua."
 ---
@@ -41,7 +41,7 @@ try {
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/java/slide-master/)[TextFrame](/slides/java/adding-and-formatting-text/)
+- [Cómo usar ](/slides/es/java/slide-master/)[TextFrame](/slides/es/java/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Añadir Marca de Agua de Texto a la Presentación**
@@ -64,7 +64,7 @@ try {
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/java/slide-master/)[Patrón de Diapositiva](/slides/java/slide-master/)
+- [Cómo usar ](/slides/es/java/slide-master/)[Patrón de Diapositiva](/slides/es/java/slide-master/)
 {{% /alert %}}
 
 ### **Establecer Fuente de la Marca de Agua de Texto**
@@ -160,7 +160,7 @@ watermarkShape.getShapeLock().setGroupingLocked(true);
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo bloquear formas de edición](/slides/java/presentation-locking/)
+- [Cómo bloquear formas de edición](/slides/es/java/presentation-locking/)
 {{% /alert %}}
 
 ## **Traer Marca de Agua al Frente**

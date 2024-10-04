@@ -2,7 +2,7 @@
 title: Texto Animado
 type: docs
 weight: 60
-url: /cpp/animated-text/
+url: /es/cpp/animated-text/
 keywords: "Texto animado en PowerPoint"
 description: "Texto animado en la presentación de PowerPoint con Aspose.Slides"
 ---

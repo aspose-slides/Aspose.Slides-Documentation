@@ -2,7 +2,7 @@
 title: Configuración de Reporting Services
 type: docs
 weight: 30
-url: /reportingservices/setting-up-reporting-services/
+url: /es/reportingservices/setting-up-reporting-services/
 ---
 
 {{% alert color="primary" %}} 

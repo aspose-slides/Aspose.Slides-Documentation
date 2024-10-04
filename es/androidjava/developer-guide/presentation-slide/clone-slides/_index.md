@@ -2,7 +2,7 @@
 title: Clonar diapositivas
 type: docs
 weight: 35
-url: /androidjava/clone-slides/
+url: /es/androidjava/clone-slides/
 ---
 
 

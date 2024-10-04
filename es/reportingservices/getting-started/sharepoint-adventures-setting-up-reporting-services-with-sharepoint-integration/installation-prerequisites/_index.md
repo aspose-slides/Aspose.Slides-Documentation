@@ -2,7 +2,7 @@
 title: Requisitos de Instalación
 type: docs
 weight: 20
-url: /reportingservices/installation-prerequisites/
+url: /es/reportingservices/installation-prerequisites/
 ---
 
 {{% alert color="primary" %}} 

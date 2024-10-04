@@ -2,7 +2,7 @@
 title: Diseño de Diapositiva
 type: docs
 weight: 60
-url: /java/slide-layout/
+url: /es/java/slide-layout/
 keyword: "Establecer tamaño de diapositiva, establecer opciones de diapositiva, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escalado de contenido, tamaño de página, Java, Aspose.Slides"
 description: "Establecer tamaño y opciones de diapositiva de PowerPoint en Java"
 ---

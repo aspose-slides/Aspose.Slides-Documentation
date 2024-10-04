@@ -2,5 +2,5 @@
 title: Formas de PowerPoint
 type: docs
 weight: 90
-url: /php-java/powerpoint-shapes/
+url: /es/php-java/powerpoint-shapes/
 ---

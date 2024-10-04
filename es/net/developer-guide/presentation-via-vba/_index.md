@@ -2,7 +2,7 @@
 title: Presentación a través de VBA
 type: docs
 weight: 250
-url: /net/presentation-via-vba/
+url: /es/net/presentation-via-vba/
 keywords: "Macro, macros, VBA, macro de VBA, añadir macro, eliminar macro, añadir VBA, eliminar VBA, extraer macro, extraer VBA, macro de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Añadir, eliminar y extraer macros de VBA en presentaciones de PowerPoint en C# o .NET"
 ---

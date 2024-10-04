@@ -1,7 +1,7 @@
 ---
 title: Etiqueta de Datos del Gráfico
 type: docs
-url: /androidjava/chart-data-label/
+url: /es/androidjava/chart-data-label/
 keywords: "Etiqueta de datos del gráfico, distancia de la etiqueta, Java, Aspose.Slides para Android a través de Java"
 description: "Establecer la etiqueta de datos del gráfico de PowerPoint y la distancia en Java"
 ---

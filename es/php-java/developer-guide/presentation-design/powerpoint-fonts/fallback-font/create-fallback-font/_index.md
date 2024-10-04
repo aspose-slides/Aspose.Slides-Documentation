@@ -2,7 +2,7 @@
 title: Crear Fuente de Reserva
 type: docs
 weight: 10
-url: /php-java/create-fallback-font/
+url: /es/php-java/create-fallback-font/
 ---
 
 Aspose.Slides soporta la interfaz [IFontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRule) y la clase [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) para especificar las reglas para aplicar una fuente de reserva. La clase [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) representa una asociación entre el rango Unicode especificado, utilizado para buscar glifos faltantes, y una lista de fuentes que pueden contener los glifos correctos:
@@ -23,5 +23,5 @@ También es posible [remover](https://reference.aspose.com/slides/php-java/aspos
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) puede ser utilizada para organizar una lista de objetos [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule), cuando hay necesidad de especificar reglas de reemplazo de fuente de reserva para múltiples rangos Unicode.
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Crear Colección de Fuentes de Reserva](/slides/php-java/create-fallback-fonts-collection/)
+- [Crear Colección de Fuentes de Reserva](/slides/es/php-java/create-fallback-fonts-collection/)
 {{% /alert %}}

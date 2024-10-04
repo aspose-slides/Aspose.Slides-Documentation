@@ -2,7 +2,7 @@
 title: Formateo de Formas
 type: docs
 weight: 20
-url: /java/shape-formatting/
+url: /es/java/shape-formatting/
 keywords: "Formato de forma, formatear líneas, estilos de unión, relleno de degradado, relleno de patrón, relleno de imagen, relleno de color sólido, rotar formas, efectos de bisel 3d, efecto de rotación 3d, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Formatear formas en una presentación de PowerPoint en Java"
 ---

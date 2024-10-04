@@ -2,7 +2,7 @@
 title: Administrar la configuración de ajuste automático
 type: docs
 weight: 30
-url: /php-java/manage-autofit-settings/
+url: /es/php-java/manage-autofit-settings/
 keywords: "Cuadro de texto, Ajuste automático, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Configurar la configuración de ajuste automático para cuadros de texto en PowerPoint"
 ---

@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /es/php-java/watermark/
 keywords: "marca de agua en presentación"
 description: "Usa marca de agua en PowerPoint con Aspose.Slides. Añade marca de agua en presentación ppt o elimina marca de agua. Inserta marca de agua de imagen o de texto."
 ---
@@ -41,7 +41,7 @@ Para añadir una marca de agua de texto en PPT, PPTX o ODP puedes primero añadi
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/php-java/slide-master/)[TextFrame](/slides/php-java/adding-and-formatting-text/)
+- [Cómo usar ](/slides/es/php-java/slide-master/)[TextFrame](/slides/es/php-java/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Añadir Marca de Agua de Texto a la Presentación**
@@ -64,7 +64,7 @@ Toda la lógica es la misma que al añadir la marca de agua a una sola diapositi
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/php-java/slide-master/)[Maestro de Diapositivas](/slides/php-java/slide-master/)
+- [Cómo usar ](/slides/es/php-java/slide-master/)[Maestro de Diapositivas](/slides/es/php-java/slide-master/)
 {{% /alert %}}
 
 ### **Establecer Fuente de la Marca de Agua de Texto**
@@ -148,7 +148,7 @@ Si es necesario prevenir la edición de la marca de agua, usa el método [**Auto
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo Bloquear Formas de la Edición](/slides/php-java/presentation-locking/)
+- [Cómo Bloquear Formas de la Edición](/slides/es/php-java/presentation-locking/)
 {{% /alert %}}
 
 ## **Traer Marca de Agua al Frente**

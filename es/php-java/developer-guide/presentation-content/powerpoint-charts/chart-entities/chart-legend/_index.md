@@ -1,7 +1,7 @@
 ---
 title: Leyenda del Gráfico
 type: docs
-url: /php-java/chart-legend/
+url: /es/php-java/chart-legend/
 ---
 
 ## **Posicionamiento de la Leyenda**

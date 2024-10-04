@@ -2,7 +2,7 @@
 title: Libro de Gráficos
 type: docs
 weight: 70
-url: /net/chart-workbook/
+url: /es/net/chart-workbook/
 keywords: "Libro de gráficos, datos de gráficos, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Libro de gráficos en presentación de PowerPoint en C# o .NET"
 ---

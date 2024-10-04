@@ -2,7 +2,7 @@
 title: Establecer título del icono OLE
 type: docs
 weight: 110
-url: /cpp/set-caption-to-ole-icon/
+url: /es/cpp/set-caption-to-ole-icon/
 ---
 
 Se han añadido los métodos **get_SubstitutePictureTitle()** y **set_SubstitutePictureTitle()** a las clases **IOleObjectFrame** y **OleObjectFrame**. Permiten obtener, establecer o cambiar el título de un icono OLE. El siguiente fragmento de código muestra un ejemplo de cómo crear un objeto de Excel y establecer su título.

@@ -2,7 +2,7 @@
 title: API Moderna
 type: docs
 weight: 280
-url: /cpp/modern-api/
+url: /es/cpp/modern-api/
 keywords: "API Moderna, Dibujo"
 description: "API Moderna"
 ---

@@ -2,12 +2,12 @@
 title: Renderizar Presentación con Fuente de Respaldo
 type: docs
 weight: 30
-url: /php-java/render-presentation-with-fallback-font/
+url: /es/php-java/render-presentation-with-fallback-font/
 ---
 
 El siguiente ejemplo incluye estos pasos:
 
-1. [Creamos una colección de reglas de fuente de respaldo](/slides/php-java/create-fallback-fonts-collection/).
+1. [Creamos una colección de reglas de fuente de respaldo](/slides/es/php-java/create-fallback-fonts-collection/).
 1. [Eliminar](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) una regla de fuente de respaldo y [addFallBackFonts](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) a otra regla.
 1. Establecer la colección de reglas en [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--) método.
 1. Con el método [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) podemos guardar la presentación en el mismo formato o guardarla en otro. Después de que la colección de reglas de fuentes de respaldo está establecida en [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), estas reglas se aplican durante cualquier operación sobre la presentación: guardar, renderizar, convertir, etc.
@@ -51,5 +51,5 @@ El siguiente ejemplo incluye estos pasos:
 ```
 
 {{% alert color="primary" %}} 
-Lee más sobre [Guardar y Conversión en Presentación](/slides/php-java/creating-saving-and-converting-a-presentation/).
+Lee más sobre [Guardar y Conversión en Presentación](/slides/es/php-java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

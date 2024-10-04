@@ -2,7 +2,7 @@
 title: Presentación Protegida por Contraseña
 type: docs
 weight: 20
-url: /cpp/password-protected-presentation/
+url: /es/cpp/password-protected-presentation/
 keywords: "Bloquear presentación de PowerPoint"
 description: "Bloquear presentación de PowerPoint. Presentación de PowerPoint protegida por contraseña con Aspose.Slides."
 ---
@@ -213,5 +213,5 @@ bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my
 Devuelve `true` si la presentación ha sido encriptada con la contraseña especificada. De lo contrario, devuelve `false`. 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Firma Digital en PowerPoint](/slides/cpp/digital-signature-in-powerpoint/)
+- [Firma Digital en PowerPoint](/slides/es/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}

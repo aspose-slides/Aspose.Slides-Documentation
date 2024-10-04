@@ -2,7 +2,7 @@
 title: Administrar Celdas
 type: docs
 weight: 30
-url: /cpp/manage-cells/
+url: /es/cpp/manage-cells/
 keywords: "Tabla, celdas combinadas, celdas divididas, imagen en celda de tabla, C++, CPP, Aspose.Slides para C++"
 description: "Celdas de tabla en presentaciones de PowerPoint en C++"
 ---

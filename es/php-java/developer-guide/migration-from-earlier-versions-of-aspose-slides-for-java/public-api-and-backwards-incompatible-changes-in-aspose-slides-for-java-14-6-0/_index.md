@@ -2,12 +2,12 @@
 title: API Público y Cambios Incompatibles con Versiones Anteriores en Aspose.Slides para PHP a través de Java 14.6.0
 type: docs
 weight: 50
-url: /php-java/api-publico-y-cambios-incompatibles-con-versiones-anteriores-en-aspose-slides-para-java-14-6-0/
+url: /es/php-java/api-publico-y-cambios-incompatibles-con-versiones-anteriores-en-aspose-slides-para-java-14-6-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página lista todas las [clases añadidas](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/), métodos, propiedades, y así sucesivamente, cualquier nueva restricción y otros cambios introducidos con la API de Aspose.Slides para PHP a través de Java 14.6.0.
+Esta página lista todas las [clases añadidas](/slides/es/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/), métodos, propiedades, y así sucesivamente, cualquier nueva restricción y otros cambios introducidos con la API de Aspose.Slides para PHP a través de Java 14.6.0.
 
 {{% /alert %}} 
 ## **Cambios en la API Pública**

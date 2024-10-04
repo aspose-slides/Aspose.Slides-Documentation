@@ -2,7 +2,7 @@
 title: Gestión de Etiquetas y Datos Personalizados
 type: docs
 weight: 300
-url: /php-java/managing-tags-and-custom-data
+url: /es/php-java/managing-tags-and-custom-data
 
 ---
 

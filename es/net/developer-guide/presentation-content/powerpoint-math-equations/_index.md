@@ -2,7 +2,7 @@
 title: Ecuaciones Matemáticas de PowerPoint
 type: docs
 weight: 80
-url: /net/powerpoint-math-equations/
+url: /es/net/powerpoint-math-equations/
 keywords: "Ecuaciones Matemáticas de PowerPoint, Símbolos Matemáticos de PowerPoint, Fórmula de PowerPoint, Texto Matemático de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Ecuaciones Matemáticas de PowerPoint, Símbolos Matemáticos, Fórmulas y Texto Matemático en C# o .NET"
 ---

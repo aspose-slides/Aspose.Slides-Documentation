@@ -2,7 +2,7 @@
 title: Crear un Gráfico
 type: docs
 weight: 60
-url: /net/create-a-chart/
+url: /es/net/create-a-chart/
 ---
 
 Los ejemplos de código a continuación describen el proceso de agregar un gráfico de columnas agrupadas en 3D simple utilizando VSTO. Creas una instancia de presentación, le agregas un gráfico predeterminado. Luego, utilizas Microsoft Excel Workbook para acceder y modificar los datos del gráfico junto con la configuración de las propiedades del gráfico. Por último, guarda la presentación.

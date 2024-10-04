@@ -2,7 +2,7 @@
 title: Conversión a PDF
 type: docs
 weight: 30
-url: /net/conversion-to-pdf/
+url: /es/net/conversion-to-pdf/
 ---
 
 Los documentos PDF se utilizan ampliamente como un formato estándar para intercambiar documentos entre organizaciones, sectores gubernamentales e individuos. Es un formato popular, por lo que a menudo se les pide a los desarrolladores que conviertan archivos de presentación de Microsoft PowerPoint a documentos PDF. Dándose cuenta de este posible requisito, Aspose.Slides para .NET admite la conversión de presentaciones a documentos PDF sin utilizar ningún otro componente.

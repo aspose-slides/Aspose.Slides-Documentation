@@ -2,7 +2,7 @@
 title: Transición de Diapositiva
 type: docs
 weight: 80
-url: /java/slide-transition/
+url: /es/java/slide-transition/
 keywords: "transición de diapositiva de PowerPoint, transición de morph en Java"
 description: "transición de diapositiva de PowerPoint, transición de morph de PowerPoint en Java"
 ---

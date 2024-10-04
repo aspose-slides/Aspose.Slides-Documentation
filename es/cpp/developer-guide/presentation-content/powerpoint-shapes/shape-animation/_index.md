@@ -2,12 +2,12 @@
 title: Animación de Formas
 type: docs
 weight: 60
-url: /cpp/shape-animation/
+url: /es/cpp/shape-animation/
 keywords: "animación de PowerPoint, efecto de animación, aplicar animación, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Aplica animación de PowerPoint en C++"
 ---
 
-Las animaciones son efectos visuales que se pueden aplicar a textos, imágenes, formas o [gráficos](/slides/cpp/animated-charts/). Dan vida a las presentaciones o a sus constituyentes.
+Las animaciones son efectos visuales que se pueden aplicar a textos, imágenes, formas o [gráficos](/slides/es/cpp/animated-charts/). Dan vida a las presentaciones o a sus constituyentes.
 
 ### **¿Por qué usar animaciones en presentaciones?**
 
@@ -70,7 +70,7 @@ pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 {{%  alert color="primary"  %}} 
 
-Además de aplicar animaciones al texto, también puedes aplicar animaciones a un solo [Párrafo](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph). Consulta [**Texto Animado**](/slides/cpp/animated-text/).
+Además de aplicar animaciones al texto, también puedes aplicar animaciones a un solo [Párrafo](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph). Consulta [**Texto Animado**](/slides/es/cpp/animated-text/).
 
 {{% /alert %}} 
 

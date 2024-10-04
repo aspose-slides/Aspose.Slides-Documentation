@@ -2,7 +2,7 @@
 title: Administrar TextBox
 type: docs
 weight: 20
-url: /java/manage-textbox/
+url: /es/java/manage-textbox/
 description: Crea un cuadro de texto en diapositivas de PowerPoint utilizando Java. Agrega columna en el cuadro de texto o marco de texto en diapositivas de PowerPoint utilizando Java. Agrega un cuadro de texto con un hipervínculo en diapositivas de PowerPoint utilizando Java.
 ---
 

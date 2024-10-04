@@ -2,7 +2,7 @@
 title: Requisitos del sistema
 type: docs
 weight: 50
-url: /sharepoint/system-requirements/
+url: /es/sharepoint/system-requirements/
 ---
 
 ## **Requisitos del servidor**

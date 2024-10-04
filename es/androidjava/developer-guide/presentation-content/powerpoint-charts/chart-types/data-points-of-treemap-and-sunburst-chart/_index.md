@@ -1,7 +1,7 @@
 ---
 title: Puntos de Datos del Gráfico de Treemap y Sunburst
 type: docs
-url: /androidjava/data-points-of-treemap-and-sunburst-chart/
+url: /es/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Gráfico Sunburst en Aspose.Slides para Android a través de Java"
 description: "Gráfico Sunburst, Diagrama Sunburst, Gráfico Sunburst, Gráfico Radial o Gráfico Circular de Múltiples Niveles con Aspose.Slides para Android a través de Java."
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [**Creando Gráfico Sunburst**](/slides/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Creando Gráfico Sunburst**](/slides/es/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 Si hay necesidad de formatear los puntos de datos del gráfico, debemos usar lo siguiente:

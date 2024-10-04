@@ -2,7 +2,7 @@
 title: Conversión de formato PPT a PPTX
 type: docs
 weight: 20
-url: /net/conversion-from-ppt-to-pptx-format/
+url: /es/net/conversion-from-ppt-to-pptx-format/
 ---
 
 La característica única de Aspose.Slides que proporciona flexibilidad en las conversiones de versión sin afectar el trabajo. SaveFormat es una enumeración que puede convertir documentos en las extensiones dadas a continuación en la tabla.

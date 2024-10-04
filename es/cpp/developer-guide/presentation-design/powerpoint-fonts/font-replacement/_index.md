@@ -2,7 +2,7 @@
 title: Reemplazo de Fuentes
 type: docs
 weight: 60
-url: /cpp/font-replacement/
+url: /es/cpp/font-replacement/
 keywords: "Fuente, reemplazar fuente, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Reemplaza fuentes explícitamente en PowerPoint en C++"
 ---
@@ -38,6 +38,6 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 
 {{% alert title="Nota" color="warning" %}} 
 
-Para establecer reglas que determinen qué sucede en ciertas condiciones (si una fuente no puede ser accedida, por ejemplo), consulta [**Sustitución de Fuentes**](/slides/cpp/font-substitution/). 
+Para establecer reglas que determinen qué sucede en ciertas condiciones (si una fuente no puede ser accedida, por ejemplo), consulta [**Sustitución de Fuentes**](/slides/es/cpp/font-substitution/). 
 
 {{% /alert %}}

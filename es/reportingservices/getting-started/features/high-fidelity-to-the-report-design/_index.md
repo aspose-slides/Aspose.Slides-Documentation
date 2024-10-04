@@ -2,7 +2,7 @@
 title: Alta fidelidad al diseño del informe
 type: docs
 weight: 40
-url: /reportingservices/high-fidelity-to-the-report-design/
+url: /es/reportingservices/high-fidelity-to-the-report-design/
 ---
 
 {{% alert color="primary" %}} 

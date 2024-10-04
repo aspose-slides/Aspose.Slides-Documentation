@@ -1,7 +1,7 @@
 ---
 title: Barra de Error
 type: docs
-url: /androidjava/error-bar/
+url: /es/androidjava/error-bar/
 ---
 
 ## **Agregar Barra de Error**

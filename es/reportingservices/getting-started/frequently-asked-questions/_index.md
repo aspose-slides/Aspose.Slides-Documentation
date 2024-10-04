@@ -2,7 +2,7 @@
 title: Preguntas Frecuentes
 type: docs
 weight: 110
-url: /reportingservices/frequently-asked-questions/
+url: /es/reportingservices/frequently-asked-questions/
 ---
 
 {{% alert color="primary" %}} 

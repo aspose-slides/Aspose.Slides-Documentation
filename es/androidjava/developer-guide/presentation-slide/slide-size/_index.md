@@ -2,7 +2,7 @@
 title: Tamaño de Diapositiva
 type: docs
 weight: 70
-url: /androidjava/slide-size/
+url: /es/androidjava/slide-size/
 
 ---
 

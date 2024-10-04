@@ -2,7 +2,7 @@
 title: Exportar a HTML5
 type: docs
 weight: 40
-url: /python-net/export-to-html5/
+url: /es/python-net/export-to-html5/
 keywords:
 - PowerPoint a HTML
 - diapositivas a HTML
@@ -18,7 +18,7 @@ description: "Exportar PowerPoint a HTML5 en Python"
 
 {{% alert title="Info" color="info" %}}
 
-En **Aspose.Slides 21.9**, implementamos soporte para la exportación a HTML5. Sin embargo, si prefieres exportar tu PowerPoint a HTML utilizando WebExtensions, consulta [este artículo](/slides/net/web-extensions/) en su lugar.
+En **Aspose.Slides 21.9**, implementamos soporte para la exportación a HTML5. Sin embargo, si prefieres exportar tu PowerPoint a HTML utilizando WebExtensions, consulta [este artículo](/slides/es/net/web-extensions/) en su lugar.
 
 {{% /alert %}} 
 

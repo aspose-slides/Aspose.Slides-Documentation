@@ -2,7 +2,7 @@
 title: Renderizando Formas en Diapositiva como Imágenes
 type: docs
 weight: 120
-url: /net/rendering-shapes-on-slide-as-images/
+url: /es/net/rendering-shapes-on-slide-as-images/
 ---
 
 Esto cubre dos funciones principales:

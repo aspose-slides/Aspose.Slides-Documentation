@@ -2,7 +2,7 @@
 title: Rectángulo
 type: docs
 weight: 80
-url: /cpp/rectangle/
+url: /es/cpp/rectangle/
 ---
 
 ## **Crear Rectángulo Simple**

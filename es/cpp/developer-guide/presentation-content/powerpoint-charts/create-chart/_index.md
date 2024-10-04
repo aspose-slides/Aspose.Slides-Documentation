@@ -3,7 +3,7 @@ title: Crear Gráficos de Presentaciones de PowerPoint en C++
 linktitle: Crear Gráfico
 type: docs
 weight: 10
-url: /cpp/create-chart/
+url: /es/cpp/create-chart/
 keywords: "Crear gráfico, gráfico disperso, gráfico de sectores, gráfico de mapa de árbol, gráfico de acciones, gráfico de caja y bigotes, gráfico de histograma, gráfico de embudo, gráfico de sol naciente, gráfico multicategoría, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Crear gráfico en presentación de PowerPoint en C++"
 ---

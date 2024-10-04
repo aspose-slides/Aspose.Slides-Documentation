@@ -2,7 +2,7 @@
 title: Forma personalizada
 type: docs
 weight: 20
-url: /python-net/custom-shape/
+url: /es/python-net/custom-shape/
 keywords: "forma de PowerPoint, forma personalizada, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Agrega una forma personalizada en una presentación de PowerPoint en Python"
 ---

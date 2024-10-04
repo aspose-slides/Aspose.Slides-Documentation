@@ -2,5 +2,5 @@
 title: Formas de PowerPoint
 type: docs
 weight: 90
-url: /androidjava/powerpoint-shapes/
+url: /es/androidjava/powerpoint-shapes/
 ---

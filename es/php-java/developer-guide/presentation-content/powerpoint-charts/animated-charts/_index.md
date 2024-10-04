@@ -2,7 +2,7 @@
 title: Gráficas Animadas
 type: docs
 weight: 80
-url: /php-java/animated-charts/
+url: /es/php-java/animated-charts/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Línea
 type: docs
 weight: 50
-url: /androidjava/Line/
+url: /es/androidjava/Line/
 ---
 
 

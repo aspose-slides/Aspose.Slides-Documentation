@@ -2,7 +2,7 @@
 title: Libro de trabajo de gráficos
 type: docs
 weight: 70
-url: /python-net/chart-workbook/
+url: /es/python-net/chart-workbook/
 keywords: "Libro de trabajo de gráficos, datos de gráfico, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Libro de trabajo de gráficos en presentación de PowerPoint en Python"
 ---

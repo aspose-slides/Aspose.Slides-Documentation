@@ -2,7 +2,7 @@
 title: Descripción General de Funciones
 type: docs
 weight: 20
-url: /php-java/features-overview/
+url: /es/php-java/features-overview/
 ---
 
 ## **Plataformas Soportadas**

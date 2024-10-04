@@ -1,7 +1,7 @@
 ---
 title: Línea de Tendencia
 type: docs
-url: /php-java/lnea-de-tendencia/
+url: /es/php-java/lnea-de-tendencia/
 ---
 
 ## **Agregar Línea de Tendencia**

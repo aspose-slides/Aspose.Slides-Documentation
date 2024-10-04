@@ -2,7 +2,7 @@
 title: Obtener el Fondo Completo de la Diapositiva de Presentación como una Imagen
 type: docs
 weight: 95
-url: /java/get-the-entire-presentation-slide-background-as-an-image/
+url: /es/java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositiva
 - fondo
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides para Java
 ---
 
-En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen configurada como el [fondo de la diapositiva](/slides/java/presentation-background/), el fondo final puede verse influenciado por el tema de la presentación, el esquema de colores y las formas colocadas en la diapositiva maestra y la diapositiva de diseño.
+En las presentaciones de PowerPoint, el fondo de la diapositiva puede consistir en muchos elementos. Además de la imagen configurada como el [fondo de la diapositiva](/slides/es/java/presentation-background/), el fondo final puede verse influenciado por el tema de la presentación, el esquema de colores y las formas colocadas en la diapositiva maestra y la diapositiva de diseño.
 
 Aspose.Slides para Java no proporciona un método simple para extraer el fondo completo de la diapositiva de presentación como una imagen, pero puedes seguir los pasos a continuación para hacerlo:
 1. Carga la presentación usando la clase [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).

@@ -2,7 +2,7 @@
 title: Gestionar Celdas
 type: docs
 weight: 30
-url: /python-net/manage-cells/
+url: /es/python-net/manage-cells/
 keywords: "Tabla, celdas combinadas, celdas divididas, imagen en celda de tabla, Python, Aspose.Slides para Python a través de .NET"
 description: "Celdas de tabla en presentaciones de PowerPoint en Python"
 ---

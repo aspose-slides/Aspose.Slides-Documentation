@@ -2,12 +2,12 @@
 title: API pública y cambios incompatibles hacia atrás en Aspose.Slides para PHP a través de Java 15.4.0
 type: docs
 weight: 120
-url: /php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
+url: /es/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página lista todas las [clases](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) añadidas, métodos, propiedades y demás, cualquier nueva restricción y otros [cambios](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) introducidos con la API de Aspose.Slides para PHP a través de Java 15.4.0.
+Esta página lista todas las [clases](/slides/es/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) añadidas, métodos, propiedades y demás, cualquier nueva restricción y otros [cambios](/slides/es/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-4-0/) introducidos con la API de Aspose.Slides para PHP a través de Java 15.4.0.
 
 {{% /alert %}} 
 ## **Cambios en la API Pública**

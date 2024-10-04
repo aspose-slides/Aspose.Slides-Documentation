@@ -2,7 +2,7 @@
 title: Administrar Zoom
 type: docs
 weight: 60
-url: /php-java/manage-zoom/
+url: /es/php-java/manage-zoom/
 keywords: "Zoom, marco de zoom, agregar zoom, formato del marco de zoom, resumen de zoom, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Agregar zoom o marcos de zoom a presentaciones de PowerPoint"
 ---

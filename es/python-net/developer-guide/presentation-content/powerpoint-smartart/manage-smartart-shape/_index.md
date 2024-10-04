@@ -2,7 +2,7 @@
 title: Administrar forma de SmartArt
 type: docs
 weight: 20
-url: /python-net/manage-smartart-shape/
+url: /es/python-net/manage-smartart-shape/
 keywords: "forma de SmartArt, estilo de forma de SmartArt, estilo de color de forma de SmartArt, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Administrar SmartArt en presentaciones de PowerPoint en Python"
 ---

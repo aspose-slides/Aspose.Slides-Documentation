@@ -2,7 +2,7 @@
 title: Gestionar viñetas
 type: docs
 weight: 60
-url: /androidjava/manage-bullet/
+url: /es/androidjava/manage-bullet/
 keywords: "Viñetas, Listas con viñetas, Números, Listas numeradas, Viñetas de imagen, viñetas multinivel, Presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Crear listas con viñetas y numeradas en presentaciones de PowerPoint en Java"
 ---

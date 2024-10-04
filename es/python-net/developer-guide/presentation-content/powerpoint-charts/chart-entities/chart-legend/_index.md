@@ -1,7 +1,7 @@
 ---
 title: Leyenda del Gráfico
 type: docs
-url: /python-net/chart-legend/
+url: /es/python-net/chart-legend/
 keywords: "Leyenda del gráfico, tamaño de fuente de la leyenda, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Configurar la posición y el tamaño de fuente de la leyenda del gráfico en presentaciones de PowerPoint en Python"
 ---

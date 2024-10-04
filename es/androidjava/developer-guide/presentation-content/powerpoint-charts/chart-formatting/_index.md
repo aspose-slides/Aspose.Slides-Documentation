@@ -2,7 +2,7 @@
 title: Formato de Gráficos
 type: docs
 weight: 60
-url: /androidjava/chart-formatting/
+url: /es/androidjava/chart-formatting/
 ---
 
 ## **Formatear Entidades de Gráficos**

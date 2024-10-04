@@ -2,7 +2,7 @@
 title: API Público y Cambios Incompatibles con Versiones Anteriores en Aspose.Slides para .NET 14.3.0
 type: docs
 weight: 50
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-3-0/
+url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-3-0/
 ---
 
 ## **API Público y Cambios Incompatibles con Versiones Anteriores**

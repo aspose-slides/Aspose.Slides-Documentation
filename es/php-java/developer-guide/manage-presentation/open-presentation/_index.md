@@ -3,7 +3,7 @@ title: Presentación Abierta
 linktitle: Presentación Abierta
 type: docs
 weight: 20
-url: /php-java/open-presentation/
+url: /es/php-java/open-presentation/
 keywords: "Abrir PowerPoint, PPTX, PPT, Presentación Abierta, Cargar Presentación, Java"
 description: "Abrir o cargar presentación PPT, PPTX, ODP "
 ---

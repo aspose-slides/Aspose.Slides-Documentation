@@ -1,7 +1,7 @@
 ---
 title: Eje de Gráfico
 type: docs
-url: /php-java/chart-axis/
+url: /es/php-java/chart-axis/
 keywords: "Eje de Gráfico de PowerPoint, Gráficos de Presentación, Java, Manipular Eje de Gráfico, Datos de gráfico"
 description: "Cómo editar el eje de gráfico de PowerPoint"
 ---

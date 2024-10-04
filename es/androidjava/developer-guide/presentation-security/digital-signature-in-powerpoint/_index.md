@@ -2,7 +2,7 @@
 title: Firma Digital en PowerPoint
 type: docs
 weight: 10
-url: /androidjava/digital-signature-in-powerpoint/
+url: /es/androidjava/digital-signature-in-powerpoint/
 keywords: "Certificado de firma digital, autoridad de certificación"
 description: "Agregue certificado de firma digital, autoridad de certificación a la presentación de PowerPoint con Aspose.Slides."
 ---

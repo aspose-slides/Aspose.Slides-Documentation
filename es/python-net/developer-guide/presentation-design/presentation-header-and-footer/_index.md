@@ -2,18 +2,18 @@
 title: Encabezado y Pie de Página de Presentación
 type: docs
 weight: 140
-url: /python-net/presentation-header-and-footer/
+url: /es/python-net/presentation-header-and-footer/
 keywords: "Encabezado, pie de página, establecer encabezado, establecer pie de página, establecer encabezado y pie de página, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Encabezado y pie de página de PowerPoint en Python"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/python-net/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que en realidad se mantienen a nivel de maestro de diapositivas.
+[Aspose.Slides](/slides/es/python-net/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que en realidad se mantienen a nivel de maestro de diapositivas.
 
 {{% /alert %}} 
 
-[Aspose.Slides para Python a través de .NET](/slides/python-net/) proporciona la característica para gestionar los encabezados y pies de página dentro de las diapositivas de presentación. Estos de hecho se gestionan a nivel de maestro de presentación.
+[Aspose.Slides para Python a través de .NET](/slides/es/python-net/) proporciona la característica para gestionar los encabezados y pies de página dentro de las diapositivas de presentación. Estos de hecho se gestionan a nivel de maestro de presentación.
 ## **Gestionar Texto de Encabezado y Pie de Página**
 Las notas de una diapositiva específica podrían actualizarse como se muestra en el ejemplo a continuación:
 

@@ -2,7 +2,7 @@
 title: Presentación de impresión
 type: docs
 weight: 50
-url: /java/print-presentation/
+url: /es/java/print-presentation/
 keywords: "Imprimir PowerPoint, PPT, PPTX, Presentación de impresión, Java, Impresora, PrinterJob, PrintService"
 description: "Imprimir presentación de PowerPoint en Java"
 ---

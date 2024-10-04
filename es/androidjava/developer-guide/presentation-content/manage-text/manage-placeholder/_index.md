@@ -2,12 +2,12 @@
 title: Administrar Marcador
 type: docs
 weight: 10
-url: /androidjava/manage-placeholder/
+url: /es/androidjava/manage-placeholder/
 description: Cambiar texto en un marcador en diapositivas de PowerPoint usando Java. Establecer texto de indicación en un marcador en diapositivas de PowerPoint usando Java.
 ---
 
 ## **Cambiar texto en marcador**
-Usando [Aspose.Slides para Android a través de Java](/slides/androidjava/), puedes encontrar y modificar marcadores en diapositivas de presentaciones. Aspose.Slides te permite hacer cambios en el texto de un marcador.
+Usando [Aspose.Slides para Android a través de Java](/slides/es/androidjava/), puedes encontrar y modificar marcadores en diapositivas de presentaciones. Aspose.Slides te permite hacer cambios en el texto de un marcador.
 
 **Requisito previo**: Necesitas una presentación que contenga un marcador. Puedes crear una presentación así en la aplicación estándar de Microsoft PowerPoint.
 

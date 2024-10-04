@@ -2,7 +2,7 @@
 title: Administrar SmartArt
 type: docs
 weight: 10
-url: /python-net/manage-smartart/
+url: /es/python-net/manage-smartart/
 keywords: "SmartArt, texto de SmartArt, gráfico de tipo organización, gráfico de organización con imágenes, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "SmartArt y gráfico de tipo organización en presentaciones de PowerPoint en Python"
 ---

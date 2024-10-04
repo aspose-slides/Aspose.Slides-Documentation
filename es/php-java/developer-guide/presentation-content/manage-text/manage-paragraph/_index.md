@@ -2,7 +2,7 @@
 title: Gestionar el párrafo de PowerPoint
 type: docs
 weight: 40
-url: /php-java/manage-paragraph/
+url: /es/php-java/manage-paragraph/
 keywords: "Agregar párrafo de PowerPoint, Gestionar párrafos, Sangría de párrafo, Propiedades del párrafo, Texto HTML, Exportar texto de párrafo, Presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Crear y gestionar párrafos, texto, sangrías y propiedades en presentaciones de PowerPoint"
 ---

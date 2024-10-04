@@ -2,7 +2,7 @@
 title: Licenciamiento
 type: docs
 weight: 90
-url: /java/licensing/
+url: /es/java/licensing/
 ---
 
 ## **Evaluar Aspose.Slides**
@@ -40,7 +40,7 @@ Para probar Aspose.Slides sin limitaciones, puedes solicitar una **Licencia Temp
 
 {{% alert color="primary" %}} 
 
-Puede que quieras ver [Licenciamiento Medido](/slides/java/metered-licensing/).
+Puede que quieras ver [Licenciamiento Medido](/slides/es/java/metered-licensing/).
 
 {{% /alert %}} 
 
@@ -90,7 +90,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 ### **Puente PHP/Java**
 
-Si utilizas Aspose.Slides para PHP a través de Java, puedes establecer una licencia a través de un puente PHP/Java. Este puente te permite usar clases de Java en sintaxis PHP. Para más información, consulta [Licencia en PHP](/slides/php-java/licensing/).
+Si utilizas Aspose.Slides para PHP a través de Java, puedes establecer una licencia a través de un puente PHP/Java. Este puente te permite usar clases de Java en sintaxis PHP. Para más información, consulta [Licencia en PHP](/slides/es/php-java/licensing/).
 
 ## **Validando una Licencia**
 

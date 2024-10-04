@@ -2,7 +2,7 @@
 title: Exportar Gráfico
 type: docs
 weight: 90
-url: /php-java/export-chart/
+url: /es/php-java/export-chart/
 ---
 
 ## **Obtener Imagen del Gráfico**

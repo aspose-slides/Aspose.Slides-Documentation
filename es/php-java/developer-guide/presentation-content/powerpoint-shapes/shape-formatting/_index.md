@@ -2,7 +2,7 @@
 title: Formato de formas
 type: docs
 weight: 20
-url: /php-java/shape-formatting/
+url: /es/php-java/shape-formatting/
 keywords: "Formato de forma, formato de líneas, estilos de unión, relleno degradado, relleno de patrón, relleno de imagen, relleno de color sólido, rotar formas, efectos de bisel 3d, efecto de rotación 3d, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Formato de formas en una presentación de PowerPoint"
 ---

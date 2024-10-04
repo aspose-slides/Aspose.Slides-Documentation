@@ -2,7 +2,7 @@
 title: Marco de Audio
 type: docs
 weight: 10
-url: /python-net/audio-frame/
+url: /es/python-net/audio-frame/
 keywords: "Agregar audio, Marco de audio, Propiedades de audio, Extraer audio, Python, Aspose.Slides para Python a través de .NET"
 description: "Agregar audio a la presentación de PowerPoint en Python"
 ---

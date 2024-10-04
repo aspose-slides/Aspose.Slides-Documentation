@@ -2,7 +2,7 @@
 title: Renderizar una diapositiva como una imagen SVG
 type: docs
 weight: 50
-url: /java/render-a-slide-as-an-svg-image/
+url: /es/java/render-a-slide-as-an-svg-image/
 ---
 
 SVG—un acrónimo de Gráficos Vectoriales Escalables—es un tipo o formato estándar de gráficos utilizado para renderizar imágenes bidimensionales. SVG almacena imágenes como vectores en XML con detalles que definen su comportamiento o apariencia.

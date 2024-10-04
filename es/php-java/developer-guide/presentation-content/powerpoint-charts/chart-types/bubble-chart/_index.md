@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Burbuja
 type: docs
-url: /php-java/bubble-chart/
+url: /es/php-java/bubble-chart/
 ---
 
 ## **Escalado del Tamaño del Gráfico de Burbuja**

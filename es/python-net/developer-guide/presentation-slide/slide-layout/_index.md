@@ -2,7 +2,7 @@
 title: Diseño de Diapositiva
 type: docs
 weight: 60
-url: /python-net/slide-layout/
+url: /es/python-net/slide-layout/
 keyword: "Establecer tamaño de diapositiva, establecer opciones de diapositiva, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escala de contenido, tamaño de página, Python, Aspose.Slides"
 description: "Establecer el tamaño y las opciones de diapositivas de PowerPoint en Python"
 ---

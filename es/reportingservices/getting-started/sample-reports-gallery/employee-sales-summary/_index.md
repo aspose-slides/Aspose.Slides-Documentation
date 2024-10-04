@@ -2,7 +2,7 @@
 title: Resumen de Ventas de Empleados
 type: docs
 weight: 30
-url: /reportingservices/employee-sales-summary/
+url: /es/reportingservices/employee-sales-summary/
 ---
 
 ## **Características:**

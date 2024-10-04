@@ -3,7 +3,7 @@ title: Fuente incrustada - API de Java para PowerPoint
 linktitle: Fuente incrustada
 type: docs
 weight: 40
-url: /java/embedded-font/
+url: /es/java/embedded-font/
 keywords: "Fuentes, fuentes incrustadas, añadir fuentes, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Usa fuentes incrustadas en la presentación de PowerPoint en Java"
 

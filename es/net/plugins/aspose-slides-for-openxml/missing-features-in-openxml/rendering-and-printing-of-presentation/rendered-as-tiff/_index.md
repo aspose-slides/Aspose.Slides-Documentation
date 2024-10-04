@@ -2,7 +2,7 @@
 title: Renderizado como Tiff
 type: docs
 weight: 30
-url: /net/rendered-as-tiff/
+url: /es/net/rendered-as-tiff/
 ---
 
 El formato TIFF es conocido por su flexibilidad para acomodar imágenes y datos de múltiples páginas. Teniendo en cuenta la importancia y popularidad del formato TIFF, Aspose.Slides para .NET proporciona soporte para convertir presentaciones en documentos TIFF.

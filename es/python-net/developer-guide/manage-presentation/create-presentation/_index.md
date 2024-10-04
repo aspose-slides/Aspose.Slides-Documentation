@@ -2,7 +2,7 @@
 title: Crear Presentación
 type: docs
 weight: 10
-url: /python-net/create-presentation/
+url: /es/python-net/create-presentation/
 keywords: "Crear PowerPoint, PPTX, PPT, Crear Presentación, Inicializar Presentación, Python, .NET"
 description: "Abrir Presentación de PowerPoint en Python"
 ---

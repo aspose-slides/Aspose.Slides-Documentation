@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Burbuja
 type: docs
-url: /python-net/bubble-chart/
+url: /es/python-net/bubble-chart/
 keywords: "Gráfico de burbuja, tamaño del gráfico, presentación de PowerPoint, Python, Aspose.Slides for Python via .NET"
 description: "Tamaño del gráfico de burbuja en presentaciones de PowerPoint en Python"
 ---

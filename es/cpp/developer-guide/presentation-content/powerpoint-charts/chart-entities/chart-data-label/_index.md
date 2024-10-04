@@ -1,7 +1,7 @@
 ---
 title: Etiqueta de Datos del Gráfico
 type: docs
-url: /cpp/chart-data-label/
+url: /es/cpp/chart-data-label/
 keywords: "Etiqueta de datos del gráfico, distancia de etiqueta, C++, CPP, Aspose.Slides para C++"
 description: "Establecer etiqueta de datos del gráfico de PowerPoint y distancia en C++"
 ---

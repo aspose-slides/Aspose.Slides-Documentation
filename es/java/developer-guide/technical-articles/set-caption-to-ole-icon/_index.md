@@ -2,7 +2,7 @@
 title: Establecer título en icono OLE
 type: docs
 weight: 130
-url: /java/set-caption-to-ole-icon/
+url: /es/java/set-caption-to-ole-icon/
 ---
 
 Se han añadido nuevos métodos **getSubstitutePictureTitle** y **setSubstitutePictureTitle** a la interfaz **IOleObjectFrame** y a la clase **OleObjectFrame**. Permite obtener, establecer o cambiar el título de un icono OLE. El siguiente fragmento de código muestra un ejemplo de creación de un objeto de Excel y establecimiento de su título.

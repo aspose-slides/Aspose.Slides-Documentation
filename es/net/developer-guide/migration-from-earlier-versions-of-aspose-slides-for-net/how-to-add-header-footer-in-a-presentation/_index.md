@@ -2,12 +2,12 @@
 title: Cómo agregar encabezado y pie de página en una presentación
 type: docs
 weight: 20
-url: /net/how-to-add-header-footer-in-a-presentation/
+url: /es/net/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-Se ha lanzado una nueva [Aspose.Slides for .NET API](/slides/net/) y ahora este único producto admite la capacidad de generar documentos de PowerPoint desde cero y editar los existentes.
+Se ha lanzado una nueva [Aspose.Slides for .NET API](/slides/es/net/) y ahora este único producto admite la capacidad de generar documentos de PowerPoint desde cero y editar los existentes.
 
 {{% /alert %}} 
 ## **Soporte para código legado**

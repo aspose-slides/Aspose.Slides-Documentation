@@ -2,7 +2,7 @@
 title: Obtener callbacks de advertencia para la sustitución de fuentes en Aspose.Slides
 type: docs
 weight: 90
-url: /php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /es/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Convertir Documentos de Microsoft PowerPoint en Otros Formatos
 type: docs
 weight: 40
-url: /sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
+url: /es/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
 ---
 
 {{% alert color="primary" %}} 

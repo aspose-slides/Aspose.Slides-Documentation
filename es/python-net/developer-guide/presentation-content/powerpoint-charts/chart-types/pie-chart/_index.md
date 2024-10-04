@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Pastel
 type: docs
-url: /python-net/pie-chart/
+url: /es/python-net/pie-chart/
 keywords: "Gráfico de pastel, opciones de gráfico, colores de rebanadas, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Opciones de gráfico de pastel y colores de rebanadas en la presentación de PowerPoint en Python"
 ---

@@ -2,7 +2,7 @@
 title: Administrar TextBox
 type: docs
 weight: 20
-url: /cpp/manage-textbox/
+url: /es/cpp/manage-textbox/
 keywords: "Textbox, Marco de texto, Agregar textbox, Textbox con hipervínculo, C++, Aspose.Slides for C++"
 description: "Agregar un textbox o marco de texto a las presentaciones de PowerPoint en C++"
 ---

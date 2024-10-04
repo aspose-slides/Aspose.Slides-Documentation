@@ -2,7 +2,7 @@
 title: Abrir una presentación en VSTO y Aspose.Slides
 type: docs
 weight: 120
-url: /net/opening-a-presentation-in-vsto-and-aspose-slides/
+url: /es/net/opening-a-presentation-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

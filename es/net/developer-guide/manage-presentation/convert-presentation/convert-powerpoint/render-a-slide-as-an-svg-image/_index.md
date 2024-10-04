@@ -3,7 +3,7 @@ title: Renderizar una Diapositiva como una Imagen SVG en C#
 linktitle: Renderizar una Diapositiva como una Imagen SVG
 type: docs
 weight: 50
-url: /net/render-a-slide-as-an-svg-image/
+url: /es/net/render-a-slide-as-an-svg-image/
 description: Este artículo explica cómo convertir una presentación de PowerPoint al formato SVG utilizando C#. Puedes convertir formatos PPT, PPTX, ODP en imágenes SVG.
 keywords: C# Convertir PowerPoint a SVG, C# PPT a SVG, C# PPTX a SVG
 ---

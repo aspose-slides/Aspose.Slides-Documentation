@@ -2,7 +2,7 @@
 title: Notas de Presentación
 type: docs
 weight: 110
-url: /php-java/presentation-notes/
+url: /es/php-java/presentation-notes/
 keywords: "Notas del orador de PowerPoint"
 description: "Notas de presentación, notas del orador"
 ---

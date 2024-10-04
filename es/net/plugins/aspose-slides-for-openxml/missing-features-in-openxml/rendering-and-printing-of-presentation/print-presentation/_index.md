@@ -1,7 +1,7 @@
 ---
 title: Imprimir Presentación
 type: docs
-url: /net/print-the-presentation/
+url: /es/net/print-the-presentation/
 ---
 
 Aspose.Slides para .NET proporciona cuatro métodos sobrecargados para imprimir las presentaciones. Estos métodos son lo suficientemente flexibles como para imprimir la presentación en la impresora predeterminada o en cualquiera de las impresoras disponibles con configuraciones personalizadas. Solo necesitas seleccionar el método de impresión adecuado de acuerdo con el requerimiento.

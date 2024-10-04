@@ -2,7 +2,7 @@
 title: Administrar la Configuración de Autofit
 type: docs
 weight: 30
-url: /python-net/manage-autofit-settings/
+url: /es/python-net/manage-autofit-settings/
 keywords: "Caja de texto, Autofit, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Configurar la configuración de autofit para la caja de texto en PowerPoint en Python"
 ---

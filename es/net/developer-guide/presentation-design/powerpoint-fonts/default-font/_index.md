@@ -3,7 +3,7 @@ title: Fuente predeterminada - API de PowerPoint en C#
 linktitle: Fuente predeterminada
 type: docs
 weight: 30
-url: /net/default-font/
+url: /es/net/default-font/
 keywords: 
 - fuente
 - fuente predeterminada

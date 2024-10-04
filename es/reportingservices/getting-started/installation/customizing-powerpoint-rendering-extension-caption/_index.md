@@ -2,7 +2,7 @@
 title: Personalizando la Leyenda de la Extensión de Renderizado de PowerPoint
 type: docs
 weight: 60
-url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
+url: /es/reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
 {{% alert color="primary" %}} 

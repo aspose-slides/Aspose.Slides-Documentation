@@ -2,7 +2,7 @@
 title: Cálculos de Gráficos
 type: docs
 weight: 50
-url: /python-net/chart-calculations/
+url: /es/python-net/chart-calculations/
 keywords: "Cálculos de gráficos, elementos del gráfico, posición del elemento, valores del gráfico Python, Aspose.Slides para Python a través de .NET"
 description: "Cálculos y valores de gráficos de PowerPoint en Python"
 ---

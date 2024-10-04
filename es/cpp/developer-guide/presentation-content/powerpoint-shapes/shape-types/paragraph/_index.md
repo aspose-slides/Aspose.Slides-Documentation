@@ -2,7 +2,7 @@
 title: Párrafo
 type: docs
 weight: 60
-url: /cpp/paragraph/
+url: /es/cpp/paragraph/
 ---
 
 ## **Obtener coordenadas de párrafo y porción en TextFrame**

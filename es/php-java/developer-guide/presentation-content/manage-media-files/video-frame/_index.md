@@ -2,7 +2,7 @@
 title: Marco de Video
 type: docs
 weight: 10
-url: /php-java/video-frame/
+url: /es/php-java/video-frame/
 keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Agregar marco de video a la presentación de PowerPoint"
 ---

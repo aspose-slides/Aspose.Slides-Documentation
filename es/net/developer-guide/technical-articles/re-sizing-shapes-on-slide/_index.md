@@ -2,7 +2,7 @@
 title: Redimensionando Formas en Diapositiva
 type: docs
 weight: 130
-url: /net/re-sizing-shapes-on-slide/
+url: /es/net/re-sizing-shapes-on-slide/
 ---
 
 ## **Redimensionando Formas en Diapositiva**

@@ -2,18 +2,18 @@
 title: Encabezado y pie de página de presentación
 type: docs
 weight: 140
-url: /cpp/presentation-header-and-footer/
+url: /es/cpp/presentation-header-and-footer/
 keywords: "Encabezado y pie de página en PowerPoint"
 description: "Encabezado y pie de página en PowerPoint con Aspose.Slides."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/cpp/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que se mantienen a nivel de maestro de diapositivas.
+[Aspose.Slides](/slides/es/cpp/) proporciona soporte para trabajar con el texto de los encabezados y pies de página de las diapositivas que se mantienen a nivel de maestro de diapositivas.
 
 {{% /alert %}} 
 
-[Aspose.Slides para C++](/slides/cpp/) proporciona la función para gestionar encabezados y pies de página dentro de las diapositivas de presentación. Estos se gestionan en el nivel de maestro de presentación.
+[Aspose.Slides para C++](/slides/es/cpp/) proporciona la función para gestionar encabezados y pies de página dentro de las diapositivas de presentación. Estos se gestionan en el nivel de maestro de presentación.
 ## **Gestionar texto de encabezado y pie de página**
 Las notas de una diapositiva específica pueden actualizarse como se muestra en el ejemplo a continuación:
 

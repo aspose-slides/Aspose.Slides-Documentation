@@ -2,7 +2,7 @@
 title: Animación de PowerPoint
 type: docs
 weight: 150
-url: /python-net/powerpoint-animation/
+url: /es/python-net/powerpoint-animation/
 keywords: "Animación, efectos de animación, animación de PowerPoint, línea de tiempo de animación, animación interactiva, animación de formas, gráfico animado, texto animado, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Animación y efectos de presentaciones de PowerPoint en Python"
 ---
@@ -49,19 +49,19 @@ Esto se puede lograr si combinas varios comportamientos en una nueva animación 
 Aspose.Slides permite aplicar animación a formas, que pueden ser en realidad texto, rectángulo, línea, marco, objeto OLE, etc.
 
 {{% alert color="primary" %}} 
-Lee más [**Sobre la Animación de Formas**](/slides/python-net/shape-animation/).
+Lee más [**Sobre la Animación de Formas**](/slides/es/python-net/shape-animation/).
 {{% /alert %}}
 
 ## **Gráficos Animados**
 Para crear gráficos animados, debes utilizar todas las mismas clases que para las formas. Sin embargo, es posible utilizar la animación de PowerPoint solo en categorías de gráficos o series de gráficos. También se puede aplicar un efecto de animación a un elemento de categoría o elemento de serie.
 
 {{% alert color="primary" %}} 
-Lee más [**Sobre Gráficos Animados**](/slides/python-net/animated-charts/).
+Lee más [**Sobre Gráficos Animados**](/slides/es/python-net/animated-charts/).
 {{% /alert %}}
 
 ## **Texto Animado**
 Además del texto animado, también es posible aplicar animación a un párrafo.
 
 {{% alert color="primary" %}} 
-Lee más [**Sobre Texto Animado**](/slides/python-net/animated-text/).
+Lee más [**Sobre Texto Animado**](/slides/es/python-net/animated-text/).
 {{% /alert %}}

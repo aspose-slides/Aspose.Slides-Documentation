@@ -2,7 +2,7 @@
 title: Presentación Solo Lectura
 type: docs
 weight: 30
-url: /cpp/read-only-presentation/
+url: /es/cpp/read-only-presentation/
 
 ---
 

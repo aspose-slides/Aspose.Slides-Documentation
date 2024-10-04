@@ -2,7 +2,7 @@
 title: Acceder a las Diapositivas en la Presentación
 type: docs
 weight: 20
-url: /java/access-slide-in-presentation/
+url: /es/java/access-slide-in-presentation/
 keywords: "Acceder a la Presentación de PowerPoint, Acceder a la diapositiva, Editar propiedades de la diapositiva, Cambiar posición de la diapositiva, Establecer número de diapositiva, índice, ID, posición Java, Aspose.Slides"
 description: "Acceda a la diapositiva de PowerPoint por índice, ID o posición en Java. Edite propiedades de la diapositiva"
 ---

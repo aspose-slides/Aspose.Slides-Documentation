@@ -2,14 +2,14 @@
 title: Administrar Marcadores
 type: docs
 weight: 10
-url: /python-net/manage-placeholder/
+url: /es/python-net/manage-placeholder/
 keywords: "Marcador, Texto de marcador, Texto de indicación, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Cambiar el texto del marcador y el texto de indicación en presentaciones de PowerPoint en Python"
 ---
 
 ## **Cambiar Texto en Marcador**
 
-Usando [Aspose.Slides para Python a través de .NET](/slides/python-net/), puedes encontrar y modificar marcadores en diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un marcador.
+Usando [Aspose.Slides para Python a través de .NET](/slides/es/python-net/), puedes encontrar y modificar marcadores en diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un marcador.
 
 **Requisito previo**: Necesitas una presentación que contenga un marcador. Puedes crear tal presentación en la aplicación estándar de Microsoft PowerPoint.
 

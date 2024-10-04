@@ -2,7 +2,7 @@
 title: Localización de Presentaciones
 type: docs
 weight: 100
-url: /cpp/presentation-localization/
+url: /es/cpp/presentation-localization/
 ---
 
 

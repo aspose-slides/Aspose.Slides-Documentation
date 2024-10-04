@@ -2,7 +2,7 @@
 title: Maestro de Diapositivas
 type: docs
 weight: 70
-url: /php-java/slide-master/
+url: /es/php-java/slide-master/
 keywords: "Agregar Maestro de Diapositivas, diapositiva maestra PPT, maestro de diapositivas PowerPoint, Imagen en Maestro de Diapositivas, Marcador de posición, Múltiples Maestros de Diapositivas, Comparar Maestros de Diapositivas, Java, Aspose.Slides para PHP a través de Java"
 description: "Agregar o editar maestro de diapositivas en la presentación de PowerPoint"
 ---
@@ -153,7 +153,7 @@ Puedes agregar imágenes a un maestro de diapositivas con Aspose.Slides:
 
 {{% alert color="primary" title="Ver también" %}} 
 
-Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/php-java/picture-frame/#create-picture-frame).
+Para obtener más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/es/php-java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

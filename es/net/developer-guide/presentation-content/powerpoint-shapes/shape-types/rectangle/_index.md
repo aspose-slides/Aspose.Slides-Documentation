@@ -2,7 +2,7 @@
 title: Rectángulo
 type: docs
 weight: 80
-url: /net/rectangle/
+url: /es/net/rectangle/
 keywords: "Crear rectángulo, forma de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Crear rectángulo en presentación de PowerPoint en C# o .NET"
 ---

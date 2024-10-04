@@ -2,7 +2,7 @@
 title: Mover un párrafo de una presentación a otra
 type: docs
 weight: 130
-url: /net/move-a-paragraph-from-one-presentation-to-another/
+url: /es/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **OpenXML Presentación**

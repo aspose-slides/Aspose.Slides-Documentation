@@ -1,7 +1,7 @@
 ---
 title: Diagrama de Burbuja
 type: docs
-url: /java/bubble-chart/
+url: /es/java/bubble-chart/
 ---
 
 ## **Escalado del Tamaño de los Diagramas de Burbuja**

@@ -2,7 +2,7 @@
 title: Gestionar Tinta
 type: docs
 weight: 95
-url: /net/manage-ink/
+url: /es/net/manage-ink/
 keywords: "Tinta en PowerPoint, herramientas de tinta, C# Tinta, Dibujar en PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET "
 description: "Use herramientas de tinta para dibujar objetos en PowerPoint C#"
 ---

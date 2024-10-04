@@ -2,7 +2,7 @@
 title: Superíndice e Inferior
 type: docs
 weight: 80
-url: /php-java/superscript-and-subscript/
+url: /es/php-java/superscript-and-subscript/
 ---
 
 ## **Gestionar Texto de Superíndice e Inferior**

@@ -2,7 +2,7 @@
 title: Administrar Tinta
 type: docs
 weight: 95
-url: /cpp/manage-ink/
+url: /es/cpp/manage-ink/
 keywords: "Tinta en PowerPoint, herramientas de tinta, C++ Tinta, Dibujar en PowerPoint, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Utiliza herramientas de tinta para dibujar objetos en PowerPoint C++"
 ---

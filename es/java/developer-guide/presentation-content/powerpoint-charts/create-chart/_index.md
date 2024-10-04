@@ -3,7 +3,7 @@ title: Crear o Actualizar Gráficos de Presentación de PowerPoint en Java
 linktitle: Crear Gráfico
 type: docs
 weight: 10
-url: /java/create-chart/
+url: /es/java/create-chart/
 keywords: "Crear gráfico, gráfico disperso, gráfico circular, gráfico de árbol, gráfico de acciones, gráfico de caja y bigotes, gráfico de histograma, gráfico de embudo, gráfico de radiales, gráfico multicategoría, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Crear gráfico en presentación de PowerPoint en Java"
 ---

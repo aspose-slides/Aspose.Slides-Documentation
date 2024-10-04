@@ -2,7 +2,7 @@
 title: Acceder a la Diapositiva en la Presentación
 type: docs
 weight: 20
-url: /python-net/access-slide-in-presentation/
+url: /es/python-net/access-slide-in-presentation/
 keywords: "Acceder a la Presentación de PowerPoint, Acceder a diapositiva, Editar propiedades de la diapositiva, Cambiar posición de la diapositiva, Establecer número de diapositiva, índice, ID, posición Python, Aspose.Slides"
 description: "Acceder a la diapositiva de PowerPoint por índice, ID o posición en Python. Editar propiedades de la diapositiva"
 ---

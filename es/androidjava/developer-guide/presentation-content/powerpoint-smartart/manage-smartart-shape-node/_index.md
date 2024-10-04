@@ -3,7 +3,7 @@ title: Crear o Gestionar Nodos de Forma SmartArt en PowerPoint con Java
 linktitle: Gestionar Nodos de Forma SmartArt
 type: docs
 weight: 30
-url: /androidjava/manage-smartart-shape-node/
+url: /es/androidjava/manage-smartart-shape-node/
 keywords: smartart powerpoint, nodos smartart, posición smartart, eliminar smartart, agregar nodos smartart, presentación de powerpoint, powerpoint java, api java de powerpoint
 description: Gestionar nodos de arte inteligente y nodos hijo en presentaciones de PowerPoint en Java
 ---

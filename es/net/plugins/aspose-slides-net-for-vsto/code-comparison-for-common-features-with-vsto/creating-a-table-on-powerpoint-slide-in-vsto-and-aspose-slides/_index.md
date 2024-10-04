@@ -2,7 +2,7 @@
 title: Creando una tabla en una diapositiva de PowerPoint en VSTO y Aspose.Slides
 type: docs
 weight: 90
-url: /net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
+url: /es/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
 Los siguientes pasos añaden una tabla a una diapositiva de Microsoft PowerPoint usando VSTO:

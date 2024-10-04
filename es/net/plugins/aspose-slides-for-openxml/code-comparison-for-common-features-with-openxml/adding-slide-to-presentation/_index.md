@@ -2,7 +2,7 @@
 title: Agregar diapositiva a la presentación
 type: docs
 weight: 20
-url: /net/adding-slide-to-presentation/
+url: /es/net/adding-slide-to-presentation/
 ---
 
 ## **Presentación OpenXML**

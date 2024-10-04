@@ -3,7 +3,7 @@ title: Convertir ODP a PPTX en C#
 linktitle: Convertir ODP a PPTX
 type: docs
 weight: 10
-url: /net/convert-odp-to-pptx/
+url: /es/net/convert-odp-to-pptx/
 keywords: "Convertir Presentación OpenOffice, ODP, ODP a PPTX, C#, Csharp, .NET"
 description: "Convertir ODP de OpenOffice a Presentación PPTX en C# o .NET"
 ---

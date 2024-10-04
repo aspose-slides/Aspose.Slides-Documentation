@@ -2,7 +2,7 @@
 title: Recursos
 type: docs
 weight: 20
-url: /jasperreports/resources/
+url: /es/jasperreports/resources/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Problema de Objeto Cambiado Al Agregar OleObjectFrame
 type: docs
 weight: 10
-url: /androidjava/object-changed-issue-when-adding-oleobjectframe/
+url: /es/androidjava/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **Declaración del Problema**
@@ -10,7 +10,7 @@ Cuando los desarrolladores agregan un **OleObjectFrame** a sus diapositivas util
 ## **Análisis Crítico y Explicación**
 Primero que nada, es importante saber que el mensaje de **Objeto Cambiado** mostrado por Aspose.Slides para Android a través de Java después de agregar **OleObjectFrame** en la diapositiva, **NO** es un error o fallo en Aspose.Slides para Android a través de Java. Es simplemente una información o mensaje para notificar a los usuarios que el objeto ha cambiado y que la imagen debe ser actualizada.
 
-Por ejemplo, si agregas un **Gráfico de Microsoft Excel** como un **OleObjectFrame** a tu diapositiva (para más detalles y un fragmento de código sobre cómo agregar **OleObjectFrame** a tu diapositiva, [haz clic aquí](/slides/androidjava/adding-frame-to-the-slide/)) y luego abres el archivo de presentación usando MS PowerPoint, entonces la diapositiva (donde se agregó el **Objeto OLE**) se vería así:
+Por ejemplo, si agregas un **Gráfico de Microsoft Excel** como un **OleObjectFrame** a tu diapositiva (para más detalles y un fragmento de código sobre cómo agregar **OleObjectFrame** a tu diapositiva, [haz clic aquí](/slides/es/androidjava/adding-frame-to-the-slide/)) y luego abres el archivo de presentación usando MS PowerPoint, entonces la diapositiva (donde se agregó el **Objeto OLE**) se vería así:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

@@ -2,7 +2,7 @@
 title: Administrar hiperenlaces
 type: docs
 weight: 20
-url: /androidjava/manage-hyperlinks/
+url: /es/androidjava/manage-hyperlinks/
 keywords: "Hiperenlace de PowerPoint, hiperenlace de texto, hiperenlace de diapositiva, hiperenlace de forma, hiperenlace de imagen, hiperenlace de video, Java"
 description: "Cómo agregar un hiperenlace a una presentación de PowerPoint en Java"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="Consejo"  color="primary"  %}} 
 
-Quizás desee ver *[Administrar OLE](/slides/androidjava/manage-ole/)*.
+Quizás desee ver *[Administrar OLE](/slides/es/androidjava/manage-ole/)*.
 
 {{% /alert %}}
 

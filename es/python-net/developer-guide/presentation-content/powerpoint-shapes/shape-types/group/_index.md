@@ -2,7 +2,7 @@
 title: Grupo
 type: docs
 weight: 40
-url: /python-net/group/
+url: /es/python-net/group/
 keywords: "Forma de grupo, forma de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Añadir forma de grupo a la presentación de PowerPoint en Python"
 ---

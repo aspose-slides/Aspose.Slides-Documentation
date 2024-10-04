@@ -2,7 +2,7 @@
 title: Gestionar OLE
 type: docs
 weight: 40
-url: /python-net/manage-ole/
+url: /es/python-net/manage-ole/
 keywords: "Agregar OLE, Agregar objeto, Incorporar objeto Object Linking & Embedding, Marco de objeto OLE, Incorporar OLE, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Agregar objeto OLE a la presentación de PowerPoint en Python"
 ---

@@ -2,5 +2,5 @@
 title: Seguridad de Presentación
 type: docs
 weight: 60
-url: /python-net/presentation-security/
+url: /es/python-net/presentation-security/
 ---

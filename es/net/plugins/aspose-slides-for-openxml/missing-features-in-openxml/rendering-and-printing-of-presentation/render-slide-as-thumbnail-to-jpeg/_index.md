@@ -2,7 +2,7 @@
 title: Renderizar Diapositiva como Miniatura a JPEG
 type: docs
 weight: 60
-url: /net/render-slide-as-thumbnail-to-jpeg/
+url: /es/net/render-slide-as-thumbnail-to-jpeg/
 ---
 
 **Aspose.Slides para .NET** se utiliza para crear archivos de presentación que contienen diapositivas. Estas diapositivas se pueden ver abriendo archivos de presentación con Microsoft PowerPoint. Pero a veces, los desarrolladores pueden necesitar ver diapositivas como imágenes usando su visor de imágenes favorito. En tales casos, Aspose.Slides para .NET te ayuda a generar imágenes en miniatura de las diapositivas.

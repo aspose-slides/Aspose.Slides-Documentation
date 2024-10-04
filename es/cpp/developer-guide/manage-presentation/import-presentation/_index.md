@@ -3,7 +3,7 @@ title: Importar Presentación - API de PowerPoint C++
 linktitle: Importar Presentación
 type: docs
 weight: 60
-url: /cpp/import-presentation/
+url: /es/cpp/import-presentation/
 keywords: "Importar PowerPoint, PDF a Presentación, PDF a PPTX, PDF a PPT, C++, Aspose.Slides para C++"
 description: "Importar presentación de PowerPoint desde PDF. Convertir PDF a PowerPoint"
 ---

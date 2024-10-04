@@ -2,7 +2,7 @@
 title: Visión general del producto
 type: docs
 weight: 10
-url: /reportingservices/product-overview/
+url: /es/reportingservices/product-overview/
 ---
 
 {{% alert color="primary" %}} 

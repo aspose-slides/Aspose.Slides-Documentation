@@ -2,7 +2,7 @@
 title: Gestionar Hipervínculos
 type: docs
 weight: 20
-url: /cpp/manage-hyperlinks/
+url: /es/cpp/manage-hyperlinks/
 keywords: "Hipervínculo de PowerPoint, hipervínculo de texto, hipervínculo de diapositiva, hipervínculo de forma, hipervínculo de imagen, hipervínculo de video, C++"
 description: "Cómo agregar hipervínculo a una presentación de PowerPoint en C++"
 ---

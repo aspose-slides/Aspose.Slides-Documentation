@@ -2,7 +2,7 @@
 title: Declaración
 type: docs
 weight: 110
-url: /net/declaration/
+url: /es/net/declaration/
 ---
 
 {{% alert color="primary" %}} 

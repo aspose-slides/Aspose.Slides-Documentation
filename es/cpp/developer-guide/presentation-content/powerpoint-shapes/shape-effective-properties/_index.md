@@ -2,7 +2,7 @@
 title: Propiedades Efectivas de Forma
 type: docs
 weight: 50
-url: /cpp/shape-effective-properties/
+url: /es/cpp/shape-effective-properties/
 ---
 
 En este tema, discutiremos **propiedades** **efectivas** y **locales**. Cuando establecemos valores directamente en estos niveles

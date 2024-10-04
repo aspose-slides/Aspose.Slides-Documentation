@@ -2,7 +2,7 @@
 title: Cálculos de Gráficos
 type: docs
 weight: 50
-url: /java/chart-calculations/
+url: /es/java/chart-calculations/
 ---
 
 ## **Calcular Valores Reales de los Elementos del Gráfico**

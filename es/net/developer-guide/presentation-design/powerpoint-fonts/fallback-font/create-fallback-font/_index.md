@@ -2,7 +2,7 @@
 title: Crear Fuente de Reemplazo
 type: docs
 weight: 10
-url: /net/create-fallback-font/
+url: /es/net/create-fallback-font/
 keywords: "Fuentes, fuente de reemplazo, presentación de PowerPoint C#, Csharp, Aspose.Slides para .NET"
 description: "Fuente de reemplazo en PowerPoint en C# o .NET"
 ---
@@ -30,5 +30,5 @@ También es posible [Remove()](https://reference.aspose.com/slides/net/aspose.sl
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) puede ser utilizado para organizar una lista de objetos [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule), cuando hay necesidad de especificar reglas de reemplazo de fuente de reemplazo para múltiples rangos Unicode.
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Crear Colección de Fuentes de Reemplazo](/slides/net/create-fallback-fonts-collection/)
+- [Crear Colección de Fuentes de Reemplazo](/slides/es/net/create-fallback-fonts-collection/)
 {{% /alert %}}

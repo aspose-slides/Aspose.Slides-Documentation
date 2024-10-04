@@ -2,7 +2,7 @@
 title: Formato de Documento Portátil (PDF)
 type: docs
 weight: 40
-url: /java/portable-document-format-pdf/
+url: /es/java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.Slides es compatible con las siguientes características de presentación
 - Viñetas.
 - Tablas.
 
-Puedes exportar presentaciones a PDFs directamente utilizando Aspose.Slides para Java: no necesitas ningún otro componente. Además, puedes personalizar la exportación de la presentación a PDF con varias opciones como se explica en [Conversión a PDF](/slides/java/converting-a-presentation/).
+Puedes exportar presentaciones a PDFs directamente utilizando Aspose.Slides para Java: no necesitas ningún otro componente. Además, puedes personalizar la exportación de la presentación a PDF con varias opciones como se explica en [Conversión a PDF](/slides/es/java/converting-a-presentation/).
 
 **La presentación de entrada** 
 

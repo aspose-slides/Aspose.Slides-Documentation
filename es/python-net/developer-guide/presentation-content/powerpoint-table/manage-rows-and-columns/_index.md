@@ -2,7 +2,7 @@
 title: Administrar Filas y Columnas
 type: docs
 weight: 20
-url: /python-net/manage-rows-and-columns/
+url: /es/python-net/manage-rows-and-columns/
 keywords: "Tabla, filas y columnas de tabla, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Gestionar filas y columnas de tabla en presentaciones de PowerPoint en Python"
 ---

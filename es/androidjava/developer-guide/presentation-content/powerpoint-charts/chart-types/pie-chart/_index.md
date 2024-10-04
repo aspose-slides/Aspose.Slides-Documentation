@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Pastel
 type: docs
-url: /androidjava/pie-chart/
+url: /es/androidjava/pie-chart/
 ---
 
 ## **Opciones de Segundo Gráfico para Gráfico de Pastel de Pastel y Gráfico de Pastel de Barra**

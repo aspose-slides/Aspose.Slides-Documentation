@@ -2,7 +2,7 @@
 title: Por qué no Open XML SDK
 type: docs
 weight: 100
-url: /cpp/why-not-open-xml-sdk/
+url: /es/cpp/why-not-open-xml-sdk/
 ---
 
 ## **¿Qué es Open XML SDK?**
@@ -17,7 +17,7 @@ Aspose.Slides es una biblioteca de clases que permite a tu aplicación realizar 
 - Capacidad para construir presentaciones desde cero o combinando de uno o múltiples documentos.
 - Soporte para agregar animaciones, marcos Ole, tablas, crear y gestionar gráficos.
 - Disponibilidad de un control extenso para gestionar el formato de texto en niveles de TextFrames, Párrafos y Porciones.
-  Para más detalles sobre las características soportadas, por favor visita [Características de Aspose.Slides](/slides/net/product-overview/).
+  Para más detalles sobre las características soportadas, por favor visita [Características de Aspose.Slides](/slides/es/net/product-overview/).
 
 ## **Comparar Open XML SDK y Aspose.Slides**
 La siguiente tabla compara las características de Open XML SDK y Aspose.Slides.

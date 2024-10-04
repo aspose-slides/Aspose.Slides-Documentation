@@ -2,14 +2,14 @@
 title: Aplicar Protección a Presentaciones
 type: docs
 weight: 60
-url: /java/applying-protection-to-presentation/
+url: /es/java/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Un uso común de Aspose.Slides es crear, actualizar y guardar presentaciones de Microsoft PowerPoint 2007 (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de la aplicación que utiliza Aspose.Slides de esta manera tienen acceso a las presentaciones de salida. Protegerlas de la edición es una preocupación común. Es importante que las presentaciones generadas automáticamente mantengan su formato y contenido originales.
 
-Este artículo explica cómo [se construyen presentaciones y diapositivas](/slides/java/applying-protection-to-presentation/) y cómo Aspose.Slides para Java puede [aplicar protección a](/slides/java/applying-protection-to-presentation/), y luego [eliminarla de](/slides/java/applying-protection-to-presentation/) una presentación. Esta característica es exclusiva de Aspose.Slides y, en el momento de escribir, no está disponible en Microsoft PowerPoint. Ofrece a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones crean.
+Este artículo explica cómo [se construyen presentaciones y diapositivas](/slides/es/java/applying-protection-to-presentation/) y cómo Aspose.Slides para Java puede [aplicar protección a](/slides/es/java/applying-protection-to-presentation/), y luego [eliminarla de](/slides/es/java/applying-protection-to-presentation/) una presentación. Esta característica es exclusiva de Aspose.Slides y, en el momento de escribir, no está disponible en Microsoft PowerPoint. Ofrece a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones crean.
 
 {{% /alert %}} 
 ## **Composición de una Diapositiva**

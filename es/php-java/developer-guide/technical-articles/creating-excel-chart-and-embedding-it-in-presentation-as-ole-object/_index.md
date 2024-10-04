@@ -2,7 +2,7 @@
 title: Creando un Gráfico de Excel e Insertándolo en una Presentación como Objeto OLE
 type: docs
 weight: 30
-url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /es/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ Al utilizar Aspose.Cells para Java junto con Aspose.Slides para PHP mediante Jav
 
 {{% /alert %}} 
 ## **Secciones Relacionadas**
-[Solución Funcional para el Cambio de Tamaño de Gráficos](/slides/php-java/working-solution-for-chart-resizing-in-pptx/)
+[Solución Funcional para el Cambio de Tamaño de Gráficos](/slides/es/php-java/working-solution-for-chart-resizing-in-pptx/)
 
-[Problema del Objeto Cambiado](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Problema del Objeto Cambiado](/slides/es/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

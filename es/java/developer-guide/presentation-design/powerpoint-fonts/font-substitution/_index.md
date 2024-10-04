@@ -3,7 +3,7 @@ title: Sustitución de Fuentes - PowerPoint Java API
 linktitle: Sustitución de Fuentes
 type: docs
 weight: 70
-url: /java/font-substitution/
+url: /es/java/font-substitution/
 keywords: "Fuente, fuente sustituta, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Sustitución de fuente en PowerPoint en Java"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="NOTA"  color="warning"   %}} 
 
-Es posible que desees ver [**Reemplazo de Fuentes**](/slides/java/font-replacement/). 
+Es posible que desees ver [**Reemplazo de Fuentes**](/slides/es/java/font-replacement/). 
 
 {{% /alert %}}

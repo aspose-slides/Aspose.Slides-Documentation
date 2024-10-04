@@ -2,7 +2,7 @@
 title: Gráficos Animados
 type: docs
 weight: 80
-url: /python-net/animated-charts/
+url: /es/python-net/animated-charts/
 keywords: "Gráficos, Series de gráficos, Presentación de PowerPoint de Animación, PPTX, PPT, Python, Aspose.Slides para Python a través de .NET"
 description: "Series de gráficos y animaciones en PowerPoint en Python"
 ---

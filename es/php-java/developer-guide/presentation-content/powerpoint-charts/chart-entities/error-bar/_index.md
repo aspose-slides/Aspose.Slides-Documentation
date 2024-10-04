@@ -1,7 +1,7 @@
 ---
 title: Barra de Error
 type: docs
-url: /php-java/error-bar/
+url: /es/php-java/error-bar/
 ---
 
 ## **Agregar Barra de Error**

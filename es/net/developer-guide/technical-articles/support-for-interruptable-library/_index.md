@@ -2,7 +2,7 @@
 title: Soporte para Biblioteca Interrumpible
 type: docs
 weight: 150
-url: /net/support-for-interruptable-library/
+url: /es/net/support-for-interruptable-library/
 
 ---
 

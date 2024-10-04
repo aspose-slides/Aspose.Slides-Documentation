@@ -2,7 +2,7 @@
 title: Declaración
 type: docs
 weight: 60
-url: /java/declaration/
+url: /es/java/declaration/
 ---
 
 {{% alert color="primary" %}} 

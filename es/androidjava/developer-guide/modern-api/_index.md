@@ -2,7 +2,7 @@
 title: API Moderna
 type: docs
 weight: 237
-url: /androidjava/modern-api/
+url: /es/androidjava/modern-api/
 keywords: "CrossPlatform API Moderna"
 description: "API Moderna"
 ---

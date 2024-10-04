@@ -2,7 +2,7 @@
 title: Instalación
 type: docs
 weight: 70
-url: /nodejs-net/installation/
+url: /es/nodejs-net/installation/
 keySlides: "Descargar Aspose.Slides, Instalar Aspose.Slides, Instalación de Aspose.Slides, Windows, macOS, Linux, Javascript, Node.js"
 description: "Instala Aspose.Slides para Node.js a través de .NET en Windows, Linux o macOS"
 ---

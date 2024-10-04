@@ -2,7 +2,7 @@
 title: Formatos de Archivo Soportados
 type: docs
 weight: 20
-url: /java/supported-file-formats/
+url: /es/java/supported-file-formats/
 ---
 
 ## **Versiones de Microsoft PowerPoint Soportadas**

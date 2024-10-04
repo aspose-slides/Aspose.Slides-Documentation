@@ -2,7 +2,7 @@
 title: Cambiar el tamaño de las formas en la diapositiva
 type: docs
 weight: 110
-url: /php-java/cambiar-el-tamano-de-las-formas-en-la-diapositiva/
+url: /es/php-java/cambiar-el-tamano-de-las-formas-en-la-diapositiva/
 ---
 
 ## **Cambiar el tamaño de las formas en la diapositiva**

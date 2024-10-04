@@ -1,7 +1,7 @@
 ---
 title: Línea de Tendencia
 type: docs
-url: /cpp/trend-line/
+url: /es/cpp/trend-line/
 ---
 
 ## **Agregar Línea de Tendencia**

@@ -2,7 +2,7 @@
 title: Imagen
 type: docs
 weight: 10
-url: /python-net/image/
+url: /es/python-net/image/
 keywords: "Agregar imagen, Agregar foto, Presentación de PowerPoint, EMF, SVG, Python, Aspose.Slides para Python a través de .NET"
 description: "Agregar imagen a una diapositiva o presentación de PowerPoint en Python"
 ---

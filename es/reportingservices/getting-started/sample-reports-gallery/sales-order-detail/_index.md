@@ -2,7 +2,7 @@
 title: Detalle de la Orden de Venta
 type: docs
 weight: 50
-url: /reportingservices/sales-order-detail/
+url: /es/reportingservices/sales-order-detail/
 ---
 
 ## **Características:**

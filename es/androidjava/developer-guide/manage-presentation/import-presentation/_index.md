@@ -2,7 +2,7 @@
 title: Importar Presentación
 type: docs
 weight: 60
-url: /androidjava/import-presentation/
+url: /es/androidjava/import-presentation/
 keywords: "Importar PowerPoint, PDF a Presentación, PDF a PPTX, PDF a PPT, Java, Aspose.Slides para Android a través de Java"
 description: "Importar presentación de PowerPoint desde PDF. Convertir PDF a PowerPoint"
 ---

@@ -2,7 +2,7 @@
 title: Gestionar Viñetas
 type: docs
 weight: 60
-url: /php-java/manage-bullet/
+url: /es/php-java/manage-bullet/
 keywords: "Viñetas, Listas de viñetas, Números, Listas numeradas, Viñetas con imágenes, viñetas multinivel, Presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Crea listas de viñetas y numeradas en una presentación de PowerPoint"
 ---

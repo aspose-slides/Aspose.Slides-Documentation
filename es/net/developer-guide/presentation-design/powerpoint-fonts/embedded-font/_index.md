@@ -3,7 +3,7 @@ title: Fuente incrustada - API de PowerPoint C#
 linktitle: Fuente incrustada
 type: docs
 weight: 40
-url: /net/embedded-font/
+url: /es/net/embedded-font/
 keywords:
 - fuentes
 - fuentes incrustadas

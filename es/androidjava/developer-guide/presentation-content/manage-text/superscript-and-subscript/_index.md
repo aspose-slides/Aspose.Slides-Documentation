@@ -2,7 +2,7 @@
 title: Superíndice y Subíndice
 type: docs
 weight: 80
-url: /androidjava/superscript-and-subscript/
+url: /es/androidjava/superscript-and-subscript/
 ---
 
 ## **Gestionar texto de superíndice y subíndice**

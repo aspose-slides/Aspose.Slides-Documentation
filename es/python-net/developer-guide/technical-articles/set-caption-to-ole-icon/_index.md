@@ -2,7 +2,7 @@
 title: Establecer título para el ícono OLE
 type: docs
 weight: 160
-url: /python-net/set-caption-to-ole-icon/
+url: /es/python-net/set-caption-to-ole-icon/
 ---
 
 Se ha añadido una nueva propiedad **SubstitutePictureTitle** a la interfaz **IOleObjectFrame** y a la clase **OleObjectFrame**. Permite obtener, establecer o cambiar el título de un ícono OLE. El siguiente fragmento de código muestra un ejemplo de cómo crear un objeto de Excel y establecer su título.

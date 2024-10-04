@@ -2,7 +2,7 @@
 title: Conector
 type: docs
 weight: 10
-url: /php-java/connector/
+url: /es/php-java/connector/
 keywords: "Conectar formas, conectores, formas de PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Conectar formas de PowerPoint"
 ---
@@ -121,7 +121,7 @@ Este código PHP demuestra una operación donde se especifica un punto de conexi
 
 ## **Ajustar Punto de Conector**
 
-Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden alterarse de esta manera. Consulta la tabla bajo **[Tipos de conectores.](/slides/php-java/connector/#types-of-connectors)**
+Puedes ajustar un conector existente a través de sus puntos de ajuste. Solo los conectores con puntos de ajuste pueden alterarse de esta manera. Consulta la tabla bajo **[Tipos de conectores.](/slides/es/php-java/connector/#types-of-connectors)**
 
 #### **Caso Simple**
 
@@ -168,7 +168,7 @@ Para realizar ajustes más complicados, debes tener en cuenta estas cosas:
 * Los valores de los puntos de ajuste reflejan el porcentaje del ancho/altura de la forma de un conector.
   * La forma está limitada por los puntos de inicio y fin del conector multiplicados por 1000.
   * El primer punto, el segundo punto y el tercer punto definen el porcentaje del ancho, el porcentaje de la altura y el porcentaje del ancho (de nuevo) respectivamente.
-* Para cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación del conector y su reflexión. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/php-java/connector/#types-of-connectors)** es 0.
+* Para cálculos que determinan las coordenadas de los puntos de ajuste de un conector, debes tener en cuenta la rotación del conector y su reflexión. **Nota** que el ángulo de rotación para todos los conectores mostrados bajo **[Tipos de conectores](/slides/es/php-java/connector/#types-of-connectors)** es 0.
 
 #### **Caso 1**
 

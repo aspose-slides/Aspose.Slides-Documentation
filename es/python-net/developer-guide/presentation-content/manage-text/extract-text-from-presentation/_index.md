@@ -2,7 +2,7 @@
 title: Extraer texto de la presentación
 type: docs
 weight: 90
-url: /python-net/extract-text-from-presentation/
+url: /es/python-net/extract-text-from-presentation/
 keywords: "Extraer texto de la diapositiva, Extraer texto de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Extraer texto de la diapositiva o presentación de PowerPoint en Python"
 ---
@@ -11,9 +11,9 @@ description: "Extraer texto de la diapositiva o presentación de PowerPoint en P
 
 No es raro que los desarrolladores necesiten extraer el texto de una presentación. Para hacerlo, necesitas extraer texto de todas las formas en todas las diapositivas de una presentación. Este artículo explica cómo extraer texto de presentaciones PPTX de Microsoft PowerPoint usando Aspose.Slides. Se puede extraer texto de las siguientes maneras:
 
-- [Extracción de texto de una diapositiva](/slides/python-net/extracting-text-from-the-presentation/)
-- [Extracción de texto usando el método GetAllTextBoxes](/slides/python-net/extracting-text-from-the-presentation/)
-- [Extracción de texto categorizada y rápida](/slides/python-net/extracting-text-from-the-presentation/)
+- [Extracción de texto de una diapositiva](/slides/es/python-net/extracting-text-from-the-presentation/)
+- [Extracción de texto usando el método GetAllTextBoxes](/slides/es/python-net/extracting-text-from-the-presentation/)
+- [Extracción de texto categorizada y rápida](/slides/es/python-net/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **Extraer texto de la diapositiva**

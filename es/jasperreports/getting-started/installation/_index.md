@@ -2,5 +2,5 @@
 title: Instalación
 type: docs
 weight: 40
-url: /jasperreports/installation/
+url: /es/jasperreports/installation/
 ---

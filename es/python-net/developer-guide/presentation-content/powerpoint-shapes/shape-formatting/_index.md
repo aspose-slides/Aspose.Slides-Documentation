@@ -2,7 +2,7 @@
 title: Formato de Forma
 type: docs
 weight: 20
-url: /python-net/shape-formatting/
+url: /es/python-net/shape-formatting/
 keywords: "Formato de forma, formato de líneas, formato de estilos de unión, relleno de degradado, relleno de patrón, relleno de imagen, relleno de color sólido, rotar formas, efectos de bisel 3d, efecto de rotación 3d, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Formato de forma en presentación de PowerPoint en Python"
 ---

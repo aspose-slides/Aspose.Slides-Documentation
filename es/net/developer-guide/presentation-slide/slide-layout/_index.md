@@ -2,7 +2,7 @@
 title: Diseño de Diapositivas
 type: docs
 weight: 60
-url: /net/slide-layout/
+url: /es/net/slide-layout/
 keyword: "Establecer tamaño de diapositiva, configurar opciones de diapositiva, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escalado de contenido, tamaño de página, C#, Csharp, .NET, Aspose.Slides"
 description: "Establecer el tamaño y las opciones de diapositivas de PowerPoint en C# o .NET"
 ---

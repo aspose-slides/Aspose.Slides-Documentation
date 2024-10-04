@@ -1,7 +1,7 @@
 ---
 title: Propiedades de la Vista de Presentación
 type: docs
-url: /net/presentation-view-properties/
+url: /es/net/presentation-view-properties/
 keywords: "visor de PowerPoint, propiedades del visor, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Propiedades del visor de presentaciones de PowerPoint en C# o .NET"
 ---

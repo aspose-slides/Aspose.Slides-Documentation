@@ -2,7 +2,7 @@
 title: Crear fuente de recuperación
 type: docs
 weight: 10
-url: /androidjava/create-fallback-font/
+url: /es/androidjava/create-fallback-font/
 ---
 
 Aspose.Slides admite la interfaz [IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule) y la clase [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) para especificar las reglas para aplicar una fuente de recuperación. La clase [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) representa una asociación entre el rango Unicode especificado, utilizado para buscar glifos faltantes, y una lista de fuentes que pueden contener glifos apropiados:
@@ -25,5 +25,5 @@ También es posible [eliminar](https://reference.aspose.com/slides/androidjava/c
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) se puede utilizar para organizar una lista de objetos [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule), cuando hay necesidad de especificar reglas de reemplazo de fuente de recuperación para múltiples rangos Unicode.
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Crear colección de fuentes de recuperación](/slides/androidjava/create-fallback-fonts-collection/)
+- [Crear colección de fuentes de recuperación](/slides/es/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}

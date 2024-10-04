@@ -2,13 +2,13 @@
 title: Administrar Placeholder
 type: docs
 weight: 10
-url: /net/manage-placeholder/
+url: /es/net/manage-placeholder/
 keywords: "Placeholder, Texto del placeholder, Texto de aviso, Presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Cambiar el texto del placeholder y el texto de aviso en presentaciones de PowerPoint en C# o .NET"
 ---
 
 ## **Cambiar Texto en Placeholder**
-Usando [Aspose.Slides para .NET](/slides/net/), puedes encontrar y modificar placeholders en las diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un placeholder.
+Usando [Aspose.Slides para .NET](/slides/es/net/), puedes encontrar y modificar placeholders en las diapositivas de presentaciones. Aspose.Slides te permite realizar cambios en el texto de un placeholder.
 
 **Prerequisito**: Necesitas una presentación que contenga un placeholder. Puedes crear una presentación así en la aplicación estándar de Microsoft PowerPoint.
 

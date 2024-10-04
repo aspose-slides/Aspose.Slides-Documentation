@@ -2,7 +2,7 @@
 title:Descripción General de Características
 type: docs
 weight: 20
-url: /nodejs-net/features-overview/
+url: /es/nodejs-net/features-overview/
 ---
 
 ## **Plataformas Soportadas**

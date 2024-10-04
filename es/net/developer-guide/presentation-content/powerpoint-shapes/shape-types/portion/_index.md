@@ -2,7 +2,7 @@
 title: Porción
 type: docs
 weight: 70
-url: /net/portion/
+url: /es/net/portion/
 keywords: "Porción, forma de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Obtener porción en presentación de PowerPoint en C# o .NET"
 ---

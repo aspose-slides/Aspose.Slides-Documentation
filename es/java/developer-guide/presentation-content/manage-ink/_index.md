@@ -2,7 +2,7 @@
 title: Gestionar Tinta
 type: docs
 weight: 95
-url: /java/manage-ink/
+url: /es/java/manage-ink/
 keywords: "Tinta en PowerPoint, herramientas de tinta, Java Ink, Dibujar en PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Utiliza herramientas de tinta para dibujar objetos en PowerPoint Java"
 ---

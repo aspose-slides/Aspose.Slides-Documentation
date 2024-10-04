@@ -2,7 +2,7 @@
 title: Administrar Párrafos de PowerPoint en Python
 type: docs
 weight: 40
-url: /python-net/manage-paragraph/
+url: /es/python-net/manage-paragraph/
 keywords: "Agregar párrafo de PowerPoint, Administrar párrafos, Sangría de párrafo, Propiedades de párrafo, Texto HTML, Exportar texto de párrafo, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Crear y gestionar párrafos, texto, sangría y propiedades en presentaciones de PowerPoint en Python"
 ---

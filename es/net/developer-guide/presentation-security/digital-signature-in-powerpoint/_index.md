@@ -2,7 +2,7 @@
 title: Firma Digital en PowerPoint
 type: docs
 weight: 10
-url: /net/digital-signature-in-powerpoint/
+url: /es/net/digital-signature-in-powerpoint/
 keywords: "Certificado de firma digital, autoridad de certificación, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Añadir firma digital o certificado en PowerPoint. Autoridad de certificación en C# o .NET"
 ---

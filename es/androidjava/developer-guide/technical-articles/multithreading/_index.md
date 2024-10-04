@@ -2,7 +2,7 @@
 title: Multithreading en Aspose.Slides
 type: docs
 weight: 310
-url: /androidjava/multithreading/
+url: /es/androidjava/multithreading/
 keywords:
 - PowerPoint
 - presentación

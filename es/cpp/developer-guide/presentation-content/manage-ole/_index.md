@@ -2,7 +2,7 @@
 title: Gestionar OLE
 type: docs
 weight: 40
-url: /cpp/manage-ole/
+url: /es/cpp/manage-ole/
 keywords: "Agregar OLE, Agregar objeto, Incrustar objeto, Object Linking & Embedding, OLE Object Frame, Incrustar OLE, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Agregar objeto OLE a la presentación de PowerPoint en C++"
 ---

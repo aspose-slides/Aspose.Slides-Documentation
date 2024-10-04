@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /php-java/wordart/
+url: /es/php-java/wordart/
 ---
 
 

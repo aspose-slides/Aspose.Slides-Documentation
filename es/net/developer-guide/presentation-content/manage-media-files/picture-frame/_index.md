@@ -2,7 +2,7 @@
 title: Marco de Imagen
 type: docs
 weight: 10
-url: /net/picture-frame/
+url: /es/net/picture-frame/
 keywords: 
 - agregar marco de imagen
 - crear marco de imagen

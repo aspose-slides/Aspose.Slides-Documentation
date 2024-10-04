@@ -2,7 +2,7 @@
 title: Multihilos en Aspose.Slides
 type: docs
 weight: 310
-url: /php-java/multithreading/
+url: /es/php-java/multithreading/
 keywords:
 - PowerPoint
 - presentación

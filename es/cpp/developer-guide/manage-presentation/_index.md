@@ -2,5 +2,5 @@
 title: Administrar Presentación
 type: docs
 weight: 10
-url: /cpp/manage-presentation/
+url: /es/cpp/manage-presentation/
 ---

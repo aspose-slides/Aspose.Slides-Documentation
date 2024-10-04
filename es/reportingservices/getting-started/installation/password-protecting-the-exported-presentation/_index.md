@@ -2,7 +2,7 @@
 title: Protección con Contraseña de la Presentación Exportada
 type: docs
 weight: 90
-url: /reportingservices/password-protecting-the-exported-presentation/
+url: /es/reportingservices/password-protecting-the-exported-presentation/
 ---
 
 {{% alert color="primary" %}} 

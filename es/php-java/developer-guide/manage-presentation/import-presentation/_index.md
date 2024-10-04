@@ -2,7 +2,7 @@
 title: Importar Presentación
 type: docs
 weight: 60
-url: /php-java/import-presentation/
+url: /es/php-java/import-presentation/
 keywords: "Importar PowerPoint, PDF a Presentación, PDF a PPTX, PDF a PPT, Java, Aspose.Slides para PHP vía Java"
 description: "Importar presentación de PowerPoint desde PDF. Convertir PDF a PowerPoint"
 ---

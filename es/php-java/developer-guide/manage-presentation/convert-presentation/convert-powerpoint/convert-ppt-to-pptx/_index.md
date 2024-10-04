@@ -3,7 +3,7 @@ title: Convertir PPT a PPTX
 linktitle: Convertir PPT a PPTX
 type: docs
 weight: 20
-url: /php-java/convert-ppt-to-pptx/
+url: /es/php-java/convert-ppt-to-pptx/
 keywords: "PHP Convertir PPT a PPTX, PowerPoint PPT a PPTX"
 description: "Convertir PowerPoint PPT a PPTX."
 ---
@@ -47,7 +47,7 @@ Encuentre otros ejemplos en vivo de [**Conversión de Aspose.Slides**](https://p
 {{% /alert %}} 
 
 ## **Convertir PPT a PPTX**
-Aspose.Slides para PHP a través de Java ahora facilita a los desarrolladores acceder al PPT utilizando la instancia de clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y convirtiéndolo al respectivo formato [PPTX](https://docs.fileformat.com/presentation/pptx/). Actualmente, admite la conversión parcial de [PPT](https://docs.fileformat.com/presentation/ppt/) a PPTX. Para más detalles sobre qué características son compatibles y no compatibles en la conversión de PPT a PPTX, consulte esta documentación [enlace](/slides/php-java/ppt-to-pptx-conversion/).
+Aspose.Slides para PHP a través de Java ahora facilita a los desarrolladores acceder al PPT utilizando la instancia de clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) y convirtiéndolo al respectivo formato [PPTX](https://docs.fileformat.com/presentation/pptx/). Actualmente, admite la conversión parcial de [PPT](https://docs.fileformat.com/presentation/ppt/) a PPTX. Para más detalles sobre qué características son compatibles y no compatibles en la conversión de PPT a PPTX, consulte esta documentación [enlace](/slides/es/php-java/ppt-to-pptx-conversion/).
 
 Aspose.Slides para PHP a través de Java ofrece la clase [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) que representa un archivo de presentación **PPTX**. La clase Presentation también puede acceder a **PPT** a través de Presentation cuando se instancia el objeto. El siguiente ejemplo muestra cómo convertir una presentación PPT en una presentación PPTX.
 

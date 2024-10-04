@@ -3,7 +3,7 @@ title: Fuente personalizada de PowerPoint en C#
 linktitle: Fuente personalizada
 type: docs
 weight: 20
-url: /net/custom-font/
+url: /es/net/custom-font/
 keywords: "Fuentes, fuentes personalizadas, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Fuentes personalizadas de PowerPoint en C#"
 ---

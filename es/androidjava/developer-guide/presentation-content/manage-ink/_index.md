@@ -2,7 +2,7 @@
 title: Gestionar Tinta
 type: docs
 weight: 95
-url: /androidjava/manage-ink/
+url: /es/androidjava/manage-ink/
 keywords: "Tinta en PowerPoint, herramientas de tinta, Tinta Java, Dibujar en PowerPoint, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Utiliza herramientas de tinta para dibujar objetos en PowerPoint Java"
 ---

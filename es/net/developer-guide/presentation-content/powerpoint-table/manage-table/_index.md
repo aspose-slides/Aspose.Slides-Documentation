@@ -2,7 +2,7 @@
 title: Administrar Tabla
 type: docs
 weight: 10
-url: /net/manage-table/
+url: /es/net/manage-table/
 keywords: "Tabla, crear tabla, acceder a tabla, relación de aspecto de tabla, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Crear y gestionar tablas en presentaciones de PowerPoint en C# o .NET"
 ---

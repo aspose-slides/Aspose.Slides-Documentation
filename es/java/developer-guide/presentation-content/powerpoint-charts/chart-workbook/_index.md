@@ -2,7 +2,7 @@
 title: Libro de Gráficos
 type: docs
 weight: 70
-url: /java/chart-workbook/
+url: /es/java/chart-workbook/
 keywords: "Libro de gráficos, datos de gráficos, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Libro de gráficos en una presentación de PowerPoint en Java"
 ---

@@ -2,7 +2,7 @@
 title: Administrar Zoom
 type: docs
 weight: 60
-url: /net/manage-zoom/
+url: /es/net/manage-zoom/
 keywords: 
 - zoom
 - marco de zoom

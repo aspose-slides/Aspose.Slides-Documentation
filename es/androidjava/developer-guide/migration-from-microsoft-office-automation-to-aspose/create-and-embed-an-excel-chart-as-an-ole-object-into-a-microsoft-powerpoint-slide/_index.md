@@ -2,12 +2,12 @@
 title: Crear e incrustar un gráfico de Excel como un objeto OLE en una diapositiva de Microsoft PowerPoint
 type: docs
 weight: 60
-url: /androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /es/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- Los gráficos son representaciones visuales de tus datos y se utilizan ampliamente en las diapositivas de presentación. Este artículo te mostrará el código para crear e incrustar un gráfico de Excel como un objeto OLE en la diapositiva de PowerPoint programáticamente utilizando [VSTO](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides para Android a través de Java](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Los gráficos son representaciones visuales de tus datos y se utilizan ampliamente en las diapositivas de presentación. Este artículo te mostrará el código para crear e incrustar un gráfico de Excel como un objeto OLE en la diapositiva de PowerPoint programáticamente utilizando [VSTO](/slides/es/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides para Android a través de Java](/slides/es/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creando e incrustando un gráfico de Excel**

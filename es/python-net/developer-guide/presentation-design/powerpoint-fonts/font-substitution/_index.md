@@ -2,7 +2,7 @@
 title: Sustitución de fuentes
 type: docs
 weight: 70
-url: /python-net/font-substitution/
+url: /es/python-net/font-substitution/
 keywords: "Fuente, fuente sustituta, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Sustituir fuente en PowerPoint en Python"
 ---
@@ -47,6 +47,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{%  alert title="NOTA"  color="warning"   %}} 
 
-Es posible que desees ver [**Reemplazo de Fuentes**](/slides/python-net/font-replacement/). 
+Es posible que desees ver [**Reemplazo de Fuentes**](/slides/es/python-net/font-replacement/). 
 
 {{% /alert %}}

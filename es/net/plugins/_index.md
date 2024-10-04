@@ -2,5 +2,5 @@
 title: Complementos
 type: docs
 weight: 30
-url: /net/plugins/
+url: /es/net/plugins/
 ---

@@ -2,13 +2,13 @@
 title: Guardar Presentación
 type: docs
 weight: 80
-url: /androidjava/save-presentation/
+url: /es/androidjava/save-presentation/
 ---
 
 ## **Resumen**
 {{% alert color="primary" %}} 
 
-[Abriendo Presentación](/slides/androidjava/open-presentation/) describe cómo usar la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) para abrir una presentación. Este artículo explica cómo crear y guardar presentaciones.
+[Abriendo Presentación](/slides/es/androidjava/open-presentation/) describe cómo usar la clase [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) para abrir una presentación. Este artículo explica cómo crear y guardar presentaciones.
 
 {{% /alert %}} 
 

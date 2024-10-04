@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a SWF Flash
 type: docs
 weight: 80
-url: /net/convert-powerpoint-to-swf-flash/
+url: /es/net/convert-powerpoint-to-swf-flash/
 keywords: "Convertir PowerPoint, Presentación, PowerPoint a SWF, SWF flash PPT a SWF, PPTX a SWF, C#, Csharp, .NET"
 description: "Convertir Presentación de PowerPoint a SWF Flash en C# o .NET"
 ---

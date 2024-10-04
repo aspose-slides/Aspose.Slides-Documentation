@@ -2,7 +2,7 @@
 title: Soporte Técnico Gratuito de Clase Mundial
 type: docs
 weight: 70
-url: /reportingservices/world-class-free-technical-support/
+url: /es/reportingservices/world-class-free-technical-support/
 ---
 
 {{% alert color="primary" %}} 

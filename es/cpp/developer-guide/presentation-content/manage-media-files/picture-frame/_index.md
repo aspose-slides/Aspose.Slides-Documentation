@@ -2,7 +2,7 @@
 title: Marco de Imagen
 type: docs
 weight: 10
-url: /cpp/picture-frame/
+url: /es/cpp/picture-frame/
 keywords: "Agregar marco de imagen, crear marco de imagen, agregar imagen, crear imagen, extraer imagen, propiedad StretchOff, formato de marco de imagen, propiedades de marco de imagen, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Agregar marco de imagen a la presentación de PowerPoint en C++"
 ---

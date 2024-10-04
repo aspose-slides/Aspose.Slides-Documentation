@@ -2,7 +2,7 @@
 title: Obtener el Formato de Archivo de la Presentación
 type: docs
 weight: 50
-url: /net/get-the-file-format-of-presentation/
+url: /es/net/get-the-file-format-of-presentation/
 ---
 
 Para obtener el formato de archivo. Por favor, siga los pasos a continuación:

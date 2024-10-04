@@ -2,7 +2,7 @@
 title: Gestionar Tinta
 type: docs
 weight: 95
-url: /python-net/manage-ink/
+url: /es/python-net/manage-ink/
 keywords: "Tinta en PowerPoint, herramientas de tinta, Tinta Python, Dibujar en PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python vía .NET"
 description: "Utiliza herramientas de tinta para dibujar objetos en PowerPoint Python"
 ---

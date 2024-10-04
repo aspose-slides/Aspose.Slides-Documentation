@@ -2,7 +2,7 @@
 title: Imagen
 type: docs
 weight: 10
-url: /php-java/image/
+url: /es/php-java/image/
 description: Trabaja con imágenes en diapositivas en presentaciones de PowerPoint usando PHP. Agrega imágenes desde el disco o desde la web en diapositivas de PowerPoint usando PHP. Agrega imágenes a los maestros de diapositivas o como fondo de diapositivas usando PHP. Agrega SVG a la presentación de PowerPoint usando PHP. Convierte SVG a formas en PowerPoint usando PHP. Agrega imágenes como EMF en diapositivas usando PHP.
 ---
 

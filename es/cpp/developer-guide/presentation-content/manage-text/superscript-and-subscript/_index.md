@@ -2,7 +2,7 @@
 title: Superíndice y Subíndice
 type: docs
 weight: 80
-url: /cpp/superscript-and-subscript/
+url: /es/cpp/superscript-and-subscript/
 ---
 
 ## **Gestionar Texto de Superíndice y Subíndice**

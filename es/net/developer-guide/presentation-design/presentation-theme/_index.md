@@ -2,14 +2,14 @@
 title: Tema de Presentación
 type: docs
 weight: 10
-url: /net/presentation-theme/
+url: /es/net/presentation-theme/
 keywords: "Tema, tema de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Tema de presentación de PowerPoint en C# o .NET"
 ---
 
 Un tema de presentación define las propiedades de los elementos de diseño. Cuando seleccionas un tema de presentación, en esencia estás eligiendo un conjunto específico de elementos visuales y sus propiedades.
 
-En PowerPoint, un tema comprende colores, [fuentes](/slides/net/powerpoint-fonts/), [estilos de fondo](/slides/net/presentation-background/), y efectos.
+En PowerPoint, un tema comprende colores, [fuentes](/slides/es/net/powerpoint-fonts/), [estilos de fondo](/slides/es/net/presentation-background/), y efectos.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -153,7 +153,7 @@ La fuente en todos los cuadros de texto se actualizará.
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Puede que quieras ver [fuentes de PowerPoint](/slides/net/powerpoint-fonts/).
+Puede que quieras ver [fuentes de PowerPoint](/slides/es/net/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -191,7 +191,7 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 {{% alert color="primary" title="CONSEJO" %}} 
 
-Puede que quieras ver [Fondo de PowerPoint](/slides/net/presentation-background/).
+Puede que quieras ver [Fondo de PowerPoint](/slides/es/net/presentation-background/).
 
 {{% /alert %}}
 

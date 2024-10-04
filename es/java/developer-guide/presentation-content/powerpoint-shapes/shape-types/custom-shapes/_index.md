@@ -2,7 +2,7 @@
 title: Forma Personalizada
 type: docs
 weight: 20
-url: /java/custom-shape/
+url: /es/java/custom-shape/
 keywords: "forma de PowerPoint, forma personalizada, presentación de PowerPoint, Java, Aspose.Slides para Java"
 description: "Agregar forma personalizada en presentación de PowerPoint en Java"
 ---

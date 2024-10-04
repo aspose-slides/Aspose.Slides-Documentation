@@ -1,7 +1,7 @@
 ---
 title: Tabla de Datos del Gráfico
 type: docs
-url: /python-net/chart-data-table/
+url: /es/python-net/chart-data-table/
 keywords: "Propiedades de fuente, tabla de datos del gráfico, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Establecer propiedades de fuente para la tabla de datos del gráfico en presentaciones de PowerPoint en Python"
 ---

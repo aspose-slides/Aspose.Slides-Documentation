@@ -3,7 +3,7 @@ title: Fuente Personalizada de PowerPoint
 linktitle: Fuente Personalizada
 type: docs
 weight: 20
-url: /php-java/custom-font/
+url: /es/php-java/custom-font/
 keywords: "Fuentes, fuentes personalizadas, presentación de PowerPoint, Java, Aspose.Slides para PHP vía Java"
 description: "Fuentes personalizadas de PowerPoint"
 ---

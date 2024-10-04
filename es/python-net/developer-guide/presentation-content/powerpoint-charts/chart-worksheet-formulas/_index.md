@@ -2,7 +2,7 @@
 title: Fórmulas de Hoja de Cálculo de Gráficos
 type: docs
 weight: 70
-url: /python-net/chart-worksheet-formulas/
+url: /es/python-net/chart-worksheet-formulas/
 keywords: "Hoja de cálculo de gráficos, fórmula de gráfico, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Hoja de cálculo de gráficos y fórmula en presentación de PowerPoint en Python"
 ---

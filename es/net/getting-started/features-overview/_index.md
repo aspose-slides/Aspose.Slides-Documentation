@@ -2,7 +2,7 @@
 title: Descripción General de Características
 type: docs
 weight: 20
-url: /net/features-overview/
+url: /es/net/features-overview/
 ---
 
 ## **Plataformas Soportadas**
@@ -18,12 +18,12 @@ Aspose.Slides para .NET soporta la mayoría de los formatos de documentos de Pow
 
 |**Característica**|**Descripción**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/net/ppt-vs-pptx/)|Aspose.Slides para .NET proporciona el procesamiento más rápido para este formato de documento de presentación.|
-|[Conversión de PPT a PPTX](/slides/net/convert-ppt-to-pptx/)|Aspose.Slides para .NET soporta la conversión de PPT a PPTX.|
-|[Formato de Documento Portátil (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Puedes exportar todos los formatos de archivo soportados a documentos en formato de Documento Portátil de Adobe (PDF) con un solo método.|
+|[Microsoft PowerPoint (PPT)](/slides/es/net/ppt-vs-pptx/)|Aspose.Slides para .NET proporciona el procesamiento más rápido para este formato de documento de presentación.|
+|[Conversión de PPT a PPTX](/slides/es/net/convert-ppt-to-pptx/)|Aspose.Slides para .NET soporta la conversión de PPT a PPTX.|
+|[Formato de Documento Portátil (PDF)](/slides/es/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Puedes exportar todos los formatos de archivo soportados a documentos en formato de Documento Portátil de Adobe (PDF) con un solo método.|
 |[Especificación de Analizador XML (XPS)](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)|Puedes exportar todos los formatos de archivo soportados a documentos en Especificación de Analizador XML (XPS) con un solo método.|
-|[Formato de Archivo de Imagen Etiquetada (TIFF)](/slides/net/convert-powerpoint-to-tiff/)|Puedes exportar todos los formatos de archivo de presentación soportados a Formatos de Archivo de Imagen Etiquetada (TIFF).|
-|[Conversión de PPTX a HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides para .NET soporta la conversión de PresentationEx a formato HTML.|
+|[Formato de Archivo de Imagen Etiquetada (TIFF)](/slides/es/net/convert-powerpoint-to-tiff/)|Puedes exportar todos los formatos de archivo de presentación soportados a Formatos de Archivo de Imagen Etiquetada (TIFF).|
+|[Conversión de PPTX a HTML](/slides/es/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides para .NET soporta la conversión de PresentationEx a formato HTML.|
 ## **Renderización e Impresión**
 Aspose.Slides para .NET soporta la renderización de alta fidelidad de las diapositivas en los documentos de presentación a varios formatos gráficos. Consulta estos detalles:
 

@@ -2,12 +2,12 @@
 title: Crear e incrustar un gráfico de Excel como un objeto OLE en una diapositiva de Microsoft PowerPoint
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /es/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- Los gráficos son representaciones visuales de sus datos y se utilizan ampliamente en las diapositivas de presentación. Este artículo le mostrará el código para crear e incrustar un gráfico de Excel como un objeto OLE en la diapositiva de PowerPoint programáticamente utilizando [VSTO](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides para .NET](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Los gráficos son representaciones visuales de sus datos y se utilizan ampliamente en las diapositivas de presentación. Este artículo le mostrará el código para crear e incrustar un gráfico de Excel como un objeto OLE en la diapositiva de PowerPoint programáticamente utilizando [VSTO](/slides/es/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides para .NET](/slides/es/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creando e incrustando un gráfico de Excel**

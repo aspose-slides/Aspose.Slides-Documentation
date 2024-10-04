@@ -2,7 +2,7 @@
 title: Error de Licencia
 type: docs
 weight: 95
-url: /php-java/licensing-bug/
+url: /es/php-java/licensing-bug/
 ---
 
 Este artículo describe un error de licencia encontrado en Aspose.Slides para PHP a través de Java versiones 23.2, 23.3, 23.4, 23.5, 23.6 y 23.7. Este error hizo que las licencias perpetuas se volvieran temporalmente inutilizables después de que su suscripción expirara.

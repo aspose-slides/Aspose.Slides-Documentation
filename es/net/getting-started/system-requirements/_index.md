@@ -2,7 +2,7 @@
 title: Requisitos del Sistema
 type: docs
 weight: 60
-url: /net/system-requirements/
+url: /es/net/system-requirements/
 ---
 
 ## **Descripción General**

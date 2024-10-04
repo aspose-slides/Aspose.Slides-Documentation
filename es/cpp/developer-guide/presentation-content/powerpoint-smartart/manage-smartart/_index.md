@@ -2,7 +2,7 @@
 title: Administrar SmartArt
 type: docs
 weight: 10
-url: /cpp/manage-smartart/
+url: /es/cpp/manage-smartart/
 ---
 
 ## **Obtener texto de SmartArt**

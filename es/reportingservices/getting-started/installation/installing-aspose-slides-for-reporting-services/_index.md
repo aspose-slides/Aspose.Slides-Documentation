@@ -2,7 +2,7 @@
 title: Instalación de Aspose.Slides para Reporting Services
 type: docs
 weight: 10
-url: /reportingservices/installing-aspose-slides-for-reporting-services/
+url: /es/reportingservices/installing-aspose-slides-for-reporting-services/
 ---
 
 {{% alert color="primary" %}} 
@@ -26,12 +26,12 @@ Aspose.Slides para Reporting Services se puede instalar en un servidor Power BI.
 
 ### **Enlaces a Artículos de Instalación**
 
-- [Instalación con instalador MSI](/slides/reportingservices/install-with-msi-installer/).
-- [Instalación manual](/slides/reportingservices/install-manually/).
-- [Reinstalación de Aspose.Slides para Reporting Services](/slides/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [Integración manual con Visual Studio 2005 o 2008 Report Designer](/slides/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [Personalización del título de la extensión de rendering de Microsoft PowerPoint](/slides/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [Licenciamiento de Aspose.Slides para Reporting Services](/slides/reportingservices/license-aspose-slides-for-reporting-services/).
+- [Instalación con instalador MSI](/slides/es/reportingservices/install-with-msi-installer/).
+- [Instalación manual](/slides/es/reportingservices/install-manually/).
+- [Reinstalación de Aspose.Slides para Reporting Services](/slides/es/reportingservices/re-installing-aspose-slides-for-reporting-services/).
+- [Integración manual con Visual Studio 2005 o 2008 Report Designer](/slides/es/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
+- [Personalización del título de la extensión de rendering de Microsoft PowerPoint](/slides/es/reportingservices/customizing-powerpoint-rendering-extension-caption/).
+- [Licenciamiento de Aspose.Slides para Reporting Services](/slides/es/reportingservices/license-aspose-slides-for-reporting-services/).
 
 {{% alert title="Nota" color="warning" %}} 
 

@@ -2,7 +2,7 @@
 title: Crear miniaturas de formas
 type: docs
 weight: 70
-url: /java/create-shape-thumbnails/
+url: /es/java/create-shape-thumbnails/
 ---
 
 

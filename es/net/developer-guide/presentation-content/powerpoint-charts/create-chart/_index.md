@@ -3,7 +3,7 @@ title: Crear o Actualizar Gráficos de Presentaciones de PowerPoint en C# o .NET
 linktitle: Crear o Actualizar Gráfico
 type: docs
 weight: 10
-url: /net/create-chart/
+url: /es/net/create-chart/
 keywords: "Crear gráfico, gráfico disperso, gráfico de pastel, gráfico de mapa de árbol, gráfico de acciones, gráfico de caja y bigote, gráfico de histogramas, gráfico de embudo, gráfico de sol, gráfico multicategoría, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Crear gráfico en presentación de PowerPoint en C# o .NET"
 ---

@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a TIFF
 type: docs
 weight: 90
-url: /php-java/convert-powerpoint-to-tiff/
+url: /es/php-java/convert-powerpoint-to-tiff/
 keywords: "Convertir Presentación de PowerPoint, PowerPoint a TIFF, PPT a TIFF, PPTX a TIFF, Java, Aspose.Slides"
 description: "Convertir presentación de PowerPoint a TIFF"
 

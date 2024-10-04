@@ -2,7 +2,7 @@
 title: API Moderna
 type: docs
 weight: 237
-url: /net/modern-api/
+url: /es/net/modern-api/
 keywords: "CrossPlatform API Moderna System.Drawing"
 description: "API Moderna"
 ---

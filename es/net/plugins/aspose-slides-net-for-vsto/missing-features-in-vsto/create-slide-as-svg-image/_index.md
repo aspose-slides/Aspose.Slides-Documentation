@@ -2,7 +2,7 @@
 title: Crear Diapositiva como Imagen SVG
 type: docs
 weight: 70
-url: /net/create-slide-as-svg-image/
+url: /es/net/create-slide-as-svg-image/
 ---
 
 Para generar una imagen SVG a partir de cualquier diapositiva deseada con Aspose.Slides.Pptx para .NET, siga los siguientes pasos:
@@ -68,6 +68,6 @@ SvgStream.Close();
 
 {{% alert color="primary" %}} 
 
-Para más detalles, visite [Creando Imagen SVG de Diapositiva](/slides/net/presentation-viewer/).
+Para más detalles, visite [Creando Imagen SVG de Diapositiva](/slides/es/net/presentation-viewer/).
 
 {{% /alert %}}

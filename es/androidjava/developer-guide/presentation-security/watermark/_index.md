@@ -2,7 +2,7 @@
 title: Marca de Agua
 type: docs
 weight: 40
-url: /androidjava/watermark/
+url: /es/androidjava/watermark/
 keywords: "marca de agua en presentación"
 description: "Usa marca de agua en PowerPoint con Aspose.Slides. Agrega marca de agua en presentación ppt o elimina la marca de agua. Inserta imagen de marca de agua o texto de marca de agua."
 ---
@@ -41,7 +41,7 @@ try {
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/androidjava/slide-master/)[TextFrame](/slides/androidjava/adding-and-formatting-text/)
+- [Cómo usar ](/slides/es/androidjava/slide-master/)[TextFrame](/slides/es/androidjava/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Agregar Marca de Agua de Texto a la Presentación**
@@ -65,7 +65,7 @@ try {
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/androidjava/slide-master/)[Master de Diapositivas](/slides/androidjava/slide-master/)
+- [Cómo usar ](/slides/es/androidjava/slide-master/)[Master de Diapositivas](/slides/es/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **Establecer Fuente de la Marca de Agua de Texto**
@@ -161,7 +161,7 @@ watermarkShape.getShapeLock().setGroupingLocked(true);
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo bloquear formas de edición](/slides/androidjava/presentation-locking/)
+- [Cómo bloquear formas de edición](/slides/es/androidjava/presentation-locking/)
 {{% /alert %}}
 
 ## **Traer Marca de Agua al Frente**

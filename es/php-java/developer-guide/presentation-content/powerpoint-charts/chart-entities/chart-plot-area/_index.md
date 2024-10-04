@@ -1,7 +1,7 @@
 ---
 title: Área de Trazado del Gráfico
 type: docs
-url: /php-java/chart-plot-area/
+url: /es/php-java/chart-plot-area/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Ventas de Línea de Productos
 type: docs
 weight: 40
-url: /reportingservices/product-line-sales/
+url: /es/reportingservices/product-line-sales/
 ---
 
 ## **Características:**

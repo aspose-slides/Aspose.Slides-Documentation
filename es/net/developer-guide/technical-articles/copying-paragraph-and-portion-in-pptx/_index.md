@@ -2,7 +2,7 @@
 title: Copiar Párrafo y Porción en PPTX
 type: docs
 weight: 80
-url: /net/copying-paragraph-and-portion-in-pptx/
+url: /es/net/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

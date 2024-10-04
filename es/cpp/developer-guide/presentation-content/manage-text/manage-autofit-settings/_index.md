@@ -2,7 +2,7 @@
 title: Administrar la configuración de autofit
 type: docs
 weight: 30
-url: /cpp/manage-autofit-settings/
+url: /es/cpp/manage-autofit-settings/
 keywords: "Cuadro de texto, Autofit, presentación de PowerPoint, C++, Aspose.Slides para C++"
 description: "Configurar la configuración de autofit para cuadros de texto en PowerPoint en C++"
 ---

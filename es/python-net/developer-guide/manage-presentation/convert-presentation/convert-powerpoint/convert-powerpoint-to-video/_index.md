@@ -2,7 +2,7 @@
 title: Convertir PowerPoint a Video
 type: docs
 weight: 130
-url: /python-net/convert-powerpoint-to-video/
+url: /es/python-net/convert-powerpoint-to-video/
 keywords: "Convertir PowerPoint, PPT, PPTX, Presentación, Video, MP4, PPT a video, PPT a MP4, Python, Aspose.Slides"
 description: "Convertir PowerPoint a Video en Python"
 ---

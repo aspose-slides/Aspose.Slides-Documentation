@@ -2,12 +2,12 @@
 title: Crear un gráfico en una presentación de Microsoft PowerPoint
 type: docs
 weight: 70
-url: /php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /es/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Los gráficos son representaciones visuales de datos que se utilizan ampliamente en presentaciones. Este artículo muestra el código para crear un gráfico en Microsoft PowerPoint de forma programática utilizando [VSTO](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) y [Aspose.Slides para PHP a través de Java](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Los gráficos son representaciones visuales de datos que se utilizan ampliamente en presentaciones. Este artículo muestra el código para crear un gráfico en Microsoft PowerPoint de forma programática utilizando [VSTO](/slides/es/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) y [Aspose.Slides para PHP a través de Java](/slides/es/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Creando un Gráfico**

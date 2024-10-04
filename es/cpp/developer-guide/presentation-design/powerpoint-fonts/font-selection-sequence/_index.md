@@ -3,7 +3,7 @@ title: Secuencia de selección de fuente en C++
 linktitle: Secuencia de selección de fuente en C++
 type: docs
 weight: 80
-url: /cpp/font-selection-sequence/
+url: /es/cpp/font-selection-sequence/
 keywords:
 - fuente
 - selección de fuente

@@ -2,7 +2,7 @@
 title: Cómo Ejecutar los Ejemplos
 type: docs
 weight: 140
-url: /php-java/how-to-run-the-examples/
+url: /es/php-java/how-to-run-the-examples/
 ---
 
 ## **Descargar desde GitHub**

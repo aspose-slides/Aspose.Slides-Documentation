@@ -2,7 +2,7 @@
 title: Contar el número de diapositivas
 type: docs
 weight: 50
-url: /net/count-the-number-of-slides/
+url: /es/net/count-the-number-of-slides/
 ---
 
 ## **OpenXML SDK**

@@ -2,7 +2,7 @@
 title: Propiedades de Presentación
 type: docs
 weight: 70
-url: /cpp/presentation-properties/
+url: /es/cpp/presentation-properties/
 ---
 
 

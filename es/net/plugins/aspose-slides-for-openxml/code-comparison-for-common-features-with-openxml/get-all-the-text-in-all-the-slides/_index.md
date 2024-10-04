@@ -2,7 +2,7 @@
 title: Obtener todo el texto en todas las diapositivas
 type: docs
 weight: 100
-url: /net/get-all-the-text-in-all-the-slides/
+url: /es/net/get-all-the-text-in-all-the-slides/
 ---
 
 ## **OpenXML SDK**

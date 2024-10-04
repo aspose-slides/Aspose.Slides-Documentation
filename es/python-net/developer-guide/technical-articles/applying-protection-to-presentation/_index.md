@@ -2,14 +2,14 @@
 title: Aplicando Protección a la Presentación
 type: docs
 weight: 70
-url: /python-net/applying-protection-to-presentation/
+url: /es/python-net/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Un uso común de Aspose.Slides es crear, actualizar y guardar presentaciones de Microsoft PowerPoint 2007 (PPTX) como parte de un flujo de trabajo automatizado. Los usuarios de la aplicación que utiliza Aspose.Slides de esta manera acceden a las presentaciones generadas. Protegerlas de la edición es una preocupación común. Es importante que las presentaciones autogeneradas mantengan su formato y contenido originales.
 
-Este artículo explica cómo [se construyen las presentaciones y las diapositivas](/slides/python-net/applying-protection-to-presentation/) y cómo Aspose.Slides para Python a través de .NET puede [aplicar protección a](/slides/python-net/applying-protection-to-presentation/), y luego [eliminarla de](/slides/python-net/applying-protection-to-presentation/) una presentación. Esta función es única de Aspose.Slides y, en el momento de escribir esto, no está disponible en Microsoft PowerPoint. Proporciona a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones crean.
+Este artículo explica cómo [se construyen las presentaciones y las diapositivas](/slides/es/python-net/applying-protection-to-presentation/) y cómo Aspose.Slides para Python a través de .NET puede [aplicar protección a](/slides/es/python-net/applying-protection-to-presentation/), y luego [eliminarla de](/slides/es/python-net/applying-protection-to-presentation/) una presentación. Esta función es única de Aspose.Slides y, en el momento de escribir esto, no está disponible en Microsoft PowerPoint. Proporciona a los desarrolladores una forma de controlar cómo se utilizan las presentaciones que sus aplicaciones crean.
 
 {{% /alert %}} 
 ## **Composición de una Diapositiva**

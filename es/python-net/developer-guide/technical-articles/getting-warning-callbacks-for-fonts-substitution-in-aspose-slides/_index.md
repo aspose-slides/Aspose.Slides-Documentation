@@ -2,7 +2,7 @@
 title: Obtener Callbacks de Advertencia para la Sustitución de Fuentes en Aspose.Slides
 type: docs
 weight: 120
-url: /python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /es/python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

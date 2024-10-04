@@ -2,7 +2,7 @@
 title: Fórmulas de Hoja de Cálculo de Gráficos
 type: docs
 weight: 70
-url: /php-java/chart-worksheet-formulas/
+url: /es/php-java/chart-worksheet-formulas/
 keywords: "ecuaciones de powerpoint, fórmulas de hoja de cálculo de powerpoint"
 description: "Ecuaciones y Fórmulas de Hoja de Cálculo de PowerPoint"
 ---

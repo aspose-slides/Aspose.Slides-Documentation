@@ -2,7 +2,7 @@
 title: Transición de Diapositivas
 type: docs
 weight: 80
-url: /php-java/slide-transition/
+url: /es/php-java/slide-transition/
 keywords: "transición de diapositivas de PowerPoint, transición de morph"
 description: "transición de diapositivas de PowerPoint, transición de morph de PowerPoint"
 ---

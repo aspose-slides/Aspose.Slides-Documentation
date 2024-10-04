@@ -2,7 +2,7 @@
 title: Integración Manual con el Diseñador de Informes de Visual Studio 2005 o 2008
 type: docs
 weight: 50
-url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
+url: /es/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
 ---
 
 {{% alert color="primary" %}} 

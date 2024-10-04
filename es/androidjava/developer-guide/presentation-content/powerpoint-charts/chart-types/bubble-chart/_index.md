@@ -1,7 +1,7 @@
 ---
 title: Gráfico de Burbuja
 type: docs
-url: /androidjava/bubble-chart/
+url: /es/androidjava/bubble-chart/
 ---
 
 ## **Escalado del Tamaño del Gráfico de Burbuja**

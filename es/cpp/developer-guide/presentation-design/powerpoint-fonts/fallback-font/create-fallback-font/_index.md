@@ -2,7 +2,7 @@
 title: Crear fuente de reemplazo
 type: docs
 weight: 10
-url: /cpp/create-fallback-font/
+url: /es/cpp/create-fallback-font/
 ---
 
 Aspose.Slides admite la interfaz [IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) y la clase [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) para especificar las reglas para aplicar una fuente de reemplazo. La clase [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) representa una asociación entre el rango Unicode especificado, utilizado para buscar glifos faltantes, y una lista de fuentes que pueden contener los glifos correctos:
@@ -25,5 +25,5 @@ También es posible [Remove()](https://reference.aspose.com/slides/cpp/class/asp
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) se puede usar para organizar una lista de objetos [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) cuando hay necesidad de especificar reglas de reemplazo de fuentes de reemplazo para múltiples rangos Unicode.
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Crear colección de fuentes de reemplazo](/slides/cpp/create-fallback-fonts-collection/)
+- [Crear colección de fuentes de reemplazo](/slides/es/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}

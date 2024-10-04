@@ -3,7 +3,7 @@ title: Combina Presentaciones de PowerPoint PPT, PPTX usando C#
 linktitle: Combinar Presentación
 type: docs
 weight: 40
-url: /net/merge-presentation/
+url: /es/net/merge-presentation/
 keywords: "Combinar PowerPoint, PPTX, PPT, combinar PowerPoint, combinar presentación, combinar presentación, C#, Csharp, .NET"
 description: "Combina o fusiona Presentaciones de PowerPoint en C# o .NET"
 ---

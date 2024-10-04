@@ -2,7 +2,7 @@
 title: Gestión de Etiquetas y Datos Personalizados
 type: docs
 weight: 300
-url: /cpp/gestion-de-etiquetas-y-datos-personalizados
+url: /es/cpp/gestion-de-etiquetas-y-datos-personalizados
 
 ---
 

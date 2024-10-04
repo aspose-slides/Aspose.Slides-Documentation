@@ -2,7 +2,7 @@
 title: Rectángulo
 type: docs
 weight: 80
-url: /python-net/rectangle/
+url: /es/python-net/rectangle/
 keywords: "Crear rectángulo, forma de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Crear rectángulo en presentación de PowerPoint en Python"
 ---

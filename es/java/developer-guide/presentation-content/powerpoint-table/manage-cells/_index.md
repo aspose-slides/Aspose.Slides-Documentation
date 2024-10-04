@@ -2,7 +2,7 @@
 title: Administrar Celdas
 type: docs
 weight: 30
-url: /java/manage-cells/
+url: /es/java/manage-cells/
 keywords: "Tabla, celdas combinadas, celdas divididas, imagen en celda de tabla, Java, Aspose.Slides para Java"
 description: "Celdas de tabla en presentaciones de PowerPoint en Java"
 ---

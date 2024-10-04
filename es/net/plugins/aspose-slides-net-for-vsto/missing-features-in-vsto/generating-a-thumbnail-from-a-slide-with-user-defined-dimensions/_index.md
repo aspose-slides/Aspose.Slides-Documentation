@@ -2,7 +2,7 @@
 title: Generando una miniatura de una diapositiva con dimensiones definidas por el usuario
 type: docs
 weight: 100
-url: /net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
+url: /es/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
 ---
 
 Para generar la miniatura de cualquier diapositiva deseada utilizando Aspose.Slides para .NET:
@@ -47,6 +47,6 @@ using (Presentation pres = new Presentation("TestPresentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-Para más detalles, visita [Creating Slides Thumbnail Image](/slides/net/presentation-viewer/#creating-slides-thumbnail-image).
+Para más detalles, visita [Creating Slides Thumbnail Image](/slides/es/net/presentation-viewer/#creating-slides-thumbnail-image).
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Patrón de Diapositiva
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /es/java/slide-master/
 keywords: "Agregar Patrón de Diapositiva, diapositiva maestra PPT, patrón de diapositiva PowerPoint, imagen a Patrón de Diapositiva, marcador de posición, múltiples Patrones de Diapositiva, comparar Patrones de Diapositiva, Java, Aspose.Slides para Java"
 description: "Agregar o editar patrón de diapositiva en presentación de PowerPoint en Java"
 ---
@@ -144,7 +144,7 @@ try {
 
 {{% alert color="primary" title="Ver también" %}} 
 
-Para más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/java/picture-frame/#create-picture-frame).
+Para más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/es/java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Agregar Marcador de Posición al Patrón de Diapositiva**

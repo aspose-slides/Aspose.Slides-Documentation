@@ -2,7 +2,7 @@
 title: Párrafo
 type: docs
 weight: 60
-url: /python-net/paragraph/
+url: /es/python-net/paragraph/
 keywords: "Párrafo, porción, coordenadas de párrafo, coordenadas de porción, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Párrafo y porción en la presentación de PowerPoint en Python"
 ---

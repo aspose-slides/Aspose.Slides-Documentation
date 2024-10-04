@@ -2,7 +2,7 @@
 title: Administrar Nodo de Forma SmartArt
 type: docs
 weight: 30
-url: /cpp/manage-smartart-shape-node/
+url: /es/cpp/manage-smartart-shape-node/
 keywords:
 - SmartArt
 - nodo de SmartArt

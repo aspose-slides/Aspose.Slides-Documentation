@@ -2,7 +2,7 @@
 title: Superíndices y Subíndices
 type: docs
 weight: 80
-url: /java/superscript-and-subscript/
+url: /es/java/superscript-and-subscript/
 ---
 
 ## **Gestionar texto de superíndice y subíndice**

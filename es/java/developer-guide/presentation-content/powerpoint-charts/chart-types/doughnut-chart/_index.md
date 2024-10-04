@@ -2,7 +2,7 @@
 title: Gráfico de Dona
 type: docs
 weight: 30
-url: /java/doughnut-chart/
+url: /es/java/doughnut-chart/
 ---
 
 ## **Cambiar el Tamaño del Hueco en el Gráfico de Dona**

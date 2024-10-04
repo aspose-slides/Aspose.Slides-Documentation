@@ -1,7 +1,7 @@
 ---
 title: Área de Trazado de Gráficos
 type: docs
-url: /java/chart-plot-area/
+url: /es/java/chart-plot-area/
 ---
 
 ## **Obtener Ancho, Alto del Área de Trazado de Gráficos**

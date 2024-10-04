@@ -1,7 +1,7 @@
 ---
 title: Eje del Gráfico
 type: docs
-url: /androidjava/chart-axis/
+url: /es/androidjava/chart-axis/
 keywords: "Eje del Gráfico de PowerPoint, Gráficos de Presentación, Java, Manipular Eje del Gráfico, Datos del gráfico"
 description: "Cómo editar el eje de gráfico de PowerPoint en Java"
 ---

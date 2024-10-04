@@ -2,7 +2,7 @@
 title: Soporte para la Biblioteca Interrumpible
 type: docs
 weight: 120
-url: /java/support-for-interruptable-library/
+url: /es/java/support-for-interruptable-library/
 ---
 
 ## **Biblioteca Interrumpible**

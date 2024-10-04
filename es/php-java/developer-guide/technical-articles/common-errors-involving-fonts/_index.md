@@ -2,7 +2,7 @@
 title: Excepciones Comunes y Errores Relacionados con Fuentes en Linux
 type: docs
 weight: 200
-url: /php-java/technical-articles/common-errors-involving-fonts
+url: /es/php-java/technical-articles/common-errors-involving-fonts
 keywords: "Excepción de fuente, Error de fuente, Linux, Java, Aspose.Slides para PHP a través de Java"
 description: "Excepciones y errores de fuentes en Linux"
 ---

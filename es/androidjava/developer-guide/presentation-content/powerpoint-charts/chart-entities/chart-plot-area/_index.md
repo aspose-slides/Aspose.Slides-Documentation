@@ -1,7 +1,7 @@
 ---
 title: Área de Gráfico
 type: docs
-url: /androidjava/chart-plot-area/
+url: /es/androidjava/chart-plot-area/
 ---
 
 

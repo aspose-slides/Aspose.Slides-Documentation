@@ -2,7 +2,7 @@
 title: Guardar Presentación
 type: docs
 weight: 80
-url: /python-net/save-presentation/
+url: /es/python-net/save-presentation/
 keywords: "Guardar PowerPoint, PPT, PPTX, Guardar Presentación, archivo, flujo, Python"
 description: "Guardar presentación de PowerPoint como archivo o flujo en Python"
 ---

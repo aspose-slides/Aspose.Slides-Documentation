@@ -2,7 +2,7 @@
 title: Libro de Trabajo de Gráficos
 type: docs
 weight: 70
-url: /cpp/chart-workbook/
+url: /es/cpp/chart-workbook/
 keywords: "Libro de trabajo de gráficos, datos de gráficos, presentación de PowerPoint, C++, CPP, Aspose.Slides para C++"
 description: "Libro de trabajo de gráficos en presentación de PowerPoint en C++"
 ---

@@ -2,7 +2,7 @@
 title: Formateo de Texto
 type: docs
 weight: 50
-url: /cpp/text-formatting/
+url: /es/cpp/text-formatting/
 keywords:
 - resaltar texto
 - expresión regular

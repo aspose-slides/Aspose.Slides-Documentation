@@ -3,7 +3,7 @@ title: Secuencia de selección de fuentes
 linktitle: Secuencia de selección de fuentes
 type: docs
 weight: 80
-url: /php-java/font-selection-sequence/
+url: /es/php-java/font-selection-sequence/
 keywords: "Fuente, Selección de fuente, Sustitución de fuente, Reemplazo de fuente, Presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: Secuencia de selección de fuente en PowerPoint
 ---

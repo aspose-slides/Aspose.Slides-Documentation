@@ -2,7 +2,7 @@
 title: Animación de PowerPoint
 type: docs
 weight: 150
-url: /php-java/powerpoint-animation/
+url: /es/php-java/powerpoint-animation/
 keywords: "animación de PowerPoint"
 description: "Animación de PowerPoint, animación de diapositivas de PowerPoint con Aspose.Slides."
 ---
@@ -53,19 +53,19 @@ Esto se puede lograr si combina varios comportamientos en una nueva animación p
 Aspose.Slides permite aplicar animación a formas, que pueden ser en realidad texto, rectángulo, línea, marco, objeto OLE, etc.
 
 {{% alert color="primary" %}} 
-Lea más sobre [**Animación de Forma**](/slides/php-java/shape-animation/).
+Lea más sobre [**Animación de Forma**](/slides/es/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **Gráficos Animados**
 Para crear gráficos animados, debe utilizar todas las mismas clases que para las formas. Sin embargo, es posible utilizar la animación de PowerPoint solo en categorías de gráficos o series de gráficos. También puede aplicar un efecto de animación a un elemento de categoría o elemento de serie.
 
 {{% alert color="primary" %}} 
-Lea más sobre [**Gráficos Animados**](/slides/php-java/animated-charts/).
+Lea más sobre [**Gráficos Animados**](/slides/es/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **Texto Animado**
 Además del texto animado, también es posible aplicar animación a un párrafo.
 
 {{% alert color="primary" %}} 
-Lea más sobre [**Texto Animado**](/slides/php-java/animated-text/).
+Lea más sobre [**Texto Animado**](/slides/es/php-java/animated-text/).
 {{% /alert %}}

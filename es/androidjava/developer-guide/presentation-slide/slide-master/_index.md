@@ -2,7 +2,7 @@
 title: Maestro de Diapositivas
 type: docs
 weight: 70
-url: /androidjava/slide-master/
+url: /es/androidjava/slide-master/
 keywords: "Agregar Maestro de Diapositivas, diapositiva maestra de PPT, maestro de diapositivas de PowerPoint, imagen al Maestro de Diapositivas, marcador de posición, múltiples Maestros de Diapositivas, comparar Maestros de Diapositivas, Java, Aspose.Slides para Android a través de Java"
 description: "Agregar o editar maestro de diapositivas en presentación de PowerPoint en Java"
 ---
@@ -144,7 +144,7 @@ try {
 
 {{% alert color="primary" title="Ver también" %}} 
 
-Para más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/androidjava/picture-frame/#create-picture-frame).
+Para más información sobre cómo agregar imágenes a una diapositiva, consulta el artículo [Marco de Imagen](/slides/es/androidjava/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Agregar Marcador de Posición al Maestro de Diapositivas**

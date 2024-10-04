@@ -3,7 +3,7 @@ title: Convertir PowerPoint a HTML en Java
 linktitle: Convertir PowerPoint a HTML
 type: docs
 weight: 30
-url: /androidjava/convert-powerpoint-to-html/
+url: /es/androidjava/convert-powerpoint-to-html/
 keywords: "Java PowerPoint a HTML, Convertir presentación de PowerPoint, PPTX, PPT, PPT a HTML, PPTX a HTML, PowerPoint a HTML, Guardar PowerPoint como HTML, Guardar PPT como HTML, Guardar PPTX como HTML, Java, Aspose.Slides, exportación a HTML"
 description: "Convertir PowerPoint a HTML en Java: Guardar PPTX o PPT como HTML en Java. Guardar diapositivas como HTML en Java"
 ---

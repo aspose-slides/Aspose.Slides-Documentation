@@ -2,12 +2,12 @@
 title: Formatear texto usando VSTO y Aspose.Slides para Java
 type: docs
 weight: 30
-url: /java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /es/java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-A veces, necesitas formatear el texto en las diapositivas programáticamente. Este artículo muestra cómo leer una presentación de muestra con algo de texto en la primera diapositiva usando [VSTO](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/) y [Aspose.Slides para Java](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/). El código formatea el texto en el tercer cuadro de texto de la diapositiva para que se parezca al texto en el último cuadro de texto.
+A veces, necesitas formatear el texto en las diapositivas programáticamente. Este artículo muestra cómo leer una presentación de muestra con algo de texto en la primera diapositiva usando [VSTO](/slides/es/java/format-text-using-vsto-and-aspose-slides-for-java/) y [Aspose.Slides para Java](/slides/es/java/format-text-using-vsto-and-aspose-slides-for-java/). El código formatea el texto en el tercer cuadro de texto de la diapositiva para que se parezca al texto en el último cuadro de texto.
 
 {{% /alert %}} 
 ## **Formateo de Texto**

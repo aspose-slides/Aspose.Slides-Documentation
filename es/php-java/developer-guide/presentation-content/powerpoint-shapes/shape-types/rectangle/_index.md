@@ -2,7 +2,7 @@
 title: Rectángulo
 type: docs
 weight: 80
-url: /php-java/rectangle/
+url: /es/php-java/rectangle/
 ---
 
 {{% alert color="primary" %}} 

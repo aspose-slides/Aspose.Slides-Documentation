@@ -2,7 +2,7 @@
 title: Fondo de Presentación
 type: docs
 weight: 20
-url: /cpp/presentation-background/
+url: /es/cpp/presentation-background/
 keywords: "fondo de PowerPoint, establecer fondo"
 description: "Establecer fondo en la presentación de PowerPoint en CPP"
 ---

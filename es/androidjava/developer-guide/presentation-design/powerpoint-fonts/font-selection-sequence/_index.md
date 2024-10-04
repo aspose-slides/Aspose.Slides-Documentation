@@ -3,7 +3,7 @@ title: Secuencia de Selección de Fuentes en Java
 linktitle: Secuencia de Selección de Fuentes en Java
 type: docs
 weight: 80
-url: /androidjava/font-selection-sequence/
+url: /es/androidjava/font-selection-sequence/
 keywords:
 - fuente
 - selección de fuentes

@@ -3,7 +3,7 @@ title: Sustitución de Fuentes - API de PowerPoint para Java
 linktitle: Sustitución de Fuentes
 type: docs
 weight: 70
-url: /php-java/font-substitution/
+url: /es/php-java/font-substitution/
 keywords: "Fuente, fuente sustituta, presentación de PowerPoint, Java, Aspose.Slides para PHP a través de Java"
 description: "Sustituir fuente en PowerPoint"
 ---
@@ -53,6 +53,6 @@ Este código PHP demuestra el proceso de sustitución de fuentes:
 
 {{%  alert title="NOTA"  color="warning"   %}} 
 
-Puede que desees ver [**Reemplazo de Fuentes**](/slides/php-java/font-replacement/).
+Puede que desees ver [**Reemplazo de Fuentes**](/slides/es/php-java/font-replacement/).
 
 {{% /alert %}}

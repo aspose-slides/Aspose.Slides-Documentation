@@ -2,12 +2,12 @@
 title: API Pública y Cambios Incompatibles con Versiones Anteriores en Aspose.Slides para .NET 15.4.0
 type: docs
 weight: 150
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+url: /es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Esta página lista todas las clases, métodos, propiedades, etc., [agregados](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) o [eliminados](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 15.4.0.
+Esta página lista todas las clases, métodos, propiedades, etc., [agregados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) o [eliminados](/slides/es/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/), y otros cambios introducidos con la API de Aspose.Slides para .NET 15.4.0.
 
 {{% /alert %}} 
 ## **Cambios en la API Pública**
@@ -16,7 +16,7 @@ El enum Aspose.Slides.SmartArt.OrganizationChartLayoutType representa el tipo de
 #### **Se ha agregado el método IBulletFormat.ApplyDefaultParagraphIndentsShifts**
 El método Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts establece desplazamientos predeterminados no nulos para el sangrado y el margen izquierdo efectivos cuando se habilitan viñetas (como lo hace PowerPoint si se habilitan las viñetas/numeración de párrafos en él). Si las viñetas están desactivadas, entonces simplemente restablece el sangrado y el margen izquierdo del párrafo (como lo hace PowerPoint si deshabilita las viñetas/numeración de párrafos en él).
 
-Ver ejemplos [aquí](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+Ver ejemplos [aquí](/slides/es/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **Se ha agregado el método IConnector.Reroute**
 El método Aspose.Slides.IConnector.Reroute redirige el conector de modo que tome el camino más corto posible entre las formas que conecta. Para hacer esto, el método Reroute() puede cambiar el StartShapeConnectionSiteIndex y EndShapeConnectionSiteIndex.
 

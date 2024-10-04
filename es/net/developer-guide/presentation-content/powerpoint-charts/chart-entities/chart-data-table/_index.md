@@ -1,7 +1,7 @@
 ---
 title: Tabla de Datos del Gráfico
 type: docs
-url: /net/chart-data-table/
+url: /es/net/chart-data-table/
 keywords: "Propiedades de fuente, tabla de datos del gráfico, presentación de PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "Establecer propiedades de fuente para la tabla de datos del gráfico en presentaciones de PowerPoint en C# o .NET"
 ---

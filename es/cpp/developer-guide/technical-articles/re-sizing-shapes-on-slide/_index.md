@@ -2,7 +2,7 @@
 title: Redimensionar Formas en la Diapositiva
 type: docs
 weight: 100
-url: /cpp/re-sizing-shapes-on-slide/
+url: /es/cpp/re-sizing-shapes-on-slide/
 ---
 
 #### **Redimensionar Formas en la Diapositiva**

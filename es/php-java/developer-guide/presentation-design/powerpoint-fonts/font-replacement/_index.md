@@ -3,7 +3,7 @@ title: Reemplazo de fuentes - PowerPoint Java API
 linktitle: Reemplazo de fuentes
 type: docs
 weight: 60
-url: /php-java/font-replacement/
+url: /es/php-java/font-replacement/
 description: Aprenda a reemplazar fuentes utilizando el método de reemplazo explícito en PowerPoint usando la API de Java.
 ---
 
@@ -40,6 +40,6 @@ Este código PHP demuestra el reemplazo de fuentes:
 
 {{% alert title="Nota" color="warning" %}} 
 
-Para establecer reglas que determinan qué sucede en ciertas condiciones (si una fuente no se puede acceder, por ejemplo), consulta [**Sustitución de Fuentes**](/slides/php-java/font-substitution/).
+Para establecer reglas que determinan qué sucede en ciertas condiciones (si una fuente no se puede acceder, por ejemplo), consulta [**Sustitución de Fuentes**](/slides/es/php-java/font-substitution/).
 
 {{% /alert %}}

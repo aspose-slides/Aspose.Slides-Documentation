@@ -2,7 +2,7 @@
 title: Redimensionar Formas en la Diapositiva
 type: docs
 weight: 130
-url: /python-net/redimensionar-formas-en-la-diapositiva/
+url: /es/python-net/redimensionar-formas-en-la-diapositiva/
 ---
 
 ## **Redimensionar Formas en la Diapositiva**

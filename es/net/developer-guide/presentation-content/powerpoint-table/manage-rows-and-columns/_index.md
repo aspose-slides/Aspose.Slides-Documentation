@@ -2,7 +2,7 @@
 title: Administrar Filas y Columnas
 type: docs
 weight: 20
-url: /net/manage-rows-and-columns/
+url: /es/net/manage-rows-and-columns/
 keywords: "Tabla, filas y columnas de la tabla, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Administra filas y columnas de tablas en presentaciones de PowerPoint en C# o .NET"
 

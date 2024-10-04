@@ -2,12 +2,12 @@
 title: Creando una Tabla en una Diapositiva de PowerPoint
 type: docs
 weight: 50
-url: /net/creating-a-table-on-powerpoint-slide/
+url: /es/net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Las tablas se utilizan ampliamente para mostrar datos en las diapositivas de presentación. Este artículo muestra cómo crear una tabla de 15 x 15 con un tamaño de fuente de 10 programáticamente usando primero [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/) y luego [Aspose.Slides para .NET](/slides/net/creating-a-table-on-powerpoint-slide/).
+Las tablas se utilizan ampliamente para mostrar datos en las diapositivas de presentación. Este artículo muestra cómo crear una tabla de 15 x 15 con un tamaño de fuente de 10 programáticamente usando primero [VSTO 2008](/slides/es/net/creating-a-table-on-powerpoint-slide/) y luego [Aspose.Slides para .NET](/slides/es/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creando Tablas**

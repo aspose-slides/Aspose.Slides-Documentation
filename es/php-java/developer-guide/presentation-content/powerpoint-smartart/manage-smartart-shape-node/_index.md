@@ -3,7 +3,7 @@ title: Crear o Administrar Nodo de Forma SmartArt en PowerPoint
 linktitle: Administrar Nodo de Forma SmartArt
 type: docs
 weight: 30
-url: /php-java/manage-smartart-shape-node/
+url: /es/php-java/manage-smartart-shape-node/
 keywords: smartart powerpoint, nodos smartart, posición smartart, eliminar smartart, añadir nodos smartart, presentación powerpoint, powerpoint java, api java de powerpoint
 description: Administrar nodo smart art y nodo hijo en Presentaciones de PowerPoint
 ---

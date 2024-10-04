@@ -2,7 +2,7 @@
 title: Marco de Imagen
 type: docs
 weight: 10
-url: /androidjava/picture-frame/
+url: /es/androidjava/picture-frame/
 keywords: "Agregar marco de imagen, crear marco de imagen, agregar imagen, crear imagen, extraer imagen, propiedad StretchOff, formato de marco de imagen, propiedades de marco de imagen, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Agregar marco de imagen a la presentación de PowerPoint en Java"
 

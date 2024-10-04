@@ -2,7 +2,7 @@
 title: Gestionando Etiquetas y Datos Personalizados
 type: docs
 weight: 300
-url: /java/managing-tags-and-custom-data
+url: /es/java/managing-tags-and-custom-data
 
 ---
 

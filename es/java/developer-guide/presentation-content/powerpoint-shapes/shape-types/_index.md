@@ -2,5 +2,5 @@
 title: Tipos de Forma
 type: docs
 weight: 10
-url: /java/shape-types/
+url: /es/java/shape-types/
 ---

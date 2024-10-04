@@ -2,7 +2,7 @@
 title: Licencias
 type: docs
 weight: 120
-url: /cpp/licensing/
+url: /es/cpp/licensing/
 ---
 
 ## **Evaluar Aspose.Slides**

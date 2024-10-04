@@ -2,7 +2,7 @@
 title: Fuente de reserva
 type: docs
 weight: 50
-url: /python-net/fallback-font/
+url: /es/python-net/fallback-font/
 keywords: "Fuente de reserva, fuente, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
 description: "Fuente de reserva de PowerPoint en Python"
 ---
@@ -14,6 +14,6 @@ Aspose.Slides permite crear fuentes de reserva, añadirlas a la colección de fu
 
 Para familiarizarse con estas características, utilice los siguientes enlaces:
 
-- [Crear fuente de reserva](/slides/python-net/create-fallback-font)
-- [Crear colección de fuentes de reserva](/slides/python-net/create-fallback-fonts-collection)
-- [Renderizar presentación con fuente de reserva](/slides/python-net/render-presentation-with-fallback-font)
+- [Crear fuente de reserva](/slides/es/python-net/create-fallback-font)
+- [Crear colección de fuentes de reserva](/slides/es/python-net/create-fallback-fonts-collection)
+- [Renderizar presentación con fuente de reserva](/slides/es/python-net/render-presentation-with-fallback-font)

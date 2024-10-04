@@ -2,7 +2,7 @@
 title: Gestionar TextBox
 type: docs
 weight: 20
-url: /net/manage-textbox/
+url: /es/net/manage-textbox/
 keywords: "Textbox, Marco de texto, Agregar textbox, Textbox con hiperenlace, C#, Csharp, Aspose.Slides para .NET"
 description: "Agregar un textbox o marco de texto a presentaciones de PowerPoint en C# o .NET"
 ---

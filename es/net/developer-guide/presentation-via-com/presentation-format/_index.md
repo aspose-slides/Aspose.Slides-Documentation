@@ -2,7 +2,7 @@
 title: Formato de Presentación
 type: docs
 weight: 10
-url: /net/presentation-format/
+url: /es/net/presentation-format/
 ---
 
 Aspose.Slides para .NET proporciona la clase [**PresentationFactory** ](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory) que se utiliza para obtener el formato de presentación antes de cargarlo.

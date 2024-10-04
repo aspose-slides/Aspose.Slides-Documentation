@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /es/cpp/watermark/
 keywords: "marca de agua en presentación"
 description: "Usa marca de agua en PowerPoint con Aspose.Slides. Agrega marca de agua en presentación ppt o elimina marca de agua. Inserta imagen de marca de agua o texto de marca de agua."
 ---
@@ -37,7 +37,7 @@ auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Marca de agua");
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/cpp/slide-master/)[TextFrame](/slides/cpp/adding-and-formatting-text/)
+- [Cómo usar ](/slides/es/cpp/slide-master/)[TextFrame](/slides/es/cpp/adding-and-formatting-text/)
 {{% /alert %}}
 
 ### **Agregar Marca de Agua de Texto a la Presentación**
@@ -56,7 +56,7 @@ auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Marca de agua");
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/cpp/slide-master/)[Master de Diapositivas](/slides/cpp/slide-master/)
+- [Cómo usar ](/slides/es/cpp/slide-master/)[Master de Diapositivas](/slides/es/cpp/slide-master/)
 {{% /alert %}}
 
 ### **Establecer Fuente de la Marca de Agua de Texto**
@@ -137,7 +137,7 @@ watermarkShape->get_AutoShapeLock()->set_GroupingLocked(true);
 
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo bloquear formas de la edición](/slides/cpp/presentation-locking/)
+- [Cómo bloquear formas de la edición](/slides/es/cpp/presentation-locking/)
 {{% /alert %}}
 
 ## **Traer Marca de Agua al Frente**

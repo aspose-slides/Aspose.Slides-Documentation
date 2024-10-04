@@ -2,7 +2,7 @@
 title: Mover una diapositiva a una nueva posición
 type: docs
 weight: 140
-url: /net/move-a-slide-to-a-new-position/
+url: /es/net/move-a-slide-to-a-new-position/
 ---
 
 ## **OpenXML SDK**

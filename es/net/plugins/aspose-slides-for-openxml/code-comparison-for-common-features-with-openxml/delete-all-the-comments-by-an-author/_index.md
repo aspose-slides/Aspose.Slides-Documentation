@@ -2,7 +2,7 @@
 title: Eliminar todos los comentarios de un autor
 type: docs
 weight: 70
-url: /net/delete-all-the-comments-by-an-author/
+url: /es/net/delete-all-the-comments-by-an-author/
 ---
 
 ## **OpenXML SDK**

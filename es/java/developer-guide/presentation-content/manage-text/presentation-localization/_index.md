@@ -2,7 +2,7 @@
 title: Localización de Presentaciones
 type: docs
 weight: 100
-url: /java/presentation-localization/
+url: /es/java/presentation-localization/
 ---
 
 ## **Cambiar el idioma del texto de la presentación y de las formas**

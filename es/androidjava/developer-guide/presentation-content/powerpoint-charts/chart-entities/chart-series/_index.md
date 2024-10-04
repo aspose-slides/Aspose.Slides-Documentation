@@ -1,7 +1,7 @@
 ---
 title: Series de Gráficos
 type: docs
-url: /androidjava/chart-series/
+url: /es/androidjava/chart-series/
 keywords: "Series de gráficos, color de serie, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Series de gráficos en presentaciones de PowerPoint en Java"
 ---

@@ -2,7 +2,7 @@
 title: Sección de Diapositivas
 type: docs
 weight: 100
-url: /python-net/slide-section/
+url: /es/python-net/slide-section/
 keywords: "Crear sección, Añadir sección, Editar nombre de sección, Presentación de PowerPoint, Python, Aspose.Slides"
 description: "Añadir y editar secciones en una presentación de PowerPoint en Python"
 ---

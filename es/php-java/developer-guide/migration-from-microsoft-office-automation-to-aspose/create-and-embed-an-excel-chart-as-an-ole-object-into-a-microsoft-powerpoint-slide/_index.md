@@ -2,12 +2,12 @@
 title: Crear e Incrustar un Gráfico de Excel como un Objeto OLE en una Diapositiva de Microsoft PowerPoint
 type: docs
 weight: 60
-url: /php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /es/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- Los gráficos son representaciones visuales de tus datos y se utilizan ampliamente en diapositivas de presentación. Este artículo te mostrará el código para crear e incrustar un Gráfico de Excel como un Objeto OLE en la Diapositiva de PowerPoint programáticamente utilizando [VSTO](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides para PHP a través de Java](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Los gráficos son representaciones visuales de tus datos y se utilizan ampliamente en diapositivas de presentación. Este artículo te mostrará el código para crear e incrustar un Gráfico de Excel como un Objeto OLE en la Diapositiva de PowerPoint programáticamente utilizando [VSTO](/slides/es/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) y [Aspose.Slides para PHP a través de Java](/slides/es/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Creación e Incrustación de un Gráfico de Excel**

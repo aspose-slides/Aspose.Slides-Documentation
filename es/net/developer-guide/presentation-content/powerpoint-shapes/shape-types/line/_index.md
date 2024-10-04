@@ -2,7 +2,7 @@
 title: Línea
 type: docs
 weight: 50
-url: /net/Line/
+url: /es/net/Line/
 keywords: "Línea, forma de PowerPoint, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Agregar línea en presentación de PowerPoint en C# o .NET"
 ---

@@ -2,7 +2,7 @@
 title: Agregar marco de imagen a la presentación
 type: docs
 weight: 50
-url: /net/add-picture-frame-to-presentation/
+url: /es/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**

@@ -2,7 +2,7 @@
 title: Gestionar TextBox
 type: docs
 weight: 20
-url: /androidjava/manage-textbox/
+url: /es/androidjava/manage-textbox/
 description: Crea un cuadro de texto en las diapositivas de PowerPoint utilizando Java. Agrega una columna en el cuadro de texto o marco de texto en las diapositivas de PowerPoint utilizando Java. Agrega un cuadro de texto con hipervínculo en las diapositivas de PowerPoint utilizando Java.
 ---
 

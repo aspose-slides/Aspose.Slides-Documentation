@@ -1,7 +1,7 @@
 ---
 title: Gráfico 3D
 type: docs
-url: /androidjava/3d-chart/
+url: /es/androidjava/3d-chart/
 ---
 
 ## **Establecer las propiedades RotationX, RotationY y DepthPercents del Gráfico 3D**

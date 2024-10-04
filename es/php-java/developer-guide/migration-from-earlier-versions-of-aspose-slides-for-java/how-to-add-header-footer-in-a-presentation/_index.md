@@ -2,7 +2,7 @@
 title: Cómo Agregar Encabezado y Pie de Página en una Presentación
 type: docs
 weight: 20
-url: /php-java/how-to-add-header-footer-in-a-presentation/
+url: /es/php-java/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

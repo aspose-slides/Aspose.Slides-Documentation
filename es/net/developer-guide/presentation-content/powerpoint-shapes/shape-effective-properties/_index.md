@@ -2,7 +2,7 @@
 title: Propiedades Efectivas de la Forma
 type: docs
 weight: 50
-url: /net/shape-effective-properties/
+url: /es/net/shape-effective-properties/
 keywords: "Propiedades de la forma, propiedades de la cámara, rig de luz, forma de bisel, cuadro de texto, estilo de texto, valor de altura de fuente, formato de relleno para tabla, presentación de PowerPoint, C#, Csharp, Aspose.Slides para .NET"
 description: "Obtenga propiedades efectivas de la forma en presentaciones de PowerPoint en C# o .NET"
 ---

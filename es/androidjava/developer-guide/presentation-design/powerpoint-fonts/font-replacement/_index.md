@@ -3,7 +3,7 @@ title: Reemplazo de Fuentes - PowerPoint Java API
 linktitle: Reemplazo de Fuentes
 type: docs
 weight: 60
-url: /androidjava/font-replacement/
+url: /es/androidjava/font-replacement/
 description: Aprenda a reemplazar fuentes utilizando el método de reemplazo explícito en PowerPoint mediante la API de Java.
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="Nota" color="warning" %}} 
 
-Para establecer reglas que determinen qué sucede en ciertas condiciones (si, por ejemplo, no se puede acceder a una fuente), consulta [**Sustitución de Fuentes**](/slides/androidjava/font-substitution/).
+Para establecer reglas que determinen qué sucede en ciertas condiciones (si, por ejemplo, no se puede acceder a una fuente), consulta [**Sustitución de Fuentes**](/slides/es/androidjava/font-substitution/).
 
 {{% /alert %}}

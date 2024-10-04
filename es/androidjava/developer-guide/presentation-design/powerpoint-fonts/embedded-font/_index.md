@@ -3,7 +3,7 @@ title: Fuente embebida - API de Java para PowerPoint
 linktitle: Fuente embebida
 type: docs
 weight: 40
-url: /androidjava/embedded-font/
+url: /es/androidjava/embedded-font/
 keywords: "Fuentes, fuentes embebidas, agregar fuentes, presentación de PowerPoint, Java, Aspose.Slides para Android a través de Java"
 description: "Utilice fuentes embebidas en la presentación de PowerPoint en Java"
 

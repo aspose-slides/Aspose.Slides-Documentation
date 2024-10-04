@@ -2,7 +2,7 @@
 title: Licencias Simples y Asequibles
 type: docs
 weight: 60
-url: /reportingservices/simple-and-affordable-licensing/
+url: /es/reportingservices/simple-and-affordable-licensing/
 ---
 
 ## Tipos de Licencias 

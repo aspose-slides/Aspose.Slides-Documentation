@@ -2,7 +2,7 @@
 title: Ventas de la Empresa
 type: docs
 weight: 20
-url: /reportingservices/company-sales/
+url: /es/reportingservices/company-sales/
 ---
 
 ## **Características:**

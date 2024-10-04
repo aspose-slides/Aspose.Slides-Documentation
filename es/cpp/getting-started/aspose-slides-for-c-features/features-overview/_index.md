@@ -2,7 +2,7 @@
 title: Visión General de las Características
 type: docs
 weight: 10
-url: /cpp/features-overview/
+url: /es/cpp/features-overview/
 description: La API de PowerPoint de C++ admite la mayoría de los formatos de documentos de PowerPoint y también los exporta a formatos populares. Las características clave incluyen conversiones, renderización, manipulación de contenido y formateo.
 ---
 
@@ -11,10 +11,10 @@ Aspose.Slides para C++ admite la mayoría de los formatos de documentos de Power
 
 |**Característica**|**Descripción**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides para C++ proporciona el procesamiento más rápido para este formato de documento de presentación.|
-|[Formato de Documento Portátil (PDF)](/slides/cpp/portable-document-format-pdf/)|Los formatos de archivo compatibles se pueden exportar a documentos en Adobe Formato de Documento Portátil (PDF) con un solo método.|
-|[Especificación de Analizador XML (XPS)](/slides/cpp/xml-parser-specification-xps/)|Todos los formatos de archivo compatibles se pueden exportar a documentos de Especificación de Analizador XML (XPS) con un solo método.|
-|[PresentationML (PPTX, XML)](/slides/cpp/presentationml-pptx-xml/)|Aspose.Slides para C++ admite el procesamiento del formato de presentación OOXML también conocido como PresentationML o PPTX.|
+|[Microsoft PowerPoint (PPT)](/slides/es/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides para C++ proporciona el procesamiento más rápido para este formato de documento de presentación.|
+|[Formato de Documento Portátil (PDF)](/slides/es/cpp/portable-document-format-pdf/)|Los formatos de archivo compatibles se pueden exportar a documentos en Adobe Formato de Documento Portátil (PDF) con un solo método.|
+|[Especificación de Analizador XML (XPS)](/slides/es/cpp/xml-parser-specification-xps/)|Todos los formatos de archivo compatibles se pueden exportar a documentos de Especificación de Analizador XML (XPS) con un solo método.|
+|[PresentationML (PPTX, XML)](/slides/es/cpp/presentationml-pptx-xml/)|Aspose.Slides para C++ admite el procesamiento del formato de presentación OOXML también conocido como PresentationML o PPTX.|
 |[Conversión de PPTX a HTML](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-html/)|Aspose.Slides para C++ admite la conversión de Presentación a formato HTML.|
 ## **Renderización**
 Aspose.Slides para C++ admite la renderización de alta fidelidad de diapositivas en los documentos de presentación a varios formatos gráficos como se detalla a continuación:

@@ -2,7 +2,7 @@
 title: Fusión de Presentaciones
 type: docs
 weight: 40
-url: /androidjava/merge-presentation/
+url: /es/androidjava/merge-presentation/
 keywords: "Fusionar PowerPoint, PPTX, PPT, combinar PowerPoint, fusionar presentación, combinar presentación, Java"
 description: "Fusionar o combinar presentaciones de PowerPoint en Java"
 ---

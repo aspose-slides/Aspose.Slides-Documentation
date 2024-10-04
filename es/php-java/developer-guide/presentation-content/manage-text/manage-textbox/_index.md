@@ -2,7 +2,7 @@
 title: Gestionar TextBox
 type: docs
 weight: 20
-url: /php-java/manage-textbox/
+url: /es/php-java/manage-textbox/
 description: Crear un cuadro de texto en las diapositivas de PowerPoint usando PHP. Agregar columna en el cuadro de texto o marco de texto en las diapositivas de PowerPoint usando PHP. Agregar un cuadro de texto con hipervínculo en las diapositivas de PowerPoint usando PHP.
 ---
 
