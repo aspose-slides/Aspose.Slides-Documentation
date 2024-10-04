@@ -1,5 +1,5 @@
 ---
-title:Descripción General de Características
+title: Descripción General de Características
 type: docs
 weight: 20
 url: /es/nodejs-net/features-overview/
