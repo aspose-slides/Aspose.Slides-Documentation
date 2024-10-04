@@ -297,20 +297,21 @@ A closed shape is defined as one where all its sides connect, forming a single b
 ```cs
 bool IsGeometryClosed(GeometryShape geometryShape)
 {
-    var isClosed = true;
+    bool? isClosed = null;
 
     foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
         var dataLength = geometryPath.PathData.Length;
-        if (dataLength == 0) continue;
+        if (dataLength == 0)
+            continue;
 
         var lastSegment = geometryPath.PathData[dataLength - 1];
         isClosed = lastSegment.PathCommand == PathCommandType.Close;
 
-        if (!isClosed) break;
+        if (isClosed == false)
+            return false;
     }
-
-    return isClosed;
+    return isClosed == true;
 }
 ```
 
