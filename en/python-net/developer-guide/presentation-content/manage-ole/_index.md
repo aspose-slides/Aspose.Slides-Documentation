@@ -3,8 +3,20 @@ title: Manage OLE
 type: docs
 weight: 40
 url: /python-net/manage-ole/
-keywords: "Add OLE, Add object, Embed object Object Linking & Embedding, OLE Object Frame, Embed OLE, PowerPoint presentation, Python, Aspose.Slides for Python via .NET "
-description: "Add OLE object to PowerPoint presentation in Python"
+keywords:
+- add OLE
+- embed OLE
+- add an object
+- embed an object
+- embed a file
+- linked object
+- Object Linking & Embedding
+- OLE object
+- PowerPoint 
+- presentation
+- Python
+- Aspose.Slides for Python via .NET
+description: Add OLE objects to PowerPoint presentations in Python
 ---
 
 {{% alert title="Info" color="info" %}}
@@ -198,7 +210,13 @@ with slides.Presentation("embeddedOle.pptx") as pres:
     pres.save("embeddedOle-newImage.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
 
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `update_automatic` property of the [OleObjectFrame](https://reference.aspose.com/slides/python-net/aspose.slides/oleobjectframe/) class to `False`:
+
+```py
+oleObjectFrame.update_automatic = False
+```
 
 ## Extracting Embedded Files
 
