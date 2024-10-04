@@ -292,32 +292,25 @@ using (var presentation = new Presentation())
 
 ## **Find Out If a Shape Geometry Is Closed**
 
-Checking if a shape in a PowerPoint presentation is closed can be crucial for the correct display and editing of objects on slides. A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline.
-
-The closedness of a shape is important for performing various operations, such as filling with color or gradient, applying effects and transformations, and ensuring proper interaction with other slide elements.
-
-To check whether the geometry of a shape is closed, you need to do the following:
-1. Get access to the shape geometry.
-2. Enumerate the geometry paths in the shape.
-    2.1. Get the last segment of the next path.
-    2.2. Check if the last segment is the `CLOSE` command.
-
-The following code example shows how to do this:
+A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```cs
-if (shape is GeometryShape geometryShape)
+bool IsGeometryClosed(GeometryShape geometryShape)
 {
-    for (int i = 0; i < geometryShape.GetGeometryPaths().Length; i++)
+    var isClosed = true;
+
+    foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        IGeometryPath path = geometryShape.GetGeometryPaths()[i];
+        var dataLength = geometryPath.PathData.Length;
+        if (dataLength == 0) continue;
 
-        if (path.PathData.Length == 0) continue;
+        var lastSegment = geometryPath.PathData[dataLength - 1];
+        isClosed = lastSegment.PathCommand == PathCommandType.Close;
 
-        IPathSegment lastSegment = path.PathData[path.PathData.Length - 1];
-        bool isClosed = lastSegment.PathCommand == PathCommandType.Close;
-        
-        Console.WriteLine($"Path {i} is closed: {isClosed}");
+        if (!isClosed) break;
     }
+
+    return isClosed;
 }
 ```
 
