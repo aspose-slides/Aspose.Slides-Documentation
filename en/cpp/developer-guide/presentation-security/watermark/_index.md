@@ -3,207 +3,199 @@ title: Watermark
 type: docs
 weight: 40
 url: /cpp/watermark/
-keywords: "watermark in presentation"
-description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in ppt presentation or remove watermark. Insert image watermark or text watermark."
+keywords:
+- watermark
+- add watermark
+- text watermark
+- image watermark
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
+description: "Add text and image watermarks to PowerPoint presentations in C++"
 ---
 
+## **About Watermarks**
 
-## **About Watermark**
-**Watermark** in presentation is a text or image stamp, used upon a slide or all presentation slides. Usually, watermark is used to indicate that the presentation is a draft (e.g. "Draft" watermark); that it contains confidential information (e.g. "Confidential" watermak); specify which company it belongs to (e.g. "Company name" watermark); identify presentation author, etc. Watermark helps to prevent presentation copyrights violation, indicating that the presentation should not be copied. Watermarks are used with both PowerPoint and OpenOffice presentation formats. In Aspose.Slides you can add watermark to PowerPoint PPT, PPTX and OpenOffice ODP file formats.
+**A watermark** in a presentation is a text or image stamp used on a slide or throughout all presentation slides. Usually, a watermark is used to indicate that the presentation is a draft (e.g., a "Draft" watermark), that it contains confidential information (e.g., a "Confidential" watermark), to specify which company it belongs to (e.g., a "Company Name" watermark), to identify the presentation author, etc. A watermark helps to prevent copyright violations by indicating that the presentation should not be copied. Watermarks are used in both PowerPoint and OpenOffice presentation formats. In Aspose.Slides, you can add a watermark to PowerPoint PPT, PPTX, and OpenOffice ODP file formats.
 
-In [**Aspose.Slides for C++**](https://products.aspose.com/slides/cpp/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame)class and to add image watermark - [**PictureFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame). PictureFrame implements [IShape ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape)interface and can use all the power of flexible settings of shape object. TextFrame is not a shape and its settings are limited. Therefore, it is advised to wrap TextFrame into [IShape ](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape)object.
+In [**Aspose.Slides**](https://products.aspose.com/slides/cpp/), there are various ways you can create watermarks in PowerPoint or OpenOffice documents and modify their design and behavior. The common aspect is that to add text watermarks, you should use the [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) interface, and to add image watermarks, use the [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) class or fill a watermark shape with an image. `PictureFrame` implements the [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interface, allowing you to use all the flexible settings of the shape object. Since `ITextFrame` is not a shape and its settings are limited, it is wrapped into an [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) object.
 
-There are two ways watermark can be applied: to a single slide and to all presentation slides. Slide Master is used to apply watermark to all presentation slides - watermark is added into Slide Master, completely designed there and applied to all slides without modifying a permission to modify watermark on slides.
+There are two ways a watermark can be applied: to a single slide or to all presentation slides. The Slide Master is used to apply a watermark to all presentation slides — the watermark is added to the Slide Master, fully designed there, and applied to all slides without affecting the permission to modify the watermark on individual slides.
 
-Watermark is usually considered not to be available for editing by other users. To prevent editing watermark (or rather watermark parent shape), Aspose.Slides provides shape locking functionality. A certain shape can be locked on a normal slide or on a Slide Master. When locking watermark shape on a Slide Master - it will be locked on all presentation slides.
+A watermark is usually considered to be unavailable for editing by other users. To prevent the watermark (or rather the watermark's parent shape) from being edited, Aspose.Slides provides shape locking functionality. A specific shape can be locked on a normal slide or on a Slide Master. When the watermark shape is locked on the Slide Master, it will be locked on all presentation slides.
 
-You can set the name of watermark, so in future, if you want to delete the watermark, you may find it in slide shapes by name.
+You can set a name for the watermark so that in the future, if you want to delete it, you can find it in the slide's shapes by name.
 
-You can design watermark in any way however there are usually attend common features within watermarks, like: center alignment, rotation, front position, etc. We will consider how to use them in the examples below.
+You can design the watermark in any way; however, there are usually common features in watermarks, such as center alignment, rotation, front position, etc. We will consider how to use these in the examples below.
+
 ## **Text Watermark**
-### **Add Text Watermark to Slide**
-To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame) type. This type is not inherited from [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame) object into [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) object. To add watermark into the shape, use [**AddTextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3) method with watermark text passed into it:
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+### **Add a Text Watermark to a Slide**
 
-auto master = presentation->get_Masters()->idx_get(0);
+To add a text watermark in PPT, PPTX, or ODP, you can first add a shape to the slide, then add a text frame to this shape. The text frame is represented by the [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) interface. This type is not inherited from [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/), which has a wide set of properties for positioning the watermark in a flexible way. Therefore, the [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) object is wrapped in an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) object. To add watermark text to the shape, use the [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/) method as shown below.
 
-auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 0.0f, 0.0f, 0.0f, 0.0f);
+```cpp
+auto watermarkText = u"CONFIDENTIAL";
 
-auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Watermark");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
+
+presentation->Dispose();
 ```
-
 
 {{% alert color="primary" title="See also" %}} 
-- [How to use ](/slides/cpp/slide-master/)[TextFrame](/slides/cpp/adding-and-formatting-text/)
+- [How to Use the TextFrame Class](/slides/cpp/text-formatting/)
 {{% /alert %}}
 
-### **Add Text Watermark to Presentation**
-If you want to add watermark in presentation (means, all slides at once), 
-add it into [**MasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.master_slide). 
-All the other logic is the same as in adding watermark into a single slide - create an 
-[IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) 
-object and then add watermark into it with
- [**AddTextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3) method:
+### **Add a Text Watermark to a Presentation**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+If you want to add a text watermark to the entire presentation (i.e., all slides at once), add it to the [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/). The rest of the logic is the same as when adding a watermark to a single slide — create an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) object and then add the watermark to it using the [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/) method.
 
-auto master = presentation->get_Masters()->idx_get(0);
+```cpp
+auto watermarkText = u"CONFIDENTIAL";
 
-auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 0.0f, 0.0f, 0.0f, 0.0f);
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
 
-auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Watermark");
+auto watermarkShape = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
+
+presentation->Dispose();
 ```
-
 
 {{% alert color="primary" title="See also" %}} 
-- [How to use ](/slides/cpp/slide-master/)[Slide Master](/slides/cpp/slide-master/)
+- [How to Use the Slide Master](/slides/cpp/slide-master/)
 {{% /alert %}}
 
-### **Set Font of Text Watermark**
-You can change the font of text watermark:
+### **Set Watermark Shape Transparency**
 
-``` cpp
-int32_t alpha = 150, red = 200, green = 200, blue = 200;
-    
-auto watermarkPortion = watermarkTextFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+By default, the rectangle shape is styled with fill and line colors. The following lines of code make the shape transparent.
 
-watermarkPortion->get_PortionFormat()->set_FontHeight(52.0f);
+```cpp
+watermarkShape->get_FillFormat()->set_FillType(FillType::NoFill);
+watermarkShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
 ```
 
+### **Set the Font for a Text Watermark**
 
-### **Set Text Watermark Transparency**
-To set the transparency of text watermark use this code:
+You can change the font of the text watermark as shown below.
 
-``` cpp
-int32_t alpha = 150, red = 200, green = 200, blue = 200;
-    
-auto watermarkPortion = watermarkTextFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-
-watermarkPortion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-
-watermarkPortion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(alpha, red, green, blue));
+```cpp
+auto textFormat = watermarkFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+textFormat->set_LatinFont(MakeObject<FontData>(u"Arial"));
+textFormat->set_FontHeight(50);
 ```
 
+### **Set the Watermark Text Color**
 
-### **Center Text Watermark**
-It is possible to center watermark on a slide and for that you can do the following:
+To set the color of the watermark text, use this code:
 
-``` cpp
-PointF center(presentation->get_SlideSize()->get_Size().get_Width() / 2, presentation->get_SlideSize()->get_Size().get_Height() / 2);
+```cpp
+auto alpha = 150, red = 200, green = 200, blue = 200;
 
-float width = 300.0f;
-float height = 300.0f;
-
-float x = center.get_X() - width / 2;
-float y = center.get_Y() - height / 2;
-
-//...
-
-auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, x, y, width, height);
+auto fillFormat = watermarkFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat();
+fillFormat->set_FillType(FillType::Solid);
+fillFormat->get_SolidFillColor()->set_Color(Color::FromArgb(alpha, red, green, blue));
 ```
 
+### **Center a Text Watermark**
+
+It is possible to center the watermark on a slide, and for that, you can do the following:
+
+```cpp
+auto slideSize = presentation->get_SlideSize()->get_Size();
+
+auto watermarkWidth = 400;
+auto watermarkHeight = 40;
+auto watermarkX = (slideSize.get_Width() - watermarkWidth) / 2;
+auto watermarkY = (slideSize.get_Height() - watermarkHeight) / 2;
+
+auto watermarkShape = slide->get_Shapes()->AddAutoShape(
+    ShapeType::Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+
+auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
+```
+
+The image below shows the final result.
+
+![The text watermark](text_watermark.png)
 
 ## **Image Watermark**
-### **Add Image Watermark to Presentation**
-To add image watermark into all presentation slides, you may do the following:
 
-``` cpp
-auto image = presentation->get_Images()->AddImage(:File::ReadAllBytes(u"watermark.png"));
+### **Add an Image Watermark to a Presentation**
 
-// ...
+To add an image watermark to a presentation slide, you can do the following:
+
+```cpp
+auto imageStream = File::ReadAllBytes(u"watermark.png");
+auto image = presentation->get_Images()->AddImage(imageStream);
 
 watermarkShape->get_FillFormat()->set_FillType(FillType::Picture);
-
 watermarkShape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
-
 watermarkShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 ```
 
+## **Lock a Watermark from Editing**
 
+If it is necessary to prevent a watermark from being edited, use the [IAutoShape::get_AutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_autoshapelock/) method on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
-
-## **Lock Watermark from Editing**
-If its needed to prevent watermark from editing, use [**AutoShape::get_AutoShapeLock()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape#a3493d7814106e74ef2213707f64135a8)method on the shape, that wraps its. With this method you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
-
-``` cpp
-// Lock Shapes from modifying
+```cpp
+// Lock the watermark shape from modifying
 watermarkShape->get_AutoShapeLock()->set_SelectLocked(true);
-watermarkShape->get_AutoShapeLock()->set_SizeLocked(true);
-watermarkShape->get_AutoShapeLock()->set_TextLocked(true);
-watermarkShape->get_AutoShapeLock()->set_PositionLocked(true);
-watermarkShape->get_AutoShapeLock()->set_GroupingLocked(true);
+watermarkShape->get_AutoShapeLock()->SizeLocked(true);
+watermarkShape->get_AutoShapeLock()->TextLocked(true);
+watermarkShape->get_AutoShapeLock()->PositionLocked(true);
+watermarkShape->get_AutoShapeLock()->GroupingLocked(true);
 ```
 
+## **Bring a Watermark to Front**
 
+In Aspose.Slides, the Z-order of shapes can be set via the [IShapeCollection::Reorder](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/reorder/) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
-{{% alert color="primary" title="See also" %}} 
-- [How to Lock Shapes from Editing](/slides/cpp/presentation-locking/)
-{{% /alert %}}
-
-## **Bring Watermark to Front**
-In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection::Reorder()** ](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#ad9bc39c557ea8ea3d67e8cec53363c40)method. For that, you need to call this method from presentation slides list and pass shape reference and its order number into the method. This way its possible to put shape to the front or back of the slide. This feature is especially useful if you need to place watermark on front of presentation:
-
-``` cpp
-slide->get_Shapes()->Reorder(slide->get_Shapes()->get_Count() - 1, watermarkShape);
+```cpp
+auto shapeCount = slide->get_Shapes()->get_Count();
+slide->get_Shapes()->Reorder(shapeCount - 1, watermarkShape);
 ```
-
 
 ## **Set Watermark Rotation**
-Here is an example how to set the rotation of watermark (and its parent shape):
 
-``` cpp
-int32_t calculateRotation(float height, float width)
-{
-    double pageHeight = Convert::ToDouble(height);
-    double pageWidth = Convert::ToDouble(width);
-    
-    double rotation = Math::Atan((pageHeight / pageWidth)) * 180 / Math::PI;
-    
-    return Convert::ToInt32(rotation);
-}
+Here is a code example of how to adjust the rotation of the watermark so that it is positioned diagonally across the slide:
+
+```cpp
+auto diagonalAngle = Math::Atan((slideSize.get_Height() / slideSize.get_Width())) * 180 / Math::PI;
+
+watermarkShape->set_Rotation((float)diagonalAngle);
 ```
 
-``` cpp
-float h = presentation->get_SlideSize()->get_Size().get_Height();
-float w = presentation->get_SlideSize()->get_Size().get_Width();
+## **Set a Name for a Watermark**
 
-watermarkShape->set_X(static_cast<float>(System::Convert::ToInt32((w - watermarkShape->get_Width()) / 2)));
+Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [IAutoShape::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_name/) method:
 
-watermarkShape->set_Y(static_cast<float>(System::Convert::ToInt32((h - watermarkShape->get_Height()) / 2)));
-
-watermarkShape->set_Rotation(static_cast<float>(calculateRotation(h, w)));
-```
-
-
-## **Set Name to Watermark**
-Aspose.Slides allows to set the name of shape. By shape name you can access it in future to modify or delete. To set the name of watermark parent shape - set it into [**AutoShape::set_Name()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape#ab3df67c6a42fb153d84f58ee69e8b221) method:
-
-``` cpp
+```cpp
 watermarkShape->set_Name(u"watermark");
 ```
 
+## **Remove a Watermark**
 
-## **Remove Watermark**
-To remove watermark shape and its child controls from slide, use [AutoShape.get_Name()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape#a3de41f504e4f9a728c3801159773487e) method to find it in slide shapes. Then pass watermark shape into [**ShapeCollection::Remove()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#a78968527e6f86cced3ffa5c2accab3fc) method:
+To remove the watermark shape, use the [IAutoShape::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_name/) method to find it in the slide shapes. Then, pass the watermark shape into the [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) method:
 
-``` cpp
-for (int32_t i = 0; i < slide->get_Shapes()->get_Count(); i++)
+```cpp
+auto slideShapes = slide->get_Shapes()->ToArray();
+for(auto shape : slideShapes)
 {
-	auto shape = ExplicitCast<AutoShape>(slide->get_Shapes()->idx_get(i));
-	if (String::Compare(shape->get_Name(), u"watermark", StringComparison::Ordinal) == 0)
-	{
-		slide->get_Shapes()->Remove(watermarkShape);
-	}
+    if (String::Compare(shape->get_Name(), u"watermark", StringComparison::Ordinal) == 0)
+    {
+        slide->get_Shapes()->Remove(watermarkShape);
+    }
 }
 ```
 
+## **A Live Example**
 
-## **Live Example**
-You may want to check out **Aspose.Slides** **free** [**Add Watermark** ](https://products.aspose.app/slides/watermark) and [**Remove Watermark**](https://products.aspose.app/slides/watermark/remove-watermark) online tools. 
+You may want to check out the **Aspose.Slides free** [Add Watermark](https://products.aspose.app/slides/watermark) and [Remove Watermark](https://products.aspose.app/slides/watermark/remove-watermark) online tools.
 
-![todo:image_alt_text](slides-watermark.png)
+![Online tools to add and remove watermarks](online_tools.png)
