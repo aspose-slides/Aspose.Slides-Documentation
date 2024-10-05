@@ -2,203 +2,200 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /es/cpp/watermark/
-keywords: "marca de agua en presentación"
-description: "Usa marca de agua en PowerPoint con Aspose.Slides. Agrega marca de agua en presentación ppt o elimina marca de agua. Inserta imagen de marca de agua o texto de marca de agua."
+url: /cpp/watermark/
+keywords:
+- marca de agua
+- agregar marca de agua
+- marca de agua de texto
+- marca de agua de imagen
+- PowerPoint
+- presentación
+- C++
+- Aspose.Slides para C++
+description: "Agregue marcas de agua de texto e imagen a presentaciones de PowerPoint en C++"
 ---
 
+## **Acerca de las Marcas de Agua**
 
-## **Acerca de la Marca de Agua**
-La **marca de agua** en presentación es un sello de texto o imagen, utilizado en una diapositiva o en todas las diapositivas de la presentación. Usualmente, la marca de agua se utiliza para indicar que la presentación es un borrador (por ejemplo, "Borrador" marca de agua); que contiene información confidencial (por ejemplo, "Confidencial" marca de agua); especificar a qué empresa pertenece (por ejemplo, "Nombre de la empresa" marca de agua); identificar al autor de la presentación, etc. La marca de agua ayuda a prevenir la violación de derechos de autor de la presentación, indicando que no debe ser copiada. Las marcas de agua se utilizan tanto con formatos de presentación de PowerPoint como de OpenOffice. En Aspose.Slides puedes agregar marca de agua a los formatos de archivo PowerPoint PPT, PPTX y OpenOffice ODP.
+**Una marca de agua** en una presentación es un sello de texto o imagen utilizado en una diapositiva o en todas las diapositivas de la presentación. Generalmente, se utiliza una marca de agua para indicar que la presentación es un borrador (por ejemplo, una marca de agua "Borrador"), que contiene información confidencial (por ejemplo, una marca de agua "Confidencial"), para especificar a qué empresa pertenece (por ejemplo, una marca de agua "Nombre de la Empresa"), para identificar al autor de la presentación, etc. Una marca de agua ayuda a prevenir violaciones de derechos de autor al indicar que la presentación no debe ser copiada. Las marcas de agua se utilizan en los formatos de presentación de PowerPoint y OpenOffice. En Aspose.Slides, puede agregar una marca de agua a los formatos de archivo PowerPoint PPT, PPTX y OpenOffice ODP.
 
-En [**Aspose.Slides para C++**](https://products.aspose.com/slides/cpp/) hay varias formas de crear marca de agua en PowerPoint o OpenOffice, envolverla en diferentes formas, cambiar el diseño y comportamiento, etc. Lo común es que para agregar marcas de agua de texto debes usar la clase [**TextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame) y para agregar marca de agua de imagen - [**PictureFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame). PictureFrame implementa la interfaz [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) y puede utilizar todo el potencial de configuraciones flexibles del objeto de forma. TextFrame no es una forma y sus configuraciones son limitadas. Por lo tanto, se aconseja envolver TextFrame en un objeto [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape).
+En [**Aspose.Slides**](https://products.aspose.com/slides/cpp/), hay varias formas de crear marcas de agua en documentos de PowerPoint o OpenOffice y modificar su diseño y comportamiento. El aspecto común es que para agregar marcas de agua de texto, debe utilizar la interfaz [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/), y para agregar marcas de agua de imagen, use la clase [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) o rellene una forma de marca de agua con una imagen. `PictureFrame` implementa la interfaz [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/), lo que le permite utilizar todos los ajustes flexibles del objeto de forma. Dado que `ITextFrame` no es una forma y sus configuraciones son limitadas, se envuelve en un objeto [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/).
 
-Hay dos maneras en que se puede aplicar la marca de agua: a una sola diapositiva y a todas las diapositivas de la presentación. Se utiliza el Master de Diapositivas para aplicar la marca de agua a todas las diapositivas de la presentación: la marca de agua se agrega al Master de Diapositivas, se diseña completamente allí y se aplica a todas las diapositivas sin modificar el permiso para modificar la marca de agua en las diapositivas.
+Hay dos formas en que se puede aplicar una marca de agua: a una sola diapositiva o a todas las diapositivas de la presentación. El Patrón de Diapositiva se utiliza para aplicar una marca de agua a todas las diapositivas de la presentación: la marca de agua se agrega al Patrón de Diapositiva, se diseña completamente allí y se aplica a todas las diapositivas sin afectar el permiso para modificar la marca de agua en diapositivas individuales.
 
-La marca de agua generalmente se considera no disponible para edición por otros usuarios. Para prevenir la edición de la marca de agua (o más bien la forma principal de la marca de agua), Aspose.Slides proporciona funcionalidad de bloqueo de forma. Una cierta forma puede ser bloqueada en una diapositiva normal o en un Master de Diapositivas. Al bloquear la forma de marca de agua en un Master de Diapositivas, se bloqueará en todas las diapositivas de la presentación.
+Una marca de agua suele considerarse no editable por otros usuarios. Para evitar que la marca de agua (o más bien la forma principal de la marca de agua) sea editada, Aspose.Slides proporciona la funcionalidad de bloqueo de forma. Se puede bloquear una forma específica en una diapositiva normal o en un Patrón de Diapositiva. Cuando la forma de marca de agua está bloqueada en el Patrón de Diapositiva, estará bloqueada en todas las diapositivas de la presentación.
 
-Puedes establecer el nombre de la marca de agua, para que en el futuro, si deseas eliminar la marca de agua, puedas encontrarla en las formas de la diapositiva por su nombre.
+Puede establecer un nombre para la marca de agua para que en el futuro, si desea eliminarla, pueda encontrarla en las formas de la diapositiva por su nombre.
 
-Puedes diseñar la marca de agua de cualquier manera, sin embargo, normalmente hay características comunes dentro de las marcas de agua, como: alineación al centro, rotación, posición frontal, etc. Consideraremos cómo utilizarlas en los ejemplos a continuación.
+Puede diseñar la marca de agua de cualquier manera; sin embargo, generalmente hay características comunes en las marcas de agua, como alineación centrada, rotación, posición frontal, etc. Consideraremos cómo usar estas en los ejemplos a continuación.
+
 ## **Marca de Agua de Texto**
-### **Agregar Marca de Agua de Texto a la Diapositiva**
-Para agregar una marca de agua de texto en PPT, PPTX o ODP primero puedes agregar una forma en la diapositiva, luego agregar un marco de texto en esta forma. El marco de texto se representa con el tipo [**TextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame). Este tipo no se hereda de [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape), que tiene un amplio conjunto de propiedades para establecer la marca de agua de una manera flexible. Por lo tanto, se aconseja envolver el objeto [TextFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.text_frame) en un objeto [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape). Para agregar marca de agua en la forma, utiliza el método [**AddTextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3) con el texto de marca de agua pasado a él:
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+### **Agregar una Marca de Agua de Texto a una Diapositiva**
 
-auto master = presentation->get_Masters()->idx_get(0);
+Para agregar una marca de agua de texto en PPT, PPTX u ODP, primero puede agregar una forma a la diapositiva, luego agregar un marco de texto a esta forma. El marco de texto está representado por la interfaz [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/). Este tipo no se hereda de [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/), que tiene un amplio conjunto de propiedades para posicionar la marca de agua de manera flexible. Por lo tanto, el objeto [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) se envuelve en un objeto [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). Para agregar texto de marca de agua a la forma, use el método [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/) como se muestra a continuación.
 
-auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 0.0f, 0.0f, 0.0f, 0.0f);
+```cpp
+auto watermarkText = u"CONFIDENCIAL";
 
-auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Marca de agua");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
+
+presentation->Dispose();
 ```
-
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/es/cpp/slide-master/)[TextFrame](/slides/es/cpp/adding-and-formatting-text/)
+- [Cómo usar la clase TextFrame](/slides/cpp/text-formatting/)
 {{% /alert %}}
 
-### **Agregar Marca de Agua de Texto a la Presentación**
-Si deseas agregar una marca de agua en la presentación (es decir, en todas las diapositivas a la vez), agrégala al [**MasterSlide**](https://reference.aspose.com/slides/cpp/class/aspose.slides.master_slide). Toda la otra lógica es la misma que al agregar una marca de agua en una sola diapositiva: crea un objeto [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) y luego agrega la marca de agua en él con el método [**AddTextFrame**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3):
+### **Agregar una Marca de Agua de Texto a una Presentación**
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
+Si desea agregar una marca de agua de texto a toda la presentación (es decir, todas las diapositivas a la vez), agréguela al [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/). El resto de la lógica es la misma que cuando se agrega una marca de agua a una sola diapositiva: cree un objeto [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) y luego agregue la marca de agua a él utilizando el método [AddTextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/addtextframe/).
 
-auto master = presentation->get_Masters()->idx_get(0);
+```cpp
+auto watermarkText = u"CONFIDENCIAL";
 
-auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 0.0f, 0.0f, 0.0f, 0.0f);
+auto presentation = MakeObject<Presentation>();
+auto masterSlide = presentation->get_Master(0);
 
-auto watermarkTextFrame = watermarkShape->AddTextFrame(u"Marca de agua");
+auto watermarkShape = masterSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
+
+presentation->Dispose();
 ```
-
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/es/cpp/slide-master/)[Master de Diapositivas](/slides/es/cpp/slide-master/)
+- [Cómo usar el Patrón de Diapositiva](/slides/cpp/slide-master/)
 {{% /alert %}}
 
-### **Establecer Fuente de la Marca de Agua de Texto**
-Puedes cambiar la fuente de la marca de agua de texto:
+### **Establecer la Transparencia de la Forma de Marca de Agua**
 
-``` cpp
-int32_t alpha = 150, red = 200, green = 200, blue = 200;
-    
-auto watermarkPortion = watermarkTextFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
+Por defecto, la forma rectangular está estilizada con colores de relleno y línea. Las siguientes líneas de código hacen que la forma sea transparente.
 
-watermarkPortion->get_PortionFormat()->set_FontHeight(52.0f);
+```cpp
+watermarkShape->get_FillFormat()->set_FillType(FillType::NoFill);
+watermarkShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
 ```
 
+### **Establecer la Fuente para una Marca de Agua de Texto**
 
-### **Establecer Transparencia de la Marca de Agua de Texto**
-Para establecer la transparencia de la marca de agua de texto utiliza este código:
+Puede cambiar la fuente de la marca de agua de texto como se muestra a continuación.
 
-``` cpp
-int32_t alpha = 150, red = 200, green = 200, blue = 200;
-    
-auto watermarkPortion = watermarkTextFrame->get_Paragraphs()->idx_get(0)->get_Portions()->idx_get(0);
-
-watermarkPortion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-
-watermarkPortion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(alpha, red, green, blue));
+```cpp
+auto textFormat = watermarkFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat();
+textFormat->set_LatinFont(MakeObject<FontData>(u"Arial"));
+textFormat->set_FontHeight(50);
 ```
 
+### **Establecer el Color del Texto de la Marca de Agua**
 
-### **Centrar la Marca de Agua de Texto**
-Es posible centrar la marca de agua en una diapositiva y para eso puedes hacer lo siguiente:
+Para establecer el color del texto de la marca de agua, use este código:
 
-``` cpp
-PointF center(presentation->get_SlideSize()->get_Size().get_Width() / 2, presentation->get_SlideSize()->get_Size().get_Height() / 2);
+```cpp
+auto alpha = 150, red = 200, green = 200, blue = 200;
 
-float width = 300.0f;
-float height = 300.0f;
-
-float x = center.get_X() - width / 2;
-float y = center.get_Y() - height / 2;
-
-//...
-
-auto watermarkShape = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, x, y, width, height);
+auto fillFormat = watermarkFrame->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat();
+fillFormat->set_FillType(FillType::Solid);
+fillFormat->get_SolidFillColor()->set_Color(Color::FromArgb(alpha, red, green, blue));
 ```
 
+### **Centrar una Marca de Agua de Texto**
+
+Es posible centrar la marca de agua en una diapositiva, y para eso, puede hacer lo siguiente:
+
+```cpp
+auto slideSize = presentation->get_SlideSize()->get_Size();
+
+auto watermarkWidth = 400;
+auto watermarkHeight = 40;
+auto watermarkX = (slideSize.get_Width() - watermarkWidth) / 2;
+auto watermarkY = (slideSize.get_Height() - watermarkHeight) / 2;
+
+auto watermarkShape = slide->get_Shapes()->AddAutoShape(
+    ShapeType::Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
+
+auto watermarkFrame = watermarkShape->AddTextFrame(watermarkText);
+```
+
+La imagen a continuación muestra el resultado final.
+
+![La marca de agua de texto](text_watermark.png)
 
 ## **Marca de Agua de Imagen**
-### **Agregar Marca de Agua de Imagen a la Presentación**
-Para agregar una marca de agua de imagen en todas las diapositivas de la presentación, puedes hacer lo siguiente:
 
-``` cpp
-auto image = presentation->get_Images()->AddImage(:File::ReadAllBytes(u"watermark.png"));
+### **Agregar una Marca de Agua de Imagen a una Presentación**
 
-// ...
+Para agregar una marca de agua de imagen a una diapositiva de presentación, puede hacer lo siguiente:
+
+```cpp
+auto imageStream = File::ReadAllBytes(u"watermark.png");
+auto image = presentation->get_Images()->AddImage(imageStream);
 
 watermarkShape->get_FillFormat()->set_FillType(FillType::Picture);
-
 watermarkShape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
-
 watermarkShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 ```
 
+## **Bloquear una Marca de Agua para Edición**
 
+Si es necesario evitar que una marca de agua sea editada, use el método [IAutoShape::get_AutoShapeLock](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_autoshapelock/) en la forma. Con esta propiedad, puede proteger la forma de ser seleccionada, redimensionada, reposicionada, agrupada con otros elementos, bloquear su texto de la edición, y mucho más:
 
-
-## **Bloquear Marca de Agua de Edición**
-Si es necesario prevenir que la marca de agua sea editada, utiliza el método [**AutoShape::get_AutoShapeLock()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.auto_shape#a3493d7814106e74ef2213707f64135a8) en la forma, que la envuelve. Con este método puedes proteger la forma de selección, redimensionar, cambiar de posición, agrupar con otros elementos, bloquear su texto de edición y muchos otros:
-
-``` cpp
-// Bloquear formas de modificar
+```cpp
+// Bloquear la forma de marca de agua de modificar
 watermarkShape->get_AutoShapeLock()->set_SelectLocked(true);
-watermarkShape->get_AutoShapeLock()->set_SizeLocked(true);
-watermarkShape->get_AutoShapeLock()->set_TextLocked(true);
-watermarkShape->get_AutoShapeLock()->set_PositionLocked(true);
-watermarkShape->get_AutoShapeLock()->set_GroupingLocked(true);
+watermarkShape->get_AutoShapeLock()->SizeLocked(true);
+watermarkShape->get_AutoShapeLock()->TextLocked(true);
+watermarkShape->get_AutoShapeLock()->PositionLocked(true);
+watermarkShape->get_AutoShapeLock()->GroupingLocked(true);
 ```
 
+## **Traer una Marca de Agua al Frente**
 
+En Aspose.Slides, el orden Z de las formas se puede establecer a través del método [IShapeCollection::Reorder](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/reorder/). Para hacer esto, necesita llamar a este método desde la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden al método. De esta manera, es posible traer una forma al frente o enviarla al fondo de la diapositiva. Esta función es especialmente útil si necesita colocar una marca de agua frente a la presentación:
 
-{{% alert color="primary" title="Ver también" %}} 
-- [Cómo bloquear formas de la edición](/slides/es/cpp/presentation-locking/)
-{{% /alert %}}
-
-## **Traer Marca de Agua al Frente**
-En Aspose.Slides el orden Z de las formas se puede establecer a través del método [**SlideCollection::Reorder()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.slide_collection#ad9bc39c557ea8ea3d67e8cec53363c40). Para eso, debes llamar a este método desde la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden al método. De esta manera es posible colocar la forma al frente o atrás de la diapositiva. Esta característica es especialmente útil si necesitas colocar la marca de agua al frente de la presentación:
-
-``` cpp
-slide->get_Shapes()->Reorder(slide->get_Shapes()->get_Count() - 1, watermarkShape);
+```cpp
+auto shapeCount = slide->get_Shapes()->get_Count();
+slide->get_Shapes()->Reorder(shapeCount - 1, watermarkShape);
 ```
 
+## **Establecer la Rotación de la Marca de Agua**
 
-## **Establecer Rotación de la Marca de Agua**
-Aquí hay un ejemplo de cómo establecer la rotación de la marca de agua (y su forma principal):
+Aquí hay un ejemplo de código sobre cómo ajustar la rotación de la marca de agua para que esté posicionada diagonalmente a través de la diapositiva:
 
-``` cpp
-int32_t calculateRotation(float height, float width)
-{
-    double pageHeight = Convert::ToDouble(height);
-    double pageWidth = Convert::ToDouble(width);
-    
-    double rotation = Math::Atan((pageHeight / pageWidth)) * 180 / Math::PI;
-    
-    return Convert::ToInt32(rotation);
-}
+```cpp
+auto diagonalAngle = Math::Atan((slideSize.get_Height() / slideSize.get_Width())) * 180 / Math::PI;
+
+watermarkShape->set_Rotation((float)diagonalAngle);
 ```
 
-``` cpp
-float h = presentation->get_SlideSize()->get_Size().get_Height();
-float w = presentation->get_SlideSize()->get_Size().get_Width();
+## **Establecer un Nombre para una Marca de Agua**
 
-watermarkShape->set_X(static_cast<float>(System::Convert::ToInt32((w - watermarkShape->get_Width()) / 2)));
+Aspose.Slides le permite establecer el nombre de una forma. Al usar el nombre de la forma, puede acceder a ella en el futuro para modificarla o eliminarla. Para establecer el nombre de la forma de marca de agua, asígnelo al método [IAutoShape::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_name/):
 
-watermarkShape->set_Y(static_cast<float>(System::Convert::ToInt32((h - watermarkShape->get_Height()) / 2)));
-
-watermarkShape->set_Rotation(static_cast<float>(calculateRotation(h, w)));
-```
-
-
-## **Establecer Nombre a la Marca de Agua**
-Aspose.Slides permite establecer el nombre de la forma. Por el nombre de la forma puedes acceder a ella en el futuro para modificar o eliminar. Para establecer el nombre de la forma principal de la marca de agua - configúralo en el método [**AutoShape::set_Name()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape#ab3df67c6a42fb153d84f58ee69e8b221):
-
-``` cpp
+```cpp
 watermarkShape->set_Name(u"marca de agua");
 ```
 
+## **Eliminar una Marca de Agua**
 
-## **Eliminar Marca de Agua**
-Para eliminar la forma de marca de agua y sus controles secundarios de la diapositiva, utiliza el método [AutoShape.get_Name()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape#a3de41f504e4f9a728c3801159773487e) para encontrarla en las formas de la diapositiva. Luego pasa la forma de marca de agua al método [**ShapeCollection::Remove()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.shape_collection#a78968527e6f86cced3ffa5c2accab3fc):
+Para eliminar la forma de marca de agua, use el método [IAutoShape::get_Name](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_name/) para encontrarla en las formas de la diapositiva. Luego, pase la forma de marca de agua al método [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/):
 
-``` cpp
-for (int32_t i = 0; i < slide->get_Shapes()->get_Count(); i++)
+```cpp
+auto slideShapes = slide->get_Shapes()->ToArray();
+for(auto shape : slideShapes)
 {
-	auto shape = ExplicitCast<AutoShape>(slide->get_Shapes()->idx_get(i));
-	if (String::Compare(shape->get_Name(), u"marca de agua", StringComparison::Ordinal) == 0)
-	{
-		slide->get_Shapes()->Remove(watermarkShape);
-	}
+    if (String::Compare(shape->get_Name(), u"marca de agua", StringComparison::Ordinal) == 0)
+    {
+        slide->get_Shapes()->Remove(watermarkShape);
+    }
 }
 ```
 
+## **Un Ejemplo en Vivo**
 
-## **Ejemplo en Vivo**
-Quizás quieras consultar las **herramientas en línea** **gratuitas** de **Aspose.Slides** [**Agregar Marca de Agua**](https://products.aspose.app/slides/watermark) y [**Eliminar Marca de Agua**](https://products.aspose.app/slides/watermark/remove-watermark). 
+Puede que desee consultar las herramientas en línea **Aspose.Slides gratuitas** [Agregar Marca de Agua](https://products.aspose.app/slides/watermark) y [Eliminar Marca de Agua](https://products.aspose.app/slides/watermark/remove-watermark).
 
-![todo:image_alt_text](slides-watermark.png)
+![Herramientas en línea para agregar y eliminar marcas de agua](online_tools.png)

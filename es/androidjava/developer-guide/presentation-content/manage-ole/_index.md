@@ -2,42 +2,57 @@
 title: Administrar OLE
 type: docs
 weight: 40
-url: /es/androidjava/manage-ole/
+url: /androidjava/manage-ole/
+keywords:
+- agregar OLE
+- incrustar OLE
+- agregar un objeto
+- incrustar un objeto
+- incrustar un archivo
+- objeto vinculado
+- Vinculación e Incrustación de Objetos
+- objeto OLE
+- PowerPoint 
+- presentación
+- Android
+- Java
+- Aspose.Slides para Android a través de Java
+description: Agregar objetos OLE a presentaciones de PowerPoint en Java
 ---
 
 {{% alert color="primary" %}} 
 
-OLE  (Object Linking & Embedding) es una tecnología de Microsoft que permite que los datos y objetos creados en una aplicación se inserten en otra aplicación a través de enlaces o incrustaciones. 
+OLE  (Vinculación e Incrustación de Objetos) es una tecnología de Microsoft que permite que los datos y objetos creados en una aplicación se coloquen en otra aplicación a través de enlaces o incrustaciones. 
 
 {{% /alert %}} 
 
-Considera un gráfico creado en MS Excel. El gráfico se coloca dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE. 
+Considere un gráfico creado en MS Excel. El gráfico se coloca luego dentro de una diapositiva de PowerPoint. Ese gráfico de Excel se considera un objeto OLE. 
 
-- Un objeto OLE puede aparecer como un ícono. En este caso, cuando haces doble clic en el ícono, el gráfico se abre en su aplicación asociada (Excel), o se te pide que selecciones una aplicación para abrir o editar el objeto.
-- Un objeto OLE puede mostrar contenidos reales, por ejemplo, el contenido de un gráfico. En este caso, el gráfico se activa en PowerPoint, la interfaz del gráfico se carga y puedes modificar los datos del gráfico dentro de la aplicación de PowerPoint.
+- Un objeto OLE puede aparecer como un ícono. En este caso, cuando hace doble clic en el ícono, el gráfico se abre en su aplicación asociada (Excel), o se le pide que seleccione una aplicación para abrir o editar el objeto. 
+- Un objeto OLE puede mostrar contenidos reales; por ejemplo, los contenidos de un gráfico. En este caso, el gráfico se activa en PowerPoint, se carga la interfaz del gráfico y puede modificar los datos del gráfico dentro de la aplicación de PowerPoint.
 
-[Aspose.Slides para Android a través de Java](https://products.aspose.com/slides/androidjava/) te permite insertar objetos OLE en diapositivas como marcos de objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)).
+[Aspose.Slides para Android a través de Java](https://products.aspose.com/slides/androidjava/) le permite insertar Objetos OLE en diapositivas como Marcos de Objetos OLE ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)).
 
-## **Agregar Marcos de Objetos OLE a Diapositivas**
-Suponiendo que ya creaste un gráfico en Microsoft Excel y quieres incrustar ese gráfico en una diapositiva como un marco de objeto OLE usando Aspose.Slides para Android a través de Java, puedes hacerlo de la siguiente manera:
+## **Agregar Marcos de Objetos OLE a las Diapositivas**
+Suponiendo que ya haya creado un gráfico en Microsoft Excel y desea incrustar ese gráfico en una diapositiva como un Marco de Objeto OLE utilizando Aspose.Slides para Android a través de Java, puede hacerlo de esta manera:
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
-1. Obtén la referencia de la diapositiva usando su índice.
-1. Abre el archivo de Excel que contiene el objeto gráfico de Excel y guárdalo en `MemoryStream`.
-1. Agrega el [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) a la diapositiva que contiene el arreglo de bytes y otra información sobre el objeto OLE.
-1. Escribe la presentación modificada como un archivo PPTX.
+1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
+2. Obtenga la referencia de la diapositiva utilizando su índice.
+3. Abra el archivo de Excel que contiene el objeto gráfico de Excel y guárdelo en `MemoryStream`.
+4. Agregue el [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) a la diapositiva que contiene la matriz de bytes y otra información sobre el objeto OLE.
+5. Escriba la presentación modificada como un archivo PPTX.
 
-En el ejemplo a continuación, agregamos un gráfico de un archivo de Excel a una diapositiva como un marco de objeto OLE usando Aspose.Slides para Android a través de Java.
-**Nota** que el constructor de [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleEmbeddedDataInfo) toma una extensión de objeto embebible como segundo parámetro. Esta extensión permite que PowerPoint interprete correctamente el tipo de archivo y elija la aplicación adecuada para abrir este objeto OLE.
+En el ejemplo a continuación, agregamos un gráfico de un archivo de Excel a una diapositiva como un Marco de Objeto OLE utilizando Aspose.Slides para Android a través de Java.
+**Nota** que el constructor [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleEmbeddedDataInfo) acepta una extensión de objeto embebible como segundo parámetro. Esta extensión permite que PowerPoint interprete correctamente el tipo de archivo y elija la aplicación adecuada para abrir este objeto OLE.
 
 ``` java 
-// Instancia la clase Presentation que representa el archivo PPTX
+// Instancia la clase Prseetation que representa el archivo PPTX
 Presentation pres = new Presentation();
 try {
     // Accede a la primera diapositiva
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Carga un archivo excel en el stream
+    // Carga un archivo de excel a la secuencia
     FileInputStream fs = new FileInputStream("book1.xlsx");
     ByteArrayOutputStream mstream = new ByteArrayOutputStream();
     byte[] buf = new byte[4096];
@@ -50,11 +65,11 @@ try {
     }
     fs.close();
 
-    // Crea un objeto de datos para incrustar
+    // Crea un objeto de datos para incrustación
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.toByteArray(), "xlsx");
     mstream.close();
 
-    // Agrega un marco de objeto Ole
+    // Agrega una forma de Marco de Objeto OLE
     IOleObjectFrame oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0,
             (float) pres.getSlideSize().getSize().getWidth(),
             (float) pres.getSlideSize().getSize().getHeight(),
@@ -69,16 +84,16 @@ try {
 ```
 
 ## **Accediendo a Marcos de Objetos OLE**
-Si un objeto OLE ya está incrustado en una diapositiva, puedes encontrar o acceder a ese objeto fácilmente de esta manera:
+Si un objeto OLE ya está incrustado en una diapositiva, puede encontrar o acceder a ese objeto fácilmente de esta manera:
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
-1. Obtén la referencia de la diapositiva usando su índice.
-1. Accede a la forma del marco de objeto OLE.
+1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
+2. Obtenga la referencia de la diapositiva utilizando su índice.
+3. Acceda a la forma de Marco de Objeto OLE.
 
-   En nuestro ejemplo, utilizamos el PPTX previamente creado, que solo tiene una forma en la primera diapositiva. Luego *convertimos* ese objeto en un [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). Este fue el marco de objeto OLE deseado al que acceder.
-1. Una vez que se accede al marco de objeto OLE, puedes realizar cualquier operación sobre él.
+   En nuestro ejemplo, utilizamos el PPTX creado anteriormente, que tiene solo una forma en la primera diapositiva. Luego *convertemos* ese objeto en un [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). Este fue el Marco de Objeto OLE deseado para acceder.
+4. Una vez que se accede al Marco de Objeto OLE, puede realizar cualquier operación en él.
 
-En el ejemplo a continuación, se accede a un marco de objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego sus datos de archivo se escriben en un archivo de Excel.
+En el ejemplo a continuación, se accede a un Marco de Objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego se escriben los datos de su archivo en un archivo de Excel.
 
 ``` java 
 // Carga el PPTX a un objeto Presentation
@@ -90,12 +105,12 @@ try {
     // Convierte la forma a OleObjectFrame
     OleObjectFrame oleObjectFrame = (OleObjectFrame) sld.getShapes().get_Item(0);
 
-    // Lee el OLE Object y lo escribe en disco
+    // Lee el objeto OLE y lo escribe en el disco
     if (oleObjectFrame != null) {
-        // Obtiene datos del archivo embebido
+        // Obtiene los datos del archivo incrustado
         byte[] data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
 
-        // Obtiene la extensión del archivo embebido
+        // Obtiene la extensión del archivo incrustado
         String fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
 
         // Crea una ruta para guardar el archivo extraído
@@ -117,20 +132,20 @@ try {
 
 ## **Cambiando los Datos del Objeto OLE**
 
-Si un objeto OLE ya está incrustado en una diapositiva, puedes acceder fácilmente a ese objeto y modificar sus datos de esta manera:
+Si un objeto OLE ya está incrustado en una diapositiva, puede acceder fácilmente a ese objeto y modificar sus datos de esta manera:
 
-1. Abre la presentación deseada con el objeto OLE incrustado creando una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
-1. Obtén la referencia de la diapositiva a través de su índice. 
-1. Accede a la forma del marco de objeto OLE.
+1. Abra la presentación deseada con el Objeto OLE incrustado creando una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase.
+2. Obtenga la referencia de la diapositiva a través de su índice. 
+3. Acceda a la forma de Marco de Objeto OLE.
 
-   En nuestro ejemplo, utilizamos el PPTX previamente creado que solo tiene una forma en la primera diapositiva. Luego *convertimos* ese objeto en un [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). Este fue el marco de objeto OLE deseado al que acceder.
-1. Una vez que se accede al marco de objeto OLE, puedes realizar cualquier operación sobre él.
-1. Crea el objeto Workbook y accede a los datos OLE.
-1. Accede a la hoja de trabajo deseada y modifica los datos.
-1. Guarda el Workbook actualizado en flujos.
-1. Cambia los datos del objeto OLE a partir de los datos del flujo.
+   En nuestro ejemplo, utilizamos el PPTX creado anteriormente que tiene solo una forma en la primera diapositiva. Luego *convertemos* ese objeto en un [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). Este fue el Marco de Objeto OLE deseado para acceder.
+4. Una vez que se accede al Marco de Objeto OLE, puede realizar cualquier operación en él.
+5. Cree el objeto Workbook y acceda a los datos OLE.
+6. Acceda a la Hoja de Cálculo deseada y enmiende los datos.
+7. Guarde el Workbook actualizado en secuencias.
+8. Cambie los datos del objeto OLE desde los datos de la secuencia.
 
-En el ejemplo a continuación, se accede a un marco de objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego sus datos de archivo se modifican para cambiar los datos del gráfico:
+En el ejemplo a continuación, se accede a un Marco de Objeto OLE (un objeto gráfico de Excel incrustado en una diapositiva) y luego se modifican los datos de su archivo para cambiar los datos del gráfico:
 
 ``` java 
 Presentation pres = new Presentation("ChangeOLEObjectData.pptx");
@@ -139,7 +154,7 @@ try {
 	
     OleObjectFrame ole = null;
 
-    // Recorre todas las formas para el marco Ole
+    // Recorre todas las formas para el marco OLE
     for (IShape shape : slide.getShapes()) 
     {
         if (shape instanceof OleObjectFrame) 
@@ -156,7 +171,7 @@ try {
 
             ByteArrayOutputStream msout = new ByteArrayOutputStream();
             try {
-                // Modifica los datos del workbook
+                // Modifica los datos del libro
                 Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
                 Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
                 Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -165,7 +180,7 @@ try {
                 OoxmlSaveOptions so1 = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
                 Wb.save(msout, so1);
 
-                // Cambia los datos del objeto en el marco Ole
+                // Cambia los datos del objeto del marco Ole
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
                 ole.setEmbeddedData(newData);
             } finally {
@@ -185,9 +200,9 @@ try {
 
 ## Incrustar Otros Tipos de Archivos en Diapositivas
 
-Además de gráficos de Excel, Aspose.Slides para Android a través de Java permite incrustar otros tipos de archivos en las diapositivas. Por ejemplo, puedes insertar archivos HTML, PDF y ZIP como objetos en una diapositiva. Cuando un usuario hace doble clic en el objeto insertado, este se lanza automáticamente en el programa relevante, o se le dirige al usuario a seleccionar un programa apropiado para abrir el objeto.
+Además de gráficos de Excel, Aspose.Slides para Android a través de Java le permite incrustar otros tipos de archivos en diapositivas. Por ejemplo, puede insertar archivos HTML, PDF y ZIP como objetos en una diapositiva. Cuando un usuario hace doble clic en el objeto insertado, el objeto se inicia automáticamente en el programa relevante, o se dirige al usuario a seleccionar un programa apropiado para abrir el objeto.
 
-Este código Java muestra cómo incrustar HTML y ZIP en una diapositiva:
+Este código Java le muestra cómo incrustar HTML y ZIP en una diapositiva:
 
 ```java
 Presentation pres = new Presentation();
@@ -211,20 +226,20 @@ try {
 }
 ```
 
-## Establecer Tipos de Archivo para Objetos Incrustados
+## Establecer Tipos de Archivos para Objetos Incrustados
 
-Al trabajar en presentaciones, es posible que necesites reemplazar antiguos objetos OLE con nuevos. O puede que necesites reemplazar un objeto OLE no soportado con uno soportado. 
+Al trabajar en presentaciones, es posible que necesite reemplazar objetos OLE antiguos por nuevos. O puede que necesite reemplazar un objeto OLE no compatible por uno compatible. 
 
-Aspose.Slides para Android a través de Java te permite establecer el tipo de archivo para un objeto incrustado. De esta manera, puedes cambiar los datos del marco OLE o su extensión.
+Aspose.Slides para Android a través de Java le permite establecer el tipo de archivo para un objeto incrustado. De esta manera, puede cambiar los datos del marco OLE o su extensión.
 
-Este Java muestra cómo establecer el tipo de archivo para un objeto OLE incrustado:
+Este Java le muestra cómo establecer el tipo de archivo para un objeto OLE incrustado:
 
 ```java
 Presentation pres = new Presentation("embeddedOle.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
-    System.out.println("La extensión de datos embebidos actuales es: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
+    System.out.println("La extensión de datos incrustados actuales es: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
 
     oleObjectFrame.setEmbeddedData(new OleEmbeddedDataInfo(Files.readAllBytes(Paths.get("embedOle.zip")), "zip"));
 
@@ -235,13 +250,13 @@ try {
 }
 ```
 
-## Establecer Imágenes de Ícono y Títulos para Objetos Incrustados
+## Establecer Imágenes de Icono y Títulos para Objetos Incrustados
 
-Después de incrustar un objeto OLE, una vista previa que consiste en una imagen de ícono y un título se agrega automáticamente. La vista previa es lo que los usuarios ven antes de acceder u abrir el objeto OLE. 
+Después de que incruste un objeto OLE, se agrega automáticamente una vista previa que consiste en una imagen de ícono y un título. La vista previa es lo que los usuarios ven antes de acceder o abrir el objeto OLE. 
 
-Si deseas usar una imagen y texto específicos como elementos en la vista previa, puedes establecer la imagen de ícono y el título usando Aspose.Slides para Android a través de Java.
+Si desea usar una imagen y un texto específicos como elementos en la vista previa, puede establecer la imagen del icono y el título utilizando Aspose.Slides para Android a través de Java.
 
-Este código Java muestra cómo establecer la imagen de ícono y el título para un objeto incrustado: 
+Este código Java le muestra cómo establecer la imagen del ícono y el título para un objeto incrustado: 
 
 ```java
 Presentation pres = new Presentation();
@@ -267,15 +282,23 @@ try {
 }
 ```
 
+## **Prevenir que un Marco de Objeto OLE sea Redimensionado y Reposicionado**
+
+Después de agregar un objeto OLE vinculado a una diapositiva de presentación, al abrir la presentación en PowerPoint, es posible que vea un mensaje que le pida que actualice los vínculos. Hacer clic en el botón "Actualizar Vínculos" puede cambiar el tamaño y la posición del marco del objeto OLE porque PowerPoint actualiza los datos del objeto OLE vinculado y actualiza la vista previa del objeto. Para evitar que PowerPoint le pida que actualice los datos del objeto, configure el método `setUpdateAutomatic` de la interfaz [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) a `false`:
+
+```java
+oleObjectFrame.setUpdateAutomatic(false);
+```
+
 ## Extracción de Archivos Incrustados
 
-Aspose.Slides para Android a través de Java te permite extraer archivos incrustados en diapositivas como objetos OLE de esta manera:
+Aspose.Slides para Android a través de Java le permite extraer los archivos incrustados en diapositivas como objetos OLE de esta manera:
 
-1. Crea una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase que contenga el objeto OLE que deseas extraer.
-2. Recorre todas las formas en la presentación y accede a la forma [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe).
-3. Accede a los datos del archivo incrustado desde el marco de objeto OLE y escríbelo en disco. 
+1. Cree una instancia de la [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) clase que contenga el objeto OLE que desea extraer.
+2. Recorra todas las formas en la presentación y acceda a la forma [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe).
+3. Acceda a los datos del archivo incrustado desde el Marco de Objeto OLE y escríbalo en el disco. 
 
-Este código Java muestra cómo extraer un archivo incrustado en una diapositiva como un objeto OLE:
+Este código Java le muestra cómo extraer un archivo incrustado en una diapositiva como un objeto OLE:
 
 ```java
 Presentation pres = new Presentation("embeddedOle.pptx");

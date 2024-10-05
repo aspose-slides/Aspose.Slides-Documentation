@@ -1,232 +1,200 @@
 ---
-title: Marca de agua
+title: Marca de Agua
 type: docs
 weight: 40
-url: /es/java/watermark/
-keywords: "marca de agua en presentación"
-description: "Usa marca de agua en PowerPoint con Aspose.Slides. Añade marca de agua en presentación ppt o elimina marca de agua. Inserta imagen de marca de agua o texto de marca de agua."
+url: /java/watermark/
+keywords:
+- marca de agua
+- agregar marca de agua
+- marca de agua de texto
+- marca de agua de imagen
+- PowerPoint
+- presentación
+- Java
+- Aspose.Slides para Java
+description: "Agrega marcas de agua de texto e imagen a presentaciones de PowerPoint en Java"
 ---
 
-## **Acerca de Marca de Agua**
-La **marca de agua** en una presentación es un sello de texto o imagen, utilizado en una diapositiva o en todas las diapositivas de la presentación. Normalmente, la marca de agua se utiliza para indicar que la presentación es un borrador (por ejemplo, marca de agua "Borrador"); que contiene información confidencial (por ejemplo, marca de agua "Confidencial"); especificar a qué empresa pertenece (por ejemplo, marca de agua "Nombre de la empresa"); identificar al autor de la presentación, etc. La marca de agua ayuda a prevenir la violación de derechos de autor de la presentación, indicando que la presentación no debe ser copiada. Las marcas de agua se utilizan en ambos formatos de presentación, PowerPoint y OpenOffice. En Aspose.Slides puedes añadir marcas de agua a los formatos de archivo PPT, PPTX y ODP de PowerPoint.
+## **Acerca de las Marcas de Agua**
 
-En [**Aspose.Slides**](https://products.aspose.com/slides/java/) hay varias formas en las que puedes crear una marca de agua en PowerPoint o OpenOffice, envolverla en diferentes formas, cambiar el diseño y el comportamiento, etc. Lo común es que para añadir marcas de agua de texto, debes usar la clase [**TextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) y para añadir la marca de agua de imagen - [**PictureFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame/). [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame/) implementa la interfaz [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) y puede usar todo el poder de la configuración flexible del objeto de forma. [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) no es una forma y su configuración es limitada. Por lo tanto, se aconseja envolver el [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) en un objeto [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape).
+**Una marca de agua** en una presentación es un sello de texto o imagen utilizado en una diapositiva o en todas las diapositivas de la presentación. Por lo general, se utiliza una marca de agua para indicar que la presentación es un borrador (por ejemplo, una marca de agua "Borrador"), que contiene información confidencial (por ejemplo, una marca de agua "Confidencial"), para especificar a qué empresa pertenece (por ejemplo, una marca de agua "Nombre de la Empresa"), para identificar al autor de la presentación, etc. Una marca de agua ayuda a prevenir violaciones de derechos de autor al indicar que la presentación no debe ser copiada. Las marcas de agua se utilizan en formatos de presentación de PowerPoint y OpenOffice. En Aspose.Slides, puedes agregar una marca de agua a formatos de archivo PPT, PPTX y ODP de PowerPoint.
 
-Hay dos formas en que se puede aplicar una marca de agua: a una sola diapositiva y a todas las diapositivas de la presentación. El Patrón de Diapositiva se usa para aplicar la marca de agua a todas las diapositivas de la presentación: la marca de agua se añade al Patrón de Diapositiva, se diseña completamente allí y se aplica a todas las diapositivas sin modificar el permiso para modificar la marca de agua en las diapositivas.
+En [**Aspose.Slides**](https://products.aspose.com/slides/java/), hay varias formas en que puedes crear marcas de agua en documentos de PowerPoint u OpenOffice y modificar su diseño y comportamiento. El aspecto común es que para agregar marcas de agua de texto, debes usar la interfaz [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/), y para agregar marcas de agua de imagen, usa la clase [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) o llena una forma de marca de agua con una imagen. `PictureFrame` implementa la interfaz [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), lo que te permite utilizar todos los ajustes flexibles del objeto de forma. Dado que `ITextFrame` no es una forma y sus configuraciones son limitadas, está envuelto en un objeto [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/).
 
-La marca de agua generalmente se considera no disponible para la edición por otros usuarios. Para prevenir la edición de la marca de agua (o más bien de la forma padre de la marca de agua), Aspose.Slides proporciona la funcionalidad de bloqueo de forma. Una forma determinada puede ser bloqueada en una diapositiva normal o en un Patrón de Diapositiva. Al bloquear la forma de la marca de agua en un Patrón de Diapositiva, estará bloqueada en todas las diapositivas de la presentación.
+Hay dos formas en que se puede aplicar una marca de agua: a una sola diapositiva o a todas las diapositivas de la presentación. El Patrón de Diapositivas se utiliza para aplicar una marca de agua a todas las diapositivas de la presentación: la marca de agua se agrega al Patrón de Diapositivas, se diseña completamente allí y se aplica a todas las diapositivas sin afectar el permiso para modificar la marca de agua en diapositivas individuales.
 
-Puedes establecer el nombre de la marca de agua, por lo que en el futuro, si deseas eliminar la marca de agua, podrás encontrarla en las formas de las diapositivas por su nombre.
+Se considera que una marca de agua no está disponible para su edición por otros usuarios. Para evitar que la marca de agua (o más bien la forma padre de la marca de agua) sea editada, Aspose.Slides proporciona funcionalidad de bloqueo de formas. Una forma específica puede ser bloqueada en una diapositiva normal o en un Patrón de Diapositivas. Cuando la forma de marca de agua está bloqueada en el Patrón de Diapositivas, estará bloqueada en todas las diapositivas de la presentación.
 
-Puedes diseñar la marca de agua de cualquier manera, sin embargo, normalmente hay características comunes dentro de las marcas de agua, como: alineación central, rotación, posición frontal, etc. Consideraremos cómo utilizarlas en los ejemplos a continuación.
+Puedes establecer un nombre para la marca de agua de modo que en el futuro, si deseas eliminarla, puedas encontrarla en las formas de la diapositiva por su nombre.
+
+Puedes diseñar la marca de agua de cualquier manera; sin embargo, generalmente hay características comunes en las marcas de agua, como alineación central, rotación, posición frontal, etc. Consideraremos cómo usar estas en los ejemplos a continuación.
+
 ## **Marca de Agua de Texto**
-### **Añadir Marca de Agua de Texto a la Diapositiva**
-Para añadir una marca de agua de texto en PPT, PPTX o ODP, primero puedes añadir una forma en la diapositiva y luego añadir un marco de texto dentro de esta forma. El marco de texto es representado por el tipo [**TextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame). Este tipo no se hereda de [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape), que tiene un amplio conjunto de propiedades para establecer la marca de agua de manera flexible. Por lo tanto, se aconseja envolver el objeto [TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/TextFrame) en un objeto [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape). Para añadir la marca de agua en la forma, utiliza el método [**addTextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) con el texto de la marca de agua pasado a él:
+
+### **Agregar una Marca de Agua de Texto a una Diapositiva**
+
+Para agregar una marca de agua de texto en PPT, PPTX o ODP, primero puedes agregar una forma a la diapositiva, luego agregar un marco de texto a esta forma. El marco de texto está representado por la interfaz [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/). Este tipo no se hereda de [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), que tiene un amplio conjunto de propiedades para posicionar la marca de agua de manera flexible. Por lo tanto, el objeto [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) está envuelto en un objeto [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/). Para agregar texto de marca de agua a la forma, utiliza el método [addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-) como se muestra a continuación.
 
 ```java
-// Abrir presentación
+String watermarkText = "CONFIDENCIAL";
+
 Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
+ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 
-    ITextFrame watermarkTextFrame = watermarkShape.addTextFrame("Marca de agua");
-    
-} finally {
-    if (presentation != null) presentation.dispose();
-}
+presentation.dispose();
 ```
-
-
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/es/java/slide-master/)[TextFrame](/slides/es/java/adding-and-formatting-text/)
+- [Cómo usar la clase TextFrame](/slides/java/text-formatting/)
 {{% /alert %}}
 
-### **Añadir Marca de Agua de Texto a la Presentación**
-Si deseas añadir una marca de agua a la presentación (es decir, todas las diapositivas a la vez), añádela al [**MasterSlide**](https://reference.aspose.com/slides/java/com.aspose.slides/MasterSlide). Toda la lógica es la misma que al añadir la marca de agua a una sola diapositiva: crea un objeto [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape) y luego añade la marca de agua en él con el método [**addTextFrame**](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-):
+### **Agregar una Marca de Agua de Texto a una Presentación**
+
+Si deseas agregar una marca de agua de texto a toda la presentación (es decir, a todas las diapositivas a la vez), agrégala al [MasterSlide](https://reference.aspose.com/slides/java/com.aspose.slides/masterslide/). La lógica es la misma que cuando agregas una marca de agua a una sola diapositiva: crea un objeto [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) y luego agrégale la marca de agua usando el método [addTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#addTextFrame-java.lang.String-).
 
 ```java
-// Abrir presentación
-Presentation pres = new Presentation();
-try {
-    IMasterSlide master = pres.getMasters().get_Item(0);
+String watermarkText = "CONFIDENCIAL";
 
-    IAutoShape watermarkShape = master.getShapes().addAutoShape(ShapeType.Triangle, 0, 0, 0, 0);
+Presentation presentation = new Presentation();
+IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
 
-    ITextFrame watermarkTextFrame = watermarkShape.addTextFrame("Marca de agua");
+IAutoShape watermarkShape = masterSlide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 40);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 
-} finally {
-    if (pres != null) pres.dispose();
-}
+presentation.dispose();
 ```
-
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar ](/slides/es/java/slide-master/)[Patrón de Diapositiva](/slides/es/java/slide-master/)
+- [Cómo usar el Patrón de Diapositivas](/slides/java/slide-master/)
 {{% /alert %}}
 
-### **Establecer Fuente de la Marca de Agua de Texto**
-Puedes cambiar la fuente de la marca de agua de texto:
+### **Establecer la Transparencia de la Forma de Marca de Agua**
+
+Por defecto, la forma rectangular tiene un estilo con colores de relleno y línea. Las siguientes líneas de código hacen que la forma sea transparente.
 
 ```java
-IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-watermarkPortion.getPortionFormat().setFontBold(NullableBool.True);
-
-watermarkPortion.getPortionFormat().setFontHeight(52);
+watermarkShape.getFillFormat().setFillType(FillType.NoFill);
+watermarkShape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
 ```
 
+### **Establecer la Fuente para una Marca de Agua de Texto**
 
-### **Establecer Transparencia de la Marca de Agua de Texto**
-Para establecer la transparencia de la marca de agua de texto usa este código:
+Puedes cambiar la fuente del texto de la marca de agua como se muestra a continuación.
+
+```java
+IPortionFormat textFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat();
+textFormat.setLatinFont(new FontData("Arial"));
+textFormat.setFontHeight(50);
+```
+
+### **Establecer el Color del Texto de la Marca de Agua**
+
+Para establecer el color del texto de la marca de agua, utiliza este código:
 
 ```java
 int alpha = 150, red = 200, green = 200, blue = 200;
 
-IPortion watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-
-watermarkPortion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-
-watermarkPortion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(red, green, blue, alpha));
+IFillFormat fillFormat = watermarkFrame.getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().getFillFormat();
+fillFormat.setFillType(FillType.Solid);
+fillFormat.getSolidFillColor().setColor(new Color(red, green, blue, alpha));
 ```
 
+### **Centrar una Marca de Agua de Texto**
 
-### **Centrar Marca de Agua de Texto**
-Es posible centrar la marca de agua en una diapositiva y para ello puedes hacer lo siguiente:
-
-
+Es posible centrar la marca de agua en una diapositiva, y para eso, puedes hacer lo siguiente:
 
 ```java
-Point2D.Float center = new Point2D.Float((float)  pres.getSlideSize().getSize().getWidth() / 2, (float) pres.getSlideSize().getSize().getHeight() / 2);
+Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-float width = 300;
+float watermarkWidth = 400;
+float watermarkHeight = 40;
+float watermarkX = ((float)slideSize.getWidth() - watermarkWidth) / 2;
+float watermarkY = ((float)slideSize.getHeight() - watermarkHeight) / 2;
 
-float height = 300;
+IAutoShape watermarkShape = slide.getShapes().addAutoShape(
+        ShapeType.Rectangle, watermarkX, watermarkY, watermarkWidth, watermarkHeight);
 
-float x = (float) center.getX() - width / 2;
-
-float y = (float) center.getY() - height / 2;
-
-
-//...
-
-
-IAutoShape watermarkShape = slide.getShapes().addAutoShape(ShapeType.Triangle, x, y, width, height);
+ITextFrame watermarkFrame = watermarkShape.addTextFrame(watermarkText);
 ```
 
+La imagen a continuación muestra el resultado final.
+
+![La marca de agua de texto](text_watermark.png)
 
 ## **Marca de Agua de Imagen**
-### **Añadir Marca de Agua de Imagen a la Presentación**
-Para añadir una marca de agua de imagen a todas las diapositivas de la presentación, puedes hacer lo siguiente:
+
+### **Agregar una Marca de Agua de Imagen a una Presentación**
+
+Para agregar una marca de agua de imagen a una diapositiva de presentación, puedes hacer lo siguiente:
 
 ```java
-IPPImage picture;
-IImage image = Images.fromFile("watermark.png");
-try {
-    picture = pres.getImages().addImage(image);
-} finally {
-    if (image != null) image.dispose();
-}
-// ...
-
+InputStream imageStream = new FileInputStream("watermark.png");
+IPPImage image = presentation.getImages().addImage(imageStream);
 
 watermarkShape.getFillFormat().setFillType(FillType.Picture);
-
-watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-
+watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(image);
 watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
 ```
 
+## **Bloquear una Marca de Agua para Edición**
 
-
-
-## **Bloquear Marca de Agua para Edición**
-Si es necesario prevenir la edición de la marca de agua, utiliza el método [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape#getShapeLock--) en la forma que la envuelve. Con este método puedes proteger la forma de la selección, redimensionar, cambiar la posición, agrupar con otros elementos, bloquear su texto para la edición y muchos otros:
+Si es necesario evitar que una marca de agua sea editada, utiliza el método [IAutoShape.getAutoShapeLock](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getAutoShapeLock--) en la forma. Con esta propiedad, puedes proteger la forma de ser seleccionada, redimensionada, reposicionada, agrupada con otros elementos, bloquear su texto para edición y mucho más:
 
 ```java
-// Bloquear formas de modificar
-
-watermarkShape.getShapeLock().setSelectLocked(true);
-
-watermarkShape.getShapeLock().setSizeLocked(true);
-
-watermarkShape.getShapeLock().setTextLocked(true);
-
-watermarkShape.getShapeLock().setPositionLocked(true);
-
-watermarkShape.getShapeLock().setGroupingLocked(true);
+// Bloquear la forma de marca de agua para modificación
+watermarkShape.getAutoShapeLock().setSelectLocked(true);
+watermarkShape.getAutoShapeLock().setSizeLocked(true);
+watermarkShape.getAutoShapeLock().setTextLocked(true);
+watermarkShape.getAutoShapeLock().setPositionLocked(true);
+watermarkShape.getAutoShapeLock().setGroupingLocked(true);
 ```
 
-{{% alert color="primary" title="Ver también" %}} 
-- [Cómo bloquear formas de edición](/slides/es/java/presentation-locking/)
-{{% /alert %}}
+## **Traer una Marca de Agua al Frente**
 
-## **Traer Marca de Agua al Frente**
-En Aspose.Slides, el orden Z de las formas se puede establecer a través del método [**SlideCollection.reorder**](https://reference.aspose.com/slides/java/com.aspose.slides/SlideCollection#reorder-int-com.aspose.slides.ISlide...-). Para ello, necesitas llamar a este método de la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden al método. De esta manera es posible poner la forma al frente o atrás de la diapositiva. Esta función es especialmente útil si necesitas colocar la marca de agua al frente de la presentación:
+En Aspose.Slides, el orden Z de las formas se puede establecer mediante el método [IShapeCollection.reorder](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) método. Para hacerlo, necesitas llamar a este método desde la lista de diapositivas de la presentación y pasar la referencia de la forma y su número de orden al método. De esta manera, es posible traer una forma al frente o enviarla a la parte posterior de la diapositiva. Esta característica es especialmente útil si necesitas colocar una marca de agua frente a la presentación:
 
 ```java
-slide.getShapes().reorder(slide.getShapes().size() - 1, watermarkShape);
+int shapeCount = slide.getShapes().size();
+slide.getShapes().reorder(shapeCount - 1, watermarkShape);
 ```
 
+## **Establecer la Rotación de la Marca de Agua**
 
-## **Establecer Rotación de la Marca de Agua**
-Aquí hay un ejemplo de cómo establecer la rotación de la marca de agua (y su forma padre):
+Aquí hay un ejemplo de código sobre cómo ajustar la rotación de la marca de agua para que esté posicionada diagonalmente a través de la diapositiva:
 
 ```java
-float h = (float) pres.getSlideSize().getSize().getHeight();
+double diagonalAngle = Math.atan((slideSize.getHeight() / slideSize.getWidth())) * 180 / Math.PI;
 
-float w = (float) pres.getSlideSize().getSize().getWidth();
-
-watermarkShape.setX((w - watermarkShape.getWidth()) / 2);
-
-watermarkShape.setY((h - watermarkShape.getHeight()) / 2);
-
-watermarkShape.setRotation(calculateRotation(h, w));
+watermarkShape.setRotation((float)diagonalAngle);
 ```
 
+## **Establecer un Nombre para una Marca de Agua**
+
+Aspose.Slides permite establecer el nombre de una forma. Al usar el nombre de la forma, puedes acceder a ella en el futuro para modificarla o eliminarla. Para establecer el nombre de la forma de marca de agua, asígnale el método [IAutoShape.setName](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setName-java.lang.String-) :
+
 ```java
-private int calculateRotation(float height, float width)
-{
-    double pageHeight = height;
-    
-    double pageWidth = width;
-    
-    double rotation = Math.atan((pageHeight / pageWidth)) * 180 / Math.PI;
-    
-    return (int) rotation;
-}
+watermarkShape.setName("watermark");
 ```
 
+## **Eliminar una Marca de Agua**
 
-## **Establecer Nombre a la Marca de Agua**
-Aspose.Slides permite establecer el nombre de la forma. Por nombre de forma puedes acceder a ella en el futuro para modificar o eliminar. Para establecer el nombre de la forma padre de la marca de agua, establecelo en el método [**AutoShape.getName**](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getName--):
-
-
+Para eliminar la forma de marca de agua, utiliza el método [IAutoShape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getName--) para encontrarla en las formas de la diapositiva. Luego, pasa la forma de marca de agua al método [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) :
 
 ```java
-watermarkShape.setName("marca de agua");
-```
-
-
-## **Eliminar Marca de Agua**
-Para eliminar la forma de marca de agua y sus controles hijos de la diapositiva, utiliza el método [AutoShape.getName](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getName--) para encontrarla en las formas de la diapositiva. Luego pasa la forma de marca de agua al método [**ShapeCollection.remove**](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeCollection#remove-com.aspose.slides.IShape-) :
-
-```java
-for (int i = 0; i < slide.getShapes().size(); i++)
-{
-    AutoShape shape = (AutoShape)slide.getShapes().get_Item(i);
-
-    if ("marca de agua".equals(shape.getName()))
+IShape[] slideShapes = slide.getShapes().toArray();
+for (IShape shape : slideShapes) {
+    if ("watermark".equals(shape.getName()))
     {
         slide.getShapes().remove(watermarkShape);
     }
 }
 ```
 
+## **Un Ejemplo en Vivo**
 
-## **Ejemplo en Vivo**
-Es posible que desees comprobar las herramientas en línea **gratuitas** de **Aspose.Slides** para [**Añadir Marca de Agua**](https://products.aspose.app/slides/watermark) y [**Eliminar Marca de Agua**](https://products.aspose.app/slides/watermark/remove-watermark).
+Puedes querer probar las herramientas en línea **Aspose.Slides gratuitas** [Agregar Marca de Agua](https://products.aspose.app/slides/watermark) y [Eliminar Marca de Agua](https://products.aspose.app/slides/watermark/remove-watermark).
 
-![todo:image_alt_text](slides-watermark.png)
+![Herramientas en línea para agregar y eliminar marcas de agua](online_tools.png)
