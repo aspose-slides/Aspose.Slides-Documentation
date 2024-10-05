@@ -1,4 +1,4 @@
-l---
+---
 title: Why Not Automation
 type: docs
 weight: 50
