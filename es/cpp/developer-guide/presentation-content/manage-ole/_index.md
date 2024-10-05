@@ -2,7 +2,7 @@
 title: Administrar OLE
 type: docs
 weight: 40
-url: /cpp/manage-ole/
+url: /es/cpp/manage-ole/
 keywords:
 - agregar OLE
 - incrustar OLE

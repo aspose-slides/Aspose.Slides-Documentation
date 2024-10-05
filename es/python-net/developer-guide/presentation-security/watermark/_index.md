@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /es/python-net/watermark/
 keywords:
 - marca de agua
 - añadir marca de agua
@@ -46,7 +46,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar la clase TextFrame](/slides/python-net/text-formatting/)
+- [Cómo usar la clase TextFrame](/slides/es/python-net/text-formatting/)
 {{% /alert %}}
 
 ### **Agregar una Marca de Agua de Texto a una Presentación**
@@ -64,7 +64,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar la Diapositiva Maestro](/slides/python-net/slide-master/)
+- [Cómo usar la Diapositiva Maestro](/slides/es/python-net/slide-master/)
 {{% /alert %}}
 
 ### **Establecer la Transparencia de la Forma de Marca de Agua**

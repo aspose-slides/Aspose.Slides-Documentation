@@ -2,7 +2,7 @@
 title: Marca de Agua
 type: docs
 weight: 40
-url: /net/watermark/
+url: /es/net/watermark/
 keywords:
 - marca de agua
 - agregar marca de agua
@@ -47,7 +47,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar la clase TextFrame](/slides/net/text-formatting/)
+- [Cómo usar la clase TextFrame](/slides/es/net/text-formatting/)
 {{% /alert %}}
 
 ### **Agregar una Marca de Agua de Texto a una Presentación**
@@ -65,7 +65,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar el Slide Master](/slides/net/slide-master/)
+- [Cómo usar el Slide Master](/slides/es/net/slide-master/)
 {{% /alert %}}
 
 ### **Establecer la Transparencia de la Forma de Marca de Agua**

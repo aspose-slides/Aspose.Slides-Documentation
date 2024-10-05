@@ -2,7 +2,7 @@
 title: Administrar OLE
 type: docs
 weight: 40
-url: /net/manage-ole/
+url: /es/net/manage-ole/
 keywords:
 - agregar OLE
 - incrustar OLE

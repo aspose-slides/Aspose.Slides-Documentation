@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /es/cpp/watermark/
 keywords:
 - marca de agua
 - agregar marca de agua
@@ -48,7 +48,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar la clase TextFrame](/slides/cpp/text-formatting/)
+- [Cómo usar la clase TextFrame](/slides/es/cpp/text-formatting/)
 {{% /alert %}}
 
 ### **Agregar una Marca de Agua de Texto a una Presentación**
@@ -68,7 +68,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar el Patrón de Diapositiva](/slides/cpp/slide-master/)
+- [Cómo usar el Patrón de Diapositiva](/slides/es/cpp/slide-master/)
 {{% /alert %}}
 
 ### **Establecer la Transparencia de la Forma de Marca de Agua**

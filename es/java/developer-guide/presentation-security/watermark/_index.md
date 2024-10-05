@@ -2,7 +2,7 @@
 title: Marca de Agua
 type: docs
 weight: 40
-url: /java/watermark/
+url: /es/java/watermark/
 keywords:
 - marca de agua
 - agregar marca de agua
@@ -48,7 +48,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar la clase TextFrame](/slides/java/text-formatting/)
+- [Cómo usar la clase TextFrame](/slides/es/java/text-formatting/)
 {{% /alert %}}
 
 ### **Agregar una Marca de Agua de Texto a una Presentación**
@@ -68,7 +68,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar el Patrón de Diapositivas](/slides/java/slide-master/)
+- [Cómo usar el Patrón de Diapositivas](/slides/es/java/slide-master/)
 {{% /alert %}}
 
 ### **Establecer la Transparencia de la Forma de Marca de Agua**

@@ -2,7 +2,7 @@
 title: Marca de agua
 type: docs
 weight: 40
-url: /androidjava/watermark/
+url: /es/androidjava/watermark/
 keywords:
 - marca de agua
 - agregar marca de agua
@@ -49,7 +49,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo Usar la Clase TextFrame](/slides/androidjava/text-formatting/)
+- [Cómo Usar la Clase TextFrame](/slides/es/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **Agregar una Marca de Agua de Texto a una Presentación**
@@ -69,7 +69,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo Usar el Maestro de Diapositivas](/slides/androidjava/slide-master/)
+- [Cómo Usar el Maestro de Diapositivas](/slides/es/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **Establecer la Transparencia de la Forma de Marca de Agua**

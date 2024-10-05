@@ -2,7 +2,7 @@
 title: Marca de Agua
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /es/php-java/watermark/
 keywords:
 - marca de agua
 - agregar marca de agua
@@ -49,7 +49,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar la clase TextFrame](/slides/php-java/text-formatting/)
+- [Cómo usar la clase TextFrame](/slides/es/php-java/text-formatting/)
 {{% /alert %}}
 
 ### **Agregar una Marca de Agua de Texto a una Presentación**
@@ -69,7 +69,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="Ver también" %}} 
-- [Cómo usar el Patrón de Diapositivas](/slides/php-java/slide-master/)
+- [Cómo usar el Patrón de Diapositivas](/slides/es/php-java/slide-master/)
 {{% /alert %}}
 
 ### **Establecer la Transparencia de la Forma de Marca de Agua**
