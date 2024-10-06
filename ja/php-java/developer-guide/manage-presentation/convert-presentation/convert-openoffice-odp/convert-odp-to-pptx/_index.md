@@ -2,7 +2,7 @@
 title: ODPをPPTXに変換
 type: docs
 weight: 10
-url: /php-java/convert-odp-to-pptx/
+url: /ja/php-java/convert-odp-to-pptx/
 ---
 
 ## **ODPをPPTX/PPTプレゼンテーションに変換**

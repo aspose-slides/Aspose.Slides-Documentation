@@ -1,7 +1,7 @@
 ---
 title: エラーバー
 type: docs
-url: /cpp/error-bar/
+url: /ja/cpp/error-bar/
 ---
 
 ## **エラーバーの追加**

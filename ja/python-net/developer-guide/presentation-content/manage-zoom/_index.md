@@ -2,7 +2,7 @@
 title: ズームの管理
 type: docs
 weight: 60
-url: /python-net/manage-zoom/
+url: /ja/python-net/manage-zoom/
 keywords: "ズーム, ズームフレーム, ズームの追加, ズームフレームのフォーマット, サマリーズーム, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにズームまたはズームフレームを追加する"
 ---

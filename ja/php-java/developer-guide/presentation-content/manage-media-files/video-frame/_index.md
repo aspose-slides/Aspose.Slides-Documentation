@@ -2,7 +2,7 @@
 title: ビデオフレーム
 type: docs
 weight: 10
-url: /php-java/video-frame/
+url: /ja/php-java/video-frame/
 keywords: "ビデオを追加, ビデオフレームを作成, ビデオを抽出, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションにビデオフレームを追加 "
 ---

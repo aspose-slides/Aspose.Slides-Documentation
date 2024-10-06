@@ -2,5 +2,5 @@
 title: プレゼンテーションデザイン
 type: docs
 weight: 40
-url: /cpp/presentation-design/
+url: /ja/cpp/presentation-design/
 ---

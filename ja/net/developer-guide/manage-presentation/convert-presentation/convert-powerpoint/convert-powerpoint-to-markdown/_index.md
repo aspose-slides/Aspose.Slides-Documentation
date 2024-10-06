@@ -2,7 +2,7 @@
 title: PowerPointをC#でMarkdownに変換
 type: docs
 weight: 140
-url: /net/convert-powerpoint-to-markdown/
+url: /ja/net/convert-powerpoint-to-markdown/
 keywords: "PowerPointをMarkdownに変換, pptをmdに変換, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, C#, Csharp, .NET, Aspose.Slides"
 description: "C#でPowerPointをMarkdownに変換"
 ---

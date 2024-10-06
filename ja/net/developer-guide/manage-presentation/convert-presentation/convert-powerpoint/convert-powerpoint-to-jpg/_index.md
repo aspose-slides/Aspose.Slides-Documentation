@@ -3,7 +3,7 @@ title: C#でPowerPointをJPGに変換
 linktitle: PowerPoint PPTをJPGに変換
 type: docs
 weight: 60
-url: /net/convert-powerpoint-to-jpg/
+url: /ja/net/convert-powerpoint-to-jpg/
 keywords: 
 - PowerPointプレゼンテーションを変換
 - JPG
@@ -147,4 +147,4 @@ Asposeは[無料のコラージュWebアプリ](https://products.aspose.app/slid
 
 PPT/PPTXを画像に変換する他のオプションを参照してください：
 
-- [PPT/PPTXをSVGに変換](/slides/net/render-a-slide-as-an-svg-image/)
+- [PPT/PPTXをSVGに変換](/slides/ja/net/render-a-slide-as-an-svg-image/)

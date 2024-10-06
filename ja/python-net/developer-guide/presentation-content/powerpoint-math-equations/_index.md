@@ -2,7 +2,7 @@
 title: PowerPoint 数学方程式
 type: docs
 weight: 80
-url: /python-net/powerpoint-math-equations/
+url: /ja/python-net/powerpoint-math-equations/
 keywords: " PowerPoint 数学方程式, PowerPoint 数学記号, PowerPoint 数式, PowerPoint 数学テキスト, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでのPowerPoint 数学方程式、数学記号、数式、数学テキスト"
 ---

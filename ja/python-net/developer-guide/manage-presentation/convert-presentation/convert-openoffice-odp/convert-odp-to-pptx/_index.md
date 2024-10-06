@@ -2,7 +2,7 @@
 title: ODPをPPTXに変換
 type: docs
 weight: 10
-url: /python-net/convert-odp-to-pptx/
+url: /ja/python-net/convert-odp-to-pptx/
 keywords: "OpenOfficeプレゼンテーションの変換, ODP, ODPをPPTXに, Python"
 description: "PythonでOpenOffice ODPをPowerPointプレゼンテーションPPTXに変換"
 ---

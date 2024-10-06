@@ -2,12 +2,12 @@
 title: 形状アニメーション
 type: docs
 weight: 60
-url: /cpp/shape-animation/
+url: /ja/cpp/shape-animation/
 keywords: "PowerPoint アニメーション, アニメーション効果, アニメーションの適用, PowerPoint プレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointアニメーションを適用する"
 ---
 
-アニメーションは、テキスト、画像、形状、または [チャート](/slides/cpp/animated-charts/) に適用できる視覚効果です。プレゼンテーションやその構成要素に命を吹き込みます。
+アニメーションは、テキスト、画像、形状、または [チャート](/slides/ja/cpp/animated-charts/) に適用できる視覚効果です。プレゼンテーションやその構成要素に命を吹き込みます。
 
 ### **プレゼンテーションでアニメーションを使用する理由**
 
@@ -70,7 +70,7 @@ pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 {{%  alert color="primary"  %}} 
 
-テキストにアニメーションを適用するだけでなく、単一の [段落](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph) にもアニメーションを適用できます。詳細は [**アニメーション テキスト**](/slides/cpp/animated-text/) をご覧ください。
+テキストにアニメーションを適用するだけでなく、単一の [段落](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph) にもアニメーションを適用できます。詳細は [**アニメーション テキスト**](/slides/ja/cpp/animated-text/) をご覧ください。
 
 {{% /alert %}} 
 

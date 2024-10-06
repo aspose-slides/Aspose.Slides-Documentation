@@ -2,7 +2,7 @@
 title: インストール
 type: docs
 weight: 70
-url: /nodejs-java/installation/
+url: /ja/nodejs-java/installation/
 keySlides: "Aspose.Slidesのダウンロード, Aspose.Slidesのインストール, Aspose.Slidesのインストール, Windows, macOS, Linux, Javascript, Node.js"
 description: "Windows、Linux、またはmacOSでJava経由でNode.js用のAspose.Slidesをインストールします"
 ---

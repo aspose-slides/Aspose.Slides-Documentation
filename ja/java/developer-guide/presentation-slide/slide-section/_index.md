@@ -2,7 +2,7 @@
 title: スライドセクション
 type: docs
 weight: 90
-url: /java/slide-section/
+url: /ja/java/slide-section/
 ---
 
 Aspose.Slides for Javaを使用すると、PowerPointプレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。

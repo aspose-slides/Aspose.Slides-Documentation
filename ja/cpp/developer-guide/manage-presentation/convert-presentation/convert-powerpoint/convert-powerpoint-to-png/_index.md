@@ -2,7 +2,7 @@
 title: PowerPointをPNGに変換する
 type: docs
 weight: 30
-url: /cpp/convert-powerpoint-to-png/
+url: /ja/cpp/convert-powerpoint-to-png/
 keywords: PowerPointをPNGに, PPTをPNGに, PPTXをPNGに, C++, Aspose.Slides for C++
 description: PowerPointプレゼンテーションをPNGに変換する
 ---

@@ -2,12 +2,12 @@
 title: Hello World プレゼンテーション文書の作成方法
 type: docs
 weight: 10
-url: /java/how-to-create-hello-world-presentation-document/
+url: /ja/java/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-新しい[Aspose.Slides for Java API](/slides/java/)がリリースされ、今やこの単一の製品は、ゼロからPowerPoint文書を生成したり、既存の文書を編集する機能をサポートしています。
+新しい[Aspose.Slides for Java API](/slides/ja/java/)がリリースされ、今やこの単一の製品は、ゼロからPowerPoint文書を生成したり、既存の文書を編集する機能をサポートしています。
 
 {{% /alert %}} 
 ## **レガシーコードのサポート**

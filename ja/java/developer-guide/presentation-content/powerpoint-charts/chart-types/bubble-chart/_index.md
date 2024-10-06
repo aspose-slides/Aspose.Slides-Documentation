@@ -1,7 +1,7 @@
 ---
 title: バブルチャート
 type: docs
-url: /java/bubble-chart/
+url: /ja/java/bubble-chart/
 ---
 
 ## **バブルチャートのサイズスケーリング**

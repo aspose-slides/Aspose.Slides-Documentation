@@ -3,7 +3,7 @@ title: C#でプレゼンテーションを開く
 linktitle: プレゼンテーションを開く
 type: docs
 weight: 20
-url: /net/open-presentation/
+url: /ja/net/open-presentation/
 keywords: "PowerPointを開く, PPTX, PPT, プレゼンテーションを開く, プレゼンテーションを読み込む, C#, Csharp, .NET"
 description: "C#または.NETでプレゼンテーションPPT、PPTX、ODPを開くまたは読み込む"
 ---

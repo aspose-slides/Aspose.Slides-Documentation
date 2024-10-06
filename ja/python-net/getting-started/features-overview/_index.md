@@ -2,7 +2,7 @@
 title: 機能概要
 type: docs
 weight: 20
-url: /python-net/features-overview/
+url: /ja/python-net/features-overview/
 ---
 
 ## **サポートされているプラットフォーム**
@@ -20,11 +20,11 @@ Aspose.Slides for Python via .NETは、ほとんどのPowerPointドキュメン�
 
 |**機能**|**説明**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/python-net/ppt-vs-pptx/)|Aspose.Slides for Python via .NETは、このプレゼンテーションドキュメント形式の最速の処理を提供します。|
-|[PPTからPPTXへの変換](/slides/python-net/convert-ppt-to-pptx/)|Aspose.Slides for Python via .NETは、PPTからPPTXへの変換をサポートしています。|
-|[Portable Document Format (PDF)](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|すべてのサポートされるファイル形式を、単一のメソッドでAdobe Portable Document Format (PDF)ドキュメントにエクスポートできます。|
+|[Microsoft PowerPoint (PPT)](/slides/ja/python-net/ppt-vs-pptx/)|Aspose.Slides for Python via .NETは、このプレゼンテーションドキュメント形式の最速の処理を提供します。|
+|[PPTからPPTXへの変換](/slides/ja/python-net/convert-ppt-to-pptx/)|Aspose.Slides for Python via .NETは、PPTからPPTXへの変換をサポートしています。|
+|[Portable Document Format (PDF)](/slides/ja/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|すべてのサポートされるファイル形式を、単一のメソッドでAdobe Portable Document Format (PDF)ドキュメントにエクスポートできます。|
 |[XML Parser Specification (XPS)](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)|すべてのサポートされるファイル形式を、単一のメソッドでXML Parser Specification (XPS)ドキュメントにエクスポートできます。|
-|[Tagged Image File Format (TIFF)](/slides/python-net/convert-powerpoint-to-tiff/)|すべてのサポートされるプレゼンテーションファイル形式をTagged Image File Format (TIFF)にエクスポートできます。|
+|[Tagged Image File Format (TIFF)](/slides/ja/python-net/convert-powerpoint-to-tiff/)|すべてのサポートされるプレゼンテーションファイル形式をTagged Image File Format (TIFF)にエクスポートできます。|
 |[PPTXからHTMLへの変換](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)|Aspose.Slides for Python via .NETは、PresentationExをHTML形式に変換することをサポートしています。|
 
 ## **レンダリングと印刷**

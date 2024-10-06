@@ -2,7 +2,7 @@
 title: プレゼンテーションビューア
 type: docs
 weight: 50
-url: /cpp/presentation-viewer/
+url: /ja/cpp/presentation-viewer/
 keywords:
 - PowerPointプレゼンテーションを表示
 - pptを表示

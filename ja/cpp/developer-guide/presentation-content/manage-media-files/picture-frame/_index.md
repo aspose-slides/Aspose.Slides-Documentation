@@ -2,7 +2,7 @@
 title: ピクチャーフレーム
 type: docs
 weight: 10
-url: /cpp/picture-frame/
+url: /ja/cpp/picture-frame/
 keywords: "ピクチャーフレームを追加, ピクチャーフレームを作成, 画像を追加, 画像を作成, 画像を抽出, StretchOffプロパティ, ピクチャーフレームのフォーマット, ピクチャーフレームのプロパティ, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションにピクチャーフレームを追加"
 ---

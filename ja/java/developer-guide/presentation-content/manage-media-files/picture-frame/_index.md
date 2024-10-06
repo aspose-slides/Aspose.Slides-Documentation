@@ -2,7 +2,7 @@
 title: ピクチャーフレーム
 type: docs
 weight: 10
-url: /java/picture-frame/
+url: /ja/java/picture-frame/
 keywords: "ピクチャーフレームを追加, ピクチャーフレームを作成, 画像を追加, 画像を作成, 画像を抽出, StretchOffプロパティ, ピクチャーフレームの書式設定, ピクチャーフレームのプロパティ, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションにピクチャーフレームを追加"
 

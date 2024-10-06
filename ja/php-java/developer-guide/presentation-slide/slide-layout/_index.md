@@ -2,7 +2,7 @@
 title: スライドレイアウト
 type: docs
 weight: 60
-url: /php-java/slide-layout/
+url: /ja/php-java/slide-layout/
 keyword: "スライドサイズ設定、スライドオプション設定、スライドサイズ指定、フッターの可視性、子フッター、コンテンツスケーリング、ページサイズ、Java、Aspose.Slides"
 description: "PowerPointスライドのサイズとオプションを設定"
 ---

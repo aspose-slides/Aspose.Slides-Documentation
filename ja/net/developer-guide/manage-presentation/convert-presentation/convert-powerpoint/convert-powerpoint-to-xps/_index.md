@@ -2,7 +2,7 @@
 title: PowerPointをXPSに変換
 type: docs
 weight: 70
-url: /net/convert-powerpoint-to-xps
+url: /ja/net/convert-powerpoint-to-xps
 keywords: "PowerPointプレゼンテーションの変換, PowerPointからXPS, PPTからXPS, PPTXからXPS, 変換, C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでPowerPointプレゼンテーションをXPSに変換します。"
 ---

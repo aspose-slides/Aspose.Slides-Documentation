@@ -2,7 +2,7 @@
 title: フォールバックフォントの作成
 type: docs
 weight: 10
-url: /cpp/create-fallback-font/
+url: /ja/cpp/create-fallback-font/
 ---
 
 Aspose.Slidesは、フォールバックフォントを適用するためのルールを指定するために、[IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule)インターフェースと[FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule)クラスをサポートしています。[FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule)クラスは、欠落しているグリフを検索するために使用される指定されたUnicode範囲と、適切なグリフを含む可能性のあるフォントのリストとの関連を表します：
@@ -25,5 +25,5 @@ auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), st
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection)は、複数のUnicode範囲に対してフォールバックフォント置換ルールを指定する必要がある場合に、[FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule)オブジェクトのリストを整理するために使用できます。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [フォールバックフォントコレクションの作成](/slides/cpp/create-fallback-fonts-collection/)
+- [フォールバックフォントコレクションの作成](/slides/ja/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}

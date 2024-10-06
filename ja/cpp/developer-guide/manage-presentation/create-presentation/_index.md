@@ -3,7 +3,7 @@ title: プレゼンテーションの作成 - C++ PowerPoint API
 linktitle: プレゼンテーションの作成
 type: docs
 weight: 10
-url: /cpp/create-presentation/
+url: /ja/cpp/create-presentation/
 description: C++ APIでPowerPointプレゼンテーションを作成するには、本記事に記載されている手順に従ってください。コードはプレゼンテーションの最初のスライドにラインを追加します。
 ---
 

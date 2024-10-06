@@ -2,7 +2,7 @@
 title: パスワード保護されたプレゼンテーション
 type: docs
 weight: 20
-url: /python-net/password-protected-presentation/
+url: /ja/python-net/password-protected-presentation/
 keywords: "PowerPointのロック、PowerPointの解除、PowerPointの保護、パスワードの設定、パスワードの追加、PowerPointの暗号化、PowerPointの復号化、書き込み保護、PowerPointのセキュリティ、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointのパスワード保護、暗号化、およびセキュリティ"
 
@@ -223,5 +223,5 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
 指定したパスワードでプレゼンテーションが暗号化されている場合は`True`を返します。それ以外の場合は`False`を返します。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [PowerPointにおけるデジタル署名](/slides/python-net/digital-signature-in-powerpoint/)
+- [PowerPointにおけるデジタル署名](/slides/ja/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}

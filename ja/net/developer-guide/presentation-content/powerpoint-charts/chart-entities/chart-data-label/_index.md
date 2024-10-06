@@ -1,7 +1,7 @@
 ---
 title: チャートデータラベル
 type: docs
-url: /net/chart-data-label/
+url: /ja/net/chart-data-label/
 keywords: "チャートデータラベル,ラベル距離, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointチャートデータラベルと距離を設定します"
 ---

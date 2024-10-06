@@ -3,7 +3,7 @@ title: JavaでPowerPointプレゼンテーションのチャートを作成ま�
 linktitle: チャートを作成
 type: docs
 weight: 10
-url: /androidjava/create-chart/
+url: /ja/androidjava/create-chart/
 keywords: "チャートを作成, 散布図, 円グラフ, ツリーマップチャート, 株式チャート, 箱ひげ図, ヒストグラム, ファunnelチャート, サンバーストチャート, マルチカテゴリーチャート, PowerPointプレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaでPowerPointプレゼンテーションにチャートを作成します"
 ---

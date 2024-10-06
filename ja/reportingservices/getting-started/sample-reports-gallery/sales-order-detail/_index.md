@@ -2,7 +2,7 @@
 title: 販売注文の詳細
 type: docs
 weight: 50
-url: /reportingservices/sales-order-detail/
+url: /ja/reportingservices/sales-order-detail/
 ---
 
 ## **機能:**

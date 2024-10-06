@@ -2,7 +2,7 @@
 title: ドーナツチャート
 type: docs
 weight: 30
-url: /php-java/doughnut-chart/
+url: /ja/php-java/doughnut-chart/
 ---
 
 ## **ドーナツチャートの中心の隙間を変更する**

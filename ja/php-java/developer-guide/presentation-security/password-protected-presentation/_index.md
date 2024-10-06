@@ -2,7 +2,7 @@
 title: パスワード保護されたプレゼンテーション
 type: docs
 weight: 20
-url: /php-java/password-protected-presentation/
+url: /ja/php-java/password-protected-presentation/
 keywords: "PowerPointプレゼンテーションのロック"
 description: "PowerPointプレゼンテーションをロックします。パスワード保護されたPowerPoint"
 ---
@@ -256,5 +256,5 @@ Aspose.Slidesでは、プレゼンテーションが書き込み保護されて�
 指定されたパスワードでプレゼンテーションが暗号化されていた場合、`true`を返します。そうでない場合は`false`を返します。
 
 {{% alert color="primary" title="さらに学ぶ" %}} 
-- [PowerPointのデジタル署名](/slides/net/digital-signature-in-powerpoint/)
+- [PowerPointのデジタル署名](/slides/ja/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

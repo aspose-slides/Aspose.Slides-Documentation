@@ -2,7 +2,7 @@
 title: ワードアート
 type: docs
 weight: 110
-url: /net/wordart/
+url: /ja/net/wordart/
 keywords: "ワードアート, Word Art, ワードアートを作成, ワードアートテンプレート, ワードアート効果, シャドウ効果, 表示効果, グロー効果, ワードアート変換, 3D効果, 外部シャドウ効果, 内部シャドウ効果, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または Aspose.Slides for .NET で PowerPoint プレゼンテーションにワードアートと効果を追加、操作、管理します"
 ---

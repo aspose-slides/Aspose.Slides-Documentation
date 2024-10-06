@@ -2,7 +2,7 @@
 title: プレゼンテーションフォーマット
 type: docs
 weight: 10
-url: /python-net/presentation-format/
+url: /ja/python-net/presentation-format/
 ---
 
 Aspose.Slides for Python via .NET は、プレゼンテーションフォーマットをロードする前に取得するために使用される [**PresentationFactory**](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/) クラスを提供します。

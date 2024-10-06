@@ -3,7 +3,7 @@ title: フォントの管理 - PowerPoint Java API
 linktitle: フォントの管理
 type: docs
 weight: 10
-url: /androidjava/manage-fonts/
+url: /ja/androidjava/manage-fonts/
 description: プレゼンテーションには通常、テキストと画像の両方が含まれています。この記事では、PowerPoint Java APIを使用してスライド上のテキスト段落のフォントプロパティを構成する方法を示します。
 ---
 

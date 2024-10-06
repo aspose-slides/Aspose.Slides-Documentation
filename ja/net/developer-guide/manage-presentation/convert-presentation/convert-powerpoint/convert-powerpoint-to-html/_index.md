@@ -3,7 +3,7 @@ title: C# .NETでPowerPointをHTMLに変換する
 linktitle: PowerPointをHTMLに変換する
 type: docs
 weight: 30
-url: /net/convert-powerpoint-to-html/
+url: /ja/net/convert-powerpoint-to-html/
 keywords: "C# PowerPoint to HTML, C# PPT to HTML, C# ODP to HTML, C# Slide to HTML, PowerPointプレゼンテーションを変換, PPTX, PPT, PPTをHTMLに, PPTXをHTMLに, PowerPointをHTMLに, PowerPointをHTMLとして保存, PPTをHTMLとして保存, PPTXをHTMLとして保存, C#, Csharp, .NET, Aspose.Slides, HTMLエクスポート"
 description: "PowerPoint HTMLに変換: PPTXまたはPPTをHTMLとして保存。スライドをHTMLとして保存"
 ---

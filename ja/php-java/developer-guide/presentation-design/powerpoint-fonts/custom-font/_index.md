@@ -3,7 +3,7 @@ title: カスタム PowerPoint フォント
 linktitle: カスタムフォント
 type: docs
 weight: 20
-url: /php-java/custom-font/
+url: /ja/php-java/custom-font/
 keywords: "フォント、カスタムフォント、PowerPoint プレゼンテーション、Java、Aspose.Slides for PHP via Java"
 description: "PowerPoint カスタムフォント"
 ---

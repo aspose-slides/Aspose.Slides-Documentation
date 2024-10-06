@@ -2,7 +2,7 @@
 title: PowerPoint 数学方程式
 type: docs
 weight: 80
-url: /java/powerpoint-math-equations/
+url: /ja/java/powerpoint-math-equations/
 keywords: " PowerPoint 数学方程式, PowerPoint 数学シンボル, PowerPoint 数式, PowerPoint 数学テキスト"
 description: "PowerPoint 数学方程式, PowerPoint 数学シンボル, PowerPoint 数式, PowerPoint 数学テキスト"
 ---

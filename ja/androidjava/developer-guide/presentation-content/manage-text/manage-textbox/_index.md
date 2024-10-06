@@ -2,7 +2,7 @@
 title: テキストボックスの管理
 type: docs
 weight: 20
-url: /androidjava/manage-textbox/
+url: /ja/androidjava/manage-textbox/
 description: Javaを使用してPowerPointスライドにテキストボックスを作成します。Javaを使用してPowerPointスライドのテキストボックスまたはテキストフレームに列を追加します。Javaを使用してPowerPointスライドにハイパーリンク付きのテキストボックスを追加します。
 ---
 

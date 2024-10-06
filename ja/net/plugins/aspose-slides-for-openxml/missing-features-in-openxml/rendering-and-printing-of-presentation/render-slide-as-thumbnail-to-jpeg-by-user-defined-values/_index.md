@@ -2,7 +2,7 @@
 title: ユーザー定義の値を使用してスライドをJPEGのサムネイルとしてレンダリングする
 type: docs
 weight: 70
-url: /net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
+url: /ja/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
 ---
 
 Aspose.Slides for .NETを使用して任意のスライドのサムネイルを生成するには：

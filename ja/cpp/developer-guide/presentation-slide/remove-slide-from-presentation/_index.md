@@ -2,7 +2,7 @@
 title: プレゼンテーションからスライドを削除する
 type: docs
 weight: 30
-url: /cpp/remove-slide-from-presentation/
+url: /ja/cpp/remove-slide-from-presentation/
 keywords: "スライドを削除, スライドを消去, PowerPoint, プレゼンテーション, C++, Aspose.Slides"
 description: "C++で参照またはインデックスによってPowerPointからスライドを削除"
 

@@ -2,7 +2,7 @@
 title: スライドトランジション
 type: docs
 weight: 80
-url: /php-java/slide-transition/
+url: /ja/php-java/slide-transition/
 keywords: "PowerPointスライドトランジション, モーフトランジション"
 description: "PowerPointスライドトランジション, PowerPointモーフトランジション"
 ---

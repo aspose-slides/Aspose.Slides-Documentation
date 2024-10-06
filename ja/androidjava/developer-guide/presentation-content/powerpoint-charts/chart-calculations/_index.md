@@ -2,7 +2,7 @@
 title: チャート計算
 type: docs
 weight: 50
-url: /androidjava/chart-calculations/
+url: /ja/androidjava/chart-calculations/
 ---
 
 ## **チャート要素の実際の値を計算する**

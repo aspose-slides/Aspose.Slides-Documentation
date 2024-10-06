@@ -2,16 +2,16 @@
 title: プレゼンテーションからのテキストの抽出
 type: docs
 weight: 60
-url: /cpp/extracting-text-from-the-presentation/
+url: /ja/cpp/extracting-text-from-the-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 開発者がプレゼンテーションからテキストを抽出する必要があるのは珍しくありません。そのためには、プレゼンテーション内のすべてのスライドのすべてのシェイプからテキストを抽出する必要があります。本記事では、Aspose.Slidesを使用してMicrosoft PowerPoint PPTXプレゼンテーションからテキストを抽出する方法を説明します。テキストは以下の方法で抽出できます：
 
-[1つのスライドからのテキストの抽出](/slides/cpp/extracting-text-from-the-presentation/)
-[GetAllTextBoxesメソッドを使用してテキストを抽出](/slides/cpp/extracting-text-from-the-presentation/)
-[分類された迅速なテキスト抽出](/slides/cpp/extracting-text-from-the-presentation/)
+[1つのスライドからのテキストの抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
+[GetAllTextBoxesメソッドを使用してテキストを抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
+[分類された迅速なテキスト抽出](/slides/ja/cpp/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **スライドからのテキストの抽出**

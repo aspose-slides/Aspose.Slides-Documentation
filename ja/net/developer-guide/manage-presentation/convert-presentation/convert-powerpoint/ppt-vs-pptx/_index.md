@@ -2,7 +2,7 @@
 title: PPTとPPTX
 type: docs
 weight: 10
-url: /net/ppt-vs-pptx/
+url: /ja/net/ppt-vs-pptx/
 keywords: "PPTとPPTX, PPTまたはPPTX, PowerPointプレゼンテーション, フォーマット, C#, Csharp, .NET"
 description: "PowerPointプレゼンテーションフォーマットについて。PPTとPPTX。C#または.NETでの違い"
 ---
@@ -35,5 +35,5 @@ pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="primary" %}} 
-プレゼンテーションをPPTからPPTXに変換する方法についてもっと読むには[**こちら**.](/slides/net/convert-ppt-to-pptx/)
+プレゼンテーションをPPTからPPTXに変換する方法についてもっと読むには[**こちら**.](/slides/ja/net/convert-ppt-to-pptx/)
 {{% /alert %}} 

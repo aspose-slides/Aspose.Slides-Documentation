@@ -2,7 +2,7 @@
 title: Open XML SDKを使用しない理由
 type: docs
 weight: 120
-url: /java/why-not-open-xml-sdk/
+url: /ja/java/why-not-open-xml-sdk/
 ---
 
 {{% alert color="primary" %}} 
@@ -30,7 +30,7 @@ Aspose.Slidesは、アプリケーションが次のプレゼンテーション�
 - アニメーション、Oleフレーム、テーブルの追加、チャートの作成と管理のサポート。
 - TextFrames、段落、部分レベルでのテキストフォーマッティングを管理するための広範な制御の利用可能性。
 
-サポートされている機能の詳細については、[Aspose.Slidesの機能](/slides/java/product-overview/)をご覧ください。
+サポートされている機能の詳細については、[Aspose.Slidesの機能](/slides/ja/java/product-overview/)をご覧ください。
 ## **Open XML SDKとAspose.Slidesの比較**
 {{% alert color="primary" %}} 
 

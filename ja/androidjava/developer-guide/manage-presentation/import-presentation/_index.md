@@ -2,7 +2,7 @@
 title: プレゼンテーションのインポート
 type: docs
 weight: 60
-url: /androidjava/import-presentation/
+url: /ja/androidjava/import-presentation/
 keywords: "プレゼンテーションへのPowerPoint、PDFのインポート、PDFからPPTXへ、PDFからPPTへ、Java、Aspose.Slides for Android via Java"
 description: "PDFからPowerPointプレゼンテーションをインポートします。PDFをPowerPointに変換します"
 ---

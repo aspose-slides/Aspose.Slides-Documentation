@@ -2,7 +2,7 @@
 title: はじめに
 type: docs
 weight: 10
-url: /sharepoint/introduction/
+url: /ja/sharepoint/introduction/
 ---
 
 {{% alert color="primary" %}} 
@@ -15,7 +15,7 @@ Aspose.Slides for SharePointは、Microsoft PowerPoint文書をPPT、POT、PPS�
 
 この記事では、以下の内容を扱います：
 
-- [SharePoint ドキュメント ライブラリの注記](/slides/sharepoint/sharepoint-document-library/)。
-- [Aspose.Slides for SharePointを使用する利点](/slides/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/)。
-- [Microsoft PowerPoint文書を他の形式に変換する方法](/slides/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/)。
-- [概要](/slides/sharepoint/summary/)
+- [SharePoint ドキュメント ライブラリの注記](/slides/ja/sharepoint/sharepoint-document-library/)。
+- [Aspose.Slides for SharePointを使用する利点](/slides/ja/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/)。
+- [Microsoft PowerPoint文書を他の形式に変換する方法](/slides/ja/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/)。
+- [概要](/slides/ja/sharepoint/summary/)

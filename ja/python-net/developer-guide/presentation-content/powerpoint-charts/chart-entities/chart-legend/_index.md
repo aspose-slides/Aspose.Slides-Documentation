@@ -1,7 +1,7 @@
 ---
 title: チャートの凡例
 type: docs
-url: /python-net/chart-legend/
+url: /ja/python-net/chart-legend/
 keywords: "チャートの凡例, 凡例のフォントサイズ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでのPowerPointプレゼンテーションにおけるチャートの凡例の位置とフォントサイズを設定します"
 ---

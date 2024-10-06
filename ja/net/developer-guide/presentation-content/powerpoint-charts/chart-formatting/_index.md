@@ -2,7 +2,7 @@
 title: チャートの書式設定
 type: docs
 weight: 60
-url: /net/chart-formatting/
+url: /ja/net/chart-formatting/
 keywords: "チャートエンティティ, チャートプロパティ, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーション内のチャートエンティティをフォーマットする"
 ---

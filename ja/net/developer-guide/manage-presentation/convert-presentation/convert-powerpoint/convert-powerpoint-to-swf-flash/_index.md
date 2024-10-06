@@ -2,7 +2,7 @@
 title: PowerPointをSWFフラッシュに変換する
 type: docs
 weight: 80
-url: /net/convert-powerpoint-to-swf-flash/
+url: /ja/net/convert-powerpoint-to-swf-flash/
 keywords: "PowerPointの変換, プレゼンテーション, PowerPointからSWF, SWFフラッシュPPTからSWF, PPTXからSWF, C#, Csharp, .NET"
 description: "C#または.NETでPowerPointプレゼンテーションをSWFフラッシュに変換する"
 ---

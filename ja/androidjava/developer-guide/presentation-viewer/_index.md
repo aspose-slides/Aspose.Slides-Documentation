@@ -2,7 +2,7 @@
 title: プレゼンテーションビューア
 type: docs
 weight: 50
-url: /androidjava/presentation-viewer/
+url: /ja/androidjava/presentation-viewer/
 keywords: "PowerPoint PPTビューワ"
 description: "JavaでのPowerPoint PPTビューワ"
 ---

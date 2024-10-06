@@ -2,7 +2,7 @@
 title: チャート計算
 type: docs
 weight: 50
-url: /php-java/chart-calculations/
+url: /ja/php-java/chart-calculations/
 ---
 
 ## **チャート要素の実際の値を計算する**

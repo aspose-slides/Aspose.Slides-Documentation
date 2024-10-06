@@ -2,7 +2,7 @@
 title: プレゼンテーションの統合
 type: docs
 weight: 40
-url: /androidjava/merge-presentation/
+url: /ja/androidjava/merge-presentation/
 keywords: "PowerPoint 統合, PPTX, PPT, PowerPoint 結合, プレゼンテーション 統合, Java"
 description: "JavaでPowerPointプレゼンテーションを統合または結合する"
 ---

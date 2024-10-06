@@ -2,7 +2,7 @@
 title: スライド上の図形のサイズ変更
 type: docs
 weight: 130
-url: /net/re-sizing-shapes-on-slide/
+url: /ja/net/re-sizing-shapes-on-slide/
 ---
 
 ## **スライド上の図形のサイズ変更**

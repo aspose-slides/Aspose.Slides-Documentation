@@ -2,7 +2,7 @@
 title: 読み取り専用プレゼンテーション
 type: docs
 weight: 30
-url: /cpp/read-only-presentation/
+url: /ja/cpp/read-only-presentation/
 
 ---
 

@@ -2,7 +2,7 @@
 title: チャートの書式設定
 type: docs
 weight: 60
-url: /python-net/chart-formatting/
+url: /ja/python-net/chart-formatting/
 keywords: "チャートエンティティ、チャートプロパティ、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのチャートエンティティを整形する"
 ---

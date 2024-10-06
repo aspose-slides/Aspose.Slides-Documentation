@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /net/paragraph/
+url: /ja/net/paragraph/
 keywords: "段落, ポーション, 段落座標, ポーション座標, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションの段落とポーション"
 ---

@@ -1,7 +1,7 @@
 ---
 title: エラーバー
 type: docs
-url: /net/error-bar/
+url: /ja/net/error-bar/
 keywords: "エラーバー, エラーバー値, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションにエラーバーを追加する"
 ---

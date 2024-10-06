@@ -2,15 +2,15 @@
 title: Aspose.Slides for RSのレンダリング結果のカスタマイズ
 type: docs
 weight: 10
-url: /reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
+url: /ja/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
 ---
 
 {{% alert color="primary" %}} 
 
 このページでは、Aspose.Slides for RSの拡張機能を作成する方法について説明します。
 
-- [拡張アセンブリを作成する](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
-- [拡張機能を統合する](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
+- [拡張アセンブリを作成する](/slides/ja/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
+- [拡張機能を統合する](/slides/ja/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: アニメーションチャート
 type: docs
 weight: 80
-url: /php-java/animated-charts/
+url: /ja/php-java/animated-charts/
 ---
 
 

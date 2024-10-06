@@ -3,7 +3,7 @@ title: JavaでPowerPointをHTMLに変換
 linktitle: PowerPointをHTMLに変換
 type: docs
 weight: 30
-url: /java/convert-powerpoint-to-html/
+url: /ja/java/convert-powerpoint-to-html/
 keywords: "Java PowerPoint to HTML, PowerPointプレゼンテーションの変換, PPTX, PPT, PPTをHTMLに, PPTXをHTMLに, PowerPointをHTMLに, PowerPointをHTMLとして保存, PPTをHTMLとして保存, PPTXをHTMLとして保存, Java, Aspose.Slides, HTMLエクスポート"
 description: "JavaでPowerPointをHTMLに変換: PPTXまたはPPTをHTMLとして保存します。JavaでスライドをHTMLに保存します"
 ---

@@ -2,7 +2,7 @@
 title: プレゼンテーションにスライドを追加する
 type: docs
 weight: 20
-url: /net/adding-slide-to-presentation/
+url: /ja/net/adding-slide-to-presentation/
 ---
 
 ## **OpenXML プレゼンテーション**

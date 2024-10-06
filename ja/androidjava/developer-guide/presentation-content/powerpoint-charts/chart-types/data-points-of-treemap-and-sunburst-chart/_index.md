@@ -1,7 +1,7 @@
 ---
 title: ツリーマップとサンバーストチャートのデータポイント
 type: docs
-url: /androidjava/data-points-of-treemap-and-sunburst-chart/
+url: /ja/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Aspose.Slides for Android via Javaのサンバーストグラフ"
 description: "Aspose.Slides for Android via Javaを使用したサンバーストグラフ、サンバーストダイアグラム、サンバーストチャート、放射状チャート、放射状グラフ、またはマルチレベル円グラフ。"
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="こちらもご覧ください" %}} 
-- [**サンバーストチャートの作成**](/slides/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**サンバーストチャートの作成**](/slides/ja/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 チャートのデータポイントをフォーマットする必要がある場合、次のものを使用します：

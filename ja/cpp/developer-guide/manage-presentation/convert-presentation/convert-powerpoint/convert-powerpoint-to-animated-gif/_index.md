@@ -2,7 +2,7 @@
 title: PowerPointをアニメーションGIFに変換する
 type: docs
 weight: 65
-url: /cpp/convert-powerpoint-to-animated-gif/
+url: /ja/cpp/convert-powerpoint-to-animated-gif/
 keywords: "PowerPointをアニメーションGIFに変換する, "
 description: "PowerPointをアニメーションGIFに変換する: PPTからGIF、PPTXからGIF、Aspose.Slides APIを使用して。"
 ---

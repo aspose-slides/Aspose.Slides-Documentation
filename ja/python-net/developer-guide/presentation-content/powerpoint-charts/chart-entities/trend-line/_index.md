@@ -1,7 +1,7 @@
 ---
 title: トレンドライン
 type: docs
-url: /python-net/trend-line/
+url: /ja/python-net/trend-line/
 keywords: "トレンドライン、カスタムライン PowerPoint プレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "Python で PowerPoint プレゼンテーションにトレンドラインとカスタムラインを追加する"
 ---

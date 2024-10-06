@@ -1,7 +1,7 @@
 ---
 title: チャートデータマーカー
 type: docs
-url: /cpp/chart-data-marker/
+url: /ja/cpp/chart-data-marker/
 ---
 
 ## **チャートマーカーの設定**

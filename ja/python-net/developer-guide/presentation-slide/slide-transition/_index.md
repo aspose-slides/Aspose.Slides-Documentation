@@ -2,7 +2,7 @@
 title: スライド遷移
 type: docs
 weight: 90
-url: /python-net/slide-transition/
+url: /ja/python-net/slide-transition/
 keywords: "スライド遷移の追加, PowerPointスライド遷移, モーフ遷移, 高度なスライド遷移, 遷移効果, Python, Aspose.Slides"
 description: "PythonでPowerPointスライド遷移と遷移効果を追加する"
 ---

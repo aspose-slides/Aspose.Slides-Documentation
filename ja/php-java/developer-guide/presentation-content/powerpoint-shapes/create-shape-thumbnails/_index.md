@@ -2,7 +2,7 @@
 title: 形のサムネイルを作成する
 type: docs
 weight: 70
-url: /php-java/create-shape-thumbnails/
+url: /ja/php-java/create-shape-thumbnails/
 ---
 
 

@@ -2,5 +2,5 @@
 title: PowerPoint スマートアート
 type: docs
 weight: 100
-url: /python-net/powerpoint-smartart/
+url: /ja/python-net/powerpoint-smartart/
 ---

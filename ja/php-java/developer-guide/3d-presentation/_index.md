@@ -2,7 +2,7 @@
 title: 3D プレゼンテーション
 type: docs
 weight: 232
-url: /php-java/3d-presentation/
+url: /ja/php-java/3d-presentation/
 keywords:
 - 3D
 - 3D PowerPoint

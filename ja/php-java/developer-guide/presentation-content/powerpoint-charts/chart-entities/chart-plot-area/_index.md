@@ -1,7 +1,7 @@
 ---
 title: チャートプロットエリア
 type: docs
-url: /php-java/chart-plot-area/
+url: /ja/php-java/chart-plot-area/
 ---
 
 

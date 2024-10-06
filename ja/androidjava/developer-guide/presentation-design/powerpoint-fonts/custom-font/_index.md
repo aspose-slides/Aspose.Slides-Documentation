@@ -3,7 +3,7 @@ title: JavaでのカスタムPowerPointフォント
 linktitle: カスタムフォント
 type: docs
 weight: 20
-url: /androidjava/custom-font/
+url: /ja/androidjava/custom-font/
 keywords: "フォント, カスタムフォント, PowerPointプレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaにおけるPowerPointカスタムフォント"
 ---

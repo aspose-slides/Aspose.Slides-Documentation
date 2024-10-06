@@ -2,7 +2,7 @@
 title: 数学方程式のエクスポート
 type: docs
 weight: 30
-url: /php-java/exporting-math-equations/
+url: /ja/php-java/exporting-math-equations/
 
 ---
 

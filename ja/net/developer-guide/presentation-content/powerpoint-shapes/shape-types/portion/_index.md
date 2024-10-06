@@ -2,7 +2,7 @@
 title: ポーション
 type: docs
 weight: 70
-url: /net/portion/
+url: /ja/net/portion/
 keywords: "ポーション, PowerPoint シェイプ, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションのポーションを取得"
 ---

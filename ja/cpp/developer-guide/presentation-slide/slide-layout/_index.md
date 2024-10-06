@@ -2,7 +2,7 @@
 title: スライドレイアウト
 type: docs
 weight: 60
-url: /cpp/slide-layout/
+url: /ja/cpp/slide-layout/
 keyword: "スライドサイズの設定、スライドオプションの設定、スライドサイズの指定、フッターの表示、子フッター、コンテンツのスケーリング、ページサイズ、C++、CPP、Aspose.Slides"
 description: "C++でPowerPointスライドのサイズとオプションを設定する"
 ---

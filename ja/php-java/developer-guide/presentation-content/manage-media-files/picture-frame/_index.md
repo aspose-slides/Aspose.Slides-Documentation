@@ -2,7 +2,7 @@
 title: ピクチャーフレーム
 type: docs
 weight: 10
-url: /php-java/picture-frame/
+url: /ja/php-java/picture-frame/
 keywords: "ピクチャーフレームの追加、ピクチャーフレームの作成、画像の追加、画像の作成、画像の抽出、StretchOffプロパティ、ピクチャーフレームの書式設定、ピクチャーフレームのプロパティ、PowerPointプレゼンテーション、Java、Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションにピクチャーフレームを追加 "
 

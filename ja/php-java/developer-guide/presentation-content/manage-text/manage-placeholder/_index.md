@@ -2,12 +2,12 @@
 title: プレースホルダーの管理
 type: docs
 weight: 10
-url: /php-java/manage-placeholder/
+url: /ja/php-java/manage-placeholder/
 description: PHPを使用してPowerPointスライドのプレースホルダー内のテキストを変更します。PHPを使用してPowerPointスライドのプレースホルダーにプロンプトテキストを設定します。
 ---
 
 ## **プレースホルダー内のテキストを変更する**
-[Aspose.Slides for PHP via Java](/slides/php-java/)を使用して、プレゼンテーションのスライド上でプレースホルダーを見つけて修正できます。Aspose.Slidesを使うことで、プレースホルダー内のテキストを変更できます。
+[Aspose.Slides for PHP via Java](/slides/ja/php-java/)を使用して、プレゼンテーションのスライド上でプレースホルダーを見つけて修正できます。Aspose.Slidesを使うことで、プレースホルダー内のテキストを変更できます。
 
 **前提条件**: プレースホルダーを含むプレゼンテーションが必要です。このようなプレゼンテーションは、標準のMicrosoft PowerPointアプリで作成できます。
 

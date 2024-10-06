@@ -2,7 +2,7 @@
 title: シェイプの効果的なプロパティ
 type: docs
 weight: 50
-url: /php-java/shape-effective-properties/
+url: /ja/php-java/shape-effective-properties/
 ---
 
 このトピックでは、**効果的**および**ローカル**プロパティについて説明します。これらのレベルで値を直接設定するとき

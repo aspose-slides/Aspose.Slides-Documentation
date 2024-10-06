@@ -2,7 +2,7 @@
 title: すべてのスライドのすべてのテキストを取得する
 type: docs
 weight: 100
-url: /net/get-all-the-text-in-all-the-slides/
+url: /ja/net/get-all-the-text-in-all-the-slides/
 ---
 
 ## **OpenXML SDK**

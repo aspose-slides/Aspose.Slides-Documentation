@@ -2,7 +2,7 @@
 title: プレゼンテーションのローカリゼーション
 type: docs
 weight: 100
-url: /python-net/presentation-localization/
+url: /ja/python-net/presentation-localization/
 keywords: "言語の変更, スペルチェック, スペル チェック, スペルチェッカー, PowerPoint プレゼンテーション, Python, .NET経由のAspose.Slides for Python"
 description: "PowerPoint プレゼンテーションで言語を変更または確認する。Pythonでのテキストのスペルチェック"
 ---

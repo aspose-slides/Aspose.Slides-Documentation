@@ -2,7 +2,7 @@
 title: フラッシュ
 type: docs
 weight: 10
-url: /java/flash/
+url: /ja/java/flash/
 description: Javaを使用してPowerPointプレゼンテーションからフラッシュオブジェクトを抽出する
 ---
 

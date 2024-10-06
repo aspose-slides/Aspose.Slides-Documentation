@@ -3,7 +3,7 @@ title: オーディオフレーム - C#を使用してPowerPointにオーディ�
 linktitle: オーディオフレーム
 type: docs
 weight: 10
-url: /net/audio-frame/
+url: /ja/net/audio-frame/
 keywords: "オーディオサムネイル画像, オーディオを追加, オーディオフレーム, オーディオプロパティ, オーディオを抽出, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにオーディオを追加する"
 ---

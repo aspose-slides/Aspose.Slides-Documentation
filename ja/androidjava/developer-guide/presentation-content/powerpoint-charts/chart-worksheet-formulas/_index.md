@@ -2,7 +2,7 @@
 title: チャート ワークシートの数式
 type: docs
 weight: 70
-url: /androidjava/chart-worksheet-formulas/
+url: /ja/androidjava/chart-worksheet-formulas/
 keywords: "パワーポイントの数式, パワーポイントのスプレッドシートの数式"
 description: "PowerPointの数式とスプレッドシートの数式"
 ---

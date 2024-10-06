@@ -1,7 +1,7 @@
 ---
 title: チャートシリーズ
 type: docs
-url: /java/chart-series/
+url: /ja/java/chart-series/
 keywords: "チャートシリーズ, シリーズカラー, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaにおけるPowerPointプレゼンテーションのチャートシリーズ"
 ---

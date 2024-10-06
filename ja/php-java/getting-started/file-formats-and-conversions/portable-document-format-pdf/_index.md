@@ -2,7 +2,7 @@
 title: ポータブルドキュメントフォーマット (PDF)
 type: docs
 weight: 40
-url: /php-java/portable-document-format-pdf/
+url: /ja/php-java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.SlidesはPDFに変換する際に以下のプレゼンテーション機�
 - 箇条書き。
 - テーブル。
 
-Aspose.Slides for PHP via Javaを使用して、プレゼンテーションを直接PDFにエクスポートできます：他のコンポーネントは必要ありません。さらに、[PDFへの変換](/slides/php-java/converting-a-presentation/)で説明されているように、さまざまなオプションを使用してプレゼンテーションのPDFエクスポートをカスタマイズできます。
+Aspose.Slides for PHP via Javaを使用して、プレゼンテーションを直接PDFにエクスポートできます：他のコンポーネントは必要ありません。さらに、[PDFへの変換](/slides/ja/php-java/converting-a-presentation/)で説明されているように、さまざまなオプションを使用してプレゼンテーションのPDFエクスポートをカスタマイズできます。
 
 **入力プレゼンテーション** 
 

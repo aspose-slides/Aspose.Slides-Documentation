@@ -2,7 +2,7 @@
 title: 長方形
 type: docs
 weight: 80
-url: /net/rectangle/
+url: /ja/net/rectangle/
 keywords: "長方形を作成, PowerPoint形状, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションに長方形を作成する"
 ---

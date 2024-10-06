@@ -2,7 +2,7 @@
 title: TIFFとしてレンダリング
 type: docs
 weight: 30
-url: /net/rendered-as-tiff/
+url: /ja/net/rendered-as-tiff/
 ---
 
 TIFFフォーマットは、マルチページ画像やデータを取り扱う柔軟性で知られています。TIFFフォーマットの重要性と人気を考慮し、Aspose.Slides for .NETはプレゼンテーションをTIFFドキュメントに変換するサポートを提供しています。

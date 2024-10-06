@@ -2,7 +2,7 @@
 title: 宣言
 type: docs
 weight: 60
-url: /cpp/declaration/
+url: /ja/cpp/declaration/
 ---
 
 {{% alert color="primary" %}} 

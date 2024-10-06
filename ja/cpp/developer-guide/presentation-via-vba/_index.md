@@ -2,7 +2,7 @@
 title: VBAを使用したプレゼンテーション
 type: docs
 weight: 250
-url: /cpp/presentation-via-vba/
+url: /ja/cpp/presentation-via-vba/
 keywords: "マクロ, マクロ, VBA, VBAマクロ, マクロを追加, マクロを削除, VBAを追加, VBAを削除, マクロを抽出, VBAを抽出, PowerPointマクロ, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションにVBAマクロを追加、削除、抽出します"
 ---

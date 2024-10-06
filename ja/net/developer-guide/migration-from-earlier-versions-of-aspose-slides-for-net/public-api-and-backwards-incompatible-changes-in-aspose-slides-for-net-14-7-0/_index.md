@@ -2,12 +2,12 @@
 title: .NET 14.7.0 における Aspose.Slides の公開 API および後方互換性のない変更
 type: docs
 weight: 90
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
+url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for .NET 14.7.0 API に導入されたすべての [追加された](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) または [削除された](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) クラス、メソッド、プロパティなど、およびその他の変更を一覧表示します。
+このページでは、Aspose.Slides for .NET 14.7.0 API に導入されたすべての [追加された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) または [削除された](/slides/ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) クラス、メソッド、プロパティなど、およびその他の変更を一覧表示します。
 
 {{% /alert %}} 
 ## **公開 API 変更**

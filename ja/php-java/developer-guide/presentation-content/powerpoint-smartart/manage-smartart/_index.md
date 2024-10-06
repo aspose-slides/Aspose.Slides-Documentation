@@ -2,7 +2,7 @@
 title: スマートアートの管理
 type: docs
 weight: 10
-url: /php-java/manage-smartart/
+url: /ja/php-java/manage-smartart/
 ---
 
 ## **スマートアートからテキストを取得**

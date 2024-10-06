@@ -2,7 +2,7 @@
 title: なぜ Open XML SDK ではないのか
 type: docs
 weight: 100
-url: /cpp/why-not-open-xml-sdk/
+url: /ja/cpp/why-not-open-xml-sdk/
 ---
 
 ## **Open XML SDK とは？**
@@ -16,7 +16,7 @@ Aspose.Slides は、アプリケーションが次のプレゼンテーション
 - ゼロからプレゼンテーションを構築したり、1 つまたは複数のドキュメントから組み合わせたりする能力。
 - アニメーション、Ole フレーム、テーブルの追加、チャートの作成と管理をサポート。
 - テキストフレーム、段落、部分レベルでのテキストフォーマット管理のための広範なコントロールの利用可能性。
-  サポートされている機能の詳細については、[Aspose.Slides 機能](/slides/net/product-overview/)をご覧ください。
+  サポートされている機能の詳細については、[Aspose.Slides 機能](/slides/ja/net/product-overview/)をご覧ください。
 ## **Open XML SDK と Aspose.Slides の比較**
 以下の表は、Open XML SDK と Aspose.Slides の機能を比較しています。
 

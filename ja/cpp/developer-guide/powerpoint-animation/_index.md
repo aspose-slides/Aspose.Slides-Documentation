@@ -2,7 +2,7 @@
 title: PowerPoint アニメーション
 type: docs
 weight: 150
-url: /cpp/powerpoint-animation/
+url: /ja/cpp/powerpoint-animation/
 keywords: "PowerPoint アニメーション"
 description: "PowerPoint アニメーション、Aspose.Slides を使用した PowerPoint スライドのアニメーション。"
 ---
@@ -51,19 +51,19 @@ Aspose.Slides では、独自の**カスタムアニメーション**を作成�
 Aspose.Slides では、図形にアニメーションを適用でき、その図形は実際にはテキスト、長方形、線、フレーム、OLE オブジェクトなどです。
 
 {{% alert color="primary" %}} 
-詳細については、[**図形アニメーションについて**](/slides/cpp/shape-animation/)をご覧ください。
+詳細については、[**図形アニメーションについて**](/slides/ja/cpp/shape-animation/)をご覧ください。
 {{% /alert %}}
 
 ## **アニメーションチャート**
 アニメーションチャートを作成するには、図形と同じクラスを使用する必要があります。ただし、PowerPoint アニメーションはチャートのカテゴリやチャートシリーズに対してのみ使用可能です。また、カテゴリ要素やシリーズ要素にアニメーション効果を適用することもできます。
 
 {{% alert color="primary" %}} 
-詳細については、[**アニメーションチャートについて**](/slides/cpp/animated-charts/)をご覧ください。
+詳細については、[**アニメーションチャートについて**](/slides/ja/cpp/animated-charts/)をご覧ください。
 {{% /alert %}}
 
 ## **アニメーションテキスト**
 アニメーションテキストに加えて、段落にアニメーションを適用することもできます。
 
 {{% alert color="primary" %}} 
-詳細については、[**アニメーションテキストについて**](/slides/cpp/animated-text/)をご覧ください。
+詳細については、[**アニメーションテキストについて**](/slides/ja/cpp/animated-text/)をご覧ください。
 {{% /alert %}}

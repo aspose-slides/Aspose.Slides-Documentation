@@ -2,7 +2,7 @@
 title: 読み取り専用プレゼンテーション
 type: docs
 weight: 30
-url: /python-net/read-only-presentation/
+url: /ja/python-net/read-only-presentation/
 keywords: "読み取り専用設定, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Pythonにおける読み取り専用のPowerPointプレゼンテーション"
 ---

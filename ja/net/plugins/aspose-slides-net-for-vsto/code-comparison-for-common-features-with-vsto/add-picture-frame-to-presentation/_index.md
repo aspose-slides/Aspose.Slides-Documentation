@@ -2,7 +2,7 @@
 title: プレゼンテーションに画像枠を追加する
 type: docs
 weight: 50
-url: /net/add-picture-frame-to-presentation/
+url: /ja/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**

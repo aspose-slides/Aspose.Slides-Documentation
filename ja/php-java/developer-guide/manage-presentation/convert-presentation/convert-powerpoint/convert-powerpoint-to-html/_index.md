@@ -3,7 +3,7 @@ title: PowerPointをHTMLに変換
 linktitle: PowerPointをHTMLに変換
 type: docs
 weight: 30
-url: /php-java/convert-powerpoint-to-html/
+url: /ja/php-java/convert-powerpoint-to-html/
 keywords: "PHP  PowerPointをHTMLに変換, PowerPointプレゼンテーションを変換, PPTX, PPT, PPTをHTMLに, PPTXをHTMLに, PowerPointをHTMLに, PowerPointをHTMLとして保存, PPTをHTMLとして保存, PPTXをHTMLとして保存, Java, Aspose.Slides, HTMLエクスポート"
 description: "PowerPointをHTMLに変換: PPTXまたはPPTをHTMLとして保存。スライドをHTMLとして保存"
 ---

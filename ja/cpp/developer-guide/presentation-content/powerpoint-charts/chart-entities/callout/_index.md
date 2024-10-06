@@ -1,7 +1,7 @@
 ---
 title: コールアウト
 type: docs
-url: /cpp/callout/
+url: /ja/cpp/callout/
 ---
 
 ## **コールアウトの使用**

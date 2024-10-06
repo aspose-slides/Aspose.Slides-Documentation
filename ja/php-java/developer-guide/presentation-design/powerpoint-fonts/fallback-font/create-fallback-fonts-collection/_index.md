@@ -2,12 +2,12 @@
 title: フォールバックフォントコレクションの作成
 type: docs
 weight: 20
-url: /php-java/create-fallback-fonts-collection/
+url: /ja/php-java/create-fallback-fonts-collection/
 ---
 
 [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) クラスのインスタンスは、[IFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRulesCollection) インターフェースを実装する [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) に整理できます。コレクションからルールを追加または削除することが可能です。
 
-次に、このコレクションは、[FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) クラスの [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) メソッドに割り当てることができます。FontsManagerはプレゼンテーション全体のフォントを管理します。詳細は [About FontsManager and FontsLoader](/slides/php-java/about-fontsmanager-and-fontsloader/) をお読みください。
+次に、このコレクションは、[FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) クラスの [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) メソッドに割り当てることができます。FontsManagerはプレゼンテーション全体のフォントを管理します。詳細は [About FontsManager and FontsLoader](/slides/ja/php-java/about-fontsmanager-and-fontsloader/) をお読みください。
 
 各 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) には、独自の [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) インスタンスを持つ [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--) メソッドがあります。
 
@@ -30,5 +30,5 @@ url: /php-java/create-fallback-fonts-collection/
 FontsManagerがフォールバックフォントコレクションで初期化されると、プレゼンテーションのレンダリング中にフォールバックフォントが適用されます。
 
 {{% alert color="primary" %}} 
-フォールバックフォントを使用してプレゼンテーションを[レンダリングする方法](/slides/php-java/render-presentation-with-fallback-font/)についてさらにお読みください。
+フォールバックフォントを使用してプレゼンテーションを[レンダリングする方法](/slides/ja/php-java/render-presentation-with-fallback-font/)についてさらにお読みください。
 {{% /alert %}}

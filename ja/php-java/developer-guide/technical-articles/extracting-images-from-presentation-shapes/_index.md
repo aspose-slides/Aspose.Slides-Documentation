@@ -2,7 +2,7 @@
 title: プレゼンテーション形状からの画像の抽出
 type: docs
 weight: 100
-url: /php-java/extracting-images-from-presentation-shapes/
+url: /ja/php-java/extracting-images-from-presentation-shapes/
 keywords: "画像を抽出, PowerPoint, PPT, PPTX, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションから画像を抽出"
 

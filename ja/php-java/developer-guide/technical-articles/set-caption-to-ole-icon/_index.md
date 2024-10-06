@@ -2,7 +2,7 @@
 title: OLEアイコンにキャプションを設定する
 type: docs
 weight: 130
-url: /php-java/set-caption-to-ole-icon/
+url: /ja/php-java/set-caption-to-ole-icon/
 ---
 
 新しいメソッド**getSubstitutePictureTitle**と**setSubstitutePictureTitle**が**IOleObjectFrame**インターフェースおよび**OleObjectFrame**クラスに追加されました。これにより、OLEアイコンのキャプションを取得、設定、または変更することができます。以下のコードスニペットは、Excelオブジェクトを作成し、そのキャプションを設定するサンプルを示しています。

@@ -2,14 +2,14 @@
 title: プレゼンテーションテーマ
 type: docs
 weight: 10
-url: /python-net/presentation-theme/
+url: /ja/python-net/presentation-theme/
 keywords: "テーマ, PowerPointテーマ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonのPowerPointプレゼンテーションテーマ"
 ---
 
 プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、実際には特定の視覚要素のセットとそのプロパティを選択していることになります。
 
-PowerPointでは、テーマは色、[フォント](/slides/python-net/powerpoint-fonts/)、[背景スタイル](/slides/python-net/presentation-background/)、および効果で構成されています。
+PowerPointでは、テーマは色、[フォント](/slides/ja/python-net/powerpoint-fonts/)、[背景スタイル](/slides/ja/python-net/presentation-background/)、および効果で構成されています。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -144,7 +144,7 @@ pres.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPointフォント](/slides/python-net/powerpoint-fonts/)を参照することをお勧めします。
+[PowerPointフォント](/slides/ja/python-net/powerpoint-fonts/)を参照することをお勧めします。
 
 {{% /alert %}}
 
@@ -178,7 +178,7 @@ pres.masters[0].background.style_index = 2
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPoint背景](/slides/python-net/presentation-background/)を参照することをお勧めします。
+[PowerPoint背景](/slides/ja/python-net/presentation-background/)を参照することをお勧めします。
 
 {{% /alert %}}
 

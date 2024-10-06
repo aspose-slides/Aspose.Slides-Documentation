@@ -1,7 +1,7 @@
 ---
 title: パイチャート
 type: docs
-url: /androidjava/pie-chart/
+url: /ja/androidjava/pie-chart/
 ---
 
 ## **パイオブパイおよびバーボブパイチャートの第二プロットオプション**

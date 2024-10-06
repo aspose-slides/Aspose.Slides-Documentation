@@ -2,7 +2,7 @@
 title: ズームの管理
 type: docs
 weight: 60
-url: /php-java/manage-zoom/
+url: /ja/php-java/manage-zoom/
 keywords: "ズーム, ズームフレーム, ズームの追加, ズームフレームのフォーマット, サマリーズーム, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションにズームまたはズームフレームを追加する"
 ---

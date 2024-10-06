@@ -2,7 +2,7 @@
 title: プレゼンテーションにスライドを追加する
 type: docs
 weight: 10
-url: /python-net/add-slide-to-presentation/
+url: /ja/python-net/add-slide-to-presentation/
 keywords: "プレゼンテーションにスライドを追加, Python, Aspose.Slides"
 description: "Pythonでプレゼンテーションにスライドを追加する"
 ---

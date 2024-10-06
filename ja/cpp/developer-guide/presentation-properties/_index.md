@@ -2,7 +2,7 @@
 title: プレゼンテーションプロパティ
 type: docs
 weight: 70
-url: /cpp/presentation-properties/
+url: /ja/cpp/presentation-properties/
 ---
 
 

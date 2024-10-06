@@ -1,7 +1,7 @@
 ---
 title: エラーバー
 type: docs
-url: /python-net/error-bar/
+url: /ja/python-net/error-bar/
 keywords: "エラーバー, エラーバー値 PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Python で PowerPoint プレゼンテーションにエラーバーを追加する"
 ---

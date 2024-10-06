@@ -2,7 +2,7 @@
 title: 長方形
 type: docs
 weight: 80
-url: /androidjava/rectangle/
+url: /ja/androidjava/rectangle/
 ---
 
 {{% alert color="primary" %}} 

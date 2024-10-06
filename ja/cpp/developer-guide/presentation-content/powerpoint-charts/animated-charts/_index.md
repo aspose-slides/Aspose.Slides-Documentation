@@ -2,7 +2,7 @@
 title: アニメーションチャート
 type: docs
 weight: 80
-url: /cpp/animated-charts/
+url: /ja/cpp/animated-charts/
 ---
 
 

@@ -2,7 +2,7 @@
 title: オーディオフレーム
 type: docs
 weight: 10
-url: /php-java/audio-frame/
+url: /ja/php-java/audio-frame/
 keywords: "オーディオを追加, オーディオフレーム, オーディオプロパティ, オーディオを抽出, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションにオーディオを追加"
 ---

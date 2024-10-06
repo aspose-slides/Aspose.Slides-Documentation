@@ -3,7 +3,7 @@ title: C#を使用してPowerPointプレゼンテーションPPT、PPTXを統合
 linktitle: プレゼンテーションの統合
 type: docs
 weight: 40
-url: /net/merge-presentation/
+url: /ja/net/merge-presentation/
 keywords: "PowerPointの統合, PPTX, PPT, PowerPointの結合, プレゼンテーションの統合, C#, Csharp, .NET"
 description: "C#または.NETでPowerPointプレゼンテーションを統合または結合します"
 ---

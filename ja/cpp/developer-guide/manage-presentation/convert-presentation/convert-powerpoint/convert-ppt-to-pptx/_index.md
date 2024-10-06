@@ -3,7 +3,7 @@ title: PPTをC++でPPTXに変換
 linktitle: PPTをPPTXに変換
 type: docs
 weight: 20
-url: /cpp/convert-ppt-to-pptx/
+url: /ja/cpp/convert-ppt-to-pptx/
 keywords: "C++ PPTをPPTXに変換、PowerPoint PPTをPPTXに"
 description: "C++でPowerPoint PPTをPPTXに変換"
 ---
@@ -25,7 +25,7 @@ PPTをPPTXに変換するためのC++サンプルコードについては、以�
 - [C++ PPTを画像に変換](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-png/)
 
 ## **PPTをPPTXに変換**
-PPTプレゼンテーションをPPTXに変換するには、ファイル名と保存形式を [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) メソッドに渡します [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスの。以下のC++コードサンプルは、デフォルトのオプションを使用してPPTからPPTXへのプレゼンテーションを変換します。詳細情報については、このドキュメント [link](/slides/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion)をご覧ください。
+PPTプレゼンテーションをPPTXに変換するには、ファイル名と保存形式を [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) メソッドに渡します [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) クラスの。以下のC++コードサンプルは、デフォルトのオプションを使用してPPTからPPTXへのプレゼンテーションを変換します。詳細情報については、このドキュメント [link](/slides/ja/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion)をご覧ください。
 
 
 

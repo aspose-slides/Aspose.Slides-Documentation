@@ -3,7 +3,7 @@ title: C#でのカスタムPowerPointフォント
 linktitle: カスタムフォント
 type: docs
 weight: 20
-url: /net/custom-font/
+url: /ja/net/custom-font/
 keywords: "フォント, カスタムフォント, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#におけるPowerPointのカスタムフォント"
 ---

@@ -4,7 +4,7 @@ second_title: Aspose.Slides ドキュメント
 description: Aspose.Slides for C++ は、PowerPoint® ドキュメントを管理する機能を提供する最初で唯一のコンポーネントです。
 type: docs
 weight: 30
-url: /cpp/
+url: /ja/cpp/
 is_root: true
 ---
 
@@ -22,8 +22,8 @@ Aspose.Slides for C++ は、C++ アプリケーションが Microsoft PowerPoint
 
 これらは役立つリソースへのリンクです:
 
-- [Aspose.Slides for C++ オンラインドキュメント](/slides/cpp/)
-- [Aspose.Slides for C++ 機能](/slides/cpp/features-overview/)
+- [Aspose.Slides for C++ オンラインドキュメント](/slides/ja/cpp/)
+- [Aspose.Slides for C++ 機能](/slides/ja/cpp/features-overview/)
 - [Aspose.Slides for C++ リリースノート](https://releases.aspose.com/slides/cpp/release-notes/)
 - [Aspose.Slides for C++ 製品ページ](https://products.aspose.com/slides/cpp/)
 - [Aspose.Slides for C++ をダウンロード](https://releases.aspose.com/slides/cpp/)

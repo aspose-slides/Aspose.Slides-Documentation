@@ -2,7 +2,7 @@
 title: 形のフォーマット
 type: docs
 weight: 20
-url: /python-net/shape-formatting/
+url: /ja/python-net/shape-formatting/
 keywords: "形をフォーマットする、線をフォーマットする、結合スタイルをフォーマットする、グラデーション塗りつぶし、パターン塗りつぶし、画像塗りつぶし、単色塗りつぶし、形を回転させる、3Dベベル効果、3D回転効果、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションの形をフォーマットする"
 ---

@@ -1,7 +1,7 @@
 ---
 title: チャートデータマーカー
 type: docs
-url: /python-net/chart-data-marker/
+url: /ja/python-net/chart-data-marker/
 keywords: "チャートマーカーオプション, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのチャートマーカーオプションを設定する"
 ---

@@ -2,7 +2,7 @@
 title: ワークシートのサイズ変更に関する作業ソリューション
 type: docs
 weight: 130
-url: /cpp/working-solution-for-worksheet-resizing/
+url: /ja/cpp/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -313,4 +313,4 @@ System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::D
 h4. {_}関連セクション 
 {_}
 
-[プレゼンテーションに Excel チャートを OLE オブジェクトとして作成および埋め込む](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[プレゼンテーションに Excel チャートを OLE オブジェクトとして作成および埋め込む](/slides/ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

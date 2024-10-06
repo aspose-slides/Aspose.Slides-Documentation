@@ -2,7 +2,7 @@
 title: チャートワークシートの数式
 type: docs
 weight: 70
-url: /net/chart-worksheet-formulas/
+url: /ja/net/chart-worksheet-formulas/
 keywords: "チャート スプレッドシート, チャート数式, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET の PowerPoint プレゼンテーションにおけるチャート スプレッドシートと数式"
 ---

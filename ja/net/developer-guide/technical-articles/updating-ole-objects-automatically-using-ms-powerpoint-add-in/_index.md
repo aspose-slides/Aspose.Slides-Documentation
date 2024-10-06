@@ -2,7 +2,7 @@
 title: MS PowerPoint アドインを使用して OLE オブジェクトを自動的に更新  
 type: docs  
 weight: 10  
-url: /net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/  
+url: /ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/  
 ---  
 
 ## **OLE オブジェクトを自動的に更新するについて**  

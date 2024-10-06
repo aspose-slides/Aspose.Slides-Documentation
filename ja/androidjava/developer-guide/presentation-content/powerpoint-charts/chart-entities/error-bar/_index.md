@@ -1,7 +1,7 @@
 ---
 title: エラーバー
 type: docs
-url: /androidjava/error-bar/
+url: /ja/androidjava/error-bar/
 ---
 
 ## **エラーバーを追加**

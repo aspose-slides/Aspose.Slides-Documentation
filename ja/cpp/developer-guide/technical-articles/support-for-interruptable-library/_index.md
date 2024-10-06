@@ -2,7 +2,7 @@
 title: 割り込み可能なライブラリのサポート
 type: docs
 weight: 150
-url: /cpp/support-for-interruptable-library/
+url: /ja/cpp/support-for-interruptable-library/
 ---
 
 ## **割り込み可能なライブラリ**

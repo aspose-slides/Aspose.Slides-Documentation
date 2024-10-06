@@ -2,7 +2,7 @@
 title: タグ付画像ファイル形式 (TIFF)
 type: docs
 weight: 60
-url: /java/tagged-image-file-format-tiff/
+url: /ja/java/tagged-image-file-format-tiff/
 ---
 
 ## **TIFFについて**
@@ -11,7 +11,7 @@ url: /java/tagged-image-file-format-tiff/
 
 ## **Aspose.Slides for JavaのTIFF**
 
-Aspose.Slide for Javaで読み込むことができる任意のドキュメントは、Aspose.Slides for Javaによって直接TIFFドキュメントに変換することができ、サードパーティコンポーネントの必要がなくなります。さらに、生成されるTIFFドキュメント内の画像のサイズをオプションで定義することができます。Aspose.Slides for Javaを通じてプレゼンテーションドキュメントをTIFFドキュメントにエクスポートする情報は、[このトピック](/slides/java/converting-a-presentation/)で確認できます。
+Aspose.Slide for Javaで読み込むことができる任意のドキュメントは、Aspose.Slides for Javaによって直接TIFFドキュメントに変換することができ、サードパーティコンポーネントの必要がなくなります。さらに、生成されるTIFFドキュメント内の画像のサイズをオプションで定義することができます。Aspose.Slides for Javaを通じてプレゼンテーションドキュメントをTIFFドキュメントにエクスポートする情報は、[このトピック](/slides/ja/java/converting-a-presentation/)で確認できます。
 
 **Aspose.Slides for Javaを通じてTIFFドキュメントに変換されたプレゼンテーションドキュメント** 
 

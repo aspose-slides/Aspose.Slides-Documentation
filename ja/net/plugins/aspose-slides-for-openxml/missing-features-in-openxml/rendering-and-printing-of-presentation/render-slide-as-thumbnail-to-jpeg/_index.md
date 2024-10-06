@@ -2,7 +2,7 @@
 title: スライドをサムネイルとしてJPEGにレンダリング
 type: docs
 weight: 60
-url: /net/render-slide-as-thumbnail-to-jpeg/
+url: /ja/net/render-slide-as-thumbnail-to-jpeg/
 ---
 
 **Aspose.Slides for .NET** は、スライドを含むプレゼンテーションファイルを作成するために使用されます。これらのスライドは、Microsoft PowerPointを使用してプレゼンテーションファイルを開くことで表示できます。しかし、場合によっては、開発者がお気に入りの画像ビューアを使用してスライドを画像として表示したいことがあります。そのような場合、Aspose.Slides for .NETはスライドのサムネイル画像を生成するのに役立ちます。

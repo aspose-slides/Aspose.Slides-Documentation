@@ -2,7 +2,7 @@
 title: スライドをSVG画像としてレンダリングする
 type: docs
 weight: 50
-url: /androidjava/render-a-slide-as-an-svg-image/
+url: /ja/androidjava/render-a-slide-as-an-svg-image/
 ---
 
 SVG（スケーラブルベクターグラフィックスの略）は、2次元画像をレンダリングするために使用される標準的なグラフィックタイプまたはフォーマットです。SVGは、動作や外観を定義する詳細を持つXML内にベクトルとして画像を格納します。

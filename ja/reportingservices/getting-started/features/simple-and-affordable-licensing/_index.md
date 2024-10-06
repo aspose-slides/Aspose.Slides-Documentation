@@ -2,7 +2,7 @@
 title: シンプルで手頃なライセンス
 type: docs
 weight: 60
-url: /reportingservices/simple-and-affordable-licensing/
+url: /ja/reportingservices/simple-and-affordable-licensing/
 ---
 
 ## ライセンスの種類

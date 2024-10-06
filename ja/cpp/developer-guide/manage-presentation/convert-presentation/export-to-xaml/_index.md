@@ -2,7 +2,7 @@
 title: XAMLへのエクスポート
 type: docs
 weight: 30
-url: /cpp/export-to-xaml/
+url: /ja/cpp/export-to-xaml/
 
 ---
 

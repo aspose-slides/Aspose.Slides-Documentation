@@ -2,12 +2,12 @@
 title: PowerPointスライドにテーブルを作成する
 type: docs
 weight: 50
-url: /php-java/creating-a-table-on-powerpoint-slide/
+url: /ja/php-java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-テーブルはプレゼンテーションスライド上でデータを表示するために広く使用されています。この記事では、最初に [VSTO 2008](/slides/php-java/creating-a-table-on-powerpoint-slide/) を使用し、その後 [Aspose.Slides for PHP via Java](/slides/php-java/creating-a-table-on-powerpoint-slide/) を使って、フォントサイズ10の15 x 15テーブルをプログラムで作成する方法を示します。
+テーブルはプレゼンテーションスライド上でデータを表示するために広く使用されています。この記事では、最初に [VSTO 2008](/slides/ja/php-java/creating-a-table-on-powerpoint-slide/) を使用し、その後 [Aspose.Slides for PHP via Java](/slides/ja/php-java/creating-a-table-on-powerpoint-slide/) を使って、フォントサイズ10の15 x 15テーブルをプログラムで作成する方法を示します。
 
 {{% /alert %}} 
 ## **テーブルの作成**

@@ -2,7 +2,7 @@
 title: 外部リンクされた画像を使用してプレゼンテーションをHTMLにエクスポートする
 type: docs
 weight: 100
-url: /net/exporting-presentations-to-html-with-externally-linked-images/
+url: /ja/net/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

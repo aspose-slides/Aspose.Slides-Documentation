@@ -2,7 +2,7 @@
 title: 新しいHTMLエクスポートシステム - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
-url: /net/web-extensions/
+url: /ja/net/web-extensions/
 keywords: "PowerPointをHTMLにエクスポート, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでのPowerPoint HTMLエクスポート"
 ---
@@ -414,4 +414,4 @@ using (Presentation pres = new Presentation())
 これで、PDFドキュメントから生成されたアニメーションページ遷移付きのHTMLを作成するために必要なすべての手順が完了しました。
 
 * [サンプルHTMLファイルをダウンロード](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples)。
-* [サンプルプロジェクトをダウンロード](/slides/net/web-extensions/sample.zip)。
+* [サンプルプロジェクトをダウンロード](/slides/ja/net/web-extensions/sample.zip)。

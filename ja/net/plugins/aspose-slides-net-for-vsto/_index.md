@@ -2,7 +2,7 @@
 title: Aspose.Slides .NET for VSTO
 type: docs
 weight: 20
-url: /net/aspose-slides-net-for-vsto/
+url: /ja/net/aspose-slides-net-for-vsto/
 ---
 
 ## **VSTOとは何ですか？**
@@ -71,31 +71,31 @@ Aspose.Slides for .NETとVSTOのソースコードの比較コードは、以下
 ## **サンプルコード例**
 このセクションには、以下のトピックが含まれています。
 
-- [VSTOとの共通機能のコード比較](/slides/net/code-comparison-for-common-features-with-vsto/)
-  - [テーブルセルに画像を追加](/slides/net/add-image-in-table-cell/)
-  - [VSTOとAspose.Slidesでアニメーション付きピクチャーフレームを追加](/slides/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
-  - [プレゼンテーションに図形を追加](/slides/net/adding-shapes-to-presentation/)
-  - [動的にテキストを追加](/slides/net/adding-text-dynamically/)
-  - [プレゼンテーションにピクチャーフレームを追加](/slides/net/add-picture-frame-to-presentation/)
-  - [チャートを作成](/slides/net/create-a-chart/)
-  - [OLEオブジェクトとしてExcelチャートを作成および埋め込む](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object/)
-  - [VSTOとAspose.Slidesで新しいプレゼンテーションを作成](/slides/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
-  - [VSTOとAspose.SlidesでPowerPointスライドにテーブルを作成](/slides/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
-  - [プレゼンテーション中のテキストを失うことなく検索と置換](/slides/net/find-and-replace-text-without-losing-format-in-presentation/)
-  - [テキストをフォーマット](/slides/net/format-text/)
-  - [VSTOとAspose.Slidesでプレゼンテーションを開く](/slides/net/opening-a-presentation-in-vsto-and-aspose-slides/)
-  - [VSTOとAspose.Slidesでテーブルの行または列を削除](/slides/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
-  - [マスタースライドの背景色を設定](/slides/net/setting-background-color-of-master-slide/)
-- [VSTOの欠落機能](/slides/net/missing-features-in-vsto/)
-  - [プレゼンテーションにレイアウトスライドを追加](/slides/net/add-layout-slide-to-presentation/)
-  - [PPTからPPTXフォーマットへの変換](/slides/net/conversion-from-ppt-to-pptx-format/)
-  - [OpenOfficeドキュメントの変換](/slides/net/conversion-of-openoffice-document/)
-  - [プレゼンテーションをHTMLに変換](/slides/net/convert-presentation-to/)
-  - [ノート付きでプレゼンテーションをTiffに変換](/slides/net/convert-presentation-to-tiff-with-notes/)
-  - [プレゼンテーションをXPSに変換](/slides/net/convert-presentation-to-xps/)
-  - [スライドをSVG画像として作成](/slides/net/create-slide-as-svg-image/)
-  - [メディアファイルをHTMLファイルにエクスポート](/slides/net/export-media-files-into-file/)
-  - [スライドサムネイルをJPEGとして生成](/slides/net/generate-slide-thumbnail-as-jpeg/)
-  - [ユーザー定義の寸法でスライドからサムネイルを生成](/slides/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
-  - [プレゼンテーションのロック](/slides/net/presentation-locking/)
-  - [スライド上の図形を画像としてレンダリング](/slides/net/rendering-shapes-on-slide-as-images/)
+- [VSTOとの共通機能のコード比較](/slides/ja/net/code-comparison-for-common-features-with-vsto/)
+  - [テーブルセルに画像を追加](/slides/ja/net/add-image-in-table-cell/)
+  - [VSTOとAspose.Slidesでアニメーション付きピクチャーフレームを追加](/slides/ja/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
+  - [プレゼンテーションに図形を追加](/slides/ja/net/adding-shapes-to-presentation/)
+  - [動的にテキストを追加](/slides/ja/net/adding-text-dynamically/)
+  - [プレゼンテーションにピクチャーフレームを追加](/slides/ja/net/add-picture-frame-to-presentation/)
+  - [チャートを作成](/slides/ja/net/create-a-chart/)
+  - [OLEオブジェクトとしてExcelチャートを作成および埋め込む](/slides/ja/net/create-and-embed-an-excel-chart-as-an-ole-object/)
+  - [VSTOとAspose.Slidesで新しいプレゼンテーションを作成](/slides/ja/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
+  - [VSTOとAspose.SlidesでPowerPointスライドにテーブルを作成](/slides/ja/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
+  - [プレゼンテーション中のテキストを失うことなく検索と置換](/slides/ja/net/find-and-replace-text-without-losing-format-in-presentation/)
+  - [テキストをフォーマット](/slides/ja/net/format-text/)
+  - [VSTOとAspose.Slidesでプレゼンテーションを開く](/slides/ja/net/opening-a-presentation-in-vsto-and-aspose-slides/)
+  - [VSTOとAspose.Slidesでテーブルの行または列を削除](/slides/ja/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
+  - [マスタースライドの背景色を設定](/slides/ja/net/setting-background-color-of-master-slide/)
+- [VSTOの欠落機能](/slides/ja/net/missing-features-in-vsto/)
+  - [プレゼンテーションにレイアウトスライドを追加](/slides/ja/net/add-layout-slide-to-presentation/)
+  - [PPTからPPTXフォーマットへの変換](/slides/ja/net/conversion-from-ppt-to-pptx-format/)
+  - [OpenOfficeドキュメントの変換](/slides/ja/net/conversion-of-openoffice-document/)
+  - [プレゼンテーションをHTMLに変換](/slides/ja/net/convert-presentation-to/)
+  - [ノート付きでプレゼンテーションをTiffに変換](/slides/ja/net/convert-presentation-to-tiff-with-notes/)
+  - [プレゼンテーションをXPSに変換](/slides/ja/net/convert-presentation-to-xps/)
+  - [スライドをSVG画像として作成](/slides/ja/net/create-slide-as-svg-image/)
+  - [メディアファイルをHTMLファイルにエクスポート](/slides/ja/net/export-media-files-into-file/)
+  - [スライドサムネイルをJPEGとして生成](/slides/ja/net/generate-slide-thumbnail-as-jpeg/)
+  - [ユーザー定義の寸法でスライドからサムネイルを生成](/slides/ja/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
+  - [プレゼンテーションのロック](/slides/ja/net/presentation-locking/)
+  - [スライド上の図形を画像としてレンダリング](/slides/ja/net/rendering-shapes-on-slide-as-images/)

@@ -2,7 +2,7 @@
 title: サポートされているファイル形式
 type: docs
 weight: 20
-url: /jasperreports/supported-file-formats/
+url: /ja/jasperreports/supported-file-formats/
 ---
 
 ## **サポートされているMicrosoft PowerPointバージョン**

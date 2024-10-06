@@ -4,7 +4,7 @@ second_title: "Aspose.Slides ドキュメント"
 description: Aspose.Slides for .NET は、Microsoft PowerPoint® を使用せずに .NET アプリケーションが PowerPoint® ドキュメントを読み書きできるようにする Microsoft PowerPoint® 管理 API です。
 type: docs
 weight: 10
-url: /net/
+url: /ja/net/
 is_root: true
 ---
 
@@ -26,9 +26,9 @@ Aspose.Slides for .NET には、テキストや図形、テーブル、アニメ
 
 これらは便利なリソースへのリンクです：
 
-- [Aspose.Slides for .NET オンラインドキュメント](/slides/net/)
-- [Aspose.Slides for .NET 機能](/slides/net/features-overview/)
-- [Aspose.Slides for .NET 制限事項](/slides/net/known-issues/)
+- [Aspose.Slides for .NET オンラインドキュメント](/slides/ja/net/)
+- [Aspose.Slides for .NET 機能](/slides/ja/net/features-overview/)
+- [Aspose.Slides for .NET 制限事項](/slides/ja/net/known-issues/)
 - [Aspose.Slides for .NET リリースノート](https://releases.aspose.com/slides/net/release-notes/)
 - [Aspose.Slides for .NET 製品ページ](https://products.aspose.com/slides/net/)
 - [Aspose.Slides for .NET のダウンロード](https://releases.aspose.com/slides/net/)

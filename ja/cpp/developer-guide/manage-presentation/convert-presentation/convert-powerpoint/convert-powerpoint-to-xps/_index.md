@@ -2,7 +2,7 @@
 title: PowerPointをXPSに変換
 type: docs
 weight: 70
-url: /cpp/convert-powerpoint-to-xps
+url: /ja/cpp/convert-powerpoint-to-xps
 keywords: "変換, PowerPointからXPSへ, 変換, PPTからXPSへ, PPTXからXPSへ"
 description: "Aspose.Slides APIを使用してPowerPoint PPT、PPTXをXPS文書に変換します。"
 ---

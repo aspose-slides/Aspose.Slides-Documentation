@@ -2,7 +2,7 @@
 title: Aspose.Slidesにおけるマルチスレッド処理
 type: docs
 weight: 310
-url: /php-java/multithreading/
+url: /ja/php-java/multithreading/
 keywords:
 - PowerPoint
 - プレゼンテーション

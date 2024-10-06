@@ -3,7 +3,7 @@ title: PPTXをJavaでPPTに変換する
 linktitle: PPTXをPPTに変換
 type: docs
 weight: 21
-url: /java/convert-pptx-to-ppt/
+url: /ja/java/convert-pptx-to-ppt/
 keywords: "Java PPTXをPPTに変換する, PowerPointプレゼンテーションの変換, PPTXからPPT, Java, Aspose.Slides"
 description: "JavaでPowerPoint PPTXをPPTに変換する"
 ---

@@ -2,7 +2,7 @@
 title: JasperServerとの統合
 type: docs
 weight: 45
-url: /jasperreports/integration-with-jasperserver/
+url: /ja/jasperreports/integration-with-jasperserver/
 ---
 
 {{% alert color="primary" %}} 

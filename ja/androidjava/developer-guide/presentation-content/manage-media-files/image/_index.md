@@ -2,7 +2,7 @@
 title: 画像
 type: docs
 weight: 10
-url: /androidjava/image/
+url: /ja/androidjava/image/
 description: Javaを使用してPowerPointプレゼンテーションのスライドで画像を操作します。ディスクまたはウェブから画像をPowerPointスライドに追加します。スライドマスターまたはスライドの背景として画像をJavaを使用して追加します。Javaを使用してPowerPointプレゼンテーションにSVGを追加します。Javaを使用してSVGをPowerPointの図形に変換します。Javaを使用してスライドに画像をEMFとして追加します。
 ---
 

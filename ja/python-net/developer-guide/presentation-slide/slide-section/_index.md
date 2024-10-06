@@ -2,7 +2,7 @@
 title: スライドセクション
 type: docs
 weight: 100
-url: /python-net/slide-section/
+url: /ja/python-net/slide-section/
 keywords: "セクションの作成, セクションの追加, セクション名の編集, PowerPointプレゼンテーション, Python, Aspose.Slides"
 description: "PythonでPowerPointプレゼンテーションにセクションを追加して編集する"
 ---

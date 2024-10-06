@@ -1,7 +1,7 @@
 ---
 title: 3D チャート
 type: docs
-url: /cpp/3d-chart/
+url: /ja/cpp/3d-chart/
 ---
 
 ## **3D チャートの RotationX、RotationY、および DepthPercents プロパティを設定する**

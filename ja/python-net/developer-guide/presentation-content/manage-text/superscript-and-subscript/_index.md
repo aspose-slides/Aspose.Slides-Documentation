@@ -2,7 +2,7 @@
 title: 上付き文字と下付き文字
 type: docs
 weight: 80
-url: /python-net/superscript-and-subscript/
+url: /ja/python-net/superscript-and-subscript/
 keywords: "上付き文字, 下付き文字, 上付き文字のテキスト追加, 下付き文字のテキスト追加, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションに上付き文字と下付き文字のテキストを追加する"
 ---

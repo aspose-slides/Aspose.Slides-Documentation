@@ -2,7 +2,7 @@
 title: グループ
 type: docs
 weight: 40
-url: /python-net/group/
+url: /ja/python-net/group/
 keywords: "グループ形状, PowerPoint形状, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにグループ形状を追加する"
 ---

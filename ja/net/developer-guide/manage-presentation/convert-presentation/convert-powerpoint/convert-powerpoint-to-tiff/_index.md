@@ -2,7 +2,7 @@
 title: PowerPointをTIFFに変換
 type: docs
 weight: 90
-url: /net/convert-powerpoint-to-tiff/
+url: /ja/net/convert-powerpoint-to-tiff/
 keywords: "PowerPointプレゼンテーションを変換, PowerPointからTIFF, PPTからTIFF, PPTXからTIFF, C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでPowerPointプレゼンテーションをTIFFに変換します。"
 

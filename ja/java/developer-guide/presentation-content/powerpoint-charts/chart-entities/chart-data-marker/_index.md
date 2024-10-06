@@ -1,7 +1,7 @@
 ---
 title: チャートデータマーカー
 type: docs
-url: /java/chart-data-marker/
+url: /ja/java/chart-data-marker/
 ---
 
 ## **チャートマーカーオプションの設定**

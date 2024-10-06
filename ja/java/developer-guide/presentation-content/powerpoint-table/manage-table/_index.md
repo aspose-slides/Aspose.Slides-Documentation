@@ -2,7 +2,7 @@
 title: テーブルの管理
 type: docs
 weight: 10
-url: /java/manage-table/
+url: /ja/java/manage-table/
 keywords: "テーブル、テーブルの作成、テーブルへのアクセス、テーブルのアスペクト比、PowerPointプレゼンテーション、Java、Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションのテーブルを作成および管理する"
 ---

@@ -2,7 +2,7 @@
 title: プレゼンテーションの調査
 type: docs
 weight: 30
-url: /python-net/examine-presentation/
+url: /ja/python-net/examine-presentation/
 keywords:
 - PowerPoint
 - プレゼンテーション

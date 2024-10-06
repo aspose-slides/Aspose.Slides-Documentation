@@ -2,7 +2,7 @@
 title: システム要件
 type: docs
 weight: 80
-url: /cpp/system-requirements/
+url: /ja/cpp/system-requirements/
 ---
 
 ## **サポートされているオペレーティングシステム**

@@ -2,7 +2,7 @@
 title: PPTからPPTX形式への変換
 type: docs
 weight: 20
-url: /net/conversion-from-ppt-to-pptx-format/
+url: /ja/net/conversion-from-ppt-to-pptx-format/
 ---
 
 Aspose.Slidesの独自機能は、作業に影響を与えずにバージョン変換の柔軟性を提供します。SaveFormatは、以下の表に示す拡張子でドキュメントを変換できる列挙型です。

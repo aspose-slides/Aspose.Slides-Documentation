@@ -1,7 +1,7 @@
 ---
 title: チャートデータテーブル
 type: docs
-url: /java/chart-data-table/
+url: /ja/java/chart-data-table/
 ---
 
 ## **チャートデータテーブルのフォントプロパティを設定する**

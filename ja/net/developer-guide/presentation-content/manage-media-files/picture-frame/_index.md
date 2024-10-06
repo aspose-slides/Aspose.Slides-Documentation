@@ -2,7 +2,7 @@
 title: ピクチャーフレーム
 type: docs
 weight: 10
-url: /net/picture-frame/
+url: /ja/net/picture-frame/
 keywords: 
 - ピクチャーフレームを追加
 - ピクチャーフレームを作成

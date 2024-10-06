@@ -2,12 +2,12 @@
 title: PowerPointスライドにテーブルを作成する
 type: docs
 weight: 50
-url: /java/creating-a-table-on-powerpoint-slide/
+url: /ja/java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-テーブルはプレゼンテーションスライドにデータを表示するために広く使用されています。この文書では、最初に[VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/)を使用し、その後[Aspose.Slides for Java](/slides/java/creating-a-table-on-powerpoint-slide/)を使用して、プログラムでフォントサイズ10の15 x 15のテーブルを作成する方法を示します。
+テーブルはプレゼンテーションスライドにデータを表示するために広く使用されています。この文書では、最初に[VSTO 2008](/slides/ja/java/creating-a-table-on-powerpoint-slide/)を使用し、その後[Aspose.Slides for Java](/slides/ja/java/creating-a-table-on-powerpoint-slide/)を使用して、プログラムでフォントサイズ10の15 x 15のテーブルを作成する方法を示します。
 
 {{% /alert %}} 
 ## **テーブルの作成**

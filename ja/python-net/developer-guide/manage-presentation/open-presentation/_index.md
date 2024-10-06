@@ -2,7 +2,7 @@
 title: プレゼンテーションを開く
 type: docs
 weight: 20
-url: /python-net/open-presentation/
+url: /ja/python-net/open-presentation/
 keywords: "Open PowerPoint, PPTX, PPT, プレゼンテーションを開く, プレゼンテーションを読み込む, Python"
 description: "PythonでプレゼンテーションPPT、PPTX、ODPを開くまたは読み込む"
 ---

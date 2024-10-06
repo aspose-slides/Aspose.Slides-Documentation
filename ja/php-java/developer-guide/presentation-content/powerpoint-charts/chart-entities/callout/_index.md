@@ -1,7 +1,7 @@
 ---
 title: コールアウト
 type: docs
-url: /php-java/callout/
+url: /ja/php-java/callout/
 ---
 
 ## **コールアウトの使用**

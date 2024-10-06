@@ -2,7 +2,7 @@
 title: チャートの書式設定
 type: docs
 weight: 60
-url: /cpp/chart-formatting/
+url: /ja/cpp/chart-formatting/
 ---
 
 

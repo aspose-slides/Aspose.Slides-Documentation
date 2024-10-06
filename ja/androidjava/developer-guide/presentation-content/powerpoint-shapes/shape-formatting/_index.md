@@ -2,7 +2,7 @@
 title: 形の書式設定
 type: docs
 weight: 20
-url: /androidjava/shape-formatting/
+url: /ja/androidjava/shape-formatting/
 keywords: "形状の書式設定, 線の書式設定, ジョインスタイルの書式設定, グラデーション塗りつぶし, パターン塗りつぶし, 画像塗りつぶし, 単色塗りつぶし, 形状の回転, 3D ベベル効果, 3D 回転効果, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaでのPowerPointプレゼンテーションにおける形状の書式設定"
 ---

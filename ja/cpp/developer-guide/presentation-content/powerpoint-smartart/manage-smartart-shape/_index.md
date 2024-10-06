@@ -2,7 +2,7 @@
 title: SmartArtシェイプを管理する
 type: docs
 weight: 20
-url: /cpp/manage-smartart-shape/
+url: /ja/cpp/manage-smartart-shape/
 ---
 
 

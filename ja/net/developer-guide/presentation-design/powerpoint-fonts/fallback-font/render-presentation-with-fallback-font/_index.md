@@ -2,7 +2,7 @@
 title: フォールバックフォントを使用したプレゼンテーションのレンダリング
 type: docs
 weight: 30
-url: /net/render-presentation-with-fallback-font/
+url: /ja/net/render-presentation-with-fallback-font/
 keywords: 
 - フォールバックフォント
 - PowerPointのレンダリング
@@ -16,7 +16,7 @@ description: "C#または.NETでフォールバックフォントを使用して
 
 次の例は、以下の手順を含みます：
 
-1. [フォールバックフォントルールコレクションを作成します](/slides/net/create-fallback-fonts-collection/)。
+1. [フォールバックフォントルールコレクションを作成します](/slides/ja/net/create-fallback-fonts-collection/)。
 1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove)でフォールバックフォントルールを削除し、[AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts)を別のルールに追加します。
 1. ルールコレクションを[FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)プロパティに設定します。
 1. [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4)メソッドを使用して、同じ形式でプレゼンテーションを保存するか、別の形式で保存することができます。フォールバックフォントルールコレクションがFontsManagerに設定されると、これらのルールはプレゼンテーションに対する任意の操作（保存、レンダリング、変換など）中に適用されます。
@@ -57,5 +57,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 ```
 
 {{% alert color="primary" %}} 
-[プレゼンテーションの保存と変換についてさらに読む](/slides/net/creating-saving-and-converting-a-presentation/)。
+[プレゼンテーションの保存と変換についてさらに読む](/slides/ja/net/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

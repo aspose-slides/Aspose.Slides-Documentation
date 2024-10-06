@@ -1,7 +1,7 @@
 ---
 title: バブルチャート
 type: docs
-url: /php-java/bubble-chart/
+url: /ja/php-java/bubble-chart/
 ---
 
 ## **バブルチャートのサイズスケーリング**

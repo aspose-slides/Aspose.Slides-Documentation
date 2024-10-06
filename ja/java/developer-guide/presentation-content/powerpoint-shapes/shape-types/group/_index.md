@@ -2,7 +2,7 @@
 title: グループ
 type: docs
 weight: 40
-url: /java/group/
+url: /ja/java/group/
 ---
 
 ## **グループシェイプの追加**

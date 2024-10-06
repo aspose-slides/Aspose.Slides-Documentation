@@ -2,7 +2,7 @@
 title: スライドを新しい位置に移動する
 type: docs
 weight: 140
-url: /net/move-a-slide-to-a-new-position/
+url: /ja/net/move-a-slide-to-a-new-position/
 ---
 
 ## **OpenXML SDK**

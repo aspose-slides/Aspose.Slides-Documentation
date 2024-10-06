@@ -2,14 +2,14 @@
 title: プレゼンテーションテーマ
 type: docs
 weight: 10
-url: /androidjava/presentation-theme/
+url: /ja/androidjava/presentation-theme/
 keywords: "テーマ, PowerPoint テーマ, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "Java における PowerPoint プレゼンテーションテーマ"
 ---
 
 プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、特定の視覚要素とそのプロパティのセットを選んでいることになります。
 
-PowerPoint では、テーマは色、[フォント](/slides/androidjava/powerpoint-fonts/)、[背景スタイル](/slides/androidjava/presentation-background/)、および効果を含みます。
+PowerPoint では、テーマは色、[フォント](/slides/ja/androidjava/powerpoint-fonts/)、[背景スタイル](/slides/ja/androidjava/presentation-background/)、および効果を含みます。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Aria
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPoint フォント](/slides/androidjava/powerpoint-fonts/)をご覧いただくことをお勧めします。
+[PowerPoint フォント](/slides/ja/androidjava/powerpoint-fonts/)をご覧いただくことをお勧めします。
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPoint 背景](/slides/androidjava/presentation-background/)をご覧いただくことをお勧めします。
+[PowerPoint 背景](/slides/ja/androidjava/presentation-background/)をご覧いただくことをお勧めします。
 
 {{% /alert %}}
 

@@ -2,7 +2,7 @@
 title: メディアファイルをHTMLファイルにエクスポートする
 type: docs
 weight: 80
-url: /net/export-media-files-into-html-file/
+url: /ja/net/export-media-files-into-html-file/
 ---
 
 メディアファイルをHTMLにエクスポートするには、以下の手順に従ってください：

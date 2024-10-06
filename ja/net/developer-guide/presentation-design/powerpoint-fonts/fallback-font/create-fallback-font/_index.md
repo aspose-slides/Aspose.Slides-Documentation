@@ -2,7 +2,7 @@
 title: フォールバックフォントの作成
 type: docs
 weight: 10
-url: /net/create-fallback-font/
+url: /ja/net/create-fallback-font/
 keywords: "フォント, フォールバックフォント, PowerPointプレゼンテーション C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET における PowerPoint のフォールバックフォント"
 ---
@@ -30,5 +30,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection)[ ](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection)は、複数のUnicode範囲のフォールバックフォントの置き換えルールを指定する必要がある場合に、[FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule)オブジェクトのリストを整理するために使用できます。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [フォールバックフォントコレクションの作成](/slides/net/create-fallback-fonts-collection/)
+- [フォールバックフォントコレクションの作成](/slides/ja/net/create-fallback-fonts-collection/)
 {{% /alert %}}

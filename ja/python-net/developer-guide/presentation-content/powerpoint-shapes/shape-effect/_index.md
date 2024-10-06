@@ -2,12 +2,12 @@
 title: シェイプ効果
 type: docs
 weight: 30
-url: /python-net/shape-effect
+url: /ja/python-net/shape-effect
 keywords: "シェイプ効果, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointのシェイプに効果を適用"
 ---
 
-PowerPointの効果はシェイプを目立たせるために使用できますが、[塗りつぶし](/slides/python-net/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointの効果を使用すると、シェイプに説得力のある反射を作成したり、シェイプのグローを広げたりできます。
+PowerPointの効果はシェイプを目立たせるために使用できますが、[塗りつぶし](/slides/ja/python-net/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointの効果を使用すると、シェイプに説得力のある反射を作成したり、シェイプのグローを広げたりできます。
 
 <img src="shape-effect.png" alt="シェイプ効果" style="zoom:50%;" />
 

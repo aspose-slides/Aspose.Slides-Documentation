@@ -1,7 +1,7 @@
 ---
 title: チャートデータマーカー
 type: docs
-url: /php-java/chart-data-marker/
+url: /ja/php-java/chart-data-marker/
 ---
 
 ## **チャートマーカーオプションの設定**

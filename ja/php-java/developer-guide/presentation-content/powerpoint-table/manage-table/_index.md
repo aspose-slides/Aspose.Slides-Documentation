@@ -2,7 +2,7 @@
 title: テーブルの管理
 type: docs
 weight: 10
-url: /php-java/manage-table/
+url: /ja/php-java/manage-table/
 keywords: "テーブル、テーブルの作成、テーブルへのアクセス、テーブルのアスペクト比、PowerPointプレゼンテーション、Java、Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションにおけるテーブルの作成と管理"
 ---

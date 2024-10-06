@@ -2,7 +2,7 @@
 title: メディアファイルをHTMLファイルにエクスポート  
 type: docs  
 weight: 40  
-url: /net/export-media-files-to-html-file/  
+url: /ja/net/export-media-files-to-html-file/  
 ---  
 
 メディアファイルをHTMLにエクスポートするには、以下の手順に従ってください：  
@@ -59,6 +59,6 @@ using (Presentation pres = new Presentation(srcFileName))
 
 {{% alert color="primary" %}}  
 
-詳細については、[メディアファイルをHTMLファイルにエクスポートする](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide)をご覧ください。  
+詳細については、[メディアファイルをHTMLファイルにエクスポートする](/slides/ja/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide)をご覧ください。  
 
 {{% /alert %}}  

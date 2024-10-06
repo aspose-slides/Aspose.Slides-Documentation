@@ -2,7 +2,7 @@
 title: ハイパーリンクの管理
 type: docs
 weight: 20
-url: /net/manage-hyperlinks/
+url: /ja/net/manage-hyperlinks/
 keywords: "ハイパーリンクの追加, PowerPointプレゼンテーション, PowerPointハイパーリンク, テキストハイパーリンク, スライドハイパーリンク, 形状ハイパーリンク, 画像ハイパーリンク, 動画ハイパーリンク, .NET, C#, Csharp"
 description: "C#または.NETでPowerPointプレゼンテーションにハイパーリンクを追加する"
 ---

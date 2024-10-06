@@ -3,7 +3,7 @@ title: PowerPointプレゼンテーションチャートの作成または更新
 linktitle: チャートを作成
 type: docs
 weight: 10
-url: /php-java/create-chart/
+url: /ja/php-java/create-chart/
 keywords: "チャートを作成, 散布図, 円グラフ, ツリーマップチャート, 株価チャート, 箱ひげ図, ヒストグラムチャート, ファネルチャート, サンバーストチャート, マルチカテゴリチャート, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションでチャートを作成"
 ---

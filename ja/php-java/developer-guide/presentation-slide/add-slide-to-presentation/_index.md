@@ -2,7 +2,7 @@
 title: プレゼンテーションにスライドを追加
 type: docs
 weight: 10
-url: /php-java/add-slide-to-presentation/
+url: /ja/php-java/add-slide-to-presentation/
 ---
 
 ## **プレゼンテーションにスライドを追加**

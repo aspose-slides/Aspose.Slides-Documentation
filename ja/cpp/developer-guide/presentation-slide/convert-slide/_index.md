@@ -2,7 +2,7 @@
 title: スライドの変換
 type: docs
 weight: 41
-url: /cpp/convert-slide/
+url: /ja/cpp/convert-slide/
 keywords: 
 - スライドを画像に変換
 - スライドを画像としてエクスポート

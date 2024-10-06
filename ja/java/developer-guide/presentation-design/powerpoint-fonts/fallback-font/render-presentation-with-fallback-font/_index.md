@@ -2,12 +2,12 @@
 title: フォールバックフォントを使用したプレゼンテーションのレンダリング
 type: docs
 weight: 30
-url: /java/render-presentation-with-fallback-font/
+url: /ja/java/render-presentation-with-fallback-font/
 ---
 
 以下の例では、これらの手順が含まれています：
 
-1. [フォールバックフォントルールのコレクションを作成します](/slides/java/create-fallback-fonts-collection/)。
+1. [フォールバックフォントルールのコレクションを作成します](/slides/ja/java/create-fallback-fonts-collection/)。
 1. [フォールバックフォントルールを削除し](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-)、別のルールに[フォールバックフォントを追加します](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-)。
 1. ルールのコレクションを[getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--)。[getFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--)メソッドに設定します。
 1. [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-)メソッドを使用して、同じフォーマットでプレゼンテーションを保存するか、別のフォーマットで保存できます。フォールバックフォントルールのコレクションを[FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager)に設定すると、これらのルールはプレゼンテーションに対するすべての操作（保存、レンダリング、変換など）で適用されます。
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-[プレゼンテーションの保存と変換についてもっと読む](/slides/java/creating-saving-and-converting-a-presentation/)。
+[プレゼンテーションの保存と変換についてもっと読む](/slides/ja/java/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: 割り込み可能なライブラリのサポート  
 type: docs  
 weight: 120  
-url: /java/support-for-interruptable-library/  
+url: /ja/java/support-for-interruptable-library/  
 ---  
   
 ## **割り込み可能なライブラリ**  

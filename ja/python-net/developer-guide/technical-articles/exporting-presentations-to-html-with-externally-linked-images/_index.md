@@ -2,7 +2,7 @@
 title: 外部リンク画像を使ったHTMLへのプレゼンテーションのエクスポート
 type: docs
 weight: 100
-url: /python-net/exporting-presentations-to-html-with-externally-linked-images/
+url: /ja/python-net/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

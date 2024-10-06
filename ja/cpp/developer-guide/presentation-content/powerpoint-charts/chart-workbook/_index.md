@@ -2,7 +2,7 @@
 title: チャートのワークブック
 type: docs
 weight: 70
-url: /cpp/chart-workbook/
+url: /ja/cpp/chart-workbook/
 keywords: "チャートのワークブック, チャートデータ, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++におけるPowerPointプレゼンテーションのチャートのワークブック"
 ---

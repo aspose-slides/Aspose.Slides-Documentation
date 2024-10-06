@@ -2,7 +2,7 @@
 title: モダン API
 type: docs
 weight: 237
-url: /nodejs-java/modern-api/
+url: /ja/nodejs-java/modern-api/
 keywords: "クロスプラットフォーム モダン API"
 description: "モダン API"
 ---

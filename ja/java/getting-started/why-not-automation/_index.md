@@ -2,7 +2,7 @@
 title: 自動化を選択しない理由
 type: docs
 weight: 50
-url: /java/why-not-automation/
+url: /ja/java/why-not-automation/
 ---
 
 {{% alert color="primary" %}} 

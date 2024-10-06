@@ -2,7 +2,7 @@
 title: プレゼンテーションの結合
 type: docs
 weight: 40
-url: /python-net/merge-presentation/
+url: /ja/python-net/merge-presentation/
 keywords: "PowerPoint結合, PPTX, PPT, PowerPointの結合, プレゼンテーションの結合, Python"
 description: "PythonでPowerPointプレゼンテーションを結合または合成します"
 ---

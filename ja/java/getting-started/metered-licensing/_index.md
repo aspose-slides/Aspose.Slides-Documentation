@@ -2,7 +2,7 @@
 title: 従量課金ライセンス  
 type: docs  
 weight: 100  
-url: /java/metered-licensing/  
+url: /ja/java/metered-licensing/  
 ---  
 
 {{% alert color="primary" %}}  

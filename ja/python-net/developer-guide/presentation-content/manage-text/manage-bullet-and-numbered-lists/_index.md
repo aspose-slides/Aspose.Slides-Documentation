@@ -2,7 +2,7 @@
 title: 箇条書きと番号付きリストの管理
 type: docs
 weight: 70
-url: /python-net/manage-bullet-and-numbered-lists/
+url: /ja/python-net/manage-bullet-and-numbered-lists/
 keywords: "箇条書き, 箇条書きリスト, 番号, 番号付きリスト, 画像の箇条書き, 多段階箇条書き, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションに箇条書きと番号付きリストを作成する"
 ---

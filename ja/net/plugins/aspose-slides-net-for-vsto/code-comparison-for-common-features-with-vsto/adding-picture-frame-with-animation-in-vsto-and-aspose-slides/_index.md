@@ -2,7 +2,7 @@
 title: VSTOとAspose.Slidesでアニメーション付きの画像フレームを追加する  
 type: docs  
 weight: 20  
-url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/  
+url: /ja/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/  
 ---  
 
 以下のコードサンプルは、スライドを持つプレゼンテーションを作成し、画像を画像フレームとともに追加し、それにアニメーションを適用します。  

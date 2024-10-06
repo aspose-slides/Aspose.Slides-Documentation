@@ -1,7 +1,7 @@
 ---
 title: トレンドライン
 type: docs
-url: /cpp/trend-line/
+url: /ja/cpp/trend-line/
 ---
 
 ## **トレンドラインの追加**

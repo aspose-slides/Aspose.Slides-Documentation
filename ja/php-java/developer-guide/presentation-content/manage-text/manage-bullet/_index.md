@@ -2,7 +2,7 @@
 title: 弾丸の管理
 type: docs
 weight: 60
-url: /php-java/manage-bullet/
+url: /ja/php-java/manage-bullet/
 keywords: "弾丸, 弾丸リスト, 数字, 番号付きリスト, 画像の弾丸, 多層弾丸, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションで弾丸と番号付きリストを作成する"
 ---

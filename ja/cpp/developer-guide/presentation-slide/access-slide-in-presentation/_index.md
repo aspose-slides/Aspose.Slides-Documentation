@@ -2,7 +2,7 @@
 title: プレゼンテーションのスライドにアクセス
 type: docs
 weight: 20
-url: /cpp/access-slide-in-presentation/
+url: /ja/cpp/access-slide-in-presentation/
 keywords: "PowerPointプレゼンテーションにアクセス, スライドにアクセス, スライドのプロパティを編集, スライドの位置を変更, スライド番号を設定, インデックス, ID, 位置 C++, CPP, Aspose.Slides"
 description: "C++でインデックス、ID、または位置によってPowerPointスライドにアクセスします。スライドのプロパティを編集"
 ---

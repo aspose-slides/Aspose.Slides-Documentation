@@ -2,7 +2,7 @@
 title: テキストフォーマット
 type: docs
 weight: 50
-url: /androidjava/text-formatting/
+url: /ja/androidjava/text-formatting/
 keywords:
 - ハイライトテキスト
 - 正規表現

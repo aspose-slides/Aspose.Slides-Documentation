@@ -2,7 +2,7 @@
 title: モダンAPI
 type: docs
 weight: 237
-url: /python-java/modern-api/
+url: /ja/python-java/modern-api/
 keywords: "クロスプラットフォーム モダンAPI"
 description: "モダンAPI"
 ---

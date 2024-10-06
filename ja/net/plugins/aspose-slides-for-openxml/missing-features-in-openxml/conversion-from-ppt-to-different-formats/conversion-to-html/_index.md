@@ -2,7 +2,7 @@
 title: HTMLへの変換
 type: docs
 weight: 20
-url: /net/conversion-to-html/
+url: /ja/net/conversion-to-html/
 ---
 
 **HTML**は、データを交換するために広く使用されている形式の一つです。**Aspose.Slides for .NET**は、プレゼンテーションをHTMLに変換するサポートを提供します。以下は、その方法を示すコードスニペットです。

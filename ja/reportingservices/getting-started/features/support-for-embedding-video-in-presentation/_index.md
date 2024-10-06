@@ -2,7 +2,7 @@
 title: プレゼンテーションにビデオを埋め込むためのサポート
 type: docs
 weight: 80
-url: /reportingservices/support-for-embedding-video-in-presentation/
+url: /ja/reportingservices/support-for-embedding-video-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

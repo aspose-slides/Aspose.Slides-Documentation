@@ -2,7 +2,7 @@
 title: テキストフォーマット
 type: docs
 weight: 50
-url: /php-java/text-formatting/
+url: /ja/php-java/text-formatting/
 ---
 
 ## **テキストをハイライト**

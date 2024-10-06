@@ -2,7 +2,7 @@
 title: 動的にテキストを追加する
 type: docs
 weight: 40
-url: /net/adding-text-dynamically/
+url: /ja/net/adding-text-dynamically/
 ---
 
 両方の方法は次のステップに従います：

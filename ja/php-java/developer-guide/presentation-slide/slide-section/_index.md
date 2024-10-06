@@ -2,7 +2,7 @@
 title: スライドセクション
 type: docs
 weight: 90
-url: /php-java/slide-section/
+url: /ja/php-java/slide-section/
 ---
 
 Aspose.Slides for PHP via Java を使用すると、PowerPoint プレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。

@@ -2,7 +2,7 @@
 title: スライドトランジション
 type: docs
 weight: 80
-url: /net/slide-transitions/
+url: /ja/net/slide-transitions/
 ---
 
 理解を容易にするために、Aspose.Slides for .NETを使用して簡単なスライドトランジションを管理する方法を示しました。開発者はスライドに異なるスライドトランジション効果を適用するだけでなく、これらのトランジション効果の動作をカスタマイズすることもできます。簡単なスライドトランジション効果を作成するには、以下の手順に従ってください。
@@ -53,6 +53,6 @@ using (Presentation pres = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-詳細については、[Managing Slides Transitions](/slides/net/slide-transition/)をご覧ください。
+詳細については、[Managing Slides Transitions](/slides/ja/net/slide-transition/)をご覧ください。
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: 線
 type: docs
 weight: 50
-url: /cpp/Line/
+url: /ja/cpp/Line/
 ---
 
 ## **平面線を作成する**

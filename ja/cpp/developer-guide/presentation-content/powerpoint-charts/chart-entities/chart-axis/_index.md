@@ -1,7 +1,7 @@
 ---
 title: チャート軸
 type: docs
-url: /cpp/chart-axis/
+url: /ja/cpp/chart-axis/
 keywords: "PowerPoint チャート軸、プレゼンテーションチャート、C++、チャート軸の操作、チャートデータ"
 description: "C++ で PowerPoint チャート軸を編集する方法"
 ---

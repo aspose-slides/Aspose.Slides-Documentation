@@ -2,7 +2,7 @@
 title: グループ
 type: docs
 weight: 40
-url: /androidjava/group/
+url: /ja/androidjava/group/
 ---
 
 ## **グループシェイプを追加する**

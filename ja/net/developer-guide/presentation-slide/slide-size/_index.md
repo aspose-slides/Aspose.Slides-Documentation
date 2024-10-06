@@ -2,7 +2,7 @@
 title: スライドサイズ
 type: docs
 weight: 70
-url: /net/slide-size/
+url: /ja/net/slide-size/
 keywords: "スライドを設定する、スライドサイズを編集する、PowerPointプレゼンテーション、カスタムスライドサイズ、スライドの問題を解決する、C#、Csharp、.NET、Aspose.Slides"
 descriptions: "C#または.NETでPowerPointのスライドサイズやアスペクト比を設定および編集する"
 ---

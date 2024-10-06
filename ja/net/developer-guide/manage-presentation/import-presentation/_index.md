@@ -3,7 +3,7 @@ title: PDFまたはHTMLからPowerPointをインポート
 linktitle: プレゼンテーションのインポート
 type: docs
 weight: 60
-url: /net/import-presentation/
+url: /ja/net/import-presentation/
 keywords: "PowerPointのインポート, PDFからPowerPoint, HTMLからPowerPoint, PDFからPPT, HTMLからPPT, C#, Csharp, Aspose.Slides for .NET"
 description: "PDFまたはHTMLからPowerPointをインポートします。PDFをPowerPointに変換します。HTMLをPowerPointに変換します。"
 ---

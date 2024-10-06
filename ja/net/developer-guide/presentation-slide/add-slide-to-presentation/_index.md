@@ -2,7 +2,7 @@
 title: プレゼンテーションにスライドを追加
 type: docs
 weight: 10
-url: /net/add-slide-to-presentation/
+url: /ja/net/add-slide-to-presentation/
 keywords: "プレゼンテーションにスライドを追加, C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでプレゼンテーションにスライドを追加"
 ---

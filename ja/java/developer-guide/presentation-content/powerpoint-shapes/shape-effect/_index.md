@@ -2,12 +2,12 @@
 title: 形の効果
 type: docs
 weight: 30
-url: /java/shape-effect
+url: /ja/java/shape-effect
 keywords: "形の効果, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointの形に効果を適用する"
 ---
 
-PowerPointの効果は形を目立たせるために使用できますが、[塗りつぶし](/slides/java/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPointの効果を使用して、形の convincing な反射を作成したり、形の輝きを広げたりできます。
+PowerPointの効果は形を目立たせるために使用できますが、[塗りつぶし](/slides/ja/java/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPointの効果を使用して、形の convincing な反射を作成したり、形の輝きを広げたりできます。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

@@ -2,18 +2,18 @@
 title: プレゼンテーションのヘッダーとフッター
 type: docs
 weight: 140
-url: /androidjava/presentation-header-and-footer/
+url: /ja/androidjava/presentation-header-and-footer/
 keywords: "JavaのPowerPointヘッダーとフッター"
 description: "JavaのPowerPointヘッダーとフッター"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/androidjava/)は、実際にスライドマスターレベルで維持されるスライドのヘッダーとフッターテキストを操作するためのサポートを提供します。
+[Aspose.Slides](/slides/ja/androidjava/)は、実際にスライドマスターレベルで維持されるスライドのヘッダーとフッターテキストを操作するためのサポートを提供します。
 
 {{% /alert %}} 
 
-[Aspose.Slides for Android via Java](/slides/androidjava/)は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターのレベルで管理されています。
+[Aspose.Slides for Android via Java](/slides/ja/androidjava/)は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターのレベルで管理されています。
 
 ## **プレゼンテーションのヘッダーとフッターを管理する**
 特定のスライドのノートは、以下の例のように削除できます。

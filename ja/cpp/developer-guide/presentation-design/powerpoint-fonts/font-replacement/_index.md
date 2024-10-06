@@ -2,7 +2,7 @@
 title: フォント置換
 type: docs
 weight: 60
-url: /cpp/font-replacement/
+url: /ja/cpp/font-replacement/
 keywords: "フォント, フォントを置き換える, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointのフォントを明示的に置き換える"
 ---
@@ -38,6 +38,6 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 
 {{% alert title="注意" color="warning" %}} 
 
-特定の条件下で何が起こるかを決定するルールを設定するには（例えば、フォントにアクセスできない場合など）、[**フォント置換**](/slides/cpp/font-substitution/)を参照してください。
+特定の条件下で何が起こるかを決定するルールを設定するには（例えば、フォントにアクセスできない場合など）、[**フォント置換**](/slides/ja/cpp/font-substitution/)を参照してください。
 
 {{% /alert %}}

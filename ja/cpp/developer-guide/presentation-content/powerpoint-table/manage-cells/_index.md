@@ -2,7 +2,7 @@
 title: セルの管理
 type: docs
 weight: 30
-url: /cpp/manage-cells/
+url: /ja/cpp/manage-cells/
 keywords: "テーブル、結合セル、分割セル、テーブルセル内の画像、C++、CPP、Aspose.Slides for C++"
 description: "C++によるPowerPointプレゼンテーションのテーブルセル"
 ---

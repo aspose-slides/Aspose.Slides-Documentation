@@ -2,7 +2,7 @@
 title: Aspose.Slidesを評価する
 type: docs
 weight: 120
-url: /nodejs-java/evaluate-aspose-slides/
+url: /ja/nodejs-java/evaluate-aspose-slides/
 ---
 
 簡単にAspose.Slidesを評価用にダウンロードできます。評価パッケージは購入したパッケージと同じです。ライセンスを適用するための数行のコードを追加することで、評価版はライセンス版に変わります。

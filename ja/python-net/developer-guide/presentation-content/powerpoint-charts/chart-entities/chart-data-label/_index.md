@@ -1,7 +1,7 @@
 ---
 title: チャートデータラベル
 type: docs
-url: /python-net/chart-data-label/
+url: /ja/python-net/chart-data-label/
 keywords: "チャートデータラベル, ラベル距離, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointのチャートデータラベルと距離を設定する"
 ---

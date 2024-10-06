@@ -2,7 +2,7 @@
 title: スライドの変換
 type: docs
 weight: 41
-url: /python-net/convert-slide/
+url: /ja/python-net/convert-slide/
 keywords: 
 - スライドを画像に変換
 - スライドを画像としてエクスポート

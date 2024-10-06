@@ -3,7 +3,7 @@ title: C#でノート付きのPowerPointをPDFに変換
 linktitle: ノート付きのPowerPointをPDFに変換
 type: docs
 weight: 50
-url: /net/convert-powerpoint-to-pdf-with-notes/
+url: /ja/net/convert-powerpoint-to-pdf-with-notes/
 keywords: "PowerPoint変換, プレゼンテーション, PowerPointをPDFに, ノート, c#, csharp, .NET, Aspose.Slides"
 description: "C#または.NETを使用してノート付きのPowerPointをPDFに変換"
 ---

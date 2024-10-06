@@ -1,7 +1,7 @@
 ---
 title: プレゼンテーションビューのプロパティ
 type: docs
-url: /net/presentation-view-properties/
+url: /ja/net/presentation-view-properties/
 keywords: "PowerPointビューワー, ビューアプロパティ, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションビューワーのプロパティ"
 ---

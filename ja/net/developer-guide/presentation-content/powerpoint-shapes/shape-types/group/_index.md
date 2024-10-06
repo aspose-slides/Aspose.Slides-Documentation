@@ -2,7 +2,7 @@
 title: グループ
 type: docs
 weight: 40
-url: /net/group/
+url: /ja/net/group/
 keywords: "グループ図形, PowerPoint図形, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにグループ図形を追加する"
 ---

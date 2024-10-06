@@ -2,7 +2,7 @@
 title: XAMLへのエクスポート
 type: docs
 weight: 30
-url: /php-java/export-to-xaml/
+url: /ja/php-java/export-to-xaml/
 
 ---
 

@@ -2,7 +2,7 @@
 title: モダンAPI
 type: docs
 weight: 280
-url: /python-net/modern-api/
+url: /ja/python-net/modern-api/
 keywords: "モダンAPI, 描画"
 description: "モダンAPI"
 ---

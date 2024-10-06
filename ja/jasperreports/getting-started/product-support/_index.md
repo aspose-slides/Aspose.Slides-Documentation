@@ -2,5 +2,5 @@
 title: 製品サポート
 type: docs
 weight: 110
-url: /jasperreports/product-support/
+url: /ja/jasperreports/product-support/
 ---

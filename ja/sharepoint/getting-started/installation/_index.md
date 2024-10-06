@@ -2,5 +2,5 @@
 title: インストール
 type: docs
 weight: 40
-url: /sharepoint/installation/
+url: /ja/sharepoint/installation/
 ---

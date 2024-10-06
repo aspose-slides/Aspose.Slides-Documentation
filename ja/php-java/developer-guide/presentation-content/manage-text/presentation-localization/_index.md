@@ -2,7 +2,7 @@
 title: プレゼンテーションのローカリゼーション
 type: docs
 weight: 100
-url: /php-java/presentation-localization/
+url: /ja/php-java/presentation-localization/
 ---
 
 ## **プレゼンテーションと図形のテキストの言語を変更する**

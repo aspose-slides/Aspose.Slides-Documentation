@@ -2,7 +2,7 @@
 title: アニメーションテキスト
 type: docs
 weight: 60
-url: /net/animated-text/
+url: /ja/net/animated-text/
 keywords: "アニメーションテキスト, アニメーション効果, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにアニメーションテキストと効果を追加する"
 ---

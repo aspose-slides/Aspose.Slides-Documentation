@@ -3,7 +3,7 @@ title: C#でPowerPointをPDFに変換
 linktitle: PowerPointをPDFに変換
 type: docs
 weight: 40
-url: /net/convert-powerpoint-to-pdf/
+url: /ja/net/convert-powerpoint-to-pdf/
 keywords:
 - PowerPointを変換
 - プレゼンテーション

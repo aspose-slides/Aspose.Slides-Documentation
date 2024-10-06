@@ -2,12 +2,12 @@
 title: PPTからPPTXへの変換
 type: docs
 weight: 30
-url: /php-java/ppt-to-pptx-conversion/
+url: /ja/php-java/ppt-to-pptx-conversion/
 ---
 
 {{% alert color="primary" %}} 
 
-PPTからPPTXへの変換は、Aspose.Slides for PHP via Javaでサポートされています。マスタースライド、構造などのほとんどのプレゼンテーション機能は、あるフォーマットから別のフォーマットに変換されるときに保持されますが、[いくつかの制限があります](/slides/php-java/ppt-to-pptx-conversion/)。
+PPTからPPTXへの変換は、Aspose.Slides for PHP via Javaでサポートされています。マスタースライド、構造などのほとんどのプレゼンテーション機能は、あるフォーマットから別のフォーマットに変換されるときに保持されますが、[いくつかの制限があります](/slides/ja/php-java/ppt-to-pptx-conversion/)。
 
 {{% /alert %}} 
 ## **変換でサポートされる機能**

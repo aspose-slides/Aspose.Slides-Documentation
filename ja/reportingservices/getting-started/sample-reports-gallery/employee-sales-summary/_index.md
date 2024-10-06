@@ -2,7 +2,7 @@
 title: 従業員販売サマリー
 type: docs
 weight: 30
-url: /reportingservices/employee-sales-summary/
+url: /ja/reportingservices/employee-sales-summary/
 ---
 
 ## **機能:**

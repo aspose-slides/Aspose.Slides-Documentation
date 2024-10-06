@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /cpp/activex/
+url: /ja/cpp/activex/
 ---
 
 ActiveXコントロールはプレゼンテーションで使用されます。Aspose.Slides for C++を使うと、ActiveXコントロールを管理できますが、それらを管理するのは通常のプレゼンテーションシェイプとは少し異なります。Aspose.Slides for C++ 18.1から、このコンポーネントはActiveXコントロールの管理をサポートしています。現在、プレゼンテーションに追加されたActiveXコントロールにアクセスして、そのさまざまなプロパティを使用して変更または削除できます。ActiveXコントロールはシェイプではなく、プレゼンテーションのIShapeCollectionの一部ではなく、別のIControlCollectionに含まれています。この記事では、それらを扱う方法を示します。

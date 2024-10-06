@@ -1,7 +1,7 @@
 ---
 title: プレゼンテーション ビュー プロパティ
 type: docs
-url: /python-net/presentation-view-properties/
+url: /ja/python-net/presentation-view-properties/
 keywords: "PowerPoint ビューア, ビューア プロパティ, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Python における PowerPoint プレゼンテーション ビューア プロパティ"
 ---

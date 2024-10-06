@@ -2,7 +2,7 @@
 title: プレゼンテーションの背景
 type: docs
 weight: 20
-url: /cpp/presentation-background/
+url: /ja/cpp/presentation-background/
 keywords: "PowerPoint 背景, 背景設定"
 description: "CPP で PowerPoint プレゼンテーションの背景を設定する"
 ---

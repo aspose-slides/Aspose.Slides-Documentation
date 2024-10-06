@@ -2,7 +2,7 @@
 title: テキストボックスの管理
 type: docs
 weight: 20
-url: /python-net/manage-textbox/
+url: /ja/python-net/manage-textbox/
 keywords: "テキストボックス, テキストフレーム, テキストボックスを追加, ハイパーリンク付きテキストボックス, Python, Aspose.Slides for Python via .NET"
 description: "Pythonまたは.NETを使用してPowerPointプレゼンテーションにテキストボックスまたはテキストフレームを追加します"
 ---

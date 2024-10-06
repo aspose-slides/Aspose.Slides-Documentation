@@ -2,12 +2,12 @@
 title: Aspose.Slides for Java 15.7.0におけるパブリックAPIと互換性のない変更
 type: docs
 weight: 150
-url: /androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/
+url: /ja/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/
 ---
 
 {{% alert color="primary" %}} 
 
-このページでは、Aspose.Slides for Java 15.7.0 APIで導入されたすべての[class added](/slides/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/)または[class removed](/slides/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/)のクラス、メソッド、プロパティなど、その他の変更を一覧表示します。
+このページでは、Aspose.Slides for Java 15.7.0 APIで導入されたすべての[class added](/slides/ja/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/)または[class removed](/slides/ja/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-7-0/)のクラス、メソッド、プロパティなど、その他の変更を一覧表示します。
 
 {{% /alert %}} 
 ## **パブリックAPIの変更**

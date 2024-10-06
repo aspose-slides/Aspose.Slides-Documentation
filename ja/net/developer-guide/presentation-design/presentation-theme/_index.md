@@ -2,14 +2,14 @@
 title: プレゼンテーションテーマ
 type: docs
 weight: 10
-url: /net/presentation-theme/
+url: /ja/net/presentation-theme/
 keywords: "テーマ, PowerPointテーマ, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションテーマ"
 ---
 
 プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、特定の視覚要素とそのプロパティのセットを選んでいることになります。
 
-PowerPointでは、テーマは色、[フォント](/slides/net/powerpoint-fonts/)、[背景スタイル](/slides/net/presentation-background/)、およびエフェクトで構成されます。
+PowerPointでは、テーマは色、[フォント](/slides/ja/net/powerpoint-fonts/)、[背景スタイル](/slides/ja/net/presentation-background/)、およびエフェクトで構成されます。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -152,7 +152,7 @@ pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPointフォント](/slides/net/powerpoint-fonts/)を参照したい場合があります。
+[PowerPointフォント](/slides/ja/net/powerpoint-fonts/)を参照したい場合があります。
 
 {{% /alert %}}
 
@@ -189,7 +189,7 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPoint背景](/slides/net/presentation-background/)を参照したい場合があります。
+[PowerPoint背景](/slides/ja/net/presentation-background/)を参照したい場合があります。
 
 {{% /alert %}}
 

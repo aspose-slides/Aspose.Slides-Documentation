@@ -2,7 +2,7 @@
 title: グループ
 type: docs
 weight: 40
-url: /php-java/group/
+url: /ja/php-java/group/
 ---
 
 ## **グループシェイプを追加する**

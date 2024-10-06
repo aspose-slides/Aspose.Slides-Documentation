@@ -2,7 +2,7 @@
 title: XAMLへのエクスポート
 type: docs
 weight: 30
-url: /net/export-to-xaml/
+url: /ja/net/export-to-xaml/
 keywords: "PowerPointプレゼンテーションをエクスポート, PowerPointを変換, XAML, PowerPointからXAML, PPTからXAML, PPTXからXAML, C#, Csharp, .NET"
 description: "PowerPointプレゼンテーションをXAMLにエクスポートまたは変換"
 ---

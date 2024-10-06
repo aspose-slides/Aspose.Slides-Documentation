@@ -2,12 +2,12 @@
 title: PowerPointスライドにテーブルを作成する
 type: docs
 weight: 50
-url: /net/creating-a-table-on-powerpoint-slide/
+url: /ja/net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-テーブルはプレゼンテーションスライドでデータを表示するために広く使用されています。この記事では、最初に [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/) を使用し、次に [Aspose.Slides for .NET](/slides/net/creating-a-table-on-powerpoint-slide/) を使用して、フォントサイズ10の15 x 15テーブルをプログラムで作成する方法を示します。
+テーブルはプレゼンテーションスライドでデータを表示するために広く使用されています。この記事では、最初に [VSTO 2008](/slides/ja/net/creating-a-table-on-powerpoint-slide/) を使用し、次に [Aspose.Slides for .NET](/slides/ja/net/creating-a-table-on-powerpoint-slide/) を使用して、フォントサイズ10の15 x 15テーブルをプログラムで作成する方法を示します。
 
 {{% /alert %}} 
 ## **テーブルの作成**

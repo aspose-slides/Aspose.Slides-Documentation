@@ -2,7 +2,7 @@
 title: アニメーションテキスト
 type: docs
 weight: 60
-url: /php-java/animated-text/
+url: /ja/php-java/animated-text/
 keywords: "PowerPoint のアニメーションテキスト"
 description: "Java を使用した PowerPoint のアニメーションテキスト"
 ---

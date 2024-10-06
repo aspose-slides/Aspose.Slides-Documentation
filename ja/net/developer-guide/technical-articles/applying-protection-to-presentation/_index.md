@@ -2,14 +2,14 @@
 title: プレゼンテーションへの保護の適用
 type: docs
 weight: 70
-url: /net/applying-protection-to-presentation/
+url: /ja/net/applying-protection-to-presentation/
 --- 
 
 {{% alert color="primary" %}} 
 
 Aspose.Slidesの一般的な使用法は、Microsoft PowerPoint 2007 (PPTX) プレゼンテーションを自動化されたワークフローの一部として作成、更新、保存することです。このようにAspose.Slidesを使用するアプリケーションのユーザーは、出力されたプレゼンテーションにアクセスできます。それらを編集から保護することは一般的な懸念です。自動生成されたプレゼンテーションが元のフォーマットと内容を保持することは重要です。
 
-この記事では、[プレゼンテーションとスライドがどのように構成されるか](/slides/net/applying-protection-to-presentation/)と、Aspose.Slides for .NETが[どのように保護を適用するか](/slides/net/applying-protection-to-presentation/)、その後[どのように保護を解除するか](/slides/net/applying-protection-to-presentation/)を説明します。この機能はAspose.Slidesに特有であり、この記事執筆時点ではMicrosoft PowerPointでは利用できません。これにより、開発者は自分のアプリケーションが作成するプレゼンテーションがどのように使用されるかを制御する方法を提供します。
+この記事では、[プレゼンテーションとスライドがどのように構成されるか](/slides/ja/net/applying-protection-to-presentation/)と、Aspose.Slides for .NETが[どのように保護を適用するか](/slides/ja/net/applying-protection-to-presentation/)、その後[どのように保護を解除するか](/slides/ja/net/applying-protection-to-presentation/)を説明します。この機能はAspose.Slidesに特有であり、この記事執筆時点ではMicrosoft PowerPointでは利用できません。これにより、開発者は自分のアプリケーションが作成するプレゼンテーションがどのように使用されるかを制御する方法を提供します。
 
 {{% /alert %}} 
 ## **スライドの構成**

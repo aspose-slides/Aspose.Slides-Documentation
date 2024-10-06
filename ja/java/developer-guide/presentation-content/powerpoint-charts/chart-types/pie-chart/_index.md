@@ -1,7 +1,7 @@
 ---
 title: 円グラフ
 type: docs
-url: /java/pie-chart/
+url: /ja/java/pie-chart/
 ---
 
 ## **円グラフのセカンドプロットオプション**

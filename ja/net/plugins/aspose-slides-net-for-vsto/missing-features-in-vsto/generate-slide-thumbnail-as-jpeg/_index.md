@@ -2,7 +2,7 @@
 title: スライドのサムネイルをJPEGとして生成
 type: docs
 weight: 90
-url: /net/generate-slide-thumbnail-as-jpeg/
+url: /ja/net/generate-slide-thumbnail-as-jpeg/
 ---
 
 Aspose.Slides for .NETを使用して、任意のスライドのサムネイルを生成するには:
@@ -38,6 +38,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-詳細については、[スライドサムネイル画像の作成](/slides/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage)をご覧ください。
+詳細については、[スライドサムネイル画像の作成](/slides/ja/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage)をご覧ください。
 
 {{% /alert %}}

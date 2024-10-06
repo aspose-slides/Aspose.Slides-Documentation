@@ -2,7 +2,7 @@
 title: プレゼンテーションのインポート
 type: docs
 weight: 60
-url: /java/import-presentation/
+url: /ja/java/import-presentation/
 keywords: "PowerPointのインポート, PDFからプレゼンテーション, PDFからPPTX, PDFからPPT, Java, Aspose.Slides for Java"
 description: "PDFからPowerPointプレゼンテーションをインポートします。PDFをPowerPointに変換"
 ---

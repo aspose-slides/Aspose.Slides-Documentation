@@ -2,7 +2,7 @@
 title: プレゼンテーションスライド全体の背景を画像として取得する
 type: docs
 weight: 95
-url: /php-java/get-the-entire-presentation-slide-background-as-an-image/
+url: /ja/php-java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - スライド
 - 背景
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides for PHP via Java
 ---
 
-PowerPoint プレゼンテーションでは、スライドの背景は多くの要素で構成されている可能性があります。[スライド背景](/slides/php-java/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションテーマ、カラースキーム、マスタースライドおよびレイアウトスライドに配置されたシェイプによって影響を受ける可能性があります。
+PowerPoint プレゼンテーションでは、スライドの背景は多くの要素で構成されている可能性があります。[スライド背景](/slides/ja/php-java/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションテーマ、カラースキーム、マスタースライドおよびレイアウトスライドに配置されたシェイプによって影響を受ける可能性があります。
 
 Aspose.Slides for PHP via Java では、プレゼンテーションスライド全体の背景を画像として抽出するための簡単な方法は提供されていませんが、以下の手順に従ってこれを行うことができます:
 1. [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) クラスを使用してプレゼンテーションを読み込む。

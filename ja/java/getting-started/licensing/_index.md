@@ -2,7 +2,7 @@
 title: ライセンス
 type: docs
 weight: 90
-url: /java/licensing/
+url: /ja/java/licensing/
 ---
 
 ## **Aspose.Slidesの評価**
@@ -40,7 +40,7 @@ url: /java/licensing/
 
 {{% alert color="primary" %}} 
 
-[Metered Licensing](/slides/java/metered-licensing/)を参照することをお勧めします。
+[Metered Licensing](/slides/ja/java/metered-licensing/)を参照することをお勧めします。
 
 {{% /alert %}} 
 
@@ -91,7 +91,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 ### **PHP/Java Bridge**
 
-PHP経由でJavaを使用してAspose.Slidesを使用する場合、PHP/Javaブリッジを通じてライセンスを設定できます。このブリッジにより、PHP構文内でJavaクラスを使用することができます。詳細については、[PHPのライセンス](/slides/php-java/licensing/)を参照してください。
+PHP経由でJavaを使用してAspose.Slidesを使用する場合、PHP/Javaブリッジを通じてライセンスを設定できます。このブリッジにより、PHP構文内でJavaクラスを使用することができます。詳細については、[PHPのライセンス](/slides/ja/php-java/licensing/)を参照してください。
 
 ## **ライセンスの検証**
 

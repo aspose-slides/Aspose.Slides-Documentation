@@ -3,7 +3,7 @@ title: デフォルトフォント - PowerPoint Java API
 linktitle: デフォルトフォント
 type: docs
 weight: 30
-url: /java/default-font/
+url: /ja/java/default-font/
 description: PowerPoint Java APIを使用すると、プレゼンテーションをPDF、XPS、またはサムネイルとしてレンダリングするためのデフォルトフォントを設定できます。この記事では、デフォルトフォントとして使用するためのDefaultRegular FontとDefaultAsian Fontの定義方法を示します。
 ---
 

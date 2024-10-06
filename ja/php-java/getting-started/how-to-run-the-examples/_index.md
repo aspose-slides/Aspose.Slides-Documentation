@@ -2,7 +2,7 @@
 title: 例を実行する方法
 type: docs
 weight: 140
-url: /php-java/how-to-run-the-examples/
+url: /ja/php-java/how-to-run-the-examples/
 ---
 
 ## **GitHubからダウンロード**

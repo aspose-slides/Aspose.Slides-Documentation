@@ -2,7 +2,7 @@
 title: メモ付きPowerPointをTIFFに変換
 type: docs
 weight: 100
-url: /cpp/convert-powerpoint-to-tiff-with-notes/
+url: /ja/cpp/convert-powerpoint-to-tiff-with-notes/
 keywords: "メモ付きPowerPointをTIFFに変換"
 description: "Aspose.Slidesを使用してメモ付きPowerPointをTIFFに変換します。"
 ---

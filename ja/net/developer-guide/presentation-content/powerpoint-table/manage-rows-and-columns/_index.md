@@ -2,7 +2,7 @@
 title: 行と列の管理
 type: docs
 weight: 20
-url: /net/manage-rows-and-columns/
+url: /ja/net/manage-rows-and-columns/
 keywords: "テーブル, テーブルの行と列, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションのテーブル行と列の管理"
 

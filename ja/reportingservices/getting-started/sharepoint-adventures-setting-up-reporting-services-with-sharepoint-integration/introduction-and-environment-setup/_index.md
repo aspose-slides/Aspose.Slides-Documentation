@@ -2,7 +2,7 @@
 title: 導入と環境設定
 type: docs
 weight: 10
-url: /reportingservices/introduction-and-environment-setup/
+url: /ja/reportingservices/introduction-and-environment-setup/
 ---
 
 {{% alert color="primary" %}} 

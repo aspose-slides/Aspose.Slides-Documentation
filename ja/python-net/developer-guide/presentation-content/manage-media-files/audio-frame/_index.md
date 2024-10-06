@@ -2,7 +2,7 @@
 title: オーディオフレーム
 type: docs
 weight: 10
-url: /python-net/audio-frame/
+url: /ja/python-net/audio-frame/
 keywords: "オーディオを追加, オーディオフレーム, オーディオプロパティ, オーディオを抽出, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにオーディオを追加する"
 ---

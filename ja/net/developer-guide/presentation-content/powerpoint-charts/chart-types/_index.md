@@ -2,5 +2,5 @@
 title: チャートタイプ
 type: docs
 weight: 20
-url: /net/chart-types/
+url: /ja/net/chart-types/
 ---

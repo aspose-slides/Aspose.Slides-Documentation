@@ -2,7 +2,7 @@
 title: PowerPoint アニメーション
 type: docs
 weight: 150
-url: /python-net/powerpoint-animation/
+url: /ja/python-net/powerpoint-animation/
 keywords: "アニメーション, アニメーション効果, PowerPoint アニメーション, アニメーションタイムライン, インタラクティブアニメーション, 形状アニメーション, アニメーションチャート, アニメーションテキスト, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Python における PowerPoint プレゼンテーションのアニメーションと効果"
 ---
@@ -49,19 +49,19 @@ Aspose.Slides では、独自の**カスタムアニメーション**を作成�
 Aspose.Slides は、実際にテキスト、長方形、線、フレーム、OLE オブジェクトなどにアニメーションを適用することを許可します。
 
 {{% alert color="primary" %}} 
-詳細については、[**形状アニメーションについて**](/slides/python-net/shape-animation/)をお読みください。
+詳細については、[**形状アニメーションについて**](/slides/ja/python-net/shape-animation/)をお読みください。
 {{% /alert %}}
 
 ## **アニメーションチャート**
 アニメーションチャートを作成するには、形状のためと同じクラスを使用する必要があります。ただし、PowerPoint アニメーションはチャートカテゴリまたはチャート系列にのみ使用可能です。また、カテゴリ要素または系列要素にアニメーション効果を適用することもできます。
 
 {{% alert color="primary" %}} 
-詳細については、[**アニメーションチャートについて**](/slides/python-net/animated-charts/)をお読みください。
+詳細については、[**アニメーションチャートについて**](/slides/ja/python-net/animated-charts/)をお読みください。
 {{% /alert %}}
 
 ## **アニメーションテキスト**
 アニメーションテキストに加えて、段落にアニメーションを適用することも可能です。
 
 {{% alert color="primary" %}} 
-詳細については、[**アニメーションテキストについて**](/slides/python-net/animated-text/)をお読みください。
+詳細については、[**アニメーションテキストについて**](/slides/ja/python-net/animated-text/)をお読みください。
 {{% /alert %}}

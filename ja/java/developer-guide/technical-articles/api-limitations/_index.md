@@ -2,7 +2,7 @@
 title: APIの制限
 type: docs
 weight: 320
-url: /java/api-limitations/
+url: /ja/java/api-limitations/
 ---
 
 ## **プレゼンテーションおよびその他のエクスポートフォーマット**

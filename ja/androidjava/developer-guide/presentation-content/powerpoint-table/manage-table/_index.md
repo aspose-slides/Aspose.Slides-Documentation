@@ -2,7 +2,7 @@
 title: テーブルの管理
 type: docs
 weight: 10
-url: /androidjava/manage-table/
+url: /ja/androidjava/manage-table/
 keywords: "テーブル, テーブルの作成, テーブルのアクセス, テーブルのアスペクト比, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaでPowerPoint プレゼンテーション内のテーブルを作成および管理する"
 ---

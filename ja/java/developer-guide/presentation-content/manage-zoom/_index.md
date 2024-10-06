@@ -2,7 +2,7 @@
 title: ズームの管理
 type: docs
 weight: 60
-url: /java/manage-zoom/
+url: /ja/java/manage-zoom/
 keywords: "Zoom, ズームフレーム, ズームの追加, ズームフレームのフォーマット, サマリーズーム, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションにズームまたはズームフレームを追加する"
 ---

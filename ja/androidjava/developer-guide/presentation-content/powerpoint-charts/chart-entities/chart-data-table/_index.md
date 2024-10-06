@@ -1,7 +1,7 @@
 ---
 title: チャートデータテーブル
 type: docs
-url: /androidjava/chart-data-table/
+url: /ja/androidjava/chart-data-table/
 ---
 
 ## **チャートデータテーブルのフォントプロパティを設定する**

@@ -1,7 +1,7 @@
 ---
 title: チャートデータラベル
 type: docs
-url: /cpp/chart-data-label/
+url: /ja/cpp/chart-data-label/
 keywords: "チャートデータラベル,ラベル距離,C++,CPP,Aspose.Slides for C++"
 description: "C++でPowerPointチャートのデータラベルと距離を設定する"
 ---

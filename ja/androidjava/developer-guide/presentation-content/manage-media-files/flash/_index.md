@@ -2,7 +2,7 @@
 title: フラッシュ
 type: docs
 weight: 10
-url: /androidjava/flash/
+url: /ja/androidjava/flash/
 description: Javaを使用してPowerPointプレゼンテーションからフラッシュオブジェクトを抽出する
 ---
 

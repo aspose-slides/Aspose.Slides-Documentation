@@ -1,7 +1,7 @@
 ---
 title: チャートの凡例
 type: docs
-url: /net/chart-legend/
+url: /ja/net/chart-legend/
 keywords: "チャート 凡例, 凡例のフォントサイズ, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションのチャート凡例の位置とフォントサイズを設定する"
 ---

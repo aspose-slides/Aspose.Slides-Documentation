@@ -2,7 +2,7 @@
 title: Aspose.Slides for SharePointライセンスのアンインストール
 type: docs
 weight: 20
-url: /sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
+url: /ja/sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
 ---
 
 ライセンスをアンインストールするには、以下の手順をサーバーコンソールから実行してください。

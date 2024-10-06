@@ -2,7 +2,7 @@
 title: 機能の概要
 type: docs
 weight: 20
-url: /net/features-overview/
+url: /ja/net/features-overview/
 ---
 
 ## **サポートされているプラットフォーム**
@@ -18,12 +18,12 @@ Aspose.Slides for .NETは、ほとんどのPowerPointドキュメント形式を
 
 |**機能**|**説明**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/net/ppt-vs-pptx/)|Aspose.Slides for .NETは、このプレゼンテーションドキュメント形式の最も迅速な処理を提供します。|
-|[PPTからPPTXへの変換](/slides/net/convert-ppt-to-pptx/)|Aspose.Slides for .NETはPPTからPPTXへの変換をサポートしています。|
-|[ポータブルドキュメント形式 (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|すべてのサポートされているファイル形式をAdobe Portable Document Format (PDF) ドキュメントに一つのメソッドでエクスポートできます。|
+|[Microsoft PowerPoint (PPT)](/slides/ja/net/ppt-vs-pptx/)|Aspose.Slides for .NETは、このプレゼンテーションドキュメント形式の最も迅速な処理を提供します。|
+|[PPTからPPTXへの変換](/slides/ja/net/convert-ppt-to-pptx/)|Aspose.Slides for .NETはPPTからPPTXへの変換をサポートしています。|
+|[ポータブルドキュメント形式 (PDF)](/slides/ja/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|すべてのサポートされているファイル形式をAdobe Portable Document Format (PDF) ドキュメントに一つのメソッドでエクスポートできます。|
 |[XML Parser Specification (XPS)](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)|すべてのサポートされているファイル形式をXML Parser Specification (XPS) ドキュメントに一つのメソッドでエクスポートできます。|
-|[タグ付き画像ファイル形式 (TIFF)](/slides/net/convert-powerpoint-to-tiff/)|すべてのサポートされているプレゼンテーションファイル形式をタグ付き画像ファイル形式 (TIFF) にエクスポートできます。|
-|[PPTXからHTMLへの変換](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NETは、PresentationExをHTML形式に変換することをサポートしています。|
+|[タグ付き画像ファイル形式 (TIFF)](/slides/ja/net/convert-powerpoint-to-tiff/)|すべてのサポートされているプレゼンテーションファイル形式をタグ付き画像ファイル形式 (TIFF) にエクスポートできます。|
+|[PPTXからHTMLへの変換](/slides/ja/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NETは、PresentationExをHTML形式に変換することをサポートしています。|
 ## **レンダリングと印刷**
 Aspose.Slides for .NETは、プレゼンテーションドキュメント内のスライドをさまざまなグラフィックス形式に高忠実度でレンダリングすることをサポートしています。これらの詳細を確認してください。
 

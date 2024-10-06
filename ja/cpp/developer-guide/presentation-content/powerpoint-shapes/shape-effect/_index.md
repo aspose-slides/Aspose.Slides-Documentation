@@ -2,12 +2,12 @@
 title: シェイプ効果
 type: docs
 weight: 30
-url: /cpp/shape-effect
+url: /ja/cpp/shape-effect
 keywords: "シェイプ効果, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointシェイプに効果を適用する"
 ---
 
-PowerPointのエフェクトはシェイプを際立たせるために使用できますが、[フィル](/slides/cpp/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointエフェクトを使用すると、シェイプに convincingな反射を作成したり、シェイプの輝きを広げたりすることができます。
+PowerPointのエフェクトはシェイプを際立たせるために使用できますが、[フィル](/slides/ja/cpp/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointエフェクトを使用すると、シェイプに convincingな反射を作成したり、シェイプの輝きを広げたりすることができます。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

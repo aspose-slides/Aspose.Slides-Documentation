@@ -2,7 +2,7 @@
 title: プレゼンテーションの背景
 type: docs
 weight: 20
-url: /androidjava/presentation-background/
+url: /ja/androidjava/presentation-background/
 keywords: "PowerPoint 背景, Javaで背景を設定"
 description: "JavaでPowerPointプレゼンテーションの背景を設定"
 ---

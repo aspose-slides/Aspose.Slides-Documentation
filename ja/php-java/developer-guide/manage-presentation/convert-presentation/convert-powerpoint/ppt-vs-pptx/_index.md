@@ -2,7 +2,7 @@
 title: PPTとPPTXの違い
 type: docs
 weight: 10
-url: /php-java/ppt-vs-pptx/
+url: /ja/php-java/ppt-vs-pptx/
 keywords: "PPTとPPTX"
 description: "Aspose.SlidesにおけるPPTとPPTXの違いについてお読みください。"
 ---
@@ -39,5 +39,5 @@ Aspose.Slidesは、すべてのプレゼンテーション形式で作業する�
 ```
 
 {{% alert color="primary" %}} 
-プレゼンテーションのPPTからPPTXへの変換方法についての詳細をお読みください。[**PPTをPPTXに変換する方法**](/slides/php-java/convert-ppt-to-pptx/)
+プレゼンテーションのPPTからPPTXへの変換方法についての詳細をお読みください。[**PPTをPPTXに変換する方法**](/slides/ja/php-java/convert-ppt-to-pptx/)
 {{% /alert %}} 

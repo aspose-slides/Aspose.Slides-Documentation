@@ -2,7 +2,7 @@
 title: APIの制限
 type: docs
 weight: 320
-url: /androidjava/api-limitations/
+url: /ja/androidjava/api-limitations/
 ---
 
 ## **プレゼンテーションおよびその他のエクスポート形式**

@@ -1,7 +1,7 @@
 ---
 title: トレンドライン
 type: docs
-url: /androidjava/trend-line/
+url: /ja/androidjava/trend-line/
 ---
 
 ## **トレンドラインの追加**

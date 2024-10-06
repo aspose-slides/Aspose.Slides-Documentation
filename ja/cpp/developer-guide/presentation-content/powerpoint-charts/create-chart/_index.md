@@ -3,7 +3,7 @@ title: C++ で PowerPoint プレゼンテーションのチャートを作成す
 linktitle: チャートを作成する
 type: docs
 weight: 10
-url: /cpp/create-chart/
+url: /ja/cpp/create-chart/
 keywords: "チャートを作成, 散布図, 円グラフ, ツリーマップチャート, 株式チャート, 箱ひげ図, ヒストグラムチャート, ファネルチャート, サンバーストチャート, マルチカテゴリチャート, PowerPoint プレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++ で PowerPoint プレゼンテーションのチャートを作成する"
 ---

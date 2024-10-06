@@ -2,7 +2,7 @@
 title: インクの管理
 type: docs
 weight: 95
-url: /net/manage-ink/
+url: /ja/net/manage-ink/
 keywords: "PowerPoint のインク、インクツール、C# インク、PowerPoint での描画、PowerPoint プレゼンテーション、C#、Csharp、Aspose.Slides for .NET "
 description: "C# で PowerPoint のオブジェクトを描画するためのインクツールを使用します。"
 ---

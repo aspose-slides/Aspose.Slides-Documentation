@@ -2,7 +2,7 @@
 title: チャートワークシートの数式
 type: docs
 weight: 70
-url: /java/chart-worksheet-formulas/
+url: /ja/java/chart-worksheet-formulas/
 keywords: "パワーポイントの方程式, パワーポイントのスプレッドシートの数式"
 description: "パワーポイントの方程式とスプレッドシートの数式"
 ---

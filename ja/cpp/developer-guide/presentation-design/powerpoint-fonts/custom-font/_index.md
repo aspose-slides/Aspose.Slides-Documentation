@@ -2,7 +2,7 @@
 title: C++ におけるカスタムフォント
 type: docs
 weight: 20
-url: /cpp/custom-font/
+url: /ja/cpp/custom-font/
 keywords: "フォント, カスタムフォント, PowerPoint プレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++ における PowerPoint カスタムフォント"
 ---

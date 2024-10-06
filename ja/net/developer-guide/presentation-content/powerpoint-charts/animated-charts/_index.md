@@ -2,7 +2,7 @@
 title: アニメーションチャート
 type: docs
 weight: 80
-url: /net/animated-charts/
+url: /ja/net/animated-charts/
 keywords: "チャート, チャートシリーズ, アニメーション PowerPoint プレゼンテーション, PPTX, PPT, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET における PowerPoint チャートシリーズとアニメーション"
 ---

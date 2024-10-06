@@ -2,7 +2,7 @@
 title: サポートされているファイル形式
 type: docs
 weight: 30
-url: /nodejs-net/supported-file-formats/
+url: /ja/nodejs-net/supported-file-formats/
 ---
 
 ## **サポートされているMicrosoft PowerPointバージョン**

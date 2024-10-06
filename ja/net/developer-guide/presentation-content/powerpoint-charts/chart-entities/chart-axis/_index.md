@@ -1,7 +1,7 @@
 ---
 title: チャートの軸
 type: docs
-url: /net/chart-axis/
+url: /ja/net/chart-axis/
 keywords: "PowerPoint チャート軸, プレゼンテーションチャート, C#, .NET, チャート軸の操作, チャートデータ"
 description: "C#または.NETでPowerPointチャートの軸を編集する"
 ---

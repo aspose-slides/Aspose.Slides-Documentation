@@ -2,7 +2,7 @@
 title: VSTO と Aspose.Slides におけるテーブルの行または列を削除する
 type: docs
 weight: 130
-url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
+url: /ja/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

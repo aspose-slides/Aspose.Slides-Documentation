@@ -2,7 +2,7 @@
 title: スライド トランジション
 type: docs
 weight: 90
-url: /net/slide-transition/
+url: /ja/net/slide-transition/
 keywords: "スライド トランジションを追加, PowerPoint スライド トランジション, モーフ トランジション, 高度なスライド トランジション, トランジション エフェクト, C#, Csharp, .NET, Aspose.Slides"
 description: "C# または .NET で PowerPoint スライド トランジションとトランジション エフェクトを追加"
 ---

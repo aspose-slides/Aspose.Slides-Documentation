@@ -2,7 +2,7 @@
 title: フォントの置き換えに関する警告コールバックの取得方法 in Aspose.Slides
 type: docs
 weight: 70
-url: /cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /ja/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

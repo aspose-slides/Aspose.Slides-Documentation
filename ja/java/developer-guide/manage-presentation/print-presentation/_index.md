@@ -2,7 +2,7 @@
 title: 印刷プレゼンテーション
 type: docs
 weight: 50
-url: /java/print-presentation/
+url: /ja/java/print-presentation/
 keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Java, Printer, PrinterJob, PrintService"
 description: "JavaでPowerPointプレゼンテーションを印刷する"
 ---

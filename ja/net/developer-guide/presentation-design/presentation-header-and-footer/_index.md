@@ -2,18 +2,18 @@
 title: プレゼンテーションのヘッダーとフッター
 type: docs
 weight: 140
-url: /net/presentation-header-and-footer/
+url: /ja/net/presentation-header-and-footer/
 keywords: "ヘッダー、フッター、ヘッダーを設定、フッターを設定、ヘッダーとフッターを設定、PowerPointプレゼンテーション、C#、Csharp、Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointのヘッダーとフッター"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/net/)は、スライドマスターレベルで実際に管理されているスライドのヘッダーとフッターテキストを操作するためのサポートを提供します。
+[Aspose.Slides](/slides/ja/net/)は、スライドマスターレベルで実際に管理されているスライドのヘッダーとフッターテキストを操作するためのサポートを提供します。
 
 {{% /alert %}} 
 
-[Aspose.Slides for .NET](/slides/net/)は、プレゼンテーションスライド内でヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターのレベルで管理されています。
+[Aspose.Slides for .NET](/slides/ja/net/)は、プレゼンテーションスライド内でヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターのレベルで管理されています。
 ## **ヘッダーとフッターテキストの管理**
 特定のスライドのノートは、以下の例のように更新することができます：
 

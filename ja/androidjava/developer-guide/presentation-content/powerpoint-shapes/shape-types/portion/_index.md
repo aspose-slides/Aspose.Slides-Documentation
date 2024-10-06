@@ -2,7 +2,7 @@
 title: ポーション
 type: docs
 weight: 70
-url: /androidjava/portion/
+url: /ja/androidjava/portion/
 ---
 
 ## **ポーションの位置座標を取得する**

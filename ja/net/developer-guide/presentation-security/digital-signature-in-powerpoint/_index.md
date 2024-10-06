@@ -2,7 +2,7 @@
 title: PowerPointにおけるデジタル署名
 type: docs
 weight: 10
-url: /net/digital-signature-in-powerpoint/
+url: /ja/net/digital-signature-in-powerpoint/
 keywords: "デジタル署名証明書, 証明書機関, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "PowerPointにデジタル署名または証明書を追加します。C#または.NETにおける証明書機関"
 ---

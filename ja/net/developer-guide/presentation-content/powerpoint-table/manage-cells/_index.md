@@ -2,7 +2,7 @@
 title: セルの管理
 type: docs
 weight: 30
-url: /net/manage-cells/
+url: /ja/net/manage-cells/
 keywords:
 - テーブル
 - 結合されたセル

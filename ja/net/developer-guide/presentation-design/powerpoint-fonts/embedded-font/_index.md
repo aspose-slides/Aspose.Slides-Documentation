@@ -3,7 +3,7 @@ title: 埋め込みフォント - PowerPoint C# API
 linktitle: 埋め込みフォント
 type: docs
 weight: 40
-url: /net/embedded-font/
+url: /ja/net/embedded-font/
 keywords:
 - フォント
 - 埋め込みフォント

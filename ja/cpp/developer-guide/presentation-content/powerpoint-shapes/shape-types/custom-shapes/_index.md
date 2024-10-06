@@ -2,7 +2,7 @@
 title: カスタムシェイプ
 type: docs
 weight: 20
-url: /cpp/custom-shape/
+url: /ja/cpp/custom-shape/
 keywords: "PowerPoint シェイプ, カスタム シェイプ, PowerPoint プレゼンテーション, C++, Aspose.Slides for C++"
 description: "C++ で PowerPoint プレゼンテーションにカスタムシェイプを追加"
 ---

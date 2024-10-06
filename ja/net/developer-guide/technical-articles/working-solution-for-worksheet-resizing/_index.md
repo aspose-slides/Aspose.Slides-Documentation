@@ -2,7 +2,7 @@
 title: ワークシートサイズ変更のための作業ソリューション
 type: docs
 weight: 40
-url: /net/working-solution-for-worksheet-resizing/
+url: /ja/net/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}}
@@ -11,7 +11,7 @@ ExcelワークシートがAsposeコンポーネントを介してPowerPointプ�
 
 {{% /alert %}} 
 ## **背景**
-[OLEフレームの追加に関する記事]()では、Aspose.Slides for .NETを使用してPowerPointプレゼンテーションにOLEフレームを追加する方法を説明しました。[オブジェクト変更の問題](/slides/net/object-changed-issue-when-adding-oleobjectframe/)に対処するため、選択した領域のワークシート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションでは、ワークシート画像を表示するOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティブになります。エンドユーザーは、実際のExcelワークブックに任意の変更を加え、その後、アクティブ化されたExcelワークブックの外をクリックすることで関連スライドに戻ることができます。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変更されます。OLEオブジェクトフレームと埋め込まれたExcelワークブックの異なるサイズに対して、リサイズ係数は異なります。
+[OLEフレームの追加に関する記事]()では、Aspose.Slides for .NETを使用してPowerPointプレゼンテーションにOLEフレームを追加する方法を説明しました。[オブジェクト変更の問題](/slides/ja/net/object-changed-issue-when-adding-oleobjectframe/)に対処するため、選択した領域のワークシート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションでは、ワークシート画像を表示するOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティブになります。エンドユーザーは、実際のExcelワークブックに任意の変更を加え、その後、アクティブ化されたExcelワークブックの外をクリックすることで関連スライドに戻ることができます。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変更されます。OLEオブジェクトフレームと埋め込まれたExcelワークブックの異なるサイズに対して、リサイズ係数は異なります。
 ## **リサイズの原因**
 Excelワークブックには独自のウィンドウサイズがあるため、最初のアクティベーション時に元のサイズを保持しようとします。一方、OLEオブジェクトフレームには独自のサイズが存在します。マイクロソフトによると、Excelワークブックのアクティベーション時に、ExcelとPowerPointはサイズを交渉し、埋め込み操作の一部として正しい比率に確保します。ExcelウィンドウのサイズとOLEオブジェクトフレームのサイズ/位置の違いに基づいて、リサイズが行われます。
 ## **作業ソリューション**
@@ -283,6 +283,6 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 {{% alert color="primary" %}}  ワークシートのリサイズ問題を修正するための2つのアプローチがあります。適切なアプローチの選択は、要件とユースケースに依存します。テンプレートから作成されたプレゼンテーションでも、最初から作成されたプレゼンテーションでも、両方のアプローチは同じように機能します。また、解決策においてOLEオブジェクトフレームのサイズに制限はありません。 {{% /alert %}} 
 ## **関連セクション**
-[ExcelチャートをOLEオブジェクトとしてプレゼンテーションに作成および埋め込む](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[ExcelチャートをOLEオブジェクトとしてプレゼンテーションに作成および埋め込む](/slides/ja/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[OLEオブジェクトを自動的に更新する](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[OLEオブジェクトを自動的に更新する](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

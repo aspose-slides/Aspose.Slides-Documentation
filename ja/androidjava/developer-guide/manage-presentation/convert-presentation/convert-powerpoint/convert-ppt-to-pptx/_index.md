@@ -3,7 +3,7 @@ title: JavaでPPTをPPTXに変換
 linktitle: PPTをPPTXに変換
 type: docs
 weight: 20
-url: /androidjava/convert-ppt-to-pptx/
+url: /ja/androidjava/convert-ppt-to-pptx/
 keywords: "Java PPTをPPTXに変換, PowerPoint PPTをJavaでPPTXに変換"
 description: "JavaでPowerPoint PPTをPPTXに変換します。"
 ---
@@ -47,7 +47,7 @@ PPTをPPTXに変換するJavaサンプルコードについては、以下のセ
 {{% /alert %}} 
 
 ## **PPTをPPTXに変換**
-Java経由のAspose.Slides for Androidは、開発者が[PPT](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)クラスのインスタンスを使用してPPTにアクセスし、それを対応する[PPTX](https://docs.fileformat.com/presentation/pptx/)形式に変換できるようにします。現在、[PPT](https://docs.fileformat.com/presentation/ppt/)をPPTXに部分的に変換することをサポートしています。PPTからPPTXへの変換でサポートされている機能とサポートされていない機能の詳細については、このドキュメントの[リンク](/slides/androidjava/ppt-to-pptx-conversion/)をご覧ください。
+Java経由のAspose.Slides for Androidは、開発者が[PPT](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)クラスのインスタンスを使用してPPTにアクセスし、それを対応する[PPTX](https://docs.fileformat.com/presentation/pptx/)形式に変換できるようにします。現在、[PPT](https://docs.fileformat.com/presentation/ppt/)をPPTXに部分的に変換することをサポートしています。PPTからPPTXへの変換でサポートされている機能とサポートされていない機能の詳細については、このドキュメントの[リンク](/slides/ja/androidjava/ppt-to-pptx-conversion/)をご覧ください。
 
 Java経由のAspose.Slides for Androidは、**PPTX**プレゼンテーションファイルを表す[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation)クラスを提供します。Presentationクラスは、オブジェクトがインスタンス化されるときに**PPT**にアクセスすることもできます。以下の例は、PPTプレゼンテーションをPPTXプレゼンテーションに変換する方法を示しています。
 

@@ -2,7 +2,7 @@
 title: シェイプ サムネイル
 type: docs
 weight: 70
-url: /cpp/shape-thumbnails/
+url: /ja/cpp/shape-thumbnails/
 keywords: 
 - シェイプ サムネイル
 - シェイプ画像

@@ -2,7 +2,7 @@
 title: ExcelチャートをOLEオブジェクトとして作成および埋め込む
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object/
+url: /ja/net/create-and-embed-an-excel-chart-as-an-ole-object/
 ---
 
 以下の2つのコード例は、説明しているタスクが複雑であるため、長く詳細です。Microsoft Excelのワークブックを作成し、チャートを作成し、その後チャートを埋め込むMicrosoft PowerPointプレゼンテーションを作成します。OLEオブジェクトには元の文書へのリンクが含まれているため、埋め込まれたファイルをダブルクリックすると、ファイルとそのアプリケーションが起動します。

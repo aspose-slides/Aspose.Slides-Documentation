@@ -2,7 +2,7 @@
 title: テーブルの管理
 type: docs
 weight: 10
-url: /net/manage-table/
+url: /ja/net/manage-table/
 keywords: "テーブル、テーブルを作成、テーブルにアクセス、テーブルのアスペクト比、PowerPointプレゼンテーション、C#、Csharp、Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーション内のテーブルを作成および管理する"
 ---

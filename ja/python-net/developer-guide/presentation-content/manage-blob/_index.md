@@ -2,7 +2,7 @@
 title: BLOBの管理
 type: docs
 weight: 10
-url: /python-net/manage-blob/
+url: /ja/python-net/manage-blob/
 keywords: "BLOBの追加, BLOBのエクスポート, BLOBとして画像を追加, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにBLOBを追加します。BLOBをエクスポートします。画像をBLOBとして追加します。"
 ---
@@ -17,7 +17,7 @@ Aspose.Slides for Python via .NETは、大きなファイルが関与する場�
 
 ### **プレゼンテーションにBLOBを介して大きなファイルを追加する**
 
-[Aspose.Slides](/slides/python-net/) for .NETは、メモリ消費を減らすためにBLOBを使用するプロセスを介して大きなファイル（この場合は大きな動画ファイル）をプレゼンテーションに追加することを可能にします。
+[Aspose.Slides](/slides/ja/python-net/) for .NETは、メモリ消費を減らすためにBLOBを使用するプロセスを介して大きなファイル（この場合は大きな動画ファイル）をプレゼンテーションに追加することを可能にします。
 
 このPythonコードは、BLOBプロセスを介して大きな動画ファイルをプレゼンテーションに追加する方法を示しています：
 

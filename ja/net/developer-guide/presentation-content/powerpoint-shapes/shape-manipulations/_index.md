@@ -2,7 +2,7 @@
 title: シェイプ操作
 type: docs
 weight: 40
-url: /net/shape-manipulations/
+url: /ja/net/shape-manipulations/
 keywords: "PowerPoint シェイプ, スライドのシェイプ, シェイプを見つける, シェイプをクローンする, シェイプを削除する, シェイプを隠す, シェイプの順序を変更する, インターロップシェイプIDを取得する, シェイプの代替テキスト, シェイプのレイアウト形式, SVGとしてのシェイプ, シェイプを整列する, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint シェイプを操作する"
 ---

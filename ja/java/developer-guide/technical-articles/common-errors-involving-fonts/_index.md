@@ -2,7 +2,7 @@
 title: Linuxにおけるフォントに関する一般的な例外とエラー
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /ja/java/technical-articles/common-errors-involving-fonts
 keywords: "フォント例外, フォントエラー, Linux, Java, Aspose.Slides for Java"
 description: "Linux上のフォントに関する例外とエラー"
 ---

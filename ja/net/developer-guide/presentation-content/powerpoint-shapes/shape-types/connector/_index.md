@@ -2,7 +2,7 @@
 title: コネクタ
 type: docs
 weight: 10
-url: /net/connector/
+url: /ja/net/connector/
 keywords: "図形を接続, コネクタ, PowerPoint 図形, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint 図形を接続する"
 ---
@@ -128,7 +128,7 @@ using (Presentation presentation = new Presentation())
 
 ## **コネクタポイントの調整**
 
-既存のコネクタは、その調整ポイントを通じて調整できます。調整ポイントがあるコネクタのみ、この方法で変更できます。 **[コネクタの種類](/slides/net/connector/#types-of-connectors)** の下の表を参照してください。
+既存のコネクタは、その調整ポイントを通じて調整できます。調整ポイントがあるコネクタのみ、この方法で変更できます。 **[コネクタの種類](/slides/ja/net/connector/#types-of-connectors)** の下の表を参照してください。
 
 #### **単純なケース**
 
@@ -174,7 +174,7 @@ adj2.RawValue += 10000;
 * 調整ポイントの値は、コネクタ形状の幅/高さのパーセンテージを反映します。 
   * 形状はコネクタの開始点と終了点を 1000 倍したもので制約されます。 
   * 最初のポイント、2 番目のポイント、および 3 番目のポイントは、それぞれ幅のパーセンテージ、高さのパーセンテージ、および幅のパーセンテージ (再度) を定義します。
-* コネクタの調整ポイントの座標を決定する計算には、コネクタの回転とその反転を考慮する必要があります。 **注意**： **[コネクタの種類](/slides/net/connector/#types-of-connectors)** の下に示されたすべてのコネクタの回転角度は 0 です。
+* コネクタの調整ポイントの座標を決定する計算には、コネクタの回転とその反転を考慮する必要があります。 **注意**： **[コネクタの種類](/slides/ja/net/connector/#types-of-connectors)** の下に示されたすべてのコネクタの回転角度は 0 です。
 
 #### **ケース 1**
 

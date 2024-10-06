@@ -1,7 +1,7 @@
 ---
 title: パイチャート
 type: docs
-url: /cpp/pie-chart/
+url: /ja/cpp/pie-chart/
 ---
 
 

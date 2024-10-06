@@ -2,7 +2,7 @@
 title: Aspose.Slidesにおけるマルチスレッド
 type: docs
 weight: 200
-url: /cpp/multithreading/
+url: /ja/cpp/multithreading/
 keywords:
 - PowerPoint
 - プレゼンテーション

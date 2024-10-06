@@ -2,7 +2,7 @@
 title: ドーナツチャート
 type: docs
 weight: 30
-url: /python-net/doughnut-chart/
+url: /ja/python-net/doughnut-chart/
 keywords: "ドーナツチャート, 中央の隙間, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでのPowerPointプレゼンテーションにおけるドーナツチャートの中央の隙間を指定します"
 ---

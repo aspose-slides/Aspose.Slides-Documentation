@@ -2,7 +2,7 @@
 title: サポートされているファイル形式
 type: docs
 weight: 20
-url: /java/supported-file-formats/
+url: /ja/java/supported-file-formats/
 ---
 
 ## **サポートされているMicrosoft PowerPointバージョン**

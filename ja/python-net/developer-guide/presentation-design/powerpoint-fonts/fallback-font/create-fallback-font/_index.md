@@ -2,7 +2,7 @@
 title: フォントのフォールバックを作成
 type: docs
 weight: 10
-url: /python-net/create-fallback-font/
+url: /ja/python-net/create-fallback-font/
 keywords: "フォント, フォールバックフォント, PowerPointプレゼンテーションPython, Aspose.Slides for Python via .NET"
 description: "PythonのPowerPointにおけるフォールバックフォント"
 ---
@@ -27,5 +27,5 @@ thirdRule = slides.FontFallBackRule(0x1F300, 0x1F64F, fontNames)
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)を使用して、複数のUnicode範囲のフォールバックフォント置換ルールを指定する必要がある場合に[FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/)オブジェクトのリストを整理できます。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [フォールバックフォントコレクションを作成](/slides/python-net/create-fallback-fonts-collection/)
+- [フォールバックフォントコレクションを作成](/slides/ja/python-net/create-fallback-fonts-collection/)
 {{% /alert %}}

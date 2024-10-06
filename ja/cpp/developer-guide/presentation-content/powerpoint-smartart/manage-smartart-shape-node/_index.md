@@ -2,7 +2,7 @@
 title: スマートアート シェイプ ノードの管理
 type: docs
 weight: 30
-url: /cpp/manage-smartart-shape-node/
+url: /ja/cpp/manage-smartart-shape-node/
 keywords:
 - スマートアート
 - スマートアートノード

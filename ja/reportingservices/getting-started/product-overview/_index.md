@@ -2,7 +2,7 @@
 title: 製品概要
 type: docs
 weight: 10
-url: /reportingservices/product-overview/
+url: /ja/reportingservices/product-overview/
 ---
 
 {{% alert color="primary" %}} 

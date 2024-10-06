@@ -1,7 +1,7 @@
 ---
 title: チャートデータテーブル
 type: docs
-url: /php-java/chart-data-table/
+url: /ja/php-java/chart-data-table/
 ---
 
 ## **チャートデータテーブルのフォントプロパティを設定する**

@@ -2,7 +2,7 @@
 title: .NET6 サポート
 type: docs
 weight: 235
-url: /net/net6/
+url: /ja/net/net6/
 keywords: 
 - .NET 6
 - クラウド

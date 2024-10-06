@@ -1,7 +1,7 @@
 ---
 title: チャートの凡例
 type: docs
-url: /androidjava/chart-legend/
+url: /ja/androidjava/chart-legend/
 ---
 
 ## **凡例の位置設定**

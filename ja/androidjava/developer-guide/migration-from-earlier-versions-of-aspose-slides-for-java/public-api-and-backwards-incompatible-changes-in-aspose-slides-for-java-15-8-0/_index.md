@@ -2,7 +2,7 @@
 title: Aspose.Slides for Java 15.8.0の公開APIと後方互換性のない変更
 type: docs
 weight: 160
-url: /androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
+url: /ja/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-8-0/
 ---
 
 {{% alert color="primary" %}} 

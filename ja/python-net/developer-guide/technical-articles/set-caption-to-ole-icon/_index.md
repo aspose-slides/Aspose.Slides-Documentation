@@ -2,7 +2,7 @@
 title: OLEアイコンにキャプションを設定
 type: docs
 weight: 160
-url: /python-net/set-caption-to-ole-icon/
+url: /ja/python-net/set-caption-to-ole-icon/
 ---
 
 新しいプロパティ **SubstitutePictureTitle** が **IOleObjectFrame** インターフェイスと **OleObjectFrame** クラスに追加されました。これにより、OLEアイコンのキャプションを取得、設定、または変更することができます。以下のコードスニペットは、Excelオブジェクトを作成し、そのキャプションを設定するサンプルを示しています。

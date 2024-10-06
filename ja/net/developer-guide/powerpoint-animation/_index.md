@@ -2,7 +2,7 @@
 title: PowerPointアニメーション
 type: docs
 weight: 150
-url: /net/powerpoint-animation/
+url: /ja/net/powerpoint-animation/
 keywords: "アニメーション, アニメーション効果, PowerPointアニメーション, アニメーションタイムライン, インタラクティブアニメーション, 形状アニメーション, アニメーションチャート, アニメーションテキスト, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションのアニメーションと効果"
 ---
@@ -48,19 +48,19 @@ Aspose.Slidesでは、自分ownの**カスタムアニメーション**を作成
 Aspose.Slidesでは、形状（テキスト、矩形、線、フレーム、OLEオブジェクトなど）にアニメーションを適用することが可能です。
 
 {{% alert color="primary" %}} 
-詳細は、[**形状アニメーションについて**](/slides/net/shape-animation/)をご覧ください。
+詳細は、[**形状アニメーションについて**](/slides/ja/net/shape-animation/)をご覧ください。
 {{% /alert %}}
 
 ## **アニメーションチャート**
 アニメーションチャートを作成するには、形状と同じクラスをすべて使用する必要があります。ただし、PowerPointアニメーションはチャートカテゴリーまたはチャートシリーズにのみ使用できます。カテゴリ要素やシリーズ要素にアニメーション効果を適用することもできます。
 
 {{% alert color="primary" %}} 
-詳細は、[**アニメーションチャートについて**](/slides/net/animated-charts/)をご覧ください。
+詳細は、[**アニメーションチャートについて**](/slides/ja/net/animated-charts/)をご覧ください。
 {{% /alert %}}
 
 ## **アニメーションテキスト**
 アニメーションテキストの他に、段落にアニメーションを適用することも可能です。
 
 {{% alert color="primary" %}} 
-詳細は、[**アニメーションテキストについて**](/slides/net/animated-text/)をご覧ください。
+詳細は、[**アニメーションテキストについて**](/slides/ja/net/animated-text/)をご覧ください。
 {{% /alert %}}

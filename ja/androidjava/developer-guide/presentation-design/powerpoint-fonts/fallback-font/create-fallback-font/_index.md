@@ -2,7 +2,7 @@
 title: フォールバックフォントの作成
 type: docs
 weight: 10
-url: /androidjava/create-fallback-font/
+url: /ja/androidjava/create-fallback-font/
 ---
 
 Aspose.Slides は、フォールバックフォントを適用するためのルールを指定するために、[IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule)インターフェースと [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule)クラスをサポートしています。[FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule)クラスは、欠落したグリフを検索するために使用される指定されたUnicode範囲と、適切なグリフを含む可能性のあるフォントのリストとの関連を表します：
@@ -25,5 +25,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) を使用して、複数のUnicode範囲に対してフォールバックフォントの置換ルールを指定する必要がある場合に、[FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) オブジェクトのリストを整理することができます。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [フォールバックフォントコレクションを作成](/slides/androidjava/create-fallback-fonts-collection/)
+- [フォールバックフォントコレクションを作成](/slides/ja/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}

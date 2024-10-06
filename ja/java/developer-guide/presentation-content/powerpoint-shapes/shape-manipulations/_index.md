@@ -2,7 +2,7 @@
 title: 形状の操作
 type: docs
 weight: 40
-url: /java/shape-manipulations/
+url: /ja/java/shape-manipulations/
 ---
 
 ## **スライド内の形状を見つける**

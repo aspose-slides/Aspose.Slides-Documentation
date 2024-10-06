@@ -2,7 +2,7 @@
 title: チャートワークブック
 type: docs
 weight: 70
-url: /php-java/chart-workbook/
+url: /ja/php-java/chart-workbook/
 keywords: "チャートワークブック, チャートデータ, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションのチャートワークブック"
 ---

@@ -1,7 +1,7 @@
 ---
 title: バブルチャート
 type: docs
-url: /net/bubble-chart/
+url: /ja/net/bubble-chart/
 keywords: "バブルチャート, チャートサイズ, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでのPowerPointプレゼンテーションのバブルチャートサイズ"
 ---

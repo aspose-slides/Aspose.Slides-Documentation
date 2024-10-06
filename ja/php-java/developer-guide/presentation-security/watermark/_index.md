@@ -2,7 +2,7 @@
 title: ウォーターマーク
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /ja/php-java/watermark/
 keywords:
 - ウォーターマーク
 - ウォーターマークを追加
@@ -49,7 +49,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [TextFrameクラスの使い方](/slides/php-java/text-formatting/)
+- [TextFrameクラスの使い方](/slides/ja/php-java/text-formatting/)
 {{% /alert %}}
 
 ### **プレゼンテーションにテキストウォーターマークを追加する**
@@ -69,7 +69,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [スライドマスターの使い方](/slides/php-java/slide-master/)
+- [スライドマスターの使い方](/slides/ja/php-java/slide-master/)
 {{% /alert %}}
 
 ### **ウォーターマークシェイプの透明度を設定する**

@@ -2,7 +2,7 @@
 title: XML パーサー仕様 (XPS)
 type: docs
 weight: 50
-url: /java/xml-parser-specification-xps/
+url: /ja/java/xml-parser-specification-xps/
 ---
 
 {{% alert color="primary" %}} 

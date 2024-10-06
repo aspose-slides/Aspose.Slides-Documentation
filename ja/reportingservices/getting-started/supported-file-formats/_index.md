@@ -2,7 +2,7 @@
 title: サポートされているファイル形式
 type: docs
 weight: 20
-url: /reportingservices/supported-file-formats/
+url: /ja/reportingservices/supported-file-formats/
 ---
 
 ## **サポートされている Microsoft PowerPoint バージョン**

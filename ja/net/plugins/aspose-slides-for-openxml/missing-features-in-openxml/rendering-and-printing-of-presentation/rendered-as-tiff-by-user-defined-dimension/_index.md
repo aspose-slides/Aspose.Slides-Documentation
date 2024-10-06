@@ -2,7 +2,7 @@
 title: ユーザー定義のサイズでTIFFとしてレンダリング
 type: docs
 weight: 40
-url: /net/rendered-as-tiff-by-user-defined-dimension/
+url: /ja/net/rendered-as-tiff-by-user-defined-dimension/
 ---
 
 次の例は、**TiffOptions**クラスを使用してカスタマイズされた画像サイズでプレゼンテーションをTIFFドキュメントに変換する方法を示しています。

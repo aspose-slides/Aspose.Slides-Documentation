@@ -2,7 +2,7 @@
 title: プレゼンテーションビューア
 type: docs
 weight: 50
-url: /java/presentation-viewer/
+url: /ja/java/presentation-viewer/
 keywords: "PowerPoint PPT ビューア"
 description: "Java の PowerPoint PPT ビューア"
 ---

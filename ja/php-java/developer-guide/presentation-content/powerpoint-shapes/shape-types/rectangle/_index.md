@@ -2,7 +2,7 @@
 title: 長方形
 type: docs
 weight: 80
-url: /php-java/rectangle/
+url: /ja/php-java/rectangle/
 ---
 
 {{% alert color="primary" %}} 

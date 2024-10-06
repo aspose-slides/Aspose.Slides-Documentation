@@ -2,7 +2,7 @@
 title: インストール
 type: docs
 weight: 70
-url: /cpp/installation/
+url: /ja/cpp/installation/
 keywords: "Aspose.Slidesのダウンロード, Aspose.Slidesのインストール, Aspose.Slidesインストール, Windows, C++"
 description: "WindowsでC++用のAspose.Slidesをインストール"
 ---

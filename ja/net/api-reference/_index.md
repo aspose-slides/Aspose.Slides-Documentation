@@ -2,7 +2,7 @@
 title: APIリファレンス
 type: docs
 weight: 50
-url: /net/api-reference/
+url: /ja/net/api-reference/
 ---
 
 {{% alert color="primary" %}} 

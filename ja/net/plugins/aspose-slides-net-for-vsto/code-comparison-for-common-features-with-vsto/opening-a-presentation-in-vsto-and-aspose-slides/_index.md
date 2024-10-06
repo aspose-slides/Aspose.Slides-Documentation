@@ -2,7 +2,7 @@
 title: VSTOとAspose.Slidesでプレゼンテーションを開く
 type: docs
 weight: 120
-url: /net/opening-a-presentation-in-vsto-and-aspose-slides/
+url: /ja/net/opening-a-presentation-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

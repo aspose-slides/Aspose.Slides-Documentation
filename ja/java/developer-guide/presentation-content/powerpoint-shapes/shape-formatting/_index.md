@@ -2,7 +2,7 @@
 title: 形状の書式設定
 type: docs
 weight: 20
-url: /java/shape-formatting/
+url: /ja/java/shape-formatting/
 keywords: "形状の書式設定, 線の書式設定, 結合スタイルの書式設定, グラデーション塗りつぶし, パターン塗りつぶし, 画像の塗りつぶし, 単色塗りつぶし, 形状の回転, 3D ベベル効果, 3D 回転効果, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションの形状をフォーマットする"
 ---

@@ -3,7 +3,7 @@ title: プレゼンテーションを開く - C++ PowerPoint API
 linktitle: プレゼンテーションを開く
 type: docs
 weight: 20
-url: /cpp/open-presentation/
+url: /ja/cpp/open-presentation/
 keywords: "PowerPointを開く, PPTX, PPT, プレゼンテーションを開く, プレゼンテーションをロード, C++, CPP"
 description: "C++でプレゼンテーションPPT、PPTX、ODPを開くまたはロードする"
 ---

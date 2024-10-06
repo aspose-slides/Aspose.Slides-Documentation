@@ -2,7 +2,7 @@
 title: ライン
 type: docs
 weight: 50
-url: /python-net/line/
+url: /ja/python-net/line/
 keywords: "ライン, PowerPoint 図形, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにラインを追加する"
 ---

@@ -2,7 +2,7 @@
 title: ウォーターマーク
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /ja/cpp/watermark/
 keywords:
 - ウォーターマーク
 - ウォーターマークを追加
@@ -48,7 +48,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="参照" %}} 
-- [TextFrameクラスの使用方法](/slides/cpp/text-formatting/)
+- [TextFrameクラスの使用方法](/slides/ja/cpp/text-formatting/)
 {{% /alert %}}
 
 ### **プレゼンテーションにテキストウォーターマークを追加する**
@@ -68,7 +68,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="参照" %}} 
-- [スライドマスターの使用方法](/slides/cpp/slide-master/)
+- [スライドマスターの使用方法](/slides/ja/cpp/slide-master/)
 {{% /alert %}}
 
 ### **ウォーターマークシェイプの透明度を設定する**

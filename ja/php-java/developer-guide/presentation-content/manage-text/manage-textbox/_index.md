@@ -2,7 +2,7 @@
 title: テキストボックスの管理
 type: docs
 weight: 20
-url: /php-java/manage-textbox/
+url: /ja/php-java/manage-textbox/
 description: PHPを使用してPowerPointスライドにテキストボックスを作成します。PHPを使用してPowerPointスライドにテキストボックスまたはテキストフレームに列を追加します。PHPを使用してPowerPointスライドにハイパーリンク付きのテキストボックスを追加します。
 ---
 

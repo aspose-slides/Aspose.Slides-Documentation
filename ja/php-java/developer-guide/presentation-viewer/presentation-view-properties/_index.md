@@ -1,7 +1,7 @@
 ---
 title: プレゼンテーションビューのプロパティ
 type: docs
-url: /php-java/presentation-view-properties/
+url: /ja/php-java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -56,7 +56,7 @@ url: /php-java/presentation-view-properties/
 ## **デフォルトズーム値の設定**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java は、プレゼンテーションを開いた際にズームがすでに設定されるように、プレゼンテーションのデフォルト ズーム値を設定することをサポートしています。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) を設定することで実行できます。[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) および [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) もプログラムで設定できます。このトピックでは、[Aspose.Slides](/slides/) の [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) を設定する方法を例とともに見ていきます。
+Aspose.Slides for PHP via Java は、プレゼンテーションを開いた際にズームがすでに設定されるように、プレゼンテーションのデフォルト ズーム値を設定することをサポートしています。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) を設定することで実行できます。[getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) および [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) もプログラムで設定できます。このトピックでは、[Aspose.Slides](/slides/ja/) の [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) を設定する方法を例とともに見ていきます。
 
 {{% /alert %}} 
 

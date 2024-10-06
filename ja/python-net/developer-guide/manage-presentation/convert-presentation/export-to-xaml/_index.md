@@ -2,7 +2,7 @@
 title: XAMLへのエクスポート
 type: docs
 weight: 30
-url: /python-net/export-to-xaml/
+url: /ja/python-net/export-to-xaml/
 keywords: "PowerPointプレゼンテーションのエクスポート, PowerPointの変換, XAML, PowerPointからXAML, PPTからXAML, PPTXからXAML, Python"
 description: "PowerPointプレゼンテーションをXAMLにエクスポートまたは変換"
 ---

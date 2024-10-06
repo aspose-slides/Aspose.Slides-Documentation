@@ -2,7 +2,7 @@
 title: 製品の概要
 type: docs
 weight: 10
-url: /nodejs-java/product-overview/
+url: /ja/nodejs-java/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-nodejs-via-java.png)
@@ -134,4 +134,4 @@ Aspose.Slides for Node.js via Javaに関する問題がある場合は、以下�
 |[Aspose.Slideブログ](https://blog.aspose.com/category/slides/)|新しいリリースやAspose.Slidesに関する便利なヒントの情報を定期的にチェックしてください。|
 |[Aspose.Slides for Node.js via Javaのダウンロード](https://releases.aspose.com/slides/nodejs-java/)|ここからAspose.Slidesの最新バージョンをダウンロードします。新しいバージョンを頻繁にリリースしています。|
 |[Aspose.Slidesサポートフォーラム](https://forum.aspose.com/c/slides/11)|ここに質問や問題を投稿すると迅速に解決されます。|
-|[Aspose.Slides for Node.js via Javaの製品ドキュメント](/slides/nodejs-java/)|この文書およびAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|
+|[Aspose.Slides for Node.js via Javaの製品ドキュメント](/slides/ja/nodejs-java/)|この文書およびAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|

@@ -2,7 +2,7 @@
 title: 数学方程式のエクスポート
 type: docs
 weight: 30
-url: /androidjava/exporting-math-equations/
+url: /ja/androidjava/exporting-math-equations/
 
 ---
 

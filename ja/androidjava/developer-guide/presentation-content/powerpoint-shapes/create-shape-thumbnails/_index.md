@@ -2,7 +2,7 @@
 title: シェイプのサムネイルを作成する
 type: docs
 weight: 70
-url: /androidjava/create-shape-thumbnails/
+url: /ja/androidjava/create-shape-thumbnails/
 ---
 
 

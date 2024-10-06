@@ -2,7 +2,7 @@
 title: Aspose.Slides for Reporting Servicesの再インストール
 type: docs
 weight: 40
-url: /reportingservices/re-installing-aspose-slides-for-reporting-services/
+url: /ja/reportingservices/re-installing-aspose-slides-for-reporting-services/
 ---
 
 {{% alert color="primary" %}} 

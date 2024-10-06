@@ -1,7 +1,7 @@
 ---
 title: パイチャート
 type: docs
-url: /php-java/pie-chart/
+url: /ja/php-java/pie-chart/
 ---
 
 ## **パイオブパイおよびバーオブパイチャートのためのセカンドプロットオプション**

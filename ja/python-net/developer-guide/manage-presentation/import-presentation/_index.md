@@ -2,7 +2,7 @@
 title: プレゼンテーションのインポート
 type: docs
 weight: 60
-url: /python-net/import-presentation/
+url: /ja/python-net/import-presentation/
 keywords: "PowerPointのインポート, PDFからプレゼンテーションへ, PDFからPPTXへ, PDFからPPTへ, Python, .NET経由のAspose.Slides for Python"
 description: "PDFからPowerPointプレゼンテーションをインポートします。PDFをPowerPointに変換します"
 ---

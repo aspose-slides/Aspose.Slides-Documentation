@@ -2,7 +2,7 @@
 title: 複数形式のサポート  
 type: docs  
 weight: 10  
-url: /sharepoint/multiple-format-support/  
+url: /ja/sharepoint/multiple-format-support/  
 ---  
 
 {{% alert color="primary" %}}  

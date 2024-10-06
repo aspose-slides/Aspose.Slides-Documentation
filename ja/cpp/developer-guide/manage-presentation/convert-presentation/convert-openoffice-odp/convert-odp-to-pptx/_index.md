@@ -2,7 +2,7 @@
 title: ODPをPPTXに変換
 type: docs
 weight: 10
-url: /cpp/convert-odp-to-pptx/
+url: /ja/cpp/convert-odp-to-pptx/
 ---
 
 Aspose.Slides for .NETはプレゼンテーションファイルを表すPresentationクラスを提供します。[**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation)クラスは、オブジェクトがインスタンス化されるときにPresentationコンストラクターを通じてODPにアクセスすることもできます。以下の例は、ODPプレゼンテーションをPPTXプレゼンテーションに変換する方法を示しています。

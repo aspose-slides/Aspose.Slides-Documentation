@@ -3,7 +3,7 @@ title: C#でPPTXをPPTに変換
 linktitle: PPTXをPPTに変換
 type: docs
 weight: 21
-url: /net/convert-pptx-to-ppt/
+url: /ja/net/convert-pptx-to-ppt/
 keywords: "C# PPTXをPPTに変換, PowerPointプレゼンテーションを変換, PPTXをPPT, C#, Aspose.Slides"
 description: "C#でPowerPoint PPTXをPPTに変換"
 ---

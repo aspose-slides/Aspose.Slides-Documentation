@@ -1,7 +1,7 @@
 ---
 title: チャートの軸
 type: docs
-url: /python-net/chart-axis/
+url: /ja/python-net/chart-axis/
 keywords: "PowerPoint チャート軸, プレゼンテーション チャート, Python, チャート軸の操作, チャートデータ"
 description: "PythonでPowerPointのチャート軸を編集する"
 ---

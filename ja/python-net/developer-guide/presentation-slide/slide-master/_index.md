@@ -2,7 +2,7 @@
 title: スライドマスター
 type: docs
 weight: 80
-url: /python-net/slide-master/
+url: /ja/python-net/slide-master/
 keywords: "スライドマスターの追加, PPTマスタースライド, スライドマスターパワーポイント, スライドマスターへの画像, プレースホルダー, 複数のスライドマスター, スライドマスターの比較, Python, Aspose.Slides"
 description: "PythonでPowerPointプレゼンテーションにスライドマスターを追加または編集する"
 ---
@@ -133,7 +133,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="primary" title="関連情報" %}} 
 
-スライドに画像を追加するための詳細については、[画像フレーム](/slides/python-net/picture-frame/#create-picture-frame)の記事を参照してください。
+スライドに画像を追加するための詳細については、[画像フレーム](/slides/ja/python-net/picture-frame/#create-picture-frame)の記事を参照してください。
 {{% /alert %}}
 
 ## **スライドマスターにプレースホルダーを追加**

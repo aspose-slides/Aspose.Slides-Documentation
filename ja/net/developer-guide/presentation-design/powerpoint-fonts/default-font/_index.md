@@ -3,7 +3,7 @@ title: デフォルトフォント - PowerPoint C# API
 linktitle: デフォルトフォント
 type: docs
 weight: 30
-url: /net/default-font/
+url: /ja/net/default-font/
 keywords: 
 - フォント
 - デフォルトフォント

@@ -2,7 +2,7 @@
 title: 行と列の管理
 type: docs
 weight: 20
-url: /php-java/manage-rows-and-columns/
+url: /ja/php-java/manage-rows-and-columns/
 keywords: "テーブル, テーブルの行と列, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションのテーブルの行と列を管理する"
 ---

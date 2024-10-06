@@ -2,7 +2,7 @@
 title: チャートの更新
 type: docs
 weight: 10
-url: /cpp/update-chart/
+url: /ja/cpp/update-chart/
 ---
 
 

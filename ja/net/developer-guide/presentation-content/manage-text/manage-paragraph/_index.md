@@ -2,7 +2,7 @@
 title: C#でPowerPointの段落を管理する
 type: docs
 weight: 40
-url: /net/manage-paragraph/
+url: /ja/net/manage-paragraph/
 keywords: 
 - 段落の追加
 - 段落の管理

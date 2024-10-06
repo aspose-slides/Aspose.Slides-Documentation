@@ -2,7 +2,7 @@
 title: Aspose.Slides for Android via Java 14.4.0の既知の問題
 type: docs
 weight: 30
-url: /androidjava/known-issues-in-aspose-slides-for-java-14-4-0/
+url: /ja/androidjava/known-issues-in-aspose-slides-for-java-14-4-0/
 ---
 
 {{% alert color="primary" %}} 

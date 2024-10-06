@@ -2,7 +2,7 @@
 title: PowerPointをアニメーションGIFに変換
 type: docs
 weight: 65
-url: /net/convert-powerpoint-to-animated-gif/
+url: /ja/net/convert-powerpoint-to-animated-gif/
 keywords: "PowerPointの変換, PPT, PPTX, アニメーションGIF, PPTをアニメーションGIFに, PPTXをアニメーションGIFに C#, Csharp, .NET, 既定の設定, カスタム設定"
 description: "PowerPointプレゼンテーションをアニメーションGIFに変換: C#または.NETでPPTをGIF、PPTXをGIFに"
 ---

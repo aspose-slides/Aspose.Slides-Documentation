@@ -2,7 +2,7 @@
 title: SmartArt図形の管理
 type: docs
 weight: 20
-url: /net/manage-smartart-shape/
+url: /ja/net/manage-smartart-shape/
 keywords: "SmartArt図形, SmartArt図形スタイル, SmartArt図形の色スタイル, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーション内のSmartArtを管理"
 ---

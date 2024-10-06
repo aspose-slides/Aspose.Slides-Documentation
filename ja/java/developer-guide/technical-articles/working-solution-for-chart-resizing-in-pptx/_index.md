@@ -2,7 +2,7 @@
 title: PPTXにおけるチャートのリサイズのための作業ソリューション
 type: docs
 weight: 40
-url: /java/working-solution-for-chart-resizing-in-pptx/
+url: /ja/java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Asposeコンポーネントを介してPowerPointプレゼンテーションにO
 
 {{% /alert %}} 
 ## **背景**
-[前の記事](/slides/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) では、Aspose.Cells for Javaを使用してExcelチャートを作成する方法と、そのチャートをAspose.Slides for Javaを使用してPowerPointプレゼンテーションに埋め込む方法について説明しました。[オブジェクト変更問題](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) に対処するために、チャート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションでは、チャート画像を表示しているOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティブになります。エンドユーザーは、実際のExcelワークブックで必要な変更を行い、アクティブ化されたExcelワークブックの外をクリックすることで関係するスライドに戻ります。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変更されます。リサイズの要因は、OLEオブジェクトフレームのサイズと埋め込まれたExcelワークブックのサイズによって異なります。
+[前の記事](/slides/ja/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) では、Aspose.Cells for Javaを使用してExcelチャートを作成する方法と、そのチャートをAspose.Slides for Javaを使用してPowerPointプレゼンテーションに埋め込む方法について説明しました。[オブジェクト変更問題](/slides/ja/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) に対処するために、チャート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションでは、チャート画像を表示しているOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティブになります。エンドユーザーは、実際のExcelワークブックで必要な変更を行い、アクティブ化されたExcelワークブックの外をクリックすることで関係するスライドに戻ります。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変更されます。リサイズの要因は、OLEオブジェクトフレームのサイズと埋め込まれたExcelワークブックのサイズによって異なります。
 ## **リサイズの原因**
 Excelワークブックは独自のウィンドウサイズを持っているため、初回アクティベーション時に元のサイズを保持しようとします。一方で、OLEオブジェクトフレームは独自のサイズを持ちます。Microsoftによれば、Excelワークブックがアクティベートされると、ExcelとPowerPointがサイズを交渉し、埋め込み操作の一部として正しい比率になっていることを確認します。ExcelウィンドウのサイズとOLEオブジェクトフレームのサイズ/位置の違いに基づいて、リサイズが発生します。
 ## **作業ソリューション**

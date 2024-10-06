@@ -2,7 +2,7 @@
 title: JavaでPowerPointの段落を管理する
 type: docs
 weight: 40
-url: /java/manage-paragraph/
+url: /ja/java/manage-paragraph/
 keywords: "PowerPoint段落を追加, 段落管理, 段落インデント, 段落プロパティ, HTMLテキスト, 段落テキストをエクスポート, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションの段落、テキスト、インデント、およびプロパティを作成および管理します"
 ---

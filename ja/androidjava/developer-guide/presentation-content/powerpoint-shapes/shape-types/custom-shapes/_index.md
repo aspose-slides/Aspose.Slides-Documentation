@@ -2,7 +2,7 @@
 title: カスタムシェイプ
 type: docs
 weight: 20
-url: /androidjava/custom-shape/
+url: /ja/androidjava/custom-shape/
 keywords: "PowerPoint シェイプ, カスタムシェイプ, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "Java で PowerPoint プレゼンテーションにカスタムシェイプを追加する"
 ---

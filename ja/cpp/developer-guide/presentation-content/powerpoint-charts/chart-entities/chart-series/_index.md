@@ -1,7 +1,7 @@
 ---
 title: チャートシリーズ
 type: docs
-url: /cpp/chart-series/
+url: /ja/cpp/chart-series/
 ---
 
 シリーズは、チャートにプロットされた数字の行または列です。

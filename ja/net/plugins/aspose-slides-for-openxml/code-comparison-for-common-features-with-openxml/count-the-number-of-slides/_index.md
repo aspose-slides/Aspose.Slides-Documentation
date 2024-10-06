@@ -2,7 +2,7 @@
 title: スライドの数をカウントする
 type: docs
 weight: 50
-url: /net/count-the-number-of-slides/
+url: /ja/net/count-the-number-of-slides/
 ---
 
 ## **OpenXML SDK**

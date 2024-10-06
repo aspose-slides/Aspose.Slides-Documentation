@@ -2,7 +2,7 @@
 title: アニメーションテキスト
 type: docs
 weight: 60
-url: /python-net/animated-text/
+url: /ja/python-net/animated-text/
 keywords: "アニメーションテキスト, アニメーション効果, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにアニメーションテキストと効果を追加する"
 ---

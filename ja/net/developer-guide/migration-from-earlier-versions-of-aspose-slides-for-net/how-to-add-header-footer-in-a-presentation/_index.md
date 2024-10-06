@@ -2,12 +2,12 @@
 title: プレゼンテーションにヘッダーとフッターを追加する方法
 type: docs
 weight: 20
-url: /net/how-to-add-header-footer-in-a-presentation/
+url: /ja/net/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-新しい[Aspose.Slides for .NET API](/slides/net/)がリリースされ、これ一つの製品でゼロからPowerPointドキュメントを生成し、既存のものを編集する機能をサポートしています。
+新しい[Aspose.Slides for .NET API](/slides/ja/net/)がリリースされ、これ一つの製品でゼロからPowerPointドキュメントを生成し、既存のものを編集する機能をサポートしています。
 
 {{% /alert %}} 
 ## **レガシーコードのサポート**

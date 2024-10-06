@@ -2,5 +2,5 @@
 title: プレゼンテーションコンテンツ
 type: docs
 weight: 30
-url: /androidjava/presentation-content/
+url: /ja/androidjava/presentation-content/
 ---

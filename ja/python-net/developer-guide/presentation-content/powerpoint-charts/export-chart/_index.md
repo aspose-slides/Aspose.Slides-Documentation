@@ -2,7 +2,7 @@
 title: チャートのエクスポート
 type: docs
 weight: 90
-url: /python-net/export-chart/
+url: /ja/python-net/export-chart/
 keywords:
 - チャート
 - チャート画像

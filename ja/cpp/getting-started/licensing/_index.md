@@ -2,7 +2,7 @@
 title: ライセンス
 type: docs
 weight: 120
-url: /cpp/licensing/
+url: /ja/cpp/licensing/
 ---
 
 ## **Aspose.Slidesの評価**

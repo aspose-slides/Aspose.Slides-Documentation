@@ -2,7 +2,7 @@
 title: 製品概要
 type: docs
 weight: 10
-url: /python-java/product-overview/
+url: /ja/python-java/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python-via-java.png)
@@ -134,4 +134,4 @@ Aspose.Slides for Python via Javaに問題がある場合は、次のガイド�
 |[Aspose.Slideブログ](https://blog.aspose.com/category/slides/)|新しいリリースに関する情報やAspose.Slidesに関する役立つヒントを定期的にチェックしてください。|
 |[Aspose.Slides for Python via Javaダウンロード](https://releases.aspose.com/slides/python-java/)|ここでAspose.Slidesの最新バージョンをダウンロードしてください。新しいバージョンを頻繁にリリースしています。|
 |[Aspose.Slidesサポートフォーラム](https://forum.aspose.com/c/slides/11)|迅速な解決のために、ここで質問や問題を投稿してください。|
-|[Aspose.Slides for Python via Java製品ドキュメント](/slides/python-java/)|この文書とAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|
+|[Aspose.Slides for Python via Java製品ドキュメント](/slides/ja/python-java/)|この文書とAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|

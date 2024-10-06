@@ -3,7 +3,7 @@ title: C#または.NETでPowerPointプレゼンテーションチャートを作
 linktitle: チャートを作成または更新
 type: docs
 weight: 10
-url: /net/create-chart/
+url: /ja/net/create-chart/
 keywords: "チャートを作成, 散布図, 円グラフ, ツリーマップチャート, 株式チャート, 箱ひげ図, ヒストグラムチャート, ファネルチャート, サンバーストチャート, マルチカテゴリチャート, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにチャートを作成する"
 ---

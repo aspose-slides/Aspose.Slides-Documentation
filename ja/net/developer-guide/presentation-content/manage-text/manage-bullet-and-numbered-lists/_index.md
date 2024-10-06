@@ -2,7 +2,7 @@
 title: 箇条書きと番号付きリストの管理
 type: docs
 weight: 70
-url: /net/manage-bullet-and-numbered-lists
+url: /ja/net/manage-bullet-and-numbered-lists
 keywords: "箇条書き, 箇条書きリスト, 番号, 番号付きリスト, 画像の箇条書き, 階層付き箇条書き, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションに箇条書きと番号付きリストを作成する"
 ---

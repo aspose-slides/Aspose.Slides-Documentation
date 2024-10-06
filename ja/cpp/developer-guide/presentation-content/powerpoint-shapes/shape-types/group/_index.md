@@ -2,7 +2,7 @@
 title: グループ
 type: docs
 weight: 40
-url: /cpp/group/
+url: /ja/cpp/group/
 ---
 
 

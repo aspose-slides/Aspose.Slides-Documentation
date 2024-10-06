@@ -1,7 +1,7 @@
 ---
 title: トレンドライン
 type: docs
-url: /net/trend-line/
+url: /ja/net/trend-line/
 keywords: "トレンドライン, カスタムライン PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションにトレンドラインとカスタムラインを追加する"
 ---

@@ -2,7 +2,7 @@
 title: スライドサイズ
 type: docs
 weight: 70
-url: /java/slide-size/
+url: /ja/java/slide-size/
 
 ---
 

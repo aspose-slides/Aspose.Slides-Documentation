@@ -1,7 +1,7 @@
 ---
 title: チャートの凡例
 type: docs
-url: /java/chart-legend/
+url: /ja/java/chart-legend/
 ---
 
 ## **凡例の配置**

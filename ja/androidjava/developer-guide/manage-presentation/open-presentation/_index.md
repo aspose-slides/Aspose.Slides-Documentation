@@ -3,7 +3,7 @@ title: Javaでプレゼンテーションを開く
 linktitle: プレゼンテーションを開く
 type: docs
 weight: 20
-url: /androidjava/open-presentation/
+url: /ja/androidjava/open-presentation/
 keywords: "PowerPointを開く, PPTX, PPT, プレゼンテーションを開く, プレゼンテーションを読み込む, Java"
 description: "Javaでプレゼンテーション PPT、PPTX、ODPを開くまたは読み込む"
 ---

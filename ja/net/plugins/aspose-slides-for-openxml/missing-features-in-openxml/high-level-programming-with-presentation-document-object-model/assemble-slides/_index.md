@@ -2,7 +2,7 @@
 title: スライドを組み立てる
 type: docs
 weight: 10
-url: /net/assemble-slides/
+url: /ja/net/assemble-slides/
 ---
 
 以下の機能をカバーしています：

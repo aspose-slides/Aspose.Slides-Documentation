@@ -2,7 +2,7 @@
 title: ウォーターマーク
 type: docs
 weight: 40
-url: /net/watermark/
+url: /ja/net/watermark/
 keywords:
 - ウォーターマーク
 - ウォーターマークを追加
@@ -47,7 +47,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [TextFrameクラスの使用方法](/slides/net/text-formatting/)
+- [TextFrameクラスの使用方法](/slides/ja/net/text-formatting/)
 {{% /alert %}}
 
 ### **プレゼンテーションにテキストウォーターマークを追加する**
@@ -65,7 +65,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [スライドマスターの使用方法](/slides/net/slide-master/)
+- [スライドマスターの使用方法](/slides/ja/net/slide-master/)
 {{% /alert %}}
 
 ### **ウォーターマークシェイプの透明度を設定する**

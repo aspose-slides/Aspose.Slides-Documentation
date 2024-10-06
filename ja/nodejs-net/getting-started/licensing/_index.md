@@ -3,7 +3,7 @@ title: ライセンス
 description: "Aspose.Slides for Node.js via .NET は、購入のためのさまざまなプランを提供するか、ライセンスおよびサブスクリプションポリシーを使用して評価のための無料トライアルおよび30日間の一時ライセンスを提供します。"
 type: docs
 weight: 80
-url: /nodejs-net/licensing/
+url: /ja/nodejs-net/licensing/
 ---
 
 時には、最良の評価結果を得るために、実地でのアプローチが必要になることがあります。この理由から、Aspose.Slidesはさまざまな購入プランを提供し、無料トライアルおよび30日間の一時ライセンスを評価用に提供します。

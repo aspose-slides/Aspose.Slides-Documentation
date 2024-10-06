@@ -1,7 +1,7 @@
 ---
 title: 3Dチャート
 type: docs
-url: /androidjava/3d-chart/
+url: /ja/androidjava/3d-chart/
 ---
 
 ## **3DチャートのRotationX、RotationY、およびDepthPercentsプロパティの設定**

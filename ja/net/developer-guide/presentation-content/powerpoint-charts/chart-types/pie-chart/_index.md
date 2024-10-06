@@ -1,7 +1,7 @@
 ---
 title: パイチャート
 type: docs
-url: /net/pie-chart/
+url: /ja/net/pie-chart/
 keywords: "パイチャート, プロットオプション, スライスの色, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションのパイチャートプロットオプションとスライスの色"
 ---

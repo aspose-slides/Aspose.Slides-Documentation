@@ -2,7 +2,7 @@
 title: ハイパーリンクの管理
 type: docs
 weight: 20
-url: /php-java/manage-hyperlinks/
+url: /ja/php-java/manage-hyperlinks/
 keywords: "PowerPoint ハイパーリンク, テキストハイパーリンク, スライドハイパーリンク, 形状ハイパーリンク, 画像ハイパーリンク, 動画ハイパーリンク, Java"
 description: "PowerPoint プレゼンテーションにハイパーリンクを追加する方法"
 ---
@@ -151,7 +151,7 @@ try {
 
 {{%  alert  title="Tip"  color="primary"  %}} 
 
-* [OLEの管理](/slides/php-java/manage-ole/)を参照してみてください。
+* [OLEの管理](/slides/ja/php-java/manage-ole/)を参照してみてください。
 
 {{% /alert %}}
 

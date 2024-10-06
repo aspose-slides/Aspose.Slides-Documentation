@@ -2,7 +2,7 @@
 title: プレゼンテーション ノート
 type: docs
 weight: 110
-url: /cpp/presentation-notes/
+url: /ja/cpp/presentation-notes/
 keywords: "PowerPoint プレゼンテーション スピーカーノート"
 ---
 

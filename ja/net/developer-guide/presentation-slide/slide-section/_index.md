@@ -2,7 +2,7 @@
 title: スライドセクション
 type: docs
 weight: 100
-url: /net/slide-section/
+url: /ja/net/slide-section/
 keywords: "セクションを作成, セクションを追加, セクション名を編集, PowerPointプレゼンテーション, C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでPowerPointプレゼンテーションにセクションを追加および編集する"
 ---

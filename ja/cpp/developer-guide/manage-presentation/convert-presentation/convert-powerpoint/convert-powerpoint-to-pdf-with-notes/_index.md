@@ -2,7 +2,7 @@
 title: PowerPointをノート付きでPDFに変換する
 type: docs
 weight: 50
-url: /cpp/convert-powerpoint-to-pdf-with-notes/
+url: /ja/cpp/convert-powerpoint-to-pdf-with-notes/
 keywords: "PowerPointをノート付きでPDFに変換する"
 description: "PowerPointをノート付きでPDFに変換します。Aspose.SlidesでPPTとPPTXをノート付きでPDFに変換します。"
 ---

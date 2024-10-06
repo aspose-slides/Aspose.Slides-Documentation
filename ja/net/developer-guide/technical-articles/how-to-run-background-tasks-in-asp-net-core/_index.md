@@ -2,7 +2,7 @@
 title: ASP.NET Coreでバックグラウンドタスクを実行する方法
 type: docs
 weight: 300
-url: /net/how-to-run-background-tasks-in-asp-net-core/
+url: /ja/net/how-to-run-background-tasks-in-asp-net-core/
 ---
 
 ## **概要**

@@ -2,12 +2,12 @@
 title: こんにちは世界プレゼンテーション文書の作成方法
 type: docs
 weight: 10
-url: /net/how-to-create-hello-world-presentation-document/
+url: /ja/net/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-新しい[Aspose.Slides for .NET API](/slides/net/)がリリースされ、これによりこの単一の製品がゼロからPowerPoint文書を生成し、既存の文書を編集する機能をサポートするようになりました。
+新しい[Aspose.Slides for .NET API](/slides/ja/net/)がリリースされ、これによりこの単一の製品がゼロからPowerPoint文書を生成し、既存の文書を編集する機能をサポートするようになりました。
 
 {{% /alert %}} 
 ## **レガシーコードのサポート**

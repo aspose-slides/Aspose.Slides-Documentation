@@ -2,7 +2,7 @@
 title: プレゼンテーションスライドの背景全体を画像として取得する
 type: docs
 weight: 95
-url: /java/get-the-entire-presentation-slide-background-as-an-image/
+url: /ja/java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - スライド
 - 背景
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Java
 ---
 
-PowerPointプレゼンテーションでは、スライドの背景は多くの要素で構成される場合があります。[スライドの背景](/slides/java/presentation-background/)として設定された画像に加えて、最終的な背景はプレゼンテーションテーマ、カラースキーム、およびマスタースライドやレイアウトスライドに配置された図形の影響を受ける可能性があります。
+PowerPointプレゼンテーションでは、スライドの背景は多くの要素で構成される場合があります。[スライドの背景](/slides/ja/java/presentation-background/)として設定された画像に加えて、最終的な背景はプレゼンテーションテーマ、カラースキーム、およびマスタースライドやレイアウトスライドに配置された図形の影響を受ける可能性があります。
 
 Aspose.Slides for Javaは、プレゼンテーションスライドの背景全体を画像として抽出する簡単な方法を提供していませんが、以下の手順に従ってこれを行うことができます：
 1. [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/)クラスを使用してプレゼンテーションを読み込みます。

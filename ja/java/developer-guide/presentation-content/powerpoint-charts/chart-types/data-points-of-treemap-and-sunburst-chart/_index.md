@@ -1,7 +1,7 @@
 ---
 title: テリーマップとサンバーストチャートのデータポイント
 type: docs
-url: /java/data-points-of-treemap-and-sunburst-chart/
+url: /ja/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Aspose.Slides for Javaのサンバーストグラフ"
 description: "Aspose.Slides for Javaによるサンバーストグラフ、サンバーストダイアグラム、サンバーストチャート、ラジアルチャート、ラジアルグラフ、またはマルチレベルパイチャート。"
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="参考" %}} 
-- [**サンバーストチャートの作成**](/slides/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**サンバーストチャートの作成**](/slides/ja/java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

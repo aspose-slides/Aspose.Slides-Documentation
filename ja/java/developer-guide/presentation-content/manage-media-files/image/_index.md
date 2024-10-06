@@ -2,7 +2,7 @@
 title: 画像
 type: docs
 weight: 10
-url: /java/image/
+url: /ja/java/image/
 description: Javaを使用して、PowerPointプレゼンテーションのスライドに画像を操作します。ディスクまたはウェブからPowerPointスライドに画像を追加します。スライドマスターまたはスライド背景としてJavaを使用して画像を追加します。Javaを使用してSVGをPowerPointプレゼンテーションに追加します。Javaを使用してSVGをPowerPointのシェイプに変換します。Javaを使用してスライドに画像をEMFとして追加します。
 ---
 

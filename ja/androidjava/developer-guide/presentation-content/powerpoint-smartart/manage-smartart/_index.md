@@ -2,7 +2,7 @@
 title: SmartArtの管理
 type: docs
 weight: 10
-url: /androidjava/manage-smartart/
+url: /ja/androidjava/manage-smartart/
 ---
 
 ## **SmartArtからテキストを取得する**

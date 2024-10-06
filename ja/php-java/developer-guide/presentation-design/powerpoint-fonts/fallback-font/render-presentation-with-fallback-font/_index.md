@@ -2,12 +2,12 @@
 title: フォールバックフォントを使用したプレゼンテーションのレンダリング
 type: docs
 weight: 30
-url: /php-java/render-presentation-with-fallback-font/
+url: /ja/php-java/render-presentation-with-fallback-font/
 ---
 
 次の例は、これらの手順を含みます：
 
-1. [フォールバックフォントルールコレクションを作成します](/slides/php-java/create-fallback-fonts-collection/)。
+1. [フォールバックフォントルールコレクションを作成します](/slides/ja/php-java/create-fallback-fonts-collection/)。
 1. フォールバックフォントルールを[削除](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#remove-java.lang.String-)し、別のルールに[addFallBackFonts](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-)を追加します。
 1. ルールコレクションを[getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--)メソッドに設定します。
 1. [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-)メソッドを使用することで、プレゼンテーションを同じフォーマットで保存するか、別のフォーマットで保存できます。フォールバックフォントルールコレクションが[FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)に設定されると、これらのルールはプレゼンテーションの保存、レンダリング、変換などの操作中に適用されます。
@@ -51,5 +51,5 @@ url: /php-java/render-presentation-with-fallback-font/
 ```
 
 {{% alert color="primary" %}} 
-[プレゼンテーションの保存と変換について詳しく読む](/slides/php-java/creating-saving-and-converting-a-presentation/)。
+[プレゼンテーションの保存と変換について詳しく読む](/slides/ja/php-java/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

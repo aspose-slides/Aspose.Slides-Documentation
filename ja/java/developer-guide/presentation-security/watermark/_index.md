@@ -2,7 +2,7 @@
 title: ウォーターマーク
 type: docs
 weight: 40
-url: /java/watermark/
+url: /ja/java/watermark/
 keywords:
 - ウォーターマーク
 - ウォーターマークを追加
@@ -48,7 +48,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [TextFrameクラスの使用方法](/slides/java/text-formatting/)
+- [TextFrameクラスの使用方法](/slides/ja/java/text-formatting/)
 {{% /alert %}}
 
 ### **プレゼンテーションにテキストウォーターマークを追加**
@@ -68,7 +68,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [スライドマスターの使用方法](/slides/java/slide-master/)
+- [スライドマスターの使用方法](/slides/ja/java/slide-master/)
 {{% /alert %}}
 
 ### **ウォーターマーク形状の透明度を設定**

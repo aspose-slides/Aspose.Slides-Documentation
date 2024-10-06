@@ -2,7 +2,7 @@
 title: メディアの管理
 type: docs
 weight: 50
-url: /cpp/manage-media/
+url: /ja/cpp/manage-media/
 ---
 
 ## **メディアファイルをHTMLにエクスポートする**

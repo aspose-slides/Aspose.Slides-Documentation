@@ -2,7 +2,7 @@
 title: プレゼンテーションビューワー
 type: docs
 weight: 50
-url: /python-net/presentation-viewer/
+url: /ja/python-net/presentation-viewer/
 keywords: "PowerPointプレゼンテーションを表示、pptを表示、PPTXを表示、Python、.NET経由のAspose.Slides for Python"
 description: "PythonでPowerPointプレゼンテーションを表示"
 ---

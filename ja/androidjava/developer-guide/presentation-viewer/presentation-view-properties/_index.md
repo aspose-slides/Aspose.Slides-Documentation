@@ -1,7 +1,7 @@
 ---
 title: プレゼンテーションビューのプロパティ
 type: docs
-url: /androidjava/presentation-view-properties/
+url: /ja/androidjava/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -59,7 +59,7 @@ try {
 ## **デフォルトのズーム値を設定する**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Android via Java は、プレゼンテーションが開かれるときにズームがすでに設定されるように、プレゼンテーションのデフォルトのズーム値を設定することをサポートしています。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) を設定することで行うことができます。[getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) と [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) は、プログラムで設定できます。このトピックでは、[Aspose.Slides](/slides/) 内の [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) を設定する方法を例を挙げて説明します。
+Aspose.Slides for Android via Java は、プレゼンテーションが開かれるときにズームがすでに設定されるように、プレゼンテーションのデフォルトのズーム値を設定することをサポートしています。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) を設定することで行うことができます。[getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) と [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) は、プログラムで設定できます。このトピックでは、[Aspose.Slides](/slides/ja/) 内の [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) を設定する方法を例を挙げて説明します。
 
 {{% /alert %}} 
 

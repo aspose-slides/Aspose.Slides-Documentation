@@ -2,7 +2,7 @@
 title: タグ付き画像ファイル形式 (TIFF)
 type: docs
 weight: 60
-url: /php-java/tagged-image-file-format-tiff/
+url: /ja/php-java/tagged-image-file-format-tiff/
 ---
 
 ## **TIFFについて**
@@ -11,7 +11,7 @@ url: /php-java/tagged-image-file-format-tiff/
 
 ## **Aspose.Slides for PHP via JavaにおけるTIFF**
 
-Aspose.Slide for Javaでロードできるドキュメントは、Aspose.Slides for PHP via Javaによって直接TIFFドキュメントに変換でき、サードパーティのコンポーネントの必要がありません。さらに、結果のTIFFドキュメント内の画像のサイズをオプションで定義することができます。Aspose.Slides for PHP via Javaを通してプレゼンテーションドキュメントをTIFFドキュメントにエクスポートする方法については、[このトピック](/slides/php-java/converting-a-presentation/)を参照してください。
+Aspose.Slide for Javaでロードできるドキュメントは、Aspose.Slides for PHP via Javaによって直接TIFFドキュメントに変換でき、サードパーティのコンポーネントの必要がありません。さらに、結果のTIFFドキュメント内の画像のサイズをオプションで定義することができます。Aspose.Slides for PHP via Javaを通してプレゼンテーションドキュメントをTIFFドキュメントにエクスポートする方法については、[このトピック](/slides/ja/php-java/converting-a-presentation/)を参照してください。
 
 **Aspose.Slides for PHP via Javaを通してTIFFドキュメントに変換されたプレゼンテーションドキュメント**
 

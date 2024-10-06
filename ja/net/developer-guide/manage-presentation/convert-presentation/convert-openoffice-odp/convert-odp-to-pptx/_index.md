@@ -3,7 +3,7 @@ title: ODPをC#でPPTXに変換
 linktitle: ODPをPPTXに変換
 type: docs
 weight: 10
-url: /net/convert-odp-to-pptx/
+url: /ja/net/convert-odp-to-pptx/
 keywords: "OpenOfficeプレゼンテーションの変換、ODP、ODPをPPTXに、C#、Csharp、.NET"
 description: "C#または.NETでOpenOffice ODPをPowerPointプレゼンテーションPPTXに変換"
 ---

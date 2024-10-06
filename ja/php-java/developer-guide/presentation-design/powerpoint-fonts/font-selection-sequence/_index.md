@@ -3,7 +3,7 @@ title: フォント選択シーケンス
 linktitle: フォント選択シーケンス
 type: docs
 weight: 80
-url: /php-java/font-selection-sequence/
+url: /ja/php-java/font-selection-sequence/
 keywords: "フォント, フォント選択, フォント置換, フォント置き換え, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: PowerPointフォント選択シーケンス
 ---

@@ -2,5 +2,5 @@
 title: 開発者ガイド
 type: docs
 weight: 20
-url: /nodejs-java/developer-guide/
+url: /ja/nodejs-java/developer-guide/
 ---

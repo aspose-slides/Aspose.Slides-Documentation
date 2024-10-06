@@ -2,7 +2,7 @@
 title: 形のアニメーション
 type: docs
 weight: 60
-url: /net/shape-animation/
+url: /ja/net/shape-animation/
 keywords: 
 - PowerPoint アニメーション
 - アニメーション効果
@@ -14,7 +14,7 @@ keywords:
 description: "C# または .NET で PowerPoint アニメーションを適用する"
 ---
 
-アニメーションは、テキスト、画像、図形、または[チャート](/slides/net/animated-charts/)に適用できる視覚効果です。これにより、プレゼンテーションやその構成要素に命を吹き込むことができます。
+アニメーションは、テキスト、画像、図形、または[チャート](/slides/ja/net/animated-charts/)に適用できる視覚効果です。これにより、プレゼンテーションやその構成要素に命を吹き込むことができます。
 
 ### **プレゼンテーションにアニメーションを使用する理由は？**
 
@@ -76,7 +76,7 @@ using (Presentation pres = new Presentation())
 
 {{%  alert color="primary"  %}} 
 
-テキストにアニメーションを適用するだけでなく、単一の[段落](https://reference.aspose.com/slides/net/aspose.slides/iparagraph)にもアニメーションを適用できます。 [**アニメーションテキスト**](/slides/net/animated-text/)を参照してください。
+テキストにアニメーションを適用するだけでなく、単一の[段落](https://reference.aspose.com/slides/net/aspose.slides/iparagraph)にもアニメーションを適用できます。 [**アニメーションテキスト**](/slides/ja/net/animated-text/)を参照してください。
 
 {{% /alert %}} 
 

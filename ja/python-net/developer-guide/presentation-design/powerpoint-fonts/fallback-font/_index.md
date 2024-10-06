@@ -2,7 +2,7 @@
 title: フォールバックフォント
 type: docs
 weight: 50
-url: /python-net/fallback-font/
+url: /ja/python-net/fallback-font/
 keywords: "フォールバックフォント, フォント, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonのPowerPointフォールバックフォント"
 ---
@@ -14,6 +14,6 @@ Aspose.Slidesでは、フォールバックフォントを作成し、それを�
 
 これらの機能に慣れるために、以下のリンクを使用してください：
 
-- [フォールバックフォントの作成](/slides/python-net/create-fallback-font)
-- [フォールバックフォントコレクションの作成](/slides/python-net/create-fallback-fonts-collection)
-- [フォールバックフォントを使用したプレゼンテーションのレンダリング](/slides/python-net/render-presentation-with-fallback-font)
+- [フォールバックフォントの作成](/slides/ja/python-net/create-fallback-font)
+- [フォールバックフォントコレクションの作成](/slides/ja/python-net/create-fallback-fonts-collection)
+- [フォールバックフォントを使用したプレゼンテーションのレンダリング](/slides/ja/python-net/render-presentation-with-fallback-font)

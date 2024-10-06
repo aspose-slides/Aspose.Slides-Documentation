@@ -2,7 +2,7 @@
 title: 数学方程式のエクスポート
 type: docs
 weight: 30
-url: /cpp/exporting-math-equations/
+url: /ja/cpp/exporting-math-equations/
 
 ---
 

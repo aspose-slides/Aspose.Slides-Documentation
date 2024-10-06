@@ -2,7 +2,7 @@
 title: プレゼンテーションノート
 type: docs
 weight: 110
-url: /net/presentation-notes/
+url: /ja/net/presentation-notes/
 keywords: "ノート, PowerPointノート, ノートを追加, ノートを削除, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにノートを追加および削除する"
 ---

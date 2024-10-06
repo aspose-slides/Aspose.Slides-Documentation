@@ -2,7 +2,7 @@
 title: リソース
 type: docs
 weight: 20
-url: /php-java/resources/
+url: /ja/php-java/resources/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,4 +17,4 @@ url: /php-java/resources/
 |[Aspose.Slidesブログ](https://blog.aspose.com/category/slides/)|新しいリリースやAspose.Slidesに関する有用なヒントについての情報を得るために、頻繁にチェックしてください。|
 |[Aspose.Slides for PHP via Javaのダウンロード](https://releases.aspose.com/php-java/repo/com/aspose/aspose-slides/)|ここからAspose.Slidesの最新バージョンをダウンロードしてください。私たちは頻繁にリリースしています。|
 |[Aspose.Slidesサポートフォーラム](https://forum.aspose.com/c/slides/11)|迅速な解決のために、ここに質問や問題を投稿してください。|
-|[Aspose.Slides for PHP via Java製品ドキュメント](/slides/php-java/)|このドキュメントとAspose.Slides APIリファレンスを含む、完全なオンラインドキュメント。|
+|[Aspose.Slides for PHP via Java製品ドキュメント](/slides/ja/php-java/)|このドキュメントとAspose.Slides APIリファレンスを含む、完全なオンラインドキュメント。|

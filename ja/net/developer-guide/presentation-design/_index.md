@@ -2,5 +2,5 @@
 title: プレゼンテーションデザイン
 type: docs
 weight: 40
-url: /net/presentation-design/
+url: /ja/net/presentation-design/
 ---

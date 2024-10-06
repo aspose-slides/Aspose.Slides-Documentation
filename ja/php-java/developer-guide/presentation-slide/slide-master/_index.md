@@ -2,7 +2,7 @@
 title: スライド マスター
 type: docs
 weight: 70
-url: /php-java/slide-master/
+url: /ja/php-java/slide-master/
 keywords: "スライド マスターの追加, PPTマスター スライド, スライド マスター PowerPoint, スライド マスターへの画像追加, プレースホルダー, 複数のスライド マスター, スライド マスターの比較, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint プレゼンテーションのスライド マスターを追加または編集する"
 ---
@@ -152,7 +152,7 @@ Aspose.Slidesを使用してスライド マスターに画像を追加できま
 
 {{% alert color="primary" title="参照" %}} 
 
-スライドに画像を追加する方法の詳細については、[Picture Frame](/slides/php-java/picture-frame/#create-picture-frame)の記事を参照してください。
+スライドに画像を追加する方法の詳細については、[Picture Frame](/slides/ja/php-java/picture-frame/#create-picture-frame)の記事を参照してください。
 {{% /alert %}}
 
 

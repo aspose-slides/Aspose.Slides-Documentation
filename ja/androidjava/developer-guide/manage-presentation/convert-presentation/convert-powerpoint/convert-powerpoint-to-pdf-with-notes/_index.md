@@ -2,7 +2,7 @@
 title: PowerPointをPDFノートに変換する
 type: docs
 weight: 50
-url: /androidjava/convert-powerpoint-to-pdf-with-notes/
+url: /ja/androidjava/convert-powerpoint-to-pdf-with-notes/
 keywords: "JavaでPowerPointをノート付きPDFに変換する"
 description: "JavaでPowerPointをノート付きPDFに変換する"
 ---

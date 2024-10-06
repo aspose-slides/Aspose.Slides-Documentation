@@ -2,12 +2,12 @@
 title: プレースホルダの管理
 type: docs
 weight: 10
-url: /androidjava/manage-placeholder/
+url: /ja/androidjava/manage-placeholder/
 description: Javaを使用してPowerPointスライドのプレースホルダ内のテキストを変更します。Javaを使用してPowerPointスライドのプレースホルダ内にプロンプトテキストを設定します。
 ---
 
 ## **プレースホルダ内のテキストを変更**
-[Aspose.Slides for Android via Java](/slides/androidjava/)を使用すると、プレゼンテーションのスライド上のプレースホルダを見つけて変更できます。Aspose.Slidesを使用すると、プレースホルダ内のテキストを変更できます。
+[Aspose.Slides for Android via Java](/slides/ja/androidjava/)を使用すると、プレゼンテーションのスライド上のプレースホルダを見つけて変更できます。Aspose.Slidesを使用すると、プレースホルダ内のテキストを変更できます。
 
 **前提条件**: プレースホルダを含むプレゼンテーションが必要です。このようなプレゼンテーションは、標準のMicrosoft PowerPointアプリで作成できます。
 

@@ -2,7 +2,7 @@
 title: デフォルトフォント
 type: docs
 weight: 30
-url: /cpp/default-font/
+url: /ja/cpp/default-font/
 keywords: 
 - フォント
 - デフォルトフォント

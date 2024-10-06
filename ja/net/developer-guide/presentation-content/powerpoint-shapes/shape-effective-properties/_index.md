@@ -2,7 +2,7 @@
 title: シェイプの効果的なプロパティ
 type: docs
 weight: 50
-url: /net/shape-effective-properties/
+url: /ja/net/shape-effective-properties/
 keywords: "シェイププロパティ, カメラプロパティ, ライトリグ, ベベルシェイプ, テキストフレーム, テキストスタイル, フォントの高さ, テーブルの塗りつぶし形式, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにおける効果的なシェイププロパティを取得する"
 ---

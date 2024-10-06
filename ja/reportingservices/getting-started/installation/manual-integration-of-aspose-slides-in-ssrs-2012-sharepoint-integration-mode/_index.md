@@ -2,7 +2,7 @@
 title: SSRS 2012 SharePoint統合モードでのAspose.Slidesの手動統合
 type: docs
 weight: 100
-url: /reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepoint-integration-mode/
+url: /ja/reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepoint-integration-mode/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: PPTXにおけるチャートのリサイズのための作業ソリューション
 type: docs
 weight: 60
-url: /net/working-solution-for-chart-resizing-in-pptx/
+url: /ja/net/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Asposeコンポーネントを通じてPowerPointプレゼンテーションにO
 
 {{% /alert %}} 
 ## **背景**
-[前の記事](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)では、Aspose.Cells for .NETを使用してExcelチャートを作成し、さらにAspose.Slides for .NETを使用してこのチャートをPowerPointプレゼンテーションに埋め込む方法を説明しました。 [オブジェクトの変更の問題](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)に対応するために、チャート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションでは、チャート画像を表示するOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティベートされます。エンドユーザーは、実際のExcelワークブックで必要な変更を行い、アクティベートされたExcelワークブックの外をクリックして関係するスライドに戻ることができます。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変わります。OLEオブジェクトフレームや埋め込まれたExcelワークブックのサイズによってリサイズの係数が異なります。 
+[前の記事](/slides/ja/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)では、Aspose.Cells for .NETを使用してExcelチャートを作成し、さらにAspose.Slides for .NETを使用してこのチャートをPowerPointプレゼンテーションに埋め込む方法を説明しました。 [オブジェクトの変更の問題](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)に対応するために、チャート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションでは、チャート画像を表示するOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティベートされます。エンドユーザーは、実際のExcelワークブックで必要な変更を行い、アクティベートされたExcelワークブックの外をクリックして関係するスライドに戻ることができます。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変わります。OLEオブジェクトフレームや埋め込まれたExcelワークブックのサイズによってリサイズの係数が異なります。 
 ## **リサイズの原因**
 Excelワークブックには独自のウィンドウサイズがあるため、初回アクティベーション時に元のサイズを保持しようとします。一方、OLEオブジェクトフレームは独自のサイズを持っており、Microsoftによると、Excelワークブックがアクティベートされると、ExcelとPowerPointはサイズを交渉し、埋め込み操作の一環として正しい比率であることを確認します。ExcelウィンドウのサイズとOLEオブジェクトフレームのサイズ/位置の違いに基づいて、リサイズが行われます。 
 ## **作業ソリューション**
@@ -159,6 +159,6 @@ Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
 
 {{% /alert %}} 
 ## **関連セクション**
-[プレゼンテーションにExcelチャートをOLEオブジェクトとして作成および埋め込む](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[プレゼンテーションにExcelチャートをOLEオブジェクトとして作成および埋め込む](/slides/ja/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[OLEオブジェクトを自動的に更新する](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[OLEオブジェクトを自動的に更新する](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

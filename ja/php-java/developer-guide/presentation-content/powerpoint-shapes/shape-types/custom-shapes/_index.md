@@ -2,7 +2,7 @@
 title: カスタムシェイプ
 type: docs
 weight: 20
-url: /php-java/custom-shape/
+url: /ja/php-java/custom-shape/
 keywords: "PowerPoint シェイプ, カスタムシェイプ, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint プレゼンテーションにカスタムシェイプを追加"
 ---

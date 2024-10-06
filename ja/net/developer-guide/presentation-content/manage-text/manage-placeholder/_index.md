@@ -2,13 +2,13 @@
 title: プレースホルダーの管理
 type: docs
 weight: 10
-url: /net/manage-placeholder/
+url: /ja/net/manage-placeholder/
 keywords: "プレースホルダー, プレースホルダー テキスト, プロンプト テキスト, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションのプレースホルダーテキストとプロンプトテキストを変更します"
 ---
 
 ## **プレースホルダーのテキストを変更する**
-[Aspose.Slides for .NET](/slides/net/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更できます。
+[Aspose.Slides for .NET](/slides/ja/net/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更できます。
 
 **前提条件**: プレースホルダーを含むプレゼンテーションが必要です。標準のMicrosoft PowerPointアプリでそのようなプレゼンテーションを作成できます。
 

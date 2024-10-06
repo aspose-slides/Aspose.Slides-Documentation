@@ -3,7 +3,7 @@ title: プレゼンテーションのマージ - C++ PowerPoint API
 linktitle: プレゼンテーションのマージ
 type: docs
 weight: 40
-url: /cpp/merge-presentation/
+url: /ja/cpp/merge-presentation/
 keywords: "PowerPointのマージ, PPTX, PPT, PowerPointの結合, プレゼンテーションのマージ, プレゼンテーションの結合, C++"
 description: この記事では、C++ PowerPoint APIまたはライブラリを使用してPowerPointプレゼンテーションをマージまたは結合する方法を説明します。
 ---

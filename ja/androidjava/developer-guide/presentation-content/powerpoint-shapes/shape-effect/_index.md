@@ -2,12 +2,12 @@
 title: 形状効果
 type: docs
 weight: 30
-url: /androidjava/shape-effect
+url: /ja/androidjava/shape-effect
 keywords: "形状効果, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaでPowerPointの形状に効果を適用する"
 ---
 
-PowerPointの効果は形状を目立たせるために使用できますが、[フィル](/slides/androidjava/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointの効果を使用すると、形状に説得力のある反射を作成したり、形状の光を広げたりできます。
+PowerPointの効果は形状を目立たせるために使用できますが、[フィル](/slides/ja/androidjava/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointの効果を使用すると、形状に説得力のある反射を作成したり、形状の光を広げたりできます。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

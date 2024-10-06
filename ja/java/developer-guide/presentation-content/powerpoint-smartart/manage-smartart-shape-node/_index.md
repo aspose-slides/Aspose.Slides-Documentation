@@ -3,7 +3,7 @@ title: JavaでPowerPointのSmartArt図形ノードを作成または管理する
 linktitle: SmartArt図形ノードを管理する
 type: docs
 weight: 30
-url: /java/manage-smartart-shape-node/
+url: /ja/java/manage-smartart-shape-node/
 keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
 description: JavaでPowerPointプレゼンテーションのスマートアートノードおよび子ノードを管理します
 ---

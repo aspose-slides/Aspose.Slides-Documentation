@@ -2,7 +2,7 @@
 title: 新しいプレゼンテーションを作成する
 type: docs
 weight: 10
-url: /androidjava/create-a-new-presentation/
+url: /ja/androidjava/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for Android via Javaは、Microsoft PowerPointプレゼンテー�
 
 {{% /alert %}} 
 ## **プレゼンテーションの作成**
-以下は、VSTOとAspose.Slides for Android via Javaを使用して同じ目的を達成する方法を示す2つのコード例です。最初の例は[VSTO](/slides/androidjava/create-a-new-presentation/)であり; [2番目の例](/slides/androidjava/create-a-new-presentation/)はAspose.Slidesを使用しています。
+以下は、VSTOとAspose.Slides for Android via Javaを使用して同じ目的を達成する方法を示す2つのコード例です。最初の例は[VSTO](/slides/ja/androidjava/create-a-new-presentation/)であり; [2番目の例](/slides/ja/androidjava/create-a-new-presentation/)はAspose.Slidesを使用しています。
 ### **VSTOの例**
 **VSTOの出力** 
 

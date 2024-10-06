@@ -2,7 +2,7 @@
 title: 画像
 type: docs
 weight: 10
-url: /net/image/
+url: /ja/net/image/
 keywords: "画像を追加, ピクチャを追加, PowerPoint プレゼンテーション, EMF, SVG, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint スライドまたはプレゼンテーションに画像を追加"
 ---

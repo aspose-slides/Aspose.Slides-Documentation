@@ -2,7 +2,7 @@
 title: チャートワークシートの数式
 type: docs
 weight: 70
-url: /python-net/chart-worksheet-formulas/
+url: /ja/python-net/chart-worksheet-formulas/
 keywords: "チャートスプレッドシート, チャート数式, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでのPowerPointプレゼンテーションのチャートスプレッドシートと数式"
 ---

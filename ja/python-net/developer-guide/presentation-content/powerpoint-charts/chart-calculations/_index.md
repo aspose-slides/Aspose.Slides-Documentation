@@ -2,7 +2,7 @@
 title: チャート計算
 type: docs
 weight: 50
-url: /python-net/chart-calculations/
+url: /ja/python-net/chart-calculations/
 keywords: "チャート計算, チャート要素, 要素位置, チャート値 Python, Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointチャート計算と値"
 ---

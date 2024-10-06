@@ -2,7 +2,7 @@
 title: ピクチャーフレーム
 type: docs
 weight: 10
-url: /androidjava/picture-frame/
+url: /ja/androidjava/picture-frame/
 keywords: "ピクチャーフレームを追加、ピクチャーフレームを作成、画像を追加、画像を作成、画像を抽出、StretchOffプロパティ、ピクチャーフレームフォーマット、ピクチャーフレームプロパティ、PowerPointプレゼンテーション、Java、Aspose.Slides for Android via Java"
 description: "JavaでPowerPointプレゼンテーションにピクチャーフレームを追加"
 

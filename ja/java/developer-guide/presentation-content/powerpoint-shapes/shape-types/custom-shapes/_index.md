@@ -2,7 +2,7 @@
 title: カスタムシェイプ
 type: docs
 weight: 20
-url: /java/custom-shape/
+url: /ja/java/custom-shape/
 keywords: "PowerPoint シェイプ, カスタムシェイプ, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションにカスタムシェイプを追加する"
 ---

@@ -2,7 +2,7 @@
 title: 3Dプレゼンテーション
 type: docs
 weight: 232
-url: /java/3d-presentation/
+url: /ja/java/3d-presentation/
 keywords:
 - 3D
 - 3D PowerPoint

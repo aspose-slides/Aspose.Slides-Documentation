@@ -2,7 +2,7 @@
 title: OLEの管理
 type: docs
 weight: 40
-url: /androidjava/manage-ole/
+url: /ja/androidjava/manage-ole/
 keywords:
 - OLEを追加
 - OLEを埋め込む

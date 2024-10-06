@@ -2,7 +2,7 @@
 title: チャートのエクスポート
 type: docs
 weight: 90
-url: /php-java/export-chart/
+url: /ja/php-java/export-chart/
 ---
 
 ## **チャート画像の取得**

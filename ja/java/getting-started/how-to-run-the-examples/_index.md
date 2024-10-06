@@ -2,7 +2,7 @@
 title: サンプルの実行方法
 type: docs
 weight: 140
-url: /java/how-to-run-the-examples/
+url: /ja/java/how-to-run-the-examples/
 ---
 
 ## **GitHubからのダウンロード**

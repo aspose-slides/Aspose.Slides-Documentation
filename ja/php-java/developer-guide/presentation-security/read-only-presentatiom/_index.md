@@ -2,7 +2,7 @@
 title: 読み取り専用プレゼンテーション
 type: docs
 weight: 30
-url: /php-java/read-only-presentation/
+url: /ja/php-java/read-only-presentation/
 
 ---
 

@@ -2,14 +2,14 @@
 title: プレゼンテーション テーマ
 type: docs
 weight: 10
-url: /cpp/presentation-theme/
+url: /ja/cpp/presentation-theme/
 keywords: "テーマ, PowerPoint テーマ, PowerPoint プレゼンテーション, CPP, C++, Aspose.Slides for C++"
 description: "C++ における PowerPoint プレゼンテーションテーマ"
 ---
 
 プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、特定のビジュアル要素とそのプロパティのセットを選ぶことになります。
 
-PowerPoint では、テーマは色、[フォント](/slides/cpp/powerpoint-fonts/)、[背景スタイル](/slides/cpp/presentation-background/)、およびエフェクトで構成されます。
+PowerPoint では、テーマは色、[フォント](/slides/ja/cpp/powerpoint-fonts/)、[背景スタイル](/slides/ja/cpp/presentation-background/)、およびエフェクトで構成されます。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPoint フォント](/slides/cpp/powerpoint-fonts/)をご覧になることをお勧めします。
+[PowerPoint フォント](/slides/ja/cpp/powerpoint-fonts/)をご覧になることをお勧めします。
 
 {{% /alert %}}
 
@@ -195,7 +195,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPoint 背景](/slides/cpp/presentation-background/)をご覧になることをお勧めします。
+[PowerPoint 背景](/slides/ja/cpp/presentation-background/)をご覧になることをお勧めします。
 
 {{% /alert %}}
 

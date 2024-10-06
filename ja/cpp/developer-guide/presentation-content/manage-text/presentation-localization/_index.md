@@ -2,7 +2,7 @@
 title: プレゼンテーションのローカリゼーション
 type: docs
 weight: 100
-url: /cpp/presentation-localization/
+url: /ja/cpp/presentation-localization/
 ---
 
 

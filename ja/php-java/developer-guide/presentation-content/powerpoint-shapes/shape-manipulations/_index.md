@@ -2,7 +2,7 @@
 title: 形の操作
 type: docs
 weight: 40
-url: /php-java/shape-manipulations/
+url: /ja/php-java/shape-manipulations/
 ---
 
 ## **スライド内の形を見つける**

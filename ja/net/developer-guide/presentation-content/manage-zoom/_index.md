@@ -2,7 +2,7 @@
 title: ズームの管理
 type: docs
 weight: 60
-url: /net/manage-zoom/
+url: /ja/net/manage-zoom/
 keywords: 
 - ズーム
 - ズームフレーム

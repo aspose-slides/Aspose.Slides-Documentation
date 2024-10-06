@@ -2,12 +2,12 @@
 title: フォールバックフォントコレクションの作成
 type: docs
 weight: 20
-url: /java/create-fallback-fonts-collection/
+url: /ja/java/create-fallback-fonts-collection/
 ---
 
 [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule)クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection)に整理でき、これは[IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection)インターフェースを実装します。コレクションからルールを追加または削除することが可能です。
 
-次に、このコレクションは[FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager)クラスの[FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection)メソッドに割り当てることができます。FontsManagerはプレゼンテーション全体のフォントを管理します。詳細は[FontsManagerとFontsLoaderについて](/slides/java/about-fontsmanager-and-fontsloader/)をご覧ください。
+次に、このコレクションは[FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager)クラスの[FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection)メソッドに割り当てることができます。FontsManagerはプレゼンテーション全体のフォントを管理します。詳細は[FontsManagerとFontsLoaderについて](/slides/ja/java/about-fontsmanager-and-fontsloader/)をご覧ください。
 
 各[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)には、それ自体の[FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager)クラスのインスタンスを持つ[getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--)メソッドがあります。
 
@@ -30,5 +30,5 @@ try {
 FontsManagerがフォールバックフォントコレクションで初期化された後、フォールバックフォントはプレゼンテーションのレンダリング中に適用されます。
 
 {{% alert color="primary" %}} 
-フォールバックフォントを使用して[プレゼンテーションをレンダリングする](/slides/java/render-presentation-with-fallback-font/)方法についてさらにお読みください。
+フォールバックフォントを使用して[プレゼンテーションをレンダリングする](/slides/ja/java/render-presentation-with-fallback-font/)方法についてさらにお読みください。
 {{% /alert %}}

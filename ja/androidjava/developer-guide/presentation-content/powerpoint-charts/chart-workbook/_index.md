@@ -2,7 +2,7 @@
 title: チャートワークブック
 type: docs
 weight: 70
-url: /androidjava/chart-workbook/
+url: /ja/androidjava/chart-workbook/
 keywords: "チャートワークブック, チャートデータ, PowerPointプレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaにおけるPowerPointプレゼンテーションのチャートワークブック"
 ---

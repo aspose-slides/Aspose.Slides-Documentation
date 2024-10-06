@@ -2,12 +2,12 @@
 title: プレースホルダーの管理
 type: docs
 weight: 10
-url: /java/manage-placeholder/
+url: /ja/java/manage-placeholder/
 description: Javaを使用してPowerPointスライドのプレースホルダー内のテキストを変更します。Javaを使用してPowerPointスライドのプレースホルダー内にプロンプトテキストを設定します。
 ---
 
 ## **プレースホルダーのテキストを変更する**
-[Aspose.Slides for Java](/slides/java/)を使用すると、プレゼンテーション内のスライドでプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更することができます。
+[Aspose.Slides for Java](/slides/ja/java/)を使用すると、プレゼンテーション内のスライドでプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更することができます。
 
 **前提条件**: プレースホルダーを含むプレゼンテーションが必要です。このようなプレゼンテーションは標準のMicrosoft PowerPointアプリで作成できます。
 

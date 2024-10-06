@@ -2,7 +2,7 @@
 title: ワードアート
 type: docs
 weight: 110
-url: /androidjava/wordart/
+url: /ja/androidjava/wordart/
 ---
 
 

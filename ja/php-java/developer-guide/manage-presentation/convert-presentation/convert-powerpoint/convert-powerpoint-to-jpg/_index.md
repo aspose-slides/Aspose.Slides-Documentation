@@ -2,7 +2,7 @@
 title: PowerPointをJPGに変換
 type: docs
 weight: 60
-url: /php-java/convert-powerpoint-to-jpg/
+url: /ja/php-java/convert-powerpoint-to-jpg/
 keywords: "PowerPointをJPGに変換, PPTXをJPEGに, PPTをJPEGに"
 description: "PowerPointをJPGに変換: PPTからJPG、PPTXからJPG"
 ---
@@ -124,4 +124,4 @@ Asposeは[無料のコラージュWebアプリ](https://products.aspose.app/slid
 
 PPT/PPTXを画像に変換する他のオプションを参照してください:
 
-- [PPT/PPTXをSVGに変換](/slides/php-java/render-a-slide-as-an-svg-image/)。
+- [PPT/PPTXをSVGに変換](/slides/ja/php-java/render-a-slide-as-an-svg-image/)。

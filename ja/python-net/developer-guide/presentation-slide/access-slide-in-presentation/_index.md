@@ -2,7 +2,7 @@
 title: プレゼンテーションのスライドにアクセス
 type: docs
 weight: 20
-url: /python-net/access-slide-in-presentation/
+url: /ja/python-net/access-slide-in-presentation/
 keywords: "PowerPoint プレゼンテーションにアクセス, スライドにアクセス, スライドのプロパティを編集, スライドの位置を変更, スライド番号、インデックス、ID、位置を設定 Python, Aspose.Slides"
 description: "Python でインデックス、ID、または位置によって PowerPoint スライドにアクセスします。スライドのプロパティを編集します"
 ---

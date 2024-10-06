@@ -2,7 +2,7 @@
 title: ファイルの変換
 type: docs
 weight: 10
-url: /sharepoint/convert-one-file/
+url: /ja/sharepoint/convert-one-file/
 ---
 
 ドキュメントライブラリ内のドキュメントを変換するには：

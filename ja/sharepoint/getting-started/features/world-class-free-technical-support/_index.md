@@ -2,7 +2,7 @@
 title: ワールドクラスの無料技術サポート
 type: docs
 weight: 20
-url: /sharepoint/world-class-free-technical-support/
+url: /ja/sharepoint/world-class-free-technical-support/
 ---
 
 {{% alert color="primary" %}} 

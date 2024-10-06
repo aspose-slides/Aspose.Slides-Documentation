@@ -2,7 +2,7 @@
 title: ライセンス  
 type: docs  
 weight: 80  
-url: /net/licensing/  
+url: /ja/net/licensing/  
 ---  
 
 ## **Aspose.Slidesの評価**

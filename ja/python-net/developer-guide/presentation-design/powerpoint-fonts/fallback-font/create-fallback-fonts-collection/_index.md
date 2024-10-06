@@ -2,14 +2,14 @@
 title: フォールバックフォントコレクションの作成
 type: docs
 weight: 20
-url: /python-net/create-fallback-fonts-collection/
+url: /ja/python-net/create-fallback-fonts-collection/
 keywords: "フォールバックフォントコレクション、PowerPointプレゼンテーション、Python、.NET経由のAspose.Slides for Python"
 description: "PythonでのPowerPointにおけるフォールバックフォントコレクション"
 ---
 
 [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/)クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)に整理され、このコレクションは[IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/)インターフェイスを実装しています。コレクションからルールを追加または削除することが可能です。
 
-その後、このコレクションは[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)クラスの[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)プロパティに割り当てることができます。FontsManagerはプレゼンテーション全体のフォントを管理します。詳細は[FontsManagerとFontsLoaderについて](/slides/python-net/about-fontsmanager-and-fontsloader/)をお読みください。
+その後、このコレクションは[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)クラスの[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)プロパティに割り当てることができます。FontsManagerはプレゼンテーション全体のフォントを管理します。詳細は[FontsManagerとFontsLoaderについて](/slides/ja/python-net/about-fontsmanager-and-fontsloader/)をお読みください。
 
 各[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)には、独自のFontsManagerインスタンスを持つ[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)プロパティがあります。
 
@@ -30,5 +30,5 @@ with slides.Presentation() as presentation:
 FontsManagerがフォールバックフォントコレクションで初期化された後、フォールバックフォントはプレゼンテーションのレンダリング中に適用されます。
 
 {{% alert color="primary" %}} 
-フォールバックフォントでプレゼンテーションを[レンダリングする方法](/slides/python-net/render-presentation-with-fallback-font/)についてさらにお読みください。
+フォールバックフォントでプレゼンテーションを[レンダリングする方法](/slides/ja/python-net/render-presentation-with-fallback-font/)についてさらにお読みください。
 {{% /alert %}}

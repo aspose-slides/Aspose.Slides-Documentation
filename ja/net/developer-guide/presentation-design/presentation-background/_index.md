@@ -2,7 +2,7 @@
 title: プレゼンテーションの背景
 type: docs
 weight: 20
-url: /net/presentation-background/
+url: /ja/net/presentation-background/
 keywords:
 - PowerPoint 背景
 - 背景を設定

@@ -1,7 +1,7 @@
 ---
 title: ツリーマップとサンバーストチャートのデータポイント
 type: docs
-url: /cpp/data-points-of-treemap-and-sunburst-chart/
+url: /ja/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords: "サンバーストグラフ"
 description: "Aspose.Slidesを使用したサンバーストグラフ、サンバーストダイアグラム、サンバーストチャート、半径チャート、半径グラフまたはマルチレベルパイチャート。"
 ---
@@ -21,7 +21,7 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [**サンバーストチャートの作成**](/slides/cpp/create-chart/#create-sunburst-chart)
+- [**サンバーストチャートの作成**](/slides/ja/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
 チャートのデータポイントをフォーマットする必要がある場合は、次を使用する必要があります：

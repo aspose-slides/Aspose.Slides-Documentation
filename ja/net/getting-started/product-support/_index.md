@@ -2,7 +2,7 @@
 title: 製品サポート
 type: docs
 weight: 100
-url: /net/product-support/
+url: /ja/net/product-support/
 ---
 
 ## **テクニカルサポート**
@@ -41,4 +41,4 @@ Aspose.Slides for .NETで問題が発生した場合は、以下のガイドラ�
 |[Aspose.Slides ブログ](https://blog.aspose.com/category/slides/)|新しいリリースやAspose.Slidesに関する役立つヒントの情報を定期的に確認してください。|
 |[Aspose.Slides for .NET ダウンロード](https://www.nuget.org/packages/Aspose.Slides.NET/)|このページからAspose.Slidesの最新バージョンをダウンロードしてください。新しいバージョンを頻繁にリリースしています。|
 |[Aspose.Slides サポートフォーラム](https://forum.aspose.com/c/slides/11)|ここに質問や問題を投稿して迅速な解決を図ってください。|
-|[Aspose.Slides for .NET 製品ドキュメント](/slides/net/)|このドキュメントとAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|
+|[Aspose.Slides for .NET 製品ドキュメント](/slides/ja/net/)|このドキュメントとAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|

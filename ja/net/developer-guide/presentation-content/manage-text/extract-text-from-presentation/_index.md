@@ -2,7 +2,7 @@
 title: プレゼンテーションからテキストを抽出する
 type: docs
 weight: 90
-url: /net/extract-text-from-presentation/
+url: /ja/net/extract-text-from-presentation/
 keywords: "スライドからテキストを抽出, PowerPointからテキストを抽出, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでスライドまたはPowerPointプレゼンテーションからテキストを抽出する"
 ---
@@ -11,9 +11,9 @@ description: "C#または.NETでスライドまたはPowerPointプレゼンテ�
 
 開発者がプレゼンテーションからテキストを抽出する必要があることは珍しくありません。そのためには、プレゼンテーションのすべてのスライドにあるすべてのシェイプからテキストを抽出する必要があります。この記事では、Aspose.Slidesを使用してMicrosoft PowerPoint PPTXプレゼンテーションからテキストを抽出する方法を説明します。テキストは以下の方法で抽出できます。
 
-- [1つのスライドからテキストを抽出する](/slides/net/extracting-text-from-the-presentation/)
-- [GetAllTextBoxesメソッドを使用してテキストを抽出する](/slides/net/extracting-text-from-the-presentation/)
-- [分類された高速なテキスト抽出](/slides/net/extracting-text-from-the-presentation/)
+- [1つのスライドからテキストを抽出する](/slides/ja/net/extracting-text-from-the-presentation/)
+- [GetAllTextBoxesメソッドを使用してテキストを抽出する](/slides/ja/net/extracting-text-from-the-presentation/)
+- [分類された高速なテキスト抽出](/slides/ja/net/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **スライドからテキストを抽出する**

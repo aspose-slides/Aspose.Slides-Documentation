@@ -2,7 +2,7 @@
 title: スライドを削除する
 type: docs
 weight: 80
-url: /net/delete-a-slide/
+url: /ja/net/delete-a-slide/
 ---
 
 ## **OpenXML SDK**

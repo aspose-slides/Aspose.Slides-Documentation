@@ -3,7 +3,7 @@ title: PPTをPythonでPPTXに変換
 linktitle: PPTをPPTXに変換
 type: docs
 weight: 20
-url: /python-net/convert-ppt-to-pptx/
+url: /ja/python-net/convert-ppt-to-pptx/
 keywords: "Python PPTをPPTXに変換, PowerPointプレゼンテーションを変換, PPTをPPTX, Python, Aspose.Slides"
 description: "PythonでPowerPoint PPTをPPTXに変換"
 ---
@@ -60,4 +60,4 @@ pres = slides.Presentation("PPTtoPPTX.ppt")
 pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-[**PPTとPPTX**](/slides/python-net/ppt-vs-pptx/)プレゼンテーション形式および[**Aspose.SlidesがPPTからPPTXへの変換をサポートする方法**](/slides/python-net/convert-ppt-to-pptx/)についてさらに読む。
+[**PPTとPPTX**](/slides/ja/python-net/ppt-vs-pptx/)プレゼンテーション形式および[**Aspose.SlidesがPPTからPPTXへの変換をサポートする方法**](/slides/ja/python-net/convert-ppt-to-pptx/)についてさらに読む。

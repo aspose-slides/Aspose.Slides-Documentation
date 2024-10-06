@@ -1,7 +1,7 @@
 ---
 title: チャートの凡例
 type: docs
-url: /cpp/chart-legend/
+url: /ja/cpp/chart-legend/
 ---
 
 ## **凡例の配置**

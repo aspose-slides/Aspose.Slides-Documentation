@@ -2,7 +2,7 @@
 title: Blobの管理
 type: docs
 weight: 10
-url: /androidjava/manage-blob/
+url: /ja/androidjava/manage-blob/
 description: Javaを使用してPowerPointプレゼンテーションでBlobを管理します。Blobを使用してJavaでのPowerPointプレゼンテーションのメモリ消費を削減します。Javaを使用してBlobを介してPowerPointプレゼンテーションに大きなファイルを追加します。Javaを使用してBlobを介してPowerPointプレゼンテーションから大きなファイルをエクスポートします。Javaを使用してBlobとして大きなPowerPointプレゼンテーションをロードします。
 ---
 
@@ -22,7 +22,7 @@ Aspose.Slides for Android via Javaを使用すると、大きなファイルが�
 
 ### **BLOBを介してプレゼンテーションに大きなファイルを追加する**
 
-[Aspose.Slides](/slides/androidjava/) for Javaを使用すると、BLOBを介したプロセスで大きなファイル（この場合、大きなビデオファイル）を追加することで、メモリ消費を削減できます。
+[Aspose.Slides](/slides/ja/androidjava/) for Javaを使用すると、BLOBを介したプロセスで大きなファイル（この場合、大きなビデオファイル）を追加することで、メモリ消費を削減できます。
 
 このJavaコードは、BLOBプロセスを介してプレゼンテーションに大きなビデオファイルを追加する方法を示しています：
 

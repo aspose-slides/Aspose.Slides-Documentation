@@ -2,7 +2,7 @@
 title: ポーション
 type: docs
 weight: 70
-url: /python-net/portion/
+url: /ja/python-net/portion/
 keywords: "ポーション, PowerPoint図形, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのポーションを取得"
 ---

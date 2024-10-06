@@ -2,7 +2,7 @@
 title: インストールの前提条件
 type: docs
 weight: 20
-url: /reportingservices/installation-prerequisites/
+url: /ja/reportingservices/installation-prerequisites/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,12 +2,12 @@
 title: VSTO と Aspose.Slides および .NETを使用してテキストをフォーマットする
 type: docs
 weight: 30
-url: /net/format-text-using-vsto-and-aspose-slides-and-net/
+url: /ja/net/format-text-using-vsto-and-aspose-slides-and-net/
 ---
 
 {{% alert color="primary" %}} 
 
-時には、スライド上のテキストをプログラムでフォーマットする必要があります。この記事では、[VSTO](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/) と [Aspose.Slides for .NET](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/) を使用して、最初のスライドにいくつかのテキストが含まれているサンプルプレゼンテーションを読み取る方法を示します。このコードは、スライド上の3番目のテキストボックスのテキストを、最後のテキストボックスのテキストのように見えるようにフォーマットします。
+時には、スライド上のテキストをプログラムでフォーマットする必要があります。この記事では、[VSTO](/slides/ja/net/format-text-using-vsto-and-aspose-slides-and-net/) と [Aspose.Slides for .NET](/slides/ja/net/format-text-using-vsto-and-aspose-slides-and-net/) を使用して、最初のスライドにいくつかのテキストが含まれているサンプルプレゼンテーションを読み取る方法を示します。このコードは、スライド上の3番目のテキストボックスのテキストを、最後のテキストボックスのテキストのように見えるようにフォーマットします。
 
 {{% /alert %}} 
 ## **テキストのフォーマット**

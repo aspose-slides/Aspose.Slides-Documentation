@@ -2,7 +2,7 @@
 title: 機能の概要
 type: docs
 weight: 20
-url: /php-java/features-overview/
+url: /ja/php-java/features-overview/
 ---
 
 ## **サポートされているプラットフォーム**

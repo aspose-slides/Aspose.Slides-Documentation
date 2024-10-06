@@ -2,7 +2,7 @@
 title: PowerPointにおけるデジタル署名
 type: docs
 weight: 10
-url: /python-net/digital-signature-in-powerpoint/
+url: /ja/python-net/digital-signature-in-powerpoint/
 keywords: "デジタル署名証明書、認証局、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PowerPointにデジタル署名または証明書を追加します。Pythonにおける認証局"
 ---

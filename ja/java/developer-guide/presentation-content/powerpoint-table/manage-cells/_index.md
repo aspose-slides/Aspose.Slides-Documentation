@@ -2,7 +2,7 @@
 title: セルの管理
 type: docs
 weight: 30
-url: /java/manage-cells/
+url: /ja/java/manage-cells/
 keywords: "テーブル, マージされたセル, 分割されたセル, テーブルセル内の画像, Java, Aspose.Slides for Java"
 description: "Java の PowerPoint プレゼンテーションにおけるテーブルセル"
 ---

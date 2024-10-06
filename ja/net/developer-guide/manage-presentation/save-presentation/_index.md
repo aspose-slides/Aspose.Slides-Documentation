@@ -3,7 +3,7 @@ title: .NETでプレゼンテーションを保存
 linktitle: プレゼンテーションを保存
 type: docs
 weight: 80
-url: /net/save-presentation/
+url: /ja/net/save-presentation/
 keywords: "PowerPointを保存, PPT, PPTX, プレゼンテーションを保存, ファイル, ストリーム, C#, Csharp, .NET"
 description: "C# または .NETで PowerPoint プレゼンテーションをファイルまたはストリームとして保存"
 ---

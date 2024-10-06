@@ -2,7 +2,7 @@
 title: PowerPointをPDFノートに変換
 type: docs
 weight: 50
-url: /php-java/convert-powerpoint-to-pdf-with-notes/
+url: /ja/php-java/convert-powerpoint-to-pdf-with-notes/
 keywords: "javaでPowerPointをPDFノートに変換"
 description: "PowerPointをノート付きPDFに変換"
 ---

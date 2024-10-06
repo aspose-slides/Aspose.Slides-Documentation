@@ -2,7 +2,7 @@
 title: Blobを管理する
 type: docs
 weight: 10
-url: /java/manage-blob/
+url: /ja/java/manage-blob/
 description: Javaを使用してPowerPointプレゼンテーションでBlobを管理します。Javaを使用してPowerPointプレゼンテーションのメモリ消費を削減するためにBlobを使用します。Javaを使用してPowerPointプレゼンテーションにBlobを通じて大きなファイルを追加します。Javaを使用してPowerPointプレゼンテーションからBlobを通じて大きなファイルをエクスポートします。Javaを使用してBlobとして大きなPowerPointプレゼンテーションを読み込みます。
 ---
 
@@ -22,7 +22,7 @@ Aspose.Slides for Javaは、大きなファイルを扱う際にメモリ消費�
 
 ### **BLOBを通じてプレゼンテーションに大きなファイルを追加する**
 
-[Aspose.Slides](/slides/java/) for Javaは、メモリ消費を削減するためにBLOBを利用して大きなファイル（この場合は大きな動画ファイル）を追加することを可能にします。
+[Aspose.Slides](/slides/ja/java/) for Javaは、メモリ消費を削減するためにBLOBを利用して大きなファイル（この場合は大きな動画ファイル）を追加することを可能にします。
 
 以下のJavaコードは、BLOBプロセスを通じてプレゼンテーションに大きな動画ファイルを追加する方法を示します：
 

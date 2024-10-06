@@ -2,12 +2,12 @@
 title: シェイプ効果
 type: docs
 weight: 30
-url: /php-java/shape-effect
+url: /ja/php-java/shape-effect
 keywords: "シェイプ効果, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointシェイプに効果を適用する"
 ---
 
-PowerPointの効果はシェイプを際立たせるために使用できますが、[塗りつぶし](/slides/php-java/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPointの効果を使用すると、シェイプに説得力のある反射を作成したり、シェイプの光彩を広げたりできます。
+PowerPointの効果はシェイプを際立たせるために使用できますが、[塗りつぶし](/slides/ja/php-java/shape-formatting/#gradient-fill)や輪郭とは異なります。PowerPointの効果を使用すると、シェイプに説得力のある反射を作成したり、シェイプの光彩を広げたりできます。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

@@ -2,7 +2,7 @@
 title: プレゼンテーションのロック
 type: docs
 weight: 110
-url: /net/presentation-locking/
+url: /ja/net/presentation-locking/
 ---
 
 ## **プレゼンテーションのロック**

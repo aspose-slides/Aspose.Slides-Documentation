@@ -2,7 +2,7 @@
 title: PPTX内の段落と部分のコピー
 type: docs
 weight: 70
-url: /php-java/copying-paragraph-and-portion-in-pptx/
+url: /ja/php-java/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

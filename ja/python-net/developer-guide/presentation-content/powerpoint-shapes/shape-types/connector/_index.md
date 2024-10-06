@@ -2,7 +2,7 @@
 title: コネクタ
 type: docs
 weight: 10
-url: /python-net/connector/
+url: /ja/python-net/connector/
 keywords: "形状を接続, コネクタ, PowerPoint 形状, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointの形状を接続する"
 ---
@@ -129,7 +129,7 @@ with slides.Presentation() as presentation:
 
 ## **コネクタポイントを調整する**
 
-既存のコネクタは、その調整ポイントを通じて調整できます。調整ポイントを持つコネクタのみがこの方法で変更できます。 **[コネクタの種類](/slides/python-net/connector/#types-of-connectors)**の下の表を参照してください。
+既存のコネクタは、その調整ポイントを通じて調整できます。調整ポイントを持つコネクタのみがこの方法で変更できます。 **[コネクタの種類](/slides/ja/python-net/connector/#types-of-connectors)**の下の表を参照してください。
 
 #### **簡単なケース**
 
@@ -178,7 +178,7 @@ with slides.Presentation() as pres:
 * 調整ポイントの値は、コネクタ形状の幅/高さのパーセンテージを反映します。 
   * 形状は、コネクタの開始点と終了点で1000倍されたものに制約されます。 
   * 最初のポイント、2番目のポイント、3番目のポイントは、それぞれ幅からのパーセンテージ、高さからのパーセンテージ、幅からのパーセンテージ（再び）を定義します。
-* コネクタの調整ポイントの座標を決定する計算では、コネクタの回転と反射を考慮する必要があります。**注意**： **[コネクタの種類](/slides/python-net/connector/#types-of-connectors)**の下に示されているすべてのコネクタの回転角度は0です。
+* コネクタの調整ポイントの座標を決定する計算では、コネクタの回転と反射を考慮する必要があります。**注意**： **[コネクタの種類](/slides/ja/python-net/connector/#types-of-connectors)**の下に示されているすべてのコネクタの回転角度は0です。
 
 #### **ケース 1**
 

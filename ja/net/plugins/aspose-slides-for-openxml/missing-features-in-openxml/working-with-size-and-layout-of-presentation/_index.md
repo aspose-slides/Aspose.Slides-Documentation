@@ -2,7 +2,7 @@
 title: プレゼンテーションのサイズとレイアウトの操作
 type: docs
 weight: 90
-url: /net/working-with-size-and-layout-of-presentation/
+url: /ja/net/working-with-size-and-layout-of-presentation/
 ---
 
 **SlideSize.Type** と **SlideSize.Size** は、以下の例に示すように設定または取得できるプレゼンテーションクラスのプロパティです。
@@ -47,6 +47,6 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-詳細については、[スライドサイズとレイアウトの操作](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout)を参照してください。
+詳細については、[スライドサイズとレイアウトの操作](/slides/ja/net/adding-and-editing-slides/#working-with-slide-size-and-layout)を参照してください。
 
 {{% /alert %}}

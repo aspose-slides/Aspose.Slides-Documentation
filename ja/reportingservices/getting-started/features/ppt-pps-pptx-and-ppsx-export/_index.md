@@ -2,7 +2,7 @@
 title: PPT、PPS、PPTX、および PPSX のエクスポート
 type: docs
 weight: 20
-url: /reportingservices/ppt-pps-pptx-and-ppsx-export/
+url: /ja/reportingservices/ppt-pps-pptx-and-ppsx-export/
 ---
 
 {{% alert color="primary" %}} 

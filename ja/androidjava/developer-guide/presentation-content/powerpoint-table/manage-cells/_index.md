@@ -2,7 +2,7 @@
 title: セルの管理
 type: docs
 weight: 30
-url: /androidjava/manage-cells/
+url: /ja/androidjava/manage-cells/
 keywords: "テーブル, 統合セル, 分割セル, テーブルセル内の画像, Java, Aspose.Slides for Android via Java"
 description: "JavaでのPowerPointプレゼンテーションのテーブルセル"
 ---

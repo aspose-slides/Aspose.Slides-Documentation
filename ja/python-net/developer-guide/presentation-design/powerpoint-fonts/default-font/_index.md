@@ -2,7 +2,7 @@
 title: デフォルトフォント
 type: docs
 weight: 30
-url: /python-net/default-font/
+url: /ja/python-net/default-font/
 keywords: "フォント, デフォルトフォント, プレゼンテーションのレンダリング PowerPoint プレゼンテーション Python, Aspose.Slides for Python via .NET"
 description: "Python における PowerPoint デフォルトフォント"
 ---

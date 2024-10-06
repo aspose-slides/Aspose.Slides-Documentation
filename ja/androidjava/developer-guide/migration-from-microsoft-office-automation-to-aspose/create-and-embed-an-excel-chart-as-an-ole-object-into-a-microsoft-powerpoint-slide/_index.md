@@ -2,12 +2,12 @@
 title: Excel チャートを OLE オブジェクトとして Microsoft PowerPoint スライドに作成して埋め込む
 type: docs
 weight: 60
-url: /androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ja/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- チャートはデータの視覚的表現であり、プレゼンテーションスライドで広く使用されています。この記事では、[VSTO](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)と[Java経由の Aspose.Slides for Android](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)を使用して、プログラムmatically に Excel チャートを OLE オブジェクトとして PowerPoint スライドに作成して埋め込むためのコードを示します。
+ チャートはデータの視覚的表現であり、プレゼンテーションスライドで広く使用されています。この記事では、[VSTO](/slides/ja/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)と[Java経由の Aspose.Slides for Android](/slides/ja/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)を使用して、プログラムmatically に Excel チャートを OLE オブジェクトとして PowerPoint スライドに作成して埋め込むためのコードを示します。
 
 {{% /alert %}} 
 ## **Excel チャートの作成と埋め込み**

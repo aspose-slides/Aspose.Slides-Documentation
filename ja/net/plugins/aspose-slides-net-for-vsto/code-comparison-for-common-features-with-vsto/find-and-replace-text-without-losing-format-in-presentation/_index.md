@@ -2,7 +2,7 @@
 title: プレゼンテーションでフォーマットを失わずにテキストを検索および置換する
 type: docs
 weight: 100
-url: /net/find-and-replace-text-without-losing-format-in-presentation/
+url: /ja/net/find-and-replace-text-without-losing-format-in-presentation/
 ---
 
 両方の方法は以下の手順に従います：

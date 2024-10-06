@@ -2,7 +2,7 @@
 title: プレゼンテーションからテキストを抽出する
 type: docs
 weight: 90
-url: /androidjava/extract-text-from-presentation/
+url: /ja/androidjava/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 

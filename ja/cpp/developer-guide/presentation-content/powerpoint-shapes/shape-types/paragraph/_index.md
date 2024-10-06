@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /cpp/paragraph/
+url: /ja/cpp/paragraph/
 ---
 
 ## **TextFrame内の段落およびポーションの座標を取得する**

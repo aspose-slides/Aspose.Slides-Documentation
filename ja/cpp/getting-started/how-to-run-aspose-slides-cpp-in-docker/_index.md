@@ -2,7 +2,7 @@
 title: Aspose.Slides for C++ を Docker で実行する方法
 type: docs
 weight: 140
-url: /cpp/how-to-run-aspose-slides-cpp-in-docker/
+url: /ja/cpp/how-to-run-aspose-slides-cpp-in-docker/
 keywords: "Docker コンテナでの Aspose.Slides for C++ の実行, Aspose Docker, Docker での Aspose.Slides for C++"
 description: "Linux の Docker コンテナで Aspose.Slides for C++ を実行します。"
 ---

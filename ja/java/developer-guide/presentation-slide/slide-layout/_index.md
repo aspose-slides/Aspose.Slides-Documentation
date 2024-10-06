@@ -2,7 +2,7 @@
 title: スライドレイアウト
 type: docs
 weight: 60
-url: /java/slide-layout/
+url: /ja/java/slide-layout/
 keyword: "スライドサイズの設定、スライドオプションの設定、スライドサイズの指定、フッターの表示、子フッター、コンテンツスケーリング、ページサイズ、Java、Aspose.Slides"
 description: "JavaでPowerPointスライドサイズとオプションを設定する"
 ---

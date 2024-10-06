@@ -2,7 +2,7 @@
 title: スライド上の図形を画像としてレンダリング
 type: docs
 weight: 120
-url: /net/rendering-shapes-on-slide-as-images/
+url: /ja/net/rendering-shapes-on-slide-as-images/
 ---
 
 これには主に二つの機能が含まれています：

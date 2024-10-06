@@ -2,5 +2,5 @@
 title: 機能
 type: docs
 weight: 30
-url: /sharepoint/features/
+url: /ja/sharepoint/features/
 ---

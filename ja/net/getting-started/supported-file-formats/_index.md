@@ -2,7 +2,7 @@
 title: サポートされているファイル形式
 type: docs
 weight: 30
-url: /net/supported-file-formats/
+url: /ja/net/supported-file-formats/
 ---
 
 ## **サポートされているMicrosoft PowerPointバージョン**

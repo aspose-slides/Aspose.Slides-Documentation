@@ -2,7 +2,7 @@
 title: 製品概要
 type: docs
 weight: 10
-url: /net/product-overview/
+url: /ja/net/product-overview/
 ---
 
 ## **製品説明**
@@ -127,7 +127,7 @@ Aspose.Slides for .NETに問題がある場合は、最も効率的に解決す�
 |[Aspose.Slidesブログ](https://blog.aspose.com/category/slides/)|新しいリリース情報やAspose.Slidesに関する役立つヒントについて定期的にこのページをチェックしてください。|
 |[Aspose.Slides for .NET ダウンロード](https://www.nuget.org/packages/Aspose.Slides.NET/)|ここでAspose.Slidesの最新バージョンをダウンロードします。新しいバージョンを頻繁にリリースします。|
 |[Aspose.Slidesサポートフォーラム](https://forum.aspose.com/c/slides/11)|ここで質問や問題を投稿して迅速な解決を図ります。|
-|[Aspose.Slides for .NET製品ドキュメント](/slides/net/)|この文書およびAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|
+|[Aspose.Slides for .NET製品ドキュメント](/slides/ja/net/)|この文書およびAspose.Slides APIリファレンスを含む完全なオンラインドキュメント。|
 
 ## **宣言**
 すべてのAspose .NETコンポーネントは、フル・トラストの権限セットを必要とします。理由：Aspose .NETコンポーネントは、フォントの解析や類似のタスクなどの特定の操作を実行するために、レジストリ設定、システムファイル、仮想ディレクトリにアクセスするために高い権限が必要です。さらに、Aspose .NETコンポーネントは、コア.NETシステムクラスに基づいており、多くのケースでフル・トラストの権限セットが要求されます。

@@ -2,7 +2,7 @@
 title: ポータブル文書フォーマット (PDF)
 type: docs
 weight: 40
-url: /java/portable-document-format-pdf/
+url: /ja/java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.Slidesは、PDFに変換する際に以下のプレゼンテーション�
 - 箇条書き。
 - テーブル。
 
-Aspose.Slides for Javaを使用すると、プレゼンテーションをPDFに直接エクスポートできます。他のコンポーネントは必要ありません。さらに、[PDFに変換する](/slides/java/converting-a-presentation/)で説明されているように、さまざまなオプションを使用してプレゼンテーションからPDFへのエクスポートをカスタマイズできます。
+Aspose.Slides for Javaを使用すると、プレゼンテーションをPDFに直接エクスポートできます。他のコンポーネントは必要ありません。さらに、[PDFに変換する](/slides/ja/java/converting-a-presentation/)で説明されているように、さまざまなオプションを使用してプレゼンテーションからPDFへのエクスポートをカスタマイズできます。
 
 **入力プレゼンテーション** 
 

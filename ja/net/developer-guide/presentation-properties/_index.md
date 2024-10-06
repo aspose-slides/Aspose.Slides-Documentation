@@ -3,7 +3,7 @@ title: プレゼンテーションプロパティ - C#でPowerPointプレゼン�
 linktitle: プレゼンテーションプロパティ
 type: docs
 weight: 70
-url: /net/presentation-properties/
+url: /ja/net/presentation-properties/
 keywords: "PowerPointの最終更新者を削除する方法, PowerPointプロパティ, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションプロパティ"
 ---

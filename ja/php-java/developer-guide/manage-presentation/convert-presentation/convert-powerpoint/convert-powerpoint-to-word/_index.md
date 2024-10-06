@@ -2,7 +2,7 @@
 title: PowerPointをWordに変換
 type: docs
 weight: 110
-url: /php-java/convert-powerpoint-to-word/
+url: /ja/php-java/convert-powerpoint-to-word/
 keywords: "PowerPointを変換, PPT, PPTX, プレゼンテーション, Word, DOCX, DOC, PPTXをDOCXに, PPTをDOCに, PPTXをDOCに, PPTをDOCXに, Java, java, Aspose.Slides"
 description: "PowerPointプレゼンテーションをWordに変換"
 ---

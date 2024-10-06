@@ -2,7 +2,7 @@
 title: OleObjectFrameを追加した際のオブジェクト変更問題
 type: docs
 weight: 10
-url: /androidjava/object-changed-issue-when-adding-oleobjectframe/
+url: /ja/androidjava/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **問題の説明**
@@ -11,7 +11,7 @@ url: /androidjava/object-changed-issue-when-adding-oleobjectframe/
 ## **批評分析と説明**
 まず最初に、**OleObjectFrame**をスライドに追加した後にAspose.Slides for Android via Javaによって表示される**オブジェクト変更**メッセージは、Aspose.Slides for Android via Javaのエラーやバグでは**ありません**。これはユーザーにオブジェクトが変更され、画像を更新する必要があることを通知する情報やメッセージです。
 
-例えば、スライドに**Microsoft Excelチャート**を**OleObjectFrame**として追加した場合（**OleObjectFrame**をスライドに追加する詳細とコードスニペットについては、[こちらをクリック](/slides/androidjava/adding-frame-to-the-slide/)）その後、MS PowerPointを使用してプレゼンテーションファイルを開くと、**OLEオブジェクト**が追加されたスライドは以下のようになります。
+例えば、スライドに**Microsoft Excelチャート**を**OleObjectFrame**として追加した場合（**OleObjectFrame**をスライドに追加する詳細とコードスニペットについては、[こちらをクリック](/slides/ja/androidjava/adding-frame-to-the-slide/)）その後、MS PowerPointを使用してプレゼンテーションファイルを開くと、**OLEオブジェクト**が追加されたスライドは以下のようになります。
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

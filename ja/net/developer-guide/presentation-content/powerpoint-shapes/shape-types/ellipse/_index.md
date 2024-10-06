@@ -2,7 +2,7 @@
 title: エリプス
 type: docs
 weight: 30
-url: /net/ellipse/
+url: /ja/net/ellipse/
 keywords: "エリプス, PowerPoint シェイプ, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET を使用して PowerPoint プレゼンテーションにエリプスを作成する"
 ---

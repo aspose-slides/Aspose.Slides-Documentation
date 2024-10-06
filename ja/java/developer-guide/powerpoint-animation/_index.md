@@ -2,7 +2,7 @@
 title: PowerPoint アニメーション
 type: docs
 weight: 150
-url: /java/powerpoint-animation/
+url: /ja/java/powerpoint-animation/
 keywords: "PowerPoint アニメーション"
 description: "PowerPoint アニメーション、Aspose.Slides を使用した PowerPoint スライドアニメーション。"
 ---
@@ -51,19 +51,19 @@ Aspose.Slides で**カスタムアニメーション**を作成することが�
 Aspose.Slides は、テキスト、長方形、線、フレーム、OLEオブジェクトなどにアニメーションを適用することを許可します。
 
 {{% alert color="primary" %}} 
-詳細は[**形状アニメーションについて**](/slides/java/shape-animation/)をお読みください。
+詳細は[**形状アニメーションについて**](/slides/ja/java/shape-animation/)をお読みください。
 {{% /alert %}}
 
 ## **アニメーションチャート**
 アニメーションチャートを作成するには、形状と同じクラスを使用する必要があります。ただし、PowerPoint アニメーションはチャートのカテゴリまたはチャート系列にのみ適用できます。また、カテゴリ要素または系列要素にアニメーション効果を適用することもできます。
 
 {{% alert color="primary" %}} 
-詳細は[**アニメーションチャートについて**](/slides/java/animated-charts/)をお読みください。
+詳細は[**アニメーションチャートについて**](/slides/ja/java/animated-charts/)をお読みください。
 {{% /alert %}}
 
 ## **アニメーションテキスト**
 アニメーションテキストに加えて、段落にアニメーションを適用することも可能です。
 
 {{% alert color="primary" %}} 
-詳細は[**アニメーションテキストについて**](/slides/java/animated-text/)をお読みください。
+詳細は[**アニメーションテキストについて**](/slides/ja/java/animated-text/)をお読みください。
 {{% /alert %}}

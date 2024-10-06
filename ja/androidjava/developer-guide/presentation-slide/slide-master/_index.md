@@ -2,7 +2,7 @@
 title: スライドマスター
 type: docs
 weight: 70
-url: /androidjava/slide-master/
+url: /ja/androidjava/slide-master/
 keywords: "スライドマスターを追加, PPTマスタースライド, スライドマスターパワーポイント, 画像をスライドマスターに追加, プレースホルダー, 複数のスライドマスター, スライドマスターを比較, Java, Aspose.Slides for Android via Java"
 description: "JavaでのPowerPointプレゼンテーション内のスライドマスターを追加または編集する"
 ---
@@ -144,7 +144,7 @@ try {
 
 {{% alert color="primary" title="関連情報" %}} 
 
-スライドに画像を追加する詳細については、[画像フレーム](/slides/androidjava/picture-frame/#create-picture-frame)の記事を参照してください。
+スライドに画像を追加する詳細については、[画像フレーム](/slides/ja/androidjava/picture-frame/#create-picture-frame)の記事を参照してください。
 {{% /alert %}}
 
 ## **スライドマスターにプレースホルダーを追加する**

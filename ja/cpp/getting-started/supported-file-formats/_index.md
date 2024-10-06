@@ -2,7 +2,7 @@
 title: サポートされているファイル形式
 type: docs
 weight: 20
-url: /cpp/supported-file-formats/
+url: /ja/cpp/supported-file-formats/
 keywords: C++ PowerPointライブラリ, C++ PowerPoint API, PowerPoint形式
 description: C++ PowerPointライブラリまたはAPIは、PPT、PPTX、POT、PPS、PPSX、ODP、OTP、PDF、XPS、SVGなどのさまざまなPowerPointファイル形式を読み込み、保存できます。
 ---

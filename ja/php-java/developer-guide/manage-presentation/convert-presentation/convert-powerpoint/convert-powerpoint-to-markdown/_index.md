@@ -2,7 +2,7 @@
 title: PowerPointをMarkdownに変換
 type: docs
 weight: 140
-url: /php-java/convert-powerpoint-to-markdown/
+url: /ja/php-java/convert-powerpoint-to-markdown/
 keywords: "PowerPointをMarkdownに変換, pptをmdに変換, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointをMarkdownに変換"
 ---

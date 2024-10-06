@@ -2,7 +2,7 @@
 title: 統合プレゼンテーション
 type: docs
 weight: 40
-url: /php-java/merge-presentation/
+url: /ja/php-java/merge-presentation/
 keywords: "PowerPointを統合する, PPTX, PPT, PowerPointを結合する, プレゼンテーションを統合する, プレゼンテーションを結合する, Java"
 description: "PowerPointプレゼンテーションを統合または結合します"
 ---

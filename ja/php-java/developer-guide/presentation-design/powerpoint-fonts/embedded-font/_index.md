@@ -3,7 +3,7 @@ title: 埋め込みフォント - PowerPoint Java API
 linktitle: 埋め込みフォント
 type: docs
 weight: 40
-url: /php-java/embedded-font/
+url: /ja/php-java/embedded-font/
 keywords: "フォント, 埋め込みフォント, フォントの追加, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションで埋め込みフォントを使用する"
 

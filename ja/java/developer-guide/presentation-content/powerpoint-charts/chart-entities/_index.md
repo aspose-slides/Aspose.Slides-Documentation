@@ -2,5 +2,5 @@
 title: チャートエンティティ
 type: docs
 weight: 30
-url: /java/chart-entities/
+url: /ja/java/chart-entities/
 ---

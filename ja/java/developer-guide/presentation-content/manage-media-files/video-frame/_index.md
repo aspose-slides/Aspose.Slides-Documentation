@@ -2,7 +2,7 @@
 title: ビデオフレーム
 type: docs
 weight: 10
-url: /java/video-frame/
+url: /ja/java/video-frame/
 keywords: "ビデオを追加, ビデオフレームを作成, ビデオを抽出, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションにビデオフレームを追加"
 ---

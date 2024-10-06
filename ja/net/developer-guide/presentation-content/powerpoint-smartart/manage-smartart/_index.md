@@ -2,7 +2,7 @@
 title: スマートアートを管理する
 type: docs
 weight: 10
-url: /net/manage-smartart/
+url: /ja/net/manage-smartart/
 keywords: "SmartArt, SmartArtからのテキスト, 組織図, 画像組織図, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointプレゼンテーションのスマートアートと組織図"
 ---

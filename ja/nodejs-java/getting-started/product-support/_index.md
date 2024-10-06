@@ -2,7 +2,7 @@
 title: 製品サポート
 type: docs
 weight: 100
-url: /nodejs-java/product-support/
+url: /ja/nodejs-java/product-support/
 ---
 
 ## **テクニカルサポート**
@@ -41,4 +41,4 @@ Aspose.Slides for Node.js via Javaで問題が発生した場合は、以下の�
 |[Aspose.Slides ブログ](https://blog.aspose.com/category/slides/)|新しいリリースに関する情報やAspose.Slidesの便利なヒントが定期的に更新されるこのセクションをチェックしてください。|
 |[Aspose.Slides for Node.js via Java ダウンロード](https://releases.aspose.com/slides/nodejs-java/)|このページからAspose.Slidesの最新バージョンをダウンロードできます。新しいバージョンを頻繁にリリースしています。|
 |[Aspose.Slides サポートフォーラム](https://forum.aspose.com/c/slides/11)|迅速な解決のためにここに質問や問題を投稿してください。|
-|[Aspose.Slides for Node.js via Java 製品ドキュメンテーション](/slides/nodejs-java/)|この文書とAspose.Slides APIリファレンスを含む完全なオンラインドキュメンテーションです。|
+|[Aspose.Slides for Node.js via Java 製品ドキュメンテーション](/slides/ja/nodejs-java/)|この文書とAspose.Slides APIリファレンスを含む完全なオンラインドキュメンテーションです。|

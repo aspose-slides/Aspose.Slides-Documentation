@@ -2,7 +2,7 @@
 title: OpenOfficeドキュメントの変換
 type: docs
 weight: 30
-url: /net/conversion-of-openoffice-document/
+url: /ja/net/conversion-of-openoffice-document/
 ---
 
 Aspose.Slides for .NETは、プレゼンテーションファイルを表す**Presentation**クラスを提供します。**Presentation**クラスは、オブジェクトがインスタンス化されるときにPresentationコンストラクターを介して**ODP**にもアクセスできるようになりました。

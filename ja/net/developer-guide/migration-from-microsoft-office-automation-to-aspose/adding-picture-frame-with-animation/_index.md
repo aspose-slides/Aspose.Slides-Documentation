@@ -2,12 +2,12 @@
 title: アニメーション付きの画像フレームの追加
 type: docs
 weight: 60
-url: /net/adding-picture-frame-with-animation/
+url: /ja/net/adding-picture-frame-with-animation/
 ---
 
 {{% alert color="primary" %}} 
 
-画像フレームは、Microsoft PowerPointの図形や画像に適用され、プレゼンテーション内の画像を枠で囲みます。この記事では、まず[VSTO 2008](/slides/net/adding-picture-frame-with-animation/)を使用してプログラム的に画像フレームを作成し、その上にアニメーションを適用する方法を示し、その後[Aspose.Slides for .NET](/slides/net/adding-picture-frame-with-animation/)を使用した同様の手順を示します。最初に、VSTO 2008を使用してフレームとアニメーションを適用する方法を説明します。次に、Aspose.Slides for .NETを使用して同じ手順を実行する方法を示します。
+画像フレームは、Microsoft PowerPointの図形や画像に適用され、プレゼンテーション内の画像を枠で囲みます。この記事では、まず[VSTO 2008](/slides/ja/net/adding-picture-frame-with-animation/)を使用してプログラム的に画像フレームを作成し、その上にアニメーションを適用する方法を示し、その後[Aspose.Slides for .NET](/slides/ja/net/adding-picture-frame-with-animation/)を使用した同様の手順を示します。最初に、VSTO 2008を使用してフレームとアニメーションを適用する方法を説明します。次に、Aspose.Slides for .NETを使用して同じ手順を実行する方法を示します。
 
 {{% /alert %}} 
 ## **アニメーション付き画像フレームの追加**

@@ -2,7 +2,7 @@
 title: スライド遷移
 type: docs
 weight: 80
-url: /androidjava/slide-transition/
+url: /ja/androidjava/slide-transition/
 keywords: "PowerPointスライド遷移、JavaのMorph遷移"
 description: "PowerPointスライド遷移、JavaのPowerPoint Morph遷移"
 ---

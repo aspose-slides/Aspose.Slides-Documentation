@@ -2,7 +2,7 @@
 title: Aspose.Slides for Reporting Servicesのインストール  
 type: docs  
 weight: 10  
-url: /reportingservices/installing-aspose-slides-for-reporting-services/  
+url: /ja/reportingservices/installing-aspose-slides-for-reporting-services/  
 ---  
 
 {{% alert color="primary" %}}  
@@ -26,12 +26,12 @@ Aspose.Slides for Reporting ServicesはPower BIサーバーにインストール
 
 ### **インストールに関する記事へのリンク**  
 
-- [MSIインストーラーを使用したインストール](/slides/reportingservices/install-with-msi-installer/)  
-- [手動でのインストール](/slides/reportingservices/install-manually/)  
-- [Aspose.Slides for Reporting Servicesの再インストール](/slides/reportingservices/re-installing-aspose-slides-for-reporting-services/)  
-- [Visual Studio 2005または2008レポートデザイナーとの手動統合](/slides/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)  
-- [Microsoft PowerPointレンダリング拡張のキャプションのカスタマイズ](/slides/reportingservices/customizing-powerpoint-rendering-extension-caption/)  
-- [Aspose.Slides for Reporting Servicesのライセンス](/slides/reportingservices/license-aspose-slides-for-reporting-services/)  
+- [MSIインストーラーを使用したインストール](/slides/ja/reportingservices/install-with-msi-installer/)  
+- [手動でのインストール](/slides/ja/reportingservices/install-manually/)  
+- [Aspose.Slides for Reporting Servicesの再インストール](/slides/ja/reportingservices/re-installing-aspose-slides-for-reporting-services/)  
+- [Visual Studio 2005または2008レポートデザイナーとの手動統合](/slides/ja/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/)  
+- [Microsoft PowerPointレンダリング拡張のキャプションのカスタマイズ](/slides/ja/reportingservices/customizing-powerpoint-rendering-extension-caption/)  
+- [Aspose.Slides for Reporting Servicesのライセンス](/slides/ja/reportingservices/license-aspose-slides-for-reporting-services/)  
 
 {{% alert title="注意" color="warning" %}}  
 

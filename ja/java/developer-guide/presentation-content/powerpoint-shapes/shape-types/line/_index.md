@@ -2,7 +2,7 @@
 title: 線
 type: docs
 weight: 50
-url: /java/Line/
+url: /ja/java/Line/
 ---
 
 

@@ -2,7 +2,7 @@
 title: メーターライセンス
 type: docs
 weight: 100
-url: /androidjava/metered-licensing/
+url: /ja/androidjava/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

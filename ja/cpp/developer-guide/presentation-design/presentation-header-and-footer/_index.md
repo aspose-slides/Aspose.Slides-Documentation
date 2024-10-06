@@ -2,18 +2,18 @@
 title: プレゼンテーションのヘッダーとフッター
 type: docs
 weight: 140
-url: /cpp/presentation-header-and-footer/
+url: /ja/cpp/presentation-header-and-footer/
 keywords: "PowerPointのヘッダーとフッター"
 description: "Aspose.Slidesを使用したPowerPointのヘッダーとフッター。"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/cpp/) は、スライドマスターレベルで実際に管理されるスライドのヘッダーとフッターテキストを操作するためのサポートを提供します。
+[Aspose.Slides](/slides/ja/cpp/) は、スライドマスターレベルで実際に管理されるスライドのヘッダーとフッターテキストを操作するためのサポートを提供します。
 
 {{% /alert %}} 
 
-[Aspose.Slides for C++](/slides/cpp/) は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターレベルで管理されています。
+[Aspose.Slides for C++](/slides/ja/cpp/) は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターレベルで管理されています。
 ## **ヘッダーとフッターテキストの管理**
 特定のスライドのノートは、以下の例に示すように更新できます：
 

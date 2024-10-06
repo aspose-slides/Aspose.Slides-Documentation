@@ -2,7 +2,7 @@
 title: シェイプアニメーション
 type: docs
 weight: 60
-url: /php-java/shape-animation/
+url: /ja/php-java/shape-animation/
 keywords: "PowerPointアニメーション, アニメーション効果, アニメーションの適用, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointアニメーションの適用"
 ---
@@ -67,7 +67,7 @@ Aspose.Slides for PHP via Javaを使用すると、シェイプ内のテキス�
 
 {{%  alert color="primary"  %}} 
 
-テキストへのアニメーションの適用に加えて、単一の[段落](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph)へのアニメーションの適用もできます。 [**アニメーションテキスト**](/slides/php-java/animated-text/)を参照してください。
+テキストへのアニメーションの適用に加えて、単一の[段落](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph)へのアニメーションの適用もできます。 [**アニメーションテキスト**](/slides/ja/php-java/animated-text/)を参照してください。
 
 {{% /alert %}} 
 

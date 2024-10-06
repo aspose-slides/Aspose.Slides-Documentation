@@ -1,7 +1,7 @@
 ---
 title: エラーバー
 type: docs
-url: /java/error-bar/
+url: /ja/java/error-bar/
 ---
 
 ## **エラーバーを追加する**

@@ -3,7 +3,7 @@ title: PHPを使用してPowerPointプレゼンテーションを作成する
 linktitle: プレゼンテーションを作成する
 type: docs
 weight: 10
-url: /php-java/create-presentation/
+url: /ja/php-java/create-presentation/
 keywords: ppt javaを作成, pptプレゼンテーションを作成, pptx javaを作成
 description: PHPを使用してPPTやPPTXなどのPowerPointプレゼンテーションをゼロから作成する方法を学びましょう。
 ---

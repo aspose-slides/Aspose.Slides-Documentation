@@ -2,7 +2,7 @@
 title: RPL形式でのレポートのエクスポート  
 type: docs  
 weight: 110  
-url: /reportingservices/exporting-reports-to-rpl-format/  
+url: /ja/reportingservices/exporting-reports-to-rpl-format/  
 ---  
 
 ﻿  

@@ -2,7 +2,7 @@
 title: アニメーションテキスト
 type: docs
 weight: 60
-url: /cpp/animated-text/
+url: /ja/cpp/animated-text/
 keywords: "PowerPointのアニメーションテキスト"
 description: "Aspose.Slidesを使用したPowerPointプレゼンテーションのアニメーションテキスト"
 ---

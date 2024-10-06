@@ -2,7 +2,7 @@
 title: エクスポートされたプレゼンテーションのパスワード保護
 type: docs
 weight: 90
-url: /reportingservices/password-protecting-the-exported-presentation/
+url: /ja/reportingservices/password-protecting-the-exported-presentation/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: ウォーターマーク
 type: docs
 weight: 40
-url: /androidjava/watermark/
+url: /ja/androidjava/watermark/
 keywords:
 - ウォーターマーク
 - ウォーターマークを追加
@@ -49,7 +49,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [TextFrameクラスの使用方法](/slides/androidjava/text-formatting/)
+- [TextFrameクラスの使用方法](/slides/ja/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **プレゼンテーションにテキストウォーターマークを追加する**
@@ -69,7 +69,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [スライドマスターの使用方法](/slides/androidjava/slide-master/)
+- [スライドマスターの使用方法](/slides/ja/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **ウォーターマークシェイプの透明度を設定する**

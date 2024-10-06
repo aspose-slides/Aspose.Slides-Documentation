@@ -2,7 +2,7 @@
 title: フラッシュ
 type: docs
 weight: 10
-url: /php-java/flash/
+url: /ja/php-java/flash/
 description: PHPを使用してPowerPointプレゼンテーションからFlashオブジェクトを抽出する
 ---
 

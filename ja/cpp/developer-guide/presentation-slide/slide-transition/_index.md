@@ -2,7 +2,7 @@
 title: スライド トランジション
 type: docs
 weight: 80
-url: /cpp/slide-transition/
+url: /ja/cpp/slide-transition/
 keywords: "PowerPoint スライド トランジション, モーフ トランジション"
 description: "PowerPoint スライド トランジション、Aspose.Slidesを使用した PowerPoint モーフ トランジション。"
 ---

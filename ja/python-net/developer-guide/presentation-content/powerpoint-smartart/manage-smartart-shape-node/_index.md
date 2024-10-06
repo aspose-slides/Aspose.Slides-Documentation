@@ -2,7 +2,7 @@
 title: SmartArt図形ノードの管理
 type: docs
 weight: 30
-url: /python-net/manage-smartart-shape-node/
+url: /ja/python-net/manage-smartart-shape-node/
 keywords: "SmartArtノード, SmartArt子ノード, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointプレゼンテーション内のSmartノードと子ノード"
 ---

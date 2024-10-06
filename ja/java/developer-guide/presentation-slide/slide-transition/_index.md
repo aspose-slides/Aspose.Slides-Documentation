@@ -2,7 +2,7 @@
 title: スライド遷移
 type: docs
 weight: 80
-url: /java/slide-transition/
+url: /ja/java/slide-transition/
 keywords: "PowerPoint スライド遷移, Java におけるモーフ遷移"
 description: "PowerPoint スライド遷移, Java における PowerPoint モーフ遷移"
 ---

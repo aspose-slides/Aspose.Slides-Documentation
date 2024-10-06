@@ -2,7 +2,7 @@
 title: インクの管理
 type: docs
 weight: 95
-url: /python-net/manage-ink/
+url: /ja/python-net/manage-ink/
 keywords: "PowerPointのインク, インクツール, Pythonインク, PowerPointで描画, PowerPointプレゼンテーション, Python, .NET経由のAspose.Slides for Python"
 description: "PythonでPowerPointのオブジェクトを描画するためにインクツールを使用する"
 ---

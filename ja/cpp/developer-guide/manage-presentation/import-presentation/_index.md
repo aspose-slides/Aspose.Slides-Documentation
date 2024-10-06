@@ -3,7 +3,7 @@ title: プレゼンテーションのインポート - C++ PowerPoint API
 linktitle: プレゼンテーションのインポート
 type: docs
 weight: 60
-url: /cpp/import-presentation/
+url: /ja/cpp/import-presentation/
 keywords: "PowerPointのインポート, PDFからプレゼンテーションへ, PDFからPPTXへ, PDFからPPTへ, C++, Aspose.Slides for C++"
 description: "PDFからPowerPointプレゼンテーションをインポートします。PDFをPowerPointに変換します。"
 ---

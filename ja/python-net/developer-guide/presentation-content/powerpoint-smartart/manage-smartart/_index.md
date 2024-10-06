@@ -2,7 +2,7 @@
 title: SmartArtの管理
 type: docs
 weight: 10
-url: /python-net/manage-smartart/
+url: /ja/python-net/manage-smartart/
 keywords: "SmartArt, SmartArtからのテキスト, 組織図, 画像組織図, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointプレゼンテーションのSmartArtと組織図"
 ---

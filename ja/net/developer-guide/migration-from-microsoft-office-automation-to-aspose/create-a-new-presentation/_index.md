@@ -2,7 +2,7 @@
 title: 新しいプレゼンテーションを作成する
 type: docs
 weight: 10
-url: /net/create-a-new-presentation/
+url: /ja/net/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for .NETは、VSTOと同様にMicrosoft PowerPointプレゼンテ�
 
 {{% /alert %}} 
 ## **プレゼンテーションの作成**
-以下は、同じ目的を達成するためにVSTOとAspose.Slides for .NETがどのように使用されるかを示す2つのコード例です。最初の例は[VSTO](/slides/net/create-a-new-presentation/); [2番目の例](/slides/net/create-a-new-presentation/)はAspose.Slidesを使用しています。
+以下は、同じ目的を達成するためにVSTOとAspose.Slides for .NETがどのように使用されるかを示す2つのコード例です。最初の例は[VSTO](/slides/ja/net/create-a-new-presentation/); [2番目の例](/slides/ja/net/create-a-new-presentation/)はAspose.Slidesを使用しています。
 ### **VSTOの例**
 **VSTOの出力** 
 

@@ -2,12 +2,12 @@
 title: プレゼンテーションにチャートを作成する方法
 type: docs
 weight: 30
-url: /net/how-to-create-charts-in-a-presentation/
+url: /ja/net/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-新しい[Aspose.Slides for .NET API](/slides/net/)がリリースされ、これによりこの単一製品はゼロからPowerPointドキュメントを生成し、既存のものを編集する機能をサポートします。
+新しい[Aspose.Slides for .NET API](/slides/ja/net/)がリリースされ、これによりこの単一製品はゼロからPowerPointドキュメントを生成し、既存のものを編集する機能をサポートします。
 
 {{% /alert %}} 
 ## **レガシーコードのサポート**

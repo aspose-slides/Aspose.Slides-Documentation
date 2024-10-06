@@ -2,7 +2,7 @@
 title: プレゼンテーションに図形を追加  
 type: docs  
 weight: 30  
-url: /net/adding-shapes-to-presentation/  
+url: /ja/net/adding-shapes-to-presentation/  
 ---  
 
 ## **VSTO**  

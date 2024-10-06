@@ -2,7 +2,7 @@
 title: プレゼンテーションスライド全体の背景を画像として取得する
 type: docs
 weight: 95
-url: /androidjava/get-the-entire-presentation-slide-background-as-an-image/
+url: /ja/androidjava/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - スライド
 - 背景
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Android via Java
 ---
 
-PowerPointプレゼンテーションでは、スライドの背景は多くの要素で構成される場合があります。[スライド背景](/slides/androidjava/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションのテーマ、カラースキーム、マスタースライド及びレイアウトスライドに配置された形状の影響を受けることがあります。
+PowerPointプレゼンテーションでは、スライドの背景は多くの要素で構成される場合があります。[スライド背景](/slides/ja/androidjava/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションのテーマ、カラースキーム、マスタースライド及びレイアウトスライドに配置された形状の影響を受けることがあります。
 
 Aspose.Slides for Android via Javaは、プレゼンテーションスライド全体の背景を画像として抽出するための簡単な方法を提供していませんが、以下の手順に従うことでこれを行うことができます：
 1. [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)クラスを使用してプレゼンテーションをロードします。

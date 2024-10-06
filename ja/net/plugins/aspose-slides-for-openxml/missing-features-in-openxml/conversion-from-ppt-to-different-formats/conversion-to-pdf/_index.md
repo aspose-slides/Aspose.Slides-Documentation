@@ -2,7 +2,7 @@
 title: PDF への変換
 type: docs
 weight: 30
-url: /net/conversion-to-pdf/
+url: /ja/net/conversion-to-pdf/
 ---
 
 PDF 文書は、組織、政府部門、個人間で文書を交換するための標準形式として広く使用されています。これは人気のある形式であり、開発者はしばしば Microsoft PowerPoint プレゼンテーションファイルを PDF 文書に変換するよう求められます。このような要件を実現するために、Aspose.Slides for .NET は、他のコンポーネントを使用することなくプレゼンテーションを PDF 文書に変換することをサポートしています。

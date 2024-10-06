@@ -2,7 +2,7 @@
 title: フラッシュ
 type: docs
 weight: 10
-url: /python-net/flash/
+url: /ja/python-net/flash/
 keywords: "フラッシュ抽出、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションからフラッシュオブジェクトを抽出"
 ---

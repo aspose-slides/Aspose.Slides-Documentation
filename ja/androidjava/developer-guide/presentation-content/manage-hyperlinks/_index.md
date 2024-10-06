@@ -2,7 +2,7 @@
 title: ハイパーリンクの管理
 type: docs
 weight: 20
-url: /androidjava/manage-hyperlinks/
+url: /ja/androidjava/manage-hyperlinks/
 keywords: "PowerPoint ハイパーリンク, テキストハイパーリンク, スライドハイパーリンク, 形状ハイパーリンク, 画像ハイパーリンク, ビデオハイパーリンク, Java"
 description: "JavaでPowerPointプレゼンテーションにハイパーリンクを追加する方法"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="ヒント"  color="primary"  %}} 
 
-* [OLEの管理](/slides/androidjava/manage-ole/) を見ると良いでしょう。
+* [OLEの管理](/slides/ja/androidjava/manage-ole/) を見ると良いでしょう。
 
 {{% /alert %}}
 

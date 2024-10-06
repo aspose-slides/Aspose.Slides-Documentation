@@ -2,7 +2,7 @@
 title: PPTXにおける段落と部分のコピー
 type: docs
 weight: 70
-url: /java/copying-paragraph-and-portion-in-pptx/
+url: /ja/java/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: モダンAPI
 type: docs
 weight: 237
-url: /net/modern-api/
+url: /ja/net/modern-api/
 keywords: "クロスプラットフォーム モダンAPI System.Drawing"
 description: "モダンAPI"
 ---

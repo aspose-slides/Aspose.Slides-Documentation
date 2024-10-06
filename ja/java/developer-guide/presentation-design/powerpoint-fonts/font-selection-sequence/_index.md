@@ -3,7 +3,7 @@ title: Javaにおけるフォント選択シーケンス
 linktitle: Javaにおけるフォント選択シーケンス
 type: docs
 weight: 80
-url: /java/font-selection-sequence/
+url: /ja/java/font-selection-sequence/
 keywords:
 - フォント
 - フォント選択

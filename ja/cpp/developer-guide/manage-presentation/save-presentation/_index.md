@@ -3,7 +3,7 @@ title: プレゼンテーションの保存 - C++ PowerPointライブラリ
 linktitle: プレゼンテーションの保存
 type: docs
 weight: 80
-url: /cpp/save-presentation/
+url: /ja/cpp/save-presentation/
 description: C++ PowerPoint APIまたはライブラリを使用すると、プレゼンテーションをファイルまたはストリームに保存できます。ゼロからプレゼンテーションを作成するか、既存のものを修正できます。
 ---
 

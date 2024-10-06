@@ -3,7 +3,7 @@ title: フォント置き換え - PowerPoint C# API
 linktitle: フォント置き換え
 type: docs
 weight: 60
-url: /net/font-replacement/
+url: /ja/net/font-replacement/
 keywords: "フォント, フォントを置き換える, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: C# PowerPoint APIを使用すると、プレゼンテーション内で別のフォントに明示的にフォントを置き換えることができます。
 ---
@@ -39,6 +39,6 @@ presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 
 {{% alert title="注意" color="warning" %}} 
 
-特定の条件（例えば、フォントにアクセスできない場合）で何が起こるかを決定するルールを設定するには、[**フォント置換**](/slides/net/font-substitution/)を参照してください。
+特定の条件（例えば、フォントにアクセスできない場合）で何が起こるかを決定するルールを設定するには、[**フォント置換**](/slides/ja/net/font-substitution/)を参照してください。
 
 {{% /alert %}}

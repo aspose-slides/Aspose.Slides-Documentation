@@ -2,7 +2,7 @@
 title: PowerPointをPythonでMarkdownに変換する
 type: docs
 weight: 140
-url: /python-net/convert-powerpoint-to-markdown/
+url: /ja/python-net/convert-powerpoint-to-markdown/
 keywords: "PowerPointをMarkdownに変換する, pptをmdに変換する, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointをMarkdownに変換する"
 ---

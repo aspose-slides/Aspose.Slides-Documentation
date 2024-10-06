@@ -2,7 +2,7 @@
 title: サンプルを実行する方法
 type: docs
 weight: 130
-url: /net/how-to-run-examples/
+url: /ja/net/how-to-run-examples/
 ---
 
 ## **ソフトウェア要件**

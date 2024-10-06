@@ -2,7 +2,7 @@
 title: 新しいプレゼンテーションを作成する
 type: docs
 weight: 10
-url: /java/create-a-new-presentation/
+url: /ja/java/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for Javaは、Microsoft PowerPointプレゼンテーションを�
 
 {{% /alert %}} 
 ## **プレゼンテーションの作成**
-以下は、VSTOとAspose.Slides for Javaが同じ目的を達成するためにどのように使用できるかを示す2つのコード例です。最初の例は[VSTO](/slides/java/create-a-new-presentation/); [2番目の例](/slides/java/create-a-new-presentation/)はAspose.Slidesを使用しています。
+以下は、VSTOとAspose.Slides for Javaが同じ目的を達成するためにどのように使用できるかを示す2つのコード例です。最初の例は[VSTO](/slides/ja/java/create-a-new-presentation/); [2番目の例](/slides/ja/java/create-a-new-presentation/)はAspose.Slidesを使用しています。
 ### **VSTOの例**
 **VSTOの出力** 
 

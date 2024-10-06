@@ -2,7 +2,7 @@
 title: 数学方程式のエクスポート
 type: docs
 weight: 30
-url: /net/exporting-math-equations/
+url: /ja/net/exporting-math-equations/
 keywords: "数学方程式のエクスポート, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint 数学方程式をエクスポート"
 ---

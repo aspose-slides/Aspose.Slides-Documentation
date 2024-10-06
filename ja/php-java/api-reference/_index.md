@@ -2,7 +2,7 @@
 title: API リファレンス
 type: docs
 weight: 50
-url: /php-java/api-reference/
+url: /ja/php-java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

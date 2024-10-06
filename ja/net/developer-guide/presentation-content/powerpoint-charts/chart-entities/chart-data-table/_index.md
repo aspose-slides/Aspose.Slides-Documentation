@@ -1,7 +1,7 @@
 ---
 title: チャートデータテーブル
 type: docs
-url: /net/chart-data-table/
+url: /ja/net/chart-data-table/
 keywords: "フォントプロパティ, チャートデータテーブル, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでのPowerPointプレゼンテーションにおけるチャートデータベーステーブルのフォントプロパティを設定する"
 ---

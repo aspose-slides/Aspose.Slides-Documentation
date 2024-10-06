@@ -2,7 +2,7 @@
 title: プレゼンテーションからスライドを削除する
 type: docs
 weight: 30
-url: /java/remove-slide-from-presentation/
+url: /ja/java/remove-slide-from-presentation/
 keywords: "スライドを削除, スライドを消去, PowerPoint, プレゼンテーション, Java, Aspose.Slides"
 description: "Javaで参照またはインデックスを使用してPowerPointからスライドを削除する"
 

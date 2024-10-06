@@ -2,7 +2,7 @@
 title: VSTOとAspose.Slidesを使用してPowerPointスライドにテーブルを作成する
 type: docs
 weight: 90
-url: /net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
+url: /ja/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
 以下の手順で、VSTOを使用してMicrosoft PowerPointスライドにテーブルを追加します。

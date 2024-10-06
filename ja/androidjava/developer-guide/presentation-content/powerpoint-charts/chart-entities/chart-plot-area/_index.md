@@ -1,7 +1,7 @@
 ---
 title: チャートプロットエリア
 type: docs
-url: /androidjava/chart-plot-area/
+url: /ja/androidjava/chart-plot-area/
 ---
 
 

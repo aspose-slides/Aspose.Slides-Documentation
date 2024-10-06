@@ -2,7 +2,7 @@
 title: グラフの書式設定
 type: docs
 weight: 60
-url: /php-java/chart-formatting/
+url: /ja/php-java/chart-formatting/
 ---
 
 ## **グラフエンティティの書式設定**

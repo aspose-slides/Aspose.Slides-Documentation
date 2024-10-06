@@ -1,7 +1,7 @@
 ---
 title: エラーバー
 type: docs
-url: /php-java/error-bar/
+url: /ja/php-java/error-bar/
 ---
 
 ## **エラーバーの追加**

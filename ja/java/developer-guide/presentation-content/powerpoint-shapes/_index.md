@@ -2,5 +2,5 @@
 title: PowerPointの図形
 type: docs
 weight: 90
-url: /java/powerpoint-shapes/
+url: /ja/java/powerpoint-shapes/
 ---

@@ -2,7 +2,7 @@
 title: フォールバックフォントの作成
 type: docs
 weight: 10
-url: /php-java/create-fallback-font/
+url: /ja/php-java/create-fallback-font/
 ---
 
 Aspose.Slidesは、フォールバックフォントを適用するルールを指定するために、[IFontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRule)インターフェイスおよび[FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule)クラスをサポートしています。[FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule)クラスは、欠落したグリフを検索するために使用される指定されたUnicode範囲と、適切なグリフを含む可能性のあるフォントのリストとの関連を表します：
@@ -22,5 +22,5 @@ Aspose.Slidesは、フォールバックフォントを適用するルールを�
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection)は、複数のUnicode範囲に対してフォールバックフォント置換ルールを指定する必要がある場合に、[FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule)オブジェクトのリストを整理するために使用できます。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [フォールバックフォントコレクションの作成](/slides/php-java/create-fallback-fonts-collection/)
+- [フォールバックフォントコレクションの作成](/slides/ja/php-java/create-fallback-fonts-collection/)
 {{% /alert %}}

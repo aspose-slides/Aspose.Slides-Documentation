@@ -2,7 +2,7 @@
 title: ドーナツチャート
 type: docs
 weight: 30
-url: /net/doughnut-chart/
+url: /ja/net/doughnut-chart/
 keywords: "ドーナツチャート, 中央の隙間, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションのドーナツチャートの中央の隙間を指定する"
 ---

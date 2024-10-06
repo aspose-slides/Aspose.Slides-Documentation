@@ -2,7 +2,7 @@
 title: 画像
 type: docs
 weight: 10
-url: /python-net/image/
+url: /ja/python-net/image/
 keywords: "画像を追加, 写真を追加, PowerPoint プレゼンテーション, EMF, SVG, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointスライドまたはプレゼンテーションに画像を追加"
 ---

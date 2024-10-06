@@ -2,18 +2,18 @@
 title: プレゼンテーションのヘッダーとフッター
 type: docs
 weight: 140
-url: /php-java/presentation-header-and-footer/
+url: /ja/php-java/presentation-header-and-footer/
 keywords: "PowerPoint ヘッダーとフッター "
 description: "PowerPoint ヘッダーとフッター "
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/php-java/) は、スライドのヘッダーとフッターテキストの操作をサポートしており、実際にはスライドマスターのレベルで管理されています。
+[Aspose.Slides](/slides/ja/php-java/) は、スライドのヘッダーとフッターテキストの操作をサポートしており、実際にはスライドマスターのレベルで管理されています。
 
 {{% /alert %}} 
 
-[Aspose.Slides for PHP via Java](/slides/php-java/) は、プレゼンテーションスライド内でヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターのレベルで管理されています。
+[Aspose.Slides for PHP via Java](/slides/ja/php-java/) は、プレゼンテーションスライド内でヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターのレベルで管理されています。
 
 ## **プレゼンテーションにおけるヘッダーとフッターの管理**
 特定のスライドのノートは、以下の例のように削除できます：

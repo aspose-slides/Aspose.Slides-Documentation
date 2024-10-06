@@ -2,7 +2,7 @@
 title: システム要件
 type: docs
 weight: 60
-url: /python-net/system-requirements/
+url: /ja/python-net/system-requirements/
 ---
 Aspose.Slides for Python via .NETは、Microsoft PowerPointなどのサードパーティ製品をインストールする必要はありません。Aspose.Slides自体は、Microsoft PowerPointプレゼンテーション形式を含むさまざまな形式のドキュメントを作成、変更、変換、レンダリングするためのエンジンです。
 

@@ -2,7 +2,7 @@
 title: PowerPointを動画に変換
 type: docs
 weight: 130
-url: /python-net/convert-powerpoint-to-video/
+url: /ja/python-net/convert-powerpoint-to-video/
 keywords: "PowerPoint変換, PPT, PPTX, プレゼンテーション, 動画, MP4, PPTから動画, PPTからMP4, Python, Aspose.Slides"
 description: "PythonでPowerPointを動画に変換"
 ---

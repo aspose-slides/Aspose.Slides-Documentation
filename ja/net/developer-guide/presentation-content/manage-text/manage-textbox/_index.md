@@ -2,7 +2,7 @@
 title: テキストボックスの管理
 type: docs
 weight: 20
-url: /net/manage-textbox/
+url: /ja/net/manage-textbox/
 keywords: "Textbox, テキストフレーム, テキストボックスの追加, ハイパーリンク付きテキストボックス, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにテキストボックスまたはテキストフレームを追加します"
 ---

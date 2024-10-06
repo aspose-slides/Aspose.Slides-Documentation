@@ -1,7 +1,7 @@
 ---
 title: パイチャート
 type: docs
-url: /python-net/pie-chart/
+url: /ja/python-net/pie-chart/
 keywords: "パイチャート, プロットオプション, スライスの色, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでのPowerPointプレゼンテーションにおけるパイチャートのプロットオプションとスライスの色"
 ---

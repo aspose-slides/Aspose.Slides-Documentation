@@ -2,7 +2,7 @@
 title: SmartArt シェイプの管理
 type: docs
 weight: 20
-url: /java/manage-smartart-shape/
+url: /ja/java/manage-smartart-shape/
 ---
 
 ## **SmartArt シェイプの作成**

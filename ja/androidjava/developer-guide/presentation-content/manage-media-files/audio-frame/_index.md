@@ -2,7 +2,7 @@
 title: オーディオフレーム
 type: docs
 weight: 10
-url: /androidjava/audio-frame/
+url: /ja/androidjava/audio-frame/
 keywords: "オーディオの追加, オーディオフレーム, オーディオプロパティ, オーディオの抽出, Java, Aspose.Slides for Android via Java"
 description: "JavaでPowerPointプレゼンテーションにオーディオを追加する"
 ---

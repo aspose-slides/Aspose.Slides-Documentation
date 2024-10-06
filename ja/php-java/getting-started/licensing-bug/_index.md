@@ -2,7 +2,7 @@
 title: ライセンスバグ
 type: docs
 weight: 95
-url: /php-java/licensing-bug/
+url: /ja/php-java/licensing-bug/
 ---
 
 この記事では、Aspose.Slides for PHP via Java バージョン 23.2、23.3、23.4、23.5、23.6、および 23.7で発生したライセンスバグについて説明します。このバグの影響で、 perpetual licenses がサブスクリプションの期限切れ後に一時的に使用できなくなりました。

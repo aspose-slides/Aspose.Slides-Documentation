@@ -2,7 +2,7 @@
 title: テキストフォーマット
 type: docs
 weight: 50
-url: /cpp/text-formatting/
+url: /ja/cpp/text-formatting/
 keywords:
 - ハイライトテキスト
 - 正規表現

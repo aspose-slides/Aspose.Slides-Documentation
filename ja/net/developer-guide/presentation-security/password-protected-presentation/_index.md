@@ -2,7 +2,7 @@
 title: パスワード保護プレゼンテーション
 type: docs
 weight: 20
-url: /net/password-protected-presentation/
+url: /ja/net/password-protected-presentation/
 keywords: "PowerPointのロック, PowerPointの解除, PowerPointの保護, パスワード設定, パスワード追加, PowerPointの暗号化, PowerPointの復号, 書き込み保護, PowerPointのセキュリティ, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointのパスワード保護、暗号化、セキュリティ"
 
@@ -219,5 +219,5 @@ using (IPresentation pres = new Presentation("pres.pptx"))
 指定されたパスワードでプレゼンテーションが暗号化されている場合は`true`を返し、そうでない場合は`false`を返します。 
 
 {{% alert color="primary" title="関連情報" %}} 
-- [PowerPointのデジタル署名](/slides/net/digital-signature-in-powerpoint/)
+- [PowerPointのデジタル署名](/slides/ja/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

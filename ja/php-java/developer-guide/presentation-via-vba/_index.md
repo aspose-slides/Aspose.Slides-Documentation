@@ -2,7 +2,7 @@
 title: VBAを使用したプレゼンテーション
 type: docs
 weight: 250
-url: /php-java/presentation-via-vba/
+url: /ja/php-java/presentation-via-vba/
 keywords: "マクロ, マクロ, VBA, VBAマクロ, マクロを追加, マクロを削除, VBAを追加, VBAを削除, マクロを抽出, VBAを抽出, PowerPointマクロ, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションのVBAマクロを追加、削除、抽出します"
 ---

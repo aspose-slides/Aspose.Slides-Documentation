@@ -2,7 +2,7 @@
 title: スライドセクション
 type: docs
 weight: 90
-url: /androidjava/slide-section/
+url: /ja/androidjava/slide-section/
 ---
 
 Aspose.Slides for Android via Javaを使用すると、PowerPointプレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成することができます。

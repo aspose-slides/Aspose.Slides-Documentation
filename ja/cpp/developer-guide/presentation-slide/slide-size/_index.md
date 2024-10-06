@@ -2,7 +2,7 @@
 title: スライドサイズ
 type: docs
 weight: 70
-url: /cpp/slide-size/
+url: /ja/cpp/slide-size/
 
 ---
 

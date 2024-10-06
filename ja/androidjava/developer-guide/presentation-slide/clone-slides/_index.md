@@ -2,7 +2,7 @@
 title: スライドをクローンする
 type: docs
 weight: 35
-url: /androidjava/clone-slides/
+url: /ja/androidjava/clone-slides/
 ---
 
 

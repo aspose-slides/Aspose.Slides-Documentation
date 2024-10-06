@@ -2,5 +2,5 @@
 title: プレゼンテーションコンテンツ
 type: docs
 weight: 30
-url: /php-java/presentation-content/
+url: /ja/php-java/presentation-content/
 ---

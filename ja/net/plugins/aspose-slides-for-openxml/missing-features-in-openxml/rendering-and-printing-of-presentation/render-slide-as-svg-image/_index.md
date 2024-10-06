@@ -2,7 +2,7 @@
 title: SVG画像としてスライドをレンダリング
 type: docs
 weight: 50
-url: /net/render-slide-as-svg-image/
+url: /ja/net/render-slide-as-svg-image/
 ---
 
 SVG（スケーラブル・ベクター・グラフィックスの略）は、二次元画像をレンダリングするために使用される標準的なグラフィックタイプまたは形式です。SVGはXMLでベクターとして画像を保存し、その動作や外観を定義する詳細を含んでいます。

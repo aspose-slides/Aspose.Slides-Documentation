@@ -2,7 +2,7 @@
 title: ポーション
 type: docs
 weight: 70
-url: /cpp/portion/
+url: /ja/cpp/portion/
 ---
 
 ## **ポーションの位置座標を取得する**

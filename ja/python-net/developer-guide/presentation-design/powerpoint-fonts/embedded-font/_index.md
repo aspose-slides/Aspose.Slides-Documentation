@@ -2,7 +2,7 @@
 title: 埋め込まれたフォント
 type: docs
 weight: 40
-url: /python-net/embedded-font/
+url: /ja/python-net/embedded-font/
 keywords: "フォント, 埋め込まれたフォント, フォントの追加, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Pythonを使用してPowerPointプレゼンテーションで埋め込まれたフォントを使用する"
 ---

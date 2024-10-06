@@ -2,5 +2,5 @@
 title: はじめに
 type: docs
 weight: 10
-url: /sharepoint/getting-started/
+url: /ja/sharepoint/getting-started/
 ---

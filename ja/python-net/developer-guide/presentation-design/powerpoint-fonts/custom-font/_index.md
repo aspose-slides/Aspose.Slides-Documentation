@@ -3,7 +3,7 @@ title: PythonでのカスタムPowerPointフォント
 linktitle: カスタムフォント
 type: docs
 weight: 20
-url: /python-net/custom-font/
+url: /ja/python-net/custom-font/
 keywords: "フォント, カスタムフォント, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointのカスタムフォント"
 ---

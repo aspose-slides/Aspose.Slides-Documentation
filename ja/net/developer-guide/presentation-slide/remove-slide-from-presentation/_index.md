@@ -2,7 +2,7 @@
 title: プレゼンテーションからスライドを削除する
 type: docs
 weight: 30
-url: /net/remove-slide-from-presentation/
+url: /ja/net/remove-slide-from-presentation/
 keywords: "スライドを削除, スライドを消去, PowerPoint, プレゼンテーション, C#, Csharp, .NET, Aspose.Slides"
 description: "C# または .NET で参照またはインデックスを使用して PowerPoint からスライドを削除します"
 

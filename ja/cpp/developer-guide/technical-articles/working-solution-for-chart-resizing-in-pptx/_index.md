@@ -2,7 +2,7 @@
 title: PPTXにおけるチャートのリサイズのための作業ソリューション
 type: docs
 weight: 60
-url: /cpp/working-solution-for-chart-resizing-in-pptx/
+url: /ja/cpp/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: プレゼンテーション内のスライドにアクセス
 type: docs
 weight: 20
-url: /php-java/access-slide-in-presentation/
+url: /ja/php-java/access-slide-in-presentation/
 keywords: "PowerPoint プレゼンテーションへのアクセス, スライドへのアクセス, スライドプロパティの編集, スライド位置の変更, スライド番号、インデックス、ID、位置の設定 Java, Aspose.Slides"
 description: "インデックス、ID、または位置によって PowerPoint スライドにアクセスします。スライドプロパティを編集します。"
 ---

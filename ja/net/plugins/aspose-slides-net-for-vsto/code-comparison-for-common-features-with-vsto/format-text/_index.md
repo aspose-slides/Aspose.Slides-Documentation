@@ -2,7 +2,7 @@
 title: テキストのフォーマット
 type: docs
 weight: 110
-url: /net/format-text/
+url: /ja/net/format-text/
 ---
 
 VSTOとAspose.Slidesの両方のメソッドは、以下の手順を実行します。

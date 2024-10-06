@@ -2,7 +2,7 @@
 title: Aspose.Slides for .NET 14.2.0の公開APIと後方互換性のない変更
 type: docs
 weight: 40
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-2-0/
+url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-2-0/
 ---
 
 ## **公開APIと後方互換性のない変更**

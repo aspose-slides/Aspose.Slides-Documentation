@@ -2,7 +2,7 @@
 title: スライドレイアウト
 type: docs
 weight: 60
-url: /net/slide-layout/
+url: /ja/net/slide-layout/
 keyword: "スライドサイズを設定する、スライドオプションを設定する、スライドサイズを指定する、フッターの可視性、子フッター、コンテンツのスケーリング、ページサイズ、C#、Csharp、.NET、Aspose.Slides"
 description: "C#または.NETでPowerPointスライドのサイズとオプションを設定する"
 ---

@@ -2,7 +2,7 @@
 title: 割り込み可能ライブラリのサポート
 type: docs
 weight: 150
-url: /net/support-for-interruptable-library/
+url: /ja/net/support-for-interruptable-library/
 
 ---
 

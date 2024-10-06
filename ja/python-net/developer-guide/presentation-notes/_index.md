@@ -2,7 +2,7 @@
 title: プレゼンテーションノート
 type: docs
 weight: 110
-url: /python-net/presentation-notes/
+url: /ja/python-net/presentation-notes/
 keywords: "ノート, パワーポイントノート, ノートを追加, ノートを削除, パワーポイントプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Pythonでパワーポイントプレゼンテーションにノートを追加および削除する"
 ---

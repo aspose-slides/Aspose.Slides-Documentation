@@ -2,7 +2,7 @@
 title: テーブルセルに画像を追加
 type: docs
 weight: 10
-url: /net/add-image-in-table-cell/
+url: /ja/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**

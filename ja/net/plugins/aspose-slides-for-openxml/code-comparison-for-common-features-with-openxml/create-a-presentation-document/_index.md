@@ -2,7 +2,7 @@
 title: プレゼンテーション文書の作成
 type: docs
 weight: 60
-url: /net/create-a-presentation-document/
+url: /ja/net/create-a-presentation-document/
 ---
 
 ## **OpenXML SDK**

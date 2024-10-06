@@ -2,7 +2,7 @@
 title: インクの管理
 type: docs
 weight: 95
-url: /androidjava/manage-ink/
+url: /ja/androidjava/manage-ink/
 keywords: "PowerPointのインク, インクツール, Javaインク, PowerPointでの描画, PowerPointプレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "インクツールを使用してPowerPoint Javaでオブジェクトを描画する"
 ---

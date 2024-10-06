@@ -2,7 +2,7 @@
 title: アニメーションチャート
 type: docs
 weight: 80
-url: /androidjava/animated-charts/
+url: /ja/androidjava/animated-charts/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Aspose.Slides for .NET 14.1.0の既知の問題
 type: docs
 weight: 20
-url: /net/known-issues-in-aspose-slides-for-net-14-1-0/
+url: /ja/net/known-issues-in-aspose-slides-for-net-14-1-0/
 ---
 
 以下は、Aspose.Slides for .NET 14.1.0における既知の問題と制限事項です。

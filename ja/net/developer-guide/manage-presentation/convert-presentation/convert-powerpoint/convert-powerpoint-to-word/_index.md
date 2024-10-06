@@ -2,7 +2,7 @@
 title: PowerPointをWordに変換
 type: docs
 weight: 110
-url: /net/convert-powerpoint-to-word/
+url: /ja/net/convert-powerpoint-to-word/
 keywords:
 - PowerPointを変換
 - PPT

@@ -2,12 +2,12 @@
 title: Microsoft PowerPoint スライドに OLE オブジェクトとして Excel チャートを作成および埋め込む
 type: docs
 weight: 60
-url: /php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ja/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- チャートはデータの視覚的表現であり、プレゼンテーション スライドで広く使用されています。この記事では、[VSTO](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) と [Aspose.Slides for PHP via Java](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) を使用して、Excel チャートを OLE オブジェクトとして PowerPoint スライドにプログラムmatically 埋め込むコードを示します。
+ チャートはデータの視覚的表現であり、プレゼンテーション スライドで広く使用されています。この記事では、[VSTO](/slides/ja/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) と [Aspose.Slides for PHP via Java](/slides/ja/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) を使用して、Excel チャートを OLE オブジェクトとして PowerPoint スライドにプログラムmatically 埋め込むコードを示します。
 
 {{% /alert %}} 
 ## **Excel チャートの作成と埋め込み**

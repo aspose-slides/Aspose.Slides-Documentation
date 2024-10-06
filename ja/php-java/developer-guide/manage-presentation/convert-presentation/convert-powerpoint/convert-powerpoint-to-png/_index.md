@@ -2,7 +2,7 @@
 title: PowerPointをPNGに変換
 type: docs
 weight: 30
-url: /php-java/convert-powerpoint-to-png/
+url: /ja/php-java/convert-powerpoint-to-png/
 keywords: PowerPoint to PNG, PPT to PNG, PPTX to PNG, java, Aspose.Slides for PHP via Java
 description: PowerPointプレゼンテーションをPNGに変換
 ---

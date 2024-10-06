@@ -2,7 +2,7 @@
 title: Aspose.Slidesにおけるマルチスレッディング
 type: docs
 weight: 310
-url: /net/multithreading/
+url: /ja/net/multithreading/
 keywords:
 - PowerPoint
 - プレゼンテーション

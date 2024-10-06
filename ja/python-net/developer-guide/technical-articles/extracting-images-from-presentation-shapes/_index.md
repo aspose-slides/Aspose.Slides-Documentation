@@ -2,7 +2,7 @@
 title: プレゼンテーションの図形から画像を抽出する
 type: docs
 weight: 90
-url: /python-net/extracting-images-from-presentation-shapes/
+url: /ja/python-net/extracting-images-from-presentation-shapes/
 keywords: "画像を抽出, PowerPoint, PPT, PPTX, PowerPointプレゼンテーション, Python, Aspose.Slides for Python"
 description: "PythonでPowerPointプレゼンテーションから画像を抽出する"
 ---

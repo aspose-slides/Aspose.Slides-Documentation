@@ -3,7 +3,7 @@ title: PowerPointをC++でPDFに変換
 linktitle: PowerPointをPDFに変換
 type: docs
 weight: 40
-url: /cpp/convert-powerpoint-to-pdf/
+url: /ja/cpp/convert-powerpoint-to-pdf/
 keywords:
 - PowerPointを変換
 - プレゼンテーション

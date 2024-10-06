@@ -2,7 +2,7 @@
 title: プレゼンテーションの確認
 type: docs
 weight: 30
-url: /php-java/examine-presentation/
+url: /ja/php-java/examine-presentation/
 keywords:
 - PowerPoint
 - プレゼンテーション

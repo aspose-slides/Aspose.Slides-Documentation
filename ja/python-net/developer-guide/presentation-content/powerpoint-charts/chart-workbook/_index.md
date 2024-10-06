@@ -2,7 +2,7 @@
 title: チャートワークブック
 type: docs
 weight: 70
-url: /python-net/chart-workbook/
+url: /ja/python-net/chart-workbook/
 keywords: "チャートワークブック, チャートデータ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでのPowerPointプレゼンテーションにおけるチャートワークブック"
 ---

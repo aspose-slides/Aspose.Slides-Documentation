@@ -2,7 +2,7 @@
 title: プレゼンテーション内のすべての外部ハイパーリンクを取得する
 type: docs
 weight: 90
-url: /net/get-all-the-external-hyperlinks-in-a-presentation/
+url: /ja/net/get-all-the-external-hyperlinks-in-a-presentation/
 ---
 
 ## **OpenXML プレゼンテーション**

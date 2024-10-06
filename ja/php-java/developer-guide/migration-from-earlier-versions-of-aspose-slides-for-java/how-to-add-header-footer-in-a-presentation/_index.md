@@ -2,7 +2,7 @@
 title: プレゼンテーションにヘッダーとフッターを追加する方法
 type: docs
 weight: 20
-url: /php-java/how-to-add-header-footer-in-a-presentation/
+url: /ja/php-java/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

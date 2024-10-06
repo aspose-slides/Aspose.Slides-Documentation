@@ -2,7 +2,7 @@
 title: プレゼンテーション画像コレクション内の画像を置き換える
 type: docs
 weight: 80
-url: /php-java/replacing-images-inside-presentation-image-collection/
+url: /ja/php-java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: スライドを比較する
 type: docs
 weight: 50
-url: /python-net/compare-slides/
+url: /ja/python-net/compare-slides/
 keywords: "PowerPointスライドを比較する, 2つのスライドを比較する, プレゼンテーション, Python, Aspose.Slides"
 description: "PythonでPowerPointプレゼンテーションスライドを比較する"
 ---

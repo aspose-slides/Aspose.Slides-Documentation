@@ -1,7 +1,7 @@
 ---
 title: チャートデータラベル
 type: docs
-url: /java/chart-data-label/
+url: /ja/java/chart-data-label/
 keywords: "チャートデータラベル,ラベル距離, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointチャートデータラベルと距離を設定する"
 ---

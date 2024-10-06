@@ -2,7 +2,7 @@
 title: 上付き文字と下付き文字
 type: docs
 weight: 80
-url: /cpp/superscript-and-subscript/
+url: /ja/cpp/superscript-and-subscript/
 ---
 
 ## **上付き文字と下付き文字のテキストを管理する**

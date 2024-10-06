@@ -2,7 +2,7 @@
 title: インクの管理
 type: docs
 weight: 95
-url: /php-java/manage-ink/
+url: /ja/php-java/manage-ink/
 keywords: "PowerPoint のインク, インクツール, Java インク, PowerPoint で描画, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "インクツールを使用して PowerPoint Java でオブジェクトを描画する"
 ---

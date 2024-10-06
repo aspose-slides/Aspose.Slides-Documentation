@@ -2,5 +2,5 @@
 title: チャートエンティティ
 type: docs
 weight: 30
-url: /php-java/chart-entities/
+url: /ja/php-java/chart-entities/
 ---

@@ -3,7 +3,7 @@ title: Pythonにおけるフォント選択シーケンス
 linktitle: Pythonにおけるフォント選択シーケンス
 type: docs
 weight: 80
-url: /python-net/font-selection-sequence/
+url: /ja/python-net/font-selection-sequence/
 keywords:
 - フォント
 - フォント選択

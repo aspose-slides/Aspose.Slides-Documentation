@@ -2,7 +2,7 @@
 title: 線
 type: docs
 weight: 50
-url: /net/Line/
+url: /ja/net/Line/
 keywords: "線, PowerPoint 形状, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションに線を追加する"
 ---

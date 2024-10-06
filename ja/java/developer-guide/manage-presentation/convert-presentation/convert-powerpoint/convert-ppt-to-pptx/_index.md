@@ -3,7 +3,7 @@ title: JavaでPPTをPPTXに変換
 linktitle: PPTをPPTXに変換
 type: docs
 weight: 20
-url: /java/convert-ppt-to-pptx/
+url: /ja/java/convert-ppt-to-pptx/
 keywords: "Java PPTをPPTXに変換, JavaでのPowerPoint PPTからPPTX"
 description: "JavaでPowerPoint PPTをPPTXに変換します。"
 ---
@@ -47,7 +47,7 @@ PPTをPPTXに変換するためのJavaサンプルコードについては、以
 {{% /alert %}} 
 
 ## **PPTをPPTXに変換**
-Aspose.Slides for Javaは、開発者が[PPTX](https://docs.fileformat.com/presentation/pptx/)形式の[PPT](https://docs.fileformat.com/presentation/ppt/)をアクセスし、それを対応する形式に変換するための[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスのインスタンスを使用できるようにします。現在、[PPT](https://docs.fileformat.com/presentation/ppt/)からPPTXへの部分的な変換をサポートしています。PPTからPPTXへの変換でサポートされている機能とサポートされていない機能に関する詳細については、このドキュメントの[リンク](/slides/java/ppt-to-pptx-conversion/)に進んでください。
+Aspose.Slides for Javaは、開発者が[PPTX](https://docs.fileformat.com/presentation/pptx/)形式の[PPT](https://docs.fileformat.com/presentation/ppt/)をアクセスし、それを対応する形式に変換するための[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスのインスタンスを使用できるようにします。現在、[PPT](https://docs.fileformat.com/presentation/ppt/)からPPTXへの部分的な変換をサポートしています。PPTからPPTXへの変換でサポートされている機能とサポートされていない機能に関する詳細については、このドキュメントの[リンク](/slides/ja/java/ppt-to-pptx-conversion/)に進んでください。
 
 Aspose.Slides for Javaは、**PPTX**プレゼンテーションファイルを表す[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation)クラスを提供します。Presentationクラスは、オブジェクトがインスタンス化されると、Presentationを通じて**PPT**にアクセスすることもできます。以下の例は、PPTプレゼンテーションをPPTXプレゼンテーションに変換する方法を示しています。
 

@@ -2,7 +2,7 @@
 title: スマートアートシェイプの管理
 type: docs
 weight: 20
-url: /php-java/manage-smartart-shape/
+url: /ja/php-java/manage-smartart-shape/
 ---
 
 

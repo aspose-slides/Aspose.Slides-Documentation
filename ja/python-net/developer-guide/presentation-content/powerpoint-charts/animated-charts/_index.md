@@ -2,7 +2,7 @@
 title: アニメーションチャート
 type: docs
 weight: 80
-url: /python-net/animated-charts/
+url: /ja/python-net/animated-charts/
 keywords: "チャート, チャートシリーズ, アニメーション PowerPoint プレゼンテーション, PPTX, PPT, Python, Aspose.Slides for Python via .NET"
 description: "Python における PowerPoint チャートシリーズとアニメーション"
 ---

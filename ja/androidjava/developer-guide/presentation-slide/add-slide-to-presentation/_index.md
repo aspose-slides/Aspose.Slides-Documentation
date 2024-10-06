@@ -2,7 +2,7 @@
 title: プレゼンテーションにスライドを追加する
 type: docs
 weight: 10
-url: /androidjava/add-slide-to-presentation/
+url: /ja/androidjava/add-slide-to-presentation/
 ---
 
 ## **プレゼンテーションにスライドを追加する**

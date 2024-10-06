@@ -2,7 +2,7 @@
 title: VBAによるプレゼンテーション
 type: docs
 weight: 250
-url: /python-net/presentation-via-vba/
+url: /ja/python-net/presentation-via-vba/
 keywords: "マクロ, マクロ, VBA, VBAマクロ, マクロを追加, マクロを削除, VBAを追加, VBAを削除, マクロを抽出, VBAを抽出, PowerPointマクロ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのVBAマクロを追加、削除、抽出します"
 ---

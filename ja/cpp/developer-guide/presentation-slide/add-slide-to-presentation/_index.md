@@ -2,7 +2,7 @@
 title: プレゼンテーションにスライドを追加
 type: docs
 weight: 10
-url: /cpp/add-slide-to-presentation/
+url: /ja/cpp/add-slide-to-presentation/
 ---
 
 ## **プレゼンテーションにスライドを追加**

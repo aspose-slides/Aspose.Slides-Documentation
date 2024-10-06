@@ -2,7 +2,7 @@
 title: HTML5へのエクスポート
 type: docs
 weight: 40
-url: /cpp/export-to-html5/
+url: /ja/cpp/export-to-html5/
 keywords:
 - PowerPointをHTMLに
 - スライドをHTMLに
@@ -18,7 +18,7 @@ description: "C++でPowerPointをHTML5にエクスポート"
 
 {{% alert title="情報" color="info" %}}
 
-[Aspose.Slides 21.9](/slides/cpp/aspose-slides-for-cpp-21-9-release-notes/)では、HTML5エクスポートのサポートを実装しました。
+[Aspose.Slides 21.9](/slides/ja/cpp/aspose-slides-for-cpp-21-9-release-notes/)では、HTML5エクスポートのサポートを実装しました。
 
 {{% /alert %}} 
 

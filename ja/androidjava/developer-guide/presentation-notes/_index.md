@@ -2,7 +2,7 @@
 title: プレゼンテーションノート
 type: docs
 weight: 110
-url: /androidjava/presentation-notes/
+url: /ja/androidjava/presentation-notes/
 keywords: "JavaでのPowerPointスピーカーノート"
 description: "プレゼンテーションノート、Javaでのスピーカーノート"
 ---

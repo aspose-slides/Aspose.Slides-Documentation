@@ -2,7 +2,7 @@
 title: SmartArt シェイプノードの管理
 type: docs
 weight: 30
-url: /net/manage-smartart-shape-node/
+url: /ja/net/manage-smartart-shape-node/
 keywords:
 - SmartArt
 - SmartArt ノード

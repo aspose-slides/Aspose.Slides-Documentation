@@ -2,7 +2,7 @@
 title: スライドにコメントを追加する
 type: docs
 weight: 10
-url: /net/add-a-comment-to-a-slide/
+url: /ja/net/add-a-comment-to-a-slide/
 ---
 
 ## **OpenXML プレゼンテーション:**

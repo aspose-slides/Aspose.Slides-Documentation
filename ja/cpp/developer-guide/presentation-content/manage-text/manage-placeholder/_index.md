@@ -2,13 +2,13 @@
 title: プレースホルダーの管理
 type: docs
 weight: 10
-url: /cpp/manage-placeholder/
+url: /ja/cpp/manage-placeholder/
 keywords: "プレースホルダー, プレースホルダーのテキスト, プロンプトテキスト, PowerPoint プレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションのプレースホルダーのテキストとプロンプトテキストを変更する"
 ---
 
 ## **プレースホルダーのテキストを変更する**
-[Aspose.Slides for C++](/slides/cpp/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダーのテキストを変更できます。
+[Aspose.Slides for C++](/slides/ja/cpp/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて修正できます。Aspose.Slidesを使用すると、プレースホルダーのテキストを変更できます。
 
 **前提条件**: プレースホルダーが含まれるプレゼンテーションが必要です。このようなプレゼンテーションは、標準のMicrosoft PowerPointアプリで作成できます。
 

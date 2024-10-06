@@ -2,7 +2,7 @@
 title: 自動化を選ばない理由
 type: docs
 weight: 50
-url: /cpp/why-not-automation/
+url: /ja/cpp/why-not-automation/
 ---
 
 ## **重要な質問**

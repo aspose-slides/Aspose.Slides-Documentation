@@ -2,7 +2,7 @@
 title: パスワード保護されたプレゼンテーション
 type: docs
 weight: 20
-url: /cpp/password-protected-presentation/
+url: /ja/cpp/password-protected-presentation/
 keywords: "PowerPointプレゼンテーションをロックする"
 description: "Aspose.Slidesを使用してパスワード保護されたPowerPointプレゼンテーション。"
 ---
@@ -213,5 +213,5 @@ bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my
 指定されたパスワードでプレゼンテーションが暗号化されている場合、`true` を返します。それ以外の場合は `false` を返します。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [PowerPointにおけるデジタル署名](/slides/cpp/digital-signature-in-powerpoint/)
+- [PowerPointにおけるデジタル署名](/slides/ja/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}

@@ -1,7 +1,7 @@
 ---
 title: チャートの凡例
 type: docs
-url: /php-java/chart-legend/
+url: /ja/php-java/chart-legend/
 ---
 
 ## **凡例の位置設定**

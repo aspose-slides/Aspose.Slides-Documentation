@@ -2,7 +2,7 @@
 title: 形状の書式設定
 type: docs
 weight: 20
-url: /php-java/shape-formatting/
+url: /ja/php-java/shape-formatting/
 keywords: "形状の書式設定, ラインの書式設定, ジョインスタイルの書式設定, グラデーション塗りつぶし, パターン塗りつぶし, 画像塗りつぶし, 単色塗りつぶし, 形状の回転, 3D ベベル効果, 3D 回転効果, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint プレゼンテーション内の形状を整形します"
 ---

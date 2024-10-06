@@ -2,7 +2,7 @@
 title: パスワード保護されたプレゼンテーション
 type: docs
 weight: 20
-url: /androidjava/password-protected-presentation/
+url: /ja/androidjava/password-protected-presentation/
 keywords: "JavaでのPowerPointプレゼンテーションのロック"
 description: "PowerPointプレゼンテーションをロックします。Javaでのパスワード保護されたPowerPoint"
 ---
@@ -238,5 +238,5 @@ try {
 指定されたパスワードでプレゼンテーションが暗号化されている場合は`true`を返します。それ以外の場合は`false`を返します。
 
 {{% alert color="primary" title="関連情報" %}} 
-- [PowerPointのデジタル署名](/slides/net/digital-signature-in-powerpoint/)
+- [PowerPointのデジタル署名](/slides/ja/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

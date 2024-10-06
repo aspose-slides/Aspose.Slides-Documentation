@@ -2,7 +2,7 @@
 title: プレゼンテーションのコメント
 type: docs
 weight: 100
-url: /androidjava/presentation-comments/
+url: /ja/androidjava/presentation-comments/
 keywords: "コメント, PowerPoint コメント, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaでPowerPointプレゼンテーションにコメントや返信を追加する"
 ---

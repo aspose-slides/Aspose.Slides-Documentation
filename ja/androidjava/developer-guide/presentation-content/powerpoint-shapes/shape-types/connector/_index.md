@@ -2,7 +2,7 @@
 title: コネクタ
 type: docs
 weight: 10
-url: /androidjava/connector/
+url: /ja/androidjava/connector/
 keywords: "図形を接続、コネクタ、PowerPoint 図形、PowerPoint プレゼンテーション、Java、Aspose.Slides for Android via Java"
 description: "JavaでPowerPoint図形を接続する"
 ---
@@ -133,7 +133,7 @@ try {
 
 ## **コネクタポイントの調整**
 
-既存のコネクタは、その調整ポイントを通じて調整できます。調整ポイントを持つコネクタのみがこの方法で変更可能です。詳細は **[コネクタの種類](/slides/androidjava/connector/#types-of-connectors)** の下の表を参照してください。
+既存のコネクタは、その調整ポイントを通じて調整できます。調整ポイントを持つコネクタのみがこの方法で変更可能です。詳細は **[コネクタの種類](/slides/ja/androidjava/connector/#types-of-connectors)** の下の表を参照してください。
 
 #### **簡単なケース**
 
@@ -182,7 +182,7 @@ adj2.setRawValue(adj2.getRawValue() + 10000);
 * 調整ポイントの値は、コネクタの形状の幅/高さのパーセンテージを反映します。 
   * 形状はコネクタの開始点と終了点によって1000倍されます。 
   * 最初のポイント、2番目のポイント、3番目のポイントはそれぞれ幅からのパーセンテージ、高さからのパーセンテージ、再度幅からのパーセンテージを定義します。
-* コネクタの調整ポイントの座標を決定する計算では、コネクタの回転や反射を考慮する必要があります。 **注意**してください、**[コネクタの種類](/slides/androidjava/connector/#types-of-connectors)** に示されるすべてのコネクタの回転角度は0です。
+* コネクタの調整ポイントの座標を決定する計算では、コネクタの回転や反射を考慮する必要があります。 **注意**してください、**[コネクタの種類](/slides/ja/androidjava/connector/#types-of-connectors)** に示されるすべてのコネクタの回転角度は0です。
 
 #### **ケース 1**
 

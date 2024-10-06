@@ -2,7 +2,7 @@
 title: 形の書式設定
 type: docs
 weight: 20
-url: /net/shape-formatting/
+url: /ja/net/shape-formatting/
 keywords:
 - 形の書式
 - 線の書式

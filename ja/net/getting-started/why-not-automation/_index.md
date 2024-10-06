@@ -2,7 +2,7 @@
 title: なぜオートメーションではないのか
 type: docs
 weight: 40
-url: /net/why-not-automation/
+url: /ja/net/why-not-automation/
 ---
 
 ## **重要な質問**

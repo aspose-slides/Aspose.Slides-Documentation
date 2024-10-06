@@ -3,7 +3,7 @@ title: C++におけるフォント選択シーケンス
 linktitle: C++におけるフォント選択シーケンス
 type: docs
 weight: 80
-url: /cpp/font-selection-sequence/
+url: /ja/cpp/font-selection-sequence/
 keywords:
 - フォント
 - フォント選択

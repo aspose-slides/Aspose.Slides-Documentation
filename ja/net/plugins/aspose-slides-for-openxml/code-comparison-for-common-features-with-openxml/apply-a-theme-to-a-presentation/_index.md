@@ -2,7 +2,7 @@
 title: プレゼンテーションにテーマを適用する
 type: docs
 weight: 30
-url: /net/apply-a-theme-to-a-presentation/
+url: /ja/net/apply-a-theme-to-a-presentation/
 ---
 
 ## **OpenXML プレゼンテーション:**

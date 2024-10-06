@@ -2,7 +2,7 @@
 title: ハイパーリンクの管理
 type: docs
 weight: 20
-url: /java/manage-hyperlinks/
+url: /ja/java/manage-hyperlinks/
 keywords: "PowerPoint ハイパーリンク, テキスト ハイパーリンク, スライド ハイパーリンク, 図形 ハイパーリンク, 画像 ハイパーリンク, 動画 ハイパーリンク, Java"
 description: "JavaでPowerPointプレゼンテーションにハイパーリンクを追加する方法"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="ヒント"  color="primary"  %}} 
 
-* [OLEの管理](/slides/java/manage-ole/)を確認してください。
+* [OLEの管理](/slides/ja/java/manage-ole/)を確認してください。
 
 {{% /alert %}}
 

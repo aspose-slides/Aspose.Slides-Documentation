@@ -1,7 +1,7 @@
 ---
 title: ツリーマップとサンバーストチャートのデータポイント
 type: docs
-url: /net/data-points-of-treemap-and-sunburst-chart/
+url: /ja/net/data-points-of-treemap-and-sunburst-chart/
 keywords: "サンバーストチャート, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#や.NETでPowerPointプレゼンテーションにサンバーストチャートを追加する"
 ---
@@ -23,7 +23,7 @@ using (Presentation pres = new Presentation())
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [**サンバーストチャートの作成**](/slides/net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**サンバーストチャートの作成**](/slides/ja/net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 チャートのデータポイントをフォーマットする必要がある場合は、次のものを使用すべきです：

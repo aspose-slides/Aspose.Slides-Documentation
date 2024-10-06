@@ -2,7 +2,7 @@
 title: テキストボックスの管理
 type: docs
 weight: 20
-url: /cpp/manage-textbox/
+url: /ja/cpp/manage-textbox/
 keywords: "テキストボックス, テキストフレーム, テキストボックスを追加, ハイパーリンク付きテキストボックス, C++, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションにテキストボックスまたはテキストフレームを追加します"
 ---

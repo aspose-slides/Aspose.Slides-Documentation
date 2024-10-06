@@ -2,7 +2,7 @@
 title: プレゼンテーションノート
 type: docs
 weight: 110
-url: /php-java/presentation-notes/
+url: /ja/php-java/presentation-notes/
 keywords: "PowerPoint スピーカーメモ"
 description: "プレゼンテーションノート、スピーカーメモ"
 ---

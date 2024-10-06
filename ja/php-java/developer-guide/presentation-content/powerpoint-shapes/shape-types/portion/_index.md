@@ -2,7 +2,7 @@
 title: 部分
 type: docs
 weight: 70
-url: /php-java/portion/
+url: /ja/php-java/portion/
 ---
 
 ## **部分の位置座標を取得する**

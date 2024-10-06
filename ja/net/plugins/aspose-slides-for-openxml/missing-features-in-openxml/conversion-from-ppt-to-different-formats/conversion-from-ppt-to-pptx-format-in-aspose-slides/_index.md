@@ -2,7 +2,7 @@
 title: Aspose.Slidesを使用したPPTからPPTX形式への変換  
 type: docs  
 weight: 10  
-url: /net/conversion-from-ppt-to-pptx-format-in-aspose-slides/  
+url: /ja/net/conversion-from-ppt-to-pptx-format-in-aspose-slides/  
 ---  
 
 **Aspose.Slides** for .NETは、開発者がPresentationクラスのインスタンスを使用してPPTにアクセスし、それを対応するPPTX形式に変換できるようにします。現在、PPTからPPTXへの部分的な変換をサポートしています。PPTからPPTXへの変換でサポートされている機能とサポートされていない機能の詳細については、このドキュメントリンクに進んでください。

@@ -2,7 +2,7 @@
 title: プレゼンテーションスライド全体の背景を画像として取得する
 type: docs
 weight: 95
-url: /python-net/get-the-entire-presentation-slide-background-as-an-image/
+url: /ja/python-net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - スライド
 - 背景
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Python
 ---
 
-PowerPointプレゼンテーションでは、スライドの背景は多くの要素から構成される場合があります。[スライド背景](/slides/python-net/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションテーマ、カラースキーム、マスタースライドやレイアウトスライドに配置された図形に影響されることがあります。
+PowerPointプレゼンテーションでは、スライドの背景は多くの要素から構成される場合があります。[スライド背景](/slides/ja/python-net/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションテーマ、カラースキーム、マスタースライドやレイアウトスライドに配置された図形に影響されることがあります。
 
 Aspose.Slides for Pythonには、プレゼンテーションスライド全体の背景を画像として抽出するための簡単な方法は提供されていませんが、以下の手順に従うことでこれを実行できます：
 1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスを使用してプレゼンテーションを読み込みます。

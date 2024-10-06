@@ -2,7 +2,7 @@
 title: シェイプサムネイルを作成する
 type: docs
 weight: 70
-url: /python-net/create-shape-thumbnails/
+url: /ja/python-net/create-shape-thumbnails/
 keywords: "シェイプサムネイル。PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointプレゼンテーションのシェイプサムネイル"
 ---

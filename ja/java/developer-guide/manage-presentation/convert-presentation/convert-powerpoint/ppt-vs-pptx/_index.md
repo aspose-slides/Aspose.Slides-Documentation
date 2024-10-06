@@ -2,7 +2,7 @@
 title: PPTとPPTX
 type: docs
 weight: 10
-url: /java/ppt-vs-pptx/
+url: /ja/java/ppt-vs-pptx/
 keywords: "PPTとPPTX"
 description: "Aspose.SlidesにおけるPPTとPPTXの違いについて読んでみましょう。"
 ---
@@ -37,5 +37,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-プレゼンテーションのPPTからPPTXへの変換方法についてさらに読む [**こちら**](/slides/java/convert-ppt-to-pptx/)。
+プレゼンテーションのPPTからPPTXへの変換方法についてさらに読む [**こちら**](/slides/ja/java/convert-ppt-to-pptx/)。
 {{% /alert %}} 

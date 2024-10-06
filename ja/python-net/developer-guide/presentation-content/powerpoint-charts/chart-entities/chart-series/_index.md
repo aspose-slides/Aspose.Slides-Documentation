@@ -1,7 +1,7 @@
 ---
 title: チャート系列
 type: docs
-url: /python-net/chart-series/
+url: /ja/python-net/chart-series/
 keywords: "チャート系列, 系列の色, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointプレゼンテーションのチャート系列"
 ---

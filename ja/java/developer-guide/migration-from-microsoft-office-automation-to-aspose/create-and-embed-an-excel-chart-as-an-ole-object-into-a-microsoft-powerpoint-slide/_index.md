@@ -2,12 +2,12 @@
 title: ExcelチャートをOLEオブジェクトとしてMicrosoft PowerPointスライドに作成および埋め込む
 type: docs
 weight: 60
-url: /java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ja/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- チャートはデータの視覚的表現であり、プレゼンテーションスライドに広く使用されています。この文書では、[VSTO](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)と[Aspose.Slides for Java](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)を使用して、ExcelチャートをOLEオブジェクトとしてPowerPointスライドにプログラムで作成し埋め込むためのコードを示します。
+ チャートはデータの視覚的表現であり、プレゼンテーションスライドに広く使用されています。この文書では、[VSTO](/slides/ja/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)と[Aspose.Slides for Java](/slides/ja/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)を使用して、ExcelチャートをOLEオブジェクトとしてPowerPointスライドにプログラムで作成し埋め込むためのコードを示します。
 
 {{% /alert %}} 
 ## **Excelチャートの作成と埋め込み**

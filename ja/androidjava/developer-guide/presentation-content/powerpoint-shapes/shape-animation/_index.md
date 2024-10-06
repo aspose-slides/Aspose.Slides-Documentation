@@ -2,7 +2,7 @@
 title: シェイプアニメーション
 type: docs
 weight: 60
-url: /androidjava/shape-animation/
+url: /ja/androidjava/shape-animation/
 keywords: "PowerPointアニメーション, アニメーション効果, アニメーションの適用, PowerPointプレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaでPowerPointアニメーションを適用する"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-テキストにアニメーションを適用するだけでなく、単一の[段落](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph)にもアニメーションを適用できます。詳しくは[**アニメーションテキスト**](/slides/androidjava/animated-text/)を参照してください。
+テキストにアニメーションを適用するだけでなく、単一の[段落](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph)にもアニメーションを適用できます。詳しくは[**アニメーションテキスト**](/slides/ja/androidjava/animated-text/)を参照してください。
 
 {{% /alert %}} 
 

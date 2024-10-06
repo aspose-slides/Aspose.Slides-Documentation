@@ -2,7 +2,7 @@
 title: インストール
 type: docs
 weight: 70
-url: /java/installation/
+url: /ja/java/installation/
 ---
 
 {{% alert color="primary" %}} 

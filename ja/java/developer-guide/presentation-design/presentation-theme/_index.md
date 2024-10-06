@@ -2,14 +2,14 @@
 title: プレゼンテーションテーマ
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /ja/java/presentation-theme/
 keywords: "テーマ, PowerPoint テーマ, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaのPowerPointプレゼンテーションテーマ"
 ---
 
 プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、特定の視覚要素とそのプロパティのセットを選択することになります。
 
-PowerPointでは、テーマは色、[フォント](/slides/java/powerpoint-fonts/)、[背景スタイル](/slides/java/presentation-background/)、および効果で構成されています。
+PowerPointでは、テーマは色、[フォント](/slides/ja/java/powerpoint-fonts/)、[背景スタイル](/slides/ja/java/presentation-background/)、および効果で構成されています。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Aria
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPointフォント](/slides/java/powerpoint-fonts/)を確認することをお勧めします。
+[PowerPointフォント](/slides/ja/java/powerpoint-fonts/)を確認することをお勧めします。
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[PowerPoint背景](/slides/java/presentation-background/)を確認することをお勧めします。
+[PowerPoint背景](/slides/ja/java/presentation-background/)を確認することをお勧めします。
 
 {{% /alert %}}
 

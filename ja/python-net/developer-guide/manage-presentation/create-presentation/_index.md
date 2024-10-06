@@ -2,7 +2,7 @@
 title: プレゼンテーションの作成
 type: docs
 weight: 10
-url: /python-net/create-presentation/
+url: /ja/python-net/create-presentation/
 keywords: "PowerPointの作成, PPTX, PPT, プレゼンテーションの作成, プレゼンテーションの初期化, Python, .NET"
 description: "PythonでPowerPointプレゼンテーションを開く"
 ---

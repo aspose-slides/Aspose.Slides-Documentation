@@ -2,7 +2,7 @@
 title: Excelチャートの作成とOLEオブジェクトとしてプレゼンテーションに埋め込む
 type: docs
 weight: 30
-url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ja/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ Aspose.Cells for JavaとAspose.Slides for Javaを使用することで、Aspose.
 
 {{% /alert %}} 
 ## **関連セクション**
-[チャートリサイズのための作業ソリューション](/slides/java/working-solution-for-chart-resizing-in-pptx/)
+[チャートリサイズのための作業ソリューション](/slides/ja/java/working-solution-for-chart-resizing-in-pptx/)
 
-[オブジェクト変更問題](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[オブジェクト変更問題](/slides/ja/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

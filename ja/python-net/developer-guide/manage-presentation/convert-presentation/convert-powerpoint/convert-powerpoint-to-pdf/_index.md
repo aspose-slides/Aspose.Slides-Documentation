@@ -3,7 +3,7 @@ title: PythonでPowerPointをPDFに変換する
 linktitle: PowerPointをPDFに変換する
 type: docs
 weight: 40
-url: /python-net/convert-powerpoint-to-pdf/
+url: /ja/python-net/convert-powerpoint-to-pdf/
 keywords:
 - PowerPointを変換
 - プレゼンテーション

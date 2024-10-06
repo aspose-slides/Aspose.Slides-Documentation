@@ -1,7 +1,7 @@
 ---
 title: チャートプロットエリア
 type: docs
-url: /cpp/chart-plot-area/
+url: /ja/cpp/chart-plot-area/
 ---
 
 ## **チャートプロットエリアの幅と高さを取得する**

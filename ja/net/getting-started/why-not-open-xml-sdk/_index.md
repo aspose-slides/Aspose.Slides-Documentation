@@ -2,7 +2,7 @@
 title: Open XML SDKを選ばない理由
 type: docs
 weight: 50
-url: /net/why-not-open-xml-sdk/
+url: /ja/net/why-not-open-xml-sdk/
 ---
 
 ## **Open XML SDKとは何ですか？**
@@ -29,7 +29,7 @@ Aspose.Slidesは、アプリケーションが次のプレゼンテーション�
 
 - TextFrames、Paragraphs、Portionsレベルでのテキストフォーマットの制御（広範な制御）および管理。
 
-  利用可能な機能の詳細については、[Aspose.Slidesの機能](/slides/net/product-overview/)ページをご覧ください。
+  利用可能な機能の詳細については、[Aspose.Slidesの機能](/slides/ja/net/product-overview/)ページをご覧ください。
 
 ## **Open XML SDKとAspose.Slidesの比較**
 この表は、Open XML SDKの機能と特徴をAspose.Slidesと比較しています。

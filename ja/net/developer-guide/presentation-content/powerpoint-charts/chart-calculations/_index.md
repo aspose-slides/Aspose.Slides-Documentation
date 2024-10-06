@@ -2,7 +2,7 @@
 title: チャート計算
 type: docs
 weight: 50
-url: /net/chart-calculations/
+url: /ja/net/chart-calculations/
 keywords: "チャート計算, チャート要素, 要素位置, チャート値 C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETにおけるPowerPointチャート計算と値"
 ---

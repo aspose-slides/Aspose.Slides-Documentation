@@ -2,7 +2,7 @@
 title: テキストボックスの管理
 type: docs
 weight: 20
-url: /java/manage-textbox/
+url: /ja/java/manage-textbox/
 description: Javaを使用してPowerPointスライドにテキストボックスを作成します。Javaを使用してPowerPointスライドにテキストボックスまたはテキストフレームに列を追加します。Javaを使用してPowerPointスライドにハイパーリンク付きのテキストボックスを追加します。
 ---
 

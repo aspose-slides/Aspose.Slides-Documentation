@@ -2,5 +2,5 @@
 title: プレゼンテーションセキュリティ
 type: docs
 weight: 60
-url: /php-java/presentation-security/
+url: /ja/php-java/presentation-security/
 ---

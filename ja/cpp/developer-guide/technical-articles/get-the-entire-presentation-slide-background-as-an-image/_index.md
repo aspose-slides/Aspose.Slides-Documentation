@@ -2,7 +2,7 @@
 title: プレゼンテーションスライドの背景を画像として取得する
 type: docs
 weight: 95
-url: /cpp/get-the-entire-presentation-slide-background-as-an-image/
+url: /ja/cpp/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - スライド
 - 背景
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for C++
 ---
 
-PowerPointプレゼンテーションでは、スライドの背景は多くの要素から構成されることがあります。[スライド背景](/slides/cpp/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションのテーマ、カラースキーム、マスタースライドやレイアウトスライドに配置された図形によって影響を受けることがあります。
+PowerPointプレゼンテーションでは、スライドの背景は多くの要素から構成されることがあります。[スライド背景](/slides/ja/cpp/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションのテーマ、カラースキーム、マスタースライドやレイアウトスライドに配置された図形によって影響を受けることがあります。
 
 Aspose.Slides for C++には、プレゼンテーションスライドの背景全体を画像として抽出する簡単な方法は提供されていませんが、以下の手順に従ってこれを行うことができます：
 1. [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)クラスを使用してプレゼンテーションをロードします。

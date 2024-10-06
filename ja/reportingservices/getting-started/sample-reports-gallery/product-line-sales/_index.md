@@ -2,7 +2,7 @@
 title: 製品ライン販売
 type: docs
 weight: 40
-url: /reportingservices/product-line-sales/
+url: /ja/reportingservices/product-line-sales/
 ---
 
 ## **機能:**

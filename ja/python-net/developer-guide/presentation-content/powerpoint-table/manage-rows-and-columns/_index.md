@@ -2,7 +2,7 @@
 title: 行と列の管理
 type: docs
 weight: 20
-url: /python-net/manage-rows-and-columns/
+url: /ja/python-net/manage-rows-and-columns/
 keywords: "テーブル, テーブルの行と列, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのテーブル行と列を管理する"
 ---

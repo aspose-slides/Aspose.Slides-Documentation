@@ -2,7 +2,7 @@
 title: 画像
 type: docs
 weight: 10
-url: /php-java/image/
+url: /ja/php-java/image/
 description: PHPを使用してPowerPointプレゼンテーションのスライドで画像を扱います。ディスクまたはWebからPowerPointスライドに画像を追加します。スライドマスターやスライドの背景として画像を追加します。PHPを使用してPowerPointプレゼンテーションにSVGを追加します。PHPを使用してPowerPointでSVGを図形に変換します。PHPを使用してスライドに画像をEMFとして追加します。
 ---
 

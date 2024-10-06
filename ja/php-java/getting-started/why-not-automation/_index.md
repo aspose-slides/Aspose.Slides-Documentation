@@ -2,7 +2,7 @@
 title: なぜ自動化ではないのか
 type: docs
 weight: 50
-url: /php-java/why-not-automation/
+url: /ja/php-java/why-not-automation/
 ---
 
 {{% alert color="primary" %}} 

@@ -3,7 +3,7 @@ title: 埋め込みフォント - PowerPoint Java API
 linktitle: 埋め込みフォント
 type: docs
 weight: 40
-url: /androidjava/embedded-font/
+url: /ja/androidjava/embedded-font/
 keywords: "フォント, 埋め込みフォント, フォントの追加, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "Java での PowerPoint プレゼンテーションに埋め込みフォントを使用する"
 

@@ -2,7 +2,7 @@
 title: Aspose.Slides におけるマルチスレッド処理
 type: docs
 weight: 200
-url: /python-net/multithreading/
+url: /ja/python-net/multithreading/
 keywords:
 - PowerPoint
 - プレゼンテーション

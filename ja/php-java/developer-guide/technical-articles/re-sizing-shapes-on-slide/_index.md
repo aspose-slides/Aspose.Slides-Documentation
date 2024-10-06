@@ -2,7 +2,7 @@
 title: スライド上の図形のサイズ変更
 type: docs
 weight: 110
-url: /php-java/re-sizing-shapes-on-slide/
+url: /ja/php-java/re-sizing-shapes-on-slide/
 ---
 
 ## **スライド上の図形のサイズ変更**

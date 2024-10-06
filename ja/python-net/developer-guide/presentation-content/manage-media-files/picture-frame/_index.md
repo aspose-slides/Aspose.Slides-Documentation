@@ -2,7 +2,7 @@
 title: ピクチャーフレーム
 type: docs
 weight: 10
-url: /python-net/picture-frame/
+url: /ja/python-net/picture-frame/
 keywords: "ピクチャーフレームの追加, ピクチャーフレームの作成, 画像の追加, 画像の作成, 画像の抽出, StretchOffプロパティ, ピクチャーフレームのフォーマット, ピクチャーフレームのプロパティ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにピクチャーフレームを追加する"
 ---

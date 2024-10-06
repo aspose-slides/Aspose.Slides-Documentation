@@ -2,7 +2,7 @@
 title: プレゼンテーションの印刷
 type: docs
 weight: 50
-url: /python-net/print-presentation/
+url: /ja/python-net/print-presentation/
 keywords: "印刷 PowerPoint, PPT, PPTX, プレゼンテーションの印刷, Python, プリンター, 印刷オプション"
 description: "PythonでPowerPointプレゼンテーションを印刷"
 ---

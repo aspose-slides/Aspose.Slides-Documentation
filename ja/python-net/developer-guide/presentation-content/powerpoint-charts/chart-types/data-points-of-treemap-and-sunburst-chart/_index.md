@@ -1,7 +1,7 @@
 ---
 title: 階層型データのツリーマップとサンバーストチャート
 type: docs
-url: /python-net/data-points-of-treemap-and-sunburst-chart/
+url: /ja/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords: "サンバーストチャート, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにサンバーストチャートを追加する"
 ---
@@ -22,7 +22,7 @@ with slides.Presentation() as pres:
 ```
 
 {{% alert color="primary" title="見出し" %}} 
-- [**サンバーストチャートの作成**](/slides/python-net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**サンバーストチャートの作成**](/slides/ja/python-net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

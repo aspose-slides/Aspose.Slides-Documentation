@@ -2,7 +2,7 @@
 title: APIの制限
 type: docs
 weight: 320
-url: /php-java/api-limitations/
+url: /ja/php-java/api-limitations/
 ---
 
 ## **プレゼンテーションおよびその他のエクスポート形式**

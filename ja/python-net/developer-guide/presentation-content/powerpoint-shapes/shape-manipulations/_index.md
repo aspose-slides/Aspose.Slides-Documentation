@@ -2,7 +2,7 @@
 title: 形の操作
 type: docs
 weight: 40
-url: /python-net/shape-manipulations/
+url: /ja/python-net/shape-manipulations/
 keywords: "PowerPoint スライドの形, 形を探す, 形を複製, 形を削除, 形を隠す, 形の順序を変更, 形の代替テキスト, 形のレイアウトフォーマット, SVG としての形, 形を整列, PowerPoint プレゼンテーション, Python, .NET 経由の Aspose.Slides for Python"
 description: "Python で PowerPoint 形を操作する"
 ---

@@ -2,7 +2,7 @@
 title: PowerPointを動画に変換
 type: docs
 weight: 130
-url: /php-java/convert-powerpoint-to-video/
+url: /ja/php-java/convert-powerpoint-to-video/
 keywords: "PowerPointを変換, PPT, PPTX, プレゼンテーション, 動画, MP4, PPTを動画に, PPTをMP4に, Java, Aspose.Slides"
 description: "PowerPointを動画に変換"
 ---

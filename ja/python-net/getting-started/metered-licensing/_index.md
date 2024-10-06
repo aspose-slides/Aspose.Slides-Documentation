@@ -2,7 +2,7 @@
 title: メーターライセンス
 type: docs
 weight: 90
-url: /python-net/metered-licensing/
+url: /ja/python-net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

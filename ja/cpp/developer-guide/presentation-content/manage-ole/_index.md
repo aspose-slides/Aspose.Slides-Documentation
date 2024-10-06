@@ -2,7 +2,7 @@
 title: OLEの管理
 type: docs
 weight: 40
-url: /cpp/manage-ole/
+url: /ja/cpp/manage-ole/
 keywords:
 - OLEの追加
 - OLEの埋め込み

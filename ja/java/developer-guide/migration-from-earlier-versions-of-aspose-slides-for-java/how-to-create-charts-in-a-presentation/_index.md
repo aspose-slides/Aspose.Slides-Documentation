@@ -2,7 +2,7 @@
 title: プレゼンテーションにおけるチャートの作成方法
 type: docs
 weight: 30
-url: /java/how-to-create-charts-in-a-presentation/
+url: /ja/java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

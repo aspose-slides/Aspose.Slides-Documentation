@@ -1,7 +1,7 @@
 ---
 title: チャート系列
 type: docs
-url: /net/chart-series/
+url: /ja/net/chart-series/
 keywords: "チャート系列, 系列の色, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET における PowerPoint プレゼンテーションのチャート系列"
 ---

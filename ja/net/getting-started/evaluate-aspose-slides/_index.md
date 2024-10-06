@@ -2,7 +2,7 @@
 title: Aspose.Slidesの評価
 type: docs
 weight: 120
-url: /net/evaluate-aspose-slides/
+url: /ja/net/evaluate-aspose-slides/
 ---
 
 

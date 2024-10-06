@@ -2,7 +2,7 @@
 title: PowerPointをビデオに変換
 type: docs
 weight: 130
-url: /net/convert-powerpoint-to-video/
+url: /ja/net/convert-powerpoint-to-video/
 keywords: "PowerPointを変換, PPT, PPTX, プレゼンテーション, ビデオ, MP4, PPTをビデオに, PPTをMP4に, C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでPowerPointをビデオに変換"
 ---

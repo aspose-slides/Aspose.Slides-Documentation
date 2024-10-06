@@ -1,7 +1,7 @@
 ---
 title: コールアウト
 type: docs
-url: /java/callout/
+url: /ja/java/callout/
 ---
 
 ## **コールアウトの使用**

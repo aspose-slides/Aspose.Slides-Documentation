@@ -3,7 +3,7 @@ title: フォールバックフォント - PowerPoint C# API
 linktitle: フォールバックフォント
 type: docs
 weight: 50
-url: /net/fallback-font/
+url: /ja/net/fallback-font/
 keywords: "フォールバックフォント, フォント, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: フォントに必要なグリフが含まれていない場合、PowerPoint C# API は指定されたフォールバックフォントの1つをグリフ置換に使用できるようにします。
 ---
@@ -15,6 +15,6 @@ Aspose.Slides ではフォールバックフォントを作成し、フォール
 
 これらの機能について知るには、次のリンクを使用してください：
 
-- [フォールバックフォントを作成](/slides/net/create-fallback-font)
-- [フォールバックフォントコレクションを作成](/slides/net/create-fallback-fonts-collection)
-- [フォールバックフォントでプレゼンテーションをレンダリング](/slides/net/render-presentation-with-fallback-font)
+- [フォールバックフォントを作成](/slides/ja/net/create-fallback-font)
+- [フォールバックフォントコレクションを作成](/slides/ja/net/create-fallback-fonts-collection)
+- [フォールバックフォントでプレゼンテーションをレンダリング](/slides/ja/net/render-presentation-with-fallback-font)

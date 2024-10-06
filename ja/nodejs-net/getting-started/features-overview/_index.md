@@ -2,7 +2,7 @@
 title: 機能の概要
 type: docs
 weight: 20
-url: /nodejs-net/features-overview/
+url: /ja/nodejs-net/features-overview/
 ---
 
 ## **サポートされているプラットフォーム**

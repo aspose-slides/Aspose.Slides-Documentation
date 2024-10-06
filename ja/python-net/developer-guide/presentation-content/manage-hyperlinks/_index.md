@@ -2,7 +2,7 @@
 title: ハイパーリンクの管理
 type: docs
 weight: 20
-url: /python-net/manage-hyperlinks/
+url: /ja/python-net/manage-hyperlinks/
 keywords: "ハイパーリンクを追加, PowerPoint プレゼンテーション, PowerPoint ハイパーリンク, テキストハイパーリンク, スライドハイパーリンク, 形状ハイパーリンク, 画像ハイパーリンク, 動画ハイパーリンク, Python"
 description: "PythonでPowerPointプレゼンテーションにハイパーリンクを追加"
 ---

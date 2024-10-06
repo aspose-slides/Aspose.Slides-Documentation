@@ -2,7 +2,7 @@
 title: PowerPoint段落の管理
 type: docs
 weight: 40
-url: /php-java/manage-paragraph/
+url: /ja/php-java/manage-paragraph/
 keywords: "PowerPoint段落の追加, 段落の管理, 段落インデント, 段落プロパティ, HTMLテキスト, 段落テキストのエクスポート, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションで段落、テキスト、インデント、およびプロパティを作成および管理する"
 ---

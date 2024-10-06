@@ -3,7 +3,7 @@ title: Javaを使用してPowerPointプレゼンテーションを作成する
 linktitle: プレゼンテーションの作成
 type: docs
 weight: 10
-url: /java/create-presentation/
+url: /ja/java/create-presentation/
 keywords: ppt java 作成, ppt プレゼンテーション 作成, pptx java 作成
 description: Javaを使用してPPT、PPTXなどのPowerPointプレゼンテーションをゼロから作成する方法を学びます。
 ---

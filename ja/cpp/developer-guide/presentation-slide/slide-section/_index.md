@@ -2,7 +2,7 @@
 title: スライドセクション
 type: docs
 weight: 100
-url: /cpp/slide-section/
+url: /ja/cpp/slide-section/
 ---
 
 Aspose.Slides for C++を使用すると、PowerPointプレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。

@@ -3,7 +3,7 @@ title: フォント置換 - PowerPoint Java API
 linktitle: フォント置換
 type: docs
 weight: 60
-url: /java/font-replacement/
+url: /ja/java/font-replacement/
 description: Java APIを使用してPowerPointで明示的置換メソッドを使用してフォントを置換する方法を学びます。
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="注意" color="warning" %}} 
 
-特定の条件で何が起こるかを決定するルールを設定する方法（例えば、フォントにアクセスできない場合など）は、[**フォントの代替**](/slides/java/font-substitution/)を参照してください。
+特定の条件で何が起こるかを決定するルールを設定する方法（例えば、フォントにアクセスできない場合など）は、[**フォントの代替**](/slides/ja/java/font-substitution/)を参照してください。
 
 {{% /alert %}}

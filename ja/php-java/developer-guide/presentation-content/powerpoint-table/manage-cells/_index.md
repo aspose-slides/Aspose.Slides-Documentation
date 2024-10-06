@@ -2,7 +2,7 @@
 title: セルの管理
 type: docs
 weight: 30
-url: /php-java/manage-cells/
+url: /ja/php-java/manage-cells/
 keywords: "テーブル, 統合セル, 分割セル, テーブルセル内の画像, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint プレゼンテーションのテーブルセル "
 ---

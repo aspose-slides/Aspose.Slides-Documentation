@@ -2,7 +2,7 @@
 title: プレゼンテーションの確認
 type: docs
 weight: 30
-url: /net/examine-presentation/
+url: /ja/net/examine-presentation/
 keywords:
 - PowerPoint
 - プレゼンテーション

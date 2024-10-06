@@ -2,7 +2,7 @@
 title: Visual Studio 2005または2008レポートデザイナーとの手動統合
 type: docs
 weight: 50
-url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
+url: /ja/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
 ---
 
 {{% alert color="primary" %}} 

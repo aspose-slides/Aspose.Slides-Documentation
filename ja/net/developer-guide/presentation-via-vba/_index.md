@@ -2,7 +2,7 @@
 title: VBAによるプレゼンテーション
 type: docs
 weight: 250
-url: /net/presentation-via-vba/
+url: /ja/net/presentation-via-vba/
 keywords: "マクロ, マクロ, VBA, VBAマクロ, マクロを追加, マクロを削除, VBAを追加, VBAを削除, マクロを抽出, VBAを抽出, PowerPointマクロ, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションにVBAマクロを追加、削除、抽出する"
 ---

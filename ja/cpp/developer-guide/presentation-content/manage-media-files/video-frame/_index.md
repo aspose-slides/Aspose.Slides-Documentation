@@ -2,7 +2,7 @@
 title: ビデオフレーム
 type: docs
 weight: 10
-url: /cpp/video-frame/
+url: /ja/cpp/video-frame/
 keywords: "ビデオを追加, ビデオフレームを作成, ビデオを抽出, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションにビデオフレームを追加する"
 

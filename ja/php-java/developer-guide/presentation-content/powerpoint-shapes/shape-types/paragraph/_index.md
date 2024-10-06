@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /php-java/paragraph/
+url: /ja/php-java/paragraph/
 ---
 
 

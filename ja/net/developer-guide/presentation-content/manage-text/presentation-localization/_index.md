@@ -2,7 +2,7 @@
 title: プレゼンテーションのローカリゼーション
 type: docs
 weight: 100
-url: /net/presentation-localization/
+url: /ja/net/presentation-localization/
 keywords: "言語を変更する, スペルチェック, スペル チェック, スペル チェッカー, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "PowerPoint プレゼンテーションの言語を変更または確認します。C# または .NET でテキストのスペルチェック"
 ---

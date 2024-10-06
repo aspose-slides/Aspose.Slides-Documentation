@@ -2,7 +2,7 @@
 title: 宣言  
 type: docs  
 weight: 60  
-url: /java/declaration/  
+url: /ja/java/declaration/  
 ---  
 
 {{% alert color="primary" %}}  

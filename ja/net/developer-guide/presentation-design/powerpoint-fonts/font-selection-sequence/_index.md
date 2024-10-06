@@ -3,7 +3,7 @@ title: C#におけるフォント選択のシーケンス
 linktitle: C#におけるフォント選択のシーケンス
 type: docs
 weight: 80
-url: /net/font-selection-sequence/
+url: /ja/net/font-selection-sequence/
 keywords:
 - フォント
 - フォント選択

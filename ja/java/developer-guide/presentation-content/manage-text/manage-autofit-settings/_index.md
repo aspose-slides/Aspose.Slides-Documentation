@@ -2,7 +2,7 @@
 title: オートフィット設定の管理
 type: docs
 weight: 30
-url: /java/manage-autofit-settings/
+url: /ja/java/manage-autofit-settings/
 keywords: "テキストボックス, オートフィット, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaにおけるPowerPointのテキストボックスに対するオートフィット設定を行います"
 ---

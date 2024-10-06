@@ -2,7 +2,7 @@
 title: テキストのフォーマット
 type: docs
 weight: 50
-url: /python-net/text-formatting/
+url: /ja/python-net/text-formatting/
 keywords:
 - テキストの強調
 - 正規表現

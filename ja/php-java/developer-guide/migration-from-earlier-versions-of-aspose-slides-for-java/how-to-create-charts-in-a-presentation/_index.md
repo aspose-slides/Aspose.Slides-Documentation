@@ -2,7 +2,7 @@
 title: プレゼンテーションでのチャートの作成方法
 type: docs
 weight: 30
-url: /php-java/how-to-create-charts-in-a-presentation/
+url: /ja/php-java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

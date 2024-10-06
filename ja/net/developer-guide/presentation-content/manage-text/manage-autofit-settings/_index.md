@@ -2,7 +2,7 @@
 title: 自動調整設定の管理
 type: docs
 weight: 30
-url: /net/manage-autofit-settings/
+url: /ja/net/manage-autofit-settings/
 keywords: "テキストボックス, 自動調整, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint のテキストボックスの自動調整設定を設定する"
 ---

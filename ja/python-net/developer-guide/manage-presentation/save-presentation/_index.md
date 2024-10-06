@@ -2,7 +2,7 @@
 title: プレゼンテーションの保存
 type: docs
 weight: 80
-url: /python-net/save-presentation/
+url: /ja/python-net/save-presentation/
 keywords: "PowerPointの保存, PPT, PPTX, プレゼンテーションの保存, ファイル, ストリーム, Python"
 description: "PythonでPowerPointプレゼンテーションをファイルまたはストリームとして保存"
 ---

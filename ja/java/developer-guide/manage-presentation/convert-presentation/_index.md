@@ -2,5 +2,5 @@
 title: プレゼンテーションの変換
 type: docs
 weight: 70
-url: /java/convert-presentation/
+url: /ja/java/convert-presentation/
 ---

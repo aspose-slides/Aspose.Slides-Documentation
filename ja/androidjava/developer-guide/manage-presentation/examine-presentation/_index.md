@@ -2,7 +2,7 @@
 title: プレゼンテーションの調査
 type: docs
 weight: 30
-url: /androidjava/examine-presentation/
+url: /ja/androidjava/examine-presentation/
 keywords:
 - PowerPoint
 - プレゼンテーション

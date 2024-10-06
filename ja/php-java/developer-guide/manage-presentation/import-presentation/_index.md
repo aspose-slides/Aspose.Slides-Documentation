@@ -2,7 +2,7 @@
 title: プレゼンテーションのインポート
 type: docs
 weight: 60
-url: /php-java/import-presentation/
+url: /ja/php-java/import-presentation/
 keywords: "PowerPointのインポート、PDFからプレゼンテーションへ、PDFからPPTXへ、PDFからPPTへ、Java、Aspose.Slides for PHP via Java"
 description: "PDFからPowerPointプレゼンテーションをインポートします。PDFをPowerPointに変換します"
 ---

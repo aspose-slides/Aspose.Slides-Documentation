@@ -1,7 +1,7 @@
 ---
 title: チャートデータラベル
 type: docs
-url: /php-java/chart-data-label/
+url: /ja/php-java/chart-data-label/
 keywords: "チャートデータラベル, ラベル距離, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointチャートのデータラベルと距離を設定する"
 ---

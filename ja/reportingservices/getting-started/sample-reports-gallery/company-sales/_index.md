@@ -2,7 +2,7 @@
 title: 会社の販売
 type: docs
 weight: 20
-url: /reportingservices/company-sales/
+url: /ja/reportingservices/company-sales/
 ---
 
 ## **機能:**

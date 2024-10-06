@@ -2,7 +2,7 @@
 title: PowerPointにおけるデジタル署名
 type: docs
 weight: 10
-url: /php-java/digital-signature-in-powerpoint/
+url: /ja/php-java/digital-signature-in-powerpoint/
 keywords: "デジタル署名証明書, 証明書機関"
 description: "Aspose.Slidesを使用してPowerPointプレゼンテーションにデジタル署名証明書および証明書機関を追加します。"
 ---

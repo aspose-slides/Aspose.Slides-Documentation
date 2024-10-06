@@ -2,7 +2,7 @@
 title: 世界クラスの無料テクニカルサポート
 type: docs
 weight: 70
-url: /reportingservices/world-class-free-technical-support/
+url: /ja/reportingservices/world-class-free-technical-support/
 ---
 
 {{% alert color="primary" %}} 

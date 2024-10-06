@@ -2,7 +2,7 @@
 title: 宣言  
 type: docs  
 weight: 110  
-url: /net/declaration/  
+url: /ja/net/declaration/  
 ---  
 
 {{% alert color="primary" %}}  

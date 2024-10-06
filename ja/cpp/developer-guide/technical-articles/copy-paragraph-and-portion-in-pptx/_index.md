@@ -2,7 +2,7 @@
 title: PPTX内の段落と部分をコピー
 type: docs
 weight: 30
-url: /cpp/copy-paragraph-and-portion-in-pptx/
+url: /ja/cpp/copy-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

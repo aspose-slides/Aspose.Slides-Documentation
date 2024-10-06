@@ -2,7 +2,7 @@
 title: Excelチャートを作成し、OLEオブジェクトとしてプレゼンテーションに埋め込む
 type: docs
 weight: 30
-url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ja/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ Aspose.Cells for JavaとAspose.Slides for PHPをJava経由で使用すること�
 
 {{% /alert %}} 
 ## **関連セクション**
-[チャートのリサイズに関する作業ソリューション](/slides/php-java/working-solution-for-chart-resizing-in-pptx/)
+[チャートのリサイズに関する作業ソリューション](/slides/ja/php-java/working-solution-for-chart-resizing-in-pptx/)
 
-[オブジェクト変更の問題](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[オブジェクト変更の問題](/slides/ja/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

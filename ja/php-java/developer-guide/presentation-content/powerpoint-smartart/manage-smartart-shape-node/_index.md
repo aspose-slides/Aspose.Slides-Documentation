@@ -3,7 +3,7 @@ title: PowerPoint SmartArt シェイプノードの作成または管理
 linktitle: SmartArt シェイプノードの管理
 type: docs
 weight: 30
-url: /php-java/manage-smartart-shape-node/
+url: /ja/php-java/manage-smartart-shape-node/
 keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
 description: PowerPoint プレゼンテーション内のスマートアートノードと子ノードを管理
 ---

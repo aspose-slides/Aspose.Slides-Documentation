@@ -2,7 +2,7 @@
 title: プレゼンテーションプロパティ
 type: docs
 weight: 70
-url: /java/presentation-properties/
+url: /ja/java/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

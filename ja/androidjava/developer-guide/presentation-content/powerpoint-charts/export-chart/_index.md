@@ -2,7 +2,7 @@
 title: チャートのエクスポート
 type: docs
 weight: 90
-url: /androidjava/export-chart/
+url: /ja/androidjava/export-chart/
 ---
 
 ## **チャート画像を取得する**

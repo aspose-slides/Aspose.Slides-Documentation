@@ -2,7 +2,7 @@
 title: 機能の概要
 type: docs
 weight: 10
-url: /java/features-overview/
+url: /ja/java/features-overview/
 ---
 
 ## **サポートされているプラットフォーム**
@@ -18,11 +18,11 @@ Aspose.Slides for Javaは、Microsoft PowerPointドキュメント形式のほ�
 
 |**機能**|**説明**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Javaは、このプレゼンテーションドキュメント形式の最速の処理を提供します。|
-|[PresentationML (PPTX, XML)](/slides/java/presentationml-pptx-xml/)|Aspose.Slides for Javaは、OOXMLプレゼンテーション形式（PresentationMLまたはPPTXとも呼ばれる）の処理をサポートします。|
-|[PPTからPPTXへの変換](/slides/java/ppt-to-pptx-conversion/)|Aspose.Slides for Javaは、PPTからPPTXへの変換をサポートします。|
-|[ポータブルドキュメント形式 (PDF)](/slides/java/developer-guide/)|サポートされているファイル形式は、単一のメソッドでAdobeポータブルドキュメント形式（PDF）ドキュメントにエクスポートできます。|
-|[XMLパーサー仕様 (XPS)](/slides/java/xml-parser-specification-xps/)|すべてのサポートされているファイル形式は、単一のメソッドでXMLパーサー仕様（XPS）ドキュメントにエクスポートできます。|
+|[Microsoft PowerPoint (PPT)](/slides/ja/java/microsoft-powerpoint-ppt/)|Aspose.Slides for Javaは、このプレゼンテーションドキュメント形式の最速の処理を提供します。|
+|[PresentationML (PPTX, XML)](/slides/ja/java/presentationml-pptx-xml/)|Aspose.Slides for Javaは、OOXMLプレゼンテーション形式（PresentationMLまたはPPTXとも呼ばれる）の処理をサポートします。|
+|[PPTからPPTXへの変換](/slides/ja/java/ppt-to-pptx-conversion/)|Aspose.Slides for Javaは、PPTからPPTXへの変換をサポートします。|
+|[ポータブルドキュメント形式 (PDF)](/slides/ja/java/developer-guide/)|サポートされているファイル形式は、単一のメソッドでAdobeポータブルドキュメント形式（PDF）ドキュメントにエクスポートできます。|
+|[XMLパーサー仕様 (XPS)](/slides/ja/java/xml-parser-specification-xps/)|すべてのサポートされているファイル形式は、単一のメソッドでXMLパーサー仕様（XPS）ドキュメントにエクスポートできます。|
 |[タグ付き画像ファイル形式 (TIFF)](https://docs.aspose.com/slides/java/convert-powerpoint-to-tiff/)|Aspose.Slides for Javaでサポートされているプレゼンテーションファイル形式も、タグ付き画像ファイル形式（TIFF）にエクスポートできます。|
 |[ODPからPPTXへの変換](https://docs.aspose.com/slides/java/convert-odp-to-pptx/)|Aspose.Slides for Javaは、OpenDocument Presentation（ODP）をロードしてPPTXに変換することをサポートします。|
 |[プレゼンテーションをHTMLに変換](https://docs.aspose.com/slides/java/convert-powerpoint-to-html/)|Aspose.Slides for Javaは、PresentationExをHTML形式に変換することをサポートします。|

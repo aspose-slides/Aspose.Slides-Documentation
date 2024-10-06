@@ -2,7 +2,7 @@
 title: ハイパーリンクの管理
 type: docs
 weight: 20
-url: /cpp/manage-hyperlinks/
+url: /ja/cpp/manage-hyperlinks/
 keywords: "PowerPoint ハイパーリンク, テキスト ハイパーリンク, スライド ハイパーリンク, 形状 ハイパーリンク, 画像 ハイパーリンク, 動画 ハイパーリンク, C++"
 description: "C++でPowerPointプレゼンテーションにハイパーリンクを追加する方法"
 ---

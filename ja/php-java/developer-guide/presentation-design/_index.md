@@ -2,5 +2,5 @@
 title: プレゼンテーションデザイン
 type: docs
 weight: 40
-url: /php-java/presentation-design/
+url: /ja/php-java/presentation-design/
 ---

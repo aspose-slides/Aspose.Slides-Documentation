@@ -2,7 +2,7 @@
 title: タグとカスタムデータの管理
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
+url: /ja/net/managing-tags-and-custom-data
 keywords: "タグ, カスタムデータ, タグの値, タグを追加, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションにタグとカスタムデータを追加します"
 ---

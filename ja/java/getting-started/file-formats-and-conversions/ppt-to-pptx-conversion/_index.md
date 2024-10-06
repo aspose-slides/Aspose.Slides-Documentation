@@ -2,12 +2,12 @@
 title: PPTからPPTXへの変換
 type: docs
 weight: 30
-url: /java/ppt-to-pptx-conversion/
+url: /ja/java/ppt-to-pptx-conversion/
 ---
 
 {{% alert color="primary" %}} 
 
-PPTからPPTXへの変換はAspose.Slides for Javaでサポートされています。プレゼンテーションのほとんどの機能 - マスタースライド、構造など - は、一つのフォーマットから別のフォーマットに変換する際に保持されますが、[いくつかの制限](/slides/java/ppt-to-pptx-conversion/)があります。
+PPTからPPTXへの変換はAspose.Slides for Javaでサポートされています。プレゼンテーションのほとんどの機能 - マスタースライド、構造など - は、一つのフォーマットから別のフォーマットに変換する際に保持されますが、[いくつかの制限](/slides/ja/java/ppt-to-pptx-conversion/)があります。
 
 {{% /alert %}} 
 ## **変換でサポートされる機能**

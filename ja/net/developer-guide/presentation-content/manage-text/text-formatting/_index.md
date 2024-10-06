@@ -3,7 +3,7 @@ title: テキストフォーマット
 linktitle: テキストフォーマット
 type: docs
 weight: 50
-url: /net/text-formatting/
+url: /ja/net/text-formatting/
 keywords:
 - テキスト強調
 - 正規表現

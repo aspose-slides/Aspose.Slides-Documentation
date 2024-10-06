@@ -2,7 +2,7 @@
 title: プレゼンテーションのローカリゼーション
 type: docs
 weight: 100
-url: /androidjava/presentation-localization/
+url: /ja/androidjava/presentation-localization/
 ---
 
 ## **プレゼンテーションとシェイプのテキストの言語を変更する**

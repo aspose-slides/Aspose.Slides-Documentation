@@ -2,7 +2,7 @@
 title: ドーナツチャート
 type: docs
 weight: 30
-url: /cpp/doughnut-chart/
+url: /ja/cpp/doughnut-chart/
 ---
 
 ## **ドーナツチャートの中心ギャップを指定する**

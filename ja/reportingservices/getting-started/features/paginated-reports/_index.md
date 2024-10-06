@@ -2,7 +2,7 @@
 title: ページネーションされたレポートの作成
 type: docs
 weight: 100
-url: /reportingservices/paginated-reports/
+url: /ja/reportingservices/paginated-reports/
 keywords: "ページネーションされたレポートの作成, Power BI, Aspose.Slides for Reporting Services"
 description: "ページネーションされたレポートの作成"
 ---

@@ -1,7 +1,7 @@
 ---
 title: チャート軸
 type: docs
-url: /java/chart-axis/
+url: /ja/java/chart-axis/
 keywords: "PowerPoint チャート軸、プレゼンテーション チャート、Java、チャート軸の操作、チャートデータ"
 description: "JavaでPowerPointチャート軸を編集する方法"
 ---

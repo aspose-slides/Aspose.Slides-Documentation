@@ -2,5 +2,5 @@
 title: プレゼンテーションコンテンツ
 type: docs
 weight: 30
-url: /net/presentation-content/
+url: /ja/net/presentation-content/
 ---

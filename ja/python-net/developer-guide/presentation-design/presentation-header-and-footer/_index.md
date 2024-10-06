@@ -2,18 +2,18 @@
 title: プレゼンテーションのヘッダーとフッター
 type: docs
 weight: 140
-url: /python-net/presentation-header-and-footer/
+url: /ja/python-net/presentation-header-and-footer/
 keywords: "ヘッダー、フッター、ヘッダーを設定、フッターを設定、ヘッダーとフッターを設定、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PythonによるPowerPointのヘッダーとフッター"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/python-net/)は、スライドマスターレベルで実際に管理されているスライドのヘッダーとフッターテキストを操作するサポートを提供します。
+[Aspose.Slides](/slides/ja/python-net/)は、スライドマスターレベルで実際に管理されているスライドのヘッダーとフッターテキストを操作するサポートを提供します。
 
 {{% /alert %}} 
 
-[Aspose.Slides for Python via .NET](/slides/python-net/)は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターレベルで管理されています。
+[Aspose.Slides for Python via .NET](/slides/ja/python-net/)は、プレゼンテーションスライド内のヘッダーとフッターを管理する機能を提供します。これらは実際にはプレゼンテーションマスターレベルで管理されています。
 ## **ヘッダーとフッターテキストを管理する**
 特定のスライドの注釈を以下の例のように更新することができます：
 

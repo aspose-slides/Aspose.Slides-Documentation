@@ -3,7 +3,7 @@ title: フォールバックフォント - PowerPoint Java API
 linktitle: フォールバックフォント
 type: docs
 weight: 50
-url: /php-java/fallback-font/
+url: /ja/php-java/fallback-font/
 description: フォールバックフォントは、テキストに指定されたフォントがシステムに存在するが、そのフォントに必要なグリフが含まれていない場合に使用されます。この場合、PowerPoint Java APIがグリフの置き換えのために指定されたフォールバックフォントの1つを使用することが可能です。
 ---
 
@@ -14,6 +14,6 @@ Aspose.Slidesでは、フォールバックフォントの作成、フォール�
 
 これらの機能について詳しく知るには、以下のリンクを使用してください：
 
-- [フォールバックフォントの作成](/slides/php-java/create-fallback-font)
-- [フォールバックフォントコレクションの作成](/slides/php-java/create-fallback-fonts-collection)
-- [フォールバックフォントでプレゼンテーションをレンダリング](/slides/php-java/render-presentation-with-fallback-font)
+- [フォールバックフォントの作成](/slides/ja/php-java/create-fallback-font)
+- [フォールバックフォントコレクションの作成](/slides/ja/php-java/create-fallback-fonts-collection)
+- [フォールバックフォントでプレゼンテーションをレンダリング](/slides/ja/php-java/render-presentation-with-fallback-font)

@@ -2,7 +2,7 @@
 title: インクの管理
 type: docs
 weight: 95
-url: /cpp/manage-ink/
+url: /ja/cpp/manage-ink/
 keywords: "PowerPointのインク, インクツール, C++インク, PowerPointで描画, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "インクツールを使用してPowerPoint C++でオブジェクトを描画します"
 ---

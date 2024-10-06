@@ -2,7 +2,7 @@
 title: 製品サポート
 type: docs
 weight: 100
-url: /python-java/product-support/
+url: /ja/python-java/product-support/
 ---
 
 ## **技術サポート**
@@ -40,4 +40,4 @@ Aspose.Slides for Python via Javaで問題が発生した場合は、最も効�
 |[Aspose.Slidesブログ](https://blog.aspose.com/category/slides/)|新しいリリース情報やAspose.Slidesに関する便利なヒントを定期的にチェックしてください。|
 |[Aspose.Slides for Python via Javaダウンロード](https://releases.aspose.com/slides/python-java/)|このページからAspose.Slidesの最新バージョンをダウンロードしてください。新しいバージョンを頻繁にリリースしています。|
 |[Aspose.Slidesサポートフォーラム](https://forum.aspose.com/c/slides/11)|ここに質問や問題を投稿して、迅速な解決を図ってください。|
-|[Aspose.Slides for Python via Java製品ドキュメント](/slides/python-java/)|このドキュメントとAspose.Slides APIリファレンスが含まれる完全なオンラインドキュメント。|
+|[Aspose.Slides for Python via Java製品ドキュメント](/slides/ja/python-java/)|このドキュメントとAspose.Slides APIリファレンスが含まれる完全なオンラインドキュメント。|

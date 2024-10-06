@@ -2,7 +2,7 @@
 title: バレットの管理
 type: docs
 weight: 60
-url: /androidjava/manage-bullet/
+url: /ja/androidjava/manage-bullet/
 keywords: "バレット, バレットリスト, 数字, 番号付きリスト, 画像バレット, 階層バレット, PowerPoint プレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaでPowerPointプレゼンテーションにバレットおよび番号付きリストを作成する"
 ---

@@ -2,7 +2,7 @@
 title: フォントの置き換え
 type: docs
 weight: 60
-url: /python-net/font-replacement/
+url: /ja/python-net/font-replacement/
 keywords: "フォント, フォントの置き換え, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointのフォントを明示的に置き換える"
 ---
@@ -40,6 +40,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{% alert title="注意" color="warning" %}} 
 
-特定の条件下で何が起こるかを決定するルールを設定するには（たとえば、フォントにアクセスできない場合）、[**フォントの置き換え**](/slides/python-net/font-substitution/)を参照してください。
+特定の条件下で何が起こるかを決定するルールを設定するには（たとえば、フォントにアクセスできない場合）、[**フォントの置き換え**](/slides/ja/python-net/font-substitution/)を参照してください。
 
 {{% /alert %}}

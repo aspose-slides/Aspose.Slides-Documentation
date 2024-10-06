@@ -2,7 +2,7 @@
 title: PowerPointをアニメーションGIFに変換
 type: docs
 weight: 65
-url: /androidjava/convert-powerpoint-to-animated-gif/
+url: /ja/androidjava/convert-powerpoint-to-animated-gif/
 keywords: "PowerPointをアニメーションGIFに変換, PPTをGIFに, PPTXをGIFに"
 description: "PowerPointをアニメーションGIFに変換: PPTをGIFに, PPTXをGIFに、Aspose.Slides APIを使用します。"
 ---

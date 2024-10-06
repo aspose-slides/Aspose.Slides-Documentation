@@ -2,7 +2,7 @@
 title: プレゼンテーション内の検索と置換  
 type: docs  
 weight: 20  
-url: /net/find-and-replace-in-presentation/  
+url: /ja/net/find-and-replace-in-presentation/  
 ---  
 
 以下は従うべき手順です：

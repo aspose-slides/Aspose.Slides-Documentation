@@ -2,7 +2,7 @@
 title: プレゼンテーションにヘッダーとフッターを追加する方法
 type: docs
 weight: 20
-url: /androidjava/how-to-add-header-footer-in-a-presentation/
+url: /ja/androidjava/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

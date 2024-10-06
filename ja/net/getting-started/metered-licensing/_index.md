@@ -2,7 +2,7 @@
 title: メーター制ライセンス
 type: docs
 weight: 90
-url: /net/metered-licensing/
+url: /ja/net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: プレゼンテーションシェイプから画像を抽出する
 type: docs
 weight: 90
-url: /net/extracting-images-from-presentation-shapes/
+url: /ja/net/extracting-images-from-presentation-shapes/
 keywords: "画像を抽出, PowerPoint, PPT, PPTX, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C#または.NETでPowerPointプレゼンテーションから画像を抽出する"
 ---

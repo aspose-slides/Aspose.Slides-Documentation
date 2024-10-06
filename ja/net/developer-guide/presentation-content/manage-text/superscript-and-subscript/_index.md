@@ -2,7 +2,7 @@
 title: 上付き文字と下付き文字
 type: docs
 weight: 80
-url: /net/superscript-and-subscript/
+url: /ja/net/superscript-and-subscript/
 keywords: "上付き文字, 下付き文字, 上付き文字テキストを追加, 下付き文字テキストを追加, PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションに上付き文字と下付き文字テキストを追加する"
 ---

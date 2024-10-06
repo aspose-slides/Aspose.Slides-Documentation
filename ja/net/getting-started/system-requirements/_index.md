@@ -2,7 +2,7 @@
 title: システム要件
 type: docs
 weight: 60
-url: /net/system-requirements/
+url: /ja/net/system-requirements/
 ---
 
 ## **概要**

@@ -2,7 +2,7 @@
 title: マスタースライドの背景色の設定
 type: docs
 weight: 140
-url: /net/setting-background-color-of-master-slide/
+url: /ja/net/setting-background-color-of-master-slide/
 ---
 
 ## **VSTO**

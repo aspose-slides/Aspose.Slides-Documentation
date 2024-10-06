@@ -2,7 +2,7 @@
 title: 例を実行する方法  
 type: docs  
 weight: 130  
-url: /cpp/how-to-run-examples/  
+url: /ja/cpp/how-to-run-examples/  
 ---  
 
 ## **ソフトウェア要件**  

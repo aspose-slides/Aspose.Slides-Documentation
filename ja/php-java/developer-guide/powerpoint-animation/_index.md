@@ -2,7 +2,7 @@
 title: PowerPointアニメーション
 type: docs
 weight: 150
-url: /php-java/powerpoint-animation/
+url: /ja/php-java/powerpoint-animation/
 keywords: "PowerPointアニメーション"
 description: "PowerPointアニメーション、Aspose.Slidesを使用したPowerPointスライドアニメーション。"
 ---
@@ -51,19 +51,19 @@ Aspose.Slidesでは、独自の**カスタムアニメーション**を作成す
 Aspose.Slidesは、テキスト、長方形、線、フレーム、OLEオブジェクトなどの形状にアニメーションを適用することを許可します。
 
 {{% alert color="primary" %}} 
-詳細情報は[**形状アニメーションについて**](/slides/php-java/shape-animation/)をお読みください。
+詳細情報は[**形状アニメーションについて**](/slides/ja/php-java/shape-animation/)をお読みください。
 {{% /alert %}}
 
 ## **アニメーションチャート**
 アニメーションチャートを作成するには、形状と同じすべてのクラスを使用する必要があります。しかし、PowerPointアニメーションはチャートカテゴリまたはチャートシリーズに対してのみ使用できます。また、カテゴリ要素またはシリーズ要素にアニメーション効果を適用することもできます。
 
 {{% alert color="primary" %}} 
-詳細情報は[**アニメーションチャートについて**](/slides/php-java/animated-charts/)をお読みください。
+詳細情報は[**アニメーションチャートについて**](/slides/ja/php-java/animated-charts/)をお読みください。
 {{% /alert %}}
 
 ## **アニメーションテキスト**
 アニメーションテキストに加えて、段落にアニメーションを適用することも可能です。
 
 {{% alert color="primary" %}} 
-詳細情報は[**アニメーションテキストについて**](/slides/php-java/animated-text/)をお読みください。
+詳細情報は[**アニメーションテキストについて**](/slides/ja/php-java/animated-text/)をお読みください。
 {{% /alert %}}

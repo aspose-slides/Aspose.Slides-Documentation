@@ -2,7 +2,7 @@
 title: ビデオフレーム
 type: docs
 weight: 10
-url: /python-net/video-frame/
+url: /ja/python-net/video-frame/
 keywords: "ビデオを追加, ビデオフレームを作成, ビデオを抽出, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにビデオフレームを追加する"
 ---

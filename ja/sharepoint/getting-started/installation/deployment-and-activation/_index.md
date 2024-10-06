@@ -2,7 +2,7 @@
 title: デプロイメントとアクティベーション
 type: docs
 weight: 20
-url: /sharepoint/deployment-and-activation/
+url: /ja/sharepoint/deployment-and-activation/
 ---
 
 ## **デプロイメント**

@@ -1,7 +1,7 @@
 ---
 title: バブルチャート
 type: docs
-url: /cpp/bubble-chart/
+url: /ja/cpp/bubble-chart/
 ---
 
 ## **バブルチャートサイズのスケーリング**

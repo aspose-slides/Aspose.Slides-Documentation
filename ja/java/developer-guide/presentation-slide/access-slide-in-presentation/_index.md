@@ -2,7 +2,7 @@
 title: プレゼンテーションのスライドにアクセスする
 type: docs
 weight: 20
-url: /java/access-slide-in-presentation/
+url: /ja/java/access-slide-in-presentation/
 keywords: "PowerPointプレゼンテーションにアクセス, スライドにアクセス, スライドプロパティを編集, スライド位置を変更, スライド番号を設定, インデックス, ID, 位置 Java, Aspose.Slides"
 description: "Javaでインデックス、ID、または位置によってPowerPointスライドにアクセスします。スライドプロパティを編集します"
 ---

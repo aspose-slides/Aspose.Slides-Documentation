@@ -4,7 +4,7 @@ second_title: "Aspose.Slides for Python ドキュメント"
 description: Aspose.Slides for Python via .NET は、テキスト、図形、表、およびアニメーションの管理、スライドへの音声およびビデオの追加、スライドのプレビュー、SVG、PDFフォーマットへのスライドのエクスポートなど、多くの重要な機能を提供します。
 type: docs
 weight: 35
-url: /python-net/
+url: /ja/python-net/
 is_root: true
 ---
 
@@ -26,8 +26,8 @@ Aspose.Slides for Python via .NET は、テキスト、図形、表、および�
 
 これらは役立つリソースへのリンクです：
 
-- [Aspose.Slides for Python via .NET オンラインドキュメント](/slides/python-net/)
-- [Aspose.Slides for Python via .NET 機能](/slides/python-net/features-overview/)
+- [Aspose.Slides for Python via .NET オンラインドキュメント](/slides/ja/python-net/)
+- [Aspose.Slides for Python via .NET 機能](/slides/ja/python-net/features-overview/)
 - [Aspose.Slides for Python via .NET リリースノート](https://releases.aspose.com/slides/python-net/release-notes/)
 - [Aspose.Slides for Python via .NET 製品ページ](https://products.aspose.com/slides/python-net/)
 - [Aspose.Slides for Python via .NET のダウンロード](https://releases.aspose.com/slides/python-net/)

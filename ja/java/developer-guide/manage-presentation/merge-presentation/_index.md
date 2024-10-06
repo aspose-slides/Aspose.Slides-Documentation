@@ -2,7 +2,7 @@
 title: プレゼンテーションのマージ
 type: docs
 weight: 40
-url: /java/merge-presentation/
+url: /ja/java/merge-presentation/
 keywords: "PowerPointのマージ, PPTX, PPT, PowerPointの結合, プレゼンテーションのマージ, プレゼンテーションの結合, Java"
 description: "JavaでPowerPointプレゼンテーションをマージまたは結合する"
 ---

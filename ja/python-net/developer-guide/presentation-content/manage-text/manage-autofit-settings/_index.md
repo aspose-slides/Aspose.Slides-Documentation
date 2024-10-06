@@ -2,7 +2,7 @@
 title: 自動調整設定の管理
 type: docs
 weight: 30
-url: /python-net/manage-autofit-settings/
+url: /ja/python-net/manage-autofit-settings/
 keywords: "テキストボックス, 自動調整, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointのテキストボックスの自動調整設定を行います"
 ---

@@ -2,7 +2,7 @@
 title: プレゼンテーションのコメント
 type: docs
 weight: 100
-url: /python-net/presentation-comments/
+url: /ja/python-net/presentation-comments/
 keywords: "コメント、PowerPoint コメント、PowerPoint プレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "Python で PowerPoint プレゼンテーションにコメントと返信を追加"
 ---

@@ -2,7 +2,7 @@
 title: ドーナツチャート
 type: docs
 weight: 30
-url: /java/doughnut-chart/
+url: /ja/java/doughnut-chart/
 ---
 
 ## **ドーナツチャートの中心ギャップを変更する**

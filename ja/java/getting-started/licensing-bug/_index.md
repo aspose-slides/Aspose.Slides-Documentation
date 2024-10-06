@@ -2,7 +2,7 @@
 title: ライセンスのバグ
 type: docs
 weight: 95
-url: /java/licensing-bug/
+url: /ja/java/licensing-bug/
 ---
 
 この記事では、Aspose.Slides for Javaのバージョン23.2、23.3、23.4、23.5、23.6、および23.7で発生したライセンスのバグについて説明します。このバグにより、永続ライセンスがサブスクリプションの有効期限が切れた後、一時的に使用不可になることがありました。

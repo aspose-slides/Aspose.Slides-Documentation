@@ -2,7 +2,7 @@
 title: チャートのフォーマット
 type: docs
 weight: 60
-url: /androidjava/chart-formatting/
+url: /ja/androidjava/chart-formatting/
 ---
 
 ## **チャートエンティティのフォーマット**

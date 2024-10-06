@@ -2,7 +2,7 @@
 title: PPT, PPTX, PDF と HTML エクスポート
 type: docs
 weight: 20
-url: /jasperreports/ppt-pptx-pdf-and-html-export/
+url: /ja/jasperreports/ppt-pptx-pdf-and-html-export/
 ---
 
 {{% alert color="primary" %}} 

@@ -1,7 +1,7 @@
 ---
 title: 3Dチャート
 type: docs
-url: /php-java/3d-chart/
+url: /ja/php-java/3d-chart/
 ---
 
 ## **3DチャートのRotationX、RotationY、およびDepthPercentsプロパティを設定する**

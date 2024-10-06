@@ -2,7 +2,7 @@
 title: プレゼンテーションの背景
 type: docs
 weight: 20
-url: /php-java/presentation-background/
+url: /ja/php-java/presentation-background/
 keywords: "PowerPoint 背景, 背景を設定する"
 description: "PowerPoint プレゼンテーションの背景を設定する"
 ---

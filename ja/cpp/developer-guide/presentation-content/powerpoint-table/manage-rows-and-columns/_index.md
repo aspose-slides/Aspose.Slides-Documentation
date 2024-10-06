@@ -2,7 +2,7 @@
 title: 行と列の管理
 type: docs
 weight: 20
-url: /cpp/manage-rows-and-columns/
+url: /ja/cpp/manage-rows-and-columns/
 keywords: "テーブル, テーブルの行と列, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションのテーブルの行と列を管理する"
 

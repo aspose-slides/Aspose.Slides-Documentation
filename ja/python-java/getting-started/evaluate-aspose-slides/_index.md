@@ -2,7 +2,7 @@
 title: Aspose.Slidesの評価
 type: docs
 weight: 120
-url: /python-java/evaluate-aspose-slides/
+url: /ja/python-java/evaluate-aspose-slides/
 ---
 
 Aspose.Slidesを簡単に評価用にダウンロードできます。評価パッケージは購入したパッケージと同じです。評価版は、ライセンスを適用するために数行のコードを追加するとライセンス付きになります。

@@ -2,7 +2,7 @@
 title: オーディオフレーム
 type: docs
 weight: 10
-url: /cpp/audio-frame/
+url: /ja/cpp/audio-frame/
 keywords: "オーディオを追加, オーディオフレーム, オーディオのプロパティ, オーディオを抽出, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションにオーディオを追加"
 ---

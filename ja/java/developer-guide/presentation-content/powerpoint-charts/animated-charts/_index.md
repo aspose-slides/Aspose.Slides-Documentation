@@ -2,7 +2,7 @@
 title: アニメーションチャート
 type: docs
 weight: 80
-url: /java/animated-charts/
+url: /ja/java/animated-charts/
 ---
 
 

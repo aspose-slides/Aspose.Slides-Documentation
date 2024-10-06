@@ -2,7 +2,7 @@
 title: プレゼンテーションシェイプからの画像抽出
 type: docs
 weight: 100
-url: /java/extracting-images-from-presentation-shapes/
+url: /ja/java/extracting-images-from-presentation-shapes/
 keywords: "画像を抽出, PowerPoint, PPT, PPTX, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションから画像を抽出"
 

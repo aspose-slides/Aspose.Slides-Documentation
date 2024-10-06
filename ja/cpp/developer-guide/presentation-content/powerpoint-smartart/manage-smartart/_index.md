@@ -2,7 +2,7 @@
 title: スマートアートの管理
 type: docs
 weight: 10
-url: /cpp/manage-smartart/
+url: /ja/cpp/manage-smartart/
 ---
 
 ## **スマートアートからテキストを取得**

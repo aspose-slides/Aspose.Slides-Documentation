@@ -2,7 +2,7 @@
 title: スライドの比較
 type: docs
 weight: 50
-url: /net/compare-slides/
+url: /ja/net/compare-slides/
 keywords: "PowerPointスライドの比較, 2つのスライドの比較, プレゼンテーション, C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでPowerPointプレゼンテーションスライドを比較する"
 ---

@@ -2,7 +2,7 @@
 title: 機能の概要
 type: docs
 weight: 10
-url: /php-java/features-overview/
+url: /ja/php-java/features-overview/
 ---
 
 ## **サポートされるプラットフォーム**
@@ -18,11 +18,11 @@ Aspose.Slides for PHP via Java は、Microsoft PowerPoint ドキュメント形�
 
 |**機能**|**説明**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/php-java/microsoft-powerpoint-ppt/)|Aspose.Slides for PHP via Java は、このプレゼンテーションドキュメント形式の最速の処理を提供します。|
-|[PresentationML (PPTX, XML)](/slides/php-java/presentationml-pptx-xml/)|Aspose.Slides for PHP via Java は、OOXML プレゼンテーション形式（PresentationML または PPTX としても知られる）の処理をサポートします。|
-|[PPT から PPTX への変換](/slides/php-java/ppt-to-pptx-conversion/)|Aspose.Slides for PHP via Java は、PPT から PPTX への変換をサポートしています。|
-|[Portable Document Format (PDF)](/slides/php-java/developer-guide/)|サポートされているファイル形式は、単一のメソッドで Adobe Portable Document Format (PDF) ドキュメントにエクスポートできます。|
-|[XML Parser Specification (XPS)](/slides/php-java/xml-parser-specification-xps/)|すべてのサポートされているファイル形式は、単一のメソッドで XML Parser Specification (XPS) ドキュメントにエクスポートできます。|
+|[Microsoft PowerPoint (PPT)](/slides/ja/php-java/microsoft-powerpoint-ppt/)|Aspose.Slides for PHP via Java は、このプレゼンテーションドキュメント形式の最速の処理を提供します。|
+|[PresentationML (PPTX, XML)](/slides/ja/php-java/presentationml-pptx-xml/)|Aspose.Slides for PHP via Java は、OOXML プレゼンテーション形式（PresentationML または PPTX としても知られる）の処理をサポートします。|
+|[PPT から PPTX への変換](/slides/ja/php-java/ppt-to-pptx-conversion/)|Aspose.Slides for PHP via Java は、PPT から PPTX への変換をサポートしています。|
+|[Portable Document Format (PDF)](/slides/ja/php-java/developer-guide/)|サポートされているファイル形式は、単一のメソッドで Adobe Portable Document Format (PDF) ドキュメントにエクスポートできます。|
+|[XML Parser Specification (XPS)](/slides/ja/php-java/xml-parser-specification-xps/)|すべてのサポートされているファイル形式は、単一のメソッドで XML Parser Specification (XPS) ドキュメントにエクスポートできます。|
 |[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-tiff/)|Aspose.Slides for PHP via Java がサポートするプレゼンテーションファイル形式も、Tagged Image File Format (TIFF) にエクスポートできます。|
 |[ODP から PPTX への変換](https://docs.aspose.com/slides/php-java/convert-odp-to-pptx/)|Aspose.Slides for PHP via Java は、OpenDocument プレゼンテーション (ODP) を読み込み、PPTX に変換することをサポートします。|
 |[Presentation を HTML は変換](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-html/)|Aspose.Slides for PHP via Java は、PresentationEx を HTML 形式に変換することをサポートしています。|

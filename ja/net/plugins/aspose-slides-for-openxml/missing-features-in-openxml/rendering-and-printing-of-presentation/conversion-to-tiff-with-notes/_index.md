@@ -2,7 +2,7 @@
 title: ノート付きのTiffへの変換
 type: docs
 weight: 10
-url: /net/conversion-to-tiff-with-notes/
+url: /ja/net/conversion-to-tiff-with-notes/
 ---
 
 TIFFは、Aspose.Slides for .NETがノート付きのプレゼンテーションを画像に変換するためにサポートする、いくつかの広く使用されている画像フォーマットの1つです。また、ノートスライドビューでスライドのサムネイルを生成することもできます。以下は、ノートスライドビューでプレゼンテーションのTIFF画像を生成する方法を示す2つのコードスニペットです。

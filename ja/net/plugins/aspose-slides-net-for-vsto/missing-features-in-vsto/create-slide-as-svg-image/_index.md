@@ -2,7 +2,7 @@
 title: SVG画像としてスライドを作成
 type: docs
 weight: 70
-url: /net/create-slide-as-svg-image/
+url: /ja/net/create-slide-as-svg-image/
 ---
 
 Aspose.Slides.Pptx for .NETを使用して任意のスライドからSVG画像を生成するには、以下の手順に従ってください:
@@ -68,6 +68,6 @@ SvgStream.Close();
 
 {{% alert color="primary" %}} 
 
-詳細については、[スライドSVG画像の作成](/slides/net/presentation-viewer/)をご覧ください。
+詳細については、[スライドSVG画像の作成](/slides/ja/net/presentation-viewer/)をご覧ください。
 
 {{% /alert %}}

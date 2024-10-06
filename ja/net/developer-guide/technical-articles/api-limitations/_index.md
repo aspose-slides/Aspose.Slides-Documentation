@@ -2,7 +2,7 @@
 title: APIの制限
 type: docs
 weight: 320
-url: /net/api-limitations/
+url: /ja/net/api-limitations/
 ---
 
 ## **プレゼンテーションおよびその他のエクスポート形式**

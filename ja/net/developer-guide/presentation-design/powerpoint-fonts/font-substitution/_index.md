@@ -3,7 +3,7 @@ title: フォントの置き換え - PowerPoint C# API
 linktitle: フォントの置き換え
 type: docs
 weight: 70
-url: /net/font-substitution/
+url: /ja/net/font-substitution/
 keywords: 
 - フォント
 - 置き換えフォント
@@ -73,6 +73,6 @@ using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
 
 {{%  alert title="注意"  color="warning"   %}} 
 
-[**フォントの置き換え**](/slides/net/font-replacement/)を参照することをお勧めします。 
+[**フォントの置き換え**](/slides/ja/net/font-replacement/)を参照することをお勧めします。 
 
 {{% /alert %}}

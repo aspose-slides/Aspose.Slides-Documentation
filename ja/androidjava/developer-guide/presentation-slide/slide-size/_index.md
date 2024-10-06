@@ -2,7 +2,7 @@
 title: スライドサイズ
 type: docs
 weight: 70
-url: /androidjava/slide-size/
+url: /ja/androidjava/slide-size/
 
 ---
 

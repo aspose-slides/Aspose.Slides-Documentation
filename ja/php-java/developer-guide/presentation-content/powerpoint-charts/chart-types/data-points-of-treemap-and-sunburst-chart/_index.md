@@ -1,7 +1,7 @@
 ---
 title: ツリーマップとサンバーストチャートのデータポイント
 type: docs
-url: /php-java/data-points-of-treemap-and-sunburst-chart/
+url: /ja/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Aspose.Slides for PHPをJava経由で使用したサンバーストグラフ"
 description: "Aspose.Slides for PHPをJava経由で使用したサンバーストグラフ、サンバースト図、サンバーストチャート、放射状チャート、放射状グラフ、または多層円グラフ。"
@@ -28,7 +28,7 @@ PowerPointチャートの他のタイプの中には、二つの「階層型」�
 ```
 
 {{% alert color="primary" title="関連情報" %}} 
-- [**サンバーストチャートの作成**](/slides/php-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**サンバーストチャートの作成**](/slides/ja/php-java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 チャートのデータポイントをフォーマットする必要がある場合、次のものを使用する必要があります：

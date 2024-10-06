@@ -2,7 +2,7 @@
 title: 形状の操作
 type: docs
 weight: 40
-url: /cpp/shape-manipulations/
+url: /ja/cpp/shape-manipulations/
 ---
 
 ## **スライド内の形状を見つける**

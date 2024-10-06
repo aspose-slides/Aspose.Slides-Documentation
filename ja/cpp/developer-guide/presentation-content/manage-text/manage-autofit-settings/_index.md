@@ -2,7 +2,7 @@
 title: 自動調整設定の管理
 type: docs
 weight: 30
-url: /cpp/manage-autofit-settings/
+url: /ja/cpp/manage-autofit-settings/
 keywords: "テキストボックス, 自動調整, PowerPoint プレゼンテーション, C++, Aspose.Slides for C++"
 description: "C++におけるPowerPointのテキストボックスの自動調整設定を行います"
 ---

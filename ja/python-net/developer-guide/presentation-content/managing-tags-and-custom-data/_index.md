@@ -2,7 +2,7 @@
 title: タグとカスタムデータの管理
 type: docs
 weight: 300
-url: /python-net/managing-tags-and-custom-data/
+url: /ja/python-net/managing-tags-and-custom-data/
 keywords: "タグ, カスタムデータ, タグの値, タグの追加, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションにタグとカスタムデータを追加する"
 ---

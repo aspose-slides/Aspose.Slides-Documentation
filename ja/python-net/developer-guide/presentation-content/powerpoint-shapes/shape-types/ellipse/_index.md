@@ -2,7 +2,7 @@
 title: 楕円
 type: docs
 weight: 30
-url: /python-net/ellipse/
+url: /ja/python-net/ellipse/
 keywords: "楕円, PowerPoint 形状, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Python で PowerPoint プレゼンテーションに楕円を作成する"
 ---

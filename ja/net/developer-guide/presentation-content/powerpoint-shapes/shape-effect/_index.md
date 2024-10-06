@@ -2,12 +2,12 @@
 title: シェイプ効果
 type: docs
 weight: 30
-url: /net/shape-effect
+url: /ja/net/shape-effect
 keywords: "シェイプ効果, PowerPoint プレゼンテーション C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint シェイプに効果を適用する"
 ---
 
-PowerPoint の効果はシェイプを引き立てるために使用できますが、[塗りつぶし](/slides/net/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPoint の効果を使用すると、シェイプに説得力のある反射を作成したり、シェイプの輝きを広げたりできます。
+PowerPoint の効果はシェイプを引き立てるために使用できますが、[塗りつぶし](/slides/ja/net/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPoint の効果を使用すると、シェイプに説得力のある反射を作成したり、シェイプの輝きを広げたりできます。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

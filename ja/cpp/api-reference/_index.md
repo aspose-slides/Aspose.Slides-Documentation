@@ -2,7 +2,7 @@
 title: API 参照
 type: docs
 weight: 50
-url: /cpp/api-reference/
+url: /ja/cpp/api-reference/
 ---
 
 {{% alert color="primary" %}} 

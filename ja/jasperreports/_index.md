@@ -4,7 +4,7 @@ second_title: Aspose.Slides ドキュメント
 description: Aspose.Slides for JasperReportsは、JasperReportsからMicrosoft PowerPoint プレゼンテーション（PPT）およびMicrosoft PowerPoint ショー（PPS）形式にレポートを簡単にエクスポートする必要がある開発者のために特別に設計され、開発されたライブラリです。
 type: docs
 weight: 70
-url: /jasperreports/
+url: /ja/jasperreports/
 is_root: true
 ---
 
@@ -22,8 +22,8 @@ Aspose.Slides for JasperReportsは、JasperReportsからMicrosoft PowerPoint プ
 
 以下は、あなたの作業を遂行するために必要な便利なリソースへのリンクです。
 
-- [Aspose.Slides for JasperReports オンラインドキュメント](/slides/jasperreports/)
-- [Aspose.Slides for JasperReports 機能](/slides/jasperreports/features/)
+- [Aspose.Slides for JasperReports オンラインドキュメント](/slides/ja/jasperreports/)
+- [Aspose.Slides for JasperReports 機能](/slides/ja/jasperreports/features/)
 - [Aspose.Slides for JasperReports リリースノート](https://releases.aspose.com/slides/jasperreport/release-notes/)
 - [Aspose.Slides for JasperReports 製品ページ](https://products.aspose.com/slides/jasperreports/)
 - [Aspose.Slides for JasperReports ダウンロード](https://releases.aspose.com/slides/jasperreport/)

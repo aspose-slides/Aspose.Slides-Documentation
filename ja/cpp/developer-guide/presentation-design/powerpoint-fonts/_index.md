@@ -2,5 +2,5 @@
 title: PowerPoint フォント
 type: docs
 weight: 30
-url: /cpp/powerpoint-fonts/
+url: /ja/cpp/powerpoint-fonts/
 ---

@@ -2,7 +2,7 @@
 title: スライドマスタ
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /ja/java/slide-master/
 keywords: "スライドマスタの追加, PPTマスタスライド, スライドマスタのPowerPoint, スライドマスタへの画像, プレースホルダ, 複数のスライドマスタ, スライドマスタの比較, Java, Aspose.Slides for Java"
 description: "JavaでPowerPointプレゼンテーションのスライドマスタを追加または編集する"
 ---
@@ -145,7 +145,7 @@ try {
 
 {{% alert color="primary" title="関連情報" %}} 
 
-スライドに画像を追加する方法の詳細については、[画像フレーム](/slides/java/picture-frame/#create-picture-frame)の記事を参照してください。
+スライドに画像を追加する方法の詳細については、[画像フレーム](/slides/ja/java/picture-frame/#create-picture-frame)の記事を参照してください。
 {{% /alert %}}
 
 ## **スライドマスタにプレースホルダを追加**

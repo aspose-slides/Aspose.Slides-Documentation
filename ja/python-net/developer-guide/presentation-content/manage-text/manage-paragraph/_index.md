@@ -2,7 +2,7 @@
 title: PythonでのPowerPoint段落の管理
 type: docs
 weight: 40
-url: /python-net/manage-paragraph/
+url: /ja/python-net/manage-paragraph/
 keywords: "PowerPoint段落の追加, 段落の管理, 段落のインデント, 段落のプロパティ, HTMLテキスト, 段落テキストのエクスポート, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションの段落、テキスト、インデント、およびプロパティを作成および管理する"
 ---

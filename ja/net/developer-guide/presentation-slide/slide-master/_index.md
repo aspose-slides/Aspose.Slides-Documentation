@@ -2,7 +2,7 @@
 title: スライドマスター
 type: docs
 weight: 80
-url: /net/slide-master/
+url: /ja/net/slide-master/
 keywords: "スライドマスターの追加, PPT マスタースライド, スライドマスターパワーポイント, スライドマスターへの画像, プレースホルダー, 複数のスライドマスター, スライドマスターの比較, C#, Csharp, .NET, Aspose.Slides"
 description: "C# または .NET で PowerPoint プレゼンテーションのスライドマスターを追加または編集します"
 ---
@@ -130,7 +130,7 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="primary" title="関連資料" %}} 
 
-スライドに画像を追加する詳細については、[画像フレーム](/slides/net/picture-frame/#create-picture-frame)の記事をご覧ください。
+スライドに画像を追加する詳細については、[画像フレーム](/slides/ja/net/picture-frame/#create-picture-frame)の記事をご覧ください。
 {{% /alert %}}
 
 

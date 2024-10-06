@@ -2,12 +2,12 @@
 title: Microsoft PowerPointプレゼンテーションにチャートを作成する
 type: docs
 weight: 70
-url: /php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ja/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- チャートはデータの視覚的表現であり、プレゼンテーションで広く使用されています。本記事では、[VSTO](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/)および[Aspose.Slides for PHP via Java](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/)を使用して、Microsoft PowerPointでプログラム的にチャートを作成するためのコードを示します。
+ チャートはデータの視覚的表現であり、プレゼンテーションで広く使用されています。本記事では、[VSTO](/slides/ja/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/)および[Aspose.Slides for PHP via Java](/slides/ja/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/)を使用して、Microsoft PowerPointでプログラム的にチャートを作成するためのコードを示します。
 
 {{% /alert %}} 
 ## **チャートの作成**

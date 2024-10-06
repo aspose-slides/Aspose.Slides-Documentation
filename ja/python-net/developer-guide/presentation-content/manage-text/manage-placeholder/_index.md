@@ -2,14 +2,14 @@
 title: プレースホルダーの管理
 type: docs
 weight: 10
-url: /python-net/manage-placeholder/
+url: /ja/python-net/manage-placeholder/
 keywords: "プレースホルダー, プレースホルダーテキスト, プロンプトテキスト, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Pythonを使用してPowerPointプレゼンテーションのプレースホルダーテキストとプロンプトテキストを変更する"
 ---
 
 ## **プレースホルダー内のテキストを変更する**
 
-[Aspose.Slides for Python via .NET](/slides/python-net/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて変更できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更できます。
+[Aspose.Slides for Python via .NET](/slides/ja/python-net/)を使用すると、プレゼンテーションのスライド上のプレースホルダーを見つけて変更できます。Aspose.Slidesを使用すると、プレースホルダー内のテキストを変更できます。
 
 **前提条件**: プレースホルダーが含まれたプレゼンテーションが必要です。そのようなプレゼンテーションは、標準のMicrosoft PowerPointアプリで作成できます。
 

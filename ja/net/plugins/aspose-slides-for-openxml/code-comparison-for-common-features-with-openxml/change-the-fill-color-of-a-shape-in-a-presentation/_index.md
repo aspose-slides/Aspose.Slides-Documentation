@@ -2,7 +2,7 @@
 title: プレゼンテーション内の図形の塗りつぶし色を変更する
 type: docs
 weight: 40
-url: /net/change-the-fill-color-of-a-shape-in-a-presentation/
+url: /ja/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
 ## **OpenXMLプレゼンテーション**

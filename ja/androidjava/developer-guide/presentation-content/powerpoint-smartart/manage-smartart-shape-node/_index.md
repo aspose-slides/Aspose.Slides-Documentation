@@ -3,7 +3,7 @@ title: JavaでPowerPoint SmartArtシェイプノードを作成または管理�
 linktitle: SmartArtシェイプノードを管理する
 type: docs
 weight: 30
-url: /androidjava/manage-smartart-shape-node/
+url: /ja/androidjava/manage-smartart-shape-node/
 keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
 description: JavaでPowerPointプレゼンテーション内のスマートアートノードと子ノードを管理する
 ---

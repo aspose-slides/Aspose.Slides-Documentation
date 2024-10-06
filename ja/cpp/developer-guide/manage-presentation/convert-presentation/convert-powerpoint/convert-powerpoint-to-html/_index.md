@@ -3,7 +3,7 @@ title: C++でPowerPointをHTMLに変換する
 linktitle: PowerPointをHTMLに変換
 type: docs
 weight: 30
-url: /cpp/convert-powerpoint-to-html/
+url: /ja/cpp/convert-powerpoint-to-html/
 keywords: "C++ PowerPoint to HTML, PowerPointプレゼンテーションを変換, PPTX, PPT, PPTをHTMLに, PPTXをHTMLに, PowerPointをHTMLに, PowerPointをHTMLとして保存, PPTをHTMLとして保存, PPTXをHTMLとして保存, C++, CPP, Aspose.Slides, HTMLエクスポート"
 description: "C++でPowerPointをHTMLに変換します。C++でPPTXまたはPPTをHTMLとして保存します。C++でスライドをHTMLとして保存します。"
 ---

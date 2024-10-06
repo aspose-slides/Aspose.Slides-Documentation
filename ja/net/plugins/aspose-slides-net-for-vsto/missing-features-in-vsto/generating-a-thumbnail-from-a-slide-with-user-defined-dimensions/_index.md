@@ -2,7 +2,7 @@
 title: ユーザー定義の寸法を持つスライドからサムネイルを生成する
 type: docs
 weight: 100
-url: /net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
+url: /ja/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
 ---
 
 Aspose.Slides for .NETを使用して、任意のスライドのサムネイルを生成するには:
@@ -47,6 +47,6 @@ using (Presentation pres = new Presentation("TestPresentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-詳細については、[スライドのサムネイル画像の作成](/slides/net/presentation-viewer/#creating-slides-thumbnail-image)をご覧ください。
+詳細については、[スライドのサムネイル画像の作成](/slides/ja/net/presentation-viewer/#creating-slides-thumbnail-image)をご覧ください。
 
 {{% /alert %}}

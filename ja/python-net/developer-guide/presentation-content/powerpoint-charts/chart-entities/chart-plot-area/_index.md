@@ -1,7 +1,7 @@
 ---
 title: チャートプロットエリア
 type: docs
-url: /python-net/chart-plot-area/
+url: /ja/python-net/chart-plot-area/
 keywords: "チャートプロットエリア PowerPoint プレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "チャートプロットエリアの幅と高さを取得します。レイアウトモードを設定します。PythonでのPowerPointプレゼンテーション"
 ---

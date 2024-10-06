@@ -2,7 +2,7 @@
 title: フォールバックフォントを使用したプレゼンテーションのレンダリング
 type: docs
 weight: 30
-url: /cpp/render-presentation-with-fallback-font/
+url: /ja/cpp/render-presentation-with-fallback-font/
 keywords: 
 - フォールバックフォント
 - パワーポイントのレンダリング
@@ -15,7 +15,7 @@ description: "C++でフォールバックフォントを使用してパワーポ
 
 以下の例は、これらの手順を含みます：
 
-1. [フォールバックフォントルールコレクションを作成する](/slides/cpp/create-fallback-fonts-collection/)。
+1. [フォールバックフォントルールコレクションを作成する](/slides/ja/cpp/create-fallback-fonts-collection/)。
 1. [Remove()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#aaf12e563d822f6e05e27732a837bcf33) を使用してフォールバックフォントルールを削除し、別のルールに [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#a030268631ae616b775bdb6df8accf42c) を追加します。
 1. ルールコレクションを [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924) プロパティに設定します。
 1. [Presentation::Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) メソッドを使用して、プレゼンテーションを同じフォーマットで保存するか、別のフォーマットで保存できます。フォールバックフォントルールコレクションがFontsManagerに設定された後、これらのルールはプレゼンテーションの保存、レンダリング、変換などの操作中に適用されます。
@@ -60,5 +60,5 @@ pres->Dispose();
 ```
 
 {{% alert color="primary" %}} 
-[プレゼンテーションの保存と変換についてもっと読む](/slides/cpp/creating-saving-and-converting-a-presentation/)。
+[プレゼンテーションの保存と変換についてもっと読む](/slides/ja/cpp/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

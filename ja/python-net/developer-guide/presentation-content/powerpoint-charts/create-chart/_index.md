@@ -3,7 +3,7 @@ title: PythonでPowerPointプレゼンテーションのチャートを作成
 linktitle: チャートを作成
 type: docs
 weight: 10
-url: /python-net/create-chart/
+url: /ja/python-net/create-chart/
 keywords: "チャート作成, 散布図, 円グラフ, ツリーマップチャート, 株式チャート, ボックス・ウィスカー図, ヒストグラムチャート, ファunnelチャート, サンバーストチャート, マルチカテゴリーチャート, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのチャートを作成"
 ---

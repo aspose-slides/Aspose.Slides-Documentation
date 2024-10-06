@@ -2,7 +2,7 @@
 title: スライドレイアウト
 type: docs
 weight: 60
-url: /python-net/slide-layout/
+url: /ja/python-net/slide-layout/
 keyword: "スライドサイズの設定、スライドオプションの設定、スライドサイズの指定、フッターの可視性、子フッター、コンテンツのスケーリング、ページサイズ、Python、Aspose.Slides"
 description: "PythonでPowerPointスライドのサイズとオプションを設定する"
 ---

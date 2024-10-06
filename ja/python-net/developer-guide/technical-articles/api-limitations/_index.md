@@ -2,7 +2,7 @@
 title: APIの制限
 type: docs
 weight: 210
-url: /python-net/api-limitations/
+url: /ja/python-net/api-limitations/
 ---
 
 ## **プレゼンテーションとその他のエクスポート形式**

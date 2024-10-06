@@ -2,7 +2,7 @@
 title: カスタムシェイプ
 type: docs
 weight: 20
-url: /python-net/custom-shape/
+url: /ja/python-net/custom-shape/
 keywords: "PowerPoint シェイプ, カスタムシェイプ, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "Python で PowerPoint プレゼンテーションにカスタムシェイプを追加する"
 ---

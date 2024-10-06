@@ -2,7 +2,7 @@
 title: スライドマスター
 type: docs
 weight: 80
-url: /cpp/slide-master/
+url: /ja/cpp/slide-master/
 keywords: "スライドマスターの追加, PPTマスタースライド, スライドマスターパワーポイント, スライドマスターへの画像, プレースホルダー, 複数のスライドマスター, スライドマスターを比較, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションのスライドマスターを追加または編集する"
 ---
@@ -128,7 +128,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 {{% alert color="primary" title="関連情報" %}} 
 
-スライドに画像を追加する方法についての詳細は、[ピクチャーフレーム](/slides/cpp/picture-frame/#create-picture-frame)の記事をご覧ください。
+スライドに画像を追加する方法についての詳細は、[ピクチャーフレーム](/slides/ja/cpp/picture-frame/#create-picture-frame)の記事をご覧ください。
 {{% /alert %}}
 
 ## **スライドマスターにプレースホルダーを追加する**

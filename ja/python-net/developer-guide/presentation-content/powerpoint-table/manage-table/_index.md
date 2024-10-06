@@ -2,7 +2,7 @@
 title: テーブルの管理
 type: docs
 weight: 10
-url: /python-net/manage-table/
+url: /ja/python-net/manage-table/
 keywords: "テーブル, テーブルの作成, テーブルへのアクセス, テーブルのアスペクト比, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのテーブルを作成および管理する"
 

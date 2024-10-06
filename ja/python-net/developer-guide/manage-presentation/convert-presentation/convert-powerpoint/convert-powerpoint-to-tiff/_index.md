@@ -2,7 +2,7 @@
 title: PowerPointをTIFFに変換
 type: docs
 weight: 90
-url: /python-net/convert-powerpoint-to-tiff/
+url: /ja/python-net/convert-powerpoint-to-tiff/
 keywords: "PowerPointプレゼンテーションを変換, PowerPointをTIFFに, PPTをTIFFに, PPTXをTIFFに, Python, Aspose.Slides"
 description: "PythonでPowerPointプレゼンテーションをTIFFに変換"
 ---

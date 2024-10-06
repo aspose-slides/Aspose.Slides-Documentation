@@ -2,7 +2,7 @@
 title: プレゼンテーション画像コレクション内の画像の置換  
 type: docs  
 weight: 90  
-url: /cpp/replacing-images-inside-presentation-image-collection/  
+url: /ja/cpp/replacing-images-inside-presentation-image-collection/  
 ---  
 
 {{% alert color="primary" %}}  

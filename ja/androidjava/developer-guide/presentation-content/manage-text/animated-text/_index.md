@@ -2,7 +2,7 @@
 title: アニメーションテキスト
 type: docs
 weight: 60
-url: /androidjava/animated-text/
+url: /ja/androidjava/animated-text/
 keywords: "PowerPointのアニメーションテキスト"
 description: "Javaを使用したPowerPointのアニメーションテキスト"
 ---

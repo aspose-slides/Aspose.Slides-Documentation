@@ -2,7 +2,7 @@
 title: セルの管理
 type: docs
 weight: 30
-url: /python-net/manage-cells/
+url: /ja/python-net/manage-cells/
 keywords: "テーブル, 結合セル, セル分割, テーブルセル内の画像, Python, Aspose.Slides for Python via .NET"
 description: "PythonでのPowerPointプレゼンテーションのテーブルセル"
 ---

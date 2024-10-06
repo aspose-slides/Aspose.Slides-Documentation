@@ -2,7 +2,7 @@
 title: 長方形
 type: docs
 weight: 80
-url: /python-net/rectangle/
+url: /ja/python-net/rectangle/
 keywords: "長方形の作成, PowerPointの図形, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションに長方形を作成する"
 ---

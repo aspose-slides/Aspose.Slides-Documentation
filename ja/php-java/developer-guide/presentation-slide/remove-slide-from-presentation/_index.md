@@ -2,7 +2,7 @@
 title: プレゼンテーションからスライドを削除する
 type: docs
 weight: 30
-url: /php-java/remove-slide-from-presentation/
+url: /ja/php-java/remove-slide-from-presentation/
 keywords: "スライドを削除, スライドを削除する, PowerPoint, プレゼンテーション, Java, Aspose.Slides"
 description: "参照またはインデックスによってPowerPointからスライドを削除する"
 

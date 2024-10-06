@@ -2,7 +2,7 @@
 title: チャートのエクスポート
 type: docs
 weight: 90
-url: /cpp/export-chart/
+url: /ja/cpp/export-chart/
 keywords:
 - チャート
 - チャート画像

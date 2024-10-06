@@ -1,7 +1,7 @@
 ---
 title: プレゼンテーションの印刷
 type: docs
-url: /net/print-the-presentation/
+url: /ja/net/print-the-presentation/
 ---
 
 Aspose.Slides for .NETは、プレゼンテーションの印刷のための4つのオーバーロードメソッドを提供します。これらのメソッドは、デフォルトのプリンターやカスタマイズ設定のある任意の利用可能なプリンターに印刷するために十分に柔軟です。要件に応じて適切な印刷メソッドを選択するだけで済みます。

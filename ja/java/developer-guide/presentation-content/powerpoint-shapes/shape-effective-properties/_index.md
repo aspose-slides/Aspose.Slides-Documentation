@@ -2,7 +2,7 @@
 title: 形状の効果的プロパティ
 type: docs
 weight: 50
-url: /java/shape-effective-properties/
+url: /ja/java/shape-effective-properties/
 ---
 
 このトピックでは、**効果的**および**ローカル**プロパティについて説明します。これらのレベルで値を直接設定すると、

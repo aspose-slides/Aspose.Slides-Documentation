@@ -2,7 +2,7 @@
 title: スライドをSVG画像としてレンダリングする
 type: docs
 weight: 50
-url: /cpp/render-a-slide-as-an-svg-image/
+url: /ja/cpp/render-a-slide-as-an-svg-image/
 ---
 
 SVGはスケーラブルベクターグラフィックスの略で、2次元画像をレンダリングするために使用される標準的なグラフィックタイプまたはフォーマットです。SVGは、画像の動作や外観を定義する詳細情報を持つXML形式でベクターとして画像を保存します。

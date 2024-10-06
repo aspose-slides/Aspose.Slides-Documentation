@@ -2,7 +2,7 @@
 title: プレゼンテーションの形状から画像を抽出する
 type: docs
 weight: 90
-url: /cpp/extracting-images-from-presentation-shapes/
+url: /ja/cpp/extracting-images-from-presentation-shapes/
 keywords: "画像を抽出, PowerPoint, PPT, PPTX, PowerPoint プレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションから画像を抽出する"
 

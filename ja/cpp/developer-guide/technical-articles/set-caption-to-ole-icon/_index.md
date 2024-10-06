@@ -2,7 +2,7 @@
 title: OLEアイコンにキャプションを設定する
 type: docs
 weight: 110
-url: /cpp/set-caption-to-ole-icon/
+url: /ja/cpp/set-caption-to-ole-icon/
 ---
 
 新しい **get_SubstitutePictureTitle()** と **set_SubstitutePictureTitle()** メソッドが **IOleObjectFrame** および **OleObjectFrame** クラスに追加されました。これによりOLEアイコンのキャプションを取得、設定、または変更することができます。以下のコードスニペットは、Excelオブジェクトを作成し、そのキャプションを設定するサンプルを示しています。

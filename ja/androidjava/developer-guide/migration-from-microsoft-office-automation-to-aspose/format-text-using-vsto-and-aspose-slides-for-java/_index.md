@@ -2,12 +2,12 @@
 title: VSTOおよびJava経由でのAspose.Slidesを使用したテキストのフォーマット
 type: docs
 weight: 30
-url: /androidjava/format-text-using-vsto-and-aspose-slides-for-java/
+url: /ja/androidjava/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-時には、スライド上のテキストをプログラム的にフォーマットする必要があります。この記事では、[VSTO](/slides/androidjava/format-text-using-vsto-and-aspose-slides-for-java/)および[Aspose.Slides for Android via Java](/slides/androidjava/format-text-using-vsto-and-aspose-slides-for-java/)を使用して、最初のスライドにいくつかのテキストがあるサンプルプレゼンテーションを読み込む方法を示します。このコードは、スライドの第三のテキストボックスのテキストを最後のテキストボックスのテキストのように見えるようにフォーマットします。
+時には、スライド上のテキストをプログラム的にフォーマットする必要があります。この記事では、[VSTO](/slides/ja/androidjava/format-text-using-vsto-and-aspose-slides-for-java/)および[Aspose.Slides for Android via Java](/slides/ja/androidjava/format-text-using-vsto-and-aspose-slides-for-java/)を使用して、最初のスライドにいくつかのテキストがあるサンプルプレゼンテーションを読み込む方法を示します。このコードは、スライドの第三のテキストボックスのテキストを最後のテキストボックスのテキストのように見えるようにフォーマットします。
 
 {{% /alert %}} 
 ## **テキストのフォーマット**

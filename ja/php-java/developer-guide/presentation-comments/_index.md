@@ -2,7 +2,7 @@
 title: プレゼンテーションのコメント
 type: docs
 weight: 100
-url: /php-java/presentation-comments/
+url: /ja/php-java/presentation-comments/
 keywords: "コメント, PowerPointのコメント, PowerPointプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPointプレゼンテーションにコメントと返信を追加する"
 ---

@@ -2,7 +2,7 @@
 title: Aspose.Slides for PHP via Java 14.4.0 の既知の問題
 type: docs
 weight: 30
-url: /php-java/known-issues-in-aspose-slides-for-java-14-4-0/
+url: /ja/php-java/known-issues-in-aspose-slides-for-java-14-4-0/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: スライドのクローン
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /ja/java/clone-slides/
 ---
 
 

@@ -2,7 +2,7 @@
 title: プレゼンテーションコメント
 type: docs
 weight: 100
-url: /net/presentation-comments/
+url: /ja/net/presentation-comments/
 keywords: "コメント, PowerPoint コメント, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションにコメントと返信を追加します"
 ---

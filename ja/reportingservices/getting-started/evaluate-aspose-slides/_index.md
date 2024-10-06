@@ -2,7 +2,7 @@
 title: Aspose.Slidesの評価
 type: docs
 weight: 80
-url: /reportingservices/evaluate-aspose-slides/
+url: /ja/reportingservices/evaluate-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

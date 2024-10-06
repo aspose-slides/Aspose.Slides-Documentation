@@ -3,7 +3,7 @@ title: フォントの置き換え - PowerPoint Java API
 linktitle: フォントの置き換え
 type: docs
 weight: 70
-url: /androidjava/font-substitution/
+url: /ja/androidjava/font-substitution/
 keywords: "フォント, 代替フォント, PowerPointプレゼンテーション, Java, Aspose.Slides for Android via Java"
 description: "JavaにおけるPowerPointのフォント置き換え"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="注意"  color="warning"   %}} 
 
-[**フォント置き換え**](/slides/androidjava/font-replacement/)を参照することをお勧めします。
+[**フォント置き換え**](/slides/ja/androidjava/font-replacement/)を参照することをお勧めします。
 
 {{% /alert %}}

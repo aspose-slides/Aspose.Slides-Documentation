@@ -1,7 +1,7 @@
 ---
 title: チャートデータテーブル
 type: docs
-url: /python-net/chart-data-table/
+url: /ja/python-net/chart-data-table/
 keywords: "フォントプロパティ、チャートデータテーブル、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションのチャートデータベーステーブルのフォントプロパティを設定する"
 ---

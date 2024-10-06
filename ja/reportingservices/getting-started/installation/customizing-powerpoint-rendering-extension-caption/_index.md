@@ -2,7 +2,7 @@
 title: PowerPointレンダリング拡張のキャプションをカスタマイズする
 type: docs
 weight: 60
-url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
+url: /ja/reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
 {{% alert color="primary" %}} 

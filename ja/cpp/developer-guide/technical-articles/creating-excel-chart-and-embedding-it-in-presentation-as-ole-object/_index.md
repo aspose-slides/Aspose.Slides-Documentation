@@ -2,7 +2,7 @@
 title: Excelチャートの作成とOLEオブジェクトとしてプレゼンテーションに埋め込む  
 type: docs  
 weight: 40  
-url: /cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/  
+url: /ja/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/  
 ---  
 
 {{% alert color="primary" %}}  

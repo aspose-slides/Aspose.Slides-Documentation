@@ -3,7 +3,7 @@ title: フォールバックフォント - PowerPoint Java API
 linktitle: フォールバックフォント
 type: docs
 weight: 50
-url: /androidjava/fallback-font/
+url: /ja/androidjava/fallback-font/
 description: フォールバックフォントは、テキストに指定されたフォントがシステムで利用可能であるが、このフォントが必要なグリフを含まない場合に使用されます。この場合、PowerPoint Java API は指定されたフォールバックフォントのいずれかをグリフの置き換えに使用することが可能です。
 ---
 
@@ -14,6 +14,6 @@ Aspose.Slides はフォールバックフォントを作成し、フォールバ
 
 これらの機能について学ぶには、以下のリンクを使用してください：
 
-- [フォールバックフォントの作成](/slides/androidjava/create-fallback-font)
-- [フォールバックフォントコレクションの作成](/slides/androidjava/create-fallback-fonts-collection)
-- [フォールバックフォントでプレゼンテーションをレンダリングする](/slides/androidjava/render-presentation-with-fallback-font)
+- [フォールバックフォントの作成](/slides/ja/androidjava/create-fallback-font)
+- [フォールバックフォントコレクションの作成](/slides/ja/androidjava/create-fallback-fonts-collection)
+- [フォールバックフォントでプレゼンテーションをレンダリングする](/slides/ja/androidjava/render-presentation-with-fallback-font)

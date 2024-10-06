@@ -3,7 +3,7 @@ title: .NETでプレゼンテーションを作成する
 linktitle: プレゼンテーションを作成する
 type: docs
 weight: 10
-url: /net/create-presentation/
+url: /ja/net/create-presentation/
 keywords: "PowerPointを作成, PPTX, PPT, プレゼンテーションを作成, プレゼンテーションを初期化, C#, .NET"
 description: "C#でプログラムでPowerPointプレゼンテーションを作成する例（PPT, PPTX, ODPなど）。"
 ---

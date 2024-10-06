@@ -1,7 +1,7 @@
 ---
 title: プレゼンテーションビューのプロパティ
 type: docs
-url: /java/presentation-view-properties/
+url: /ja/java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -59,7 +59,7 @@ try {
 ## **デフォルトズーム値の設定**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for Java では、プレゼンテーションを開いたときにズームが設定されるように、プレゼンテーションのデフォルトズーム値を設定することがサポートされるようになりました。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) を設定することによって行うことができます。[getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) および [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) は、プログラム的に設定することができます。このトピックでは、[Aspose.Slides](/slides/) の [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) を設定する方法を例を使って見ていきます。
+Aspose.Slides for Java では、プレゼンテーションを開いたときにズームが設定されるように、プレゼンテーションのデフォルトズーム値を設定することがサポートされるようになりました。これは、プレゼンテーションの [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) を設定することによって行うことができます。[getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) および [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) は、プログラム的に設定することができます。このトピックでは、[Aspose.Slides](/slides/ja/) の [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) の [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) を設定する方法を例を使って見ていきます。
 
 {{% /alert %}} 
 

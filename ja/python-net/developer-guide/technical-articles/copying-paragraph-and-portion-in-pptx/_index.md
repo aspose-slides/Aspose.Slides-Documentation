@@ -2,7 +2,7 @@
 title: PPTXにおける段落および部分のコピー
 type: docs
 weight: 80
-url: /python-net/copying-paragraph-and-portion-in-pptx/
+url: /ja/python-net/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

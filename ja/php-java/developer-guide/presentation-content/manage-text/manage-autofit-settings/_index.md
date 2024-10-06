@@ -2,7 +2,7 @@
 title: 自動サイズ設定の管理
 type: docs
 weight: 30
-url: /php-java/manage-autofit-settings/
+url: /ja/php-java/manage-autofit-settings/
 keywords: "テキストボックス, 自動サイズ, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint のテキストボックスの自動サイズ設定を設定する"
 ---

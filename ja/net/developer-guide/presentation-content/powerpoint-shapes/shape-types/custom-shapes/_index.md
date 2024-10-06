@@ -2,7 +2,7 @@
 title: カスタムシェイプ
 type: docs
 weight: 20
-url: /net/custom-shape/
+url: /ja/net/custom-shape/
 keywords: 
 - シェイプ
 - カスタムシェイプ

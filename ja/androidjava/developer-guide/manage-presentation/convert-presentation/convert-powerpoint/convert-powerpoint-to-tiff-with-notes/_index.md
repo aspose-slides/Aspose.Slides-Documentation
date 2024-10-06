@@ -2,7 +2,7 @@
 title: ノート付きPowerPointをTIFFに変換
 type: docs
 weight: 100
-url: /androidjava/convert-powerpoint-to-tiff-with-notes/
+url: /ja/androidjava/convert-powerpoint-to-tiff-with-notes/
 keywords: "ノート付きPowerPointをTIFFに変換"
 description: "Aspose.Slidesを使用してノート付きPowerPointをTIFFに変換します。"
 ---

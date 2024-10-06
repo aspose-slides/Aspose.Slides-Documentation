@@ -2,7 +2,7 @@
 title: PowerPointをTIFFに変換する
 type: docs
 weight: 90
-url: /cpp/convert-powerpoint-to-tiff/
+url: /ja/cpp/convert-powerpoint-to-tiff/
 keywords: "PowerPointプレゼンテーションの変換, PowerPointからTIFF, PPTからTIFF, PPTXからTIFF, C++, CPP, Aspose.Slides"
 description: "C++でPowerPointプレゼンテーションをTIFFに変換する"
 ---

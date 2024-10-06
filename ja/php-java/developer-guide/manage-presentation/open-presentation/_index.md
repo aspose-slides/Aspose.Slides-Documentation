@@ -3,7 +3,7 @@ title: プレゼンテーションを開く
 linktitle: プレゼンテーションを開く
 type: docs
 weight: 20
-url: /php-java/open-presentation/
+url: /ja/php-java/open-presentation/
 keywords: "PowerPointを開く, PPTX, PPT, プレゼンテーションを開く, プレゼンテーションをロード, Java"
 description: "プレゼンテーションPPT、PPTX、ODPを開くまたはロードする"
 ---

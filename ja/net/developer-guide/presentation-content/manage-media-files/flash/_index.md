@@ -2,7 +2,7 @@
 title: フラッシュ
 type: docs
 weight: 10
-url: /net/flash/
+url: /ja/net/flash/
 keywords: "フラッシュの抽出, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET で PowerPoint プレゼンテーションからフラッシュオブジェクトを抽出する"
 ---

@@ -2,7 +2,7 @@
 title: シェイプサムネイルの作成
 type: docs
 weight: 70
-url: /net/create-shape-thumbnails/
+url: /ja/net/create-shape-thumbnails/
 keywords: 
 - シェイプサムネイル
 - シェイプ画像

@@ -2,7 +2,7 @@
 title: HTML5へのエクスポート
 type: docs
 weight: 40
-url: /net/export-to-html5/
+url: /ja/net/export-to-html5/
 keywords:
 - PowerPointからHTMLへの変換
 - スライドをHTMLに変換
@@ -19,7 +19,7 @@ description: "C#または.NETでPowerPointをHTML5にエクスポート"
 
 {{% alert title="情報" color="info" %}}
 
-[Aspose.Slides 21.9](/slides/net/aspose-slides-for-net-21-9-release-notes/) では、HTML5エクスポートのサポートを実装しました。ただし、WebExtensionsを使用してPowerPointをHTMLにエクスポートすることを希望される場合は、[この記事](/slides/net/web-extensions/)をご覧ください。 
+[Aspose.Slides 21.9](/slides/ja/net/aspose-slides-for-net-21-9-release-notes/) では、HTML5エクスポートのサポートを実装しました。ただし、WebExtensionsを使用してPowerPointをHTMLにエクスポートすることを希望される場合は、[この記事](/slides/ja/net/web-extensions/)をご覧ください。 
 
 {{% /alert %}} 
 

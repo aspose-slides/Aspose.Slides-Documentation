@@ -2,5 +2,5 @@
 title: プレゼンテーションセキュリティ
 type: docs
 weight: 60
-url: /net/presentation-security/
+url: /ja/net/presentation-security/
 ---

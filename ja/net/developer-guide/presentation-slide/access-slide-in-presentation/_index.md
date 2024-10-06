@@ -2,7 +2,7 @@
 title: プレゼンテーション内のスライドにアクセス
 type: docs
 weight: 20
-url: /net/access-slide-in-presentation/
+url: /ja/net/access-slide-in-presentation/
 keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  C#, Csharp, .NET, Aspose.Slides"
 description: "C#または.NETでインデックス、ID、または位置によってPowerPointスライドにアクセスします。スライドのプロパティを編集します。"
 ---

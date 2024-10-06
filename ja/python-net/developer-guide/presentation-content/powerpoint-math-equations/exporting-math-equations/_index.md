@@ -2,7 +2,7 @@
 title: 数学方程式のエクスポート
 type: docs
 weight: 30
-url: /python-net/exporting-math-equations/
+url: /ja/python-net/exporting-math-equations/
 keywords: "数学方程式のエクスポート, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointの数学方程式をエクスポート"
 ---

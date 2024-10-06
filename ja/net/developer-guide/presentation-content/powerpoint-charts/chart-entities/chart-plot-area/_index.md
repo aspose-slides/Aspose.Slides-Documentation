@@ -1,7 +1,7 @@
 ---
 title: チャートプロットエリア
 type: docs
-url: /net/chart-plot-area/
+url: /ja/net/chart-plot-area/
 keywords: "チャートプロットエリア PowerPointプレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "チャートプロットエリアの幅、高さを取得する。レイアウトモードを設定する。C#または.NETでのPowerPointプレゼンテーション"
 ---

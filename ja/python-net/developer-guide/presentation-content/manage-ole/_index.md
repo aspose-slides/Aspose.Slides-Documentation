@@ -2,7 +2,7 @@
 title: OLEの管理
 type: docs
 weight: 40
-url: /python-net/manage-ole/
+url: /ja/python-net/manage-ole/
 keywords:
 - OLEを追加
 - OLEを埋め込む

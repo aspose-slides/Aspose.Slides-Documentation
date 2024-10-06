@@ -2,7 +2,7 @@
 title: システム要件
 type: docs
 weight: 60
-url: /jasperreports/system-requirements/
+url: /ja/jasperreports/system-requirements/
 ---
 
 Aspose.Slides for JasperReportsは以下の環境で動作します：

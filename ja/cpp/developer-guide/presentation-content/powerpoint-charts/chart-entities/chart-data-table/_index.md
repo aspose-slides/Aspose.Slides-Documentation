@@ -1,7 +1,7 @@
 ---
 title: チャートデータテーブル
 type: docs
-url: /cpp/chart-data-table/
+url: /ja/cpp/chart-data-table/
 ---
 
 ## **チャートデータテーブルのフォントプロパティを設定する**

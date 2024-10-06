@@ -2,7 +2,7 @@
 title: モダン API
 type: docs
 weight: 280
-url: /cpp/modern-api/
+url: /ja/cpp/modern-api/
 keywords: "モダン API, 描画"
 description: "モダン API"
 ---

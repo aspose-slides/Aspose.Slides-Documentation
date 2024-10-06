@@ -2,7 +2,7 @@
 title: 機能概要
 type: docs
 weight: 20
-url: /nodejs-java/features-overview/
+url: /ja/nodejs-java/features-overview/
 ---
 
 ## **対応プラットフォーム**

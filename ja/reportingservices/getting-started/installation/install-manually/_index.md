@@ -2,7 +2,7 @@
 title: 手動インストール
 type: docs
 weight: 30
-url: /reportingservices/install-manually/
+url: /ja/reportingservices/install-manually/
 ---
 
 {{% alert color="primary" %}} 

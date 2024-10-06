@@ -2,7 +2,7 @@
 title: テキストの書式設定
 type: docs
 weight: 50
-url: /java/text-formatting/
+url: /ja/java/text-formatting/
 keywords:
 - テキストを強調表示
 - 正規表現

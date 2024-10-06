@@ -3,7 +3,7 @@ title: フォントの置き換え - PowerPoint Java API
 linktitle: フォントの置き換え
 type: docs
 weight: 70
-url: /php-java/font-substitution/
+url: /ja/php-java/font-substitution/
 keywords: "フォント, 置き換えフォント, PowerPoint プレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint でのフォントの置き換え"
 ---
@@ -53,6 +53,6 @@ Aspose.Slides は、特定の条件下で何をすべきかを決定するフォ
 
 {{%  alert title="注意"  color="warning"   %}} 
 
-[**フォント置き換え**](/slides/php-java/font-replacement/) を参照したいかもしれません。
+[**フォント置き換え**](/slides/ja/php-java/font-replacement/) を参照したいかもしれません。
 
 {{% /alert %}}

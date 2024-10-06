@@ -2,7 +2,7 @@
 title: 中断可能なライブラリのサポート
 type: docs
 weight: 120
-url: /php-java/support-for-interruptable-library/
+url: /ja/php-java/support-for-interruptable-library/
 ---
 
 ## **中断可能なライブラリ**

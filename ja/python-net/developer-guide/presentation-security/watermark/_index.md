@@ -2,7 +2,7 @@
 title: ウォーターマーク
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /ja/python-net/watermark/
 keywords:
 - ウォーターマーク
 - ウォーターマークを追加
@@ -46,7 +46,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="参照" %}} 
-- [TextFrameクラスの使用方法](/slides/python-net/text-formatting/)
+- [TextFrameクラスの使用方法](/slides/ja/python-net/text-formatting/)
 {{% /alert %}}
 
 ### **プレゼンテーションにテキストウォーターマークを追加する**
@@ -64,7 +64,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="参照" %}} 
-- [スライドマスターの使用方法](/slides/python-net/slide-master/)
+- [スライドマスターの使用方法](/slides/ja/python-net/slide-master/)
 {{% /alert %}}
 
 ### **ウォーターマーク形状の透明度を設定する**

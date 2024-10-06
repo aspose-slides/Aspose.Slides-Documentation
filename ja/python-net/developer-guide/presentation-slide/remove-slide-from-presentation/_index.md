@@ -2,7 +2,7 @@
 title: プレゼンテーションからスライドを削除する
 type: docs
 weight: 30
-url: /python-net/remove-slide-from-presentation/
+url: /ja/python-net/remove-slide-from-presentation/
 keywords: "スライドの削除, スライドの削除, PowerPoint, プレゼンテーション, Python, Aspose.Slides"
 description: "Pythonで参照またはインデックスを使用してPowerPointからスライドを削除します"
 

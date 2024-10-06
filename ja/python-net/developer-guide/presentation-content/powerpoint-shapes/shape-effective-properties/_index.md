@@ -2,7 +2,7 @@
 title: 効果的な図形プロパティ
 type: docs
 weight: 50
-url: /python-net/shape-effective-properties/
+url: /ja/python-net/shape-effective-properties/
 keywords: "図形プロパティ, カメラプロパティ, ライトリグ, ベベル形状, テキストフレーム, テキストスタイル, フォント高さ値, テーブルの塗りつぶしフォーマット, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションの効果的な図形プロパティを取得する"
 ---

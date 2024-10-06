@@ -2,7 +2,7 @@
 title: タグとカスタムデータの管理
 type: docs
 weight: 300
-url: /cpp/managing-tags-and-custom-data
+url: /ja/cpp/managing-tags-and-custom-data
 
 ---
 

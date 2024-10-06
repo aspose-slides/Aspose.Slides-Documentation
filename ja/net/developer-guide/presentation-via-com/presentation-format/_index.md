@@ -2,7 +2,7 @@
 title: プレゼンテーションフォーマット
 type: docs
 weight: 10
-url: /net/presentation-format/
+url: /ja/net/presentation-format/
 ---
 
 Aspose.Slides for .NETは、ロードする前にプレゼンテーションフォーマットを取得するために使用される[**PresentationFactory**](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory)クラスを提供します。

@@ -2,7 +2,7 @@
 title: よくある質問
 type: docs
 weight: 110
-url: /reportingservices/frequently-asked-questions/
+url: /ja/reportingservices/frequently-asked-questions/
 ---
 
 {{% alert color="primary" %}} 

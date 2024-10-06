@@ -2,7 +2,7 @@
 title: 製品サポート
 type: docs
 weight: 100
-url: /python-net/product-support/
+url: /ja/python-net/product-support/
 ---
 
 ## **テクニカルサポート**
@@ -41,4 +41,4 @@ Aspose.Slides for Python via .NETで問題が発生した場合は、最も効�
 |[Aspose.Slidesブログ](https://blog.aspose.com/category/slides/)|新しいリリースやAspose.Slidesに関する有用なヒントの情報を得るために、このセクションを定期的にチェックしてください。|
 |[Aspose.Slides for Python via .NETダウンロード](https://pypi.org/project/aspose.slides/)|このページから最新バージョンのAspose.Slidesをダウンロードできます。私たちは頻繁に新しいバージョンをリリースしています。|
 |[Aspose.Slidesサポートフォーラム](https://forum.aspose.com/c/slides/11)|迅速な解決のために、ここに質問や問題を投稿してください。|
-|[Aspose.Slides for Python via .NET製品ドキュメント](/slides/python-net/)|この文書とAspose.Slides APIリファレンスを含む完全なオンラインドキュメントです。|
+|[Aspose.Slides for Python via .NET製品ドキュメント](/slides/ja/python-net/)|この文書とAspose.Slides APIリファレンスを含む完全なオンラインドキュメントです。|

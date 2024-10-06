@@ -2,7 +2,7 @@
 title: ビデオフレーム
 type: docs
 weight: 10
-url: /androidjava/video-frame/
+url: /ja/androidjava/video-frame/
 keywords: "ビデオの追加、ビデオフレームの作成、ビデオの抽出、PowerPointプレゼンテーション、Java、Aspose.Slides for Android via Java"
 description: "JavaでPowerPointプレゼンテーションにビデオフレームを追加する"
 ---

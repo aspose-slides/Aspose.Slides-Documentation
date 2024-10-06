@@ -2,7 +2,7 @@
 title: プレゼンテーションスライド全体の背景を画像として取得
 type: docs
 weight: 95
-url: /net/get-the-entire-presentation-slide-background-as-an-image/
+url: /ja/net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - スライド
 - 背景
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides for .NET
 ---
 
-PowerPointプレゼンテーションでは、スライドの背景は多くの要素で構成されることがあります。[スライド背景](/slides/net/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションテーマ、カラースキーム、およびマスタースライドとレイアウトスライドに配置された図形によって影響を受ける可能性があります。
+PowerPointプレゼンテーションでは、スライドの背景は多くの要素で構成されることがあります。[スライド背景](/slides/ja/net/presentation-background/)として設定された画像に加え、最終的な背景はプレゼンテーションテーマ、カラースキーム、およびマスタースライドとレイアウトスライドに配置された図形によって影響を受ける可能性があります。
 
 Aspose.Slides for .NETでは、プレゼンテーションスライド全体の背景を画像として抽出する簡単な方法は提供されていませんが、以下の手順に従ってこの作業を行うことができます：
 1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)クラスを使用して、プレゼンテーションをロードします。

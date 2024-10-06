@@ -4,7 +4,7 @@ second_title: Aspose.Slides ドキュメント
 description: Aspose.Slides for Java は、PowerPoint® ドキュメントを管理する機能を提供する初めてかつ唯一のコンポーネントです。Aspose.Slides for Java には、テキスト、図形の管理、スライドを SVG、PDF およびその他の形式にエクスポートするなど、多くの重要な機能があります。
 type: docs
 weight: 20
-url: /java/
+url: /ja/java/
 is_root: true
 ---
 
@@ -22,14 +22,14 @@ Aspose.Slides for Java は、Microsoft PowerPoint® を使用せずに PowerPoin
 
 便利なリソースへのリンクです。
 
-- [Aspose.Slides for Java オンラインドキュメント](/slides/java/)
-- [Aspose.Slides for Java 機能](/slides/java/features-overview/)
-- [Aspose.Slides for Java 制限事項](/slides/java/known-issues/)
+- [Aspose.Slides for Java オンラインドキュメント](/slides/ja/java/)
+- [Aspose.Slides for Java 機能](/slides/ja/java/features-overview/)
+- [Aspose.Slides for Java 制限事項](/slides/ja/java/known-issues/)
 - [Aspose.Slides for Java リリースノート](https://releases.aspose.com/slides/java/release-notes/)
 - [Aspose.Slides for Java 製品ページ](https://products.aspose.com/slides/java/)
 - [Aspose.Slides for Java をダウンロード](https://releases.aspose.com/slides/java/)
 - [Aspose.Slides for Java Maven リポジトリ](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [Maven リポジトリから Aspose.Slides for Java をインストール](/slides/java/installation/)
+- [Maven リポジトリから Aspose.Slides for Java をインストール](/slides/ja/java/installation/)
 - [Aspose.Slides for Java API リファレンスガイド](https://reference.aspose.com/slides/java)
 - [GitHub リポジトリからの例をダウンロード](https://github.com/aspose-slides/Aspose.Slides-for-Java)
 - [Aspose.Slides for Java 無料サポートフォーラム](https://forum.aspose.com/c/slides/11)

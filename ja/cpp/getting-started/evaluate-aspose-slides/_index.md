@@ -2,7 +2,7 @@
 title: Aspose.Slidesの評価  
 type: docs  
 weight: 110  
-url: /cpp/evaluate-aspose-slides/  
+url: /ja/cpp/evaluate-aspose-slides/  
 ---  
 
 {{% alert color="primary" %}}  

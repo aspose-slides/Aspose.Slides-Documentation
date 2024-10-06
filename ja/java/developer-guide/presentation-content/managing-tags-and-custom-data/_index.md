@@ -2,7 +2,7 @@
 title: タグとカスタムデータの管理
 type: docs
 weight: 300
-url: /java/managing-tags-and-custom-data
+url: /ja/java/managing-tags-and-custom-data
 
 ---
 

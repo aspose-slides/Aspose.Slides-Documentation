@@ -2,7 +2,7 @@
 title: 埋め込みフォント
 type: docs
 weight: 40
-url: /cpp/embedded-font/
+url: /ja/cpp/embedded-font/
 keywords: "フォント, 埋め込みフォント, フォントの追加, PowerPointプレゼンテーション C++, CPP, Aspose.Slides for C++"
 description: "C++におけるPowerPointプレゼンテーションでの埋め込みフォントの使用"
 ---

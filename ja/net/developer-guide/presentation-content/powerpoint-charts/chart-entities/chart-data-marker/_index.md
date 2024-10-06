@@ -1,7 +1,7 @@
 ---
 title: チャートデータマーカー
 type: docs
-url: /net/chart-data-marker/
+url: /ja/net/chart-data-marker/
 keywords:
 - チャートマーカーオプション
 - PowerPoint

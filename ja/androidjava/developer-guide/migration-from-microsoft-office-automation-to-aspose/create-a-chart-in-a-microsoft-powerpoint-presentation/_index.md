@@ -2,12 +2,12 @@
 title: Microsoft PowerPointプレゼンテーションにチャートを作成する
 type: docs
 weight: 70
-url: /androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ja/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- チャートはデータの視覚的表現であり、プレゼンテーションで広く使用されています。この記事では、[VSTO](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) と [Aspose.Slides for Android via Java](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) を使用して、Microsoft PowerPointでプログラム的にチャートを作成するコードを示します。
+ チャートはデータの視覚的表現であり、プレゼンテーションで広く使用されています。この記事では、[VSTO](/slides/ja/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) と [Aspose.Slides for Android via Java](/slides/ja/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) を使用して、Microsoft PowerPointでプログラム的にチャートを作成するコードを示します。
 
 {{% /alert %}} 
 ## **チャートの作成**

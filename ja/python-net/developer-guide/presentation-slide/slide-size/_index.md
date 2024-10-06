@@ -2,7 +2,7 @@
 title: スライドサイズ
 type: docs
 weight: 70
-url: /python-net/slide-size/
+url: /ja/python-net/slide-size/
 keywords: "スライドの設定、スライドサイズの編集、PowerPointプレゼンテーション、カスタムスライドサイズ、スライドの問題を解決する、Python、Aspose.Slides"
 descriptions: "PythonでPowerPointのスライドサイズやアスペクト比を設定および編集する"
 ---

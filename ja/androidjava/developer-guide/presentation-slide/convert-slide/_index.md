@@ -2,7 +2,7 @@
 title: スライドを変換
 type: docs
 weight: 35
-url: /androidjava/convert-slide/
+url: /ja/androidjava/convert-slide/
 keywords: 
 - スライドを画像に変換
 - スライドを画像としてエクスポート

@@ -2,7 +2,7 @@
 title: プレゼンテーションに音声を埋め込むサポート
 type: docs
 weight: 90
-url: /reportingservices/support-for-embedding-audio-in-presentation/
+url: /ja/reportingservices/support-for-embedding-audio-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

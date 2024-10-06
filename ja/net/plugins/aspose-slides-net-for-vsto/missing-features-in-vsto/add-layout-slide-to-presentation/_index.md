@@ -2,7 +2,7 @@
 title: プレゼンテーションにレイアウトスライドを追加する
 type: docs
 weight: 10
-url: /net/add-layout-slide-to-presentation/
+url: /ja/net/add-layout-slide-to-presentation/
 ---
 
 Aspose.Slides for .NETを使用すると、開発者はプレゼンテーションに新しいレイアウトスライドを追加できます。レイアウトスライドを追加するには、以下の手順に従ってください。
@@ -129,6 +129,6 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 {{% alert color="primary" %}} 
 
-詳細については、[プレゼンテーションにレイアウトスライドを追加する](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout)を訪問してください。
+詳細については、[プレゼンテーションにレイアウトスライドを追加する](/slides/ja/net/adding-and-editing-slides/#working-with-slide-size-and-layout)を訪問してください。
 
 {{% /alert %}}

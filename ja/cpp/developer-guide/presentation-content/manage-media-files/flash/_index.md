@@ -2,7 +2,7 @@
 title: フラッシュ
 type: docs
 weight: 10
-url: /cpp/flash/
+url: /ja/cpp/flash/
 ---
 
 ## **プレゼンテーションからフラッシュオブジェクトを抽出する**

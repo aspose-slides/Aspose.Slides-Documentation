@@ -2,14 +2,14 @@
 title: プレゼンテーションに保護を適用する
 type: docs
 weight: 60
-url: /php-java/applying-protection-to-presentation/
+url: /ja/php-java/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Aspose.Slidesの一般的な使用法は、Microsoft PowerPoint 2007 (PPTX) のプレゼンテーションを自動化ワークフローの一部として作成、更新、保存することです。このようにAspose.Slidesを利用するアプリケーションのユーザーは、出力されたプレゼンテーションにアクセスできます。それらを編集から保護することは一般的な懸念事項です。自動生成されたプレゼンテーションが元の書式とコンテンツを保持することが重要です。
 
-この記事では、[プレゼンテーションとスライドがどのように構成されているか](/slides/php-java/applying-protection-to-presentation/)と、Aspose.Slides for PHP via Javaがどのように[保護を適用するか](/slides/php-java/applying-protection-to-presentation/)、そして[それを削除するか](/slides/php-java/applying-protection-to-presentation/)を説明します。この機能はAspose.Slides特有のもので、執筆時点ではMicrosoft PowerPointにはありません。これにより、開発者はアプリケーションが作成するプレゼンテーションの使用方法を制御できるようになります。
+この記事では、[プレゼンテーションとスライドがどのように構成されているか](/slides/ja/php-java/applying-protection-to-presentation/)と、Aspose.Slides for PHP via Javaがどのように[保護を適用するか](/slides/ja/php-java/applying-protection-to-presentation/)、そして[それを削除するか](/slides/ja/php-java/applying-protection-to-presentation/)を説明します。この機能はAspose.Slides特有のもので、執筆時点ではMicrosoft PowerPointにはありません。これにより、開発者はアプリケーションが作成するプレゼンテーションの使用方法を制御できるようになります。
 
 {{% /alert %}} 
 ## **スライドの構成**

@@ -2,7 +2,7 @@
 title: スライドの複製
 type: docs
 weight: 40
-url: /net/clone-slides/
+url: /ja/net/clone-slides/
 keywords: "スライドの複製, スライドのコピー, スライドコピーの保存, PowerPoint, プレゼンテーション, C#, Csharp, .NET, Aspose.Slides"
 description: "C# または .NET で PowerPoint スライドを複製する"
 ---

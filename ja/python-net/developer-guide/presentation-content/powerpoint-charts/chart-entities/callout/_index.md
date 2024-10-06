@@ -1,7 +1,7 @@
 ---
 title: コールアウト
 type: docs
-url: /python-net/callout/
+url: /ja/python-net/callout/
 keywords: "チャートコールアウト, チャートデータラベル, Python, Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointチャートのコールアウトとデータラベル"
 ---

@@ -2,7 +2,7 @@
 title: ズームの管理
 type: docs
 weight: 60
-url: /cpp/manage-zoom/
+url: /ja/cpp/manage-zoom/
 keywords: "ズーム, ズームフレーム, ズームを追加, ズームフレームのフォーマット, サマリーズーム, PowerPointプレゼンテーション, C++, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションにズームまたはズームフレームを追加する"
 ---

@@ -2,7 +2,7 @@
 title: チャート ワークブック
 type: docs
 weight: 70
-url: /net/chart-workbook/
+url: /ja/net/chart-workbook/
 keywords: "チャート ワークブック, チャート データ, PowerPoint プレゼンテーション, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET における PowerPoint プレゼンテーションのチャート ワークブック"
 ---

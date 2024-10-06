@@ -2,7 +2,7 @@
 title: テーブルの管理
 type: docs
 weight: 10
-url: /cpp/manage-table/
+url: /ja/cpp/manage-table/
 keywords: "テーブル, テーブルの作成, テーブルへのアクセス, テーブルのアスペクト比, PowerPointプレゼンテーション, C++, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションのテーブルを作成および管理します"
 ---

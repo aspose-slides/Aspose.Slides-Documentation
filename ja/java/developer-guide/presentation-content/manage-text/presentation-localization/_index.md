@@ -2,7 +2,7 @@
 title: プレゼンテーションのローカリゼーション
 type: docs
 weight: 100
-url: /java/presentation-localization/
+url: /ja/java/presentation-localization/
 ---
 
 ## **プレゼンテーションと図形のテキストの言語変更**

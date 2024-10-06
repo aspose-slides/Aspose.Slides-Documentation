@@ -2,7 +2,7 @@
 title: PowerPoint アニメーション
 type: docs
 weight: 150
-url: /androidjava/powerpoint-animation/
+url: /ja/androidjava/powerpoint-animation/
 keywords: "PowerPoint アニメーション"
 description: "PowerPoint アニメーション、Aspose.Slides を使用した PowerPoint スライドアニメーション。"
 ---
@@ -51,19 +51,19 @@ Aspose.Slides では、独自の **カスタムアニメーション** を作成
 Aspose.Slides は、実際にはテキスト、長方形、線、フレーム、OLE オブジェクトなどの図形にアニメーションを適用することを可能にします。
 
 {{% alert color="primary" %}} 
-詳細情報は [**図形アニメーションについて**](/slides/androidjava/shape-animation/) をお読みください。
+詳細情報は [**図形アニメーションについて**](/slides/ja/androidjava/shape-animation/) をお読みください。
 {{% /alert %}}
 
 ## **アニメーション付きチャート**
 アニメーション付きチャートを作成するには、図形と同じクラスを使用する必要があります。ただし、PowerPoint アニメーションはチャートのカテゴリまたはチャート系列にのみ使用できます。カテゴリ要素または系列要素にアニメーション効果を適用することもできます。
 
 {{% alert color="primary" %}} 
-詳細情報は [**アニメーション付きチャートについて**](/slides/androidjava/animated-charts/) をお読みください。
+詳細情報は [**アニメーション付きチャートについて**](/slides/ja/androidjava/animated-charts/) をお読みください。
 {{% /alert %}}
 
 ## **アニメーション付きテキスト**
 アニメーションテキストの他に、段落にもアニメーションを適用することが可能です。
 
 {{% alert color="primary" %}} 
-詳細情報は [**アニメーション付きテキストについて**](/slides/androidjava/animated-text/) をお読みください。
+詳細情報は [**アニメーション付きテキストについて**](/slides/ja/androidjava/animated-text/) をお読みください。
 {{% /alert %}}

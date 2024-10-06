@@ -2,7 +2,7 @@
 title: スライドの比較
 type: docs
 weight: 50
-url: /java/compare-slides/
+url: /ja/java/compare-slides/
 ---
 
 ## **2つのスライドを比較する**

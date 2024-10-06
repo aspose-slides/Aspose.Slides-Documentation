@@ -2,7 +2,7 @@
 title: PowerPointをJPGに変換
 type: docs
 weight: 60
-url: /androidjava/convert-powerpoint-to-jpg/
+url: /ja/androidjava/convert-powerpoint-to-jpg/
 keywords:
 - PowerPointプレゼンテーションの変換
 - JPG
@@ -130,4 +130,4 @@ Asposeは[無料のコラージュWebアプリ](https://products.aspose.app/slid
 
 PPT/PPTXを画像に変換する他のオプションについては、以下を参照してください：
 
-- [PPT/PPTXをSVGに変換](/slides/androidjava/render-a-slide-as-an-svg-image/)。
+- [PPT/PPTXをSVGに変換](/slides/ja/androidjava/render-a-slide-as-an-svg-image/)。

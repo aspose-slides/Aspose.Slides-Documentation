@@ -2,7 +2,7 @@
 title: PowerPointをWordに変換
 type: docs
 weight: 110
-url: /cpp/convert-powerpoint-to-word/
+url: /ja/cpp/convert-powerpoint-to-word/
 keywords: "PowerPointの変換, PPT, PPTX, プレゼンテーション, Word, DOCX, DOC, PPTXをDOCXに, PPTをDOCに, PPTXをDOCに, PPTをDOCXに, C++, Aspose.Slides"
 description: "C++でPowerPointプレゼンテーションをWordに変換"
 ---

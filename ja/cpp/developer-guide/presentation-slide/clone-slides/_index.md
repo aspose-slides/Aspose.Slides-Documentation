@@ -2,7 +2,7 @@
 title: スライドのクローン
 type: docs
 weight: 40
-url: /cpp/clone-slides/
+url: /ja/cpp/clone-slides/
 ---
 
 ## **プレゼンテーション内のスライドをクローン**

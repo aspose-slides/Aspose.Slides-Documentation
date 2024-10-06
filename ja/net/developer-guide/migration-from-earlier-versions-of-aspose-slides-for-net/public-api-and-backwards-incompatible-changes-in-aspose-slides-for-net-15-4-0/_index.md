@@ -2,7 +2,7 @@
 title: .NET 15.4.0のAspose.Slidesにおける公的APIと後方互換性のない変更
 type: docs
 weight: 150
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+url: /ja/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 ---
 
 {{% alert color="primary" %}} 
@@ -16,7 +16,7 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType列挙体は、組織図内の
 #### **メソッド IBulletFormat.ApplyDefaultParagraphIndentsShiftsが追加されました**
 メソッドAspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShiftsは、箇条書きが有効になっている場合に、効果的な段落インデントとMarginLeftのデフォルトの非ゼロシフトを設定します（PowerPointが段落の箇条書き/番号付けを有効にする場合と同様）。箇条書きが無効になっている場合は、ただ段落インデントとMarginLeftをリセットします（PowerPointが段落の箇条書き/番号付けを無効にする場合と同様）。
 
-例を[こちらで](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx)ご覧ください：
+例を[こちらで](/slides/ja/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx)ご覧ください：
 #### **メソッド IConnector.Rerouteが追加されました**
 メソッドAspose.Slides.IConnector.Rerouteは、接続する図形間の最短経路を取るようにコネクタを再ルートします。これを行うために、Reroute()メソッドはStartShapeConnectionSiteIndexとEndShapeConnectionSiteIndexを変更する場合があります。
 

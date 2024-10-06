@@ -2,7 +2,7 @@
 title: シェイプサムネイルの作成
 type: docs
 weight: 70
-url: /java/create-shape-thumbnails/
+url: /ja/java/create-shape-thumbnails/
 ---
 
 

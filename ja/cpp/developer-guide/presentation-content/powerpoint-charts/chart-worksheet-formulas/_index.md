@@ -2,7 +2,7 @@
 title: チャート ワークシートの数式
 type: docs
 weight: 70
-url: /cpp/chart-worksheet-formulas/
+url: /ja/cpp/chart-worksheet-formulas/
 keywords: "powerpoint の数式, powerpoint スプレッドシート数式"
 description: "PowerPoint の数式とスプレッドシート数式"
 ---

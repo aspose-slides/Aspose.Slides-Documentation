@@ -3,7 +3,7 @@ title: プレゼンテーションの確認 - C++ PowerPoint API
 linktitle: プレゼンテーションの確認
 type: docs
 weight: 30
-url: /cpp/examine-presentation/
+url: /ja/cpp/examine-presentation/
 keywords:
 - PowerPoint
 - プレゼンテーション

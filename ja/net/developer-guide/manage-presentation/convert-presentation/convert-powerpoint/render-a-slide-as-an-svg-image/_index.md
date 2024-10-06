@@ -3,7 +3,7 @@ title: C#でスライドをSVG画像としてレンダリングする
 linktitle: C#でスライドをSVG画像としてレンダリングする
 type: docs
 weight: 50
-url: /net/render-a-slide-as-an-svg-image/
+url: /ja/net/render-a-slide-as-an-svg-image/
 description: この記事では、C#を使用してPowerPointプレゼンテーションをSVG形式に変換する方法について説明します。PPT、PPTX、ODP形式をSVG画像に変換できます。
 keywords: C# PowerPointをSVGに変換, C# PPTをSVGに, C# PPTXをSVGに
 ---

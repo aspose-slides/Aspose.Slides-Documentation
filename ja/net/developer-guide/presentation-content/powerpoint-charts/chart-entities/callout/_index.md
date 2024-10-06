@@ -1,7 +1,7 @@
 ---
 title: コールアウト
 type: docs
-url: /net/callout/
+url: /ja/net/callout/
 keywords: "チャートコールアウト, チャートデータラベル, C#, Csharp, Aspose.Slides for .NET"
 description: "C# または .NET における PowerPoint チャートコールアウトとデータラベル"
 ---

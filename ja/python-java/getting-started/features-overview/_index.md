@@ -2,7 +2,7 @@
 title: 機能概要
 type: docs
 weight: 20
-url: /python-java/features-overview/
+url: /ja/python-java/features-overview/
 ---
 
 ## **サポートされているプラットフォーム**

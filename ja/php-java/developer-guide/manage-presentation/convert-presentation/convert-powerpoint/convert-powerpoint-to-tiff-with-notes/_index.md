@@ -2,7 +2,7 @@
 title: ノート付きPowerPointをTIFFに変換する
 type: docs
 weight: 100
-url: /php-java/convert-powerpoint-to-tiff-with-notes/
+url: /ja/php-java/convert-powerpoint-to-tiff-with-notes/
 keywords: "ノート付きPowerPointをTIFFに変換"
 description: "Aspose.Slidesを使用して、ノート付きPowerPointをTIFFに変換します。"
 ---

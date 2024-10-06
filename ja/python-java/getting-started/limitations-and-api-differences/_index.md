@@ -2,7 +2,7 @@
 title: 制限事項とAPIの違い
 type: docs
 weight: 100
-url: /python-java/limitations-and-api-differences/
+url: /ja/python-java/limitations-and-api-differences/
 keywords: "ノード, パワーポイント, 制限, api, 違い"
 description: "Aspose.Slides for Python via Javaの制限事項とapiの違い。"
 ---

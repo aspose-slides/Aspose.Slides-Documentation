@@ -2,7 +2,7 @@
 title: あるプレゼンテーションから別のプレゼンテーションに段落を移動する
 type: docs
 weight: 130
-url: /net/move-a-paragraph-from-one-presentation-to-another/
+url: /ja/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **OpenXML プレゼンテーション**

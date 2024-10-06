@@ -2,7 +2,7 @@
 title: PPTXにおけるチャートのリサイズのための作業ソリューション
 type: docs
 weight: 40
-url: /php-java/working-solution-for-chart-resizing-in-pptx/
+url: /ja/php-java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Asposeコンポーネントを介してPowerPointプレゼンテーションにO
 
 {{% /alert %}} 
 ## **背景**
-[前回の記事](/slides/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) では、Aspose.Cells for Javaを使用してExcelチャートを作成し、その後Aspose.Slides for PHPを介してPowerPointプレゼンテーションにこのチャートを埋め込む方法を説明しました。[オブジェクト変更の問題](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) に対応するために、チャート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションで、チャート画像を表示しているOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティブ化されます。エンドユーザーは、実際のExcelワークブックに必要な変更を加え、その後、アクティブ化されたExcelワークブックの外側をクリックすることで関係するスライドに戻ることができます。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変更されます。リサイズの係数は、OLEオブジェクトフレームと埋め込まれたExcelワークブックの異なるサイズに対して異なります。
+[前回の記事](/slides/ja/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) では、Aspose.Cells for Javaを使用してExcelチャートを作成し、その後Aspose.Slides for PHPを介してPowerPointプレゼンテーションにこのチャートを埋め込む方法を説明しました。[オブジェクト変更の問題](/slides/ja/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) に対応するために、チャート画像をチャートOLEオブジェクトフレームに割り当てました。出力プレゼンテーションで、チャート画像を表示しているOLEオブジェクトフレームをダブルクリックすると、Excelチャートがアクティブ化されます。エンドユーザーは、実際のExcelワークブックに必要な変更を加え、その後、アクティブ化されたExcelワークブックの外側をクリックすることで関係するスライドに戻ることができます。ユーザーがスライドに戻ると、OLEオブジェクトフレームのサイズが変更されます。リサイズの係数は、OLEオブジェクトフレームと埋め込まれたExcelワークブックの異なるサイズに対して異なります。
 ## **リサイズの原因**
 Excelワークブックには独自のウィンドウサイズがあるため、初回のアクティベーション時に元のサイズを保持しようとします。一方で、OLEオブジェクトフレームは独自のサイズを持ちます。Microsoftによれば、Excelワークブックがアクティブ化されると、ExcelとPowerPointはサイズを交渉し、埋め込み操作の一部として正しい比率になるようにします。ExcelウィンドウのサイズとOLEオブジェクトフレームのサイズ/位置の違いに基づいて、リサイズが行われます。
 ## **作業ソリューション**

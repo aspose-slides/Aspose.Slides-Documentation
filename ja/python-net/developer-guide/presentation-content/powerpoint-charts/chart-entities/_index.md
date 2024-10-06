@@ -2,5 +2,5 @@
 title: チャートエンティティ
 type: docs
 weight: 30
-url: /python-net/chart-entities/
+url: /ja/python-net/chart-entities/
 ---

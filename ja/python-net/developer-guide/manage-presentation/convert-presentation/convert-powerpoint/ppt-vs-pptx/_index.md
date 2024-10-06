@@ -2,7 +2,7 @@
 title: PPTとPPTX
 type: docs
 weight: 10
-url: /python-net/ppt-vs-pptx/
+url: /ja/python-net/ppt-vs-pptx/
 keywords: "PPTとPPTX, PPTまたはPPTX, PowerPointプレゼンテーション, フォーマット, Python"
 description: "PowerPointプレゼンテーションフォーマットについて。PPTとPPTX。Pythonでの違い"
 ---
@@ -37,5 +37,5 @@ pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 
-プレゼンテーションPPTをPPTXに変換する方法について、さらに読むには [**こちら**](/slides/python-net/convert-ppt-to-pptx/)をクリックしてください。
+プレゼンテーションPPTをPPTXに変換する方法について、さらに読むには [**こちら**](/slides/ja/python-net/convert-ppt-to-pptx/)をクリックしてください。
 {{% /alert %}} 

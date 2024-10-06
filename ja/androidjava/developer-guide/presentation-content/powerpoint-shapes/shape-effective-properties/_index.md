@@ -2,7 +2,7 @@
 title: シェイプ効果的プロパティ
 type: docs
 weight: 50
-url: /androidjava/shape-effective-properties/
+url: /ja/androidjava/shape-effective-properties/
 ---
 
 このトピックでは、**効果的**および**ローカル**プロパティについて説明します。これらのレベルで値を直接設定するとき

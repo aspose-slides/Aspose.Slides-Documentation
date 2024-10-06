@@ -1,7 +1,7 @@
 ---
 title: 3Dチャート
 type: docs
-url: /python-net/3d-chart/
+url: /ja/python-net/3d-chart/
 keywords: "3dチャート, rotationX, rotationY, depthpercent, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonでPowerPointプレゼンテーションの3DチャートのためにrotationX、rotationY、およびdepthpercentsを設定します"
 ---

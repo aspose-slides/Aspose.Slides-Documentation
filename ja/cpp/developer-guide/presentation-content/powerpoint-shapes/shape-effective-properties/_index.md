@@ -2,7 +2,7 @@
 title: シェイプの効果的プロパティ
 type: docs
 weight: 50
-url: /cpp/shape-effective-properties/
+url: /ja/cpp/shape-effective-properties/
 ---
 
 このトピックでは、**効果的**および**ローカル**プロパティについて説明します。これらのレベルで値を直接設定する場合、

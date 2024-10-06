@@ -2,7 +2,7 @@
 title: プレゼンテーションのコメント
 type: docs
 weight: 100
-url: /cpp/presentation-comments/
+url: /ja/cpp/presentation-comments/
 keywords: "コメント, PowerPoint コメント, PowerPoint プレゼンテーション, C++, Aspose.Slides for C++"
 description: "C++ で PowerPoint プレゼンテーションにコメントと返信を追加する"
 ---

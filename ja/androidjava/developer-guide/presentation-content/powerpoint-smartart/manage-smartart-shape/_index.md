@@ -2,7 +2,7 @@
 title: スマートアートシェイプの管理
 type: docs
 weight: 20
-url: /androidjava/manage-smartart-shape/
+url: /ja/androidjava/manage-smartart-shape/
 ---
 
 

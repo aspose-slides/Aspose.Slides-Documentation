@@ -2,7 +2,7 @@
 title: システム要件
 type: docs
 weight: 50
-url: /sharepoint/system-requirements/
+url: /ja/sharepoint/system-requirements/
 ---
 
 ## **サーバー要件**

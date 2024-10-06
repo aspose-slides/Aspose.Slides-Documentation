@@ -2,14 +2,14 @@
 title: プレゼンテーションテーマ
 type: docs
 weight: 10
-url: /php-java/presentation-theme/
+url: /ja/php-java/presentation-theme/
 keywords: "テーマ, パワーポイントテーマ, パワーポイントプレゼンテーション, Java, Aspose.Slides for PHP via Java"
 description: "パワーポイントプレゼンテーションテーマ"
 ---
 
 プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、視覚要素とそのプロパティの特定のセットを基本的に選んでいることになります。
 
-PowerPointでは、テーマは色、[フォント](/slides/php-java/powerpoint-fonts/)、[背景スタイル](/slides/php-java/presentation-background/)、および効果を含みます。
+PowerPointでは、テーマは色、[フォント](/slides/ja/php-java/powerpoint-fonts/)、[背景スタイル](/slides/ja/php-java/presentation-background/)、および効果を含みます。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -141,7 +141,7 @@ PowerPointでは、テーマは色、[フォント](/slides/php-java/powerpoint-
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[パワーポイントフォント](/slides/php-java/powerpoint-fonts/)を確認することをお勧めします。
+[パワーポイントフォント](/slides/ja/php-java/powerpoint-fonts/)を確認することをお勧めします。
 
 {{% /alert %}}
 
@@ -182,7 +182,7 @@ PowerPointでは、テーマは色、[フォント](/slides/php-java/powerpoint-
 
 {{% alert color="primary" title="ヒント" %}} 
 
-[パワーポイント背景](/slides/php-java/presentation-background/)を確認することをお勧めします。
+[パワーポイント背景](/slides/ja/php-java/presentation-background/)を確認することをお勧めします。
 
 {{% /alert %}}
 

@@ -2,7 +2,7 @@
 title: スライドをSVG画像としてレンダリングする
 type: docs
 weight: 50
-url: /php-java/render-a-slide-as-an-svg-image/
+url: /ja/php-java/render-a-slide-as-an-svg-image/
 ---
 
 SVG（Scalable Vector Graphicsの略）は、二次元画像をレンダリングするために使用される標準的なグラフィックタイプまたは形式です。SVGは、動作や外観を定義する詳細を持つXML形式で画像をベクターとして保存します。

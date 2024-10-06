@@ -2,12 +2,12 @@
 title: VSTO および Java を介した Aspose.Slides for PHP を使用してテキストをフォーマットする
 type: docs
 weight: 30
-url: /php-java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /ja/php-java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-場合によっては、スライド上のテキストをプログラムでフォーマットする必要があります。この記事では、[VSTO](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/) および [Aspose.Slides for PHP via Java](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/) を使用して、最初のスライドにあるいくつかのテキストを含むサンプルプレゼンテーションを読み取る方法を示します。コードは、スライドの3番目のテキストボックスのテキストを最後のテキストボックスのテキストのように見えるようにフォーマットします。
+場合によっては、スライド上のテキストをプログラムでフォーマットする必要があります。この記事では、[VSTO](/slides/ja/php-java/format-text-using-vsto-and-aspose-slides-for-java/) および [Aspose.Slides for PHP via Java](/slides/ja/php-java/format-text-using-vsto-and-aspose-slides-for-java/) を使用して、最初のスライドにあるいくつかのテキストを含むサンプルプレゼンテーションを読み取る方法を示します。コードは、スライドの3番目のテキストボックスのテキストを最後のテキストボックスのテキストのように見えるようにフォーマットします。
 
 {{% /alert %}} 
 ## **テキストのフォーマット**

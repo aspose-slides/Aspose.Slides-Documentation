@@ -2,7 +2,7 @@
 title: Excelチャートの作成とOLEオブジェクトとしてプレゼンテーションに埋め込む
 type: docs
 weight: 50
-url: /net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ja/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -143,4 +143,4 @@ Aspose.Cells for .NETとAspose.Slides for .NETを使用することにより、A
 
 {{% /alert %}} 
 ## **関連セクション**
-[チャートサイズ変更のための作業ソリューション](/slides/net/working-solution-for-chart-resizing-in-pptx/)[オブジェクト変更の問題](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[チャートサイズ変更のための作業ソリューション](/slides/ja/net/working-solution-for-chart-resizing-in-pptx/)[オブジェクト変更の問題](/slides/ja/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

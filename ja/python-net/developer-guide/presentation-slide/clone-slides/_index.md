@@ -2,7 +2,7 @@
 title: スライドをクローンする
 type: docs
 weight: 40
-url: /python-net/clone-slides/
+url: /ja/python-net/clone-slides/
 keywords: "スライドをクローン, スライドをコピー, スライドのコピーを保存, PowerPoint, プレゼンテーション, Python, Aspose.Slides"
 description: "PythonでPowerPointスライドをクローンする"
 ---

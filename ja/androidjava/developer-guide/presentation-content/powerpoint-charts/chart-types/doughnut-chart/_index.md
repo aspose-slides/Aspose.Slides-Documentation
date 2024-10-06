@@ -2,7 +2,7 @@
 title: ドーナツチャート
 type: docs
 weight: 30
-url: /androidjava/doughnut-chart/
+url: /ja/androidjava/doughnut-chart/
 ---
 
 ## **ドーナツチャートの中心の隙間を変更する**

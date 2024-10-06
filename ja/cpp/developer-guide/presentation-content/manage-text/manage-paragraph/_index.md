@@ -2,7 +2,7 @@
 title: C++でPowerPointの段落を管理する
 type: docs
 weight: 40
-url: /cpp/manage-paragraph/
+url: /ja/cpp/manage-paragraph/
 keywords: "PowerPoint段落の追加, 段落の管理, 段落のインデント, 段落のプロパティ, HTMLテキスト, 段落テキストのエクスポート, PowerPointプレゼンテーション, C++, CPP, Aspose.Slides for C++"
 description: "C++でPowerPointプレゼンテーションの段落、テキスト、インデント、およびプロパティを作成および管理する"
 ---

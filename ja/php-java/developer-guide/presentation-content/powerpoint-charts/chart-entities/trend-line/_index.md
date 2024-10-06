@@ -1,7 +1,7 @@
 ---
 title: トレンドライン
 type: docs
-url: /php-java/trend-line/
+url: /ja/php-java/trend-line/
 ---
 
 ## **トレンドラインの追加**

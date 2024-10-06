@@ -2,7 +2,7 @@
 title: サポートされているファイル形式
 type: docs
 weight: 150
-url: /androidjava/supported-file-formats/
+url: /ja/androidjava/supported-file-formats/
 ---
 
 ## **サポートされているMicrosoft PowerPointバージョン**

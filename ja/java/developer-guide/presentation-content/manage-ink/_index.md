@@ -2,7 +2,7 @@
 title: インクの管理
 type: docs
 weight: 95
-url: /java/manage-ink/
+url: /ja/java/manage-ink/
 keywords: "PowerPointのインク, インクツール, Javaインク, PowerPointでの描画, PowerPointプレゼンテーション, Java, Aspose.Slides for Java"
 description: "インクツールを使用してPowerPoint Javaでオブジェクトを描画する"
 ---

@@ -2,7 +2,7 @@
 title: レポートサービスの設定
 type: docs
 weight: 30
-url: /reportingservices/setting-up-reporting-services/
+url: /ja/reportingservices/setting-up-reporting-services/
 ---
 
 {{% alert color="primary" %}} 

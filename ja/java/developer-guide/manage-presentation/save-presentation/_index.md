@@ -2,13 +2,13 @@
 title: プレゼンテーションの保存
 type: docs
 weight: 80
-url: /java/save-presentation/
+url: /ja/java/save-presentation/
 ---
 
 ## **概要**
 {{% alert color="primary" %}} 
 
-[プレゼンテーションを開く](/slides/java/open-presentation/)では、[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスを使用してプレゼンテーションを開く方法を説明しています。この記事では、プレゼンテーションを作成して保存する方法を説明します。
+[プレゼンテーションを開く](/slides/ja/java/open-presentation/)では、[Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation)クラスを使用してプレゼンテーションを開く方法を説明しています。この記事では、プレゼンテーションを作成して保存する方法を説明します。
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: 機能の概要
 type: docs
 weight: 10
-url: /cpp/features-overview/
+url: /ja/cpp/features-overview/
 description: C++ PowerPoint APIはほとんどのPowerPoint文書形式をサポートし、人気のある形式にエクスポートすることもできます。主な機能には、変換、レンダリング、コンテンツ操作、フォーマットが含まれます。
 ---
 
@@ -11,10 +11,10 @@ Aspose.Slides for C++はほとんどのPowerPoint文書形式をサポートし�
 
 |**機能**|**説明**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides for C++はこのプレゼンテーション文書形式に対して最も高速な処理を提供します。|
-|[Portable Document Format (PDF)](/slides/cpp/portable-document-format-pdf/)|サポートされているファイル形式は、単一のメソッドでAdobe Portable Document Format (PDF) ドキュメントにエクスポートできます。|
-|[XML Parser Specification (XPS)](/slides/cpp/xml-parser-specification-xps/)|サポートされているすべてのファイル形式は、単一のメソッドでXML Parser Specification (XPS) ドキュメントにエクスポートできます。|
-|[PresentationML (PPTX, XML)](/slides/cpp/presentationml-pptx-xml/)|Aspose.Slides for C++は、PresentationMLまたはPPTXとして知られるOOXMLプレゼンテーション形式の処理をサポートしています。|
+|[Microsoft PowerPoint (PPT)](/slides/ja/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides for C++はこのプレゼンテーション文書形式に対して最も高速な処理を提供します。|
+|[Portable Document Format (PDF)](/slides/ja/cpp/portable-document-format-pdf/)|サポートされているファイル形式は、単一のメソッドでAdobe Portable Document Format (PDF) ドキュメントにエクスポートできます。|
+|[XML Parser Specification (XPS)](/slides/ja/cpp/xml-parser-specification-xps/)|サポートされているすべてのファイル形式は、単一のメソッドでXML Parser Specification (XPS) ドキュメントにエクスポートできます。|
+|[PresentationML (PPTX, XML)](/slides/ja/cpp/presentationml-pptx-xml/)|Aspose.Slides for C++は、PresentationMLまたはPPTXとして知られるOOXMLプレゼンテーション形式の処理をサポートしています。|
 |[PPTX To HTML Conversion](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-html/)|Aspose.Slides for C++は、プレゼンテーションをHTML形式に変換することをサポートしています。|
 ## **レンダリング**
 Aspose.Slides for C++は、プレゼンテーション文書内のスライドをさまざまなグラフィックス形式に高忠実度でレンダリングすることをサポートしています。以下にリストを示します：

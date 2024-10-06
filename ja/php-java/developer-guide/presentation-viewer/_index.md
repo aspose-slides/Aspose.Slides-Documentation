@@ -2,7 +2,7 @@
 title: プレゼンテーションビューア
 type: docs
 weight: 50
-url: /php-java/presentation-viewer/
+url: /ja/php-java/presentation-viewer/
 keywords: "PowerPoint PPT ビューア"
 description: "PowerPoint PPT ビューア "
 ---

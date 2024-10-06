@@ -2,7 +2,7 @@
 title: シェイプアニメーション
 type: docs
 weight: 60
-url: /java/shape-animation/
+url: /ja/java/shape-animation/
 keywords: "PowerPoint アニメーション, アニメーション効果, アニメーションの適用, PowerPoint プレゼンテーション, Java, Aspose.Slides for Java"
 description: "Java で PowerPoint アニメーションを適用する"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{% alert color="primary" %}} 
 
-テキストにアニメーションを適用するだけでなく、単一の [段落](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) にもアニメーションを適用できます。See [**アニメーションテキスト**](/slides/java/animated-text/)。
+テキストにアニメーションを適用するだけでなく、単一の [段落](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) にもアニメーションを適用できます。See [**アニメーションテキスト**](/slides/ja/java/animated-text/)。
 
 {{% /alert %}} 
 

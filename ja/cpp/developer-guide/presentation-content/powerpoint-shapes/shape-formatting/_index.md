@@ -2,7 +2,7 @@
 title: シェイプのフォーマット
 type: docs
 weight: 20
-url: /cpp/shape-formatting/
+url: /ja/cpp/shape-formatting/
 keywords: "シェイプのフォーマット, ラインのフォーマット, ジョインスタイルのフォーマット, グラデーション塗りつぶし, パターン塗りつぶし, 画像塗りつぶし, ソリッドカラー塗りつぶし, シェイプの回転, 3Dベベル効果, 3D回転効果, PowerPointプレゼンテーション, C++, Aspose.Slides for С++"
 description: "C++におけるPowerPointプレゼンテーションのシェイプをフォーマットする"
 ---

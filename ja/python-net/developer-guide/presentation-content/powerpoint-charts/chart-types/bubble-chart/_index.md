@@ -1,7 +1,7 @@
 ---
 title: バブルチャート
 type: docs
-url: /python-net/bubble-chart/
+url: /ja/python-net/bubble-chart/
 keywords: "バブルチャート, チャートサイズ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
 description: "PythonにおけるPowerPointプレゼンテーションのバブルチャートサイズ"
 ---

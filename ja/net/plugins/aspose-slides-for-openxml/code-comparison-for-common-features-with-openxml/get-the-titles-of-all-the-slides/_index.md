@@ -2,7 +2,7 @@
 title: すべてのスライドのタイトルを取得する
 type: docs
 weight: 120
-url: /net/get-the-titles-of-all-the-slides/
+url: /ja/net/get-the-titles-of-all-the-slides/
 ---
 
 ## **OpenXML SDK**
