@@ -6,47 +6,47 @@ url: /php-java/manage-ole/
 keywords:
 - OLE hinzufügen
 - OLE einbetten
-- ein Objekt hinzufügen
-- ein Objekt einbetten
-- eine Datei einbetten
+- Objekt hinzufügen
+- Objekt einbetten
+- Datei einbetten
 - verknüpftes Objekt
-- Objektverknüpfung und -einbettung
+- Object Linking & Embedding
 - OLE-Objekt
 - PowerPoint 
 - Präsentation
 - PHP
 - Java
 - Aspose.Slides für PHP über Java
-description: Fügen Sie OLE-Objekte in PowerPoint-Präsentationen mit PHP hinzu
+description: Fügen Sie OLE-Objekte in PowerPoint-Präsentationen in PHP hinzu
 ---
 
 {{% alert color="primary" %}} 
 
-OLE (Objektverknüpfung und -einbettung) ist eine Microsoft-Technologie, die es ermöglicht, Daten und Objekte, die in einer Anwendung erstellt wurden, durch Verknüpfung oder Einbettung in einer anderen Anwendung zu platzieren.
+OLE (Object Linking & Embedding) ist eine Microsoft-Technologie, die es ermöglicht, Daten und Objekte, die in einer Anwendung erstellt wurden, durch Verlinken oder Einbetten in einer anderen Anwendung zu platzieren. 
 
 {{% /alert %}} 
 
-Betrachten Sie ein in MS Excel erstelltes Diagramm. Das Diagramm wird dann in eine PowerPoint-Folie eingefügt. Dieses Excel-Diagramm wird als OLE-Objekt betrachtet.
+Betrachten Sie ein Diagramm, das in MS Excel erstellt wurde. Das Diagramm wird dann in eine PowerPoint-Folie platziert. Dieses Excel-Diagramm wird als OLE-Objekt betrachtet. 
 
-- Ein OLE-Objekt kann als Symbol erscheinen. In diesem Fall wird das Diagramm beim Doppelklicken auf das Symbol in der zugehörigen Anwendung (Excel) geöffnet, oder Sie werden aufgefordert, eine Anwendung zum Öffnen oder Bearbeiten des Objekts auszuwählen.
-- Ein OLE-Objekt kann die tatsächlichen Inhalte anzeigen, z. B. die Inhalte eines Diagramms. In diesem Fall wird das Diagramm in PowerPoint aktiviert, die Diagrammoberfläche lädt, und Sie können die Daten des Diagramms innerhalb der PowerPoint-App ändern.
+- Ein OLE-Objekt kann als Icon erscheinen. In diesem Fall wird das Diagramm geöffnet, wenn Sie auf das Icon doppelklicken, entweder in der zugehörigen Anwendung (Excel) oder Sie werden aufgefordert, eine Anwendung zum Öffnen oder Bearbeiten des Objekts auszuwählen. 
+- Ein OLE-Objekt kann die tatsächlichen Inhalte anzeigen—zum Beispiel die Inhalte eines Diagramms. In diesem Fall wird das Diagramm in PowerPoint aktiviert, die Diagrammoberfläche wird geladen, und Sie können die Daten des Diagramms innerhalb der PowerPoint-App ändern.
 
-[Aspose.Slides für PHP über Java](https://products.aspose.com/slides/php-java/) ermöglicht es Ihnen, OLE-Objekte als OLE-Objektrahmen ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame)) in Folien einzufügen.
+[Aspose.Slides für PHP über Java](https://products.aspose.com/slides/php-java/) ermöglicht es Ihnen, OLE-Objekte als OLE-Objektrahmen in Folien einzufügen ([OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame)).
 
-## **Hinzufügen von OLE-Objektrahmen zu Folien**
-Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möchten dieses Diagramm als OLE-Objektrahmen in eine Folie mit Aspose.Slides für PHP über Java einbetten, können Sie dies folgendermaßen tun:
+## **OLE-Objektrahmen zu Folien hinzufügen**
+Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möchten dieses Diagramm als OLE-Objektrahmen in eine Folie einbetten, indem Sie Aspose.Slides für PHP über Java verwenden, können Sie es folgendermaßen tun:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Holen Sie die Referenz der Folie, indem Sie ihren Index verwenden.
-1. Öffnen Sie die Excel-Datei mit dem Excel-Diagrammobjekt und speichern Sie sie in `MemoryStream`.
-1. Fügen Sie den [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) zur Folie hinzu, indem Sie das Byte-Array und weitere Informationen über das OLE-Objekt übergeben.
+1. Erhalten Sie die Referenz der Folie, indem Sie ihren Index verwenden.
+1. Öffnen Sie die Excel-Datei, die das Excel-Diagramm-Objekt enthält, und speichern Sie sie in `MemoryStream`.
+1. Fügen Sie den [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) zur Folie hinzu, die das Byte-Array und andere Informationen über das OLE-Objekt enthält.
 1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
 
-Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei als OLE-Objektrahmen in eine Folie mit Aspose.Slides für PHP über Java eingefügt.
-**Hinweis:** Der [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/IOleEmbeddedDataInfo) Konstruktor benötigt als zweiten Parameter eine einbettbare Objektdateiendung. Diese Erweiterung ermöglicht es PowerPoint, den Dateityp korrekt zu interpretieren und die richtige Anwendung zum Öffnen dieses OLE-Objekts auszuwählen.
+Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei zu einer Folie als OLE-Objektrahmen hinzugefügt, indem wir Aspose.Slides für PHP über Java verwendet haben.
+**Hinweis**: Der [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/php-java/aspose.slides/IOleEmbeddedDataInfo) Konstruktor nimmt eine einbettbare Objekt-Erweiterung als zweiten Parameter. Diese Erweiterung ermöglicht es PowerPoint, den Dateityp korrekt zu interpretieren und die richtige Anwendung zum Öffnen dieses OLE-Objekts auszuwählen.
 
 ```php
-  # Instanziiert die Präsentation-Klasse, die die PPTX-Datei darstellt
+  # Instanziiert die Presentation-Klasse, die die PPTX-Datei repräsentiert
   $pres = new Presentation();
   try {
     # Greift auf die erste Folie zu
@@ -65,10 +65,10 @@ Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei als OLE-Objek
       $mstream->write($buf, 0, $bytesRead);
     } 
     $fs->close();
-    # Erstellt ein Datenobjekt zum Einbetten
+    # Erstellt ein Datenobjekt für die Einbettung
     $dataInfo = new OleEmbeddedDataInfo($mstream->toByteArray(), "xlsx");
     $mstream->close();
-    # Fügt eine Ole Object Frame-Form hinzu
+    # Fügt eine Ole Object Frame Form hinzu
     $oleObjectFrame = $sld->getShapes()->addOleObjectFrame(0, 0, $pres->getSlideSize()->getSize()->getWidth(), $pres->getSlideSize()->getSize()->getHeight(), $dataInfo);
     # Schreibt die PPTX-Datei auf die Festplatte
     $pres->save("OleEmbed_out.pptx", SaveFormat::Pptx);
@@ -81,19 +81,19 @@ Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei als OLE-Objek
 ```
 
 ## **Zugriff auf OLE-Objektrahmen**
-Wenn ein OLE-Objekt bereits in eine Folie eingebettet ist, können Sie dieses Objekt ganz einfach auf folgende Weise finden oder darauf zugreifen:
+Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt leicht auf folgende Weise finden oder darauf zugreifen:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse.
-1. Holen Sie die Referenz der Folie, indem Sie ihren Index verwenden.
+1. Erhalten Sie die Referenz der Folie, indem Sie ihren Index verwenden.
 1. Greifen Sie auf die OLE-Objektrahmenform zu.
 
-   In unserem Beispiel verwendeten wir die zuvor erstellte PPTX, die nur eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) "gecastet". Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
-1. Sobald der OLE-Objektrahmen zugegriffen wurde, können Sie beliebige Operationen darauf ausführen.
+   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die nur eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) *gecastet*. Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
+1. Sobald der OLE-Objektrahmen zugegriffen wurde, können Sie jede Operation damit durchführen.
 
-Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes Excel-Diagrammobjekt) zugegriffen – und dann werden die Datei-Daten in eine Excel-Datei geschrieben.
+Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in einer Folie eingebettetes Excel-Diagrammobjekt) zugegriffen—and dann werden die Dateidaten in eine Excel-Datei geschrieben.
 
 ```php
-  # Lädt die PPTX in ein Präsentationsobjekt
+  # Lädt die PPTX in ein Presentation-Objekt
   $pres = new Presentation("AccessingOLEObjectFrame.pptx");
   try {
     # Greift auf die erste Folie zu
@@ -104,7 +104,7 @@ Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes
     if (!java_is_null($oleObjectFrame)) {
       # Holt die eingebetteten Dateidaten
       $data = $oleObjectFrame->getEmbeddedData()->getEmbeddedFileData();
-      # Holt die eingebettete Dateiendung
+      # Holt die eingebettete Dateierweiterung
       $fileExtention = $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension();
       # Erstellt einen Pfad, um die extrahierte Datei zu speichern
       $extractedPath = "excelFromOLE_out" . $fileExtention;
@@ -125,29 +125,29 @@ Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes
   }
 ```
 
-## **Ändern von OLE-Objektdaten**
+## **Ändern der OLE-Objektdaten**
 
-Wenn ein OLE-Objekt bereits in eine Folie eingebettet ist, können Sie einfach auf dieses Objekt zugreifen und seine Daten auf folgende Weise ändern:
+Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt leicht aufrufen und seine Daten auf folgende Weise bearbeiten:
 
 1. Öffnen Sie die gewünschte Präsentation mit dem eingebetteten OLE-Objekt, indem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse erstellen.
-1. Holen Sie die Referenz der Folie durch ihren Index. 
+1. Holen Sie sich die Referenz der Folie über ihren Index. 
 1. Greifen Sie auf die OLE-Objektrahmenform zu.
 
-   In unserem Beispiel verwendeten wir die zuvor erstellte PPTX, die nur eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) "gecastet". Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
-1. Sobald der OLE-Objektrahmen zugegriffen wurde, können Sie beliebige Operationen darauf ausführen.
+   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die nur eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/OleObjectFrame) *gecastet*. Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
+1. Sobald der OLE-Objektrahmen zugegriffen wurde, können Sie jede Operation damit durchführen.
 1. Erstellen Sie das Workbook-Objekt und greifen Sie auf die OLE-Daten zu.
 1. Greifen Sie auf das gewünschte Arbeitsblatt zu und ändern Sie die Daten.
 1. Speichern Sie das aktualisierte Workbook in Streams.
-1. Ändern Sie die OLE-Objektdaten von den Stream-Daten.
+1. Ändern Sie die OLE-Objektdaten aus den Stream-Daten.
 
-Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes Excel-Diagrammobjekt) zugegriffen – und dann werden die Datei-Daten geändert, um die Diagrammdaten zu ändern:
+Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in einer Folie eingebettetes Excel-Diagrammobjekt) zugegriffen—und dann werden seine Dateidaten geändert, um die Diagrammdaten zu ändern:
 
 ```php
   $pres = new Presentation("ChangeOLEObjectData.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
     $ole = null;
-    # Durchläuft alle Formen nach Ole-Rahmen
+    # Durchläuft alle Formen nach dem Ole-Rahmen
     foreach($slide->getShapes() as $shape) {
       if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) {
         $ole = $shape;
@@ -167,7 +167,7 @@ Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes
           $Wb->getWorksheets()->get(0)->getCells()->get(3, 4)->putValue(15);
           $so1 = new OoxmlSaveOptions(SaveFormat::XLSX);
           $Wb->save($msout, $so1);
-          # Ändert die Ole-Rahmen-Objektdaten
+          # Ändert die Ole-Rahmenobjektdaten
           $newData = new OleEmbeddedDataInfo($msout->toByteArray(), $ole->getEmbeddedData()->getEmbeddedFileExtension());
           $ole->setEmbeddedData($newData);
         } finally {
@@ -190,11 +190,11 @@ Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes
   }
 ```
 
-## Weitere Dateitypen in Folien einbetten
+## Andere Dateitypen in Folien einbetten
 
-Neben Excel-Diagrammen ermöglicht Aspose.Slides für PHP über Java auch das Einbetten anderer Dateitypen in Folien. Beispielsweise können Sie HTML-, PDF- und ZIP-Dateien als Objekte in eine Folie einfügen. Wenn ein Benutzer auf das eingefügte Objekt doppelklickt, wird das Objekt automatisch im relevanten Programm geöffnet, oder der Benutzer wird aufgefordert, ein geeignetes Programm auszuwählen, um das Objekt zu öffnen.
+Neben Excel-Diagrammen ermöglicht Aspose.Slides für PHP über Java das Einbetten anderer Dateitypen in Folien. Zum Beispiel können Sie HTML-, PDF- und ZIP-Dateien als Objekte in eine Folie einfügen. Wenn ein Benutzer auf das eingefügte Objekt doppelklickt, wird das Objekt automatisch im relevanten Programm gestartet, oder der Benutzer wird aufgefordert, ein entsprechendes Programm auszuwählen, um das Objekt zu öffnen.
 
-Dieser PHP-Code zeigt, wie Sie HTML und ZIP in eine Folie einbetten:
+Dieser PHP-Code zeigt Ihnen, wie man HTML und ZIP in eine Folie einbettet:
 
 ```php
   $pres = new Presentation();
@@ -237,18 +237,18 @@ try {
 
 ## Dateitypen für eingebettete Objekte festlegen
 
-Bei der Arbeit an Präsentationen müssen Sie möglicherweise alte OLE-Objekte durch neue ersetzen. Oder Sie müssen ein nicht unterstütztes OLE-Objekt durch ein unterstütztes ersetzen.
+Bei der Arbeit an Präsentationen müssen Sie möglicherweise alte OLE-Objekte durch neue ersetzen. Oder Sie müssen ein nicht unterstütztes OLE-Objekt durch ein unterstütztes ersetzen. 
 
-Aspose.Slides für PHP über Java ermöglicht es Ihnen, den Dateityp für ein eingebettetes Objekt festzulegen. So können Sie die OLE-Rahmendaten oder deren Erweiterung ändern.
+Aspose.Slides für PHP über Java ermöglicht es Ihnen, den Dateityp für ein eingebettetes Objekt festzulegen. Auf diese Weise können Sie die OLE-Rahmendaten oder deren Erweiterung ändern.
 
-Dieser Java-Code zeigt Ihnen, wie Sie den Dateityp für ein eingebettetes OLE-Objekt festlegen:
+Dieser Java zeigt Ihnen, wie Sie den Dateityp für ein eingebettetes OLE-Objekt festlegen:
 
 ```php
   $pres = new Presentation("embeddedOle.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
     $oleObjectFrame = $slide->getShapes()->get_Item(0);
-    echo("Die aktuelle eingebettete Datenendung ist: " . $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension());
+    echo("Die aktuelle eingebettete Datenextension ist: " . $oleObjectFrame->getEmbeddedData()->getEmbeddedFileExtension());
 $Array = new JavaClass("java.lang.reflect.Array");
 $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 try {
@@ -269,11 +269,11 @@ try {
   }
 ```
 
-## Festlegen von Symbolbildern und Titeln für eingebettete Objekte
+## Bildikonen und Titel für eingebettete Objekte festlegen
 
-Nachdem Sie ein OLE-Objekt eingebettet haben, wird automatisch eine Vorschau mit einem Symbolbild und einem Titel hinzugefügt. Die Vorschau ist das, was Benutzer sehen, bevor sie auf das OLE-Objekt zugreifen oder es öffnen.
+Nachdem Sie ein OLE-Objekt eingebettet haben, wird automatisch eine Vorschau hinzugefügt, die aus einem Symbolbild und einem Titel besteht. Die Vorschau ist das, was Benutzer sehen, bevor sie auf das OLE-Objekt zugreifen oder es öffnen. 
 
-Wenn Sie ein bestimmtes Bild und einen bestimmten Text als Elemente in der Vorschau verwenden möchten, können Sie das Symbolbild und den Titel mit Aspose.Slides für PHP über Java festlegen.
+Wenn Sie ein bestimmtes Bild und Text als Elemente in der Vorschau verwenden möchten, können Sie das Symbolbild und den Titel mit Aspose.Slides für PHP über Java festlegen.
 
 Dieser PHP-Code zeigt Ihnen, wie Sie das Symbolbild und den Titel für ein eingebettetes Objekt festlegen:
 
@@ -303,23 +303,23 @@ Dieser PHP-Code zeigt Ihnen, wie Sie das Symbolbild und den Titel für ein einge
   }
 ```
 
-## **Verhindern, dass ein OLE-Objektrahmen in der Größe geändert und repositioniert wird**
+## **Verhindern, dass ein OLE-Objektrahmen in der Größe geändert oder neu positioniert wird**
 
-Nachdem Sie ein verknüpftes OLE-Objekt zu einer Präsentationsfolie hinzugefügt haben, sehen Sie möglicherweise eine Nachricht, die Sie auffordert, die Links zu aktualisieren, wenn Sie die Präsentation in PowerPoint öffnen. Wenn Sie auf die Schaltfläche "Links aktualisieren" klicken, kann sich die Größe und Position des OLE-Objektrahmens ändern, da PowerPoint die Daten des verknüpften OLE-Objekts aktualisiert und die Objektvorschau aktualisiert. Um zu verhindern, dass PowerPoint zur Aktualisierung der Objektdaten auffordert, setzen Sie die Methode `setUpdateAutomatic` der [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) Klasse auf `false`:
+Nachdem Sie ein verknüpftes OLE-Objekt zu einer Präsentationsfolie hinzugefügt haben, sehen Sie möglicherweise eine Nachricht, die Sie auffordert, die Links zu aktualisieren, wenn Sie die Präsentation in PowerPoint öffnen. Durch Klicken auf die Schaltfläche "Links aktualisieren" kann sich die Größe und Position des OLE-Objektrahmens ändern, da PowerPoint die Daten des verknüpften OLE-Objekts aktualisiert und die Objektvorschau aktualisiert. Um zu verhindern, dass PowerPoint aufgefordert wird, die Objektdaten zu aktualisieren, setzen Sie die Methode `setUpdateAutomatic` der [OleObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe/) Klasse auf `false`:
 
 ```php
 $oleObjectFrame->setUpdateAutomatic(false);
 ```
 
-## Extrahieren von eingebetteten Dateien
+## Eingebettete Dateien extrahieren
 
 Aspose.Slides für PHP über Java ermöglicht es Ihnen, die in Folien als OLE-Objekte eingebetteten Dateien auf folgende Weise zu extrahieren:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) Klasse, die das OLE-Objekt enthält, das Sie extrahieren möchten.
-2. Durchlaufen Sie alle Formen in der Präsentation und greifen Sie auf die [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe) Form zu.
-3. Greifen Sie auf die Daten der eingebetteten Datei aus dem OLE-Objektrahmen zu und schreiben Sie sie auf die Festplatte.
+2. Schleifen Sie durch alle Formen in der Präsentation und greifen Sie auf die [OLEObjectFrame](https://reference.aspose.com/slides/php-java/aspose.slides/oleobjectframe) Form zu.
+3. Greifen Sie auf die Daten der eingebetteten Datei aus dem OLE-Objektrahmen zu und schreiben Sie sie auf die Festplatte. 
 
-Dieser PHP-Code zeigt Ihnen, wie Sie eine in eine Folie als OLE-Objekt eingebettete Datei extrahieren:
+Dieser PHP-Code zeigt Ihnen, wie Sie eine in einer Folie als OLE-Objekt eingebettete Datei extrahieren:
 
 ```php
   $pres = new Presentation("embeddedOle.pptx");

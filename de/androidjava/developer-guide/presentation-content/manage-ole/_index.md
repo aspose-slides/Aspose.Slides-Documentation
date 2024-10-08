@@ -26,15 +26,15 @@ OLE (Object Linking & Embedding) ist eine Microsoft-Technologie, die es ermögli
 
 {{% /alert %}} 
 
-Betrachten Sie ein Diagramm, das in MS Excel erstellt wurde. Das Diagramm wird dann in eine PowerPoint-Folie eingefügt. Das Excel-Diagramm wird als OLE-Objekt betrachtet. 
+Betrachten Sie ein Diagramm, das in MS Excel erstellt wurde. Das Diagramm wird dann in eine PowerPoint-Folie eingefügt. Dieses Excel-Diagramm wird als OLE-Objekt betrachtet. 
 
-- Ein OLE-Objekt kann als Symbol erscheinen. In diesem Fall wird das Diagramm geöffnet, wenn Sie auf das Symbol doppelklicken, in der zugehörigen Anwendung (Excel), oder Sie werden aufgefordert, eine Anwendung zum Öffnen oder Bearbeiten des Objekts auszuwählen. 
-- Ein OLE-Objekt kann die tatsächlichen Inhalte anzeigen—zum Beispiel die Inhalte eines Diagramms. In diesem Fall wird das Diagramm in PowerPoint aktiviert, die Diagrammschnittstelle lädt, und Sie haben die Möglichkeit, die Daten des Diagramms innerhalb der PowerPoint-App zu ändern.
+- Ein OLE-Objekt kann als Symbol erscheinen. In diesem Fall wird beim Doppelklick auf das Symbol das Diagramm in der zugehörigen Anwendung (Excel) geöffnet oder Sie werden aufgefordert, eine Anwendung zum Öffnen oder Bearbeiten des Objekts auszuwählen. 
+- Ein OLE-Objekt kann tatsächlich Inhalte anzeigen, z. B. die Inhalte eines Diagramms. In diesem Fall wird das Diagramm in PowerPoint aktiviert, die Diagrammoberfläche lädt, und Sie haben die Möglichkeit, die Daten des Diagramms innerhalb der PowerPoint-App zu ändern.
 
 [Aspose.Slides für Android über Java](https://products.aspose.com/slides/androidjava/) ermöglicht es Ihnen, OLE-Objekte in Folien als OLE-Objektrahmen ([OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame)) einzufügen.
 
 ## **Hinzufügen von OLE-Objektrahmen zu Folien**
-Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möchten dieses Diagramm als OLE-Objektrahmen in einer Folie mit Aspose.Slides für Android über Java einbetten, können Sie dies wie folgt tun:
+Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möchten dieses Diagramm als OLE-Objektrahmen in eine Folie mit Aspose.Slides für Android über Java einbetten, können Sie es folgendermaßen tun:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
 1. Erhalten Sie die Referenz der Folie, indem Sie ihren Index verwenden.
@@ -42,11 +42,11 @@ Angenommen, Sie haben bereits ein Diagramm in Microsoft Excel erstellt und möch
 1. Fügen Sie den [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) zur Folie hinzu, die das Byte-Array und andere Informationen über das OLE-Objekt enthält.
 1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
 
-Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei in eine Folie als OLE-Objektrahmen mit Aspose.Slides für Android über Java hinzugefügt.
-**Hinweis:** Der [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleEmbeddedDataInfo) Konstruktor nimmt eine einbettbare Objektdateiendung als zweiten Parameter. Diese Erweiterung ermöglicht es PowerPoint, den Dateityp korrekt zu interpretieren und die richtige Anwendung auszuwählen, um dieses OLE-Objekt zu öffnen.
+Im folgenden Beispiel haben wir ein Diagramm aus einer Excel-Datei zu einer Folie als OLE-Objektrahmen mit Aspose.Slides für Android über Java hinzugefügt.
+**Hinweis:** Der [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IOleEmbeddedDataInfo) Konstruktor nimmt eine einbettbare Objektverlängerung als zweiten Parameter. Diese Erweiterung ermöglicht es PowerPoint, den Dateityp korrekt zu interpretieren und die richtige Anwendung zum Öffnen dieses OLE-Objekts auszuwählen.
 
 ``` java 
-// Instanziiert die Präsentationsklasse, die die PPTX-Datei darstellt
+// Erstellt eine Instanz der Presentation-Klasse, die die PPTX-Datei darstellt
 Presentation pres = new Presentation();
 try {
     // Greift auf die erste Folie zu
@@ -65,7 +65,7 @@ try {
     }
     fs.close();
 
-    // Erstellt ein Datenobjekt zum Einbetten
+    // Erstellt ein Datenobjekt für die Einbettung
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.toByteArray(), "xlsx");
     mstream.close();
 
@@ -75,7 +75,7 @@ try {
             (float) pres.getSlideSize().getSize().getHeight(),
             dataInfo);
 
-    // Schreibt die PPTX-Datei auf die Festplatte
+    //Schreibt die PPTX-Datei auf die Festplatte
     pres.save("OleEmbed_out.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -83,17 +83,17 @@ try {
 }
 ```
 
-## **Zugreifen auf OLE-Objektrahmen**
+## **Zugriff auf OLE-Objektrahmen**
 Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt leicht auf folgende Weise finden oder darauf zugreifen:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse.
 1. Erhalten Sie die Referenz der Folie, indem Sie ihren Index verwenden.
 1. Greifen Sie auf die OLE-Objektrahmenform zu.
 
-   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die nur eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) *gecastet*. Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
-1. Sobald der OLE-Objektrahmen zugänglich ist, können Sie jede Operation darauf ausführen.
+   In unserem Beispiel verwendeten wir die zuvor erstellte PPTX, die nur eine Form auf der ersten Folie hat. Wir haben dann *typisiert*, dass Objekt als [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
+1. Sobald auf den OLE-Objektrahmen zugegriffen wird, können Sie beliebige Operationen daran durchführen.
 
-Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in einer Folie eingebettetes Excel-Diagrammobjekt) zugegriffen—und dann werden die Dateidaten in eine Excel-Datei geschrieben.
+Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes Excel-Diagramm-Objekt) darauf zugegriffen—und dann werden die Dateidaten in eine Excel-Datei geschrieben.
 
 ``` java 
 // Lädt die PPTX in ein Präsentationsobjekt
@@ -102,15 +102,15 @@ try {
     // Greift auf die erste Folie zu
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Castet die Form auf OleObjectFrame
+    // Typisiert die Form zu OleObjectFrame
     OleObjectFrame oleObjectFrame = (OleObjectFrame) sld.getShapes().get_Item(0);
 
     // Liest das OLE-Objekt und schreibt es auf die Festplatte
     if (oleObjectFrame != null) {
-        // Holt eingebettete Dateidaten
+        // Holt die eingebetteten Dateidaten
         byte[] data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
 
-        // Holt die Dateiendung der eingebetteten Datei
+        // Holt die eingebettete Dateierweiterung
         String fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
 
         // Erstellt einen Pfad zum Speichern der extrahierten Datei
@@ -132,20 +132,20 @@ try {
 
 ## **Ändern von OLE-Objektdaten**
 
-Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie auf dieses Objekt leicht zugreifen und seine Daten wie folgt ändern:
+Wenn ein OLE-Objekt bereits in einer Folie eingebettet ist, können Sie dieses Objekt einfach auf folgende Weise zugreifen und seine Daten ändern:
 
 1. Öffnen Sie die gewünschte Präsentation mit dem eingebetteten OLE-Objekt, indem Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse erstellen.
-1. Holen Sie sich die Referenz der Folie über ihren Index. 
+1. Holen Sie die Referenz der Folie über ihren Index. 
 1. Greifen Sie auf die OLE-Objektrahmenform zu.
 
-   In unserem Beispiel haben wir die zuvor erstellte PPTX verwendet, die nur eine Form auf der ersten Folie hat. Wir haben dann dieses Objekt als [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame) *gecastet*. Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
-1. Sobald der OLE-Objektrahmen zugänglich ist, können Sie jede Operation darauf ausführen.
+   In unserem Beispiel verwendeten wir die zuvor erstellte PPTX, die nur eine Form auf der ersten Folie hat. Wir haben dann *typisiert*, dass Objekt als [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/OleObjectFrame). Dies war der gewünschte OLE-Objektrahmen, auf den zugegriffen werden sollte.
+1. Sobald auf den OLE-Objektrahmen zugegriffen wird, können Sie beliebige Operationen daran durchführen.
 1. Erstellen Sie das Workbook-Objekt und greifen Sie auf die OLE-Daten zu.
 1. Greifen Sie auf das gewünschte Arbeitsblatt zu und ändern Sie die Daten.
 1. Speichern Sie das aktualisierte Workbook in Streams.
-1. Ändern Sie die OLE-Objektdaten aus den Streamdaten.
+1. Ändern Sie die OLE-Objektdaten aus den Stream-Daten.
 
-Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in einer Folie eingebettetes Excel-Diagrammobjekt) zugegriffen—und dann werden seine Dateidaten modifiziert, um die Diagrammdaten zu ändern:
+Im folgenden Beispiel wird ein OLE-Objektrahmen (ein in eine Folie eingebettetes Excel-Diagramm-Objekt) darauf zugegriffen—und dann werden die Dateidaten geändert, um die Diagrammdaten zu ändern:
 
 ``` java 
 Presentation pres = new Presentation("ChangeOLEObjectData.pptx");
@@ -154,7 +154,7 @@ try {
 	
     OleObjectFrame ole = null;
 
-    // Durchläuft alle Formen nach dem Ole-Rahmen
+    // Durchläuft alle Formen nach Ole-Rahmen
     for (IShape shape : slide.getShapes()) 
     {
         if (shape instanceof OleObjectFrame) 
@@ -171,7 +171,7 @@ try {
 
             ByteArrayOutputStream msout = new ByteArrayOutputStream();
             try {
-                // Modifiziert die Workbook-Daten
+                // Ändert die Workbook-Daten
                 Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
                 Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
                 Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
@@ -180,7 +180,7 @@ try {
                 OoxmlSaveOptions so1 = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
                 Wb.save(msout, so1);
 
-                // Ändert die Daten des Ole-Rahmens
+                // Ändert die Ole-Rahmen-Objektdaten
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
                 ole.setEmbeddedData(newData);
             } finally {
@@ -200,9 +200,9 @@ try {
 
 ## Einbetten anderer Dateitypen in Folien
 
-Neben Excel-Diagrammen ermöglicht es Aspose.Slides für Android über Java, auch andere Dateitypen in Folien einzubetten. Beispielsweise können Sie HTML-, PDF- und ZIP-Dateien als Objekte in eine Folie einfügen. Wenn ein Benutzer doppelt auf das eingefügte Objekt klickt, wird das Objekt automatisch im relevanten Programm gestartet, oder der Benutzer wird aufgefordert, ein geeignetes Programm zum Öffnen des Objekts auszuwählen.
+Neben Excel-Diagrammen ermöglicht es Aspose.Slides für Android über Java, andere Dateitypen in Folien einzubetten. Sie können beispielsweise HTML-, PDF- und ZIP-Dateien als Objekte in eine Folie einfügen. Wenn ein Benutzer auf das eingefügte Objekt doppelklickt, wird das Objekt automatisch im entsprechenden Programm gestartet oder der Benutzer wird aufgefordert, ein geeignetes Programm zum Öffnen des Objekts auszuwählen.
 
-Dieser Java-Code zeigt Ihnen, wie Sie HTML und ZIP in eine Folie einbetten:
+Dieser Java-Code zeigt Ihnen, wie man HTML und ZIP in eine Folie einbettet:
 
 ```java
 Presentation pres = new Presentation();
@@ -228,7 +228,7 @@ try {
 
 ## Festlegen von Dateitypen für eingebettete Objekte
 
-Wenn Sie an Präsentationen arbeiten, müssen Sie möglicherweise alte OLE-Objekte durch neue ersetzen. Oder Sie müssen ein nicht unterstütztes OLE-Objekt durch ein unterstütztes ersetzen. 
+Bei der Arbeit an Präsentationen müssen Sie möglicherweise alte OLE-Objekte durch neue ersetzen. Oder Sie müssen ein nicht unterstütztes OLE-Objekt durch ein unterstütztes ersetzen. 
 
 Aspose.Slides für Android über Java ermöglicht es Ihnen, den Dateityp für ein eingebettetes Objekt festzulegen. Auf diese Weise können Sie die OLE-Rahmendaten oder deren Erweiterung ändern.
 
@@ -239,7 +239,7 @@ Presentation pres = new Presentation("embeddedOle.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
-    System.out.println("Die aktuelle eingebettete Datenendungen ist: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
+    System.out.println("Die aktuelle eingebettete Datenendung ist: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
 
     oleObjectFrame.setEmbeddedData(new OleEmbeddedDataInfo(Files.readAllBytes(Paths.get("embedOle.zip")), "zip"));
 
@@ -250,7 +250,7 @@ try {
 }
 ```
 
-## Festlegen von Icon-Bildern und Titeln für eingebettete Objekte
+## Festlegen von Symbolbildern und Titeln für eingebettete Objekte
 
 Nachdem Sie ein OLE-Objekt eingebettet haben, wird automatisch eine Vorschau mit einem Symbolbild und einem Titel hinzugefügt. Die Vorschau ist das, was Benutzer sehen, bevor sie auf das OLE-Objekt zugreifen oder es öffnen. 
 
@@ -282,21 +282,21 @@ try {
 }
 ```
 
-## **Verhindern, dass ein OLE-Objektrahmen in der Größe verändert oder repositioniert wird**
+## **Verhindern, dass ein OLE-Objektrahmen in der Größe geändert und neu positioniert wird**
 
-Nachdem Sie ein verknüpftes OLE-Objekt zu einer Präsentationsfolie hinzugefügt haben, sehen Sie möglicherweise eine Meldung, die Sie auffordert, die Links zu aktualisieren, wenn Sie die Präsentation in PowerPoint öffnen. Das Klicken auf die Schaltfläche "Links aktualisieren" kann die Größe und Position des OLE-Objektrahmens ändern, da PowerPoint die Daten des verknüpften OLE-Objekts aktualisiert und die Objektvorschau aktualisiert. Um zu verhindern, dass PowerPoint dazu aufgefordert wird, die Daten des Objekts zu aktualisieren, setzen Sie die Methode `setUpdateAutomatic` des [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) Interfaces auf `false`:
+Nachdem Sie ein verlinktes OLE-Objekt zu einer Präsentationsfolie hinzugefügt haben, sehen Sie möglicherweise eine Nachricht, in der Sie aufgefordert werden, die Links zu aktualisieren, wenn Sie die Präsentation in PowerPoint öffnen. Wenn Sie auf die Schaltfläche "Links aktualisieren" klicken, kann sich die Größe und Position des OLE-Objektrahmens ändern, da PowerPoint die Daten aus dem verlinkten OLE-Objekt aktualisiert und die Objektvorschau aktualisiert. Um zu verhindern, dass PowerPoint zur Aktualisierung der Objekt Daten auffordert, setzen Sie die `setUpdateAutomatic`-Methode des [IOleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleobjectframe/) Schnittstelle auf `false`:
 
 ```java
 oleObjectFrame.setUpdateAutomatic(false);
 ```
 
-## Extrahieren eingebetteter Dateien
+## Extrahieren von eingebetteten Dateien
 
 Aspose.Slides für Android über Java ermöglicht es Ihnen, die in Folien als OLE-Objekte eingebetteten Dateien auf folgende Weise zu extrahieren:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) Klasse, die das OLE-Objekt enthält, das Sie extrahieren möchten.
 2. Durchlaufen Sie alle Formen in der Präsentation und greifen Sie auf die [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe) Form zu.
-3. Greifen Sie auf die Daten der eingebetteten Datei aus dem OLE-Objektrahmen zu und schreiben Sie sie auf die Festplatte. 
+3. Greifen Sie auf die eingebetteten Dateidaten aus dem OLE-Objektrahmen zu und schreiben Sie sie auf die Festplatte. 
 
 Dieser Java-Code zeigt Ihnen, wie Sie eine in einer Folie als OLE-Objekt eingebettete Datei extrahieren:
 
@@ -315,7 +315,7 @@ try {
             byte[] data = oleFrame.getEmbeddedData().getEmbeddedFileData();
             String extension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
-            // Speichert extrahierte Daten
+            // Speichert die extrahierten Daten
             FileOutputStream fstr = new FileOutputStream("oleFrame" + index + extension);
             try {
                 fstr.write(data, 0, data.length);

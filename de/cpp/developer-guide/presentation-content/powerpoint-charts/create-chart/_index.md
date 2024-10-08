@@ -1,228 +1,216 @@
-```markdown
 ---
 title: Erstellen von PowerPoint-Präsentationsdiagrammen in C++
 linktitle: Diagramm erstellen
 type: docs
 weight: 10
 url: /cpp/create-chart/
-keywords: "Diagramm erstellen, Streudiagramm, Kreisdiagramm, Baumkarten-Diagramm, Börsendiagramm, Box- und Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnenstrahldiagramm, Multi-Kategorie-Diagramm, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
+keywords: "Diagramm erstellen, Punktdiagramm, Kreisdiagramm, Baumkarten-Diagramm, Aktiendiagramm, Box- und Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnenstrahl-Diagramm, Mehrkategoriediagramm, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Diagramm in PowerPoint-Präsentation in C++ erstellen"
 ---
 
 ## **Diagramm erstellen**
 
-Diagramme helfen Menschen, Daten schnell zu visualisieren und Einblicke zu gewinnen, die aus einer Tabelle oder einem Spreadsheet möglicherweise nicht sofort offensichtlich sind.
+Diagramme helfen Menschen, Daten schnell zu visualisieren und Erkenntnisse zu gewinnen, die aus einer Tabelle oder einem Spreadsheet möglicherweise nicht sofort ersichtlich sind.
 
 **Warum Diagramme erstellen?**
 
-Mit Diagrammen haben Sie die Möglichkeit
+Mit Diagrammen können Sie:
 
-* große Datenmengen auf einer einzigen Folie in einer Präsentation zu aggregieren, zu kondensieren oder zusammenzufassen
-* Muster und Trends in Daten sichtbar zu machen
-* die Richtung und Dynamik von Daten im Laufe der Zeit oder in Bezug auf eine bestimmte Maßeinheit abzuleiten 
-* Ausreißer, Abweichungen, Fehler, unsinnige Daten usw. zu erkennen
-* komplexe Daten zu kommunizieren oder zu präsentieren
+* große Datenmengen auf einer einzelnen Folie in einer Präsentation aggregieren, komprimieren oder zusammenfassen
+* Muster und Trends in den Daten aufdecken
+* die Richtung und Dynamik der Daten im Laufe der Zeit oder in Bezug auf eine bestimmte Maßeinheit ableiten 
+* Ausreißer, Abweichungen, Fehler, unsinnige Daten usw. erkennen
+* komplexe Daten kommunizieren oder präsentieren
 
-In PowerPoint können Sie Diagramme über die Einfüge-Funktion erstellen, die Vorlagen zur Gestaltung vieler Arten von Diagrammen bereitstellt. Mit Aspose.Slides können Sie reguläre Diagramme (basierend auf gängigen Diagrammtypen) und benutzerdefinierte Diagramme erstellen.
+In PowerPoint können Sie Diagramme über die Einfügefunktion erstellen, die Vorlagen bietet, die zur Gestaltung vieler Arten von Diagrammen verwendet werden. Mit Aspose.Slides können Sie reguläre Diagramme (basierend auf beliebten Diagrammtypen) und benutzerdefinierte Diagramme erstellen.
 
-{{% alert color="primary" %}}
+{{% alert color="primary" %}} 
 
-Um Ihnen zu ermöglichen, Diagramme zu erstellen, stellt Aspose.Slides die [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) Enum-Klasse im [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) Namensraum zur Verfügung. Die Werte in dieser Enum-Klasse entsprechen verschiedenen Diagrammtypen.
+Um Ihnen die Erstellung von Diagrammen zu ermöglichen, stellt Aspose.Slides die [ChartType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts#a23ba9ea390f5be4c8f5ab18baf4f8c05) Enum-Klasse im [Aspose::Slides::Charts](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.charts/) Namespace zur Verfügung. Die Werte in dieser Enum-Klasse entsprechen verschiedenen Diagrammtypen.
 
-{{% /alert %}}
+{{% /alert %}} 
 
 ### **Erstellen von normalen Diagrammen**
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
-1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an.
-1. Fügen Sie einen Titel für das Diagramm hinzu.
+1. Fügen Sie ein Diagramm mit Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an. 
+1. Fügen Sie einen Titel für das Diagramm hinzu. 
 1. Greifen Sie auf das Diagrammdaten-Arbeitsblatt zu.
-1. Löschen Sie alle Standardserien und -kategorien.
+1. Löschen Sie alle standardmäßigen Datenserien und Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
-1. Fügen Sie einige neue Diagrammdaten für die Diagrammserien hinzu.
+1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
 1. Fügen Sie eine Füllfarbe für die Diagrammserien hinzu.
-1. Fügen Sie Beschriftungen für die Diagrammserien hinzu.
+1. Fügen Sie Beschriftungen für die Diagrammserien hinzu. 
 1. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein normales Diagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein normales Diagramm erstellt:
 
 ```c++
 // Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/NormalCharts_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziiert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Fügt ein Diagramm mit Standarddaten hinzu.
+	// Fügt ein Diagramm mit Standarddaten hinzu
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-
-	// Legt den Index des Diagrammdatenblatts fest.
+	// Setzt den Index des Diagrammdatenblatts
 	int defaultWorksheetIndex = 0;
 
-	// Ruft das Diagrammdaten-Arbeitsblatt ab.
+	// Holt das Diagrammdaten-Arbeitsblatt
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Legt den Diagrammtitel fest.
-	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Stichproben-Titel");
+	// Setzt den Diagrammtitel
+	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Beispiel Titel");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText ( NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle( true);
 
-	// Löscht die standardmäßig generierten Serien und Kategorien.
+	// Löscht die standardmäßig generierten Serien und Kategorien
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 	int s = chart->get_ChartData()->get_Series()->get_Count();
 	s = chart->get_ChartData()->get_Categories()->get_Count();
 
-
-	// Fügt eine neue Serie hinzu.
+	// Fügt eine neue Serie hinzu
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Serie 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Serie 2")), chart->get_Type());
 
-	// Fügt Kategorien hinzu.
+	// Fügt Kategorien hinzu
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Kategorie 1")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"Kategorie 2")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"Kategorie 3")));
 
-
-	// Nimmt die erste Diagrammserie.
+	// Nimmt die erste Diagrammserie
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Füllt die Seriendaten.
+	// Füllt die Seriendaten
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
 
-	// Legt die Füllfarbe für die Serie fest.
+	// Setzt die Füllfarbe für die Serien
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Rot());
+	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 
+	// Nimmt die zweite Diagrammserie
+	 series = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Nimmt die zweite Diagrammserie.
-	series = chart->get_ChartData()->get_Series()->idx_get(1);
-
-	// Füllt die Seriendaten.
+	// Füllt die Seriendaten
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(30)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(10)));
 	series->get_DataPoints()->AddDataPointForBarSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(60)));
 
-	// Legt die Füllfarbe für die Serie fest.
+	// Setzt die Füllfarbe für die Serien
 	series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gruen());
+	series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Green());
 
-
-	// Erste Beschriftung wird gesetzt, um den Kategorienamen anzuzeigen.
+	// Erste Beschriftung wird gesetzt, um den Kategorienamen anzuzeigen
 	SharedPtr<IDataLabel> lbl = series->get_DataPoints()->idx_get(0)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowCategoryName(true);
 
 	lbl = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowSeriesName (true);
 
-	// Zeigt den Wert für die dritte Beschriftung an.
+	// Zeigt den Wert für die dritte Beschriftung an
 	lbl = series->get_DataPoints()->idx_get(2)->get_Label();
 	lbl->get_DataLabelFormat()->set_ShowValue (true);
 	lbl->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl->get_DataLabelFormat()->set_Separator (u"/");
 
-	// Speichert die Präsentation.
+	// Speichert die Präsentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
-### **Erstellen von Streudiagrammen**
-Streudiagramme (auch bekannt als Streuplots oder X-Y-Diagramme) werden häufig verwendet, um nach Mustern zu suchen oder Korrelationen zwischen zwei Variablen zu demonstrieren. 
+### **Erstellen von Punktdiagrammen**
+Punktdiagramme (auch als Punktediagramme oder X-Y-Diagramme bekannt) werden häufig verwendet, um nach Mustern zu suchen oder Korrelationen zwischen zwei Variablen zu demonstrieren. 
 
-Sie möchten möglicherweise ein Streudiagramm verwenden, wenn 
+Sie möchten möglicherweise ein Punktdiagramm verwenden, wenn:
 
 * Sie gepaarte numerische Daten haben
 * Sie 2 Variablen haben, die gut zusammenpassen
-* Sie bestimmen möchten, ob 2 Variablen miteinander verbunden sind
+* Sie bestimmen möchten, ob 2 Variablen miteinander verwandt sind
 * Sie eine unabhängige Variable haben, die mehrere Werte für eine abhängige Variable hat
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Streudiagramm mit einer anderen Serie von Markern erstellen: 
+Dieser C++-Code zeigt Ihnen, wie man ein Punktdiagramm mit einer anderen Serie von Markierungen erstellt: 
 
 ```c++
 // Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/ScatteredChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Fügt ein Diagramm mit Standarddaten hinzu.
+	// Fügt ein Diagramm mit Standarddaten hinzu
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ScatterWithSmoothLines, 0, 0, 500, 500);
 
-	// Legt den Diagrammtitel fest.
-	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Stichproben-Titel");
+	// Setzt den Diagrammtitel
+	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Beispiel Titel");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Löscht die standardmäßig generierten Serien.
+	// Löscht die standardmäßig generierten Serien 
 	chart->get_ChartData()->get_Series()->Clear();
 	
-	// Legt den Index für das Diagrammdatenblatt fest.
+	// Setzt den Index für das Diagrammdatenblatt
 	int defaultWorksheetIndex = 0;
 
-	// Ruft das Diagrammdaten-Arbeitsblatt ab.
+	// Holt das Diagrammdaten-Arbeitsblatt
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-
-	// Fügt eine neue Serie hinzu.
+	// Fügt eine neue Serie hinzu
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<System::String>(u"Serie 1")), chart->get_Type());
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<System::String>(u"Serie 2")), chart->get_Type());
 
-	// Nimmt die erste Diagrammserie.
+	// Nimmt die erste Diagrammserie
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Fügt einen neuen Punkt hinzu (1:3).
+	// Fügt einen neuen Punkt hinzu (1:3)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(1)), fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(3)));
 
-	// Fügt einen neuen Punkt hinzu (2:10).
+	// Fügt einen neuen Punkt hinzu (2:10)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(10)));
 
-	// Bearbeitet den Serientyp.
+	// Bearbeitet den Serientyp
 	series->set_Type (ChartType::ScatterWithStraightLinesAndMarkers);
 
-	// Ändert den Diagrammserienmarker.
+	// Ändert den Marker des Diagrammserien
 	series->get_Marker()->set_Size  (10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Star);
 
-
-
-	// Nimmt die zweite Diagrammserie.
+	// Nimmt die zweite Diagrammserie
 	series  = chart->get_ChartData()->get_Series()->idx_get(1);
 
-	// Fügt einen neuen Punkt hinzu (5:2).
+	// Fügt einen neuen Punkt hinzu (5:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(2)));
 
-	// Fügt einen neuen Punkt hinzu (3:1).
+	// Fügt einen neuen Punkt hinzu (3:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(3)), fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(1)));
 
-	// Fügt einen neuen Punkt hinzu (2:2).
+	// Fügt einen neuen Punkt hinzu (2:2)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 4, 3, ObjectExt::Box<double>(2)), fact->GetCell(defaultWorksheetIndex, 4, 4, ObjectExt::Box<double>(2)));
 
-	// Fügt einen neuen Punkt hinzu (5:1).
+	// Fügt einen neuen Punkt hinzu (5:1)
 	series->get_DataPoints()->AddDataPointForScatterSeries(fact->GetCell(defaultWorksheetIndex, 5, 3, ObjectExt::Box<double>(5)), fact->GetCell(defaultWorksheetIndex, 5, 4, ObjectExt::Box<double>(1)));
 
-	// Ändert den Diagrammserienmarker.
+	// Ändert den Marker des Diagrammserien
 	series->get_Marker()->set_Size ( 10);
 	series->get_Marker()->set_Symbol(MarkerStyleType::Circle);
-
-
 
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_IsColorVaried(true);
 
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Legt den Sektor-Rand fest.
+	// Setzt den Sektorrahmen
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
@@ -233,32 +221,29 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Streudiagramm mit einer anderen Serie v
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Legt den Sektor-Rand fest.
+	// Setzt den Sektorrahmen
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
 	point1->get_Format()->get_Line()->set_Style(LineStyle::Single);
 	point1->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDot);
 
-
 	SharedPtr<IChartDataPoint> point2 = series->get_DataPoints()->idx_get(2);
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Legt den Sektor-Rand fest.
+	// Setzt den Sektorrahmen
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width ( 2.0);
 	point2->get_Format()->get_Line()->set_Style(LineStyle::ThickThin);
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
-
-	// Erstellt die benutzerdefinierten Beschriftungen für jede Kategorie der neuen Serie.
+	// Erstellt die benutzerdefinierten Beschriftungen für jede Kategorie der neuen Serie
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
 	lbl1->get_DataLabelFormat()->set_ShowValue(true);
-
 
 	SharedPtr<IDataLabel> lbl2 = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl2->get_DataLabelFormat()->set_ShowValue(true);
@@ -270,76 +255,75 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Streudiagramm mit einer anderen Serie v
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Zeigt die Führungsleitungen für das Diagramm an.
+	// Zeigt die Führungs Linien für das Diagramm an
 	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines(true);
 
-	// Legt den Rotationswinkel für die Sektoren des Kreisdiagramms fest.
+	// Setzt den Rotationswinkel für die Sektoren des Kreisdiagramms
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
-
 
 	// Speichert die Präsentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Erstellen von Kreisdiagrammen**
-Kreisdiagramme eignen sich am besten, um die Ganzheitlichkeit der Daten zu zeigen, insbesondere wenn die Daten kategoriale Bezeichnungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Bezeichnungen enthalten, sollten Sie in Betracht ziehen, stattdessen ein Balkendiagramm zu verwenden. 
+Kreisdiagramme eignen sich am besten, um die Teil-Ganzes-Beziehung in Daten darzustellen, insbesondere wenn die Daten kategorische Beschriftungen mit numerischen Werten enthalten. Wenn Ihre Daten jedoch viele Teile oder Beschriftungen enthalten, sollten Sie in Betracht ziehen, stattdessen ein Balkendiagramm zu verwenden.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (in diesem Fall `ChartType.Pie`) hinzu.
-1. Greifen Sie auf das Diagrammdaten IChartDataWorkbook zu.
-1. Löschen Sie die Standardserien und -kategorien.
+1. Greifen Sie auf das Diagrammdaten-IChartDataWorkbook zu.
+1. Löschen Sie die Standard-Serien und -Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
 1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
 1. Fügen Sie neue Punkte für die Diagramme hinzu und fügen Sie benutzerdefinierte Farben für die Sektoren des Kreisdiagramms hinzu.
-1. Setzen Sie die Beschriftungen für die Serien.
-1. Setzen Sie die Führungsleitungen für die Serienbeschriftungen.
-1. Legen Sie den Rotationswinkel für die Sektoren des Kreisdiagramms fest.
+1. Setzen Sie Beschriftungen für die Serien.
+1. Setzen Sie die Führungs Linien für die Serienbeschriftungen.
+1. Setzen Sie den Rotationswinkel für die Sektoren der Kreisdiagramme.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Kreisdiagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Kreisdiagramm erstellt:
 
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/PieChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Fügt ein Diagramm mit Standarddaten hinzu.
+	// Fügt ein Diagramm mit Standarddaten hinzu
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Pie, 0, 0, 500, 500);
 
-	// Legt den Diagrammtitel fest.
-	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Stichproben-Titel");
+	// Setzt den Diagrammtitel
+	chart->get_ChartTitle()->AddTextFrameForOverriding(u"Beispiel Titel");
 	chart->get_ChartTitle()->get_TextFrameForOverriding()->get_TextFrameFormat()->set_CenterText(NullableBool::True);
 	chart->get_ChartTitle()->set_Height(20);
 	chart->set_HasTitle(true);
 
-	// Löscht die standardmäßig generierten Serien und Kategorien.
+	// Löscht die standardmäßig generierten Serien und Kategorien
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// Legt den Index des Diagrammdatenblatts fest.
+	// Setzt den Index des Diagrammdatenblatts
 	int defaultWorksheetIndex = 0;
 
-	// Ruft das Diagrammdaten-Arbeitsblatt ab.
+	// Holt das Diagrammdaten-Arbeitsblatt
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Fügt Kategorien hinzu.
+	// Fügt Kategorien hinzu
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"Erstes Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"2. Qtr")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"3. Qtr")));
 
-	// Fügt eine neue Serie hinzu.
+	// Fügt eine neue Serie hinzu
 	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Serie 1")), chart->get_Type());
 	
-	// Nimmt die erste Diagrammserie.
+	// Nimmt die erste Diagrammserie
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
 
-	// Füllt die Seriendaten.
+	// Füllt die Seriendaten
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(20)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(50)));
 	series->get_DataPoints()->AddDataPointForPieSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(30)));
@@ -349,43 +333,40 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Kreisdiagramm erstellen:
 	SharedPtr<IChartDataPoint> point = series->get_DataPoints()->idx_get(0);
 	point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Cyan());
-	// Legt den Sektor-Rand fest.
+	// Setzt den Sektorrahmen
 	point->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Gray());
 	point->get_Format()->get_Line()->set_Width ( 3.0);
-	point->get_Format()->get_Line()->set_Style( LineStyle::ThinThick);
-	point->get_Format()->get_Line()->set_DashStyle ( LineDashStyle::DashDot);
+	point->get_Format()->get_Line()->set_Style(LineStyle::ThinThick);
+	point->get_Format()->get_Line()->set_DashStyle(LineDashStyle::DashDot);
 
 	SharedPtr<IChartDataPoint> point1 = series->get_DataPoints()->idx_get(1);
 	point1->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Brown());
 
-	// Legt den Sektor-Rand fest.
+	// Setzt den Sektorrahmen
 	point1->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point1->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
 	point1->get_Format()->get_Line()->set_Width (3.0);
 	point1->get_Format()->get_Line()->set_Style(LineStyle::Single);
 	point1->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDot);
 
-
 	SharedPtr<IChartDataPoint> point2 = series->get_DataPoints()->idx_get(2);
 	point2->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Coral());
 
-	// Legt den Sektor-Rand fest.
+	// Setzt den Sektorrahmen
 	point2->get_Format()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
 	point2->get_Format()->get_Line()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Red());
 	point2->get_Format()->get_Line()->set_Width (2.0);
 	point2->get_Format()->get_Line()->set_Style(LineStyle::ThickThin);
 	point2->get_Format()->get_Line()->set_DashStyle(LineDashStyle::LargeDashDotDot);
 
-
-	// Erstellt benutzerdefinierte Beschriftungen für jede der Kategorien der neuen Serie.
+	// Erstellt benutzerdefinierte Beschriftungen für jede der Kategorien der neuen Serie
 	SharedPtr<IDataLabel> lbl1 = series->get_DataPoints()->idx_get(0)->get_Label();
 
 	// lbl.ShowCategoryName = true;
 	lbl1->get_DataLabelFormat()->set_ShowValue(true);
-
 
 	SharedPtr<IDataLabel> lbl2 = series->get_DataPoints()->idx_get(1)->get_Label();
 	lbl2->get_DataLabelFormat()->set_ShowValue(true);
@@ -397,27 +378,30 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Kreisdiagramm erstellen:
 	lbl3->get_DataLabelFormat()->set_ShowSeriesName(true);
 	lbl3->get_DataLabelFormat()->set_ShowPercentage(true);
 
-	// Legt die Reihenfolge für die Diagrammsektoren fest.
-	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle(180);
+	// Setzt die Serien, um Führungs Linien für das Diagramm anzuzeigen
+	series->get_Labels()->get_DefaultDataLabelFormat()->set_ShowLeaderLines ( true);
 
-	// Speichert die Präsentation.
+	// Setzt den Rotationswinkel für die Sektoren des Kreisdiagramms
+	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->set_FirstSliceAngle ( 180);
+
+	// Speichert die Präsentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Erstellen von Liniendiagrammen**
 
-Liniendiagramme (auch bekannt als Liniendiagramme) eignen sich am besten für Situationen, in denen Sie Änderungen in Werten im Laufe der Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie viele Daten auf einmal vergleichen, Änderungen und Trends im Laufe der Zeit verfolgen, Anomalien in Datensätzen hervorheben usw.
+Liniendiagramme (auch als Liniendiagramme bekannt) eignen sich am besten für Situationen, in denen Sie Veränderungen von Werten im Laufe der Zeit demonstrieren möchten. Mit einem Liniendiagramm können Sie viele Daten auf einmal vergleichen, Änderungen und Trends im Laufe der Zeit verfolgen, Anomalien in Datensätzen hervorheben usw.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (in diesem Fall `ChartType::Line`) hinzu.
-1. Greifen Sie auf das Diagrammdaten IChartDataWorkbook zu.
-1. Löschen Sie die Standardserien und -kategorien.
+1. Greifen Sie auf das Diagrammdaten-IChartDataWorkbook zu.
+1. Löschen Sie die Standard-Serien und -Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
 1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Liniendiagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Liniendiagramm erstellt:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -426,7 +410,7 @@ System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes
 pres->Save(u"lineChart.pptx", SaveFormat::Pptx);
 ```
 
-Standardmäßig werden Punkte in einem Liniendiagramm durch kontinuierliche gerade Linien verbunden. Wenn Sie möchten, dass die Punkte stattdessen durch Striche verbunden werden, können Sie Ihren bevorzugten Strichtyp auf diese Weise angeben:
+Standardmäßig werden die Punkte auf einem Liniendiagramm durch gerade durchgehende Linien verbunden. Wenn Sie möchten, dass die Punkte stattdessen durch Striche verbunden werden, können Sie Ihren bevorzugten Strichtyp so angeben:
 
 ```c++
 System::SharedPtr<IChart> lineChart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Line, 10.0f, 50.0f, 600.0f, 350.0f);
@@ -438,27 +422,27 @@ for (auto&& series : lineChart->get_ChartData()->get_Series())
 
 ### **Erstellen von Baumkarten-Diagrammen**
 
-Baumkarten-Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien anzeigen möchten, und gleichzeitig schnell auf Artikel hinweisen möchten, die große Beiträge zu jeder Kategorie leisten.
+Baumkarten-Diagramme eignen sich am besten für Verkaufsdaten, wenn Sie die relative Größe von Datenkategorien zeigen möchten und gleichzeitig schnell auf Elemente aufmerksam machen, die große Beiträge zu jeder Kategorie leisten. 
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (in diesem Fall `ChartType.TreeMap`) hinzu.
-1. Greifen Sie auf das Diagrammdaten IChartDataWorkbook zu.
-1. Löschen Sie die Standardserien und -kategorien.
+1. Greifen Sie auf das Diagrammdaten-IChartDataWorkbook zu.
+1. Löschen Sie die Standard-Serien und -Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
 1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Baumkarten-Diagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Baumkarten-Diagramm erstellt:
 
 ```c++
 // Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/TreemapChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Presentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Treemap, 50, 50, 500, 400);
@@ -480,7 +464,6 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Baumkarten-Diagramm erstellen:
 	leaf->get_GroupingLevels()->SetGroupingItem(1, System::ObjectExt::Box<System::String>(u"Stamm2"));
 
 	chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C4", System::ObjectExt::Box<System::String>(u"Blatt4")));
-
 
 	// Zweig 2
 	leaf = chart->get_ChartData()->get_Categories()->Add(wb->GetCell(0, u"C5", System::ObjectExt::Box<System::String>(u"Blatt5")));
@@ -511,87 +494,81 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Baumkarten-Diagramm erstellen:
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Erstellen von Börsendiagrammen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+### **Erstellen von Aktien-Diagrammen**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
-1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (ChartType.OpenHighLowClose) hinzu.
-1. Greifen Sie auf das Diagrammdaten IChartDataWorkbook zu.
-1. Löschen Sie die Standardserien und -kategorien.
+1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (ChartType.OpenHighLowClose).
+1. Greifen Sie auf das Diagrammdaten-IChartDataWorkbook zu.
+1. Löschen Sie die Standard-Serien und -Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
 1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
 1. Geben Sie das HiLowLines-Format an.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Börsendiagramm erstellen:
+Beispiel-C++-Code zum Erstellen eines Aktien-Diagramms:
 
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/AddStockChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Fügt ein Diagramm mit Standarddaten hinzu.
+	// Fügt ein Diagramm mit Standarddaten hinzu
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::OpenHighLowClose, 0, 0, 500, 500);
 
-
-	// Legt den Index des Diagrammdatenblatts fest.
+	// Setzt den Index für das Diagrammdatenblatt
 	int defaultWorksheetIndex = 0;
 
-	// Ruft das Diagrammdaten-Arbeitsblatt ab.
+	// Holt das Diagrammdaten-Arbeitsblatt
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-
-	// Löscht die standardmäßig generierten Serien und Kategorien.
+	// Löscht die standardmäßig generierten Serien und Kategorien
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-	// Fügt Kategorien hinzu.
+	// Fügt Kategorien hinzu
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 1, 0, ObjectExt::Box<System::String>(u"A")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 2, 0, ObjectExt::Box<System::String>(u"B")));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, 3, 0, ObjectExt::Box<System::String>(u"C")));
 
-	// Fügt eine neue Serie hinzu.
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Öffnen")), chart->get_Type());
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"Hoch")), chart->get_Type());
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, ObjectExt::Box<System::String>(u"Tief")), chart->get_Type());
-	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Schließen")), chart->get_Type());
+	// Fügt eine neue Serie hinzu
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 1, ObjectExt::Box<System::String>(u"Open")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 2, ObjectExt::Box<System::String>(u"High")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 3, ObjectExt::Box<System::String>(u"Low")), chart->get_Type());
+	chart->get_ChartData()->get_Series()->Add(fact->GetCell(defaultWorksheetIndex, 0, 4, ObjectExt::Box<System::String>(u"Close")), chart->get_Type());
 
-
-	// Nimmt die erste Diagrammserie.
+	// Nimmt die erste Diagrammserie
 	SharedPtr<IChartSeries> series = chart->get_ChartData()->get_Series()->idx_get(0);
-	// Füllt die erste Seriendaten.
+	// Füllt die ersten Seriendaten
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 1, ObjectExt::Box<double>(72)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 1, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 1, ObjectExt::Box<double>(38)));
 
-
 	series = chart->get_ChartData()->get_Series()->idx_get(1);
-	// Füllt die zweite Seriendaten.
+	// Füllt die zweiten Seriendaten
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 2, ObjectExt::Box<double>(172)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 2, ObjectExt::Box<double>(57)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 2, ObjectExt::Box<double>(57)));
 
 	series = chart->get_ChartData()->get_Series()->idx_get(2);
-	// Füllt die zweite Seriendaten.
+	// Füllt die dritten Seriendaten
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 3, ObjectExt::Box<double>(12)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 3, ObjectExt::Box<double>(13)));
 
-
 	series = chart->get_ChartData()->get_Series()->idx_get(3);
-	// Füllt die zweite Seriendaten.
+	// Füllt die vierten Seriendaten
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 1, 4, ObjectExt::Box<double>(25)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 2, 4, ObjectExt::Box<double>(38)));
 	series->get_DataPoints()->AddDataPointForStockSeries(fact->GetCell(defaultWorksheetIndex, 3, 4, ObjectExt::Box<double>(50)));
 
-	// Legt die Seriengruppe fest.
+	// Setzt die Seriengruppe
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_UpDownBars()->set_HasUpDownBars (true);
 	chart->get_ChartData()->get_SeriesGroups()->idx_get(0)->get_HiLowLinesFormat()->get_Line()->get_FillFormat()->set_FillType(FillType::Solid);
-
 
 	for(int i=0;i<chart->get_ChartData()->get_Series()->get_Count();i++)
 	{
@@ -604,25 +581,25 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Börsendiagramm erstellen:
 ```
 
 ### **Erstellen von Box- und Whisker-Diagrammen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (ChartType.BoxAndWhisker) hinzu.
-1. Greifen Sie auf das Diagrammdaten IChartDataWorkbook zu.
-1. Löschen Sie die Standardserien und -kategorien.
+1. Greifen Sie auf das Diagrammdaten-IChartDataWorkbook zu.
+1. Löschen Sie die Standard-Serien und -Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
 1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Box- und Whisker-Diagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Box- und Whisker-Diagramm erstellt:
 
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/BoxAndWhisker_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::BoxAndWhisker, 50, 50, 500, 400);
@@ -655,27 +632,26 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Box- und Whisker-Diagramm erstellen:
 	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B5", System::ObjectExt::Box<int32_t>(23)));
 	series->get_DataPoints()->AddDataPointForBoxAndWhiskerSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(16)));
 
-
 	// Speichert die Präsentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
 ### **Erstellen von Trichterdiagrammen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (ChartType.Funnel) hinzu.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Trichterdiagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Trichterdiagramm erstellt:
 
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/FunnelChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Funnel, 50, 50, 500, 400);
@@ -702,27 +678,26 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Trichterdiagramm erstellen:
 	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B5", System::ObjectExt::Box<int32_t>(400)));
 	series->get_DataPoints()->AddDataPointForFunnelSeries(wb->GetCell(0, u"B6", System::ObjectExt::Box<int32_t>(500)));
 
-
 	// Speichert die Präsentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Erstellen von Sonnenstrahldiagrammen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+### **Erstellen von Sonnenstrahl-Diagrammen**
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (in diesem Fall `ChartType.sunburst`) hinzu.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Sonnenstrahldiagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Sonnenstrahl-Diagramm erstellt:
 
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/SunburstChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart=slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Sunburst, 50, 50, 500, 400);
@@ -768,30 +743,29 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Sonnenstrahldiagramm erstellen:
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D7", System::ObjectExt::Box<int32_t>(4)));
 	series->get_DataPoints()->AddDataPointForSunburstSeries(wb->GetCell(0, u"D8", System::ObjectExt::Box<int32_t>(3)));
 
-	// Schreibt die Präsentationsdatei auf die Festplatte
+	// Schreiben Sie die Präsentationsdatei auf die Festplatte
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
 ```
 
 ### **Erstellen von Histogramm-Diagrammen**
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index. 
-1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an (in diesem Fall `ChartType.Histogram`).
-1. Greifen Sie auf die Diagrammdaten `IChartDataWorkbook` zu.
-1. Löschen Sie die Standardserien und -kategorien.
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an (`ChartType.Histogram` in diesem Fall).
+1. Greifen Sie auf das Diagrammdaten-IChartDataWorkbook zu.
+1. Löschen Sie die Standard-Serien und -Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Histogramm-Diagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Histogramm-Diagramm erstellt:
 
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/HistogramChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
 	System::SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::Histogram, 50, 50, 500, 400);
@@ -818,12 +792,12 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Histogramm-Diagramm erstellen:
 
 ### **Erstellen von Radar-Diagrammen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
 1. Holen Sie sich die Referenz einer Folie über ihren Index. 
-1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an (in diesem Fall `ChartType.Radar`).
+1. Fügen Sie ein Diagramm mit einigen Daten hinzu und geben Sie Ihren bevorzugten Diagrammtyp an (`ChartType.Radar` in diesem Fall).
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Radardiagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Radar-Diagramm erstellt:
 
 ```c++
 System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
@@ -832,50 +806,49 @@ presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Aspose::Slides::C
 presentation->Save(u"Radar-chart.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **Erstellen von Multi-Kategorie-Diagrammen**
+### **Erstellen von Mehrkategorie-Diagrammen**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
-1. Holen Sie sich die Referenz einer Folie über ihren Index.
+1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse.
+1. Erhalten Sie die Referenz einer Folie über ihren Index.
 1. Fügen Sie ein Diagramm mit Standarddaten zusammen mit dem gewünschten Typ (ChartType.ClusteredColumn) hinzu.
-1. Greifen Sie auf das Diagrammdaten IChartDataWorkbook zu.
-1. Löschen Sie die Standardserien und -kategorien.
+1. Greifen Sie auf das Diagrammdaten-IChartDataWorkbook zu.
+1. Löschen Sie die Standard-Serien und -Kategorien.
 1. Fügen Sie neue Serien und Kategorien hinzu.
 1. Fügen Sie neue Diagrammdaten für die Diagrammserien hinzu.
 1. Schreiben Sie die modifizierte Präsentation in eine PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Multi-Kategorie-Diagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Mehrkategorie-Diagramm erstellt:
 
 ```c++
 	// Der Pfad zum Dokumentenverzeichnis.
 	const String outPath = u"../out/MultiCategoryChart_out.pptx";
 
-	// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert.
+	// Instanziert eine Präsentationsklasse, die eine PPTX-Datei darstellt
 	SharedPtr<Presentation> pres = MakeObject<Presentation>();
 
-	// Greift auf die erste Folie zu.
+	// Greift auf die erste Folie zu
 	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 
-	// Fügt ein Diagramm mit Standarddaten hinzu.
+	// Fügt ein Diagramm mit Standarddaten hinzu
 	SharedPtr<IChart> chart = slide->get_Shapes()->AddChart(Aspose::Slides::Charts::ChartType::ClusteredColumn, 0, 0, 500, 500);
 
-	// Legt den Index des Diagrammdatenblatts fest.
+	// Setzt den Index für das Diagrammdatenblatt
 	int defaultWorksheetIndex = 0;
 
-	// Ruft das Diagrammdaten-Arbeitsblatt ab.
+	// Holt das Diagrammdaten-Arbeitsblatt
 	SharedPtr<IChartDataWorkbook> fact = chart->get_ChartData()->get_ChartDataWorkbook();
 
-	// Löscht die Arbeitsmappe.
+	// Löscht die Arbeitsmappe
 	fact->Clear(defaultWorksheetIndex);
 
 	chart->get_ChartData()->get_Series()->Clear();
 	chart->get_ChartData()->get_Categories()->Clear();
 
-
-	// Fügt Kategorien hinzu.
+	// Fügt Kategorien hinzu
 	SharedPtr<IChartCategory> category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c2", ObjectExt::Box<System::String>(u"A")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Gruppe1"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c3", ObjectExt::Box<System::String>(u"B")));
-	
+
 	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c4", ObjectExt::Box<System::String>(u"C")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Gruppe2"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c5", ObjectExt::Box<System::String>(u"D")));
@@ -884,12 +857,11 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Multi-Kategorie-Diagramm erstellen:
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Gruppe3"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c7", ObjectExt::Box<System::String>(u"F")));
 
-
 	category = chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c8", ObjectExt::Box<System::String>(u"G")));
 	category->get_GroupingLevels()->SetGroupingItem(1, ObjectExt::Box<System::String>(u"Gruppe4"));
 	chart->get_ChartData()->get_Categories()->Add(fact->GetCell(defaultWorksheetIndex, u"c9", ObjectExt::Box<System::String>(u"H")));
 
-	// Fügt eine neue Serie hinzu.
+	// Fügt eine neue Serie hinzu
 	SharedPtr<IChartSeries>  series = chart->get_ChartData()->get_Series()->Add(fact->GetCell(0, u"D1", ObjectExt::Box<System::String>(u"Serie 1")),
 		ChartType::ClusteredColumn);
 
@@ -904,13 +876,13 @@ Dieser C++-Code zeigt Ihnen, wie Sie ein Multi-Kategorie-Diagramm erstellen:
 
 	// Speichert die Präsentation
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
+``` 
 
 ### **Erstellen von Karten-Diagrammen**
 
-Ein Kartendiagramm ist eine Visualisierung eines Gebiets, das Daten enthält. Kartendiagramme eignen sich am besten, um Daten oder Werte über geografische Regionen hinweg zu vergleichen.
+Ein Karten-Diagramm ist eine Visualisierung eines Gebietes, das Daten enthält. Karten-Diagramme eignen sich am besten, um Daten oder Werte über geografische Regionen hinweg zu vergleichen.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Kartendiagramm erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Karten-Diagramm erstellt:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -919,13 +891,13 @@ auto chart = slide->get_Shapes()->AddChart(ChartType::Map, 50.0f, 50.0f, 500.0f,
 pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 ```
 
-### **Erstellen von Kombinationsdiagrammen**
+### **Erstellen von Kombinations-Diagrammen**
 
-Ein Kombinationsdiagramm (oder Combo-Diagramm) ist ein Diagramm, das zwei oder mehr Diagramme auf einem einzigen Graphen kombiniert. Ein solches Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei (oder mehr) Datensätzen hervorzuheben, zu vergleichen oder zu überprüfen. So sehen Sie die Beziehung (falls vorhanden) zwischen den Datensätzen.
+Ein Kombinationsdiagramm (oder Kombodiagramm) ist ein Diagramm, das zwei oder mehr Diagramme in einem einzigen Diagramm kombiniert. Ein solches Diagramm ermöglicht es Ihnen, Unterschiede zwischen zwei (oder mehr) Datensätzen hervorzuheben, zu vergleichen oder zu überprüfen. Auf diese Weise sehen Sie die Beziehung (falls vorhanden) zwischen den Datensätzen.
 
 ![kombinationsdiagramm-ppt](kombinationsdiagramm-ppt.png)
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Kombinationsdiagramm in PowerPoint erstellen:
+Dieser C++-Code zeigt Ihnen, wie man ein Kombinationsdiagramm in PowerPoint erstellt:
 
 ```c++
 void CreateComboChart()
@@ -999,7 +971,7 @@ void AddSecondSeriesToChart(System::SharedPtr<IChart> chart)
     System::SharedPtr<IChartSeries> series = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 5, System::ExplicitCast<System::Object>(u"Serie 4")), ChartType::ScatterWithStraightLinesAndMarkers);
     System::SharedPtr<IChartDataPointCollection> dataPoints = series->get_DataPoints();
 
-    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 5, System::ExplicitCast<System::Object>(5)), workbook->GetCell(worksheetIndex, 1, 6, System::ExplicitCast<System::Object>(2)));
+    dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 3, System::ExplicitCast<System::Object>(5)), workbook->GetCell(worksheetIndex, 1, 4, System::ExplicitCast<System::Object>(2)));
 
     dataPoints->AddDataPointForScatterSeries(workbook->GetCell(worksheetIndex, 1, 5, System::ExplicitCast<System::Object>(10)), workbook->GetCell(worksheetIndex, 1, 6, System::ExplicitCast<System::Object>(7)));
 
@@ -1013,16 +985,18 @@ void AddSecondSeriesToChart(System::SharedPtr<IChart> chart)
 
 ## **Diagramme aktualisieren**
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse, die die Präsentation mit dem Diagramm darstellt.
+1. Instanziieren Sie eine [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) Klasse, die die Präsentation mit dem Diagramm darstellt.
 2. Holen Sie sich die Referenz einer Folie über ihren Index.
-3. Durchsuchen Sie alle Formen, um das gewünschte Diagramm zu finden.
+3. Durchsuchen Sie alle Shapes, um das gewünschte Diagramm zu finden.
 4. Greifen Sie auf das Diagrammdaten-Arbeitsblatt zu.
-5. Ändern Sie die Daten der Diagrammserie, indem Sie die Werte der Serie ändern.
-6. Fügen Sie eine neue Serie hinzu und füllen Sie die Daten in ihr aus.
+5. Ändern Sie die Daten der Diagrammserie, indem Sie die Serienwerte ändern.
+6. Fügen Sie eine neue Serie hinzu und fügen Sie Daten hinzu.
 7. Schreiben Sie die modifizierte Präsentation als PPTX-Datei.
 
-Dieser C++-Code zeigt Ihnen, wie Sie ein Diagramm aktualisieren:
+Dieser C++-Code zeigt Ihnen, wie man ein Diagramm aktualisiert:
 
 ```c++
-// Erstellt eine Präsentationsklasse, die eine PPTX-Datei repräsentiert
-System::SharedPtr<Presentation> pres = System::MakeObject
+// Instanziiert eine Präsentation-Klasse, die eine PPTX-Datei darstellt
+System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"ExistingChart.pptx");
+
+// Greift auf die erste Folie zu
