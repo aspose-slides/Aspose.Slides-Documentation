@@ -10,7 +10,7 @@ keywords:
 - intégrer un objet
 - intégrer un fichier
 - objet lié
-- Liaison et Intégration d'Objet
+- Liaison et Intégration d'Objets
 - objet OLE
 - PowerPoint 
 - présentation
@@ -22,28 +22,28 @@ description: Ajoutez des objets OLE aux présentations PowerPoint en C# ou .NET
 
 {{% alert title="Info" color="info" %}}
 
-OLE (Liaison et Intégration d'Objet) est une technologie Microsoft qui permet aux données et objets créés dans une application d'être placés dans une autre application par le biais de liaisons ou d'intégration. 
+OLE (Liaison et Intégration d'Objets) est une technologie Microsoft qui permet à des données et des objets créés dans une application d'être placés dans une autre application par le biais de liaisons ou d'intégrations. 
 
 {{% /alert %}} 
 
-Considérez un graphique créé dans MS Excel. Le graphique est ensuite placé dans une diapositive PowerPoint. Ce graphique Excel est considéré comme un objet OLE. 
+Considérons un graphique créé dans MS Excel. Le graphique est ensuite placé à l'intérieur d'une diapositive PowerPoint. Ce graphique Excel est considéré comme un objet OLE. 
 
-- Un objet OLE peut apparaître sous forme d'icône. Dans ce cas, lorsque vous double-cliquez sur l'icône, le graphique s'ouvre dans son application associée (Excel), ou vous êtes invité à sélectionner une application pour ouvrir ou éditer l'objet. 
-- Un objet OLE peut afficher son contenu réel, par exemple, le contenu d'un graphique. Dans ce cas, le graphique est activé dans PowerPoint, l'interface du graphique se charge, et vous pouvez modifier les données du graphique dans l'application PowerPoint.
+- Un objet OLE peut apparaître sous forme d'icône. Dans ce cas, lorsque vous double-cliquez sur l'icône, le graphique s'ouvre dans son application associée (Excel), ou vous êtes invité à sélectionner une application pour ouvrir ou modifier l'objet. 
+- Un objet OLE peut afficher des contenus réels, par exemple, le contenu d'un graphique. Dans ce cas, le graphique est activé dans PowerPoint, l'interface du graphique se charge et vous pouvez modifier les données du graphique dans l'application PowerPoint.
 
-[Aspose.Slides pour .NET](https://products.aspose.com/slides/net/) vous permet d'insérer des objets OLE dans des diapositives en tant que Cadres d'Objet OLE ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
+[Aspose.Slides pour .NET](https://products.aspose.com/slides/net/) vous permet d'insérer des objets OLE dans des diapositives sous forme de Cadres d'Objet OLE ([OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)).
 
-## **Ajout de Cadres d'Objet OLE aux Diapositives**
-Supposons que vous ayez déjà créé un graphique dans Microsoft Excel et que vous souhaitiez intégrer ce graphique dans une diapositive en tant que Cadre d'Objet OLE en utilisant Aspose.Slides pour .NET, vous pouvez procéder comme suit :
+## **Ajouter des Cadres d'Objet OLE aux Diapositives**
+Supposons que vous ayez déjà créé un graphique dans Microsoft Excel et que vous souhaitiez intégrer ce graphique dans une diapositive sous forme de Cadre d'Objet OLE en utilisant Aspose.Slides pour .NET, vous pouvez le faire de cette manière :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Obtenez la référence d'une diapositive par son index.
-3. Ouvrez le fichier Excel contenant l'objet graphique Excel et enregistrez-le dans `MemoryStream`.
-4. Ajoutez le [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) à la diapositive contenant le tableau de bytes et d'autres informations sur l'objet OLE.
-5. Écrivez la présentation modifiée en tant que fichier PPTX.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). 
+2. Obtenez la référence d'une diapositive par le biais de son index. 
+3. Ouvrez le fichier Excel contenant l'objet graphique Excel et enregistrez-le dans `MemoryStream`. 
+4. Ajoutez le [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) à la diapositive contenant le tableau d'octets et d'autres informations sur l'objet OLE. 
+5. Écrivez la présentation modifiée sous forme de fichier PPTX.
 
-Dans l'exemple ci-dessous, nous avons ajouté un graphique d'un fichier Excel à une diapositive en tant que [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) en utilisant Aspose.Slides pour .NET.  
-**Remarque** que le constructeur [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo) prend une extension d'objet intégrable en tant que deuxième paramètre. Cette extension permet à PowerPoint d'interpréter correctement le type de fichier et de choisir la bonne application pour ouvrir cet objet OLE.
+Dans l'exemple ci-dessous, nous avons ajouté un graphique d'un fichier Excel à une diapositive sous forme de [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) en utilisant Aspose.Slides pour .NET.  
+**Remarque** : le constructeur [IOleEmbeddedDataInfo](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo) prend une extension d'objet intégrable comme deuxième paramètre. Cette extension permet à PowerPoint d'interpréter correctement le type de fichier et de choisir l'application appropriée pour ouvrir cet objet OLE.
 
 ``` csharp 
 // Instancie la classe Presentation qui représente le fichier PPTX
@@ -70,17 +70,17 @@ using (Presentation pres = new Presentation())
     // Crée un objet de données pour l'intégration
     IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(mstream.ToArray(), "xlsx");
 
-    // Ajoute une forme de Cadre d'Objet Ole
+    // Ajoute une forme de Cadre d'Objet Ole 
     IOleObjectFrame oleObjectFrame = sld.Shapes.AddOleObjectFrame(0, 0, pres.SlideSize.Size.Width,
         pres.SlideSize.Size.Height, dataInfo);
 
-    //Écrit le fichier PPTX sur le disque
+    // Écrit le fichier PPTX sur le disque
     pres.Save("OleEmbed_out.pptx", SaveFormat.Pptx);
 }
 ```
 ### Ajouter des Cadres d'Objet OLE Liés
 
-Aspose.Slides pour .NET vous permet d'ajouter un [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) sans intégrer de données mais seulement avec un lien vers le fichier.
+Aspose.Slides pour .NET vous permet d'ajouter un [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) sans intégrer de données mais uniquement avec un lien vers le fichier.
 
 Ce code C# vous montre comment ajouter un [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) avec un fichier Excel lié à une diapositive :
 
@@ -99,22 +99,22 @@ using (Presentation pres = new Presentation())
 ```
 
 ## **Accéder aux Cadres d'Objet OLE**
-Si un objet OLE est déjà intégré dans une diapositive, vous pouvez facilement le trouver ou y accéder de cette manière :
+Si un objet OLE est déjà intégré dans une diapositive, vous pouvez facilement trouver ou accéder à cet objet de cette manière :
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
-2. Obtenez la référence de la diapositive en utilisant son index.
-3. Accédez à la forme [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).
-   Dans notre exemple, nous avons utilisé le PPTX précédemment créé qui a seulement une forme sur la première diapositive. Nous avons ensuite *casté* cet objet en tant que [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). C'était le Cadre d'Objet OLE désiré à accéder.
-4. Une fois le Cadre d'Objet OLE accessible, vous pouvez effectuer toute opération sur celui-ci.
-Dans l'exemple ci-dessous, un Cadre d'Objet OLE (un objet graphique Excel intégré dans une diapositive) est accessible, et ensuite ses données de fichier sont écrites dans un fichier Excel :
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). 
+2. Obtenez la référence de la diapositive en utilisant son index. 
+3. Accédez à la forme [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). 
+   Dans notre exemple, nous avons utilisé le PPTX créé précédemment qui n'a qu'une seule forme sur la première diapositive. Nous avons ensuite *casté* cet objet en tant qu'[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). C'était le Cadre d'Objet OLE désiré à accéder. 
+4. Une fois que le Cadre d'Objet OLE est accessible, vous pouvez effectuer toute opération dessus. 
+Dans l'exemple ci-dessous, un Cadre d'Objet OLE (un objet graphique Excel intégré dans une diapositive) est accessible, puis ses données de fichier sont écrites dans un fichier Excel : 
 ``` csharp 
-// Charge le PPTX dans un objet de présentation
+// Charge le PPTX dans un objet présentation
 using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
 {
     // Accède à la première diapositive
     ISlide sld = pres.Slides[0];
 
-    // Cast la forme en OleObjectFrame
+    // Cast le forme en OleObjectFrame
     OleObjectFrame oleObjectFrame = sld.Shapes[0] as OleObjectFrame;
 
     // Lit l'objet OLE et l'écrit sur le disque
@@ -123,7 +123,7 @@ using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
         // Obtient les données de fichier intégrées
         byte[] data = oleObjectFrame.EmbeddedData.EmbeddedFileData;
 
-        // Obtient l'extension du fichier intégré
+        // Obtient l'extension de fichier intégrée
         string fileExtention = oleObjectFrame.EmbeddedData.EmbeddedFileExtension;
 
         // Crée un chemin pour enregistrer le fichier extrait
@@ -142,17 +142,17 @@ using (Presentation pres = new Presentation("AccessingOLEObjectFrame.pptx"))
 
 Aspose.Slides vous permet d'accéder aux propriétés des Cadres d'Objet OLE liés.
 
-Ce code C# vous montre comment vérifier si un Objet OLE est lié et ensuite obtenir le chemin vers le fichier lié :
+Ce code C# vous montre comment vérifier si un objet OLE est lié, puis obtenir le chemin vers le fichier lié : 
 ```csharp
 using (Presentation pres = new Presentation("OleLinked.ppt"))
 {
 	// Accède à la première diapositive
 	ISlide slide = pres.Slides[0];
 
-	// Obtient la première forme comme Cadre d'Objet Ole
+	// Obtient la première forme en tant que Cadre d'Objet Ole
 	OleObjectFrame oleObjectFrame = slide.Shapes[0] as OleObjectFrame;
 
-	// Vérifie si l'Objet Ole est lié.
+	// Vérifie si l'objet Ole est lié.
 	if (oleObjectFrame != null && oleObjectFrame.IsObjectLink)
 	{
 		// Affiche le chemin complet vers un fichier lié
@@ -168,20 +168,20 @@ using (Presentation pres = new Presentation("OleLinked.ppt"))
 	}
 }
 ```
-## **Modifier les Données d'un Objet OLE**
+## **Modifier les Données de l'Objet OLE**
 
-Si un objet OLE est déjà intégré dans une diapositive, vous pouvez facilement accéder à cet objet et modifier ses données de cette manière :
+Si un objet OLE est déjà intégré dans une diapositive, vous pouvez facilement accéder à cet objet et modifier ses données de cette manière : 
 
-1. Ouvrez la présentation désirée avec l'Objet OLE intégré en créant une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation).
+1. Ouvrez la présentation désirée contenant l'objet OLE intégré en créant une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation). 
 2. Obtenez la référence de la diapositive par son index. 
-3. Accédez à la forme [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).
-   Dans notre exemple, nous avons utilisé le PPTX précédemment créé qui a une forme sur la première diapositive. Nous avons ensuite *casté* cet objet en tant que [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). C'était le Cadre d'Objet OLE désiré à accéder.
-4. Une fois le Cadre d'Objet OLE accessible, vous pouvez effectuer toute opération sur celui-ci.
-5. Créez l'objet Workbook et accédez aux données OLE.
-6. Accédez à la Feuille de calcul désirée et modifiez les données.
-7. Enregistrez le Workbook mis à jour dans des flux.
-8. Modifiez les données de l'objet OLE à partir des données de flux.
-Dans l'exemple ci-dessous, un Cadre d'Objet OLE (un objet graphique Excel intégré dans une diapositive) est accessible, et ensuite ses données de fichier sont modifiées pour changer les données du graphique :
+3. Accédez à la forme [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). 
+   Dans notre exemple, nous avons utilisé le PPTX créé précédemment qui a une forme sur la première diapositive. Nous avons ensuite *casté* cet objet en tant qu'[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). C'était le Cadre d'Objet OLE désiré à accéder. 
+4. Une fois que le Cadre d'Objet OLE est accessible, vous pouvez effectuer toute opération dessus. 
+5. Créez l'objet Workbook et accédez aux données OLE. 
+6. Accédez à la feuille de calcul désirée et modifiez les données. 
+7. Enregistrez le Workbook mis à jour dans des flux. 
+8. Changez les données de l'objet OLE à partir des données de flux. 
+Dans l'exemple ci-dessous, un Cadre d'Objet OLE (un objet graphique Excel intégré dans une diapositive) est accessible, puis ses données de fichier sont modifiées pour changer les données du graphique : 
 ``` csharp 
 using (Presentation pres = new Presentation("ChangeOLEObjectData.pptx"))
 {
@@ -189,7 +189,7 @@ using (Presentation pres = new Presentation("ChangeOLEObjectData.pptx"))
 
     OleObjectFrame ole = null;
 
-    // Parcourt toutes les formes pour le cadre Ole
+    // Parcourt toutes les formes pour le Cadre Ole
     foreach (IShape shape in slide.Shapes)
     {
         if (shape is OleObjectFrame)
@@ -207,7 +207,7 @@ using (Presentation pres = new Presentation("ChangeOLEObjectData.pptx"))
 
             using (MemoryStream msout = new MemoryStream())
             {
-                // Modifie les données du workbook
+                // Modifie les données du Workbook
                 Wb.Worksheets[0].Cells[0, 4].PutValue("E");
                 Wb.Worksheets[0].Cells[1, 4].PutValue(12);
                 Wb.Worksheets[0].Cells[2, 4].PutValue(14);
@@ -216,7 +216,7 @@ using (Presentation pres = new Presentation("ChangeOLEObjectData.pptx"))
                 OoxmlSaveOptions so1 = new OoxmlSaveOptions(Aspose.Cells.SaveFormat.Xlsx);
                 Wb.Save(msout, so1);
 
-                // Modifie les données de l'objet cadre Ole
+                // Change les données de l'objet du cadre Ole
                 IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(msout.ToArray(), ole.EmbeddedData.EmbeddedFileExtension);
                 ole.SetEmbeddedData(newData);
             }
@@ -226,9 +226,9 @@ using (Presentation pres = new Presentation("ChangeOLEObjectData.pptx"))
     pres.Save("OleEdit_out.pptx", SaveFormat.Pptx);
 }
 ```
-## **Intégrer d'Autres Types de Fichiers dans les Diapositives**
+## **Intégrer D'autres Types de Fichiers dans les Diapositives**
 
-En plus des graphiques Excel, Aspose.Slides pour .NET vous permet d'intégrer d'autres types de fichiers dans les diapositives. Par exemple, vous pouvez insérer des fichiers HTML, PDF et ZIP en tant qu'objets dans une diapositive. Lorsqu'un utilisateur double-clique sur l'objet inséré, l'objet est automatiquement lancé dans le programme pertinent, ou l'utilisateur est dirigé pour sélectionner un programme approprié pour ouvrir l'objet. 
+Outre les graphiques Excel, Aspose.Slides pour .NET vous permet d'intégrer d'autres types de fichiers dans des diapositives. Par exemple, vous pouvez insérer des fichiers HTML, PDF et ZIP en tant qu'objets dans une diapositive. Lorsqu'un utilisateur double-clique sur l'objet inséré, l'objet se lance automatiquement dans le programme pertinent, ou l'utilisateur est dirigé pour sélectionner un programme approprié pour ouvrir l'objet. 
 
 Ce code C# vous montre comment intégrer HTML et ZIP dans une diapositive :
 
@@ -252,29 +252,29 @@ using (Presentation pres = new Presentation())
 ```
 ## **Définir les Types de Fichiers pour les Objets Intégrés**
 
-Lors de la création de présentations, vous devrez peut-être remplacer d'anciens objets OLE par de nouveaux. Ou vous devrez peut-être remplacer un objet OLE non pris en charge par un objet pris en charge. 
+Lorsque vous travaillez sur des présentations, vous pouvez avoir besoin de remplacer d'anciens objets OLE par de nouveaux. Ou vous pourriez avoir besoin de remplacer un objet OLE non pris en charge par un objet pris en charge. 
 
 Aspose.Slides pour .NET vous permet de définir le type de fichier pour un objet intégré. De cette manière, vous pouvez changer les données du cadre OLE ou son extension. 
 
-Ce code C# vous montre comment définir le type de fichier pour un objet OLE intégré :
+Ce code C# vous montre comment définir le type de fichier pour un objet OLE intégré : 
 
 ```c#
 using (Presentation pres = new Presentation("embeddedOle.pptx"))
 {
     ISlide slide = pres.Slides[0];
     IOleObjectFrame oleObjectFrame = (IOleObjectFrame)slide.Shapes[0];
-    Console.WriteLine($"L'extension de données intégrées actuelle est : {oleObjectFrame.EmbeddedData.EmbeddedFileExtension}");
+    Console.WriteLine($"L'extension des données intégrées actuelles est : {oleObjectFrame.EmbeddedData.EmbeddedFileExtension}");
    
     oleObjectFrame.SetEmbeddedData(new OleEmbeddedDataInfo(File.ReadAllBytes("embedOle.zip"), "zip"));
    
     pres.Save("embeddedChanged.pptx", SaveFormat.Pptx);
 }
 ```
-## **Définir les Images et Titres d'Icône pour les Objets Intégrés**
+## **Définir des Images d'Icônes et des Titres pour les Objets Intégrés**
 
-Après avoir intégré un objet OLE, un aperçu composé d'une image d'icône et d'un titre est ajouté automatiquement. L'aperçu est ce que les utilisateurs voient avant d'accéder ou d'ouvrir l'objet OLE. 
+Après avoir intégré un objet OLE, un aperçu constitué d'une image icône et d'un titre est ajouté automatiquement. L'aperçu est ce que les utilisateurs voient avant d'accéder ou d'ouvrir l'objet OLE. 
 
-Si vous souhaitez utiliser une image et un texte spécifiques comme éléments dans l'aperçu, vous pouvez définir l'image d'icône et le titre en utilisant Aspose.Slides pour .NET.
+Si vous souhaitez utiliser une image spécifique et du texte comme éléments dans l'aperçu, vous pouvez définir l'image d'icône et le titre à l'aide d'Aspose.Slides pour .NET.
 
 Ce code C# vous montre comment définir l'image d'icône et le titre pour un objet intégré : 
 
@@ -293,21 +293,21 @@ using (Presentation pres = new Presentation("embeddedOle.pptx"))
 }
 ```
 
-## **Empêcher qu'un Cadre d'Objet OLE Soit Redimensionné et Repositionné**
+## **Empêcher un Cadre d'Objet OLE d'être Redimensionné et Repositionné**
 
-Après avoir ajouté un objet OLE lié à une diapositive de présentation, lorsque vous ouvrez la présentation dans PowerPoint, vous pourriez voir un message vous demandant de mettre à jour les liens. En cliquant sur le bouton "Mettre à jour les liens", la taille et la position du cadre d'objet OLE peuvent changer car PowerPoint met à jour les données de l'objet OLE lié et actualise l'aperçu de l'objet. Pour empêcher PowerPoint de vous demander de mettre à jour les données de l'objet, définissez la propriété `UpdateAutomatic` de l'interface [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) à `false` :
+Après avoir ajouté un objet OLE lié à une diapositive de présentation, lorsque vous ouvrez la présentation dans PowerPoint, vous pourriez voir un message vous demandant de mettre à jour les liens. Cliquer sur le bouton "Mettre à jour les liens" peut changer la taille et la position du cadre d'objet OLE car PowerPoint met à jour les données de l'objet OLE lié et rafraîchit l'aperçu de l'objet. Pour empêcher PowerPoint de demander la mise à jour des données de l'objet, définissez la propriété `UpdateAutomatic` de l'interface [IOleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/ioleobjectframe/) sur `false`:
 
 ```cs
 oleObjectFrame.UpdateAutomatic = false;
 ```
 
-## **Extraire les Fichiers Intégrés**
+## **Extraction des Fichiers Intégrés**
 
-Aspose.Slides pour .NET vous permet d'extraire les fichiers intégrés dans des diapositives en tant qu'objets OLE de cette manière :
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant l'objet OLE que vous souhaitez extraire.
-2. Parcourez toutes les formes de la présentation et accédez à la forme [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe).
+Aspose.Slides pour .NET vous permet d'extraire les fichiers intégrés dans des diapositives en tant qu'objets OLE de cette manière : 
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) contenant l'objet OLE que vous souhaitez extraire. 
+2. Parcourez toutes les formes de la présentation et accédez à la forme [OLEObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe). 
 3. Accédez aux données du fichier intégré à partir du Cadre d'Objet OLE et écrivez-le sur le disque. 
-Ce code C# vous montre comment extraire un fichier intégré dans une diapositive en tant qu'objet OLE :
+Ce code C# vous montre comment extraire un fichier intégré dans une diapositive en tant qu'objet OLE : 
 ```c#
 using (Presentation pres = new Presentation("embeddedOle.pptx"))
 {

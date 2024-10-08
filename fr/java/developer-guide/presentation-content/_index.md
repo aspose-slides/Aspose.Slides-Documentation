@@ -1,6 +1,6 @@
 ---
-title: Contenu de la Présentation
+title: Contenu de Présentation
 type: docs
 weight: 30
-url: /java/contenu-de-la-présentation/
+url: /java/presentation-content/
 ---
