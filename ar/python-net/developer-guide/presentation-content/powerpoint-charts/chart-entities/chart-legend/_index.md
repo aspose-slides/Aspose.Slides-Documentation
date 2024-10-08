@@ -1,5 +1,5 @@
 ---
-title:legenda الرسم البياني
+title: الرسم البياني
 type: docs
 url: /ar/python-net/chart-legend/
 keywords: "legenda الرسم البياني، حجم خط legenda، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
