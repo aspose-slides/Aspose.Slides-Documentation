@@ -1,4 +1,3 @@
-```
 ---
 title: 在服务器上无须安装 Aspose.Slides.ReportingService 导出报告为 Powerpoint
 type: docs
@@ -203,4 +202,3 @@ powerpointRenderer.Render("test.ppt", "/AdventureWorks Sample Reports/Sales Orde
 此处的导出过程使用类似于 Word 或 Excel 的软分页，因此其结果可能与使用标准方法导出的演示文稿不同。
 
 {{% /alert %}}
-```
