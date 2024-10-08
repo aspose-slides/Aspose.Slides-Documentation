@@ -2,7 +2,7 @@
 title: 管理单元格
 type: docs
 weight: 30
-url: /php-java/manage-cells/
+url: /zh/php-java/manage-cells/
 keywords: "表格, 合并单元格, 拆分单元格, 表格单元格中的图像, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint 演示文稿中的表格单元格"
 ---

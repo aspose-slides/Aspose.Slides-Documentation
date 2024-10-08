@@ -2,14 +2,14 @@
 title: 添加 OleObjectFrame 时的对象更改问题
 type: docs
 weight: 10
-url: /net/object-changed-issue-when-adding-oleobjectframe/
+url: /zh/net/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 {{% alert color="primary" %}} 
 
 使用 Aspose.Slides for .NET，当您向幻灯片添加 **[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)** 时，输出幻灯片上会显示 **对象已更改** 消息（而不是在 OLE 对象上）。所描述的过程是一个故意的行为，而不是一个 bug。 
 
-有关 OLE 对象的更多信息，请参见 [管理 OLE](/slides/net/manage-ole/)。 
+有关 OLE 对象的更多信息，请参见 [管理 OLE](/slides/zh/net/manage-ole/)。 
 
 {{% /alert %}} 
 ## **解释** 和解决方案

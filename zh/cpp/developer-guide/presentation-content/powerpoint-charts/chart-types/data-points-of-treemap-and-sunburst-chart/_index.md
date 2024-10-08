@@ -1,7 +1,7 @@
 ---
 title: Treemap 和 Sunburst 图表的数据点
 type: docs
-url: /cpp/data-points-of-treemap-and-sunburst-chart/
+url: /zh/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords: "Sunburst 图"
 description: "使用 Aspose.Slides 的 Sunburst 图、Sunburst 图示、Sunburst 图表、径向图、径向图表或多级饼图。"
 ---
@@ -21,7 +21,7 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [**创建 Sunburst 图表**](/slides/cpp/create-chart/#create-sunburst-chart)
+- [**创建 Sunburst 图表**](/slides/zh/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
 如果需要格式化图表的数据点，我们应该使用以下内容：

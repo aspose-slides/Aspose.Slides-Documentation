@@ -2,12 +2,12 @@
 title: 创建并将 Excel 图表作为 OLE 对象嵌入到 Microsoft PowerPoint 幻灯片中
 type: docs
 weight: 60
-url: /androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /zh/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- 图表是您数据的可视化表示，广泛用于演示文稿幻灯片。本文将向您展示如何通过使用 [VSTO](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 和 [Aspose.Slides for Android via Java](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 以编程方式创建并将 Excel 图表作为 OLE 对象嵌入到 PowerPoint 幻灯片中的代码。
+ 图表是您数据的可视化表示，广泛用于演示文稿幻灯片。本文将向您展示如何通过使用 [VSTO](/slides/zh/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 和 [Aspose.Slides for Android via Java](/slides/zh/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 以编程方式创建并将 Excel 图表作为 OLE 对象嵌入到 PowerPoint 幻灯片中的代码。
 
 {{% /alert %}} 
 ## **创建并嵌入 Excel 图表**

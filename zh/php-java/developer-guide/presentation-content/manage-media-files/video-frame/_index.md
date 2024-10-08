@@ -2,7 +2,7 @@
 title: 视频帧
 type: docs
 weight: 10
-url: /php-java/video-frame/
+url: /zh/php-java/video-frame/
 keywords: "添加视频, 创建视频帧, 提取视频, PowerPoint演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "在PowerPoint演示文稿中添加视频帧"
 ---

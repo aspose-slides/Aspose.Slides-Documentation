@@ -2,7 +2,7 @@
 title: 常见问题解答
 type: docs
 weight: 340
-url: /cpp/faqs/
+url: /zh/cpp/faqs/
 keywords:
 - 常见问题
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **Q: Aspose.Slides for C++ 支持哪些文件格式？**
 
-**A**: Aspose.Slides for C++ 支持在 [支持的文件格式](/slides/cpp/supported-file-formats/) 中描述的文件格式。
+**A**: Aspose.Slides for C++ 支持在 [支持的文件格式](/slides/zh/cpp/supported-file-formats/) 中描述的文件格式。
 
 ## **异常**
 
@@ -54,7 +54,7 @@ keywords:
 
 **Q: 为什么在 Windows 和 Linux 操作系统上的段落大小不同？**
 
-**A**: 段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算是基于 PowerPoint 演示文稿中指定字体的度量。如果指定的字体缺失，它会被替换为最相似的字体，但该字体的度量与原来的不同。因此，不同系统中的段落大小计算将导致不同的结果，具体取决于已安装字体的组合。要在不同操作系统上获得相同的结果，您需要在系统上安装相同的字体或在运行时将其作为 [外部字体](/slides/cpp/custom-font/) 加载。
+**A**: 段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算是基于 PowerPoint 演示文稿中指定字体的度量。如果指定的字体缺失，它会被替换为最相似的字体，但该字体的度量与原来的不同。因此，不同系统中的段落大小计算将导致不同的结果，具体取决于已安装字体的组合。要在不同操作系统上获得相同的结果，您需要在系统上安装相同的字体或在运行时将其作为 [外部字体](/slides/zh/cpp/custom-font/) 加载。
 
 ## **格式化和图像**
 

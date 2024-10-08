@@ -2,7 +2,7 @@
 title: 在 VSTO 和 Aspose.Slides 中添加带动画的图片框架
 type: docs
 weight: 20
-url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
+url: /zh/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
 ---
 
 下面的代码示例创建了一个包含幻灯片的演示文稿，添加了一个带图片框架的图像，并对其应用了动画。

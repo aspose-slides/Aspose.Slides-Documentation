@@ -2,7 +2,7 @@
 title: 形状操作
 type: docs
 weight: 40
-url: /python-net/shape-manipulations/
+url: /zh/python-net/shape-manipulations/
 keywords: "PowerPoint 形状, 幻灯片上的形状, 查找形状, 克隆形状, 移除形状, 隐藏形状, 改变形状顺序, 获取互操作形状 ID, 形状替代文本, 形状布局格式, 形状作为 SVG, 对齐形状, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中操作 PowerPoint 形状"
 ---

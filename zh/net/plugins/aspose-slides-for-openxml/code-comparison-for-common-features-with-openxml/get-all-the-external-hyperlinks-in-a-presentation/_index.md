@@ -2,7 +2,7 @@
 title: 获取演示文稿中的所有外部超链接
 type: docs
 weight: 90
-url: /net/get-all-the-external-hyperlinks-in-a-presentation/
+url: /zh/net/get-all-the-external-hyperlinks-in-a-presentation/
 ---
 
 ## **OpenXML 演示文稿**

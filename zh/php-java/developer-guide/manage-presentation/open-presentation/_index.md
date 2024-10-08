@@ -3,7 +3,7 @@ title: 打开演示文稿
 linktitle: 打开演示文稿
 type: docs
 weight: 20
-url: /php-java/open-presentation/
+url: /zh/php-java/open-presentation/
 keywords: "打开 PowerPoint, PPTX, PPT, 打开演示文稿, 加载演示文稿, Java"
 description: "打开或加载演示文稿 PPT, PPTX, ODP "
 ---

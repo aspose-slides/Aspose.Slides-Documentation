@@ -2,7 +2,7 @@
 title: 演示文稿背景
 type: docs
 weight: 20
-url: /python-net/presentation-background/
+url: /zh/python-net/presentation-background/
 keywords: "PowerPoint 背景, 设置背景, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中设置 PowerPoint 演示文稿的背景"
 ---

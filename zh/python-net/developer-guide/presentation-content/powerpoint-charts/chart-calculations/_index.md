@@ -2,7 +2,7 @@
 title: 图表计算
 type: docs
 weight: 50
-url: /python-net/chart-calculations/
+url: /zh/python-net/chart-calculations/
 keywords: "图表计算, 图表元素, 元素位置, 图表值 Python, Aspose.Slides for Python via .NET"
 description: "PowerPoint 图表计算和 Python 中的值"
 ---

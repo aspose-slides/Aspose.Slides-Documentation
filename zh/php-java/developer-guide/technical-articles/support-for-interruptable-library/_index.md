@@ -2,7 +2,7 @@
 title: 可中断库支持
 type: docs
 weight: 120
-url: /php-java/support-for-interruptable-library/
+url: /zh/php-java/support-for-interruptable-library/
 ---
 
 ## **可中断库**

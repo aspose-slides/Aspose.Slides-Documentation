@@ -2,7 +2,7 @@
 title: 多种格式支持
 type: docs
 weight: 10
-url: /sharepoint/multiple-format-support/
+url: /zh/sharepoint/multiple-format-support/
 ---
 
 {{% alert color="primary" %}} 

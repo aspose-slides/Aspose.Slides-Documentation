@@ -2,7 +2,7 @@
 title: 管理超链接
 type: docs
 weight: 20
-url: /cpp/manage-hyperlinks/
+url: /zh/cpp/manage-hyperlinks/
 keywords: "PowerPoint 超链接, 文本超链接, 幻灯片超链接, 形状超链接, 图像超链接, 视频超链接, C++"
 description: "如何在 C++ 中向 PowerPoint 演示文稿添加超链接"
 ---

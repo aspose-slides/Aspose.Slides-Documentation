@@ -2,18 +2,18 @@
 title: 演示文稿页眉和页脚
 type: docs
 weight: 140
-url: /androidjava/presentation-header-and-footer/
+url: /zh/androidjava/presentation-header-and-footer/
 keywords: "Java中的PowerPoint页眉和页脚"
 description: "Java中的PowerPoint页眉和页脚"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/androidjava/) 提供支持，可以处理实际上在幻灯片母版级别维护的幻灯片的页眉和页脚文本。
+[Aspose.Slides](/slides/zh/androidjava/) 提供支持，可以处理实际上在幻灯片母版级别维护的幻灯片的页眉和页脚文本。
 
 {{% /alert %}} 
 
-[Aspose.Slides for Android via Java](/slides/androidjava/) 提供了在演示文稿幻灯片中管理页眉和页脚的功能。这些实际上是在演示文稿母版级别管理的。
+[Aspose.Slides for Android via Java](/slides/zh/androidjava/) 提供了在演示文稿幻灯片中管理页眉和页脚的功能。这些实际上是在演示文稿母版级别管理的。
 
 ## **在演示文稿中管理页眉和页脚**
 可以按以下示例删除某个特定幻灯片的注释：

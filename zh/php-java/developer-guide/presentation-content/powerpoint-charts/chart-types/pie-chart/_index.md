@@ -1,7 +1,7 @@
 ---
 title: 饼图
 type: docs
-url: /php-java/pie-chart/
+url: /zh/php-java/pie-chart/
 ---
 
 ## **饼图和条形图的第二绘图选项**

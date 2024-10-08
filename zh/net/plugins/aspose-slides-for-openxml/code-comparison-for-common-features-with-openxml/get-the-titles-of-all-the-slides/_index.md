@@ -2,7 +2,7 @@
 title: 获取所有幻灯片的标题
 type: docs
 weight: 120
-url: /net/get-the-titles-of-all-the-slides/
+url: /zh/net/get-the-titles-of-all-the-slides/
 ---
 
 ## **OpenXML SDK**

@@ -3,7 +3,7 @@ title: 字体替换 - PowerPoint Java API
 linktitle: 字体替换
 type: docs
 weight: 70
-url: /java/font-substitution/
+url: /zh/java/font-substitution/
 keywords: "字体, 替代字体, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
 description: "在 Java 中替代 PowerPoint 字体"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="注意"  color="warning"   %}} 
 
-您可能想查看 [**字体替换**](/slides/java/font-replacement/)。 
+您可能想查看 [**字体替换**](/slides/zh/java/font-replacement/)。 
 
 {{% /alert %}}

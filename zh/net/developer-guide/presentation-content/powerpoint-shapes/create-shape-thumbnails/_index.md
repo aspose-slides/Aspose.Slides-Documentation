@@ -2,7 +2,7 @@
 title: 创建形状缩略图
 type: docs
 weight: 70
-url: /net/create-shape-thumbnails/
+url: /zh/net/create-shape-thumbnails/
 keywords: 
 - 形状缩略图
 - 形状图像

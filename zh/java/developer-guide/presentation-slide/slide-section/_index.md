@@ -2,7 +2,7 @@
 title: 幻灯片部分
 type: docs
 weight: 90
-url: /java/slide-section/
+url: /zh/java/slide-section/
 ---
 
 使用 Aspose.Slides for Java，您可以将 PowerPoint 演示文稿组织为多个部分。您可以创建包含特定幻灯片的部分。

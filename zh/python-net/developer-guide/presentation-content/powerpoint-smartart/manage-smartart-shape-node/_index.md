@@ -2,7 +2,7 @@
 title: 管理 SmartArt 形状节点
 type: docs
 weight: 30
-url: /python-net/manage-smartart-shape-node/
+url: /zh/python-net/manage-smartart-shape-node/
 keywords: "SmartArt 节点, SmartArt 子节点, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中的 PowerPoint 演示文稿中的 Smart 节点和子节点"
 ---

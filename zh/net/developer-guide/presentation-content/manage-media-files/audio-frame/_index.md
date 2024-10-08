@@ -3,7 +3,7 @@ title: 音频帧 - 使用 C# 在 PowerPoint 中插入和提取音频
 linktitle: 音频帧
 type: docs
 weight: 10
-url: /net/audio-frame/
+url: /zh/net/audio-frame/
 keywords: "音频缩略图, 添加音频, 音频框, 音频属性, 提取音频, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加音频"
 ---

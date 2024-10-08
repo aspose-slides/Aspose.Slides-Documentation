@@ -2,7 +2,7 @@
 title: 获取 Aspose.Slides 中字体替代的警告回调
 type: docs
 weight: 90
-url: /php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /zh/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

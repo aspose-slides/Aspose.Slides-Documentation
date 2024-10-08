@@ -2,7 +2,7 @@
 title: 功能概述
 type: docs
 weight: 20
-url: /nodejs-java/features-overview/
+url: /zh/nodejs-java/features-overview/
 ---
 
 ## **支持的平台**

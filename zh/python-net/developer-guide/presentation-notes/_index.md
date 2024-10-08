@@ -2,7 +2,7 @@
 title: 演示文稿笔记
 type: docs
 weight: 110
-url: /python-net/presentation-notes/
+url: /zh/python-net/presentation-notes/
 keywords: "笔记, PowerPoint 笔记, 添加笔记, 删除笔记, PowerPoint 演示, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中添加和删除 PowerPoint 演示文稿中的笔记"
 ---

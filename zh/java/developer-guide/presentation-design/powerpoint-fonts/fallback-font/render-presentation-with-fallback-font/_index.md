@@ -2,12 +2,12 @@
 title: 使用后备字体渲染演示文稿
 type: docs
 weight: 30
-url: /java/render-presentation-with-fallback-font/
+url: /zh/java/render-presentation-with-fallback-font/
 ---
 
 以下示例包括这些步骤：
 
-1. 我们 [创建后备字体规则集合](/slides/java/create-fallback-fonts-collection/)。
+1. 我们 [创建后备字体规则集合](/slides/zh/java/create-fallback-fonts-collection/)。
 1. [删除](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) 一条后备字体规则，并 [添加后备字体](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) 到另一条规则。
 1. 将规则集合设置为 [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--)。 [getFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) 方法。
 1. 使用 [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法，我们可以以相同格式保存演示文稿，或将其保存为其他格式。在后备字体规则集合设置为 [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) 之后，这些规则会在对演示文稿的任何操作中应用：保存、渲染、转换等。
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-阅读更多关于 [演示文稿中的保存和转换](/slides/java/creating-saving-and-converting-a-presentation/)。
+阅读更多关于 [演示文稿中的保存和转换](/slides/zh/java/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

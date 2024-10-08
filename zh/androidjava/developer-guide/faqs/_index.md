@@ -2,7 +2,7 @@
 title: 常见问题解答
 type: docs
 weight: 340
-url: /androidjava/faqs/
+url: /zh/androidjava/faqs/
 keywords:
 - 常见问题
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **问：Aspose.Slides for Android via Java 支持哪些文件格式？**
 
-**答**：Aspose.Slides for Android via Java 支持在 [支持的文件格式](/slides/androidjava/supported-file-formats/) 中描述的文件格式。
+**答**：Aspose.Slides for Android via Java 支持在 [支持的文件格式](/slides/zh/androidjava/supported-file-formats/) 中描述的文件格式。
 
 ## **异常**
 
@@ -55,7 +55,7 @@ keywords:
 
 **问：为什么 PC 和 Android 上段落大小不同？**
 
-**答**：段落大小的计算基于表示给定段落的文本大小的计算。文本大小的计算是基于 PowerPoint 演示文稿中指定的字体的指标。如果指定的字体丢失，它将被替换为最相似的字体，但该字体的指标与原始字体不同。因此，不同系统中段落大小的计算将导致不同的结果，具体取决于已安装字体的集合。要在不同操作系统上实现相同的结果，您需要在系统上安装相同的字体或在运行时将其加载为 [外部字体](/slides/androidjava/custom-font/)。
+**答**：段落大小的计算基于表示给定段落的文本大小的计算。文本大小的计算是基于 PowerPoint 演示文稿中指定的字体的指标。如果指定的字体丢失，它将被替换为最相似的字体，但该字体的指标与原始字体不同。因此，不同系统中段落大小的计算将导致不同的结果，具体取决于已安装字体的集合。要在不同操作系统上实现相同的结果，您需要在系统上安装相同的字体或在运行时将其加载为 [外部字体](/slides/zh/androidjava/custom-font/)。
 
 ## **格式化和图像**
 

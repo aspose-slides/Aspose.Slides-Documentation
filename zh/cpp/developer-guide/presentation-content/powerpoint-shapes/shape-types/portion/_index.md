@@ -2,7 +2,7 @@
 title: 部分
 type: docs
 weight: 70
-url: /cpp/portion/
+url: /zh/cpp/portion/
 ---
 
 ## **获取部分的位置信息**

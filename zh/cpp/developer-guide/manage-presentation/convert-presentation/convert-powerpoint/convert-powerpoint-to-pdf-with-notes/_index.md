@@ -2,7 +2,7 @@
 title: 将PowerPoint转换为带备注的PDF
 type: docs
 weight: 50
-url: /cpp/convert-powerpoint-to-pdf-with-notes/
+url: /zh/cpp/convert-powerpoint-to-pdf-with-notes/
 keywords: "将powerpoint转换为带备注的pdf"
 description: "将PowerPoint转换为带备注的PDF。在Aspose.Slides中将PPT和PPTX转换为带备注的PDF。"
 ---

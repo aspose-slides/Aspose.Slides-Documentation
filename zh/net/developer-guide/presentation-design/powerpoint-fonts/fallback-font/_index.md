@@ -3,7 +3,7 @@ title: 后备字体 - PowerPoint C# API
 linktitle: 后备字体
 type: docs
 weight: 50
-url: /net/fallback-font/
+url: /zh/net/fallback-font/
 keywords: "后备字体, 字体, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: 当字体不包含必要的字形时，PowerPoint C# API 将允许您使用指定的后备字体之一进行字形替换。
 ---
@@ -15,6 +15,6 @@ Aspose.Slides 允许创建后备字体，将其添加到后备字体集合，为
 
 要熟悉这些功能，请使用以下链接：
 
-- [创建后备字体](/slides/net/create-fallback-font)
-- [创建后备字体集合](/slides/net/create-fallback-fonts-collection)
-- [使用后备字体渲染演示文稿](/slides/net/render-presentation-with-fallback-font)
+- [创建后备字体](/slides/zh/net/create-fallback-font)
+- [创建后备字体集合](/slides/zh/net/create-fallback-fonts-collection)
+- [使用后备字体渲染演示文稿](/slides/zh/net/render-presentation-with-fallback-font)

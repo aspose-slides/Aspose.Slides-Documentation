@@ -2,7 +2,7 @@
 title: 产品支持
 type: docs
 weight: 90
-url: /cpp/product-support/
+url: /zh/cpp/product-support/
 ---
 
 ## **技术支持**
@@ -26,4 +26,4 @@ Aspose 为其所有产品提供无限制的免费技术支持。支持面向所�
 |[Aspose.Slide 博客](https://blog.aspose.com/category/slides/)|经常查看此处以获取有关新版本的信息和有关 Aspose.Slides 的实用技巧。|
 |[Aspose.Slides for C++ 下载](https://downloads.aspose.com/slides/cpp)|所有新旧产品版本均供客户参考。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在此发布您的问题和问题以快速解决。|
-|[Aspose.Slides for C++ 产品文档](/slides/cpp/)|完整的在线文档，包括此文档和 Aspose.Slides API 参考。|
+|[Aspose.Slides for C++ 产品文档](/slides/zh/cpp/)|完整的在线文档，包括此文档和 Aspose.Slides API 参考。|

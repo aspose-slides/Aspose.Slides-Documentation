@@ -2,7 +2,7 @@
 title: 为什么不使用自动化
 type: docs
 weight: 50
-url: /java/why-not-automation/
+url: /zh/java/why-not-automation/
 ---
 
 {{% alert color="primary" %}} 

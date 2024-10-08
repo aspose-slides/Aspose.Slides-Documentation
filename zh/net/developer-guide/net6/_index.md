@@ -2,7 +2,7 @@
 title: .NET6 支持
 type: docs
 weight: 235
-url: /net/net6/
+url: /zh/net/net6/
 keywords: 
 - .NET 6
 - 云

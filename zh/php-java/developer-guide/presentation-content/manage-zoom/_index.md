@@ -2,7 +2,7 @@
 title: 管理缩放
 type: docs
 weight: 60
-url: /php-java/manage-zoom/
+url: /zh/php-java/manage-zoom/
 keywords: "缩放, 缩放框, 添加缩放, 格式化缩放框, 概要缩放, PowerPoint演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "向PowerPoint演示文稿中添加缩放或缩放框"
 ---

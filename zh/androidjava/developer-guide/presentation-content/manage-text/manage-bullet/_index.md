@@ -2,7 +2,7 @@
 title: 管理项目符号
 type: docs
 weight: 60
-url: /androidjava/manage-bullet/
+url: /zh/androidjava/manage-bullet/
 keywords: "项目符号, 项目符号列表, 数字, 编号列表, 图片项目符号, 多级项目符号, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中创建 PowerPoint 演示文稿中的项目符号和编号列表"
 ---

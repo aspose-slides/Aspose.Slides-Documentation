@@ -2,7 +2,7 @@
 title: 产品概述
 type: docs
 weight: 10
-url: /nodejs-net/product-overview/
+url: /zh/nodejs-net/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-nodejs-via-net.png)
@@ -134,4 +134,4 @@ Aspose 为其所有产品提供无限制的免费技术支持。支持对所有�
 |[Aspose.Slide 博客](https://blog.aspose.com/category/slides/)|定期查看此页面以获取有关新版本的信息和 Aspose.Slides 的实用提示。|
 |[Aspose.Slides for Node.js via .NET 下载](https://releases.aspose.com/slides/nodejs-net/)|在此下载最新版本的 Aspose.Slides。我们经常发布新版本。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在这里发布您的问题和问题以迅速解决。|
-|[Aspose.Slides for Node.js via .NET 产品文档](/slides/nodejs-net/)|包含本文件和 Aspose.Slides API 参考的完整在线文档。|
+|[Aspose.Slides for Node.js via .NET 产品文档](/slides/zh/nodejs-net/)|包含本文件和 Aspose.Slides API 参考的完整在线文档。|

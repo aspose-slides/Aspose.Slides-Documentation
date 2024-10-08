@@ -1,7 +1,7 @@
 ---
 title: 气泡图
 type: docs
-url: /python-net/bubble-chart/
+url: /zh/python-net/bubble-chart/
 keywords: "气泡图, 图表大小, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中 PowerPoint 演示文稿的气泡图大小"
 ---

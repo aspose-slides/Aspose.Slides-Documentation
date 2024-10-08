@@ -2,7 +2,7 @@
 title: 椭圆
 type: docs
 weight: 30
-url: /php-java/ellipse/
+url: /zh/php-java/ellipse/
 ---
 
 

@@ -2,7 +2,7 @@
 title: 安装
 type: docs
 weight: 70
-url: /nodejs-java/installation/
+url: /zh/nodejs-java/installation/
 keySlides: "下载 Aspose.Slides, 安装 Aspose.Slides, Aspose.Slides 安装, Windows, macOS, Linux, Javascript, Node.js"
 description: "在 Windows、Linux 或 macOS 上通过 Java 安装 Aspose.Slides for Node.js"
 ---

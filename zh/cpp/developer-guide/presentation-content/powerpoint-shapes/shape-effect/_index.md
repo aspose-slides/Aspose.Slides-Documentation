@@ -2,12 +2,12 @@
 title: 形状效果
 type: docs
 weight: 30
-url: /cpp/shape-effect
+url: /zh/cpp/shape-effect
 keywords: "形状效果, PowerPoint演示, C++, CPP, Aspose.Slides for C++"
 description: "在C++中为PowerPoint形状应用效果"
 ---
 
-虽然PowerPoint中的效果可以用于使形状更加突出，但它们与[填充](/slides/cpp/shape-formatting/#gradient-fill)或轮廓不同。使用PowerPoint效果，可以在形状上创建逼真的反射、扩散形状的光晕等。
+虽然PowerPoint中的效果可以用于使形状更加突出，但它们与[填充](/slides/zh/cpp/shape-formatting/#gradient-fill)或轮廓不同。使用PowerPoint效果，可以在形状上创建逼真的反射、扩散形状的光晕等。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

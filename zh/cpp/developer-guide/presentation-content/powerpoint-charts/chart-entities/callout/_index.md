@@ -1,7 +1,7 @@
 ---
 title: 强调框
 type: docs
-url: /cpp/callout/
+url: /zh/cpp/callout/
 ---
 
 ## **使用强调框**

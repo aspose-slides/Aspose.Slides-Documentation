@@ -2,7 +2,7 @@
 title: 文本格式化
 type: docs
 weight: 50
-url: /php-java/text-formatting/
+url: /zh/php-java/text-formatting/
 ---
 
 ## **高亮文本**

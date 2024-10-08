@@ -2,7 +2,7 @@
 title: 默认字体
 type: docs
 weight: 30
-url: /cpp/default-font/
+url: /zh/cpp/default-font/
 keywords: 
 - 字体
 - 默认字体

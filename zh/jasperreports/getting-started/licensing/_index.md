@@ -2,7 +2,7 @@
 title: 许可
 type: docs
 weight: 50
-url: /jasperreports/licensing/
+url: /zh/jasperreports/licensing/
 ---
 
 {{% alert color="primary" %}} 

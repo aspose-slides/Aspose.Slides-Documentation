@@ -2,7 +2,7 @@
 title: 根据用户定义的值将幻灯片渲染为缩略图到JPEG
 type: docs
 weight: 70
-url: /net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
+url: /zh/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
 ---
 
 使用Aspose.Slides for .NET生成所需幻灯片的缩略图：

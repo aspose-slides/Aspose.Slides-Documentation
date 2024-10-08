@@ -2,7 +2,7 @@
 title: 将整个演示文稿幻灯片背景提取为图像
 type: docs
 weight: 95
-url: /androidjava/get-the-entire-presentation-slide-background-as-an-image/
+url: /zh/androidjava/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - 幻灯片
 - 背景
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Android via Java
 ---
 
-在PowerPoint演示文稿中，幻灯片背景可以由多个元素组成。除了设置为[幻灯片背景](/slides/androidjava/presentation-background/)的图像外，最终背景还可能受到演示文稿主题、配色方案以及放置在母版幻灯片和布局幻灯片上的形状的影响。
+在PowerPoint演示文稿中，幻灯片背景可以由多个元素组成。除了设置为[幻灯片背景](/slides/zh/androidjava/presentation-background/)的图像外，最终背景还可能受到演示文稿主题、配色方案以及放置在母版幻灯片和布局幻灯片上的形状的影响。
 
 Aspose.Slides for Android via Java并没有提供一个简单的方法来将整个演示文稿幻灯片背景提取为图像，但您可以按照以下步骤操作：
 1. 使用[Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)类加载演示文稿。

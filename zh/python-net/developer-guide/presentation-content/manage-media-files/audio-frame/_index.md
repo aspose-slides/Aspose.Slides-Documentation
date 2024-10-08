@@ -2,7 +2,7 @@
 title: 音频帧
 type: docs
 weight: 10
-url: /python-net/audio-frame/
+url: /zh/python-net/audio-frame/
 keywords: "添加音频, 音频帧, 音频属性, 提取音频, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加音频"
 ---

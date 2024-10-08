@@ -2,7 +2,7 @@
 title: ODP 转换为 PPTX
 type: docs
 weight: 10
-url: /php-java/convert-odp-to-pptx/
+url: /zh/php-java/convert-odp-to-pptx/
 ---
 
 ## **将 ODP 转换为 PPTX/PPT 演示文稿**

@@ -2,7 +2,7 @@
 title: 评估 Aspose.Slides
 type: docs
 weight: 130
-url: /java/evaluate-aspose-slides/
+url: /zh/java/evaluate-aspose-slides/
 ---
 
 您可以轻松下载 Aspose.Slides 进行评估。评估下载与购买的下载相同。评估版本只需添加几行代码以应用许可证，即可变为许可证版本。

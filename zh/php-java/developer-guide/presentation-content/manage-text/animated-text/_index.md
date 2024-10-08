@@ -2,7 +2,7 @@
 title: 动画文本
 type: docs
 weight: 60
-url: /php-java/animated-text/
+url: /zh/php-java/animated-text/
 keywords: "PowerPoint 中的动画文本"
 description: "使用 Java 在 PowerPoint 中创建动画文本"
 ---

@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /net/paragraph/
+url: /zh/net/paragraph/
 keywords: "段落, 部分, 段落坐标, 部分坐标, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中的 PowerPoint 演示文稿中的段落和部分"
 ---

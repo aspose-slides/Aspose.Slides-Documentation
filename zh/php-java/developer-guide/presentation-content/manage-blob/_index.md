@@ -2,7 +2,7 @@
 title: 管理 BLOB
 type: docs
 weight: 10
-url: /php-java/manage-blob/
+url: /zh/php-java/manage-blob/
 description: 使用 PHP 管理 PowerPoint 演示文稿中的 BLOB。使用 BLOB 来减少 PowerPoint 演示文稿中的内存消耗。通过 BLOB 将大文件添加到使用 PHP 的 PowerPoint 演示文稿中。从使用 PHP 的 PowerPoint 演示文稿中通过 BLOB 导出大文件。使用 PHP 将大型 PowerPoint 演示文稿作为 BLOB 加载。
 ---
 
@@ -22,7 +22,7 @@ Aspose.Slides for PHP via Java 允许您以减少涉及大文件时的内存消�
 
 ### **通过 BLOB 将大文件添加到演示文稿**
 
-[Aspose.Slides](/slides/php-java/) for Java 允许您通过涉及 BLOB 的过程将大文件（在本例中是一个大型视频文件）添加到演示文稿中，以减少内存消耗。
+[Aspose.Slides](/slides/zh/php-java/) for Java 允许您通过涉及 BLOB 的过程将大文件（在本例中是一个大型视频文件）添加到演示文稿中，以减少内存消耗。
 
 下面的 Java 代码演示了如何通过 BLOB 过程将大型视频文件添加到演示文稿中：
 

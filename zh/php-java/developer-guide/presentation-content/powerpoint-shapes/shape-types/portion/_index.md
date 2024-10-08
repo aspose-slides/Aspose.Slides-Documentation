@@ -2,7 +2,7 @@
 title: 部分
 type: docs
 weight: 70
-url: /php-java/portion/
+url: /zh/php-java/portion/
 ---
 
 ## **获取部分的坐标**

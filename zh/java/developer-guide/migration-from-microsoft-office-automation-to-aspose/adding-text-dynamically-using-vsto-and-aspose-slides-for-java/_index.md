@@ -2,12 +2,12 @@
 title: 使用 VSTO 和 Aspose.Slides for Java 动态添加文本
 type: docs
 weight: 20
-url: /java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+url: /zh/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-开发人员要完成的一个常见任务是动态地向幻灯片添加文本。本文提供了使用 [VSTO](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) 和 [Aspose.Slides for Java](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) 动态添加文本的代码示例。
+开发人员要完成的一个常见任务是动态地向幻灯片添加文本。本文提供了使用 [VSTO](/slides/zh/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) 和 [Aspose.Slides for Java](/slides/zh/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) 动态添加文本的代码示例。
 
 {{% /alert %}} 
 ## **动态添加文本**

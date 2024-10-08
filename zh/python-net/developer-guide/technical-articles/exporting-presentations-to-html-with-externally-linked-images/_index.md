@@ -2,7 +2,7 @@
 title: 将演示文稿导出为带有外部链接图像的HTML
 type: docs
 weight: 100
-url: /python-net/exporting-presentations-to-html-with-externally-linked-images/
+url: /zh/python-net/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

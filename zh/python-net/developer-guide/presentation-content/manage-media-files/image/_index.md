@@ -2,7 +2,7 @@
 title: 图片
 type: docs
 weight: 10
-url: /python-net/image/
+url: /zh/python-net/image/
 keywords: "添加图片, 添加图像, PowerPoint演示文稿, EMF, SVG, Python, Aspose.Slides for Python via .NET"
 description: "在Python中向PowerPoint幻灯片或演示文稿添加图像"
 ---

@@ -2,7 +2,7 @@
 title: 矩形
 type: docs
 weight: 80
-url: /androidjava/rectangle/
+url: /zh/androidjava/rectangle/
 ---
 
 {{% alert color="primary" %}} 

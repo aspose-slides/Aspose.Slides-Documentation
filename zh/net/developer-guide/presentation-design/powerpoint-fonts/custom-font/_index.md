@@ -3,7 +3,7 @@ title: 自定义 PowerPoint 字体在 C#
 linktitle: 自定义字体
 type: docs
 weight: 20
-url: /net/custom-font/
+url: /zh/net/custom-font/
 keywords: "字体，自定义字体，PowerPoint 演示文稿，C#，Csharp，Aspose.Slides for .NET"
 description: "在 C# 中的 PowerPoint 自定义字体"
 ---

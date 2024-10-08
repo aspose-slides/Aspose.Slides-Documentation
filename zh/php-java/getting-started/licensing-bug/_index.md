@@ -2,7 +2,7 @@
 title: 许可 Bug
 type: docs
 weight: 95
-url: /php-java/licensing-bug/
+url: /zh/php-java/licensing-bug/
 ---
 
 本文描述了在 Aspose.Slides for PHP via Java 版本 23.2、23.3、23.4、23.5、23.6 和 23.7 中遇到的许可 bug。此 bug 导致永久许可证在订阅到期后暂时不可用。

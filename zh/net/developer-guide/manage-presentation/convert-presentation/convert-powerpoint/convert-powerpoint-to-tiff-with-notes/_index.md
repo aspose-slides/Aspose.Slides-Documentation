@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 TIFF，并包含备注
 type: docs
 weight: 100
-url: /net/convert-powerpoint-to-tiff-with-notes/
+url: /zh/net/convert-powerpoint-to-tiff-with-notes/
 keywords: "将 PowerPoint 转换为包含备注的 TIFF"
 description: "在 Aspose.Slides 中将 PowerPoint 转换为包含备注的 TIFF。"
 ---

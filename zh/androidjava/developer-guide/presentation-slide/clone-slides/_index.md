@@ -2,7 +2,7 @@
 title: 克隆幻灯片
 type: docs
 weight: 35
-url: /androidjava/clone-slides/
+url: /zh/androidjava/clone-slides/
 ---
 
 

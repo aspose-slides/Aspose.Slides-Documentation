@@ -1,7 +1,7 @@
 ---
 title: 打印演示文稿
 type: docs
-url: /net/print-the-presentation/
+url: /zh/net/print-the-presentation/
 ---
 
 Aspose.Slides for .NET 提供了四个用于打印演示文稿的重载方法。这些方法足够灵活，可以将演示文稿打印到默认打印机或任何可用的打印机，并带有自定义设置。您只需根据需求选择合适的打印方法。

@@ -2,7 +2,7 @@
 title: 计算幻灯片数量
 type: docs
 weight: 50
-url: /net/count-the-number-of-slides/
+url: /zh/net/count-the-number-of-slides/
 ---
 
 ## **OpenXML SDK**

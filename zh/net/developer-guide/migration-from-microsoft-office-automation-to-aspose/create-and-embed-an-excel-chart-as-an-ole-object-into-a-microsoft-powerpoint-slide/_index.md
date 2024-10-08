@@ -2,12 +2,12 @@
 title: 创建并将 Excel 图表嵌入为 OLE 对象到 Microsoft PowerPoint 幻灯片
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-图表是您的数据的可视化表示，在演示文稿幻灯片中广泛使用。本文将向您展示如何通过使用 [VSTO](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 和 [Aspose.Slides for .NET](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 以编程方式创建并嵌入 Excel 图表作为 OLE 对象到 PowerPoint 幻灯片中的代码。
+图表是您的数据的可视化表示，在演示文稿幻灯片中广泛使用。本文将向您展示如何通过使用 [VSTO](/slides/zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 和 [Aspose.Slides for .NET](/slides/zh/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) 以编程方式创建并嵌入 Excel 图表作为 OLE 对象到 PowerPoint 幻灯片中的代码。
 
 {{% /alert %}} 
 ## **创建并嵌入 Excel 图表**

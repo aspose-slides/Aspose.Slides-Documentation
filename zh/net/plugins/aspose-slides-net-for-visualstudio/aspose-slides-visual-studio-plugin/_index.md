@@ -2,7 +2,7 @@
 title: Aspose.Slides Visual Studio 插件
 type: docs
 weight: 10
-url: /net/aspose-slides-visual-studio-plugin/
+url: /zh/net/aspose-slides-visual-studio-plugin/
 ---
 
 ## **介绍**

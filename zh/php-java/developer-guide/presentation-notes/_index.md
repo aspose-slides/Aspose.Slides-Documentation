@@ -2,7 +2,7 @@
 title: 演示文稿备注
 type: docs
 weight: 110
-url: /php-java/presentation-notes/
+url: /zh/php-java/presentation-notes/
 keywords: "PowerPoint 演讲者备注"
 description: "演示文稿备注，演讲者备注"
 ---

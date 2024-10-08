@@ -3,7 +3,7 @@ title: 在C#中将PPT转换为PPTX
 linktitle: 将PPT转换为PPTX
 type: docs
 weight: 20
-url: /net/convert-ppt-to-pptx/
+url: /zh/net/convert-ppt-to-pptx/
 keywords: "C# 将PPT转换为PPTX, 转换PowerPoint演示文稿, PPT到PPTX, C#, Csharp, .NET, Aspose.Slides"
 description: "在C#或.NET中将PowerPoint PPT转换为PPTX"
 ---
@@ -58,4 +58,4 @@ Presentation pres = new Presentation("PPTtoPPTX.ppt");
 pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
-了解更多关于[**PPT与PPTX**](/slides/net/ppt-vs-pptx/)演示文稿格式以及[**Aspose.Slides支持PPT到PPTX转换**](/slides/net/convert-ppt-to-pptx/)。
+了解更多关于[**PPT与PPTX**](/slides/zh/net/ppt-vs-pptx/)演示文稿格式以及[**Aspose.Slides支持PPT到PPTX转换**](/slides/zh/net/convert-ppt-to-pptx/)。

@@ -2,7 +2,7 @@
 title: API 参考
 type: docs
 weight: 50
-url: /php-java/api-reference/
+url: /zh/php-java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

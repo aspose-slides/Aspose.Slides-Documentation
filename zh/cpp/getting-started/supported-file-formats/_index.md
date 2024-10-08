@@ -2,7 +2,7 @@
 title: 支持的文件格式
 type: docs
 weight: 20
-url: /cpp/supported-file-formats/
+url: /zh/cpp/supported-file-formats/
 keywords: C++ PowerPoint 库, C++ PowerPoint API, PowerPoint 格式
 description: C++ PowerPoint 库或 API 可以加载和保存各种 PowerPoint 文件格式，包括 PPT、PPTX、POT、PPS、PPSX、ODP、OTP、PDF、XPS、SVG 等。
 ---

@@ -2,7 +2,7 @@
 title: 备用字体
 type: docs
 weight: 50
-url: /cpp/fallback-font/
+url: /zh/cpp/fallback-font/
 ---
 
 ## **备用字体**
@@ -12,6 +12,6 @@ Aspose.Slides 允许创建备用字体，将其添加到备用字体集合，为
 
 要熟悉这些功能，请使用以下链接：
 
-- [创建备用字体](/slides/cpp/create-fallback-font)
-- [创建备用字体集合](/slides/cpp/create-fallback-fonts-collection)
-- [使用备用字体渲染演示文稿](/slides/cpp/render-presentation-with-fallback-font)
+- [创建备用字体](/slides/zh/cpp/create-fallback-font)
+- [创建备用字体集合](/slides/zh/cpp/create-fallback-fonts-collection)
+- [使用备用字体渲染演示文稿](/slides/zh/cpp/render-presentation-with-fallback-font)

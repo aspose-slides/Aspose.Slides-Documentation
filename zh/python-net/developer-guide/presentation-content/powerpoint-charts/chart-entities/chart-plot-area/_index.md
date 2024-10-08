@@ -1,7 +1,7 @@
 ---
 title: 图表绘图区
 type: docs
-url: /python-net/chart-plot-area/
+url: /zh/python-net/chart-plot-area/
 keywords: "图表绘图区 PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "获取图表绘图区的宽度、高度。设置布局模式。Python 中的 PowerPoint 演示文稿"
 ---

@@ -2,7 +2,7 @@
 title: 管理缩放
 type: docs
 weight: 60
-url: /java/manage-zoom/
+url: /zh/java/manage-zoom/
 keywords: "缩放, 缩放框, 添加缩放, 格式化缩放框, 总结缩放, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
 description: "在 Java 中向 PowerPoint 演示文稿添加缩放或缩放框"
 ---

@@ -2,7 +2,7 @@
 title: 将PowerPoint转换为动画GIF
 type: docs
 weight: 65
-url: /php-java/convert-powerpoint-to-animated-gif/
+url: /zh/php-java/convert-powerpoint-to-animated-gif/
 keywords: "将PowerPoint转换为动画GIF, PPT到GIF, PPTX到GIF"
 description: "将PowerPoint转换为动画GIF：PPT到GIF，PPTX到GIF，使用Aspose.Slides API。"
 ---

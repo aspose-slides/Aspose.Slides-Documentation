@@ -2,18 +2,18 @@
 title: 演示文稿的页眉和页脚
 type: docs
 weight: 140
-url: /cpp/presentation-header-and-footer/
+url: /zh/cpp/presentation-header-and-footer/
 keywords: "PowerPoint中的页眉和页脚"
 description: "使用Aspose.Slides在PowerPoint中处理页眉和页脚。"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/cpp/) 提供支持，以处理实际上在幻灯片母版级别维护的幻灯片的页眉和页脚文本。
+[Aspose.Slides](/slides/zh/cpp/) 提供支持，以处理实际上在幻灯片母版级别维护的幻灯片的页眉和页脚文本。
 
 {{% /alert %}} 
 
-[Aspose.Slides for C++](/slides/cpp/) 提供在演示文稿幻灯片中管理页眉和页脚的功能。这实际上是在演示文稿母版级别管理的。
+[Aspose.Slides for C++](/slides/zh/cpp/) 提供在演示文稿幻灯片中管理页眉和页脚的功能。这实际上是在演示文稿母版级别管理的。
 ## **管理页眉和页脚文本**
 某些特定幻灯片的说明可以如下面示例中所示进行更新：
 

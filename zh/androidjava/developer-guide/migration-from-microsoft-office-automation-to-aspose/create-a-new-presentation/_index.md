@@ -2,7 +2,7 @@
 title: 创建新演示文稿
 type: docs
 weight: 10
-url: /androidjava/create-a-new-presentation/
+url: /zh/androidjava/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for Android via Java 是一个可以用来操作 Microsoft PowerPo
 
 {{% /alert %}} 
 ## **创建演示文稿**
-以下是两个代码示例，说明如何使用 VSTO 和 Aspose.Slides for Android via Java 实现相同的目标。第一个示例是 [VSTO](/slides/androidjava/create-a-new-presentation/)；[第二个示例](/slides/androidjava/create-a-new-presentation/) 使用 Aspose.Slides。
+以下是两个代码示例，说明如何使用 VSTO 和 Aspose.Slides for Android via Java 实现相同的目标。第一个示例是 [VSTO](/slides/zh/androidjava/create-a-new-presentation/)；[第二个示例](/slides/zh/androidjava/create-a-new-presentation/) 使用 Aspose.Slides。
 ### **VSTO 示例**
 **VSTO 输出** 
 

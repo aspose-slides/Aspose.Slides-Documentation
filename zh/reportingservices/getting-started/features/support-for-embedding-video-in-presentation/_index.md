@@ -2,7 +2,7 @@
 title: 支持在演示文稿中嵌入视频
 type: docs
 weight: 80
-url: /reportingservices/support-for-embedding-video-in-presentation/
+url: /zh/reportingservices/support-for-embedding-video-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

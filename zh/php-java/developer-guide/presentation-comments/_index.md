@@ -2,7 +2,7 @@
 title: 演示文稿注释
 type: docs
 weight: 100
-url: /php-java/presentation-comments/
+url: /zh/php-java/presentation-comments/
 keywords: "注释, PowerPoint 注释, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "在 PowerPoint 演示文稿中添加注释和回复"
 ---

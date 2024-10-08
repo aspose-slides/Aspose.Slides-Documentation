@@ -1,7 +1,7 @@
 ---
 title: 演示视图属性
 type: docs
-url: /net/presentation-view-properties/
+url: /zh/net/presentation-view-properties/
 keywords: "PowerPoint查看器, 查看器属性, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "C#或.NET中的PowerPoint演示文稿查看器属性"
 ---

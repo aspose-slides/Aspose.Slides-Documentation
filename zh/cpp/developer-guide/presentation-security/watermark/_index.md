@@ -2,7 +2,7 @@
 title: 水印
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /zh/cpp/watermark/
 keywords:
 - 水印
 - 添加水印
@@ -48,7 +48,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="另请参见" %}} 
-- [如何使用 TextFrame 类](/slides/cpp/text-formatting/)
+- [如何使用 TextFrame 类](/slides/zh/cpp/text-formatting/)
 {{% /alert %}}
 
 ### **向演示文稿添加文本水印**
@@ -68,7 +68,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="另请参见" %}} 
-- [如何使用幻灯片母版](/slides/cpp/slide-master/)
+- [如何使用幻灯片母版](/slides/zh/cpp/slide-master/)
 {{% /alert %}}
 
 ### **设置水印形状透明度**

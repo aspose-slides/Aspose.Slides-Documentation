@@ -3,7 +3,7 @@ title: 将 PowerPoint 转换为 JPG 的 C#
 linktitle: 将 PowerPoint PPT 转换为 JPG
 type: docs
 weight: 60
-url: /net/convert-powerpoint-to-jpg/
+url: /zh/net/convert-powerpoint-to-jpg/
 keywords: 
 - 转换 PowerPoint 演示文稿
 - JPG
@@ -146,4 +146,4 @@ Aspose 提供了一个 [免费的拼贴网页应用](https://products.aspose.app
 
 查看其他将 PPT/PPTX 转换为图像的选项，例如：
 
-- [PPT/PPTX 转 SVG 转换](/slides/net/render-a-slide-as-an-svg-image/)。
+- [PPT/PPTX 转 SVG 转换](/slides/zh/net/render-a-slide-as-an-svg-image/)。

@@ -2,7 +2,7 @@
 title: 声明
 type: docs
 weight: 110
-url: /net/declaration/
+url: /zh/net/declaration/
 ---
 
 {{% alert color="primary" %}} 

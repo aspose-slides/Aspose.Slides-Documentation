@@ -2,7 +2,7 @@
 title: 创建形状缩略图
 type: docs
 weight: 70
-url: /java/create-shape-thumbnails/
+url: /zh/java/create-shape-thumbnails/
 ---
 
 

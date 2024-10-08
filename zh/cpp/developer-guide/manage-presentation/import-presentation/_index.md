@@ -3,7 +3,7 @@ title: 导入演示文稿 - C++ PowerPoint API
 linktitle: 导入演示文稿
 type: docs
 weight: 60
-url: /cpp/import-presentation/
+url: /zh/cpp/import-presentation/
 keywords: "导入 PowerPoint, PDF 到演示文稿, PDF 到 PPTX, PDF 到 PPT, C++, Aspose.Slides for C++"
 description: "从 PDF 导入 PowerPoint 演示文稿。将 PDF 转换为 PowerPoint"
 ---

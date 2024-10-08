@@ -2,7 +2,7 @@
 title: 转换幻灯片
 type: docs
 weight: 35
-url: /php-java/convert-slide/
+url: /zh/php-java/convert-slide/
 keywords: 
 - 将幻灯片转换为图像
 - 以图像格式导出幻灯片

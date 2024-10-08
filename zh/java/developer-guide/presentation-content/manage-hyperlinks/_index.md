@@ -2,7 +2,7 @@
 title: 管理超链接
 type: docs
 weight: 20
-url: /java/manage-hyperlinks/
+url: /zh/java/manage-hyperlinks/
 keywords: "PowerPoint 超链接, 文本超链接, 幻灯片超链接, 形状超链接, 图像超链接, 视频超链接, Java"
 description: "如何在 Java 中向 PowerPoint 演示文稿添加超链接"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="提示"  color="primary"  %}} 
 
-您可能要查看 *[管理 OLE](/slides/java/manage-ole/)*。
+您可能要查看 *[管理 OLE](/slides/zh/java/manage-ole/)*。
 
 {{% /alert %}}
 

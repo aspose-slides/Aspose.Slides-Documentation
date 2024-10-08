@@ -2,7 +2,7 @@
 title: 如何在演示文稿中创建图表
 type: docs
 weight: 30
-url: /java/how-to-create-charts-in-a-presentation/
+url: /zh/java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

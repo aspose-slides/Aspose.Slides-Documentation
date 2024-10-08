@@ -2,7 +2,7 @@
 title: 管理 Blob
 type: docs
 weight: 10
-url: /cpp/manage-blob/
+url: /zh/cpp/manage-blob/
 keywords: "添加 blob, 导出 blob, 将图像作为 blob 添加, PowerPoint 演示文稿, C++, Aspose.Slides for C++"
 description: "在 C++ 中向 PowerPoint 演示文稿添加 blob。导出 blob。将图像作为 blob 添加。"
 ---
@@ -17,7 +17,7 @@ Aspose.Slides for C++ 允许您在涉及大型文件时以一种减少内存消�
 
 ### **通过 BLOB 向演示文稿添加大型文件**
 
-[Aspose.Slides](/slides/cpp/) for C++ 允许您通过涉及 BLOB 的过程向演示文稿添加大型文件（在此案例中为大型视频文件），以减少内存消耗。
+[Aspose.Slides](/slides/zh/cpp/) for C++ 允许您通过涉及 BLOB 的过程向演示文稿添加大型文件（在此案例中为大型视频文件），以减少内存消耗。
 
 以下 C++ 代码演示了如何通过 BLOB 过程向演示文稿添加大型视频文件：
 

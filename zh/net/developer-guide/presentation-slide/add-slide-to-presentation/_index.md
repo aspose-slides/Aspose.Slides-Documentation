@@ -2,7 +2,7 @@
 title: 添加幻灯片到演示文稿
 type: docs
 weight: 10
-url: /net/add-slide-to-presentation/
+url: /zh/net/add-slide-to-presentation/
 keywords: "添加幻灯片到演示文稿, C#, Csharp, .NET, Aspose.Slides"
 description: "在 C# 或 .NET 中添加幻灯片到演示文稿"
 ---

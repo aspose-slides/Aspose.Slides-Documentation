@@ -1,7 +1,7 @@
 ---
 title: 趋势线
 type: docs
-url: /java/trend-line/
+url: /zh/java/trend-line/
 ---
 
 ## **添加趋势线**

@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 PDF 备注
 type: docs
 weight: 50
-url: /androidjava/convert-powerpoint-to-pdf-with-notes/
+url: /zh/androidjava/convert-powerpoint-to-pdf-with-notes/
 keywords: "在 java 中将 powerpoint 转换为带备注的 pdf"
 description: "在 Java 中将 PowerPoint 转换为带备注的 PDF"
 ---

@@ -2,7 +2,7 @@
 title: 在PPTX中复制段落和部分
 type: docs
 weight: 30
-url: /cpp/copying-paragraph-and-portion-in-pptx/
+url: /zh/cpp/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

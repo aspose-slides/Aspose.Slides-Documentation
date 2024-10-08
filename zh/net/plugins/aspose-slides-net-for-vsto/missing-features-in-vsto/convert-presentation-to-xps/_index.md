@@ -2,7 +2,7 @@
 title: 将演示文稿转换为 XPS
 type: docs
 weight: 60
-url: /net/convert-presentation-to-xps/
+url: /zh/net/convert-presentation-to-xps/
 ---
 
 **XPS** 格式也广泛用于数据交换。Aspose.Slides for .NET 充分重视其重要性，并提供内置支持将演示文稿转换为 XPS 文档。
@@ -32,6 +32,6 @@ pres.Save("converted.xps", Aspose.Slides.Export.SaveFormat.Xps);
 
 {{% alert color="primary" %}} 
 
-有关更多细节，请访问 [转换为 XPS](/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)。
+有关更多细节，请访问 [转换为 XPS](/slides/zh/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)。
 
 {{% /alert %}}

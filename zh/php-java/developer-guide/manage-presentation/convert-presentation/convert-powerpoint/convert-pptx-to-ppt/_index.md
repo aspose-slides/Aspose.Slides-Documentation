@@ -3,7 +3,7 @@ title: 将PPTX转换为PPT
 linktitle: 将PPTX转换为PPT
 type: docs
 weight: 21
-url: /php-java/convert-pptx-to-ppt/
+url: /zh/php-java/convert-pptx-to-ppt/
 keywords: "PHP 将PPTX转换为PPT, 转换PowerPoint演示文稿, PPTX到PPT, Java, Aspose.Slides"
 description: "将PowerPoint PPTX转换为PPT "
 ---

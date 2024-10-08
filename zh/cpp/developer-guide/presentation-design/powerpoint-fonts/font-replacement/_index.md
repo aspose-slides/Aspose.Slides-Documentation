@@ -2,7 +2,7 @@
 title: 字体替换
 type: docs
 weight: 60
-url: /cpp/font-replacement/
+url: /zh/cpp/font-replacement/
 keywords: "字体, 替换字体, PowerPoint 演示文稿, C++, CPP, Aspose.Slides for C++"
 description: "在 C++ 中显式替换 PowerPoint 中的字体"
 ---
@@ -38,6 +38,6 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 
 {{% alert title="注意" color="warning" %}} 
 
-要设置在某些条件下的规则（例如如果无法访问某个字体），请参见 [**字体替换**](/slides/cpp/font-substitution/)。 
+要设置在某些条件下的规则（例如如果无法访问某个字体），请参见 [**字体替换**](/slides/zh/cpp/font-substitution/)。 
 
 {{% /alert %}}

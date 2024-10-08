@@ -2,7 +2,7 @@
 title: 形状格式设置
 type: docs
 weight: 20
-url: /androidjava/shape-formatting/
+url: /zh/androidjava/shape-formatting/
 keywords: "格式化形状, 格式化线条, 格式化连接样式, 渐变填充, 图案填充, 图片填充, 实色填充, 旋转形状, 3d 倒角效果, 3d 旋转效果, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中格式化 PowerPoint 演示文稿中的形状"
 ---

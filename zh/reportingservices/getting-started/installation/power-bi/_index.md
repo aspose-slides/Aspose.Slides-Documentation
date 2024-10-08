@@ -2,7 +2,7 @@
 title: 在 Power BI 中安装 Aspose.Slides for Reporting Services
 type: docs
 weight: 20
-url: /reportingservices/power-bi/
+url: /zh/reportingservices/power-bi/
 keywords: "Power BI, 安装, Aspose.Slides for Reporting Services 在 Power BI 中"
 description: "在 Power BI 中安装 Aspose.Slides for Reporting Services"
 ---

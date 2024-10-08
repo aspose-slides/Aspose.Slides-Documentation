@@ -1,7 +1,7 @@
 ---
 title: 图表系列
 type: docs
-url: /androidjava/chart-series/
+url: /zh/androidjava/chart-series/
 keywords: "图表系列, 系列颜色, PowerPoint演示文稿, Java, Aspose.Slides for Android via Java"
 description: "Java中的PowerPoint演示文稿中的图表系列"
 ---

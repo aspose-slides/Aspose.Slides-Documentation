@@ -2,7 +2,7 @@
 title: 管理缩放
 type: docs
 weight: 60
-url: /cpp/manage-zoom/
+url: /zh/cpp/manage-zoom/
 keywords: "缩放, 缩放帧, 添加缩放, 格式化缩放帧, 总结缩放, PowerPoint 演示文稿, C++, Aspose.Slides for C++"
 description: "在 C++ 中为 PowerPoint 演示文稿添加缩放或缩放帧"
 ---

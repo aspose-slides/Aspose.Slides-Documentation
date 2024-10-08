@@ -2,7 +2,7 @@
 title: 演示文稿背景
 type: docs
 weight: 20
-url: /androidjava/presentation-background/
+url: /zh/androidjava/presentation-background/
 keywords: "PowerPoint 背景, 在 Java 中设置背景"
 description: "在 Java 中设置 PowerPoint 演示文稿的背景"
 ---

@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 TIFF 带注释
 type: docs
 weight: 100
-url: /java/convert-powerpoint-to-tiff-with-notes/
+url: /zh/java/convert-powerpoint-to-tiff-with-notes/
 keywords: "将 PowerPoint 转换为带注释的 TIFF"
 description: "使用 Aspose.Slides 将 PowerPoint 转换为带注释的 TIFF。"
 ---

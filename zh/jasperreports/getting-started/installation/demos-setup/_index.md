@@ -2,7 +2,7 @@
 title: 演示设置
 type: docs
 weight: 70
-url: /jasperreports/demos-setup/
+url: /zh/jasperreports/demos-setup/
 ---
 
 与 Aspose.Slides for JasperReports 提供的所有演示都是修改过的标准演示。最好将所有演示复制到 JasperReports 演示文件夹：

@@ -2,7 +2,7 @@
 title: 工作表调整大小的工作解决方案
 type: docs
 weight: 130
-url: /cpp/working-solution-for-worksheet-resizing/
+url: /zh/cpp/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -313,4 +313,4 @@ System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::D
 h4. {_}相关章节 
 {_}
 
-[在演示文稿中创建并嵌入 Excel 图表作为 OLE 对象](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[在演示文稿中创建并嵌入 Excel 图表作为 OLE 对象](/slides/zh/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

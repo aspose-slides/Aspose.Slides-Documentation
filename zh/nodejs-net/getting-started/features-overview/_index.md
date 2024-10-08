@@ -2,7 +2,7 @@
 title: 特性概述
 type: docs
 weight: 20
-url: /nodejs-net/features-overview/
+url: /zh/nodejs-net/features-overview/
 ---
 
 ## **支持的平台**

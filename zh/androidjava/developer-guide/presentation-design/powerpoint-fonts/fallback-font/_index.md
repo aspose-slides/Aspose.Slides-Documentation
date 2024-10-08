@@ -3,7 +3,7 @@ title: 回退字体 - PowerPoint Java API
 linktitle: 回退字体
 type: docs
 weight: 50
-url: /androidjava/fallback-font/
+url: /zh/androidjava/fallback-font/
 description: 当系统中可以使用为文本指定的字体，但该字体不包含必要的字形时，将使用回退字体。在这种情况下，PowerPoint Java API 可以使用指定的回退字体之一来替代缺失的字形。
 ---
 
@@ -14,6 +14,6 @@ Aspose.Slides 允许创建回退字体，将其添加到回退字体集合中，
 
 要熟悉这些功能，请使用以下链接：
 
-- [创建回退字体](/slides/androidjava/create-fallback-font)
-- [创建回退字体集合](/slides/androidjava/create-fallback-fonts-collection)
-- [使用回退字体渲染演示文稿](/slides/androidjava/render-presentation-with-fallback-font)
+- [创建回退字体](/slides/zh/androidjava/create-fallback-font)
+- [创建回退字体集合](/slides/zh/androidjava/create-fallback-fonts-collection)
+- [使用回退字体渲染演示文稿](/slides/zh/androidjava/render-presentation-with-fallback-font)

@@ -2,7 +2,7 @@
 title: 部分
 type: docs
 weight: 70
-url: /androidjava/portion/
+url: /zh/androidjava/portion/
 ---
 
 ## **获取部分的位置坐标**

@@ -2,7 +2,7 @@
 title: 管理项目符号和编号列表
 type: docs
 weight: 70
-url: /net/manage-bullet-and-numbered-lists
+url: /zh/net/manage-bullet-and-numbered-lists
 keywords: "项目符号, 项目符号列表, 数字, 编号列表, 图片项目符号, 多级项目符号, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中创建PowerPoint演示文稿中的项目符号和编号列表"
 ---

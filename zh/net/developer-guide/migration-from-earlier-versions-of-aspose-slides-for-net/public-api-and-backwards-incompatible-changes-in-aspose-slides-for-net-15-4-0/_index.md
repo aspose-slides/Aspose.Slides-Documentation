@@ -2,12 +2,12 @@
 title: Aspose.Slides for .NET 15.4.0 中的公共 API 和不向后兼容的更改
 type: docs
 weight: 150
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 ---
 
 {{% alert color="primary" %}} 
 
-此页面列出了所有在 Aspose.Slides for .NET 15.4.0 API 中[添加的](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)或[移除的](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)类、方法、属性等，以及其他更改。
+此页面列出了所有在 Aspose.Slides for .NET 15.4.0 API 中[添加的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)或[移除的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/)类、方法、属性等，以及其他更改。
 
 {{% /alert %}} 
 ## **公共 API 更改**
@@ -16,7 +16,7 @@ Aspose.Slides.SmartArt.OrganizationChartLayoutType枚举表示在组织图中子
 #### **添加了方法 IBulletFormat.ApplyDefaultParagraphIndentsShifts**
 方法Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts在启用项目符号时设置有效段落缩进和左边距的默认非零偏移（类似于 PowerPoint 在启用段落项目符号/编号时的行为）。如果禁用项目符号，则仅重置段落缩进和左边距（类似于 PowerPoint 在禁用段落项目符号/编号时的行为）。
 
-示例见[这里](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+示例见[这里](/slides/zh/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **添加了方法 IConnector.Reroute**
 方法Aspose.Slides.IConnector.Reroute重新路由连接器，以使其采取连接形状之间的最短路径。为此，Reroute()方法可能会更改StartShapeConnectionSiteIndex和EndShapeConnectionSiteIndex。
 

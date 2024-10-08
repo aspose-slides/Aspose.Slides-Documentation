@@ -1,7 +1,7 @@
 ---
 title: 图表数据标记
 type: docs
-url: /java/chart-data-marker/
+url: /zh/java/chart-data-marker/
 ---
 
 ## **设置图表标记选项**

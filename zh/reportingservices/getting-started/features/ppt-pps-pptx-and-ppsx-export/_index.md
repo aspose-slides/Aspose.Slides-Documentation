@@ -2,7 +2,7 @@
 title: PPT、PPS、PPTX 和 PPSX 导出
 type: docs
 weight: 20
-url: /reportingservices/ppt-pps-pptx-and-ppsx-export/
+url: /zh/reportingservices/ppt-pps-pptx-and-ppsx-export/
 ---
 
 {{% alert color="primary" %}} 

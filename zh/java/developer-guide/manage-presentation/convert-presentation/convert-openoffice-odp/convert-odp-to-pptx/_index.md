@@ -2,7 +2,7 @@
 title: 将ODP转换为PPTX
 type: docs
 weight: 10
-url: /java/convert-odp-to-pptx/
+url: /zh/java/convert-odp-to-pptx/
 ---
 
 ## **将ODP转换为PPTX/PPT演示文稿**

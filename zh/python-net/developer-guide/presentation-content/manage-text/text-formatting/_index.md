@@ -2,7 +2,7 @@
 title: 文本格式化
 type: docs
 weight: 50
-url: /python-net/text-formatting/
+url: /zh/python-net/text-formatting/
 keywords:
 - 高亮文本
 - 正则表达式

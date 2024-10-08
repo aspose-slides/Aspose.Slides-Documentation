@@ -2,7 +2,7 @@
 title: 组
 type: docs
 weight: 40
-url: /java/group/
+url: /zh/java/group/
 ---
 
 ## **添加组形状**

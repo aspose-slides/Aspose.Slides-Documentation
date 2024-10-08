@@ -1,7 +1,7 @@
 ---
 title: 图表数据表
 type: docs
-url: /androidjava/chart-data-table/
+url: /zh/androidjava/chart-data-table/
 ---
 
 ## **为图表数据表设置字体属性**

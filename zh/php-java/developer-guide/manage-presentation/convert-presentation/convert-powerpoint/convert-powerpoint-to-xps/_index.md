@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 XPS
 type: docs
 weight: 70
-url: /php-java/convert-powerpoint-to-xps/
+url: /zh/php-java/convert-powerpoint-to-xps/
 keywords: "PPT, PPTX 转 XPS"
 description: "将 PowerPoint PPT(X) 转换为 XPS "
 ---

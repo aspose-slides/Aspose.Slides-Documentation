@@ -2,7 +2,7 @@
 title: 管理 SmartArt 形状
 type: docs
 weight: 20
-url: /php-java/manage-smartart-shape/
+url: /zh/php-java/manage-smartart-shape/
 ---
 
 ## **创建 SmartArt 形状**

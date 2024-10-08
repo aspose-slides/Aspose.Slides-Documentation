@@ -2,7 +2,7 @@
 title: 可移植文档格式 (PDF)
 type: docs
 weight: 40
-url: /php-java/portable-document-format-pdf/
+url: /zh/php-java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.Slides在转换为PDF时支持以下演示文稿功能：
 - 项目符号。
 - 表格。
 
-您可以直接使用Aspose.Slides for PHP via Java将演示文稿导出为PDF：不需要其他组件。此外，您可以根据[转换为PDF](/slides/php-java/converting-a-presentation/)中解释的不同选项自定义演示文稿到PDF的导出。
+您可以直接使用Aspose.Slides for PHP via Java将演示文稿导出为PDF：不需要其他组件。此外，您可以根据[转换为PDF](/slides/zh/php-java/converting-a-presentation/)中解释的不同选项自定义演示文稿到PDF的导出。
 
 **输入演示文稿** 
 

@@ -2,7 +2,7 @@
 title: 字体艺术
 type: docs
 weight: 110
-url: /androidjava/wordart/
+url: /zh/androidjava/wordart/
 ---
 
 

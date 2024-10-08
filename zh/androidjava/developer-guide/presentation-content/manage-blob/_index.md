@@ -2,7 +2,7 @@
 title: 管理 BLOB
 type: docs
 weight: 10
-url: /androidjava/manage-blob/
+url: /zh/androidjava/manage-blob/
 description: 使用 Java 在 PowerPoint 演示文稿中管理 BLOB。使用 BLOB 来减少 PowerPoint 演示文稿中的内存消耗。通过 BLOB 将大文件添加到 PowerPoint 演示文稿中。通过 BLOB 从 PowerPoint 演示文稿中导出大文件。使用 Java 将大 PowerPoint 演示文稿加载为 BLOB。
 ---
 
@@ -22,7 +22,7 @@ Aspose.Slides for Android 通过 Java 允许您在涉及大文件时以减少内
 
 ### **通过 BLOB 向演示文稿添加大文件**
 
-[Aspose.Slides](/slides/androidjava/) for Java 允许您通过涉及 BLOB 的过程将大型文件（在此情况下为大型视频文件）添加到演示文稿中，以减少内存消耗。
+[Aspose.Slides](/slides/zh/androidjava/) for Java 允许您通过涉及 BLOB 的过程将大型文件（在此情况下为大型视频文件）添加到演示文稿中，以减少内存消耗。
 
 此 Java 示例展示了如何通过 BLOB 过程向演示文稿添加大型视频文件：
 

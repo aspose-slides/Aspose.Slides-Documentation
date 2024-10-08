@@ -2,7 +2,7 @@
 title: OpenOffice文档的转换
 type: docs
 weight: 30
-url: /net/conversion-of-openoffice-document/
+url: /zh/net/conversion-of-openoffice-document/
 ---
 
 Aspose.Slides for .NET提供了**Presentation**类，该类表示一个演示文稿文件。**Presentation**类现在也可以通过演示文稿构造函数访问**ODP**，当对象被实例化时。

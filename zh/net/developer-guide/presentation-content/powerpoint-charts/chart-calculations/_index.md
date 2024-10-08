@@ -2,7 +2,7 @@
 title: 图表计算
 type: docs
 weight: 50
-url: /net/chart-calculations/
+url: /zh/net/chart-calculations/
 keywords: "图表计算, 图表元素, 元素位置, 图表值 C#, Csharp, Aspose.Slides for .NET"
 description: "C# 或 .NET 中的 PowerPoint 图表计算和数值"
 ---

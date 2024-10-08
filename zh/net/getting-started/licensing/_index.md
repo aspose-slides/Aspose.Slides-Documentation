@@ -2,7 +2,7 @@
 title: 许可
 type: docs
 weight: 80
-url: /net/licensing/
+url: /zh/net/licensing/
 ---
 
 ## **评估 Aspose.Slides**

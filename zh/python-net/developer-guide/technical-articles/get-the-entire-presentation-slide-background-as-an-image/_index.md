@@ -2,7 +2,7 @@
 title: 获取整个演示文稿幻灯片背景作为图像
 type: docs
 weight: 95
-url: /python-net/get-the-entire-presentation-slide-background-as-an-image/
+url: /zh/python-net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - 幻灯片
 - 背景
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Python
 ---
 
-在 PowerPoint 演示文稿中，幻灯片背景可以由许多元素组成。除了设置为 [幻灯片背景](/slides/python-net/presentation-background/) 的图像外，最终背景还可以受到演示文稿主题、配色方案以及放置在母版幻灯片和布局幻灯片上的形状的影响。
+在 PowerPoint 演示文稿中，幻灯片背景可以由许多元素组成。除了设置为 [幻灯片背景](/slides/zh/python-net/presentation-background/) 的图像外，最终背景还可以受到演示文稿主题、配色方案以及放置在母版幻灯片和布局幻灯片上的形状的影响。
 
 Aspose.Slides for Python 并没有提供一个简单的方法来将整个演示文稿的幻灯片背景提取为图像，但您可以按照以下步骤进行操作：
 1. 使用 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类加载演示文稿。

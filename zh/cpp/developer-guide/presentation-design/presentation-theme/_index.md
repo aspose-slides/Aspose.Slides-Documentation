@@ -2,14 +2,14 @@
 title: 演示主题
 type: docs
 weight: 10
-url: /cpp/presentation-theme/
+url: /zh/cpp/presentation-theme/
 keywords: "主题, PowerPoint主题, PowerPoint演示, CPP, C++, Aspose.Slides for C++"
 description: "C++中的PowerPoint演示主题"
 ---
 
 演示主题定义了设计元素的属性。当您选择一个演示主题时，您实际上是在选择一组特定的视觉元素及其属性。
 
-在PowerPoint中，主题由颜色、[字体](/slides/cpp/powerpoint-fonts/)、[背景样式](/slides/cpp/presentation-background/)和效果组成。
+在PowerPoint中，主题由颜色、[字体](/slides/zh/cpp/powerpoint-fonts/)、[背景样式](/slides/zh/cpp/presentation-background/)和效果组成。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject
 
 {{% alert color="primary" title="提示" %}} 
 
-您可以查看[PowerPoint字体](/slides/cpp/powerpoint-fonts/)。
+您可以查看[PowerPoint字体](/slides/zh/cpp/powerpoint-fonts/)。
 
 {{% /alert %}}
 
@@ -195,7 +195,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 
 {{% alert color="primary" title="提示" %}} 
 
-您可以查看[PowerPoint背景](/slides/cpp/presentation-background/)。
+您可以查看[PowerPoint背景](/slides/zh/cpp/presentation-background/)。
 
 {{% /alert %}}
 

@@ -2,7 +2,7 @@
 title: 在演示文稿中更改形状的填充颜色
 type: docs
 weight: 40
-url: /net/change-the-fill-color-of-a-shape-in-a-presentation/
+url: /zh/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
 ## **OpenXML 演示文稿**

@@ -1,7 +1,7 @@
 ---
 title: 演示视图属性
 type: docs
-url: /java/presentation-view-properties/
+url: /zh/java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 

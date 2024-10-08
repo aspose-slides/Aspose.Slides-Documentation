@@ -2,7 +2,7 @@
 title: PowerPoint 动画
 type: docs
 weight: 150
-url: /cpp/powerpoint-animation/
+url: /zh/cpp/powerpoint-animation/
 keywords: "PowerPoint 动画"
 description: "使用 Aspose.Slides 进行 PowerPoint 动画，PowerPoint 幻灯片动画。"
 ---
@@ -52,19 +52,19 @@ Aspose.Slides 支持 **150+ 种动画效果**，包括基本动画效果，如 B
 Aspose.Slides 允许对形状应用动画，这些形状实际上可以是文本、矩形、线条、框架、OLE 对象等。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于形状动画**](/slides/cpp/shape-animation/)。
+阅读更多 [**关于形状动画**](/slides/zh/cpp/shape-animation/)。
 {{% /alert %}}
 
 ## **动画图表**
 要创建动画图表，您应使用与形状相同的所有类。然而，PowerPoint 动画只能在图表类别或图表系列上使用。您还可以对类别元素或系列元素应用动画效果。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画图表**](/slides/cpp/animated-charts/)。
+阅读更多 [**关于动画图表**](/slides/zh/cpp/animated-charts/)。
 {{% /alert %}}
 
 ## **动画文本**
 除了动画文本外，还可以对段落应用动画。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画文本**](/slides/cpp/animated-text/)。
+阅读更多 [**关于动画文本**](/slides/zh/cpp/animated-text/)。
 {{% /alert %}}

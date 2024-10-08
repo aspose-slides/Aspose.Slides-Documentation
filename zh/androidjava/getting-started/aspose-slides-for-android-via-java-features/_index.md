@@ -2,7 +2,7 @@
 title: Aspose.Slides for Android via Java 功能
 type: docs
 weight: 100
-url: /androidjava/aspose-slides-for-android-via-java-features/
+url: /zh/androidjava/aspose-slides-for-android-via-java-features/
 ---
 
 {{% alert color="primary" %}} 

@@ -1,7 +1,7 @@
 ---
 title: 误差线
 type: docs
-url: /java/error-bar/
+url: /zh/java/error-bar/
 ---
 
 ## **添加误差线**

@@ -2,7 +2,7 @@
 title: 创建形状缩略图
 type: docs
 weight: 70
-url: /python-net/create-shape-thumbnails/
+url: /zh/python-net/create-shape-thumbnails/
 keywords: "形状缩略图。PowerPoint演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "Python中的PowerPoint演示文稿中的形状缩略图"
 ---

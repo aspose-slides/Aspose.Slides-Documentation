@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为视频
 type: docs
 weight: 130
-url: /net/convert-powerpoint-to-video/
+url: /zh/net/convert-powerpoint-to-video/
 keywords: "将 PowerPoint 转换为视频, PPT, PPTX, 演示文稿, 视频, MP4, PPT 转换为视频, PPT 转换为 MP4, C#, Csharp, .NET, Aspose.Slides"
 description: "在 C# 或 .NET 中将 PowerPoint 转换为视频"
 ---

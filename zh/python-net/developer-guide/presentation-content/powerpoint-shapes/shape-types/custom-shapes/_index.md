@@ -2,7 +2,7 @@
 title: 自定义形状
 type: docs
 weight: 20
-url: /python-net/custom-shape/
+url: /zh/python-net/custom-shape/
 keywords: "PowerPoint 形状，自定义形状，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "在Python中为PowerPoint演示文稿添加自定义形状"
 ---

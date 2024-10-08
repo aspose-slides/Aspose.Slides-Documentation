@@ -2,7 +2,7 @@
 title: 系统要求
 type: docs
 weight: 60
-url: /net/system-requirements/
+url: /zh/net/system-requirements/
 ---
 
 ## **概述**

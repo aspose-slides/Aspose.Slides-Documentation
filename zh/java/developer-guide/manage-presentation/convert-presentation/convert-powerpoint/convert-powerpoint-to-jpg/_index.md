@@ -2,7 +2,7 @@
 title: 将 Powerpoint 转换为 JPG
 type: docs
 weight: 60
-url: /java/convert-powerpoint-to-jpg/
+url: /zh/java/convert-powerpoint-to-jpg/
 keywords: "将 PowerPoint 转换为 JPG, PPTX 转 JPEG, PPT 转 JPEG"
 description: "将 PowerPoint 转换为 JPG: PPT 转 JPG, PPTX 转 JPG 在 Java 中"
 ---
@@ -118,4 +118,4 @@ Aspose 提供了一个 [免费拼贴网页应用](https://products.aspose.app/sl
 
 查看将 PPT/PPTX 转换为图像的其他选项，例如：
 
-- [PPT/PPTX 转 SVG 转换](/slides/java/render-a-slide-as-an-svg-image/)。
+- [PPT/PPTX 转 SVG 转换](/slides/zh/java/render-a-slide-as-an-svg-image/)。

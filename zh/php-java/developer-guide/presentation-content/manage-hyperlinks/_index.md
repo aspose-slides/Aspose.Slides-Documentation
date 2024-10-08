@@ -2,7 +2,7 @@
 title: 管理超链接
 type: docs
 weight: 20
-url: /php-java/manage-hyperlinks/
+url: /zh/php-java/manage-hyperlinks/
 keywords: "PowerPoint 超链接，文本超链接，幻灯片超链接，形状超链接，图像超链接，视频超链接，Java"
 description: "如何在 PowerPoint 演示文稿中添加超链接"
 ---
@@ -151,7 +151,7 @@ try {
 
 {{%  alert  title="提示"  color="primary"  %}} 
 
-您可能想要查看 *[管理 OLE](/slides/php-java/manage-ole/)*。
+您可能想要查看 *[管理 OLE](/slides/zh/php-java/manage-ole/)*。
 
 {{% /alert %}}
 

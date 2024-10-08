@@ -2,7 +2,7 @@
 title: 幻灯片过渡
 type: docs
 weight: 90
-url: /python-net/slide-transition/
+url: /zh/python-net/slide-transition/
 keywords: "添加幻灯片过渡, PowerPoint 幻灯片过渡, morph 过渡, 高级幻灯片过渡, 过渡效果, Python, Aspose.Slides"
 description: " 在 Python 中添加 PowerPoint 幻灯片过渡和过渡效果 "
 ---

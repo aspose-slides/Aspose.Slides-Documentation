@@ -2,7 +2,7 @@
 title: 创建演示文稿
 type: docs
 weight: 10
-url: /python-net/create-presentation/
+url: /zh/python-net/create-presentation/
 keywords: "创建 PowerPoint, PPTX, PPT, 创建演示文稿, 初始化演示文稿, Python, .NET"
 description: "在 Python 中打开 PowerPoint 演示文稿"
 ---

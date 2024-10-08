@@ -1,7 +1,7 @@
 ---
 title: 图表数据标签
 type: docs
-url: /net/chart-data-label/
+url: /zh/net/chart-data-label/
 keywords: "图表数据标签,标签距离, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中设置 PowerPoint 图表数据标签和距离"
 ---

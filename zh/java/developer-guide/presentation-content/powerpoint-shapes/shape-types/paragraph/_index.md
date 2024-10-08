@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /java/paragraph/
+url: /zh/java/paragraph/
 ---
 
 

@@ -2,7 +2,7 @@
 title: 比较幻灯片
 type: docs
 weight: 50
-url: /python-net/compare-slides/
+url: /zh/python-net/compare-slides/
 keywords: "比较 PowerPoint 幻灯片, 比较两张幻灯片, 演示文稿, Python, Aspose.Slides"
 description: "在 Python 中比较 PowerPoint 演示文稿幻灯片"
 ---

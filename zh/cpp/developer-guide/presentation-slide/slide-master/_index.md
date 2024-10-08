@@ -2,7 +2,7 @@
 title: 幻灯片母版
 type: docs
 weight: 80
-url: /cpp/slide-master/
+url: /zh/cpp/slide-master/
 keywords: "添加幻灯片母版, PPT母版幻灯片, 幻灯片母版PowerPoint, 图片到幻灯片母版, 占位符, 多个幻灯片母版, 比较幻灯片母版, C++, CPP, Aspose.Slides for C++"
 description: "在C++中添加或编辑PowerPoint演示文稿中的幻灯片母版"
 ---
@@ -128,7 +128,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 {{% alert color="primary" title="另请参见" %}} 
 
-有关向幻灯片添加图像的更多信息，请参见[图片框](/slides/cpp/picture-frame/#create-picture-frame)文章。
+有关向幻灯片添加图像的更多信息，请参见[图片框](/slides/zh/cpp/picture-frame/#create-picture-frame)文章。
 {{% /alert %}}
 
 ## **向幻灯片母版添加占位符**

@@ -2,7 +2,7 @@
 title: PPTX中图表调整大小的解决方案
 type: docs
 weight: 60
-url: /net/working-solution-for-chart-resizing-in-pptx/
+url: /zh/net/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /net/working-solution-for-chart-resizing-in-pptx/
 
 {{% /alert %}} 
 ## **背景**
-在[上一篇文章](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们解释了如何使用Aspose.Cells for .NET创建Excel图表，并进一步使用Aspose.Slides for .NET将该图表嵌入PowerPoint演示文稿。为了处理[对象变化问题](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)，我们将图表图像分配给图表OLE对象框。在输出的演示文稿中，当我们双击显示图表图像的OLE对象框时，Excel图表被激活。最终用户可以在实际的Excel工作簿中进行任何所需的更改，然后通过点击激活的Excel工作簿外部返回到相关幻灯片。当用户返回到幻灯片时，OLE对象框的大小会发生变化。不同大小的OLE对象框和嵌入式Excel工作簿的调整大小因素会有所不同。
+在[上一篇文章](/slides/zh/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们解释了如何使用Aspose.Cells for .NET创建Excel图表，并进一步使用Aspose.Slides for .NET将该图表嵌入PowerPoint演示文稿。为了处理[对象变化问题](/slides/zh/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)，我们将图表图像分配给图表OLE对象框。在输出的演示文稿中，当我们双击显示图表图像的OLE对象框时，Excel图表被激活。最终用户可以在实际的Excel工作簿中进行任何所需的更改，然后通过点击激活的Excel工作簿外部返回到相关幻灯片。当用户返回到幻灯片时，OLE对象框的大小会发生变化。不同大小的OLE对象框和嵌入式Excel工作簿的调整大小因素会有所不同。
 ## **调整大小的原因**
 由于Excel工作簿有其自己的窗口大小，它尝试在首次激活时保持其原始大小。另一方面，OLE对象框将有其自己的大小。根据Microsoft的说法，在激活Excel工作簿时，Excel和PowerPoint会协商大小，并确保其在嵌入操作中保持正确的比例。根据Excel窗口大小与OLE对象框大小/位置的不同，发生调整大小。
 ## **有效解决方案**
@@ -152,6 +152,6 @@ Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
 
 {{% /alert %}} 
 ## **相关部分**
-[在演示文稿中创建并嵌入Excel图表作为OLE对象](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[在演示文稿中创建并嵌入Excel图表作为OLE对象](/slides/zh/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[自动更新OLE对象](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[自动更新OLE对象](/slides/zh/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

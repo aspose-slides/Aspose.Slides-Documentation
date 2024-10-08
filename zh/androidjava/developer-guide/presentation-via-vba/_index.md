@@ -2,7 +2,7 @@
 title: 通过VBA进行演示
 type: docs
 weight: 250
-url: /androidjava/presentation-via-vba/
+url: /zh/androidjava/presentation-via-vba/
 keywords: "宏, 宏, VBA, VBA宏, 添加宏, 移除宏, 添加VBA, 移除VBA, 提取宏, 提取VBA, PowerPoint宏, PowerPoint演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在Java中添加、移除和提取PowerPoint演示文稿中的VBA宏"
 ---

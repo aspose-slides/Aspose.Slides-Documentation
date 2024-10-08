@@ -2,12 +2,12 @@
 title: 渲染带回退字体的演示文稿
 type: docs
 weight: 30
-url: /androidjava/render-presentation-with-fallback-font/
+url: /zh/androidjava/render-presentation-with-fallback-font/
 ---
 
 以下示例包含以下步骤：
 
-1. 我们 [创建回退字体规则集合](/slides/androidjava/create-fallback-fonts-collection/)。
+1. 我们 [创建回退字体规则集合](/slides/zh/androidjava/create-fallback-fonts-collection/)。
 1. [移除](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) 一个回退字体规则并 [添加回退字体](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) 到另一个规则。
 1. 将规则集合设置为 [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--)。 [getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) 方法。
 1. 通过 [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) 方法，我们可以以相同格式保存演示文稿，或将其保存为其他格式。在回退字体规则集合设置为 [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) 之后，这些规则将在对演示文稿的任何操作中应用：保存、渲染、转换等。
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-阅读更多关于 [演示文稿中的保存与转换](/slides/androidjava/creating-saving-and-converting-a-presentation/) 的信息。
+阅读更多关于 [演示文稿中的保存与转换](/slides/zh/androidjava/creating-saving-and-converting-a-presentation/) 的信息。
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: 常见问题解答
 type: docs
 weight: 340
-url: /java/faqs/
+url: /zh/java/faqs/
 keywords:
 - 常见问题
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **问：Aspose.Slides for Java支持哪些文件格式？**
 
-**答：**Aspose.Slides for Java支持[支持的文件格式](/slides/java/supported-file-formats/)中描述的文件格式。
+**答：**Aspose.Slides for Java支持[支持的文件格式](/slides/zh/java/supported-file-formats/)中描述的文件格式。
 
 ## **异常**
 
@@ -54,7 +54,7 @@ keywords:
 
 **问：为什么在Windows和Linux操作系统上段落大小不同？**
 
-**答：**段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算是基于在PowerPoint演示文稿中指定的字体的度量。如果指定的字体缺失，它将被替换为最相似的字体，但该字体的度量与原始字体不同。因此，在不同系统中段落大小的计算结果会因安装的字体集而异。要在不同操作系统上实现相同的结果，您需要在系统上安装相同的字体，或在运行时将其加载为[外部字体](/slides/java/custom-font/)。
+**答：**段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算是基于在PowerPoint演示文稿中指定的字体的度量。如果指定的字体缺失，它将被替换为最相似的字体，但该字体的度量与原始字体不同。因此，在不同系统中段落大小的计算结果会因安装的字体集而异。要在不同操作系统上实现相同的结果，您需要在系统上安装相同的字体，或在运行时将其加载为[外部字体](/slides/zh/java/custom-font/)。
 
 ## **格式化和图像**
 

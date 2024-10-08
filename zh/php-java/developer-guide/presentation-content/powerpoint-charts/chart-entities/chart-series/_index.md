@@ -1,7 +1,7 @@
 ---
 title: 图表系列
 type: docs
-url: /php-java/chart-series/
+url: /zh/php-java/chart-series/
 keywords: "图表系列, 系列颜色, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint 演示文稿中的图表系列"
 ---

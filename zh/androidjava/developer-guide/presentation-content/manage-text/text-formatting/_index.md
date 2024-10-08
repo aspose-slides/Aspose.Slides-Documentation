@@ -2,7 +2,7 @@
 title: 文本格式化
 type: docs
 weight: 50
-url: /androidjava/text-formatting/
+url: /zh/androidjava/text-formatting/
 keywords:
 - 突出显示文本
 - 正则表达式

@@ -2,7 +2,7 @@
 title: 管理标签和自定义数据
 type: docs
 weight: 300
-url: /androidjava/managing-tags-and-custom-data
+url: /zh/androidjava/managing-tags-and-custom-data
 
 ---
 

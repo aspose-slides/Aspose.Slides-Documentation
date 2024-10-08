@@ -2,7 +2,7 @@
 title: 销售订单详情
 type: docs
 weight: 50
-url: /reportingservices/sales-order-detail/
+url: /zh/reportingservices/sales-order-detail/
 ---
 
 ## **功能：**

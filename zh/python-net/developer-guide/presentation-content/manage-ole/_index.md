@@ -2,7 +2,7 @@
 title: 管理 OLE
 type: docs
 weight: 40
-url: /python-net/manage-ole/
+url: /zh/python-net/manage-ole/
 keywords:
 - 添加 OLE
 - 嵌入 OLE

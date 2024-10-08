@@ -2,7 +2,7 @@
 title: 连接器
 type: docs
 weight: 10
-url: /java/connector/
+url: /zh/java/connector/
 keywords: "连接形状，连接器，PowerPoint 形状，PowerPoint 演示文稿，Java，Aspose.Slides for Java"
 description: "在 Java 中连接 PowerPoint 形状"
 ---
@@ -133,7 +133,7 @@ try {
 
 ## **调整连接器点**
 
-您可以通过其调整点调整现有连接器。只有具有调整点的连接器才能以这种方式更改。请参阅 **[连接器类型](/slides/java/connector/#types-of-connectors)** 下的表格。
+您可以通过其调整点调整现有连接器。只有具有调整点的连接器才能以这种方式更改。请参阅 **[连接器类型](/slides/zh/java/connector/#types-of-connectors)** 下的表格。
 
 #### **简单情况**
 
@@ -182,7 +182,7 @@ adj2.setRawValue(adj2.getRawValue() + 10000);
 * 调整点的值反映了连接器形状宽度/高度的百分比。 
   * 该形状由连接器的起点和终点乘以 1000 限定。 
   * 第一、第二和第三个点分别定义宽度百分比、高度百分比和宽度百分比（再一次）。
-* 在计算连接器调整点的坐标时，您必须考虑连接器的旋转及其反射。 **注意**，在 **[连接器类型](/slides/java/connector/#types-of-connectors)** 下显示的所有连接器的旋转角度为 0。
+* 在计算连接器调整点的坐标时，您必须考虑连接器的旋转及其反射。 **注意**，在 **[连接器类型](/slides/zh/java/connector/#types-of-connectors)** 下显示的所有连接器的旋转角度为 0。
 
 #### **情况 1**
 

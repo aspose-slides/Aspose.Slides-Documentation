@@ -2,7 +2,7 @@
 title: Aspose.Slides 产品系列
 type: docs
 weight: 10
-url: /
+url: /zh/
 keywords: "Aspose.Slides for .NET, Aspose Slides, Aspose PowerPoint, Aspose PPT, Aspose 文档."
 description: Aspose.Slides 是 Microsoft PowerPoint® 管理 API，使软件应用能够在不使用 Microsoft PowerPoint® 的情况下读取和写入 PowerPoint® 文档。
 ---
@@ -18,14 +18,14 @@ Aspose.Slides for .NET 是一个 Microsoft PowerPoint® 管理 API，使 .NET �
 {{% /alert %}}
 
 这些是一些有用资源的链接：
-- [Aspose.Slides for .NET 在线文档](/slides/net/)
-- [Aspose.Slides for .NET 功能](/slides/net/features-overview/)
-- [Aspose.Slides for .NET 限制](/slides/net/known-issues/)
+- [Aspose.Slides for .NET 在线文档](/slides/zh/net/)
+- [Aspose.Slides for .NET 功能](/slides/zh/net/features-overview/)
+- [Aspose.Slides for .NET 限制](/slides/zh/net/known-issues/)
 - [Aspose.Slides for .NET 发布说明](https://releases.aspose.com/slides/net/release-notes/)
 - [Aspose.Slides for .NET 产品页面](https://products.aspose.com/slides/net/)
 - [下载 Aspose.Slides for .NET 新版本](https://releases.aspose.com/slides/net/)
 - [下载 Aspose.Slides for .NET NuGet 包](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [安装 Aspose.Slides for .NET](/slides/net/installation/)
+- [安装 Aspose.Slides for .NET](/slides/zh/net/installation/)
 - [Aspose.Slides for .NET API 参考指南](https://reference.aspose.com/slides/net)
 - [在 GitHub 仓库下载示例](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [Aspose.Slides for .NET 免费支持论坛](https://forum.aspose.com/c/slides/11)
@@ -43,14 +43,14 @@ Aspose.Slides for Java 是一个 Microsoft PowerPoint® 管理 API，使 Java �
 
 这些是一些有用资源的链接：
 
-- [Aspose.Slides for Java 在线文档](/slides/java/)
-- [Aspose.Slides for Java 功能](/slides/java/features-overview/)
-- [Aspose.Slides for Java 限制](/slides/java/known-issues/)
+- [Aspose.Slides for Java 在线文档](/slides/zh/java/)
+- [Aspose.Slides for Java 功能](/slides/zh/java/features-overview/)
+- [Aspose.Slides for Java 限制](/slides/zh/java/known-issues/)
 - [Aspose.Slides for Java 发布说明](https://releases.aspose.com/slides/java/release-notes/)
 - [Aspose.Slides for Java 产品页面](https://products.aspose.com/slides/java/)
 - [下载 Aspose.Slides for Java](https://releases.aspose.com/slides/java/)
 - [Aspose.Slides for Java Maven 仓库](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [从 Maven 仓库安装 Aspose.Slides for Java](/slides/java/installation/)
+- [从 Maven 仓库安装 Aspose.Slides for Java](/slides/zh/java/installation/)
 - [Aspose.Slides for Java API 参考指南](https://reference.aspose.com/slides/java)
 - [在 GitHub 仓库下载示例](https://github.com/aspose-slides/Aspose.Slides-for-Java)
 - [Aspose.Slides for Java 免费支持论坛](https://forum.aspose.com/c/slides/11)
@@ -68,8 +68,8 @@ Aspose.Slides for C++ 是一个 Microsoft PowerPoint® 管理 API，使 C++ 应�
 
 这些是一些有用资源的链接：
 
-- [Aspose.Slides for C++ 在线文档](/slides/cpp/)
-- [Aspose.Slides for C++ 功能](/slides/cpp/features-overview/)
+- [Aspose.Slides for C++ 在线文档](/slides/zh/cpp/)
+- [Aspose.Slides for C++ 功能](/slides/zh/cpp/features-overview/)
 - [Aspose.Slides for C++ 发布说明](https://releases.aspose.com/slides/cpp/release-notes/)
 - [Aspose.Slides for C++ 产品页面](https://products.aspose.com/slides/cpp/)
 - [下载 Aspose.Slides for C++ 新版本](https://releases.aspose.com/slides/cpp/)
@@ -92,13 +92,13 @@ Aspose.Slides for Android via Java 是一个 Microsoft PowerPoint® 管理 API�
 
 这些是一些有用资源的链接：
 
-- [Aspose.Slides for Java 在线文档](/slides/java/)
-- [Aspose.Slides for Android via Java 功能](/slides/androidjava/aspose-slides-for-android-via-java-features/)
+- [Aspose.Slides for Java 在线文档](/slides/zh/java/)
+- [Aspose.Slides for Android via Java 功能](/slides/zh/androidjava/aspose-slides-for-android-via-java-features/)
 - [Aspose.Slides for Android via Java 发布说明](https://releases.aspose.com/slides/androidjava/release-notes/)
 - [Aspose.Slides for Android via Java 产品页面](https://products.aspose.com/slides/android-java/)
 - [下载 Aspose.Slides for Android via Java](https://releases.aspose.com/slides/androidjava/)
 - [Aspose.Slides for Android via Java Maven 仓库](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [安装 Aspose.Slides for Android via Java](/slides/androidjava/install-aspose-slides-for-android-via-java/)
+- [安装 Aspose.Slides for Android via Java](/slides/zh/androidjava/install-aspose-slides-for-android-via-java/)
 - [Aspose.Slides for Android via Java API 参考指南](https://reference.aspose.com/slides/java)
 - [Aspose.Slides for Android via Java 免费支持论坛](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Android via Java 付费支持帮助台](https://helpdesk.aspose.com/)
@@ -114,14 +114,14 @@ Aspose.Slides for Python via .NET 是一个类库，使您的应用能够在不�
 {{% /alert %}}
 
 这些是一些有用资源的链接：
-- [Aspose.Slides for Python via .NET 在线文档](/slides/python-net/)
-- [Aspose.Slides for Python via .NET 功能](/slides/python-net/features-overview/)
-- [Aspose.Slides for Python via .NET 限制](/slides/python-net/known-issues/)
+- [Aspose.Slides for Python via .NET 在线文档](/slides/zh/python-net/)
+- [Aspose.Slides for Python via .NET 功能](/slides/zh/python-net/features-overview/)
+- [Aspose.Slides for Python via .NET 限制](/slides/zh/python-net/known-issues/)
 - [Aspose.Slides for Python via .NET 发布说明](https://releases.aspose.com/slides/python-net/release-notes/)
 - [Aspose.Slides for Python via .NET 产品页面](https://products.aspose.com/slides/python-net/)
 - [下载 Aspose.Slides for Python via .NET](https://releases.aspose.com/slides/python-net/)
-- [安装 Aspose.Slides for Python via .NET](/slides/python-net/installation/)
-- [Aspose.Slides for Python via .NET API 参考指南](/slides/python-net/api-reference/)
+- [安装 Aspose.Slides for Python via .NET](/slides/zh/python-net/installation/)
+- [Aspose.Slides for Python via .NET API 参考指南](/slides/zh/python-net/api-reference/)
 - [Aspose.Slides for Python via .NET 免费支持论坛](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Python via .NET 付费支持帮助台](https://helpdesk.aspose.com/)
 
@@ -136,13 +136,13 @@ Aspose.Slides for Node.js via Java 是一个类库，使您的应用能够在不
 {{% /alert %}}
 
 这些是一些有用资源的链接：
-- [Aspose.Slides for Node.js via Java 在线文档](/slides/java/developer-guide/)
-- [Aspose.Slides for Node.js via Java 功能](/slides/nodejs-java/features-overview/)
-- [Aspose.Slides for Node.js via Java 限制和 API 差异](/slides/nodejs-java/limitations-and-api-differences/)
+- [Aspose.Slides for Node.js via Java 在线文档](/slides/zh/java/developer-guide/)
+- [Aspose.Slides for Node.js via Java 功能](/slides/zh/nodejs-java/features-overview/)
+- [Aspose.Slides for Node.js via Java 限制和 API 差异](/slides/zh/nodejs-java/limitations-and-api-differences/)
 - [Aspose.Slides for Node.js via Java 发布说明](https://releases.aspose.com/slides/nodejs-java/release-notes/)
 - [Aspose.Slides for Node.js via Java 产品页面](https://products.aspose.com/slides/nodejs-java/)
 - [下载 Aspose.Slides for Node.js via Java 包](https://releases.aspose.com/slides/nodejs-java/)
-- [安装 Aspose.Slides for Node.js via Java](/slides/nodejs-java/installation/)
+- [安装 Aspose.Slides for Node.js via Java](/slides/zh/nodejs-java/installation/)
 - [Aspose.Slides for Node.js via Java API 参考](https://reference.aspose.com/slides/nodejs-java/)
 - [Aspose.Slides for Node.js via Java 免费支持论坛](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Node.js via Java 付费支持帮助台](https://helpdesk.aspose.com/)
@@ -158,13 +158,13 @@ Aspose.Slides for PHP via Java 是一个类库，使您的应用能够在不使�
 {{% /alert %}}
 
 这些是一些有用资源的链接：
-- [Aspose.Slides for PHP via Java 在线文档](/slides/java/)
-- [Aspose.Slides for PHP via Java 功能](/slides/php-java/features-overview/)
-- [Aspose.Slides for PHP via Java 限制和 API 差异](/slides/php-java/limitations-and-api-differences/)
+- [Aspose.Slides for PHP via Java 在线文档](/slides/zh/java/)
+- [Aspose.Slides for PHP via Java 功能](/slides/zh/php-java/features-overview/)
+- [Aspose.Slides for PHP via Java 限制和 API 差异](/slides/zh/php-java/limitations-and-api-differences/)
 - [Aspose.Slides for PHP via Java 发布说明](https://releases.aspose.com/slides/php-java/release-notes/)
 - [Aspose.Slides for PHP via Java 产品页面](https://products.aspose.com/slides/php-java/)
 - [下载 Aspose.Slides for PHP via Java 包](https://releases.aspose.com/slides/php-java/)
-- [安装 Aspose.Slides for PHP via Java](/slides/php-java/installation/)
+- [安装 Aspose.Slides for PHP via Java](/slides/zh/php-java/installation/)
 - [Aspose.Slides for PHP via Java API 参考](https://docs.aspose.com/slides/php-java/api-reference/)
 - [Aspose.Slides for PHP via Java 免费支持论坛](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for PHP via Java 付费支持帮助台](https://helpdesk.aspose.com/)
@@ -181,8 +181,8 @@ Aspose.Slides for Reporting Services 是市场上唯一一个可以在 Microsoft
 
 这些是一些有用资源的链接：
 
-- [Aspose.Slides for Reporting Services 在线文档](/slides/reportingservices/)
-- [Aspose.Slides for Reporting Services 功能](/slides/reportingservices/features/)
+- [Aspose.Slides for Reporting Services 在线文档](/slides/zh/reportingservices/)
+- [Aspose.Slides for Reporting Services 功能](/slides/zh/reportingservices/features/)
 - [Aspose.Slides for Reporting Services 发布说明](https://releases.aspose.com/slides/reportingservices/release-notes/)
 - [Aspose.Slides for Reporting Services 产品页面](https://products.aspose.com/slides/reporting-services/)
 - [下载 Aspose.Slides for Reporting Services](https://releases.aspose.com/slides/reportingservices/)
@@ -201,8 +201,8 @@ Aspose.Slides for SharePoint 是一个灵活的解决方案，使您能够在 Mi
 
 这些是一些有用资源的链接：
 
-- [Aspose.Slides for SharePoint 在线文档](/slides/sharepoint/)
-- [Aspose.Slides for SharePoint 功能](/slides/sharepoint/features/)
+- [Aspose.Slides for SharePoint 在线文档](/slides/zh/sharepoint/)
+- [Aspose.Slides for SharePoint 功能](/slides/zh/sharepoint/features/)
 - [Aspose.Slides for SharePoint 发布说明](https://releases.aspose.com/slides/sharepoint/release-notes/)
 - [Aspose.Slides for SharePoint 产品页面](https://products.aspose.com/slides/sharepoint/)
 - [下载 Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/)
@@ -221,8 +221,8 @@ Aspose.Slides for JasperReports 是一个专为开发者设计和开发的类库
 
 这些是一些有用资源的链接：
 
-- [Aspose.Slides for JasperReports 在线文档](/slides/jasperreports/)
-- [Aspose.Slides for JasperReports 功能](/slides/jasperreports/features/)
+- [Aspose.Slides for JasperReports 在线文档](/slides/zh/jasperreports/)
+- [Aspose.Slides for JasperReports 功能](/slides/zh/jasperreports/features/)
 - [Aspose.Slides for JasperReports 发布说明](https://releases.aspose.com/slides/jasperreport/release-notes/)
 - [Aspose.Slides for JasperReports 产品页面](https://products.aspose.com/slides/jasperreports/)
 - [下载 Aspose.Slides for JasperReports](https://releases.aspose.com/slides/jasperreport/)

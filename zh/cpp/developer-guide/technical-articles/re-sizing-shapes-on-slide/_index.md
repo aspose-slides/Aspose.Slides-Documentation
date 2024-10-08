@@ -2,7 +2,7 @@
 title: 幻灯片上的形状调整大小
 type: docs
 weight: 100
-url: /cpp/re-sizing-shapes-on-slide/
+url: /zh/cpp/re-sizing-shapes-on-slide/
 ---
 
 #### **幻灯片上的形状调整大小**

@@ -2,7 +2,7 @@
 title: 许可
 type: docs
 weight: 90
-url: /java/licensing/
+url: /zh/java/licensing/
 ---
 
 ## **评估 Aspose.Slides**
@@ -40,7 +40,7 @@ url: /java/licensing/
 
 {{% alert color="primary" %}} 
 
-您可能想查看 [计量许可](/slides/java/metered-licensing/)。
+您可能想查看 [计量许可](/slides/zh/java/metered-licensing/)。
 
 {{% /alert %}} 
 
@@ -91,7 +91,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 ### **PHP/Java 桥接**
 
-如果您通过 Java 使用 Aspose.Slides for PHP，您可以通过 PHP/Java 桥接设置许可证。此桥接允许您在 PHP 语法中使用 Java 类。有关更多信息，请参见 [PHP 中的许可证](/slides/php-java/licensing/)。
+如果您通过 Java 使用 Aspose.Slides for PHP，您可以通过 PHP/Java 桥接设置许可证。此桥接允许您在 PHP 语法中使用 Java 类。有关更多信息，请参见 [PHP 中的许可证](/slides/zh/php-java/licensing/)。
 
 ## **验证许可证**
 

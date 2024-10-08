@@ -2,7 +2,7 @@
 title: API 限制
 type: docs
 weight: 210
-url: /python-net/api-limitations/
+url: /zh/python-net/api-limitations/
 ---
 
 ## **演示文稿和其他导出格式**

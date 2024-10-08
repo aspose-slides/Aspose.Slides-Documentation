@@ -4,7 +4,7 @@ second_title: Aspose.Slides 文档
 description: Aspose.Slides for C++ 是第一个也是唯一一个提供管理 PowerPoint® 文档功能的组件。
 type: docs
 weight: 30
-url: /cpp/
+url: /zh/cpp/
 is_root: true
 ---
 
@@ -22,8 +22,8 @@ Aspose.Slides for C++ 是一个 Microsoft PowerPoint® 管理 API，使 C++ 应�
 
 以下是一些有用资源的链接：
 
-- [Aspose.Slides for C++ 在线文档](/slides/cpp/)
-- [Aspose.Slides for C++ 功能](/slides/cpp/features-overview/)
+- [Aspose.Slides for C++ 在线文档](/slides/zh/cpp/)
+- [Aspose.Slides for C++ 功能](/slides/zh/cpp/features-overview/)
 - [Aspose.Slides for C++ 发布说明](https://releases.aspose.com/slides/cpp/release-notes/)
 - [Aspose.Slides for C++ 产品页面](https://products.aspose.com/slides/cpp/)
 - [下载 Aspose.Slides for C++](https://releases.aspose.com/slides/cpp/)

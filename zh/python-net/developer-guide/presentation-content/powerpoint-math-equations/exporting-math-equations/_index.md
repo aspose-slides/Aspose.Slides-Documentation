@@ -2,7 +2,7 @@
 title: 导出数学方程
 type: docs
 weight: 30
-url: /python-net/exporting-math-equations/
+url: /zh/python-net/exporting-math-equations/
 keywords: "导出数学方程, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中导出 PowerPoint 数学方程"
 ---

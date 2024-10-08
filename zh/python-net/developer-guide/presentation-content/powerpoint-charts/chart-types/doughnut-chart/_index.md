@@ -2,7 +2,7 @@
 title: 饼图
 type: docs
 weight: 30
-url: /python-net/doughnut-chart/
+url: /zh/python-net/doughnut-chart/
 keywords: "饼图, 中心间隙, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 的 PowerPoint 演示文稿中指定饼图的中心间隙"
 ---

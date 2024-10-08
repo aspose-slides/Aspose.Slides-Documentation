@@ -2,7 +2,7 @@
 title: 图表工作表公式
 type: docs
 weight: 70
-url: /python-net/chart-worksheet-formulas/
+url: /zh/python-net/chart-worksheet-formulas/
 keywords: "图表电子表格, 图表公式, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python中的PowerPoint演示文稿中的图表电子表格和公式"
 ---

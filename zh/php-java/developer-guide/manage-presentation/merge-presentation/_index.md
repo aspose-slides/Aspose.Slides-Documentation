@@ -2,7 +2,7 @@
 title: 合并演示文稿
 type: docs
 weight: 40
-url: /php-java/merge-presentation/
+url: /zh/php-java/merge-presentation/
 keywords: "合并 PowerPoint, PPTX, PPT, 结合 PowerPoint, 合并演示文稿, 结合演示文稿, Java"
 description: "合并或结合 PowerPoint 演示文稿"
 ---

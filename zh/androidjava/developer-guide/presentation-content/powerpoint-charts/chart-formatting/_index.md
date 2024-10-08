@@ -2,7 +2,7 @@
 title: 图表格式化
 type: docs
 weight: 60
-url: /androidjava/chart-formatting/
+url: /zh/androidjava/chart-formatting/
 ---
 
 ## **格式化图表元素**

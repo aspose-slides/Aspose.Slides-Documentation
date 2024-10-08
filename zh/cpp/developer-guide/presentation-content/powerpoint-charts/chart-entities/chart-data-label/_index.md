@@ -1,7 +1,7 @@
 ---
 title: 图表数据标签
 type: docs
-url: /cpp/chart-data-label/
+url: /zh/cpp/chart-data-label/
 keywords: "图表数据标签,标签距离,C++,CPP,Aspose.Slides for C++"
 description: "在C++中设置PowerPoint图表数据标签和距离"
 ---

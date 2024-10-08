@@ -2,7 +2,7 @@
 title: 演示文稿备注
 type: docs
 weight: 110
-url: /androidjava/presentation-notes/
+url: /zh/androidjava/presentation-notes/
 keywords: "Java中的PowerPoint发言者备注"
 description: "演示文稿备注，Java中的发言者备注"
 ---

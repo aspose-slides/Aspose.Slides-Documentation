@@ -2,7 +2,7 @@
 title: 将幻灯片渲染为SVG图像
 type: docs
 weight: 50
-url: /php-java/render-a-slide-as-an-svg-image/
+url: /zh/php-java/render-a-slide-as-an-svg-image/
 ---
 
 SVG（可缩放矢量图形的缩写）是一种标准图形类型或格式，用于渲染二维图像。SVG以XML格式存储图像作为矢量，并包含定义其行为或外观的详细信息。

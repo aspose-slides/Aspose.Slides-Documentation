@@ -2,7 +2,7 @@
 title: 检查演示文稿
 type: docs
 weight: 30
-url: /androidjava/examine-presentation/
+url: /zh/androidjava/examine-presentation/
 keywords:
 - PowerPoint
 - 演示文稿

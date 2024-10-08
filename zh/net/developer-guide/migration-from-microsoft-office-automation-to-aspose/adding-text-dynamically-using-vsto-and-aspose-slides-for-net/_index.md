@@ -2,12 +2,12 @@
 title: 使用 VSTO 和 Aspose.Slides for .NET 动态添加文本
 type: docs
 weight: 20
-url: /net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
+url: /zh/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
 ---
 
 {{% alert color="primary" %}} 
 
-开发人员常常需要完成的一项任务是动态地向幻灯片添加文本。本文展示了使用 [VSTO](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) 和 [Aspose.Slides for .NET](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) 动态添加文本的代码示例。
+开发人员常常需要完成的一项任务是动态地向幻灯片添加文本。本文展示了使用 [VSTO](/slides/zh/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) 和 [Aspose.Slides for .NET](/slides/zh/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) 动态添加文本的代码示例。
 
 {{% /alert %}} 
 ## **动态添加文本**

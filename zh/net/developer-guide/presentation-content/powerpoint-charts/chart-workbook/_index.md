@@ -2,7 +2,7 @@
 title: 图表工作簿
 type: docs
 weight: 70
-url: /net/chart-workbook/
+url: /zh/net/chart-workbook/
 keywords: "图表工作簿, 图表数据, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "C#或.NET中的PowerPoint演示文稿中的图表工作簿"
 ---

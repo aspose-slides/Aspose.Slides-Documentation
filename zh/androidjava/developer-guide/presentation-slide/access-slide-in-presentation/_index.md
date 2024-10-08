@@ -2,7 +2,7 @@
 title: 在演示文稿中访问幻灯片
 type: docs
 weight: 20
-url: /androidjava/access-slide-in-presentation/
+url: /zh/androidjava/access-slide-in-presentation/
 keywords: "访问 PowerPoint 演示文稿，访问幻灯片，编辑幻灯片属性，改变幻灯片位置，设置幻灯片编号，索引，ID，位置 Java，Aspose.Slides"
 description: "通过索引、ID 或位置在 Java 中访问 PowerPoint 幻灯片。编辑幻灯片属性"
 ---

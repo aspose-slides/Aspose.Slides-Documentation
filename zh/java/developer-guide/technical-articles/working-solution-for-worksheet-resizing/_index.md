@@ -2,7 +2,7 @@
 title: 工作表调整大小的解决方案
 type: docs
 weight: 20
-url: /java/working-solution-for-worksheet-resizing/
+url: /zh/java/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /java/working-solution-for-worksheet-resizing/
 
 {{% /alert %}} 
 ## **背景**
-在[添加OLE框架的文章]()中，我们解释了如何使用Aspose.Slides for Java在PowerPoint演示文稿中添加OLE框架。为了处理[对象更改问题](/slides/java/object-changed-issue-when-adding-oleobjectframe/)，我们将所选区域的工作表图像分配给图表OLE对象框架。在输出的演示文稿中，当我们双击显示工作表图像的OLE对象框架时，Excel图表会被激活。最终用户可以对实际的Excel工作簿进行任何所需的更改，然后通过点击激活的Excel工作簿外部返回到相关幻灯片。当用户返回到幻灯片时，OLE对象框架的大小会发生变化。对于不同大小的OLE对象框架和嵌入的Excel工作簿，调整大小的因素将是不同的。
+在[添加OLE框架的文章]()中，我们解释了如何使用Aspose.Slides for Java在PowerPoint演示文稿中添加OLE框架。为了处理[对象更改问题](/slides/zh/java/object-changed-issue-when-adding-oleobjectframe/)，我们将所选区域的工作表图像分配给图表OLE对象框架。在输出的演示文稿中，当我们双击显示工作表图像的OLE对象框架时，Excel图表会被激活。最终用户可以对实际的Excel工作簿进行任何所需的更改，然后通过点击激活的Excel工作簿外部返回到相关幻灯片。当用户返回到幻灯片时，OLE对象框架的大小会发生变化。对于不同大小的OLE对象框架和嵌入的Excel工作簿，调整大小的因素将是不同的。
 ## **调整大小的原因**
 由于Excel工作簿具有自己的窗口大小，它会尝试在第一次激活时保持其原始大小。另一方面，OLE对象框架将有其自己的大小。根据微软的说法，在激活Excel工作簿时，Excel和PowerPoint会协商大小，并确保它按照嵌入操作的要求保持正确比例。根据Excel窗口的大小与OLE对象框架的大小/位置之间的差异，将发生调整大小。
 ## **解决方案**

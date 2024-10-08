@@ -3,7 +3,7 @@ title: 许可
 description: "Aspose.Slides for PHP via Java 提供不同的购买计划，或提供免费试用和 30 天临时许可证供评估使用授权和订阅政策。"
 type: docs
 weight: 80
-url: /php-java/licensing/
+url: /zh/php-java/licensing/
 ---
 
 有时，为了获得最佳的评估结果，可能需要动手实践。因此，Aspose.Slides 提供了不同的购买计划，并且还提供免费试用和 30 天临时许可证供评估。

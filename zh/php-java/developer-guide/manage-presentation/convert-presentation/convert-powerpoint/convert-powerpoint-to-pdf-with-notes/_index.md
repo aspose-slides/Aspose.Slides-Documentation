@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 PDF 附注
 type: docs
 weight: 50
-url: /php-java/convert-powerpoint-to-pdf-with-notes/
+url: /zh/php-java/convert-powerpoint-to-pdf-with-notes/
 keywords: "在 java 中将 powerpoint 转换为带附注的 pdf"
 description: "将 PowerPoint 转换为带附注的 PDF"
 ---

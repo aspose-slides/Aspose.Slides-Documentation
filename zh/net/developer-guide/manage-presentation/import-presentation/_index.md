@@ -3,7 +3,7 @@ title: 从 PDF 或 HTML 导入 PowerPoint
 linktitle: 导入演示文稿
 type: docs
 weight: 60
-url: /net/import-presentation/
+url: /zh/net/import-presentation/
 keywords: "导入 PowerPoint, PDF 转 PowerPoint, HTML 转 PowerPoint, PDF 转 PPT, HTML 转 PPT, C#, Csharp, Aspose.Slides for .NET"
 description: "从 PDF 或 HTML 导入 PowerPoint。将 PDF 转换为 PowerPoint。将 HTML 转换为 PowerPoint"
 ---

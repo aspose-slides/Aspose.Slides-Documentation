@@ -2,7 +2,7 @@
 title: 综合 RDL 支持
 type: docs
 weight: 30
-url: /reportingservices/comprehensive-rdl-support/
+url: /zh/reportingservices/comprehensive-rdl-support/
 ---
 
 {{% alert color="primary" %}} 
@@ -36,4 +36,4 @@ Aspose.Slides for Reporting Services 支持以下 RDL 元素：
 
 ![todo:image_alt_text](comprehensive-rdl-support_2.png)
 
-有关更多示例报告，请参见 [报告示例图库](/slides/reportingservices/sample-reports-gallery/) 部分。 
+有关更多示例报告，请参见 [报告示例图库](/slides/zh/reportingservices/sample-reports-gallery/) 部分。 

@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /net/activex/
+url: /zh/net/activex/
 keywords: "ActiveX, ActiveX 控件, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中管理 PowerPoint 演示文稿中的 ActiveX 控件"
 ---

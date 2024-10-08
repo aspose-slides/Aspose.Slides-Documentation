@@ -2,7 +2,7 @@
 title: PPTX 中图表大小调整的有效解决方案
 type: docs
 weight: 60
-url: /cpp/working-solution-for-chart-resizing-in-pptx/
+url: /zh/cpp/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

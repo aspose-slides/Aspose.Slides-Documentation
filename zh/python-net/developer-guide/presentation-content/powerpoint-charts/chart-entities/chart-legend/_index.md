@@ -1,7 +1,7 @@
 ---
 title: 图表图例
 type: docs
-url: /python-net/chart-legend/
+url: /zh/python-net/chart-legend/
 keywords: "图表图例, 图例字体大小, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "设置 PowerPoint 演示文稿中图表图例的位置和字体大小"
 ---

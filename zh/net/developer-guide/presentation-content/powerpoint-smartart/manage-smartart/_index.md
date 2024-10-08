@@ -2,7 +2,7 @@
 title: 管理 SmartArt
 type: docs
 weight: 10
-url: /net/manage-smartart/
+url: /zh/net/manage-smartart/
 keywords: "SmartArt, SmartArt 文本, 组织类型图表, 图片组织图表, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中使用 PowerPoint 演示文稿中的 SmartArt 和组织类型图表"
 ---

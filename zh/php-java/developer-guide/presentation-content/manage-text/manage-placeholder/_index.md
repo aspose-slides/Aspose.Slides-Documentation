@@ -2,12 +2,12 @@
 title: 管理占位符
 type: docs
 weight: 10
-url: /php-java/manage-placeholder/
+url: /zh/php-java/manage-placeholder/
 description: 使用PHP更改PowerPoint幻灯片中占位符的文本。使用PHP在PowerPoint幻灯片中设置占位符的提示文本。
 ---
 
 ## **更改占位符中的文本**
-使用 [Aspose.Slides for PHP via Java](/slides/php-java/)，您可以查找并修改演示文稿中幻灯片上的占位符。Aspose.Slides允许您更改占位符中的文本。
+使用 [Aspose.Slides for PHP via Java](/slides/zh/php-java/)，您可以查找并修改演示文稿中幻灯片上的占位符。Aspose.Slides允许您更改占位符中的文本。
 
 **前提条件**：您需要一个包含占位符的演示文稿。您可以在标准的Microsoft PowerPoint应用程序中创建这样的演示文稿。
 

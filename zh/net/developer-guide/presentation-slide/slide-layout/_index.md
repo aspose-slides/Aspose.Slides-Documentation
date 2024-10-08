@@ -2,7 +2,7 @@
 title: 幻灯片布局
 type: docs
 weight: 60
-url: /net/slide-layout/
+url: /zh/net/slide-layout/
 keyword: "设置幻灯片大小，设置幻灯片选项，指定幻灯片大小，页脚可见性，子页脚，内容缩放，页面大小，C#，Csharp，.NET，Aspose.Slides"
 description: "在C#或.NET中设置PowerPoint幻灯片大小和选项"
 ---

@@ -1,7 +1,7 @@
 ---
 title: 3D 图表
 type: docs
-url: /androidjava/3d-chart/
+url: /zh/androidjava/3d-chart/
 ---
 
 ## **设置 3D 图表的 RotationX、RotationY 和 DepthPercents 属性**

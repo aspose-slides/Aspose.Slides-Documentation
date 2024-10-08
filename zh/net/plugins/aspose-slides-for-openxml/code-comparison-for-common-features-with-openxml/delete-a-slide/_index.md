@@ -2,7 +2,7 @@
 title: 删除幻灯片
 type: docs
 weight: 80
-url: /net/delete-a-slide/
+url: /zh/net/delete-a-slide/
 ---
 
 ## **OpenXML SDK**

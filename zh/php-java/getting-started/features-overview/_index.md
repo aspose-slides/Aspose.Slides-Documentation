@@ -2,7 +2,7 @@
 title: 特性概述
 type: docs
 weight: 20
-url: /php-java/features-overview/
+url: /zh/php-java/features-overview/
 ---
 
 ## **支持的平台**

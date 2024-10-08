@@ -2,7 +2,7 @@
 title: 许可错误
 type: docs
 weight: 95
-url: /java/licensing-bug/
+url: /zh/java/licensing-bug/
 ---
 
 本文描述了在 Aspose.Slides for Java 版本 23.2、23.3、23.4、23.5、23.6 和 23.7 中遇到的许可错误。该错误导致在订阅到期后，永久许可暂时变得无法使用。

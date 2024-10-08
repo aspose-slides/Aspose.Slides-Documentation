@@ -2,7 +2,7 @@
 title: 导入演示文稿
 type: docs
 weight: 60
-url: /androidjava/import-presentation/
+url: /zh/androidjava/import-presentation/
 keywords: "导入 PowerPoint, PDF 到演示文稿, PDF 转 PPTX, PDF 转 PPT, Java, Aspose.Slides for Android via Java"
 description: "从 PDF 导入 PowerPoint 演示文稿。将 PDF 转换为 PowerPoint"
 ---

@@ -2,7 +2,7 @@
 title: PowerPoint 动画
 type: docs
 weight: 150
-url: /net/powerpoint-animation/
+url: /zh/net/powerpoint-animation/
 keywords: "动画, 动画效果, PowerPoint 动画, 动画时间线, 互动动画, 形状动画, 动画图表, 动画文本, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "PowerPoint 演示文稿中的动画和效果，使用 C# 或 .NET"
 ---
@@ -48,19 +48,19 @@ Aspose.Slides 支持 **150+ 动画效果**，包括基本的动画效果，如 B
 Aspose.Slides 允许将动画应用于形状，这实际上可以是文本、矩形、线条、框架、OLE 对象等。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于形状动画**](/slides/net/shape-animation/)。
+阅读更多 [**关于形状动画**](/slides/zh/net/shape-animation/)。
 {{% /alert %}}
 
 ## **动画图表**
 要创建动画图表，您应使用与形状相同的所有类。然而，PowerPoint 动画只能应用于图表类别或图表系列。您还可以对分类元素或系列元素应用动画效果。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画图表**](/slides/net/animated-charts/)。
+阅读更多 [**关于动画图表**](/slides/zh/net/animated-charts/)。
 {{% /alert %}}
 
 ## **动画文本**
 除了动画文本外，还可以对段落应用动画。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画文本**](/slides/net/animated-text/)。
+阅读更多 [**关于动画文本**](/slides/zh/net/animated-text/)。
 {{% /alert %}}

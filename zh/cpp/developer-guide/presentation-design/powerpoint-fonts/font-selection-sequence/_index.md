@@ -3,7 +3,7 @@ title: C++ 中的字体选择顺序
 linktitle: C++ 中的字体选择顺序
 type: docs
 weight: 80
-url: /cpp/font-selection-sequence/
+url: /zh/cpp/font-selection-sequence/
 keywords:
 - 字体
 - 字体选择

@@ -2,7 +2,7 @@
 title: 自定义形状
 type: docs
 weight: 20
-url: /php-java/custom-shape/
+url: /zh/php-java/custom-shape/
 keywords: "PowerPoint 形状，自定义形状，PowerPoint 演示文稿，Java，Aspose.Slides for PHP via Java"
 description: "在 PowerPoint 演示文稿中添加自定义形状"
 ---

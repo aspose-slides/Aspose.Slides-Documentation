@@ -1,7 +1,7 @@
 ---
 title: 图表绘图区
 type: docs
-url: /net/chart-plot-area/
+url: /zh/net/chart-plot-area/
 keywords: "图表绘图区 PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "获取图表绘图区的宽度和高度。设置布局模式。C# 或 .NET 中的 PowerPoint 演示文稿"
 ---

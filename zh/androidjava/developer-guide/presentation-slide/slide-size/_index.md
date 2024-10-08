@@ -2,7 +2,7 @@
 title: 幻灯片大小
 type: docs
 weight: 70
-url: /androidjava/slide-size/
+url: /zh/androidjava/slide-size/
 
 ---
 

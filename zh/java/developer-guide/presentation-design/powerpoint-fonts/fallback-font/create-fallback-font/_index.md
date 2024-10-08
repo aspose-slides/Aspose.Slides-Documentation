@@ -2,7 +2,7 @@
 title: 创建备用字体
 type: docs
 weight: 10
-url: /java/create-fallback-font/
+url: /zh/java/create-fallback-font/
 ---
 
 Aspose.Slides 支持 [IFontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRule) 接口和 [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) 类来指定应用备用字体的规则。[FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) 类表示用于搜索缺失字形的指定 Unicode 范围与可能包含适当字形的字体列表之间的关联：
@@ -25,5 +25,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) 可用于组织多个 [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) 对象的列表，当需要为多个 Unicode 范围指定备用字体替换规则时。
 
 {{% alert color="primary" title="另请参阅" %}} 
-- [创建备用字体集合](/slides/java/create-fallback-fonts-collection/)
+- [创建备用字体集合](/slides/zh/java/create-fallback-fonts-collection/)
 {{% /alert %}}

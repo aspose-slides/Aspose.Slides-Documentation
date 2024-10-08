@@ -2,7 +2,7 @@
 title: 创建分页报告  
 type: docs  
 weight: 100  
-url: /reportingservices/paginated-reports/  
+url: /zh/reportingservices/paginated-reports/  
 keywords: "创建分页报告, Power BI, Aspose.Slides for Reporting Services"  
 description: "创建分页报告"  
 ---  

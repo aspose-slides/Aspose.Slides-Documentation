@@ -2,7 +2,7 @@
 title: 创建新演示文稿
 type: docs
 weight: 10
-url: /php-java/create-a-new-presentation/
+url: /zh/php-java/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for PHP via Java是一个可以用来操作Microsoft PowerPoint演
 
 {{% /alert %}} 
 ## **创建演示文稿**
-以下是两个代码示例，说明如何使用VSTO和Aspose.Slides for PHP via Java来实现相同的目标。第一个示例是[VSTO](/slides/php-java/create-a-new-presentation/)；[第二个示例](/slides/php-java/create-a-new-presentation/)使用Aspose.Slides。
+以下是两个代码示例，说明如何使用VSTO和Aspose.Slides for PHP via Java来实现相同的目标。第一个示例是[VSTO](/slides/zh/php-java/create-a-new-presentation/)；[第二个示例](/slides/zh/php-java/create-a-new-presentation/)使用Aspose.Slides。
 ### **VSTO示例**
 **VSTO输出** 
 

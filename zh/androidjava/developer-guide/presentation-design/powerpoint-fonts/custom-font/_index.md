@@ -3,7 +3,7 @@ title: 在Java中自定义PowerPoint字体
 linktitle: 自定义字体
 type: docs
 weight: 20
-url: /androidjava/custom-font/
+url: /zh/androidjava/custom-font/
 keywords: "字体，自定义字体，PowerPoint演示，Java，Aspose.Slides for Android via Java"
 description: "Java中的PowerPoint自定义字体"
 ---

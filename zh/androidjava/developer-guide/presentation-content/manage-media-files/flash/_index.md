@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /androidjava/flash/
+url: /zh/androidjava/flash/
 description: 使用 Java 从 PowerPoint 演示文稿中提取 Flash 对象
 ---
 

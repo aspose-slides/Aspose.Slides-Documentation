@@ -2,5 +2,5 @@
 title: 管理文本
 type: docs
 weight: 50
-url: /python-net/manage-text/
+url: /zh/python-net/manage-text/
 ---

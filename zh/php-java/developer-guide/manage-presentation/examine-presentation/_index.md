@@ -2,7 +2,7 @@
 title: 检查演示文稿
 type: docs
 weight: 30
-url: /php-java/examine-presentation/
+url: /zh/php-java/examine-presentation/
 keywords:
 - PowerPoint
 - 演示文稿

@@ -2,16 +2,16 @@
 title: 从演示文稿中提取文本
 type: docs
 weight: 60
-url: /cpp/extracting-text-from-the-presentation/
+url: /zh/cpp/extracting-text-from-the-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 开发者提取演示文稿中的文本并不罕见。为此，您需要从演示文稿中所有幻灯片的所有形状中提取文本。本文解释了如何使用 Aspose.Slides 从 Microsoft PowerPoint PPTX 演示文稿中提取文本。可以通过以下方式提取文本：
 
-[从单个幻灯片提取文本](/slides/cpp/extracting-text-from-the-presentation/)
-[使用 GetAllTextBoxes 方法提取文本](/slides/cpp/extracting-text-from-the-presentation/)
-[分类和快速提取文本](/slides/cpp/extracting-text-from-the-presentation/)
+[从单个幻灯片提取文本](/slides/zh/cpp/extracting-text-from-the-presentation/)
+[使用 GetAllTextBoxes 方法提取文本](/slides/zh/cpp/extracting-text-from-the-presentation/)
+[分类和快速提取文本](/slides/zh/cpp/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **从幻灯片中提取文本**

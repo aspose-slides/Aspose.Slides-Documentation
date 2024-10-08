@@ -1,7 +1,7 @@
 ---
 title: 气泡图
 type: docs
-url: /net/bubble-chart/
+url: /zh/net/bubble-chart/
 keywords: "气泡图, 图表大小, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中的 PowerPoint 演示文稿中的气泡图大小"
 ---

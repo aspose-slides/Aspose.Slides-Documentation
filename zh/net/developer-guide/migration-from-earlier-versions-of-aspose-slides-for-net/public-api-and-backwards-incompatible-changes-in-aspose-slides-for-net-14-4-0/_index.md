@@ -2,7 +2,7 @@
 title: Aspose.Slides for .NET 14.4.0 的公共 API 和不兼容的更改
 type: docs
 weight: 60
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-4-0/
+url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-4-0/
 ---
 
 ## **公共 API 和不兼容的更改**

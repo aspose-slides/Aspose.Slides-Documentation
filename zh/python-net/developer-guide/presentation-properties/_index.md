@@ -2,7 +2,7 @@
 title: 演示文稿属性
 type: docs
 weight: 70
-url: /python-net/presentation-properties/
+url: /zh/python-net/presentation-properties/
 keywords: "PowerPoint 属性, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中的 PowerPoint 演示文稿属性"
 ---

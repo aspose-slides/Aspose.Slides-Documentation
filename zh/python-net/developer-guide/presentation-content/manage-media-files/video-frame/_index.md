@@ -2,7 +2,7 @@
 title: 视频框架
 type: docs
 weight: 10
-url: /python-net/video-frame/
+url: /zh/python-net/video-frame/
 keywords: "添加视频，创建视频框架，提取视频，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加视频框架"
 ---

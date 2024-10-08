@@ -2,12 +2,12 @@
 title: 在 Microsoft PowerPoint 演示文稿中创建图表
 type: docs
 weight: 80
-url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /zh/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- 图表是数据的可视化表示，广泛用于演示文稿。本文展示了如何通过使用 [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) 和 [Aspose.Slides for .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) 程序化地在 Microsoft PowerPoint 中创建图表的代码。
+ 图表是数据的可视化表示，广泛用于演示文稿。本文展示了如何通过使用 [VSTO](/slides/zh/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) 和 [Aspose.Slides for .NET](/slides/zh/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) 程序化地在 Microsoft PowerPoint 中创建图表的代码。
 
 {{% /alert %}} 
 ## **创建图表**

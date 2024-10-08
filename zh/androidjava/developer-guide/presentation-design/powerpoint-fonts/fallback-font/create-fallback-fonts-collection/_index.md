@@ -2,12 +2,12 @@
 title: 创建回退字体集合
 type: docs
 weight: 20
-url: /androidjava/create-fallback-fonts-collection/
+url: /zh/androidjava/create-fallback-fonts-collection/
 ---
 
 [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) 类的实例可以组织成 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection)，它实现了 [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection) 接口。可以从集合中添加或移除规则。
 
-然后，可以将此集合分配给 [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) 类的 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) 方法。FontsManager 控制演示文稿中的字体。了解更多信息请查看 [关于 FontsManager 和 FontsLoader](/slides/androidjava/about-fontsmanager-and-fontsloader/)。
+然后，可以将此集合分配给 [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) 类的 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) 方法。FontsManager 控制演示文稿中的字体。了解更多信息请查看 [关于 FontsManager 和 FontsLoader](/slides/zh/androidjava/about-fontsmanager-and-fontsloader/)。
 
 每个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 都有一个 [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) 方法，拥有自己实例的 [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) 类。
 
@@ -30,5 +30,5 @@ try {
 在将 FontsManager 初始化为回退字体集合后，回退字体将在演示文稿呈现期间应用。
 
 {{% alert color="primary" %}} 
-了解更多关于 [使用回退字体呈现演示文稿](/slides/androidjava/render-presentation-with-fallback-font/) 的信息。
+了解更多关于 [使用回退字体呈现演示文稿](/slides/zh/androidjava/render-presentation-with-fallback-font/) 的信息。
 {{% /alert %}}

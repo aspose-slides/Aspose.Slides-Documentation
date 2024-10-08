@@ -1,7 +1,7 @@
 ---
 title: 图表系列
 type: docs
-url: /cpp/chart-series/
+url: /zh/cpp/chart-series/
 ---
 
 系列是绘制在图表中的一行或一列数字。

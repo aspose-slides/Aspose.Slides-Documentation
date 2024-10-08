@@ -2,7 +2,7 @@
 title: 演示评论
 type: docs
 weight: 100
-url: /python-net/presentation-comments/
+url: /zh/python-net/presentation-comments/
 keywords: "评论, PowerPoint 评论, PowerPoint 演示, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中的 PowerPoint 演示中添加评论和回复"
 ---

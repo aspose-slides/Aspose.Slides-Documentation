@@ -2,7 +2,7 @@
 title: 删除作者的所有评论
 type: docs
 weight: 70
-url: /net/delete-all-the-comments-by-an-author/
+url: /zh/net/delete-all-the-comments-by-an-author/
 ---
 
 ## **OpenXML SDK**

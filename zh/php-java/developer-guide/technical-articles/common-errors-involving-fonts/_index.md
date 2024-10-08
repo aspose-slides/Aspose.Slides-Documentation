@@ -2,7 +2,7 @@
 title: 在Linux上与字体有关的常见异常和错误
 type: docs
 weight: 200
-url: /php-java/technical-articles/common-errors-involving-fonts
+url: /zh/php-java/technical-articles/common-errors-involving-fonts
 keywords: "字体异常, 字体错误, Linux, Java, Aspose.Slides for PHP via Java"
 description: "Linux上的字体异常和错误"
 ---

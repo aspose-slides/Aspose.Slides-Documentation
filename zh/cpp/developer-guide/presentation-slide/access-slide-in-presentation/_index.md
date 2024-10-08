@@ -2,7 +2,7 @@
 title: 访问演示文稿中的幻灯片
 type: docs
 weight: 20
-url: /cpp/access-slide-in-presentation/
+url: /zh/cpp/access-slide-in-presentation/
 keywords: "访问 PowerPoint 演示文稿, 访问幻灯片, 编辑幻灯片属性, 更改幻灯片位置, 设置幻灯片编号, 索引, ID, 位置 C++, CPP, Aspose.Slides"
 description: "通过索引、ID 或位置访问 PowerPoint 幻灯片。编辑幻灯片属性"
 ---

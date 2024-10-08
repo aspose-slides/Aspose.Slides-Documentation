@@ -2,7 +2,7 @@
 title: 获取整个演示文稿幻灯片背景作为图像
 type: docs
 weight: 95
-url: /net/get-the-entire-presentation-slide-background-as-an-image/
+url: /zh/net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - 幻灯片
 - 背景
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides for .NET
 ---
 
-在 PowerPoint 演示文稿中，幻灯片背景可以由许多元素组成。除了设置为 [幻灯片背景](/slides/net/presentation-background/) 的图像外，最终背景还会受到演示主题、配色方案以及主幻灯片和布局幻灯片中放置的形状的影响。
+在 PowerPoint 演示文稿中，幻灯片背景可以由许多元素组成。除了设置为 [幻灯片背景](/slides/zh/net/presentation-background/) 的图像外，最终背景还会受到演示主题、配色方案以及主幻灯片和布局幻灯片中放置的形状的影响。
 
 Aspose.Slides for .NET 并未提供简单的方法来提取整个演示文稿幻灯片背景作为图像，但您可以按照以下步骤进行操作：
 1. 使用 [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) 类加载演示文稿。

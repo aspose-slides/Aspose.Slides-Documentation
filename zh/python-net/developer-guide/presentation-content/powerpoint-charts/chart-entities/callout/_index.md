@@ -1,7 +1,7 @@
 ---
 title: Callout
 type: docs
-url: /python-net/callout/
+url: /zh/python-net/callout/
 keywords: "图表调用, 图表数据标签, Python, Aspose.Slides for Python via .NET"
 description: "Python中的PowerPoint图表调用和数据标签"
 ---

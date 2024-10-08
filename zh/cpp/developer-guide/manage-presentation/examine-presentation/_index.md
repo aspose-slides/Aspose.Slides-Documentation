@@ -3,7 +3,7 @@ title: 检查演示文稿 - C++ PowerPoint API
 linktitle: 检查演示文稿
 type: docs
 weight: 30
-url: /cpp/examine-presentation/
+url: /zh/cpp/examine-presentation/
 keywords:
 - PowerPoint
 - 演示文稿

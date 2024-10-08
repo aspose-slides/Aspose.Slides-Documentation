@@ -2,7 +2,7 @@
 title: 形状格式化
 type: docs
 weight: 20
-url: /net/shape-formatting/
+url: /zh/net/shape-formatting/
 keywords:
 - 格式化形状
 - 格式化线条

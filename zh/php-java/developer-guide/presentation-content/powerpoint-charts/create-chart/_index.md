@@ -3,7 +3,7 @@ title: 创建或更新 PowerPoint 演示文稿图表
 linktitle: 创建图表
 type: docs
 weight: 10
-url: /php-java/create-chart/
+url: /zh/php-java/create-chart/
 keywords: "创建图表, 散点图, 饼图, 树状图, 股票图, 箱形图, 直方图, 漏斗图, 日冕图, 多类别图, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "在 PowerPoint 演示文稿中创建图表"
 ---

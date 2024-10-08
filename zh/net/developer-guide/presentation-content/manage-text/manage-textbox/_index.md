@@ -2,7 +2,7 @@
 title: 管理文本框
 type: docs
 weight: 20
-url: /net/manage-textbox/
+url: /zh/net/manage-textbox/
 keywords: "文本框, 文本框架, 添加文本框, 带超链接的文本框, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加文本框或文本框架"
 ---

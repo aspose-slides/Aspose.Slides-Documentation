@@ -2,7 +2,7 @@
 title: 组
 type: docs
 weight: 40
-url: /cpp/group/
+url: /zh/cpp/group/
 ---
 
 ## **添加组形状**

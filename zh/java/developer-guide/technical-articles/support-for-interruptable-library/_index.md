@@ -2,7 +2,7 @@
 title: 可中断库的支持
 type: docs
 weight: 120
-url: /java/support-for-interruptable-library/
+url: /zh/java/support-for-interruptable-library/
 ---
 
 ## **可中断库**

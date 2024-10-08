@@ -1,7 +1,7 @@
 ---
 title: 气泡图
 type: docs
-url: /cpp/bubble-chart/
+url: /zh/cpp/bubble-chart/
 ---
 
 ## **气泡图大小缩放**

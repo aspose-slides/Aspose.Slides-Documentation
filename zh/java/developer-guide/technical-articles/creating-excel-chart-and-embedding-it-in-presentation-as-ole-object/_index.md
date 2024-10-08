@@ -2,7 +2,7 @@
 title: 创建 Excel 图表并将其嵌入为 OLE 对象
 type: docs
 weight: 30
-url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /zh/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 
 {{% /alert %}} 
 ## **相关部分**
-[图表调整大小的工作解决方案](/slides/java/working-solution-for-chart-resizing-in-pptx/)
+[图表调整大小的工作解决方案](/slides/zh/java/working-solution-for-chart-resizing-in-pptx/)
 
-[对象更改问题](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[对象更改问题](/slides/zh/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

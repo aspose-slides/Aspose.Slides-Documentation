@@ -2,7 +2,7 @@
 title: 创建后备字体
 type: docs
 weight: 10
-url: /cpp/create-fallback-font/
+url: /zh/cpp/create-fallback-font/
 ---
 
 Aspose.Slides 支持 [IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) 接口和 [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) 类来指定应用后备字体的规则。 [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) 类表示指定 Unicode 范围（用于搜索缺失的字形）与可能包含合适字形的字体列表之间的关联：
@@ -27,5 +27,5 @@ auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), st
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) 可用于组织 [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) 对象列表，需要为多个 Unicode 范围指定后备字体替换规则时使用。
 
 {{% alert color="primary" title="另见" %}} 
-- [创建后备字体集合](/slides/cpp/create-fallback-fonts-collection/)
+- [创建后备字体集合](/slides/zh/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}

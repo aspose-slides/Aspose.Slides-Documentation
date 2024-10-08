@@ -2,7 +2,7 @@
 title: 直线
 type: docs
 weight: 50
-url: /php-java/Line/
+url: /zh/php-java/Line/
 ---
 
 

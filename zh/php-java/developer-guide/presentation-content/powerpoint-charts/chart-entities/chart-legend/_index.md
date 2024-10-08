@@ -1,7 +1,7 @@
 ---
 title: 图例位置
 type: docs
-url: /php-java/chart-legend/
+url: /zh/php-java/chart-legend/
 ---
 
 ## **图例定位**

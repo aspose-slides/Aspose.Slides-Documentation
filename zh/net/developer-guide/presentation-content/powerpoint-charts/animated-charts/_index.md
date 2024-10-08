@@ -2,7 +2,7 @@
 title: 动画图表
 type: docs
 weight: 80
-url: /net/animated-charts/
+url: /zh/net/animated-charts/
 keywords: "图表, 图表系列, 动画PPT演示文稿, PPTX, PPT, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中使用PowerPoint图表系列和动画"
 ---

@@ -2,7 +2,7 @@
 title: 为什么不使用 Open XML SDK
 type: docs
 weight: 120
-url: /php-java/why-not-open-xml-sdk/
+url: /zh/php-java/why-not-open-xml-sdk/
 ---
 
 {{% alert color="primary" %}} 
@@ -30,7 +30,7 @@ Aspose.Slides 是一个类库，允许您的应用程序执行以下演示处理
 - 支持添加动画、OLE 框架、表格，创建和管理图表。
 - 提供广泛的控制，以管理文本框、段落和部分级别的文本格式。
 
-有关支持的功能的更多详细信息，请访问 [Aspose.Slides 功能](/slides/php-java/product-overview/)。
+有关支持的功能的更多详细信息，请访问 [Aspose.Slides 功能](/slides/zh/php-java/product-overview/)。
 ## **比较 Open XML SDK 和 Aspose.Slides**
 {{% alert color="primary" %}} 
 

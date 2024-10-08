@@ -2,7 +2,7 @@
 title: 系统要求
 type: docs
 weight: 80
-url: /java/system-requirements/
+url: /zh/java/system-requirements/
 ---
 
 ## **概述**

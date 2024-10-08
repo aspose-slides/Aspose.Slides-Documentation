@@ -2,7 +2,7 @@
 title: 克隆幻灯片
 type: docs
 weight: 40
-url: /net/clone-slides/
+url: /zh/net/clone-slides/
 keywords: "克隆幻灯片, 复制幻灯片, 保存幻灯片副本, PowerPoint, 演示文稿, C#, Csharp, .NET, Aspose.Slides"
 description: "在 C# 或 .NET 中克隆 PowerPoint 幻灯片"
 ---

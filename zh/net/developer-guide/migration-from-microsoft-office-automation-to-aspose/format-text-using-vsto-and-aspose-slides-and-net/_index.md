@@ -2,12 +2,12 @@
 title: 使用 VSTO 和 Aspose.Slides 以及 .NET 格式化文本
 type: docs
 weight: 30
-url: /net/format-text-using-vsto-and-aspose-slides-and-net/
+url: /zh/net/format-text-using-vsto-and-aspose-slides-and-net/
 ---
 
 {{% alert color="primary" %}} 
 
-有时，您需要以编程方式格式化幻灯片上的文本。本文展示如何使用 [VSTO](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/) 和 [Aspose.Slides for .NET](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/) 读取第一张幻灯片上的示例演示文稿。代码将第三个文本框中的文本格式化为最后一个文本框中的文本样式。
+有时，您需要以编程方式格式化幻灯片上的文本。本文展示如何使用 [VSTO](/slides/zh/net/format-text-using-vsto-and-aspose-slides-and-net/) 和 [Aspose.Slides for .NET](/slides/zh/net/format-text-using-vsto-and-aspose-slides-and-net/) 读取第一张幻灯片上的示例演示文稿。代码将第三个文本框中的文本格式化为最后一个文本框中的文本样式。
 
 {{% /alert %}} 
 ## **格式化文本**

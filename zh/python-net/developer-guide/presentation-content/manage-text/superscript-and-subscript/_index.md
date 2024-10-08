@@ -2,7 +2,7 @@
 title: 上标和下标
 type: docs
 weight: 80
-url: /python-net/superscript-and-subscript/
+url: /zh/python-net/superscript-and-subscript/
 keywords: "上标, 下标, 添加上标文本, 添加下标文本, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加上标和下标文本"
 ---

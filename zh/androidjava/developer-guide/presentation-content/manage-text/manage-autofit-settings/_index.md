@@ -2,7 +2,7 @@
 title: 管理自适应设置
 type: docs
 weight: 30
-url: /androidjava/manage-autofit-settings/
+url: /zh/androidjava/manage-autofit-settings/
 keywords: "文本框, 自适应, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中设置 PowerPoint 中文本框的自适应设置"
 ---

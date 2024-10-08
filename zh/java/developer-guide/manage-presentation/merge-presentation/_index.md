@@ -2,7 +2,7 @@
 title: 合并演示文稿
 type: docs
 weight: 40
-url: /java/merge-presentation/
+url: /zh/java/merge-presentation/
 keywords: "合并 PowerPoint, PPTX, PPT, 合并 PowerPoint, 合并演示文稿, Java"
 description: "在 Java 中合并或组合 PowerPoint 演示文稿"
 ---

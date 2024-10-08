@@ -3,7 +3,7 @@ title: 字体选择顺序
 linktitle: 字体选择顺序
 type: docs
 weight: 80
-url: /php-java/font-selection-sequence/
+url: /zh/php-java/font-selection-sequence/
 keywords: "字体, 字体选择, 字体替换, 字体更换, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: PowerPoint 字体选择顺序
 ---

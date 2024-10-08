@@ -2,7 +2,7 @@
 title: 3D 演示文稿
 type: docs
 weight: 232
-url: /python-net/3d-presentation/
+url: /zh/python-net/3d-presentation/
 keywords:
 - 3D
 - 3D PowerPoint

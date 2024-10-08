@@ -3,7 +3,7 @@ title: 字体替换 - PowerPoint Java API
 linktitle: 字体替换
 type: docs
 weight: 60
-url: /java/font-replacement/
+url: /zh/java/font-replacement/
 description: 学习如何使用 Java API 在 PowerPoint 中使用显式替换方法替换字体。
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="注意" color="warning" %}} 
 
-要设置在某些条件下（例如，当无法访问某种字体时）将发生的情况的规则，请参阅 [**字体替代**](/slides/java/font-substitution/)。 
+要设置在某些条件下（例如，当无法访问某种字体时）将发生的情况的规则，请参阅 [**字体替代**](/slides/zh/java/font-substitution/)。 
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: API 限制
 type: docs
 weight: 320
-url: /androidjava/api-limitations/
+url: /zh/androidjava/api-limitations/
 ---
 
 ## **演示和其他导出格式**

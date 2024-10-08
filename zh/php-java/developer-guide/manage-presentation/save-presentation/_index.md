@@ -2,13 +2,13 @@
 title: 保存演示文稿
 type: docs
 weight: 80
-url: /php-java/save-presentation/
+url: /zh/php-java/save-presentation/
 ---
 
 ## **概述**
 {{% alert color="primary" %}} 
 
-[打开演示文稿](/slides/php-java/open-presentation/) 描述了如何使用 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类打开演示文稿。本文解释了如何创建和保存演示文稿。
+[打开演示文稿](/slides/zh/php-java/open-presentation/) 描述了如何使用 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类打开演示文稿。本文解释了如何创建和保存演示文稿。
 
 {{% /alert %}} 
 

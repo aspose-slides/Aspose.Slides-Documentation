@@ -2,7 +2,7 @@
 title: 演示文稿本地化
 type: docs
 weight: 100
-url: /androidjava/presentation-localization/
+url: /zh/androidjava/presentation-localization/
 ---
 
 ## **更改演示文稿和形状文本的语言**

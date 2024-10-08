@@ -2,7 +2,7 @@
 title: 导出为 HTML5
 type: docs
 weight: 40
-url: /python-net/export-to-html5/
+url: /zh/python-net/export-to-html5/
 keywords:
 - PowerPoint 到 HTML
 - 幻灯片到 HTML
@@ -18,7 +18,7 @@ description: "在 Python 中将 PowerPoint 导出为 HTML5"
 
 {{% alert title="信息" color="info" %}}
 
-在 **Aspose.Slides 21.9** 中，我们实现了对 HTML5 导出的支持。但是，如果您更喜欢使用 Web 扩展将 PowerPoint 导出为 HTML，请参阅 [这篇文章](/slides/net/web-extensions/)。
+在 **Aspose.Slides 21.9** 中，我们实现了对 HTML5 导出的支持。但是，如果您更喜欢使用 Web 扩展将 PowerPoint 导出为 HTML，请参阅 [这篇文章](/slides/zh/net/web-extensions/)。
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: 管理墨水
 type: docs
 weight: 95
-url: /net/manage-ink/
+url: /zh/net/manage-ink/
 keywords: "PowerPoint中的墨水，墨水工具，C#墨水，在PowerPoint中绘图，PowerPoint演示文稿，C#，Csharp，Aspose.Slides for .NET"
 description: "使用墨水工具在PowerPoint C#中绘制对象"
 ---

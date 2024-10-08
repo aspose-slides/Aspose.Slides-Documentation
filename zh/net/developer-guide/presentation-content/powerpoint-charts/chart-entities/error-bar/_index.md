@@ -1,7 +1,7 @@
 ---
 title: 错误条
 type: docs
-url: /net/error-bar/
+url: /zh/net/error-bar/
 keywords: "错误条, 错误条值 PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加错误条"
 ---

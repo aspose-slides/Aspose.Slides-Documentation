@@ -2,14 +2,14 @@
 title: 演示主题
 type: docs
 weight: 10
-url: /php-java/presentation-theme/
+url: /zh/php-java/presentation-theme/
 keywords: "主题, PowerPoint 主题, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "PowerPoint 演示文稿主题"
 ---
 
 演示主题定义了设计元素的属性。当您选择一个演示主题时，您实际上是选择了一组特定的视觉元素及其属性。
 
-在 PowerPoint 中，主题包含颜色、[字体](/slides/php-java/powerpoint-fonts/)、[背景样式](/slides/php-java/presentation-background/)和效果。
+在 PowerPoint 中，主题包含颜色、[字体](/slides/zh/php-java/powerpoint-fonts/)、[背景样式](/slides/zh/php-java/presentation-background/)和效果。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -141,7 +141,7 @@ PowerPoint 主题为幻灯片上的不同元素使用一组特定的颜色。如
 
 {{% alert color="primary" title="提示" %}} 
 
-您可能想查看 [PowerPoint 字体](/slides/php-java/powerpoint-fonts/)。
+您可能想查看 [PowerPoint 字体](/slides/zh/php-java/powerpoint-fonts/)。
 
 {{% /alert %}}
 
@@ -182,7 +182,7 @@ PowerPoint 主题为幻灯片上的不同元素使用一组特定的颜色。如
 
 {{% alert color="primary" title="提示" %}} 
 
-您可能想查看 [PowerPoint 背景](/slides/php-java/presentation-background/)。
+您可能想查看 [PowerPoint 背景](/slides/zh/php-java/presentation-background/)。
 
 {{% /alert %}}
 

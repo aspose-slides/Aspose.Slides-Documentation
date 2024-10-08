@@ -3,7 +3,7 @@ title: 许可信息
 description: "Aspose.Slides for Node.js via .NET 提供不同的购买计划，或提供免费试用和 30 天临时许可证以供评估，遵循许可和订阅政策。"
 type: docs
 weight: 80
-url: /nodejs-net/licensing/
+url: /zh/nodejs-net/licensing/
 ---
 
 有时，为获得最佳评估结果，可能需要动手实践。因此，Aspose.Slides 提供不同的购买计划，同时也提供免费试用和 30 天临时许可证以供评估。

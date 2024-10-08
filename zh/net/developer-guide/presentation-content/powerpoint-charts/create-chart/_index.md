@@ -3,7 +3,7 @@ title: 在C#或.NET中创建或更新PowerPoint演示文稿图表
 linktitle: 创建或更新图表
 type: docs
 weight: 10
-url: /net/create-chart/
+url: /zh/net/create-chart/
 keywords: "创建图表,散点图,饼图,树形图,股票图,箱形图,直方图,漏斗图,日出图,多类别图, PowerPoint演示, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中创建PowerPoint演示文稿中的图表"
 ---

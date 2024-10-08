@@ -2,12 +2,12 @@
 title: 形状效果
 type: docs
 weight: 30
-url: /net/shape-effect
+url: /zh/net/shape-effect
 keywords: "形状效果，PowerPoint 演示文稿 C#，Csharp，Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中对 PowerPoint 形状应用效果"
 ---
 
-虽然 PowerPoint 中的效果可以使形状突出，但它们与 [填充](/slides/net/shape-formatting/#gradient-fill) 或轮廓不同。使用 PowerPoint 效果，您可以在形状上创建令人信服的反射、扩散形状的光晕等。
+虽然 PowerPoint 中的效果可以使形状突出，但它们与 [填充](/slides/zh/net/shape-formatting/#gradient-fill) 或轮廓不同。使用 PowerPoint 效果，您可以在形状上创建令人信服的反射、扩散形状的光晕等。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

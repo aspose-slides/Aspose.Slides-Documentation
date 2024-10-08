@@ -2,7 +2,7 @@
 title: 形状有效属性
 type: docs
 weight: 50
-url: /net/shape-effective-properties/
+url: /zh/net/shape-effective-properties/
 keywords: "形状属性, 相机属性, 灯光设备, 倾斜形状, 文本框, 文本样式, 字体高度值, 表格填充格式, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中获取 PowerPoint 演示文稿中的有效形状属性"
 ---

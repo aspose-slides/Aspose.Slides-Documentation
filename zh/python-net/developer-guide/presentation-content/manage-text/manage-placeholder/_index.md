@@ -2,14 +2,14 @@
 title: 管理占位符
 type: docs
 weight: 10
-url: /python-net/manage-placeholder/
+url: /zh/python-net/manage-placeholder/
 keywords: "占位符, 占位符文本, 提示文本, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中更改PowerPoint演示文稿中的占位符文本和提示文本"
 ---
 
 ## **更改占位符中的文本**
 
-使用 [Aspose.Slides for Python via .NET](/slides/python-net/)，您可以查找和修改演示文稿中幻灯片上的占位符。Aspose.Slides 允许您更改占位符中的文本。
+使用 [Aspose.Slides for Python via .NET](/slides/zh/python-net/)，您可以查找和修改演示文稿中幻灯片上的占位符。Aspose.Slides 允许您更改占位符中的文本。
 
 **先决条件**：您需要一个包含占位符的演示文稿。您可以在标准的Microsoft PowerPoint应用程序中创建这样的演示文稿。
 

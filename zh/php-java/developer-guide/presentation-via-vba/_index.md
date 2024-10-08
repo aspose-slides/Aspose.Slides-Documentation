@@ -2,7 +2,7 @@
 title: 通过 VBA 演示文稿
 type: docs
 weight: 250
-url: /php-java/presentation-via-vba/
+url: /zh/php-java/presentation-via-vba/
 keywords: "宏, 宏, VBA, VBA 宏, 添加宏, 移除宏, 添加 VBA, 移除 VBA, 提取宏, 提取 VBA, PowerPoint 宏, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "在 PowerPoint 演示文稿中添加、移除和提取 VBA 宏"
 ---

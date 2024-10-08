@@ -2,7 +2,7 @@
 title: 评估 Aspose.Slides
 type: docs
 weight: 120
-url: /python-net/evaluate-aspose-slides/
+url: /zh/python-net/evaluate-aspose-slides/
 ---
 
 您可以轻松下载 Aspose.Slides 以进行评估。评估包与购买的包相同。评估版本只需在代码中添加几行来应用许可证即可变为授权。

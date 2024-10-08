@@ -2,7 +2,7 @@
 title: PPT vs PPTX
 type: docs
 weight: 10
-url: /net/ppt-vs-pptx/
+url: /zh/net/ppt-vs-pptx/
 keywords: "PPT vs PPTX, PPT 或 PPTX, PowerPoint 演示文稿, 格式, C#, Csharp, .NET"
 description: "关于 PowerPoint 演示文稿格式。PPT vs PPTX。C# 或 .NET 中的差异"
 ---
@@ -35,5 +35,5 @@ pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="primary" %}} 
-阅读更多 [**如何将演示文稿从 PPT 转换为 PPTX**.](/slides/net/convert-ppt-to-pptx/)
+阅读更多 [**如何将演示文稿从 PPT 转换为 PPTX**.](/slides/zh/net/convert-ppt-to-pptx/)
 {{% /alert %}} 

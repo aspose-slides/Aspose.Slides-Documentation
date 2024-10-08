@@ -2,7 +2,7 @@
 title: 转换幻灯片
 type: docs
 weight: 35
-url: /java/convert-slide/
+url: /zh/java/convert-slide/
 keywords: 
 - 将幻灯片转换为图像
 - 将幻灯片导出为图像

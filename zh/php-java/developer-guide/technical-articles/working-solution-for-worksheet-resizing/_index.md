@@ -2,7 +2,7 @@
 title: 工作表调整大小的有效解决方案
 type: docs
 weight: 20
-url: /php-java/working-solution-for-worksheet-resizing/
+url: /zh/php-java/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /php-java/working-solution-for-worksheet-resizing/
 
 {{% /alert %}} 
 ## **背景**
-在 [添加 Ole 框架文章]() 中，我们解释了如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中添加 Ole 框架。为了适应 [对象改变问题](/slides/php-java/object-changed-issue-when-adding-oleobjectframe/)，我们将选定区域的工作表图像分配给图表 OLE 对象框。在输出演示文稿中，当我们双击显示工作表图像的 OLE 对象框时，Excel 图表被激活。最终用户可以在实际的 Excel 工作簿中进行任何所需的更改，然后通过点击激活的 Excel 工作簿外部返回到相关幻灯片。当用户返回幻灯片时，OLE 对象框的大小会发生变化。对于不同大小的 OLE 对象框和嵌入的 Excel 工作簿，调整大小的因子将会不同。
+在 [添加 Ole 框架文章]() 中，我们解释了如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中添加 Ole 框架。为了适应 [对象改变问题](/slides/zh/php-java/object-changed-issue-when-adding-oleobjectframe/)，我们将选定区域的工作表图像分配给图表 OLE 对象框。在输出演示文稿中，当我们双击显示工作表图像的 OLE 对象框时，Excel 图表被激活。最终用户可以在实际的 Excel 工作簿中进行任何所需的更改，然后通过点击激活的 Excel 工作簿外部返回到相关幻灯片。当用户返回幻灯片时，OLE 对象框的大小会发生变化。对于不同大小的 OLE 对象框和嵌入的 Excel 工作簿，调整大小的因子将会不同。
 ## **调整大小的原因**
 由于 Excel 工作簿具有其自己的窗口大小，它在第一次激活时会尝试保持原始大小。另一方面，OLE 对象框会有其自己的大小。根据微软的说法，在激活 Excel 工作簿时，Excel 和 PowerPoint 会协商大小，并确保它在嵌入操作中处于正确的比例。根据 Excel 窗口大小与 OLE 对象框大小/位置的差异，会发生调整大小。
 ## **有效解决方案**

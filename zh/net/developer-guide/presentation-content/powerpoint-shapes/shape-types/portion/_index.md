@@ -2,7 +2,7 @@
 title: 部分
 type: docs
 weight: 70
-url: /net/portion/
+url: /zh/net/portion/
 keywords: "部分, PowerPoint 形状, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中获取 PowerPoint 演示文稿中的部分"
 ---

@@ -2,7 +2,7 @@
 title: 管理缩放
 type: docs
 weight: 60
-url: /net/manage-zoom/
+url: /zh/net/manage-zoom/
 keywords: 
 - 缩放
 - 缩放帧

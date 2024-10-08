@@ -2,7 +2,7 @@
 title: 导入演示文稿
 type: docs
 weight: 60
-url: /java/import-presentation/
+url: /zh/java/import-presentation/
 keywords: "导入 PowerPoint，PDF 到演示文稿，PDF 到 PPTX，PDF 到 PPT，Java，Aspose.Slides for Java"
 description: "从 PDF 导入 PowerPoint 演示文稿。将 PDF 转换为 PowerPoint"
 ---

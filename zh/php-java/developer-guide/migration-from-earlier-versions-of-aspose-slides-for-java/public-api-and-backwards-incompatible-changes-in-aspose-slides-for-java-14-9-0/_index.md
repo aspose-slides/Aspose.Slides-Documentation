@@ -2,12 +2,12 @@
 title: Aspose.Slides for PHP via Java 14.9.0 中的公共 API 和不兼容的变更
 type: docs
 weight: 80
-url: /php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/
+url: /zh/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/
 ---
 
 {{% alert color="primary" %}} 
 
-本页面列出了与 Aspose.Slides for PHP via Java 14.9.0 API 一起引入的所有 [添加的](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) 类、方法、属性等、任何新的限制和其他 [变更](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/)。
+本页面列出了与 Aspose.Slides for PHP via Java 14.9.0 API 一起引入的所有 [添加的](/slides/zh/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/) 类、方法、属性等、任何新的限制和其他 [变更](/slides/zh/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-9-0/)。
 
 {{% /alert %}} 
 ## **公共 API 变更**

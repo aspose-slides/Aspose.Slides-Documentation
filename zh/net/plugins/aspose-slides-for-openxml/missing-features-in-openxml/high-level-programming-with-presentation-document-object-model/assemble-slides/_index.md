@@ -2,7 +2,7 @@
 title: 汇编幻灯片
 type: docs
 weight: 10
-url: /net/assemble-slides/
+url: /zh/net/assemble-slides/
 ---
 
 它涵盖以下功能：

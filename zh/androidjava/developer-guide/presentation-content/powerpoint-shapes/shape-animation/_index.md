@@ -2,7 +2,7 @@
 title: 形状动画
 type: docs
 weight: 60
-url: /androidjava/shape-animation/
+url: /zh/androidjava/shape-animation/
 keywords: "PowerPoint 动画, 动画效果, 应用动画, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中应用 PowerPoint 动画"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-除了将动画应用于文本，您还可以将动画应用于单个 [段落](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph)。 请参见 [**动画文本**](/slides/androidjava/animated-text/)。
+除了将动画应用于文本，您还可以将动画应用于单个 [段落](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph)。 请参见 [**动画文本**](/slides/zh/androidjava/animated-text/)。
 
 {{% /alert %}} 
 

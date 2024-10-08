@@ -2,7 +2,7 @@
 title: PowerPoint 中的数字签名
 type: docs
 weight: 10
-url: /net/digital-signature-in-powerpoint/
+url: /zh/net/digital-signature-in-powerpoint/
 keywords: "数字签名证书, 证书颁发机构, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 PowerPoint 中添加数字签名或证书。C# 或 .NET 中的证书颁发机构"
 ---

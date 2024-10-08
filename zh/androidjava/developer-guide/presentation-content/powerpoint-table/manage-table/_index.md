@@ -2,7 +2,7 @@
 title: 管理表格
 type: docs
 weight: 10
-url: /androidjava/manage-table/
+url: /zh/androidjava/manage-table/
 keywords: "表格，创建表格，访问表格，表格宽高比，PowerPoint 演示文稿，Java，Aspose.Slides for Android via Java"
 description: "在 Java 中创建和管理 PowerPoint 演示文稿中的表格"
 ---

@@ -2,7 +2,7 @@
 title: 图表格式
 type: docs
 weight: 60
-url: /python-net/chart-formatting/
+url: /zh/python-net/chart-formatting/
 keywords: "图表实体, 图表属性, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中格式化PowerPoint演示文稿中的图表实体"
 ---

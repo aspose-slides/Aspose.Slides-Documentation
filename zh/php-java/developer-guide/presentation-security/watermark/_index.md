@@ -2,7 +2,7 @@
 title: 水印
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /zh/php-java/watermark/
 keywords:
 - 水印
 - 添加水印
@@ -49,7 +49,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="另请参阅" %}} 
-- [如何使用 TextFrame 类](/slides/php-java/text-formatting/)
+- [如何使用 TextFrame 类](/slides/zh/php-java/text-formatting/)
 {{% /alert %}}
 
 ### **向演示文稿添加文本水印**
@@ -69,7 +69,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="另请参阅" %}} 
-- [如何使用幻灯片母版](/slides/php-java/slide-master/)
+- [如何使用幻灯片母版](/slides/zh/php-java/slide-master/)
 {{% /alert %}}
 
 ### **设置水印形状透明度**

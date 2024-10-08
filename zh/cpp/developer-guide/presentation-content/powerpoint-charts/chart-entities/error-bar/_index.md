@@ -1,7 +1,7 @@
 ---
 title: 误差线
 type: docs
-url: /cpp/error-bar/
+url: /zh/cpp/error-bar/
 ---
 
 ## **添加误差线**

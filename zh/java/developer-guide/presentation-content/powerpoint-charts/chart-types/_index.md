@@ -2,5 +2,5 @@
 title: 图表类型
 type: docs
 weight: 20
-url: /java/chart-types/
+url: /zh/java/chart-types/
 ---

@@ -2,7 +2,7 @@
 title: 图片框
 type: docs
 weight: 10
-url: /net/picture-frame/
+url: /zh/net/picture-frame/
 keywords: 
 - 添加图片框
 - 创建图片框

@@ -2,7 +2,7 @@
 title: 新的 HTML 导出系统 - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
-url: /net/web-extensions/
+url: /zh/net/web-extensions/
 keywords: "导出 PowerPoint HTML, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中导出 PowerPoint HTML"
 ---
@@ -414,4 +414,4 @@ using (Presentation pres = new Presentation())
 这就是你从 PDF 文档生成带有动画页面过渡的 HTML 所需的一切。
 
 * [下载示例 HTML 文件](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).
-* [下载示例项目](/slides/net/web-extensions/sample.zip).
+* [下载示例项目](/slides/zh/net/web-extensions/sample.zip).

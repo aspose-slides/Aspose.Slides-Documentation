@@ -2,7 +2,7 @@
 title: 管理 PowerPoint 段落
 type: docs
 weight: 40
-url: /php-java/manage-paragraph/
+url: /zh/php-java/manage-paragraph/
 keywords: "添加 PowerPoint 段落, 管理段落, 段落缩进, 段落属性, HTML 文本, 导出段落文本, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "创建和管理 PowerPoint 演示文稿中的段落、文本、缩进和属性"
 ---

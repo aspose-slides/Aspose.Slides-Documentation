@@ -2,7 +2,7 @@
 title: 线
 type: docs
 weight: 50
-url: /net/Line/
+url: /zh/net/Line/
 keywords: "线，PowerPoint形状，PowerPoint演示文稿，C#，Csharp，Aspose.Slides for .NET"
 description: "在C#或.NET中向PowerPoint演示文稿添加线条"
 ---

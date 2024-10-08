@@ -2,7 +2,7 @@
 title: 管理 SmartArt
 type: docs
 weight: 10
-url: /androidjava/manage-smartart/
+url: /zh/androidjava/manage-smartart/
 ---
 
 ## **从 SmartArt 中获取文本**

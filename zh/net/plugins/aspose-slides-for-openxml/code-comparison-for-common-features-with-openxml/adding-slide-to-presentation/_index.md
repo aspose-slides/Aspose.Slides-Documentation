@@ -2,7 +2,7 @@
 title: 添加幻灯片到演示文稿
 type: docs
 weight: 20
-url: /net/adding-slide-to-presentation/
+url: /zh/net/adding-slide-to-presentation/
 ---
 
 ## **OpenXML 演示文稿**

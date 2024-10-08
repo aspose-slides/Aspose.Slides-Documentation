@@ -3,7 +3,7 @@ title: 保存演示文稿 - C++ PowerPoint 库
 linktitle: 保存演示文稿
 type: docs
 weight: 80
-url: /cpp/save-presentation/
+url: /zh/cpp/save-presentation/
 description: C++ PowerPoint API 或库允许您将演示文稿保存到文件或流中。您可以从头开始创建演示文稿或修改现有演示文稿。
 ---
 

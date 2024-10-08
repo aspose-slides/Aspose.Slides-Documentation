@@ -2,7 +2,7 @@
 title: 嵌入式字体
 type: docs
 weight: 40
-url: /cpp/embedded-font/
+url: /zh/cpp/embedded-font/
 keywords: "字体, 嵌入式字体, 添加字体, PowerPoint 演示文稿 C++, CPP, Aspose.Slides for C++"
 description: "在 C++ 中使用 PowerPoint 演示文稿中的嵌入式字体"
 ---

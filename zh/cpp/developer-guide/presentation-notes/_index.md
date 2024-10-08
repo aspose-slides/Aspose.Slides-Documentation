@@ -2,7 +2,7 @@
 title: 演示文稿备注
 type: docs
 weight: 110
-url: /cpp/presentation-notes/
+url: /zh/cpp/presentation-notes/
 keywords: "PowerPoint 演示文稿发言者备注"
 ---
 

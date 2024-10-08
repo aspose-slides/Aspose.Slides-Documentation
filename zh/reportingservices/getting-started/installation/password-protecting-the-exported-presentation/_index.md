@@ -2,7 +2,7 @@
 title: 保护导出演示文稿的密码
 type: docs
 weight: 90
-url: /reportingservices/password-protecting-the-exported-presentation/
+url: /zh/reportingservices/password-protecting-the-exported-presentation/
 ---
 
 {{% alert color="primary" %}} 

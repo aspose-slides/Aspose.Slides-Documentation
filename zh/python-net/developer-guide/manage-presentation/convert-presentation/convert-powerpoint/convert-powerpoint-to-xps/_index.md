@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 XPS 
 type: docs
 weight: 70
-url: /python-net/convert-powerpoint-to-xps
+url: /zh/python-net/convert-powerpoint-to-xps
 keywords: "转换 PowerPoint 演示文稿, PowerPoint 转 XPS, PPT 转 XPS, PPTX 转 XPS, 转换, Python, Aspose.Slides"
 description: "在 Python 中将 PowerPoint 演示文稿转换为 XPS。"
 ---

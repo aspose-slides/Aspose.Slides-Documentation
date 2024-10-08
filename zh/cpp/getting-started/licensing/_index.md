@@ -2,7 +2,7 @@
 title: 许可证
 type: docs
 weight: 120
-url: /cpp/licensing/
+url: /zh/cpp/licensing/
 ---
 
 ## **评估 Aspose.Slides**

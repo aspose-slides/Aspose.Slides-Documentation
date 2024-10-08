@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /php-java/flash/
+url: /zh/php-java/flash/
 description: 使用PHP从PowerPoint演示文稿中提取Flash对象
 ---
 

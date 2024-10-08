@@ -4,7 +4,7 @@ second_title: "Aspose.Slides 文档"
 description: Aspose.Slides for .NET 是一个 Microsoft PowerPoint® 管理 API，使 .NET 应用程序能够读取和写入 PowerPoint® 文档，而无需使用 Microsoft PowerPoint®。
 type: docs
 weight: 10
-url: /net/
+url: /zh/net/
 is_root: true
 ---
 
@@ -26,9 +26,9 @@ Aspose.Slides for .NET 提供许多关键功能，例如管理文本、形状、
 
 以下是一些有用资源的链接：
 
-- [Aspose.Slides for .NET 在线文档](/slides/net/)
-- [Aspose.Slides for .NET 特性](/slides/net/features-overview/)
-- [Aspose.Slides for .NET 限制](/slides/net/known-issues/)
+- [Aspose.Slides for .NET 在线文档](/slides/zh/net/)
+- [Aspose.Slides for .NET 特性](/slides/zh/net/features-overview/)
+- [Aspose.Slides for .NET 限制](/slides/zh/net/known-issues/)
 - [Aspose.Slides for .NET 发布说明](https://releases.aspose.com/slides/net/release-notes/)
 - [Aspose.Slides for .NET 产品页面](https://products.aspose.com/slides/net/)
 - [下载 Aspose.Slides for .NET](https://releases.aspose.com/slides/net/)

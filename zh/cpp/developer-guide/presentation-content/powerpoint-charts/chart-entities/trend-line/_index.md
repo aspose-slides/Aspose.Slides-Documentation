@@ -1,7 +1,7 @@
 ---
 title: 趋势线
 type: docs
-url: /cpp/trend-line/
+url: /zh/cpp/trend-line/
 ---
 
 ## **添加趋势线**

@@ -2,7 +2,7 @@
 title: 转换一个文件
 type: docs
 weight: 10
-url: /sharepoint/convert-one-file/
+url: /zh/sharepoint/convert-one-file/
 ---
 
 要在文档库中转换文档：

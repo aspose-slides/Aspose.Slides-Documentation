@@ -2,7 +2,7 @@
 title: 替换演示文稿图像集合中的图像
 type: docs
 weight: 80
-url: /php-java/replacing-images-inside-presentation-image-collection/
+url: /zh/php-java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

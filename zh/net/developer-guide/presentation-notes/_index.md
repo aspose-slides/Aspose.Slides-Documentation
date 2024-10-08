@@ -2,7 +2,7 @@
 title: 演示文稿笔记
 type: docs
 weight: 110
-url: /net/presentation-notes/
+url: /zh/net/presentation-notes/
 keywords: "笔记, PowerPoint 笔记, 添加笔记, 移除笔记, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中添加和移除 PowerPoint 演示文稿中的笔记"
 ---

@@ -2,7 +2,7 @@
 title: 替换演示文稿图像集合中的图像
 type: docs
 weight: 110
-url: /python-net/replacing-images-inside-presentation-image-collection/
+url: /zh/python-net/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

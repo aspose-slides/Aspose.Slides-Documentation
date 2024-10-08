@@ -2,7 +2,7 @@
 title: 设置OLE图标的标题
 type: docs
 weight: 160
-url: /net/set-caption-to-ole-icon/
+url: /zh/net/set-caption-to-ole-icon/
 ---
 
 新增了一个属性**SubstitutePictureTitle**到**IOleObjectFrame**接口和**OleObjectFrame**类。它允许获取、设置或更改OLE图标的标题。下面的代码片段展示了创建Excel对象并设置其标题的示例。

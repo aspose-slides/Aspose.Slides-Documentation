@@ -2,7 +2,7 @@
 title: 图表计算
 type: docs
 weight: 50
-url: /php-java/chart-calculations/
+url: /zh/php-java/chart-calculations/
 ---
 
 ## **计算图表元素的实际值**

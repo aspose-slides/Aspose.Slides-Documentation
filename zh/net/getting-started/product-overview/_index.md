@@ -2,7 +2,7 @@
 title: 产品概述
 type: docs
 weight: 10
-url: /net/product-overview/
+url: /zh/net/product-overview/
 ---
 
 
@@ -124,7 +124,7 @@ Aspose 为其所有产品提供无限免费的技术支持。支持面向所有�
 |[Aspose.Slide 博客](https://blog.aspose.com/category/slides/)|定期查看此页面以获取有关新版本的信息和有关 Aspose.Slides 的有用提示。|
 |[Aspose.Slides for .NET 下载](https://www.nuget.org/packages/Aspose.Slides.NET/)|在此处下载 Aspose.Slides 的最新版本。我们经常发布新版本。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在此发布您的问题和问题以获得快速解决方案。|
-|[Aspose.Slides for .NET 产品文档](/slides/net/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|
+|[Aspose.Slides for .NET 产品文档](/slides/zh/net/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|
 ## **声明**
 所有 Aspose .NET 组件都需要完全信任权限集。原因：Aspose .NET 组件需要最高权限才能访问注册表设置、系统文件和虚拟目录，以执行某些操作，如字体解析和类似任务。此外，Aspose .NET 组件是基于核心 .NET 系统类的，这些类在许多情况下也需要完全信任权限集。
 

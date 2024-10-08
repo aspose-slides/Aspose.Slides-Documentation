@@ -2,12 +2,12 @@
 title: 在 PowerPoint 幻灯片上创建表格
 type: docs
 weight: 50
-url: /androidjava/creating-a-table-on-powerpoint-slide/
+url: /zh/androidjava/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-表格广泛用于在演示幻灯片上展示数据。本文展示如何使用 [VSTO 2008](/slides/androidjava/creating-a-table-on-powerpoint-slide/) 和 [Aspose.Slides for Android via Java](/slides/androidjava/creating-a-table-on-powerpoint-slide/) 以编程方式创建一个 15 x 15 的表格，字体大小为 10。
+表格广泛用于在演示幻灯片上展示数据。本文展示如何使用 [VSTO 2008](/slides/zh/androidjava/creating-a-table-on-powerpoint-slide/) 和 [Aspose.Slides for Android via Java](/slides/zh/androidjava/creating-a-table-on-powerpoint-slide/) 以编程方式创建一个 15 x 15 的表格，字体大小为 10。
 
 {{% /alert %}} 
 ## **创建表格**

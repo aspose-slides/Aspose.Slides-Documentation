@@ -3,7 +3,7 @@ title: 默认字体 - PowerPoint Java API
 linktitle: 默认字体
 type: docs
 weight: 30
-url: /php-java/default-font/
+url: /zh/php-java/default-font/
 description: PowerPoint Java API 让您设置用于将演示文稿呈现为 PDF、XPS 或缩略图的默认字体。本文展示了如何定义 DefaultRegular Font 和 DefaultAsian Font 作为默认字体。
 ---
 

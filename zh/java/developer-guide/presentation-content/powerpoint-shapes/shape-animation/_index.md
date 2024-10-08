@@ -2,7 +2,7 @@
 title: 形状动画
 type: docs
 weight: 60
-url: /java/shape-animation/
+url: /zh/java/shape-animation/
 keywords: "PowerPoint 动画, 动画效果, 应用动画, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
 description: "在 Java 中应用 PowerPoint 动画"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-除了对文本应用动画外，你还可以对单个 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) 应用动画。请参见 [**动画文本**](/slides/java/animated-text/)。
+除了对文本应用动画外，你还可以对单个 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) 应用动画。请参见 [**动画文本**](/slides/zh/java/animated-text/)。
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: 管理 SmartArt 形状
 type: docs
 weight: 20
-url: /python-net/manage-smartart-shape/
+url: /zh/python-net/manage-smartart-shape/
 keywords: "SmartArt 形状, SmartArt 形状样式, SmartArt 形状颜色样式, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中管理 PowerPoint 演示文稿中的 SmartArt"
 ---

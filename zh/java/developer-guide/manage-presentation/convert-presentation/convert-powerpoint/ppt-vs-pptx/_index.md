@@ -2,7 +2,7 @@
 title: PPT与PPTX
 type: docs
 weight: 10
-url: /java/ppt-vs-pptx/
+url: /zh/java/ppt-vs-pptx/
 keywords: "PPT与PPTX"
 description: "了解Aspose.Slides中PPT与PPTX的区别。"
 ---
@@ -36,5 +36,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-阅读更多 [**如何将演示文稿从PPT转换为PPTX**。](/slides/java/convert-ppt-to-pptx/)
+阅读更多 [**如何将演示文稿从PPT转换为PPTX**。](/slides/zh/java/convert-ppt-to-pptx/)
 {{% /alert %}}

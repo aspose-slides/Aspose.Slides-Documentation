@@ -2,7 +2,7 @@
 title: 部分
 type: docs
 weight: 70
-url: /java/portion/
+url: /zh/java/portion/
 ---
 
 ## **获取部分的位置坐标**

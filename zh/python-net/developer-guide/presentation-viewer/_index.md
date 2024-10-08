@@ -2,7 +2,7 @@
 title: 演示文稿查看器
 type: docs
 weight: 50
-url: /python-net/presentation-viewer/
+url: /zh/python-net/presentation-viewer/
 keywords: "查看 PowerPoint 演示文稿, 查看 ppt, 查看 PPTX, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中查看 PowerPoint 演示文稿"
 ---

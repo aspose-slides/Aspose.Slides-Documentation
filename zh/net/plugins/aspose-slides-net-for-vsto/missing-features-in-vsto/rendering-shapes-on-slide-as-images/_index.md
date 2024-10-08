@@ -2,7 +2,7 @@
 title: 在幻灯片上将形状渲染为图像
 type: docs
 weight: 120
-url: /net/rendering-shapes-on-slide-as-images/
+url: /zh/net/rendering-shapes-on-slide-as-images/
 ---
 
 这涵盖了两个主要功能：

@@ -2,7 +2,7 @@
 title: 可中断库支持
 type: docs
 weight: 150
-url: /cpp/support-for-interruptable-library/
+url: /zh/cpp/support-for-interruptable-library/
 ---
 
 ## **可中断库**

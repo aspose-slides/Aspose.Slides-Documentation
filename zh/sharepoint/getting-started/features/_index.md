@@ -2,5 +2,5 @@
 title: 特性
 type: docs
 weight: 30
-url: /sharepoint/features/
+url: /zh/sharepoint/features/
 ---

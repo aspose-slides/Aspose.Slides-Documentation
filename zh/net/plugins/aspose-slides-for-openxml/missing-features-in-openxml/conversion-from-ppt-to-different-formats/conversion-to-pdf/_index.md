@@ -2,7 +2,7 @@
 title: 转换为PDF  
 type: docs  
 weight: 30  
-url: /net/conversion-to-pdf/  
+url: /zh/net/conversion-to-pdf/  
 ---  
 
 PDF文档被广泛用作组织、政府部门和个人之间交换文档的标准格式。这是一种流行的格式，因此开发人员常常被要求将Microsoft PowerPoint演示文件转换为PDF文档。为了满足这种可能的需求，Aspose.Slides for .NET支持在不使用任何其他组件的情况下将演示文稿转换为PDF文档。

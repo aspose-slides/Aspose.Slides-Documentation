@@ -2,12 +2,12 @@
 title: 形状动画
 type: docs
 weight: 60
-url: /python-net/shape-animation/
+url: /zh/python-net/shape-animation/
 keywords: "PowerPoint 动画, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中创建 PowerPoint 动画"
 ---
 
-动画是可以应用于文本、图像、形状或 [图表](/slides/python-net/animated-charts/) 的视觉效果。它们为演示文稿或其组成部分带来了生命。
+动画是可以应用于文本、图像、形状或 [图表](/slides/zh/python-net/animated-charts/) 的视觉效果。它们为演示文稿或其组成部分带来了生命。
 
 ### **为什么在演示文稿中使用动画？**
 
@@ -69,7 +69,7 @@ with slides.Presentation() as pres:
 
 {{%  alert color="primary"  %}} 
 
-除了将动画应用于文本之外，您还可以将动画应用于单个 [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/)。请参阅 [**动画文本**](/slides/python-net/animated-text/)。
+除了将动画应用于文本之外，您还可以将动画应用于单个 [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/)。请参阅 [**动画文本**](/slides/zh/python-net/animated-text/)。
 
 {{% /alert %}} 
 

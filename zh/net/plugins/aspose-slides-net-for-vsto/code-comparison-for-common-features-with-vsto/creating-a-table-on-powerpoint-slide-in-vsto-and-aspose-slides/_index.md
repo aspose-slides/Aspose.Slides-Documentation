@@ -2,7 +2,7 @@
 title: 在 VSTO 和 Aspose.Slides 中创建 PowerPoint 幻灯片上的表格
 type: docs
 weight: 90
-url: /net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
+url: /zh/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
 以下步骤使用 VSTO 向 Microsoft PowerPoint 幻灯片添加表格：

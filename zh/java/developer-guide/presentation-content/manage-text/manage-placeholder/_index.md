@@ -2,12 +2,12 @@
 title: 管理占位符
 type: docs
 weight: 10
-url: /java/manage-placeholder/
+url: /zh/java/manage-placeholder/
 description: 使用Java更改PowerPoint幻灯片中的占位符文本。使用Java在PowerPoint幻灯片中的占位符中设置提示文本。
 ---
 
 ## **更改占位符中的文本**
-使用 [Aspose.Slides for Java](/slides/java/) ，您可以查找和修改演示文稿幻灯片中的占位符。Aspose.Slides允许您对占位符中的文本进行更改。
+使用 [Aspose.Slides for Java](/slides/zh/java/) ，您可以查找和修改演示文稿幻灯片中的占位符。Aspose.Slides允许您对占位符中的文本进行更改。
 
 **前提条件**：您需要一个包含占位符的演示文稿。您可以在标准的Microsoft PowerPoint应用程序中创建这样的演示文稿。
 

@@ -2,7 +2,7 @@
 title: 可中断库支持
 type: docs
 weight: 150
-url: /net/support-for-interruptable-library/
+url: /zh/net/support-for-interruptable-library/
 
 ---
 

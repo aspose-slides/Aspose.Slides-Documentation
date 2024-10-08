@@ -2,7 +2,7 @@
 title: 管理SmartArt形状
 type: docs
 weight: 20
-url: /cpp/manage-smartart-shape/
+url: /zh/cpp/manage-smartart-shape/
 ---
 
 

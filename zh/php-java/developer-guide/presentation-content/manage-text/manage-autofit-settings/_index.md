@@ -2,7 +2,7 @@
 title: 管理自动调整设置
 type: docs
 weight: 30
-url: /php-java/manage-autofit-settings/
+url: /zh/php-java/manage-autofit-settings/
 keywords: "文本框, 自动调整, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "设置 PowerPoint 中文本框的自动调整设置"
 ---

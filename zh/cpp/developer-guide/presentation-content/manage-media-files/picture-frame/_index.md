@@ -2,7 +2,7 @@
 title: 图片框
 type: docs
 weight: 10
-url: /cpp/picture-frame/
+url: /zh/cpp/picture-frame/
 keywords: "添加图片框，创建图片框，添加图像，创建图像，提取图像，StretchOff 属性，图片框格式，图片框属性，PowerPoint 演示文稿，C++，CPP，Aspose.Slides for C++"
 description: "在 C++ 中为 PowerPoint 演示文稿添加图片框"
 ---

@@ -2,7 +2,7 @@
 title: Aspose.Slides .NET for VSTO
 type: docs
 weight: 20
-url: /net/aspose-slides-net-for-vsto/
+url: /zh/net/aspose-slides-net-for-vsto/
 ---
 
 ## **什么是 VSTO？**
@@ -71,31 +71,31 @@ Aspose.Slides for .NET 和 VSTO 源代码的对比代码可在以下列出的主
 ## **示例代码**
 本节包括以下主题
 
-- [与 VSTO 的常见功能代码比较](/slides/net/code-comparison-for-common-features-with-vsto/)
-  - [在表格单元格中添加图片](/slides/net/add-image-in-table-cell/)
-  - [在 VSTO 和 Aspose.Slides 中添加带动画的图片框](/slides/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
-  - [向演示文稿中添加形状](/slides/net/adding-shapes-to-presentation/)
-  - [动态添加文本](/slides/net/adding-text-dynamically/)
-  - [向演示文稿中添加图片框](/slides/net/add-picture-frame-to-presentation/)
-  - [创建图表](/slides/net/create-a-chart/)
-  - [创建并嵌入 Excel 图表作为 OLE 对象](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object/)
-  - [在 VSTO 和 Aspose.Slides 中创建新演示文稿](/slides/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
-  - [在 VSTO 和 Aspose.Slides 中在 PowerPoint 幻灯片上创建表格](/slides/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
-  - [在演示文稿中查找和替换文本而不失去格式](/slides/net/find-and-replace-text-without-losing-format-in-presentation/)
-  - [格式化文本](/slides/net/format-text/)
-  - [在 VSTO 和 Aspose.Slides 中打开演示文稿](/slides/net/opening-a-presentation-in-vsto-and-aspose-slides/)
-  - [在 VSTO 和 Aspose.Slides 中删除表格中的行或列](/slides/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
-  - [设置母版幻灯片的背景颜色](/slides/net/setting-background-color-of-master-slide/)
-- [VSTO 中缺失的功能](/slides/net/missing-features-in-vsto/)
-  - [向演示文稿中添加布局幻灯片](/slides/net/add-layout-slide-to-presentation/)
-  - [从 PPT 转换为 PPTX 格式](/slides/net/conversion-from-ppt-to-pptx-format/)
-  - [OpenOffice 文档的转换](/slides/net/conversion-of-openoffice-document/)
-  - [将演示文稿转换为 HTML](/slides/net/convert-presentation-to/)
-  - [将演示文稿转换为带注释的 Tiff](/slides/net/convert-presentation-to-tiff-with-notes/)
-  - [将演示文稿转换为 XPS](/slides/net/convert-presentation-to-xps/)
-  - [将幻灯片创建为 SVG 图像](/slides/net/create-slide-as-svg-image/)
-  - [将媒体文件导出到 HTML 文件](/slides/net/export-media-files-into-file/)
-  - [生成幻灯片缩略图为 JPEG](/slides/net/generate-slide-thumbnail-as-jpeg/)
-  - [根据用户定义的尺寸从幻灯片生成缩略图](/slides/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
-  - [演示文稿锁定](/slides/net/presentation-locking/)
-  - [将幻灯片上的形状渲染为图像](/slides/net/rendering-shapes-on-slide-as-images/)
+- [与 VSTO 的常见功能代码比较](/slides/zh/net/code-comparison-for-common-features-with-vsto/)
+  - [在表格单元格中添加图片](/slides/zh/net/add-image-in-table-cell/)
+  - [在 VSTO 和 Aspose.Slides 中添加带动画的图片框](/slides/zh/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
+  - [向演示文稿中添加形状](/slides/zh/net/adding-shapes-to-presentation/)
+  - [动态添加文本](/slides/zh/net/adding-text-dynamically/)
+  - [向演示文稿中添加图片框](/slides/zh/net/add-picture-frame-to-presentation/)
+  - [创建图表](/slides/zh/net/create-a-chart/)
+  - [创建并嵌入 Excel 图表作为 OLE 对象](/slides/zh/net/create-and-embed-an-excel-chart-as-an-ole-object/)
+  - [在 VSTO 和 Aspose.Slides 中创建新演示文稿](/slides/zh/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
+  - [在 VSTO 和 Aspose.Slides 中在 PowerPoint 幻灯片上创建表格](/slides/zh/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
+  - [在演示文稿中查找和替换文本而不失去格式](/slides/zh/net/find-and-replace-text-without-losing-format-in-presentation/)
+  - [格式化文本](/slides/zh/net/format-text/)
+  - [在 VSTO 和 Aspose.Slides 中打开演示文稿](/slides/zh/net/opening-a-presentation-in-vsto-and-aspose-slides/)
+  - [在 VSTO 和 Aspose.Slides 中删除表格中的行或列](/slides/zh/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
+  - [设置母版幻灯片的背景颜色](/slides/zh/net/setting-background-color-of-master-slide/)
+- [VSTO 中缺失的功能](/slides/zh/net/missing-features-in-vsto/)
+  - [向演示文稿中添加布局幻灯片](/slides/zh/net/add-layout-slide-to-presentation/)
+  - [从 PPT 转换为 PPTX 格式](/slides/zh/net/conversion-from-ppt-to-pptx-format/)
+  - [OpenOffice 文档的转换](/slides/zh/net/conversion-of-openoffice-document/)
+  - [将演示文稿转换为 HTML](/slides/zh/net/convert-presentation-to/)
+  - [将演示文稿转换为带注释的 Tiff](/slides/zh/net/convert-presentation-to-tiff-with-notes/)
+  - [将演示文稿转换为 XPS](/slides/zh/net/convert-presentation-to-xps/)
+  - [将幻灯片创建为 SVG 图像](/slides/zh/net/create-slide-as-svg-image/)
+  - [将媒体文件导出到 HTML 文件](/slides/zh/net/export-media-files-into-file/)
+  - [生成幻灯片缩略图为 JPEG](/slides/zh/net/generate-slide-thumbnail-as-jpeg/)
+  - [根据用户定义的尺寸从幻灯片生成缩略图](/slides/zh/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
+  - [演示文稿锁定](/slides/zh/net/presentation-locking/)
+  - [将幻灯片上的形状渲染为图像](/slides/zh/net/rendering-shapes-on-slide-as-images/)

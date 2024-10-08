@@ -1,7 +1,7 @@
 ---
 title: 饼图
 type: docs
-url: /java/pie-chart/
+url: /zh/java/pie-chart/
 ---
 
 ## **饼图和条形图的第二个绘图区选项**

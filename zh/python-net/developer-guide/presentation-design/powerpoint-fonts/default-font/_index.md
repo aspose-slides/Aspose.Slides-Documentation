@@ -2,7 +2,7 @@
 title: 默认字体
 type: docs
 weight: 30
-url: /python-net/default-font/
+url: /zh/python-net/default-font/
 keywords: "字体, 默认字体, 渲染演示文稿, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "PowerPoint 默认字体在 Python 中的使用"
 ---

@@ -3,7 +3,7 @@ title: 字体替换 - PowerPoint Java API
 linktitle: 字体替换
 type: docs
 weight: 60
-url: /php-java/font-replacement/
+url: /zh/php-java/font-replacement/
 description: 了解如何使用 Java API 中的显式替换方法在 PowerPoint 中替换字体。
 ---
 
@@ -40,6 +40,6 @@ Aspose.Slides 允许您以这种方式替换字体：
 
 {{% alert title="注意" color="warning" %}} 
 
-要设置规则以确定在某些情况下会发生什么（例如，无法访问字体时），请参阅 [**字体替换**](/slides/php-java/font-substitution/)。
+要设置规则以确定在某些情况下会发生什么（例如，无法访问字体时），请参阅 [**字体替换**](/slides/zh/php-java/font-substitution/)。
 
 {{% /alert %}}

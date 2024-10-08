@@ -3,7 +3,7 @@ title: 文本格式化
 linktitle: 文本格式化
 type: docs
 weight: 50
-url: /net/text-formatting/
+url: /zh/net/text-formatting/
 keywords:
 - 高亮文本
 - 正则表达式

@@ -2,7 +2,7 @@
 title: 幻灯片过渡
 type: docs
 weight: 80
-url: /php-java/slide-transition/
+url: /zh/php-java/slide-transition/
 keywords: "PowerPoint 幻灯片过渡, 形态过渡"
 description: "PowerPoint 幻灯片过渡, PowerPoint 形态过渡"
 ---

@@ -2,7 +2,7 @@
 title: 幻灯片部分
 type: docs
 weight: 100
-url: /cpp/slide-section/
+url: /zh/cpp/slide-section/
 ---
 
 使用 Aspose.Slides for C++，您可以将 PowerPoint 演示文稿组织成部分。您可以创建包含特定幻灯片的部分。

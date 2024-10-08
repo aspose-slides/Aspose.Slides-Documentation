@@ -3,7 +3,7 @@ title: 默认字体 - PowerPoint C# API
 linktitle: 默认字体
 type: docs
 weight: 30
-url: /net/default-font/
+url: /zh/net/default-font/
 keywords: 
 - 字体
 - 默认字体

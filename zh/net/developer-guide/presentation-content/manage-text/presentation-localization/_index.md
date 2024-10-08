@@ -2,7 +2,7 @@
 title: 演示文稿本地化
 type: docs
 weight: 100
-url: /net/presentation-localization/
+url: /zh/net/presentation-localization/
 keywords: "更改语言, 拼写检查, 拼写检查, 拼写检查工具, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 PowerPoint 演示文稿中更改或检查语言。 在 C# 或 .NET 中进行拼写检查"
 ---

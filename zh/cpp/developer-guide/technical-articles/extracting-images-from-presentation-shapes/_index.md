@@ -2,7 +2,7 @@
 title: 从演示文稿形状中提取图像
 type: docs
 weight: 90
-url: /cpp/extracting-images-from-presentation-shapes/
+url: /zh/cpp/extracting-images-from-presentation-shapes/
 keywords: "提取图像, PowerPoint, PPT, PPTX, PowerPoint 演示文稿, C++, CPP, Aspose.Slides for C++"
 description: "在 C++ 中从 PowerPoint 演示文稿中提取图像"
 

@@ -2,5 +2,5 @@
 title: PowerPoint 智能图形
 type: docs
 weight: 100
-url: /net/powerpoint-smartart/
+url: /zh/net/powerpoint-smartart/
 ---

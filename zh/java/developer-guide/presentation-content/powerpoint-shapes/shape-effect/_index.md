@@ -2,12 +2,12 @@
 title: 形状特效
 type: docs
 weight: 30
-url: /java/shape-effect
+url: /zh/java/shape-effect
 keywords: "形状特效, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
 description: "在 Java 中为 PowerPoint 形状应用特效"
 ---
 
-虽然 PowerPoint 中的特效可以使形状更突出，但它们与 [填充](/slides/java/shape-formatting/#gradient-fill) 或轮廓不同。使用 PowerPoint 特效，您可以在形状上创建逼真的反射，扩展形状的光辉等。
+虽然 PowerPoint 中的特效可以使形状更突出，但它们与 [填充](/slides/zh/java/shape-formatting/#gradient-fill) 或轮廓不同。使用 PowerPoint 特效，您可以在形状上创建逼真的反射，扩展形状的光辉等。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

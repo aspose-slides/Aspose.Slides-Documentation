@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /python-net/wordart/
+url: /zh/python-net/wordart/
 keywords: "WordArt, Word Art, 创建 WordArt, WordArt 模板, WordArt 效果, 阴影效果, 显示效果, 发光效果, WordArt 转换, 3D 效果, 外阴影效果, 内阴影效果, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 或 Aspose.Slides for Python via .NET 中添加、操作和管理 PowerPoint 演示文稿中的 WordArt 和效果"
 ---

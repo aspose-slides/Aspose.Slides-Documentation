@@ -2,7 +2,7 @@
 title: 水印
 type: docs
 weight: 40
-url: /java/watermark/
+url: /zh/java/watermark/
 keywords:
 - 水印
 - 添加水印
@@ -48,7 +48,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [如何使用TextFrame类](/slides/java/text-formatting/)
+- [如何使用TextFrame类](/slides/zh/java/text-formatting/)
 {{% /alert %}}
 
 ### **向演示文稿添加文本水印**
@@ -68,7 +68,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [如何使用幻灯片母版](/slides/java/slide-master/)
+- [如何使用幻灯片母版](/slides/zh/java/slide-master/)
 {{% /alert %}}
 
 ### **设置水印形状透明度**

@@ -1,7 +1,7 @@
 ---
 title: 提示
 type: docs
-url: /java/callout/
+url: /zh/java/callout/
 ---
 
 ## **使用提示**

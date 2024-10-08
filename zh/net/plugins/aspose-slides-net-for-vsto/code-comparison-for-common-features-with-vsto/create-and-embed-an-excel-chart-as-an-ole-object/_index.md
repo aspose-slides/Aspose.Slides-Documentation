@@ -2,7 +2,7 @@
 title: 创建并嵌入 Excel 图表作为 OLE 对象
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object/
+url: /zh/net/create-and-embed-an-excel-chart-as-an-ole-object/
 ---
 
 下面的两个代码示例较长且详细，因为它们所描述的任务涉及多个步骤。您需要创建一个 Microsoft Excel 工作簿，创建一个图表，然后创建一个 Microsoft PowerPoint 演示文稿，将图表嵌入其中。OLE 对象包含指向原始文档的链接，因此双击嵌入文件的用户将启动该文件及其应用程序。

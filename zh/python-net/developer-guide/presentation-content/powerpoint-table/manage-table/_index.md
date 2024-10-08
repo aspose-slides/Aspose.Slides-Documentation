@@ -2,7 +2,7 @@
 title: 管理表格
 type: docs
 weight: 10
-url: /python-net/manage-table/
+url: /zh/python-net/manage-table/
 keywords: "表格, 创建表格, 访问表格, 表格长宽比, PowerPoint 演示, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中创建和管理 PowerPoint 演示中的表格"
 

@@ -2,7 +2,7 @@
 title: 在演示文稿中查找和替换
 type: docs
 weight: 20
-url: /net/find-and-replace-in-presentation/
+url: /zh/net/find-and-replace-in-presentation/
 ---
 
 以下是需要遵循的步骤：

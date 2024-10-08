@@ -2,7 +2,7 @@
 title: PresentationML (PPTX, XML)
 type: docs
 weight: 20
-url: /cpp/presentationml-pptx-xml/
+url: /zh/cpp/presentationml-pptx-xml/
 ---
 
 ## **关于 PresentationML**

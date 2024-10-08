@@ -1,7 +1,7 @@
 ---
 title: 趋势线
 type: docs
-url: /php-java/trend-line/
+url: /zh/php-java/trend-line/
 ---
 
 ## **添加趋势线**

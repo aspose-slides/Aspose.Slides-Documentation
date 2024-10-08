@@ -2,7 +2,7 @@
 title: 形状操作
 type: docs
 weight: 40
-url: /androidjava/shape-manipulations/
+url: /zh/androidjava/shape-manipulations/
 ---
 
 ## **在幻灯片中查找形状**

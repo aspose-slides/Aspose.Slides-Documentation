@@ -2,7 +2,7 @@
 title: 报告服务 SharePoint 配置
 type: docs
 weight: 50
-url: /reportingservices/reporting-services-sharepoint-configuration/
+url: /zh/reportingservices/reporting-services-sharepoint-configuration/
 ---
 
 {{% alert color="primary" %}} 

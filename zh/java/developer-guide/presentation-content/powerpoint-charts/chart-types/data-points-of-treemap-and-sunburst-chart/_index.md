@@ -1,7 +1,7 @@
 ---
 title: 树状图和旭日图的数据点
 type: docs
-url: /java/data-points-of-treemap-and-sunburst-chart/
+url: /zh/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Aspose.Slides for Java 中的旭日图"
 description: "使用 Aspose.Slides for Java 的旭日图、旭日图表、径向图、径向图表或多层饼图。"
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [**创建旭日图**](/slides/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**创建旭日图**](/slides/zh/java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 如果需要格式化图表的数据点，我们应使用以下内容：

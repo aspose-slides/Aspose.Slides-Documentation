@@ -2,7 +2,7 @@
 title: PowerPoint中的数字签名
 type: docs
 weight: 10
-url: /python-net/digital-signature-in-powerpoint/
+url: /zh/python-net/digital-signature-in-powerpoint/
 keywords: "数字签名证书, 证书颁发机构, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在PowerPoint中添加数字签名或证书。Python中的证书颁发机构"
 ---

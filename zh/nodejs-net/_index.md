@@ -4,7 +4,7 @@ second_title: "Aspose.Slides for Node.js via .NET 文档"
 description: Aspose.Slides for Node.js via .NET 提供了许多关键功能，如管理文本、形状、表格和动画，向幻灯片添加音频和视频，预览幻灯片，将幻灯片导出为 SVG、PDF 格式等。
 type: docs
 weight: 47
-url: /nodejs-net/
+url: /zh/nodejs-net/
 is_root: true
 ---
 
@@ -32,13 +32,13 @@ Aspose.Slides for Node.js via .NET 是从 Aspose.Slides for .NET 移植而来的
 
 这些是有用资源的链接：
 
-- [Aspose.Slides for Node.js via .NET 在线文档](/slides/net/developer-guide/)
-- [Aspose.Slides for Node.js via .NET 功能](/slides/nodejs-net/features-overview/)
-- [Aspose.Slides for Node.js via .NET 限制和 API 差异](/slides/nodejs-net/limitations-and-api-differences/)
+- [Aspose.Slides for Node.js via .NET 在线文档](/slides/zh/net/developer-guide/)
+- [Aspose.Slides for Node.js via .NET 功能](/slides/zh/nodejs-net/features-overview/)
+- [Aspose.Slides for Node.js via .NET 限制和 API 差异](/slides/zh/nodejs-net/limitations-and-api-differences/)
 - [Aspose.Slides for Node.js via .NET 版本说明](https://releases.aspose.com/slides/nodejs-net/release-notes/)
 - [Aspose.Slides for Node.js via .NET 产品页面](https://products.aspose.com/slides/nodejs-net/)
 - [下载 Aspose.Slides for Node.js via .NET 包](https://releases.aspose.com/slides/nodejs-net/)
-- [安装 Aspose.Slides for Node.js via .NET](/slides/nodejs-net/installation/)
+- [安装 Aspose.Slides for Node.js via .NET](/slides/zh/nodejs-net/installation/)
 - [Aspose.Slides for Node.js via .NET API 参考](https://reference.aspose.com/slides/nodejs-net/)
 - [Aspose.Slides for Node.js via .NET 免费支持论坛](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Node.js via .NET 付费支持帮助台](https://helpdesk.aspose.com/)

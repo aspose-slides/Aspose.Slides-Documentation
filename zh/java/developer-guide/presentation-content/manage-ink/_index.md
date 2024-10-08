@@ -2,7 +2,7 @@
 title: 管理墨水
 type: docs
 weight: 95
-url: /java/manage-ink/
+url: /zh/java/manage-ink/
 keywords: "PowerPoint中的墨水, 墨水工具, Java墨水, 在PowerPoint中绘制, PowerPoint演示文稿, Java, Aspose.Slides for Java"
 description: "使用墨水工具在PowerPoint Java中绘制对象"
 ---

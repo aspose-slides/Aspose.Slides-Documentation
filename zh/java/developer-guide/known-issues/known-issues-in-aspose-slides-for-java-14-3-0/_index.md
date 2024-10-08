@@ -2,7 +2,7 @@
 title: Aspose.Slides for Java 14.3.0中的已知问题
 type: docs
 weight: 20
-url: /java/known-issues-in-aspose-slides-for-java-14-3-0/
+url: /zh/java/known-issues-in-aspose-slides-for-java-14-3-0/
 ---
 
 Aspose.Slides for Java 14.3.0 (14.4.0)提供了完全新的PPT处理实现。进行了很多改进，支持PPTX到PPT的部分转换。但有一些未实现的功能：

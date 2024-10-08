@@ -2,7 +2,7 @@
 title: 从带有用户定义尺寸的幻灯片生成缩略图
 type: docs
 weight: 100
-url: /net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
+url: /zh/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
 ---
 
 要使用 Aspose.Slides for .NET 生成所需幻灯片的缩略图：
@@ -47,6 +47,6 @@ using (Presentation pres = new Presentation("TestPresentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问 [创建幻灯片缩略图像](/slides/net/presentation-viewer/#creating-slides-thumbnail-image)。
+有关更多详细信息，请访问 [创建幻灯片缩略图像](/slides/zh/net/presentation-viewer/#creating-slides-thumbnail-image)。
 
 {{% /alert %}}

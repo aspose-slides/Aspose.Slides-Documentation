@@ -2,13 +2,13 @@
 title: 管理占位符
 type: docs
 weight: 10
-url: /net/manage-placeholder/
+url: /zh/net/manage-placeholder/
 keywords: "占位符, 占位符文本, 提示文本, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中更改 PowerPoint 演示文稿中的占位符文本和提示文本"
 ---
 
 ## **在占位符中更改文本**
-使用 [Aspose.Slides for .NET](/slides/net/)，您可以在演示文稿的幻灯片上查找和修改占位符。Aspose.Slides 允许您更改占位符中的文本。
+使用 [Aspose.Slides for .NET](/slides/zh/net/)，您可以在演示文稿的幻灯片上查找和修改占位符。Aspose.Slides 允许您更改占位符中的文本。
 
 **前提条件**：您需要一个包含占位符的演示文稿。您可以在标准的 Microsoft PowerPoint 应用中创建这样的演示文稿。
 

@@ -2,5 +2,5 @@
 title: PowerPoint 形状
 type: docs
 weight: 90
-url: /python-net/powerpoint-shapes/
+url: /zh/python-net/powerpoint-shapes/
 ---

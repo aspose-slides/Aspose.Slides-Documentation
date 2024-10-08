@@ -2,7 +2,7 @@
 title: 获取幻灯片中的所有文本
 type: docs
 weight: 110
-url: /net/get-all-the-text-in-a-slide/
+url: /zh/net/get-all-the-text-in-a-slide/
 ---
 
 ## **OpenXML SDK**

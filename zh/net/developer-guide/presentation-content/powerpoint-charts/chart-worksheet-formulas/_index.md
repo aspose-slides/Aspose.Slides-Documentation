@@ -2,7 +2,7 @@
 title: 图表工作表公式
 type: docs
 weight: 70
-url: /net/chart-worksheet-formulas/
+url: /zh/net/chart-worksheet-formulas/
 keywords: "图表电子表格, 图表公式, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "图表电子表格和C#或.NET中的PowerPoint演示文稿的公式"
 ---

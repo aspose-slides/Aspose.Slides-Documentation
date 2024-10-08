@@ -2,7 +2,7 @@
 title: 向演示文稿添加形状
 type: docs
 weight: 30
-url: /net/adding-shapes-to-presentation/
+url: /zh/net/adding-shapes-to-presentation/
 ---
 
 ## **VSTO**

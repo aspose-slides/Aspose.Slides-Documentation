@@ -2,7 +2,7 @@
 title: 使用 Aspose.Slides 的 Hello World 应用程序
 type: docs
 weight: 80
-url: /cpp/hello-world-application-using-aspose-slides/
+url: /zh/cpp/hello-world-application-using-aspose-slides/
 ---
 
 ## **创建 Hello World 应用程序的步骤**

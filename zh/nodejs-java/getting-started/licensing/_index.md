@@ -3,7 +3,7 @@ title: 许可证
 description: "Aspose.Slides for Node.js via Java 提供不同的购买计划，或者提供免费试用和 30 天临时许可证供评估使用许可和订阅政策。"
 type: docs
 weight: 80
-url: /nodejs-java/licensing/
+url: /zh/nodejs-java/licensing/
 ---
 
 有时，为了获得最佳的评估结果，可能需要亲手操作。因此，Aspose.Slides 提供了不同的购买计划，并且还提供免费试用和 30 天临时许可证用于评估。

@@ -2,12 +2,12 @@
 title: 形状效果
 type: docs
 weight: 30
-url: /python-net/shape-effect
+url: /zh/python-net/shape-effect
 keywords: "形状效果, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中对PowerPoint形状应用效果"
 ---
 
-虽然PowerPoint中的效果可以使形状更加突出，但它们与[填充](/slides/python-net/shape-formatting/#gradient-fill)或轮廓不同。通过使用PowerPoint效果，您可以在形状上创建逼真的反射，扩散形状的光晕等。
+虽然PowerPoint中的效果可以使形状更加突出，但它们与[填充](/slides/zh/python-net/shape-formatting/#gradient-fill)或轮廓不同。通过使用PowerPoint效果，您可以在形状上创建逼真的反射，扩散形状的光晕等。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

@@ -1,7 +1,7 @@
 ---
 title: 提示框
 type: docs
-url: /androidjava/callout/
+url: /zh/androidjava/callout/
 ---
 
 ## **使用提示框**

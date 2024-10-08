@@ -2,7 +2,7 @@
 title: 工作表调整大小的有效解决方案
 type: docs
 weight: 40
-url: /net/working-solution-for-worksheet-resizing/
+url: /zh/net/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /net/working-solution-for-worksheet-resizing/
 
 {{% /alert %}} 
 ## **背景**
-在[添加 OLE 框架文章]()中，我们解释了如何使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中添加 OLE 框架。为了处理 [对象更改问题](/slides/net/object-changed-issue-when-adding-oleobjectframe/)，我们将所选区域的工作表图像分配给图表 OLE 对象框。在输出的演示文稿中，当我们双击显示工作表图像的 OLE 对象框时，Excel 图表将被激活。最终用户可以在实际的 Excel 工作簿中进行任何所需的更改，然后通过点击激活的 Excel 工作簿外部返回到相关幻灯片。当用户返回幻灯片时，OLE 对象框的大小会发生变化。不同大小的 OLE 对象框和嵌入的 Excel 工作簿的调整大小因子会有所不同。
+在[添加 OLE 框架文章]()中，我们解释了如何使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中添加 OLE 框架。为了处理 [对象更改问题](/slides/zh/net/object-changed-issue-when-adding-oleobjectframe/)，我们将所选区域的工作表图像分配给图表 OLE 对象框。在输出的演示文稿中，当我们双击显示工作表图像的 OLE 对象框时，Excel 图表将被激活。最终用户可以在实际的 Excel 工作簿中进行任何所需的更改，然后通过点击激活的 Excel 工作簿外部返回到相关幻灯片。当用户返回幻灯片时，OLE 对象框的大小会发生变化。不同大小的 OLE 对象框和嵌入的 Excel 工作簿的调整大小因子会有所不同。
 ## **调整大小的原因**
 由于 Excel 工作簿有自己的窗口大小，它会尝试在第一次激活时保持其原始大小。另一方面，OLE 对象框也会有其自己的大小。根据微软的说法，在激活 Excel 工作簿时，Excel 和 PowerPoint 通过协商大小并确保其在嵌入操作中保持正确的比例来处理此事。基于 Excel 窗口大小和 OLE 对象框的大小/位置之差，调整大小发生了。
 ## **有效解决方案**
@@ -280,6 +280,6 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 {{% alert color="primary" %}}  有两种方法可以解决工作表调整大小的问题。选择合适的方法取决于需求和使用场景。这两种方法在创建演示文稿时无论是基于模板还是从头开始都能以相同的方式工作。此外，解决方案中并没有对 OLE 对象框的大小设限。{{% /alert %}} 
 ## **相关章节**
-[在演示文稿中创建并嵌入 Excel 图表作为 OLE 对象](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[在演示文稿中创建并嵌入 Excel 图表作为 OLE 对象](/slides/zh/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[自动更新 OLE 对象](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[自动更新 OLE 对象](/slides/zh/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

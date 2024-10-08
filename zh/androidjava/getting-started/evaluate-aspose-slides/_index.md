@@ -2,7 +2,7 @@
 title: 评估 Aspose.Slides
 type: docs
 weight: 130
-url: /androidjava/evaluate-aspose-slides/
+url: /zh/androidjava/evaluate-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

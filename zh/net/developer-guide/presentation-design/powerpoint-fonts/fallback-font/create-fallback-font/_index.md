@@ -2,7 +2,7 @@
 title: 创建后备字体
 type: docs
 weight: 10
-url: /net/create-fallback-font/
+url: /zh/net/create-fallback-font/
 keywords: "字体, 后备字体, PowerPoint 演示 C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中的 PowerPoint 的后备字体"
 ---
@@ -30,5 +30,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) 可用于组织 [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) 对象的列表，当需要为多个 Unicode 范围指定后备字体替换规则时。
 
 {{% alert color="primary" title="另请参阅" %}} 
-- [创建后备字体集合](/slides/net/create-fallback-fonts-collection/)
+- [创建后备字体集合](/slides/zh/net/create-fallback-fonts-collection/)
 {{% /alert %}}

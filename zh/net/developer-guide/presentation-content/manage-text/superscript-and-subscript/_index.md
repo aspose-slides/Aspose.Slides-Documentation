@@ -2,7 +2,7 @@
 title: 上标和下标
 type: docs
 weight: 80
-url: /net/superscript-and-subscript/
+url: /zh/net/superscript-and-subscript/
 keywords: "上标, 下标, 添加上标文本, 添加下标文本, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加上标和下标文本"
 ---

@@ -2,12 +2,12 @@
 title: 添加带动画的画框
 type: docs
 weight: 60
-url: /net/adding-picture-frame-with-animation/
+url: /zh/net/adding-picture-frame-with-animation/
 ---
 
 {{% alert color="primary" %}} 
 
-画框用于在 Microsoft PowerPoint 中给形状或图像加框，以便在演示文稿中展示图像。本文展示了如何使用 [VSTO 2008](/slides/net/adding-picture-frame-with-animation/) 和 [Aspose.Slides for .NET](/slides/net/adding-picture-frame-with-animation/) 以编程方式创建画框并对其应用动画。首先，我们展示如何使用 VSTO 2008 应用框架和动画。然后，我们展示如何使用 Aspose.Slides for .NET 执行相同的步骤。
+画框用于在 Microsoft PowerPoint 中给形状或图像加框，以便在演示文稿中展示图像。本文展示了如何使用 [VSTO 2008](/slides/zh/net/adding-picture-frame-with-animation/) 和 [Aspose.Slides for .NET](/slides/zh/net/adding-picture-frame-with-animation/) 以编程方式创建画框并对其应用动画。首先，我们展示如何使用 VSTO 2008 应用框架和动画。然后，我们展示如何使用 Aspose.Slides for .NET 执行相同的步骤。
 
 {{% /alert %}} 
 ## **添加带动画的画框**

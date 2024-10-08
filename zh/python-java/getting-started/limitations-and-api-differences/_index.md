@@ -2,7 +2,7 @@
 title: 限制和 API 差异
 type: docs
 weight: 100
-url: /python-java/limitations-and-api-differences/
+url: /zh/python-java/limitations-and-api-differences/
 keywords: "节点, powerpoint, 限制, api, 差异"
 description: "Aspose.Slides for Python via Java 的限制和 API 差异。"
 ---

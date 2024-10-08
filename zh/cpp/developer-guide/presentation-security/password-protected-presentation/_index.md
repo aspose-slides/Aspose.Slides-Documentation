@@ -2,7 +2,7 @@
 title: 密码保护演示文稿
 type: docs
 weight: 20
-url: /cpp/password-protected-presentation/
+url: /zh/cpp/password-protected-presentation/
 keywords: "锁定 PowerPoint 演示文稿"
 description: "锁定 PowerPoint 演示文稿。使用 Aspose.Slides 进行密码保护的 PowerPoint 演示文稿。"
 ---
@@ -214,5 +214,5 @@ bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my
 如果演示文稿被指定的密码加密，则返回 `true`。否则，返回 `false`。 
 
 {{% alert color="primary" title="另见" %}} 
-- [PowerPoint 中的数字签名](/slides/cpp/digital-signature-in-powerpoint/)
+- [PowerPoint 中的数字签名](/slides/zh/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}

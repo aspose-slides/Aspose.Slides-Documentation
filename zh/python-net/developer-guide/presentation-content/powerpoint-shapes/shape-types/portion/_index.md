@@ -2,7 +2,7 @@
 title: 部分
 type: docs
 weight: 70
-url: /python-net/portion/
+url: /zh/python-net/portion/
 keywords: "部分, PowerPoint形状, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中获取PowerPoint演示文稿中的部分"
 ---

@@ -2,7 +2,7 @@
 title: 音频帧
 type: docs
 weight: 10
-url: /php-java/audio-frame/
+url: /zh/php-java/audio-frame/
 keywords: "添加音频, 音频帧, 音频属性, 提取音频, Java, Aspose.Slides for PHP via Java"
 description: "向 PowerPoint 演示文稿添加音频"
 ---

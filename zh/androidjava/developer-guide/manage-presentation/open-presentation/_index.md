@@ -3,7 +3,7 @@ title: 在Java中打开演示文稿
 linktitle: 打开演示文稿
 type: docs
 weight: 20
-url: /androidjava/open-presentation/
+url: /zh/androidjava/open-presentation/
 keywords: "打开PowerPoint, PPTX, PPT, 打开演示文稿, 加载演示文稿, Java"
 description: "在Java中打开或加载演示文稿PPT、PPTX、ODP"
 ---

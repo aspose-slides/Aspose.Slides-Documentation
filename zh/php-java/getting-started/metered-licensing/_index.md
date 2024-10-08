@@ -2,7 +2,7 @@
 title: 按需授权
 type: docs
 weight: 100
-url: /php-java/metered-licensing/
+url: /zh/php-java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

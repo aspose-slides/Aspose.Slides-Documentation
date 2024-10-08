@@ -2,7 +2,7 @@
 title: 演示文稿属性
 type: docs
 weight: 70
-url: /androidjava/presentation-properties/
+url: /zh/androidjava/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

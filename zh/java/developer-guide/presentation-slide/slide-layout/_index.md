@@ -2,7 +2,7 @@
 title: 幻灯片布局
 type: docs
 weight: 60
-url: /java/slide-layout/
+url: /zh/java/slide-layout/
 keyword: "设置幻灯片大小，设置幻灯片选项，指定幻灯片大小，页脚可见性，子页脚，内容缩放，页面大小，Java，Aspose.Slides"
 description: "在Java中设置PowerPoint幻灯片大小和选项"
 ---

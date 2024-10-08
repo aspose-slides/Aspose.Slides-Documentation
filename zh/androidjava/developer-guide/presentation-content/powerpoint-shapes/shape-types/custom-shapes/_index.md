@@ -2,7 +2,7 @@
 title: 自定义形状
 type: docs
 weight: 20
-url: /androidjava/custom-shape/
+url: /zh/androidjava/custom-shape/
 keywords: "PowerPoint 形状，自定义形状，PowerPoint 演示文稿，Java，Aspose.Slides for Android via Java"
 description: "在 Java 中的 PowerPoint 演示文稿中添加自定义形状"
 ---

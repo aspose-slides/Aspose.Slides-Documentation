@@ -2,7 +2,7 @@
 title: 常见问题解答
 type: docs
 weight: 340
-url: /net/faqs/
+url: /zh/net/faqs/
 keywords:
 - 常见问题
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **问：Aspose.Slides for .NET 支持哪些文件格式？**
 
-**答**：Aspose.Slides for .NET 支持在 [支持的文件格式](/slides/net/supported-file-formats/) 中描述的文件格式。
+**答**：Aspose.Slides for .NET 支持在 [支持的文件格式](/slides/zh/net/supported-file-formats/) 中描述的文件格式。
 
 ## **异常**
 
@@ -55,7 +55,7 @@ keywords:
 
 **问：为什么在 Windows 和 Linux 操作系统上段落大小不同？**
 
-**答**：段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算基于 PowerPoint 演示文稿中指定的字体的指标。如果指定的字体缺失，它会被最相似的字体替代，但这个字体的指标与原始字体不同。因此，在不同系统中段落大小的计算会根据安装的字体集导致不同的结果。为了在不同操作系统上获得相同的结果，您需要在系统上安装相同的字体，或者在运行时将其加载为 [外部字体](/slides/net/custom-font/)。
+**答**：段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算基于 PowerPoint 演示文稿中指定的字体的指标。如果指定的字体缺失，它会被最相似的字体替代，但这个字体的指标与原始字体不同。因此，在不同系统中段落大小的计算会根据安装的字体集导致不同的结果。为了在不同操作系统上获得相同的结果，您需要在系统上安装相同的字体，或者在运行时将其加载为 [外部字体](/slides/zh/net/custom-font/)。
 
 ## **格式化和图像**
 

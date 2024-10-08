@@ -2,7 +2,7 @@
 title: 演示文稿笔记
 type: docs
 weight: 110
-url: /java/presentation-notes/
+url: /zh/java/presentation-notes/
 keywords: "Java中的PowerPoint发言人笔记"
 description: "演示文稿笔记，Java中的发言人笔记"
 ---

@@ -4,7 +4,7 @@ second_title: Aspose.Slides 文档
 description: Aspose.Slides for SharePoint 是一个灵活的解决方案，使得在 Microsoft SharePoint 网站中转换 PowerPoint® 文档成为可能。
 type: docs
 weight: 60
-url: /sharepoint/
+url: /zh/sharepoint/
 is_root: true
 ---
 
@@ -22,8 +22,8 @@ Aspose.Slides for SharePoint 是一个灵活的解决方案，使得在 Microsof
 
 以下是您可能需要的一些有用资源的链接，以完成您的任务。
 
-- [Aspose.Slides for SharePoint 在线文档](/slides/sharepoint/)
-- [Aspose.Slides for SharePoint 功能](/slides/sharepoint/features/)
+- [Aspose.Slides for SharePoint 在线文档](/slides/zh/sharepoint/)
+- [Aspose.Slides for SharePoint 功能](/slides/zh/sharepoint/features/)
 - [Aspose.Slides for SharePoint 发行说明](https://releases.aspose.com/slides/sharepoint/release-notes/)
 - [Aspose.Slides for SharePoint 产品页面](https://products.aspose.com/slides/sharepoint/)
 - [下载 Aspose.Slides for SharePoint](https://releases.aspose.com/slides/sharepoint/)

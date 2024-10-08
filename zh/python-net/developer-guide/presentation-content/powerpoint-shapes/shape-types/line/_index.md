@@ -2,7 +2,7 @@
 title: 线
 type: docs
 weight: 50
-url: /python-net/line/
+url: /zh/python-net/line/
 keywords: "线, PowerPoint 形状, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中的 PowerPoint 演示文稿中添加线"
 ---

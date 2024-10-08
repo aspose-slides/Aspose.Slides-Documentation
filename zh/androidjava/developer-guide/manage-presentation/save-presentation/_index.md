@@ -2,13 +2,13 @@
 title: 保存演示文稿
 type: docs
 weight: 80
-url: /androidjava/save-presentation/
+url: /zh/androidjava/save-presentation/
 ---
 
 ## **概述**
 {{% alert color="primary" %}} 
 
-[打开演示文稿](/slides/androidjava/open-presentation/) 描述了如何使用 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类来打开演示文稿。本文将解释如何创建和保存演示文稿。
+[打开演示文稿](/slides/zh/androidjava/open-presentation/) 描述了如何使用 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类来打开演示文稿。本文将解释如何创建和保存演示文稿。
 
 {{% /alert %}} 
 

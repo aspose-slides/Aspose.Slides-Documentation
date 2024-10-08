@@ -2,7 +2,7 @@
 title: 管理表格
 type: docs
 weight: 10
-url: /cpp/manage-table/
+url: /zh/cpp/manage-table/
 keywords: "表格, 创建表格, 访问表格, 表格纵横比, PowerPoint 演示文稿, C++, Aspose.Slides for C++"
 description: "在 C++ 中创建和管理 PowerPoint 演示文稿中的表格"
 ---

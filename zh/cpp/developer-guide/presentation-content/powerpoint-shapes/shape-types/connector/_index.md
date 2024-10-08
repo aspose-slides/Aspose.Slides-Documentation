@@ -2,7 +2,7 @@
 title: 连接器
 type: docs
 weight: 10
-url: /cpp/connector/
+url: /zh/cpp/connector/
 keywords: "连接形状, 连接器, PowerPoint 形状, PowerPoint 演示文稿, C++, CPP, Aspose.Slides for C++"
 description: "在 C++ 中连接 PowerPoint 形状"
 ---
@@ -141,7 +141,7 @@ Aspose.Slides 提供以下连接器：
 
 ## **调整连接器点**
 
-您可以通过其调整点调整现有连接器。仅具有调整点的连接器可以以这种方式进行更改。请参阅 **[连接器的类型](/slides/cpp/connector/#types-of-connectors)** 下的表格。
+您可以通过其调整点调整现有连接器。仅具有调整点的连接器可以以这种方式进行更改。请参阅 **[连接器的类型](/slides/zh/cpp/connector/#types-of-connectors)** 下的表格。
 
 #### **简单情况**
 
@@ -190,7 +190,7 @@ adj2->set_RawValue(adj2->get_RawValue() + 10000);
 * 调整点值反映连接器形状宽度/高度的百分比。
   * 该形状由连接器的起点和终点乘以 1000 限制。
   * 第一个点、第二个点和第三个点分别定义宽度、从高度和再次从宽度的百分比。
-* 对于确定连接器调整点坐标的计算，您需要考虑连接器的旋转及其反射。**注意**，在 **[连接器的类型](/slides/cpp/connector/#types-of-connectors)** 下显示的所有连接器的旋转角度为 0。
+* 对于确定连接器调整点坐标的计算，您需要考虑连接器的旋转及其反射。**注意**，在 **[连接器的类型](/slides/zh/cpp/connector/#types-of-connectors)** 下显示的所有连接器的旋转角度为 0。
 
 #### **案例 1**
 

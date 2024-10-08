@@ -2,7 +2,7 @@
 title: 可移植文档格式（PDF）
 type: docs
 weight: 30
-url: /cpp/portable-document-format-pdf/
+url: /zh/cpp/portable-document-format-pdf/
 ---
 
 ## **关于PDF**

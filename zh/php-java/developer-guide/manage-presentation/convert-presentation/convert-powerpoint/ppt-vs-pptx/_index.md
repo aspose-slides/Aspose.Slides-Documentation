@@ -2,7 +2,7 @@
 title: PPT 与 PPTX
 type: docs
 weight: 10
-url: /php-java/ppt-vs-pptx/
+url: /zh/php-java/ppt-vs-pptx/
 keywords: "PPT 与 PPTX"
 description: "阅读关于 Aspose.Slides 中 PPT 与 PPTX 之间的差异。"
 ---
@@ -39,5 +39,5 @@ Aspose.Slides 提供了一个通用接口，用于处理所有演示格式。它
 ```
 
 {{% alert color="primary" %}} 
-阅读更多 [**如何将演示文稿 PPT 转换为 PPTX**.](/slides/php-java/convert-ppt-to-pptx/)
+阅读更多 [**如何将演示文稿 PPT 转换为 PPTX**.](/slides/zh/php-java/convert-ppt-to-pptx/)
 {{% /alert %}} 

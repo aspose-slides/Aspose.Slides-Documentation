@@ -2,7 +2,7 @@
 title: 演示文稿锁定
 type: docs
 weight: 110
-url: /net/presentation-locking/
+url: /zh/net/presentation-locking/
 ---
 
 ## **演示文稿锁定**

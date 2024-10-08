@@ -2,7 +2,7 @@
 title: 字体替换
 type: docs
 weight: 70
-url: /python-net/font-substitution/
+url: /zh/python-net/font-substitution/
 keywords: "字体, 替代字体, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中替代 PowerPoint 字体"
 ---
@@ -47,6 +47,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{%  alert title="注意"  color="warning"   %}} 
 
-您可能想查看 [**字体替换**](/slides/python-net/font-replacement/)。 
+您可能想查看 [**字体替换**](/slides/zh/python-net/font-replacement/)。 
 
 {{% /alert %}}

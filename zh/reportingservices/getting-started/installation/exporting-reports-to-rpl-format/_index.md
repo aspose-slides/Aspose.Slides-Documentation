@@ -2,7 +2,7 @@
 title: 导出报告至 RPL 格式
 type: docs
 weight: 110
-url: /reportingservices/exporting-reports-to-rpl-format/
+url: /zh/reportingservices/exporting-reports-to-rpl-format/
 ---
 
 ﻿

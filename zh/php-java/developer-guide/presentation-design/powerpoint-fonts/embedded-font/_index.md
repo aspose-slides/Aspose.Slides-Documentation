@@ -3,7 +3,7 @@ title: 嵌入式字体 - PowerPoint Java API
 linktitle: 嵌入式字体
 type: docs
 weight: 40
-url: /php-java/embedded-font/
+url: /zh/php-java/embedded-font/
 keywords: "字体, 嵌入式字体, 添加字体, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "在 PowerPoint 演示文稿中使用嵌入式字体"
 

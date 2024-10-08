@@ -2,7 +2,7 @@
 title: PPTX 中图表缩放的有效解决方案
 type: docs
 weight: 40
-url: /java/working-solution-for-chart-resizing-in-pptx/
+url: /zh/java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /java/working-solution-for-chart-resizing-in-pptx/
 
 {{% /alert %}} 
 ## **背景**
-在 [上一篇文章](/slides/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) 中，我们解释了如何使用 Aspose.Cells for Java 创建 Excel 图表，并进一步使用 Aspose.Slides for Java 将该图表嵌入到 PowerPoint 演示文稿中。为了解决 [对象变化问题](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)，我们将图表图像分配给图表 OLE 对象框。在输出的演示文稿中，当我们双击显示图表图像的 OLE 对象框时，Excel 图表被激活。最终用户可以在实际的 Excel 工作簿中进行任何所需的更改，然后通过点击激活的 Excel 工作簿外的区域返回到相关幻灯片。用户返回幻灯片时，OLE 对象框的大小会发生变化。对于不同大小的 OLE 对象框和嵌入的 Excel 工作簿，缩放因子会有所不同。
+在 [上一篇文章](/slides/zh/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) 中，我们解释了如何使用 Aspose.Cells for Java 创建 Excel 图表，并进一步使用 Aspose.Slides for Java 将该图表嵌入到 PowerPoint 演示文稿中。为了解决 [对象变化问题](/slides/zh/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)，我们将图表图像分配给图表 OLE 对象框。在输出的演示文稿中，当我们双击显示图表图像的 OLE 对象框时，Excel 图表被激活。最终用户可以在实际的 Excel 工作簿中进行任何所需的更改，然后通过点击激活的 Excel 工作簿外的区域返回到相关幻灯片。用户返回幻灯片时，OLE 对象框的大小会发生变化。对于不同大小的 OLE 对象框和嵌入的 Excel 工作簿，缩放因子会有所不同。
 ## **缩放原因**
 由于 Excel 工作簿具有自己的窗口大小，它在第一次激活时会尝试保留其原始大小。另一方面，OLE 对象框将具有自己的大小。根据微软的说法，在激活 Excel 工作簿时，Excel 和 PowerPoint 会协商大小，并确保它处于正确的比例，作为嵌入操作的一部分。由于 Excel 窗口大小和 OLE 对象框的大小/位置之间的差异，会发生缩放。
 ## **有效解决方案**

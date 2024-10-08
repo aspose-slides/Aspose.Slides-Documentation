@@ -2,7 +2,7 @@
 title: 将PowerPoint PPT转换为JPG
 type: docs
 weight: 60
-url: /cpp/convert-powerpoint-to-jpg/
+url: /zh/cpp/convert-powerpoint-to-jpg/
 keywords:
 - 转换PowerPoint演示文稿
 - JPG
@@ -89,4 +89,4 @@ Aspose提供了一个[免费的拼贴网页应用](https://products.aspose.app/s
 
 查看其他将PPT/PPTX转换为图像的选项，例如：
 
-- [PPT/PPTX到SVG转换](/slides/cpp/render-a-slide-as-an-svg-image/)
+- [PPT/PPTX到SVG转换](/slides/zh/cpp/render-a-slide-as-an-svg-image/)

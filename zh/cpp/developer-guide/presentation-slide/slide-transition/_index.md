@@ -2,7 +2,7 @@
 title: 幻灯片过渡
 type: docs
 weight: 80
-url: /cpp/slide-transition/
+url: /zh/cpp/slide-transition/
 keywords: "PowerPoint 幻灯片过渡, morph 过渡"
 description: "PowerPoint 幻灯片过渡, 使用 Aspose.Slides 的 PowerPoint morph 过渡。"
 ---

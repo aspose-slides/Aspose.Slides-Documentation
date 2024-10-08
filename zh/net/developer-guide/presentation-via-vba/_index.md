@@ -2,7 +2,7 @@
 title: 通过 VBA 进行演示
 type: docs
 weight: 250
-url: /net/presentation-via-vba/
+url: /zh/net/presentation-via-vba/
 keywords: "宏, 宏, VBA, VBA 宏, 添加宏, 移除宏, 添加 VBA, 移除 VBA, 提取宏, 提取 VBA, PowerPoint 宏, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中添加、移除和提取 PowerPoint 演示文稿中的 VBA 宏"
 ---

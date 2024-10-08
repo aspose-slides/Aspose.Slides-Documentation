@@ -3,7 +3,7 @@ title: 创建演示文稿 - C++ PowerPoint API
 linktitle: 创建演示文稿
 type: docs
 weight: 10
-url: /cpp/create-presentation/
+url: /zh/cpp/create-presentation/
 description: 要在 C++ API 中创建 PowerPoint 演示文稿，请按照本文中提到的步骤操作。代码将一条线添加到演示文稿的第一张幻灯片上。
 ---
 

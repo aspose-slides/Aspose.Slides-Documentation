@@ -3,7 +3,7 @@ title: 授权
 description: "Aspose.Slides for Python via .NET 提供不同的购买计划，或提供免费试用和30天临时许可证以便使用许可和订阅政策进行评估。"
 type: docs
 weight: 80
-url: /python-net/licensing/
+url: /zh/python-net/licensing/
 ---
 
 ## **评估 Aspose.Slides**
@@ -41,7 +41,7 @@ url: /python-net/licensing/
 
 {{% alert color="primary" %}} 
 
-您可能想查看 [计量许可证](/slides/python-net/metered-licensing/)。
+您可能想查看 [计量许可证](/slides/zh/python-net/metered-licensing/)。
 
 {{% /alert %}} 
 

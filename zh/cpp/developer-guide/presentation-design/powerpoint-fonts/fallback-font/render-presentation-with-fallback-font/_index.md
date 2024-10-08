@@ -2,7 +2,7 @@
 title: 使用回退字体渲染演示文稿
 type: docs
 weight: 30
-url: /cpp/render-presentation-with-fallback-font/
+url: /zh/cpp/render-presentation-with-fallback-font/
 keywords: 
 - 回退字体
 - 渲染 PowerPoint
@@ -15,7 +15,7 @@ description: "在 C++ 中使用回退字体渲染 PowerPoint"
 
 以下示例包含这些步骤：
 
-1. 我们 [创建回退字体规则集合](/slides/cpp/create-fallback-fonts-collection/)。
+1. 我们 [创建回退字体规则集合](/slides/zh/cpp/create-fallback-fonts-collection/)。
 1. [Remove()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#aaf12e563d822f6e05e27732a837bcf33) 一个回退字体规则并 [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#a030268631ae616b775bdb6df8accf42c) 添加到另一个规则。
 1. 将规则集合设置为 [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924) 属性。
 1. 使用 [Presentation::Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) 方法，我们可以以相同格式保存演示文稿，或以另一种格式保存。在将回退字体规则集合设置为 FontsManager 后，这些规则在对演示文稿的任何操作中应用：保存、渲染、转换等。
@@ -61,5 +61,5 @@ pres->Dispose();
 
 
 {{% alert color="primary" %}} 
-阅读更多关于 [演示文稿中的保存和转换](/slides/cpp/creating-saving-and-converting-a-presentation/)。
+阅读更多关于 [演示文稿中的保存和转换](/slides/zh/cpp/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

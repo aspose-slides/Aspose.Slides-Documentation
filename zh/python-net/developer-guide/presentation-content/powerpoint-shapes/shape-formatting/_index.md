@@ -2,7 +2,7 @@
 title: 形状格式化
 type: docs
 weight: 20
-url: /python-net/shape-formatting/
+url: /zh/python-net/shape-formatting/
 keywords: "格式化形状, 格式化线条, 格式化连接样式, 渐变填充, 图案填充, 图片填充, 纯色填充, 旋转形状, 3D 凹凸效果, 3D 旋转效果, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中格式化 PowerPoint 演示文稿中的形状"
 ---

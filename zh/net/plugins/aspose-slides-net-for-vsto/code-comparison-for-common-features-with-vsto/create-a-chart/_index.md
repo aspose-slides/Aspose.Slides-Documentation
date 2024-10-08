@@ -2,7 +2,7 @@
 title: 创建图表
 type: docs
 weight: 60
-url: /net/create-a-chart/
+url: /zh/net/create-a-chart/
 ---
 
 下面的代码示例描述了使用 VSTO 添加简单的 3D 聚类柱状图的过程。您创建一个演示实例，添加一个默认图表。然后使用 Microsoft Excel 工作簿访问和修改图表数据，同时设置图表属性。最后，保存演示文稿。

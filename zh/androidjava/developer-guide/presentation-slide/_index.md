@@ -2,5 +2,5 @@
 title: 演示幻灯片
 type: docs
 weight: 20
-url: /androidjava/presentation-slide/
+url: /zh/androidjava/presentation-slide/
 ---

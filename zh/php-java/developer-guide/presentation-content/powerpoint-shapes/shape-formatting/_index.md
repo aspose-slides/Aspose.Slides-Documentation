@@ -2,7 +2,7 @@
 title: 形状格式化
 type: docs
 weight: 20
-url: /php-java/shape-formatting/
+url: /zh/php-java/shape-formatting/
 keywords: "格式化形状, 格式化线条, 格式化连接样式, 渐变填充, 图案填充, 图片填充, 实心颜色填充, 旋转形状, 3d 倾斜效果, 3d 旋转效果, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "在 PowerPoint 演示文稿中格式化形状"
 ---

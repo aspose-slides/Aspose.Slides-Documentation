@@ -2,7 +2,7 @@
 title: 将幻灯片渲染为 JPEG 缩略图
 type: docs
 weight: 60
-url: /net/render-slide-as-thumbnail-to-jpeg/
+url: /zh/net/render-slide-as-thumbnail-to-jpeg/
 ---
 
 **Aspose.Slides for .NET** 用于创建包含幻灯片的演示文稿文件。这些幻灯片可以通过使用 Microsoft PowerPoint 打开演示文稿文件来查看。但有时，开发人员可能需要使用他们喜欢的图像查看器将幻灯片查看为图像。在这种情况下，Aspose.Slides for .NET 可以帮助您生成幻灯片的缩略图像。

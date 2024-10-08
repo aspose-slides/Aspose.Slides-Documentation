@@ -2,7 +2,7 @@
 title: 系统要求
 type: docs
 weight: 50
-url: /sharepoint/system-requirements/
+url: /zh/sharepoint/system-requirements/
 ---
 
 ## **服务器要求**

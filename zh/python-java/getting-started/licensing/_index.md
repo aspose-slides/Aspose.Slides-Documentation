@@ -3,7 +3,7 @@ title: 许可
 description: "Aspose.Slides for Python via Java 提供不同的购买计划，或者提供免费试用和 30 天临时许可证以供使用许可和订阅政策进行评估。"
 type: docs
 weight: 80
-url: /python-java/licensing/
+url: /zh/python-java/licensing/
 ---
 
 有时，为了获得最佳的评估结果，可能需要一种实践的方法。因此，Aspose.Slides 提供不同的购买计划，同时也提供免费试用和 30 天临时许可证进行评估。

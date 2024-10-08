@@ -2,5 +2,5 @@
 title: 开发者指南
 type: docs
 weight: 20
-url: /python-java/developer-guide/
+url: /zh/python-java/developer-guide/
 ---

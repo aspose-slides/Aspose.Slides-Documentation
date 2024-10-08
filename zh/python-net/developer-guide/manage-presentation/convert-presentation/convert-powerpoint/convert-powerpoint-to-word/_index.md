@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 Word
 type: docs
 weight: 110
-url: /python-net/convert-powerpoint-to-word/
+url: /zh/python-net/convert-powerpoint-to-word/
 keywords: "转换 PowerPoint, PPT, PPTX, 演示文稿, Word, DOCX, DOC, PPTX 到 DOCX, PPT 到 DOC, PPTX 到 DOC, PPT 到 DOCX, Python, Aspose.Slides"
 description: "在 Python 中将 PowerPoint 演示文稿转换为 Word"
 ---

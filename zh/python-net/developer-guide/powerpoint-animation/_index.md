@@ -2,7 +2,7 @@
 title: PowerPoint 动画
 type: docs
 weight: 150
-url: /python-net/powerpoint-animation/
+url: /zh/python-net/powerpoint-animation/
 keywords: "动画, 动画效果, PowerPoint 动画, 动画时间轴, 互动动画, 形状动画, 动态图表, 动态文本, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中的 PowerPoint 演示文稿动画和效果"
 ---
@@ -48,19 +48,19 @@ Aspose.Slides 支持 **150+ 动画效果**，包括像 Bounce、PathFootball、Z
 Aspose.Slides 允许对形状应用动画，这些形状实际上可以是文本、矩形、线条、框架、OLE 对象等。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于形状动画**](/slides/python-net/shape-animation/)。
+阅读更多 [**关于形状动画**](/slides/zh/python-net/shape-animation/)。
 {{% /alert %}}
 
 ## **动态图表**
 要创建动态图表，您应该使用与形状相同的类。然而，只能在图表类别或图表系列上使用 PowerPoint 动画。您还可以对类别元素或系列元素应用动画效果。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动态图表**](/slides/python-net/animated-charts/)。
+阅读更多 [**关于动态图表**](/slides/zh/python-net/animated-charts/)。
 {{% /alert %}}
 
 ## **动态文本**
 除了动态文本之外，还可以对段落应用动画。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动态文本**](/slides/python-net/animated-text/)。
+阅读更多 [**关于动态文本**](/slides/zh/python-net/animated-text/)。
 {{% /alert %}}

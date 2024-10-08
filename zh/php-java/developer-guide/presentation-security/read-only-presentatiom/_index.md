@@ -2,7 +2,7 @@
 title: 只读演示
 type: docs
 weight: 30
-url: /php-java/read-only-presentation/
+url: /zh/php-java/read-only-presentation/
 
 ---
 

@@ -2,7 +2,7 @@
 title: 常见问题解答
 type: docs
 weight: 110
-url: /reportingservices/frequently-asked-questions/
+url: /zh/reportingservices/frequently-asked-questions/
 ---
 
 {{% alert color="primary" %}} 

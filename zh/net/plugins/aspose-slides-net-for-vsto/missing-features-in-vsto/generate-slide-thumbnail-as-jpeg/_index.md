@@ -2,7 +2,7 @@
 title: 生成幻灯片缩略图作为JPEG
 type: docs
 weight: 90
-url: /net/generate-slide-thumbnail-as-jpeg/
+url: /zh/net/generate-slide-thumbnail-as-jpeg/
 ---
 
 要使用Aspose.Slides for .NET生成所需幻灯片的缩略图：
@@ -38,6 +38,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-欲了解更多详细信息，请访问 [创建幻灯片缩略图像](/slides/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage)。
+欲了解更多详细信息，请访问 [创建幻灯片缩略图像](/slides/zh/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage)。
 
 {{% /alert %}}

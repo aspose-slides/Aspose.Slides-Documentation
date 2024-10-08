@@ -2,7 +2,7 @@
 title: 现代API
 type: docs
 weight: 237
-url: /php-java/modern-api/
+url: /zh/php-java/modern-api/
 keywords: "跨平台现代API"
 description: "现代API"
 ---

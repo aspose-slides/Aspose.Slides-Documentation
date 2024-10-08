@@ -3,7 +3,7 @@ title: 使用 C# 合并 PowerPoint 演示文稿 PPT, PPTX
 linktitle: 合并演示文稿
 type: docs
 weight: 40
-url: /net/merge-presentation/
+url: /zh/net/merge-presentation/
 keywords: "合并 PowerPoint, PPTX, PPT, 合并 PowerPoint, 合并演示文稿, C#, Csharp, .NET"
 description: "在 C# 或 .NET 中合并或组合 PowerPoint 演示文稿"
 ---

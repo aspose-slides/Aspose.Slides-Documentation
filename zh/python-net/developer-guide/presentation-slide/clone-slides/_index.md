@@ -2,7 +2,7 @@
 title: 克隆幻灯片
 type: docs
 weight: 40
-url: /python-net/clone-slides/
+url: /zh/python-net/clone-slides/
 keywords: "克隆幻灯片, 复制幻灯片, 保存幻灯片副本, PowerPoint, 演示文稿, Python, Aspose.Slides"
 description: "在Python中克隆PowerPoint幻灯片"
 ---

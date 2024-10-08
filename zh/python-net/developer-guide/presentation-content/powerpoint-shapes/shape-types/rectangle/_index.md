@@ -2,7 +2,7 @@
 title: 矩形
 type: docs
 weight: 80
-url: /python-net/rectangle/
+url: /zh/python-net/rectangle/
 keywords: "创建矩形, PowerPoint形状, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中创建PowerPoint演示文稿的矩形"
 ---

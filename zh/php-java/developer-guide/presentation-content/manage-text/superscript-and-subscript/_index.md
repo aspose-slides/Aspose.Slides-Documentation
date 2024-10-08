@@ -2,7 +2,7 @@
 title: 上标和下标
 type: docs
 weight: 80
-url: /php-java/superscript-and-subscript/
+url: /zh/php-java/superscript-and-subscript/
 ---
 
 ## **管理上标和下标文本**

@@ -2,7 +2,7 @@
 title: 线
 type: docs
 weight: 50
-url: /cpp/Line/
+url: /zh/cpp/Line/
 ---
 
 ## **创建普通线**

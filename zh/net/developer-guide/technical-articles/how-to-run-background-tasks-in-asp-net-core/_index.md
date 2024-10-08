@@ -2,7 +2,7 @@
 title: 如何在ASP.NET Core中运行后台任务
 type: docs
 weight: 300
-url: /net/how-to-run-background-tasks-in-asp-net-core/
+url: /zh/net/how-to-run-background-tasks-in-asp-net-core/
 ---
 
 ## **概述**

@@ -1,7 +1,7 @@
 ---
 title: 图表图例
 type: docs
-url: /androidjava/chart-legend/
+url: /zh/androidjava/chart-legend/
 ---
 
 ## **图例定位**

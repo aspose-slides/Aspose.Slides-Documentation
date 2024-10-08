@@ -2,7 +2,7 @@
 title: 幻灯片过渡
 type: docs
 weight: 80
-url: /androidjava/slide-transition/
+url: /zh/androidjava/slide-transition/
 keywords: "PowerPoint 幻灯片过渡, Java 中的变形过渡"
 description: "PowerPoint 幻灯片过渡, Java 中的 PowerPoint 变形过渡"
 ---

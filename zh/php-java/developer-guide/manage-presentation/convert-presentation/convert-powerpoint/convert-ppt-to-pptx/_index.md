@@ -3,7 +3,7 @@ title: 将PPT转换为PPTX
 linktitle: 将PPT转换为PPTX
 type: docs
 weight: 20
-url: /php-java/convert-ppt-to-pptx/
+url: /zh/php-java/convert-ppt-to-pptx/
 keywords: "PHP 将PPT转换为PPTX, PowerPoint PPT到PPTX"
 description: "将PowerPoint PPT转换为PPTX。"
 ---
@@ -47,7 +47,7 @@ description: "将PowerPoint PPT转换为PPTX。"
 {{% /alert %}} 
 
 ## **将PPT转换为PPTX**
-Aspose.Slides for PHP通过Java现在使开发人员能够使用[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)类实例访问PPT，并将其转换为相应的[PPTX](https://docs.fileformat.com/presentation/pptx/)格式。目前，它支持将[PPT](https://docs.fileformat.com/presentation/ppt/)部分转换为PPTX。有关PPT到PPTX转换中支持和不支持的功能的更多详细信息，请访问此文档[链接](/slides/php-java/ppt-to-pptx-conversion/)。
+Aspose.Slides for PHP通过Java现在使开发人员能够使用[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)类实例访问PPT，并将其转换为相应的[PPTX](https://docs.fileformat.com/presentation/pptx/)格式。目前，它支持将[PPT](https://docs.fileformat.com/presentation/ppt/)部分转换为PPTX。有关PPT到PPTX转换中支持和不支持的功能的更多详细信息，请访问此文档[链接](/slides/zh/php-java/ppt-to-pptx-conversion/)。
 
 Aspose.Slides for PHP通过Java提供了表示**PPTX**演示文稿文件的[Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation)类。现在，当实例化对象时，Presentation类也可以通过Presentation访问**PPT**。以下示例演示如何将PPT演示文稿转换为PPTX演示文稿。
 

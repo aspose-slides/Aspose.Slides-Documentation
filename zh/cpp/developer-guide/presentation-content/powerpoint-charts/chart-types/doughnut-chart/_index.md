@@ -2,7 +2,7 @@
 title: 圆环图
 type: docs
 weight: 30
-url: /cpp/doughnut-chart/
+url: /zh/cpp/doughnut-chart/
 ---
 
 ## **在圆环图中指定中心间隙**

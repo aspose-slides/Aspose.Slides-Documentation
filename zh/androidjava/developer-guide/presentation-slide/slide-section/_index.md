@@ -2,7 +2,7 @@
 title: 幻灯片部分
 type: docs
 weight: 90
-url: /androidjava/slide-section/
+url: /zh/androidjava/slide-section/
 ---
 
 通过 Aspose.Slides for Android 通过 Java，您可以将 PowerPoint 演示文稿组织成多个部分。您可以创建包含特定幻灯片的部分。

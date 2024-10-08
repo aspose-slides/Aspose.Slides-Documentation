@@ -1,7 +1,7 @@
 ---
 title: 图表系列
 type: docs
-url: /python-net/chart-series/
+url: /zh/python-net/chart-series/
 keywords: "图表系列, 系列颜色, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中 PowerPoint 演示文稿的图表系列"
 ---

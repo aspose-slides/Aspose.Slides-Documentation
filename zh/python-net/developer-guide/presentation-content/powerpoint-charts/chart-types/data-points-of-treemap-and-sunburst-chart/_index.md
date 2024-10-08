@@ -1,7 +1,7 @@
 ---
 title: Treemap 和 Sunburst 图表的数据点
 type: docs
-url: /python-net/data-points-of-treemap-and-sunburst-chart/
+url: /zh/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords: "Sunburst 图表, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加 Sunburst 图表"
 ---
@@ -20,7 +20,7 @@ with slides.Presentation() as pres:
 ```
 
 {{% alert color="primary" title="另请参阅" %}} 
-- [**创建 Sunburst 图表**](/slides/python-net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**创建 Sunburst 图表**](/slides/zh/python-net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 如果需要格式化图表的数据点，我们应该使用以下内容：

@@ -3,7 +3,7 @@ title: 在 Java 中使用自定义 PowerPoint 字体
 linktitle: 自定义字体
 type: docs
 weight: 20
-url: /java/custom-font/
+url: /zh/java/custom-font/
 keywords: "字体，自定义字体，PowerPoint 演示文稿，Java，Aspose.Slides for Java"
 description: "在 Java 中使用 PowerPoint 自定义字体"
 ---

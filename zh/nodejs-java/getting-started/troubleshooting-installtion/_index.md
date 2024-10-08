@@ -2,7 +2,7 @@
 title: 通过 Java 安装 Aspose.Slides for Node.js 的故障排除
 type: docs
 weight: 75
-url: /nodejs-java/troubleshooting-installation/
+url: /zh/nodejs-java/troubleshooting-installation/
 keySlides: "下载 Aspose.Slides，安装 Aspose.Slides，Aspose.Slides 故障排除，Windows，macOS，Linux，Javascript，Node.js"
 description: "在 Windows、Linux 或 macOS 上通过 Java 安装 Aspose.Slides for Node.js 的故障排除"
 ---

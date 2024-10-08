@@ -2,12 +2,12 @@
 title: PPT 转 PPTX 转换
 type: docs
 weight: 30
-url: /php-java/ppt-to-pptx-conversion/
+url: /zh/php-java/ppt-to-pptx-conversion/
 ---
 
 {{% alert color="primary" %}} 
 
-PPT 转 PPTX 转换在 Aspose.Slides for PHP via Java 中得到了支持。大部分演示文稿特性 - 主幻灯片、结构等 - 在从一种格式转换到另一种格式时都会保留，但存在 [一些限制](/slides/php-java/ppt-to-pptx-conversion/)。
+PPT 转 PPTX 转换在 Aspose.Slides for PHP via Java 中得到了支持。大部分演示文稿特性 - 主幻灯片、结构等 - 在从一种格式转换到另一种格式时都会保留，但存在 [一些限制](/slides/zh/php-java/ppt-to-pptx-conversion/)。
 
 {{% /alert %}} 
 ## **转换中支持的特性**

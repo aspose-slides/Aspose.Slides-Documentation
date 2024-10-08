@@ -2,7 +2,7 @@
 title: 在表格单元格中添加图片
 type: docs
 weight: 10
-url: /net/add-image-in-table-cell/
+url: /zh/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**

@@ -2,12 +2,12 @@
 title: Aspose.Slides for Java 14.6.0 中的公共 API 及不兼容的更改
 type: docs
 weight: 50
-url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
+url: /zh/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/
 ---
 
 {{% alert color="primary" %}} 
 
-此页面列出了 Aspose.Slides for Java 14.6.0 API 中所有 [添加的](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) 类、方法、属性等，任何新限制和引入的其他更改。
+此页面列出了 Aspose.Slides for Java 14.6.0 API 中所有 [添加的](/slides/zh/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-6-0/) 类、方法、属性等，任何新限制和引入的其他更改。
 
 {{% /alert %}} 
 ## **公共 API 更改**

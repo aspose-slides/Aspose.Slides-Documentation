@@ -2,7 +2,7 @@
 title: 形状有效属性
 type: docs
 weight: 50
-url: /cpp/shape-effective-properties/
+url: /zh/cpp/shape-effective-properties/
 ---
 
 在本主题中，我们将讨论 **有效** 和 **本地** 属性。当我们在这些层次上直接设置值时

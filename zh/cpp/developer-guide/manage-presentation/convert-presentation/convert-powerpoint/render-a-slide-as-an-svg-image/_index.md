@@ -2,7 +2,7 @@
 title: 将幻灯片呈现为SVG图像
 type: docs
 weight: 50
-url: /cpp/render-a-slide-as-an-svg-image/
+url: /zh/cpp/render-a-slide-as-an-svg-image/
 ---
 
 SVG（可扩展矢量图形的缩写）是一种标准的图形类型或格式，用于呈现二维图像。SVG将图像作为XML中的矢量存储，并附带定义其行为或外观的详细信息。

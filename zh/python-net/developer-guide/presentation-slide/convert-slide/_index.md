@@ -2,7 +2,7 @@
 title: 转换幻灯片
 type: docs
 weight: 41
-url: /python-net/convert-slide/
+url: /zh/python-net/convert-slide/
 keywords: 
 - 转换幻灯片为图像
 - 将幻灯片导出为图像

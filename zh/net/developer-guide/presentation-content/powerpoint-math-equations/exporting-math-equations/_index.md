@@ -2,7 +2,7 @@
 title: 导出数学方程
 type: docs
 weight: 30
-url: /net/exporting-math-equations/
+url: /zh/net/exporting-math-equations/
 keywords: "导出数学方程, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中导出 PowerPoint 数学方程"
 ---

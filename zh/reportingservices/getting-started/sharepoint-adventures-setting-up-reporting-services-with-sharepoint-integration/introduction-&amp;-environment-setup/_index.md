@@ -2,7 +2,7 @@
 title: 介绍与环境设置
 type: docs
 weight: 10
-url: /reportingservices/introduction-&amp;-environment-setup/
+url: /zh/reportingservices/introduction-&amp;-environment-setup/
 ---
 
 {{% alert color="primary" %}} 

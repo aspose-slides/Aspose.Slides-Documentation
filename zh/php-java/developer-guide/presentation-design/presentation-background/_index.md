@@ -2,7 +2,7 @@
 title: 演示文稿背景
 type: docs
 weight: 20
-url: /php-java/presentation-background/
+url: /zh/php-java/presentation-background/
 keywords: "PowerPoint 背景, 设置背景"
 description: "在 PowerPoint 演示文稿中设置背景"
 ---

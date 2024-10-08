@@ -2,7 +2,7 @@
 title: 按需许可
 type: docs
 weight: 90
-url: /net/metered-licensing/
+url: /zh/net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

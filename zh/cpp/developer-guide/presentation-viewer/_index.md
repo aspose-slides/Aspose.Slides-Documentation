@@ -2,7 +2,7 @@
 title: 演示文稿查看器
 type: docs
 weight: 50
-url: /cpp/presentation-viewer/
+url: /zh/cpp/presentation-viewer/
 keywords: 
 - 查看 PowerPoint 演示文稿
 - 查看 ppt

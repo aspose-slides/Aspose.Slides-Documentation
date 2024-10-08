@@ -2,7 +2,7 @@
 title: 常见问题解答
 type: docs
 weight: 340
-url: /python-net/faqs/
+url: /zh/python-net/faqs/
 keywords:
 - 常见问题
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **问：Aspose.Slides for Python via .NET 支持哪些文件格式？**
 
-**答**：Aspose.Slides for Python via .NET 支持 [支持的文件格式](/slides/python-net/supported-file-formats/) 中描述的文件格式。
+**答**：Aspose.Slides for Python via .NET 支持 [支持的文件格式](/slides/zh/python-net/supported-file-formats/) 中描述的文件格式。
 
 ## **异常**
 
@@ -54,7 +54,7 @@ keywords:
 
 **问：为什么 Windows 和 Linux 操作系统上的段落大小不同？**
 
-**答**：段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算基于 PowerPoint 演示文稿中指定字体的度量。如果指定的字体缺失，它将被替换为最相似的字体，但该字体的度量与原始字体不同。因此，不同系统中段落大小的计算将导致不同的结果，具体取决于安装的字体集合。要在不同操作系统上实现相同的结果，您需要在系统上安装相同的字体，或者像 [外部字体](/slides/python-net/custom-font/) 一样在运行时加载它们。
+**答**：段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算基于 PowerPoint 演示文稿中指定字体的度量。如果指定的字体缺失，它将被替换为最相似的字体，但该字体的度量与原始字体不同。因此，不同系统中段落大小的计算将导致不同的结果，具体取决于安装的字体集合。要在不同操作系统上实现相同的结果，您需要在系统上安装相同的字体，或者像 [外部字体](/slides/zh/python-net/custom-font/) 一样在运行时加载它们。
 
 ## **格式化和图像**
 

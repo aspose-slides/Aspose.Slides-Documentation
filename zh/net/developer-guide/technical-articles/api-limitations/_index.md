@@ -2,7 +2,7 @@
 title: API 限制
 type: docs
 weight: 320
-url: /net/api-limitations/
+url: /zh/net/api-limitations/
 ---
 
 ## **演示文稿和其他导出格式**

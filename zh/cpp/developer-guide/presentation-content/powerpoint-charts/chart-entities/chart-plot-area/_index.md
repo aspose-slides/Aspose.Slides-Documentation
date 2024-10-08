@@ -1,7 +1,7 @@
 ---
 title: 图表绘图区
 type: docs
-url: /cpp/chart-plot-area/
+url: /zh/cpp/chart-plot-area/
 ---
 
 ## **获取图表绘图区的宽度和高度**

@@ -1,7 +1,7 @@
 ---
 title: 图表图例
 type: docs
-url: /cpp/chart-legend/
+url: /zh/cpp/chart-legend/
 ---
 
 ## **图例位置**

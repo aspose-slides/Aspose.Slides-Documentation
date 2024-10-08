@@ -2,7 +2,7 @@
 title: 自定义形状
 type: docs
 weight: 20
-url: /net/custom-shape/
+url: /zh/net/custom-shape/
 keywords: 
 - 形状
 - 自定义形状

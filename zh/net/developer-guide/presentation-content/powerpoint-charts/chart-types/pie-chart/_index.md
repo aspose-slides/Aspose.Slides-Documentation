@@ -1,7 +1,7 @@
 ---
 title: 饼图
 type: docs
-url: /net/pie-chart/
+url: /zh/net/pie-chart/
 keywords: "饼图，绘图选项，切片颜色，PowerPoint演示，C#，Csharp，Aspose.Slides for .NET"
 description: "饼图绘图选项和PowerPoint演示中的切片颜色，使用C#或.NET"
 ---

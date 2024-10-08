@@ -2,7 +2,7 @@
 title: 管理标签和自定义数据
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
+url: /zh/net/managing-tags-and-custom-data
 keywords: "标签, 自定义数据, 标签值, 添加标签, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中为 PowerPoint 演示文稿添加标签和自定义数据"
 ---

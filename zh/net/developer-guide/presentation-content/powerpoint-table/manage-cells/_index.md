@@ -2,7 +2,7 @@
 title: 管理单元格
 type: docs
 weight: 30
-url: /net/manage-cells/
+url: /zh/net/manage-cells/
 keywords:
 - 表格
 - 合并单元格

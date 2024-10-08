@@ -2,7 +2,7 @@
 title: 创建新演示文稿
 type: docs
 weight: 10
-url: /java/create-a-new-presentation/
+url: /zh/java/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for Java是一个可以操纵Microsoft PowerPoint演示文稿的�
 
 {{% /alert %}} 
 ## **创建演示文稿**
-以下是两个代码示例，说明如何使用VSTO和Aspose.Slides for Java实现相同的目标。第一个示例是[VSTO](/slides/java/create-a-new-presentation/); [第二个示例](/slides/java/create-a-new-presentation/)使用Aspose.Slides。
+以下是两个代码示例，说明如何使用VSTO和Aspose.Slides for Java实现相同的目标。第一个示例是[VSTO](/slides/zh/java/create-a-new-presentation/); [第二个示例](/slides/zh/java/create-a-new-presentation/)使用Aspose.Slides。
 ### **VSTO示例**
 **VSTO输出** 
 

@@ -2,7 +2,7 @@
 title: 管理SmartArt形状
 type: docs
 weight: 20
-url: /java/manage-smartart-shape/
+url: /zh/java/manage-smartart-shape/
 ---
 
 ## **创建SmartArt形状**

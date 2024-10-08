@@ -2,7 +2,7 @@
 title: 按使用计费许可
 type: docs
 weight: 90
-url: /python-net/metered-licensing/
+url: /zh/python-net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

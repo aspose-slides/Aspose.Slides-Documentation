@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /cpp/wordart/
+url: /zh/cpp/wordart/
 ---
 
 ## **关于 WordArt?**

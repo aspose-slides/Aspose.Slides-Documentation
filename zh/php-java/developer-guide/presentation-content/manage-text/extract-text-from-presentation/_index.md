@@ -2,7 +2,7 @@
 title: 从演示文稿中提取文本
 type: docs
 weight: 90
-url: /php-java/extract-text-from-presentation/
+url: /zh/php-java/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 

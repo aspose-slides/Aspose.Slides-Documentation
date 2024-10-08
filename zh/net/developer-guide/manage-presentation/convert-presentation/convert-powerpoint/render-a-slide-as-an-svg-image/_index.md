@@ -3,7 +3,7 @@ title: 在 C# 中将幻灯片呈现为 SVG 图像
 linktitle: 在 C# 中将幻灯片呈现为 SVG 图像
 type: docs
 weight: 50
-url: /net/render-a-slide-as-an-svg-image/
+url: /zh/net/render-a-slide-as-an-svg-image/
 description: 本文解释了如何使用 C# 将 PowerPoint 演示文稿转换为 SVG 格式。您可以将 PPT、PPTX、ODP 格式转换为 SVG 图像。
 keywords: C# 将 PowerPoint 转换为 SVG, C# PPT 转换为 SVG, C# PPTX 转换为 SVG
 ---

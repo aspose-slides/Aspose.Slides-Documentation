@@ -2,7 +2,7 @@
 title: 图表工作表公式
 type: docs
 weight: 70
-url: /php-java/chart-worksheet-formulas/
+url: /zh/php-java/chart-worksheet-formulas/
 keywords: "powerpoint 方程, powerpoint 电子表格公式"
 description: "PowerPoint 方程和电子表格公式"
 ---

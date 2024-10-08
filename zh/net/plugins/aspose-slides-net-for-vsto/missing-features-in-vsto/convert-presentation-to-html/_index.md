@@ -2,7 +2,7 @@
 title: 转换演示文稿为 HTML
 type: docs
 weight: 40
-url: /net/convert-presentation-to-html/
+url: /zh/net/convert-presentation-to-html/
 ---
 
 **HTML** 是用于交换数据的几种广泛使用格式之一。**Aspose.Slides for .NET** 提供了将演示文稿转换为 HTML 的支持。以下是一个代码片段，展示了如何进行转换。
@@ -33,6 +33,6 @@ pres.Save("Converted.html", Aspose.Slides.Export.SaveFormat.Html, htmlOpt);
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问 [转换演示文稿为 HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)。
+有关更多详细信息，请访问 [转换演示文稿为 HTML](/slides/zh/net/convert-powerpoint-ppt-and-pptx-to-html/)。
 
 {{% /alert %}}

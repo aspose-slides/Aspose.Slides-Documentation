@@ -2,7 +2,7 @@
 title: 安装
 type: docs
 weight: 70
-url: /net/installation/
+url: /zh/net/installation/
 keywords: "下载 Aspose.Slides, 安装 Aspose.Slides, Aspose.Slides 安装, Windows, macOS, .NET"
 description: "在 Windows 或 macOS 上安装 Aspose.Slides for .NET"
 ---

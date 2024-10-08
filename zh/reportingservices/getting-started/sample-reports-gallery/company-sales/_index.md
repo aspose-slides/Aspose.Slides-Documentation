@@ -2,7 +2,7 @@
 title: 公司销售
 type: docs
 weight: 20
-url: /reportingservices/company-sales/
+url: /zh/reportingservices/company-sales/
 ---
 
 ## **特点：**

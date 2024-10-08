@@ -2,7 +2,7 @@
 title: 幻灯片大小
 type: docs
 weight: 70
-url: /net/slide-size/
+url: /zh/net/slide-size/
 keywords: "设置幻灯片，编辑幻灯片大小，PowerPoint 演示文稿，自定义幻灯片大小，解决幻灯片问题，C#，Csharp，.NET，Aspose.Slides"
 descriptions: "在 C# 或 .NET 中设置和编辑 PowerPoint 的幻灯片大小或纵横比"
 ---

@@ -2,12 +2,12 @@
 title: 使用 VSTO 和 Aspose.Slides for Java 格式化文本
 type: docs
 weight: 30
-url: /java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /zh/java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-有时，您需要以编程方式格式化幻灯片上的文本。本文展示了如何使用 [VSTO](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/) 和 [Aspose.Slides for Java](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/) 读取带有一些文本的示例演示文稿的第一页。代码将幻灯片上第三个文本框中的文本格式化为与最后一个文本框中的文本相同的样式。
+有时，您需要以编程方式格式化幻灯片上的文本。本文展示了如何使用 [VSTO](/slides/zh/java/format-text-using-vsto-and-aspose-slides-for-java/) 和 [Aspose.Slides for Java](/slides/zh/java/format-text-using-vsto-and-aspose-slides-for-java/) 读取带有一些文本的示例演示文稿的第一页。代码将幻灯片上第三个文本框中的文本格式化为与最后一个文本框中的文本相同的样式。
 
 {{% /alert %}} 
 ## **格式化文本**

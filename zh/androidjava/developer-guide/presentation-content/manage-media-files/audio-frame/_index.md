@@ -2,7 +2,7 @@
 title: 音频框架
 type: docs
 weight: 10
-url: /androidjava/audio-frame/
+url: /zh/androidjava/audio-frame/
 keywords: "添加音频, 音频框架, 音频属性, 提取音频, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中向 PowerPoint 演示文稿添加音频"
 ---

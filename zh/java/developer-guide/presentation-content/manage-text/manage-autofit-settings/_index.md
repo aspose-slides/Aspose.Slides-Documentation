@@ -2,7 +2,7 @@
 title: 管理自动适应设置
 type: docs
 weight: 30
-url: /java/manage-autofit-settings/
+url: /zh/java/manage-autofit-settings/
 keywords: "文本框, 自动适应, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
 description: "在 Java 中为 PowerPoint 的文本框设置自动适应设置"
 ---

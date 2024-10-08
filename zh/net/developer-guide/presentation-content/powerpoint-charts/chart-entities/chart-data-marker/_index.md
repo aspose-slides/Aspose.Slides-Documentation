@@ -1,7 +1,7 @@
 ---
 title: 图表数据标记
 type: docs
-url: /net/chart-data-marker/
+url: /zh/net/chart-data-marker/
 keywords:
 - 图表标记选项
 - PowerPoint

@@ -2,7 +2,7 @@
 title: 克隆幻灯片
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /zh/java/clone-slides/
 ---
 
 ## **在演示文稿中克隆幻灯片**

@@ -1,7 +1,7 @@
 ---
 title: 图表图例
 type: docs
-url: /net/chart-legend/
+url: /zh/net/chart-legend/
 keywords: "图表图例, 图例字体大小, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中设置 PowerPoint 演示文稿中图表图例的位置和字体大小"
 ---

@@ -2,7 +2,7 @@
 title: 产品支持
 type: docs
 weight: 100
-url: /nodejs-java/product-support/
+url: /zh/nodejs-java/product-support/
 ---
 
 ## **技术支持**
@@ -40,4 +40,4 @@ Aspose 为其所有产品提供无限制的免费技术支持。所有用户（�
 |[Aspose.Slides 博客](https://blog.aspose.com/category/slides/)|请定期查看此部分以获取新版本的信息和关于 Aspose.Slides 的有用提示。|
 |[Aspose.Slides for Node.js via Java 下载](https://releases.aspose.com/slides/nodejs-java/)|从此页面下载最新版本的 Aspose.Slides。我们经常发布新版本。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在这里发布您的问题和问题以获得快速解决。|
-|[Aspose.Slides for Node.js via Java 产品文档](/slides/nodejs-java/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|
+|[Aspose.Slides for Node.js via Java 产品文档](/slides/zh/nodejs-java/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|

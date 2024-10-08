@@ -2,7 +2,7 @@
 title: C++中的自定义字体
 type: docs
 weight: 20
-url: /cpp/custom-font/
+url: /zh/cpp/custom-font/
 keywords: "字体, 自定义字体, PowerPoint 演示文稿, C++, CPP, Aspose.Slides for C++"
 description: "C++中的PowerPoint自定义字体"
 ---

@@ -2,7 +2,7 @@
 title: 幻灯片部分
 type: docs
 weight: 100
-url: /python-net/slide-section/
+url: /zh/python-net/slide-section/
 keywords: "创建部分, 添加部分, 编辑部分名称, PowerPoint 演示文稿, Python, Aspose.Slides"
 description: "在 PowerPoint 演示文稿中添加和编辑部分，使用 Python"
 ---

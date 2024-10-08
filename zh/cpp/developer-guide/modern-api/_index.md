@@ -2,7 +2,7 @@
 title: 现代 API
 type: docs
 weight: 280
-url: /cpp/modern-api/
+url: /zh/cpp/modern-api/
 keywords: "现代 API, 绘图"
 description: "现代 API"
 ---

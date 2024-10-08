@@ -1,7 +1,7 @@
 ---
 title: 趋势线
 type: docs
-url: /python-net/trend-line/
+url: /zh/python-net/trend-line/
 keywords: "趋势线, 自定义线 PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中将趋势线和自定义线添加到 PowerPoint 演示文稿"
 ---

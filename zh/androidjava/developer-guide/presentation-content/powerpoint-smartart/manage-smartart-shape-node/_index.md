@@ -3,7 +3,7 @@ title: 在Java中创建或管理PowerPoint SmartArt形状节点
 linktitle: 管理SmartArt形状节点
 type: docs
 weight: 30
-url: /androidjava/manage-smartart-shape-node/
+url: /zh/androidjava/manage-smartart-shape-node/
 keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
 description: 在Java中管理PowerPoint演示文稿中的智能艺术节点和子节点
 ---

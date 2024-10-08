@@ -2,7 +2,7 @@
 title: 引言和环境设置
 type: docs
 weight: 10
-url: /reportingservices/introduction-and-environment-setup/
+url: /zh/reportingservices/introduction-and-environment-setup/
 ---
 
 {{% alert color="primary" %}} 

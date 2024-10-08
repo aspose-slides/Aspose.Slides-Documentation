@@ -2,7 +2,7 @@
 title: 演示评论
 type: docs
 weight: 100
-url: /java/presentation-comments/
+url: /zh/java/presentation-comments/
 keywords: "评论，PowerPoint评论，PowerPoint演示，Java，Aspose.Slides for Java"
 description: "在Java中为PowerPoint演示添加评论和回复"
 ---

@@ -2,12 +2,12 @@
 title: PPT 到 PPTX 转换
 type: docs
 weight: 30
-url: /java/ppt-to-pptx-conversion/
+url: /zh/java/ppt-to-pptx-conversion/
 ---
 
 {{% alert color="primary" %}} 
 
-从 Aspose.Slides for Java 支持 PPT 到 PPTX 的转换。在从一种格式转换为另一种格式时，大多数演示文稿特性——母版幻灯片、结构等——都得到了保留，但存在 [一些限制](/slides/java/ppt-to-pptx-conversion/)。
+从 Aspose.Slides for Java 支持 PPT 到 PPTX 的转换。在从一种格式转换为另一种格式时，大多数演示文稿特性——母版幻灯片、结构等——都得到了保留，但存在 [一些限制](/slides/zh/java/ppt-to-pptx-conversion/)。
 
 {{% /alert %}} 
 ## **转换中支持的功能**

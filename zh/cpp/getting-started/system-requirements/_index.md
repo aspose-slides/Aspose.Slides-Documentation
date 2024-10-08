@@ -2,7 +2,7 @@
 title: 系统要求
 type: docs
 weight: 80
-url: /cpp/system-requirements/
+url: /zh/cpp/system-requirements/
 ---
 
 ## **支持的操作系统**

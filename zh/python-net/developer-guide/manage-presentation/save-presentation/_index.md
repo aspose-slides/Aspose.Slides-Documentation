@@ -2,7 +2,7 @@
 title: 保存演示文稿
 type: docs
 weight: 80
-url: /python-net/save-presentation/
+url: /zh/python-net/save-presentation/
 keywords: "保存 PowerPoint, PPT, PPTX, 保存演示文稿, 文件, 流, Python"
 description: "在 Python 中将 PowerPoint 演示文稿保存为文件或流"
 ---

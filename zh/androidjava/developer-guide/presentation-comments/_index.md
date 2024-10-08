@@ -2,7 +2,7 @@
 title: 演示文稿评论
 type: docs
 weight: 100
-url: /androidjava/presentation-comments/
+url: /zh/androidjava/presentation-comments/
 keywords: "评论，PowerPoint评论，PowerPoint演示文稿，Java，Aspose.Slides for Android via Java"
 description: "在Java中为PowerPoint演示文稿添加评论和回复"
 ---

@@ -2,7 +2,7 @@
 title: 管理智能艺术形状节点
 type: docs
 weight: 30
-url: /cpp/manage-smartart-shape-node/
+url: /zh/cpp/manage-smartart-shape-node/
 keywords:
 - 智能艺术
 - 智能艺术节点

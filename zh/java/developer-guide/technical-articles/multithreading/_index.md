@@ -2,7 +2,7 @@
 title: Aspose.Slides 中的多线程
 type: docs
 weight: 310
-url: /java/multithreading/
+url: /zh/java/multithreading/
 keywords:
 - PowerPoint
 - 演示文稿

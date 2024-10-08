@@ -2,7 +2,7 @@
 title: 限制和 API 差异
 type: docs
 weight: 100
-url: /nodejs-java/limitations-and-api-differences/
+url: /zh/nodejs-java/limitations-and-api-differences/
 keywords: "node, powerpoint, 限制, api, 差异"
 description: "通过 Java 的 Aspose.Slides for Node.js 的限制和 api 差异。"
 ---

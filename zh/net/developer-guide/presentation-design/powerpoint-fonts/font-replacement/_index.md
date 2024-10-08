@@ -3,7 +3,7 @@ title: 字体替换 - PowerPoint C# API
 linktitle: 字体替换
 type: docs
 weight: 60
-url: /net/font-replacement/
+url: /zh/net/font-replacement/
 keywords: "字体, 替换字体, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: 使用 C# PowerPoint API，您可以在演示文稿中显式地将字体替换为另一种字体。
 ---
@@ -39,6 +39,6 @@ presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 
 {{% alert title="注意" color="warning" %}} 
 
-要设置在某些条件下（例如如果无法访问某个字体）发生的情况的规则，请参阅 [**字体替换**](/slides/net/font-substitution/)。 
+要设置在某些条件下（例如如果无法访问某个字体）发生的情况的规则，请参阅 [**字体替换**](/slides/zh/net/font-substitution/)。 
 
 {{% /alert %}}

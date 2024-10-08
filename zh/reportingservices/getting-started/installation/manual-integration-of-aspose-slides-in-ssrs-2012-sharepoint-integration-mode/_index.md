@@ -2,7 +2,7 @@
 title: 手动集成 Aspose.Slides 在 SSRS 2012 SharePoint 集成模式
 type: docs
 weight: 100
-url: /reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepoint-integration-mode/
+url: /zh/reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepoint-integration-mode/
 ---
 
 {{% alert color="primary" %}} 

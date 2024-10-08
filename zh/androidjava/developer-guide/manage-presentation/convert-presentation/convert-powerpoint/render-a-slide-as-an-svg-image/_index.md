@@ -2,7 +2,7 @@
 title: 将幻灯片呈现为SVG图像
 type: docs
 weight: 50
-url: /androidjava/render-a-slide-as-an-svg-image/
+url: /zh/androidjava/render-a-slide-as-an-svg-image/
 ---
 
 SVG（可缩放矢量图形的缩写）是一种用于呈现二维图像的标准图形类型或格式。SVG将图像存储为XML中的矢量，包含定义其行为或外观的细节。

@@ -1,7 +1,7 @@
 ---
 title: 图表绘图区
 type: docs
-url: /php-java/chart-plot-area/
+url: /zh/php-java/chart-plot-area/
 ---
 
 

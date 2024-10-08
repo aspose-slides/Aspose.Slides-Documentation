@@ -2,7 +2,7 @@
 title: 幻灯片母版
 type: docs
 weight: 80
-url: /net/slide-master/
+url: /zh/net/slide-master/
 keywords: "添加幻灯片母版, PPT 母版幻灯片, 幻灯片母版 PowerPoint, 图像到幻灯片母版, 占位符, 多个幻灯片母版, 比较幻灯片母版, C#, Csharp, .NET, Aspose.Slides"
 description: "在 C# 或 .NET 中添加或编辑 PowerPoint 演示文稿的幻灯片母版"
 ---
@@ -130,7 +130,7 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="primary" title="另见" %}} 
 
-有关向幻灯片添加图像的更多信息，请参见 [图片框](/slides/net/picture-frame/#create-picture-frame) 文章。
+有关向幻灯片添加图像的更多信息，请参见 [图片框](/slides/zh/net/picture-frame/#create-picture-frame) 文章。
 {{% /alert %}}
 
 

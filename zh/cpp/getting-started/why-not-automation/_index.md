@@ -2,7 +2,7 @@
 title: 为什么不使用自动化
 type: docs
 weight: 50
-url: /cpp/why-not-automation/
+url: /zh/cpp/why-not-automation/
 ---
 
 ## **重要问题**

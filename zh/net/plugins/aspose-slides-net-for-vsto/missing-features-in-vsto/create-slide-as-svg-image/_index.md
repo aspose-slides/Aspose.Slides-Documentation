@@ -2,7 +2,7 @@
 title: 创建SVG图像的幻灯片
 type: docs
 weight: 70
-url: /net/create-slide-as-svg-image/
+url: /zh/net/create-slide-as-svg-image/
 ---
 
 要使用Aspose.Slides.Pptx for .NET从任何想要的幻灯片生成SVG图像，请按照以下步骤操作：
@@ -69,6 +69,6 @@ SvgStream.Close();
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问[创建SVG幻灯片图像](/slides/net/presentation-viewer/)。
+有关更多详细信息，请访问[创建SVG幻灯片图像](/slides/zh/net/presentation-viewer/)。
 
 {{% /alert %}}

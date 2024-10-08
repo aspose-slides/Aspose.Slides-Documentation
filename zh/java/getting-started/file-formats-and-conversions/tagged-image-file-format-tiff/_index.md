@@ -2,7 +2,7 @@
 title: 标签图像文件格式 (TIFF)
 type: docs
 weight: 60
-url: /java/tagged-image-file-format-tiff/
+url: /zh/java/tagged-image-file-format-tiff/
 ---
 
 ## **关于 TIFF**
@@ -11,7 +11,7 @@ url: /java/tagged-image-file-format-tiff/
 
 ## **在 Aspose.Slides for Java 中的 TIFF**
 
-任何可以在 Aspose.Slide for Java 中加载的文档，也可以直接通过 Aspose.Slides for Java 转换为 TIFF 文档，无需任何第三方组件。此外，您可以选择定义生成的 TIFF 文档中的图像大小。您可以在[此主题](/slides/java/converting-a-presentation/)中找到通过 Aspose.Slides for Java 导出演示文稿到 TIFF 文档的信息。
+任何可以在 Aspose.Slide for Java 中加载的文档，也可以直接通过 Aspose.Slides for Java 转换为 TIFF 文档，无需任何第三方组件。此外，您可以选择定义生成的 TIFF 文档中的图像大小。您可以在[此主题](/slides/zh/java/converting-a-presentation/)中找到通过 Aspose.Slides for Java 导出演示文稿到 TIFF 文档的信息。
 
 **通过 Aspose.Slides for Java 转换为 TIFF 文档的演示文稿**
 

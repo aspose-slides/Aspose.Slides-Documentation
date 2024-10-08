@@ -2,7 +2,7 @@
 title: 密码保护演示文稿
 type: docs
 weight: 20
-url: /python-net/password-protected-presentation/
+url: /zh/python-net/password-protected-presentation/
 keywords: "锁定 PowerPoint，解锁 PowerPoint，保护 PowerPoint，设置密码，添加密码，加密 PowerPoint，解密 PowerPoint，写保护，PowerPoint 安全，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "Python 中的 PowerPoint 密码保护、加密和安全"
 
@@ -224,5 +224,5 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
 如果演示文稿已用指定密码加密，则返回 `True`。否则，返回 `False`。
 
 {{% alert color="primary" title="另见" %}} 
-- [PowerPoint 中的数字签名](/slides/python-net/digital-signature-in-powerpoint/)
+- [PowerPoint 中的数字签名](/slides/zh/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}

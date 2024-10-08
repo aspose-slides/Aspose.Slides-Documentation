@@ -2,7 +2,7 @@
 title: PowerPoint 动画
 type: docs
 weight: 150
-url: /androidjava/powerpoint-animation/
+url: /zh/androidjava/powerpoint-animation/
 keywords: "PowerPoint 动画"
 description: "PowerPoint 动画，使用 Aspose.Slides 的 PowerPoint 幻灯片动画。"
 ---
@@ -52,19 +52,19 @@ Aspose.Slides 支持 **150+ 种动画效果**，包括基本动画效果，如 B
 Aspose.Slides 允许将动画应用于形状，这实际上可以是文本、矩形、线条、框架、OLE 对象等。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于形状动画**](/slides/androidjava/shape-animation/)。
+阅读更多 [**关于形状动画**](/slides/zh/androidjava/shape-animation/)。
 {{% /alert %}}
 
 ## **动画图表**
 要创建动画图表，您应该使用与形状相同的所有类。然而，PowerPoint 动画仅可用于图表类别或图表系列。您还可以对类别元素或系列元素应用动画效果。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画图表**](/slides/androidjava/animated-charts/)。
+阅读更多 [**关于动画图表**](/slides/zh/androidjava/animated-charts/)。
 {{% /alert %}}
 
 ## **动画文本**
 除了动画文本，还可以对段落应用动画。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画文本**](/slides/androidjava/animated-text/)。
+阅读更多 [**关于动画文本**](/slides/zh/androidjava/animated-text/)。
 {{% /alert %}}

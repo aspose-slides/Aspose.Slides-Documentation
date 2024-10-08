@@ -2,7 +2,7 @@
 title: 部署和激活
 type: docs
 weight: 20
-url: /sharepoint/deployment-and-activation/
+url: /zh/sharepoint/deployment-and-activation/
 ---
 
 ## **部署**

@@ -2,7 +2,7 @@
 title: 从演示文稿中删除幻灯片
 type: docs
 weight: 30
-url: /cpp/remove-slide-from-presentation/
+url: /zh/cpp/remove-slide-from-presentation/
 keywords: "删除幻灯片, 删除幻灯片, PowerPoint, 演示文稿, C++, Aspose.Slides"
 description: "通过引用或索引在 C++ 中从 PowerPoint 中删除幻灯片"
 

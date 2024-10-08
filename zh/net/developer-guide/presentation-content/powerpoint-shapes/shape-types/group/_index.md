@@ -2,7 +2,7 @@
 title: 组
 type: docs
 weight: 40
-url: /net/group/
+url: /zh/net/group/
 keywords: "组形状, PowerPoint形状, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中将组形状添加到PowerPoint演示文稿"
 ---

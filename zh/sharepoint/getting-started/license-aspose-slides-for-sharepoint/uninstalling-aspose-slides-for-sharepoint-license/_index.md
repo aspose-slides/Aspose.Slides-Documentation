@@ -2,7 +2,7 @@
 title: 卸载 Aspose.Slides for SharePoint 许可证
 type: docs
 weight: 20
-url: /sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
+url: /zh/sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
 ---
 
 要卸载许可证，请使用以下步骤从服务器控制台进行操作。

@@ -2,7 +2,7 @@
 title: 从演示文稿中提取文本
 type: docs
 weight: 90
-url: /net/extract-text-from-presentation/
+url: /zh/net/extract-text-from-presentation/
 keywords: "从幻灯片提取文本, 从PowerPoint提取文本, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中从幻灯片或PowerPoint演示文稿中提取文本"
 ---
@@ -11,9 +11,9 @@ description: "在C#或.NET中从幻灯片或PowerPoint演示文稿中提取文�
 
 开发人员需要从演示文稿中提取文本并不罕见。为了做到这一点，您需要从演示文稿中所有幻灯片的所有形状中提取文本。本文解释了如何使用Aspose.Slides从Microsoft PowerPoint PPTX演示文稿中提取文本。可以通过以下方式提取文本：
 
-- [从一张幻灯片提取文本](/slides/net/extracting-text-from-the-presentation/)
-- [使用GetAllTextBoxes方法提取文本](/slides/net/extracting-text-from-the-presentation/)
-- [分类和快速提取文本](/slides/net/extracting-text-from-the-presentation/)
+- [从一张幻灯片提取文本](/slides/zh/net/extracting-text-from-the-presentation/)
+- [使用GetAllTextBoxes方法提取文本](/slides/zh/net/extracting-text-from-the-presentation/)
+- [分类和快速提取文本](/slides/zh/net/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **从幻灯片中提取文本**

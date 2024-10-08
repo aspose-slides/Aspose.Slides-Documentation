@@ -2,14 +2,14 @@
 title: 使用后备字体渲染演示文稿
 type: docs
 weight: 30
-url: /python-net/render-presentation-with-fallback-font/
+url: /zh/python-net/render-presentation-with-fallback-font/
 keywords: "后备字体, 渲染 PowerPoint, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中使用后备字体渲染 PowerPoint"
 ---
 
 以下示例包括以下步骤：
 
-1. 我们 [创建后备字体规则集合](/slides/python-net/create-fallback-fonts-collection/)。
+1. 我们 [创建后备字体规则集合](/slides/zh/python-net/create-fallback-fonts-collection/)。
 1. [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) 一个后备字体规则并 [AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) 到另一个规则。
 1. 将规则集合设置为 [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) 属性。
 1. 使用 [Presentation.Save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 方法，我们可以以相同格式保存演示文稿，或以其他格式保存。当后备字体规则集合设置给 FontsManager 后，这些规则在对演示文稿进行任何操作时都会应用：保存、渲染、转换等。
@@ -45,5 +45,5 @@ with slides.Presentation(path + "input.pptx") as pres:
 ```
 
 {{% alert color="primary" %}} 
-了解更多关于 [演示文稿中的保存和转换](/slides/python-net/creating-saving-and-converting-a-presentation/)。
+了解更多关于 [演示文稿中的保存和转换](/slides/zh/python-net/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

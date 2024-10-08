@@ -1,7 +1,7 @@
 ---
 title: 图表数据标记
 type: docs
-url: /python-net/chart-data-marker/
+url: /zh/python-net/chart-data-marker/
 keywords: "图表标记选项, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中设置PowerPoint演示文稿中的图表标记选项"
 ---

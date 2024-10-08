@@ -3,7 +3,7 @@ title: 在 Java 中创建或更新 PowerPoint 演示文稿图表
 linktitle: 创建图表
 type: docs
 weight: 10
-url: /androidjava/create-chart/
+url: /zh/androidjava/create-chart/
 keywords: "创建图表, 散点图, 饼图, 树图, 股票图, 箱线图, 直方图, 漏斗图, 日晕图, 多类别图, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中创建 PowerPoint 演示文稿中的图表"
 ---

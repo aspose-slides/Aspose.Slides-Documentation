@@ -2,7 +2,7 @@
 title: 产品概述
 type: docs
 weight: 10
-url: /python-java/product-overview/
+url: /zh/python-java/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python-via-java.png)
@@ -134,4 +134,4 @@ Aspose 为其所有产品提供无限免费的技术支持。所有用户（包�
 |[Aspose.Slide 博客](https://blog.aspose.com/category/slides/)|请定期查看此页面，以获取有关新版本的信息和有关 Aspose.Slides 的有用提示。|
 |[Aspose.Slides for Python via Java 下载](https://releases.aspose.com/slides/python-java/)|在此下载 Aspose.Slides 的最新版本。我们经常发布新版本。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在此发布您的问题和问题，以便快速解决。|
-|[Aspose.Slides for Python via Java 产品文档](/slides/python-java/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|
+|[Aspose.Slides for Python via Java 产品文档](/slides/zh/python-java/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|

@@ -2,7 +2,7 @@
 title: 圆环图
 type: docs
 weight: 30
-url: /androidjava/doughnut-chart/
+url: /zh/androidjava/doughnut-chart/
 ---
 
 ## **更改圆环图中的中心孔大小**

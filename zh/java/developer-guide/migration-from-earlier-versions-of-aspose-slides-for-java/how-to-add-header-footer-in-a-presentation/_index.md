@@ -2,7 +2,7 @@
 title: 如何在演示文稿中添加页眉和页脚
 type: docs
 weight: 20
-url: /java/how-to-add-header-footer-in-a-presentation/
+url: /zh/java/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

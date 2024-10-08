@@ -3,7 +3,7 @@ title: 将PPTX转换为PPT的C++
 linktitle: 将PPTX转换为PPT
 type: docs
 weight: 21
-url: /cpp/convert-pptx-to-ppt/
+url: /zh/cpp/convert-pptx-to-ppt/
 keywords: "C++ 将PPTX转换为PPT, 转换PowerPoint演示文稿, PPTX到PPT, Python, Aspose.Slides"
 description: "在C++中将PowerPoint PPTX转换为PPT"
 ---

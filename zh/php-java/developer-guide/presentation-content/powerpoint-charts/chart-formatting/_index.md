@@ -2,7 +2,7 @@
 title: 图表格式化
 type: docs
 weight: 60
-url: /php-java/chart-formatting/
+url: /zh/php-java/chart-formatting/
 ---
 
 ## **格式化图表实体**

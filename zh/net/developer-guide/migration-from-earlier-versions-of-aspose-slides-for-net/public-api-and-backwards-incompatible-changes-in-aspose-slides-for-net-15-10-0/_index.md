@@ -2,12 +2,12 @@
 title: Aspose.Slides for .NET 15.10.0 的公共 API 和不兼容的更改
 type: docs
 weight: 200
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
+url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/
 ---
 
 {{% alert color="primary" %}} 
 
-本页面列出了所有在 Aspose.Slides for .NET 15.10.0 API 中 [添加的](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) 或 [移除的](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) 类、方法、属性等，以及其他更改。
+本页面列出了所有在 Aspose.Slides for .NET 15.10.0 API 中 [添加的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) 或 [移除的](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-10-0/) 类、方法、属性等，以及其他更改。
 
 {{% /alert %}} 
 ## **公共 API 更改**

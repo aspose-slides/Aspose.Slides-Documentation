@@ -2,7 +2,7 @@
 title: 导出图表
 type: docs
 weight: 90
-url: /cpp/export-chart/
+url: /zh/cpp/export-chart/
 keywords:
 - 图表
 - 图表图像

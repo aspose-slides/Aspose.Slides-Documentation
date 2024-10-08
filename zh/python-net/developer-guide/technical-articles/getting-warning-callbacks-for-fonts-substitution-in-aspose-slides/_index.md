@@ -2,7 +2,7 @@
 title: 获取 Aspose.Slides 中字体替换的警告回调
 type: docs
 weight: 120
-url: /python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /zh/python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

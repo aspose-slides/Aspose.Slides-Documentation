@@ -2,7 +2,7 @@
 title: 转换幻灯片
 type: docs
 weight: 41
-url: /net/convert-slide/
+url: /zh/net/convert-slide/
 keywords: 
 - 将幻灯片转换为图像
 - 将幻灯片导出为图像

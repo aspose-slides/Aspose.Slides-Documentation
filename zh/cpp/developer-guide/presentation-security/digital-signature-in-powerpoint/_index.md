@@ -2,7 +2,7 @@
 title: PowerPoint中的数字签名
 type: docs
 weight: 10
-url: /cpp/digital-signature-in-powerpoint/
+url: /zh/cpp/digital-signature-in-powerpoint/
 keywords: "数字签名证书, 证书颁发机构"
 description: "使用Aspose.Slides将数字签名证书和证书颁发机构添加到PowerPoint演示文稿中。"
 ---

@@ -2,7 +2,7 @@
 title: 动画文本
 type: docs
 weight: 60
-url: /cpp/animated-text/
+url: /zh/cpp/animated-text/
 keywords: "PowerPoint中的动画文本"
 description: "使用Aspose.Slides在PowerPoint演示文稿中添加动画文本"
 ---

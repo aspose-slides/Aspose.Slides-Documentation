@@ -2,12 +2,12 @@
 title: 如何在演示文稿中创建图表
 type: docs
 weight: 30
-url: /net/how-to-create-charts-in-a-presentation/
+url: /zh/net/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-新的 [Aspose.Slides for .NET API](/slides/net/) 已经发布，现在这个单一产品支持从头生成 PowerPoint 文档和编辑现有文档的功能。
+新的 [Aspose.Slides for .NET API](/slides/zh/net/) 已经发布，现在这个单一产品支持从头生成 PowerPoint 文档和编辑现有文档的功能。
 
 {{% /alert %}} 
 ## **对旧代码的支持**

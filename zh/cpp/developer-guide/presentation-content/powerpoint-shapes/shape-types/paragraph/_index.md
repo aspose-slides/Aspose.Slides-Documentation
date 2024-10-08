@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /cpp/paragraph/
+url: /zh/cpp/paragraph/
 ---
 
 ## **在文本框中获取段落和部分的坐标**

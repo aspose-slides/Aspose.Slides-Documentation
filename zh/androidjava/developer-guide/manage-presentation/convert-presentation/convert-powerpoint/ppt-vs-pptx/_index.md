@@ -2,7 +2,7 @@
 title: PPT 与 PPTX
 type: docs
 weight: 10
-url: /androidjava/ppt-vs-pptx/
+url: /zh/androidjava/ppt-vs-pptx/
 keywords: "PPT 与 PPTX"
 description: "了解 Aspose.Slides 中 PPT 与 PPTX 的区别。"
 ---
@@ -38,5 +38,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-阅读更多 [**如何将 PPT 演示文稿转换为 PPTX**.](/slides/androidjava/convert-ppt-to-pptx/)
+阅读更多 [**如何将 PPT 演示文稿转换为 PPTX**.](/slides/zh/androidjava/convert-ppt-to-pptx/)
 {{% /alert %}} 

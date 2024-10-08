@@ -1,7 +1,7 @@
 ---
 title: 图表轴
 type: docs
-url: /php-java/chart-axis/
+url: /zh/php-java/chart-axis/
 keywords: "PowerPoint 图表轴, 演示图表, Java, 操作图表轴, 图表数据"
 description: "如何编辑 PowerPoint 图表轴"
 ---

@@ -2,7 +2,7 @@
 title: 在演示文稿中查找和替换文本而不丢失格式
 type: docs
 weight: 100
-url: /net/find-and-replace-text-without-losing-format-in-presentation/
+url: /zh/net/find-and-replace-text-without-losing-format-in-presentation/
 ---
 
 这两种方法遵循以下步骤：

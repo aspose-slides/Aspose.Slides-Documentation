@@ -2,7 +2,7 @@
 title: 计量许可
 type: docs
 weight: 100
-url: /java/metered-licensing/
+url: /zh/java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

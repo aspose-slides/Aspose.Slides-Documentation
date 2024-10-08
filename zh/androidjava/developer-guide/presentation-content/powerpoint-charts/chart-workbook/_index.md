@@ -2,7 +2,7 @@
 title: 图表工作簿
 type: docs
 weight: 70
-url: /androidjava/chart-workbook/
+url: /zh/androidjava/chart-workbook/
 keywords: "图表工作簿, 图表数据, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "Java 中 PowerPoint 演示文稿中的图表工作簿"
 ---

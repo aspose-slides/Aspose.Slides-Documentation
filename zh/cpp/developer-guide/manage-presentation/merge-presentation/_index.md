@@ -3,7 +3,7 @@ title: 合并演示文稿 - C++ PowerPoint API
 linktitle: 合并演示文稿
 type: docs
 weight: 40
-url: /cpp/merge-presentation/
+url: /zh/cpp/merge-presentation/
 keywords: "合并 PowerPoint, PPTX, PPT, 组合 PowerPoint, 合并演示文稿, 组合演示文稿, C++"
 description: 本文解释了如何使用 C++ PowerPoint API 或库合并或组合 PowerPoint 演示文稿。
 ---

@@ -2,7 +2,7 @@
 title: 演示文稿评论
 type: docs
 weight: 100
-url: /net/presentation-comments/
+url: /zh/net/presentation-comments/
 keywords: "评论, PowerPoint评论, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中向PowerPoint演示文稿添加评论和回复"
 ---

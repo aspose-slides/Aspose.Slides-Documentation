@@ -2,7 +2,7 @@
 title: 形状操作
 type: docs
 weight: 40
-url: /net/shape-manipulations/
+url: /zh/net/shape-manipulations/
 keywords: "PowerPoint 形状, 幻灯片上的形状, 查找形状, 克隆形状, 删除形状, 隐藏形状, 更改形状顺序, 获取 interop 形状 ID, 形状替代文本, 形状布局格式, 将形状作为 SVG, 对齐形状, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中操作 PowerPoint 形状"
 ---

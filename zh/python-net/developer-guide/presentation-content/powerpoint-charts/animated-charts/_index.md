@@ -2,7 +2,7 @@
 title: 动画图表
 type: docs
 weight: 80
-url: /python-net/animated-charts/
+url: /zh/python-net/animated-charts/
 keywords: "图表, 图表系列, 动画 PowerPoint 演示文稿, PPTX, PPT, Python, Aspose.Slides for Python via .NET"
 description: "Python 中的 PowerPoint 图表系列和动画"
 ---

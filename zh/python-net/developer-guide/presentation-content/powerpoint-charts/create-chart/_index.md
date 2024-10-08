@@ -3,7 +3,7 @@ title: 在 Python 中创建 PowerPoint 演示文稿图表
 linktitle: 创建图表
 type: docs
 weight: 10
-url: /python-net/create-chart/
+url: /zh/python-net/create-chart/
 keywords: "创建图表, 散点图, 饼图, 树状图, 股票图, 箱线图, 直方图, 漏斗图, 日晕图, 多类别图, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中创建 PowerPoint 演示文稿图表"
 ---

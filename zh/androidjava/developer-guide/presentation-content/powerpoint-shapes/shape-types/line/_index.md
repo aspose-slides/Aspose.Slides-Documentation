@@ -2,7 +2,7 @@
 title: 线
 type: docs
 weight: 50
-url: /androidjava/Line/
+url: /zh/androidjava/Line/
 ---
 
 

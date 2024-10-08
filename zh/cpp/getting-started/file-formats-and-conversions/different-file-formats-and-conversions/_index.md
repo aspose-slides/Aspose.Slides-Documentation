@@ -2,7 +2,7 @@
 title: 不同文件格式和转换
 type: docs
 weight: 50
-url: /cpp/different-file-formats-and-conversions/
+url: /zh/cpp/different-file-formats-and-conversions/
 ---
 
 ## **Microsoft PowerPoint (PPT)**
@@ -208,7 +208,7 @@ Aspose.Slides for C++ 提供对将 PPT 文档文件格式演示转换为 PPTX �
 - 项目符号
 - 表格
 
-您可以仅使用 Aspose.Slides for C++ 组件直接将演示文档导出为 PDF 文档。也就是说，您不需要其他第三方或 Aspose.Pdf 组件。进一步，您可以根据 [此主题](/slides/cpp/converting-presentation-to-pdf/) 中的说明自定义演示导出为 PDF 的选项。
+您可以仅使用 Aspose.Slides for C++ 组件直接将演示文档导出为 PDF 文档。也就是说，您不需要其他第三方或 Aspose.Pdf 组件。进一步，您可以根据 [此主题](/slides/zh/cpp/converting-presentation-to-pdf/) 中的说明自定义演示导出为 PDF 的选项。
 
 通过 Aspose.Slides for C++ 转换为 PDF 文档的演示文档
 ## **XML 解析器规范 (XPS)**

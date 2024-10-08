@@ -2,7 +2,7 @@
 title: Microsoft PowerPoint (PPT)
 type: docs
 weight: 10
-url: /php-java/microsoft-powerpoint-ppt/
+url: /zh/php-java/microsoft-powerpoint-ppt/
 ---
 
 {{% alert color="primary" %}} 
@@ -27,7 +27,7 @@ url: /php-java/microsoft-powerpoint-ppt/
 除了与创建、读取和写入 PPT 文档文件相关的基本任务外，使用 Java 的 Aspose.Slides for PHP 还提供了几个功能：
 
 - 将其他 Microsoft Office 文件格式作为 [OLE 对象导入到 PPT 文档]()。
-- [将 PPT 文档导出为 PDF](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/)。
+- [将 PPT 文档导出为 PDF](/slides/zh/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/)。
 - 将 PPT 文档中的幻灯片导出为 SVG 格式。
 - 将幻灯片渲染为 Java 框架支持的任何图像格式。
 - 设置 PPT 文档中幻灯片的大小。

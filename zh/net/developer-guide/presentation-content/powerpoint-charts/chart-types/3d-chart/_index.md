@@ -1,7 +1,7 @@
 ---
 title: 3D 图表
 type: docs
-url: /net/3d-chart/
+url: /zh/net/3d-chart/
 keywords: "3d 图表, rotationX, rotationY, depthpercent, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中为 PowerPoint 演示文稿设置 3D 图表的 rotationX, rotationY 和 depthpercents"
 ---

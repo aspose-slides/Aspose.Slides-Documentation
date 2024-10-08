@@ -2,7 +2,7 @@
 title: 动画图表
 type: docs
 weight: 80
-url: /cpp/animated-charts/
+url: /zh/cpp/animated-charts/
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: 错误条
 type: docs
-url: /php-java/error-bar/
+url: /zh/php-java/error-bar/
 ---
 
 ## **添加错误条**

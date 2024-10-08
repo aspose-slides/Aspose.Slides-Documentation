@@ -1,7 +1,7 @@
 ---
 title: 树图和日晕图的数据点
 type: docs
-url: /androidjava/data-points-of-treemap-and-sunburst-chart/
+url: /zh/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "通过 Java 在 Aspose.Slides for Android 中创建日晕图"
 description: "通过 Java 在 Aspose.Slides for Android 中的日晕图、日晕图表、径向图、径向图形或多层饼图。"
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [**创建日晕图**](/slides/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**创建日晕图**](/slides/zh/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

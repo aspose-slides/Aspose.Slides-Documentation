@@ -2,7 +2,7 @@
 title: 形状有效属性
 type: docs
 weight: 50
-url: /python-net/shape-effective-properties/
+url: /zh/python-net/shape-effective-properties/
 keywords: "形状属性, 相机属性, 灯光设置, 斜角形状, 文本框, 文本样式, 字体高度值, 表格填充格式, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中获取PowerPoint演示文稿中的有效形状属性"
 ---

@@ -2,7 +2,7 @@
 title: 访问 OpenDocument 演示文稿
 type: docs
 weight: 10
-url: /net/access-opendocument-presentation/
+url: /zh/net/access-opendocument-presentation/
 ---
 
 Aspose.Slides for .NET 提供的 **Presentation** 类代表一个演示文稿文件。现在 **Presentation** 类还可以通过 **Presentation** 构造函数访问 **ODP**，当对象被实例化时。

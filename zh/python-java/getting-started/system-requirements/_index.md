@@ -2,7 +2,7 @@
 title: 系统要求
 type: docs
 weight: 60
-url: /python-java/system-requirements/
+url: /zh/python-java/system-requirements/
 ---
 
 Aspose.Slides for Python via Java 不需要安装任何第三方产品，如 Microsoft PowerPoint。Aspose.Slides 本身是一个用于创建、修改、转换和渲染各种格式文档的引擎，包括 Microsoft PowerPoint 演示文稿格式。

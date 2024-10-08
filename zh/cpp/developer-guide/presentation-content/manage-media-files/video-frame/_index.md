@@ -2,7 +2,7 @@
 title: 视频帧
 type: docs
 weight: 10
-url: /cpp/video-frame/
+url: /zh/cpp/video-frame/
 keywords: "添加视频，创建视频帧，提取视频，PowerPoint 演示文稿，C++，CPP，Aspose.Slides for C++"
 description: "在 C++ 中将视频帧添加到 PowerPoint 演示文稿"
 

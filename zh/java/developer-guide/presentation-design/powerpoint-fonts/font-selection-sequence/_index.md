@@ -3,7 +3,7 @@ title: Java中的字体选择顺序
 linktitle: Java中的字体选择顺序
 type: docs
 weight: 80
-url: /java/font-selection-sequence/
+url: /zh/java/font-selection-sequence/
 keywords:
 - 字体
 - 字体选择

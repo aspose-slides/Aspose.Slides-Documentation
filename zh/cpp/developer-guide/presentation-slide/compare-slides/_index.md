@@ -2,7 +2,7 @@
 title: 比较幻灯片
 type: docs
 weight: 50
-url: /cpp/compare-slides/
+url: /zh/cpp/compare-slides/
 ---
 
 ## **比较两个幻灯片**

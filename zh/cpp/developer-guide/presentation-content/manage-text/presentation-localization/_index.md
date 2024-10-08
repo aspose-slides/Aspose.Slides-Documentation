@@ -2,7 +2,7 @@
 title: 演示文稿本地化
 type: docs
 weight: 100
-url: /cpp/presentation-localization/
+url: /zh/cpp/presentation-localization/
 ---
 
 

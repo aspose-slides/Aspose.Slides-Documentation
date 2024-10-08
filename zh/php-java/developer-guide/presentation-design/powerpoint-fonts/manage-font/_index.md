@@ -3,7 +3,7 @@ title: 管理字体 - PowerPoint Java API
 linktitle: 管理字体
 type: docs
 weight: 10
-url: /php-java/manage-fonts/
+url: /zh/php-java/manage-fonts/
 description: 演示文稿通常包含文本和图像。本文展示如何使用 PowerPoint Java API 配置幻灯片上文本段落的字体属性。
 ---
 

@@ -2,7 +2,7 @@
 title: 产品支持
 type: docs
 weight: 100
-url: /php-java/product-support/
+url: /zh/php-java/product-support/
 ---
 
 ## **技术支持**
@@ -40,4 +40,4 @@ Aspose 为所有产品提供无限制的免费技术支持。支持适用于所�
 |[Aspose.Slides 博客](https://blog.aspose.com/category/slides/)|定期查看此部分以获取有关新版本和有关 Aspose.Slides 的实用提示的信息。|
 |[Aspose.Slides for PHP via Java 下载](https://packagist.org/packages/aspose/slides)|从此页面下载 Aspose.Slides 的最新版本。我们经常发布新版本。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在此发布您的问题和问题，以快速解决。|
-|[Aspose.Slides for PHP via Java 产品文档](/slides/php-java/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|
+|[Aspose.Slides for PHP via Java 产品文档](/slides/zh/php-java/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|

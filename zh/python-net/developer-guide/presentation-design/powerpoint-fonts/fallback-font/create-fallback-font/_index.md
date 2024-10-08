@@ -2,7 +2,7 @@
 title: 创建后备字体
 type: docs
 weight: 10
-url: /python-net/create-fallback-font/
+url: /zh/python-net/create-fallback-font/
 keywords: "字体, 后备字体, PowerPoint 演示文稿 Python, Aspose.Slides for Python via .NET"
 description: "Python 中 PowerPoint 的后备字体"
 ---
@@ -27,5 +27,5 @@ thirdRule = slides.FontFallBackRule(0x1F300, 0x1F64F, fontNames)
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) 可用于组织 [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) 对象的列表，当需要为多个 Unicode 范围指定后备字体替换规则时。
 
 {{% alert color="primary" title="另见" %}} 
-- [创建后备字体集合](/slides/python-net/create-fallback-fonts-collection/)
+- [创建后备字体集合](/slides/zh/python-net/create-fallback-fonts-collection/)
 {{% /alert %}}

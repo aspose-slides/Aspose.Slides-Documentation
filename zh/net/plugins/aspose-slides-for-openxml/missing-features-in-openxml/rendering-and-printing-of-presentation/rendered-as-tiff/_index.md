@@ -2,7 +2,7 @@
 title: 作为 TIFF 渲染
 type: docs
 weight: 30
-url: /net/rendered-as-tiff/
+url: /zh/net/rendered-as-tiff/
 ---
 
 TIFF 格式以其灵活性而闻名，可以容纳多页图像和数据。考虑到 TIFF 格式的重要性和受欢迎程度，Aspose.Slides for .NET 提供了将演示文稿转换为 TIFF 文档的支持。  

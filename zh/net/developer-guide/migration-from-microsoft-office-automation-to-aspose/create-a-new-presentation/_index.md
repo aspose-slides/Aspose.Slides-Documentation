@@ -2,7 +2,7 @@
 title: 创建新的演示文稿
 type: docs
 weight: 10
-url: /net/create-a-new-presentation/
+url: /zh/net/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for .NET 是一个可以用来操作 Microsoft PowerPoint 演示�
 
 {{% /alert %}} 
 ## **创建演示文稿**
-以下是两个代码示例，说明如何使用 VSTO 和 Aspose.Slides for .NET 来实现相同的目标。第一个示例是 [VSTO](/slides/net/create-a-new-presentation/)；[第二个示例](/slides/net/create-a-new-presentation/) 使用了 Aspose.Slides。
+以下是两个代码示例，说明如何使用 VSTO 和 Aspose.Slides for .NET 来实现相同的目标。第一个示例是 [VSTO](/slides/zh/net/create-a-new-presentation/)；[第二个示例](/slides/zh/net/create-a-new-presentation/) 使用了 Aspose.Slides。
 ### **VSTO 示例**
 **VSTO 输出** 
 

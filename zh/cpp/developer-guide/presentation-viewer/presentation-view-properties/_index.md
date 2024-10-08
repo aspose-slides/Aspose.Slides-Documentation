@@ -1,7 +1,7 @@
 ---
 title: 演示视图属性
 type: docs
-url: /cpp/presentation-view-properties/
+url: /zh/cpp/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 

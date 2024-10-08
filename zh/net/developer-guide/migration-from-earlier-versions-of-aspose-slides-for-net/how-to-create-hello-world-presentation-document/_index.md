@@ -2,12 +2,12 @@
 title: 如何创建 Hello World 演示文档
 type: docs
 weight: 10
-url: /net/how-to-create-hello-world-presentation-document/
+url: /zh/net/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-新的 [Aspose.Slides for .NET API](/slides/net/) 已发布，现此单一产品支持从零开始生成 PowerPoint 文档并编辑现有文档的能力。
+新的 [Aspose.Slides for .NET API](/slides/zh/net/) 已发布，现此单一产品支持从零开始生成 PowerPoint 文档并编辑现有文档的能力。
 
 {{% /alert %}} 
 ## **对旧代码的支持**

@@ -1,7 +1,7 @@
 ---
 title: 图表坐标轴
 type: docs
-url: /cpp/chart-axis/
+url: /zh/cpp/chart-axis/
 keywords: "PowerPoint 图表坐标轴, 演示文稿图表, C++, 操作图表坐标轴, 图表数据"
 description: "如何在 C++ 中编辑 PowerPoint 图表坐标轴"
 ---

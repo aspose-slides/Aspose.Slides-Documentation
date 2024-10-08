@@ -2,7 +2,7 @@
 title: 演示文稿背景
 type: docs
 weight: 20
-url: /java/presentation-background/
+url: /zh/java/presentation-background/
 keywords: "PowerPoint 背景, 在 Java 中设置背景"
 description: "在 Java 中为 PowerPoint 演示文稿设置背景"
 ---

@@ -2,7 +2,7 @@
 title: 组
 type: docs
 weight: 40
-url: /python-net/group/
+url: /zh/python-net/group/
 keywords: "组形状, PowerPoint形状, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中向PowerPoint演示文稿添加组形状"
 ---

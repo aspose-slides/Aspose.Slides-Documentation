@@ -2,7 +2,7 @@
 title: 管理文本框
 type: docs
 weight: 20
-url: /python-net/manage-textbox/
+url: /zh/python-net/manage-textbox/
 keywords: "文本框, 文本框架, 添加文本框, 带超链接的文本框, Python, Aspose.Slides for Python via .NET"
 description: "在Python或.NET中将文本框或文本框架添加到PowerPoint演示文稿"
 ---

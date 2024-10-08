@@ -2,7 +2,7 @@
 title: 安装 Aspose.Slides for JasperReports
 type: docs
 weight: 40
-url: /jasperreports/installing-aspose-slides-for-jasperreports/
+url: /zh/jasperreports/installing-aspose-slides-for-jasperreports/
 ---
 
 

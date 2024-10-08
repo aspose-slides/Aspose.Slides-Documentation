@@ -2,7 +2,7 @@
 title: 创建 Excel 图表并将其嵌入到演示文稿中作为 OLE 对象
 type: docs
 weight: 50
-url: /net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /zh/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -144,4 +144,4 @@ static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wb
 
 {{% /alert %}} 
 ## **相关部分**
-[图表调整大小的工作解决方案](/slides/net/working-solution-for-chart-resizing-in-pptx/)[对象更改问题](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[图表调整大小的工作解决方案](/slides/zh/net/working-solution-for-chart-resizing-in-pptx/)[对象更改问题](/slides/zh/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

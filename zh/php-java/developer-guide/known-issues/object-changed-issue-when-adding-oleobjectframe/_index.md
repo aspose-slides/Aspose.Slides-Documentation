@@ -2,7 +2,7 @@
 title: 添加 OleObjectFrame 时出现对象已更改问题
 type: docs
 weight: 10
-url: /php-java/object-changed-issue-when-adding-oleobjectframe/
+url: /zh/php-java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **问题陈述**
@@ -10,7 +10,7 @@ url: /php-java/object-changed-issue-when-adding-oleobjectframe/
 ## **批判分析和解释**
 首先，重要的是要知道，在幻灯片中添加 **OleObjectFrame** 后，由 Aspose.Slides for PHP 通过 Java 显示的 **对象已更改** 消息，**不是** Aspose.Slides for PHP 通过 Java 中的错误或缺陷。它只是一个信息或消息，通知用户对象已更改，图像应该更新。
 
-例如，如果您将 **Microsoft Excel 图表** 作为 **OleObjectFrame** 添加到您的幻灯片中（有关将 **OleObjectFrame** 添加到幻灯片的更多详细信息和代码片段，请 [点击这里](/slides/php-java/adding-frame-to-the-slide/)），然后使用 MS PowerPoint 打开演示文稿文件，则 (添加 **OLE 对象** 的) 幻灯片将如下所示：
+例如，如果您将 **Microsoft Excel 图表** 作为 **OleObjectFrame** 添加到您的幻灯片中（有关将 **OleObjectFrame** 添加到幻灯片的更多详细信息和代码片段，请 [点击这里](/slides/zh/php-java/adding-frame-to-the-slide/)），然后使用 MS PowerPoint 打开演示文稿文件，则 (添加 **OLE 对象** 的) 幻灯片将如下所示：
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

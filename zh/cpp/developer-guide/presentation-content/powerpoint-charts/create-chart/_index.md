@@ -3,7 +3,7 @@ title: 创建 C++ 中的 PowerPoint 演示文稿图表
 linktitle: 创建图表
 type: docs
 weight: 10
-url: /cpp/create-chart/
+url: /zh/cpp/create-chart/
 keywords: "创建图表，散点图，饼图，树图，股票图，箱线图，直方图，漏斗图，旭日图，多类别图，PowerPoint 演示文稿，C++，CPP，Aspose.Slides for C++"
 description: "在 C++ 中创建 PowerPoint 演示文稿图表"
 ---

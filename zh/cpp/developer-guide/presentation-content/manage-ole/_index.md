@@ -2,7 +2,7 @@
 title: 管理 OLE
 type: docs
 weight: 40
-url: /cpp/manage-ole/
+url: /zh/cpp/manage-ole/
 keywords:
 - 添加 OLE
 - 嵌入 OLE

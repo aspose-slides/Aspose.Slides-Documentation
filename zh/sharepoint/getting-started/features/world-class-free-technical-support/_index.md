@@ -2,7 +2,7 @@
 title: 世界级免费技术支持
 type: docs
 weight: 20
-url: /sharepoint/world-class-free-technical-support/
+url: /zh/sharepoint/world-class-free-technical-support/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: 复制PPTX中的段落和部分
 type: docs
 weight: 80
-url: /python-net/copying-paragraph-and-portion-in-pptx/
+url: /zh/python-net/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

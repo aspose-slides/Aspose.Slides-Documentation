@@ -2,7 +2,7 @@
 title: 创建 Excel 图表并将其嵌入演示文稿作为 OLE 对象
 type: docs
 weight: 30
-url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /zh/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-obje
 
 {{% /alert %}} 
 ## **相关部分**
-[图表调整大小的工作解决方案](/slides/php-java/working-solution-for-chart-resizing-in-pptx/)
+[图表调整大小的工作解决方案](/slides/zh/php-java/working-solution-for-chart-resizing-in-pptx/)
 
-[对象更改问题](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[对象更改问题](/slides/zh/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -1,7 +1,7 @@
 ---
 title: 提示框
 type: docs
-url: /net/callout/
+url: /zh/net/callout/
 keywords: "图表提示框, 图表数据标签, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中的PowerPoint图表提示框和数据标签"
 ---

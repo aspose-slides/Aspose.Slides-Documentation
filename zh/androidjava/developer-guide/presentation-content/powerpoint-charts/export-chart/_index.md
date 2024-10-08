@@ -2,7 +2,7 @@
 title: 导出图表
 type: docs
 weight: 90
-url: /androidjava/export-chart/
+url: /zh/androidjava/export-chart/
 ---
 
 ## **获取图表图像**

@@ -1,7 +1,7 @@
 ---
 title: 图表数据表
 type: docs
-url: /net/chart-data-table/
+url: /zh/net/chart-data-table/
 keywords: "字体属性, 图表数据表, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中为 PowerPoint 演示文稿中的图表数据库表设置字体属性"
 ---

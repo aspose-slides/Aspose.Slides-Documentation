@@ -2,7 +2,7 @@
 title: 为什么不选择自动化
 type: docs
 weight: 40
-url: /net/why-not-automation/
+url: /zh/net/why-not-automation/
 ---
 
 ## **重要问题**

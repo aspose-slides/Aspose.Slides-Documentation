@@ -2,14 +2,14 @@
 title: 演示主题
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /zh/java/presentation-theme/
 keywords: "主题, PowerPoint主题, PowerPoint演示, Java, Aspose.Slides for Java"
 description: "Java中的PowerPoint演示主题"
 ---
 
 演示主题定义了设计元素的属性。当您选择演示主题时，您实际上是选择了一组特定的视觉元素及其属性。
 
-在PowerPoint中，主题包含颜色、[字体](/slides/java/powerpoint-fonts/)、[背景样式](/slides/java/presentation-background/)和效果。
+在PowerPoint中，主题包含颜色、[字体](/slides/zh/java/powerpoint-fonts/)、[背景样式](/slides/zh/java/presentation-background/)和效果。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Aria
 
 {{% alert color="primary" title="提示" %}} 
 
-您可能想查看[PowerPoint字体](/slides/java/powerpoint-fonts/)。
+您可能想查看[PowerPoint字体](/slides/zh/java/powerpoint-fonts/)。
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="提示" %}} 
 
-您可能想查看[PowerPoint背景](/slides/java/presentation-background/)。
+您可能想查看[PowerPoint背景](/slides/zh/java/presentation-background/)。
 
 {{% /alert %}}
 

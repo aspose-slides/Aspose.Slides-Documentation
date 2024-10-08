@@ -2,7 +2,7 @@
 title: 介绍
 type: docs
 weight: 10
-url: /sharepoint/introduction/
+url: /zh/sharepoint/introduction/
 ---
 
 {{% alert color="primary" %}} 
@@ -15,7 +15,7 @@ Aspose.Slides for SharePoint 是一个灵活的解决方案，用于将 ~Microso
 
 本文涵盖以下内容： 
 
-- [关于 SharePoint 文档库的说明](/slides/sharepoint/sharepoint-document-library/).
-- [使用 Aspose.Slides for SharePoint 的好处](/slides/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
-- [如何将 Microsoft PowerPoint 文档转换为其他格式](/slides/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
-- [总结](/slides/sharepoint/summary/)
+- [关于 SharePoint 文档库的说明](/slides/zh/sharepoint/sharepoint-document-library/).
+- [使用 Aspose.Slides for SharePoint 的好处](/slides/zh/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
+- [如何将 Microsoft PowerPoint 文档转换为其他格式](/slides/zh/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+- [总结](/slides/zh/sharepoint/summary/)

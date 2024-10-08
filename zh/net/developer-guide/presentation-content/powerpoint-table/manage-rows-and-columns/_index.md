@@ -2,7 +2,7 @@
 title: 管理行和列
 type: docs
 weight: 20
-url: /net/manage-rows-and-columns/
+url: /zh/net/manage-rows-and-columns/
 keywords: "表格, 表格行和列, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中管理 PowerPoint 演示文稿中的表格行和列"
 

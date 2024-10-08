@@ -2,7 +2,7 @@
 title: 管理媒体
 type: docs
 weight: 50
-url: /cpp/manage-media/
+url: /zh/cpp/manage-media/
 ---
 
 ## **导出媒体文件到HTML**

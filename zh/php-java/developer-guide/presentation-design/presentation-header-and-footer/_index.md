@@ -2,18 +2,18 @@
 title: 演示文稿页眉和页脚
 type: docs
 weight: 140
-url: /php-java/presentation-header-and-footer/
+url: /zh/php-java/presentation-header-and-footer/
 keywords: "PowerPoint 页眉和页脚"
 description: "PowerPoint 页眉和页脚"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/php-java/) 提供了对幻灯片页眉和页脚文本的支持，这些文本实际上是在幻灯片母版级别维护的。
+[Aspose.Slides](/slides/zh/php-java/) 提供了对幻灯片页眉和页脚文本的支持，这些文本实际上是在幻灯片母版级别维护的。
 
 {{% /alert %}} 
 
-[Aspose.Slides for PHP via Java](/slides/php-java/) 提供了在演示文稿幻灯片内部管理页眉和页脚的功能。这些实际上是在演示文稿母版级别管理的。
+[Aspose.Slides for PHP via Java](/slides/zh/php-java/) 提供了在演示文稿幻灯片内部管理页眉和页脚的功能。这些实际上是在演示文稿母版级别管理的。
 
 ## **在演示文稿中管理页眉和页脚**
 某些特定幻灯片的备注可以按如下示例删除：

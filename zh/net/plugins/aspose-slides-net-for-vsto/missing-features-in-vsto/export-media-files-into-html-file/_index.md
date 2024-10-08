@@ -2,7 +2,7 @@
 title: 导出媒体文件到HTML文件
 type: docs
 weight: 80
-url: /net/export-media-files-into-html-file/
+url: /zh/net/export-media-files-into-html-file/
 ---
 
 为了将媒体文件导出到HTML，请按照以下步骤操作：

@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /python-net/paragraph/
+url: /zh/python-net/paragraph/
 keywords: "段落, 部分, 段落坐标, 部分坐标, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中 PowerPoint 演示文稿的段落和部分"
 ---

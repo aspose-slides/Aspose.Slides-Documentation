@@ -2,7 +2,7 @@
 title: 安装 Aspose.Slides for Reporting Services
 type: docs
 weight: 10
-url: /reportingservices/installing-aspose-slides-for-reporting-services/
+url: /zh/reportingservices/installing-aspose-slides-for-reporting-services/
 ---
 
 {{% alert color="primary" %}} 
@@ -26,12 +26,12 @@ Aspose.Slides for Reporting Services 可以安装在 Power BI 服务器上。
 
 ### **安装文章链接**
 
-- [使用 MSI 安装程序安装](/slides/reportingservices/install-with-msi-installer/).
-- [手动安装](/slides/reportingservices/install-manually/).
-- [重新安装 Aspose.Slides for Reporting Services](/slides/reportingservices/re-installing-aspose-slides-for-reporting-services/).
-- [与 Visual Studio 2005 或 2008 报告设计器手动集成](/slides/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
-- [自定义 Microsoft PowerPoint 渲染扩展标题](/slides/reportingservices/customizing-powerpoint-rendering-extension-caption/).
-- [获取 Aspose.Slides for Reporting Services 许可证](/slides/reportingservices/license-aspose-slides-for-reporting-services/).
+- [使用 MSI 安装程序安装](/slides/zh/reportingservices/install-with-msi-installer/).
+- [手动安装](/slides/zh/reportingservices/install-manually/).
+- [重新安装 Aspose.Slides for Reporting Services](/slides/zh/reportingservices/re-installing-aspose-slides-for-reporting-services/).
+- [与 Visual Studio 2005 或 2008 报告设计器手动集成](/slides/zh/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/).
+- [自定义 Microsoft PowerPoint 渲染扩展标题](/slides/zh/reportingservices/customizing-powerpoint-rendering-extension-caption/).
+- [获取 Aspose.Slides for Reporting Services 许可证](/slides/zh/reportingservices/license-aspose-slides-for-reporting-services/).
 
 {{% alert title="注意" color="warning" %}} 
 

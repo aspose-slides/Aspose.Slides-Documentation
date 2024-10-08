@@ -2,7 +2,7 @@
 title: 管理 Blob
 type: docs
 weight: 10
-url: /net/manage-blob/
+url: /zh/net/manage-blob/
 keywords: "添加 blob, 导出 blob, 作为 blob 添加图片, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中将 blob 添加到 PowerPoint 演示文稿。导出 blob。作为 blob 添加图像"
 ---
@@ -17,7 +17,7 @@ Aspose.Slides for .NET 允许您以减少大型文件时内存消耗的方式使
 
 ### **通过 BLOB 向演示文稿添加大型文件**
 
-[Aspose.Slides](/slides/net/) for .NET 允许您通过涉及 BLOB 的过程向演示文稿添加大型文件（在这种情况下是一个大型视频文件），以减少内存消耗。
+[Aspose.Slides](/slides/zh/net/) for .NET 允许您通过涉及 BLOB 的过程向演示文稿添加大型文件（在这种情况下是一个大型视频文件），以减少内存消耗。
 
 以下 C# 示例展示了如何通过 BLOB 过程向演示文稿添加一个大型视频文件：
 

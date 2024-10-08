@@ -2,7 +2,7 @@
 title: 备用字体
 type: docs
 weight: 50
-url: /python-net/fallback-font/
+url: /zh/python-net/fallback-font/
 keywords: "备用字体, 字体, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "PowerPoint 备用字体在 Python 中的使用"
 ---
@@ -14,6 +14,6 @@ Aspose.Slides 允许创建备用字体，将它们添加到备用字体集合中
 
 要熟悉这些功能，请使用以下链接：
 
-- [创建备用字体](/slides/python-net/create-fallback-font)
-- [创建备用字体集合](/slides/python-net/create-fallback-fonts-collection)
-- [使用备用字体渲染演示文稿](/slides/python-net/render-presentation-with-fallback-font)
+- [创建备用字体](/slides/zh/python-net/create-fallback-font)
+- [创建备用字体集合](/slides/zh/python-net/create-fallback-fonts-collection)
+- [使用备用字体渲染演示文稿](/slides/zh/python-net/render-presentation-with-fallback-font)

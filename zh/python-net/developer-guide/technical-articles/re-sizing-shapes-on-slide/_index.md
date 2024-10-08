@@ -2,7 +2,7 @@
 title: 调整幻灯片上的形状大小
 type: docs
 weight: 130
-url: /python-net/re-sizing-shapes-on-slide/
+url: /zh/python-net/re-sizing-shapes-on-slide/
 ---
 
 ## **调整幻灯片上的形状大小**

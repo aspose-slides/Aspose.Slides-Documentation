@@ -2,7 +2,7 @@
 title: 使用 MS PowerPoint 插件自动更新 OLE 对象
 type: docs
 weight: 10
-url: /java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /zh/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **关于自动更新 OLE 对象**

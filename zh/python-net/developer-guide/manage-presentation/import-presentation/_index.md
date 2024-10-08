@@ -2,7 +2,7 @@
 title: 导入演示文稿
 type: docs
 weight: 60
-url: /python-net/import-presentation/
+url: /zh/python-net/import-presentation/
 keywords: "从 PDF 导入 PowerPoint，PDF 转 PPTX，PDF 转 PPT，Python，Aspose.Slides for Python via .NET"
 description: "从 PDF 导入 PowerPoint 演示文稿。将 PDF 转换为 PowerPoint"
 ---

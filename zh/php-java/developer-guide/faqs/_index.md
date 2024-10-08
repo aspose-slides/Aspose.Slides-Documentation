@@ -2,7 +2,7 @@
 title: 常见问题解答
 type: docs
 weight: 340
-url: /php-java/faqs/
+url: /zh/php-java/faqs/
 keywords:
 - 常见问题
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **问：Aspose.Slides for PHP via Java 支持什么文件格式？**
 
-**答**：Aspose.Slides for PHP via Java 支持在 [支持的文件格式](/slides/php-java/supported-file-formats/) 中描述的文件格式。
+**答**：Aspose.Slides for PHP via Java 支持在 [支持的文件格式](/slides/zh/php-java/supported-file-formats/) 中描述的文件格式。
 
 ## **异常**
 
@@ -55,7 +55,7 @@ keywords:
 
 **问：为什么在 Windows 和 Linux 操作系统上段落大小不同？**
 
-**答**：段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算是基于在 PowerPoint 演示文稿中指定的字体的度量。如果指定的字体缺失，则用最相似的字体替换，但此字体的度量与原始字体不同。因此，不同系统中段落大小的计算将导致不同的结果，具体取决于已安装字体的集合。要在不同操作系统上获得相同的结果，您需要在系统上安装相同的字体或将其作为 [外部字体](/slides/php-java/custom-font/) 在运行时加载。
+**答**：段落大小的计算是基于表示给定段落的文本大小的计算。文本大小的计算是基于在 PowerPoint 演示文稿中指定的字体的度量。如果指定的字体缺失，则用最相似的字体替换，但此字体的度量与原始字体不同。因此，不同系统中段落大小的计算将导致不同的结果，具体取决于已安装字体的集合。要在不同操作系统上获得相同的结果，您需要在系统上安装相同的字体或将其作为 [外部字体](/slides/zh/php-java/custom-font/) 在运行时加载。
 
 ## **格式化和图像**
 

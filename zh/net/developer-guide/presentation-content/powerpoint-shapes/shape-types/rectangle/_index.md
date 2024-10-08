@@ -2,7 +2,7 @@
 title: 矩形
 type: docs
 weight: 80
-url: /net/rectangle/
+url: /zh/net/rectangle/
 keywords: "创建矩形, PowerPoint形状, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在C# 或 .NET中创建PowerPoint演示文稿中的矩形"
 ---

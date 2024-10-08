@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /net/flash/
+url: /zh/net/flash/
 keywords: "提取 Flash, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中从 PowerPoint 演示文稿中提取 Flash 对象"
 ---

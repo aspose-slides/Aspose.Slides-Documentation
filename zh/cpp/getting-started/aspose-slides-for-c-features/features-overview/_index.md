@@ -2,7 +2,7 @@
 title: 功能概述
 type: docs
 weight: 10
-url: /cpp/features-overview/
+url: /zh/cpp/features-overview/
 description: C++ PowerPoint API 支持大多数 PowerPoint 文档格式，并将其导出到流行格式。主要功能包括转换、渲染、内容操作和格式设置。
 ---
 
@@ -11,10 +11,10 @@ Aspose.Slides for C++ 支持大多数 PowerPoint 文档格式，并将其导出�
 
 |**功能**|**描述**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides for C++ 为此演示文档格式提供最快的处理速度。|
-|[便携式文档格式 (PDF)](/slides/cpp/portable-document-format-pdf/)|支持的文件格式可以通过一个方法导出为 Adobe 便携式文档格式 (PDF) 文档。|
-|[XML 解析器规范 (XPS)](/slides/cpp/xml-parser-specification-xps/)|所有支持的文件格式可以通过一个方法导出为 XML 解析器规范 (XPS) 文档。|
-|[PresentationML (PPTX, XML)](/slides/cpp/presentationml-pptx-xml/)|Aspose.Slides for C++ 支持处理 OOXML 演示格式，也称为 PresentationML 或 PPTX。|
+|[Microsoft PowerPoint (PPT)](/slides/zh/cpp/microsoft-powerpoint-ppt/)|Aspose.Slides for C++ 为此演示文档格式提供最快的处理速度。|
+|[便携式文档格式 (PDF)](/slides/zh/cpp/portable-document-format-pdf/)|支持的文件格式可以通过一个方法导出为 Adobe 便携式文档格式 (PDF) 文档。|
+|[XML 解析器规范 (XPS)](/slides/zh/cpp/xml-parser-specification-xps/)|所有支持的文件格式可以通过一个方法导出为 XML 解析器规范 (XPS) 文档。|
+|[PresentationML (PPTX, XML)](/slides/zh/cpp/presentationml-pptx-xml/)|Aspose.Slides for C++ 支持处理 OOXML 演示格式，也称为 PresentationML 或 PPTX。|
 |[PPTX 到 HTML 转换](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-html/)|Aspose.Slides for C++ 支持将演示文稿转换为 HTML 格式。|
 ## **渲染**
 Aspose.Slides for C++ 支持演示文档中幻灯片的高保真渲染到以下列出的各种图形格式：

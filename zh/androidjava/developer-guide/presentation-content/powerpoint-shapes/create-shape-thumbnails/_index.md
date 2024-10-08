@@ -2,7 +2,7 @@
 title: 创建形状缩略图
 type: docs
 weight: 70
-url: /androidjava/create-shape-thumbnails/
+url: /zh/androidjava/create-shape-thumbnails/
 ---
 
 

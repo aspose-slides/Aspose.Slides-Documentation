@@ -2,7 +2,7 @@
 title: 使用 MS PowerPoint 加载项自动更新 OLE 对象
 type: docs
 weight: 10
-url: /net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /zh/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **关于自动更新 OLE 对象**

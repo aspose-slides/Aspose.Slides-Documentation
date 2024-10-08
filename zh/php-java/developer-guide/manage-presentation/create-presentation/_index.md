@@ -3,7 +3,7 @@ title: 使用 PHP 创建 PowerPoint 演示文稿
 linktitle: 创建演示文稿
 type: docs
 weight: 10
-url: /php-java/create-presentation/
+url: /zh/php-java/create-presentation/
 keywords: 创建 ppt java, 创建 ppt 演示文稿, 创建 pptx java
 description: 学习如何使用 PHP 从头开始创建 PowerPoint 演示文稿，例如 PPT、PPTX。
 ---

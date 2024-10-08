@@ -2,7 +2,7 @@
 title: 管理文本框
 type: docs
 weight: 20
-url: /cpp/manage-textbox/
+url: /zh/cpp/manage-textbox/
 keywords: "文本框, 文本框架, 添加文本框, 带超链接的文本框, C++, Aspose.Slides for C++"
 description: "在 C++ 中将文本框或文本框架添加到 PowerPoint 演示文稿"
 ---

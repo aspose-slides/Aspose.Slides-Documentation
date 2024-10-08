@@ -2,7 +2,7 @@
 title: 创建形状缩略图
 type: docs
 weight: 70
-url: /php-java/create-shape-thumbnails/
+url: /zh/php-java/create-shape-thumbnails/
 ---
 
 

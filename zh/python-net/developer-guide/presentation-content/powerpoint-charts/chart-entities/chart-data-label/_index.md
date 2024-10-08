@@ -1,7 +1,7 @@
 ---
 title: 图表数据标签
 type: docs
-url: /python-net/chart-data-label/
+url: /zh/python-net/chart-data-label/
 keywords: "图表数据标签,标签距离, Python, Aspose.Slides for Python via .NET"
 description: "在Python中设置PowerPoint图表数据标签和距离"
 ---

@@ -2,7 +2,7 @@
 title: 导出到 XAML
 type: docs
 weight: 30
-url: /python-net/export-to-xaml/
+url: /zh/python-net/export-to-xaml/
 keywords: "导出 PowerPoint 演示文稿, 转换 PowerPoint, XAML, PowerPoint 到 XAML, PPT 到 XAML, PPTX 到 XAML, Python"
 description: "导出或转换 PowerPoint 演示文稿到 XAML"
 ---

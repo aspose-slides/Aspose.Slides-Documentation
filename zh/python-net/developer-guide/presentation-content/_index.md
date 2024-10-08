@@ -2,5 +2,5 @@
 title: 演示内容
 type: docs
 weight: 30
-url: /python-net/presentation-content/
+url: /zh/python-net/presentation-content/
 ---

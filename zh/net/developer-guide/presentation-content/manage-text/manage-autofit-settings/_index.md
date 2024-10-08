@@ -2,7 +2,7 @@
 title: 管理自动适应设置
 type: docs
 weight: 30
-url: /net/manage-autofit-settings/
+url: /zh/net/manage-autofit-settings/
 keywords: "文本框, 自动适应, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中设置 PowerPoint 中文本框的自动适应设置"
 ---

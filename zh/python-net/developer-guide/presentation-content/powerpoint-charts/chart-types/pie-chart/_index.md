@@ -1,7 +1,7 @@
 ---
 title: 饼图
 type: docs
-url: /python-net/pie-chart/
+url: /zh/python-net/pie-chart/
 keywords: "饼图, 绘图选项, 切片颜色, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中 PowerPoint 演示文稿的饼图绘图选项和切片颜色"
 ---

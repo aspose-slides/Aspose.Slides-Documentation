@@ -3,7 +3,7 @@ title: 使用 C# 将 PowerPoint 转换为 PDF（包含注释）
 linktitle: 使用 C# 将 PowerPoint 转换为 PDF（包含注释）
 type: docs
 weight: 50
-url: /net/convert-powerpoint-to-pdf-with-notes/
+url: /zh/net/convert-powerpoint-to-pdf-with-notes/
 keywords: "转换 PowerPoint, 演示文稿, PowerPoint 转 PDF, 注释, c#, csharp, .NET, Aspose.Slides"
 description: "使用 C# 或 .NET 将 PowerPoint 转换为 PDF（包含注释）"
 ---

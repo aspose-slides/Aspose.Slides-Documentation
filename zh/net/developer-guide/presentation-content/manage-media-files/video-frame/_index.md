@@ -2,7 +2,7 @@
 title: 视频帧
 type: docs
 weight: 10
-url: /net/video-frame/
+url: /zh/net/video-frame/
 keywords: "添加视频，创建视频帧，提取视频，PowerPoint演示文稿，C#，Csharp，Aspose.Slides for .NET"
 description: "在C#或.NET中向PowerPoint演示文稿添加视频帧"
 ---

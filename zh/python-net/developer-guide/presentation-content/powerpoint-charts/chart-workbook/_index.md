@@ -2,7 +2,7 @@
 title: 图表工作簿
 type: docs
 weight: 70
-url: /python-net/chart-workbook/
+url: /zh/python-net/chart-workbook/
 keywords: "图表工作簿, 图表数据, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python中的PowerPoint演示文稿图表工作簿"
 ---

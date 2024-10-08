@@ -2,12 +2,12 @@
 title: 如何创建 Hello World 演示文档
 type: docs
 weight: 10
-url: /java/how-to-create-hello-world-presentation-document/
+url: /zh/java/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-一个新的 [Aspose.Slides for Java API](/slides/java/) 已经发布，现在这个单一产品支持从零开始生成 PowerPoint 文档和编辑现有文档的功能。
+一个新的 [Aspose.Slides for Java API](/slides/zh/java/) 已经发布，现在这个单一产品支持从零开始生成 PowerPoint 文档和编辑现有文档的功能。
 
 {{% /alert %}} 
 ## **对旧代码的支持**

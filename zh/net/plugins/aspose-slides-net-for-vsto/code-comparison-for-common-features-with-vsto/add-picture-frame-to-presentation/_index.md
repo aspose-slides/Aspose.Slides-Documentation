@@ -2,7 +2,7 @@
 title: 添加图片框到演示文稿
 type: docs
 weight: 50
-url: /net/add-picture-frame-to-presentation/
+url: /zh/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**

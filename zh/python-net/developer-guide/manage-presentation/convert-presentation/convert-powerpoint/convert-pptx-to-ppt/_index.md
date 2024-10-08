@@ -3,7 +3,7 @@ title: 在Python中将PPTX转换为PPT
 linktitle: 在Python中将PPTX转换为PPT
 type: docs
 weight: 21
-url: /python-net/convert-pptx-to-ppt/
+url: /zh/python-net/convert-pptx-to-ppt/
 keywords: "Python 将PPTX转换为PPT, 转换 PowerPoint 演示文稿, PPTX到PPT, Python, Aspose.Slides"
 description: "在Python中将PowerPoint PPTX转换为PPT"
 ---

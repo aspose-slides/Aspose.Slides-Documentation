@@ -2,18 +2,18 @@
 title: 演示文稿页眉和页脚
 type: docs
 weight: 140
-url: /net/presentation-header-and-footer/
+url: /zh/net/presentation-header-and-footer/
 keywords: "页眉, 页脚, 设置页眉, 设置页脚, 设置页眉和页脚, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中的 PowerPoint 页眉和页脚"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/net/) 提供了对幻灯片的页眉和页脚文本的支持，这些文本实际上是在幻灯片母版级别维护的。
+[Aspose.Slides](/slides/zh/net/) 提供了对幻灯片的页眉和页脚文本的支持，这些文本实际上是在幻灯片母版级别维护的。
 
 {{% /alert %}} 
 
-[Aspose.Slides for .NET](/slides/net/) 提供了在演示文稿幻灯片中管理页眉和页脚的功能。实际上这些是在演示文稿母版级别管理的。
+[Aspose.Slides for .NET](/slides/zh/net/) 提供了在演示文稿幻灯片中管理页眉和页脚的功能。实际上这些是在演示文稿母版级别管理的。
 ## **管理页眉和页脚文本**
 某些特定幻灯片的注释可以按照下面的示例进行更新：
 

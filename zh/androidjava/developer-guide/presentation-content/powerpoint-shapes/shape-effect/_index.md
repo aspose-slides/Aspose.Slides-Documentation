@@ -2,12 +2,12 @@
 title: 形状效果
 type: docs
 weight: 30
-url: /androidjava/shape-effect
+url: /zh/androidjava/shape-effect
 keywords: "形状效果, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中对 PowerPoint 形状应用效果"
 ---
 
-在 PowerPoint 中，效果可以使形状更突出，但它们与[填充](/slides/androidjava/shape-formatting/#gradient-fill)或轮廓不同。使用 PowerPoint 效果，您可以在形状上创建逼真的反射，扩展形状的光晕等。
+在 PowerPoint 中，效果可以使形状更突出，但它们与[填充](/slides/zh/androidjava/shape-formatting/#gradient-fill)或轮廓不同。使用 PowerPoint 效果，您可以在形状上创建逼真的反射，扩展形状的光晕等。
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

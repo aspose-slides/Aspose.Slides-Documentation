@@ -2,18 +2,18 @@
 title: 演示文稿页眉和页脚
 type: docs
 weight: 140
-url: /python-net/presentation-header-and-footer/
+url: /zh/python-net/presentation-header-and-footer/
 keywords: "页眉, 页脚, 设置页眉, 设置页脚, 设置页眉和页脚, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "Python 中的 PowerPoint 页眉和页脚"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/python-net/) 提供对幻灯片页眉和页脚文本的支持，实际上这些文本是在幻灯片母版级别维护的。
+[Aspose.Slides](/slides/zh/python-net/) 提供对幻灯片页眉和页脚文本的支持，实际上这些文本是在幻灯片母版级别维护的。
 
 {{% /alert %}} 
 
-[Aspose.Slides for Python via .NET](/slides/python-net/) 提供在演示幻灯片中管理页眉和页脚的功能。这些实际上是在演示母版级别管理的。
+[Aspose.Slides for Python via .NET](/slides/zh/python-net/) 提供在演示幻灯片中管理页眉和页脚的功能。这些实际上是在演示母版级别管理的。
 ## **管理页眉和页脚文本**
 某些特定幻灯片的注释可以如下面的示例所示进行更新：
 

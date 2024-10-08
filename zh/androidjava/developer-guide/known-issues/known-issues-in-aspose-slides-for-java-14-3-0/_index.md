@@ -2,7 +2,7 @@
 title: Aspose.Slides for Android via Java 14.3.0 的已知问题
 type: docs
 weight: 20
-url: /androidjava/known-issues-in-aspose-slides-for-java-14-3-0/
+url: /zh/androidjava/known-issues-in-aspose-slides-for-java-14-3-0/
 ---
 
 Aspose.Slides for Android via Java 14.3.0 (14.4.0) 提供了全新的 PPT 处理实现。有很多改进，包括 PPTX 到 PPT 的部分转换。但是仍然有一些未实现的功能：

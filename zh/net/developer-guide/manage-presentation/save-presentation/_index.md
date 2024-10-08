@@ -3,7 +3,7 @@ title: 在.NET中保存演示文稿
 linktitle: 保存演示文稿
 type: docs
 weight: 80
-url: /net/save-presentation/
+url: /zh/net/save-presentation/
 keywords: "保存PowerPoint, PPT, PPTX, 保存演示文稿, 文件, 流, C#, Csharp, .NET"
 description: "在C#或.NET中将PowerPoint演示文稿保存为文件或流"
 ---

@@ -3,7 +3,7 @@ title: 创建或管理 PowerPoint SmartArt 形状节点
 linktitle: 管理 SmartArt 形状节点
 type: docs
 weight: 30
-url: /php-java/manage-smartart-shape-node/
+url: /zh/php-java/manage-smartart-shape-node/
 keywords: smartart powerpoint, smartart 节点, smartart 位置, 删除 smartart, smartart 节点添加, powerpoint 演示文稿, powerpoint java, powerpoint java api
 description: 管理 PowerPoint 演示文稿中的智能艺术节点和子节点
 ---

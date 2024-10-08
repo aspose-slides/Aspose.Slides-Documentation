@@ -2,7 +2,7 @@
 title: 转换 ODP 到 PPTX
 type: docs
 weight: 10
-url: /cpp/convert-odp-to-pptx/
+url: /zh/cpp/convert-odp-to-pptx/
 ---
 
 Aspose.Slides for .NET 提供了 Presentation 类，表示一个演示文稿文件。[**Presentation**](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类现在也可以通过 Presentation 构造函数访问 ODP，当对象被实例化时。以下示例演示了如何将 ODP 演示文稿转换为 PPTX 演示文稿。

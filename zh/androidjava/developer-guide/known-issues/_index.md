@@ -2,5 +2,5 @@
 title: 已知问题
 type: docs
 weight: 330
-url: /androidjava/known-issues/
+url: /zh/androidjava/known-issues/
 ---

@@ -2,14 +2,14 @@
 title: 对演示文稿应用保护
 type: docs
 weight: 10
-url: /cpp/applying-protection-to-presentation/
+url: /zh/cpp/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}}
 
 Aspose.Slides 的一个常见用途是作为自动化工作流程的组成部分来创建、更新和保存 Microsoft PowerPoint 2007（PPTX）演示文稿。以这种方式使用 Aspose.Slides 的应用程序用户可以访问输出的演示文稿。保护这些演示文稿以免被编辑是一个常见的考虑。确保自动生成的演示文稿保留其原始格式和内容非常重要。
 
-本文解释了 [演示文稿和幻灯片是如何构建的](/slides/cpp/applying-protection-to-presentation/)以及 Aspose.Slides for C++ 如何 [对演示文稿应用保护](/slides/cpp/applying-protection-to-presentation/)，然后 [从演示文稿中移除保护](/slides/cpp/applying-protection-to-presentation/)。此功能是 Aspose.Slides 所独有的，在撰写时，Microsoft PowerPoint 中并不存在此功能。它为开发者提供了一种控制其应用程序创建的演示文稿如何使用的方式。
+本文解释了 [演示文稿和幻灯片是如何构建的](/slides/zh/cpp/applying-protection-to-presentation/)以及 Aspose.Slides for C++ 如何 [对演示文稿应用保护](/slides/zh/cpp/applying-protection-to-presentation/)，然后 [从演示文稿中移除保护](/slides/zh/cpp/applying-protection-to-presentation/)。此功能是 Aspose.Slides 所独有的，在撰写时，Microsoft PowerPoint 中并不存在此功能。它为开发者提供了一种控制其应用程序创建的演示文稿如何使用的方式。
 
 {{% /alert %}} 
 ## **幻灯片的组成**

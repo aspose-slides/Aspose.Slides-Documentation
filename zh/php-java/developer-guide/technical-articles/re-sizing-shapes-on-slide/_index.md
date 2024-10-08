@@ -2,7 +2,7 @@
 title: 在幻灯片上调整形状大小
 type: docs
 weight: 110
-url: /php-java/re-sizing-shapes-on-slide/
+url: /zh/php-java/re-sizing-shapes-on-slide/
 ---
 
 ## **在幻灯片上调整形状大小**

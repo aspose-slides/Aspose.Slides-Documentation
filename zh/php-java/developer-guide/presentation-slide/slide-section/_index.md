@@ -2,7 +2,7 @@
 title: 幻灯片章节
 type: docs
 weight: 90
-url: /php-java/slide-section/
+url: /zh/php-java/slide-section/
 ---
 
 使用 Aspose.Slides for PHP via Java，您可以将 PowerPoint 演示文稿组织为章节。您可以创建包含特定幻灯片的章节。

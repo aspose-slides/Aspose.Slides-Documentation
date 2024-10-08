@@ -2,5 +2,5 @@
 title: PowerPoint 表格
 type: docs
 weight: 110
-url: /net/powerpoint-table/
+url: /zh/net/powerpoint-table/
 ---

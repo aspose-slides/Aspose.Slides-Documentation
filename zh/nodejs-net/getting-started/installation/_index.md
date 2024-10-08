@@ -2,7 +2,7 @@
 title: 安装
 type: docs
 weight: 70
-url: /nodejs-net/installation/
+url: /zh/nodejs-net/installation/
 keySlides: "下载 Aspose.Slides，安装 Aspose.Slides，Aspose.Slides 安装，Windows，macOS，Linux，Javascript，Node.js"
 description: "在 Windows、Linux 或 macOS 上通过 .NET 安装 Aspose.Slides for Node.js"
 ---

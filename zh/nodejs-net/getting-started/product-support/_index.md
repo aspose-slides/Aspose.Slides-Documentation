@@ -2,7 +2,7 @@
 title: 产品支持
 type: docs
 weight: 100
-url: /nodejs-net/product-support/
+url: /zh/nodejs-net/product-support/
 ---
 
 ## **技术支持**
@@ -36,4 +36,4 @@ Aspose 为其所有产品提供无限制的免费技术支持。此支持对所�
 |[Aspose.Slide 博客](https://blog.aspose.com/category/slides/)|定期查看此页面，获取新版本信息和有关 Aspose.Slides 的有用提示。|
 |[Aspose.Slides for Node.js via .NET 下载](https://releases.aspose.com/slides/nodejs-net/)|在此下载最新版本的 Aspose.Slides。我们经常发布新版本。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在这里发布您的问题和问题以快速解决。|
-|[Aspose.Slides for Node.js via .NET 产品文档](/slides/nodejs-net/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|
+|[Aspose.Slides for Node.js via .NET 产品文档](/slides/zh/nodejs-net/)|包含此文档和 Aspose.Slides API 参考的完整在线文档。|

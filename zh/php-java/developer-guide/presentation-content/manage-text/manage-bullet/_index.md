@@ -2,7 +2,7 @@
 title: 管理项目符号
 type: docs
 weight: 60
-url: /php-java/manage-bullet/
+url: /zh/php-java/manage-bullet/
 keywords: "项目符号, 项目符号列表, 数字, 编号列表, 图片项目符号, 多级项目符号, PowerPoint演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "在PowerPoint演示文稿中创建项目符号和编号列表"
 ---

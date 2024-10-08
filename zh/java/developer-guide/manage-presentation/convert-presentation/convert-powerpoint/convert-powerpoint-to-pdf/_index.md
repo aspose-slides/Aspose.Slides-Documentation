@@ -3,7 +3,7 @@ title: 在Java中将PowerPoint转换为PDF
 linktitle: 将PowerPoint转换为PDF
 type: docs
 weight: 40
-url: /java/convert-powerpoint-to-pdf/
+url: /zh/java/convert-powerpoint-to-pdf/
 keywords:
 - 转换PowerPoint
 - 演示文稿

@@ -2,7 +2,7 @@
 title: 演示文稿查看器
 type: docs
 weight: 50
-url: /php-java/presentation-viewer/
+url: /zh/php-java/presentation-viewer/
 keywords: "PowerPoint PPT 查看器"
 description: "PowerPoint PPT 查看器 "
 ---

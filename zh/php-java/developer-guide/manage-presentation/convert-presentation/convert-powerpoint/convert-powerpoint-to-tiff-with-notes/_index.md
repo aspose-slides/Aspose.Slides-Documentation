@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 TIFF 及备注
 type: docs
 weight: 100
-url: /php-java/convert-powerpoint-to-tiff-with-notes/
+url: /zh/php-java/convert-powerpoint-to-tiff-with-notes/
 keywords: "将 PowerPoint 转换为 TIFF 并附带备注"
 description: "在 Aspose.Slides 中将 PowerPoint 转换为 TIFF 并附带备注。"
 ---

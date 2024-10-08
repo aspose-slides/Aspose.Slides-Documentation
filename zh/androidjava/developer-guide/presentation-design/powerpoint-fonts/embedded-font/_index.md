@@ -3,7 +3,7 @@ title: 嵌入字体 - PowerPoint Java API
 linktitle: 嵌入字体
 type: docs
 weight: 40
-url: /androidjava/embedded-font/
+url: /zh/androidjava/embedded-font/
 keywords: "字体, 嵌入字体, 添加字体, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中使用 PowerPoint 演示文稿中的嵌入字体"
 

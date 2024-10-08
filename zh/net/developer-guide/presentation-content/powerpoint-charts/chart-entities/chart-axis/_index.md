@@ -1,7 +1,7 @@
 ---
 title: 图表坐标轴
 type: docs
-url: /net/chart-axis/
+url: /zh/net/chart-axis/
 keywords: "PowerPoint 图表坐标轴, 演示文稿图表, C#, .NET, 操作图表坐标轴, 图表数据"
 description: "使用 C# 或 .NET 编辑 PowerPoint 图表坐标轴"
 ---

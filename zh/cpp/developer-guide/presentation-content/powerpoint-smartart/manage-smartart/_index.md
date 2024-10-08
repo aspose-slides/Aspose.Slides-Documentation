@@ -2,7 +2,7 @@
 title: 管理SmartArt
 type: docs
 weight: 10
-url: /cpp/manage-smartart/
+url: /zh/cpp/manage-smartart/
 ---
 
 ## **从SmartArt获取文本**

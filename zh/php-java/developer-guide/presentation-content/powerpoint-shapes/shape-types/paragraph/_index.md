@@ -2,7 +2,7 @@
 title: 段落
 type: docs
 weight: 60
-url: /php-java/paragraph/
+url: /zh/php-java/paragraph/
 ---
 
 ## 在TextFrame中获取段落和部分坐标 ##

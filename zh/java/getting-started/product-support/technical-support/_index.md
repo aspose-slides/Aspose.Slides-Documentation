@@ -2,7 +2,7 @@
 title: 技术支持
 type: docs
 weight: 10
-url: /java/technical-support/
+url: /zh/java/technical-support/
 ---
 
 {{% alert color="primary" %}} 

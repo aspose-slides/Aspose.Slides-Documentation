@@ -2,5 +2,5 @@
 title: 技术文章
 type: docs
 weight: 270
-url: /androidjava/technical-articles/
+url: /zh/androidjava/technical-articles/
 ---

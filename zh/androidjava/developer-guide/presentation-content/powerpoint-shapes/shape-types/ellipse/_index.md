@@ -2,7 +2,7 @@
 title: 椭圆
 type: docs
 weight: 30
-url: /androidjava/ellipse/
+url: /zh/androidjava/ellipse/
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: 图表轴
 type: docs
-url: /androidjava/chart-axis/
+url: /zh/androidjava/chart-axis/
 keywords: "PowerPoint 图表轴, 演示文稿图表, Java, 操作图表轴, 图表数据"
 description: "如何在 Java 中编辑 PowerPoint 图表轴"
 ---

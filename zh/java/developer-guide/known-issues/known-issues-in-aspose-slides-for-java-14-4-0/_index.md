@@ -2,7 +2,7 @@
 title: Aspose.Slides for Java 14.4.0 的已知问题
 type: docs
 weight: 30
-url: /java/known-issues-in-aspose-slides-for-java-14-4-0/
+url: /zh/java/known-issues-in-aspose-slides-for-java-14-4-0/
 ---
 
 {{% alert color="primary" %}} 

@@ -1,7 +1,7 @@
 ---
 title: 误差线
 type: docs
-url: /python-net/error-bar/
+url: /zh/python-net/error-bar/
 keywords: "误差线, 误差线值 PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加误差线"
 ---

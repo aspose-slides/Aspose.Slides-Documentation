@@ -2,7 +2,7 @@
 title: 管理标签和自定义数据
 type: docs
 weight: 300
-url: /php-java/managing-tags-and-custom-data
+url: /zh/php-java/managing-tags-and-custom-data
 
 ---
 

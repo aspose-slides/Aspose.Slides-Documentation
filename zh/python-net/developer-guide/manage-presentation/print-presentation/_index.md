@@ -2,7 +2,7 @@
 title: 打印演示文稿
 type: docs
 weight: 50
-url: /python-net/print-presentation/
+url: /zh/python-net/print-presentation/
 keywords: "打印 PowerPoint, PPT, PPTX, 打印演示文稿, Python, 打印机, 打印选项"
 description: "在 Python 中打印 PowerPoint 演示文稿"
 ---

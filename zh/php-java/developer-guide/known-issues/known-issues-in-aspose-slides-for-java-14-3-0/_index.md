@@ -2,7 +2,7 @@
 title: Aspose.Slides for PHP via Java 14.3.0中的已知问题
 type: docs
 weight: 20
-url: /php-java/known-issues-in-aspose-slides-for-java-14-3-0/
+url: /zh/php-java/known-issues-in-aspose-slides-for-java-14-3-0/
 ---
 
 Aspose.Slides for PHP via Java 14.3.0 (14.4.0) 提供了全新的PPT处理实现。它有很多改进，支持PPTX到PPT的部分转换。但也有一些未实现的功能：

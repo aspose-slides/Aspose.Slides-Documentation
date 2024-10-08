@@ -2,7 +2,7 @@
 title: 克隆幻灯片
 type: docs
 weight: 40
-url: /cpp/clone-slides/
+url: /zh/cpp/clone-slides/
 ---
 
 

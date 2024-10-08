@@ -2,7 +2,7 @@
 title: 音频框架
 type: docs
 weight: 10
-url: /java/audio-frame/
+url: /zh/java/audio-frame/
 keywords: "添加音频, 音频框架, 音频属性, 提取音频, Java, Aspose.Slides for Java"
 description: "在Java中向PowerPoint演示文稿添加音频"
 ---

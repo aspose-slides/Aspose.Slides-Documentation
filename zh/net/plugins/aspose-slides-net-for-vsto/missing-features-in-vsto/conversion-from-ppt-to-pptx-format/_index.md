@@ -2,7 +2,7 @@
 title: 从PPT格式转换为PPTX格式
 type: docs
 weight: 20
-url: /net/conversion-from-ppt-to-pptx-format/
+url: /zh/net/conversion-from-ppt-to-pptx-format/
 ---
 
 Aspose.Slides的独特功能提供了在版本转换时的灵活性，而不会影响工作。

@@ -2,7 +2,7 @@
 title: 功能概述
 type: docs
 weight: 20
-url: /python-net/features-overview/
+url: /zh/python-net/features-overview/
 ---
 
 ## **支持的平台**
@@ -19,11 +19,11 @@ Aspose.Slides for Python via .NET 支持大多数 PowerPoint 文档格式。它�
 
 |**功能**|**描述**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/python-net/ppt-vs-pptx/)|Aspose.Slides for Python via .NET 为该演示文档格式提供最快的处理速度。|
-|[PPT 到 PPTX 转换](/slides/python-net/convert-ppt-to-pptx/)|Aspose.Slides for Python via .NET 支持将 PPT 转换为 PPTX。|
-|[可移植文档格式 (PDF)](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|您可以使用单个方法将所有支持的文件格式导出为 Adobe 可移植文档格式 (PDF) 文档。|
+|[Microsoft PowerPoint (PPT)](/slides/zh/python-net/ppt-vs-pptx/)|Aspose.Slides for Python via .NET 为该演示文档格式提供最快的处理速度。|
+|[PPT 到 PPTX 转换](/slides/zh/python-net/convert-ppt-to-pptx/)|Aspose.Slides for Python via .NET 支持将 PPT 转换为 PPTX。|
+|[可移植文档格式 (PDF)](/slides/zh/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|您可以使用单个方法将所有支持的文件格式导出为 Adobe 可移植文档格式 (PDF) 文档。|
 |[XML 解析器规范 (XPS)](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)|您可以使用单个方法将所有支持的文件格式导出为 XML 解析器规范 (XPS) 文档。|
-|[标记图像文件格式 (TIFF)](/slides/python-net/convert-powerpoint-to-tiff/)|您可以将所有支持的演示文档格式导出为标记图像文件格式 (TIFF)。|
+|[标记图像文件格式 (TIFF)](/slides/zh/python-net/convert-powerpoint-to-tiff/)|您可以将所有支持的演示文档格式导出为标记图像文件格式 (TIFF)。|
 |[PPTX 到 HTML 转换](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)|Aspose.Slides for Python via .NET 支持将 PresentationEx 转换为 HTML 格式。|
 
 ## **渲染和打印**

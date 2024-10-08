@@ -3,7 +3,7 @@ title: 打开演示文稿 - C++ PowerPoint API
 linktitle: 打开演示文稿
 type: docs
 weight: 20
-url: /cpp/open-presentation/
+url: /zh/cpp/open-presentation/
 keywords: "打开 PowerPoint, PPTX, PPT, 打开演示文稿, 加载演示文稿, C++, CPP"
 description: "在 C++ 中打开或加载演示文稿 PPT, PPTX, ODP"
 ---

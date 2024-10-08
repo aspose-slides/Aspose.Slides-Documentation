@@ -2,7 +2,7 @@
 title: 图像
 type: docs
 weight: 10
-url: /cpp/image/
+url: /zh/cpp/image/
 ---
 
 
@@ -18,7 +18,7 @@ Aspose 提供免费的转换器—[JPEG 转 PowerPoint](https://products.aspose.
 
 {{% alert title="信息" color="info" %}}
 
-如果您想将图像作为框架对象添加—尤其是如果您计划使用标准格式选项来更改其大小、添加效果等—请参见 [图片框](/slides/cpp/picture-frame/)。 
+如果您想将图像作为框架对象添加—尤其是如果您计划使用标准格式选项来更改其大小、添加效果等—请参见 [图片框](/slides/zh/cpp/picture-frame/)。 
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: 从一个演示文稿移动段落到另一个演示文稿
 type: docs
 weight: 130
-url: /net/move-a-paragraph-from-one-presentation-to-another/
+url: /zh/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **OpenXML 演示文稿**

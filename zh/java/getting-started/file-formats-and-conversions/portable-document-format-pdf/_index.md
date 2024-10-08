@@ -2,7 +2,7 @@
 title: 可移植文档格式 (PDF)
 type: docs
 weight: 40
-url: /java/portable-document-format-pdf/
+url: /zh/java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.Slides 在转换为 PDF 时支持以下演示文稿功能：
 - 项目符号。
 - 表格。
 
-您可以直接使用 Aspose.Slides for Java 将演示文稿导出为 PDF：您不需要任何其他组件。此外，您可以根据 [转换为 PDF](/slides/java/converting-a-presentation/) 中解释的各种选项自定义演示文稿到 PDF 的导出。
+您可以直接使用 Aspose.Slides for Java 将演示文稿导出为 PDF：您不需要任何其他组件。此外，您可以根据 [转换为 PDF](/slides/zh/java/converting-a-presentation/) 中解释的各种选项自定义演示文稿到 PDF 的导出。
 
 **输入演示文稿** 
 

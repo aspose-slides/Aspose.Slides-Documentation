@@ -1,7 +1,7 @@
 ---
 title: 演示视图属性
 type: docs
-url: /python-net/presentation-view-properties/
+url: /zh/python-net/presentation-view-properties/
 keywords: "PowerPoint 观察者，观察属性，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "Python 中的 PowerPoint 演示文稿观察者属性"
 ---

@@ -2,7 +2,7 @@
 title: 管理OLE
 type: docs
 weight: 40
-url: /net/manage-ole/
+url: /zh/net/manage-ole/
 keywords:
 - 添加OLE
 - 嵌入OLE

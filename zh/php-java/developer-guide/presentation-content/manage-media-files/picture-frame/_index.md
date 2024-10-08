@@ -2,7 +2,7 @@
 title: 画框
 type: docs
 weight: 10
-url: /php-java/picture-frame/
+url: /zh/php-java/picture-frame/
 keywords: "添加画框, 创建画框, 添加图片, 创建图片, 提取图片, StretchOff 属性, 画框格式, 画框属性, PowerPoint 演示文稿, Java, Aspose.Slides for PHP via Java"
 description: "将画框添加到 PowerPoint 演示文稿中"
 

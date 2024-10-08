@@ -2,7 +2,7 @@
 title: 演示文稿格式
 type: docs
 weight: 10
-url: /net/presentation-format/
+url: /zh/net/presentation-format/
 ---
 
 Aspose.Slides for .NET 提供了 [**PresentationFactory** ](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory) 类，用于在加载之前获取演示文稿格式。

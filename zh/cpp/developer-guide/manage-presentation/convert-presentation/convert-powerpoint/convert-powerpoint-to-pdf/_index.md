@@ -3,7 +3,7 @@ title: 在 C++ 中将 PowerPoint 转换为 PDF
 linktitle: 将 PowerPoint 转换为 PDF
 type: docs
 weight: 40
-url: /cpp/convert-powerpoint-to-pdf/
+url: /zh/cpp/convert-powerpoint-to-pdf/
 keywords:
 - 转换 PowerPoint
 - 演示文稿

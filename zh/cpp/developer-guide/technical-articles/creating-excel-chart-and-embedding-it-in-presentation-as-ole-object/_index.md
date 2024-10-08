@@ -2,7 +2,7 @@
 title: 创建Excel图表并将其嵌入演示文稿作为OLE对象
 type: docs
 weight: 40
-url: /cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /zh/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 

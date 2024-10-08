@@ -2,7 +2,7 @@
 title: 如何在Docker中运行Aspose.Slides
 type: docs
 weight: 140
-url: /net/how-to-run-aspose-slides-in-docker/
+url: /zh/net/how-to-run-aspose-slides-in-docker/
 keywords: "在Docker容器中运行Aspose.Slides, Aspose Docker, 在Docker中使用Aspose.Slides"
 description: "在Linux、Windows Server及任何操作系统的Docker容器中运行Aspose.Slides。"
 ---
@@ -244,7 +244,7 @@ CMD ./build/netcore.linux.tests.sh
 
 ```
 
-唯一的区别是*构建最新稳定版的libgdiplus*部分。此部分安装了构建libgdiplus所需的所有工具，克隆源代码，然后构建并安装到正确的位置。其他内容与[在Linux上安装和配置Docker（apt-get libgdiplus）](/slides/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/)相同。
+唯一的区别是*构建最新稳定版的libgdiplus*部分。此部分安装了构建libgdiplus所需的所有工具，克隆源代码，然后构建并安装到正确的位置。其他内容与[在Linux上安装和配置Docker（apt-get libgdiplus）](/slides/zh/net/how-to-run-aspose-slides-in-docker/#install-and-configure-docker-on-linux-apt-get-libgdiplus/)相同。
 
 **注意**：请记得在docker build和docker run命令中为生成的映像使用不同的映像标签（名称）：
 

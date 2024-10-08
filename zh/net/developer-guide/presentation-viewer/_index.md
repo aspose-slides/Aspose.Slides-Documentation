@@ -2,7 +2,7 @@
 title: 演示文稿查看器
 type: docs
 weight: 50
-url: /net/presentation-viewer/
+url: /zh/net/presentation-viewer/
 keywords: 
 - 查看 PowerPoint 演示文稿
 - 查看 ppt

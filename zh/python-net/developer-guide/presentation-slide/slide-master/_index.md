@@ -2,7 +2,7 @@
 title: 幻灯片母版
 type: docs
 weight: 80
-url: /python-net/slide-master/
+url: /zh/python-net/slide-master/
 keywords: "添加幻灯片母版, PPT母版幻灯片, 幻灯片母版PowerPoint, 添加图像到幻灯片母版, 占位符, 多个幻灯片母版, 比较幻灯片母版, Python, Aspose.Slides"
 description: "在Python中添加或编辑PowerPoint演示文稿中的幻灯片母版"
 ---
@@ -133,7 +133,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="primary" title="另请参阅" %}} 
 
-有关如何向幻灯片添加图像的更多信息，请参见[图片框](/slides/python-net/picture-frame/#create-picture-frame)文章。
+有关如何向幻灯片添加图像的更多信息，请参见[图片框](/slides/zh/python-net/picture-frame/#create-picture-frame)文章。
 {{% /alert %}}
 
 ## **向幻灯片母版添加占位符**

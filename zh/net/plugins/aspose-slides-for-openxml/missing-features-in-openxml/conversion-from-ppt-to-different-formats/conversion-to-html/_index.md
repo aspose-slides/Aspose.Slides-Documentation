@@ -2,7 +2,7 @@
 title: 转换为HTML
 type: docs
 weight: 20
-url: /net/conversion-to-html/
+url: /zh/net/conversion-to-html/
 ---
 
 **HTML** 是用于交换数据的几种广泛使用格式之一。**Aspose.Slides for .NET** 提供支持将演示文稿转换为HTML。以下是演示如何使用的代码片段。

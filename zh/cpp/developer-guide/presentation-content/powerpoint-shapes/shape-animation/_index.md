@@ -2,12 +2,12 @@
 title: 形状动画
 type: docs
 weight: 60
-url: /cpp/shape-animation/
+url: /zh/cpp/shape-animation/
 keywords: "PowerPoint 动画, 动画效果, 应用动画, PowerPoint 演示文稿, C++, CPP, Aspose.Slides for C++"
 description: "在 C++ 中应用 PowerPoint 动画"
 ---
 
-动画是可以应用于文本、图像、形状或 [图表](/slides/cpp/animated-charts/) 的视觉效果。它们为演示文稿或其组成部分注入了生机。
+动画是可以应用于文本、图像、形状或 [图表](/slides/zh/cpp/animated-charts/) 的视觉效果。它们为演示文稿或其组成部分注入了生机。
 
 ### **为什么在演示文稿中使用动画？**
 
@@ -70,7 +70,7 @@ pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 {{%  alert color="primary"  %}} 
 
-除了将动画应用于文本，您还可以将动画应用于单个 [段落](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph)。请参阅 [**动画文本**](/slides/cpp/animated-text/)。
+除了将动画应用于文本，您还可以将动画应用于单个 [段落](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph)。请参阅 [**动画文本**](/slides/zh/cpp/animated-text/)。
 
 {{% /alert %}} 
 

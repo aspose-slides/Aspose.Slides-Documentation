@@ -2,7 +2,7 @@
 title: PowerPoint中的数字签名
 type: docs
 weight: 10
-url: /androidjava/digital-signature-in-powerpoint/
+url: /zh/androidjava/digital-signature-in-powerpoint/
 keywords: "数字签名证书, 证书颁发机构"
 description: "通过Aspose.Slides将数字签名证书、证书颁发机构添加到PowerPoint演示文稿中。"
 ---

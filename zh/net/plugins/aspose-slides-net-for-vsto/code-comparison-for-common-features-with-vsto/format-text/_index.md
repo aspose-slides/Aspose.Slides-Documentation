@@ -2,7 +2,7 @@
 title: 格式化文本
 type: docs
 weight: 110
-url: /net/format-text/
+url: /zh/net/format-text/
 ---
 
 VSTO 和 Aspose.Slides 方法执行以下步骤：

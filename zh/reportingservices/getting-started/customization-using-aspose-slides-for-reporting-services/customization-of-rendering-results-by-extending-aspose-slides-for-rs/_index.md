@@ -2,15 +2,15 @@
 title: 扩展 Aspose.Slides for RS 以自定义渲染结果
 type: docs
 weight: 10
-url: /reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
+url: /zh/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
 ---
 
 {{% alert color="primary" %}}
 
 本页面描述了如何为 Aspose.Slides for RS 创建扩展。
 
-- [创建扩展程序集](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
-- [集成扩展](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
+- [创建扩展程序集](/slides/zh/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
+- [集成扩展](/slides/zh/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/)。
 
 {{% /alert %}}
 

@@ -2,7 +2,7 @@
 title: 支持的文件格式
 type: docs
 weight: 150
-url: /androidjava/supported-file-formats/
+url: /zh/androidjava/supported-file-formats/
 ---
 
 ## **支持的 Microsoft PowerPoint 版本**

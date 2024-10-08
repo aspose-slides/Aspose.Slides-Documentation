@@ -2,7 +2,7 @@
 title: 将主题应用于演示文稿
 type: docs
 weight: 30
-url: /net/apply-a-theme-to-a-presentation/
+url: /zh/net/apply-a-theme-to-a-presentation/
 ---
 
 ## **OpenXML 演示文稿:**

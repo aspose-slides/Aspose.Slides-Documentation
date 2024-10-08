@@ -2,7 +2,7 @@
 title: 密码保护演示文稿
 type: docs
 weight: 20
-url: /androidjava/password-protected-presentation/
+url: /zh/androidjava/password-protected-presentation/
 keywords: "在 Java 中锁定 PowerPoint 演示文稿"
 description: "锁定 PowerPoint 演示文稿。Java 中的密码保护 PowerPoint"
 ---
@@ -238,5 +238,5 @@ try {
 如果演示文稿已使用指定的密码加密，则返回 `true`。否则，返回 `false`。
 
 {{% alert color="primary" title="另见" %}} 
-- [PowerPoint 中的数字签名](/slides/net/digital-signature-in-powerpoint/)
+- [PowerPoint 中的数字签名](/slides/zh/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

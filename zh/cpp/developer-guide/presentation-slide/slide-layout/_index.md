@@ -2,7 +2,7 @@
 title: 幻灯片布局
 type: docs
 weight: 60
-url: /cpp/slide-layout/
+url: /zh/cpp/slide-layout/
 keyword: "设置幻灯片大小，设置幻灯片选项，指定幻灯片大小，页脚可见性，子页脚，内容缩放，页面大小，C++，CPP，Aspose.Slides"
 description: "在C++中设置PowerPoint幻灯片的大小和选项"
 ---

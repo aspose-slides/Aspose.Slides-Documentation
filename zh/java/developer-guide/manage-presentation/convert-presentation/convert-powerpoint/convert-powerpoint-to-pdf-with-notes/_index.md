@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 PDF 注释
 type: docs
 weight: 50
-url: /java/convert-powerpoint-to-pdf-with-notes/
+url: /zh/java/convert-powerpoint-to-pdf-with-notes/
 keywords: "在 Java 中将 PowerPoint 转换为 PDF 注释"
 description: "在 Java 中将 PowerPoint 转换为 PDF 注释"
 ---

@@ -2,7 +2,7 @@
 title: 获取演示文稿的文件格式
 type: docs
 weight: 50
-url: /net/get-the-file-format-of-presentation/
+url: /zh/net/get-the-file-format-of-presentation/
 ---
 
 为了获取文件格式，请按照以下步骤操作：

@@ -2,7 +2,7 @@
 title: 总结
 type: docs
 weight: 50
-url: /sharepoint/summary/
+url: /zh/sharepoint/summary/
 ---
 
 {{% alert color="primary" %}} 

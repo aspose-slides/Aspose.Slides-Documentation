@@ -2,7 +2,7 @@
 title: 演示文稿背景
 type: docs
 weight: 20
-url: /cpp/presentation-background/
+url: /zh/cpp/presentation-background/
 keywords: "PowerPoint 背景，设置背景"
 description: "在 CPP 中设置 PowerPoint 演示文稿的背景"
 ---

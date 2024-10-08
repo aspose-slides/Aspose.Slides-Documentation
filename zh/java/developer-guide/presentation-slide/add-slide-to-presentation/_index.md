@@ -2,7 +2,7 @@
 title: 向演示文稿添加幻灯片
 type: docs
 weight: 10
-url: /java/add-slide-to-presentation/
+url: /zh/java/add-slide-to-presentation/
 ---
 
 ## **向演示文稿添加幻灯片**

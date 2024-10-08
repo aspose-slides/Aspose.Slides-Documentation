@@ -2,7 +2,7 @@
 title: 安装前提条件
 type: docs
 weight: 20
-url: /reportingservices/installation-prerequisites/
+url: /zh/reportingservices/installation-prerequisites/
 ---
 
 {{% alert color="primary" %}} 

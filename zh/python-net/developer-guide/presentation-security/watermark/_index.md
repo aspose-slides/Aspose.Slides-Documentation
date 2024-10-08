@@ -2,7 +2,7 @@
 title: 水印
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /zh/python-net/watermark/
 keywords:
 - 水印
 - 添加水印
@@ -46,7 +46,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [如何使用TextFrame类](/slides/python-net/text-formatting/)
+- [如何使用TextFrame类](/slides/zh/python-net/text-formatting/)
 {{% /alert %}}
 
 ### **向演示文稿添加文本水印**
@@ -64,7 +64,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [如何使用幻灯片母版](/slides/python-net/slide-master/)
+- [如何使用幻灯片母版](/slides/zh/python-net/slide-master/)
 {{% /alert %}}
 
 ### **设置水印形状透明度**

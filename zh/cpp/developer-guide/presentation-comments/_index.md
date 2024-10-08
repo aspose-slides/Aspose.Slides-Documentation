@@ -2,7 +2,7 @@
 title: 演示文稿评论
 type: docs
 weight: 100
-url: /cpp/presentation-comments/
+url: /zh/cpp/presentation-comments/
 keywords: "评论, PowerPoint 评论, PowerPoint 演示文稿, C++, Aspose.Slides for C++"
 description: "在 C++ 中为 PowerPoint 演示文稿添加评论和回复"
 ---

@@ -2,7 +2,7 @@
 title: 产品支持
 type: docs
 weight: 100
-url: /python-net/product-support/
+url: /zh/python-net/product-support/
 ---
 
 ## **技术支持**
@@ -41,4 +41,4 @@ Aspose为其所有产品提供无限制的免费技术支持。所有用户（�
 |[Aspose.Slides博客](https://blog.aspose.com/category/slides/)|定期检查此部分以获取关于新版本和Aspose.Slides实用提示的信息。|
 |[Aspose.Slides for Python via .NET下载](https://pypi.org/project/aspose.slides/)|从此页面下载Aspose.Slides的最新版本。我们经常发布新版本。|
 |[Aspose.Slides支持论坛](https://forum.aspose.com/c/slides/11)|在此发布您的问题和问题以获得快速解决。|
-|[Aspose.Slides for Python via .NET产品文档](/slides/python-net/)|包含本文档和Aspose.Slides API参考的完整在线文档。|
+|[Aspose.Slides for Python via .NET产品文档](/slides/zh/python-net/)|包含本文档和Aspose.Slides API参考的完整在线文档。|

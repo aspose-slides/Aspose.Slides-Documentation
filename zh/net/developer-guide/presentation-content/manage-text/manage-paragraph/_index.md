@@ -2,7 +2,7 @@
 title: 管理 C# 中的 PowerPoint 段落
 type: docs
 weight: 40
-url: /net/manage-paragraph/
+url: /zh/net/manage-paragraph/
 keywords: 
 - 添加段落
 - 管理段落

@@ -3,7 +3,7 @@ title: 嵌入字体 - PowerPoint C# API
 linktitle: 嵌入字体
 type: docs
 weight: 40
-url: /net/embedded-font/
+url: /zh/net/embedded-font/
 keywords:
 - 字体
 - 嵌入字体

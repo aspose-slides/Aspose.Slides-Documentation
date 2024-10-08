@@ -1,7 +1,7 @@
 ---
 title: 图表坐标轴
 type: docs
-url: /python-net/chart-axis/
+url: /zh/python-net/chart-axis/
 keywords: "PowerPoint 图表坐标轴, 演示文稿图表, Python, 操作图表坐标轴, 图表数据"
 description: "在 Python 中编辑 PowerPoint 图表坐标轴"
 ---

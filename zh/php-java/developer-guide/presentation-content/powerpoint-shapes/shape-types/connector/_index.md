@@ -2,7 +2,7 @@
 title: 连接器
 type: docs
 weight: 10
-url: /php-java/connector/
+url: /zh/php-java/connector/
 keywords: "连接形状，连接器，PowerPoint形状，PowerPoint演示文稿，Java，Aspose.Slides for PHP via Java"
 description: "连接PowerPoint形状"
 ---
@@ -121,7 +121,7 @@ Aspose.Slides 提供这些连接器：
 
 ## **调整连接器点**
 
-您可以通过其调整点调整现有连接器。仅具有调整点的连接器才能以这种方式进行更改。请参阅**[连接器的类型](/slides/php-java/connector/#types-of-connectors)**下的表格。
+您可以通过其调整点调整现有连接器。仅具有调整点的连接器才能以这种方式进行更改。请参阅**[连接器的类型](/slides/zh/php-java/connector/#types-of-connectors)**下的表格。
 
 #### **简单案例**
 
@@ -168,7 +168,7 @@ Aspose.Slides 提供这些连接器：
 * 调整点值反映连接器形状宽度/高度的百分比。
   * 形状由连接器的起点和终点乘以 1000 限制。
   * 第一个点、第二个点和第三个点分别定义从宽度、从高度和从宽度（再次以百分比计算）。
-* 对于确定连接器的调整点坐标的计算，您必须考虑连接器的旋转及其反射。**注意**，在**[连接器的类型](/slides/php-java/connector/#types-of-connectors)**下显示的所有连接器的旋转角度为 0。
+* 对于确定连接器的调整点坐标的计算，您必须考虑连接器的旋转及其反射。**注意**，在**[连接器的类型](/slides/zh/php-java/connector/#types-of-connectors)**下显示的所有连接器的旋转角度为 0。
 
 #### **案例 1**
 

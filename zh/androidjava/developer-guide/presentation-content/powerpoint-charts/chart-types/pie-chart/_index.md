@@ -1,7 +1,7 @@
 ---
 title: 饼图
 type: docs
-url: /androidjava/pie-chart/
+url: /zh/androidjava/pie-chart/
 ---
 
 ## **饼图和条形饼图的第二个绘图选项**

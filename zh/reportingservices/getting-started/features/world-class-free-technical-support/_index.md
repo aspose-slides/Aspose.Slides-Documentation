@@ -2,7 +2,7 @@
 title: 世界级免费技术支持
 type: docs
 weight: 70
-url: /reportingservices/world-class-free-technical-support/
+url: /zh/reportingservices/world-class-free-technical-support/
 ---
 
 {{% alert color="primary" %}} 

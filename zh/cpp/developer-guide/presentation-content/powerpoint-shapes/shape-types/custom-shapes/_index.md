@@ -2,7 +2,7 @@
 title: 自定义形状
 type: docs
 weight: 20
-url: /cpp/custom-shape/
+url: /zh/cpp/custom-shape/
 keywords: "PowerPoint 形状, 自定义形状, PowerPoint 演示文稿, C++, Aspose.Slides for C++"
 description: "在 C++ 中向 PowerPoint 演示文稿添加自定义形状"
 ---

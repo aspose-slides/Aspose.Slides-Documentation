@@ -2,7 +2,7 @@
 title: 高保真报告设计
 type: docs
 weight: 40
-url: /reportingservices/high-fidelity-to-the-report-design/
+url: /zh/reportingservices/high-fidelity-to-the-report-design/
 ---
 
 {{% alert color="primary" %}} 

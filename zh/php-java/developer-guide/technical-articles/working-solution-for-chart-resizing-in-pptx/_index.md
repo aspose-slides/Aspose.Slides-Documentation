@@ -2,7 +2,7 @@
 title: PPTX中图表自适应大小的有效解决方案
 type: docs
 weight: 40
-url: /php-java/working-solution-for-chart-resizing-in-pptx/
+url: /zh/php-java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /php-java/working-solution-for-chart-resizing-in-pptx/
 
 {{% /alert %}} 
 ## **背景**
-在[上一篇文章](/slides/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们解释了如何使用Aspose.Cells for Java创建Excel图表，并通过Java使用Aspose.Slides for PHP将该图表嵌入PowerPoint演示文稿。为了兼容[对象更改问题](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)，我们将图表图像分配给图表OLE对象框。在输出的演示文稿中，当我们双击显示图表图像的OLE对象框时，Excel图表被激活。最终用户可以在实际的Excel工作簿中进行任何所需的更改，然后通过单击激活的Excel工作簿外部返回到相关幻灯片。当用户返回到幻灯片时，OLE对象框的大小将发生变化。不同大小的OLE对象框和嵌入的Excel工作簿的缩放因子将是不同的。
+在[上一篇文章](/slides/zh/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)中，我们解释了如何使用Aspose.Cells for Java创建Excel图表，并通过Java使用Aspose.Slides for PHP将该图表嵌入PowerPoint演示文稿。为了兼容[对象更改问题](/slides/zh/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)，我们将图表图像分配给图表OLE对象框。在输出的演示文稿中，当我们双击显示图表图像的OLE对象框时，Excel图表被激活。最终用户可以在实际的Excel工作簿中进行任何所需的更改，然后通过单击激活的Excel工作簿外部返回到相关幻灯片。当用户返回到幻灯片时，OLE对象框的大小将发生变化。不同大小的OLE对象框和嵌入的Excel工作簿的缩放因子将是不同的。
 ## **调整大小的原因**
 由于Excel工作簿具有自己的窗口大小，它试图在第一次激活时保持原始大小。另一方面，OLE对象框将具有其自己的大小。根据微软的说法，在激活Excel工作簿时，Excel和PowerPoint会协商大小，并确保其在嵌入操作中保持正确的比例。根据Excel窗口大小与OLE对象框大小/位置之间的差异，调整大小就会发生。
 ## **有效解决方案**

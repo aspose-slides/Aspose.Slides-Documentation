@@ -2,7 +2,7 @@
 title: 在幻灯片上添加注释
 type: docs
 weight: 10
-url: /net/add-a-comment-to-a-slide/
+url: /zh/net/add-a-comment-to-a-slide/
 ---
 
 ## **OpenXML 演示文稿:**

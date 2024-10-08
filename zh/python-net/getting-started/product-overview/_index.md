@@ -2,7 +2,7 @@
 title: 产品概述
 type: docs
 weight: 10
-url: /python-net/product-overview/
+url: /zh/python-net/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python.png)
@@ -123,4 +123,4 @@ Aspose 为其所有产品提供无限免费的技术支持。支持适用于所�
 |[Aspose.Slide 博客](https://blog.aspose.com/category/slides/)|定期检查此页面以获取有关新版本和有用的 Aspose.Slides 提示的信息。|
 |[Aspose.Slides for Python via .NET 下载](https://pypi.org/project/aspose.slides/)|在此下载 Aspose.Slides 的最新版本。我们经常发布新版本。|
 |[Aspose.Slides 支持论坛](https://forum.aspose.com/c/slides/11)|在这里发布您的问题和问题以获得快速解决。|
-|[Aspose.Slides for Python via .NET 产品文档](/slides/python-net/)|包含本文档和 Aspose.Slides API 参考的完整在线文档。|
+|[Aspose.Slides for Python via .NET 产品文档](/slides/zh/python-net/)|包含本文档和 Aspose.Slides API 参考的完整在线文档。|

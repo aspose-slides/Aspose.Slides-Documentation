@@ -2,7 +2,7 @@
 title: 幻灯片过渡
 type: docs
 weight: 90
-url: /net/slide-transition/
+url: /zh/net/slide-transition/
 keywords: "添加幻灯片过渡，PowerPoint 幻灯片过渡，形态过渡，高级幻灯片过渡，过渡效果，C#，Csharp，.NET，Aspose.Slides"
 description: "在 C# 或 .NET 中添加 PowerPoint 幻灯片过渡和过渡效果"
 ---

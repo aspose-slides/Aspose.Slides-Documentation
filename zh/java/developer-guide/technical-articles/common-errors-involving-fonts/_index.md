@@ -2,7 +2,7 @@
 title: 在Linux上与字体相关的常见异常和错误
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /zh/java/technical-articles/common-errors-involving-fonts
 keywords: "字体异常, 字体错误, Linux, Java, Aspose.Slides for Java"
 description: "在Linux上的字体异常和错误"
 ---

@@ -2,7 +2,7 @@
 title: 从幻灯片形状中提取图像
 type: docs
 weight: 100
-url: /androidjava/extracting-images-from-presentation-shapes/
+url: /zh/androidjava/extracting-images-from-presentation-shapes/
 keywords: "提取图像, PowerPoint, PPT, PPTX, PowerPoint 演示文稿, Java, Aspose.Slides for Android via Java"
 description: "在 Java 中从 PowerPoint 演示文稿中提取图像"
 

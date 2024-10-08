@@ -2,7 +2,7 @@
 title: API 参考
 type: docs
 weight: 50
-url: /net/api-reference/
+url: /zh/net/api-reference/
 ---
 
 {{% alert color="primary" %}} 

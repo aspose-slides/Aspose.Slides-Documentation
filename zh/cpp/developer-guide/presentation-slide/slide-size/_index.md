@@ -2,7 +2,7 @@
 title: 幻灯片尺寸
 type: docs
 weight: 70
-url: /cpp/slide-size/
+url: /zh/cpp/slide-size/
 
 ---
 

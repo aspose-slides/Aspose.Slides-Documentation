@@ -2,7 +2,7 @@
 title: 导出到 HTML5
 type: docs
 weight: 40
-url: /androidjava/export-to-html5/
+url: /zh/androidjava/export-to-html5/
 keywords:
 - PowerPoint 到 HTML
 - 幻灯片到 HTML
@@ -18,7 +18,7 @@ description: "在 Java 中将 PowerPoint 导出到 HTML5"
 
 {{% alert title="信息" color="info" %}}
 
-在 [Aspose.Slides 21.9](/slides/androidjava/aspose-slides-for-java-21-9-release-notes/) 中，我们实现了对 HTML5 导出的支持。
+在 [Aspose.Slides 21.9](/slides/zh/androidjava/aspose-slides-for-java-21-9-release-notes/) 中，我们实现了对 HTML5 导出的支持。
 
 {{% /alert %}} 
 

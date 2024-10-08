@@ -2,7 +2,7 @@
 title: 比较幻灯片
 type: docs
 weight: 50
-url: /net/compare-slides/
+url: /zh/net/compare-slides/
 keywords: "比较PowerPoint幻灯片, 比较两个幻灯片, 演示文稿, C#, Csharp, .NET, Aspose.Slides"
 description: "在C#或.NET中比较PowerPoint演示文稿幻灯片"
 ---

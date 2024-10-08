@@ -2,7 +2,7 @@
 title: 创建后备字体
 type: docs
 weight: 10
-url: /php-java/create-fallback-font/
+url: /zh/php-java/create-fallback-font/
 ---
 
 Aspose.Slides 支持 [IFontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRule) 接口和 [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) 类来指定应用后备字体的规则。 [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) 类表示指定的 Unicode 范围与可能包含正确字形的字体列表之间的关联：
@@ -22,5 +22,5 @@ Aspose.Slides 支持 [IFontFallBackRule](https://reference.aspose.com/slides/php
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) 可用于组织 [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) 对象的列表，当需要为多个 Unicode 范围指定后备字体替换规则时。
 
 {{% alert color="primary" title="另见" %}} 
-- [创建后备字体集合](/slides/php-java/create-fallback-fonts-collection/)
+- [创建后备字体集合](/slides/zh/php-java/create-fallback-fonts-collection/)
 {{% /alert %}}

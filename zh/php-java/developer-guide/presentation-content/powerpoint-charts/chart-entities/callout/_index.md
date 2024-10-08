@@ -1,7 +1,7 @@
 ---
 title: 提示框
 type: docs
-url: /php-java/callout/
+url: /zh/php-java/callout/
 ---
 
 ## **使用提示框**

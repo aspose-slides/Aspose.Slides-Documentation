@@ -2,7 +2,7 @@
 title: 管理单元格
 type: docs
 weight: 30
-url: /java/manage-cells/
+url: /zh/java/manage-cells/
 keywords: "表格, 合并单元格, 拆分单元格, 表格单元格中的图像, Java, Aspose.Slides for Java"
 description: "Java 中 PowerPoint 演示文稿中的表格单元格"
 ---

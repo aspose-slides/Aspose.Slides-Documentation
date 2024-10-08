@@ -2,12 +2,12 @@
 title: 在PowerPoint幻灯片上创建表格
 type: docs
 weight: 50
-url: /net/creating-a-table-on-powerpoint-slide/
+url: /zh/net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-表格广泛用于在演示文稿幻灯片上显示数据。本文展示了如何使用 [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/) 以编程方式创建一个15 x 15的表格，字体大小为10，然后使用 [Aspose.Slides for .NET](/slides/net/creating-a-table-on-powerpoint-slide/)。
+表格广泛用于在演示文稿幻灯片上显示数据。本文展示了如何使用 [VSTO 2008](/slides/zh/net/creating-a-table-on-powerpoint-slide/) 以编程方式创建一个15 x 15的表格，字体大小为10，然后使用 [Aspose.Slides for .NET](/slides/zh/net/creating-a-table-on-powerpoint-slide/)。
 
 {{% /alert %}} 
 ## **创建表格**

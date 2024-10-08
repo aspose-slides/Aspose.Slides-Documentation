@@ -2,7 +2,7 @@
 title: Aspose.Slides for .NET 6 跨平台
 type: docs
 weight: 237
-url: /net/slides-for-net-6-cross-platform
+url: /zh/net/slides-for-net-6-cross-platform
 keywords: Aspose.Slides, .NET, 跨平台
 description: Aspose.Slides for .NET 6 跨平台
 ---

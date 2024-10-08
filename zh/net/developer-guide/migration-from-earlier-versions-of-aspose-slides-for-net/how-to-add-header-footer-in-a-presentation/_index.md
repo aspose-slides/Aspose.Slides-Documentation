@@ -2,12 +2,12 @@
 title: 如何在演示文稿中添加页眉和页脚
 type: docs
 weight: 20
-url: /net/how-to-add-header-footer-in-a-presentation/
+url: /zh/net/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-一个新的 [Aspose.Slides for .NET API](/slides/net/) 已经发布，现在这个单一产品支持从头生成 PowerPoint 文档和编辑现有文档的功能。
+一个新的 [Aspose.Slides for .NET API](/slides/zh/net/) 已经发布，现在这个单一产品支持从头生成 PowerPoint 文档和编辑现有文档的功能。
 
 {{% /alert %}} 
 ## **对旧代码的支持**

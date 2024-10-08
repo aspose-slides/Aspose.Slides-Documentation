@@ -2,7 +2,7 @@
 title: 管理行和列
 type: docs
 weight: 20
-url: /python-net/manage-rows-and-columns/
+url: /zh/python-net/manage-rows-and-columns/
 keywords: "表格, 表格行和列, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中管理 PowerPoint 演示文稿中的表格行和列"
 ---

@@ -2,7 +2,7 @@
 title: 在 RS 服务器上设置 SharePoint  
 type: docs  
 weight: 40  
-url: /reportingservices/setting-up-sharepoint-on-the-rs-server/  
+url: /zh/reportingservices/setting-up-sharepoint-on-the-rs-server/  
 ---  
 
 {{% alert color="primary" %}}  

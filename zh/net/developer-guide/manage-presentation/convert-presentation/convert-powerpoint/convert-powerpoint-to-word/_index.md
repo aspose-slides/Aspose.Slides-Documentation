@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 Word
 type: docs
 weight: 110
-url: /net/convert-powerpoint-to-word/
+url: /zh/net/convert-powerpoint-to-word/
 keywords:
 - 转换 PowerPoint
 - PPT

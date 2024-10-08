@@ -2,7 +2,7 @@
 title: 员工销售总结
 type: docs
 weight: 30
-url: /reportingservices/employee-sales-summary/
+url: /zh/reportingservices/employee-sales-summary/
 ---
 
 ## **特征:**

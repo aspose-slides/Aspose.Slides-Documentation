@@ -2,7 +2,7 @@
 title: 只读演示文稿
 type: docs
 weight: 30
-url: /net/read-only-presentation/
+url: /zh/net/read-only-presentation/
 keywords: "只读设置, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "C#或者.NET中的只读PowerPoint演示文稿"
 ---

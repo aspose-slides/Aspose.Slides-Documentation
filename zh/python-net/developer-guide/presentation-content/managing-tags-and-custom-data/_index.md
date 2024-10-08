@@ -2,7 +2,7 @@
 title: 管理标签和自定义数据
 type: docs
 weight: 300
-url: /python-net/managing-tags-and-custom-data/
+url: /zh/python-net/managing-tags-and-custom-data/
 keywords: "标签, 自定义数据, 标签值, 添加标签, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中为 PowerPoint 演示文稿添加标签和自定义数据"
 ---

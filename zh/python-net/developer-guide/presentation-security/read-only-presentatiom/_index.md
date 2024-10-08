@@ -2,7 +2,7 @@
 title: 只读演示文稿
 type: docs
 weight: 30
-url: /python-net/read-only-presentation/
+url: /zh/python-net/read-only-presentation/
 keywords: "只读设置，PowerPoint演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "Python中的只读PowerPoint演示文稿"
 ---

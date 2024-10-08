@@ -2,7 +2,7 @@
 title: 创建后备字体
 type: docs
 weight: 10
-url: /androidjava/create-fallback-font/
+url: /zh/androidjava/create-fallback-font/
 ---
 
 Aspose.Slides 支持 [IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule) 接口和 [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) 类来指定应用后备字体的规则。[FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) 类代表指定 Unicode 范围和可能包含正确字形的字体列表之间的关联，用于搜索缺失的字形：
@@ -25,5 +25,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) 可用于组织 [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) 对象的列表，当需要为多个 Unicode 范围指定后备字体替换规则时。
 
 {{% alert color="primary" title="查看其它" %}} 
-- [创建后备字体集合](/slides/androidjava/create-fallback-fonts-collection/)
+- [创建后备字体集合](/slides/zh/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}

@@ -3,7 +3,7 @@ title: 使用 Java 创建 PowerPoint 演示文稿
 linktitle: 创建演示文稿
 type: docs
 weight: 10
-url: /java/create-presentation/
+url: /zh/java/create-presentation/
 keywords: 创建 ppt java, 创建 ppt 演示文稿, 创建 pptx java
 description: 学习如何使用 Java 从头创建 PowerPoint 演示文稿，例如 PPT、PPTX。
 ---

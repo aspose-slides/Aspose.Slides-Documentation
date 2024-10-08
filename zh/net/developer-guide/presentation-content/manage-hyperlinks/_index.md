@@ -2,7 +2,7 @@
 title: 管理超链接
 type: docs
 weight: 20
-url: /net/manage-hyperlinks/
+url: /zh/net/manage-hyperlinks/
 keywords: "添加超链接, PowerPoint 演示文稿, PowerPoint 超链接, 文本超链接, 幻灯片超链接, 形状超链接, 图像超链接, 视频超链接, .NET, C#, Csharp"
 description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加超链接"
 ---

@@ -2,7 +2,7 @@
 title: 从演示文稿形状中提取图像
 type: docs
 weight: 90
-url: /net/extracting-images-from-presentation-shapes/
+url: /zh/net/extracting-images-from-presentation-shapes/
 keywords: "提取图像, PowerPoint, PPT, PPTX, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中从 PowerPoint 演示文稿中提取图像"
 ---

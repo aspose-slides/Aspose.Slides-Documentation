@@ -2,7 +2,7 @@
 title: 动画文本
 type: docs
 weight: 60
-url: /net/animated-text/
+url: /zh/net/animated-text/
 keywords: "动画文本, 动画效果, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中为 PowerPoint 演示文稿添加动画文本和效果"
 ---

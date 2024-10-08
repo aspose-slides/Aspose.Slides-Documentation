@@ -2,7 +2,7 @@
 title: 产品线销售
 type: docs
 weight: 40
-url: /reportingservices/product-line-sales/
+url: /zh/reportingservices/product-line-sales/
 ---
 
 ## **特点：**

@@ -2,7 +2,7 @@
 title: 演示文稿查看器
 type: docs
 weight: 50
-url: /androidjava/presentation-viewer/
+url: /zh/androidjava/presentation-viewer/
 keywords: "PowerPoint PPT 查看器"
 description: "Java 中的 PowerPoint PPT 查看器"
 ---

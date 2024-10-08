@@ -2,7 +2,7 @@
 title: 管理行和列
 type: docs
 weight: 20
-url: /java/manage-rows-and-columns/
+url: /zh/java/manage-rows-and-columns/
 keywords: "表格, 表格行和列, PowerPoint 演示文稿, Java, Aspose.Slides for Java"
 description: "在 Java 中管理 PowerPoint 演示文稿中的表格行和列"
 ---

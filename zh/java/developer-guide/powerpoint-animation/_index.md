@@ -2,7 +2,7 @@
 title: PowerPoint 动画
 type: docs
 weight: 150
-url: /java/powerpoint-animation/
+url: /zh/java/powerpoint-animation/
 keywords: "PowerPoint 动画"
 description: "使用 Aspose.Slides 的 PowerPoint 动画，PowerPoint 幻灯片动画。"
 ---
@@ -52,19 +52,19 @@ Aspose.Slides 支持 **150+ 种动画效果**，包括基本动画效果如 Boun
 Aspose.Slides 允许将动画应用于形状，这实际上可以是文本、矩形、线条、框架、OLE 对象等。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于形状动画**](/slides/java/shape-animation/)。
+阅读更多 [**关于形状动画**](/slides/zh/java/shape-animation/)。
 {{% /alert %}}
 
 ## **动画图表**
 要创建动画图表，您应使用与形状相同的类。然而，PowerPoint 动画只能用于图表类别或图表系列。您还可以将动画效果应用于类别元素或系列元素。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画图表**](/slides/java/animated-charts/)。
+阅读更多 [**关于动画图表**](/slides/zh/java/animated-charts/)。
 {{% /alert %}}
 
 ## **动画文本**
 除了动画文本，还可以将动画应用于段落。
 
 {{% alert color="primary" %}} 
-阅读更多 [**关于动画文本**](/slides/java/animated-text/)。
+阅读更多 [**关于动画文本**](/slides/zh/java/animated-text/)。
 {{% /alert %}}

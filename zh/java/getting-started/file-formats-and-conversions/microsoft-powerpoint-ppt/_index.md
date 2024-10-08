@@ -2,7 +2,7 @@
 title: Microsoft PowerPoint (PPT)
 type: docs
 weight: 10
-url: /java/microsoft-powerpoint-ppt/
+url: /zh/java/microsoft-powerpoint-ppt/
 ---
 
 {{% alert color="primary" %}} 
@@ -27,7 +27,7 @@ Aspose.Slides for Java 提供对几乎所有 PPT 文档文件格式支持的功�
 除了与创建、读取和写入 PPT 文档文件相关的基本任务外，Aspose.Slides for Java 还提供了几个功能：
 
 - 将其他 Microsoft Office 文件格式导入为 [OLE 对象到 PPT 文档]()。
-- [将 PPT 文档导出为 PDF](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/)。 
+- [将 PPT 文档导出为 PDF](/slides/zh/java/convert-powerpoint-ppt-and-pptx-to-pdf/)。 
 - 将 PPT 文档中的幻灯片导出为 SVG 格式。
 - 将幻灯片渲染为 Java 框架支持的任何图像格式。
 - 设置 PPT 文档中幻灯片的大小。

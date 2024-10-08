@@ -2,7 +2,7 @@
 title: 管理自动调整设置
 type: docs
 weight: 30
-url: /cpp/manage-autofit-settings/
+url: /zh/cpp/manage-autofit-settings/
 keywords: "文本框, 自动调整, PowerPoint 演示文稿, C++, Aspose.Slides for C++"
 description: "在 C++ 中为 PowerPoint 中的文本框设置自动调整设置"
 ---

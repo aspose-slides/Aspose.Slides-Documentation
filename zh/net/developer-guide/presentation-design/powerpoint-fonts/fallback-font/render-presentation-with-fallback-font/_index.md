@@ -2,7 +2,7 @@
 title: 使用后备字体渲染演示文稿
 type: docs
 weight: 30
-url: /net/render-presentation-with-fallback-font/
+url: /zh/net/render-presentation-with-fallback-font/
 keywords: 
 - 后备字体
 - 渲染 PowerPoint
@@ -16,7 +16,7 @@ description: "使用 C# 或 .NET 渲染带有后备字体的 PowerPoint"
 
 以下示例包括这些步骤：
 
-1. 我们[创建后备字体规则集合](/slides/net/create-fallback-fonts-collection/)。
+1. 我们[创建后备字体规则集合](/slides/zh/net/create-fallback-fonts-collection/)。
 1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) 移除一个后备字体规则，并[AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) 添加到另一个规则。
 1. 将规则集合设置为[FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection)属性。
 1. 使用[Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4)方法，我们可以以相同格式保存演示文稿，或保存为另一种格式。在将后备字体规则集合设置为 FontsManager 后，这些规则在对演示文稿的任何操作中都会应用：保存、渲染、转换等。
@@ -58,5 +58,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 
 
 {{% alert color="primary" %}} 
-了解更多关于[演示文稿中的保存与转换](/slides/net/creating-saving-and-converting-a-presentation/)的信息。
+了解更多关于[演示文稿中的保存与转换](/slides/zh/net/creating-saving-and-converting-a-presentation/)的信息。
 {{% /alert %}}

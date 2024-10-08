@@ -2,7 +2,7 @@
 title: 导出媒体文件到HTML文件
 type: docs
 weight: 40
-url: /net/export-media-files-to-html-file/
+url: /zh/net/export-media-files-to-html-file/
 ---
 
 为了将媒体文件导出到HTML，请按照以下步骤操作：
@@ -60,6 +60,6 @@ using (Presentation pres = new Presentation(srcFileName))
 
 {{% alert color="primary" %}} 
 
-欲了解更多细节，请访问 [导出媒体文件到html文件](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide)。
+欲了解更多细节，请访问 [导出媒体文件到html文件](/slides/zh/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide)。
 
 {{% /alert %}}

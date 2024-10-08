@@ -3,7 +3,7 @@ title: 在 Java 中创建或管理 PowerPoint 智能图形形状节点
 linktitle: 管理智能图形形状节点
 type: docs
 weight: 30
-url: /java/manage-smartart-shape-node/
+url: /zh/java/manage-smartart-shape-node/
 keywords: 智能图形 powerpoint, 智能图形节点, 智能图形位置, 移除智能图形, 添加智能图形节点, PowerPoint 演示文稿, powerpoint java, powerpoint java api
 description: 在 Java 中管理 PowerPoint 演示文稿中的智能艺术节点和子节点
 ---

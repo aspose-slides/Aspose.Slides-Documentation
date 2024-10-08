@@ -2,7 +2,7 @@
 title: 管理单元格
 type: docs
 weight: 30
-url: /cpp/manage-cells/
+url: /zh/cpp/manage-cells/
 keywords: "表格, 合并单元格, 拆分单元格, 表格单元格中的图像, C++, CPP, Aspose.Slides for C++"
 description: "C++ 中 PowerPoint 演示文稿中的表格单元格"
 ---

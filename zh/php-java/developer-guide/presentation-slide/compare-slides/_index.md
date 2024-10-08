@@ -2,7 +2,7 @@
 title: 比较幻灯片
 type: docs
 weight: 50
-url: /php-java/compare-slides/
+url: /zh/php-java/compare-slides/
 ---
 
 ## **比较两个幻灯片**

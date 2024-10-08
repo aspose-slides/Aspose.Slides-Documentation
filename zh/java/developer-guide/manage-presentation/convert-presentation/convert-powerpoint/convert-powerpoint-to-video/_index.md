@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为视频
 type: docs
 weight: 130
-url: /java/convert-powerpoint-to-video/
+url: /zh/java/convert-powerpoint-to-video/
 keywords: "转换 PowerPoint, PPT, PPTX, 演示文稿, 视频, MP4, PPT 转视频, PPT 转 MP4, Java, Aspose.Slides"
 description: "在 Java 中将 PowerPoint 转换为视频"
 ---

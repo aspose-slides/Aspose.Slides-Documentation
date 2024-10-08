@@ -2,7 +2,7 @@
 title: 管理 OLE
 type: docs
 weight: 40
-url: /androidjava/manage-ole/
+url: /zh/androidjava/manage-ole/
 keywords:
 - 添加 OLE
 - 嵌入 OLE

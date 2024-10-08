@@ -3,7 +3,7 @@ title: 字体替换 - PowerPoint C# API
 linktitle: 字体替换
 type: docs
 weight: 70
-url: /net/font-substitution/
+url: /zh/net/font-substitution/
 keywords: 
 - 字体
 - 替代字体
@@ -73,6 +73,6 @@ using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
 
 {{%  alert title="注意"  color="warning"   %}} 
 
-您可能想查看 [**字体替换**](/slides/net/font-replacement/)。 
+您可能想查看 [**字体替换**](/slides/zh/net/font-replacement/)。 
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: 椭圆
 type: docs
 weight: 30
-url: /net/ellipse/
+url: /zh/net/ellipse/
 keywords: "椭圆, PowerPoint形状, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在C#或.NET中创建PowerPoint演示文稿中的椭圆"
 ---

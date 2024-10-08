@@ -2,7 +2,7 @@
 title: 设置母版幻灯片的背景颜色
 type: docs
 weight: 140
-url: /net/setting-background-color-of-master-slide/
+url: /zh/net/setting-background-color-of-master-slide/
 ---
 
 ## **VSTO**

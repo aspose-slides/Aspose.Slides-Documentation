@@ -2,12 +2,12 @@
 title: 创建并将Excel图表嵌入到Microsoft PowerPoint幻灯片中的OLE对象
 type: docs
 weight: 60
-url: /php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /zh/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- 图表是数据的直观表示，广泛应用于演示幻灯片中。本文将向您展示如何通过使用[VSTO](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)和[Aspose.Slides for PHP via Java](/slides/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)以编程方式创建并将Excel图表作为OLE对象嵌入到PowerPoint幻灯片中。
+ 图表是数据的直观表示，广泛应用于演示幻灯片中。本文将向您展示如何通过使用[VSTO](/slides/zh/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)和[Aspose.Slides for PHP via Java](/slides/zh/php-java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/)以编程方式创建并将Excel图表作为OLE对象嵌入到PowerPoint幻灯片中。
 
 {{% /alert %}} 
 ## **创建并嵌入Excel图表**

@@ -2,7 +2,7 @@
 title: 简单且经济实惠的许可
 type: docs
 weight: 60
-url: /reportingservices/simple-and-affordable-licensing/
+url: /zh/reportingservices/simple-and-affordable-licensing/
 ---
 
 ## 许可类型 

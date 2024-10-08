@@ -2,7 +2,7 @@
 title: 图像
 type: docs
 weight: 10
-url: /net/image/
+url: /zh/net/image/
 keywords: "添加图像, 添加图片, PowerPoint 演示文稿, EMF, SVG, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中向 PowerPoint 幻灯片或演示文稿添加图像"
 ---

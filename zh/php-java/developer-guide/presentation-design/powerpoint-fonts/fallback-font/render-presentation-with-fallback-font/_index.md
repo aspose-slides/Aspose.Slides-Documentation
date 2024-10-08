@@ -2,12 +2,12 @@
 title: 使用替代字体渲染演示文稿
 type: docs
 weight: 30
-url: /php-java/render-presentation-with-fallback-font/
+url: /zh/php-java/render-presentation-with-fallback-font/
 ---
 
 以下示例包括这些步骤：
 
-1. 我们 [创建替代字体规则集合](/slides/php-java/create-fallback-fonts-collection/)。
+1. 我们 [创建替代字体规则集合](/slides/zh/php-java/create-fallback-fonts-collection/)。
 1. [移除](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) 一个替代字体规则并 [addFallBackFonts](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) 添加到另一个规则中。
 1. 将规则集合设置为 [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--)。 [getFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--) 方法。
 1. 通过 [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) 方法，我们可以以相同的格式保存演示文稿，或以其他格式保存。在替代字体规则集合设置为 [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) 后，这些规则在对演示文稿的任何操作中应用：保存、渲染、转换等。
@@ -51,5 +51,5 @@ url: /php-java/render-presentation-with-fallback-font/
 ```
 
 {{% alert color="primary" %}} 
-阅读更多关于 [演示文稿中的保存和转换](/slides/php-java/creating-saving-and-converting-a-presentation/)。
+阅读更多关于 [演示文稿中的保存和转换](/slides/zh/php-java/creating-saving-and-converting-a-presentation/)。
 {{% /alert %}}

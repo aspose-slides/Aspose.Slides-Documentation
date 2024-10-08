@@ -2,7 +2,7 @@
 title: 添加 OleObjectFrame 时出现对象更改问题
 type: docs
 weight: 10
-url: /androidjava/object-changed-issue-when-adding-oleobjectframe/
+url: /zh/androidjava/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **问题声明**
@@ -10,7 +10,7 @@ url: /androidjava/object-changed-issue-when-adding-oleobjectframe/
 ## **批判分析和解释**
 首先，重要的是要知道在幻灯片中添加 **OleObjectFrame** 后，Aspose.Slides for Android via Java 显示的 **对象更改** 消息并不是 Aspose.Slides for Android via Java 的错误或缺陷。这只是一个信息或消息，通知用户对象已更改，图像应更新。
 
-例如，如果您将 **Microsoft Excel 图表** 作为 **OleObjectFrame** 添加到您的幻灯片中（有关将 **OleObjectFrame** 添加到幻灯片的更多详细信息和代码片段，请 [点击这里](/slides/androidjava/adding-frame-to-the-slide/)），然后使用 MS PowerPoint 打开演示文稿文件，则幻灯片（添加了 **OLE 对象** 的位置）将如下所示：
+例如，如果您将 **Microsoft Excel 图表** 作为 **OleObjectFrame** 添加到您的幻灯片中（有关将 **OleObjectFrame** 添加到幻灯片的更多详细信息和代码片段，请 [点击这里](/slides/zh/androidjava/adding-frame-to-the-slide/)），然后使用 MS PowerPoint 打开演示文稿文件，则幻灯片（添加了 **OLE 对象** 的位置）将如下所示：
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

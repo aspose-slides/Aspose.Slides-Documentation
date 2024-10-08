@@ -2,7 +2,7 @@
 title: 用户定义尺寸渲染为 TIFF
 type: docs
 weight: 40
-url: /net/rendered-as-tiff-by-user-defined-dimension/
+url: /zh/net/rendered-as-tiff-by-user-defined-dimension/
 ---
 
 以下示例演示如何使用 **TiffOptions** 类将演示文稿转换为具有自定义图像大小的 TIFF 文档。

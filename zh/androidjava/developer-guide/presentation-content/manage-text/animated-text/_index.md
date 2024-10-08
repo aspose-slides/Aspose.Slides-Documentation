@@ -2,7 +2,7 @@
 title: 动画文本
 type: docs
 weight: 60
-url: /androidjava/animated-text/
+url: /zh/androidjava/animated-text/
 keywords: "PowerPoint中的动画文本"
 description: "使用Java在PowerPoint中制作动画文本"
 ---

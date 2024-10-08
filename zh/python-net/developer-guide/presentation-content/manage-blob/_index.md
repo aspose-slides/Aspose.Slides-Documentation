@@ -2,7 +2,7 @@
 title: 管理 BLOB
 type: docs
 weight: 10
-url: /python-net/manage-blob/
+url: /zh/python-net/manage-blob/
 keywords: "添加 blob, 导出 blob, 添加图像为 blob, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加 blob。导出 blob。添加图像作为 blob"
 ---
@@ -17,7 +17,7 @@ Aspose.Slides for Python via .NET 允许您以降低内存消耗的方式使用 
 
 ### **通过 BLOB 向演示文稿添加大型文件**
 
-[Aspose.Slides](/slides/python-net/) for .NET 允许您通过涉及 BLOB 的过程向演示文稿添加大型文件（在本例中是一个大型视频文件），以减少内存消耗。
+[Aspose.Slides](/slides/zh/python-net/) for .NET 允许您通过涉及 BLOB 的过程向演示文稿添加大型文件（在本例中是一个大型视频文件），以减少内存消耗。
 
 下面的 Python 代码展示了如何通过 BLOB 过程向演示文稿添加大型视频文件：
 

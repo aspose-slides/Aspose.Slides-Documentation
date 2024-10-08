@@ -2,7 +2,7 @@
 title: 图像
 type: docs
 weight: 10
-url: /java/image/
+url: /zh/java/image/
 description: 使用 Java 在 PowerPoint 演示文稿的幻灯片中处理图像。从磁盘或网络添加图像到 PowerPoint 幻灯片。使用 Java 将图像添加到幻灯片母版或作为幻灯片背景。使用 Java 将 SVG 添加到 PowerPoint 演示文稿。使用 Java 将 SVG 转换为 PowerPoint 中的形状。使用 Java 将图像作为 EMF 添加到幻灯片中。
 ---
 

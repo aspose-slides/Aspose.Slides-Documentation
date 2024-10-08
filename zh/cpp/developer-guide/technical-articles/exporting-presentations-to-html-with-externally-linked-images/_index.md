@@ -2,7 +2,7 @@
 title: 将演示文稿导出为带有外部链接图像的HTML
 type: docs
 weight: 50
-url: /cpp/exporting-presentations-to-html-with-externally-linked-images/
+url: /zh/cpp/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

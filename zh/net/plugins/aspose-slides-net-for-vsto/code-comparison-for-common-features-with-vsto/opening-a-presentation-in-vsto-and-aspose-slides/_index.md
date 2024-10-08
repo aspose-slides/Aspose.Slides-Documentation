@@ -2,7 +2,7 @@
 title: 在 VSTO 和 Aspose.Slides 中打开演示文稿
 type: docs
 weight: 120
-url: /net/opening-a-presentation-in-vsto-and-aspose-slides/
+url: /zh/net/opening-a-presentation-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

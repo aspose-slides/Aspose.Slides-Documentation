@@ -2,7 +2,7 @@
 title: PowerPoint 数学方程
 type: docs
 weight: 80
-url: /net/powerpoint-math-equations/
+url: /zh/net/powerpoint-math-equations/
 keywords: " PowerPoint 数学方程, PowerPoint 数学符号, PowerPoint 公式, PowerPoint 数学文本, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "PowerPoint 数学方程、数学符号、公式和 C# 或 .NET 中的数学文本"
 ---

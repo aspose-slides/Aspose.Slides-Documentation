@@ -2,7 +2,7 @@
 title: 从演示文稿中删除幻灯片
 type: docs
 weight: 30
-url: /java/remove-slide-from-presentation/
+url: /zh/java/remove-slide-from-presentation/
 keywords: "删除幻灯片, 删除幻灯片, PowerPoint, 演示文稿, Java, Aspose.Slides"
 description: "通过引用或索引在Java中从PowerPoint中删除幻灯片"
 

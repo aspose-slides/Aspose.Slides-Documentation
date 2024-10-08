@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /cpp/flash/
+url: /zh/cpp/flash/
 ---
 
 ## **从演示文稿中提取 Flash 对象**

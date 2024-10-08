@@ -2,7 +2,7 @@
 title: 处理演示文稿的大小和布局
 type: docs
 weight: 90
-url: /net/working-with-size-and-layout-of-presentation/
+url: /zh/net/working-with-size-and-layout-of-presentation/
 ---
 
 **SlideSize.Type** 和 **SlideSize.Size** 是演示文稿类的属性，可以像下面的示例一样设置或获取。
@@ -47,6 +47,6 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问 [处理幻灯片大小和布局](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout)。
+有关更多详细信息，请访问 [处理幻灯片大小和布局](/slides/zh/net/adding-and-editing-slides/#working-with-slide-size-and-layout)。
 
 {{% /alert %}}

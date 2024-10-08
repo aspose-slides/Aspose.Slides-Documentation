@@ -3,7 +3,7 @@ title: 自定义PowerPoint字体
 linktitle: 自定义字体
 type: docs
 weight: 20
-url: /php-java/custom-font/
+url: /zh/php-java/custom-font/
 keywords: "字体，自定义字体，PowerPoint演示文稿，Java，Aspose.Slides for PHP via Java"
 description: "PowerPoint自定义字体"
 ---

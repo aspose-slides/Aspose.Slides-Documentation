@@ -2,7 +2,7 @@
 title: 组
 type: docs
 weight: 40
-url: /php-java/group/
+url: /zh/php-java/group/
 ---
 
 ## **添加组形状**

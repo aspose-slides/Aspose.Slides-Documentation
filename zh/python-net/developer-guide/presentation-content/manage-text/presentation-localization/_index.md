@@ -2,7 +2,7 @@
 title: 演示文稿本地化
 type: docs
 weight: 100
-url: /python-net/presentation-localization/
+url: /zh/python-net/presentation-localization/
 keywords: "换语言, 拼写检查, 拼写检查, 拼写检查工具, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "更改或检查 PowerPoint 演示文稿中的语言。在 Python 中检查文本的拼写"
 ---

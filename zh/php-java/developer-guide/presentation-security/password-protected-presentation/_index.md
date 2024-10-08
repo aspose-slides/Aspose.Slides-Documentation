@@ -2,7 +2,7 @@
 title: 密码保护演示文稿
 type: docs
 weight: 20
-url: /php-java/password-protected-presentation/
+url: /zh/php-java/password-protected-presentation/
 keywords: "锁定PowerPoint演示文稿"
 description: "锁定PowerPoint演示文稿。密码保护的PowerPoint"
 ---
@@ -256,5 +256,5 @@ Aspose.Slides允许您检查演示文稿是否受到写保护。要执行此任�
 如果演示文稿使用指定密码进行了加密，则返回`true`。否则返回`false`。
 
 {{% alert color="primary" title="另见" %}} 
-- [PowerPoint中的数字签名](/slides/net/digital-signature-in-powerpoint/)
+- [PowerPoint中的数字签名](/slides/zh/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

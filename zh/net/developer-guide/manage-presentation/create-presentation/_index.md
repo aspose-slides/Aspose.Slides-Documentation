@@ -3,7 +3,7 @@ title: 在 .NET 中创建演示文稿
 linktitle: 创建演示文稿
 type: docs
 weight: 10
-url: /net/create-presentation/
+url: /zh/net/create-presentation/
 keywords: "创建 PowerPoint, PPTX, PPT, 创建演示文稿, 初始化演示文稿, C#, .NET"
 description: "以编程方式在 C# 中创建 PowerPoint 演示文稿，例如 PPT, PPTX, ODP 等。"
 ---

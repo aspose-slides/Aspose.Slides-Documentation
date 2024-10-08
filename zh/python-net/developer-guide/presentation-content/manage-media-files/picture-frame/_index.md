@@ -2,7 +2,7 @@
 title: 图片框
 type: docs
 weight: 10
-url: /python-net/picture-frame/
+url: /zh/python-net/picture-frame/
 keywords: "添加图片框, 创建图片框, 添加图像, 创建图像, 提取图像, StretchOff 属性, 图片框格式, 图片框属性, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中向PowerPoint演示文稿添加图片框"
 ---

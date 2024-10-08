@@ -2,7 +2,7 @@
 title: 简单轻量的部署
 type: docs
 weight: 50
-url: /reportingservices/easy-and-lightweight-deployment/
+url: /zh/reportingservices/easy-and-lightweight-deployment/
 ---
 
 {{% alert color="primary" %}} 

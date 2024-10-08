@@ -2,7 +2,7 @@
 title: 通过VBA进行演示
 type: docs
 weight: 250
-url: /java/presentation-via-vba/
+url: /zh/java/presentation-via-vba/
 keywords: "宏, 宏, VBA, VBA宏, 添加宏, 删除宏, 添加VBA, 删除VBA, 提取宏, 提取VBA, PowerPoint宏, PowerPoint演示文稿, Java, Aspose.Slides for Java"
 description: "在Java中添加、删除和提取PowerPoint演示文稿中的VBA宏"
 ---

@@ -2,7 +2,7 @@
 title: 为什么不使用 Open XML SDK
 type: docs
 weight: 120
-url: /java/why-not-open-xml-sdk/
+url: /zh/java/why-not-open-xml-sdk/
 ---
 
 {{% alert color="primary" %}} 
@@ -30,7 +30,7 @@ Aspose.Slides 是一个类库，允许您的应用执行以下演示文稿处理
 - 支持添加动画、Ole 样式框、表格，创建和管理图表。
 - 为文本框架、段落和部分级别的文本格式管理提供广泛控制。
 
-有关支持的功能的更多详细信息，请访问 [Aspose.Slides Features](/slides/java/product-overview/)。
+有关支持的功能的更多详细信息，请访问 [Aspose.Slides Features](/slides/zh/java/product-overview/)。
 ## **比较 Open XML SDK 和 Aspose.Slides**
 {{% alert color="primary" %}} 
 

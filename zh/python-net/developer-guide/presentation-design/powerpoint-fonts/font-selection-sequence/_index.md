@@ -3,7 +3,7 @@ title: Python中的字体选择顺序
 linktitle: Python中的字体选择顺序
 type: docs
 weight: 80
-url: /python-net/font-selection-sequence/
+url: /zh/python-net/font-selection-sequence/
 keywords:
 - 字体
 - 字体选择

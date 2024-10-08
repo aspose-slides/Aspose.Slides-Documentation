@@ -2,7 +2,7 @@
 title: 幻灯片大小
 type: docs
 weight: 70
-url: /java/slide-size/
+url: /zh/java/slide-size/
 
 ---
 

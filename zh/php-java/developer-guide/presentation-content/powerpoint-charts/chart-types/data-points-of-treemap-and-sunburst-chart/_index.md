@@ -1,7 +1,7 @@
 ---
 title: 矩形树图和旭日图的数据点
 type: docs
-url: /php-java/data-points-of-treemap-and-sunburst-chart/
+url: /zh/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "通过Java在Aspose.Slides for PHP中生成旭日图"
 description: "通过Java在Aspose.Slides for PHP中生成的旭日图、旭日图表、径向图、径向图表或多层饼图。"
@@ -28,7 +28,7 @@ description: "通过Java在Aspose.Slides for PHP中生成的旭日图、旭日�
 ```
 
 {{% alert color="primary" title="另请参见" %}} 
-- [**创建旭日图**](/slides/php-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**创建旭日图**](/slides/zh/php-java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 如果需要格式化图表的数据点，我们应该使用以下内容：

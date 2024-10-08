@@ -3,7 +3,7 @@ title: 将 PowerPoint 转换为 PDF
 linktitle: 将 PowerPoint 转换为 PDF
 type: docs
 weight: 40
-url: /php-java/convert-powerpoint-to-pdf/
+url: /zh/php-java/convert-powerpoint-to-pdf/
 keywords: "将 PowerPoint 转换, 演示文稿, PowerPoint 转 PDF, PPT 转 PDF, PPTX 转 PDF, 将 PowerPoint 保存为 PDF, PDF/A1a, PDF/A1b, PDF/UA, Java"
 description: "将 PowerPoint 演示文稿转换为 PDF。将 PowerPoint 保存为符合标准或无障碍标准的 PDF"
 

@@ -2,7 +2,7 @@
 title: 更新图表
 type: docs
 weight: 10
-url: /cpp/update-chart/
+url: /zh/cpp/update-chart/
 ---
 
 

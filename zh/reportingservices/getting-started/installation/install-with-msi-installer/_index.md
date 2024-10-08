@@ -2,7 +2,7 @@
 title: 使用MSI安装程序安装
 type: docs
 weight: 20
-url: /reportingservices/install-with-msi-installer/
+url: /zh/reportingservices/install-with-msi-installer/
 ---
 
 ## **安装**

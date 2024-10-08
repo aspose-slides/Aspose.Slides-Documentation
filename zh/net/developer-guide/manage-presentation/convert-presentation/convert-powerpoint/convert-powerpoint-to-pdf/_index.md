@@ -3,7 +3,7 @@ title: 将 PowerPoint 转换为 PDF 的 C#
 linktitle: 将 PowerPoint 转换为 PDF
 type: docs
 weight: 40
-url: /net/convert-powerpoint-to-pdf/
+url: /zh/net/convert-powerpoint-to-pdf/
 keywords:
 - 转换 PowerPoint
 - 演示文稿

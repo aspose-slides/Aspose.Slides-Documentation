@@ -2,7 +2,7 @@
 title: 添加幻灯片到演示文稿
 type: docs
 weight: 10
-url: /cpp/add-slide-to-presentation/
+url: /zh/cpp/add-slide-to-presentation/
 ---
 
 ## **添加幻灯片到演示文稿**

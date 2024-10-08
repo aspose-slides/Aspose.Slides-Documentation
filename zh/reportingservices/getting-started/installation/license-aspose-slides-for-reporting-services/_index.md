@@ -2,7 +2,7 @@
 title: Aspose.Slides for Reporting Services 的许可
 type: docs
 weight: 70
-url: /reportingservices/license-aspose-slides-for-reporting-services/
+url: /zh/reportingservices/license-aspose-slides-for-reporting-services/
 ---
 
 ## **许可证支持**

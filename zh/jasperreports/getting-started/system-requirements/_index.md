@@ -2,7 +2,7 @@
 title: 系统要求
 type: docs
 weight: 60
-url: /jasperreports/system-requirements/
+url: /zh/jasperreports/system-requirements/
 ---
 
 Aspose.Slides for JasperReports 适用于：

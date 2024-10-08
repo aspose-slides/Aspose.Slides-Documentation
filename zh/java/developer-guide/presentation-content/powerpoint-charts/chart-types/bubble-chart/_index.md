@@ -1,7 +1,7 @@
 ---
 title: 气泡图
 type: docs
-url: /java/bubble-chart/
+url: /zh/java/bubble-chart/
 ---
 
 ## **气泡图大小缩放**

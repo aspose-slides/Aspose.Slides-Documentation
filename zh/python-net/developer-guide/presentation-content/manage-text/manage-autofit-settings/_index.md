@@ -2,7 +2,7 @@
 title: 管理自动调整设置
 type: docs
 weight: 30
-url: /python-net/manage-autofit-settings/
+url: /zh/python-net/manage-autofit-settings/
 keywords: "文本框, 自动调整, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中设置 PowerPoint 中文本框的自动调整设置"
 ---

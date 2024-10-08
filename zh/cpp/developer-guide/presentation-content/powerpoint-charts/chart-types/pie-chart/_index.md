@@ -1,7 +1,7 @@
 ---
 title: 饼图
 type: docs
-url: /cpp/pie-chart/
+url: /zh/cpp/pie-chart/
 ---
 
 

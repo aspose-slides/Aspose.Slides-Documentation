@@ -2,7 +2,7 @@
 title: 音频帧
 type: docs
 weight: 10
-url: /cpp/audio-frame/
+url: /zh/cpp/audio-frame/
 keywords: "添加音频, 音频帧, 音频属性, 提取音频, C++, CPP, Aspose.Slides for C++"
 description: "在 C++ 中向 PowerPoint 演示文稿添加音频"
 ---

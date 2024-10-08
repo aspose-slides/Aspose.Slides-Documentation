@@ -2,7 +2,7 @@
 title: 图表格式化
 type: docs
 weight: 60
-url: /net/chart-formatting/
+url: /zh/net/chart-formatting/
 keywords: "图表实体, 图表属性, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中格式化 PowerPoint 演示文稿中的图表实体"
 ---

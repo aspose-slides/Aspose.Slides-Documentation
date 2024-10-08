@@ -1,7 +1,7 @@
 ---
 title: 图表数据表
 type: docs
-url: /python-net/chart-data-table/
+url: /zh/python-net/chart-data-table/
 keywords: "字体属性, 图表数据表, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在Python中为PowerPoint演示文稿中的图表数据库表设置字体属性"
 ---

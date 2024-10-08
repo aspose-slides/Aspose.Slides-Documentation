@@ -1,7 +1,7 @@
 ---
 title: 图表绘图区域
 type: docs
-url: /androidjava/chart-plot-area/
+url: /zh/androidjava/chart-plot-area/
 ---
 
 

@@ -2,7 +2,7 @@
 title: XML 解析器规范 (XPS)
 type: docs
 weight: 50
-url: /php-java/xml-parser-specification-xps/
+url: /zh/php-java/xml-parser-specification-xps/
 ---
 
 {{% alert color="primary" %}} 

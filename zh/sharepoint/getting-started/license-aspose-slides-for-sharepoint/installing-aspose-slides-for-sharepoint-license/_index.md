@@ -2,7 +2,7 @@
 title: 安装 Aspose.Slides for SharePoint 许可证
 type: docs
 weight: 10
-url: /sharepoint/installing-aspose-slides-for-sharepoint-license/
+url: /zh/sharepoint/installing-aspose-slides-for-sharepoint-license/
 ---
 
 {{% alert color="primary" %}} 

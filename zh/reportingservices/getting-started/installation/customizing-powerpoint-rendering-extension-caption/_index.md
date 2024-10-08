@@ -2,7 +2,7 @@
 title: 自定义 PowerPoint 渲染扩展标题
 type: docs
 weight: 60
-url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
+url: /zh/reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
 {{% alert color="primary" %}} 

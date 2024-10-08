@@ -2,12 +2,12 @@
 title: Aspose.Slides for .NET 14.7.0 的公共 API 和向后不兼容变更
 type: docs
 weight: 90
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
+url: /zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
 ---
 
 {{% alert color="primary" %}} 
 
-此页面列出了所有 [新增](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) 或 [移除](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) 的类、方法、属性等，以及与 Aspose.Slides for .NET 14.7.0 API 一起引入的其他变更。
+此页面列出了所有 [新增](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) 或 [移除](/slides/zh/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) 的类、方法、属性等，以及与 Aspose.Slides for .NET 14.7.0 API 一起引入的其他变更。
 
 {{% /alert %}} 
 ## **公共 API 变更**

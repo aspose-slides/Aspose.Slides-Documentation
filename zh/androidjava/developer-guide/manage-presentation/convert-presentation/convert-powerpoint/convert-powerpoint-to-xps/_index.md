@@ -2,7 +2,7 @@
 title: 将 PowerPoint 转换为 XPS
 type: docs
 weight: 70
-url: /androidjava/convert-powerpoint-to-xps/
+url: /zh/androidjava/convert-powerpoint-to-xps/
 keywords: "PPT, PPTX 到 XPS"
 description: "在 Java 中将 PowerPoint PPT(X) 转换为 XPS"
 ---

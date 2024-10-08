@@ -2,14 +2,14 @@
 title: 应用保护到演示文稿
 type: docs
 weight: 60
-url: /java/applying-protection-to-presentation/
+url: /zh/java/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Aspose.Slides 的一个常见用法是创建、更新和保存 Microsoft PowerPoint 2007 (PPTX) 演示文稿，作为自动化工作流程的一部分。以这种方式使用 Aspose.Slides 的应用程序用户可以访问输出演示文稿。保护它们不被编辑是一个常见的关注点。自动生成的演示文稿保留其原始格式和内容是很重要的。
 
-本文解释了[演示文稿和幻灯片是如何构建的](/slides/java/applying-protection-to-presentation/)，以及 Aspose.Slides for Java 如何[应用保护到](/slides/java/applying-protection-to-presentation/)演示文稿，然后[从中移除](/slides/java/applying-protection-to-presentation/)保护。此功能是 Aspose.Slides 所独有的，并且在撰写时尚未在 Microsoft PowerPoint 中提供。它为开发人员提供了一种控制其应用程序创建的演示文稿使用方式的方法。
+本文解释了[演示文稿和幻灯片是如何构建的](/slides/zh/java/applying-protection-to-presentation/)，以及 Aspose.Slides for Java 如何[应用保护到](/slides/zh/java/applying-protection-to-presentation/)演示文稿，然后[从中移除](/slides/zh/java/applying-protection-to-presentation/)保护。此功能是 Aspose.Slides 所独有的，并且在撰写时尚未在 Microsoft PowerPoint 中提供。它为开发人员提供了一种控制其应用程序创建的演示文稿使用方式的方法。
 
 {{% /alert %}} 
 ## **幻灯片的组成**

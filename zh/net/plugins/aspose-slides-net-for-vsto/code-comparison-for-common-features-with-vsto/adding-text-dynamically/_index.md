@@ -2,7 +2,7 @@
 title: 动态添加文本
 type: docs
 weight: 40
-url: /net/adding-text-dynamically/
+url: /zh/net/adding-text-dynamically/
 ---
 
 这两种方法遵循以下步骤：

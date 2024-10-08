@@ -2,7 +2,7 @@
 title: 管理墨水
 type: docs
 weight: 95
-url: /python-net/manage-ink/
+url: /zh/python-net/manage-ink/
 keywords: "PowerPoint中的墨水，墨水工具，Python墨水，在PowerPoint中绘图，PowerPoint演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "使用墨水工具在PowerPoint Python中绘制对象"
 ---

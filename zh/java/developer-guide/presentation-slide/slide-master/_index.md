@@ -2,7 +2,7 @@
 title: 幻灯片母版
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /zh/java/slide-master/
 keywords: "添加幻灯片母版, PPT母版幻灯片, 幻灯片母版PowerPoint, 图片到幻灯片母版, 占位符, 多个幻灯片母版, 比较幻灯片母版, Java, Aspose.Slides for Java"
 description: "在Java中添加或编辑PowerPoint演示文稿的幻灯片母版"
 ---
@@ -149,7 +149,7 @@ try {
 
 {{% alert color="primary" title="另请参见" %}} 
 
-有关向幻灯片添加图像的更多信息，请参见 [图片框](/slides/java/picture-frame/#create-picture-frame) 文章。
+有关向幻灯片添加图像的更多信息，请参见 [图片框](/slides/zh/java/picture-frame/#create-picture-frame) 文章。
 {{% /alert %}}
 
 

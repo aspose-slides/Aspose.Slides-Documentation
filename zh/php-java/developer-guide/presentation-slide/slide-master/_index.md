@@ -2,7 +2,7 @@
 title: 幻灯片母版
 type: docs
 weight: 70
-url: /php-java/slide-master/
+url: /zh/php-java/slide-master/
 keywords: "添加幻灯片母版, PPT母版幻灯片, 幻灯片母版PowerPoint, 幻灯片母版中的图像, 占位符, 多个幻灯片母版, 比较幻灯片母版, Java, Aspose.Slides for PHP via Java"
 description: "在PowerPoint演示文稿中添加或编辑幻灯片母版"
 ---
@@ -147,7 +147,7 @@ PowerPoint和Aspose.Slides的原理是相同的。例如，在PowerPoint中，�
 
 {{% alert color="primary" title="另请参阅" %}}
 
-有关向幻灯片添加图像的更多信息，请参阅[图片框](/slides/php-java/picture-frame/#create-picture-frame)文章。
+有关向幻灯片添加图像的更多信息，请参阅[图片框](/slides/zh/php-java/picture-frame/#create-picture-frame)文章。
 {{% /alert %}}
 
 ## **向幻灯片母版添加占位符**

@@ -2,7 +2,7 @@
 title: 在 VSTO 和 Aspose.Slides 中删除表格的行或列
 type: docs
 weight: 130
-url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
+url: /zh/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

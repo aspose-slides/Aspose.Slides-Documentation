@@ -1,7 +1,7 @@
 ---
 title: 气泡图
 type: docs
-url: /androidjava/bubble-chart/
+url: /zh/androidjava/bubble-chart/
 ---
 
 ## **气泡图大小缩放**

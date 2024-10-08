@@ -2,7 +2,7 @@
 title: 如何运行示例
 type: docs
 weight: 130
-url: /net/how-to-run-examples/
+url: /zh/net/how-to-run-examples/
 ---
 
 ## **软件要求**

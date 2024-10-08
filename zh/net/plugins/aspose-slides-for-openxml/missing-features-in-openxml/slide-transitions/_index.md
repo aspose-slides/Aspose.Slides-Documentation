@@ -2,7 +2,7 @@
 title: 幻灯片过渡
 type: docs
 weight: 80
-url: /net/slide-transitions/
+url: /zh/net/slide-transitions/
 ---
 
 为了让您更容易理解，我们演示了如何使用 Aspose.Slides for .NET 来管理简单的幻灯片过渡。开发人员不仅可以在幻灯片上应用不同的幻灯片过渡效果，还可以自定义这些过渡效果的行为。要创建简单的幻灯片过渡效果，请遵循以下步骤：
@@ -53,6 +53,6 @@ using (Presentation pres = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问 [Managing Slides Transitions](/slides/net/slide-transition/)。
+有关更多详细信息，请访问 [Managing Slides Transitions](/slides/zh/net/slide-transition/)。
 
 {{% /alert %}}

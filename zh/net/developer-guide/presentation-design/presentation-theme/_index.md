@@ -2,14 +2,14 @@
 title: 演示主题
 type: docs
 weight: 10
-url: /net/presentation-theme/
+url: /zh/net/presentation-theme/
 keywords: "主题, PowerPoint 主题, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "C# 或 .NET 中的 PowerPoint 演示主题"
 ---
 
 演示主题定义了设计元素的属性。当您选择一个演示主题时，您实际上是在选择一组特定的视觉元素及其属性。
 
-在 PowerPoint 中，主题包括颜色、[字体](/slides/net/powerpoint-fonts/)、[背景样式](/slides/net/presentation-background/)和效果。
+在 PowerPoint 中，主题包括颜色、[字体](/slides/zh/net/powerpoint-fonts/)、[背景样式](/slides/zh/net/presentation-background/)和效果。
 
 ![theme-constituents](theme-constituents.png)
 
@@ -153,7 +153,7 @@ pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
 {{% alert color="primary" title="提示" %}} 
 
-您可能想查看 [PowerPoint 字体](/slides/net/powerpoint-fonts/)。
+您可能想查看 [PowerPoint 字体](/slides/zh/net/powerpoint-fonts/)。
 
 {{% /alert %}}
 
@@ -191,7 +191,7 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 {{% alert color="primary" title="提示" %}} 
 
-您可能想查看 [PowerPoint 背景](/slides/net/presentation-background/)。
+您可能想查看 [PowerPoint 背景](/slides/zh/net/presentation-background/)。
 
 {{% /alert %}}
 

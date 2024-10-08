@@ -2,7 +2,7 @@
 title: 将 Microsoft PowerPoint 文档转换为其他格式
 type: docs
 weight: 40
-url: /sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
+url: /zh/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: 连接器
 type: docs
 weight: 10
-url: /net/connector/
+url: /zh/net/connector/
 keywords: "连接形状, 连接器, PowerPoint 形状, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中连接 PowerPoint 形状"
 ---
@@ -128,7 +128,7 @@ using (Presentation presentation = new Presentation())
 
 ## **调整连接器点**
 
-您可以通过其调整点来调整现有连接器。只有具有调整点的连接器才能以这种方式更改。请参见**[连接器类型](/slides/net/connector/#types-of-connectors)** 下的表格。
+您可以通过其调整点来调整现有连接器。只有具有调整点的连接器才能以这种方式更改。请参见**[连接器类型](/slides/zh/net/connector/#types-of-connectors)** 下的表格。
 
 #### **简单案例**
 
@@ -174,7 +174,7 @@ adj2.RawValue += 10000;
 * 调整点值反映连接器形状的宽度/高度的百分比。
   * 形状由连接器的起点和终点的乘积大小乘以 1000 限定。 
   * 第一、第二和第三个点分别定义来自宽度的百分比、来自高度的百分比和来自宽度的百分比（再次）。
-* 在确定连接器的调整点坐标时，您需要考虑连接器的旋转和反射。**注意**，在 **[连接器类型](/slides/net/connector/#types-of-connectors)** 下显示的所有连接器的旋转角度为 0。
+* 在确定连接器的调整点坐标时，您需要考虑连接器的旋转和反射。**注意**，在 **[连接器类型](/slides/zh/net/connector/#types-of-connectors)** 下显示的所有连接器的旋转角度为 0。
 
 #### **案例 1**
 

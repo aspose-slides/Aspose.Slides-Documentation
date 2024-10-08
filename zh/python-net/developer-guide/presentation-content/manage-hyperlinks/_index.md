@@ -2,7 +2,7 @@
 title: 管理超链接
 type: docs
 weight: 20
-url: /python-net/manage-hyperlinks/
+url: /zh/python-net/manage-hyperlinks/
 keywords: "添加超链接, PowerPoint演示文稿, PowerPoint超链接, 文本超链接, 幻灯片超链接, 图形超链接, 图片超链接, 视频超链接, Python"
 description: "在Python中向PowerPoint演示文稿添加超链接"
 ---

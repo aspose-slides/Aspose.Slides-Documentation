@@ -1,7 +1,7 @@
 ---
 title: 演示视图属性
 type: docs
-url: /php-java/presentation-view-properties/
+url: /zh/php-java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -56,7 +56,7 @@ url: /php-java/presentation-view-properties/
 ## **设置默认缩放值**
 {{% alert color="primary" %}} 
 
-Aspose.Slides for PHP via Java 现在支持为演示文稿设置默认缩放值，以便在打开演示文稿时，缩放值已被设置。这可以通过设置演示文稿的 [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) 来实现。可以通过编程方式设置 [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) 以及 [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--)。在本主题中，我们将通过一个示例查看如何在 [Aspose.Slides](/slides/) 中设置 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) 的 [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties)。
+Aspose.Slides for PHP via Java 现在支持为演示文稿设置默认缩放值，以便在打开演示文稿时，缩放值已被设置。这可以通过设置演示文稿的 [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) 来实现。可以通过编程方式设置 [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) 以及 [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--)。在本主题中，我们将通过一个示例查看如何在 [Aspose.Slides](/slides/zh/) 中设置 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) 的 [View Properties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties)。
 
 {{% /alert %}} 
 

@@ -1,7 +1,7 @@
 ---
 title: 图表系列
 type: docs
-url: /net/chart-series/
+url: /zh/net/chart-series/
 keywords: "图表系列，系列颜色，PowerPoint演示文稿，C#，Csharp，Aspose.Slides for .NET"
 description: "C#或.NET中的PowerPoint演示文稿中的图表系列"
 ---

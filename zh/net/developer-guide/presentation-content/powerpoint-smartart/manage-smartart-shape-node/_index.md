@@ -2,7 +2,7 @@
 title: 管理 SmartArt 形状节点
 type: docs
 weight: 30
-url: /net/manage-smartart-shape-node/
+url: /zh/net/manage-smartart-shape-node/
 keywords:
 - SmartArt
 - SmartArt 节点

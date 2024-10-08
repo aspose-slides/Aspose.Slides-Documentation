@@ -1,7 +1,7 @@
 ---
 title: 图表数据标签
 type: docs
-url: /php-java/chart-data-label/
+url: /zh/php-java/chart-data-label/
 keywords: "图表数据标签, 标签距离, Java, Aspose.Slides for PHP via Java"
 description: "设置PowerPoint图表数据标签和距离"
 ---

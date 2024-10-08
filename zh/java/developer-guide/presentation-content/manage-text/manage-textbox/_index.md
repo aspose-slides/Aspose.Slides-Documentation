@@ -2,7 +2,7 @@
 title: 管理文本框
 type: docs
 weight: 20
-url: /java/manage-textbox/
+url: /zh/java/manage-textbox/
 description: 使用Java在PowerPoint幻灯片上创建文本框。在PowerPoint幻灯片中使用Java添加文本框或文本框架中的列。使用Java在PowerPoint幻灯片中添加带超链接的文本框。
 ---
 

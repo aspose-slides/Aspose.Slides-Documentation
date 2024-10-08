@@ -2,7 +2,7 @@
 title: 导出图表
 type: docs
 weight: 90
-url: /python-net/export-chart/
+url: /zh/python-net/export-chart/
 keywords:
 - 图表
 - 图表图像

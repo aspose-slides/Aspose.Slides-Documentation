@@ -2,7 +2,7 @@
 title: 添加 OleObjectFrame 时的对象更改问题
 type: docs
 weight: 10
-url: /java/object-changed-issue-when-adding-oleobjectframe/
+url: /zh/java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **问题陈述**
@@ -10,7 +10,7 @@ url: /java/object-changed-issue-when-adding-oleobjectframe/
 ## **批判分析与解释**
 首先，重要的是知道，在幻灯片中添加 **OleObjectFrame** 后，Aspose.Slides for Java 显示的 **对象更改** 消息 **并不是** Aspose.Slides for Java 中的错误或缺陷。这只是一个信息或消息，用于通知用户对象已更改，并且图像应被更新。
 
-例如，如果您将 **Microsoft Excel 图表** 作为 **OleObjectFrame** 添加到幻灯片中（有关将 **OleObjectFrame** 添加到幻灯片的更多详细信息和代码片段， [点击这里](/slides/java/adding-frame-to-the-slide/)），然后使用 MS PowerPoint 打开演示文稿文件，那么幻灯片（添加 **OLE 对象** 的地方）将如下所示：
+例如，如果您将 **Microsoft Excel 图表** 作为 **OleObjectFrame** 添加到幻灯片中（有关将 **OleObjectFrame** 添加到幻灯片的更多详细信息和代码片段， [点击这里](/slides/zh/java/adding-frame-to-the-slide/)），然后使用 MS PowerPoint 打开演示文稿文件，那么幻灯片（添加 **OLE 对象** 的地方）将如下所示：
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

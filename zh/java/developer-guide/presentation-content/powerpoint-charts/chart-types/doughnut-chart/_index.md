@@ -2,7 +2,7 @@
 title: 圆环图
 type: docs
 weight: 30
-url: /java/doughnut-chart/
+url: /zh/java/doughnut-chart/
 ---
 
 ## **更改圆环图中的中心空隙**

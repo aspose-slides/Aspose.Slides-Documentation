@@ -2,7 +2,7 @@
 title: 椭圆
 type: docs
 weight: 30
-url: /python-net/ellipse/
+url: /zh/python-net/ellipse/
 keywords: "椭圆，PowerPoint形状，PowerPoint演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "在Python中创建PowerPoint演示文稿中的椭圆"
 ---

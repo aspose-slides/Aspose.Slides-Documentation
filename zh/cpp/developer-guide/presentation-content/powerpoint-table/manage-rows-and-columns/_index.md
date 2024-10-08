@@ -2,7 +2,7 @@
 title: 管理行和列
 type: docs
 weight: 20
-url: /cpp/manage-rows-and-columns/
+url: /zh/cpp/manage-rows-and-columns/
 keywords: "表格, 表格行和列, PowerPoint 演示文稿, C++, CPP, Aspose.Slides for C++"
 description: "在 C++ 中管理 PowerPoint 演示文稿中的表格行和列"
 

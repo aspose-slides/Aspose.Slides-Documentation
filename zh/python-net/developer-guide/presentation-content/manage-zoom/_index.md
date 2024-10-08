@@ -2,7 +2,7 @@
 title: 管理缩放
 type: docs
 weight: 60
-url: /python-net/manage-zoom/
+url: /zh/python-net/manage-zoom/
 keywords: "缩放, 缩放框, 添加缩放, 格式化缩放框, 概要缩放, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加缩放或缩放框"
 ---

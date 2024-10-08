@@ -2,7 +2,7 @@
 title: 导出图表
 type: docs
 weight: 90
-url: /php-java/export-chart/
+url: /zh/php-java/export-chart/
 ---
 
 ## **获取图表图像**

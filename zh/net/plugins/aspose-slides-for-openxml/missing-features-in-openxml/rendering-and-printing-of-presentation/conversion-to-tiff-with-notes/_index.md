@@ -2,7 +2,7 @@
 title: 带注释的 Tiff 转换
 type: docs
 weight: 10
-url: /net/conversion-to-tiff-with-notes/
+url: /zh/net/conversion-to-tiff-with-notes/
 ---
 
 TIFF 是 Aspose.Slides for .NET 支持将带注释的演示文稿转换为图像的几种广泛使用的图像格式之一。您还可以在注释幻灯片视图中生成幻灯片缩略图。以下是两个代码片段，展示了如何在注释幻灯片视图中生成演示文稿的 TIFF 图像。

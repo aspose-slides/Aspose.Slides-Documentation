@@ -2,7 +2,7 @@
 title: 动画文本
 type: docs
 weight: 60
-url: /python-net/animated-text/
+url: /zh/python-net/animated-text/
 keywords: "动画文本, 动画效果, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
 description: "在 Python 中向 PowerPoint 演示文稿添加动画文本和效果"
 ---

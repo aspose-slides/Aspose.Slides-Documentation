@@ -2,7 +2,7 @@
 title: 水印
 type: docs
 weight: 40
-url: /net/watermark/
+url: /zh/net/watermark/
 keywords:
 - 水印
 - 添加水印
@@ -47,7 +47,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [如何使用 TextFrame 类](/slides/net/text-formatting/)
+- [如何使用 TextFrame 类](/slides/zh/net/text-formatting/)
 {{% /alert %}}
 
 ### **向演示文稿添加文本水印**
@@ -65,7 +65,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="另见" %}} 
-- [如何使用幻灯片母版](/slides/net/slide-master/)
+- [如何使用幻灯片母版](/slides/zh/net/slide-master/)
 {{% /alert %}}
 
 ### **设置水印形状透明度**

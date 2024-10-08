@@ -2,7 +2,7 @@
 title: 环形图
 type: docs
 weight: 30
-url: /net/doughnut-chart/
+url: /zh/net/doughnut-chart/
 keywords: "环形图, 中心空隙, PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中指定 PowerPoint 演示文稿中环形图的中心空隙"
 ---

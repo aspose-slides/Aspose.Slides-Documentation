@@ -2,12 +2,12 @@
 title: 在 PowerPoint 幻灯片上创建表格
 type: docs
 weight: 50
-url: /php-java/creating-a-table-on-powerpoint-slide/
+url: /zh/php-java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-表格广泛用于在演示幻灯片上显示数据。本文展示了如何使用 [VSTO 2008](/slides/php-java/creating-a-table-on-powerpoint-slide/) 和 [Aspose.Slides for PHP via Java](/slides/php-java/creating-a-table-on-powerpoint-slide/) 编程地创建一个 15 x 15 的表格，字体大小为 10。
+表格广泛用于在演示幻灯片上显示数据。本文展示了如何使用 [VSTO 2008](/slides/zh/php-java/creating-a-table-on-powerpoint-slide/) 和 [Aspose.Slides for PHP via Java](/slides/zh/php-java/creating-a-table-on-powerpoint-slide/) 编程地创建一个 15 x 15 的表格，字体大小为 10。
 
 {{% /alert %}} 
 ## **创建表格**

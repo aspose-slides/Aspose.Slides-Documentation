@@ -3,7 +3,7 @@ title: 演示文稿属性 - 在 C# 中访问或修改 PowerPoint 演示文稿属
 linktitle: 演示文稿属性
 type: docs
 weight: 70
-url: /net/presentation-properties/
+url: /zh/net/presentation-properties/
 keywords: "如何在powerpoint中删除最后修改者, PowerPoint属性, PowerPoint演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "C# 或 .NET 中的 PowerPoint 演示文稿属性"
 ---

@@ -2,7 +2,7 @@
 title: 现代 API
 type: docs
 weight: 237
-url: /net/modern-api/
+url: /zh/net/modern-api/
 keywords: "跨平台 现代 API System.Drawing"
 description: "现代 API"
 ---

@@ -2,7 +2,7 @@
 title: 形状缩略图
 type: docs
 weight: 70
-url: /cpp/shape-thumbnails/
+url: /zh/cpp/shape-thumbnails/
 keywords: 
 - 形状缩略图
 - 形状图像

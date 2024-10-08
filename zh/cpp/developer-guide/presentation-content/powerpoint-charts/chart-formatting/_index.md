@@ -2,7 +2,7 @@
 title: 图表格式化
 type: docs
 weight: 60
-url: /cpp/chart-formatting/
+url: /zh/cpp/chart-formatting/
 ---
 
 

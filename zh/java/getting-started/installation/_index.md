@@ -2,7 +2,7 @@
 title: 安装
 type: docs
 weight: 70
-url: /java/installation/
+url: /zh/java/installation/
 ---
 
 {{% alert color="primary" %}} 

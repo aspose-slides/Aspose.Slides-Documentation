@@ -2,7 +2,7 @@
 title: 管理墨水
 type: docs
 weight: 95
-url: /php-java/manage-ink/
+url: /zh/php-java/manage-ink/
 keywords: "PowerPoint中的墨水, 墨水工具, Java墨水, 在PowerPoint中绘图, PowerPoint演示文稿, Java, 通过Java的Aspose.Slides for PHP"
 description: "使用墨水工具在PowerPoint Java中绘制对象"
 ---

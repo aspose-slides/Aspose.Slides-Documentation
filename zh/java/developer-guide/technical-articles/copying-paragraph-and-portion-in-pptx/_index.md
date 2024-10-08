@@ -2,7 +2,7 @@
 title: 在PPTX中复制段落和部分
 type: docs
 weight: 70
-url: /java/copying-paragraph-and-portion-in-pptx/
+url: /zh/java/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

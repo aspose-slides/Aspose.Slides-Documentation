@@ -1,7 +1,7 @@
 ---
 title: 趋势线
 type: docs
-url: /net/trend-line/
+url: /zh/net/trend-line/
 keywords: "趋势线, 自定义线 PowerPoint 演示文稿, C#, Csharp, Aspose.Slides for .NET"
 description: "在 C# 或 .NET 中向 PowerPoint 演示文稿添加趋势线和自定义线"
 ---

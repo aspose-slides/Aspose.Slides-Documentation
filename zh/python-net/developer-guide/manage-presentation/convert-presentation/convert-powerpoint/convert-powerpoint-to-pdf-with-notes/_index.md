@@ -2,7 +2,7 @@
 title: 使用带注释的PowerPoint转换为PDF
 type: docs
 weight: 50
-url: /python-net/convert-powerpoint-to-pdf-with-notes/
+url: /zh/python-net/convert-powerpoint-to-pdf-with-notes/
 keywords: "转换PowerPoint, 演示文稿, PowerPoint到PDF, 注释, Python, Aspose.Slides"
 description: "使用Python将带注释的PowerPoint转换为PDF"
 ---

@@ -2,12 +2,12 @@
 title: 在 Microsoft PowerPoint 演示文稿中创建图表
 type: docs
 weight: 70
-url: /php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /zh/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- 图表是数据的可视化表示，广泛用于演示文稿。本文展示了如何通过使用 [VSTO](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) 和 [Aspose.Slides for PHP via Java](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) 以编程方式在 Microsoft PowerPoint 中创建图表的代码。
+ 图表是数据的可视化表示，广泛用于演示文稿。本文展示了如何通过使用 [VSTO](/slides/zh/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) 和 [Aspose.Slides for PHP via Java](/slides/zh/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) 以编程方式在 Microsoft PowerPoint 中创建图表的代码。
 
 {{% /alert %}} 
 ## **创建图表**

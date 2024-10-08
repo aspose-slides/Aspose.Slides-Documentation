@@ -2,7 +2,7 @@
 title: 视频帧
 type: docs
 weight: 10
-url: /androidjava/video-frame/
+url: /zh/androidjava/video-frame/
 keywords: "添加视频，创建视频帧，提取视频，PowerPoint演示文稿，Java，Aspose.Slides for Android via Java"
 description: "在Java中将视频帧添加到PowerPoint演示文稿中"
 ---

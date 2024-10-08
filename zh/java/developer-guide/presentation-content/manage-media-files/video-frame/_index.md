@@ -2,7 +2,7 @@
 title: 视频框
 type: docs
 weight: 10
-url: /java/video-frame/
+url: /zh/java/video-frame/
 keywords: " 添加视频，创建视频框，提取视频，PowerPoint演示文稿，Java，Aspose.Slides for Java"
 description: "在Java中向PowerPoint演示文稿添加视频框"
 ---

@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /python-net/flash/
+url: /zh/python-net/flash/
 keywords: "提取 Flash，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
 description: "在 Python 中从 PowerPoint 演示文稿中提取 Flash 对象"
 ---

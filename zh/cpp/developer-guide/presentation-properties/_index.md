@@ -2,7 +2,7 @@
 title: 演示属性
 type: docs
 weight: 70
-url: /cpp/presentation-properties/
+url: /zh/cpp/presentation-properties/
 ---
 
 

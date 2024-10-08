@@ -4,7 +4,7 @@ second_title: "Aspose.Slides for Python 文档"
 description: Aspose.Slides for Python via .NET 提供许多关键特性，例如管理文本、形状、表格和动画，向幻灯片添加音频和视频，预览幻灯片，将幻灯片导出为 SVG、PDF 格式等。
 type: docs
 weight: 35
-url: /python-net/
+url: /zh/python-net/
 is_root: true
 ---
 
@@ -26,8 +26,8 @@ Aspose.Slides for Python via .NET 提供许多关键特性，例如管理文本�
 
 以下是有用资源的链接：
 
-- [Aspose.Slides for Python via .NET 在线文档](/slides/python-net/)
-- [Aspose.Slides for Python via .NET 功能](/slides/python-net/features-overview/)
+- [Aspose.Slides for Python via .NET 在线文档](/slides/zh/python-net/)
+- [Aspose.Slides for Python via .NET 功能](/slides/zh/python-net/features-overview/)
 - [Aspose.Slides for Python via .NET 发布说明](https://releases.aspose.com/slides/python-net/release-notes/)
 - [Aspose.Slides for Python via .NET 产品页面](https://products.aspose.com/slides/python-net/)
 - [下载 Aspose.Slides for Python via .NET](https://releases.aspose.com/slides/python-net/)

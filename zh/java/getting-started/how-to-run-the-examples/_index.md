@@ -2,7 +2,7 @@
 title: 如何运行示例
 type: docs
 weight: 140
-url: /java/how-to-run-the-examples/
+url: /zh/java/how-to-run-the-examples/
 ---
 
 ## **从 GitHub 下载**

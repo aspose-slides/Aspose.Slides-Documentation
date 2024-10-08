@@ -2,7 +2,7 @@
 title: 将布局幻灯片添加到演示文稿
 type: docs
 weight: 20
-url: /net/add-layout-slides-to-presentation/
+url: /zh/net/add-layout-slides-to-presentation/
 ---
 
 Aspose.Slides for .NET 允许开发人员在演示文稿中添加新的布局幻灯片。要添加布局幻灯片，请按照以下步骤操作：
@@ -128,6 +128,6 @@ using (Presentation p = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-有关更多详细信息，请访问 [将布局幻灯片添加到演示文稿](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout)。
+有关更多详细信息，请访问 [将布局幻灯片添加到演示文稿](/slides/zh/net/adding-and-editing-slides/#working-with-slide-size-and-layout)。
 
 {{% /alert %}}

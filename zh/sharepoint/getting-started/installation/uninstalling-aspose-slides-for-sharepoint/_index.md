@@ -2,7 +2,7 @@
 title: 卸载 Aspose.Slides for SharePoint
 type: docs
 weight: 30
-url: /sharepoint/uninstalling-aspose-slides-for-sharepoint/
+url: /zh/sharepoint/uninstalling-aspose-slides-for-sharepoint/
 ---
 
 要卸载 Aspose.Slides for SharePoint：

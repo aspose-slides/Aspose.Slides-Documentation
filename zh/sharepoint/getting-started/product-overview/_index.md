@@ -2,7 +2,7 @@
 title: 产品概述
 type: docs
 weight: 10
-url: /sharepoint/product-overview/
+url: /zh/sharepoint/product-overview/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: 现代 API
 type: docs
 weight: 237
-url: /nodejs-java/modern-api/
+url: /zh/nodejs-java/modern-api/
 keywords: "跨平台 现代 API"
 description: "现代 API"
 ---

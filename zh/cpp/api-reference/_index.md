@@ -2,7 +2,7 @@
 title: API 参考
 type: docs
 weight: 50
-url: /cpp/api-reference/
+url: /zh/cpp/api-reference/
 ---
 
 {{% alert color="primary" %}} 

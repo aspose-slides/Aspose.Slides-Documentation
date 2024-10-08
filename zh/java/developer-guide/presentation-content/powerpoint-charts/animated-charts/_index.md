@@ -2,7 +2,7 @@
 title: 动画图表
 type: docs
 weight: 80
-url: /java/animated-charts/
+url: /zh/java/animated-charts/
 ---
 
 

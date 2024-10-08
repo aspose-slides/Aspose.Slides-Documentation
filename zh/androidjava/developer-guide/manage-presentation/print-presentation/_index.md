@@ -2,7 +2,7 @@
 title: 打印演示文稿
 type: docs
 weight: 50
-url: /androidjava/print-presentation/
+url: /zh/androidjava/print-presentation/
 keywords: "打印 PowerPoint, PPT, PPTX, 打印演示文稿, Java, 打印机, PrinterJob, PrintService"
 description: "在 Java 中打印 PowerPoint 演示文稿"
 ---

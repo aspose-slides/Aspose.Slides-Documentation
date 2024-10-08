@@ -3,7 +3,7 @@ title: Java中的字体选择序列
 linktitle: Java中的字体选择序列
 type: docs
 weight: 80
-url: /androidjava/font-selection-sequence/
+url: /zh/androidjava/font-selection-sequence/
 keywords:
 - 字体
 - 字体选择

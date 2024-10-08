@@ -1,7 +1,7 @@
 ---
 title: 3D 图表
 type: docs
-url: /php-java/3d-chart/
+url: /zh/php-java/3d-chart/
 ---
 
 ## **设置 3D 图表的 RotationX、RotationY 和 DepthPercents 属性**

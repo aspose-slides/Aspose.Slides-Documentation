@@ -2,7 +2,7 @@
 title: 在 VSTO 和 Aspose.Slides 中创建一个新演示文稿
 type: docs
 weight: 80
-url: /net/create-a-new-presentation-in-vsto-and-aspose-slides/
+url: /zh/net/create-a-new-presentation-in-vsto-and-aspose-slides/
 ---
 
 下面是两个代码示例，展示了如何使用 VSTO 和 Aspose.Slides for .NET 实现相同的目标。

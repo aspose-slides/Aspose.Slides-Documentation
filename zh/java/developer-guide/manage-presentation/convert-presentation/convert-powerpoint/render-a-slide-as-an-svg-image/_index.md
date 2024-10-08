@@ -2,7 +2,7 @@
 title: 将幻灯片渲染为SVG图像
 type: docs
 weight: 50
-url: /java/render-a-slide-as-an-svg-image/
+url: /zh/java/render-a-slide-as-an-svg-image/
 ---
 
 SVG—可缩放矢量图形（Scalable Vector Graphics）的缩写—是一种标准图形类型或格式，用于渲染二维图像。SVG以XML格式将图像存储为矢量，包括定义其行为或外观的详细信息。

@@ -2,7 +2,7 @@
 title: 幻灯片部分
 type: docs
 weight: 100
-url: /net/slide-section/
+url: /zh/net/slide-section/
 keywords: "创建部分, 添加部分, 编辑部分名称, PowerPoint 演示文稿, C#, Csharp, .NET, Aspose.Slides"
 description: "在 C# 或 .NET 中添加和编辑 PowerPoint 演示文稿中的部分"
 ---

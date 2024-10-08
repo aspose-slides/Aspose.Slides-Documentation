@@ -2,7 +2,7 @@
 title: 在演示文稿中嵌入音频的支持  
 type: docs  
 weight: 90  
-url: /reportingservices/support-for-embedding-audio-in-presentation/  
+url: /zh/reportingservices/support-for-embedding-audio-in-presentation/  
 ---  
 
 {{% alert color="primary" %}}  

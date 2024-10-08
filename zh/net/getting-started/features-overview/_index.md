@@ -2,7 +2,7 @@
 title: 功能概述
 type: docs
 weight: 20
-url: /net/features-overview/
+url: /zh/net/features-overview/
 ---
 
 ## **支持的平台**
@@ -18,12 +18,12 @@ Aspose.Slides for .NET 支持大多数 PowerPoint 文档格式。它还允许您
 
 |**特性**|**描述**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/net/ppt-vs-pptx/)|Aspose.Slides for .NET 为这种演示文档格式提供了最快的处理速度。|
-|[PPT 转 PPTX 转换](/slides/net/convert-ppt-to-pptx/)|Aspose.Slides for .NET 支持将 PPT 转换为 PPTX。|
-|[可移植文档格式 (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|您可以通过单个方法将所有受支持的文件格式导出为 Adobe 可移植文档格式 (PDF) 文档。|
+|[Microsoft PowerPoint (PPT)](/slides/zh/net/ppt-vs-pptx/)|Aspose.Slides for .NET 为这种演示文档格式提供了最快的处理速度。|
+|[PPT 转 PPTX 转换](/slides/zh/net/convert-ppt-to-pptx/)|Aspose.Slides for .NET 支持将 PPT 转换为 PPTX。|
+|[可移植文档格式 (PDF)](/slides/zh/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|您可以通过单个方法将所有受支持的文件格式导出为 Adobe 可移植文档格式 (PDF) 文档。|
 |[XML 解析器规范 (XPS)](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)|您可以通过单个方法将所有受支持的文件格式导出为 XML 解析器规范 (XPS) 文档。|
-|[标记图像文件格式 (TIFF)](/slides/net/convert-powerpoint-to-tiff/)|您可以将所有受支持的演示文件格式导出为标记图像文件格式 (TIFF)。|
-|[PPTX 转 HTML 转换](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NET 支持将 PresentationEx 转换为 HTML 格式。|
+|[标记图像文件格式 (TIFF)](/slides/zh/net/convert-powerpoint-to-tiff/)|您可以将所有受支持的演示文件格式导出为标记图像文件格式 (TIFF)。|
+|[PPTX 转 HTML 转换](/slides/zh/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides for .NET 支持将 PresentationEx 转换为 HTML 格式。|
 ## **渲染和打印**
 Aspose.Slides for .NET 支持在演示文档中以高保真度渲染幻灯片为各种图形格式。查看以下详细信息：
 

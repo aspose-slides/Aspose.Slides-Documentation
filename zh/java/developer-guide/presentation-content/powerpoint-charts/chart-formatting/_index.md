@@ -2,7 +2,7 @@
 title: 图表格式化
 type: docs
 weight: 60
-url: /java/chart-formatting/
+url: /zh/java/chart-formatting/
 ---
 
 ## **格式化图表实体**

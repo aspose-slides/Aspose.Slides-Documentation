@@ -2,7 +2,7 @@
 title: 功能概述
 type: docs
 weight: 10
-url: /php-java/features-overview/
+url: /zh/php-java/features-overview/
 ---
 
 ## **支持的平台**
@@ -18,11 +18,11 @@ Aspose.Slides for PHP via Java 支持大多数 Microsoft PowerPoint 文档格式
 
 |**功能**|**描述**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/php-java/microsoft-powerpoint-ppt/)|Aspose.Slides for PHP via Java 为该演示文档格式提供最快的处理速度。|
-|[PresentationML (PPTX, XML)](/slides/php-java/presentationml-pptx-xml/)|Aspose.Slides for PHP via Java 支持处理 OOXML 演示格式（也称为 PresentationML 或 PPTX）。|
-|[PPT 转 PPTX 转换](/slides/php-java/ppt-to-pptx-conversion/)|Aspose.Slides for PHP via Java 支持从 PPT 转换为 PPTX。|
-|[便携式文档格式 (PDF)](/slides/php-java/developer-guide/)|受支持的文件格式可以通过单一方法导出为 Adobe 便携式文档格式 (PDF) 文档。|
-|[XML 解析器规范 (XPS)](/slides/php-java/xml-parser-specification-xps/)|所有受支持的文件格式都可以通过单一方法导出为 XML 解析器规范 (XPS) 文档。|
+|[Microsoft PowerPoint (PPT)](/slides/zh/php-java/microsoft-powerpoint-ppt/)|Aspose.Slides for PHP via Java 为该演示文档格式提供最快的处理速度。|
+|[PresentationML (PPTX, XML)](/slides/zh/php-java/presentationml-pptx-xml/)|Aspose.Slides for PHP via Java 支持处理 OOXML 演示格式（也称为 PresentationML 或 PPTX）。|
+|[PPT 转 PPTX 转换](/slides/zh/php-java/ppt-to-pptx-conversion/)|Aspose.Slides for PHP via Java 支持从 PPT 转换为 PPTX。|
+|[便携式文档格式 (PDF)](/slides/zh/php-java/developer-guide/)|受支持的文件格式可以通过单一方法导出为 Adobe 便携式文档格式 (PDF) 文档。|
+|[XML 解析器规范 (XPS)](/slides/zh/php-java/xml-parser-specification-xps/)|所有受支持的文件格式都可以通过单一方法导出为 XML 解析器规范 (XPS) 文档。|
 |[标记图像文件格式 (TIFF)](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-tiff/)|Aspose.Slides for PHP via Java 支持的演示文件格式也可以导出为标记图像文件格式 (TIFF)。|
 |[ODP 转 PPTX 转换](https://docs.aspose.com/slides/php-java/convert-odp-to-pptx/)|Aspose.Slides for PHP via Java 支持加载访问 OpenDocument 演示 (ODP) 并将其转换为 PPTX。|
 |[演示文稿转 HTML 转换](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-html/)|Aspose.Slides for PHP via Java 支持将 PresentationEx 转换为 HTML 格式。|
