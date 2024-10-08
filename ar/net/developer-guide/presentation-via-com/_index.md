@@ -2,5 +2,5 @@
 title: العرض عبر COM
 type: docs
 weight: 260
-url: /net/presentation-via-com/
+url: /ar/net/presentation-via-com/
 ---

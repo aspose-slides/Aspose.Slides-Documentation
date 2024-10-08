@@ -2,7 +2,7 @@
 title: عرض للقراءة فقط
 type: docs
 weight: 30
-url: /net/read-only-presentation/
+url: /ar/net/read-only-presentation/
 keywords: "إعداد للقراءة فقط، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "عرض PowerPoint للقراءة فقط في C# أو .NET"
 ---

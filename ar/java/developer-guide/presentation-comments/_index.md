@@ -2,7 +2,7 @@
 title: تعليقات العرض
 type: docs
 weight: 100
-url: /java/presentation-comments/
+url: /ar/java/presentation-comments/
 keywords: "تعليقات، تعليقات PowerPoint، عرض PowerPoint، Java، Aspose.Slides لـ Java"
 description: "إضافة تعليقات والردود عليها في عرض PowerPoint باستخدام Java"
 ---

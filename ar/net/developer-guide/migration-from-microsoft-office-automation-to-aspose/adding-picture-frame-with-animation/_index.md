@@ -2,12 +2,12 @@
 title: إضافة إطار صورة مع الرسوم المتحركة
 type: docs
 weight: 60
-url: /net/adding-picture-frame-with-animation/
+url: /ar/net/adding-picture-frame-with-animation/
 ---
 
 {{% alert color="primary" %}} 
 
-تُطبق إطارات الصور على الأشكال أو الصور في Microsoft PowerPoint لإطار الصور في العرض التقديمي. توضح هذه المقالة كيفية إنشاء إطار صورة وتطبيق الرسوم المتحركة عليه برمجيًا باستخدام أولاً [VSTO 2008](/slides/net/adding-picture-frame-with-animation/) ثم [Aspose.Slides for .NET](/slides/net/adding-picture-frame-with-animation/). أولاً، سنوضح لك كيفية تطبيق إطار ورسوم متحركة باستخدام VSTO 2008. ثم نوضح لك كيفية تنفيذ نفس الخطوات باستخدام Aspose.Slides for .NET.
+تُطبق إطارات الصور على الأشكال أو الصور في Microsoft PowerPoint لإطار الصور في العرض التقديمي. توضح هذه المقالة كيفية إنشاء إطار صورة وتطبيق الرسوم المتحركة عليه برمجيًا باستخدام أولاً [VSTO 2008](/slides/ar/net/adding-picture-frame-with-animation/) ثم [Aspose.Slides for .NET](/slides/ar/net/adding-picture-frame-with-animation/). أولاً، سنوضح لك كيفية تطبيق إطار ورسوم متحركة باستخدام VSTO 2008. ثم نوضح لك كيفية تنفيذ نفس الخطوات باستخدام Aspose.Slides for .NET.
 
 {{% /alert %}} 
 ## **إضافة إطارات صورة مع الرسوم المتحركة**

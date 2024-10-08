@@ -2,7 +2,7 @@
 title: مقارنة الشرائح
 type: docs
 weight: 50
-url: /php-java/compare-slides/
+url: /ar/php-java/compare-slides/
 ---
 
 ## **مقارنة شريحتين**

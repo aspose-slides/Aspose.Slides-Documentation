@@ -2,7 +2,7 @@
 title: إطار الصورة
 type: docs
 weight: 10
-url: /php-java/picture-frame/
+url: /ar/php-java/picture-frame/
 keywords: "إضافة إطار صورة، إنشاء إطار صورة، إضافة صورة، إنشاء صورة، استخراج صورة، خاصية StretchOff، تنسيق إطار الصورة، خصائص إطار الصورة، عرض PowerPoint، Java، Aspose.Slides لPHP عبر Java"
 description: "إضافة إطار صورة إلى عرض PowerPoint "
 

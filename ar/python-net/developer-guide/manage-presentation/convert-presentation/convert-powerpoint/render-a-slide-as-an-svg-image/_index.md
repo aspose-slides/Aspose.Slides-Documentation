@@ -2,7 +2,7 @@
 title: عرض شريحة كصورة SVG
 type: docs
 weight: 50
-url: /python-net/render-a-slide-as-an-svg-image/
+url: /ar/python-net/render-a-slide-as-an-svg-image/
 ---
 
 SVG—اختصار لرسومات المتجهات القابلة للتغيير—هو نوع أو تنسيق قياسي للرسوم المستخدمة لعرض الصور ثنائية الأبعاد. تقوم SVG بتخزين الصور كمتجهات في XML مع تفاصيل تحدد سلوكها أو مظهرها.

@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى فيديو
 type: docs
 weight: 130
-url: /python-net/convert-powerpoint-to-video/
+url: /ar/python-net/convert-powerpoint-to-video/
 keywords: "تحويل PowerPoint, PPT, PPTX, تقديم, فيديو, MP4, PPT إلى فيديو, PPT إلى MP4, Python, Aspose.Slides"
 description: "تحويل PowerPoint إلى فيديو باستخدام Python"
 ---

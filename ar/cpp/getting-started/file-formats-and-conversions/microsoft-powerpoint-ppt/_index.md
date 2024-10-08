@@ -2,7 +2,7 @@
 title: مايكروسوفت باوربوينت (PPT)
 type: docs
 weight: 10
-url: /cpp/microsoft-powerpoint-ppt/
+url: /ar/cpp/microsoft-powerpoint-ppt/
 ---
 
 ## **حول PPT**

@@ -2,12 +2,12 @@
 title: إنشاء وتضمين مخطط Excel ككائن OLE في شريحة Microsoft PowerPoint
 type: docs
 weight: 60
-url: /java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ar/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- المخططات هي تمثيلات بصرية لبياناتك وتستخدم بشكل واسع في شرائح العروض التقديمية. ستوضح لك هذه المقالة الكود لإنشاء وتضمين مخطط Excel ككائن OLE في شريحة PowerPoint برمجياً باستخدام [VSTO](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و [Aspose.Slides for Java](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ المخططات هي تمثيلات بصرية لبياناتك وتستخدم بشكل واسع في شرائح العروض التقديمية. ستوضح لك هذه المقالة الكود لإنشاء وتضمين مخطط Excel ككائن OLE في شريحة PowerPoint برمجياً باستخدام [VSTO](/slides/ar/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و [Aspose.Slides for Java](/slides/ar/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **إنشاء وتضمين مخطط Excel**

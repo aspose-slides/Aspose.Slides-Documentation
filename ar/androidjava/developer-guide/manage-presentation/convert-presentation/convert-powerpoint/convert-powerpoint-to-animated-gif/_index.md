@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى GIF متحرك
 type: docs
 weight: 65
-url: /androidjava/convert-powerpoint-to-animated-gif/
+url: /ar/androidjava/convert-powerpoint-to-animated-gif/
 keywords: "تحويل PowerPoint إلى GIF متحرك، PPT إلى GIF، PPTX إلى GIF"
 description: "تحويل PowerPoint إلى GIF متحرك: PPT إلى GIF، PPTX إلى GIF، باستخدام Aspose.Slides API."
 ---

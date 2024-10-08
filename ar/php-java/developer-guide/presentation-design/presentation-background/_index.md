@@ -2,7 +2,7 @@
 title: خلفية العرض
 type: docs
 weight: 20
-url: /php-java/presentation-background/
+url: /ar/php-java/presentation-background/
 keywords: "خلفية باوربوينت, تعيين خلفية"
 description: "تعيين الخلفية في عرض باوربوينت"
 ---

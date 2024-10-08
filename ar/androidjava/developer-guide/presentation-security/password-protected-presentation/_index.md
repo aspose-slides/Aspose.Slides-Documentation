@@ -2,7 +2,7 @@
 title: تقديم محمي بكلمة مرور
 type: docs
 weight: 20
-url: /androidjava/password-protected-presentation/
+url: /ar/androidjava/password-protected-presentation/
 keywords: "قفل عرض PowerPoint في جافا"
 description: "قفل عرض PowerPoint. عرض PowerPoint محمي بكلمة مرور في جافا"
 ---
@@ -237,5 +237,5 @@ try {
 يعود `true` إذا كان العرض قد تم تشفيره بكلمة المرور المحددة. خلاف ذلك، يعود `false`.
 
 {{% alert color="primary" title="راجع أيضًا" %}} 
-- [التوقيع الرقمي في PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [التوقيع الرقمي في PowerPoint](/slides/ar/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

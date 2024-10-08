@@ -3,7 +3,7 @@ title: إنشاء عرض باور بوينت باستخدام PHP
 linktitle: إنشاء عرض تقديمي
 type: docs
 weight: 10
-url: /php-java/create-presentation/
+url: /ar/php-java/create-presentation/
 keywords: إنشاء ppt جافا، إنشاء عرض تقديمي ppt، إنشاء pptx جافا
 description: تعلم كيفية إنشاء عروض باور بوينت مثل PPT و PPTX باستخدام PHP من الصفر.
 ---

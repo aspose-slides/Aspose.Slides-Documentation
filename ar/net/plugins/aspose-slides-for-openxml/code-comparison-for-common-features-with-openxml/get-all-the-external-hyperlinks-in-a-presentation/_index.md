@@ -2,7 +2,7 @@
 title: الحصول على جميع الروابط الخارجية في عرض تقديمي
 type: docs
 weight: 90
-url: /net/get-all-the-external-hyperlinks-in-a-presentation/
+url: /ar/net/get-all-the-external-hyperlinks-in-a-presentation/
 ---
 
 ## **OpenXML Presentation**

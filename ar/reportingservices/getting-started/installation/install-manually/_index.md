@@ -2,7 +2,7 @@
 title: التثبيت اليدوي
 type: docs
 weight: 30
-url: /reportingservices/install-manually/
+url: /ar/reportingservices/install-manually/
 ---
 
 {{% alert color="primary" %}} 

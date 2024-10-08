@@ -2,7 +2,7 @@
 title: إطار الفيديو
 type: docs
 weight: 10
-url: /php-java/video-frame/
+url: /ar/php-java/video-frame/
 keywords: "إضافة فيديو، إنشاء إطار فيديو، استخراج فيديو، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "إضافة إطار فيديو إلى عرض PowerPoint"
 ---

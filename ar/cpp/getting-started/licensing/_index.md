@@ -2,7 +2,7 @@
 title: الترخيص
 type: docs
 weight: 120
-url: /cpp/licensing/
+url: /ar/cpp/licensing/
 ---
 
 ## **تقييم Aspose.Slides**

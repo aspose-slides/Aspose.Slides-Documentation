@@ -3,7 +3,7 @@ title: تحويل PPT إلى PPTX في C++
 linktitle: تحويل PPT إلى PPTX
 type: docs
 weight: 20
-url: /cpp/convert-ppt-to-pptx/
+url: /ar/cpp/convert-ppt-to-pptx/
 keywords: "C++ تحويل PPT إلى PPTX، PowerPoint PPT إلى PPTX"
 description: "تحويل PowerPoint PPT إلى PPTX في C++"
 ---
@@ -25,7 +25,7 @@ description: "تحويل PowerPoint PPT إلى PPTX في C++"
 - [C++ تحويل PPT إلى صورة](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-png/)
 
 ## **تحويل PPT إلى PPTX**
-لتحويل عرض PPT إلى PPTX، مرر ببساطة اسم الملف وتنسيق الحفظ إلى [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class. يقوم كود C++ أدناه بتحويل عرض من PPT إلى PPTX باستخدام الخيارات الافتراضية. لمزيد من المعلومات، يرجى الانتقال إلى هذه الوثيقة [الرابط](/slides/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion).
+لتحويل عرض PPT إلى PPTX، مرر ببساطة اسم الملف وتنسيق الحفظ إلى [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) من [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class. يقوم كود C++ أدناه بتحويل عرض من PPT إلى PPTX باستخدام الخيارات الافتراضية. لمزيد من المعلومات، يرجى الانتقال إلى هذه الوثيقة [الرابط](/slides/ar/cpp/different-file-formats-and-conversions/#differentfileformatsandconversions-ppttopptxconversion).
 
 
 

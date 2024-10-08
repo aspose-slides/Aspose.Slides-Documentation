@@ -3,7 +3,7 @@ title: إنشاء أو إدارة عقدة شكل SmartArt في PowerPoint با�
 linktitle: إدارة عقدة شكل SmartArt
 type: docs
 weight: 30
-url: /androidjava/manage-smartart-shape-node/
+url: /ar/androidjava/manage-smartart-shape-node/
 keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
 description: إدارة العقدة فن الذكاء والعقدة الفرعية في عروض PowerPoint باستخدام Java
 ---

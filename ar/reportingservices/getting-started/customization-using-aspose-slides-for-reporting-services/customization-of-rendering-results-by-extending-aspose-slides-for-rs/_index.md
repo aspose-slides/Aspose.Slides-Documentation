@@ -2,15 +2,15 @@
 title: تخصيص نتائج العرض عن طريق توسيع Aspose.Slides لـ RS
 type: docs
 weight: 10
-url: /reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
+url: /ar/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
 ---
 
 {{% alert color="primary" %}} 
 
 تصف هذه الصفحة كيفية إنشاء ملحق لـ Aspose.Slides لـ RS.
 
-- [إنشاء تجميع ملحق](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
-- [دمج الملحق](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [إنشاء تجميع ملحق](/slides/ar/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [دمج الملحق](/slides/ar/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
 
 {{% /alert %}} 
 

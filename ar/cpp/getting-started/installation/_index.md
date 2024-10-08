@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /cpp/installation/
+url: /ar/cpp/installation/
 keywords: "تنزيل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، ويندوز، C++"
 description: "تثبيت Aspose.Slides لـ C++ على نظام ويندوز"
 ---

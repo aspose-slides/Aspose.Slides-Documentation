@@ -2,7 +2,7 @@
 title: جزء
 type: docs
 weight: 70
-url: /python-net/portion/
+url: /ar/python-net/portion/
 keywords: "جزء، شكل PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "احصل على جزء في عرض PowerPoint باستخدام بايثون"
 ---

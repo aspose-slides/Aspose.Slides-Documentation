@@ -2,12 +2,12 @@
 title: تأثير الشكل
 type: docs
 weight: 30
-url: /php-java/shape-effect
+url: /ar/php-java/shape-effect
 keywords: "تأثير الشكل، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "تطبيق تأثير على شكل PowerPoint"
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/php-java/shape-formatting/#gradient-fill) أو الخطوط. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، إلخ.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/ar/php-java/shape-formatting/#gradient-fill) أو الخطوط. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، إلخ.
 
 <img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
 

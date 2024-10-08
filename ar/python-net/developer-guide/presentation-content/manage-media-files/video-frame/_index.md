@@ -2,7 +2,7 @@
 title: إطار الفيديو
 type: docs
 weight: 10
-url: /python-net/video-frame/
+url: /ar/python-net/video-frame/
 keywords: "إضافة فيديو، إنشاء إطار فيديو، استخراج فيديو، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إضافة إطار فيديو إلى عرض PowerPoint في بايثون"
 ---

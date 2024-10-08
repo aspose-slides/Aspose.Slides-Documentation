@@ -2,7 +2,7 @@
 title: انتقال الشرائح
 type: docs
 weight: 80
-url: /androidjava/slide-transition/
+url: /ar/androidjava/slide-transition/
 keywords: "انتقال شرائح باور بوينت، انتقال تحول في جافا"
 description: "انتقال شرائح باور بوينت، انتقال تحول باور بوينت في جافا"
 ---

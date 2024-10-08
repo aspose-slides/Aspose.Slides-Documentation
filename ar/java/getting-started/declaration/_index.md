@@ -2,7 +2,7 @@
 title: إعلان
 type: docs
 weight: 60
-url: /java/declaration/
+url: /ar/java/declaration/
 ---
 
 {{% alert color="primary" %}} 

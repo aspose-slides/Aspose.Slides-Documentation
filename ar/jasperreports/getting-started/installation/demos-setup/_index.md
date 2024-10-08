@@ -2,7 +2,7 @@
 title: إعداد العروض التوضيحية
 type: docs
 weight: 70
-url: /jasperreports/demos-setup/
+url: /ar/jasperreports/demos-setup/
 ---
 
 جميع العروض التوضيحية المقدمة مع Aspose.Slides لـ JasperReports هي عروض توضيحية قياسية معدلة. من الأفضل نسخ جميع العروض التوضيحية إلى مجلد عروض JasperReports:

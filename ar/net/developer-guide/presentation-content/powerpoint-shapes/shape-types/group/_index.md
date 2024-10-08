@@ -2,7 +2,7 @@
 title: مجموعة
 type: docs
 weight: 40
-url: /net/group/
+url: /ar/net/group/
 keywords: "شكل مجموعة، شكل PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة شكل مجموعة إلى عرض PowerPoint في C# أو .NET"
 ---

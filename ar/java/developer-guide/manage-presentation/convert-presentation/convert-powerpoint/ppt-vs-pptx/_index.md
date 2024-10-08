@@ -2,7 +2,7 @@
 title: PPT مقابل PPTX
 type: docs
 weight: 10
-url: /java/ppt-vs-pptx/
+url: /ar/java/ppt-vs-pptx/
 keywords: "PPT مقابل PPTX"
 description: "اقرأ عن الاختلافات بين PPT و PPTX في Aspose.Slides."
 ---
@@ -38,5 +38,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**كيف تحول العروض من PPT إلى PPTX**.](/slides/java/convert-ppt-to-pptx/)
+اقرأ المزيد [**كيف تحول العروض من PPT إلى PPTX**.](/slides/ar/java/convert-ppt-to-pptx/)
 {{% /alert %}} 

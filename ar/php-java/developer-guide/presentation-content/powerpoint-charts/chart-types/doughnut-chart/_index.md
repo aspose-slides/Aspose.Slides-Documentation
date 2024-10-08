@@ -2,7 +2,7 @@
 title: مخطط الدونات
 type: docs
 weight: 30
-url: /php-java/doughnut-chart/
+url: /ar/php-java/doughnut-chart/
 ---
 
 ## **تغيير الفجوة المركزية في مخطط الدونات**

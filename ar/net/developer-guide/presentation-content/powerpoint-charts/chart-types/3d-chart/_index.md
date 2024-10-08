@@ -1,7 +1,7 @@
 ---
 title: مخطط ثلاثي الأبعاد
 type: docs
-url: /net/3d-chart/
+url: /ar/net/3d-chart/
 keywords: "مخطط ثلاثي الأبعاد, rotationX, rotationY, depthpercent, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "تعيين rotationX و rotationY و depthpercents لمخطط ثلاثي الأبعاد في عرض PowerPoint باستخدام C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 20
-url: /php-java/features-overview/
+url: /ar/php-java/features-overview/
 ---
 
 ## **المنصات المدعومة**

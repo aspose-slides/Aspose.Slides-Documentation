@@ -2,7 +2,7 @@
 title: واجهة برمجة التطبيقات الحديثة
 type: docs
 weight: 237
-url: /python-java/modern-api/
+url: /ar/python-java/modern-api/
 keywords: "واجهة برمجة التطبيقات الحديثة عبر المنصات"
 description: "واجهة برمجة التطبيقات الحديثة"
 ---

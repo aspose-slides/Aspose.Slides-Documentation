@@ -2,7 +2,7 @@
 title: كيفية تشغيل المهام الخلفية في ASP.NET Core
 type: docs
 weight: 300
-url: /net/how-to-run-background-tasks-in-asp-net-core/
+url: /ar/net/how-to-run-background-tasks-in-asp-net-core/
 ---
 
 ## **نظرة عامة**

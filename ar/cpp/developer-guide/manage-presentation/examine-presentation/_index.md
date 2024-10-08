@@ -3,7 +3,7 @@ title: فحص العرض التقديمي - واجهة برمجة تطبيقات
 linktitle: فحص العرض التقديمي
 type: docs
 weight: 30
-url: /cpp/examine-presentation/
+url: /ar/cpp/examine-presentation/
 keywords:
 - PowerPoint
 - العرض التقديمي

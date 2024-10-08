@@ -2,7 +2,7 @@
 title: عرض شريحة كصورة SVG
 type: docs
 weight: 50
-url: /java/render-a-slide-as-an-svg-image/
+url: /ar/java/render-a-slide-as-an-svg-image/
 ---
 
 SVG—اختصار للرسومات المتجهة القابلة للتوسع—هو نوع أو تنسيق قياسي للرسومات يستخدم لرسم الصور الثنائية الأبعاد. يخزن SVG الصور كمتجهات في XML مع تفاصيل تحدد سلوكها أو مظهرها.

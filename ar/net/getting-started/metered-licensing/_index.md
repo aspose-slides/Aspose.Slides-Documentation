@@ -2,7 +2,7 @@
 title: الترخيص المستند إلى الاستخدام
 type: docs
 weight: 90
-url: /net/metered-licensing/
+url: /ar/net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

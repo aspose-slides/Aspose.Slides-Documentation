@@ -4,7 +4,7 @@ second_title: "وثائق Aspose.Slides"
 description: Aspose.Slides لـ .NET هي واجهة برمجة تطبيقات إدارة Microsoft PowerPoint® التي تمكن تطبيقات .NET من قراءة وكتابة مستندات PowerPoint® دون استخدام Microsoft PowerPoint®.
 type: docs
 weight: 10
-url: /net/
+url: /ar/net/
 is_root: true
 ---
 
@@ -26,9 +26,9 @@ Aspose.Slides لـ .NET هو المكون الأول والوحيد الذي ي�
 
 هذه روابط لموارد مفيدة:
 
-- [وثائق Aspose.Slides لـ .NET على الإنترنت](/slides/net/)
-- [ميزات Aspose.Slides لـ .NET](/slides/net/features-overview/)
-- [قيود Aspose.Slides لـ .NET](/slides/net/known-issues/)
+- [وثائق Aspose.Slides لـ .NET على الإنترنت](/slides/ar/net/)
+- [ميزات Aspose.Slides لـ .NET](/slides/ar/net/features-overview/)
+- [قيود Aspose.Slides لـ .NET](/slides/ar/net/known-issues/)
 - [ملاحظات إصدار Aspose.Slides لـ .NET](https://releases.aspose.com/slides/net/release-notes/)
 - [صفحة منتج Aspose.Slides لـ .NET](https://products.aspose.com/slides/net/)
 - [تنزيل Aspose.Slides لـ .NET](https://releases.aspose.com/slides/net/)

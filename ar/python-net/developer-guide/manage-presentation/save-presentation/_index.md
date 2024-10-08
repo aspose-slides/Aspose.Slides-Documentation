@@ -2,7 +2,7 @@
 title: حفظ العرض التقديمي
 type: docs
 weight: 80
-url: /python-net/save-presentation/
+url: /ar/python-net/save-presentation/
 keywords: "حفظ باوربوينت, PPT, PPTX, حفظ عرض تقديمي, ملف, تدفق, بايثون"
 description: "حفظ عرض باوربوينت كملف أو تدفق في بايثون"
 ---

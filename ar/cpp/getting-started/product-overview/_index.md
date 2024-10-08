@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /cpp/product-overview/
+url: /ar/cpp/product-overview/
 keywords: C++ PowerPoint API
 description: تتيح واجهة برمجة التطبيقات C++ PowerPoint للم applications قراءة وكتابة مستندات PowerPoint بدون استخدام Microsoft PowerPoint وتوفر ميزات رئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG و PDF وغير ذلك.
 ---
@@ -124,4 +124,4 @@ Aspose.Slides لـ C++ هي واجهة برمجة تطبيقات إدارة Micr
 |[مدونة Aspose.Slide](https://blog.aspose.com/category/slides/)|تحقق من ذلك بشكل دوري للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تحميل Aspose.Slides لـ C++](https://downloads.aspose.com/slides/cpp)|يتم الاحتفاظ بجميع إصدارات المنتج الجديدة والقديمة للرجوع إليها من قبل العملاء.|
 |[منتدى الدعم لـ Aspose.Slides](https://forum.aspose.com/c/slides/11)|أرسل أسئلتك ومشاكلك هنا للحصول على حل سريع.|
-|[توثيق المنتج لـ Aspose.Slides لـ C++](/slides/cpp/)|توثيق كامل عبر الإنترنت يتضمن هذه الوثائق بالإضافة إلى مرجع API لـ Aspose.Slides.|
+|[توثيق المنتج لـ Aspose.Slides لـ C++](/slides/ar/cpp/)|توثيق كامل عبر الإنترنت يتضمن هذه الوثائق بالإضافة إلى مرجع API لـ Aspose.Slides.|

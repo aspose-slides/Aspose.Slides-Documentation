@@ -4,7 +4,7 @@ second_title: "Aspose.Slides لـ Node.js عبر توثيق .NET"
 description: يوفر Aspose.Slides لـ Node.js عبر Java العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG و PDF والمزيد.
 type: docs
 weight: 47
-url: /nodejs-java/
+url: /ar/nodejs-java/
 is_root: true
 ---
 
@@ -32,13 +32,13 @@ Aspose.Slides لـ Node.js عبر Java هي المكون الأول والوحي
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Node.js عبر Java](/slides/java/developer-guide/)
-- [ميزات Aspose.Slides لـ Node.js عبر Java](/slides/nodejs-java/features-overview/)
-- [القيود واختلافات API لـ Aspose.Slides لـ Node.js عبر Java](/slides/nodejs-java/limitations-and-api-differences/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Node.js عبر Java](/slides/ar/java/developer-guide/)
+- [ميزات Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/features-overview/)
+- [القيود واختلافات API لـ Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/limitations-and-api-differences/)
 - [ملاحظات الإصدار لـ Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Node.js عبر Java](https://products.aspose.com/slides/nodejs-java/)
 - [تحميل حزمة Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/)
-- [تثبيت Aspose.Slides لـ Node.js عبر Java](/slides/nodejs-java/installation/)
+- [تثبيت Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/installation/)
 - [مرجع API لـ Aspose.Slides لـ Node.js عبر Java](https://reference.aspose.com/slides/nodejs-java/)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ Node.js عبر Java](https://forum.aspose.com/c/slides/11)
 - [مكتب دعم الدفع لـ Aspose.Slides لـ Node.js عبر Java](https://helpdesk.aspose.com/)

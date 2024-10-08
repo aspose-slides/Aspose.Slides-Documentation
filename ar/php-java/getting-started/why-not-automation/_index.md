@@ -2,7 +2,7 @@
 title: لماذا لا نستخدم الأتمتة
 type: docs
 weight: 50
-url: /php-java/why-not-automation/
+url: /ar/php-java/why-not-automation/
 ---
 
 {{% alert color="primary" %}} 

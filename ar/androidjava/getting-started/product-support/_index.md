@@ -2,5 +2,5 @@
 title: دعم المنتج
 type: docs
 weight: 80
-url: /androidjava/product-support/
+url: /ar/androidjava/product-support/
 ---

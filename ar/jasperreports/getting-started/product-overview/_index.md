@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /jasperreports/product-overview/
+url: /ar/jasperreports/product-overview/
 ---
 
 {{% alert color="primary" %}} 

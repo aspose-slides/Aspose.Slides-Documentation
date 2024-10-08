@@ -2,7 +2,7 @@
 title: تنسيق المخططات
 type: docs
 weight: 60
-url: /python-net/chart-formatting/
+url: /ar/python-net/chart-formatting/
 keywords: "كيانات المخططات، خصائص المخططات، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "تنسيق كيانات المخططات في عروض PowerPoint باستخدام بايثون"
 ---

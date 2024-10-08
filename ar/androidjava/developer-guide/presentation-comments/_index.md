@@ -2,7 +2,7 @@
 title: تعليقات العرض
 type: docs
 weight: 100
-url: /androidjava/presentation-comments/
+url: /ar/androidjava/presentation-comments/
 keywords: "تعليقات, تعليقات باوربوينت, عرض باوربوينت, جافا, Aspose.Slides لـ Android عبر جافا"
 description: "إضافة تعليقات وردود في عرض باوربوينت باستخدام جافا"
 ---

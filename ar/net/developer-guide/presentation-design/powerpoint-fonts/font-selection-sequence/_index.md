@@ -3,7 +3,7 @@ title: تسلسل اختيار الخط في C#
 linktitle: تسلسل اختيار الخط في C#
 type: docs
 weight: 80
-url: /net/font-selection-sequence/
+url: /ar/net/font-selection-sequence/
 keywords:
 - خط
 - اختيار الخط

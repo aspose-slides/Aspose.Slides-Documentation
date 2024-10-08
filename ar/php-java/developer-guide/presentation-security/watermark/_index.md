@@ -2,7 +2,7 @@
 title: علامة مائية
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /ar/php-java/watermark/
 keywords:
 - علامة مائية
 - إضافة علامة مائية
@@ -49,7 +49,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="راجع أيضاً" %}} 
-- [كيفية استخدام فئة TextFrame](/slides/php-java/text-formatting/)
+- [كيفية استخدام فئة TextFrame](/slides/ar/php-java/text-formatting/)
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى عرض تقديمي**
@@ -69,7 +69,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="راجع أيضاً" %}} 
-- [كيفية استخدام شريحة الماستر](/slides/php-java/slide-master/)
+- [كيفية استخدام شريحة الماستر](/slides/ar/php-java/slide-master/)
 {{% /alert %}}
 
 ### **تعيين شفافية شكل العلامة المائية**

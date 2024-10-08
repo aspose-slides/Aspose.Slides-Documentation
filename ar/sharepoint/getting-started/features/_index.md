@@ -2,5 +2,5 @@
 title: الميزات
 type: docs
 weight: 30
-url: /sharepoint/features/
+url: /ar/sharepoint/features/
 ---

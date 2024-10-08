@@ -2,7 +2,7 @@
 title: الدعم لمكتبة قابلة للإيقاف
 type: docs
 weight: 120
-url: /php-java/support-for-interruptable-library/
+url: /ar/php-java/support-for-interruptable-library/
 ---
 
 ## **المكتبة القابلة للإيقاف**

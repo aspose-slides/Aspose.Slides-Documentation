@@ -2,7 +2,7 @@
 title: شريحة رئيسية
 type: docs
 weight: 70
-url: /androidjava/slide-master/
+url: /ar/androidjava/slide-master/
 keywords: "إضافة شريحة رئيسية، شريحة رئيسية PPT، شريحة رئيسية PowerPoint، صورة إلى شريحة رئيسية، عنصر نائب، عدة شرائح رئيسية، مقارنة الشرائح الرئيسية، جافا، Aspose.Slides لأندرويد عبر جافا"
 description: "إضافة أو تعديل شريحة رئيسية في عرض PowerPoint في جافا"
 ---
@@ -146,7 +146,7 @@ try {
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
 
-لمزيد من المعلومات حول إضافة الصور إلى الشريحة، راجع مقالة [إطار الصورة](/slides/androidjava/picture-frame/#create-picture-frame).
+لمزيد من المعلومات حول إضافة الصور إلى الشريحة، راجع مقالة [إطار الصورة](/slides/ar/androidjava/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

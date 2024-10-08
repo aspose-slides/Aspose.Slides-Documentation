@@ -2,7 +2,7 @@
 title: التكامل اليدوي مع مصمم تقارير Visual Studio 2005 أو 2008
 type: docs
 weight: 50
-url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
+url: /ar/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
 ---
 
 {{% alert color="primary" %}} 

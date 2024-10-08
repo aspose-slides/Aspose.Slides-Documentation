@@ -2,7 +2,7 @@
 title: إنشاء خط احتياطي
 type: docs
 weight: 10
-url: /cpp/create-fallback-font/
+url: /ar/cpp/create-fallback-font/
 ---
 
 تدعم Aspose.Slides واجهة [IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) وفئة [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) لتحديد القواعد لتطبيق خط احتياطي. تمثل فئة [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) ارتباطًا بين نطاق يونيكود المحدد، المستخدم للبحث عن الرموز المفقودة، وقائمة من الخطوط التي قد تحتوي على الرموز المناسبة:
@@ -25,5 +25,5 @@ auto thirdRule = MakeObject<FontFallBackRule>(static_cast<uint32_t>(0x1F300), st
 يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) لتنظيم قائمة من كائنات [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) عندما تكون هناك حاجة لتحديد قواعد استبدال الخطوط الاحتياطية لمجموعة من نطاقات يونيكود.
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [إنشاء مجموعة خطوط احتياطية](/slides/cpp/create-fallback-fonts-collection/)
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}

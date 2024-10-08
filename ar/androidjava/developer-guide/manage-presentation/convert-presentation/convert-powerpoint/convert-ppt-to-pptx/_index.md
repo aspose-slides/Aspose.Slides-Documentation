@@ -3,7 +3,7 @@ title: تحويل PPT إلى PPTX في جافا
 linktitle: تحويل PPT إلى PPTX
 type: docs
 weight: 20
-url: /androidjava/convert-ppt-to-pptx/
+url: /ar/androidjava/convert-ppt-to-pptx/
 keywords: "Java تحويل PPT إلى PPTX, PowerPoint PPT إلى PPTX في جافا"
 description: "تحويل PowerPoint PPT إلى PPTX في جافا."
 ---
@@ -47,7 +47,7 @@ description: "تحويل PowerPoint PPT إلى PPTX في جافا."
 {{% /alert %}} 
 
 ## **تحويل PPT إلى PPTX**
-تسهل Aspose.Slides للتطبيقات التي تعمل على أندرويد عبر جافا الآن للمطورين الوصول إلى PPT باستخدام مثيل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class وتحويله إلى تنسيق [PPTX](https://docs.fileformat.com/presentation/pptx/). حاليًا، يدعم التحويل الجزئي من [PPT ](https://docs.fileformat.com/presentation/ppt/)إلى PPTX. لمزيد من التفاصيل حول الميزات المدعومة وغير المدعومة في تحويل PPT إلى PPTX، يرجى المتابعة إلى هذه الوثيقة [الرابط](/slides/androidjava/ppt-to-pptx-conversion/).
+تسهل Aspose.Slides للتطبيقات التي تعمل على أندرويد عبر جافا الآن للمطورين الوصول إلى PPT باستخدام مثيل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) class وتحويله إلى تنسيق [PPTX](https://docs.fileformat.com/presentation/pptx/). حاليًا، يدعم التحويل الجزئي من [PPT ](https://docs.fileformat.com/presentation/ppt/)إلى PPTX. لمزيد من التفاصيل حول الميزات المدعومة وغير المدعومة في تحويل PPT إلى PPTX، يرجى المتابعة إلى هذه الوثيقة [الرابط](/slides/ar/androidjava/ppt-to-pptx-conversion/).
 
 تقدم Aspose.Slides للتطبيقات التي تعمل على أندرويد عبر جافا فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) التي تمثل ملف عرض تقديمي **PPTX**. يمكن لفئة Presentation الآن أيضًا الوصول إلى **PPT** من خلال Presentation عند إنشاء الكائن. يُظهر المثال التالي كيفية تحويل عرض تقديمي بتنسيق PPT إلى عرض تقديمي بتنسيق PPTX.
 

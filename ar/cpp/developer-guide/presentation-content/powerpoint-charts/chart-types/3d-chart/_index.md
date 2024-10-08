@@ -1,7 +1,7 @@
 ---
 title: رسم بياني ثلاثي الأبعاد
 type: docs
-url: /cpp/3d-chart/
+url: /ar/cpp/3d-chart/
 ---
 
 ## **تعيين خصائص RotationX و RotationY و DepthPercents للرسم البياني ثلاثي الأبعاد**

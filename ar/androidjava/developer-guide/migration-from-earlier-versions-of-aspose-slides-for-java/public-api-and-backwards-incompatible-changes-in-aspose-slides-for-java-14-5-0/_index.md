@@ -2,12 +2,12 @@
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للخلف في Aspose.Slides لـ Java 14.5.0
 type: docs
 weight: 40
-url: /androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/
+url: /ar/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تقوم هذه الصفحة بإدراج جميع [المضافات](/slides/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) من الفئات والطرق والخصائص وما إلى ذلك، وأي [قيود](/slides/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) جديدة وأي [تغييرات](/slides/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) أخرى تم إدخالها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 14.5.0.
+تقوم هذه الصفحة بإدراج جميع [المضافات](/slides/ar/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) من الفئات والطرق والخصائص وما إلى ذلك، وأي [قيود](/slides/ar/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) جديدة وأي [تغييرات](/slides/ar/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-14-5-0/) أخرى تم إدخالها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 14.5.0.
 
 {{% /alert %}} 
 ## **واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة للخلف**

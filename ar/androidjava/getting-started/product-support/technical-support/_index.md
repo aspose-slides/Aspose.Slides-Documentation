@@ -2,7 +2,7 @@
 title: دعم فني
 type: docs
 weight: 10
-url: /androidjava/technical-support/
+url: /ar/androidjava/technical-support/
 ---
 
 {{% alert color="primary" %}} 

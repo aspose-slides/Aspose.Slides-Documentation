@@ -2,12 +2,12 @@
 title: تأثير الشكل
 type: docs
 weight: 30
-url: /androidjava/shape-effect
+url: /ar/androidjava/shape-effect
 keywords: "تأثير الشكل, عرض PowerPoint, Java, Aspose.Slides لـ Android عبر Java"
 description: "تطبيق تأثير على شكل PowerPoint في Java"
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/androidjava/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/ar/androidjava/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
 
 <img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
 

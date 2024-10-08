@@ -2,7 +2,7 @@
 title: خط مخصص في C++
 type: docs
 weight: 20
-url: /cpp/custom-font/
+url: /ar/cpp/custom-font/
 keywords: "خطوط، خطوط مخصصة، عرض PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "خطوط PowerPoint مخصصة في C++"
 ---

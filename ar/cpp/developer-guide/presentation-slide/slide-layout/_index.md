@@ -2,7 +2,7 @@
 title: تخطيط الشريحة
 type: docs
 weight: 60
-url: /cpp/slide-layout/
+url: /ar/cpp/slide-layout/
 keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية التذييل، تذييل فرعي، تغيير حجم المحتوى، حجم الصفحة، C++، CPP، Aspose.Slides"
 description: "تعيين حجم الشريحة وخياراتها في C++"
 ---

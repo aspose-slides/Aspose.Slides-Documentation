@@ -2,7 +2,7 @@
 title: قارن الشرائح
 type: docs
 weight: 50
-url: /net/compare-slides/
+url: /ar/net/compare-slides/
 keywords: "قارن شرائح PowerPoint، قارن شريحتين، عرض تقديمي، C#، Csharp، .NET، Aspose.Slides"
 description: "قارن شرائح عرض PowerPoint باستخدام C# أو .NET"
 ---

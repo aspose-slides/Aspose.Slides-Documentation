@@ -2,7 +2,7 @@
 title: متطلبات النظام
 type: docs
 weight: 60
-url: /net/system-requirements/
+url: /ar/net/system-requirements/
 ---
 
 ## **نظرة عامة**

@@ -2,7 +2,7 @@
 title: إنشاء جدول على شريحة PowerPoint في VSTO و Aspose.Slides
 type: docs
 weight: 90
-url: /net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
+url: /ar/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
 تضيف الخطوات التالية جدولاً إلى شريحة Microsoft PowerPoint باستخدام VSTO:

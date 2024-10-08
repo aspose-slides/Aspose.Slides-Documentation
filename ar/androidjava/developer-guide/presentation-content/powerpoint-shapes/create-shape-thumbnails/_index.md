@@ -2,7 +2,7 @@
 title: إنشاء صورة مصغرة للأشكال
 type: docs
 weight: 70
-url: /androidjava/create-shape-thumbnails/
+url: /ar/androidjava/create-shape-thumbnails/
 ---
 
 

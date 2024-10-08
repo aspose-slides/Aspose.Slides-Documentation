@@ -3,7 +3,7 @@ title: الخطوط الافتراضية - PowerPoint Java API
 linktitle: الخطوط الافتراضية
 type: docs
 weight: 30
-url: /androidjava/default-font/
+url: /ar/androidjava/default-font/
 description: تتيح لك PowerPoint Java API تعيين الخط الافتراضي لعرض العرض التقديمي إلى PDF أو XPS أو الصور المصغرة. توضح هذه المقالة كيفية تعريف خط DefaultRegular وخط DefaultAsian لاستخدامهما كخطوط افتراضية.
 ---
 

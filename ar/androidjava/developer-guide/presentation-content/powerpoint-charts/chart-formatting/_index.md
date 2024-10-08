@@ -2,7 +2,7 @@
 title: تنسيق المخططات
 type: docs
 weight: 60
-url: /androidjava/chart-formatting/
+url: /ar/androidjava/chart-formatting/
 ---
 
 ## **تنسيق كيانات المخطط**

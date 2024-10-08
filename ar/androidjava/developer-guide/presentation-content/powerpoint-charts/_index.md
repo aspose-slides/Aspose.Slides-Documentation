@@ -2,5 +2,5 @@
 title: رسوم بيانية في باوربوينت
 type: docs
 weight: 70
-url: /androidjava/powerpoint-charts/
+url: /ar/androidjava/powerpoint-charts/
 ---

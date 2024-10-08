@@ -2,7 +2,7 @@
 title: الترخيص
 type: docs
 weight: 50
-url: /jasperreports/licensing/
+url: /ar/jasperreports/licensing/
 ---
 
 {{% alert color="primary" %}} 

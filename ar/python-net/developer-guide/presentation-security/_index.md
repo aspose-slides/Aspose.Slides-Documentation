@@ -2,5 +2,5 @@
 title: أمان العروض
 type: docs
 weight: 60
-url: /python-net/presentation-security/
+url: /ar/python-net/presentation-security/
 ---

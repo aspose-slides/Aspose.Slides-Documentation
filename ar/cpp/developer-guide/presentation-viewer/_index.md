@@ -2,7 +2,7 @@
 title: عارض العرض التقديمي
 type: docs
 weight: 50
-url: /cpp/presentation-viewer/
+url: /ar/cpp/presentation-viewer/
 keywords: 
 - عرض عرض PowerPoint
 - عرض ppt

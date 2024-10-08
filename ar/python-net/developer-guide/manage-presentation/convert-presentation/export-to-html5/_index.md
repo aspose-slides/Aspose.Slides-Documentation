@@ -2,7 +2,7 @@
 title: تصدير إلى HTML5
 type: docs
 weight: 40
-url: /python-net/export-to-html5/
+url: /ar/python-net/export-to-html5/
 keywords:
 - PowerPoint إلى HTML
 - الشرائح إلى HTML
@@ -18,7 +18,7 @@ description: "تصدير PowerPoint إلى HTML5 في بايثون"
 
 {{% alert title="معلومات" color="info" %}}
 
-في **Aspose.Slides 21.9**، قمنا بتطبيق دعم لتصدير HTML5. ومع ذلك، إذا كنت تفضل تصدير PowerPoint الخاص بك إلى HTML باستخدام WebExtensions، يرجى الاطلاع على [هذه المقالة](/slides/net/web-extensions/) بدلاً من ذلك. 
+في **Aspose.Slides 21.9**، قمنا بتطبيق دعم لتصدير HTML5. ومع ذلك، إذا كنت تفضل تصدير PowerPoint الخاص بك إلى HTML باستخدام WebExtensions، يرجى الاطلاع على [هذه المقالة](/slides/ar/net/web-extensions/) بدلاً من ذلك. 
 
 {{% /alert %}} 
 

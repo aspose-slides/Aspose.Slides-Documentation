@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /androidjava/product-overview/
+url: /ar/androidjava/product-overview/
 ---
 
 ![todo:image_alt_text](product-overview_1.png)

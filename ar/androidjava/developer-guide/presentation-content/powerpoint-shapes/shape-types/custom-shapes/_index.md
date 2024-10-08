@@ -2,7 +2,7 @@
 title: الشكل المخصص
 type: docs
 weight: 20
-url: /androidjava/custom-shape/
+url: /ar/androidjava/custom-shape/
 keywords: "شكل PowerPoint، شكل مخصص، عرض PowerPoint، Java، Aspose.Slides for Android via Java"
 description: "إضافة شكل مخصص في عرض PowerPoint في Java"
 ---

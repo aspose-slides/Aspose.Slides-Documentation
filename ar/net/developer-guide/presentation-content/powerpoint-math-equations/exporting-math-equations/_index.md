@@ -2,7 +2,7 @@
 title: تصدير المعادلات الرياضية
 type: docs
 weight: 30
-url: /net/exporting-math-equations/
+url: /ar/net/exporting-math-equations/
 keywords: "تصدير المعادلات الرياضية، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "تصدير معادلات PowerPoint الرياضية في C# أو .NET"
 ---

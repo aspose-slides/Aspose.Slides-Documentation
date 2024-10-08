@@ -2,7 +2,7 @@
 title: إدارة الخلايا
 type: docs
 weight: 30
-url: /cpp/manage-cells/
+url: /ar/cpp/manage-cells/
 keywords: "جدول، خلايا مدمجة، خلايا مقسمة، صورة في خلية جدول، C++، CPP، Aspose.Slides لـ C++"
 description: "خلايا الجدول في عروض PowerPoint التقديمية بلغة C++"
 ---

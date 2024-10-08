@@ -2,7 +2,7 @@
 title: إدارة الحبر
 type: docs
 weight: 95
-url: /python-net/manage-ink/
+url: /ar/python-net/manage-ink/
 keywords: "الحبر في PowerPoint، أدوات الحبر، حبر Python، الرسم في PowerPoint، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "استخدم أدوات الحبر لرسم كائنات في PowerPoint Python"
 ---

@@ -2,7 +2,7 @@
 title: علامة مائية
 type: docs
 weight: 40
-url: /java/watermark/
+url: /ar/java/watermark/
 keywords:
 - علامة مائية
 - إضافة علامة مائية
@@ -48,7 +48,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="اطلع أيضًا" %}} 
-- [كيفية استخدام فئة TextFrame](/slides/java/text-formatting/)
+- [كيفية استخدام فئة TextFrame](/slides/ar/java/text-formatting/)
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى عرض تقديمي**
@@ -68,7 +68,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="اطلع أيضًا" %}} 
-- [كيفية استخدام الشريحة الرئيسية](/slides/java/slide-master/)
+- [كيفية استخدام الشريحة الرئيسية](/slides/ar/java/slide-master/)
 {{% /alert %}}
 
 ### **تعيين شفافية شكل العلامة المائية**

@@ -2,7 +2,7 @@
 title: شريحة ماسطر
 type: docs
 weight: 80
-url: /net/slide-master/
+url: /ar/net/slide-master/
 keywords: "إضافة شريحة ماسطر، شريحة ماسطر PPT، شريحة ماسطر PowerPoint، صورة إلى شريحة ماسطر، عنصر نائب، عدة شرائح ماسطر، مقارنة شرائح ماسطر، C#، Csharp، .NET، Aspose.Slides"
 description: "إضافة أو تحرير شريحة ماسطر في عرض PowerPoint باستخدام C# أو .NET"
 ---
@@ -132,7 +132,7 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
 
-للحصول على مزيد من المعلومات حول إضافة الصور إلى شريحة، انظر المقالة [إطار الصورة](/slides/net/picture-frame/#create-picture-frame).
+للحصول على مزيد من المعلومات حول إضافة الصور إلى شريحة، انظر المقالة [إطار الصورة](/slides/ar/net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

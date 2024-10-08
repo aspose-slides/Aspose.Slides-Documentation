@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /python-net/installation/
+url: /ar/python-net/installation/
 keywords: "تحميل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، ويندوز، macOS، بايثون"
 description: "تثبيت Aspose.Slides لبايثون عبر .NET على ويندوز أو macOS"
 ---
@@ -13,7 +13,7 @@ description: "تثبيت Aspose.Slides لبايثون عبر .NET على وين�
 
 **متطلبات النظام**
 
-تحقق و确认 أن مواصفات جهازك تلبي أو أفضل من [متطلبات النظام](/slides/python-net/system-requirements/).
+تحقق و确认 أن مواصفات جهازك تلبي أو أفضل من [متطلبات النظام](/slides/ar/python-net/system-requirements/).
 
 ### **تثبيت Aspose.Slides**
 
@@ -40,7 +40,7 @@ with slides.Presentation() as presentation:
 
 **متطلبات النظام**
 
-تحقق و تأكد أن مواصفات جهازك تلبي أو أفضل من [متطلبات النظام](/slides/python-net/system-requirements/).
+تحقق و تأكد أن مواصفات جهازك تلبي أو أفضل من [متطلبات النظام](/slides/ar/python-net/system-requirements/).
 
 ### **المتطلبات المسبقة**
 

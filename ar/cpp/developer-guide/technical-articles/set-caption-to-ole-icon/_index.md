@@ -2,7 +2,7 @@
 title: تعيين العنوان لأيونة OLE
 type: docs
 weight: 110
-url: /cpp/set-caption-to-ole-icon/
+url: /ar/cpp/set-caption-to-ole-icon/
 ---
 
 تم إضافة طرق **get_SubstitutePictureTitle()** و **set_SubstitutePictureTitle()** إلى فئات **IOleObjectFrame** و **OleObjectFrame**. يسمح ذلك بالحصول على عنوان أيونة OLE أو تعيينه أو تغييره. الكود أدناه يوضح مثالًا لإنشاء كائن Excel وتعيين عنوانه.

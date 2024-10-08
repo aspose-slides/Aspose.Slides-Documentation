@@ -2,7 +2,7 @@
 title: إطار الصوت
 type: docs
 weight: 10
-url: /php-java/audio-frame/
+url: /ar/php-java/audio-frame/
 keywords: "إضافة صوت, إطار الصوت, خصائص الصوت, استخراج الصوت, جافا, Aspose.Slides لـ PHP عبر جافا"
 description: "إضافة صوت إلى عرض PowerPoint"
 ---

@@ -3,7 +3,7 @@ title: تسلسل اختيار الخط في بايثون
 linktitle: تسلسل اختيار الخط في بايثون
 type: docs
 weight: 80
-url: /python-net/font-selection-sequence/
+url: /ar/python-net/font-selection-sequence/
 keywords:
 - خط
 - اختيار الخط

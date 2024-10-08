@@ -2,7 +2,7 @@
 title: الشريحة الرئيسية
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /ar/java/slide-master/
 keywords: "إضافة شريحة رئيسية، شريحة ماستر PPT، الشريحة الرئيسية PowerPoint، صورة إلى الشريحة الرئيسية، عنصر نائب، عدة شرائح رئيسية، مقارنة الشرائح الرئيسية، Java، Aspose.Slides لـ Java"
 description: "إضافة أو تعديل شريحة رئيسية في عرض PowerPoint باستخدام Java"
 ---
@@ -148,7 +148,7 @@ try {
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
 
-للحصول على مزيد من المعلومات حول إضافة الصور إلى الشريحة، راجع مقال [إطار الصورة](/slides/java/picture-frame/#create-picture-frame).
+للحصول على مزيد من المعلومات حول إضافة الصور إلى الشريحة، راجع مقال [إطار الصورة](/slides/ar/java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

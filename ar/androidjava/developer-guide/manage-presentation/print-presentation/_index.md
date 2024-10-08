@@ -2,7 +2,7 @@
 title: طباعة العرض التقديمي
 type: docs
 weight: 50
-url: /androidjava/print-presentation/
+url: /ar/androidjava/print-presentation/
 keywords: "طباعة بوربوينت, PPT, PPTX, طباعة عرض تقديمي, Java, طابعة, PrinterJob, PrintService"
 description: "طباعة عرض تقديمي بوربوينت في Java"
 ---

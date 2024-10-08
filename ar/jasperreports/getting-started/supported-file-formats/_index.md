@@ -2,7 +2,7 @@
 title: تنسيقات الملفات المدعومة
 type: docs
 weight: 20
-url: /jasperreports/supported-file-formats/
+url: /ar/jasperreports/supported-file-formats/
 ---
 
 ## **إصدارات Microsoft PowerPoint المدعومة**

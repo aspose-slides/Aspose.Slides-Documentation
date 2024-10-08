@@ -3,7 +3,7 @@ title: الخطوط المدمجة - واجهة برمجة تطبيقات PowerP
 linktitle: الخطوط المدمجة
 type: docs
 weight: 40
-url: /java/embedded-font/
+url: /ar/java/embedded-font/
 keywords: "الخطوط، الخطوط المدمجة، إضافة الخطوط، تقديم PowerPoint، Java، Aspose.Slides لـ Java"
 description: "استخدم الخطوط المدمجة في تقديم PowerPoint باستخدام Java"
 

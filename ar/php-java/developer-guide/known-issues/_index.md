@@ -2,5 +2,5 @@
 title: المشكلات المعروفة
 type: docs
 weight: 330
-url: /php-java/known-issues/
+url: /ar/php-java/known-issues/
 ---

@@ -2,7 +2,7 @@
 title: التوقيع الرقمي في PowerPoint
 type: docs
 weight: 10
-url: /net/digital-signature-in-powerpoint/
+url: /ar/net/digital-signature-in-powerpoint/
 keywords: "شهادة التوقيع الرقمي، جهة إصدار الشهادات، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة توقيع أو شهادة رقمية في PowerPoint. جهة إصدار الشهادات في C# أو .NET"
 ---

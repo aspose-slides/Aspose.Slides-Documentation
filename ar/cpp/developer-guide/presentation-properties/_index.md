@@ -2,7 +2,7 @@
 title: خصائص العرض
 type: docs
 weight: 70
-url: /cpp/presentation-properties/
+url: /ar/cpp/presentation-properties/
 ---
 
 ## **الوصول إلى خصائص العرض**

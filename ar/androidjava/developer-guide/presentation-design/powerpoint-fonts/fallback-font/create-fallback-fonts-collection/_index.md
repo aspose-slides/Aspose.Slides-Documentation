@@ -2,12 +2,12 @@
 title: إنشاء مجموعة خطوط احتياطية
 type: docs
 weight: 20
-url: /androidjava/create-fallback-fonts-collection/
+url: /ar/androidjava/create-fallback-fonts-collection/
 ---
 
 يمكن تنظيم نسخ من [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection)، التي تنفذ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRulesCollection) واجهة. من الممكن إضافة أو إزالة القواعد من المجموعة.
 
-ثم يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) في [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) المصنف. يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/androidjava/about-fontsmanager-and-fontsloader/).
+ثم يمكن تعيين هذه المجموعة إلى طريقة [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) في [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) المصنف. يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/ar/androidjava/about-fontsmanager-and-fontsloader/).
 
 كل [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) لديه طريقة [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--) مع نسخته الخاصة من [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) المصنف.
 
@@ -30,5 +30,5 @@ try {
 بعد أن يتم تهيئة FontsManager مع مجموعة الخطوط الاحتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض العرض التقديمي.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [عرض العرض التقديمي بخط احتياطي](/slides/androidjava/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [عرض العرض التقديمي بخط احتياطي](/slides/ar/androidjava/render-presentation-with-fallback-font/).
 {{% /alert %}}

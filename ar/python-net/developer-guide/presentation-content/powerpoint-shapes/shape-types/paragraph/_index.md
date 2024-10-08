@@ -2,7 +2,7 @@
 title: فقرة
 type: docs
 weight: 60
-url: /python-net/paragraph/
+url: /ar/python-net/paragraph/
 keywords: "فقرة، جزء، إحداثيات الفقرة، إحداثيات الجزء، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "الفقرة والجزء في عرض PowerPoint باستخدام بايثون"
 ---

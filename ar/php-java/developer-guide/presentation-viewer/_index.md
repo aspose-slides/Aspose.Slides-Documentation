@@ -2,7 +2,7 @@
 title: عارض العروض التقديمية
 type: docs
 weight: 50
-url: /php-java/presentation-viewer/
+url: /ar/php-java/presentation-viewer/
 keywords: "عارض PPT PowerPoint"
 description: "عارض PPT PowerPoint "
 ---

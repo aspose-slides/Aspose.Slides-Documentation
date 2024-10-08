@@ -2,7 +2,7 @@
 title: إدارة النقاط
 type: docs
 weight: 60
-url: /php-java/manage-bullet/
+url: /ar/php-java/manage-bullet/
 keywords: "نقاط, قوائم نقطية, أرقام, قوائم مرقمة, نقاط صور, نقاط متعددة المستويات, عرض بوربوينت, جافا, Aspose.Slides لـ PHP عبر جافا"
 description: "إنشاء قوائم نقطية ومرقمة في عرض بوربوينت"
 ---

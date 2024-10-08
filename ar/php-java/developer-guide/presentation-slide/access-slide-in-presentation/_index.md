@@ -2,7 +2,7 @@
 title: الوصول إلى الشريحة في العرض التقديمي
 type: docs
 weight: 20
-url: /php-java/access-slide-in-presentation/
+url: /ar/php-java/access-slide-in-presentation/
 keywords: "الوصول إلى عرض PowerPoint، الوصول إلى الشريحة، تحرير خصائص الشريحة، تغيير موقع الشريحة، تعيين رقم الشريحة، الفهرس، المعرف، الموقع Java، Aspose.Slides"
 description: "الوصول إلى شريحة PowerPoint بواسطة الفهرس أو المعرف أو الموقع. تحرير خصائص الشريحة"
 ---

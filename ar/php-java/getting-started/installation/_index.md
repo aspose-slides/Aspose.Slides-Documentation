@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /php-java/installation/
+url: /ar/php-java/installation/
 keySlides: "تحميل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، ويندوز، macOS، لينكس، PHP"
 description: "تثبيت Aspose.Slides لـ PHP عبر Java في ويندوز، لينكس أو macOS"
 ---

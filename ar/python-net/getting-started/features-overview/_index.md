@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 20
-url: /python-net/features-overview/
+url: /ar/python-net/features-overview/
 ---
 
 ## **المنصات المدعومة**
@@ -19,11 +19,11 @@ url: /python-net/features-overview/
 
 |**الميزة**|**الوصف**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/python-net/ppt-vs-pptx/)|توفر Aspose.Slides لـ Python عبر .NET أسرع معالجة لهذا التنسيق من مستندات العروض التقديمية.|
-|[تحويل PPT إلى PPTX](/slides/python-net/convert-ppt-to-pptx/)|تدعم Aspose.Slides لـ Python عبر .NET تحويل PPT إلى PPTX.|
-|[تنسيق المستندات المحمولة (PDF)](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|يمكنك تصدير جميع صيغ الملفات المدعومة إلى مستندات تنسيق المستندات المحمولة من Adobe (PDF) باستخدام طريقة واحدة.|
+|[Microsoft PowerPoint (PPT)](/slides/ar/python-net/ppt-vs-pptx/)|توفر Aspose.Slides لـ Python عبر .NET أسرع معالجة لهذا التنسيق من مستندات العروض التقديمية.|
+|[تحويل PPT إلى PPTX](/slides/ar/python-net/convert-ppt-to-pptx/)|تدعم Aspose.Slides لـ Python عبر .NET تحويل PPT إلى PPTX.|
+|[تنسيق المستندات المحمولة (PDF)](/slides/ar/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|يمكنك تصدير جميع صيغ الملفات المدعومة إلى مستندات تنسيق المستندات المحمولة من Adobe (PDF) باستخدام طريقة واحدة.|
 |[موا Specifications XML Parser (XPS)](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)|يمكنك تصدير جميع صيغ الملفات المدعومة إلى مستندات موا Specifications XML Parser (XPS) باستخدام طريقة واحدة.|
-|[تنسيق ملف الصورة المرفق (TIFF)](/slides/python-net/convert-powerpoint-to-tiff/)|يمكنك تصدير جميع صيغ ملفات العروض التقديمية المدعومة إلى تنسيق ملف الصورة المرفق (TIFF).|
+|[تنسيق ملف الصورة المرفق (TIFF)](/slides/ar/python-net/convert-powerpoint-to-tiff/)|يمكنك تصدير جميع صيغ ملفات العروض التقديمية المدعومة إلى تنسيق ملف الصورة المرفق (TIFF).|
 |[تحويل PPTX إلى HTML](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)|تدعم Aspose.Slides لـ Python عبر .NET تحويل PresentationEx إلى تنسيق HTML.|
 
 ## **العرض والطباعة**

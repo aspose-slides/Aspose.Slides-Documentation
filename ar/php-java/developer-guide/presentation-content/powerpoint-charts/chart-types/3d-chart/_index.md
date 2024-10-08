@@ -1,7 +1,7 @@
 ---
 title: رسم بياني ثلاثي الأبعاد
 type: docs
-url: /php-java/3d-chart/
+url: /ar/php-java/3d-chart/
 ---
 
 ## **تعيين خصائص RotationX و RotationY و DepthPercents للرسم البياني ثلاثي الأبعاد**

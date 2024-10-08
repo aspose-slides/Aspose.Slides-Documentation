@@ -2,7 +2,7 @@
 title: إدارة Blob
 type: docs
 weight: 10
-url: /python-net/manage-blob/
+url: /ar/python-net/manage-blob/
 keywords: "إضافة Blob، تصدير Blob، إضافة صورة كـ Blob، عرض PowerPoint، بايثون، Aspose.Slides للبايثون عبر .NET"
 description: "إضافة Blob إلى عرض PowerPoint في بايثون. تصدير Blob. إضافة صورة كـ Blob"
 ---
@@ -17,7 +17,7 @@ description: "إضافة Blob إلى عرض PowerPoint في بايثون. تصد
 
 ### **إضافة ملف كبير عبر BLOB إلى عرض**
 
-تتيح لك [Aspose.Slides](/slides/python-net/) لـ .NET إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) من خلال عملية تشمل BLOBs لتقليل استهلاك الذاكرة.
+تتيح لك [Aspose.Slides](/slides/ar/python-net/) لـ .NET إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) من خلال عملية تشمل BLOBs لتقليل استهلاك الذاكرة.
 
 بينما توضح لك هذه السطور البرمجية في بايثون كيفية إضافة ملف فيديو كبير عبر عملية BLOB إلى عرض:
 

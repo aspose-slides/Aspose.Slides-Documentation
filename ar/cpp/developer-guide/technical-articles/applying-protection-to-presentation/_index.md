@@ -2,14 +2,14 @@
 title: تطبيق الحماية على العرض التقديمي
 type: docs
 weight: 10
-url: /cpp/applying-protection-to-presentation/
+url: /ar/cpp/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint 2007 (PPTX) كجزء من سير العمل الآلي. يحصل مستخدمو التطبيق الذي يستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض الإنتاجية. حمايتها من التحرير هي قضية شائعة. من المهم أن تحتفظ العروض التقديمية التي تم إنشاؤها تلقائيًا بتنسيقها ومحتواها الأصليين.
 
-تشرح هذه المقالة كيف يتم [بناء العروض والشرائح](/slides/cpp/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides لـ C++ [تطبيق الحماية على](/slides/cpp/applying-protection-to-presentation/) ثم [إزالتها من](/slides/cpp/applying-protection-to-presentation/) عرض تقديمي. هذه الميزة فريدة من نوعها لـ Aspose.Slides، وفي وقت كتابة هذه السطور، غير متاحة في Microsoft PowerPoint. إنها تمنح المطورين وسيلة للتحكم في كيفية استخدام العروض التقديمية التي تنشئها تطبيقاتهم.
+تشرح هذه المقالة كيف يتم [بناء العروض والشرائح](/slides/ar/cpp/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides لـ C++ [تطبيق الحماية على](/slides/ar/cpp/applying-protection-to-presentation/) ثم [إزالتها من](/slides/ar/cpp/applying-protection-to-presentation/) عرض تقديمي. هذه الميزة فريدة من نوعها لـ Aspose.Slides، وفي وقت كتابة هذه السطور، غير متاحة في Microsoft PowerPoint. إنها تمنح المطورين وسيلة للتحكم في كيفية استخدام العروض التقديمية التي تنشئها تطبيقاتهم.
 
 {{% /alert %}} 
 ## **تكوين الشريحة**

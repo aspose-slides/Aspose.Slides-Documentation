@@ -3,7 +3,7 @@ title: تحويل PPTX إلى PPT في جافا
 linktitle: تحويل PPTX إلى PPT
 type: docs
 weight: 21
-url: /java/convert-pptx-to-ppt/
+url: /ar/java/convert-pptx-to-ppt/
 keywords: "جافا تحويل PPTX إلى PPT, تحويل عرض PowerPoint, PPTX إلى PPT, جافا, Aspose.Slides"
 description: "تحويل PowerPoint PPTX إلى PPT في جافا"
 ---

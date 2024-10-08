@@ -2,12 +2,12 @@
 title: تأثير الشكل
 type: docs
 weight: 30
-url: /python-net/shape-effect
+url: /ar/python-net/shape-effect
 keywords: "تأثير الشكل، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "تطبيق تأثير على شكل PowerPoint في بايثون"
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/python-net/shape-formatting/#gradient-fill) أو الحواف. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل، ونشر توهج شكل، إلخ.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/ar/python-net/shape-formatting/#gradient-fill) أو الحواف. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل، ونشر توهج شكل، إلخ.
 
 <img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
 

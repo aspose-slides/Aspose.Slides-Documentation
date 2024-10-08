@@ -2,7 +2,7 @@
 title: النص العلوي والنص السلفي
 type: docs
 weight: 80
-url: /net/superscript-and-subscript/
+url: /ar/net/superscript-and-subscript/
 keywords: "نص علوي, نص سلفي, إضافة نص علوي, إضافة نص سلفي, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "إضافة نص علوي ونص سلفي إلى عروض PowerPoint في C# أو .NET"
 ---

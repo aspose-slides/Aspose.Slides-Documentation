@@ -2,12 +2,12 @@
 title: إنشاء وتضمين مخطط إكسل ككائن OLE في شريحة PowerPoint في Microsoft
 type: docs
 weight: 60
-url: /androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ar/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- المخططات هي تمثيلات بصرية لبياناتك وتستخدم على نطاق واسع في شرائح العروض التقديمية. ستظهر لك هذه المقالة الكود لإنشاء وتضمين مخطط إكسل ككائن OLE في شريحة PowerPoint برمجيًا باستخدام [VSTO](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و[Aspose.Slides for Android via Java](/slides/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ المخططات هي تمثيلات بصرية لبياناتك وتستخدم على نطاق واسع في شرائح العروض التقديمية. ستظهر لك هذه المقالة الكود لإنشاء وتضمين مخطط إكسل ككائن OLE في شريحة PowerPoint برمجيًا باستخدام [VSTO](/slides/ar/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و[Aspose.Slides for Android via Java](/slides/ar/androidjava/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **إنشاء وتضمين مخطط إكسل**

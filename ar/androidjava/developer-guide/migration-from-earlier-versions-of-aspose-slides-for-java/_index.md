@@ -2,5 +2,5 @@
 title: الترحيل من الإصدارات السابقة من Aspose.Slides لـ Java
 type: docs
 weight: 320
-url: /androidjava/migration-from-earlier-versions-of-aspose-slides-for-java/
+url: /ar/androidjava/migration-from-earlier-versions-of-aspose-slides-for-java/
 ---

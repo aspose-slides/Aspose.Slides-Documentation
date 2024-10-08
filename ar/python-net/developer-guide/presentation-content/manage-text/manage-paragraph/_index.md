@@ -2,7 +2,7 @@
 title: إدارة فقرة PowerPoint في Python
 type: docs
 weight: 40
-url: /python-net/manage-paragraph/
+url: /ar/python-net/manage-paragraph/
 keywords: "إضافة فقرة PowerPoint، إدارة الفقرات، مسافة الفقرة، خصائص الفقرة، نص HTML، تصدير نص الفقرة، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "إنشاء وإدارة فقرة، نص، مسافة، وخصائص في عروض PowerPoint باستخدام Python"
 ---

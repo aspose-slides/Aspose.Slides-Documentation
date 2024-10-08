@@ -2,7 +2,7 @@
 title: استنساخ الشرائح
 type: docs
 weight: 40
-url: /python-net/clone-slides/
+url: /ar/python-net/clone-slides/
 keywords: "استنساخ شريحة، نسخ شريحة، حفظ نسخة الشريحة، PowerPoint، عرض تقديمي، Python، Aspose.Slides"
 description: "استنساخ شريحة PowerPoint في Python"
 ---

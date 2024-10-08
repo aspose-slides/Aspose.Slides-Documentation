@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /net/installation/
+url: /ar/net/installation/
 keywords: "تحميل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، Windows، macOS، .NET"
 description: "تثبيت Aspose.Slides لـ .NET على Windows أو macOS"
 ---
@@ -81,6 +81,6 @@ description: "تثبيت Aspose.Slides لـ .NET على Windows أو macOS"
 4. اكتب *Aspose.Slides* في حقل النص.
 5. انقر على **Aspose.Slides لـ .NET** ثم انقر على **إضافة حزمة**.
 6. أضف مقتطف كود بسيط.
-   * يمكنك نسخ الكود من [هذه الصفحة](/slides/net/create-presentation/).
+   * يمكنك نسخ الكود من [هذه الصفحة](/slides/ar/net/create-presentation/).
 7. نفذ التطبيق.
 8. افتح *folder/bin/Debug/presentation_file_name* لمشروعك.

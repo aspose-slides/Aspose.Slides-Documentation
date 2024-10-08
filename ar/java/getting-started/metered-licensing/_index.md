@@ -2,7 +2,7 @@
 title: الترخيص المدفوع
 type: docs
 weight: 100
-url: /java/metered-licensing/
+url: /ar/java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

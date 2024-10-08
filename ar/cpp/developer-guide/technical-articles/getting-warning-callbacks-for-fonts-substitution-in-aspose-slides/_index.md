@@ -2,7 +2,7 @@
 title: الحصول على ردود تحذير لاستبدال الخطوط في Aspose.Slides
 type: docs
 weight: 70
-url: /cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /ar/cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

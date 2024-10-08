@@ -3,5 +3,5 @@ title: المخططات في PowerPoint - كيفية إنشاء وتعديل م�
 linktitle: المخططات في PowerPoint
 type: docs
 weight: 70
-url: /net/powerpoint-charts/
+url: /ar/net/powerpoint-charts/
 ---

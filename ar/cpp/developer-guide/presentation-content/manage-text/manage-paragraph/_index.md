@@ -2,7 +2,7 @@
 title: إدارة فقرات PowerPoint في C++
 type: docs
 weight: 40
-url: /cpp/manage-paragraph/
+url: /ar/cpp/manage-paragraph/
 keywords: "إضافة فقرة PowerPoint، إدارة الفقرات، إندفاع الفقرة، خصائص الفقرة، نص HTML، تصدير نص الفقرة، عرض PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "إنشاء وإدارة الفقرات والنص والإندفاع والخصائص في عروض PowerPoint باستخدام C++"
 ---

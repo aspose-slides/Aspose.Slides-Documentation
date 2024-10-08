@@ -3,7 +3,7 @@ title: تحويل PowerPoint إلى PDF مع الملاحظات في C#
 linktitle: تحويل PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
-url: /net/convert-powerpoint-to-pdf-with-notes/
+url: /ar/net/convert-powerpoint-to-pdf-with-notes/
 keywords: "تحويل PowerPoint، عرض تقديمي، PowerPoint إلى PDF، ملاحظات، c#، csharp، .NET، Aspose.Slides"
 description: "تحويل PowerPoint إلى PDF مع الملاحظات باستخدام C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: فلاش
 type: docs
 weight: 10
-url: /androidjava/flash/
+url: /ar/androidjava/flash/
 description: استخراج كائنات Flash من عرض PowerPoint باستخدام Java
 ---
 

@@ -2,7 +2,7 @@
 title: إدارة صندوق النص
 type: docs
 weight: 20
-url: /python-net/manage-textbox/
+url: /ar/python-net/manage-textbox/
 keywords: "صندوق نص, إطار نص, إضافة صندوق نص, صندوق نص مع رابط, بايثون, Aspose.Slides لبايثون عبر .NET"
 description: "إضافة صندوق نص أو إطار نص إلى عروض PowerPoint في بايثون أو .NET"
 ---

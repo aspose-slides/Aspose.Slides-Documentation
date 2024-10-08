@@ -2,12 +2,12 @@
 title: واجهة API العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.5.0
 type: docs
 weight: 70
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/
+url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تشمل هذه الصفحة جميع [الإضافات](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) من الفئات والأساليب والخصائص وما إلى ذلك، وأي [قيود](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) جديدة وتغييرات أخرى [مقدمة](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) مع واجهة API لـ Aspose.Slides لـ .NET 14.5.0.
+تشمل هذه الصفحة جميع [الإضافات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) من الفئات والأساليب والخصائص وما إلى ذلك، وأي [قيود](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) جديدة وتغييرات أخرى [مقدمة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-5-0/) مع واجهة API لـ Aspose.Slides لـ .NET 14.5.0.
 
 {{% /alert %}} 
 ## **واجهة API العامة والتغييرات غير المتوافقة مع الإصدارات السابقة**

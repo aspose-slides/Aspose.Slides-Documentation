@@ -2,7 +2,7 @@
 title: حسابات المخطط
 type: docs
 weight: 50
-url: /cpp/chart-calculations/
+url: /ar/cpp/chart-calculations/
 ---
 
 ## **حساب القيم الفعلية لعناصر المخطط**

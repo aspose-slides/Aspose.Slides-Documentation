@@ -3,7 +3,7 @@ title: خطوط PowerPoint مخصصة في C#
 linktitle: خط مخصص
 type: docs
 weight: 20
-url: /net/custom-font/
+url: /ar/net/custom-font/
 keywords: "خطوط, خطوط مخصصة, عرض PowerPoint, C#, Csharp, Aspose.Slides لـ .NET"
 description: "خطوط PowerPoint مخصصة في C#"
 ---

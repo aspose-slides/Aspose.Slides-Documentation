@@ -2,7 +2,7 @@
 title: قيود واجهة البرمجة
 type: docs
 weight: 320
-url: /php-java/api-limitations/
+url: /ar/php-java/api-limitations/
 ---
 
 ## **العروض التقديمية وأشكال التصدير الأخرى**

@@ -2,7 +2,7 @@
 title: مخطط الدونات
 type: docs
 weight: 30
-url: /cpp/doughnut-chart/
+url: /ar/cpp/doughnut-chart/
 ---
 
 ## **تحديد فجوة المركز في مخطط الدونات**

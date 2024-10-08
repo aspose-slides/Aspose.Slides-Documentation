@@ -2,7 +2,7 @@
 title: نقل فقرة من عرض تقديمي إلى آخر
 type: docs
 weight: 130
-url: /net/move-a-paragraph-from-one-presentation-to-another/
+url: /ar/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **OpenXML Presentation**

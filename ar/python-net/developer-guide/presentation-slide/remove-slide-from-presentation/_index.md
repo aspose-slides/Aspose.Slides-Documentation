@@ -2,7 +2,7 @@
 title: إزالة شريحة من العرض التقديمي
 type: docs
 weight: 30
-url: /python-net/remove-slide-from-presentation/
+url: /ar/python-net/remove-slide-from-presentation/
 keywords: "إزالة شريحة, حذف شريحة, باوربوينت, عرض تقديمي, بايثون, Aspose.Slides"
 description: "إزالة شريحة من باوربوينت حسب المرجع أو الفهرس في بايثون"
 

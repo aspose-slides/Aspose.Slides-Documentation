@@ -2,7 +2,7 @@
 title: الاستثناءات والأخطاء الشائعة المتعلقة بالخطوط على لينوكس
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /ar/java/technical-articles/common-errors-involving-fonts
 keywords: "استثناء الخط، خطأ الخط، لينوكس، جافا، Aspose.Slides لـ جافا"
 description: "استثناءات وأخطاء الخطوط على لينوكس"
 ---

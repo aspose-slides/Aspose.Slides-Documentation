@@ -2,7 +2,7 @@
 title: تحويل ODP إلى PPTX
 type: docs
 weight: 10
-url: /python-net/convert-odp-to-pptx/
+url: /ar/python-net/convert-odp-to-pptx/
 keywords: "تحويل عرض OpenOffice، ODP، ODP إلى PPTX، بايثون"
 description: "تحويل ODP من OpenOffice إلى عرض PowerPoint PPTX في بايثون"
 ---

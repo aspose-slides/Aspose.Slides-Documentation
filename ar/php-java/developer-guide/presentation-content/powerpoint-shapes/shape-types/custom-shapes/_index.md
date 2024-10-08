@@ -2,7 +2,7 @@
 title: الشكل المخصص
 type: docs
 weight: 20
-url: /php-java/custom-shape/
+url: /ar/php-java/custom-shape/
 keywords: "شكل PowerPoint، شكل مخصص، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "إضافة شكل مخصص في عرض PowerPoint"
 ---

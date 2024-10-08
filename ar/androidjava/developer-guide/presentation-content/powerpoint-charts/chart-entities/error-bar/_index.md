@@ -1,7 +1,7 @@
 ---
 title: شريط الخطأ
 type: docs
-url: /androidjava/error-bar/
+url: /ar/androidjava/error-bar/
 ---
 
 ## **إضافة شريط خطأ**

@@ -2,7 +2,7 @@
 title: صيغ ورقة العمل للرسم البياني
 type: docs
 weight: 70
-url: /cpp/chart-worksheet-formulas/
+url: /ar/cpp/chart-worksheet-formulas/
 keywords: "معادلات PowerPoint، صيغ جداول بيانات PowerPoint"
 description: "معادلات PowerPoint وصيغ جداول البيانات"
 ---

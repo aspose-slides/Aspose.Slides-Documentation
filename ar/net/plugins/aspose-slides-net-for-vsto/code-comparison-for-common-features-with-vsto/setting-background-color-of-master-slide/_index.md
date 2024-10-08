@@ -2,7 +2,7 @@
 title: تعيين لون الخلفية للشريحة الرئيسية
 type: docs
 weight: 140
-url: /net/setting-background-color-of-master-slide/
+url: /ar/net/setting-background-color-of-master-slide/
 ---
 
 ## **VSTO**

@@ -2,12 +2,12 @@
 title: إنشاء جدول في شريحة PowerPoint
 type: docs
 weight: 50
-url: /php-java/creating-a-table-on-powerpoint-slide/
+url: /ar/php-java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-تستخدم الجداول على نطاق واسع لعرض البيانات في شرائح العروض التقديمية. توضح هذه المقالة كيفية إنشاء جدول 15 × 15 بحجم خط 10 برمجياً باستخدام [VSTO 2008](/slides/php-java/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for PHP عبر Java](/slides/php-java/creating-a-table-on-powerpoint-slide/).
+تستخدم الجداول على نطاق واسع لعرض البيانات في شرائح العروض التقديمية. توضح هذه المقالة كيفية إنشاء جدول 15 × 15 بحجم خط 10 برمجياً باستخدام [VSTO 2008](/slides/ar/php-java/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for PHP عبر Java](/slides/ar/php-java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **إنشاء جداول**

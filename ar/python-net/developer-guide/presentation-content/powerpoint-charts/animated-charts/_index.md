@@ -2,7 +2,7 @@
 title: الرسوم البيانية المتحركة
 type: docs
 weight: 80
-url: /python-net/animated-charts/
+url: /ar/python-net/animated-charts/
 keywords: "الرسوم البيانية، سلسلة الرسوم البيانية، الرسوم المتحركة، عرض PowerPoint، PPTX، PPT، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "سلاسل الرسوم البيانية والرسوم المتحركة في PowerPoint باستخدام بايثون"
 ---

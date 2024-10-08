@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /java/installation/
+url: /ar/java/installation/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: دفتر عمل الرسم البياني
 type: docs
 weight: 70
-url: /python-net/chart-workbook/
+url: /ar/python-net/chart-workbook/
 keywords: "دفتر عمل الرسم البياني، بيانات الرسم البياني، عرض تقديمي باور بوينت، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "دفتر عمل الرسم البياني في عرض تقديمي باور بوينت في بايثون"
 ---

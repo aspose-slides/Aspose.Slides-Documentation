@@ -1,7 +1,7 @@
 ---
 title: علامة بيانات الرسم البياني
 type: docs
-url: /python-net/chart-data-marker/
+url: /ar/python-net/chart-data-marker/
 keywords: "خيارات علامات الرسم البياني، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "تعيين خيارات علامات الرسم البياني في عروض PowerPoint باستخدام Python"
 ---

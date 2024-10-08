@@ -2,7 +2,7 @@
 title: تنسيقات الملفات المدعومة
 type: docs
 weight: 30
-url: /php-java/supported-file-formats/
+url: /ar/php-java/supported-file-formats/
 ---
 
 ## **إصدارات Microsoft PowerPoint المدعومة**

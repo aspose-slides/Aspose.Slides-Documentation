@@ -2,12 +2,12 @@
 title: تأثير الشكل
 type: docs
 weight: 30
-url: /java/shape-effect
+url: /ar/java/shape-effect
 keywords: "تأثير الشكل، عرض PowerPoint، Java، Aspose.Slides لـ Java"
 description: "تطبيق تأثير على شكل PowerPoint باستخدام Java"
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/java/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل، ونشر توهج الشكل، إلخ.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/ar/java/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل، ونشر توهج الشكل، إلخ.
 
 <img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
 

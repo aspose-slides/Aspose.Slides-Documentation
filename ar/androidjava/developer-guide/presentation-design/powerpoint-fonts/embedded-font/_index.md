@@ -3,7 +3,7 @@ title: الخطوط المدمجة - واجهة برمجة التطبيقات Po
 linktitle: الخطوط المدمجة
 type: docs
 weight: 40
-url: /androidjava/embedded-font/
+url: /ar/androidjava/embedded-font/
 keywords: "الخطوط، الخطوط المدمجة، إضافة خطوط، عرض PowerPoint، Java، Aspose.Slides لـ Android عبر Java"
 description: "استخدام الخطوط المدمجة في عرض PowerPoint في Java"
 

@@ -3,7 +3,7 @@ title: إنشاء أو تحديث الرسوم البيانية في عرض Powe
 linktitle: إنشاء رسم بياني
 type: docs
 weight: 10
-url: /php-java/create-chart/
+url: /ar/php-java/create-chart/
 keywords: "إنشاء رسم بياني، رسم بياني متشتت، رسم بياني دائري، رسم بياني خريطة شجرية، رسم بياني للمخزون، رسم بياني صندوق وشوكة، رسم بياني هيستوجرام، رسم بياني قمع، رسم بياني شمس مركزي، رسم بياني متعدد الفئات، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "إنشاء رسم بياني في عرض PowerPoint "
 ---

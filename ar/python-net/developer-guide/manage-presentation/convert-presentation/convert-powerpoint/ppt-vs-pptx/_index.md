@@ -2,7 +2,7 @@
 title: PPT مقابل PPTX
 type: docs
 weight: 10
-url: /python-net/ppt-vs-pptx/
+url: /ar/python-net/ppt-vs-pptx/
 keywords: "PPT مقابل PPTX، PPT أو PPTX، عرض PowerPoint، تنسيق، بايثون"
 description: "حول تنسيقات عرض PowerPoint. PPT مقابل PPTX. الاختلافات في بايثون"
 ---
@@ -37,5 +37,5 @@ pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**كيفية تحويل العروض التقديمية من PPT إلى PPTX**.](/slides/python-net/convert-ppt-to-pptx/)
+اقرأ المزيد [**كيفية تحويل العروض التقديمية من PPT إلى PPTX**.](/slides/ar/python-net/convert-ppt-to-pptx/)
 {{% /alert %}} 

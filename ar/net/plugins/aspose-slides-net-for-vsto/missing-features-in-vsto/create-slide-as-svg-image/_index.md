@@ -2,7 +2,7 @@
 title: إنشاء شريحة كصورة SVG
 type: docs
 weight: 70
-url: /net/create-slide-as-svg-image/
+url: /ar/net/create-slide-as-svg-image/
 ---
 
 لتوليد صورة SVG من أي شريحة مرغوبة باستخدام Aspose.Slides.Pptx لـ .NET، يرجى اتباع الخطوات أدناه:
@@ -68,6 +68,6 @@ SvgStream.Close();
 
 {{% alert color="primary" %}} 
 
-للمزيد من التفاصيل، تفضل بزيارة [إنشاء شريحة SVG](/slides/net/presentation-viewer/).
+للمزيد من التفاصيل، تفضل بزيارة [إنشاء شريحة SVG](/slides/ar/net/presentation-viewer/).
 
 {{% /alert %}}

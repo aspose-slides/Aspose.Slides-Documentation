@@ -2,7 +2,7 @@
 title: حسابات المخطط
 type: docs
 weight: 50
-url: /net/chart-calculations/
+url: /ar/net/chart-calculations/
 keywords: "حسابات المخطط، عناصر المخطط، موضع العنصر، قيم المخطط C#، Csharp، Aspose.Slides لـ .NET"
 description: "حسابات وقيم مخطط PowerPoint في C# أو .NET"
 ---

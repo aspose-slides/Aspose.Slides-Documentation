@@ -2,7 +2,7 @@
 title: مشكلة تغيير الكائن عند إضافة OleObjectFrame
 type: docs
 weight: 10
-url: /java/object-changed-issue-when-adding-oleobjectframe/
+url: /ar/java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **بيان المشكلة**
@@ -10,7 +10,7 @@ url: /java/object-changed-issue-when-adding-oleobjectframe/
 ## **التحليل النقدي والتفسير**
 أولاً، من المهم معرفة أن رسالة **Object Changed** التي تظهرها Aspose.Slides for Java بعد إضافة **OleObjectFrame** إلى الشريحة، هي **ليست** خطأ أو عطل في Aspose.Slides for Java. إنها مجرد معلومات أو رسالة لإخطار المستخدمين بأن الكائن قد تغير وأن الصورة يجب أن تُحدث.
 
-على سبيل المثال، إذا أضفت **رسم بياني من Microsoft Excel** كـ **OleObjectFrame** إلى شريحتك (للمزيد من التفاصيل وقطع الكود حول إضافة **OleObjectFrame** إلى شريحتك، [انقر هنا](/slides/java/adding-frame-to-the-slide/)) ثم فتحت ملف العرض التقديمي باستخدام MS PowerPoint، فإن الشريحة (حيث تم إضافة **OLE Object**) ستبدو هكذا:
+على سبيل المثال، إذا أضفت **رسم بياني من Microsoft Excel** كـ **OleObjectFrame** إلى شريحتك (للمزيد من التفاصيل وقطع الكود حول إضافة **OleObjectFrame** إلى شريحتك، [انقر هنا](/slides/ar/java/adding-frame-to-the-slide/)) ثم فتحت ملف العرض التقديمي باستخدام MS PowerPoint، فإن الشريحة (حيث تم إضافة **OLE Object**) ستبدو هكذا:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

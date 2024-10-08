@@ -3,7 +3,7 @@ title: استيراد باوربوينت من PDF أو HTML
 linktitle: استيراد العرض التقديمي
 type: docs
 weight: 60
-url: /net/import-presentation/
+url: /ar/net/import-presentation/
 keywords: "استيراد باوربوينت، PDF إلى باوربوينت، HTML إلى باوربوينت، PDF إلى PPT، HTML إلى PPT، C#، Csharp، Aspose.Slides لـ .NET"
 description: "استيراد باوربوينت من PDF أو HTML. تحويل PDF إلى باوربوينت. تحويل HTML إلى باوربوينت"
 ---

@@ -2,7 +2,7 @@
 title: الحصول على استدعاءات التحذير لاستبدال الخطوط في Aspose.Slides
 type: docs
 weight: 120
-url: /python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /ar/python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

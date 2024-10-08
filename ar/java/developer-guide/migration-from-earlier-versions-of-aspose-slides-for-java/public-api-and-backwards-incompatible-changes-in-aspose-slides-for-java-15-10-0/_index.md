@@ -2,12 +2,12 @@
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة عكسيًا في Aspose.Slides لـ Java 15.10.0
 type: docs
 weight: 180
-url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
+url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع الفئات [المضافة](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) أو [المزالة](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) والطرق والخصائص وما إلى ذلك، والتغييرات الأخرى المقدمة مع واجهة برمجة تطبيقات Aspose.Slides لـ Java 15.10.0.
+تسرد هذه الصفحة جميع الفئات [المضافة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) أو [المزالة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) والطرق والخصائص وما إلى ذلك، والتغييرات الأخرى المقدمة مع واجهة برمجة تطبيقات Aspose.Slides لـ Java 15.10.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة برمجة التطبيقات العامة**

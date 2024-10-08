@@ -2,7 +2,7 @@
 title: تنسيقات الملفات المدعومة
 type: docs
 weight: 150
-url: /androidjava/supported-file-formats/
+url: /ar/androidjava/supported-file-formats/
 ---
 
 ## **إصدارات Microsoft PowerPoint المدعومة**

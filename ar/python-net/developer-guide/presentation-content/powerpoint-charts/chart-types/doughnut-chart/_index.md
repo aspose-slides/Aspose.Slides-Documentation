@@ -2,7 +2,7 @@
 title: مخطط الدونات
 type: docs
 weight: 30
-url: /python-net/doughnut-chart/
+url: /ar/python-net/doughnut-chart/
 keywords: "مخطط الدونات, فتحة مركزية, تقديم PowerPoint, بايثون, Aspose.Slides لـ Python عبر .NET"
 description: "حدد الفتحة المركزية في مخطط الدونات في تقديم PowerPoint في بايثون"
 ---

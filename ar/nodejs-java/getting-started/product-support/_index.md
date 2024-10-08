@@ -2,7 +2,7 @@
 title: دعم المنتج
 type: docs
 weight: 100
-url: /nodejs-java/product-support/
+url: /ar/nodejs-java/product-support/
 ---
 
 ## **الدعم الفني**
@@ -41,4 +41,4 @@ url: /nodejs-java/product-support/
 |[مدونة Aspose.Slides](https://blog.aspose.com/category/slides/)|تحقق من هذا القسم بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تنزيل Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/)|قم بتنزيل أحدث إصدار من Aspose.Slides من هذه الصفحة. نحن نطلق إصدارات جديدة بانتظام.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|قم بنشر أسئلتك ومشاكلك هنا لحل سريع.|
-|[وثائق منتج Aspose.Slides لـ Node.js عبر Java](/slides/nodejs-java/)|وثائق كاملة عبر الإنترنت تحتوي على هذه الوثيقة ومرجع API لـ Aspose.Slides.|
+|[وثائق منتج Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/)|وثائق كاملة عبر الإنترنت تحتوي على هذه الوثيقة ومرجع API لـ Aspose.Slides.|

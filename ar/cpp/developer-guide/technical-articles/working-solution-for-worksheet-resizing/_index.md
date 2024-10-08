@@ -2,7 +2,7 @@
 title: حل عملي لتغيير حجم ورقة العمل
 type: docs
 weight: 130
-url: /cpp/working-solution-for-worksheet-resizing/
+url: /ar/cpp/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -313,4 +313,4 @@ System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::D
 h4. {_}الأقسام ذات الصلة 
 {_}
 
-[إنشاء وتضمين مخطط Excel ككائن OLE في العرض التقديمي](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[إنشاء وتضمين مخطط Excel ككائن OLE في العرض التقديمي](/slides/ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

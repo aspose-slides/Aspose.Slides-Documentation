@@ -2,5 +2,5 @@
 title: دليل المطور
 type: docs
 weight: 20
-url: /php-java/developer-guide/
+url: /ar/php-java/developer-guide/
 ---

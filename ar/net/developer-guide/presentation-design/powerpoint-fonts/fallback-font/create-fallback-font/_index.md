@@ -2,7 +2,7 @@
 title: إنشاء خط احتياطي
 type: docs
 weight: 10
-url: /net/create-fallback-font/
+url: /ar/net/create-fallback-font/
 keywords: "الخطوط، خط احتياطي، عرض باوربوينت C#، Csharp، Aspose.Slides لـ .NET"
 description: "خط احتياطي في باوربوينت في C# أو .NET"
 ---
@@ -30,5 +30,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) لتنظيم قائمة من كائنات [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) ، عندما تكون هناك حاجة لتحديد قواعد استبدال الخط الاحتياطي لعدة نطاقات يونيكود.
 
 {{% alert color="primary" title="انظر أيضاً" %}} 
-- [إنشاء مجموعة خطوط احتياطية](/slides/net/create-fallback-fonts-collection/)
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/net/create-fallback-fonts-collection/)
 {{% /alert %}}

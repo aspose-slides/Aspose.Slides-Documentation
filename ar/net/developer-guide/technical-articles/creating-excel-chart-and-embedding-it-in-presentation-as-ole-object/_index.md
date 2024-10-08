@@ -2,7 +2,7 @@
 title: إنشاء مخطط Excel وتضمينه في العرض التقديمي ككائن OLE
 type: docs
 weight: 50
-url: /net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ar/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -144,4 +144,4 @@ static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wb
 
 {{% /alert %}} 
 ## **الأقسام ذات الصلة**
-[حل عملي لتعديل حجم المخطط](/slides/net/working-solution-for-chart-resizing-in-pptx/)[مشكلة الكائن المتغير](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[حل عملي لتعديل حجم المخطط](/slides/ar/net/working-solution-for-chart-resizing-in-pptx/)[مشكلة الكائن المتغير](/slides/ar/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -1,7 +1,7 @@
 ---
 title: سلسلة الرسم البياني
 type: docs
-url: /php-java/chart-series/
+url: /ar/php-java/chart-series/
 keywords: "سلسلة الرسم البياني، لون السلسلة، عرض تقديمي PowerPoint، Java، Aspose.Slides ل PHP عبر Java"
 description: "سلسلة الرسم البياني في عروض PowerPoint "
 ---

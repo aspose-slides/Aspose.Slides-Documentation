@@ -2,7 +2,7 @@
 title: تثبيت Aspose.Slides لأندرويد عبر جافا
 type: docs
 weight: 90
-url: /androidjava/install-aspose-slides-for-android-via-java/
+url: /ar/androidjava/install-aspose-slides-for-android-via-java/
 ---
 
 

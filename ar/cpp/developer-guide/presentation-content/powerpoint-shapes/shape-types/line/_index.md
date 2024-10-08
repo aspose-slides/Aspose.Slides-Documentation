@@ -2,7 +2,7 @@
 title: خط
 type: docs
 weight: 50
-url: /cpp/Line/
+url: /ar/cpp/Line/
 ---
 
 ## **إنشاء خط بسيط**

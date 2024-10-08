@@ -2,7 +2,7 @@
 title: المشكلات المعروفة في Aspose.Slides لنظام Android عبر Java 14.3.0
 type: docs
 weight: 20
-url: /androidjava/known-issues-in-aspose-slides-for-java-14-3-0/
+url: /ar/androidjava/known-issues-in-aspose-slides-for-java-14-3-0/
 ---
 
 يوفر Aspose.Slides لنظام Android عبر Java 14.3.0 (14.4.0) تنفيذًا جديدًا تمامًا لمعالجة PPT. هناك العديد من التحسينات، والتحويل الجزئي من PPTX إلى PPT. ولكن هناك بعض الميزات غير المنفذة:

@@ -2,7 +2,7 @@
 title: استيراد العرض التقديمي
 type: docs
 weight: 60
-url: /java/import-presentation/
+url: /ar/java/import-presentation/
 keywords: "استيراد باوربوينت، PDF إلى عرض تقديمي، PDF إلى PPTX، PDF إلى PPT، جافا، Aspose.Slides لجافا"
 description: "استيراد العرض التقديمي من PDF. تحويل PDF إلى باوربوينت"
 ---

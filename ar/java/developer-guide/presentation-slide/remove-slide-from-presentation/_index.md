@@ -2,7 +2,7 @@
 title: إزالة شريحة من العرض التقديمي
 type: docs
 weight: 30
-url: /java/remove-slide-from-presentation/
+url: /ar/java/remove-slide-from-presentation/
 keywords: "إزالة شريحة، حذف شريحة، باوربوينت، عرض تقديمي، جافا، Aspose.Slides"
 description: "إزالة شريحة من باوربوينت بالإشارة أو الفهرس في جافا"
 

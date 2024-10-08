@@ -2,18 +2,18 @@
 title: رأس وتذييل العرض
 type: docs
 weight: 140
-url: /cpp/presentation-header-and-footer/
+url: /ar/cpp/presentation-header-and-footer/
 keywords: "رأس وتذييل في PowerPoint"
 description: "رأس وتذييل في PowerPoint باستخدام Aspose.Slides."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/cpp/) توفر دعمًا للعمل مع نصوص رؤوس وتذييلات الشرائح التي يتم الحفاظ عليها على مستوى الشريحة الرئيسية.
+[Aspose.Slides](/slides/ar/cpp/) توفر دعمًا للعمل مع نصوص رؤوس وتذييلات الشرائح التي يتم الحفاظ عليها على مستوى الشريحة الرئيسية.
 
 {{% /alert %}} 
 
-[Aspose.Slides for C++](/slides/cpp/) يوفر ميزة إدارة الرؤوس والتذييلات داخل شرائح العرض. وهذه تُدار فعليًا على مستوى عرض المحاضرات.
+[Aspose.Slides for C++](/slides/ar/cpp/) يوفر ميزة إدارة الرؤوس والتذييلات داخل شرائح العرض. وهذه تُدار فعليًا على مستوى عرض المحاضرات.
 ## **إدارة نص الرأس والتذييل**
 يمكن تحديث ملاحظات شريحة معينة كما هو موضح في المثال أدناه:
 

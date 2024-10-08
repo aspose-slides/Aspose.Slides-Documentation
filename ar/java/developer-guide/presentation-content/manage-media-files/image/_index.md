@@ -2,7 +2,7 @@
 title: صورة
 type: docs
 weight: 10
-url: /java/image/
+url: /ar/java/image/
 description: العمل مع الصور في الشرائح في عروض PowerPoint باستخدام Java. أضف صورًا من القرص أو من الويب في شرائح PowerPoint باستخدام Java. أضف صورًا إلى شرائح الماستر أو كخلفية للشرائح باستخدام Java. أضف SVG إلى عروض PowerPoint باستخدام Java. تحويل SVG إلى أشكال في PowerPoint باستخدام Java. أضف صورًا كـ EMF في الشرائح باستخدام Java.
 ---
 

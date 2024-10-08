@@ -2,12 +2,12 @@
 title: إنشاء رسم بياني في عرض Microsoft PowerPoint
 type: docs
 weight: 70
-url: /php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ar/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- الرسوم البيانية هي تمثيلات بصرية للبيانات تُستخدم على نطاق واسع في العروض التقديمية. يوضح هذا المقال الشيفرة لإنشاء رسم بياني في Microsoft PowerPoint برمجيًا باستخدام [VSTO](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) و[Aspose.Slides لـ PHP عبر Java](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ الرسوم البيانية هي تمثيلات بصرية للبيانات تُستخدم على نطاق واسع في العروض التقديمية. يوضح هذا المقال الشيفرة لإنشاء رسم بياني في Microsoft PowerPoint برمجيًا باستخدام [VSTO](/slides/ar/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) و[Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **إنشاء رسم بياني**

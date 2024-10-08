@@ -2,7 +2,7 @@
 title: عرض للقراءة فقط
 type: docs
 weight: 30
-url: /cpp/read-only-presentation/
+url: /ar/cpp/read-only-presentation/
 
 ---
 

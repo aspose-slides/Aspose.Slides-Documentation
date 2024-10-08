@@ -2,7 +2,7 @@
 title: تحديد لغة العرض
 type: docs
 weight: 100
-url: /net/presentation-localization/
+url: /ar/net/presentation-localization/
 keywords: "تغيير اللغة، تدقيق إملائي، تدقيق، تدقيق إملائي، عرض PowerPoint، C#، Csharp، Aspose.Slides for .NET"
 description: "تغيير أو التحقق من اللغة في عرض PowerPoint. تدقيق إملائي للنص في C# أو .NET"
 ---

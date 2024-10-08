@@ -2,7 +2,7 @@
 title: تكوين خدمات التقارير في شيربوينت
 type: docs
 weight: 50
-url: /reportingservices/reporting-services-sharepoint-configuration/
+url: /ar/reportingservices/reporting-services-sharepoint-configuration/
 ---
 
 {{% alert color="primary" %}} 

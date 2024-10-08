@@ -2,7 +2,7 @@
 title: مقدمة
 type: docs
 weight: 10
-url: /sharepoint/introduction/
+url: /ar/sharepoint/introduction/
 ---
 
 {{% alert color="primary" %}} 
@@ -15,7 +15,7 @@ Aspose.Slides لـ SharePoint هو حل مرن لتحويل مستندات ~Micr
 
 تتناول هذه المقالة ما يلي: 
 
-- [ملحوظة حول مكتبة مستندات SharePoint](/slides/sharepoint/sharepoint-document-library/).
-- [فوائد استخدام Aspose.Slides لـ SharePoint](/slides/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
-- [كيفية تحويل مستندات Microsoft PowerPoint إلى تنسيقات أخرى](/slides/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
-- [ملخص](/slides/sharepoint/summary/)
+- [ملحوظة حول مكتبة مستندات SharePoint](/slides/ar/sharepoint/sharepoint-document-library/).
+- [فوائد استخدام Aspose.Slides لـ SharePoint](/slides/ar/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
+- [كيفية تحويل مستندات Microsoft PowerPoint إلى تنسيقات أخرى](/slides/ar/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+- [ملخص](/slides/ar/sharepoint/summary/)

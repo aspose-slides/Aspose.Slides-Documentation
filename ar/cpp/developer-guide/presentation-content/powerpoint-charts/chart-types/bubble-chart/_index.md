@@ -1,7 +1,7 @@
 ---
 title: رسم بياني فقاعي
 type: docs
-url: /cpp/bubble-chart/
+url: /ar/cpp/bubble-chart/
 ---
 
 ## **تغيير حجم الرسم البياني الفقاعي**

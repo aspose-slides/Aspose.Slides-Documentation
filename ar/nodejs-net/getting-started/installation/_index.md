@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /nodejs-net/installation/
+url: /ar/nodejs-net/installation/
 keySlides: "تحميل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، ويندوز، macOS، لينكس، Javascript، Node.js"
 description: "تثبيت Aspose.Slides لـ Node.js عبر .NET على ويندوز أو لينكس أو macOS"
 ---

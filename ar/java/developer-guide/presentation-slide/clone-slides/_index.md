@@ -2,7 +2,7 @@
 title: نسخ الشرائح
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /ar/java/clone-slides/
 ---
 
 ## **نسخ الشرائح في العرض التقديمي**

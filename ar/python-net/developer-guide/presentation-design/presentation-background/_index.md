@@ -2,7 +2,7 @@
 title: خلفية العرض
 type: docs
 weight: 20
-url: /python-net/presentation-background/
+url: /ar/python-net/presentation-background/
 keywords: "خلفية PowerPoint, تعيين الخلفية, Python, Aspose.Slides لـ Python عبر .NET"
 description: "تعيين الخلفية في عرض PowerPoint باستخدام Python"
 ---

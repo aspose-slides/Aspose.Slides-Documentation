@@ -2,7 +2,7 @@
 title: استبدال الصور داخل مجموعة صور العرض التقديمي
 type: docs
 weight: 80
-url: /php-java/replacing-images-inside-presentation-image-collection/
+url: /ar/php-java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

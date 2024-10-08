@@ -3,7 +3,7 @@ title: إنشاء أو إدارة عقدة شكل SmartArt في PowerPoint با�
 linktitle: إدارة عقدة شكل SmartArt
 type: docs
 weight: 30
-url: /java/manage-smartart-shape-node/
+url: /ar/java/manage-smartart-shape-node/
 keywords: smartart باوربوينت, عقد smartart, موضع smartart, إزالة smartart, إضافة عقد smartart, عرض باوربوينت, باوربوينت جافا, واجهة برمجة التطبيقات باوربوينت جافا
 description: إدارة عقدة الفن الذكي والعقدة الفرعية في عروض PowerPoint باستخدام Java
 ---

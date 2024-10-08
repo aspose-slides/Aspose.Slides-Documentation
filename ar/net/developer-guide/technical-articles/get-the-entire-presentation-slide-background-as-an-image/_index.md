@@ -2,7 +2,7 @@
 title: الحصول على خلفية الشريحة الكاملة في العرض التقديمي كصورة
 type: docs
 weight: 95
-url: /net/get-the-entire-presentation-slide-background-as-an-image/
+url: /ar/net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - شريحة
 - خلفية
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides for .NET
 ---
 
-في عروض PowerPoint التقديمية، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المحددة كـ [خلفية الشريحة](/slides/net/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض التقديمي، ونظام الألوان، والأشكال الموجودة على الشريحة الرئيسية وشريحة التخطيط.
+في عروض PowerPoint التقديمية، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المحددة كـ [خلفية الشريحة](/slides/ar/net/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض التقديمي، ونظام الألوان، والأشكال الموجودة على الشريحة الرئيسية وشريحة التخطيط.
 
 لا توفر Aspose.Slides for .NET طريقة بسيطة لاستخراج خلفية الشريحة الكاملة في العرض التقديمي كصورة، ولكن يمكنك اتباع الخطوات أدناه للقيام بذلك:
 1. تحميل العرض التقديمي باستخدام فئة [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).

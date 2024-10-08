@@ -2,7 +2,7 @@
 title: إنشاء مصغرات الأشكال
 type: docs
 weight: 70
-url: /net/create-shape-thumbnails/
+url: /ar/net/create-shape-thumbnails/
 keywords: 
 - مصغر شكل
 - صورة شكل

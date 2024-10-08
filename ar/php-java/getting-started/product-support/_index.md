@@ -2,7 +2,7 @@
 title: دعم المنتج
 type: docs
 weight: 100
-url: /php-java/product-support/
+url: /ar/php-java/product-support/
 ---
 
 ## **الدعم الفني**
@@ -41,4 +41,4 @@ url: /php-java/product-support/
 |[مدونة Aspose.Slides](https://blog.aspose.com/category/slides/)|تحقق من هذا القسم بانتظام للحصول على معلومات عن الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تنزيل Aspose.Slides لـ PHP عبر Java](https://packagist.org/packages/aspose/slides)|قم بتنزيل أحدث إصدار من Aspose.Slides من هذه الصفحة. نطلق عادة إصدارات جديدة.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|انشر أسئلتك ومشكلاتك هنا للحصول على حل سريع.|
-|[وثائق منتج Aspose.Slides لـ PHP عبر Java](/slides/php-java/)|وثائق شاملة على الإنترنت تحتوي على هذه الوثيقة ومرجع API لـ Aspose.Slides.|
+|[وثائق منتج Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/)|وثائق شاملة على الإنترنت تحتوي على هذه الوثيقة ومرجع API لـ Aspose.Slides.|

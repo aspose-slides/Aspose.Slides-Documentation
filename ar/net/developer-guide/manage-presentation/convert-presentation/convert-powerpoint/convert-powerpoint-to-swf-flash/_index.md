@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى SWF فلاش
 type: docs
 weight: 80
-url: /net/convert-powerpoint-to-swf-flash/
+url: /ar/net/convert-powerpoint-to-swf-flash/
 keywords: "تحويل PowerPoint، تقديم، PowerPoint إلى SWF، SWF فلاش PPT إلى SWF، PPTX إلى SWF، C#، Csharp، .NET"
 description: "تحويل تقديم PowerPoint إلى SWF فلاش في C# أو .NET"
 ---

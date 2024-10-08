@@ -3,7 +3,7 @@ title: خط PowerPoint مخصص في Java
 linktitle: خط مخصص
 type: docs
 weight: 20
-url: /java/custom-font/
+url: /ar/java/custom-font/
 keywords: "الخطوط، الخطوط المخصصة، عرض PowerPoint، Java، Aspose.Slides لـ Java"
 description: "خطوط PowerPoint المخصصة في Java"
 ---

@@ -2,7 +2,7 @@
 title: إدارة الجدول
 type: docs
 weight: 10
-url: /php-java/manage-table/
+url: /ar/php-java/manage-table/
 keywords: "جدول، إنشاء جدول، الوصول إلى الجدول، نسبة عرض إلى ارتفاع الجدول، عرض تقديمي لـ PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "إنشاء وإدارة الجدول في عروض PowerPoint"
 ---

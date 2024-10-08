@@ -2,7 +2,7 @@
 title: جزء
 type: docs
 weight: 70
-url: /php-java/portion/
+url: /ar/php-java/portion/
 ---
 
 ## **احصل على إحداثيات موضع الجزء**

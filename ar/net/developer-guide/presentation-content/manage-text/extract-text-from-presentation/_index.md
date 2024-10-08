@@ -2,7 +2,7 @@
 title: استخراج النص من العرض التقديمي
 type: docs
 weight: 90
-url: /net/extract-text-from-presentation/
+url: /ar/net/extract-text-from-presentation/
 keywords: "استخراج النص من الشريحة, استخراج النص من PowerPoint, C#, Csharp, Aspose.Slides لـ .NET"
 description: "استخراج النص من الشريحة أو العرض التقديمي PowerPoint باستخدام C# أو .NET"
 ---
@@ -11,9 +11,9 @@ description: "استخراج النص من الشريحة أو العرض الت
 
 ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال في جميع الشرائح في العرض التقديمي. تشرح هذه المقالة كيفية استخراج النص من عروض Microsoft PowerPoint PPTX باستخدام Aspose.Slides. يمكن استخراج النص بطرق التالية:
 
-- [استخراج النص من شريحة واحدة](/slides/net/extracting-text-from-the-presentation/)
-- [استخراج النص باستخدام طريقة GetAllTextBoxes](/slides/net/extracting-text-from-the-presentation/)
-- [استخراج النص بشكل منظم وسريع](/slides/net/extracting-text-from-the-presentation/)
+- [استخراج النص من شريحة واحدة](/slides/ar/net/extracting-text-from-the-presentation/)
+- [استخراج النص باستخدام طريقة GetAllTextBoxes](/slides/ar/net/extracting-text-from-the-presentation/)
+- [استخراج النص بشكل منظم وسريع](/slides/ar/net/extracting-text-from-the-presentation/)
 
 {{% /alert %}}
 ## **استخراج النص من الشريحة**

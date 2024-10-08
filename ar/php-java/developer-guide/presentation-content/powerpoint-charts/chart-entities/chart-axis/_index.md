@@ -1,7 +1,7 @@
 ---
 title: محور المخطط
 type: docs
-url: /php-java/chart-axis/
+url: /ar/php-java/chart-axis/
 keywords: "محور المخطط في PowerPoint، المخططات التقديمية، Java، التلاعب بمحور المخطط، بيانات المخطط"
 description: "كيفية تعديل محور المخطط في PowerPoint"
 ---

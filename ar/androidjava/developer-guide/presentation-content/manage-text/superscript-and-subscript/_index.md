@@ -2,7 +2,7 @@
 title: النص العلوي والنص السفلي
 type: docs
 weight: 80
-url: /androidjava/superscript-and-subscript/
+url: /ar/androidjava/superscript-and-subscript/
 ---
 
 ## **إدارة نصوص النص العلوي والنص السفلي**

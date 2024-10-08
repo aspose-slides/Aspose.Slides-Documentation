@@ -2,7 +2,7 @@
 title: إنشاء صور مصغرة للأشكال
 type: docs
 weight: 70
-url: /php-java/create-shape-thumbnails/
+url: /ar/php-java/create-shape-thumbnails/
 ---
 
 

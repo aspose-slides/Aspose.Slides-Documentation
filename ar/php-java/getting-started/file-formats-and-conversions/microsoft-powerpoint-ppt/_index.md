@@ -2,7 +2,7 @@
 title: مايكروسوفت باور بوينت (PPT)
 type: docs
 weight: 10
-url: /php-java/microsoft-powerpoint-ppt/
+url: /ar/php-java/microsoft-powerpoint-ppt/
 ---
 
 {{% alert color="primary" %}} 
@@ -27,7 +27,7 @@ url: /php-java/microsoft-powerpoint-ppt/
 بالإضافة إلى المهام الأساسية المتعلقة بإنشاء وقراءة وكتابة ملفات مستندات PPT، هناك عدة ميزات يتم تقديمها من قِبل Aspose.Slides لــ PHP عبر Java:
 
 - استيراد تنسيقات ملفات مايكروسوفت أوفيس الأخرى كـ [كائنات OLE في مستندات PPT]().
-- [تصدير مستندات PPT إلى PDF](/slides/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/).
+- [تصدير مستندات PPT إلى PDF](/slides/ar/php-java/convert-powerpoint-ppt-and-pptx-to-pdf/).
 - تصدير الشرائح في مستندات PPT إلى تنسيقات SVG.
 - عرض الشرائح لأي تنسيق صورة مدعوم من إطار عمل Java.
 - تعيين حجم الشرائح في مستندات PPT.

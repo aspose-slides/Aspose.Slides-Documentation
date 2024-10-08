@@ -2,7 +2,7 @@
 title: تفاصيل طلب المبيعات
 type: docs
 weight: 50
-url: /reportingservices/sales-order-detail/
+url: /ar/reportingservices/sales-order-detail/
 ---
 
 ## **الميزات:**

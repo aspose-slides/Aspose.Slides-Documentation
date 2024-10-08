@@ -2,7 +2,7 @@
 title: نص متحرك
 type: docs
 weight: 60
-url: /net/animated-text/
+url: /ar/net/animated-text/
 keywords: "نص متحرك، تأثيرات الرسوم المتحركة، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
 description: "أضف نصوصًا متحركة وتأثيرات لعرض باوربوينت باستخدام C# أو .NET"
 ---

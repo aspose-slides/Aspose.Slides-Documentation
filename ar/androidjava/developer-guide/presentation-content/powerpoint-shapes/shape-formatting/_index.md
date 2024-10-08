@@ -2,7 +2,7 @@
 title: تنسيق الأشكال
 type: docs
 weight: 20
-url: /androidjava/shape-formatting/
+url: /ar/androidjava/shape-formatting/
 keywords: "تنسيق الشكل، تنسيق الخطوط، تنسيق أنماط الانضمام، تعبئة تدرج الألوان، تعبئة نمط، تعبئة صورة، تعبئة لون صلب، تدوير الأشكال، تأثيرات حواف ثلاثية الأبعاد، تأثير دوران ثلاثي الأبعاد، عرض PowerPoint، Java، Aspose.Slides for Android via Java"
 description: "تنسيق الشكل في عرض PowerPoint بلغة Java"
 ---

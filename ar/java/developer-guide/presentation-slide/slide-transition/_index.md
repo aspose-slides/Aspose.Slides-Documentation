@@ -2,7 +2,7 @@
 title: انتقال الشرائح
 type: docs
 weight: 80
-url: /java/slide-transition/
+url: /ar/java/slide-transition/
 keywords: "انتقال شريحة باوربوينت، انتقال تلاشي في جافا"
 description: "انتقال شريحة باوربوينت، انتقال تلاشي في جافا"
 ---

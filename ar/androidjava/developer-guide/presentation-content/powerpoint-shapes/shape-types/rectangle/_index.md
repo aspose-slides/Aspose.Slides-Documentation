@@ -2,7 +2,7 @@
 title: مستطيل
 type: docs
 weight: 80
-url: /androidjava/rectangle/
+url: /ar/androidjava/rectangle/
 ---
 
 {{% alert color="primary" %}} 

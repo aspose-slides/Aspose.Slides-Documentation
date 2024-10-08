@@ -2,7 +2,7 @@
 title: العرض عبر VBA
 type: docs
 weight: 250
-url: /androidjava/presentation-via-vba/
+url: /ar/androidjava/presentation-via-vba/
 keywords: "ماكرو، ماكروز، VBA، ماكرو VBA، إضافة ماكرو، إزالة ماكرو، إضافة VBA، إزالة VBA، استخراج ماكرو، استخراج VBA، ماكرو PowerPoint، عرض PowerPoint، Java، Aspose.Slides for Android via Java"
 description: "إضافة وإزالة واستخراج ماكروس VBA في عروض PowerPoint بجافا"
 ---

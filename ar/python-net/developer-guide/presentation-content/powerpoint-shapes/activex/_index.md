@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /python-net/activex/
+url: /ar/python-net/activex/
 keywords: "ActiveX, عناصر التحكم في ActiveX, عرض PowerPoint, بايثون, Aspose.Slides لـ بايثون عبر .NET"
 description: "إدارة عناصر التحكم في ActiveX في عرض PowerPoint باستخدام بايثون"
 ---

@@ -2,14 +2,14 @@
 title: مشكلة تغيير الكائن عند إضافة OleObjectFrame
 type: docs
 weight: 10
-url: /net/object-changed-issue-when-adding-oleobjectframe/
+url: /ar/net/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 {{% alert color="primary" %}} 
 
 باستخدام Aspose.Slides لـ .NET، عندما تضيف **[OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe)** إلى شريحة، تظهر رسالة **Object Changed** على الشريحة الناتجة (وليس على كائن OLE). العملية الموضحة هي إجراء متعمد وليس خطأ.
 
-لمزيد من المعلومات حول العمل مع كائنات OLE، انظر [إدارة OLE](/slides/net/manage-ole/).
+لمزيد من المعلومات حول العمل مع كائنات OLE، انظر [إدارة OLE](/slides/ar/net/manage-ole/).
 
 {{% /alert %}} 
 ## **الشرح** والحل

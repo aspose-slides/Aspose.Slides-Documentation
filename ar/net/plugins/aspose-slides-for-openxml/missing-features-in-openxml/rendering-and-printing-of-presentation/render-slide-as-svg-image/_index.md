@@ -2,7 +2,7 @@
 title: عرض الشريحة كصورة SVG
 type: docs
 weight: 50
-url: /net/render-slide-as-svg-image/
+url: /ar/net/render-slide-as-svg-image/
 ---
 
 SVG—اختصار لـ Scalable Vector Graphics—هو نوع أو تنسيق قياسي للرسوميات يُستخدم لعرض الصور ثنائية الأبعاد. تخزن SVG الصور كمتجهات في XML مع تفاصيل تحدد سلوكها أو مظهرها.

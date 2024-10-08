@@ -1,7 +1,7 @@
 ---
 title: الرسم البياني الدائري
 type: docs
-url: /net/pie-chart/
+url: /ar/net/pie-chart/
 keywords: "رسم بياني دائري، خيارات الرسم، ألوان الشرائح، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
 description: "خيارات رسم الرسم البياني الدائري وألوان الشرائح في عرض باوربوينت باستخدام C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: إطار الصورة
 type: docs
 weight: 10
-url: /java/picture-frame/
+url: /ar/java/picture-frame/
 keywords: "إضافة إطار صورة، إنشاء إطار صورة، إضافة صورة، إنشاء صورة، استخراج صورة، خاصية StretchOff، تنسيق إطار الصورة، خصائص إطار الصورة، عرض PowerPoint، جافا، Aspose.Slides لجافا"
 description: "إضافة إطار صورة إلى عرض PowerPoint في جافا"
 

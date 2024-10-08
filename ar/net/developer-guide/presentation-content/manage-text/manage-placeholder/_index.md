@@ -2,13 +2,13 @@
 title: إدارة عنصر نائب
 type: docs
 weight: 10
-url: /net/manage-placeholder/
+url: /ar/net/manage-placeholder/
 keywords: "عنصر نائب, نص العنصر النائب, نص الترويسة, عرض تقديمي في PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "تغيير نص العنصر النائب ونص الترويسة في عروض PowerPoint باستخدام C# أو .NET"
 ---
 
 ## **تغيير النص في العنصر النائب**
-باستخدام [Aspose.Slides for .NET](/slides/net/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح داخل العروض التقديمية. يتيح لك Aspose.Slides إجراء تغييرات على النص في العنصر النائب.
+باستخدام [Aspose.Slides for .NET](/slides/ar/net/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح داخل العروض التقديمية. يتيح لك Aspose.Slides إجراء تغييرات على النص في العنصر النائب.
 
 **المتطلبات الأساسية**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء مثل هذا العرض في تطبيق Microsoft PowerPoint العادي.
 

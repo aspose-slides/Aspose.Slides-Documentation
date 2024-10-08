@@ -2,14 +2,14 @@
 title: ثيم العرض
 type: docs
 weight: 10
-url: /net/presentation-theme/
+url: /ar/net/presentation-theme/
 keywords: "ثيم، ثيم باوربوينت، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
 description: "ثيم عرض باوربوينت في C# أو .NET"
 ---
 
 تحدد ثيم العرض خصائص عناصر التصميم. عند اختيار ثيم عرض، فإنك تختار في الأساس مجموعة معينة من العناصر المرئية وخصائصها.
 
-في باوربوينت، يتكون الثيم من الألوان، [الخطوط](/slides/net/powerpoint-fonts/)، [أنماط الخلفية](/slides/net/presentation-background/)، والتأثيرات.
+في باوربوينت، يتكون الثيم من الألوان، [الخطوط](/slides/ar/net/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/net/presentation-background/)، والتأثيرات.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -153,7 +153,7 @@ pres.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في الاطلاع على [خطوط باوربوينت](/slides/net/powerpoint-fonts/).
+قد ترغب في الاطلاع على [خطوط باوربوينت](/slides/ar/net/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -191,7 +191,7 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في الاطلاع على [خلفية باوربوينت](/slides/net/presentation-background/).
+قد ترغب في الاطلاع على [خلفية باوربوينت](/slides/ar/net/presentation-background/).
 
 {{% /alert %}}
 

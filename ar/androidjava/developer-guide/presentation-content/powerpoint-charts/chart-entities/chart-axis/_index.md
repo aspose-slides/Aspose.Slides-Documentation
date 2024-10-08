@@ -1,7 +1,7 @@
 ---
 title: محور الرسم البياني
 type: docs
-url: /androidjava/chart-axis/
+url: /ar/androidjava/chart-axis/
 keywords: "محور الرسم البياني في PowerPoint، الرسوم البيانية التقديمية، Java، تعديل محور الرسم البياني، بيانات الرسم البياني"
 description: "كيفية تحرير محور الرسم البياني في PowerPoint باستخدام Java"
 ---

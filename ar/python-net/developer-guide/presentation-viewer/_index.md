@@ -2,7 +2,7 @@
 title: عارض العروض التقديمية
 type: docs
 weight: 50
-url: /python-net/presentation-viewer/
+url: /ar/python-net/presentation-viewer/
 keywords: "عرض عرض PowerPoint، عرض ppt، عرض PPTX، بايثون، Aspose.Slides لـ Python عبر .NET"
 description: "عرض عرض PowerPoint في بايثون"
 ---

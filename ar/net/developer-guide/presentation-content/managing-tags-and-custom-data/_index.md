@@ -2,7 +2,7 @@
 title: إدارة العلامات والبيانات المخصصة
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
+url: /ar/net/managing-tags-and-custom-data
 keywords: "العلامات، البيانات المخصصة، القيمة للعلامات، إضافة العلامات، عرض باوربوينت، C#، Csharp، Aspose.Slides for .NET"
 description: "إضافة العلامات والبيانات المخصصة إلى عروض باوربوينت باستخدام C# أو .NET"
 ---

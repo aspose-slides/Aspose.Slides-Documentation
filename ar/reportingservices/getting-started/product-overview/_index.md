@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /reportingservices/product-overview/
+url: /ar/reportingservices/product-overview/
 ---
 
 {{% alert color="primary" %}} 

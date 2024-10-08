@@ -2,7 +2,7 @@
 title: ملاحظات العرض
 type: docs
 weight: 110
-url: /php-java/presentation-notes/
+url: /ar/php-java/presentation-notes/
 keywords: "ملاحظات المتحدث في PowerPoint"
 description: "ملاحظات العرض، ملاحظات المتحدث"
 ---

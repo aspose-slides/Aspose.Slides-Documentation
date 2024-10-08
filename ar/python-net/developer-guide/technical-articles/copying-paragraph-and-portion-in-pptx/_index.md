@@ -2,7 +2,7 @@
 title: نسخ فقرة وجزء في PPTX
 type: docs
 weight: 80
-url: /python-net/copying-paragraph-and-portion-in-pptx/
+url: /ar/python-net/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

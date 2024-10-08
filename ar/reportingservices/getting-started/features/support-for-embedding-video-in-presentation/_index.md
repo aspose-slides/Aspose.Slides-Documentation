@@ -2,7 +2,7 @@
 title: دعم تضمين الفيديو في العروض التقديمية
 type: docs
 weight: 80
-url: /reportingservices/support-for-embedding-video-in-presentation/
+url: /ar/reportingservices/support-for-embedding-video-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

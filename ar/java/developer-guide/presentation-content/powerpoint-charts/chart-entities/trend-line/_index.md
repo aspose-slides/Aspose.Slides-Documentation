@@ -1,7 +1,7 @@
 ---
 title: خط الاتجاه
 type: docs
-url: /java/trend-line/
+url: /ar/java/trend-line/
 ---
 
 ## **إضافة خط اتجاه**

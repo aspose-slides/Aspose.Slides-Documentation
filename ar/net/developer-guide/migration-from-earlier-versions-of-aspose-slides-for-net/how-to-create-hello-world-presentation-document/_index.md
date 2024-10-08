@@ -2,12 +2,12 @@
 title: كيفية إنشاء وثيقة عرض "Hello World"
 type: docs
 weight: 10
-url: /net/how-to-create-hello-world-presentation-document/
+url: /ar/net/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-تم إصدار [Aspose.Slides for .NET API](/slides/net/) جديدة والآن يدعم هذا المنتج المفرد القدرة على إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
+تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديدة والآن يدعم هذا المنتج المفرد القدرة على إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
 
 {{% /alert %}} 
 ## **دعم الشيفرة القديمة**

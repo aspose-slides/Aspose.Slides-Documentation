@@ -2,7 +2,7 @@
 title: نص متحرك
 type: docs
 weight: 60
-url: /cpp/animated-text/
+url: /ar/cpp/animated-text/
 keywords: "نص متحرك في PowerPoint"
 description: "نص متحرك في عرض PowerPoint باستخدام Aspose.Slides"
 ---

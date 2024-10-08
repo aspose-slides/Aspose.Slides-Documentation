@@ -2,7 +2,7 @@
 title: إدارة الصفوف والأعمدة
 type: docs
 weight: 20
-url: /java/manage-rows-and-columns/
+url: /ar/java/manage-rows-and-columns/
 keywords: "جدول، صفوف وأعمدة الجدول، عرض PowerPoint، Java، Aspose.Slides for Java"
 description: "إدارة صفوف وأعمدة الجدول في عروض PowerPoint باستخدام Java"
 ---

@@ -2,7 +2,7 @@
 title: خصائص العرض
 type: docs
 weight: 70
-url: /python-net/presentation-properties/
+url: /ar/python-net/presentation-properties/
 keywords: "خصائص PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "خصائص عرض PowerPoint في بايثون"
 ---

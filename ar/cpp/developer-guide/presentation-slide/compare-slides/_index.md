@@ -2,7 +2,7 @@
 title: مقارنة الشرائح
 type: docs
 weight: 50
-url: /cpp/compare-slides/
+url: /ar/cpp/compare-slides/
 ---
 
 ## **مقارنة شريحتين**

@@ -2,7 +2,7 @@
 title: البرمجة المتعددة الخيوط في Aspose.Slides
 type: docs
 weight: 310
-url: /php-java/multithreading/
+url: /ar/php-java/multithreading/
 keywords:
 - PowerPoint
 - عرض تقديمي

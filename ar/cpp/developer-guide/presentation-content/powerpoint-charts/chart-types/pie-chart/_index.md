@@ -1,7 +1,7 @@
 ---
 title: مخطط دائري
 type: docs
-url: /cpp/pie-chart/
+url: /ar/cpp/pie-chart/
 ---
 
 

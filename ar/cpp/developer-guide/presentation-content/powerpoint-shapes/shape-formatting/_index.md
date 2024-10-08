@@ -2,7 +2,7 @@
 title: تنسيق الأشكال
 type: docs
 weight: 20
-url: /cpp/shape-formatting/
+url: /ar/cpp/shape-formatting/
 keywords: "تنسيق الشكل، تنسيق الخطوط، تنسيق أنماط الانضمام، ملء تدرج، ملء نمط، ملء صورة، ملء لون صلب، تدوير الأشكال، تأثيرات الحافة الثلاثية الأبعاد، تأثير الدوران الثلاثي الأبعاد، عرض PowerPoint، C++، Aspose.Slides لـ C++"
 description: "تنسيق الشكل في عرض PowerPoint بلغة C++"
 ---

@@ -2,7 +2,7 @@
 title: الرسوم البيانية المتحركة
 type: docs
 weight: 80
-url: /java/animated-charts/
+url: /ar/java/animated-charts/
 ---
 
 

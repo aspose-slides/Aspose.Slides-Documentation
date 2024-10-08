@@ -2,7 +2,7 @@
 title: عرض محمي بكلمة مرور
 type: docs
 weight: 20
-url: /net/password-protected-presentation/
+url: /ar/net/password-protected-presentation/
 keywords: "قفل PowerPoint، فتح PowerPoint، حماية PowerPoint، تعيين كلمة مرور، إضافة كلمة مرور، تشفير PowerPoint، فك تشفير PowerPoint، حماية الكتابة، أمان PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "حماية كلمة مرور PowerPoint، التشفير، والأمان في C# أو .NET"
 
@@ -219,5 +219,5 @@ using (IPresentation pres = new Presentation("pres.pptx"))
 ترجع `true` إذا كان العرض مشفرًا باستخدام كلمة المرور المحددة. بخلاف ذلك، ترجع `false`.
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [التوقيع الرقمي في PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [التوقيع الرقمي في PowerPoint](/slides/ar/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

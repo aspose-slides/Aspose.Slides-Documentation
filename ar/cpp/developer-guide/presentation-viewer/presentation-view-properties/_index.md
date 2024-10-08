@@ -1,7 +1,7 @@
 ---
 title: خصائص عرض الشريحة
 type: docs
-url: /cpp/presentation-view-properties/
+url: /ar/cpp/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 

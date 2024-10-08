@@ -2,7 +2,7 @@
 title: إدارة الزوم
 type: docs
 weight: 60
-url: /androidjava/manage-zoom/
+url: /ar/androidjava/manage-zoom/
 keywords: "الزوم, إطار الزوم, إضافة زوم, تنسيق إطار الزوم, ملخص زوم, عرض بوربوينت, جافا, Aspose.Slides لاندرويد عبر جافا"
 description: "أضف الزوم أو إطارات الزوم إلى عروض بوربوينت في جافا"
 ---

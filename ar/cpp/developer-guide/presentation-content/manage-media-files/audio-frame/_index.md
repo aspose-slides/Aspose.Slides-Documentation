@@ -2,7 +2,7 @@
 title: إطار الصوت
 type: docs
 weight: 10
-url: /cpp/audio-frame/
+url: /ar/cpp/audio-frame/
 keywords: "إضافة صوت, إطار الصوت, خصائص الصوت, استخراج الصوت, C++, CPP, Aspose.Slides لـ C++"
 description: "إضافة صوت إلى عرض PowerPoint في C++"
 ---

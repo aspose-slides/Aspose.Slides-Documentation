@@ -2,7 +2,7 @@
 title: معادلات الرياضيات في PowerPoint
 type: docs
 weight: 80
-url: /net/powerpoint-math-equations/
+url: /ar/net/powerpoint-math-equations/
 keywords: "معادلات الرياضيات PowerPoint، رموز الرياضيات PowerPoint، صيغة PowerPoint، نص الرياضيات PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "معادلات الرياضيات PowerPoint، رموز الرياضيات، صيغة، ونص الرياضيات في C# أو .NET"
 ---

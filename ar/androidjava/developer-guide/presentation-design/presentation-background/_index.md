@@ -2,7 +2,7 @@
 title: خلفية العرض التقديمي
 type: docs
 weight: 20
-url: /androidjava/presentation-background/
+url: /ar/androidjava/presentation-background/
 keywords: "خلفية باوربوينت، تعيين خلفية في جافا"
 description: "تعيين الخلفية في عرض تقديمي لباوربوينت باستخدام جافا"
 ---

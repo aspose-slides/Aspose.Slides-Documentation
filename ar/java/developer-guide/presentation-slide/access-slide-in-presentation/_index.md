@@ -2,7 +2,7 @@
 title: الوصول إلى الشريحة في العرض التقديمي
 type: docs
 weight: 20
-url: /java/access-slide-in-presentation/
+url: /ar/java/access-slide-in-presentation/
 keywords: "الوصول إلى عرض PowerPoint، الوصول إلى الشريحة، تعديل خصائص الشريحة، تغيير موضع الشريحة، تعيين رقم الشريحة، الفهرس، المعرف، الموضع Java، Aspose.Slides"
 description: "الوصول إلى شريحة PowerPoint من خلال الفهرس أو المعرف أو الموضع في Java. تعديل خصائص الشريحة"
 ---

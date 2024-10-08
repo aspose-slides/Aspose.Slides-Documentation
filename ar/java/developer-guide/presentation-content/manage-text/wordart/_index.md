@@ -2,7 +2,7 @@
 title: وورد آرت
 type: docs
 weight: 110
-url: /java/wordart/
+url: /ar/java/wordart/
 ---
 
 ## **ما هو وورد آرت؟**

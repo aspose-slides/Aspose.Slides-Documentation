@@ -2,7 +2,7 @@
 title: شكل مخصص
 type: docs
 weight: 20
-url: /cpp/custom-shape/
+url: /ar/cpp/custom-shape/
 keywords: "شكل PowerPoint, شكل مخصص, عرض PowerPoint, C++, Aspose.Slides for C++"
 description: "أضف شكل مخصص في عرض PowerPoint باستخدام C++"
 ---

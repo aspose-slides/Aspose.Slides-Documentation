@@ -2,7 +2,7 @@
 title: خط مضمن
 type: docs
 weight: 40
-url: /cpp/embedded-font/
+url: /ar/cpp/embedded-font/
 keywords: "خطوط, خطوط مضمنة, إضافة خطوط, عرض تقديمي PowerPoint C++, CPP, Aspose.Slides for C++"
 description: "استخدام الخطوط المضمنة في عرض PowerPoint التقديمي في C++"
 ---

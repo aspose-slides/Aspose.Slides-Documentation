@@ -2,7 +2,7 @@
 title: فحص العرض التقديمي
 type: docs
 weight: 30
-url: /php-java/examine-presentation/
+url: /ar/php-java/examine-presentation/
 keywords:
 - PowerPoint
 - عرض تقديمي

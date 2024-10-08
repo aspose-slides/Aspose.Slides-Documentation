@@ -2,12 +2,12 @@
 title: إدارة العناصر النائبة
 type: docs
 weight: 10
-url: /androidjava/manage-placeholder/
+url: /ar/androidjava/manage-placeholder/
 description: تغيير النص في عنصر نائب في شرائح PowerPoint باستخدام Java. تعيين نص التحفيز في عنصر نائب في شرائح PowerPoint باستخدام Java.
 ---
 
 ## **تغيير النص في العنصر النائب**
-باستخدام [Aspose.Slides for Android via Java](/slides/androidjava/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح في العروض التقديمية. تتيح لك Aspose.Slides إجراء التغييرات على النص في عنصر نائب.
+باستخدام [Aspose.Slides for Android via Java](/slides/ar/androidjava/)، يمكنك العثور على العناصر النائبة وتعديلها في الشرائح في العروض التقديمية. تتيح لك Aspose.Slides إجراء التغييرات على النص في عنصر نائب.
 
 **الشرط الأساسي**: تحتاج إلى عرض تقديمي يحتوي على عنصر نائب. يمكنك إنشاء عرض تقديمي كهذا في تطبيق Microsoft PowerPoint القياسي.
 

@@ -2,7 +2,7 @@
 title: نقل شريحة إلى موضع جديد
 type: docs
 weight: 140
-url: /net/move-a-slide-to-a-new-position/
+url: /ar/net/move-a-slide-to-a-new-position/
 ---
 
 ## **OpenXML SDK**

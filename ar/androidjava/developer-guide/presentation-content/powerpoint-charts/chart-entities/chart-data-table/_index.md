@@ -1,7 +1,7 @@
 ---
 title: جدول بيانات المخطط
 type: docs
-url: /androidjava/chart-data-table/
+url: /ar/androidjava/chart-data-table/
 ---
 
 ## **تعيين خصائص الخط لجدول بيانات المخطط**

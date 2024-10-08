@@ -2,7 +2,7 @@
 title: حل عملي لتغيير حجم المخططات في PPTX
 type: docs
 weight: 40
-url: /php-java/working-solution-for-chart-resizing-in-pptx/
+url: /ar/php-java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /php-java/working-solution-for-chart-resizing-in-pptx/
 
 {{% /alert %}} 
 ## **الخلفية**
-في [المقال السابق](/slides/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) ، شرحنا كيفية إنشاء مخطط Excel باستخدام Aspose.Cells لـ Java ودمج هذا المخطط في عرض PowerPoint باستخدام Aspose.Slides لـ PHP عبر Java. من أجل التعامل مع [قضية تغيير الكائن](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) ، قمنا بتعيين صورة المخطط إلى إطار كائن OLE للمخطط. في العرض الناتج، عند النقر المزدوج على إطار الكائن OLE الذي يعرض صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة في دفتر العمل Excel الفعلي ثم العودة إلى الشريحة المعنية عن طريق النقر خارج دفتر العمل Excel المActivated. سيتغير حجم إطار الكائن OLE عندما يعود المستخدم إلى الشريحة. سيكون عامل تغيير الحجم مختلفًا لأحجام مختلفة من إطار الكائن OLE ودفتر العمل Excel المدمج.
+في [المقال السابق](/slides/ar/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) ، شرحنا كيفية إنشاء مخطط Excel باستخدام Aspose.Cells لـ Java ودمج هذا المخطط في عرض PowerPoint باستخدام Aspose.Slides لـ PHP عبر Java. من أجل التعامل مع [قضية تغيير الكائن](/slides/ar/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) ، قمنا بتعيين صورة المخطط إلى إطار كائن OLE للمخطط. في العرض الناتج، عند النقر المزدوج على إطار الكائن OLE الذي يعرض صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة في دفتر العمل Excel الفعلي ثم العودة إلى الشريحة المعنية عن طريق النقر خارج دفتر العمل Excel المActivated. سيتغير حجم إطار الكائن OLE عندما يعود المستخدم إلى الشريحة. سيكون عامل تغيير الحجم مختلفًا لأحجام مختلفة من إطار الكائن OLE ودفتر العمل Excel المدمج.
 ## **سبب تغيير الحجم**
 نظرًا لأن دفتر العمل Excel له حجمه الخاص، فإنه يحاول الحفاظ على حجمه الأصلي عند التفعيل للمرة الأولى. من ناحية أخرى، سيكون لإطار الكائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عند تفعيل دفتر العمل Excel، يتفاوض Excel وPowerPoint على الحجم ويضمن أنه في النسب الصحيحة كجزء من عملية الدمج. استنادًا إلى الاختلافات في حجم نافذة Excel وحجم / موضع إطار الكائن OLE، يحدث تغيير الحجم.
 ## **حل عملي**

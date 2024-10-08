@@ -2,7 +2,7 @@
 title: حسابات الرسم البياني
 type: docs
 weight: 50
-url: /androidjava/chart-calculations/
+url: /ar/androidjava/chart-calculations/
 ---
 
 ## **حساب القيم الفعلية لعناصر الرسم البياني**

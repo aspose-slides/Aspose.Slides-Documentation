@@ -2,7 +2,7 @@
 title: مشكلة تغيير الكائن عند إضافة OleObjectFrame
 type: docs
 weight: 10
-url: /php-java/object-changed-issue-when-adding-oleobjectframe/
+url: /ar/php-java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **بيان المشكلة**
@@ -10,7 +10,7 @@ url: /php-java/object-changed-issue-when-adding-oleobjectframe/
 ## **تحليل ونقد الشرح**
 أولاً، من المهم معرفة أن رسالة **تغيير الكائن** التي تظهرها Aspose.Slides لـ PHP عبر Java بعد إضافة **OleObjectFrame** في الشريحة، هي **ليست** خطأ أو عطل في Aspose.Slides لـ PHP عبر Java. إنها مجرد معلومة أو رسالة لإخطار المستخدمين بأن الكائن قد تم تغييره ويجب تحديث الصورة.
 
-على سبيل المثال، إذا قمت بإضافة **رسم بياني من Microsoft Excel** كـ **OleObjectFrame** إلى شريحتك (للمزيد من التفاصيل وشفرة المقتطف حول إضافة **OleObjectFrame** إلى شريحتك، [انقر هنا](/slides/php-java/adding-frame-to-the-slide/)) ثم قمت بفتح ملف العرض التقديمي باستخدام MS PowerPoint، ستبدو الشريحة (حيث تم إضافة **الكائن OLE**) كما يلي:
+على سبيل المثال، إذا قمت بإضافة **رسم بياني من Microsoft Excel** كـ **OleObjectFrame** إلى شريحتك (للمزيد من التفاصيل وشفرة المقتطف حول إضافة **OleObjectFrame** إلى شريحتك، [انقر هنا](/slides/ar/php-java/adding-frame-to-the-slide/)) ثم قمت بفتح ملف العرض التقديمي باستخدام MS PowerPoint، ستبدو الشريحة (حيث تم إضافة **الكائن OLE**) كما يلي:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

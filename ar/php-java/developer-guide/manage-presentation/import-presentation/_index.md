@@ -2,7 +2,7 @@
 title: استيراد العرض التقديمي
 type: docs
 weight: 60
-url: /php-java/import-presentation/
+url: /ar/php-java/import-presentation/
 keywords: "استيراد PowerPoint، PDF إلى عرض تقديمي، PDF إلى PPTX، PDF إلى PPT، Java، Aspose.Slides لـ PHP عبر Java"
 description: "استيراد عرض PowerPoint من PDF. تحويل PDF إلى PowerPoint"
 ---

@@ -3,7 +3,7 @@ title: دمج عروض PowerPoint PPT و PPTX باستخدام C#
 linktitle: دمج العرض التقديمي
 type: docs
 weight: 40
-url: /net/merge-presentation/
+url: /ar/net/merge-presentation/
 keywords: "دمج PowerPoint, PPTX, PPT, دمج PowerPoint, دمج العرض التقديمي, دمج, C#, Csharp, .NET"
 description: "دمج أو تجميع عروض PowerPoint في C# أو .NET"
 ---

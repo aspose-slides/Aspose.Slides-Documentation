@@ -3,7 +3,7 @@ title: إنشاء أو تحديث الرسوم البيانية في عرض Powe
 linktitle: إنشاء المخطط
 type: docs
 weight: 10
-url: /androidjava/create-chart/
+url: /ar/androidjava/create-chart/
 keywords: "إنشاء مخطط، مخطط متفرق، مخطط دائري، مخطط شجرة، مخطط الأسهم، مخطط صندوق وصياد، مخطط هيستوغرام، مخطط قمع، مخطط شمس، مخطط متعدد الفئات، عرض PowerPoint، Java، Aspose.Slides لـ Android عبر Java"
 description: "إنشاء مخطط في عرض PowerPoint باستخدام Java"
 ---

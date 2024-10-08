@@ -2,7 +2,7 @@
 title: إطار الصورة
 type: docs
 weight: 10
-url: /androidjava/picture-frame/
+url: /ar/androidjava/picture-frame/
 keywords: "إضافة إطار صورة، إنشاء إطار صورة، إضافة صورة، إنشاء صورة، استخراج صورة، خاصية StretchOff، تنسيق إطار الصورة، خصائص إطار الصورة، عرض PowerPoint، Java، Aspose.Slides لـ Android عبر Java"
 description: "إضافة إطار صورة إلى عرض PowerPoint في Java"
 

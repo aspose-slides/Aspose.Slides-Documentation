@@ -2,5 +2,5 @@
 title: شريحة العرض
 type: docs
 weight: 20
-url: /net/presentation-slide/
+url: /ar/net/presentation-slide/
 ---

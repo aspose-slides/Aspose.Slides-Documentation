@@ -2,13 +2,13 @@
 title: حفظ العرض التقديمي
 type: docs
 weight: 80
-url: /php-java/save-presentation/
+url: /ar/php-java/save-presentation/
 ---
 
 ## **نظرة عامة**
 {{% alert color="primary" %}} 
 
-[فتح العرض التقديمي](/slides/php-java/open-presentation/) وصف كيفية استخدام فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) لفتح عرض تقديمي. تشرح هذه المقالة كيفية إنشاء وحفظ العروض التقديمية.
+[فتح العرض التقديمي](/slides/ar/php-java/open-presentation/) وصف كيفية استخدام فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) لفتح عرض تقديمي. تشرح هذه المقالة كيفية إنشاء وحفظ العروض التقديمية.
 
 {{% /alert %}} 
 

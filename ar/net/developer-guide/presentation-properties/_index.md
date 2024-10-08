@@ -3,7 +3,7 @@ title: خصائص العرض - الوصول إلى أو تعديل خصائص ع
 linktitle: خصائص العرض
 type: docs
 weight: 70
-url: /net/presentation-properties/
+url: /ar/net/presentation-properties/
 keywords: "كيف أزيل آخر تعديل بواسطة في PowerPoint، خصائص PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "خصائص عرض PowerPoint في C# أو .NET"
 ---

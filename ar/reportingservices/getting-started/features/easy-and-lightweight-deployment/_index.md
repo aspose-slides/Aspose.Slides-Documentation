@@ -2,7 +2,7 @@
 title: نشر سهل وخفيف الوزن
 type: docs
 weight: 50
-url: /reportingservices/easy-and-lightweight-deployment/
+url: /ar/reportingservices/easy-and-lightweight-deployment/
 ---
 
 {{% alert color="primary" %}} 

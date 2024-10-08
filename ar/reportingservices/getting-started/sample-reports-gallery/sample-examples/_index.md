@@ -2,7 +2,7 @@
 title: أمثلة عينة
 type: docs
 weight: 10
-url: /reportingservices/sample-examples/
+url: /ar/reportingservices/sample-examples/
 ---
 
 {{% alert color="primary" %}} 
@@ -13,7 +13,7 @@ url: /reportingservices/sample-examples/
 ## **أمثلة التقارير**
 معظم التقارير المعروضة هنا تأتي من قاعدة بيانات **AdventureWorks**. تعد AdventureWorks قاعدة بيانات نموذجية لـ Microsoft SQL Server، متاحة للتنزيل من Microsoft [هنا](http://www.microsoft.com/downloads/details.aspx?familyid=E719ECF7-9F46-4312-AF89-6AD8702E4E6E&displaylang=en). 
 
-- [مبيعات الشركة](/slides/reportingservices/company-sales/)
-- [ملخص مبيعات الموظف](/slides/reportingservices/employee-sales-summary/)
-- [مبيعات خط المنتج](/slides/reportingservices/product-line-sales/)
-- [تفاصيل طلب المبيعات](/slides/reportingservices/sales-order-detail/)
+- [مبيعات الشركة](/slides/ar/reportingservices/company-sales/)
+- [ملخص مبيعات الموظف](/slides/ar/reportingservices/employee-sales-summary/)
+- [مبيعات خط المنتج](/slides/ar/reportingservices/product-line-sales/)
+- [تفاصيل طلب المبيعات](/slides/ar/reportingservices/sales-order-detail/)

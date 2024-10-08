@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /python-java/installation/
+url: /ar/python-java/installation/
 keySlides: "تنزيل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، ويندوز، macOS، لينوكس، بايثون"
 description: "قم بتثبيت Aspose.Slides لـ Python عبر Java على ويندوز أو لينوكس أو macOS"
 ---

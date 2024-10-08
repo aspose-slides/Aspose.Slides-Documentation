@@ -2,7 +2,7 @@
 title: تقديم محمي بكلمة مرور
 type: docs
 weight: 20
-url: /cpp/password-protected-presentation/
+url: /ar/cpp/password-protected-presentation/
 keywords: "قفل عرض PowerPoint"
 description: "قفل عرض PowerPoint. عرض PowerPoint محمي بكلمة مرور مع Aspose.Slides."
 ---
@@ -214,5 +214,5 @@ bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my
 ترجع `true` إذا تم تشفير العرض التقديمي بكلمة المرور المحددة. خلاف ذلك، ترجع `false`. 
 
 {{% alert color="primary" title="راجع أيضًا" %}} 
-- [التوقيع الرقمي في PowerPoint](/slides/cpp/digital-signature-in-powerpoint/)
+- [التوقيع الرقمي في PowerPoint](/slides/ar/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}

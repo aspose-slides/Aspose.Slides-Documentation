@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى Markdown في جافا
 type: docs
 weight: 140
-url: /androidjava/convert-powerpoint-to-markdown/
+url: /ar/androidjava/convert-powerpoint-to-markdown/
 keywords: "تحويل PowerPoint إلى Markdown, تحويل ppt إلى md, PowerPoint, PPT, PPTX, عرض تقديمي, Markdown, جافا, Aspose.Slides لـ Android عبر جافا"
 description: "تحويل PowerPoint إلى Markdown في جافا"
 ---

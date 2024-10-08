@@ -2,7 +2,7 @@
 title: إدارة الصفوف والأعمدة
 type: docs
 weight: 20
-url: /python-net/manage-rows-and-columns/
+url: /ar/python-net/manage-rows-and-columns/
 keywords: "جدول، الصفوف والأعمدة، عرض PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
 description: "إدارة الصفوف والأعمدة في الجداول بعروض PowerPoint باستخدام بايثون"
 ---

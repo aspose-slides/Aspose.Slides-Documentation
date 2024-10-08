@@ -2,7 +2,7 @@
 title: استبدال الصور داخل مجموعة صور العرض
 type: docs
 weight: 80
-url: /java/replacing-images-inside-presentation-image-collection/
+url: /ar/java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

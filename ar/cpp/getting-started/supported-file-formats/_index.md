@@ -2,7 +2,7 @@
 title: تنسيقات الملفات المدعومة
 type: docs
 weight: 20
-url: /cpp/supported-file-formats/
+url: /ar/cpp/supported-file-formats/
 keywords: مكتبة PowerPoint C++، واجهة برمجة التطبيقات PowerPoint C++، تنسيقات PowerPoint
 description: يمكن لمكتبة أو واجهة برمجة التطبيقات PowerPoint C++ تحميل وحفظ تنسيقات ملفات PowerPoint مختلفة بما في ذلك PPT، PPTX، POT، PPS، PPSX، ODP، OTP، PDF، XPS، SVG إلخ.
 ---

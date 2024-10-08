@@ -2,7 +2,7 @@
 title: تطبيق سمة على عرض تقديمي
 type: docs
 weight: 30
-url: /net/apply-a-theme-to-a-presentation/
+url: /ar/net/apply-a-theme-to-a-presentation/
 ---
 
 ## **OpenXML عرض تقديمي:**

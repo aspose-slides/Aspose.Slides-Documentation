@@ -2,7 +2,7 @@
 title: تنسيق ملف الصورة المجمعة (TIFF)
 type: docs
 weight: 60
-url: /php-java/tagged-image-file-format-tiff/
+url: /ar/php-java/tagged-image-file-format-tiff/
 ---
 
 ## **حول TIFF**
@@ -11,7 +11,7 @@ url: /php-java/tagged-image-file-format-tiff/
 
 ## **TIFF في Aspose.Slides لـ PHP عبر Java**
 
-يمكن تحويل أي مستند يمكن تحميله في Aspose.Slide لـ Java إلى مستند TIFF مباشرة بواسطة Aspose.Slides لـ PHP عبر Java مما يلغي الحاجة إلى أي مكون طرف ثالث. علاوة على ذلك، يمكنك تحديد حجم الصور في مستند TIFF الناتج. يمكنك العثور على معلومات حول تصدير مستندات العروض التقديمية إلى مستندات TIFF من خلال Aspose.Slides لـ PHP عبر Java في [هذا الموضوع](/slides/php-java/converting-a-presentation/).
+يمكن تحويل أي مستند يمكن تحميله في Aspose.Slide لـ Java إلى مستند TIFF مباشرة بواسطة Aspose.Slides لـ PHP عبر Java مما يلغي الحاجة إلى أي مكون طرف ثالث. علاوة على ذلك، يمكنك تحديد حجم الصور في مستند TIFF الناتج. يمكنك العثور على معلومات حول تصدير مستندات العروض التقديمية إلى مستندات TIFF من خلال Aspose.Slides لـ PHP عبر Java في [هذا الموضوع](/slides/ar/php-java/converting-a-presentation/).
 
 **مستند عرض تقديمي محول إلى مستند TIFF من خلال Aspose.Slides لـ PHP عبر Java**
 

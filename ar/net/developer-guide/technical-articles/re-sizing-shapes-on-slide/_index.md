@@ -2,7 +2,7 @@
 title: تغيير حجم الأشكال على الشريحة
 type: docs
 weight: 130
-url: /net/re-sizing-shapes-on-slide/
+url: /ar/net/re-sizing-shapes-on-slide/
 ---
 
 ## **تغيير حجم الأشكال على الشريحة**

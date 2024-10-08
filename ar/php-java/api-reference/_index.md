@@ -2,7 +2,7 @@
 title: مرجع واجهة برمجة التطبيقات
 type: docs
 weight: 50
-url: /php-java/api-reference/
+url: /ar/php-java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

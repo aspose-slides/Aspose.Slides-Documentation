@@ -2,7 +2,7 @@
 title: حسابات الرسم البياني
 type: docs
 weight: 50
-url: /php-java/chart-calculations/
+url: /ar/php-java/chart-calculations/
 ---
 
 ## **حساب القيم الفعلية لعناصر الرسم البياني**

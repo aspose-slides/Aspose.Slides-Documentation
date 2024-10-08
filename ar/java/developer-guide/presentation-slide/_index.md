@@ -2,5 +2,5 @@
 title: شريحة العرض
 type: docs
 weight: 20
-url: /java/presentation-slide/
+url: /ar/java/presentation-slide/
 ---

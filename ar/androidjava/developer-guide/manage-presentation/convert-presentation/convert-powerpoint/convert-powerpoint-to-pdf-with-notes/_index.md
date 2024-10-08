@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
-url: /androidjava/convert-powerpoint-to-pdf-with-notes/
+url: /ar/androidjava/convert-powerpoint-to-pdf-with-notes/
 keywords: "تحويل powerpoint إلى pdf مع الملاحظات في java"
 description: "تحويل PowerPoint إلى PDF مع الملاحظات في Java"
 ---

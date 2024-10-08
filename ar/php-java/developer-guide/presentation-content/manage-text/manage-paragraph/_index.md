@@ -2,7 +2,7 @@
 title: إدارة فقرات PowerPoint
 type: docs
 weight: 40
-url: /php-java/manage-paragraph/
+url: /ar/php-java/manage-paragraph/
 keywords: "إضافة فقرة PowerPoint، إدارة الفقرات، مسافة الفقرات، خصائص الفقرات، نص HTML، تصدير نص الفقرة، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "إنشاء وإدارة الفقرة والنص والمسافة والخصائص في عروض PowerPoint"
 ---

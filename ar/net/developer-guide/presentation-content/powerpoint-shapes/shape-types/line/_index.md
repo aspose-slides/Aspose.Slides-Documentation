@@ -2,7 +2,7 @@
 title: خط
 type: docs
 weight: 50
-url: /net/Line/
+url: /ar/net/Line/
 keywords: "خط، شكل PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة خط في عرض PowerPoint باستخدام C# أو .NET"
 ---

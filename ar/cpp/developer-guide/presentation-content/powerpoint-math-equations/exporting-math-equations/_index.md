@@ -2,7 +2,7 @@
 title: تصدير المعادلات الرياضية
 type: docs
 weight: 30
-url: /cpp/exporting-math-equations/
+url: /ar/cpp/exporting-math-equations/
 
 ---
 

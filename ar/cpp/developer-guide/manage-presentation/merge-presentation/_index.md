@@ -3,7 +3,7 @@ title: دمج العرض التقديمي - واجهة برمجة تطبيقات
 linktitle: دمج العرض التقديمي
 type: docs
 weight: 40
-url: /cpp/merge-presentation/
+url: /ar/cpp/merge-presentation/
 keywords: "دمج PowerPoint، PPTX، PPT، دمج PowerPoint، دمج العرض التقديمي، دمج العرض التقديمي، C++"
 description: يشرح المقال كيفية دمج أو دمج عروض PowerPoint التقديمية باستخدام واجهة برمجة تطبيقات PowerPoint لـ C++ أو المكتبة.
 ---

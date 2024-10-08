@@ -2,7 +2,7 @@
 title: إنشاء تقارير مفصلة
 type: docs
 weight: 100
-url: /reportingservices/paginated-reports/
+url: /ar/reportingservices/paginated-reports/
 keywords: "إنشاء تقارير مفصلة، Power BI، Aspose.Slides لـ Reporting Services"
 description: "إنشاء تقارير مفصلة"
 ---

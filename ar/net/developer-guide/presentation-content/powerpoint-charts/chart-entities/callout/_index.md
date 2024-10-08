@@ -1,7 +1,7 @@
 ---
 title: ملاحظة
 type: docs
-url: /net/callout/
+url: /ar/net/callout/
 keywords: "ملاحظة الرسم البياني، تسمية بيانات الرسم البياني، C#، Csharp، Aspose.Slides لـ .NET"
 description: "ملاحظات الرسم البياني في PowerPoint وعلامات البيانات بـ C# أو .NET"
 ---

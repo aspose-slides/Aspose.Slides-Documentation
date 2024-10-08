@@ -2,7 +2,7 @@
 title: إدارة فقرة PowerPoint في C#
 type: docs
 weight: 40
-url: /net/manage-paragraph/
+url: /ar/net/manage-paragraph/
 keywords: 
 - إضافة فقرة
 - إدارة الفقرات

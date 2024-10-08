@@ -2,12 +2,12 @@
 title: تنسيق النص باستخدام VSTO وAspose.Slides و.NET
 type: docs
 weight: 30
-url: /net/format-text-using-vsto-and-aspose-slides-and-net/
+url: /ar/net/format-text-using-vsto-and-aspose-slides-and-net/
 ---
 
 {{% alert color="primary" %}} 
 
-في بعض الأحيان، تحتاج إلى تنسيق النص على الشرائح برمجيًا. يوضح هذا المقال كيفية قراءة عرض تقديمي نموذجي يحتوي على نص في الشريحة الأولى باستخدام [VSTO](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/) و[Aspose.Slides for .NET](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/). يقوم الكود بتنسيق النص في مربع النص الثالث على الشريحة ليبدو مثل النص في مربع النص الأخير.
+في بعض الأحيان، تحتاج إلى تنسيق النص على الشرائح برمجيًا. يوضح هذا المقال كيفية قراءة عرض تقديمي نموذجي يحتوي على نص في الشريحة الأولى باستخدام [VSTO](/slides/ar/net/format-text-using-vsto-and-aspose-slides-and-net/) و[Aspose.Slides for .NET](/slides/ar/net/format-text-using-vsto-and-aspose-slides-and-net/). يقوم الكود بتنسيق النص في مربع النص الثالث على الشريحة ليبدو مثل النص في مربع النص الأخير.
 
 {{% /alert %}} 
 ## **تنسيق النص**

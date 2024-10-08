@@ -2,12 +2,12 @@
 title: إضافة نص ديناميكي باستخدام VSTO و Aspose.Slides لـ .NET
 type: docs
 weight: 20
-url: /net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
+url: /ar/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
 ---
 
 {{% alert color="primary" %}} 
 
-المهمة الشائعة التي يسعى المطورون لتحقيقها هي إضافة نص إلى الشرائح ديناميكيًا. توضح هذه المقالة أمثلة على الشيفرات لإضافة نص بشكل ديناميكي باستخدام [VSTO](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) و [Aspose.Slides لـ .NET](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
+المهمة الشائعة التي يسعى المطورون لتحقيقها هي إضافة نص إلى الشرائح ديناميكيًا. توضح هذه المقالة أمثلة على الشيفرات لإضافة نص بشكل ديناميكي باستخدام [VSTO](/slides/ar/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) و [Aspose.Slides لـ .NET](/slides/ar/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 
 {{% /alert %}} 
 ## **إضافة نص ديناميكي**

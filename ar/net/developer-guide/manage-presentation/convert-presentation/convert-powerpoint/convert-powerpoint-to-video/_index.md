@@ -2,7 +2,7 @@
 title: تحويل باوربوينت إلى فيديو
 type: docs
 weight: 130
-url: /net/convert-powerpoint-to-video/
+url: /ar/net/convert-powerpoint-to-video/
 keywords: "تحويل باوربوينت, PPT, PPTX, عرض تقديمي, فيديو, MP4, PPT إلى فيديو, PPT إلى MP4, C#, Csharp, .NET, Aspose.Slides"
 description: "تحويل باوربوينت إلى فيديو في C# أو .NET"
 ---

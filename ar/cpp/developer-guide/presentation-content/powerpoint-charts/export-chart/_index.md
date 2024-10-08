@@ -2,7 +2,7 @@
 title: تصدير الرسم البياني
 type: docs
 weight: 90
-url: /cpp/export-chart/
+url: /ar/cpp/export-chart/
 keywords:
 - رسم بياني
 - صورة الرسم البياني

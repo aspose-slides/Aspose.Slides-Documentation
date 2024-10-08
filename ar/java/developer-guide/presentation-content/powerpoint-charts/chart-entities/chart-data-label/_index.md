@@ -1,7 +1,7 @@
 ---
 title: تسمية بيانات الرسم البياني
 type: docs
-url: /java/chart-data-label/
+url: /ar/java/chart-data-label/
 keywords: "تسمية بيانات الرسم البياني, مسافة التسمية, Java, Aspose.Slides لـ Java"
 description: "تعيين تسمية بيانات الرسم البياني في PowerPoint ومسافتها في Java"
 ---

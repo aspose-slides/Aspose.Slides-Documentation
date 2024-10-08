@@ -2,7 +2,7 @@
 title: تنسيق النص
 type: docs
 weight: 50
-url: /python-net/text-formatting/
+url: /ar/python-net/text-formatting/
 keywords:
 - تسليط الضوء على النص
 - التعبير العادي

@@ -2,5 +2,5 @@
 title: خطوط PowerPoint
 type: docs
 weight: 30
-url: /net/powerpoint-fonts/
+url: /ar/net/powerpoint-fonts/
 ---

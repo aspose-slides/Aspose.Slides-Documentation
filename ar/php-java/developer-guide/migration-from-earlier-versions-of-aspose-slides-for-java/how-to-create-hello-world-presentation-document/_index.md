@@ -2,12 +2,12 @@
 title: كيفية إنشاء وثيقة عرض تقديمي مرحبا بالعالم
 type: docs
 weight: 10
-url: /php-java/how-to-create-hello-world-presentation-document/
+url: /ar/php-java/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-تم إصدار [Aspose.Slides for PHP via Java API](/slides/php-java/) جديدة والآن هذا المنتج الواحد يدعم القدرة على إنشاء وثائق PowerPoint من الصفر وتحرير الوثائق الموجودة.
+تم إصدار [Aspose.Slides for PHP via Java API](/slides/ar/php-java/) جديدة والآن هذا المنتج الواحد يدعم القدرة على إنشاء وثائق PowerPoint من الصفر وتحرير الوثائق الموجودة.
 
 {{% /alert %}} 
 ## **الدعم للشفرة القديمة**

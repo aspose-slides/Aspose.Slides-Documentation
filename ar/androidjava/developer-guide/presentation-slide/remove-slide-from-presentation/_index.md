@@ -2,7 +2,7 @@
 title: إزالة الشريحة من العرض التقديمي
 type: docs
 weight: 30
-url: /androidjava/remove-slide-from-presentation/
+url: /ar/androidjava/remove-slide-from-presentation/
 keywords: "إزالة شريحة, حذف شريحة, PowerPoint, عرض تقديمي, Java, Aspose.Slides"
 description: "إزالة الشريحة من PowerPoint بالمرجع أو الفهرس في Java"
 

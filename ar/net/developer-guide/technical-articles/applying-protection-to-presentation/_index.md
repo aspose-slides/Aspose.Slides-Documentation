@@ -2,14 +2,14 @@
 title: تطبيق الحماية على العروض التقديمية
 type: docs
 weight: 70
-url: /net/applying-protection-to-presentation/
+url: /ar/net/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint 2007 (PPTX) كجزء من سير العمل الآلي. يحصل مستخدمو التطبيق الذي يستخدم Aspose.Slides بهذه الطريقة على إمكانية الوصول إلى العروض الناتجة. حماية هذه العروض من التعديل هي قضية شائعة. من المهم أن تحتفظ العروض التلقائية بتنسيقها ومحتواها الأصليين.
 
-تتناول هذه المقالة كيفية [إنشاء العروض والشرائح](/slides/net/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides لـ .NET [تطبيق الحماية على](/slides/net/applying-protection-to-presentation/) ، ثم [إزالتها من](/slides/net/applying-protection-to-presentation/) عرض تقديمي. هذه الميزة فريدة من نوعها في Aspose.Slides وفي وقت كتابة هذه السطور، غير متاحة في Microsoft PowerPoint. إنها تعطي المطورين وسيلة للتحكم في كيفية استخدام العروض التي تنشئها تطبيقاتهم.
+تتناول هذه المقالة كيفية [إنشاء العروض والشرائح](/slides/ar/net/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides لـ .NET [تطبيق الحماية على](/slides/ar/net/applying-protection-to-presentation/) ، ثم [إزالتها من](/slides/ar/net/applying-protection-to-presentation/) عرض تقديمي. هذه الميزة فريدة من نوعها في Aspose.Slides وفي وقت كتابة هذه السطور، غير متاحة في Microsoft PowerPoint. إنها تعطي المطورين وسيلة للتحكم في كيفية استخدام العروض التي تنشئها تطبيقاتهم.
 
 {{% /alert %}} 
 ## **تركيب الشريحة**

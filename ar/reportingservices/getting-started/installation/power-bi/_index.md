@@ -2,7 +2,7 @@
 title: تثبيت Aspose.Slides لخدمات التقارير في Power BI
 type: docs
 weight: 20
-url: /reportingservices/power-bi/
+url: /ar/reportingservices/power-bi/
 keywords: "Power BI, التثبيت, Aspose.Slides لخدمات التقارير في Power BI"
 description: "تثبيت Aspose.Slides لخدمات التقارير في Power BI"
 ---

@@ -3,7 +3,7 @@ title: حفظ العرض التقديمي - مكتبة PowerPoint لـ C++
 linktitle: حفظ العرض التقديمي
 type: docs
 weight: 80
-url: /cpp/save-presentation/
+url: /ar/cpp/save-presentation/
 description: تتيح لك واجهة برمجة تطبيقات C++ PowerPoint أو المكتبة حفظ العرض التقديمي إلى ملف أو دفق. يمكنك إنشاء عرض تقديمي من الصفر أو تعديل عرض تقديمي موجود.
 ---
 

@@ -2,7 +2,7 @@
 title: إطار الصورة
 type: docs
 weight: 10
-url: /net/picture-frame/
+url: /ar/net/picture-frame/
 keywords: 
 - إضافة إطار الصورة
 - إنشاء إطار الصورة

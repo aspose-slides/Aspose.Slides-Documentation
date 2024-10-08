@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /python-java/product-overview/
+url: /ar/python-java/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python-via-java.png)
@@ -134,4 +134,4 @@ Aspose.Slides لـ Python عبر Java هي مكتبة فئات متعددة ال
 |[مدونة Aspose.Slides](https://blog.aspose.com/category/slides/)|تحقق من هذه الصفحة بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تحميل Aspose.Slides لـ Python عبر Java](https://releases.aspose.com/slides/python-java/)|قم بتنزيل أحدث إصدار من Aspose.Slides هنا. نحن غالبًا ما نطلق إصدارات جديدة.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|قم بنشر أسئلتك ومشاكلك هنا للحصول على حل سريع.|
-|[توثيق المنتج لـ Aspose.Slides لـ Python عبر Java](/slides/python-java/)|التوثيق الكامل عبر الإنترنت الذي يحتوي على هذه الوثيقة ومرجع واجهة برمجة Aspose.Slides.|
+|[توثيق المنتج لـ Aspose.Slides لـ Python عبر Java](/slides/ar/python-java/)|التوثيق الكامل عبر الإنترنت الذي يحتوي على هذه الوثيقة ومرجع واجهة برمجة Aspose.Slides.|

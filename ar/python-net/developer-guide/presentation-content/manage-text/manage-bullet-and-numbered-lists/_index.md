@@ -2,7 +2,7 @@
 title: إدارة القوائم النقطية والمرقمة
 type: docs
 weight: 70
-url: /python-net/manage-bullet-and-numbered-lists/
+url: /ar/python-net/manage-bullet-and-numbered-lists/
 keywords: "نقاط, قوائم نقطية, أرقام, قوائم مرقمة, صور نقاط, قوائم متعددة المستويات, عرض PowerPoint, بايثون, Aspose.Slides لبايثون عبر .NET"
 description: "إنشاء قوائم نقطية ومرقمة في عرض PowerPoint باستخدام بايثون"
 ---

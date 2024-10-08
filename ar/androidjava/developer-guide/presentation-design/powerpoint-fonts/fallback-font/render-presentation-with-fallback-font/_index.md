@@ -2,12 +2,12 @@
 title: عرض تقديمي مع خط احتياطي
 type: docs
 weight: 30
-url: /androidjava/render-presentation-with-fallback-font/
+url: /ar/androidjava/render-presentation-with-fallback-font/
 ---
 
 يتضمن المثال التالي هذه الخطوات:
 
-1. نحن [نقوم بإنشاء مجموعة قواعد الخطوط الاحتياطية](/slides/androidjava/create-fallback-fonts-collection/).
+1. نحن [نقوم بإنشاء مجموعة قواعد الخطوط الاحتياطية](/slides/ar/androidjava/create-fallback-fonts-collection/).
 1. [إزالة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) قاعدة خط احتياطي و[إضافة خطوط احتياطية](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) إلى قاعدة أخرى.
 1. ضبط مجموعة القواعد على [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) طريقة.
 1. باستخدام طريقة [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) يمكننا حفظ العرض التقديمي بنفس التنسيق، أو حفظه في تنسيق آخر. بعد تعيين مجموعة قواعد الخطوط الاحتياطية إلى [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager)، يتم تطبيق هذه القواعد أثناء أي عمليات على العرض التقديمي: حفظ، عرض، تحويل، إلخ.
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول [الحفظ والتحويل في العرض التقديمي](/slides/androidjava/creating-saving-and-converting-a-presentation/).
+اقرأ المزيد حول [الحفظ والتحويل في العرض التقديمي](/slides/ar/androidjava/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: إدارة الحبر
 type: docs
 weight: 95
-url: /androidjava/manage-ink/
+url: /ar/androidjava/manage-ink/
 keywords: "الحبر في PowerPoint، أدوات الحبر، Java Ink، الرسم في PowerPoint، عرض PowerPoint، Java، Aspose.Slides لـ Android عبر Java"
 description: "استخدم أدوات الحبر لرسم كائنات في PowerPoint Java"
 ---

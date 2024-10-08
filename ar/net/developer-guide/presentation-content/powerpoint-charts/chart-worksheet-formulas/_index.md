@@ -2,7 +2,7 @@
 title: صيغ ورقة العمل للمخطط
 type: docs
 weight: 70
-url: /net/chart-worksheet-formulas/
+url: /ar/net/chart-worksheet-formulas/
 keywords: "جدول بيانات المخطط، صيغة المخطط، عرض تقديمي لباوربوينت، C#، Csharp، Aspose.Slides ل .NET"
 description: "جدول بيانات المخطط وصيغة في عرض تقديمي لباوربوينت بلغة C# أو .NET"
 ---

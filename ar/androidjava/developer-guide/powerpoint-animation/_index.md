@@ -2,7 +2,7 @@
 title: رسوم متحركة في PowerPoint
 type: docs
 weight: 150
-url: /androidjava/powerpoint-animation/
+url: /ar/androidjava/powerpoint-animation/
 keywords: "رسوم متحركة في PowerPoint"
 description: "رسوم متحركة في PowerPoint، رسوم متحركة لشريحة PowerPoint مع Aspose.Slides."
 ---
@@ -53,19 +53,19 @@ description: "رسوم متحركة في PowerPoint، رسوم متحركة لش
 تسمح Aspose.Slides بتطبيق الرسوم المتحركة على الأشكال، التي يمكن أن تكون نصًا أو مستطيلًا أو خطًا أو إطارًا أو عنصر OLE، إلخ.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**رسوم متحركة للأشكال**](/slides/androidjava/shape-animation/).
+اقرأ المزيد عن [**رسوم متحركة للأشكال**](/slides/ar/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **رسوم بيانية متحركة**
 لإنشاء رسوم بيانية متحركة، يجب استخدام نفس الفئات كما هو الحال بالنسبة للأشكال. ومع ذلك، من الممكن استخدام رسوم متحركة PowerPoint فقط على فئات الرسوم البيانية أو سلاسل الرسوم البيانية. يمكنك أيضًا تطبيق تأثير الرسوم المتحركة على عنصر فئة أو عنصر سلسلة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**رسوم بيانية متحركة**](/slides/androidjava/animated-charts/).
+اقرأ المزيد عن [**رسوم بيانية متحركة**](/slides/ar/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **نص متحرك**
 إلى جانب النص المتحرك، من الممكن أيضًا تطبيق الرسوم المتحركة على فقرة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**نص متحرك**](/slides/androidjava/animated-text/).
+اقرأ المزيد عن [**نص متحرك**](/slides/ar/androidjava/animated-text/).
 {{% /alert %}}

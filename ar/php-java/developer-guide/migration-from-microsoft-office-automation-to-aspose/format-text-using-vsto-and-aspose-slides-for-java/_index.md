@@ -2,12 +2,12 @@
 title: تنسيق النص باستخدام VSTO و Aspose.Slides ل PHP عبر Java
 type: docs
 weight: 30
-url: /php-java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /ar/php-java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-في بعض الأحيان، تحتاج إلى تنسيق النص على الشرائح برمجيًا. تُظهر هذه المقالة كيفية قراءة عرض تقديمي عينة يحتوي على بعض النصوص على الشريحة الأولى باستخدام إما [VSTO](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides ل PHP عبر Java](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/). يقوم الكود بتنسيق النص في مربع النص الثالث على الشريحة ليبدو كالنص في مربع النص الأخير.
+في بعض الأحيان، تحتاج إلى تنسيق النص على الشرائح برمجيًا. تُظهر هذه المقالة كيفية قراءة عرض تقديمي عينة يحتوي على بعض النصوص على الشريحة الأولى باستخدام إما [VSTO](/slides/ar/php-java/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides ل PHP عبر Java](/slides/ar/php-java/format-text-using-vsto-and-aspose-slides-for-java/). يقوم الكود بتنسيق النص في مربع النص الثالث على الشريحة ليبدو كالنص في مربع النص الأخير.
 
 {{% /alert %}} 
 ## **تنسيق النص**

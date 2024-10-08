@@ -2,7 +2,7 @@
 title: تعيين العنوان لأيقونة OLE
 type: docs
 weight: 130
-url: /java/set-caption-to-ole-icon/
+url: /ar/java/set-caption-to-ole-icon/
 ---
 
 لقد تم إضافة طرق جديدة **getSubstitutePictureTitle** و **setSubstitutePictureTitle** إلى واجهة **IOleObjectFrame** وclass **OleObjectFrame**. يسمح ذلك بالحصول على العنوان أو تعيينه أو تغييره لأيقونة OLE. تُظهر مقطع الشفرة أدناه مثالًا على إنشاء كائن Excel وتعيين عنوانه.

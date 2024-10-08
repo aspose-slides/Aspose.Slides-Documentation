@@ -2,7 +2,7 @@
 title: إطار الصورة
 type: docs
 weight: 10
-url: /python-net/picture-frame/
+url: /ar/python-net/picture-frame/
 keywords: "إضافة إطار صورة، إنشاء إطار صورة، إضافة صورة، إنشاء صورة، استخراج صورة، خاصية StretchOff، تنسيق إطار الصورة، خصائص إطار الصورة، عرض تقديمي PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إضافة إطار صورة إلى عرض تقديمي PowerPoint باستخدام بايثون"
 ---

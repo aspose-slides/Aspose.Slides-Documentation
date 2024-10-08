@@ -2,7 +2,7 @@
 title: تحويل الشريحة
 type: docs
 weight: 41
-url: /python-net/convert-slide/
+url: /ar/python-net/convert-slide/
 keywords: 
 - تحويل الشريحة إلى صورة
 - تصدير الشريحة كصورة

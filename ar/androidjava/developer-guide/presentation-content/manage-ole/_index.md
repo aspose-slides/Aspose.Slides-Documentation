@@ -2,7 +2,7 @@
 title: إدارة OLE
 type: docs
 weight: 40
-url: /androidjava/manage-ole/
+url: /ar/androidjava/manage-ole/
 keywords:
 - إضافة OLE
 - تضمين OLE

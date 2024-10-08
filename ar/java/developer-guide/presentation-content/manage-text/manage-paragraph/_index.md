@@ -2,7 +2,7 @@
 title: إدارة فقرة PowerPoint في جافا
 type: docs
 weight: 40
-url: /java/manage-paragraph/
+url: /ar/java/manage-paragraph/
 keywords: "إضافة فقرة PowerPoint، إدارة الفقرات، إزاحة الفقرة، خصائص الفقرة، نص HTML، تصدير نص الفقرة، عرض PowerPoint، جافا، Aspose.Slides لجافا"
 description: "إنشاء وإدارة فقرة، نص، إزاحة، وخصائص في عروض PowerPoint في جافا"
 ---

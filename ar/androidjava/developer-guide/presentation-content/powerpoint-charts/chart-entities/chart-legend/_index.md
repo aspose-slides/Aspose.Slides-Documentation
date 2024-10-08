@@ -1,7 +1,7 @@
 ---
 title: أسطورة المخطط
 type: docs
-url: /androidjava/chart-legend/
+url: /ar/androidjava/chart-legend/
 ---
 
 ## **موضع الأسطورة**

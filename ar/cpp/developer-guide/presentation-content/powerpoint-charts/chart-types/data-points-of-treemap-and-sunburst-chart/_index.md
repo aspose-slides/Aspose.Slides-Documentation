@@ -1,7 +1,7 @@
 ---
 title: نقاط البيانات لمخطط الشجرة والمخطط الشمسي
 type: docs
-url: /cpp/data-points-of-treemap-and-sunburst-chart/
+url: /ar/cpp/data-points-of-treemap-and-sunburst-chart/
 keywords: "مخطط شمسي"
 description: "مخطط شمسي، رسم بياني شمسي، مخطط شمسي، رسم بياني دائري، رسم بياني دائري أو مخطط دائري متعدد المستويات باستخدام Aspose.Slides."
 ---
@@ -23,7 +23,7 @@ auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::S
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [**إنشاء مخطط شمسي**](/slides/cpp/create-chart/#create-sunburst-chart)
+- [**إنشاء مخطط شمسي**](/slides/ar/cpp/create-chart/#create-sunburst-chart)
 {{% /alert %}}
 
 إذا كانت هناك حاجة لتنسيق نقاط البيانات للمخطط، يجب علينا استخدام ما يلي:

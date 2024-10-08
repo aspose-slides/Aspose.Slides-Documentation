@@ -1,7 +1,7 @@
 ---
 title: خط الاتجاه
 type: docs
-url: /androidjava/trend-line/
+url: /ar/androidjava/trend-line/
 ---
 
 ## **إضافة خط اتجاه**

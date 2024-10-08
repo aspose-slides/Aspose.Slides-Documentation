@@ -2,7 +2,7 @@
 title: الحصول على كل النصوص في كل الشرائح
 type: docs
 weight: 100
-url: /net/get-all-the-text-in-all-the-slides/
+url: /ar/net/get-all-the-text-in-all-the-slides/
 ---
 
 ## **OpenXML SDK**

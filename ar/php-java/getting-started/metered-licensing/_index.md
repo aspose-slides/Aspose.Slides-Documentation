@@ -2,7 +2,7 @@
 title: الترخيص المدفوع بالاستعمال
 type: docs
 weight: 100
-url: /php-java/metered-licensing/
+url: /ar/php-java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

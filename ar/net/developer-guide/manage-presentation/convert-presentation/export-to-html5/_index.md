@@ -2,7 +2,7 @@
 title: تصدير إلى HTML5
 type: docs
 weight: 40
-url: /net/export-to-html5/
+url: /ar/net/export-to-html5/
 keywords:
 - PowerPoint إلى HTML
 - شرائح إلى HTML
@@ -19,7 +19,7 @@ description: "تصدير PowerPoint إلى HTML5 في C# أو .NET"
 
 {{% alert title="معلومات" color="info" %}}
 
-في [Aspose.Slides 21.9](/slides/net/aspose-slides-for-net-21-9-release-notes/)، قمنا بتنفيذ دعم تصدير HTML5. ومع ذلك، إذا كنت تفضل تصدير PowerPoint إلى HTML باستخدام WebExtensions، انظر [هذه المقالة](/slides/net/web-extensions/) بدلاً من ذلك.
+في [Aspose.Slides 21.9](/slides/ar/net/aspose-slides-for-net-21-9-release-notes/)، قمنا بتنفيذ دعم تصدير HTML5. ومع ذلك، إذا كنت تفضل تصدير PowerPoint إلى HTML باستخدام WebExtensions، انظر [هذه المقالة](/slides/ar/net/web-extensions/) بدلاً من ذلك.
 
 {{% /alert %}} 
 

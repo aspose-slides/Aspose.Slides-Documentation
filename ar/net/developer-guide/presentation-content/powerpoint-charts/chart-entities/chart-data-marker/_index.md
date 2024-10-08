@@ -1,7 +1,7 @@
 ---
 title: علامة بيانات الرسم البياني
 type: docs
-url: /net/chart-data-marker/
+url: /ar/net/chart-data-marker/
 keywords:
 - خيارات علامات الرسم البياني
 - PowerPoint

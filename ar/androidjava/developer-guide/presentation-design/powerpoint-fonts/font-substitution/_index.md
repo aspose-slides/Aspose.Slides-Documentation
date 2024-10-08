@@ -3,7 +3,7 @@ title: استبدال الخط - PowerPoint Java API
 linktitle: استبدال الخط
 type: docs
 weight: 70
-url: /androidjava/font-substitution/
+url: /ar/androidjava/font-substitution/
 keywords: "خط، استبدال الخط، عرض PowerPoint، Java، Aspose.Slides لـ Android عبر Java"
 description: "استبدال الخط في PowerPoint باستخدام Java"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="ملاحظة"  color="warning"   %}} 
 
-قد ترغب في الاطلاع على [**استبدال الخط**](/slides/androidjava/font-replacement/).
+قد ترغب في الاطلاع على [**استبدال الخط**](/slides/ar/androidjava/font-replacement/).
 
 {{% /alert %}}

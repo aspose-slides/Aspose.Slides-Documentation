@@ -2,7 +2,7 @@
 title: حذف جميع التعليقات بواسطة مؤلف
 type: docs
 weight: 70
-url: /net/delete-all-the-comments-by-an-author/
+url: /ar/net/delete-all-the-comments-by-an-author/
 ---
 
 ## **OpenXML SDK**

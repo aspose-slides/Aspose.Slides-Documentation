@@ -2,7 +2,7 @@
 title: نص متحرك
 type: docs
 weight: 60
-url: /python-net/animated-text/
+url: /ar/python-net/animated-text/
 keywords: "نص متحرك، تأثيرات الرسوم المتحركة، عرض باوربوينت، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إضافة نصوص متحركة وتأثيرات إلى عرض باوربوينت في بايثون"
 ---

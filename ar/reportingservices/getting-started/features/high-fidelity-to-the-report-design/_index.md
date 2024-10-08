@@ -2,7 +2,7 @@
 title: الدقة العالية في تصميم التقرير
 type: docs
 weight: 40
-url: /reportingservices/high-fidelity-to-the-report-design/
+url: /ar/reportingservices/high-fidelity-to-the-report-design/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: إدارة الارتباطات التشعبية
 type: docs
 weight: 20
-url: /python-net/manage-hyperlinks/
+url: /ar/python-net/manage-hyperlinks/
 keywords: "إضافة ارتباط تشعبي، عرض PowerPoint، الارتباط التشعبي PowerPoint، ارتباط نصي، ارتباط شريحة، ارتباط شكل، ارتباط صورة، ارتباط فيديو، Python"
 description: "إضافة ارتباط تشعبي إلى عرض PowerPoint في Python"
 ---

@@ -2,18 +2,18 @@
 title: رأس وتذييل العرض
 type: docs
 weight: 140
-url: /python-net/presentation-header-and-footer/
+url: /ar/python-net/presentation-header-and-footer/
 keywords: "رأس, تذييل, تعيين رأس, تعيين تذييل, تعيين رأس وتذييل, عرض PowerPoint, بايثون, Aspose.Slides لـ بايثون عبر .NET"
 description: "رأس وتذييل PowerPoint في بايثون"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/python-net/) توفر الدعم للعمل مع نصوص رؤوس وتذايل الشرائح التي يتم الحفاظ عليها على مستوى الشريحة الرئيسية.
+[Aspose.Slides](/slides/ar/python-net/) توفر الدعم للعمل مع نصوص رؤوس وتذايل الشرائح التي يتم الحفاظ عليها على مستوى الشريحة الرئيسية.
 
 {{% /alert %}} 
 
-[Aspose.Slides لـ بايثون عبر .NET](/slides/python-net/) توفر الميزة لإدارة الرؤوس والتذييلات داخل شرائح العرض. هذه في الواقع تُدار على مستوى الشريحة الرئيسية.
+[Aspose.Slides لـ بايثون عبر .NET](/slides/ar/python-net/) توفر الميزة لإدارة الرؤوس والتذييلات داخل شرائح العرض. هذه في الواقع تُدار على مستوى الشريحة الرئيسية.
 ## **إدارة نص الرأس والتذييل**
 يمكن تحديث ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:
 

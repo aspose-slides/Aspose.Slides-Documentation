@@ -2,7 +2,7 @@
 title: مصنف الرسم البياني
 type: docs
 weight: 70
-url: /java/chart-workbook/
+url: /ar/java/chart-workbook/
 keywords: "مصنف الرسم البياني، بيانات الرسم البياني، عرض PowerPoint، Java، Aspose.Slides for Java"
 description: "مصنف الرسم البياني في عرض PowerPoint في Java"
 ---

@@ -2,7 +2,7 @@
 title: استنساخ الشرائح
 type: docs
 weight: 35
-url: /php-java/clone-slides/
+url: /ar/php-java/clone-slides/
 ---
 
 

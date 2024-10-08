@@ -2,7 +2,7 @@
 title: تحويل الشريحة
 type: docs
 weight: 35
-url: /php-java/convert-slide/
+url: /ar/php-java/convert-slide/
 keywords: 
 - تحويل الشريحة إلى صورة
 - تصدير الشريحة كصورة

@@ -2,7 +2,7 @@
 title: معادلات الرياضيات في PowerPoint
 type: docs
 weight: 80
-url: /python-net/powerpoint-math-equations/
+url: /ar/python-net/powerpoint-math-equations/
 keywords: " معادلات الرياضيات في PowerPoint, رموز الرياضيات في PowerPoint, صيغة PowerPoint, نص الرياضيات في PowerPoint, عرض PowerPoint, بايثون, Aspose.Slides لـ بايثون عبر .NET"
 description: "معادلات الرياضيات في PowerPoint، رموز الرياضيات، صيغة، ونص الرياضيات في بايثون"
 ---

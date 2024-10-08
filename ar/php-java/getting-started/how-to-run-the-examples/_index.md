@@ -2,7 +2,7 @@
 title: كيفية تشغيل الأمثلة
 type: docs
 weight: 140
-url: /php-java/how-to-run-the-examples/
+url: /ar/php-java/how-to-run-the-examples/
 ---
 
 ## **التنزيل من GitHub**

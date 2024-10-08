@@ -2,7 +2,7 @@
 title: إدارة صندوق النص
 type: docs
 weight: 20
-url: /php-java/manage-textbox/
+url: /ar/php-java/manage-textbox/
 description: إنشاء صندوق نص في شرائح PowerPoint باستخدام PHP. إضافة عمود في صندوق نص أو إطار نص في شرائح PowerPoint باستخدام PHP. إضافة صندوق نص مع رابط في شرائح PowerPoint باستخدام PHP.
 ---
 

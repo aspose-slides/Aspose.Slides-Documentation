@@ -2,7 +2,7 @@
 title: دفتر العمل للرسم البياني
 type: docs
 weight: 70
-url: /net/chart-workbook/
+url: /ar/net/chart-workbook/
 keywords: "دفتر عمل الرسم البياني، بيانات الرسم البياني، عرض PowerPoint، C#، Csharp، Aspose.Slides ل .NET"
 description: "دفتر العمل للرسم البياني في عرض PowerPoint في C# أو .NET"
 ---

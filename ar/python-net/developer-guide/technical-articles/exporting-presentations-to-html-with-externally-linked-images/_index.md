@@ -2,7 +2,7 @@
 title: تصدير العروض التقديمية إلى HTML مع الصور المرتبطة خارجيًا
 type: docs
 weight: 100
-url: /python-net/exporting-presentations-to-html-with-externally-linked-images/
+url: /ar/python-net/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

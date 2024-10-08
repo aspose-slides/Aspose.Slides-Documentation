@@ -2,7 +2,7 @@
 title: شكل مخصص
 type: docs
 weight: 20
-url: /python-net/custom-shape/
+url: /ar/python-net/custom-shape/
 keywords: "شكل PowerPoint، شكل مخصص، عرض PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
 description: "إضافة شكل مخصص في عرض PowerPoint باستخدام بايثون"
 ---

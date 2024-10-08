@@ -2,7 +2,7 @@
 title: Aspose.Slides لـ .NET 6 عبر المنصات
 type: docs
 weight: 237
-url: /net/slides-for-net-6-cross-platform
+url: /ar/net/slides-for-net-6-cross-platform
 keywords: Aspose.Slides, .NET, عبر المنصات
 description: Aspose.Slides لـ .NET 6 عبر المنصات
 ---

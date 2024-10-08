@@ -2,7 +2,7 @@
 title: إدارة الجدول
 type: docs
 weight: 10
-url: /java/manage-table/
+url: /ar/java/manage-table/
 keywords: "جدول، إنشاء جدول، الوصول إلى جدول، نسبة عرض إلى ارتفاع الجدول، عرض تقديمي لPowerPoint، جافا، Aspose.Slides لJava"
 description: "إنشاء وإدارة الجداول في عروض PowerPoint التقديمية باستخدام جافا"
 ---

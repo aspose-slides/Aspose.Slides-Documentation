@@ -2,7 +2,7 @@
 title: النص الفرعي والنص العلوي
 type: docs
 weight: 80
-url: /cpp/superscript-and-subscript/
+url: /ar/cpp/superscript-and-subscript/
 ---
 
 ## **إدارة نص النص العلوي والنص الفرعي**

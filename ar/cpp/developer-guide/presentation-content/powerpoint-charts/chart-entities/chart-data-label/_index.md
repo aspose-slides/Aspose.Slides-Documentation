@@ -1,7 +1,7 @@
 ---
 title: تسميات بيانات الرسم البياني
 type: docs
-url: /cpp/chart-data-label/
+url: /ar/cpp/chart-data-label/
 keywords: "تسمية بيانات الرسم البياني، مسافة التسمية، C++، CPP، Aspose.Slides لـ C++"
 description: "ضبط تسميات بيانات الرسم البياني والمسافة في C++"
 ---

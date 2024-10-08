@@ -2,7 +2,7 @@
 title: إعلان
 type: docs
 weight: 60
-url: /cpp/declaration/
+url: /ar/cpp/declaration/
 ---
 
 {{% alert color="primary" %}} 

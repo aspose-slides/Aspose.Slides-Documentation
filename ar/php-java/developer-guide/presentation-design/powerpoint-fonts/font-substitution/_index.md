@@ -3,7 +3,7 @@ title: استبدال الخط - واجهة برمجة تطبيقات PowerPoint
 linktitle: استبدال الخط
 type: docs
 weight: 70
-url: /php-java/font-substitution/
+url: /ar/php-java/font-substitution/
 keywords: "خط، خط بديل، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "استبدال الخط في PowerPoint"
 ---
@@ -53,6 +53,6 @@ description: "استبدال الخط في PowerPoint"
 
 {{% alert title="ملاحظة" color="warning" %}} 
 
-قد ترغب في رؤية [**استبدال الخط**](/slides/php-java/font-replacement/).
+قد ترغب في رؤية [**استبدال الخط**](/slides/ar/php-java/font-replacement/).
 
 {{% /alert %}}

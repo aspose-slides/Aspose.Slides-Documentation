@@ -2,7 +2,7 @@
 title: استيراد العرض التقديمي
 type: docs
 weight: 60
-url: /androidjava/import-presentation/
+url: /ar/androidjava/import-presentation/
 keywords: "استيراد PowerPoint، PDF إلى عرض تقديمي، PDF إلى PPTX، PDF إلى PPT، Java، Aspose.Slides لـ Android عبر Java"
 description: "استيراد عرض تقديمي PowerPoint من PDF. تحويل PDF إلى PowerPoint"
 ---

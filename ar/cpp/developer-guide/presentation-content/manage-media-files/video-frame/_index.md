@@ -2,7 +2,7 @@
 title: إطار الفيديو
 type: docs
 weight: 10
-url: /cpp/video-frame/
+url: /ar/cpp/video-frame/
 keywords: "إضافة فيديو، إنشاء إطار فيديو، استخراج فيديو، عرض تقديمي على PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "إضافة إطار فيديو إلى عرض تقديمي على PowerPoint بلغة C++"
 

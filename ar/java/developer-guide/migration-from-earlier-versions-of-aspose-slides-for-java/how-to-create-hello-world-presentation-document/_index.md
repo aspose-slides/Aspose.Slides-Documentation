@@ -2,12 +2,12 @@
 title: كيفية إنشاء وثيقة عرض Hello World
 type: docs
 weight: 10
-url: /java/how-to-create-hello-world-presentation-document/
+url: /ar/java/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-تم إصدار [Aspose.Slides for Java API](/slides/java/) جديد والآن يدعم هذا المنتج الواحد القدرة على إنشاء وثائق PowerPoint من الصفر وتعديل الوثائق الموجودة.
+تم إصدار [Aspose.Slides for Java API](/slides/ar/java/) جديد والآن يدعم هذا المنتج الواحد القدرة على إنشاء وثائق PowerPoint من الصفر وتعديل الوثائق الموجودة.
 
 {{% /alert %}} 
 ## **الدعم للشفرة القديمة**

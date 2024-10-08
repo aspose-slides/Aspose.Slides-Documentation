@@ -1,7 +1,7 @@
 ---
 title: دعوة
 type: docs
-url: /python-net/callout/
+url: /ar/python-net/callout/
 keywords: "دعوة الرسم البياني, تسمية بيانات الرسم البياني, بايثون, Aspose.Slides لبايثون عبر .NET"
 description: "دعوات ورسوم بيانية PowerPoint في بايثون"
 ---

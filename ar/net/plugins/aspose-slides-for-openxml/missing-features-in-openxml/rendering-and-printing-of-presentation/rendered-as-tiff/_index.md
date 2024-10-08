@@ -2,7 +2,7 @@
 title: تم تقديمه كـ Tiff
 type: docs
 weight: 30
-url: /net/rendered-as-tiff/
+url: /ar/net/rendered-as-tiff/
 ---
 
 تنسيق TIFF معروف بمرونته لاستيعاب الصور المتعددة الصفحات والبيانات. مع الأخذ في الاعتبار أهمية وشعبية تنسيق TIFF، توفر Aspose.Slides لـ .NET دعمًا لتحويل العروض التقديمية إلى مستند TIFF.

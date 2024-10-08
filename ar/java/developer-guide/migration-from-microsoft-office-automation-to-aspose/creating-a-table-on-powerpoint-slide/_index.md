@@ -2,12 +2,12 @@
 title: إنشاء جدول على شريحة باوربوينت
 type: docs
 weight: 50
-url: /java/creating-a-table-on-powerpoint-slide/
+url: /ar/java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-تستخدم الجداول على نطاق واسع لعرض البيانات على شرائح العرض. توضح هذه المقالة كيفية إنشاء جدول بحجم 15 × 15 مع حجم خط 10 برمجيًا باستخدام أولاً [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for Java](/slides/java/creating-a-table-on-powerpoint-slide/).
+تستخدم الجداول على نطاق واسع لعرض البيانات على شرائح العرض. توضح هذه المقالة كيفية إنشاء جدول بحجم 15 × 15 مع حجم خط 10 برمجيًا باستخدام أولاً [VSTO 2008](/slides/ar/java/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for Java](/slides/ar/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **إنشاء الجداول**

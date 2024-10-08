@@ -2,7 +2,7 @@
 title: البحث واستبدال النص دون فقدان التنسيق في العرض التقديمي
 type: docs
 weight: 100
-url: /net/find-and-replace-text-without-losing-format-in-presentation/
+url: /ar/net/find-and-replace-text-without-losing-format-in-presentation/
 ---
 
 تتبع كلا الطريقتين الخطوات التالية:

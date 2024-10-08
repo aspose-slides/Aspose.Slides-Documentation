@@ -2,7 +2,7 @@
 title: إدارة الخلايا
 type: docs
 weight: 30
-url: /php-java/manage-cells/
+url: /ar/php-java/manage-cells/
 keywords: "جدول، خلايا مدمجة، خلايا مقسمة، صورة في خلية جدول، Java، Aspose.Slides لـ PHP عبر Java"
 description: "خلايا الجدول في العروض التقديمية PowerPoint"
 ---

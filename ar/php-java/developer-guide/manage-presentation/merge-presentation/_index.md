@@ -2,7 +2,7 @@
 title: دمج العرض التقديمي
 type: docs
 weight: 40
-url: /php-java/merge-presentation/
+url: /ar/php-java/merge-presentation/
 keywords: "دمج PowerPoint, PPTX, PPT, دمج PowerPoint, دمج العروض التقديمية, دمج العروض, Java"
 description: "دمج أو جمع عرض تقديمي PowerPoint"
 ---

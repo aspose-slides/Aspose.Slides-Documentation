@@ -2,7 +2,7 @@
 title: تلاعبات الأشكال
 type: docs
 weight: 40
-url: /php-java/shape-manipulations/
+url: /ar/php-java/shape-manipulations/
 ---
 
 ## **البحث عن شكل في الشريحة**

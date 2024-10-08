@@ -2,7 +2,7 @@
 title: الموارد
 type: docs
 weight: 20
-url: /jasperreports/resources/
+url: /ar/jasperreports/resources/
 ---
 
 {{% alert color="primary" %}} 

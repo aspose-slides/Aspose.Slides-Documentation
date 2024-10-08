@@ -2,12 +2,12 @@
 title: كيفية إضافة ترويسة وتذييل في عرض تقديمي
 type: docs
 weight: 20
-url: /net/how-to-add-header-footer-in-a-presentation/
+url: /ar/net/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-تم إصدار [Aspose.Slides for .NET API](/slides/net/) جديدة والآن يدعم هذا المنتج الوحيد إمكانية إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الحالية.
+تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديدة والآن يدعم هذا المنتج الوحيد إمكانية إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الحالية.
 
 {{% /alert %}} 
 ## **دعم الكود القديم**

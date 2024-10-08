@@ -2,7 +2,7 @@
 title: مرجع API
 type: docs
 weight: 50
-url: /python-java/api-reference/
+url: /ar/python-java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

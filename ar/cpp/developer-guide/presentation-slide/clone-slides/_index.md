@@ -2,7 +2,7 @@
 title: نسخ الشرائح
 type: docs
 weight: 40
-url: /cpp/clone-slides/
+url: /ar/cpp/clone-slides/
 ---
 
 

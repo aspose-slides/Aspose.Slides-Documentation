@@ -2,7 +2,7 @@
 title: فن الكتابة
 type: docs
 weight: 110
-url: /cpp/wordart/
+url: /ar/cpp/wordart/
 ---
 
 ## **ما هو فن الكتابة؟**

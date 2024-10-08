@@ -2,7 +2,7 @@
 title: عرض الشريحة كصور مصغرة بصيغة JPEG وفقًا لقيم يحددها المستخدم
 type: docs
 weight: 70
-url: /net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
+url: /ar/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
 ---
 
 لتوليد الصورة المصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides لـ .NET:

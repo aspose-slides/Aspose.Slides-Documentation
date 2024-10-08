@@ -2,18 +2,18 @@
 title: رأس وتذييل العرض التقديمي
 type: docs
 weight: 140
-url: /php-java/presentation-header-and-footer/
+url: /ar/php-java/presentation-header-and-footer/
 keywords: "رأس وتذييل باوربوينت"
 description: "رأس وتذييل باوربوينت"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/php-java/) يوفر الدعم للعمل مع نصوص رؤوس وتذييلات الشريحة التي تُحافظ عليها في مستوى شريحة الماستر.
+[Aspose.Slides](/slides/ar/php-java/) يوفر الدعم للعمل مع نصوص رؤوس وتذييلات الشريحة التي تُحافظ عليها في مستوى شريحة الماستر.
 
 {{% /alert %}} 
 
-[Aspose.Slides for PHP via Java](/slides/php-java/) يوفر ميزة إدارة رؤوس وتذييلات داخل شرائح العرض التقديمي. هذه تُدار في الواقع على مستوى الماستر.
+[Aspose.Slides for PHP via Java](/slides/ar/php-java/) يوفر ميزة إدارة رؤوس وتذييلات داخل شرائح العرض التقديمي. هذه تُدار في الواقع على مستوى الماستر.
 
 ## **إدارة الرأس والتذييل في العرض التقديمي**
 يمكن إزالة ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:

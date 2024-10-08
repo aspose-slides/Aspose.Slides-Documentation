@@ -2,7 +2,7 @@
 title: معادلات الرياضيات في PowerPoint
 type: docs
 weight: 80
-url: /androidjava/powerpoint-math-equations/
+url: /ar/androidjava/powerpoint-math-equations/
 keywords: "معادلات الرياضيات في PowerPoint, رموز الرياضيات في PowerPoint, صيغة PowerPoint, نص الرياضيات في PowerPoint"
 description: "معادلات الرياضيات في PowerPoint, رموز الرياضيات في PowerPoint, صيغة PowerPoint, نص الرياضيات في PowerPoint"
 ---

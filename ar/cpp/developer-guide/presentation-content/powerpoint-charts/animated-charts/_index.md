@@ -2,7 +2,7 @@
 title: الرسوم البيانية المتحركة
 type: docs
 weight: 80
-url: /cpp/animated-charts/
+url: /ar/cpp/animated-charts/
 ---
 
 

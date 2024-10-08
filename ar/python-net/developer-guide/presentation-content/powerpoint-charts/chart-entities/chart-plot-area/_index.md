@@ -1,7 +1,7 @@
 ---
 title: منطقة تخطيط الرسم البياني
 type: docs
-url: /python-net/chart-plot-area/
+url: /ar/python-net/chart-plot-area/
 keywords: "منطقة تخطيط الرسم البياني، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "احصل على عرض وارتفاع منطقة تخطيط الرسم البياني. حدد وضع التخطيط. عرض PowerPoint في Python"
 ---

@@ -2,7 +2,7 @@
 title: رسوم متحركة في PowerPoint
 type: docs
 weight: 150
-url: /python-net/powerpoint-animation/
+url: /ar/python-net/powerpoint-animation/
 keywords: "رسوم متحركة، تأثيرات الرسوم المتحركة، رسوم متحركة PowerPoint، جدول زمن الرسوم المتحركة، رسوم متحركة تفاعلية، رسوم متحركة للشكل، رسم بياني متحرك، نص متحرك، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "رسوم متحركة وتأثيرات في عروض PowerPoint باستخدام بايثون"
 ---
@@ -49,19 +49,19 @@ description: "رسوم متحركة وتأثيرات في عروض PowerPoint ب
 يسمح Aspose.Slides بتطبيق الرسوم المتحركة على الأشكال، التي يمكن أن تكون نصًا، مستطيلًا، خطًا، إطارًا، OLE Object، إلخ.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**رسوم متحركة الأشكال**](/slides/python-net/shape-animation/).
+اقرأ المزيد عن [**رسوم متحركة الأشكال**](/slides/ar/python-net/shape-animation/).
 {{% /alert %}}
 
 ## **رسوم بيانية متحركة**
 لإنشاء رسوم بيانية متحركة، يجب عليك استخدام نفس الفئات المستخدمة للأشكال. ومع ذلك، من الممكن استخدام رسوم متحركة PowerPoint فقط على فئات الرسم البياني أو سلسلة الرسم البياني. يمكنك أيضًا تطبيق تأثير الرسوم المتحركة على عنصر الفئة أو عنصر السلسلة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**الرسوم البيانية المتحركة**](/slides/python-net/animated-charts/).
+اقرأ المزيد عن [**الرسوم البيانية المتحركة**](/slides/ar/python-net/animated-charts/).
 {{% /alert %}}
 
 ## **نص متحرك**
 باستثناء النص المتحرك، من الممكن أيضًا تطبيق الرسوم المتحركة على فقرة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**النص المتحرك**](/slides/python-net/animated-text/).
+اقرأ المزيد عن [**النص المتحرك**](/slides/ar/python-net/animated-text/).
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: إدارة إعدادات التكيف التلقائي
 type: docs
 weight: 30
-url: /python-net/manage-autofit-settings/
+url: /ar/python-net/manage-autofit-settings/
 keywords: "صندوق نص, تكيف تلقائي, عرض PowerPoint, بايثون, Aspose.Slides لبايثون عبر .NET"
 description: "قم بتعيين إعدادات التكيف التلقائي لصندوق النص في PowerPoint باستخدام بايثون"
 ---

@@ -2,7 +2,7 @@
 title: تحريك الشكل
 type: docs
 weight: 60
-url: /java/shape-animation/
+url: /ar/java/shape-animation/
 keywords: "تحريك باوربوينت، تأثير التحريك، تطبيق التحريك، عرض باوربوينت، جافا، Aspose.Slides لجافا"
 description: "تطبيق تحريك باوربوينت في جافا"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-بجانب تطبيق التحريكات على النص، يمكنك أيضًا تطبيق التحريكات على [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) واحدة. انظر [**نص متحرك**](/slides/java/animated-text/).
+بجانب تطبيق التحريكات على النص، يمكنك أيضًا تطبيق التحريكات على [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) واحدة. انظر [**نص متحرك**](/slides/ar/java/animated-text/).
 
 {{% /alert %}} 
 

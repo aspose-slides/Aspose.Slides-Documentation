@@ -2,7 +2,7 @@
 title: الخط الافتراضي
 type: docs
 weight: 30
-url: /cpp/default-font/
+url: /ar/cpp/default-font/
 keywords: 
 - خط
 - خط افتراضي

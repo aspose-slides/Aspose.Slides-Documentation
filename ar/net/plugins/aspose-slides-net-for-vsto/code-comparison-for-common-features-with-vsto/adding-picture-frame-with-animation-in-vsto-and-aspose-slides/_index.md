@@ -2,7 +2,7 @@
 title: إضافة إطار صورة مع الرسوم المتحركة في VSTO و Aspose.Slides
 type: docs
 weight: 20
-url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
+url: /ar/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
 ---
 
 تقوم عينات الشيفرة أدناه بإنشاء عرض تقديمي مع شريحة، إضافة صورة مع إطار صورة وتطبيق الرسوم المتحركة عليها.

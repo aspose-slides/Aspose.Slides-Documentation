@@ -2,7 +2,7 @@
 title: التثبيت باستخدام مثبت MSI
 type: docs
 weight: 20
-url: /reportingservices/install-with-msi-installer/
+url: /ar/reportingservices/install-with-msi-installer/
 ---
 
 ## **التثبيت**

@@ -2,7 +2,7 @@
 title: تأثيرات انتقال الشريحة
 type: docs
 weight: 80
-url: /net/slide-transitions/
+url: /ar/net/slide-transitions/
 ---
 
 لتسهيل الفهم، قمنا بعرض استخدام Aspose.Slides لـ .NET لإدارة تأثيرات انتقال الشريحة البسيطة. يمكن للمطورين تطبيق تأثيرات انتقال مختلفة على الشرائح، بالإضافة إلى تخصيص سلوك هذه التأثيرات الانتقالية. لإنشاء تأثير انتقال بسيط للشريحة، اتبع الخطوات أدناه:
@@ -53,6 +53,6 @@ using (Presentation pres = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-للحصول على مزيد من التفاصيل، قم بزيارة [إدارة تأثيرات انتقال الشرائح](/slides/net/slide-transition/).
+للحصول على مزيد من التفاصيل، قم بزيارة [إدارة تأثيرات انتقال الشرائح](/slides/ar/net/slide-transition/).
 
 {{% /alert %}}

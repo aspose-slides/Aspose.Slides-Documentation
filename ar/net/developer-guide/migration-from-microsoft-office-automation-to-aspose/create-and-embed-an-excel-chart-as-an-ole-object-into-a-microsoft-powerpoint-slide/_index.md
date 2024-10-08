@@ -2,12 +2,12 @@
 title: إنشاء وإدراج مخطط Excel ككائن OLE في شريحة Microsoft PowerPoint
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-المخططات هي تمثيلات بصرية لبياناتك وتستخدم على نطاق واسع في شرائح العروض التقديمية. ستوضح لك هذه المقالة الكود لإنشاء وإدراج مخطط Excel ككائن OLE في شريحة PowerPoint برمجيًا باستخدام [VSTO](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و [Aspose.Slides for .NET](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+المخططات هي تمثيلات بصرية لبياناتك وتستخدم على نطاق واسع في شرائح العروض التقديمية. ستوضح لك هذه المقالة الكود لإنشاء وإدراج مخطط Excel ككائن OLE في شريحة PowerPoint برمجيًا باستخدام [VSTO](/slides/ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) و [Aspose.Slides for .NET](/slides/ar/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **إنشاء وإدراج مخطط Excel**

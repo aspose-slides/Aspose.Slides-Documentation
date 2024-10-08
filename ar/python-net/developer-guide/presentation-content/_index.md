@@ -2,5 +2,5 @@
 title: محتوى العرض
 type: docs
 weight: 30
-url: /python-net/presentation-content/
+url: /ar/python-net/presentation-content/
 ---

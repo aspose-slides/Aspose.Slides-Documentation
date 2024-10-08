@@ -2,7 +2,7 @@
 title: حل عملي لتغيير حجم المخططات في PPTX
 type: docs
 weight: 60
-url: /cpp/working-solution-for-chart-resizing-in-pptx/
+url: /ar/cpp/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

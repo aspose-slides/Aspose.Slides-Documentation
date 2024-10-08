@@ -3,7 +3,7 @@ title: إنشاء عرض تقديمي في .NET
 linktitle: إنشاء عرض تقديمي
 type: docs
 weight: 10
-url: /net/create-presentation/
+url: /ar/net/create-presentation/
 keywords: "إنشاء باوربوينت، PPTX، PPT، إنشاء عرض تقديمي، تهيئة عرض تقديمي، C#، .NET"
 description: "إنشاء عروض باوربوينت برمجياً في C# مثل PPT، PPTX، ODP إلخ."
 ---

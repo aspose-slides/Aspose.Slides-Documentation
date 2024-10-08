@@ -2,7 +2,7 @@
 title: إنشاء عرض تقديمي جديد
 type: docs
 weight: 10
-url: /java/create-a-new-presentation/
+url: /ar/java/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides لـ Java هو مكون يمكن استخدامه للتلاعب �
 
 {{% /alert %}} 
 ## **إنشاء عرض تقديمي**
-فيما يلي مثالان من التعليمات البرمجية توضحان كيفية استخدام VSTO و Aspose.Slides لـ Java لتحقيق نفس الهدف. المثال الأول هو [VSTO](/slides/java/create-a-new-presentation/)؛ [المثال الثاني](/slides/java/create-a-new-presentation/) يستخدم Aspose.Slides.
+فيما يلي مثالان من التعليمات البرمجية توضحان كيفية استخدام VSTO و Aspose.Slides لـ Java لتحقيق نفس الهدف. المثال الأول هو [VSTO](/slides/ar/java/create-a-new-presentation/)؛ [المثال الثاني](/slides/ar/java/create-a-new-presentation/) يستخدم Aspose.Slides.
 ### **مثال VSTO**
 **مخرجات VSTO** 
 

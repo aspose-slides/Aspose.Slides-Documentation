@@ -2,7 +2,7 @@
 title: انتقال الشريحة
 type: docs
 weight: 80
-url: /php-java/slide-transition/
+url: /ar/php-java/slide-transition/
 keywords: "انتقال شريحة PowerPoint، انتقال مورف"
 description: "انتقال شريحة PowerPoint، انتقال مورف PowerPoint"
 ---

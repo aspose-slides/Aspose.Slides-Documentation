@@ -2,7 +2,7 @@
 title: استخراج النص من العرض التقديمي
 type: docs
 weight: 90
-url: /php-java/extract-text-from-presentation/
+url: /ar/php-java/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 

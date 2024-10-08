@@ -2,7 +2,7 @@
 title: الترخيص
 type: docs
 weight: 90
-url: /java/licensing/
+url: /ar/java/licensing/
 ---
 
 ## **تقييم Aspose.Slides**
@@ -40,7 +40,7 @@ url: /java/licensing/
 
 {{% alert color="primary" %}} 
 
-قد ترغب في رؤية [الترخيص المتقطع](/slides/java/metered-licensing/).
+قد ترغب في رؤية [الترخيص المتقطع](/slides/ar/java/metered-licensing/).
 
 {{% /alert %}} 
 
@@ -90,7 +90,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 ### **جسر PHP/Java**
 
-إذا كنت تستخدم Aspose.Slides لـ PHP عبر Java، يمكنك تعيين ترخيص من خلال جسر PHP/Java. يتيح لك هذا الجسر استخدام فئات Java في صياغة PHP. لمزيد من المعلومات، انظر [الترخيص في PHP](/slides/php-java/licensing/).
+إذا كنت تستخدم Aspose.Slides لـ PHP عبر Java، يمكنك تعيين ترخيص من خلال جسر PHP/Java. يتيح لك هذا الجسر استخدام فئات Java في صياغة PHP. لمزيد من المعلومات، انظر [الترخيص في PHP](/slides/ar/php-java/licensing/).
 
 ## **التحقق من الترخيص**
 

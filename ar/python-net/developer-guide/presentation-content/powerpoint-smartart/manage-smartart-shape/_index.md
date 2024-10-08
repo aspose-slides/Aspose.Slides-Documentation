@@ -2,7 +2,7 @@
 title: إدارة شكل SmartArt
 type: docs
 weight: 20
-url: /python-net/manage-smartart-shape/
+url: /ar/python-net/manage-smartart-shape/
 keywords: "شكل SmartArt، أسلوب شكل SmartArt، أسلوب لون شكل SmartArt، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إدارة SmartArt في عروض PowerPoint باستخدام بايثون"
 ---

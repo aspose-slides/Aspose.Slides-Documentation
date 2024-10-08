@@ -2,7 +2,7 @@
 title: البرمجة المتعددة الخيوط في Aspose.Slides
 type: docs
 weight: 200
-url: /cpp/multithreading/
+url: /ar/cpp/multithreading/
 keywords:
 - PowerPoint
 - عرض تقديمي

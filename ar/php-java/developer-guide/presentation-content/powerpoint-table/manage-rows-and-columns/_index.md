@@ -2,7 +2,7 @@
 title: إدارة الصفوف والأعمدة
 type: docs
 weight: 20
-url: /php-java/manage-rows-and-columns/
+url: /ar/php-java/manage-rows-and-columns/
 keywords: "جدول، صفوف وأعمدة الجدول، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "إدارة صفوف وأعمدة الجدول في عروض PowerPoint"
 ---

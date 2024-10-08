@@ -2,7 +2,7 @@
 title: تحويل الباوربوينت إلى JPG
 type: docs
 weight: 60
-url: /androidjava/convert-powerpoint-to-jpg/
+url: /ar/androidjava/convert-powerpoint-to-jpg/
 keywords:
 - تحويل عرض باوربوينت
 - JPG
@@ -129,4 +129,4 @@ try {
 
 انظر خيارات أخرى لتحويل PPT/PPTX إلى صورة مثل:
 
-- [تحويل PPT/PPTX إلى SVG](/slides/androidjava/render-a-slide-as-an-svg-image/).
+- [تحويل PPT/PPTX إلى SVG](/slides/ar/androidjava/render-a-slide-as-an-svg-image/).

@@ -2,7 +2,7 @@
 title: إدارة الارتباطات التشعبية
 type: docs
 weight: 20
-url: /php-java/manage-hyperlinks/
+url: /ar/php-java/manage-hyperlinks/
 keywords: "PowerPoint ارتباط تشعبي، ارتباط نصي، ارتباط شريحة، ارتباط شكل، ارتباط صورة، ارتباط فيديو، Java"
 description: "كيفية إضافة ارتباط تشعبي إلى عرض PowerPoint"
 ---
@@ -151,7 +151,7 @@ try {
 
 {{% alert title="نصيحة" color="primary" %}} 
 
-قد ترغب في رؤية *[إدارة OLE](/slides/php-java/manage-ole/)*.
+قد ترغب في رؤية *[إدارة OLE](/slides/ar/php-java/manage-ole/)*.
 
 {{% /alert %}}
 

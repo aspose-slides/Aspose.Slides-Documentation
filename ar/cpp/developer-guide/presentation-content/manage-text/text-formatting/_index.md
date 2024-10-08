@@ -2,7 +2,7 @@
 title: تنسيق النص
 type: docs
 weight: 50
-url: /cpp/text-formatting/
+url: /ar/cpp/text-formatting/
 keywords:
 - تسليط الضوء على النص
 - تعبير عادي

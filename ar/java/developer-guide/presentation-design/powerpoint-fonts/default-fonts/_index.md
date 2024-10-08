@@ -3,7 +3,7 @@ title: الخطوط الافتراضية - واجهة برمجة تطبيقات 
 linktitle: الخطوط الافتراضية
 type: docs
 weight: 30
-url: /java/default-font/
+url: /ar/java/default-font/
 description: تتيح لك واجهة برمجة تطبيقات PowerPoint لجافا تعيين الخط الافتراضي لعرض العرض التقديمي إلى PDF أو XPS أو الصور المصغرة. يوضح هذا المقال كيفية تعريف خط DefaultRegular وخط DefaultAsian لاستخدامهما كخطوط افتراضية.
 ---
 

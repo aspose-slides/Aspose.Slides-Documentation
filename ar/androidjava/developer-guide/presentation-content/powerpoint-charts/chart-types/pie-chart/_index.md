@@ -1,7 +1,7 @@
 ---
 title: مخطط دائري
 type: docs
-url: /androidjava/pie-chart/
+url: /ar/androidjava/pie-chart/
 ---
 
 ## **خيارات المخطط الثاني لمخطط الدائري أو المخطط العمودي الدائري**

@@ -2,7 +2,7 @@
 title: إدارة OLE
 type: docs
 weight: 40
-url: /net/manage-ole/
+url: /ar/net/manage-ole/
 keywords:
 - إضافة OLE
 - تضمين OLE

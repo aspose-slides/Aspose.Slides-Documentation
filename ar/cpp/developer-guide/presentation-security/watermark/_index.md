@@ -2,7 +2,7 @@
 title: علامة مائية
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /ar/cpp/watermark/
 keywords:
 - علامة مائية
 - إضافة علامة مائية
@@ -48,7 +48,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية استخدام فئة TextFrame](/slides/cpp/text-formatting/)
+- [كيفية استخدام فئة TextFrame](/slides/ar/cpp/text-formatting/)
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى عرض تقديمي**
@@ -68,7 +68,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية استخدام شريحة المُعلم](/slides/cpp/slide-master/)
+- [كيفية استخدام شريحة المُعلم](/slides/ar/cpp/slide-master/)
 {{% /alert %}}
 
 ### **تعيين شفافية شكل العلامة المائية**

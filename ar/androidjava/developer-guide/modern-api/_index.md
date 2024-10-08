@@ -2,7 +2,7 @@
 title: واجهة برمجة التطبيقات الحديثة
 type: docs
 weight: 237
-url: /androidjava/modern-api/
+url: /ar/androidjava/modern-api/
 keywords: "واجهة برمجة التطبيقات الحديثة متعددة المنصات"
 description: "واجهة برمجة التطبيقات الحديثة"
 ---

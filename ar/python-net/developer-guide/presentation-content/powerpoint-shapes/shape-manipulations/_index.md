@@ -2,7 +2,7 @@
 title: تح manipulaciones الشكل
 type: docs
 weight: 40
-url: /python-net/shape-manipulations/
+url: /ar/python-net/shape-manipulations/
 keywords: "شكل PowerPoint، شكل على الشريحة، العثور على شكل، استنساخ شكل، إزالة شكل، إخفاء شكل، تغيير ترتيب الشكل، الحصول على معرف الشكل المشترك، نص بديل للشكل، تنسيقات تخطيط الشكل، شكل كـ SVG، محاذاة الشكل، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "معالجة أشكال PowerPoint في بايثون"
 ---

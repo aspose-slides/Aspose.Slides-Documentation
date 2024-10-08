@@ -2,7 +2,7 @@
 title: صورة
 type: docs
 weight: 10
-url: /net/image/
+url: /ar/net/image/
 keywords: "إضافة صورة, إضافة صورة, عرض PowerPoint, EMF, SVG, C#, Csharp, Aspose.Slides لـ .NET"
 description: "إضافة صورة إلى شريحة PowerPoint أو عرض تقديمي في C# أو .NET"
 ---

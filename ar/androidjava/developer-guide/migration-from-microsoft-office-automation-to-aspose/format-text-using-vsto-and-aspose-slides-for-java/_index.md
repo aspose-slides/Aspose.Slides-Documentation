@@ -2,12 +2,12 @@
 title: تنسيق النصوص باستخدام VSTO و Aspose.Slides لأندرويد عبر جافا
 type: docs
 weight: 30
-url: /androidjava/format-text-using-vsto-and-aspose-slides-for-java/
+url: /ar/androidjava/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-أحياناً، تحتاج إلى تنسيق النصوص على الشريحة برمجياً. توضح هذه المقالة كيفية قراءة عرض تقديمي نموذجي يحتوي على نص في الشريحة الأولى باستخدام [VSTO](/slides/androidjava/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides لأندرويد عبر جافا](/slides/androidjava/format-text-using-vsto-and-aspose-slides-for-java/). يقوم الكود بتنسيق النص في مربع النص الثالث على الشريحة ليبدو مثل النص في مربع النص الأخير.
+أحياناً، تحتاج إلى تنسيق النصوص على الشريحة برمجياً. توضح هذه المقالة كيفية قراءة عرض تقديمي نموذجي يحتوي على نص في الشريحة الأولى باستخدام [VSTO](/slides/ar/androidjava/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides لأندرويد عبر جافا](/slides/ar/androidjava/format-text-using-vsto-and-aspose-slides-for-java/). يقوم الكود بتنسيق النص في مربع النص الثالث على الشريحة ليبدو مثل النص في مربع النص الأخير.
 
 {{% /alert %}} 
 ## **تنسيق النصوص**

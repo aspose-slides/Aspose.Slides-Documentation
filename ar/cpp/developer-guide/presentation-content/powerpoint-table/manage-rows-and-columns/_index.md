@@ -2,7 +2,7 @@
 title: إدارة الصفوف والأعمدة
 type: docs
 weight: 20
-url: /cpp/manage-rows-and-columns/
+url: /ar/cpp/manage-rows-and-columns/
 keywords: "جدول، صفوف وأعمدة الجدول، عرض PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "إدارة صفوف وأعمدة الجدول في عروض PowerPoint باستخدام C++"
 

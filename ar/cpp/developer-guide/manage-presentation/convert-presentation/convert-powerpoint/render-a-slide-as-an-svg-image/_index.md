@@ -2,7 +2,7 @@
 title: عرض شريحة كصورة SVG
 type: docs
 weight: 50
-url: /cpp/render-a-slide-as-an-svg-image/
+url: /ar/cpp/render-a-slide-as-an-svg-image/
 ---
 
 SVG—اختصار لـ Scalable Vector Graphics—هو نوع أو صيغة رسومية معيارية تُستخدم لعرض الصور ثنائية الأبعاد. تخزن SVG الصور كمتجهات في XML مع تفاصيل تحدد سلوكها أو مظهرها.

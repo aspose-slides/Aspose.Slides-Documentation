@@ -2,5 +2,5 @@
 title: أمان العرض
 type: docs
 weight: 60
-url: /cpp/presentation-security/
+url: /ar/cpp/presentation-security/
 ---

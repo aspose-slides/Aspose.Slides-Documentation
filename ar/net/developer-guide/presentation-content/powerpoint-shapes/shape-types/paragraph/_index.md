@@ -2,7 +2,7 @@
 title: فقرة
 type: docs
 weight: 60
-url: /net/paragraph/
+url: /ar/net/paragraph/
 keywords: "فقرة, جزء, إحداثيات فقرة, إحداثيات جزء, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "فقرة وجزء في عرض PowerPoint في C# أو .NET"
 ---

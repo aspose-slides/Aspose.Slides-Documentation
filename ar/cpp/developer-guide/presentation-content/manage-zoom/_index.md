@@ -2,7 +2,7 @@
 title: إدارة الزوم
 type: docs
 weight: 60
-url: /cpp/manage-zoom/
+url: /ar/cpp/manage-zoom/
 keywords: "زوم، إطار الزوم، إضافة زوم، تنسيق إطار الزوم، زوم ملخص، عرض PowerPoint، C++، Aspose.Slides لـ C++"
 description: "إضافة زوم أو إطارات زوم لعروض PowerPoint في C++"
 ---

@@ -2,7 +2,7 @@
 title: نسخ الشرائح
 type: docs
 weight: 40
-url: /net/clone-slides/
+url: /ar/net/clone-slides/
 keywords: "نسخ شريحة, نسخ شريحة, حفظ نسخة الشريحة, PowerPoint, تقديم, C#, Csharp, .NET, Aspose.Slides"
 description: "نسخ شريحة PowerPoint في C# أو .NET"
 ---

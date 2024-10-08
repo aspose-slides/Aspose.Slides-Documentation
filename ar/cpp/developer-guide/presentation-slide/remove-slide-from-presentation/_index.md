@@ -2,7 +2,7 @@
 title: إزالة شريحة من العرض التقديمي
 type: docs
 weight: 30
-url: /cpp/remove-slide-from-presentation/
+url: /ar/cpp/remove-slide-from-presentation/
 keywords: "إزالة شريحة، حذف شريحة، PowerPoint، عرض تقديمي، C++، Aspose.Slides"
 description: "إزالة شريحة من PowerPoint بواسطة المرجع أو الفهرس في C++"
 

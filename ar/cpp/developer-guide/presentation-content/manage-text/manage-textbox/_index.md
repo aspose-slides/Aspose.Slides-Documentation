@@ -2,7 +2,7 @@
 title: إدارة المربع النصي
 type: docs
 weight: 20
-url: /cpp/manage-textbox/
+url: /ar/cpp/manage-textbox/
 keywords: "المربع النصي، إطار النص، إضافة مربع نص، مربع نص مرتبط، C++، Aspose.Slides لـ C++"
 description: "إضافة مربع نص أو إطار نص إلى عروض PowerPoint في C++"
 ---

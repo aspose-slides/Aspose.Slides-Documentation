@@ -2,7 +2,7 @@
 title: خلفية العرض
 type: docs
 weight: 20
-url: /java/presentation-background/
+url: /ar/java/presentation-background/
 keywords: "خلفية باوربوينت، تعيين خلفية في جافا"
 description: "تعيين الخلفية في عرض باوربوينت في جافا"
 ---

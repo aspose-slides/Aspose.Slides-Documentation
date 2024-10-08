@@ -1,7 +1,7 @@
 ---
 title: مخطط الفقاعات
 type: docs
-url: /net/bubble-chart/
+url: /ar/net/bubble-chart/
 keywords: "مخطط الفقاعات، حجم المخطط، عرض باوربوينت، C#، Csharp، Aspose.Slides for .NET"
 description: "حجم مخطط الفقاعات في عروض باوربوينت في C# أو .NET"
 ---

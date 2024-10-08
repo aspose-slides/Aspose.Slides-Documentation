@@ -2,7 +2,7 @@
 title: تقديم محمي بكلمة مرور
 type: docs
 weight: 20
-url: /php-java/password-protected-presentation/
+url: /ar/php-java/password-protected-presentation/
 keywords: "قفل عرض PowerPoint"
 description: "قفل عرض PowerPoint. عرض PowerPoint محمي بكلمة مرور."
 ---
@@ -255,5 +255,5 @@ description: "قفل عرض PowerPoint. عرض PowerPoint محمي بكلمة م
 ترجع `true` إذا كان العرض قد تم تشفيره بكلمة المرور المحددة. خلاف ذلك، ترجع `false`.
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [التوقيع الرقمي في PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [التوقيع الرقمي في PowerPoint](/slides/ar/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

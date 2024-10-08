@@ -2,7 +2,7 @@
 title: الوصول إلى تقديم OpenDocument
 type: docs
 weight: 10
-url: /net/access-opendocument-presentation/
+url: /ar/net/access-opendocument-presentation/
 ---
 
 يقدم Aspose.Slides لـ .NET فئة **Presentation** التي تمثل ملف تقديم. يمكن الآن لفئة **Presentation** أيضًا الوصول إلى **ODP** من خلال منشئ **Presentation** عند إنشاء الكائن.

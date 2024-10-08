@@ -2,7 +2,7 @@
 title: حذف شريحة
 type: docs
 weight: 80
-url: /net/delete-a-slide/
+url: /ar/net/delete-a-slide/
 ---
 
 ## **OpenXML SDK**

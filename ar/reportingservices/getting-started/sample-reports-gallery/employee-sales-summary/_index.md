@@ -2,7 +2,7 @@
 title: ملخص مبيعات الموظف
 type: docs
 weight: 30
-url: /reportingservices/employee-sales-summary/
+url: /ar/reportingservices/employee-sales-summary/
 ---
 
 ## **المميزات:**

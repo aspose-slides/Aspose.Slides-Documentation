@@ -3,7 +3,7 @@ title: الخط الافتراضي - واجهة برمجة تطبيقات PowerP
 linktitle: الخط الافتراضي
 type: docs
 weight: 30
-url: /net/default-font/
+url: /ar/net/default-font/
 keywords: 
 - خط
 - خط افتراضي

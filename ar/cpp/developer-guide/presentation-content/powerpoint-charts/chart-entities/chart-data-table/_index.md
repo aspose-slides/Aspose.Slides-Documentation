@@ -1,7 +1,7 @@
 ---
 title: جدول بيانات المخطط
 type: docs
-url: /cpp/chart-data-table/
+url: /ar/cpp/chart-data-table/
 ---
 
 ## **تعيين خصائص الخط لجدول بيانات المخطط**

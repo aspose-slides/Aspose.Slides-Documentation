@@ -2,7 +2,7 @@
 title: إدارة العلامات والبيانات المخصصة
 type: docs
 weight: 300
-url: /cpp/managing-tags-and-custom-data
+url: /ar/cpp/managing-tags-and-custom-data
 
 ---
 

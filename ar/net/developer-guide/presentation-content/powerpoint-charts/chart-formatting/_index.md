@@ -2,7 +2,7 @@
 title: تنسيق المخططات
 type: docs
 weight: 60
-url: /net/chart-formatting/
+url: /ar/net/chart-formatting/
 keywords: "كيانات المخطط، خصائص المخطط، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "تنسيق كيانات المخطط في عروض PowerPoint باستخدام C# أو .NET"
 ---

@@ -1,7 +1,7 @@
 ---
 title: علامة بيانات الرسم البياني
 type: docs
-url: /cpp/chart-data-marker/
+url: /ar/cpp/chart-data-marker/
 ---
 
 ## **تعيين علامة الرسم البياني**

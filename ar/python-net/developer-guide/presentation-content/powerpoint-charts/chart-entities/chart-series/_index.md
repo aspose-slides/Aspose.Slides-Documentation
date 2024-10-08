@@ -1,7 +1,7 @@
 ---
 title: مجموعة المخططات
 type: docs
-url: /python-net/chart-series/
+url: /ar/python-net/chart-series/
 keywords: "مجموعة المخططات، لون المجموعة، تقديم باوربوينت، بايثون، Aspose.Slides لـ بايثون عن طريق .NET"
 description: "مجموعة المخططات في تقديمات باوربوينت باستخدام بايثون"
 ---

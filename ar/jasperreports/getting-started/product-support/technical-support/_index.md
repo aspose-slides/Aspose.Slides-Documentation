@@ -2,7 +2,7 @@
 title: الدعم الفني
 type: docs
 weight: 10
-url: /jasperreports/technical-support/
+url: /ar/jasperreports/technical-support/
 ---
 
 {{% alert color="primary" %}} 

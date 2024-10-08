@@ -2,7 +2,7 @@
 title: دعم شامل لـ RDL
 type: docs
 weight: 30
-url: /reportingservices/comprehensive-rdl-support/
+url: /ar/reportingservices/comprehensive-rdl-support/
 ---
 
 {{% alert color="primary" %}} 
@@ -36,4 +36,4 @@ Aspose.Slides لـ Reporting Services تدعم العناصر التالية ل�
 
 ![todo:image_alt_text](comprehensive-rdl-support_2.png)
 
-للمزيد من عينات التقارير، راجع قسم [معرض عينات التقارير](/slides/reportingservices/sample-reports-gallery/).
+للمزيد من عينات التقارير، راجع قسم [معرض عينات التقارير](/slides/ar/reportingservices/sample-reports-gallery/).

@@ -1,7 +1,7 @@
 ---
 title: مخطط الدائرة
 type: docs
-url: /java/pie-chart/
+url: /ar/java/pie-chart/
 ---
 
 ## **خيارات المخطط الثاني لمخطط الدائرة أو مخطط العمود للدائرة**

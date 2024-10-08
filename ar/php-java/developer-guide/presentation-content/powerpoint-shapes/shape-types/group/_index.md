@@ -2,7 +2,7 @@
 title: مجموعة
 type: docs
 weight: 40
-url: /php-java/group/
+url: /ar/php-java/group/
 ---
 
 ## **إضافة شكل مجموعة**

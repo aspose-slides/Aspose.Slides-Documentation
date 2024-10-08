@@ -2,7 +2,7 @@
 title: إضافة شريحة إلى العرض التقديمي
 type: docs
 weight: 10
-url: /net/add-slide-to-presentation/
+url: /ar/net/add-slide-to-presentation/
 keywords: "إضافة شريحة إلى العرض التقديمي, C#, Csharp, .NET, Aspose.Slides"
 description: "إضافة شريحة إلى العرض التقديمي في C# أو .NET"
 ---

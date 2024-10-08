@@ -1,7 +1,7 @@
 ---
 title: رسم بياني للأسطورة
 type: docs
-url: /cpp/chart-legend/
+url: /ar/cpp/chart-legend/
 ---
 
 ## **موضع الأسطورة**

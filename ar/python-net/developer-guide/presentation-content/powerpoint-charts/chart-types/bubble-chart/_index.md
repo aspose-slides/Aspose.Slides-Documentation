@@ -1,7 +1,7 @@
 ---
 title: رسم بياني فقاعة
 type: docs
-url: /python-net/bubble-chart/
+url: /ar/python-net/bubble-chart/
 keywords: "رسم بياني فقاعة، حجم الرسم البياني، عرض تقديمي لـ PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "حجم الرسم البياني الفقاعة في عروض PowerPoint التقديمية باستخدام Python"
 ---

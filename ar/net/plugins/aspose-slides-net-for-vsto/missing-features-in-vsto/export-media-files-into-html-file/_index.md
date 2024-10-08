@@ -2,7 +2,7 @@
 title: تصدير ملفات الوسائط إلى ملف HTML
 type: docs
 weight: 80
-url: /net/export-media-files-into-html-file/
+url: /ar/net/export-media-files-into-html-file/
 ---
 
 لتصدير ملفات الوسائط إلى HTML. يرجى اتباع الخطوات أدناه:

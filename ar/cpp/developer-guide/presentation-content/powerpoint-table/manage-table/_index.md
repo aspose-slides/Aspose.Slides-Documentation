@@ -2,7 +2,7 @@
 title: إدارة الجدول
 type: docs
 weight: 10
-url: /cpp/manage-table/
+url: /ar/cpp/manage-table/
 keywords: "جدول، إنشاء جدول، الوصول إلى جدول، نسبة عرض إلى ارتفاع الجدول، تقديم PowerPoint، C++، Aspose.Slides لـ C++"
 description: "إنشاء وإدارة جدول في تقديمات PowerPoint باستخدام C++"
 ---

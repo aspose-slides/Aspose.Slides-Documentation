@@ -2,5 +2,5 @@
 title: أمان العروض
 type: docs
 weight: 60
-url: /androidjava/presentation-security/
+url: /ar/androidjava/presentation-security/
 ---

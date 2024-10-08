@@ -2,7 +2,7 @@
 title: مجموعة
 type: docs
 weight: 40
-url: /java/group/
+url: /ar/java/group/
 ---
 
 ## **إضافة شكل مجموعة**

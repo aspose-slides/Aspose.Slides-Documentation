@@ -2,7 +2,7 @@
 title: إدارة إعدادات التعديل التلقائي
 type: docs
 weight: 30
-url: /net/manage-autofit-settings/
+url: /ar/net/manage-autofit-settings/
 keywords: "مربع النص، تعديل تلقائي، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "تعيين إعدادات التعديل التلقائي لمربع النص في PowerPoint باستخدام C# أو .NET"
 ---

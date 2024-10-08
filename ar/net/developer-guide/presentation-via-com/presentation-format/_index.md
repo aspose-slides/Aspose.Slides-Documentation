@@ -2,7 +2,7 @@
 title: تنسيق العرض
 type: docs
 weight: 10
-url: /net/presentation-format/
+url: /ar/net/presentation-format/
 ---
 
 تقدم Aspose.Slides لـ .NET فئة [**PresentationFactory** ](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory) التي تُستخدم للحصول على تنسيق العرض قبل حتى التحميل.

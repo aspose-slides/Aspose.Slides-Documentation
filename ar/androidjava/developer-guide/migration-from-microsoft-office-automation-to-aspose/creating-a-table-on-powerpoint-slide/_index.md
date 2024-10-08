@@ -2,12 +2,12 @@
 title: إنشاء جدول على شريحة باوربوينت
 type: docs
 weight: 50
-url: /androidjava/creating-a-table-on-powerpoint-slide/
+url: /ar/androidjava/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-تُستخدم الجداول على نطاق واسع لعرض البيانات في شرائح العروض التقديمية. يوضح هذا المقال كيفية إنشاء جدول 15 × 15 بحجم خط 10 برمجيًا باستخدام [VSTO 2008](/slides/androidjava/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for Android via Java](/slides/androidjava/creating-a-table-on-powerpoint-slide/).
+تُستخدم الجداول على نطاق واسع لعرض البيانات في شرائح العروض التقديمية. يوضح هذا المقال كيفية إنشاء جدول 15 × 15 بحجم خط 10 برمجيًا باستخدام [VSTO 2008](/slides/ar/androidjava/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for Android via Java](/slides/ar/androidjava/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **إنشاء الجداول**

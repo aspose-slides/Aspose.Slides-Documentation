@@ -2,12 +2,12 @@
 title: كيفية إنشاء الرسوم البيانية في عرض تقديمي
 type: docs
 weight: 30
-url: /net/how-to-create-charts-in-a-presentation/
+url: /ar/net/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-تم إصدار [Aspose.Slides for .NET API](/slides/net/) جديدة والآن يدعم هذا المنتج الوحيد القدرة على توليد مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
+تم إصدار [Aspose.Slides for .NET API](/slides/ar/net/) جديدة والآن يدعم هذا المنتج الوحيد القدرة على توليد مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
 
 {{% /alert %}} 
 ## **دعم الكود القديم**

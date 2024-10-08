@@ -2,7 +2,7 @@
 title: صور مصغرة للأشكال
 type: docs
 weight: 70
-url: /cpp/shape-thumbnails/
+url: /ar/cpp/shape-thumbnails/
 keywords: 
 - صورة مصغرة لشكل
 - صورة شكل

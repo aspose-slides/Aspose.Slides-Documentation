@@ -2,7 +2,7 @@
 title: مجموعة
 type: docs
 weight: 40
-url: /androidjava/group/
+url: /ar/androidjava/group/
 ---
 
 ## **إضافة شكل مجموعة**

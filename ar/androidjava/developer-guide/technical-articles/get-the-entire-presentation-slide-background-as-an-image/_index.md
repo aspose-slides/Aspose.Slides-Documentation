@@ -2,7 +2,7 @@
 title: الحصول على خلفية شريحة العرض بالكامل كصورة
 type: docs
 weight: 95
-url: /androidjava/get-the-entire-presentation-slide-background-as-an-image/
+url: /ar/androidjava/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - شريحة
 - خلفية
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Android عبر جافا
 ---
 
-في عروض باوربوينت، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المعينة كـ [خلفية الشريحة](/slides/androidjava/presentation-background/)، يمكن أن تؤثر سمة العرض ونظام الألوان والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط على الخلفية النهائية.
+في عروض باوربوينت، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المعينة كـ [خلفية الشريحة](/slides/ar/androidjava/presentation-background/)، يمكن أن تؤثر سمة العرض ونظام الألوان والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط على الخلفية النهائية.
 
 لا يوفر Aspose.Slides for Android عبر جافا طريقة بسيطة لاستخراج خلفية الشريحة بالكامل كصورة، ولكن يمكنك اتباع الخطوات أدناه للقيام بذلك:
 1. تحميل العرض باستخدام فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).

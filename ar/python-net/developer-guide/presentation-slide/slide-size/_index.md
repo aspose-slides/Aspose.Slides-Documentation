@@ -2,7 +2,7 @@
 title: حجم الشريحة
 type: docs
 weight: 70
-url: /python-net/slide-size/
+url: /ar/python-net/slide-size/
 keywords: "تعيين الشريحة، تحرير حجم الشريحة، عرض PowerPoint، حجم شريحة مخصص، حل مشكلات الشريحة، بايثون، Aspose.Slides"
 descriptions: "تعيين وتحرير حجم الشريحة أو نسبة العرض إلى الارتفاع في PowerPoint باستخدام بايثون"
 ---

@@ -1,7 +1,7 @@
 ---
 title: شريط الخطأ
 type: docs
-url: /net/error-bar/
+url: /ar/net/error-bar/
 keywords: "شريط الخطأ، قيم شريط الخطأ، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة شريط خطأ إلى عروض PowerPoint في C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
-url: /php-java/convert-powerpoint-to-pdf-with-notes/
+url: /ar/php-java/convert-powerpoint-to-pdf-with-notes/
 keywords: "تحويل PowerPoint إلى PDF مع الملاحظات في جافا"
 description: "تحويل PowerPoint إلى PDF مع الملاحظات "
 ---

@@ -2,5 +2,5 @@
 title: التثبيت
 type: docs
 weight: 40
-url: /sharepoint/installation/
+url: /ar/sharepoint/installation/
 ---

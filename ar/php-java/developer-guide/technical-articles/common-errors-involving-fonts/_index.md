@@ -2,7 +2,7 @@
 title: الاستثناءات والأخطاء الشائعة المتعلقة بالخطوط على نظام لينكس
 type: docs
 weight: 200
-url: /php-java/technical-articles/common-errors-involving-fonts
+url: /ar/php-java/technical-articles/common-errors-involving-fonts
 keywords: "استثناء خط, خطأ خط, لينكس, Java, Aspose.Slides لـ PHP عبر Java"
 description: "استثناءات وأخطاء الخطوط على لينكس"
 ---

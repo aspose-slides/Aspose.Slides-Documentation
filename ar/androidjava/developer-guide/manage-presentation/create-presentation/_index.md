@@ -3,7 +3,7 @@ title: إنشاء عرض تقديمي باستخدام جافا
 linktitle: إنشاء عرض تقديمي
 type: docs
 weight: 10
-url: /androidjava/create-presentation/
+url: /ar/androidjava/create-presentation/
 keywords: إنشاء ppt جافا, إنشاء عرض تقديمي ppt, إنشاء pptx جافا
 description: تعلم كيفية إنشاء عروض PowerPoint، مثل PPT و PPTX باستخدام جافا من الصفر.
 ---

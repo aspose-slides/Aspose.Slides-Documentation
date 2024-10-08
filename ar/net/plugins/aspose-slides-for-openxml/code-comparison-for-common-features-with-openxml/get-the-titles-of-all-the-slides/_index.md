@@ -2,7 +2,7 @@
 title: الحصول على عناوين جميع الشرائح
 type: docs
 weight: 120
-url: /net/get-the-titles-of-all-the-slides/
+url: /ar/net/get-the-titles-of-all-the-slides/
 ---
 
 ## **OpenXML SDK**

@@ -2,7 +2,7 @@
 title: إدارة الحبر
 type: docs
 weight: 95
-url: /java/manage-ink/
+url: /ar/java/manage-ink/
 keywords: "الحبر في PowerPoint، أدوات الحبر، Java Ink، الرسم في PowerPoint، عرض PowerPoint، Java، Aspose.Slides for Java"
 description: "استخدم أدوات الحبر لرسم الأشكال في PowerPoint Java"
 ---

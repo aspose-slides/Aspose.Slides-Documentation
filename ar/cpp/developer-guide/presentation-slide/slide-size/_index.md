@@ -2,7 +2,7 @@
 title: حجم الشريحة
 type: docs
 weight: 70
-url: /cpp/slide-size/
+url: /ar/cpp/slide-size/
 
 ---
 

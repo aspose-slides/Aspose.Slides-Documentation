@@ -2,7 +2,7 @@
 title: تنسيقات الملفات المدعومة
 type: docs
 weight: 30
-url: /nodejs-java/supported-file-formats/
+url: /ar/nodejs-java/supported-file-formats/
 ---
 
 ## **إصدارات Microsoft PowerPoint المدعومة**

@@ -1,7 +1,7 @@
 ---
 title: جدول بيانات الرسم البياني
 type: docs
-url: /python-net/chart-data-table/
+url: /ar/python-net/chart-data-table/
 keywords: "خصائص الخط، جدول بيانات الرسم البياني، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "تعيين خصائص الخط لجدول بيانات الرسم البياني في عروض PowerPoint باستخدام بايثون"
 ---

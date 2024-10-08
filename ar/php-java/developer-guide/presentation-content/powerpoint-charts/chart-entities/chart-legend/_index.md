@@ -1,7 +1,7 @@
 ---
 title: أسطورة الرسم البياني
 type: docs
-url: /php-java/chart-legend/
+url: /ar/php-java/chart-legend/
 ---
 
 ## **تحديد موضع الأسطورة**

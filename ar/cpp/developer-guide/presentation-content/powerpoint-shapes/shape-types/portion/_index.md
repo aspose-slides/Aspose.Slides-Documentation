@@ -2,7 +2,7 @@
 title: جزء
 type: docs
 weight: 70
-url: /cpp/portion/
+url: /ar/cpp/portion/
 ---
 
 ## **احصل على إحداثيات موقع الجزء**

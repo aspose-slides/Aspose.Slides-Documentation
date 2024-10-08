@@ -2,7 +2,7 @@
 title: تصدير الرسم البياني
 type: docs
 weight: 90
-url: /java/export-chart/
+url: /ar/java/export-chart/
 ---
 
 ## **احصل على صورة الرسم البياني**

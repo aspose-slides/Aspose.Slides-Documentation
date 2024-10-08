@@ -2,12 +2,12 @@
 title: تنشيط الشكل
 type: docs
 weight: 60
-url: /cpp/shape-animation/
+url: /ar/cpp/shape-animation/
 keywords: "تنشيط PowerPoint, تأثير التنشيط, تطبيق التنشيط, عرض PowerPoint, C++, CPP, Aspose.Slides for C++"
 description: "تطبيق تنشيط PowerPoint في C++"
 ---
 
-التنشيطات هي تأثيرات بصرية يمكن تطبيقها على النصوص أو الصور أو الأشكال أو [الرسوم البيانية](/slides/cpp/animated-charts/). إنها تعطي الحياة للعروض التقديمية أو مكوناتها.
+التنشيطات هي تأثيرات بصرية يمكن تطبيقها على النصوص أو الصور أو الأشكال أو [الرسوم البيانية](/slides/ar/cpp/animated-charts/). إنها تعطي الحياة للعروض التقديمية أو مكوناتها.
 
 ### **لماذا تستخدم التنشيطات في العروض التقديمية؟**
 
@@ -70,7 +70,7 @@ pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 {{%  alert color="primary"  %}} 
 
-بالإضافة إلى تطبيق التنشيطات على النص، يمكنك أيضًا تطبيق التنشيطات على فقرة واحدة [Paragraph](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph). انظر [**النص المتحرك**](/slides/cpp/animated-text/).
+بالإضافة إلى تطبيق التنشيطات على النص، يمكنك أيضًا تطبيق التنشيطات على فقرة واحدة [Paragraph](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph). انظر [**النص المتحرك**](/slides/ar/cpp/animated-text/).
 
 {{% /alert %}} 
 

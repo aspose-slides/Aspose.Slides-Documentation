@@ -2,7 +2,7 @@
 title: البرمجة المتعددة في Aspose.Slides
 type: docs
 weight: 310
-url: /androidjava/multithreading/
+url: /ar/androidjava/multithreading/
 keywords:
 - PowerPoint
 - تقديم

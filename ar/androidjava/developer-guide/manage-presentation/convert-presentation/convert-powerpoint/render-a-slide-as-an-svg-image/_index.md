@@ -2,7 +2,7 @@
 title: عرض شريحة كصورة SVG
 type: docs
 weight: 50
-url: /androidjava/render-a-slide-as-an-svg-image/
+url: /ar/androidjava/render-a-slide-as-an-svg-image/
 ---
 
 SVG—اختصار لـ Scalable Vector Graphics—هو نوع أو تنسيق رسومات قياسي يستخدم لعرض الصور ثنائية الأبعاد. يقوم SVG بتخزين الصور كمتجهات في XML مع تفاصيل تحدد سلوكها أو مظهرها.

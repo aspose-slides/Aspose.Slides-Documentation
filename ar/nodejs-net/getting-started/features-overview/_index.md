@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 20
-url: /nodejs-net/features-overview/
+url: /ar/nodejs-net/features-overview/
 ---
 
 ## **المنصات المدعومة**

@@ -1,7 +1,7 @@
 ---
 title: خصائص عرض الشريحة
 type: docs
-url: /php-java/presentation-view-properties/
+url: /ar/php-java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -57,7 +57,7 @@ url: /php-java/presentation-view-properties/
 ## **تعيين قيمة الزوم الافتراضية**
 {{% alert color="primary" %}} 
 
-Aspose.Slides لـ PHP عبر Java الآن يدعم تعيين قيمة الزوم الافتراضية للعرض التقديمي بحيث عند فتح العرض التقديمي، يتم ضبط الزوم مسبقًا. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) لعرض تقديمي. يمكن تعيين [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) وكذلك [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى مع مثال كيفية تعيين [خصائص العرض](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) في [Aspose.Slides](/slides/).
+Aspose.Slides لـ PHP عبر Java الآن يدعم تعيين قيمة الزوم الافتراضية للعرض التقديمي بحيث عند فتح العرض التقديمي، يتم ضبط الزوم مسبقًا. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) لعرض تقديمي. يمكن تعيين [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) وكذلك [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى مع مثال كيفية تعيين [خصائص العرض](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) في [Aspose.Slides](/slides/ar/).
 
 {{% /alert %}} 
 

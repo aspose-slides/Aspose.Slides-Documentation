@@ -2,5 +2,5 @@
 title: جدول PowerPoint
 type: docs
 weight: 110
-url: /net/powerpoint-table/
+url: /ar/net/powerpoint-table/
 ---

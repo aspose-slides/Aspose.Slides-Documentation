@@ -2,7 +2,7 @@
 title: التوقيع الرقمي في PowerPoint
 type: docs
 weight: 10
-url: /php-java/digital-signature-in-powerpoint/
+url: /ar/php-java/digital-signature-in-powerpoint/
 keywords: "شهادة التوقيع الرقمي، سلطة الشهادة"
 description: "إضافة شهادة التوقيع الرقمي، وسلطة الشهادة في عرض PowerPoint باستخدام Aspose.Slides."
 ---

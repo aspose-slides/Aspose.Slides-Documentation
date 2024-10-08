@@ -1,7 +1,7 @@
 ---
 title: شريط الخطأ
 type: docs
-url: /php-java/error-bar/
+url: /ar/php-java/error-bar/
 ---
 
 ## **إضافة شريط خطأ**

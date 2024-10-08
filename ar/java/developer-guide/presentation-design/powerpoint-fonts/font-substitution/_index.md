@@ -3,7 +3,7 @@ title: استبدال الخط - واجهة برمجة تطبيقات PowerPoint
 linktitle: استبدال الخط
 type: docs
 weight: 70
-url: /java/font-substitution/
+url: /ar/java/font-substitution/
 keywords: "خط، استبدال الخط، عرض PowerPoint، Java، Aspose.Slides for Java"
 description: "استبدال الخط في PowerPoint بلغة Java"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="ملاحظة"  color="warning"   %}} 
 
-قد ترغب في رؤية [**استبدال الخط**](/slides/java/font-replacement/). 
+قد ترغب في رؤية [**استبدال الخط**](/slides/ar/java/font-replacement/). 
 
 {{% /alert %}}

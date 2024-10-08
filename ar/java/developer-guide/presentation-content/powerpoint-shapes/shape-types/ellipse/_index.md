@@ -2,7 +2,7 @@
 title: بيضاوي
 type: docs
 weight: 30
-url: /java/ellipse/
+url: /ar/java/ellipse/
 ---
 
 {{% alert color="primary" %}} 

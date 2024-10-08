@@ -2,7 +2,7 @@
 title: تصدير التقارير إلى تنسيق RPL
 type: docs
 weight: 110
-url: /reportingservices/exporting-reports-to-rpl-format/
+url: /ar/reportingservices/exporting-reports-to-rpl-format/
 ---
 
 ﻿

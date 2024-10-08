@@ -2,7 +2,7 @@
 title: النص العلوي والنص السفلي
 type: docs
 weight: 80
-url: /python-net/superscript-and-subscript/
+url: /ar/python-net/superscript-and-subscript/
 keywords: "نص علوي, نص سفلي, إضافة نص علوي, إضافة نص سفلي, عرض PowerPoint, بايثون, Aspose.Slides لبايثون عبر .NET"
 description: "إضافة نص علوي ونص سفلي إلى عروض PowerPoint في بايثون"
 ---

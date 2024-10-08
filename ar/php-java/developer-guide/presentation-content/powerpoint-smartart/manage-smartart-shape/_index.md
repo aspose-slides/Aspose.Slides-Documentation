@@ -2,7 +2,7 @@
 title: إدارة شكل سمارت آرت
 type: docs
 weight: 20
-url: /php-java/manage-smartart-shape/
+url: /ar/php-java/manage-smartart-shape/
 ---
 
 

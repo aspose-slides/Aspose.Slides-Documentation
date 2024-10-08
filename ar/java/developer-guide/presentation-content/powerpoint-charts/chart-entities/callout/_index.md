@@ -1,7 +1,7 @@
 ---
 title: استدعاء
 type: docs
-url: /java/callout/
+url: /ar/java/callout/
 ---
 
 ## **استخدام الاستدعاءات**

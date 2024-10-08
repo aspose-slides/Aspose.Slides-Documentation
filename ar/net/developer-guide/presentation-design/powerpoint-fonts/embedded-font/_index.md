@@ -3,7 +3,7 @@ title: الخطوط المدمجة - واجهة برمجة تطبيقات PowerP
 linktitle: الخطوط المدمجة
 type: docs
 weight: 40
-url: /net/embedded-font/
+url: /ar/net/embedded-font/
 keywords:
 - الخطوط
 - الخطوط المدمجة

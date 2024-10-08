@@ -2,7 +2,7 @@
 title: دعم المنتج
 type: docs
 weight: 90
-url: /cpp/product-support/
+url: /ar/cpp/product-support/
 ---
 
 ## **الدعم الفني**
@@ -26,4 +26,4 @@ url: /cpp/product-support/
 |[مدونة Aspose.Slides](https://blog.aspose.com/category/slides/)|تحقق من هذه الصفحة كثيرًا للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تنزيل Aspose.Slides لـ C++](https://downloads.aspose.com/slides/cpp)|جميع إصدارات المنتجات الجديدة والقديمة محفوظة للرجوع إليها من قبل العملاء.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|انشر أسئلتك ومشاكلك هنا للحصول على حل سريع.|
-|[توثيق المنتج لـ Aspose.Slides لـ C++](/slides/cpp/)|توثيق كامل عبر الإنترنت يتضمن هذه الوثائق بالإضافة إلى مرجع API لـ Aspose.Slides.|
+|[توثيق المنتج لـ Aspose.Slides لـ C++](/slides/ar/cpp/)|توثيق كامل عبر الإنترنت يتضمن هذه الوثائق بالإضافة إلى مرجع API لـ Aspose.Slides.|

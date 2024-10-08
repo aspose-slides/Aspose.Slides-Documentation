@@ -2,12 +2,12 @@
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ Java 15.10.0
 type: docs
 weight: 180
-url: /androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
+url: /ar/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تُدرج هذه الصفحة جميع [الإضافات](/slides/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) أو [الإزاليات](/slides/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) من الفئات، والطرق، والخصائص، وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 15.10.0.
+تُدرج هذه الصفحة جميع [الإضافات](/slides/ar/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) أو [الإزاليات](/slides/ar/androidjava/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-10-0/) من الفئات، والطرق، والخصائص، وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ Java 15.10.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة برمجة التطبيقات العامة**

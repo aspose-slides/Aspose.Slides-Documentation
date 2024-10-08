@@ -2,7 +2,7 @@
 title: إنشاء خط احتياطي
 type: docs
 weight: 10
-url: /php-java/create-fallback-font/
+url: /ar/php-java/create-fallback-font/
 ---
 
 تدعم Aspose.Slides واجهة [IFontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRule) وفئة [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) لتحديد القواعد لتطبيق خط احتياطي. تمثل فئة [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) ارتباطًا بين النطاق المحدد لرموز اليونيكود، المستخدم للبحث عن الرموز المفقودة، وقائمة بالخطوط التي قد تحتوي على الرموز الصحيحة:
@@ -23,5 +23,5 @@ url: /php-java/create-fallback-font/
 يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) لتنظيم قائمة من كائنات [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) عندما تكون هناك حاجة لتحديد قواعد استبدال الخط الاحتياطي لعدة نطاقات من رموز اليونيكود.
 
 {{% alert color="primary" title="أنظر أيضاً" %}} 
-- [إنشاء مجموعة خطوط احتياطية](/slides/php-java/create-fallback-fonts-collection/)
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/php-java/create-fallback-fonts-collection/)
 {{% /alert %}}

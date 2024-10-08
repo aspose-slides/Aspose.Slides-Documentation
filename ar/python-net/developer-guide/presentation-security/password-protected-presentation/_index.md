@@ -2,7 +2,7 @@
 title: عرض محمي بكلمة مرور
 type: docs
 weight: 20
-url: /python-net/password-protected-presentation/
+url: /ar/python-net/password-protected-presentation/
 keywords: "قفل PowerPoint، فتح PowerPoint، حماية PowerPoint، تعيين كلمة المرور، إضافة كلمة المرور، تشفير PowerPoint، فك تشفير PowerPoint، حماية الكتابة، أمان PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "حماية كلمة مرور PowerPoint، التشفير، والأمان في بايثون"
 
@@ -223,5 +223,5 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
 يُعيد `True` إذا كان العرض قد تم تشفيره بكلمة المرور المحددة. خلاف ذلك، يُعيد `False`.
 
 {{% alert color="primary" title="انظر أيضاً" %}} 
-- [التوقيع الرقمي في PowerPoint](/slides/python-net/digital-signature-in-powerpoint/)
+- [التوقيع الرقمي في PowerPoint](/slides/ar/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}

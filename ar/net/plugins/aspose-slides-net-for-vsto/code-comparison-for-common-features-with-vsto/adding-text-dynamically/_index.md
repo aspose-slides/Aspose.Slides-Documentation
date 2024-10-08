@@ -2,7 +2,7 @@
 title: إضافة نص ديناميكي
 type: docs
 weight: 40
-url: /net/adding-text-dynamically/
+url: /ar/net/adding-text-dynamically/
 ---
 
 تتبع كلا الطريقتين هذه الخطوات:

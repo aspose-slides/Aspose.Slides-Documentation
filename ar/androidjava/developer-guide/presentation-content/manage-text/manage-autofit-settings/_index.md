@@ -2,7 +2,7 @@
 title: إدارة إعدادات الملاءمة التلقائية
 type: docs
 weight: 30
-url: /androidjava/manage-autofit-settings/
+url: /ar/androidjava/manage-autofit-settings/
 keywords: "مربع نص, ملاءمة تلقائية, تقديم باوربوينت, جافا, Aspose.Slides for Android via Java"
 description: "تعيين إعدادات الملاءمة التلقائية لمربع النص في باوربوينت باستخدام جافا"
 ---

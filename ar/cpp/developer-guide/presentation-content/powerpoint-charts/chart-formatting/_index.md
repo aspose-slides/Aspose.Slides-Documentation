@@ -2,7 +2,7 @@
 title: تنسيق الرسم البياني
 type: docs
 weight: 60
-url: /cpp/chart-formatting/
+url: /ar/cpp/chart-formatting/
 ---
 
 

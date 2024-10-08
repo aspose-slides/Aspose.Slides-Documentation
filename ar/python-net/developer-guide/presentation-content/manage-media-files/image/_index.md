@@ -2,7 +2,7 @@
 title: صورة
 type: docs
 weight: 10
-url: /python-net/image/
+url: /ar/python-net/image/
 keywords: "إضافة صورة، إضافة صورة، عرض PowerPoint، EMF، SVG، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إضافة صورة إلى شريحة PowerPoint أو عرض تقديمي في بايثون"
 ---

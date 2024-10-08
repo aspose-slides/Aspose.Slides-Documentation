@@ -2,7 +2,7 @@
 title: التلاعب بالأشكال
 type: docs
 weight: 40
-url: /cpp/shape-manipulations/
+url: /ar/cpp/shape-manipulations/
 ---
 
 ## **البحث عن شكل في الشريحة**

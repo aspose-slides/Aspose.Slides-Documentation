@@ -2,7 +2,7 @@
 title: تصدير معادلات رياضية
 type: docs
 weight: 30
-url: /python-net/exporting-math-equations/
+url: /ar/python-net/exporting-math-equations/
 keywords: "تصدير المعادلات الرياضية، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "تصدير معادلات PowerPoint الرياضية باستخدام بايثون"
 ---

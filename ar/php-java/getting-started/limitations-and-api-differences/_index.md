@@ -2,7 +2,7 @@
 title: القيود والفروقات في واجهة البرمجة
 type: docs
 weight: 100
-url: /php-java/limitations-and-api-differences/
+url: /ar/php-java/limitations-and-api-differences/
 ---
 
 

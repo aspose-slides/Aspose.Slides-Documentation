@@ -3,7 +3,7 @@ title: خط مخصص ل PowerPoint
 linktitle: خط مخصص
 type: docs
 weight: 20
-url: /php-java/custom-font/
+url: /ar/php-java/custom-font/
 keywords: "خطوط، خطوط مخصصة، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "خطوط PowerPoint المخصصة"
 ---

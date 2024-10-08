@@ -2,7 +2,7 @@
 title: إطار الفيديو
 type: docs
 weight: 10
-url: /androidjava/video-frame/
+url: /ar/androidjava/video-frame/
 keywords: "أضف فيديو، أنشئ إطار فيديو، استخراج الفيديو، عرض PowerPoint، جافا، Aspose.Slides لـ Android عبر جافا"
 description: "أضف إطار فيديو إلى عرض PowerPoint في جافا"
 ---

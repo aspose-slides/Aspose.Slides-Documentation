@@ -2,7 +2,7 @@
 title: إنشاء عرض تقديمي جديد في VSTO و Aspose.Slides
 type: docs
 weight: 80
-url: /net/create-a-new-presentation-in-vsto-and-aspose-slides/
+url: /ar/net/create-a-new-presentation-in-vsto-and-aspose-slides/
 ---
 
 تتضمن الأمثلة التالية كودين يوضحان كيف يمكن استخدام VSTO و Aspose.Slides لـ .NET لتحقيق نفس الهدف.

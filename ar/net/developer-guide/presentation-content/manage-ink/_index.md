@@ -2,7 +2,7 @@
 title: إدارة الحبر
 type: docs
 weight: 95
-url: /net/manage-ink/
+url: /ar/net/manage-ink/
 keywords: "الحبر في PowerPoint، أدوات الحبر، C# الحبر، الرسم في PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET "
 description: "استخدم أدوات الحبر لرسم أشياء في PowerPoint C#"
 ---

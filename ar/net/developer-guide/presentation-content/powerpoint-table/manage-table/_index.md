@@ -2,7 +2,7 @@
 title: إدارة الجدول
 type: docs
 weight: 10
-url: /net/manage-table/
+url: /ar/net/manage-table/
 keywords: "جدول، إنشاء جدول، الوصول إلى جدول، نسبة عرض إلى ارتفاع الجدول، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إنشاء وإدارة الجدول في عروض باوربوينت باستخدام C# أو .NET"
 ---

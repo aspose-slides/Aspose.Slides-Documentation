@@ -2,7 +2,7 @@
 title: التوقيع الرقمي في PowerPoint
 type: docs
 weight: 10
-url: /cpp/digital-signature-in-powerpoint/
+url: /ar/cpp/digital-signature-in-powerpoint/
 keywords: "شهادة التوقيع الرقمي، هيئة الشهادات"
 description: "إضافة شهادة توقيع رقمي، هيئة الشهادات إلى عرض PowerPoint التقديمي باستخدام Aspose.Slides."
 ---

@@ -2,7 +2,7 @@
 title: احصل على خلفية شريحة العرض بالكامل كصورة
 type: docs
 weight: 95
-url: /java/get-the-entire-presentation-slide-background-as-an-image/
+url: /ar/java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - شريحة
 - خلفية
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Java
 ---
 
-في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المعينة كـ [خلفية الشريحة](/slides/java/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الأساسية والشريحة التخطيطية.
+في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المعينة كـ [خلفية الشريحة](/slides/ar/java/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الأساسية والشريحة التخطيطية.
 
 لا يوفر Aspose.Slides for Java طريقة بسيطة لاستخراج خلفية شريحة العرض بالكامل كصورة، ولكن يمكنك اتباع الخطوات التالية للقيام بذلك:
 1. قم بتحميل العرض باستخدام فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).

@@ -2,7 +2,7 @@
 title: خلفية العرض
 type: docs
 weight: 20
-url: /net/presentation-background/
+url: /ar/net/presentation-background/
 keywords:
 - خلفية PowerPoint
 - تعيين خلفية

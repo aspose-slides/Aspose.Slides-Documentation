@@ -2,7 +2,7 @@
 title: تنسيق المستند المحمول (PDF)
 type: docs
 weight: 40
-url: /java/portable-document-format-pdf/
+url: /ar/java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ url: /java/portable-document-format-pdf/
 - النقاط.
 - الجداول.
 
-يمكنك تصدير العروض التقديمية إلى PDF مباشرة باستخدام Aspose.Slides for Java: لا تحتاج إلى أي مكون آخر. علاوة على ذلك، يمكنك تخصيص تصدير العرض التقديمي إلى PDF مع خيارات متنوعة كما هو موضح في [التحويل إلى PDF](/slides/java/converting-a-presentation/).
+يمكنك تصدير العروض التقديمية إلى PDF مباشرة باستخدام Aspose.Slides for Java: لا تحتاج إلى أي مكون آخر. علاوة على ذلك، يمكنك تخصيص تصدير العرض التقديمي إلى PDF مع خيارات متنوعة كما هو موضح في [التحويل إلى PDF](/slides/ar/java/converting-a-presentation/).
 
 **العرض التقديمي المدخل** 
 

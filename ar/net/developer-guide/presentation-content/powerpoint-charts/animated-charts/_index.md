@@ -2,7 +2,7 @@
 title: الرسوم البيانية المتحركة
 type: docs
 weight: 80
-url: /net/animated-charts/
+url: /ar/net/animated-charts/
 keywords: "الرسوم البيانية، سلسلة الرسوم البيانية، تقديم باوربوينت المتحرك، PPTX، PPT، C#، Csharp، Aspose.Slides لـ .NET"
 description: "سلاسل الرسوم البيانية وحركات باوربوينت في C# أو .NET"
 ---

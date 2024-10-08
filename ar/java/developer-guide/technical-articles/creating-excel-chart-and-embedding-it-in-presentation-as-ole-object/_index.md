@@ -2,7 +2,7 @@
 title: إنشاء مخطط إكسل وإدماجه في العرض التقديمي ككائن OLE
 type: docs
 weight: 30
-url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ar/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 
 {{% /alert %}} 
 ## **الأقسام ذات الصلة**
-[حل عملي لتغيير حجم المخطاط](/slides/java/working-solution-for-chart-resizing-in-pptx/)
+[حل عملي لتغيير حجم المخطاط](/slides/ar/java/working-solution-for-chart-resizing-in-pptx/)
 
-[مشكلة تغيير الكائن](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[مشكلة تغيير الكائن](/slides/ar/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

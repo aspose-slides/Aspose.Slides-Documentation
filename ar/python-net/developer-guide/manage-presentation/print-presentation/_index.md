@@ -2,7 +2,7 @@
 title: طباعة العرض التقديمي
 type: docs
 weight: 50
-url: /python-net/print-presentation/
+url: /ar/python-net/print-presentation/
 keywords: "طباعة باوربوينت، PPT، PPTX، طباعة العرض التقديمي، بايثون، طابعة، خيارات الطباعة"
 description: "طباعة عرض باوربوينت باستخدام بايثون"
 ---

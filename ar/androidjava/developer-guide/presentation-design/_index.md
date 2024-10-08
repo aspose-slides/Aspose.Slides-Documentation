@@ -2,5 +2,5 @@
 title: تصميم العرض
 type: docs
 weight: 40
-url: /androidjava/presentation-design/
+url: /ar/androidjava/presentation-design/
 ---

@@ -2,7 +2,7 @@
 title: إدارة العلامات والبيانات المخصصة
 type: docs
 weight: 300
-url: /php-java/managing-tags-and-custom-data
+url: /ar/php-java/managing-tags-and-custom-data
 
 ---
 

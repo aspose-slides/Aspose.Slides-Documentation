@@ -2,7 +2,7 @@
 title: فلاش
 type: docs
 weight: 10
-url: /net/flash/
+url: /ar/net/flash/
 keywords: "استخراج فلاش، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
 description: "استخراج كائن فلاش من عرض باوربوينت في C# أو .NET"
 ---

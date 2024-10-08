@@ -2,5 +2,5 @@
 title: أنواع الرسوم البيانية
 type: docs
 weight: 20
-url: /cpp/chart-types/
+url: /ar/cpp/chart-types/
 ---

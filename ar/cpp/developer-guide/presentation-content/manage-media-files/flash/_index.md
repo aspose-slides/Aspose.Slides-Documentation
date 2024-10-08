@@ -2,7 +2,7 @@
 title: فلاش
 type: docs
 weight: 10
-url: /cpp/flash/
+url: /ar/cpp/flash/
 ---
 
 ## **استخراج كائنات الفلاش من العرض التقديمي**

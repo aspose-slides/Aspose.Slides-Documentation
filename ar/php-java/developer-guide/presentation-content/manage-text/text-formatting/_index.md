@@ -2,7 +2,7 @@
 title: تنسيق النص
 type: docs
 weight: 50
-url: /php-java/text-formatting/
+url: /ar/php-java/text-formatting/
 ---
 
 

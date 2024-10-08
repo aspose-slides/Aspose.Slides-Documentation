@@ -1,7 +1,7 @@
 ---
 title: خصائص عرض الشريحة
 type: docs
-url: /python-net/presentation-view-properties/
+url: /ar/python-net/presentation-view-properties/
 keywords: "عارض PowerPoint، خصائص العارض، عروض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "خصائص عارض عروض PowerPoint في Python"
 ---

@@ -2,7 +2,7 @@
 title: تنسيق الأشكال
 type: docs
 weight: 20
-url: /net/shape-formatting/
+url: /ar/net/shape-formatting/
 keywords:
 - تنسيق الشكل
 - تنسيق الخطوط

@@ -1,7 +1,7 @@
 ---
 title: شريط الخطأ
 type: docs
-url: /python-net/error-bar/
+url: /ar/python-net/error-bar/
 keywords: "شريط الخطأ، قيم شريط الخطأ، عرض تقديمي على PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إضافة شريط خطأ إلى عروض PowerPoint التقديمية في بايثون"
 ---

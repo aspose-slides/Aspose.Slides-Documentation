@@ -2,14 +2,14 @@
 title: موضوع العرض
 type: docs
 weight: 10
-url: /cpp/presentation-theme/
+url: /ar/cpp/presentation-theme/
 keywords: "موضوع, موضوع باوربوينت, عرض باوربوينت, CPP, C++, Aspose.Slides for C++"
 description: "موضوع عرض باوربوينت في C++"
 ---
 
 يحدد موضوع العرض خصائص عناصر التصميم. عند اختيارك لموضوع العرض، فإنك تختار أساساً مجموعة محددة من العناصر المرئية وخصائصها.
 
-في باوربوينت، يتكون الموضوع من الألوان، [الخطوط](/slides/cpp/powerpoint-fonts/)، [أنماط الخلفية](/slides/cpp/presentation-background/)، والتأثيرات.
+في باوربوينت، يتكون الموضوع من الألوان، [الخطوط](/slides/ar/cpp/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/cpp/presentation-background/)، والتأثيرات.
 
 ![مكونات الموضوع](theme-constituents.png)
 
@@ -149,7 +149,7 @@ pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خطوط باوربوينت](/slides/cpp/powerpoint-fonts/).
+قد ترغب في رؤية [خطوط باوربوينت](/slides/ar/cpp/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -185,7 +185,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خلفية باوربوينت](/slides/cpp/presentation-background/).
+قد ترغب في رؤية [خلفية باوربوينت](/slides/ar/cpp/presentation-background/).
 
 {{% /alert %}}
 

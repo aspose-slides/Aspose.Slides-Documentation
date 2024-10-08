@@ -1,7 +1,7 @@
 ---
 title: بيانات الرسم البياني
 type: docs
-url: /androidjava/chart-data-label/
+url: /ar/androidjava/chart-data-label/
 keywords: "بيانات الرسم البياني, مسافة التسمية, Java, Aspose.Slides for Android عبر Java"
 description: "تعيين بيانات label الرسم البياني لمسافة PowerPoint في Java"
 ---

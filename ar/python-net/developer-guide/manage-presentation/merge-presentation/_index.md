@@ -2,7 +2,7 @@
 title: دمج العرض التقديمي
 type: docs
 weight: 40
-url: /python-net/merge-presentation/
+url: /ar/python-net/merge-presentation/
 keywords: "دمج PowerPoint، PPTX، PPT، دمج PowerPoint، دمج العرض التقديمي، دمج العرض، بايثون"
 description: "دمج أو الجمع بين عرض PowerPoint التقديمي في بايثون"
 ---

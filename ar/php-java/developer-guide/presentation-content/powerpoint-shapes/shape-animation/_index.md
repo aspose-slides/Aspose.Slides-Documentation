@@ -2,7 +2,7 @@
 title: رسوم متحركة للشكل
 type: docs
 weight: 60
-url: /php-java/shape-animation/
+url: /ar/php-java/shape-animation/
 keywords: "رسوم متحركة في PowerPoint, تأثير الرسوم المتحركة, تطبيق الرسوم المتحركة, عرض PowerPoint, Java, Aspose.Slides لـ PHP عبر Java"
 description: "تطبيق الرسوم المتحركة في PowerPoint"
 ---
@@ -67,7 +67,7 @@ description: "تطبيق الرسوم المتحركة في PowerPoint"
 
 {{% alert color="primary" %}} 
 
-بجانب تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على [فقرة](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph) واحدة. راجع [**النصوص المتحركة**](/slides/php-java/animated-text/).
+بجانب تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على [فقرة](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph) واحدة. راجع [**النصوص المتحركة**](/slides/ar/php-java/animated-text/).
 
 {{% /alert %}} 
 

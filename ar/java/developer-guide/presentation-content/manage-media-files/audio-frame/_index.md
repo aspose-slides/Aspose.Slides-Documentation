@@ -2,7 +2,7 @@
 title: إطار الصوت
 type: docs
 weight: 10
-url: /java/audio-frame/
+url: /ar/java/audio-frame/
 keywords: "إضافة صوت, إطار الصوت, خصائص الصوت, استخراج الصوت, جافا, Aspose.Slides لجافا"
 description: "إضافة صوت إلى عرض PowerPoint في جافا"
 ---

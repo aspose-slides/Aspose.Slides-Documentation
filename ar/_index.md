@@ -2,7 +2,7 @@
 title: عائلة منتجات Aspose.Slides
 type: docs
 weight: 10
-url: /
+url: /ar/
 keywords: "Aspose.Slides لـ .NET، Aspose Slides، Aspose PowerPoint، Aspose PPT، توثيق Aspose."
 description: Aspose.Slides هي واجهات برمجة تطبيقات إدارة PowerPoint® من Microsoft التي تمكن التطبيقات البرمجية من قراءة وكتابة مستندات PowerPoint® دون استخدام PowerPoint® من Microsoft.
 ---
@@ -18,14 +18,14 @@ Aspose.Slides لـ .NET هي واجهة برمجة تطبيقات إدارة Pow
 {{% /alert %}}
 
 هذه روابط لموارد مفيدة:
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ .NET](/slides/net/)
-- [ميزات Aspose.Slides لـ .NET](/slides/net/features-overview/)
-- [قيود Aspose.Slides لـ .NET](/slides/net/known-issues/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ .NET](/slides/ar/net/)
+- [ميزات Aspose.Slides لـ .NET](/slides/ar/net/features-overview/)
+- [قيود Aspose.Slides لـ .NET](/slides/ar/net/known-issues/)
 - [ملاحظات إصدار Aspose.Slides لـ .NET](https://releases.aspose.com/slides/net/release-notes/)
 - [صفحة منتج Aspose.Slides لـ .NET](https://products.aspose.com/slides/net/)
 - [تحميل إصدارات جديدة من Aspose.Slides لـ .NET](https://releases.aspose.com/slides/net/)
 - [تحميل حزمة NuGet لـ Aspose.Slides لـ .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)
-- [تثبيت Aspose.Slides لـ .NET](/slides/net/installation/)
+- [تثبيت Aspose.Slides لـ .NET](/slides/ar/net/installation/)
 - [دليل مرجع واجهة برمجة التطبيقات لـ Aspose.Slides لـ .NET](https://reference.aspose.com/slides/net)
 - [تحميل أمثلة من مستودع GitHub](https://github.com/aspose-slides/Aspose.Slides-for-.NET)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ .NET](https://forum.aspose.com/c/slides/11)
@@ -43,14 +43,14 @@ Aspose.Slides لـ Java هي واجهة برمجة تطبيقات إدارة Pow
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Java](/slides/java/)
-- [ميزات Aspose.Slides لـ Java](/slides/java/features-overview/)
-- [قيود Aspose.Slides لـ Java](/slides/java/known-issues/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Java](/slides/ar/java/)
+- [ميزات Aspose.Slides لـ Java](/slides/ar/java/features-overview/)
+- [قيود Aspose.Slides لـ Java](/slides/ar/java/known-issues/)
 - [ملاحظات إصدار Aspose.Slides لـ Java](https://releases.aspose.com/slides/java/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Java](https://products.aspose.com/slides/java/)
 - [تحميل Aspose.Slides لـ Java](https://releases.aspose.com/slides/java/)
 - [مستودع Maven لـ Aspose.Slides لـ Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [تثبيت Aspose.Slides لـ Java من مستودع Maven](/slides/java/installation/)
+- [تثبيت Aspose.Slides لـ Java من مستودع Maven](/slides/ar/java/installation/)
 - [دليل مرجع واجهة برمجة التطبيقات لـ Aspose.Slides لـ Java](https://reference.aspose.com/slides/java)
 - [تحميل أمثلة من مستودع GitHub](https://github.com/aspose-slides/Aspose.Slides-for-Java)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ Java](https://forum.aspose.com/c/slides/11)
@@ -68,8 +68,8 @@ Aspose.Slides لـ C++ هي واجهة برمجة تطبيقات إدارة Powe
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ C++](/slides/cpp/)
-- [ميزات Aspose.Slides لـ C++](/slides/cpp/features-overview/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ C++](/slides/ar/cpp/)
+- [ميزات Aspose.Slides لـ C++](/slides/ar/cpp/features-overview/)
 - [ملاحظات إصدار Aspose.Slides لـ C++](https://releases.aspose.com/slides/cpp/release-notes/)
 - [صفحة منتج Aspose.Slides لـ C++](https://products.aspose.com/slides/cpp/)
 - [تحميل إصدارات جديدة من Aspose.Slides لـ C++](https://releases.aspose.com/slides/cpp/)
@@ -92,13 +92,13 @@ Aspose.Slides لـ Android عبر Java هي واجهة برمجة تطبيقات
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Java](/slides/java/)
-- [ميزات Aspose.Slides لـ Android عبر Java](/slides/androidjava/aspose-slides-for-android-via-java-features/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Java](/slides/ar/java/)
+- [ميزات Aspose.Slides لـ Android عبر Java](/slides/ar/androidjava/aspose-slides-for-android-via-java-features/)
 - [ملاحظات إصدار Aspose.Slides لـ Android عبر Java](https://releases.aspose.com/slides/androidjava/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Android عبر Java](https://products.aspose.com/slides/android-java/)
 - [تحميل Aspose.Slides لـ Android عبر Java](https://releases.aspose.com/slides/androidjava/)
 - [مستودع Maven لـ Aspose.Slides لـ Android عبر Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/)
-- [تثبيت Aspose.Slides لـ Android عبر Java](/slides/androidjava/install-aspose-slides-for-android-via-java/)
+- [تثبيت Aspose.Slides لـ Android عبر Java](/slides/ar/androidjava/install-aspose-slides-for-android-via-java/)
 - [دليل مرجع واجهة برمجة التطبيقات لـ Aspose.Slides لـ Android عبر Java](https://reference.aspose.com/slides/java)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ Android عبر Java](https://forum.aspose.com/c/slides/11)
 - [مكتب الدعم المدفوع لـ Aspose.Slides لـ Android عبر Java](https://helpdesk.aspose.com/)
@@ -114,14 +114,14 @@ Aspose.Slides لـ Python عبر .NET هي مكتبة فصول تمكّن تطب
 {{% /alert %}}
 
 هذه روابط لموارد مفيدة:
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Python عبر .NET](/slides/python-net/)
-- [ميزات Aspose.Slides لـ Python عبر .NET](/slides/python-net/features-overview/)
-- [قيود Aspose.Slides لـ Python عبر .NET](/slides/python-net/known-issues/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/)
+- [ميزات Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/features-overview/)
+- [قيود Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/known-issues/)
 - [ملاحظات إصدار Aspose.Slides لـ Python عبر .NET](https://releases.aspose.com/slides/python-net/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Python عبر .NET](https://products.aspose.com/slides/python-net/)
 - [تحميل Aspose.Slides لـ Python عبر .NET](https://releases.aspose.com/slides/python-net/)
-- [تثبيت Aspose.Slides لـ Python عبر .NET](/slides/python-net/installation/)
-- [دليل مرجع واجهة برمجة التطبيقات لـ Aspose.Slides لـ Python عبر .NET](/slides/python-net/api-reference/)
+- [تثبيت Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/installation/)
+- [دليل مرجع واجهة برمجة التطبيقات لـ Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/api-reference/)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ Python عبر .NET](https://forum.aspose.com/c/slides/11)
 - [مكتب الدعم المدفوع لـ Aspose.Slides لـ Python عبر .NET](https://helpdesk.aspose.com/)
 
@@ -136,13 +136,13 @@ Aspose.Slides لـ Node.js عبر Java هي مكتبة فصول تمكّن تط�
 {{% /alert %}}
 
 هذه روابط لموارد مفيدة:
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Node.js عبر Java](/slides/java/developer-guide/)
-- [ميزات Aspose.Slides لـ Node.js عبر Java](/slides/nodejs-java/features-overview/)
-- [قيود Aspose.Slides لـ Node.js عبر Java والاختلافات في واجهة البرمجة](/slides/nodejs-java/limitations-and-api-differences/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Node.js عبر Java](/slides/ar/java/developer-guide/)
+- [ميزات Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/features-overview/)
+- [قيود Aspose.Slides لـ Node.js عبر Java والاختلافات في واجهة البرمجة](/slides/ar/nodejs-java/limitations-and-api-differences/)
 - [ملاحظات إصدار Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Node.js عبر Java](https://products.aspose.com/slides/nodejs-java/)
 - [تحميل حزمة Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/)
-- [تثبيت Aspose.Slides لـ Node.js عبر Java](/slides/nodejs-java/installation/)
+- [تثبيت Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/installation/)
 - [دليل مرجع واجهة برمجة التطبيقات لـ Aspose.Slides لـ Node.js عبر Java](https://reference.aspose.com/slides/nodejs-java/)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ Node.js عبر Java](https://forum.aspose.com/c/slides/11)
 - [مكتب الدعم المدفوع لـ Aspose.Slides لـ Node.js عبر Java](https://helpdesk.aspose.com/)
@@ -158,13 +158,13 @@ Aspose.Slides لـ PHP عبر Java هي مكتبة فصول تمكّن تطبي�
 {{% /alert %}}
 
 هذه روابط لموارد مفيدة:
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ PHP عبر Java](/slides/java/)
-- [ميزات Aspose.Slides لـ PHP عبر Java](/slides/php-java/features-overview/)
-- [قيود Aspose.Slides لـ PHP عبر Java والاختلافات في واجهة البرمجة](/slides/php-java/limitations-and-api-differences/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ PHP عبر Java](/slides/ar/java/)
+- [ميزات Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/features-overview/)
+- [قيود Aspose.Slides لـ PHP عبر Java والاختلافات في واجهة البرمجة](/slides/ar/php-java/limitations-and-api-differences/)
 - [ملاحظات إصدار Aspose.Slides لـ PHP عبر Java](https://releases.aspose.com/slides/php-java/release-notes/)
 - [صفحة منتج Aspose.Slides لـ PHP عبر Java](https://products.aspose.com/slides/php-java/)
 - [تحميل حزمة Aspose.Slides لـ PHP عبر Java](https://releases.aspose.com/slides/php-java/)
-- [تثبيت Aspose.Slides لـ PHP عبر Java](/slides/php-java/installation/)
+- [تثبيت Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/installation/)
 - [دليل مرجع واجهة برمجة التطبيقات لـ Aspose.Slides لـ PHP عبر Java](https://docs.aspose.com/slides/php-java/api-reference/)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ PHP عبر Java](https://forum.aspose.com/c/slides/11)
 - [مكتب الدعم المدفوع لـ Aspose.Slides لـ PHP عبر Java](https://helpdesk.aspose.com/)
@@ -181,8 +181,8 @@ Aspose.Slides لـ Reporting Services هو الحل الوحيد المتاح ف
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Reporting Services](/slides/reportingservices/)
-- [ميزات Aspose.Slides لـ Reporting Services](/slides/reportingservices/features)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Reporting Services](/slides/ar/reportingservices/)
+- [ميزات Aspose.Slides لـ Reporting Services](/slides/ar/reportingservices/features)
 - [ملاحظات إصدار Aspose.Slides لـ Reporting Services](https://releases.aspose.com/slides/reportingservices/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Reporting Services](https://products.aspose.com/slides/reporting-services/)
 - [تحميل Aspose.Slides لـ Reporting Services](https://releases.aspose.com/slides/reportingservices/)
@@ -201,8 +201,8 @@ Aspose.Slides لـ SharePoint هي حل مرن يمكّن من تحويل مست
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ SharePoint](/slides/sharepoint/)
-- [ميزات Aspose.Slides لـ SharePoint](/slides/sharepoint/features/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ SharePoint](/slides/ar/sharepoint/)
+- [ميزات Aspose.Slides لـ SharePoint](/slides/ar/sharepoint/features/)
 - [ملاحظات إصدار Aspose.Slides لـ SharePoint](https://releases.aspose.com/slides/sharepoint/release-notes/)
 - [صفحة منتج Aspose.Slides لـ SharePoint](https://products.aspose.com/slides/sharepoint/)
 - [تحميل Aspose.Slides لـ SharePoint](https://releases.aspose.com/slides/sharepoint/)
@@ -221,8 +221,8 @@ Aspose.Slides لـ JasperReports هي مكتبة مصممة خصيصًا ومط�
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ JasperReports](/slides/jasperreports/)
-- [ميزات Aspose.Slides لـ JasperReports](/slides/jasperreports/features/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ JasperReports](/slides/ar/jasperreports/)
+- [ميزات Aspose.Slides لـ JasperReports](/slides/ar/jasperreports/features/)
 - [ملاحظات إصدار Aspose.Slides لـ JasperReports](https://releases.aspose.com/slides/jasperreport/release-notes/)
 - [صفحة منتج Aspose.Slides لـ JasperReports](https://products.aspose.com/slides/jasperreports/)
 - [تحميل Aspose.Slides لـ JasperReports](https://releases.aspose.com/slides/jasperreport/)

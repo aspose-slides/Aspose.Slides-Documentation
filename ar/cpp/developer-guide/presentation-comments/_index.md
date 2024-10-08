@@ -2,7 +2,7 @@
 title: تعليقات العرض
 type: docs
 weight: 100
-url: /cpp/presentation-comments/
+url: /ar/cpp/presentation-comments/
 keywords: "تعليقات، تعليقات باوربوينت، عرض باوربوينت، C++، Aspose.Slides for C++"
 description: "إضافة تعليقات وردود في عرض باوربوينت بـ C++"
 ---

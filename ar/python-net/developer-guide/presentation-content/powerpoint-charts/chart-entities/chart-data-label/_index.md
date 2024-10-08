@@ -1,7 +1,7 @@
 ---
 title: تسميات بيانات الرسم البياني
 type: docs
-url: /python-net/chart-data-label/
+url: /ar/python-net/chart-data-label/
 keywords: "تسمية بيانات الرسم البياني,مسافة التسمية, بايثون, Aspose.Slides for Python via .NET"
 description: "تعيين تسمية بيانات الرسم البياني ومسافتها في بايثون"
 ---

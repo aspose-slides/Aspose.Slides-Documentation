@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى TIFF
 type: docs
 weight: 90
-url: /python-net/convert-powerpoint-to-tiff/
+url: /ar/python-net/convert-powerpoint-to-tiff/
 keywords: "تحويل عرض PowerPoint, PowerPoint إلى TIFF, PPT إلى TIFF, PPTX إلى TIFF, بايثون, Aspose.Slides"
 description: "تحويل عرض PowerPoint إلى TIFF باستخدام بايثون"
 ---

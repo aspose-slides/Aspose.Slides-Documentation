@@ -2,7 +2,7 @@
 title: إدارة الروابط التشعبية
 type: docs
 weight: 20
-url: /cpp/manage-hyperlinks/
+url: /ar/cpp/manage-hyperlinks/
 keywords: "تشعب PowerPoint، رابط نص، رابط شريحة، رابط شكل، رابط صورة، رابط فيديو، C++"
 description: "كيفية إضافة رابط تشعبي إلى عرض PowerPoint في C++"
 ---

@@ -2,7 +2,7 @@
 title: فقرة
 type: docs
 weight: 60
-url: /cpp/paragraph/
+url: /ar/cpp/paragraph/
 ---
 
 ## **الحصول على إحداثيات الفقرة والجزء في TextFrame**

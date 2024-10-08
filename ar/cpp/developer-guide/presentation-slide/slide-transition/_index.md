@@ -2,7 +2,7 @@
 title: انتقال الشريحة
 type: docs
 weight: 80
-url: /cpp/slide-transition/
+url: /ar/cpp/slide-transition/
 keywords: "انتقال شريحة PowerPoint، انتقال التحول"
 description: "انتقال شريحة PowerPoint، انتقال التحول PowerPoint مع Aspose.Slides."
 ---

@@ -2,7 +2,7 @@
 title: قفل العروض التقديمية
 type: docs
 weight: 110
-url: /net/presentation-locking/
+url: /ar/net/presentation-locking/
 ---
 
 ## **قفل العروض التقديمية**

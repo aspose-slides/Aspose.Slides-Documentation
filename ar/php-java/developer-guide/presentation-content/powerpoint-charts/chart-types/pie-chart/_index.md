@@ -1,7 +1,7 @@
 ---
 title: رسم بياني دائري
 type: docs
-url: /php-java/pie-chart/
+url: /ar/php-java/pie-chart/
 ---
 
 ## **خيارات الرسم الثاني لرسم البياني الدائري أو الرسم الشريطي الدائري**

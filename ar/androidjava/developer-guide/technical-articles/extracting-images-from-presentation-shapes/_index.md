@@ -2,7 +2,7 @@
 title: استخراج الصور من أشكال العرض
 type: docs
 weight: 100
-url: /androidjava/extracting-images-from-presentation-shapes/
+url: /ar/androidjava/extracting-images-from-presentation-shapes/
 keywords: "استخراج صورة، PowerPoint، PPT، PPTX، عرض PowerPoint، Java، Aspose.Slides for Android عبر Java"
 description: "استخراج الصور من عرض PowerPoint في Java"
 

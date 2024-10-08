@@ -2,7 +2,7 @@
 title: خط
 type: docs
 weight: 50
-url: /python-net/line/
+url: /ar/python-net/line/
 keywords: "خط, شكل باوربوينت, عرض باوربوينت, بايثون, Aspose.Slides لـ بايثون عبر .NET"
 description: "إضافة خط في عرض باوربوينت في بايثون"
 ---

@@ -1,7 +1,7 @@
 ---
 title: منطقة رسم المخطط
 type: docs
-url: /java/chart-plot-area/
+url: /ar/java/chart-plot-area/
 ---
 
 

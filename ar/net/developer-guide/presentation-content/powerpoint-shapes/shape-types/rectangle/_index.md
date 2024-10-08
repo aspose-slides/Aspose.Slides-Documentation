@@ -2,7 +2,7 @@
 title: مستطيل
 type: docs
 weight: 80
-url: /net/rectangle/
+url: /ar/net/rectangle/
 keywords: "إنشاء مستطيل، شكل PowerPoint، تقديم PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إنشاء مستطيل في تقديم PowerPoint باستخدام C# أو .NET"
 ---

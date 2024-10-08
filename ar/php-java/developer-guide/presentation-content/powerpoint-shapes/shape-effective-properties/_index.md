@@ -2,7 +2,7 @@
 title: خصائص الشكل الفعالة
 type: docs
 weight: 50
-url: /php-java/shape-effective-properties/
+url: /ar/php-java/shape-effective-properties/
 ---
 
 في هذا الموضوع، سنناقش الخصائص **الفعالة** و**المحلية**. عندما نقوم بتعيين القيم مباشرة عند هذه المستويات

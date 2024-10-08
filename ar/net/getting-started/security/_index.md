@@ -2,7 +2,7 @@
 title: الأمان
 type: docs
 weight: 160
-url: /net/security/
+url: /ar/net/security/
 ---
 
 ## **الأمان في Aspose.Slides**

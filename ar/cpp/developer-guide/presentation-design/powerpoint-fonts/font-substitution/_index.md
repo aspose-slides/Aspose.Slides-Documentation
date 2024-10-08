@@ -2,7 +2,7 @@
 title: استبدال الخطوط
 type: docs
 weight: 70
-url: /cpp/font-substitution/
+url: /ar/cpp/font-substitution/
 keywords: "خط, استبدال الخط, عرض PowerPoint, C++, CPP, Aspose.Slides for C++"
 description: "استبدال الخط في PowerPoint باستخدام C++"
 ---
@@ -48,6 +48,6 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 {{%  alert title="ملاحظة"  color="warning"   %}} 
 
-قد ترغب في مشاهدة [**استبدال الخط**](/slides/cpp/font-replacement/). 
+قد ترغب في مشاهدة [**استبدال الخط**](/slides/ar/cpp/font-replacement/). 
 
 {{% /alert %}}

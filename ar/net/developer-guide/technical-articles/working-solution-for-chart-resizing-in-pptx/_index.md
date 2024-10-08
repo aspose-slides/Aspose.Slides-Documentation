@@ -2,7 +2,7 @@
 title: حل عملي لتغيير حجم المخططات في PPTX
 type: docs
 weight: 60
-url: /net/working-solution-for-chart-resizing-in-pptx/
+url: /ar/net/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /net/working-solution-for-chart-resizing-in-pptx/
 
 {{% /alert %}} 
 ## **الخلفية**
-في [المقالة السابقة](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) ، قمنا بشرح كيفية إنشاء مخطط Excel باستخدام Aspose.Cells لـ .NET ومن ثم تضمين هذا المخطط في عرض PowerPoint باستخدام Aspose.Slides لـ .NET. من أجل استيعاب [مشكلة تغيير الكائن](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) ، قمنا بتعيين صورة المخطط إلى إطار كائن OLE. في العرض التقديمي الناتج، عندما نضغط مرتين على إطار الكائن OLE الذي يظهر صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات يريدونها في دفتر العمل الفعلي لـ Excel ثم العودة إلى الشريحة المعنية من خلال النقر خارج دفتر العمل المفعّل. سيتغير حجم إطار الكائن OLE عندما يعود المستخدم إلى الشريحة. ستكون نسبة التغيير مختلفة لأحجام مختلفة من إطار الكائن OLE ودفتر عمل Excel المضمن. 
+في [المقالة السابقة](/slides/ar/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) ، قمنا بشرح كيفية إنشاء مخطط Excel باستخدام Aspose.Cells لـ .NET ومن ثم تضمين هذا المخطط في عرض PowerPoint باستخدام Aspose.Slides لـ .NET. من أجل استيعاب [مشكلة تغيير الكائن](/slides/ar/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) ، قمنا بتعيين صورة المخطط إلى إطار كائن OLE. في العرض التقديمي الناتج، عندما نضغط مرتين على إطار الكائن OLE الذي يظهر صورة المخطط، يتم تفعيل مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات يريدونها في دفتر العمل الفعلي لـ Excel ثم العودة إلى الشريحة المعنية من خلال النقر خارج دفتر العمل المفعّل. سيتغير حجم إطار الكائن OLE عندما يعود المستخدم إلى الشريحة. ستكون نسبة التغيير مختلفة لأحجام مختلفة من إطار الكائن OLE ودفتر عمل Excel المضمن. 
 ## **سبب تغيير الحجم**
 بما أن دفتر عمل Excel له حجمه الخاص، فإنه يحاول الاحتفاظ بحجمه الأصلي عند التفعيل لأول مرة. من ناحية أخرى، سيكون لإطار الكائن OLE حجمه الخاص. وفقًا لمايكروسوفت، عند تفعيل دفتر عمل Excel، تتفاوض Excel وPowerPoint على الحجم وتضمن أنه في النسب الصحيحة كجزء من عملية الإدماج. استنادًا إلى الفروقات في حجم Windows Excel وحجم / موضع إطار الكائن OLE، يحدث تغيير الحجم. 
 ## **الحل العملي**
@@ -158,6 +158,6 @@ Aspose.Slides.OleObjectFrame objFrame = slide.Shapes.AddOleObjectFrame(
 
 {{% /alert %}} 
 ## **الأقسام ذات الصلة**
-[إنشاء وتضمين مخطط Excel ككائن OLE في العرض التقديمي](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[إنشاء وتضمين مخطط Excel ككائن OLE في العرض التقديمي](/slides/ar/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[تحديث كائنات OLE تلقائيًا](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[تحديث كائنات OLE تلقائيًا](/slides/ar/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -2,7 +2,7 @@
 title: إضافة تعليق إلى شريحة
 type: docs
 weight: 10
-url: /net/add-a-comment-to-a-slide/
+url: /ar/net/add-a-comment-to-a-slide/
 ---
 
 ## **OpenXML العرض التقديمي:**

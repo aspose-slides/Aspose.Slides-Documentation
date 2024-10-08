@@ -2,14 +2,14 @@
 title: عرض العرض التقديمي بخط احتياطي
 type: docs
 weight: 30
-url: /python-net/render-presentation-with-fallback-font/
+url: /ar/python-net/render-presentation-with-fallback-font/
 keywords: "خط احتياطي، عرض PowerPoint، عرض تقديمي PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "عرض PowerPoint بخط احتياطي في بايثون"
 ---
 
 يتضمن المثال التالي هذه الخطوات:
 
-1. نحن [ننشئ مجموعة قواعد الخطوط الاحتياطية](/slides/python-net/create-fallback-fonts-collection/).
+1. نحن [ننشئ مجموعة قواعد الخطوط الاحتياطية](/slides/ar/python-net/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) قاعدة خط احتياطي و [AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) لقاعدة أخرى.
 1. تعيين مجموعة القواعد إلى خاصية [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) .
 1. باستخدام طريقة [Presentation.Save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) يمكننا حفظ العرض التقديمي بنفس التنسيق، أو حفظه بتنسيق آخر. بعد تعيين مجموعة قواعد الخطوط الاحتياطية إلى FontsManager، يتم تطبيق هذه القواعد خلال أي عمليات على العرض التقديمي: الحفظ، والعرض، والتحويل، إلخ.
@@ -46,5 +46,5 @@ with slides.Presentation(path + "input.pptx") as pres:
 
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [الحفظ والتحويل في العرض التقديمي](/slides/python-net/creating-saving-and-converting-a-presentation/).
+اقرأ المزيد عن [الحفظ والتحويل في العرض التقديمي](/slides/ar/python-net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

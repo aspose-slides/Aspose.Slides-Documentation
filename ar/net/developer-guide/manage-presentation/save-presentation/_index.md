@@ -3,7 +3,7 @@ title: حفظ العرض التقديمي في .NET
 linktitle: حفظ العرض التقديمي
 type: docs
 weight: 80
-url: /net/save-presentation/
+url: /ar/net/save-presentation/
 keywords: "حفظ PowerPoint, PPT, PPTX, حفظ العرض التقديمي, ملف, تدفق, C#, Csharp, .NET"
 description: "حفظ عرض PowerPoint كملف أو تدفق في C# أو .NET"
 ---

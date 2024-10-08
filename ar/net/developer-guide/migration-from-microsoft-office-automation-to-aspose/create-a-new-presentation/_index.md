@@ -2,7 +2,7 @@
 title: إنشاء عرض تقديمي جديد
 type: docs
 weight: 10
-url: /net/create-a-new-presentation/
+url: /ar/net/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides for .NET هو مكون يمكن استخدامه للتلاعب ب
 
 {{% /alert %}} 
 ## **إنشاء عرض تقديمي**
-فيما يلي مثالان على الكود يوضحان كيفية استخدام VSTO وAspose.Slides for .NET لتحقيق نفس الهدف. المثال الأول هو [VSTO](/slides/net/create-a-new-presentation/); [المثال الثاني](/slides/net/create-a-new-presentation/) يستخدم Aspose.Slides.
+فيما يلي مثالان على الكود يوضحان كيفية استخدام VSTO وAspose.Slides for .NET لتحقيق نفس الهدف. المثال الأول هو [VSTO](/slides/ar/net/create-a-new-presentation/); [المثال الثاني](/slides/ar/net/create-a-new-presentation/) يستخدم Aspose.Slides.
 ### **مثال VSTO**
 **مخرجات VSTO** 
 

@@ -2,7 +2,7 @@
 title: إنشاء خط احتياطي
 type: docs
 weight: 10
-url: /androidjava/create-fallback-font/
+url: /ar/androidjava/create-fallback-font/
 ---
 
 تدعم Aspose.Slides واجهة [IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule) و فئة [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) لتحديد القواعد لإضافة خط احتياطي. تمثل فئة [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) ارتباطًا بين نطاقات Unicode المحددة، المستخدمة للبحث عن الرموز المفقودة، وقائمة من الخطوط التي قد تحتوي على رموز مناسبة:
@@ -25,5 +25,5 @@ IFontFallBackRule thirdRule = new FontFallBackRule(0x1F300, 0x1F64F, fontNames);
 يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) لتنظيم قائمة من [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) الكائنات، عندما تكون هناك حاجة لتحديد قواعد استبدال الخط الاحتياطي لعدة نطاقات Unicode.
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [إنشاء مجموعة خطوط احتياطية](/slides/androidjava/create-fallback-fonts-collection/)
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}

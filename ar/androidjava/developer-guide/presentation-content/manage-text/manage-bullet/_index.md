@@ -2,7 +2,7 @@
 title: إدارة التعداد النقطي
 type: docs
 weight: 60
-url: /androidjava/manage-bullet/
+url: /ar/androidjava/manage-bullet/
 keywords: "النقاط, قوائم نقطية, أرقام, قوائم مرقمة, نقاط بالصور, نقاط متعددة المستويات, عرض PowerPoint, Java, Aspose.Slides for Android عبر Java"
 description: "إنشاء قوائم نقطية ومرقمة في عرض PowerPoint باستخدام Java"
 ---

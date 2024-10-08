@@ -2,7 +2,7 @@
 title: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
-url: /androidjava/3d-presentation/
+url: /ar/androidjava/3d-presentation/
 keywords:
 - ثلاثي الأبعاد
 - PowerPoint ثلاثي الأبعاد

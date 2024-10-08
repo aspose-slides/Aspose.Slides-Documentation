@@ -2,7 +2,7 @@
 title: قيود واجهة برمجة التطبيقات
 type: docs
 weight: 320
-url: /java/api-limitations/
+url: /ar/java/api-limitations/
 ---
 
 ## **العروض التقديمية وصيغ التصدير الأخرى**

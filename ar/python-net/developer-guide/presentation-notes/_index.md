@@ -2,7 +2,7 @@
 title: ملاحظات العرض
 type: docs
 weight: 110
-url: /python-net/presentation-notes/
+url: /ar/python-net/presentation-notes/
 keywords: "ملاحظات، ملاحظات PowerPoint، إضافة ملاحظات، إزالة ملاحظات، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إضافة وإزالة الملاحظات في عروض PowerPoint باستخدام بايثون"
 ---

@@ -2,7 +2,7 @@
 title: دفتر الرسم البياني
 type: docs
 weight: 70
-url: /cpp/chart-workbook/
+url: /ar/cpp/chart-workbook/
 keywords: "دفتر الرسم البياني، بيانات الرسم البياني، عرض PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "دفتر الرسم البياني في عرض PowerPoint بـ C++"
 ---

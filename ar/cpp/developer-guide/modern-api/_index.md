@@ -2,7 +2,7 @@
 title: واجهة برمجة التطبيقات الحديثة
 type: docs
 weight: 280
-url: /cpp/modern-api/
+url: /ar/cpp/modern-api/
 keywords: "واجهة برمجة التطبيقات الحديثة، الرسم"
 description: "واجهة برمجة التطبيقات الحديثة"
 ---

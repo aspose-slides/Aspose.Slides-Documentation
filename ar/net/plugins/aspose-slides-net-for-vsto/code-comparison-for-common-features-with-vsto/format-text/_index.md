@@ -2,7 +2,7 @@
 title: تنسيق النص
 type: docs
 weight: 110
-url: /net/format-text/
+url: /ar/net/format-text/
 ---
 
 تتبع طرق VSTO و Aspose.Slides الخطوات التالية:

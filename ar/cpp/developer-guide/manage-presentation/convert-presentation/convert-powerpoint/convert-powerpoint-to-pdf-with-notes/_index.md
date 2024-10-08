@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
-url: /cpp/convert-powerpoint-to-pdf-with-notes/
+url: /ar/cpp/convert-powerpoint-to-pdf-with-notes/
 keywords: "تحويل PowerPoint إلى PDF مع الملاحظات"
 description: "تحويل PowerPoint إلى PDF مع الملاحظات. تحويل PPT و PPTX إلى PDF مع الملاحظات في Aspose.Slides."
 ---

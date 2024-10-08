@@ -2,7 +2,7 @@
 title: إضافة إطار صورة إلى العرض التقديمي
 type: docs
 weight: 50
-url: /net/add-picture-frame-to-presentation/
+url: /ar/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**

@@ -2,14 +2,14 @@
 title: موضوع العرض
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /ar/java/presentation-theme/
 keywords: "موضوع، موضوع PowerPoint، عرض PowerPoint، Java، Aspose.Slides لـ Java"
 description: "موضوع عرض PowerPoint في Java"
 ---
 
 يحدد موضوع العرض خصائص عناصر التصميم. عند اختيارك لموضوع عرض، فإنك تختار في الأساس مجموعة محددة من العناصر المرئية وخصائصها.
 
-في PowerPoint، يتكون الموضوع من ألوان، [الخطوط](/slides/java/powerpoint-fonts/)، [أنماط الخلفية](/slides/java/presentation-background/)، والتأثيرات.
+في PowerPoint، يتكون الموضوع من ألوان، [الخطوط](/slides/ar/java/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/java/presentation-background/)، والتأثيرات.
 
 ![مكونات الموضوع](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Aria
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خطوط PowerPoint](/slides/java/powerpoint-fonts/).
+قد ترغب في رؤية [خطوط PowerPoint](/slides/ar/java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خلفية PowerPoint](/slides/java/presentation-background/).
+قد ترغب في رؤية [خلفية PowerPoint](/slides/ar/java/presentation-background/).
 
 {{% /alert %}}
 

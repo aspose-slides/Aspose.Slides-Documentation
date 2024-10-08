@@ -2,7 +2,7 @@
 title: تم تحويله إلى TIFF بواسطة أبعاد محددة من قبل المستخدم
 type: docs
 weight: 40
-url: /net/rendered-as-tiff-by-user-defined-dimension/
+url: /ar/net/rendered-as-tiff-by-user-defined-dimension/
 ---
 
 يوضح المثال التالي كيفية تحويل عرض تقديمي إلى وثيقة TIFF بحجم صورة مخصص باستخدام فئة **TiffOptions**.

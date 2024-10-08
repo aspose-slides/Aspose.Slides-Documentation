@@ -2,7 +2,7 @@
 title: PresentationML (PPTX, XML)
 type: docs
 weight: 20
-url: /java/presentationml-pptx-xml/
+url: /ar/java/presentationml-pptx-xml/
 ---
 
 {{% alert color="primary" %}} 

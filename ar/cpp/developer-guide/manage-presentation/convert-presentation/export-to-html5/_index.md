@@ -2,7 +2,7 @@
 title: تصدير إلى HTML5
 type: docs
 weight: 40
-url: /cpp/export-to-html5/
+url: /ar/cpp/export-to-html5/
 keywords:
 - PowerPoint إلى HTML
 - شرائح إلى HTML
@@ -18,7 +18,7 @@ description: "تصدير PowerPoint إلى HTML5 في C++"
 
 {{% alert title="معلومات" color="info" %}}
 
-في [Aspose.Slides 21.9](/slides/cpp/aspose-slides-for-cpp-21-9-release-notes/)، قمنا بتنفيذ الدعم لتصدير HTML5.
+في [Aspose.Slides 21.9](/slides/ar/cpp/aspose-slides-for-cpp-21-9-release-notes/)، قمنا بتنفيذ الدعم لتصدير HTML5.
 
 {{% /alert %}} 
 

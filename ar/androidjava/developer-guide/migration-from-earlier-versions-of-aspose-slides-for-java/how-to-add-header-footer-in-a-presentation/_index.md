@@ -2,7 +2,7 @@
 title: كيفية إضافة رأس وتذييل في عرض تقديمي
 type: docs
 weight: 20
-url: /androidjava/how-to-add-header-footer-in-a-presentation/
+url: /ar/androidjava/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

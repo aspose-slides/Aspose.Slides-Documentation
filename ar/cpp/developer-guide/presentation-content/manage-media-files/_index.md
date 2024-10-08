@@ -2,5 +2,5 @@
 title: إدارة ملفات الوسائط
 type: docs
 weight: 30
-url: /cpp/manage-media-files
+url: /ar/cpp/manage-media-files
 ---

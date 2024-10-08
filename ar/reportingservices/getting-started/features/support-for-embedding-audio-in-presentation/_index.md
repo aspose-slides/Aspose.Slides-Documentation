@@ -2,7 +2,7 @@
 title: دعم تضمين الصوت في العروض التقديمية
 type: docs
 weight: 90
-url: /reportingservices/support-for-embedding-audio-in-presentation/
+url: /ar/reportingservices/support-for-embedding-audio-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

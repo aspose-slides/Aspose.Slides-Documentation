@@ -2,7 +2,7 @@
 title: إدارة الجدول
 type: docs
 weight: 10
-url: /python-net/manage-table/
+url: /ar/python-net/manage-table/
 keywords: "جدول, إنشاء جدول, الوصول إلى جدول, نسبة عرض الجدول إلى ارتفاعه, عرض تقديمي للباوربوينت, بايثون, Aspose.Slides for Python via .NET"
 description: "إنشاء وإدارة الجدول في عروض PowerPoint التقديمية باستخدام بايثون"
 

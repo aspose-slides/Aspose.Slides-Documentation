@@ -2,7 +2,7 @@
 title: حجم الشريحة
 type: docs
 weight: 70
-url: /java/slide-size/
+url: /ar/java/slide-size/
 
 ---
 

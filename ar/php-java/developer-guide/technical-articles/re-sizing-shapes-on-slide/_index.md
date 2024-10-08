@@ -2,7 +2,7 @@
 title: تغيير حجم الأشكال على الشريحة
 type: docs
 weight: 110
-url: /php-java/re-sizing-shapes-on-slide/
+url: /ar/php-java/re-sizing-shapes-on-slide/
 ---
 
 ## **تغيير حجم الأشكال على الشريحة**

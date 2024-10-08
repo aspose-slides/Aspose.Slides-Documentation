@@ -1,7 +1,7 @@
 ---
 title: خيارات علامة البيانات في الرسم البياني
 type: docs
-url: /androidjava/chart-data-marker/
+url: /ar/androidjava/chart-data-marker/
 ---
 
 ## **تعيين خيارات علامة الرسم البياني**

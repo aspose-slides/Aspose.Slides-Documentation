@@ -2,7 +2,7 @@
 title: تنسيق المستندات المحمولة (PDF)
 type: docs
 weight: 40
-url: /php-java/portable-document-format-pdf/
+url: /ar/php-java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ url: /php-java/portable-document-format-pdf/
 - النقاط.
 - الجداول.
 
-يمكنك تصدير العروض التقديمية إلى PDFs مباشرة باستخدام Aspose.Slides لـ PHP عبر Java: لا تحتاج إلى أي مكون آخر. علاوة على ذلك، يمكنك تخصيص تصدير العرض التقديمي إلى PDF مع خيارات متنوعة كما هو موضح في [التحويل إلى PDF](/slides/php-java/converting-a-presentation/).
+يمكنك تصدير العروض التقديمية إلى PDFs مباشرة باستخدام Aspose.Slides لـ PHP عبر Java: لا تحتاج إلى أي مكون آخر. علاوة على ذلك، يمكنك تخصيص تصدير العرض التقديمي إلى PDF مع خيارات متنوعة كما هو موضح في [التحويل إلى PDF](/slides/ar/php-java/converting-a-presentation/).
 
 **العرض التقديمي المدخل** 
 

@@ -1,7 +1,7 @@
 ---
 title: مخطط الفقاعات
 type: docs
-url: /java/bubble-chart/
+url: /ar/java/bubble-chart/
 ---
 
 ## **تغيير حجم مخطط الفقاعات**

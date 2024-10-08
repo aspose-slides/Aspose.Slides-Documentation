@@ -1,7 +1,7 @@
 ---
 title: جدول بيانات الرسم البياني
 type: docs
-url: /net/chart-data-table/
+url: /ar/net/chart-data-table/
 keywords: "خصائص الخط، جدول بيانات الرسم البياني، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "تعيين خصائص الخط لجدول بيانات الرسم البياني في عروض PowerPoint باستخدام C# أو .NET"
 ---

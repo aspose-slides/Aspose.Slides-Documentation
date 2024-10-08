@@ -1,7 +1,7 @@
 ---
 title: منطقة رسم المخطط
 type: docs
-url: /net/chart-plot-area/
+url: /ar/net/chart-plot-area/
 keywords: "منطقة رسم المخطط عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "احصل على عرض وارتفاع منطقة رسم المخطط. تعيين وضع التخطيط. عرض PowerPoint في C# أو .NET"
 ---

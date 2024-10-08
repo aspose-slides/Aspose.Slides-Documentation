@@ -2,7 +2,7 @@
 title: تنسيق الأشكال
 type: docs
 weight: 20
-url: /python-net/shape-formatting/
+url: /ar/python-net/shape-formatting/
 keywords: "تنسيق الشكل، تنسيق الخطوط، تنسيق أنماط الانضمام، تعبئة متدرج، تعبئة نمطية، تعبئة صورة، تعبئة بلون صلب، تدوير الأشكال، تأثيرات حواف ثلاثية الأبعاد، تأثير دوران ثلاثي الأبعاد، عرض تقديمي PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
 description: "تنسيق شكل في عرض تقديمي PowerPoint باستخدام بايثون"
 ---

@@ -2,7 +2,7 @@
 title: كيفية إنشاء المخططات في عرض تقديمي
 type: docs
 weight: 30
-url: /php-java/how-to-create-charts-in-a-presentation/
+url: /ar/php-java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

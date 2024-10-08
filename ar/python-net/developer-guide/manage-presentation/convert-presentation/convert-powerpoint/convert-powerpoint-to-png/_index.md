@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى PNG
 type: docs
 weight: 30
-url: /python-net/convert-powerpoint-to-png/
+url: /ar/python-net/convert-powerpoint-to-png/
 keywords: PowerPoint إلى PNG, PPT إلى PNG, PPTX إلى PNG, Python, Aspose.Slides لـ Python عبر .NET
 description: تحويل عرض PowerPoint إلى PNG
 ---

@@ -2,7 +2,7 @@
 title: مجموعة
 type: docs
 weight: 40
-url: /python-net/group/
+url: /ar/python-net/group/
 keywords: "شكل مجموعة، شكل PowerPoint، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "إضافة شكل مجموعة إلى عرض PowerPoint باستخدام Python"
 ---

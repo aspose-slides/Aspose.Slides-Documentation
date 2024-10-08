@@ -3,7 +3,7 @@ title: إطار الصوت - إدراج واستخراج الصوت في PowerPo
 linktitle: إطار الصوت
 type: docs
 weight: 10
-url: /net/audio-frame/
+url: /ar/net/audio-frame/
 keywords: "صورة مصغرة للصوت، إضافة صوت، إطار الصوت، خصائص الصوت، استخراج الصوت، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة الصوت إلى عرض PowerPoint في C# أو .NET"
 ---

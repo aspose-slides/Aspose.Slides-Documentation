@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /python-net/product-overview/
+url: /ar/python-net/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python.png)
@@ -123,4 +123,4 @@ Aspose.Slides لـ Python عبر .NET هي مكتبة فصول متعددة ال
 |[مدونة Aspose.Slide](https://blog.aspose.com/category/slides/)|تحقق من هذه الصفحة بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تنزيل Aspose.Slides لـ Python عبر .NET](https://pypi.org/project/aspose.slides/)|قم بتنزيل أحدث إصدار من Aspose.Slides هنا. غالبًا ما نقوم بإصدار إصدارات جديدة.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|اطرح أسئلتك ومشاكلك هنا للحصول على حل سريع.|
-|[توثيق منتج Aspose.Slides لـ Python عبر .NET](/slides/python-net/)|توثيق عبر الإنترنت الكامل الذي يحتوي على هذه الوثيقة ومرجع واجهة برمجة التطبيقات لـ Aspose.Slides.|
+|[توثيق منتج Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/)|توثيق عبر الإنترنت الكامل الذي يحتوي على هذه الوثيقة ومرجع واجهة برمجة التطبيقات لـ Aspose.Slides.|

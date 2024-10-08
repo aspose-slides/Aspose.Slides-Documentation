@@ -2,14 +2,14 @@
 title: تصميم العرض
 type: docs
 weight: 10
-url: /androidjava/presentation-theme/
+url: /ar/androidjava/presentation-theme/
 keywords: "تصميم, تصميم PowerPoint, عرض PowerPoint, جافا, Aspose.Slides لجافا عبر Android"
 description: "تصميم عرض PowerPoint في جافا"
 ---
 
 يحدد تصميم العرض خصائص عناصر التصميم. عند اختيار تصميم عرض، فإنك تختار في الأساس مجموعة معينة من العناصر البصرية وخصائصها.
 
-في PowerPoint، يتكون التصميم من الألوان، [الخطوط](/slides/androidjava/powerpoint-fonts/)، [أنماط الخلفية](/slides/androidjava/presentation-background/)، والتأثيرات.
+في PowerPoint، يتكون التصميم من الألوان، [الخطوط](/slides/ar/androidjava/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/androidjava/presentation-background/)، والتأثيرات.
 
 ![مكونات التصميم](theme-constituents.png)
 
@@ -159,7 +159,7 @@ pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Aria
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خطوط PowerPoint](/slides/androidjava/powerpoint-fonts/).
+قد ترغب في رؤية [خطوط PowerPoint](/slides/ar/androidjava/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خلفية PowerPoint](/slides/androidjava/presentation-background/).
+قد ترغب في رؤية [خلفية PowerPoint](/slides/ar/androidjava/presentation-background/).
 
 {{% /alert %}}
 

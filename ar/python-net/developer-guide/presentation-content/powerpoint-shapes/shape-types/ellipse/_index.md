@@ -2,7 +2,7 @@
 title: بيضاوي
 type: docs
 weight: 30
-url: /python-net/ellipse/
+url: /ar/python-net/ellipse/
 keywords: "بيضاوي، شكل PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
 description: "إنشاء بيضاوي في عرض PowerPoint باستخدام بايثون"
 ---

@@ -2,7 +2,7 @@
 title: عارض العروض التقديمية
 type: docs
 weight: 50
-url: /androidjava/presentation-viewer/
+url: /ar/androidjava/presentation-viewer/
 keywords: "عارض PowerPoint PPT"
 description: "عارض PowerPoint PPT بلغة Java"
 ---

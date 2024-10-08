@@ -3,7 +3,7 @@ title: خط باوربوينت مخصص في بايثون
 linktitle: خط مخصص
 type: docs
 weight: 20
-url: /python-net/custom-font/
+url: /ar/python-net/custom-font/
 keywords: "خطوط، خطوط مخصصة، عرض باوربوينت، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "خطوط باوربوينت المخصصة في بايثون"
 ---

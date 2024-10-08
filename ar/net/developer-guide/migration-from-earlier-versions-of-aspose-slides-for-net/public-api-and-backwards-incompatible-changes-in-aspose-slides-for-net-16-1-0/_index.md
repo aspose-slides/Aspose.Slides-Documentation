@@ -2,12 +2,12 @@
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 16.1.0
 type: docs
 weight: 220
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
+url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/
 ---
 
 {{% alert color="primary" %}} 
 
-هذه الصفحة تسرد جميع [الإضافات](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [الإزالات](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) من الفئات والطرق والخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 16.1.0.
+هذه الصفحة تسرد جميع [الإضافات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) أو [الإزالات](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-16-1-0/) من الفئات والطرق والخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 16.1.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة برمجة التطبيقات العامة**

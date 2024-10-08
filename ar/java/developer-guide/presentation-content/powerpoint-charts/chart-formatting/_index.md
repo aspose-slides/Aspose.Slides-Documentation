@@ -2,7 +2,7 @@
 title: تنسيق المخطط
 type: docs
 weight: 60
-url: /java/chart-formatting/
+url: /ar/java/chart-formatting/
 ---
 
 ## **تنسيق كيان المخطط**

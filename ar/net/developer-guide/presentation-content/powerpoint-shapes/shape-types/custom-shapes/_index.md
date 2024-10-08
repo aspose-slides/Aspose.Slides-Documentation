@@ -2,7 +2,7 @@
 title: شكل مخصص
 type: docs
 weight: 20
-url: /net/custom-shape/
+url: /ar/net/custom-shape/
 keywords: 
 - شكل
 - شكل مخصص

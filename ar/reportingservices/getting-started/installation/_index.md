@@ -2,5 +2,5 @@
 title: التثبيت
 type: docs
 weight: 40
-url: /reportingservices/installation/
+url: /ar/reportingservices/installation/
 ---

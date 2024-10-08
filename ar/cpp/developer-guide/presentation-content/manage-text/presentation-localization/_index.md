@@ -2,7 +2,7 @@
 title: توطين العرض
 type: docs
 weight: 100
-url: /cpp/presentation-localization/
+url: /ar/cpp/presentation-localization/
 ---
 
 

@@ -2,7 +2,7 @@
 title: فحص العرض التقديمي
 type: docs
 weight: 30
-url: /net/examine-presentation/
+url: /ar/net/examine-presentation/
 keywords:
 - باوربوينت
 - عرض تقديمي

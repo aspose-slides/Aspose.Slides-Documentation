@@ -2,7 +2,7 @@
 title: علامة مائية
 type: docs
 weight: 40
-url: /net/watermark/
+url: /ar/net/watermark/
 keywords:
 - علامة مائية
 - إضافة علامة مائية
@@ -47,7 +47,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية استخدام فئة TextFrame](/slides/net/text-formatting/)
+- [كيفية استخدام فئة TextFrame](/slides/ar/net/text-formatting/)
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى عرض تقديمي**
@@ -65,7 +65,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية استخدام الشريحة الرئيسية](/slides/net/slide-master/)
+- [كيفية استخدام الشريحة الرئيسية](/slides/ar/net/slide-master/)
 {{% /alert %}}
 
 ### **تعيين شفافية شكل العلامة المائية**

@@ -2,7 +2,7 @@
 title: حسابات المخططات
 type: docs
 weight: 50
-url: /python-net/chart-calculations/
+url: /ar/python-net/chart-calculations/
 keywords: "حسابات المخططات، عناصر المخطط، موضع العنصر، قيم المخطط بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "حسابات وقيم المخطط في PowerPoint باستخدام بايثون"
 ---

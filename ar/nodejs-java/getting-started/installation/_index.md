@@ -2,7 +2,7 @@
 title: التثبيت
 type: docs
 weight: 70
-url: /nodejs-java/installation/
+url: /ar/nodejs-java/installation/
 keySlides: "تحميل Aspose.Slides، تثبيت Aspose.Slides، تثبيت Aspose.Slides، ويندوز، macOS، لينكس، Javascript، Node.js"
 description: "قم بتثبيت Aspose.Slides لـ Node.js عبر Java في ويندوز أو لينكس أو macOS"
 ---

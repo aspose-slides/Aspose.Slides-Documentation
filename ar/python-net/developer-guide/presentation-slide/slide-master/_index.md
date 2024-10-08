@@ -2,7 +2,7 @@
 title: الرئيسية للشرائح
 type: docs
 weight: 80
-url: /python-net/slide-master/
+url: /ar/python-net/slide-master/
 keywords: "إضافة الرئيسية للشرائح، شريحة الماستر PPT، الرئيسية للشرائح PowerPoint، صورة إلى الرئيسية للشرائح، عنصر نائب، عدة رئيسيات للشرائح، مقارنة رئيسيات الشرائح، بايثون، Aspose.Slides"
 description: "إضافة أو تحرير الرئيسية للشرائح في عرض PowerPoint باستخدام بايثون"
 ---
@@ -133,7 +133,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="primary" title="مزيد من المعلومات" %}} 
 
-للحصول على مزيد من المعلومات حول إضافة الصور إلى الشريحة، انظر مقال [إطار الصورة](/slides/python-net/picture-frame/#create-picture-frame).
+للحصول على مزيد من المعلومات حول إضافة الصور إلى الشريحة، انظر مقال [إطار الصورة](/slides/ar/python-net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **إضافة عنصر نائب إلى الرئيسية للشرائح**

@@ -2,7 +2,7 @@
 title: تخطيط الشريحة
 type: docs
 weight: 60
-url: /python-net/slide-layout/
+url: /ar/python-net/slide-layout/
 keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية التذييل، تذييل فرعي، توسيع المحتوى، حجم الصفحة، بايثون، Aspose.Slides"
 description: "تعيين حجم الشريحة وخياراتها في PowerPoint باستخدام بايثون"
 ---

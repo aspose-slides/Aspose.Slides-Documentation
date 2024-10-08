@@ -2,7 +2,7 @@
 title: النشر والتنشيط
 type: docs
 weight: 20
-url: /sharepoint/deployment-and-activation/
+url: /ar/sharepoint/deployment-and-activation/
 ---
 
 ## **النشر**

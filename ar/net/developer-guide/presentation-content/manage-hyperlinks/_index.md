@@ -2,7 +2,7 @@
 title: إدارة الروابط التشعبية
 type: docs
 weight: 20
-url: /net/manage-hyperlinks/
+url: /ar/net/manage-hyperlinks/
 keywords: "إضافة رابط تشعبي، عرض PowerPoint، رابط تشعبي PowerPoint، رابط نصي، رابط شريحة، رابط شكل، رابط صورة، رابط فيديو، .NET، C#، Csharp"
 description: "إضافة رابط تشعبي إلى عرض PowerPoint باستخدام C# أو .NET"
 ---

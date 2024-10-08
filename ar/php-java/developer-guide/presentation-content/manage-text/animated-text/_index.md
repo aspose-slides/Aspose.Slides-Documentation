@@ -2,7 +2,7 @@
 title: نص متحرك
 type: docs
 weight: 60
-url: /php-java/animated-text/
+url: /ar/php-java/animated-text/
 keywords: "نص متحرك في PowerPoint"
 description: "نص متحرك في PowerPoint باستخدام Java"
 ---

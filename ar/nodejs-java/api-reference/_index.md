@@ -2,7 +2,7 @@
 title: مرجع API
 type: docs
 weight: 50
-url: /nodejs-java/api-reference/
+url: /ar/nodejs-java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

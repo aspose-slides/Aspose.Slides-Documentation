@@ -1,7 +1,7 @@
 ---
 title: نقاط البيانات في مخطط الشجرة ومخطط الشمس
 type: docs
-url: /php-java/data-points-of-treemap-and-sunburst-chart/
+url: /ar/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "مخطط الشمس في Aspose.Slides لـ PHP عبر Java"
 description: "مخطط الشمس، مخطط شمس، مخطط شمس، مخطط دائري، رسم دائري أو مخطط فطيرة متعدد المستويات مع Aspose.Slides لـ PHP عبر Java."
@@ -28,7 +28,7 @@ description: "مخطط الشمس، مخطط شمس، مخطط شمس، مخطط
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [**إنشاء مخطط شمس**](/slides/php-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**إنشاء مخطط شمس**](/slides/ar/php-java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

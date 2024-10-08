@@ -2,7 +2,7 @@
 title: فقرة
 type: docs
 weight: 60
-url: /androidjava/paragraph/
+url: /ar/androidjava/paragraph/
 ---
 
 

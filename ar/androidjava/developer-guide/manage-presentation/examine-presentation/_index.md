@@ -2,7 +2,7 @@
 title: فحص العرض التقديمي
 type: docs
 weight: 30
-url: /androidjava/examine-presentation/
+url: /ar/androidjava/examine-presentation/
 keywords:
 - PowerPoint
 - عرض تقديمي

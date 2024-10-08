@@ -2,7 +2,7 @@
 title: تحويل مستندات Microsoft PowerPoint إلى تنسيقات أخرى
 type: docs
 weight: 40
-url: /sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
+url: /ar/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: خصائص الكائن الفعالة
 type: docs
 weight: 50
-url: /java/shape-effective-properties/
+url: /ar/java/shape-effective-properties/
 ---
 
 في هذا الموضوع، سنناقش الخصائص **الفعالة** و**المحلية**. عندما نقوم بتعيين القيم مباشرة على هذه المستويات

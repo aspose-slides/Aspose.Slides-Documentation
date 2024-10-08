@@ -2,7 +2,7 @@
 title: دمج العروض التقديمية
 type: docs
 weight: 40
-url: /java/merge-presentation/
+url: /ar/java/merge-presentation/
 keywords: "دمج PowerPoint, PPTX, PPT, دمج PowerPoint, دمج العروض, دمج العرض, Java"
 description: "دمج أو دمج العروض التقديمية في Java"
 ---

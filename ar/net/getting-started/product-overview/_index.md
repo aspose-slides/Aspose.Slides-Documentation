@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /net/product-overview/
+url: /ar/net/product-overview/
 ---
 
 
@@ -124,7 +124,7 @@ Aspose.Slides لـ .NET هو واجهة برمجة تطبيقات إدارة Mic
 |[مدونة Aspose.Slide](https://blog.aspose.com/category/slides/)|تحقق من هذه الصفحة بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تنزيل Aspose.Slides لـ .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|قم بتنزيل أحدث إصدار من Aspose.Slides هنا. نقوم بإصدار إصدارات جديدة بشكل متكرر.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|اطرح أسئلتك ومشاكلك هنا لحل سريع.|
-|[وثائق منتج Aspose.Slides لـ .NET](/slides/net/)|توثيق كامل عبر الإنترنت يحتوي على هذه الوثيقة ومرجع واجهة برمجة التطبيقات لـ Aspose.Slides.|
+|[وثائق منتج Aspose.Slides لـ .NET](/slides/ar/net/)|توثيق كامل عبر الإنترنت يحتوي على هذه الوثيقة ومرجع واجهة برمجة التطبيقات لـ Aspose.Slides.|
 ## **إعلان**
 تتطلب جميع مكونات Aspose .NET مجموعة أذونات Full Trust. السبب: تحتاج مكونات Aspose .NET إلى امتيازات عالية للوصول إلى إعدادات السجل، وملفات النظام، والدلائل الافتراضية لتنفيذ عمليات معينة مثل تحليل الخطوط والمهام المماثلة. علاوة على ذلك، تستند مكونات Aspose .NET إلى فئات النظام الأساسية .NET، التي تتطلب أيضًا مجموعة أذونات Full Trust في العديد من الحالات. 
 

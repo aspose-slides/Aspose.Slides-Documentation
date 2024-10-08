@@ -2,7 +2,7 @@
 title: مستطيل
 type: docs
 weight: 80
-url: /php-java/rectangle/
+url: /ar/php-java/rectangle/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: مبيعات خط المنتج
 type: docs
 weight: 40
-url: /reportingservices/product-line-sales/
+url: /ar/reportingservices/product-line-sales/
 ---
 
 ## **الميزات:**

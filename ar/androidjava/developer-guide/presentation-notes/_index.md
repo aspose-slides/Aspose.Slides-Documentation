@@ -2,7 +2,7 @@
 title: ملاحظات العرض
 type: docs
 weight: 110
-url: /androidjava/presentation-notes/
+url: /ar/androidjava/presentation-notes/
 keywords: "ملاحظات المتحدث في PowerPoint بلغة Java"
 description: "ملاحظات العرض، ملاحظات المتحدث بلغة Java"
 ---

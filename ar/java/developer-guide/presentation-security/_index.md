@@ -2,5 +2,5 @@
 title: أمان العروض التقديمية
 type: docs
 weight: 60
-url: /java/presentation-security/
+url: /ar/java/presentation-security/
 ---

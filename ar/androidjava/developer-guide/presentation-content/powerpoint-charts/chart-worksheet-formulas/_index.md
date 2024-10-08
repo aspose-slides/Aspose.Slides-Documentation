@@ -2,7 +2,7 @@
 title: صياغات ورقة الرسم البياني
 type: docs
 weight: 70
-url: /androidjava/chart-worksheet-formulas/
+url: /ar/androidjava/chart-worksheet-formulas/
 keywords: "معادلات باوربوينت، صياغات جداول بيانات باوربوينت"
 description: "معادلات باوربوينت وصياغات جداول البيانات"
 ---

@@ -2,7 +2,7 @@
 title: النص العلوي والنص السفلي
 type: docs
 weight: 80
-url: /php-java/superscript-and-subscript/
+url: /ar/php-java/superscript-and-subscript/
 ---
 
 ## **إدارة نص النص العلوي والنص السفلي**

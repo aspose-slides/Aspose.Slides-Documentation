@@ -1,7 +1,7 @@
 ---
 title: تسمية بيانات الرسم البياني
 type: docs
-url: /php-java/chart-data-label/
+url: /ar/php-java/chart-data-label/
 keywords: "تسمية بيانات الرسم البياني, مسافة التسمية, جافا, Aspose.Slides for PHP عبر جافا"
 description: "تعيين تسمية بيانات الرسم البياني في PowerPoint والمسافة"
 ---

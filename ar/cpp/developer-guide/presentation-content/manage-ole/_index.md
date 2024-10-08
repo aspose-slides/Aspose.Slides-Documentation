@@ -2,7 +2,7 @@
 title: إدارة OLE
 type: docs
 weight: 40
-url: /cpp/manage-ole/
+url: /ar/cpp/manage-ole/
 keywords:
 - إضافة OLE
 - تضمين OLE

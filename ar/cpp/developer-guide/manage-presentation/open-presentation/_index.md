@@ -3,7 +3,7 @@ title: فتح العرض التقديمي - واجهة برمجة تطبيقات
 linktitle: فتح العرض التقديمي
 type: docs
 weight: 20
-url: /cpp/open-presentation/
+url: /ar/cpp/open-presentation/
 keywords: "فتح PowerPoint, PPTX, PPT, فتح العرض التقديمي, تحميل العرض التقديمي, C++, CPP"
 description: "فتح أو تحميل عرض تقديمي PPT, PPTX, ODP في C++"
 ---

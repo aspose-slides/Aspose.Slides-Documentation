@@ -2,7 +2,7 @@
 title: دعم المنتج
 type: docs
 weight: 100
-url: /python-net/product-support/
+url: /ar/python-net/product-support/
 ---
 
 ## **الدعم الفني**
@@ -41,4 +41,4 @@ url: /python-net/product-support/
 |[مدونة Aspose.Slides](https://blog.aspose.com/category/slides/)|تحقق من هذا القسم بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تحميل Aspose.Slides لـ Python عبر .NET](https://pypi.org/project/aspose.slides/)|قم بتنزيل أحدث إصدار من Aspose.Slides من هذه الصفحة. نطلق غالبًا إصدارات جديدة.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|قم بنشر أسئلتك ومشكلاتك هنا للحصول على حل سريع.|
-|[وثائق منتج Aspose.Slides لـ Python عبر .NET](/slides/python-net/)|وثائق كاملة على الإنترنت تحتوي على هذه الوثيقة ومرجع API لـ Aspose.Slides.|
+|[وثائق منتج Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/)|وثائق كاملة على الإنترنت تحتوي على هذه الوثيقة ومرجع API لـ Aspose.Slides.|

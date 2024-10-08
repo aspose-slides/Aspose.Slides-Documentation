@@ -2,7 +2,7 @@
 title: دعم المنتج
 type: docs
 weight: 100
-url: /python-java/product-support/
+url: /ar/python-java/product-support/
 ---
 
 ## **الدعم الفني**
@@ -41,4 +41,4 @@ url: /python-java/product-support/
 |[مدونة Aspose.Slides](https://blog.aspose.com/category/slides/)|تحقق من هذا القسم بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تحميل Aspose.Slides لـ Python عبر Java](https://releases.aspose.com/slides/python-java/)|قم بتحميل أحدث إصدار من Aspose.Slides من هذه الصفحة. نحن نطلق غالبًا إصدارات جديدة.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|قم بنشر أسئلتك ومشاكلك هنا للحصول على حل سريع.|
-|[توثيق منتج Aspose.Slides لـ Python عبر Java](/slides/python-java/)|التوثيق الكامل المتاحة عبر الإنترنت الذي يحتوي على هذه الوثيقة ومرجع واجهة برمجة تطبيقات Aspose.Slides.|
+|[توثيق منتج Aspose.Slides لـ Python عبر Java](/slides/ar/python-java/)|التوثيق الكامل المتاحة عبر الإنترنت الذي يحتوي على هذه الوثيقة ومرجع واجهة برمجة تطبيقات Aspose.Slides.|

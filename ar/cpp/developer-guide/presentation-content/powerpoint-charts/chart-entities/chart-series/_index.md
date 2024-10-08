@@ -1,7 +1,7 @@
 ---
 title: سلسلة المخطط
 type: docs
-url: /cpp/chart-series/
+url: /ar/cpp/chart-series/
 ---
 
 السلسلة هي صف أو عمود من الأرقام مرسومة في مخطط.

@@ -2,7 +2,7 @@
 title: واجهة برمجة التطبيقات الحديثة
 type: docs
 weight: 237
-url: /php-java/modern-api/
+url: /ar/php-java/modern-api/
 keywords: "واجهة برمجة التطبيقات الحديثة عبر الأنظمة"
 description: "واجهة برمجة التطبيقات الحديثة"
 ---

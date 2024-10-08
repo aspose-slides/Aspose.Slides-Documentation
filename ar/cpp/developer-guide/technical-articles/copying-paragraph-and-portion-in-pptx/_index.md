@@ -2,7 +2,7 @@
 title: نسخ الفقرة والجزء في PPTX
 type: docs
 weight: 30
-url: /cpp/copying-paragraph-and-portion-in-pptx/
+url: /ar/cpp/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

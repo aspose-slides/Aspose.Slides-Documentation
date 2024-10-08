@@ -2,7 +2,7 @@
 title: إطار الفيديو
 type: docs
 weight: 10
-url: /net/video-frame/
+url: /ar/net/video-frame/
 keywords: "إضافة فيديو، إنشاء إطار فيديو، استخراج فيديو، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة إطار فيديو إلى عرض PowerPoint في C# أو .NET"
 ---

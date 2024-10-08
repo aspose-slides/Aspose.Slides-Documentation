@@ -1,7 +1,7 @@
 ---
 title: خط الاتجاه
 type: docs
-url: /net/trend-line/
+url: /ar/net/trend-line/
 keywords: "خط الاتجاه, خط مخصص عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "إضافة خط اتجاه وخط مخصص إلى عروض PowerPoint في C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: معالجة الأشكال
 type: docs
 weight: 40
-url: /androidjava/shape-manipulations/
+url: /ar/androidjava/shape-manipulations/
 ---
 
 ## **البحث عن شكل في الشريحة**

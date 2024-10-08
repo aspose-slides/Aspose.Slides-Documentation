@@ -2,7 +2,7 @@
 title: تنسيق النص
 type: docs
 weight: 50
-url: /java/text-formatting/
+url: /ar/java/text-formatting/
 keywords:
 - تسليط الضوء على النص
 - تعبير عادي

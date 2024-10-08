@@ -2,12 +2,12 @@
 title: تأثير الشكل
 type: docs
 weight: 30
-url: /net/shape-effect
+url: /ar/net/shape-effect
 keywords: "تأثير الشكل, عرض بوربوينت C#, Csharp, Aspose.Slides for .NET"
 description: "تطبيق تأثير على شكل في PowerPoint باستخدام C# أو .NET"
 ---
 
-بينما يمكن استخدام المؤثرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/net/shape-formatting/#gradient-fill) أو الحدود. باستخدام مؤثرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، إلخ.
+بينما يمكن استخدام المؤثرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/ar/net/shape-formatting/#gradient-fill) أو الحدود. باستخدام مؤثرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، إلخ.
 
 <img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
 

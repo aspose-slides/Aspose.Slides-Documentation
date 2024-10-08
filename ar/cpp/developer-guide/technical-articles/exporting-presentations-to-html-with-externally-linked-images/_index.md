@@ -2,7 +2,7 @@
 title: تصدير العروض التقديمية إلى HTML مع صور مرتبطة خارجيًا
 type: docs
 weight: 50
-url: /cpp/exporting-presentations-to-html-with-externally-linked-images/
+url: /ar/cpp/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

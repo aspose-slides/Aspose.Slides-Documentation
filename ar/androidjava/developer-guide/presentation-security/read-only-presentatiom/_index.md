@@ -2,7 +2,7 @@
 title: العرض القراءة فقط
 type: docs
 weight: 30
-url: /androidjava/read-only-presentation/
+url: /ar/androidjava/read-only-presentation/
 
 ---
 

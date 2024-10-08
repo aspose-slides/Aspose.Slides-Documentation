@@ -2,7 +2,7 @@
 title: إدارة العلامات والبيانات المخصصة
 type: docs
 weight: 300
-url: /androidjava/managing-tags-and-custom-data
+url: /ar/androidjava/managing-tags-and-custom-data
 
 ---
 

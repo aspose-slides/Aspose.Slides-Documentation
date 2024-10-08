@@ -2,7 +2,7 @@
 title: الخطوط المدمجة
 type: docs
 weight: 40
-url: /python-net/embedded-font/
+url: /ar/python-net/embedded-font/
 keywords: "الخطوط، الخطوط المدمجة، إضافة خطوط، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "استخدم الخطوط المدمجة في عرض PowerPoint باستخدام بايثون"
 ---

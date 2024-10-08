@@ -2,7 +2,7 @@
 title: إدارة فقرة PowerPoint في Java
 type: docs
 weight: 40
-url: /androidjava/manage-paragraph/
+url: /ar/androidjava/manage-paragraph/
 keywords: "إضافة فقرة PowerPoint، إدارة الفقرات، مسافة الفقرة، خصائص الفقرة، نص HTML، تصدير نص الفقرة، عرض PowerPoint، Java، Aspose.Slides for Android عبر Java"
 description: "إنشاء وإدارة الفقرة والنص والمسافة وخصائص في عروض PowerPoint في Java"
 ---

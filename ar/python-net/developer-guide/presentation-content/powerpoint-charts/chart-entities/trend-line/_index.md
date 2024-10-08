@@ -1,7 +1,7 @@
 ---
 title: خط الاتجاه
 type: docs
-url: /python-net/trend-line/
+url: /ar/python-net/trend-line/
 keywords: "خط الاتجاه، خط مخصص عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إضافة خط اتجاه وخط مخصص إلى عروض PowerPoint في بايثون"
 ---

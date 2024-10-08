@@ -1,7 +1,7 @@
 ---
 title: جدول بيانات الرسم البياني
 type: docs
-url: /php-java/chart-data-table/
+url: /ar/php-java/chart-data-table/
 ---
 
 ## **ضبط خصائص الخط لجدول بيانات الرسم البياني**

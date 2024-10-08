@@ -2,12 +2,12 @@
 title: إنشاء مجموعة خطوط احتياطية
 type: docs
 weight: 20
-url: /java/create-fallback-fonts-collection/
+url: /ar/java/create-fallback-fonts-collection/
 ---
 
 يمكن تنظيم مثيلات [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) في [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) التي تنفذ [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection) واجهة. من الممكن إضافة أو إزالة القواعد من المجموعة.
 
-ثم يمكن تعيين هذه المجموعة إلى [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) طريقة من [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) الفئة. يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/java/about-fontsmanager-and-fontsloader/).
+ثم يمكن تعيين هذه المجموعة إلى [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) طريقة من [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) الفئة. يتحكم FontsManager في الخطوط عبر العرض التقديمي. اقرأ المزيد [حول FontsManager و FontsLoader](/slides/ar/java/about-fontsmanager-and-fontsloader/).
 
 كل [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) لديها طريقة [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) مع مثيل خاص بها من [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager) الفئة.
 
@@ -30,5 +30,5 @@ try {
 بعد تهيئة FontsManager مع مجموعة خطوط احتياطية، يتم تطبيق الخطوط الاحتياطية أثناء عرض التقديم.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد حول كيفية [عرض العرض التقديمي بخط احتياطي](/slides/java/render-presentation-with-fallback-font/).
+اقرأ المزيد حول كيفية [عرض العرض التقديمي بخط احتياطي](/slides/ar/java/render-presentation-with-fallback-font/).
 {{% /alert %}}

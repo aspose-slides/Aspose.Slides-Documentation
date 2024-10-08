@@ -3,7 +3,7 @@ title: البداية
 type: docs
 description: "استخدم هذه المقدمة إلى أساسيات Aspose.Slides لـ Python عبر .NET لبدء تحقيق قيمة Aspose.Slides لعملك."
 weight: 10
-url: /python-net/getting-started/
+url: /ar/python-net/getting-started/
 ---
 
 توفر هذه المقدمة إلى أساسيات Aspose.Slides. للمستخدمين الجدد على Aspose.Slides، هذه هي أسرع طريقة لتعلم المتطلبات والقدرات الأساسية والبدء.

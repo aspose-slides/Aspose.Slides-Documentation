@@ -2,7 +2,7 @@
 title: تصدير ملفات الوسائط إلى ملف HTML
 type: docs
 weight: 40
-url: /net/export-media-files-to-html-file/
+url: /ar/net/export-media-files-to-html-file/
 ---
 
 لكي يتم تصدير ملفات الوسائط إلى HTML، يرجى اتباع الخطوات أدناه:
@@ -60,6 +60,6 @@ using (Presentation pres = new Presentation(srcFileName))
 
 {{% alert color="primary" %}} 
 
-لمزيد من التفاصيل، تفضل بزيارة [تصدير ملفات الوسائط إلى ملف HTML](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
+لمزيد من التفاصيل، تفضل بزيارة [تصدير ملفات الوسائط إلى ملف HTML](/slides/ar/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
 
 {{% /alert %}}

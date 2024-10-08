@@ -2,7 +2,7 @@
 title: التوقيع الرقمي في باوربوينت
 type: docs
 weight: 10
-url: /androidjava/digital-signature-in-powerpoint/
+url: /ar/androidjava/digital-signature-in-powerpoint/
 keywords: "شهادة توقيع رقمي، هيئة الشهادات"
 description: "إضافة شهادة توقيع رقمي، هيئة الشهادات إلى عرض باوربوينت باستخدام Aspose.Slides."
 ---

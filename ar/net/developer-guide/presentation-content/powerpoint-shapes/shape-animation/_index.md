@@ -2,7 +2,7 @@
 title: رسوم متحركة للشكل
 type: docs
 weight: 60
-url: /net/shape-animation/
+url: /ar/net/shape-animation/
 keywords: 
 - رسوم متحركة في باوربوينت
 - تأثير الرسوم المتحركة
@@ -14,7 +14,7 @@ keywords:
 description: "تطبيق الرسوم المتحركة في باوربوينت باستخدام C# أو .NET"
 ---
 
-الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص أو الصور أو الأشكال أو [المخططات](/slides/net/animated-charts/). إنها تضفي الحياة على العروض التقديمية أو مكوناتها.
+الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص أو الصور أو الأشكال أو [المخططات](/slides/ar/net/animated-charts/). إنها تضفي الحياة على العروض التقديمية أو مكوناتها.
 
 ### **لماذا استخدام الرسوم المتحركة في العروض التقديمية؟**
 
@@ -76,7 +76,7 @@ using (Presentation pres = new Presentation())
 
 {{%  alert color="primary"  %}} 
 
-بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على فقرة واحدة [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph). انظر [**النص المتحرك**](/slides/net/animated-text/).
+بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على فقرة واحدة [Paragraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph). انظر [**النص المتحرك**](/slides/ar/net/animated-text/).
 
 {{% /alert %}} 
 

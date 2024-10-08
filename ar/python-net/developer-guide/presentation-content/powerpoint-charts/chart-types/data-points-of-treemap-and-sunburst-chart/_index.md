@@ -1,7 +1,7 @@
 ---
 title: نقاط بيانات خريطة الشجرة ورسم الشمس
 type: docs
-url: /python-net/data-points-of-treemap-and-sunburst-chart/
+url: /ar/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords: "رسم الشمس، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إضافة رسم الشمس في عرض PowerPoint باستخدام بايثون"
 ---
@@ -22,7 +22,7 @@ with slides.Presentation() as pres:
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [**إنشاء رسم شمس**](/slides/python-net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**إنشاء رسم شمس**](/slides/ar/python-net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

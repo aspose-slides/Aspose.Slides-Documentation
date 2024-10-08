@@ -2,7 +2,7 @@
 title: عمليات تغيير الشكل
 type: docs
 weight: 40
-url: /net/shape-manipulations/
+url: /ar/net/shape-manipulations/
 keywords: "شكل PowerPoint، شكل على الشريحة، العثور على شكل، استنساخ شكل، إزالة شكل، إخفاء شكل، تغيير ترتيب الشكل، الحصول على معرف شكل Interlop، نص بديل للشكل، تنسيقات تخطيط الشكل، شكل كـ SVG، محاذاة الشكل، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "تلاعب بأشكال PowerPoint في C# أو .NET"
 ---

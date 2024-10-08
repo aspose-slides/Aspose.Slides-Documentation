@@ -2,14 +2,14 @@
 title: تطبيق الحماية على العرض التقديمي
 type: docs
 weight: 60
-url: /php-java/applying-protection-to-presentation/
+url: /ar/php-java/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 استخدام شائع لـ Aspose.Slides هو إنشاء وتحديث وحفظ عروض Microsoft PowerPoint 2007 (PPTX) كجزء من سير عمل آلي. يحصل مستخدمو التطبيق الذي يستخدم Aspose.Slides بهذه الطريقة على الوصول إلى العروض الناتجة. حماية هذه العروض من التعديل هي مسألة شائعة. من المهم أن تحتفظ العروض المولدة تلقائيًا بتنسيقها ومحتواها الأصلي.
 
-تشرح هذه المقالة كيفية [إنشاء العروض والشرائح](/slides/php-java/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides لـ PHP عبر Java [تطبيق الحماية على](/slides/php-java/applying-protection-to-presentation/) ، ثم [إزالتها من](/slides/php-java/applying-protection-to-presentation/) عرض تقديمي. هذه الميزة فريدة من نوعها في Aspose.Slides وفي وقت كتابة هذا المقال، ليست متاحة في Microsoft PowerPoint. إنها تعطي المطورين وسيلة للتحكم في كيفية استخدام العروض التي تنشئها تطبيقاتهم.
+تشرح هذه المقالة كيفية [إنشاء العروض والشرائح](/slides/ar/php-java/applying-protection-to-presentation/) وكيف يمكن لـ Aspose.Slides لـ PHP عبر Java [تطبيق الحماية على](/slides/ar/php-java/applying-protection-to-presentation/) ، ثم [إزالتها من](/slides/ar/php-java/applying-protection-to-presentation/) عرض تقديمي. هذه الميزة فريدة من نوعها في Aspose.Slides وفي وقت كتابة هذا المقال، ليست متاحة في Microsoft PowerPoint. إنها تعطي المطورين وسيلة للتحكم في كيفية استخدام العروض التي تنشئها تطبيقاتهم.
 
 {{% /alert %}} 
 ## **تركيب الشريحة**

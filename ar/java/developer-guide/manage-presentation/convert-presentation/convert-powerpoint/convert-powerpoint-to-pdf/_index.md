@@ -3,7 +3,7 @@ title: تحويل باوربوينت إلى PDF باستخدام Java
 linktitle: تحويل باوربوينت إلى PDF
 type: docs
 weight: 40
-url: /java/convert-powerpoint-to-pdf/
+url: /ar/java/convert-powerpoint-to-pdf/
 keywords:
 - تحويل باوربوينت
 - عرض تقديمي

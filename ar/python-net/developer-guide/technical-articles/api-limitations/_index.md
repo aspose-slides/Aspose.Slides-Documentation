@@ -2,7 +2,7 @@
 title: قيود واجهة برمجة التطبيقات
 type: docs
 weight: 210
-url: /python-net/api-limitations/
+url: /ar/python-net/api-limitations/
 ---
 
 ## **العروض التقديمية وصيغ التصدير الأخرى**

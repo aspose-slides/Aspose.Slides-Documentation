@@ -2,7 +2,7 @@
 title: ترخيص Aspose.Slides لخدمات التقارير
 type: docs
 weight: 70
-url: /reportingservices/license-aspose-slides-for-reporting-services/
+url: /ar/reportingservices/license-aspose-slides-for-reporting-services/
 ---
 
 ## **دعم الترخيص**

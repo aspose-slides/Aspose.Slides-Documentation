@@ -1,7 +1,7 @@
 ---
 title: سلسلة الرسم البياني
 type: docs
-url: /androidjava/chart-series/
+url: /ar/androidjava/chart-series/
 keywords: "سلسلة الرسم البياني، لون السلسلة، عرض PowerPoint، جافا، Aspose.Slides لـ Android عبر جافا"
 description: "سلسلة الرسم البياني في عروض PowerPoint بلغة جافا"
 ---

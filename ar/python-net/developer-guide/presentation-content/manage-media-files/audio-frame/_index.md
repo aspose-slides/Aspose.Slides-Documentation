@@ -2,7 +2,7 @@
 title: إطار الصوت
 type: docs
 weight: 10
-url: /python-net/audio-frame/
+url: /ar/python-net/audio-frame/
 keywords: "إضافة الصوت، إطار الصوت، خصائص الصوت، استخراج الصوت، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إضافة الصوت إلى عرض باوربوينت في بايثون"
 ---

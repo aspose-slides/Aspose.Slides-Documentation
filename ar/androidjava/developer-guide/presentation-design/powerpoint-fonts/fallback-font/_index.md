@@ -3,7 +3,7 @@ title: خط النسخ - واجهة برمجة التطبيقات PowerPoint Jav
 linktitle: خط النسخ
 type: docs
 weight: 50
-url: /androidjava/fallback-font/
+url: /ar/androidjava/fallback-font/
 description: يُستخدم خط النسخ عندما يكون الخط المحدد للنص متاحًا في النظام، لكن هذا الخط لا يحتوي على رمز ضروري. في هذه الحالة، من الممكن أن تستخدم واجهة برمجة التطبيقات PowerPoint Java أحد خطوط النسخ المحددة لاستبدال الرمز.
 ---
 
@@ -14,6 +14,6 @@ description: يُستخدم خط النسخ عندما يكون الخط الم�
 
 للتعرف على هذه الميزات، استخدم الروابط التالية:
 
-- [إنشاء خط نسخ](/slides/androidjava/create-fallback-font)
-- [إنشاء مجموعة خطوط نسخ](/slides/androidjava/create-fallback-fonts-collection)
-- [عرض تقديمي باستخدام خط النسخ](/slides/androidjava/render-presentation-with-fallback-font)
+- [إنشاء خط نسخ](/slides/ar/androidjava/create-fallback-font)
+- [إنشاء مجموعة خطوط نسخ](/slides/ar/androidjava/create-fallback-fonts-collection)
+- [عرض تقديمي باستخدام خط النسخ](/slides/ar/androidjava/render-presentation-with-fallback-font)

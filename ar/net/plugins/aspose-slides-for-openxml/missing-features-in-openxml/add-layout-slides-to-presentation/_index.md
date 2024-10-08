@@ -2,7 +2,7 @@
 title: إضافة شرائح التخطيط إلى العرض التقديمي
 type: docs
 weight: 20
-url: /net/add-layout-slides-to-presentation/
+url: /ar/net/add-layout-slides-to-presentation/
 ---
 
 يسمح Aspose.Slides لـ .NET للمطورين بإضافة شرائح تخطيط جديدة في العرض التقديمي. لإضافة شريحة تخطيط، يرجى اتباع الخطوات أدناه:
@@ -128,6 +128,6 @@ using (Presentation p = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-للحصول على مزيد من التفاصيل، تفضل بزيارة [إضافة شرائح التخطيط إلى العرض التقديمي](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+للحصول على مزيد من التفاصيل، تفضل بزيارة [إضافة شرائح التخطيط إلى العرض التقديمي](/slides/ar/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

@@ -3,7 +3,7 @@ title: تحويل PowerPoint إلى HTML باستخدام Java
 linktitle: تحويل PowerPoint إلى HTML
 type: docs
 weight: 30
-url: /java/convert-powerpoint-to-html/
+url: /ar/java/convert-powerpoint-to-html/
 keywords: "Java PowerPoint إلى HTML، تحويل عرض PowerPoint، PPTX، PPT، PPT إلى HTML، PPTX إلى HTML، PowerPoint إلى HTML، حفظ PowerPoint كـ HTML، حفظ PPT كـ HTML، حفظ PPTX كـ HTML، Java، Aspose.Slides، تصدير HTML"
 description: "تحويل PowerPoint إلى HTML باستخدام Java: حفظ PPTX أو PPT كـ HTML في Java. حفظ الشرائح كـ HTML في Java"
 ---

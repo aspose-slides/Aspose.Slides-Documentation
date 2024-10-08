@@ -2,7 +2,7 @@
 title: تصدير التقرير إلى Powerpoint بدون تثبيت Aspose.Slides.ReportingService على الخادم
 type: docs
 weight: 120
-url: /reportingservices/export-report-to-powerpoint-without-installation-of-aspose-slides-reportingservice-on-server/
+url: /ar/reportingservices/export-report-to-powerpoint-without-installation-of-aspose-slides-reportingservice-on-server/
 ---
 
 {{% alert color="primary" %}} 

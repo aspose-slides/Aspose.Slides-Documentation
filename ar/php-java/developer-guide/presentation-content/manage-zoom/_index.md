@@ -2,7 +2,7 @@
 title: إدارة التكبير
 type: docs
 weight: 60
-url: /php-java/manage-zoom/
+url: /ar/php-java/manage-zoom/
 keywords: "Zoom, إطار التكبير, إضافة تكبير, تنسيق إطار التكبير, ملخص التكبير, عرض PowerPoint, Java, Aspose.Slides لـ PHP عبر Java"
 description: "إضافة تكبير أو إطارات تكبير إلى عروض PowerPoint"
 ---

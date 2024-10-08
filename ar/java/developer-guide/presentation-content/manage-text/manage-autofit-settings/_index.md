@@ -2,7 +2,7 @@
 title: إدارة إعدادات التكييف التلقائي
 type: docs
 weight: 30
-url: /java/manage-autofit-settings/
+url: /ar/java/manage-autofit-settings/
 keywords: "مربع النص، تكييف تلقائي، عرض بوربوينت، جافا، Aspose.Slides لـ Java"
 description: "قم بتعيين إعدادات التكييف التلقائي لمربع النص في PowerPoint باستخدام جافا"
 ---

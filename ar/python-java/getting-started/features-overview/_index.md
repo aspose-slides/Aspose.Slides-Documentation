@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 20
-url: /python-java/features-overview/
+url: /ar/python-java/features-overview/
 ---
 
 ## **المنصات المدعومة**

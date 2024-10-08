@@ -2,7 +2,7 @@
 title: تصدير الرسم البياني
 type: docs
 weight: 90
-url: /python-net/export-chart/
+url: /ar/python-net/export-chart/
 keywords:
 - رسم بياني
 - صورة الرسم البياني

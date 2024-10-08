@@ -2,7 +2,7 @@
 title: العرض عبر VBA
 type: docs
 weight: 250
-url: /php-java/presentation-via-vba/
+url: /ar/php-java/presentation-via-vba/
 keywords: "ماكرو، ماكروز، VBA، ماكرو VBA، إضافة ماكرو، إزالة ماكرو، إضافة VBA، إزالة VBA، استخراج ماكرو، استخراج VBA، ماكرو باوربوينت، عرض باوربوينت، جافا، Aspose.Slides لـ PHP عبر جافا"
 description: "إضافة وإزالة واستخراج ماكروز VBA في عروض باوربوينت"
 ---

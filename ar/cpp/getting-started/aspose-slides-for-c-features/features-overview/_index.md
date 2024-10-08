@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 10
-url: /cpp/features-overview/
+url: /ar/cpp/features-overview/
 description: تدعم واجهة برمجة تطبيقات C++ PowerPoint معظم تنسيقات مستندات PowerPoint وتقوم أيضًا بتصديرها إلى تنسيقات شائعة. تشمل الميزات الرئيسية التحويلات، والرندر، والتلاعب بالمحتوى، والتنسيق.
 ---
 
@@ -11,10 +11,10 @@ description: تدعم واجهة برمجة تطبيقات C++ PowerPoint معظ
 
 |**الميزة**|**الوصف**|
 | :- | :- |
-|[مايكروسوفت باوربوينت (PPT)](/slides/cpp/microsoft-powerpoint-ppt/)|تقدم Aspose.Slides لـ C++ معالجة سريعة جدًا لهذا التنسيق من مستندات العرض التقديمي.|
-|[تنسيق المستندات المحمولة (PDF)](/slides/cpp/portable-document-format-pdf/)|يمكن تصدير تنسيقات الملفات المدعومة إلى مستندات تنسيق PDF باستخدام طريقة واحدة.|
-|[مواصفة محلل XML (XPS)](/slides/cpp/xml-parser-specification-xps/)|يمكن تصدير جميع تنسيقات الملفات المدعومة إلى مستندات مواصفة محلل XML (XPS) باستخدام طريقة واحدة.|
-|[PresentationML (PPTX، XML)](/slides/cpp/presentationml-pptx-xml/)|تدعم Aspose.Slides لـ C++ معالجة تنسيق عرض OOXML المعروف أيضًا باسم PresentationML أو PPTX.|
+|[مايكروسوفت باوربوينت (PPT)](/slides/ar/cpp/microsoft-powerpoint-ppt/)|تقدم Aspose.Slides لـ C++ معالجة سريعة جدًا لهذا التنسيق من مستندات العرض التقديمي.|
+|[تنسيق المستندات المحمولة (PDF)](/slides/ar/cpp/portable-document-format-pdf/)|يمكن تصدير تنسيقات الملفات المدعومة إلى مستندات تنسيق PDF باستخدام طريقة واحدة.|
+|[مواصفة محلل XML (XPS)](/slides/ar/cpp/xml-parser-specification-xps/)|يمكن تصدير جميع تنسيقات الملفات المدعومة إلى مستندات مواصفة محلل XML (XPS) باستخدام طريقة واحدة.|
+|[PresentationML (PPTX، XML)](/slides/ar/cpp/presentationml-pptx-xml/)|تدعم Aspose.Slides لـ C++ معالجة تنسيق عرض OOXML المعروف أيضًا باسم PresentationML أو PPTX.|
 |[تحويل PPTX إلى HTML](https://docs.aspose.com/slides/cpp/convert-powerpoint-to-html/)|تدعم Aspose.Slides لـ C++ تحويل العرض التقديمي إلى تنسيق HTML.|
 ## **الرندر**
 تدعم Aspose.Slides لـ C++ الرندر عالي الدقة للشرائح في مستندات العرض التقديمي إلى تنسيقات الرسوميات المختلفة كما هو مدرج أدناه:

@@ -3,7 +3,7 @@ title: استبدال الخطوط - واجهة برمجة تطبيقات PowerP
 linktitle: استبدال الخطوط
 type: docs
 weight: 60
-url: /androidjava/font-replacement/
+url: /ar/androidjava/font-replacement/
 description: تعرف على كيفية استبدال الخطوط باستخدام طريقة الاستبدال الصريحة في PowerPoint باستخدام واجهة برمجة التطبيقات Java.
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="ملاحظة" color="warning" %}} 
 
-لتعيين قواعد تحدد ما يحدث في ظروف معينة (إذا لم يكن بإمكانك الوصول إلى خط، على سبيل المثال)، راجع [**استبدال الخطوط**](/slides/androidjava/font-substitution/).
+لتعيين قواعد تحدد ما يحدث في ظروف معينة (إذا لم يكن بإمكانك الوصول إلى خط، على سبيل المثال)، راجع [**استبدال الخطوط**](/slides/ar/androidjava/font-substitution/).
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: إنشاء مصغرة شريحة بصيغة JPEG
 type: docs
 weight: 90
-url: /net/generate-slide-thumbnail-as-jpeg/
+url: /ar/net/generate-slide-thumbnail-as-jpeg/
 ---
 
 لإنشاء مصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides لـ .NET:
@@ -39,6 +39,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-لمزيد من التفاصيل، قم بزيارة [إنشاء صورة مصغرة الشرائح](/slides/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
+لمزيد من التفاصيل، قم بزيارة [إنشاء صورة مصغرة الشرائح](/slides/ar/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
 
 {{% /alert %}}

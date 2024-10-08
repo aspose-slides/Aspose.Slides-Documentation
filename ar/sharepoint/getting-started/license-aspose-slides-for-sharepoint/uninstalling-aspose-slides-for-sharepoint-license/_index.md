@@ -2,7 +2,7 @@
 title: إلغاء تثبيت ترخيص Aspose.Slides لـ SharePoint
 type: docs
 weight: 20
-url: /sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
+url: /ar/sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
 ---
 
 لإلغاء تثبيت الترخيص، يرجى استخدام الخطوات التالية من وحدة التحكم الخاصة بالخادم.

@@ -2,7 +2,7 @@
 title: العرض عبر VBA
 type: docs
 weight: 250
-url: /cpp/presentation-via-vba/
+url: /ar/cpp/presentation-via-vba/
 keywords: "ماكرو، ماكروس، VBA، ماكرو VBA، إضافة ماكرو، إزالة ماكرو، إضافة VBA، إزالة VBA، استخراج ماكرو، استخراج VBA، ماكرو PowerPoint، عرض PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "إضافة وإزالة واستخراج ماكرو VBA في عروض PowerPoint في C++"
 ---

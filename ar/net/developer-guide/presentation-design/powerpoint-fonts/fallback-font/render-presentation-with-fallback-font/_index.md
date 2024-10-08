@@ -2,7 +2,7 @@
 title: عرض العرض التقديمي بخط احتياطي
 type: docs
 weight: 30
-url: /net/render-presentation-with-fallback-font/
+url: /ar/net/render-presentation-with-fallback-font/
 keywords: 
 - خط احتياطي
 - عرض PowerPoint
@@ -16,7 +16,7 @@ description: "عرض PowerPoint بخط احتياطي في C# أو .NET"
 
 يتضمن المثال التالي هذه الخطوات:
 
-1. نحن [ننشئ مجموعة قواعد الخط الاحتياطي](/slides/net/create-fallback-fonts-collection/).
+1. نحن [ننشئ مجموعة قواعد الخط الاحتياطي](/slides/ar/net/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) قاعدة خط احتياطي و [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) لقانون آخر.
 1. تعيين مجموعة القواعد إلى خاصية [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection).
 1. مع [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) يمكننا حفظ العرض التقديمي بنفس التنسيق، أو حفظه في تنسيق آخر. بعد تعيين مجموعة قواعد الخط الاحتياطي إلى FontsManager، يتم تطبيق هذه القواعد أثناء أي عمليات على العرض التقديمي: حفظ، عرض، تحويل، إلخ.
@@ -57,5 +57,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 ```
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [الحفظ والتحويل في العرض التقديمي](/slides/net/creating-saving-and-converting-a-presentation/).
+اقرأ المزيد عن [الحفظ والتحويل في العرض التقديمي](/slides/ar/net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

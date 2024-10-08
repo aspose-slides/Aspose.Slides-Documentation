@@ -2,7 +2,7 @@
 title: الحصول على خلفية الشريحة بالكامل كصورة
 type: docs
 weight: 95
-url: /cpp/get-the-entire-presentation-slide-background-as-an-image/
+url: /ar/cpp/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - شريحة
 - خلفية
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for C++
 ---
 
-في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المحددة كـ [خلفية الشريحة](/slides/cpp/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط.
+في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المحددة كـ [خلفية الشريحة](/slides/ar/cpp/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط.
 
 لا توفر Aspose.Slides for C++ طريقة بسيطة لاستخراج خلفية الشريحة بالكامل كصورة، ولكن يمكنك اتباع الخطوات أدناه للقيام بذلك:
 1. قم بتحميل العرض باستخدام فئة [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).

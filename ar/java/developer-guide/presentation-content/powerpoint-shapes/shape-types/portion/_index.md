@@ -2,7 +2,7 @@
 title: جزء
 type: docs
 weight: 70
-url: /java/portion/
+url: /ar/java/portion/
 ---
 
 ## **احصل على إحداثيات موضع الجزء**

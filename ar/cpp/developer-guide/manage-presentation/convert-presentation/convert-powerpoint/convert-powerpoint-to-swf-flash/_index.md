@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى SWF فلاش
 type: docs
 weight: 80
-url: /cpp/convert-powerpoint-to-swf-flash/
+url: /ar/cpp/convert-powerpoint-to-swf-flash/
 keywords: "PPT، PPTX إلى SWF"
 description: "تحويل PowerPoint PPT، PPTX إلى صيغة SWF فلاش باستخدام واجهة برمجة تطبيقات Aspose.Slides."
 ---

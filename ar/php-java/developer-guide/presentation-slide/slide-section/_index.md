@@ -2,7 +2,7 @@
 title: قسم الشريحة
 type: docs
 weight: 90
-url: /php-java/slide-section/
+url: /ar/php-java/slide-section/
 ---
 
 مع Aspose.Slides لـ PHP عبر Java، يمكنك تنظيم عرض PowerPoint التقديمي إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح محددة.

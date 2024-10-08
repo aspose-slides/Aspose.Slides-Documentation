@@ -2,7 +2,7 @@
 title: ترخيص متري
 type: docs
 weight: 100
-url: /androidjava/metered-licensing/
+url: /ar/androidjava/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

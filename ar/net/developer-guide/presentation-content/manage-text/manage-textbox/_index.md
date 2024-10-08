@@ -2,7 +2,7 @@
 title: إدارة مربع النص
 type: docs
 weight: 20
-url: /net/manage-textbox/
+url: /ar/net/manage-textbox/
 keywords: "مربع نص, إطار نص, إضافة مربع نص, مربع نص مع ارتباط تشعبي, C#, Csharp, Aspose.Slides for .NET"
 description: "إضافة مربع نص أو إطار نص إلى عروض PowerPoint التقديمية في C# أو .NET"
 ---

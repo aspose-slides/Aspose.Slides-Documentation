@@ -2,7 +2,7 @@
 title: توطين العرض
 type: docs
 weight: 100
-url: /androidjava/presentation-localization/
+url: /ar/androidjava/presentation-localization/
 ---
 
 ## **تغيير اللغة لنص العرض والشكل**

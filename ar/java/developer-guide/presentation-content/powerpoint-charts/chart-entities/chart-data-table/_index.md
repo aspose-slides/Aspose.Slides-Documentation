@@ -1,7 +1,7 @@
 ---
 title: جدول بيانات الرسم البياني
 type: docs
-url: /java/chart-data-table/
+url: /ar/java/chart-data-table/
 ---
 
 ## **تعيين خصائص الخط لجدول بيانات الرسم البياني**

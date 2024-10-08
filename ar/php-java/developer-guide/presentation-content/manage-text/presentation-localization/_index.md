@@ -2,7 +2,7 @@
 title: توطين العرض
 type: docs
 weight: 100
-url: /php-java/presentation-localization/
+url: /ar/php-java/presentation-localization/
 ---
 
 ## **تغيير اللغة لنص العرض والشكل**

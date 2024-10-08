@@ -2,7 +2,7 @@
 title: صيغة المستندات المحمولة (PDF)
 type: docs
 weight: 30
-url: /cpp/portable-document-format-pdf/
+url: /ar/cpp/portable-document-format-pdf/
 ---
 
 ## **حول PDF**

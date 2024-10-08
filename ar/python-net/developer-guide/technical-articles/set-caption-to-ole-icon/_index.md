@@ -2,7 +2,7 @@
 title: تعيين التسمية إلى أيقونة OLE
 type: docs
 weight: 160
-url: /python-net/set-caption-to-ole-icon/
+url: /ar/python-net/set-caption-to-ole-icon/
 ---
 
 تم إضافة خاصية جديدة **SubstitutePictureTitle** إلى واجهة **IOleObjectFrame** وclass **OleObjectFrame**. تتيح الحصول على، تعيين أو تغيير التسمية لأيقونة OLE. يعرض مقتطف الكود أدناه نموذجًا لإنشاء كائن Excel وتعيين تسميته.

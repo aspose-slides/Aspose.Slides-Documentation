@@ -3,7 +3,7 @@ title: استبدال الخطوط - PowerPoint Java API
 linktitle: استبدال الخطوط
 type: docs
 weight: 60
-url: /php-java/font-replacement/
+url: /ar/php-java/font-replacement/
 description: تعرف على كيفية استبدال الخطوط باستخدام طريقة الاستبدال الصريحة في PowerPoint باستخدام Java API.
 ---
 
@@ -40,6 +40,6 @@ description: تعرف على كيفية استبدال الخطوط باستخد
 
 {{% alert title="ملاحظة" color="warning" %}} 
 
-لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (إذا لم يكن من الممكن الوصول إلى خط، على سبيل المثال)، انظر [**استبدال الخطوط**](/slides/php-java/font-substitution/).
+لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (إذا لم يكن من الممكن الوصول إلى خط، على سبيل المثال)، انظر [**استبدال الخطوط**](/slides/ar/php-java/font-substitution/).
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: تراخيص بسيطة وبأسعار معقولة
 type: docs
 weight: 60
-url: /reportingservices/simple-and-affordable-licensing/
+url: /ar/reportingservices/simple-and-affordable-licensing/
 ---
 
 ## أنواع التراخيص 

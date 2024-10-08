@@ -2,7 +2,7 @@
 title: دمج العرض التقديمي
 type: docs
 weight: 40
-url: /androidjava/merge-presentation/
+url: /ar/androidjava/merge-presentation/
 keywords: "دمج PowerPoint، PPTX، PPT، دمج PowerPoint، دمج العروض التقديمية، دمج العروض التقديمية، Java"
 description: "دمج أو تجميع عرض PowerPoint في Java"
 ---

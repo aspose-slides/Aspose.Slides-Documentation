@@ -2,7 +2,7 @@
 title: قسم الشريحة
 type: docs
 weight: 100
-url: /net/slide-section/
+url: /ar/net/slide-section/
 keywords: "إنشاء قسم، إضافة قسم، تحرير اسم القسم، عرض PowerPoint، C#، Csharp، .NET، Aspose.Slides"
 description: "إضافة وتحرير قسم في عرض PowerPoint باستخدام C# أو .NET"
 ---

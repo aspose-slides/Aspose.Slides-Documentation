@@ -3,7 +3,7 @@ title: تنسيق النص
 linktitle: تنسيق النص
 type: docs
 weight: 50
-url: /net/text-formatting/
+url: /ar/net/text-formatting/
 keywords:
 - تمييز النص
 - تعبير منتظم

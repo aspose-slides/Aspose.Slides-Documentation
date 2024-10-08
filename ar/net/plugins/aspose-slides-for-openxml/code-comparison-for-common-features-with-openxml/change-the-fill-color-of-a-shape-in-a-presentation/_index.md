@@ -2,7 +2,7 @@
 title: تغيير لون التعبئة لشكل في عرض تقديمي
 type: docs
 weight: 40
-url: /net/change-the-fill-color-of-a-shape-in-a-presentation/
+url: /ar/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
 ## **عرض تقديمي OpenXML**

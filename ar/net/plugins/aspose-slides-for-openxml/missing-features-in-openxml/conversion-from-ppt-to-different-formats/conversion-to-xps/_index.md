@@ -2,7 +2,7 @@
 title: التحويل إلى XPS
 type: docs
 weight: 40
-url: /net/conversion-to-xps/
+url: /ar/net/conversion-to-xps/
 ---
 
 **تنسيق XPS** يُستخدم أيضًا على نطاق واسع لتبادل البيانات. تُدير Aspose.Slides لـ .NET أهميته وتوفر الدعم المدمج لتحويل العرض التقديمي إلى مستند XPS.

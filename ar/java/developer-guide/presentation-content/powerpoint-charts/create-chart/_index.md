@@ -3,7 +3,7 @@ title: إنشاء أو تحديث المخططات في عرض PowerPoint باس
 linktitle: إنشاء مخطط
 type: docs
 weight: 10
-url: /java/create-chart/
+url: /ar/java/create-chart/
 keywords: "إنشاء مخطط، مخطط مبعثر، مخطط دائري، مخطط شجرة، مخطط الأسهم، مخطط صندوق وشعيرات، مخطط هيستوجرام، مخطط قمع، مخطط شمس، مخطط متعدد الفئات، عرض PowerPoint، Java، Aspose.Slides لـ Java"
 description: "إنشاء مخطط في عرض PowerPoint باستخدام Java"
 ---

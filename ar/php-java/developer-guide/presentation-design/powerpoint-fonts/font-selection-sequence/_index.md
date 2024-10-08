@@ -3,7 +3,7 @@ title: تسلسل اختيار الخط
 linktitle: تسلسل اختيار الخط
 type: docs
 weight: 80
-url: /php-java/font-selection-sequence/
+url: /ar/php-java/font-selection-sequence/
 keywords: "خط, اختيار خط, استبدال خط, استبدال الخط, عرض PowerPoint, Java, Aspose.Slides لـ PHP عبر Java"
 description: تسلسل اختيار الخط في PowerPoint
 ---

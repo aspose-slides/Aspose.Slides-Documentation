@@ -2,7 +2,7 @@
 title: استبدال الخط
 type: docs
 weight: 60
-url: /cpp/font-replacement/
+url: /ar/cpp/font-replacement/
 keywords: "خط, استبدال الخط, عرض PowerPoint, C++, CPP, Aspose.Slides for C++"
 description: "استبدال الخطوط بشكل صريح في PowerPoint باستخدام C++"
 ---
@@ -38,6 +38,6 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 
 {{% alert title="ملاحظة" color="warning" %}} 
 
-لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (على سبيل المثال، إذا لم يمكن الوصول إلى خط ما)، انظر [**استبدال الخط**](/slides/cpp/font-substitution/). 
+لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (على سبيل المثال، إذا لم يمكن الوصول إلى خط ما)، انظر [**استبدال الخط**](/slides/ar/cpp/font-substitution/). 
 
 {{% /alert %}}

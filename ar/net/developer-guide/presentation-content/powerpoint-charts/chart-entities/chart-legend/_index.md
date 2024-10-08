@@ -1,7 +1,7 @@
 ---
 title: تفسير الرسم البياني
 type: docs
-url: /net/chart-legend/
+url: /ar/net/chart-legend/
 keywords: "تفسير الرسم البياني، حجم خط التفسير، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "تعيين موضع وحجم الخط لتفسير الرسم البياني في عروض PowerPoint باستخدام C# أو .NET"
 ---

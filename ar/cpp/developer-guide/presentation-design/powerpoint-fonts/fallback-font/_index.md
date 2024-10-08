@@ -2,7 +2,7 @@
 title: خط احتياطي
 type: docs
 weight: 50
-url: /cpp/fallback-font/
+url: /ar/cpp/fallback-font/
 ---
 
 ## **خط احتياطي**
@@ -12,6 +12,6 @@ url: /cpp/fallback-font/
 
 للتعرف على هذه الميزات، استخدم الروابط التالية:
 
-- [إنشاء خط احتياطي](/slides/cpp/create-fallback-font)
-- [إنشاء مجموعة خطوط احتياط](/slides/cpp/create-fallback-fonts-collection)
-- [عرض تقديمي بالتنسيق مع خط احتياطي](/slides/cpp/render-presentation-with-fallback-font)
+- [إنشاء خط احتياطي](/slides/ar/cpp/create-fallback-font)
+- [إنشاء مجموعة خطوط احتياط](/slides/ar/cpp/create-fallback-fonts-collection)
+- [عرض تقديمي بالتنسيق مع خط احتياطي](/slides/ar/cpp/render-presentation-with-fallback-font)

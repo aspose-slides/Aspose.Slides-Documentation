@@ -2,7 +2,7 @@
 title: تقييم Aspose.Slides
 type: docs
 weight: 80
-url: /reportingservices/evaluate-aspose-slides/
+url: /ar/reportingservices/evaluate-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

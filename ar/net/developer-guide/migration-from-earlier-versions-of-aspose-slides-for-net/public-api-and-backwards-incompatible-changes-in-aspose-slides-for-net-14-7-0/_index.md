@@ -2,12 +2,12 @@
 title: واجهة البرمجة العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.7.0
 type: docs
 weight: 90
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
+url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع [المكونات المضافة](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) أو [المكونات المحذوفة](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) من الأصناف، الأساليب، الخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 14.7.0.
+تسرد هذه الصفحة جميع [المكونات المضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) أو [المكونات المحذوفة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-7-0/) من الأصناف، الأساليب، الخصائص وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 14.7.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة البرمجة العامة**

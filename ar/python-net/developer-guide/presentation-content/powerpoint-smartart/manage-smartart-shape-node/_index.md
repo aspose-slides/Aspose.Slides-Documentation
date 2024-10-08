@@ -2,7 +2,7 @@
 title: إدارة عقدة SmartArt
 type: docs
 weight: 30
-url: /python-net/manage-smartart-shape-node/
+url: /ar/python-net/manage-smartart-shape-node/
 keywords: "عقدة SmartArt، عقدة الطفل SmartArt، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "عقدة ذكية وعقدة طفل في عروض PowerPoint باستخدام بايثون"
 ---

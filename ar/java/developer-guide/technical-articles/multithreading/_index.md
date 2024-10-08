@@ -2,7 +2,7 @@
 title: البرمجة المتعددة في Aspose.Slides
 type: docs
 weight: 310
-url: /java/multithreading/
+url: /ar/java/multithreading/
 keywords:
 - باوربوينت
 - عرض تقديمي

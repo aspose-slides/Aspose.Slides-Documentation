@@ -1,7 +1,7 @@
 ---
 title: شريط الخطأ
 type: docs
-url: /cpp/error-bar/
+url: /ar/cpp/error-bar/
 ---
 
 ## **إضافة شريط خطأ**

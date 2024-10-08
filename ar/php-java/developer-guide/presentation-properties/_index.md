@@ -2,7 +2,7 @@
 title: خصائص العرض
 type: docs
 weight: 70
-url: /php-java/presentation-properties/
+url: /ar/php-java/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

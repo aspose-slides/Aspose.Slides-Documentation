@@ -4,7 +4,7 @@ second_title: "وثائق Aspose.Slides لـ Python"
 description: توفر Aspose.Slides لـ Python عبر .NET العديد من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والحركات، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG، وصيغة PDF والمزيد.
 type: docs
 weight: 35
-url: /python-net/
+url: /ar/python-net/
 is_root: true
 ---
 
@@ -26,8 +26,8 @@ Aspose.Slides لـ Python عبر .NET هو المكون الأول والوحي�
 
 هذه روابط لموارد مفيدة:
 
-- [وثائق Aspose.Slides لـ Python عبر .NET على الإنترنت](/slides/python-net/)
-- [ميزات Aspose.Slides لـ Python عبر .NET](/slides/python-net/features-overview/)
+- [وثائق Aspose.Slides لـ Python عبر .NET على الإنترنت](/slides/ar/python-net/)
+- [ميزات Aspose.Slides لـ Python عبر .NET](/slides/ar/python-net/features-overview/)
 - [ملاحظات إصدار Aspose.Slides لـ Python عبر .NET](https://releases.aspose.com/slides/python-net/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Python عبر .NET](https://products.aspose.com/slides/python-net/)
 - [تحميل Aspose.Slides لـ Python عبر .NET](https://releases.aspose.com/slides/python-net/)

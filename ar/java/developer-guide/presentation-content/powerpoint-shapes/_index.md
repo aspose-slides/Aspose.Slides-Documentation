@@ -2,5 +2,5 @@
 title: أشكال PowerPoint
 type: docs
 weight: 90
-url: /java/powerpoint-shapes/
+url: /ar/java/powerpoint-shapes/
 ---

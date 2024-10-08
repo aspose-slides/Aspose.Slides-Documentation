@@ -2,7 +2,7 @@
 title: نص متحرك
 type: docs
 weight: 60
-url: /androidjava/animated-text/
+url: /ar/androidjava/animated-text/
 keywords: "نص متحرك في PowerPoint"
 description: "نص متحرك في PowerPoint باستخدام Java"
 ---

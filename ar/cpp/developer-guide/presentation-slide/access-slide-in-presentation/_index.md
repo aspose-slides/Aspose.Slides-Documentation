@@ -2,7 +2,7 @@
 title: الوصول إلى الشريحة في العرض التقديمي
 type: docs
 weight: 20
-url: /cpp/access-slide-in-presentation/
+url: /ar/cpp/access-slide-in-presentation/
 keywords: "الوصول إلى عرض PowerPoint, الوصول إلى الشريحة, تحرير خصائص الشريحة, تغيير موضع الشريحة, تعيين رقم الشريحة, الفهرس, المعرف, الموضع C++, CPP, Aspose.Slides"
 description: "الوصول إلى شريحة PowerPoint من خلال الفهرس، المعرف، أو الموضع في C++. تحرير خصائص الشريحة"
 ---

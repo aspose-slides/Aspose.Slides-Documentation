@@ -2,7 +2,7 @@
 title: صيغ ورقة العمل في الرسم البياني
 type: docs
 weight: 70
-url: /php-java/chart-worksheet-formulas/
+url: /ar/php-java/chart-worksheet-formulas/
 keywords: "معادلات باوربوينت، صيغ أوراق العمل في باوربوينت"
 description: "معادلات باوربوينت وصيغ أوراق العمل"
 ---

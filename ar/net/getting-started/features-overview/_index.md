@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 20
-url: /net/features-overview/
+url: /ar/net/features-overview/
 ---
 
 ## **المنصات المدعومة**
@@ -18,12 +18,12 @@ url: /net/features-overview/
 
 |**الميزة**|**الوصف**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/net/ppt-vs-pptx/)|يوفر Aspose.Slides لـ .NET أسرع معالجة لهذا التنسيق من مستندات العروض التقديمية.|
-|[التحويل من PPT إلى PPTX](/slides/net/convert-ppt-to-pptx/)|يدعم Aspose.Slides لـ .NET تحويل PPT إلى PPTX.|
-|[تنسيق المستندات القابلة للنقل (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|يمكنك تصدير جميع تنسيقات الملفات المدعومة إلى مستندات Adobe Portable Document Format (PDF) باستخدام طريقة واحدة.|
+|[Microsoft PowerPoint (PPT)](/slides/ar/net/ppt-vs-pptx/)|يوفر Aspose.Slides لـ .NET أسرع معالجة لهذا التنسيق من مستندات العروض التقديمية.|
+|[التحويل من PPT إلى PPTX](/slides/ar/net/convert-ppt-to-pptx/)|يدعم Aspose.Slides لـ .NET تحويل PPT إلى PPTX.|
+|[تنسيق المستندات القابلة للنقل (PDF)](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|يمكنك تصدير جميع تنسيقات الملفات المدعومة إلى مستندات Adobe Portable Document Format (PDF) باستخدام طريقة واحدة.|
 |[مواصفات محلل XML (XPS)](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)|يمكنك تصدير جميع تنسيقات الملفات المدعومة إلى مستندات XML Parser Specification (XPS) باستخدام طريقة واحدة.|
-|[تنسيق الصورة الموسوم (TIFF)](/slides/net/convert-powerpoint-to-tiff/)|يمكنك تصدير جميع تنسيقات الملفات التقديمية المدعومة إلى تنسيق الصورة الموسوم (TIFF).|
-|[التحويل من PPTX إلى HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)|يدعم Aspose.Slides لـ .NET تحويل PresentationEx إلى تنسيق HTML.|
+|[تنسيق الصورة الموسوم (TIFF)](/slides/ar/net/convert-powerpoint-to-tiff/)|يمكنك تصدير جميع تنسيقات الملفات التقديمية المدعومة إلى تنسيق الصورة الموسوم (TIFF).|
+|[التحويل من PPTX إلى HTML](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-html/)|يدعم Aspose.Slides لـ .NET تحويل PresentationEx إلى تنسيق HTML.|
 ## **التكامل والطباعة**
 يدعم Aspose.Slides لـ .NET عرض شرائح عالي الدقة في مستندات العروض التقديمية إلى تنسيقات رسومات مختلفة. تحقق من هذه التفاصيل:
 

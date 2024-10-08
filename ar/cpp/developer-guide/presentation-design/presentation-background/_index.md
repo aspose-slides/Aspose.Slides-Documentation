@@ -2,7 +2,7 @@
 title: خلفية العرض
 type: docs
 weight: 20
-url: /cpp/presentation-background/
+url: /ar/cpp/presentation-background/
 keywords: "خلفية PowerPoint، تعيين خلفية"
 description: "تعيين الخلفية في عرض PowerPoint في CPP"
 ---

@@ -2,7 +2,7 @@
 title: فن كتابة الكلمات
 type: docs
 weight: 110
-url: /androidjava/wordart/
+url: /ar/androidjava/wordart/
 ---
 
 

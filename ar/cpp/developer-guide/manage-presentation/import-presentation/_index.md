@@ -3,7 +3,7 @@ title: استيراد العرض التقديمي - واجهة برمجة تطب
 linktitle: استيراد العرض التقديمي
 type: docs
 weight: 60
-url: /cpp/import-presentation/
+url: /ar/cpp/import-presentation/
 keywords: "استيراد PowerPoint، PDF إلى عرض تقديمي، PDF إلى PPTX، PDF إلى PPT، C++، Aspose.Slides لـ C++"
 description: "استيراد عرض PowerPoint من PDF. تحويل PDF إلى PowerPoint"
 ---

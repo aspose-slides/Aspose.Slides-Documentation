@@ -2,7 +2,7 @@
 title: تنسيق الأشكال
 type: docs
 weight: 20
-url: /java/shape-formatting/
+url: /ar/java/shape-formatting/
 keywords: "تنسيق الشكل، تنسيق الخطوط، تنسيق أنماط الانضمام، تعبئة تدرج الألوان، تعبئة نمطية، تعبئة صورة، تعبئة بلون صلب، تدوير الأشكال، تأثيرات حواف ثلاثية الأبعاد، تأثير دوران ثلاثي الأبعاد، عرض PowerPoint، Java، Aspose.Slides لـ Java"
 description: "تنسيق الشكل في عرض PowerPoint باستخدام Java"
 ---

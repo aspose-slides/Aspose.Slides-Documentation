@@ -2,7 +2,7 @@
 title: الحصول على استدعاءات تحذيرية لاستبدال الخطوط في Aspose.Slides
 type: docs
 weight: 90
-url: /php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /ar/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

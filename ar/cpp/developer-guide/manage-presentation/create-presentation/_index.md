@@ -3,7 +3,7 @@ title: إنشاء عرض تقديمي - واجهة برمجة تطبيقات Pow
 linktitle: إنشاء عرض تقديمي
 type: docs
 weight: 10
-url: /cpp/create-presentation/
+url: /ar/cpp/create-presentation/
 description: لإنشاء عرض تقديمي في واجهة برمجة تطبيقات PowerPoint لـ C++، يرجى اتباع الخطوات المذكورة في هذه المقالة. يقوم الكود بإضافة خط إلى الشريحة الأولى من العرض التقديمي.
 ---
 

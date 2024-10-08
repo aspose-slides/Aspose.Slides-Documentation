@@ -2,18 +2,18 @@
 title: رأس وتذييل العرض
 type: docs
 weight: 140
-url: /java/presentation-header-and-footer/
+url: /ar/java/presentation-header-and-footer/
 keywords: "رأس وتذييل PowerPoint في Java"
 description: "رأس وتذييل PowerPoint في Java"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/java/) توفر دعمًا للعمل مع نصوص رؤوس وتذييلات الشريحة التي يتم الحفاظ عليها على مستوى الشريحة الرئيسية.
+[Aspose.Slides](/slides/ar/java/) توفر دعمًا للعمل مع نصوص رؤوس وتذييلات الشريحة التي يتم الحفاظ عليها على مستوى الشريحة الرئيسية.
 
 {{% /alert %}} 
 
-[Aspose.Slides for Java](/slides/java/) توفر ميزة إدارة الرؤوس والتذييلات داخل الشرائح العرضية. يتم إدارة هذه في الواقع على مستوى العرض الرئيسي.
+[Aspose.Slides for Java](/slides/ar/java/) توفر ميزة إدارة الرؤوس والتذييلات داخل الشرائح العرضية. يتم إدارة هذه في الواقع على مستوى العرض الرئيسي.
 
 ## **إدارة الرأس والتذييل في العرض**
 يمكن إزالة ملاحظات شريحة معينة كما هو موضح في المثال أدناه:

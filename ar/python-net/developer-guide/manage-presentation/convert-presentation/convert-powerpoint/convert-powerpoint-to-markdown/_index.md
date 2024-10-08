@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى Markdown في بايثون
 type: docs
 weight: 140
-url: /python-net/convert-powerpoint-to-markdown/
+url: /ar/python-net/convert-powerpoint-to-markdown/
 keywords: "تحويل PowerPoint إلى Markdown, تحويل ppt إلى md, PowerPoint, PPT, PPTX, عرض, Markdown, بايثون, Aspose.Slides لـ بايثون عبر .NET"
 description: "تحويل PowerPoint إلى Markdown في بايثون"
 ---

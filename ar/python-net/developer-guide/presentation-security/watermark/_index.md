@@ -2,7 +2,7 @@
 title: علامة مائية
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /ar/python-net/watermark/
 keywords:
 - علامة مائية
 - إضافة علامة مائية
@@ -46,7 +46,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="انظر أيضاً" %}} 
-- [كيفية استخدام فئة TextFrame](/slides/python-net/text-formatting/)
+- [كيفية استخدام فئة TextFrame](/slides/ar/python-net/text-formatting/)
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى العرض التقديمي**
@@ -64,7 +64,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="انظر أيضاً" %}} 
-- [كيفية استخدام القالب الرئيسي للشريحة](/slides/python-net/slide-master/)
+- [كيفية استخدام القالب الرئيسي للشريحة](/slides/ar/python-net/slide-master/)
 {{% /alert %}}
 
 ### **تعيين شفافية شكل العلامة المائية**

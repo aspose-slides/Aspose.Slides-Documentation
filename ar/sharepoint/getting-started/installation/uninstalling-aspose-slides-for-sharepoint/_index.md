@@ -2,7 +2,7 @@
 title: إلغاء تثبيت Aspose.Slides لـ SharePoint
 type: docs
 weight: 30
-url: /sharepoint/uninstalling-aspose-slides-for-sharepoint/
+url: /ar/sharepoint/uninstalling-aspose-slides-for-sharepoint/
 ---
 
 لإلغاء تثبيت Aspose.Slides لـ SharePoint: 

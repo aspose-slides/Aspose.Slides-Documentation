@@ -1,7 +1,7 @@
 ---
 title: علامة بيانات الرسم البياني
 type: docs
-url: /java/chart-data-marker/
+url: /ar/java/chart-data-marker/
 ---
 
 ## **تعيين خيارات علامة الرسم البياني**

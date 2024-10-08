@@ -2,7 +2,7 @@
 title: استخراج الصور من أشكال العرض التقديمي
 type: docs
 weight: 100
-url: /php-java/extracting-images-from-presentation-shapes/
+url: /ar/php-java/extracting-images-from-presentation-shapes/
 keywords: "استخراج الصورة, PowerPoint, PPT, PPTX, عرض PowerPoint, Java, Aspose.Slides for PHP عبر Java"
 description: "استخراج الصور من عرض PowerPoint"
 

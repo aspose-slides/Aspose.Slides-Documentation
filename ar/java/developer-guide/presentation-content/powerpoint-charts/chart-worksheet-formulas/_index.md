@@ -2,7 +2,7 @@
 title: صيغ ورقة عمل الرسم البياني
 type: docs
 weight: 70
-url: /java/chart-worksheet-formulas/
+url: /ar/java/chart-worksheet-formulas/
 keywords: "معادلات باوربوينت، صيغ جداول بيانات باوربوينت"
 description: "معادلات باوربوينت وصيغ جداول البيانات"
 ---

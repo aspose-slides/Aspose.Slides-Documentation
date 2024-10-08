@@ -2,7 +2,7 @@
 title: خصائص الشكل الفعالة
 type: docs
 weight: 50
-url: /androidjava/shape-effective-properties/
+url: /ar/androidjava/shape-effective-properties/
 ---
 
 في هذا الموضوع، سنناقش الخصائص **الفعلية** و**المحلية**. عندما نقوم بتعيين القيم مباشرةً على هذه المستويات

@@ -2,7 +2,7 @@
 title: بيضاوية
 type: docs
 weight: 30
-url: /cpp/ellipse/
+url: /ar/cpp/ellipse/
 ---
 
 ## **إنشاء بيضاوية**

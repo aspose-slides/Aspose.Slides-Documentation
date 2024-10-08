@@ -1,7 +1,7 @@
 ---
 title: التنبيه
 type: docs
-url: /androidjava/callout/
+url: /ar/androidjava/callout/
 ---
 
 ## **استخدام التنبيهات**

@@ -2,7 +2,7 @@
 title: شكل مخصص
 type: docs
 weight: 20
-url: /java/custom-shape/
+url: /ar/java/custom-shape/
 keywords: "شكل PowerPoint، شكل مخصص، عرض PowerPoint، Java، Aspose.Slides لـ Java"
 description: "إضافة شكل مخصص في عرض PowerPoint باستخدام Java"
 ---

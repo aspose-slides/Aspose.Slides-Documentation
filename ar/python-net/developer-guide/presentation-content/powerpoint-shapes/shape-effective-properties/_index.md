@@ -2,7 +2,7 @@
 title: خصائص الشكل الفعّالة
 type: docs
 weight: 50
-url: /python-net/shape-effective-properties/
+url: /ar/python-net/shape-effective-properties/
 keywords: "خصائص الشكل، خصائص الكاميرا، جهاز الإضاءة، شكل الحواف، إطار النص، نمط النص، قيمة ارتفاع الخط، تنسيق التعبئة للجدول، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "احصل على خصائص الشكل الفعّالة في عروض PowerPoint باستخدام بايثون"
 ---

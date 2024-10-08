@@ -2,7 +2,7 @@
 title: إضافة شريحة إلى العرض التقديمي
 type: docs
 weight: 10
-url: /python-net/add-slide-to-presentation/
+url: /ar/python-net/add-slide-to-presentation/
 keywords: "إضافة شريحة إلى العرض التقديمي، بايثون، Aspose.Slides"
 description: "إضافة شريحة إلى العرض التقديمي باستخدام بايثون"
 ---

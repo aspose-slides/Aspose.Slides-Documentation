@@ -1,7 +1,7 @@
 ---
 title: الرسم البياني ثلاثي الأبعاد
 type: docs
-url: /python-net/3d-chart/
+url: /ar/python-net/3d-chart/
 keywords: "رسم بياني ثلاثي الأبعاد, rotationX, rotationY, depthpercent, عرض PowerPoint, Python, Aspose.Slides لـ Python عبر .NET"
 description: "تعيين rotationX و rotationY و depthpercents للرسم البياني ثلاثي الأبعاد في عرض PowerPoint في Python"
 ---

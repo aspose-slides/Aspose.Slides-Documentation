@@ -2,7 +2,7 @@
 title: استبدال الصور داخل مجموعة صور العرض
 type: docs
 weight: 110
-url: /python-net/replacing-images-inside-presentation-image-collection/
+url: /ar/python-net/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

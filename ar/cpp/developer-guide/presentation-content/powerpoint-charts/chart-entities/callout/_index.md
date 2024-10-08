@@ -1,7 +1,7 @@
 ---
 title: ملاحظات
 type: docs
-url: /cpp/callout/
+url: /ar/cpp/callout/
 ---
 
 ## **استخدام الملاحظات**

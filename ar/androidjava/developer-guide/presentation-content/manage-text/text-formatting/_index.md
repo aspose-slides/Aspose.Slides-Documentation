@@ -2,7 +2,7 @@
 title: تنسيق النص
 type: docs
 weight: 50
-url: /androidjava/text-formatting/
+url: /ar/androidjava/text-formatting/
 keywords:
 - تسليط الضوء على النص
 - تعبير قياسي

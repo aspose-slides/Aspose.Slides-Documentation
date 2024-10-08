@@ -2,7 +2,7 @@
 title: مرجع واجهة البرمجة
 type: docs
 weight: 50
-url: /cpp/api-reference/
+url: /ar/cpp/api-reference/
 ---
 
 {{% alert color="primary" %}} 

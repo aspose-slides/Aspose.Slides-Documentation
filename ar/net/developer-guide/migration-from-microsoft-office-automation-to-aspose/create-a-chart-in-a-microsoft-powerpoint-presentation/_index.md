@@ -2,12 +2,12 @@
 title: إنشاء رسم بياني في عرض Microsoft PowerPoint
 type: docs
 weight: 80
-url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ar/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- الرسوم البيانية هي تمثيلات بصرية للبيانات تستخدم على نطاق واسع في العروض التقديمية. توضح هذه المقالة الشيفرة الخاصة بإنشاء رسم بياني في Microsoft PowerPoint برمجيًا باستخدام [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) و[Aspose.Slides for .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ الرسوم البيانية هي تمثيلات بصرية للبيانات تستخدم على نطاق واسع في العروض التقديمية. توضح هذه المقالة الشيفرة الخاصة بإنشاء رسم بياني في Microsoft PowerPoint برمجيًا باستخدام [VSTO](/slides/ar/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) و[Aspose.Slides for .NET](/slides/ar/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **إنشاء رسم بياني**

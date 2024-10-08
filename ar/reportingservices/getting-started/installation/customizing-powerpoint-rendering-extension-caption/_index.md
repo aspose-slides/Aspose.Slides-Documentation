@@ -2,7 +2,7 @@
 title: تخصيص عنوان ملحق عرض PowerPoint
 type: docs
 weight: 60
-url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
+url: /ar/reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
 {{% alert color="primary" %}} 

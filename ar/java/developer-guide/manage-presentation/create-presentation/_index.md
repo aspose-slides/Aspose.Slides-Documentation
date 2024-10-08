@@ -3,7 +3,7 @@ title: إنشاء عرض تقديمي باستخدام Java
 linktitle: إنشاء عرض تقديمي
 type: docs
 weight: 10
-url: /java/create-presentation/
+url: /ar/java/create-presentation/
 keywords: إنشاء ppt java, إنشاء عرض تقديمي ppt, إنشاء pptx java
 description: تعلم كيفية إنشاء عروض PowerPoint تقديمية مثل PPT و PPTX باستخدام Java من الصفر.
 ---

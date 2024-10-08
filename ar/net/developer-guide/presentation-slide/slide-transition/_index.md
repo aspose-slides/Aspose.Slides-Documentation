@@ -2,7 +2,7 @@
 title: انتقالات الشرائح
 type: docs
 weight: 90
-url: /net/slide-transition/
+url: /ar/net/slide-transition/
 keywords: "إضافة انتقال شرائح، انتقال شرائح PowerPoint، انتقالات التحول، انتقال الشرائح المتقدمة، تأثيرات الانتقال، C#، Csharp، .NET، Aspose.Slides"
 description: "إضافة انتقال شرائح PowerPoint وتأثيرات الانتقال في C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: تحريك الأشكال
 type: docs
 weight: 60
-url: /androidjava/shape-animation/
+url: /ar/androidjava/shape-animation/
 keywords: "تحريك PowerPoint، تأثير الحركة، تطبيق الحركة، عرض PowerPoint، Java، Aspose.Slides لـ Android عبر Java"
 description: "تطبيق حركة PowerPoint في Java"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على [فقرة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph) واحدة. راجع [**النص المتحرك**](/slides/androidjava/animated-text/).
+بالإضافة إلى تطبيق الرسوم المتحركة على النص، يمكنك أيضًا تطبيق الرسوم المتحركة على [فقرة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph) واحدة. راجع [**النص المتحرك**](/slides/ar/androidjava/animated-text/).
 
 {{% /alert %}} 
 

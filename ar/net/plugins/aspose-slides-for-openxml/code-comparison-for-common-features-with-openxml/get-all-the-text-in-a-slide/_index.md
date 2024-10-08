@@ -2,7 +2,7 @@
 title: الحصول على كل النص في الشريحة
 type: docs
 weight: 110
-url: /net/get-all-the-text-in-a-slide/
+url: /ar/net/get-all-the-text-in-a-slide/
 ---
 
 ## **OpenXML SDK**

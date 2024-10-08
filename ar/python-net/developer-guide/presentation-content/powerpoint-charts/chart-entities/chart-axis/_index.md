@@ -1,7 +1,7 @@
 ---
 title: محور الرسم البياني
 type: docs
-url: /python-net/chart-axis/
+url: /ar/python-net/chart-axis/
 keywords: "محور الرسم البياني في PowerPoint، الرسوم البيانية التقديمية، بايثون، manipulate محور الرسم البياني، بيانات الرسم البياني"
 description: "تعديل محور الرسم البياني في PowerPoint باستخدام بايثون"
 ---

@@ -3,7 +3,7 @@ title: استبدال الخط - واجهة برمجة التطبيقات PowerP
 linktitle: استبدال الخط 
 type: docs 
 weight: 60 
-url: /net/font-replacement/ 
+url: /ar/net/font-replacement/ 
 keywords: "خط، استبدال الخط، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET" 
 description: مع واجهة برمجة التطبيقات PowerPoint C#، يمكنك استبدال الخط بوضوح مع خط آخر باستخدام العرض التقديمي. 
 ---
@@ -39,6 +39,6 @@ presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 
 {{% alert title="ملاحظة" color="warning" %}}
 
-لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (إذا لم يكن بالإمكان الوصول إلى خط، على سبيل المثال)، راجع [**استبدال الخط**](/slides/net/font-substitution/).
+لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (إذا لم يكن بالإمكان الوصول إلى خط، على سبيل المثال)، راجع [**استبدال الخط**](/slides/ar/net/font-substitution/).
 
 {{% /alert %}}

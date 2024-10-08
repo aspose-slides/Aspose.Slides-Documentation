@@ -2,12 +2,12 @@
 title: كيفية إنشاء وثيقة عرض تقديمي Hello World
 type: docs
 weight: 10
-url: /androidjava/how-to-create-hello-world-presentation-document/
+url: /ar/androidjava/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-تم إصدار [Aspose.Slides for Java API](/slides/androidjava/) جديدة والآن هذا المنتج الواحد يدعم القدرة على إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
+تم إصدار [Aspose.Slides for Java API](/slides/ar/androidjava/) جديدة والآن هذا المنتج الواحد يدعم القدرة على إنشاء مستندات PowerPoint من الصفر وتحرير المستندات الموجودة.
 
 {{% /alert %}} 
 ## **الدعم للكود القديم**

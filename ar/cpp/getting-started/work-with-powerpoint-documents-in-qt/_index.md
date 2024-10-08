@@ -4,7 +4,7 @@ type: docs
 description: "يمكن دمج Aspose.Slides لـ C++ داخل Qt لإنشاء والتلاعب بمستندات PowerPoint في تطبيقات Qt."
 keywords: "إنشاء مستند في Qt Creator، تحميل مستند في Qt Creator، استخدام Aspose C++ مع Qt Creator، تحميل مستند Aspose C++، تحميل التنسيقات المدعومة من Aspose.Slides C++"
 weight: 60
-url: /cpp/work-with-powerpoint-documents-in-qt/
+url: /ar/cpp/work-with-powerpoint-documents-in-qt/
 ---
 
 Qt هو إطار تطوير تطبيقات متعدد المنصات قائم على C++ ويستخدم على نطاق واسع لتطوير مجموعة متنوعة من تطبيقات سطح المكتب و الهواتف المحمولة والأنظمة المضمنة. يمكن دمج Aspose.Slides لـ C++ داخل Qt من أجل إنشاء والتلاعب بمستندات PowerPoint في تطبيقات Qt الخاصة بك.

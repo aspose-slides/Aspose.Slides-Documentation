@@ -2,7 +2,7 @@
 title: احصل على خلفية شريحة العرض بالكامل كصورة
 type: docs
 weight: 95
-url: /php-java/get-the-entire-presentation-slide-background-as-an-image/
+url: /ar/php-java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - شريحة
 - خلفية
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides لـ PHP عبر Java
 ---
 
-في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المحددة كـ [خلفية الشريحة](/slides/php-java/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط.
+في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المحددة كـ [خلفية الشريحة](/slides/ar/php-java/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط.
 
 لا يوفر Aspose.Slides لـ PHP عبر Java طريقة بسيطة لاستخراج خلفية شريحة العرض بالكامل كصورة، ولكن يمكنك اتباع الخطوات أدناه للقيام بذلك:
 1. تحميل العرض باستخدام فئة [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/).

@@ -2,7 +2,7 @@
 title: فتح عرض تقديمي في VSTO و Aspose.Slides
 type: docs
 weight: 120
-url: /net/opening-a-presentation-in-vsto-and-aspose-slides/
+url: /ar/net/opening-a-presentation-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

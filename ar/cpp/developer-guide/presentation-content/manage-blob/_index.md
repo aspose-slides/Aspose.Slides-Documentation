@@ -2,7 +2,7 @@
 title: إدارة Blob
 type: docs
 weight: 10
-url: /cpp/manage-blob/
+url: /ar/cpp/manage-blob/
 keywords: "إضافة blob، تصدير blob، إضافة صورة كـ blob، عرض PowerPoint، C++، Aspose.Slides لـ C++"
 description: "إضافة blob إلى عرض PowerPoint في C++. تصدير blob. إضافة صورة كـ blob"
 ---
@@ -17,7 +17,7 @@ description: "إضافة blob إلى عرض PowerPoint في C++. تصدير blob
 
 ### **إضافة ملف كبير عبر BLOB إلى عرض**
 
-تتيح لك [Aspose.Slides](/slides/cpp/) لـ C++ إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) من خلال عملية تشمل BLOBs لتقليل استهلاك الذاكرة.
+تتيح لك [Aspose.Slides](/slides/ar/cpp/) لـ C++ إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) من خلال عملية تشمل BLOBs لتقليل استهلاك الذاكرة.
 
 يفيد هذا الكود في C++ في كيفية إضافة ملف فيديو كبير عبر عملية BLOB إلى عرض:
 

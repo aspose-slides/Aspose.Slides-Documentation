@@ -2,7 +2,7 @@
 title: إدارة شكل SmartArt
 type: docs
 weight: 20
-url: /net/manage-smartart-shape/
+url: /ar/net/manage-smartart-shape/
 keywords: "شكل SmartArt، نمط شكل SmartArt، نمط لون شكل SmartArt، عرض PowerPoint، C#، Csharp، Aspose.Slides for .NET"
 description: "إدارة SmartArt في عروض PowerPoint في C# أو .NET"
 ---

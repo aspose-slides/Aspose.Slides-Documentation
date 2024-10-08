@@ -2,7 +2,7 @@
 title: رسوم متحركة في PowerPoint
 type: docs
 weight: 150
-url: /cpp/powerpoint-animation/
+url: /ar/cpp/powerpoint-animation/
 keywords: "رسوم متحركة في PowerPoint"
 description: "رسوم متحركة في PowerPoint، رسوم متحركة في شرائح PowerPoint باستخدام Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ description: "رسوم متحركة في PowerPoint، رسوم متحركة في
 تسمح Aspose.Slides بتطبيق الرسوم المتحركة على الأشكال، التي يمكن أن تكون في الواقع نصًا، أو مستطيلًا، أو خطًا، أو إطارًا، أو كائن OLE، وما إلى ذلك.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**حول رسوم متحركة الأشكال**](/slides/cpp/shape-animation/).
+اقرأ المزيد [**حول رسوم متحركة الأشكال**](/slides/ar/cpp/shape-animation/).
 {{% /alert %}}
 
 ## **الرسوم البيانية المتحركة**
 لإنشاء رسوم بيانية متحركة، يجب عليك استخدام نفس الفئات كما في الأشكال. ومع ذلك، من الممكن استخدام الرسوم المتحركة في PowerPoint فقط على فئات الرسوم البيانية أو سلسلة الرسوم البيانية. يمكنك أيضًا تطبيق تأثير الرسوم المتحركة على عنصر فئة أو عنصر سلسلة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**حول الرسوم البيانية المتحركة**](/slides/cpp/animated-charts/).
+اقرأ المزيد [**حول الرسوم البيانية المتحركة**](/slides/ar/cpp/animated-charts/).
 {{% /alert %}}
 
 ## **النص المتحرك**
 باستثناء النص المتحرك، من الممكن أيضًا تطبيق الرسوم المتحركة على فقرة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**حول النص المتحرك**](/slides/cpp/animated-text/).
+اقرأ المزيد [**حول النص المتحرك**](/slides/ar/cpp/animated-text/).
 {{% /alert %}}

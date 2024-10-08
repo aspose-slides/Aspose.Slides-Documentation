@@ -2,7 +2,7 @@
 title: جزء
 type: docs
 weight: 70
-url: /net/portion/
+url: /ar/net/portion/
 keywords: "جزء, شكل PowerPoint, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "الحصول على جزء في عرض PowerPoint باستخدام C# أو .NET"
 ---

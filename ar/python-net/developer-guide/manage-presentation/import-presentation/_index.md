@@ -2,7 +2,7 @@
 title: استيراد العرض التقديمي
 type: docs
 weight: 60
-url: /python-net/import-presentation/
+url: /ar/python-net/import-presentation/
 keywords: "استيراد PowerPoint، PDF إلى عرض تقديمي، PDF إلى PPTX، PDF إلى PPT، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "استيراد عرض PowerPoint من PDF. تحويل PDF إلى PowerPoint"
 ---

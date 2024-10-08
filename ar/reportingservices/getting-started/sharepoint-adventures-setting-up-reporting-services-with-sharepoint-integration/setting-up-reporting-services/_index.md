@@ -2,7 +2,7 @@
 title: إعداد خدمات التقارير
 type: docs
 weight: 30
-url: /reportingservices/setting-up-reporting-services/
+url: /ar/reportingservices/setting-up-reporting-services/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: إدارة إعدادات التحجيم التلقائي
 type: docs
 weight: 30
-url: /php-java/manage-autofit-settings/
+url: /ar/php-java/manage-autofit-settings/
 keywords: "مربع نص، تحجيم تلقائي، عرض باوربوينت، جافا، Aspose.Slides لـ PHP عبر جافا"
 description: "قم بإعداد إعدادات التحجيم التلقائي لمربع النص في باوربوينت"
 ---

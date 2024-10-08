@@ -1,7 +1,7 @@
 ---
 title: نقاط البيانات لرسم الشجرة والمخطط الشمسي
 type: docs
-url: /java/data-points-of-treemap-and-sunburst-chart/
+url: /ar/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "مخطط شمسي في Aspose.Slides لـ Java"
 description: "مخطط شمسي، مخطط شمسي، مخطط شمسي، مخطط شعاعي، رسم شعاعي أو مخطط دائري متعدد المستويات مع Aspose.Slides لـ Java."
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [**إنشاء مخطط شمسي**](/slides/java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**إنشاء مخطط شمسي**](/slides/ar/java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

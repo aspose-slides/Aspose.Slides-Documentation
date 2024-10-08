@@ -2,7 +2,7 @@
 title: إدارة الروابط التشعبية
 type: docs
 weight: 20
-url: /androidjava/manage-hyperlinks/
+url: /ar/androidjava/manage-hyperlinks/
 keywords: "رابط تشعبي في PowerPoint، رابط نصي، رابط شريحة، رابط شكل، رابط صورة، رابط فيديو، جافا"
 description: "كيفية إضافة رابط تشعبي إلى عرض PowerPoint في جافا"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{% alert title="نصيحة" color="primary" %}} 
 
-قد ترغب في رؤية *[إدارة OLE](/slides/androidjava/manage-ole/)*.
+قد ترغب في رؤية *[إدارة OLE](/slides/ar/androidjava/manage-ole/)*.
 
 {{% /alert %}}
 

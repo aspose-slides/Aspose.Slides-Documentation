@@ -2,7 +2,7 @@
 title: إدارة الوسائط
 type: docs
 weight: 50
-url: /cpp/manage-media/
+url: /ar/cpp/manage-media/
 ---
 
 ## **تصدير ملف الوسائط إلى HTML**

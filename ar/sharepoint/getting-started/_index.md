@@ -2,5 +2,5 @@
 title: بدء الاستخدام
 type: docs
 weight: 10
-url: /sharepoint/getting-started/
+url: /ar/sharepoint/getting-started/
 ---

@@ -2,7 +2,7 @@
 title: استخراج الصور من أشكال العرض التقديمي
 type: docs
 weight: 90
-url: /python-net/extracting-images-from-presentation-shapes/
+url: /ar/python-net/extracting-images-from-presentation-shapes/
 keywords: "استخراج الصورة، PowerPoint، PPT، PPTX، عرض PowerPoint، بايثون، Aspose.Slides for Python"
 description: "استخراج الصور من عرض PowerPoint في بايثون"
 ---

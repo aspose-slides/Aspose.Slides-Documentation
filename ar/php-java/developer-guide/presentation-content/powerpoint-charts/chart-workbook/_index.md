@@ -2,7 +2,7 @@
 title: مصنف الرسم البياني
 type: docs
 weight: 70
-url: /php-java/chart-workbook/
+url: /ar/php-java/chart-workbook/
 keywords: "مصنف الرسم البياني، بيانات الرسم البياني، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "مصنف الرسم البياني في عرض PowerPoint"
 ---

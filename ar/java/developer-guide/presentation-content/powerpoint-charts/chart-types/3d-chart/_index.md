@@ -1,7 +1,7 @@
 ---
 title: رسم بياني ثلاثي الأبعاد
 type: docs
-url: /java/3d-chart/
+url: /ar/java/3d-chart/
 ---
 
 ## **تعيين خصائص RotationX وRotationY وDepthPercents للرسم البياني ثلاثي الأبعاد**

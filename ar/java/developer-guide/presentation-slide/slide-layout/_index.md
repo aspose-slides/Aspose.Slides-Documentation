@@ -2,7 +2,7 @@
 title: تخطيط الشريحة
 type: docs
 weight: 60
-url: /java/slide-layout/
+url: /ar/java/slide-layout/
 keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية التذييل، تذييل الأطفال، قياس المحتوى، حجم الصفحة، Java، Aspose.Slides"
 description: "تعيين حجم الشريحة في PowerPoint والخيارات في Java"
 ---

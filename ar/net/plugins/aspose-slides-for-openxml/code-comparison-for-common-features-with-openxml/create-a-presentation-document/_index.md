@@ -2,7 +2,7 @@
 title: إنشاء مستند عرض تقديمي
 type: docs
 weight: 60
-url: /net/create-a-presentation-document/
+url: /ar/net/create-a-presentation-document/
 ---
 
 ## **OpenXML SDK**

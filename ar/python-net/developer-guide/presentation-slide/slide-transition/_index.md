@@ -2,7 +2,7 @@
 title: انتقال الشريحة
 type: docs
 weight: 90
-url: /python-net/slide-transition/
+url: /ar/python-net/slide-transition/
 keywords: "إضافة انتقال الشريحة، انتقال شريحة PowerPoint، انتقال التحول، انتقال الشريحة المتقدم، تأثيرات الانتقال، بايثون، Aspose.Slides"
 description: " إضافة انتقال شريحة PowerPoint وتأثيرات الانتقال في بايثون "
 ---

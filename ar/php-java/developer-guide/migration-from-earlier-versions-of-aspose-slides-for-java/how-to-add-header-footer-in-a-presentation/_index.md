@@ -2,7 +2,7 @@
 title: كيفية إضافة رأس وتذييل في عرض تقديمي
 type: docs
 weight: 20
-url: /php-java/how-to-add-header-footer-in-a-presentation/
+url: /ar/php-java/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

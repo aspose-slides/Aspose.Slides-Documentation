@@ -2,7 +2,7 @@
 title: نسخ فقرة وجزء في PPTX
 type: docs
 weight: 70
-url: /php-java/copying-paragraph-and-portion-in-pptx/
+url: /ar/php-java/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

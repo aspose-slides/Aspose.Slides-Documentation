@@ -2,7 +2,7 @@
 title: إطار الصوت
 type: docs
 weight: 10
-url: /androidjava/audio-frame/
+url: /ar/androidjava/audio-frame/
 keywords: "إضافة صوت, إطار صوت, خصائص الصوت, استخراج الصوت, جافا, Aspose.Slides لـ Android عبر جافا"
 description: "إضافة صوت إلى عرض PowerPoint التقديمي في جافا"
 ---

@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /nodejs-java/product-overview/
+url: /ar/nodejs-java/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-nodejs-via-java.png)
@@ -134,4 +134,4 @@ Aspose.Slides لـ Node.js عبر Java هي مكتبة فصول متعددة ا�
 |[مدونة Aspose.Slide](https://blog.aspose.com/category/slides/)|تحقق من هذه الصفحة بانتظام للحصول على معلومات حول الإصدارات الجديدة ونصائح مفيدة حول Aspose.Slides.|
 |[تحميل Aspose.Slides لـ Node.js عبر Java](https://releases.aspose.com/slides/nodejs-java/)|قم بتحميل أحدث إصدار من Aspose.Slides هنا. نحن نطلق تحديثات جديدة بشكل متكرر.|
 |[منتدى دعم Aspose.Slides](https://forum.aspose.com/c/slides/11)|قم بطرح أسئلتك ومشاكلك هنا للحصول على حل سريع.|
-|[وثائق منتج Aspose.Slides لـ Node.js عبر Java](/slides/nodejs-java/)|الوثائق الكاملة عبر الإنترنت التي تحتوي على هذه الوثيقة ومرجع ASPose.Slides API.|
+|[وثائق منتج Aspose.Slides لـ Node.js عبر Java](/slides/ar/nodejs-java/)|الوثائق الكاملة عبر الإنترنت التي تحتوي على هذه الوثيقة ومرجع ASPose.Slides API.|

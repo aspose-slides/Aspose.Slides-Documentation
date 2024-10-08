@@ -2,7 +2,7 @@
 title: تعيين العنوان إلى أيقونة OLE
 type: docs
 weight: 160
-url: /net/set-caption-to-ole-icon/
+url: /ar/net/set-caption-to-ole-icon/
 ---
 
 تم إضافة خاصية جديدة **SubstitutePictureTitle** إلى واجهة **IOleObjectFrame** وفئة **OleObjectFrame**. هذه الخاصية تسمح بالحصول على عنوان أيقونة OLE أو تعيينه أو تغييره. الشفرة التالية توضح مثالاً على إنشاء كائن Excel وتعيين عنوانه.

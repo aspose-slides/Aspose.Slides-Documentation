@@ -2,7 +2,7 @@
 title: متطلبات التثبيت
 type: docs
 weight: 20
-url: /reportingservices/installation-prerequisites/
+url: /ar/reportingservices/installation-prerequisites/
 ---
 
 {{% alert color="primary" %}} 

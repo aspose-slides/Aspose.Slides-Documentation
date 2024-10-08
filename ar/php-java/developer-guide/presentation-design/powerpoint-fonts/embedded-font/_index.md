@@ -3,7 +3,7 @@ title: الخطوط المدمجة - واجهة برمجة التطبيقات Po
 linktitle: الخطوط المدمجة
 type: docs
 weight: 40
-url: /php-java/embedded-font/
+url: /ar/php-java/embedded-font/
 keywords: "الخطوط، الخطوط المدمجة، إضافة خطوط، عرض PowerPoint، جافا، Aspose.Slides لـ PHP عبر جافا"
 description: "استخدام الخطوط المدمجة في عرض PowerPoint"
 

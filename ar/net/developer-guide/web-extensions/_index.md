@@ -2,7 +2,7 @@
 title: نظام تصدير HTML جديد - Aspose.Slides.WebExtensions
 type: docs
 weight: 240
-url: /net/web-extensions/
+url: /ar/net/web-extensions/
 keywords: "تصدير PowerPoint HTML، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "تصدير PowerPoint HTML في C# أو .NET"
 ---
@@ -414,4 +414,4 @@ using (Presentation pres = new Presentation())
 هذا كل ما تحتاجه لإنشاء HTML مع انتقالات صفحات متحركة تم إنشاؤها من مستند PDF. 
 
 * [تحميل ملف HTML النموذجي](https://github.com/aspose-slides/Aspose.Slides.WebExtensions/tree/main/Examples).
-* [تحميل المشروع النموذجي](/slides/net/web-extensions/sample.zip).
+* [تحميل المشروع النموذجي](/slides/ar/net/web-extensions/sample.zip).

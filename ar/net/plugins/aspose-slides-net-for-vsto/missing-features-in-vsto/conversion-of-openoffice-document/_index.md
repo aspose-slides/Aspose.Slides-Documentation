@@ -2,7 +2,7 @@
 title: تحويل مستند OpenOffice
 type: docs
 weight: 30
-url: /net/conversion-of-openoffice-document/
+url: /ar/net/conversion-of-openoffice-document/
 ---
 
 توفر Aspose.Slides لـ .NET فئة **Presentation** التي تمثل ملف عرض تقديمي. يمكن الآن لفئة **Presentation** الوصول أيضًا إلى **ODP** من خلال مُنشئ Presentation عندما يتم إنشاء الكائن.

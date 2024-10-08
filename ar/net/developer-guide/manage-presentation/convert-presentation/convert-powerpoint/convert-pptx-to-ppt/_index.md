@@ -3,7 +3,7 @@ title: تحويل PPTX إلى PPT في C#
 linktitle: تحويل PPTX إلى PPT
 type: docs
 weight: 21
-url: /net/convert-pptx-to-ppt/
+url: /ar/net/convert-pptx-to-ppt/
 keywords: "تحويل PPTX إلى PPT C#، تحويل عرض باوربوينت، PPTX إلى PPT، C#، Aspose.Slides"
 description: "تحويل باوربوينت PPTX إلى PPT في C#"
 ---

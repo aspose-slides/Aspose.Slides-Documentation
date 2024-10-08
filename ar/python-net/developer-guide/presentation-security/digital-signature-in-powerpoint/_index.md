@@ -2,7 +2,7 @@
 title: التوقيع الرقمي في PowerPoint
 type: docs
 weight: 10
-url: /python-net/digital-signature-in-powerpoint/
+url: /ar/python-net/digital-signature-in-powerpoint/
 keywords: "شهادة التوقيع الرقمي، هيئة الشهادات، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إضافة توقيع رقمي أو شهادة في PowerPoint. هيئة الشهادات في بايثون"
 ---

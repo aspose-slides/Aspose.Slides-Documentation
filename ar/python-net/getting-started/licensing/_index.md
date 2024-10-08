@@ -3,7 +3,7 @@ title: الترخيص
 description: "تقدم Aspose.Slides لـ Python عبر .NET خططًا مختلفة للشراء أو توفر فترة تجريبية مجانية وترخيصًا مؤقتًا لمدة 30 يومًا للتقييم باستخدام سياسات الترخيص والاشتراك."
 type: docs
 weight: 80
-url: /python-net/licensing/
+url: /ar/python-net/licensing/
 ---
 
 ## **تقييم Aspose.Slides**
@@ -41,7 +41,7 @@ url: /python-net/licensing/
 
 {{% alert color="primary" %}} 
 
-قد ترغب في الاطلاع على [الترخيص المعتمد على الاستخدام](/slides/python-net/metered-licensing/).
+قد ترغب في الاطلاع على [الترخيص المعتمد على الاستخدام](/slides/ar/python-net/metered-licensing/).
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: إنشاء مصغرات الأشكال
 type: docs
 weight: 70
-url: /python-net/create-shape-thumbnails/
+url: /ar/python-net/create-shape-thumbnails/
 keywords: "مصغرات الأشكال. عرض تقديمي PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "مصغرات الأشكال في عرض PowerPoint باستخدام بايثون"
 ---

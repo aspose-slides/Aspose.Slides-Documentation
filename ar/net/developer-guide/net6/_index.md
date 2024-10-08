@@ -2,7 +2,7 @@
 title: دعم .NET6
 type: docs
 weight: 235
-url: /net/net6/
+url: /ar/net/net6/
 keywords: 
 - .NET 6
 - السحابة

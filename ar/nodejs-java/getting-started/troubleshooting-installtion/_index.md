@@ -2,7 +2,7 @@
 title: استكشاف الأخطاء وإصلاحها عند تثبيت Aspose.Slides لـ Node.js عبر Java
 type: docs
 weight: 75
-url: /nodejs-java/troubleshooting-installation/
+url: /ar/nodejs-java/troubleshooting-installation/
 keySlides: "تحميل Aspose.Slides، تثبيت Aspose.Slides، استكشاف الأخطاء وإصلاحها في تثبيت Aspose.Slides، ويندوز، macOS، لينكس، جافا سكريبت، Node.js"
 description: "استكشاف الأخطاء وإصلاحها عند تثبيت Aspose.Slides لـ Node.js عبر Java في ويندوز أو لينكس أو macOS"
 ---

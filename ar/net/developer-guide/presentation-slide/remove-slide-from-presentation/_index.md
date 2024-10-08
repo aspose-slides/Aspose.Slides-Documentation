@@ -2,7 +2,7 @@
 title: إزالة شريحة من العرض التقديمي
 type: docs
 weight: 30
-url: /net/remove-slide-from-presentation/
+url: /ar/net/remove-slide-from-presentation/
 keywords: "إزالة شريحة، حذف شريحة، باوربوينت، عرض تقديمي، C#، Csharp، .NET، Aspose.Slides"
 description: "إزالة شريحة من باوربوينت عن طريق المرجع أو الفهرس في C# أو .NET"
 

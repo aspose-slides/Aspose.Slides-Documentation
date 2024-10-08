@@ -2,7 +2,7 @@
 title: الدعم لمكتبة القابلة للإيقاف
 type: docs
 weight: 150
-url: /net/support-for-interruptable-library/
+url: /ar/net/support-for-interruptable-library/
 
 ---
 

@@ -2,7 +2,7 @@
 title: مستطيل
 type: docs
 weight: 80
-url: /cpp/rectangle/
+url: /ar/cpp/rectangle/
 ---
 
 

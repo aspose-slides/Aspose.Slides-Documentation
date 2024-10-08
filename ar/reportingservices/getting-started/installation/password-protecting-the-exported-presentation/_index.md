@@ -2,7 +2,7 @@
 title: حماية كلمة المرور للعروض التقديمية المصدرة
 type: docs
 weight: 90
-url: /reportingservices/password-protecting-the-exported-presentation/
+url: /ar/reportingservices/password-protecting-the-exported-presentation/
 ---
 
 {{% alert color="primary" %}} 

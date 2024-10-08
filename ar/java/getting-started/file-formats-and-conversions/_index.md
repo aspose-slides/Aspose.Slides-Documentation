@@ -2,5 +2,5 @@
 title: تنسيقات الملفات والتحويلات
 type: docs
 weight: 40
-url: /java/file-formats-and-conversions/
+url: /ar/java/file-formats-and-conversions/
 ---

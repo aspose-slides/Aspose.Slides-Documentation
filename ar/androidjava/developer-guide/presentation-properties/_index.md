@@ -2,7 +2,7 @@
 title: خصائص العرض
 type: docs
 weight: 70
-url: /androidjava/presentation-properties/
+url: /ar/androidjava/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

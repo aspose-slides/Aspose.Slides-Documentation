@@ -2,7 +2,7 @@
 title: إدارة SmartArt
 type: docs
 weight: 10
-url: /cpp/manage-smartart/
+url: /ar/cpp/manage-smartart/
 ---
 
 ## **الحصول على نص من SmartArt**

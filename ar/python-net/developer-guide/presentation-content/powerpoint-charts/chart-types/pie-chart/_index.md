@@ -1,7 +1,7 @@
 ---
 title: مخطط دائري
 type: docs
-url: /python-net/pie-chart/
+url: /ar/python-net/pie-chart/
 keywords: "مخطط دائري، خيارات المخطط، ألوان الشرائح، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "خيارات مخطط دائري وألوان الشرائح في عرض PowerPoint باستخدام بايثون"
 ---

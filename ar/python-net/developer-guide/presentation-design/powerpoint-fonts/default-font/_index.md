@@ -2,7 +2,7 @@
 title: الخط الافتراضي
 type: docs
 weight: 30
-url: /python-net/default-font/
+url: /ar/python-net/default-font/
 keywords: "خطوط، خطوط افتراضية، تقديم عرض باوربوينت بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "خطوط باوربوينت الافتراضية في بايثون"
 ---

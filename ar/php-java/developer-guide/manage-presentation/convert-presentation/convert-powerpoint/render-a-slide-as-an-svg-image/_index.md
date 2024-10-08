@@ -2,7 +2,7 @@
 title: قم بعرض شريحة كصورة SVG
 type: docs
 weight: 50
-url: /php-java/render-a-slide-as-an-svg-image/
+url: /ar/php-java/render-a-slide-as-an-svg-image/
 ---
 
 SVG—اختصار لرسومات المتجهات القابلة للتغيير—هو نوع أو تنسيق رسومات قياسي يُستخدم لعرض الصور ثنائية الأبعاد. تخزن SVG الصور كمتجهات في XML مع تفاصيل تحدد سلوكها أو مظهرها.

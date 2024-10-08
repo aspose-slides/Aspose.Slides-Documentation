@@ -3,7 +3,7 @@ title: إدارة الخطوط - واجهة برمجة تطبيقات PowerPoint
 linktitle: إدارة الخطوط
 type: docs
 weight: 10
-url: /androidjava/manage-fonts/
+url: /ar/androidjava/manage-fonts/
 description: عادةً ما تحتوي العروض التقديمية على نصوص وصور. يوضح هذا المقال كيفية استخدام واجهة برمجة تطبيقات PowerPoint Java لتكوين خصائص الخطوط للفقرات النصية على الشرائح.
 ---
 

@@ -2,7 +2,7 @@
 title: إنشاء ودمج مخطط Excel ككائن OLE  
 type: docs  
 weight: 70  
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object/  
+url: /ar/net/create-and-embed-an-excel-chart-as-an-ole-object/  
 ---  
   
 أمثلة الكود أدناه طويلة ومفصلة لأن المهمة التي تصفها معقدة. تقوم بإنشاء مصنف Microsoft Excel، وإنشاء مخطط، ثم إنشاء عرض تقديمي في Microsoft PowerPoint الذي ستدمج فيه المخطط. تحتوي كائنات OLE على روابط إلى المستند الأصلي بحيث يقوم المستخدم الذي ينقر نقرًا مزدوجًا على الملف المدمج بتشغيل الملف وتطبيقه.  

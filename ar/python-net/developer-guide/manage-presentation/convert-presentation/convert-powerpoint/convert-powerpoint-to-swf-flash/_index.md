@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى SWF فلاش
 type: docs
 weight: 80
-url: /python-net/convert-powerpoint-to-swf-flash/
+url: /ar/python-net/convert-powerpoint-to-swf-flash/
 keywords: "تحويل PowerPoint, عرض تقديمي, PowerPoint إلى SWF, فلاش SWF PPT إلى SWF, PPTX إلى SWF, بايثون"
 description: "تحويل عرض PowerPoint التقديمي إلى SWF فلاش في بايثون"
 ---

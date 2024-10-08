@@ -2,7 +2,7 @@
 title: فحص العرض التقديمي
 type: docs
 weight: 30
-url: /java/examine-presentation/
+url: /ar/java/examine-presentation/
 keywords:
 - PowerPoint
 - العرض التقديمي

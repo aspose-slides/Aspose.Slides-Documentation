@@ -2,7 +2,7 @@
 title: إدارة الارتباطات التشعبية
 type: docs
 weight: 20
-url: /java/manage-hyperlinks/
+url: /ar/java/manage-hyperlinks/
 keywords: "ارتباط تشعبي في PowerPoint، ارتباط نصي، ارتباط شريطي، ارتباط شكلي، ارتباط صورة، ارتباط فيديو، جافا"
 description: "كيف تضيف ارتباطًا تشعبيًا إلى عرض PowerPoint في جافا"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="نصيحة"  color="primary"  %}} 
 
-قد ترغب في رؤية *[إدارة OLE](/slides/java/manage-ole/)*.
+قد ترغب في رؤية *[إدارة OLE](/slides/ar/java/manage-ole/)*.
 
 {{% /alert %}}
 

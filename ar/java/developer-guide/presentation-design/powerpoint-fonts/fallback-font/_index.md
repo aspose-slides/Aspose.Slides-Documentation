@@ -3,7 +3,7 @@ title: خط احتياطي - PowerPoint Java API
 linktitle: خط احتياطي
 type: docs
 weight: 50
-url: /java/fallback-font/
+url: /ar/java/fallback-font/
 description: يُستخدم الخط الاحتياطي عندما يكون الخط المحدد للنص متاحًا في النظام، لكن هذا الخط لا يحتوي على شكل ضروري. في هذه الحالة، من الممكن أن تستخدم PowerPoint Java API أحد خطوط الاحتياطي المحددة لاستبدال الشكل.
 ---
 
@@ -14,6 +14,6 @@ description: يُستخدم الخط الاحتياطي عندما يكون ال
 
 للتعرف على هذه الميزات، استخدم الروابط التالية:
 
-- [إنشاء خط احتياطي](/slides/java/create-fallback-font)
-- [إنشاء مجموعة خطوط احتياطية](/slides/java/create-fallback-fonts-collection)
-- [عرض العرض باستخدام خط احتياطي](/slides/java/render-presentation-with-fallback-font)
+- [إنشاء خط احتياطي](/slides/ar/java/create-fallback-font)
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/java/create-fallback-fonts-collection)
+- [عرض العرض باستخدام خط احتياطي](/slides/ar/java/render-presentation-with-fallback-font)

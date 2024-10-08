@@ -2,7 +2,7 @@
 title: تقييم Aspose.Slides
 type: docs
 weight: 80
-url: /jasperreports/evaluate-aspose-slides/
+url: /ar/jasperreports/evaluate-aspose-slides/
 ---
 
 يمكنك تنزيل Aspose.Slides للتقييم بسهولة. تنزيل التقييم هو نفس تنزيل الشراء. تصبح النسخة التجريبية مرخصة ببساطة عندما تضيف بعض الأسطر من التعليمات البرمجية لتطبيق الترخيص.

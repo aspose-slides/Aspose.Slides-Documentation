@@ -2,7 +2,7 @@
 title: رسوم متحركة في PowerPoint
 type: docs
 weight: 150
-url: /php-java/powerpoint-animation/
+url: /ar/php-java/powerpoint-animation/
 keywords: "رسوم متحركة في PowerPoint"
 description: "رسوم متحركة في PowerPoint، رسوم متحركة لشريحة PowerPoint مع Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ description: "رسوم متحركة في PowerPoint، رسوم متحركة لش
 تسمح Aspose.Slides بتطبيق الرسوم المتحركة على الأشكال، والتي يمكن أن تكون في الواقع نصًا، مستطيلًا، خطًا، إطارًا، كائن OLE، إلخ.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**عن رسوم متحركة الأشكال**](/slides/php-java/shape-animation/).
+اقرأ المزيد [**عن رسوم متحركة الأشكال**](/slides/ar/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **الرسوم البيانية المتحركة**
 لإنشاء رسوم بيانية متحركة، يجب استخدام نفس الفئات المستخدمة للأشكال. ومع ذلك، من الممكن استخدام الرسوم المتحركة في PowerPoint فقط على فئات الرسوم البيانية أو سلسلة الرسوم البيانية. يمكنك أيضًا تطبيق تأثير الرسوم المتحركة على عنصر الفئة أو عنصر السلسلة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**عن الرسوم البيانية المتحركة**](/slides/php-java/animated-charts/).
+اقرأ المزيد [**عن الرسوم البيانية المتحركة**](/slides/ar/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **النص المتحرك**
 باستثناء النص المتحرك، من الممكن أيضًا تطبيق الرسوم المتحركة على فقرة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد [**عن النص المتحرك**](/slides/php-java/animated-text/).
+اقرأ المزيد [**عن النص المتحرك**](/slides/ar/php-java/animated-text/).
 {{% /alert %}}

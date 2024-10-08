@@ -2,7 +2,7 @@
 title: تحديث كائنات OLE تلقائيًا باستخدام إضافة MS PowerPoint
 type: docs
 weight: 10
-url: /net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /ar/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **حول تحديث كائنات OLE تلقائيًا**

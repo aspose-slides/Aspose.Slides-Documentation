@@ -2,7 +2,7 @@
 title: تصدير إلى HTML5
 type: docs
 weight: 40
-url: /java/export-to-html5/
+url: /ar/java/export-to-html5/
 keywords:
 - PowerPoint إلى HTML
 - الشرائح إلى HTML
@@ -18,7 +18,7 @@ description: "تصدير PowerPoint إلى HTML5 في Java"
 
 {{% alert title="معلومات" color="info" %}}
 
-في [Aspose.Slides 21.9](/slides/java/aspose-slides-for-java-21-9-release-notes/)، قمنا بتنفيذ دعم لتصدير HTML5.
+في [Aspose.Slides 21.9](/slides/ar/java/aspose-slides-for-java-21-9-release-notes/)، قمنا بتنفيذ دعم لتصدير HTML5.
 
 {{% /alert %}} 
 

@@ -1,7 +1,7 @@
 ---
 title: نقاط بيانات مخطط الشجرة ومخطط الشمس
 type: docs
-url: /net/data-points-of-treemap-and-sunburst-chart/
+url: /ar/net/data-points-of-treemap-and-sunburst-chart/
 keywords: "مخطط الشمس, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "إضافة مخطط الشمس في عرض PowerPoint باستخدام C# أو .NET"
 ---
@@ -23,7 +23,7 @@ using (Presentation pres = new Presentation())
 ```
 
 {{% alert color="primary" title="راجع أيضًا" %}} 
-- [**إنشاء مخطط الشمس**](/slides/net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**إنشاء مخطط الشمس**](/slides/ar/net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 إذا كانت هناك حاجة لتنسيق نقاط بيانات المخطط، يجب أن نستخدم ما يلي:

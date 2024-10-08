@@ -2,7 +2,7 @@
 title: لماذا لا الأتمتة
 type: docs
 weight: 50
-url: /java/why-not-automation/
+url: /ar/java/why-not-automation/
 ---
 
 {{% alert color="primary" %}} 

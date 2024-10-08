@@ -2,5 +2,5 @@
 title: جدول PowerPoint
 type: docs
 weight: 110
-url: /java/powerpoint-table/
+url: /ar/java/powerpoint-table/
 ---

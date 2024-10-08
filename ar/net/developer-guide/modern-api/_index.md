@@ -2,7 +2,7 @@
 title: واجهة برمجة التطبيقات الحديثة
 type: docs
 weight: 237
-url: /net/modern-api/
+url: /ar/net/modern-api/
 keywords: "نظام واجهة برمجة التطبيقات الحديثة المتعددة المنصات System.Drawing"
 description: "واجهة برمجة التطبيقات الحديثة"
 ---

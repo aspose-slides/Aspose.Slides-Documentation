@@ -2,7 +2,7 @@
 title: إدارة الخلايا
 type: docs
 weight: 30
-url: /net/manage-cells/
+url: /ar/net/manage-cells/
 keywords:
 - جدول
 - خلايا مدمجة

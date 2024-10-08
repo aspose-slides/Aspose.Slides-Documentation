@@ -2,5 +2,5 @@
 title: جدول PowerPoint
 type: docs
 weight: 110
-url: /androidjava/powerpoint-table/
+url: /ar/androidjava/powerpoint-table/
 ---

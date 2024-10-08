@@ -2,7 +2,7 @@
 title: قسم الشرائح
 type: docs
 weight: 100
-url: /cpp/slide-section/
+url: /ar/cpp/slide-section/
 ---
 
 مع Aspose.Slides لـ C++، يمكنك تنظيم عرض PowerPoint إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح معينة.

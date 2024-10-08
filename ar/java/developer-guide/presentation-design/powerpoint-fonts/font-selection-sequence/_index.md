@@ -3,7 +3,7 @@ title: تسلسل اختيار الخط في Java
 linktitle: تسلسل اختيار الخط في Java
 type: docs
 weight: 80
-url: /java/font-selection-sequence/
+url: /ar/java/font-selection-sequence/
 keywords:
 - خط
 - اختيار الخط

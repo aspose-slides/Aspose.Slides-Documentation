@@ -2,7 +2,7 @@
 title: قسم الشرائح
 type: docs
 weight: 90
-url: /androidjava/slide-section/
+url: /ar/androidjava/slide-section/
 ---
 
 باستخدام Aspose.Slides لـ Android عبر Java، يمكنك تنظيم عرض PowerPoint التقديمي إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح محددة.

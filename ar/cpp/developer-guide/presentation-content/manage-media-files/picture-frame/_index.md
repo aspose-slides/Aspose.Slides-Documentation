@@ -2,7 +2,7 @@
 title: إطار الصورة
 type: docs
 weight: 10
-url: /cpp/picture-frame/
+url: /ar/cpp/picture-frame/
 keywords: "إضافة إطار الصورة، إنشاء إطار الصورة، إضافة صورة، إنشاء صورة، استخراج صورة، خاصية StretchOff، تنسيق إطار الصورة، خصائص إطار الصورة، عرض PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "إضافة إطار صورة إلى عرض PowerPoint في C++"
 ---

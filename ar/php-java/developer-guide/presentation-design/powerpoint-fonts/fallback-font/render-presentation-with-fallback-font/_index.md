@@ -2,12 +2,12 @@
 title: عرض العرض التقديمي بخيارات الخط الاحتياطي
 type: docs
 weight: 30
-url: /php-java/render-presentation-with-fallback-font/
+url: /ar/php-java/render-presentation-with-fallback-font/
 ---
 
 يتضمن المثال التالي هذه الخطوات:
 
-1. نحن [ننشئ مجموعة قواعد الخط الاحتياطي](/slides/php-java/create-fallback-fonts-collection/).
+1. نحن [ننشئ مجموعة قواعد الخط الاحتياطي](/slides/ar/php-java/create-fallback-fonts-collection/).
 1. [قم بإزالة](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) قاعدة الخط الاحتياطي و [addFallBackFonts](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) إلى قاعدة أخرى.
 1. قم بتعيين مجموعة القواعد إلى [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--) الطريقة.
 1. باستخدام [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) الطريقة يمكننا حفظ العرض التقديمي بنفس التنسيق، أو حفظه بتنسيق آخر. بعد تعيين مجموعة قواعد الخط الاحتياطي إلى [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager)، يتم تطبيق هذه القواعد أثناء أي عمليات على العرض التقديمي: حفظ، عرض، تحويل، إلخ.
@@ -51,5 +51,5 @@ url: /php-java/render-presentation-with-fallback-font/
 ```
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [الحفظ والتحويل في العرض التقديمي](/slides/php-java/creating-saving-and-converting-a-presentation/).
+اقرأ المزيد عن [الحفظ والتحويل في العرض التقديمي](/slides/ar/php-java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

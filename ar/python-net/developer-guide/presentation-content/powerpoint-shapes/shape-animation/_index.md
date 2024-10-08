@@ -2,12 +2,12 @@
 title: رسوم متحركة للشكل
 type: docs
 weight: 60
-url: /python-net/shape-animation/
+url: /ar/python-net/shape-animation/
 keywords: "رسوم متحركة في PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إنشاء رسوم متحركة في PowerPoint باستخدام بايثون"
 ---
 
-الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص، الصور، الأشكال، أو [المخططات](/slides/python-net/animated-charts/). إنها تضفي الحياة على العروض التقديمية أو مكوناتها.
+الرسوم المتحركة هي تأثيرات بصرية يمكن تطبيقها على النصوص، الصور، الأشكال، أو [المخططات](/slides/ar/python-net/animated-charts/). إنها تضفي الحياة على العروض التقديمية أو مكوناتها.
 
 ### **لماذا استخدام الرسوم المتحركة في العروض التقديمية؟**
 
@@ -69,7 +69,7 @@ with slides.Presentation() as pres:
 
 {{%  alert color="primary"  %}}
 
-بخلاف تطبيق الرسوم المتحركة على النص، يمكنك أيضاً تطبيق الرسوم المتحركة على [فقرة](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) واحدة. انظر [**النص المتحرك**](/slides/python-net/animated-text/).
+بخلاف تطبيق الرسوم المتحركة على النص، يمكنك أيضاً تطبيق الرسوم المتحركة على [فقرة](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) واحدة. انظر [**النص المتحرك**](/slides/ar/python-net/animated-text/).
 
 {{% /alert %}}
 

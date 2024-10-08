@@ -2,7 +2,7 @@
 title: فقرة
 type: docs
 weight: 60
-url: /php-java/paragraph/
+url: /ar/php-java/paragraph/
 ---
 
 

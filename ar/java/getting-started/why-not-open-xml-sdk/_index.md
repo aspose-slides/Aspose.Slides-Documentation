@@ -2,7 +2,7 @@
 title: لماذا لا نستخدم Open XML SDK
 type: docs
 weight: 120
-url: /java/why-not-open-xml-sdk/
+url: /ar/java/why-not-open-xml-sdk/
 ---
 
 {{% alert color="primary" %}} 
@@ -30,7 +30,7 @@ Aspose.Slides هي مكتبة فصول تسمح لتطبيقك بأداء مها
 - دعم إضافة الحركات، وإطارات Ole، والجداول، وإنشاء وإدارة الرسوم البيانية.
 - توفر تحكم شامل لإدارة تنسيق النص على مستويات TextFrames والفقرات والأجزاء.
 
-لمزيد من التفاصيل حول الميزات المدعومة، يرجى زيارة [ميزات Aspose.Slides](/slides/java/product-overview/).
+لمزيد من التفاصيل حول الميزات المدعومة، يرجى زيارة [ميزات Aspose.Slides](/slides/ar/java/product-overview/).
 ## **مقارنة بين Open XML SDK وAspose.Slides**
 {{% alert color="primary" %}} 
 

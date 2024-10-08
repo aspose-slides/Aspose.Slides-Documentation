@@ -2,12 +2,12 @@
 title: تأثير الشكل
 type: docs
 weight: 30
-url: /cpp/shape-effect
+url: /ar/cpp/shape-effect
 keywords: "تأثير الشكل، تقديم PowerPoint، C++، CPP، Aspose.Slides for C++"
 description: "تطبيق تأثير على شكل PowerPoint في C++"
 ---
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/cpp/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل معين، ونشر توهج الشكل، وما إلى ذلك.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل بارزًا، إلا أنها تختلف عن [التعبئات](/slides/ar/cpp/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على شكل معين، ونشر توهج الشكل، وما إلى ذلك.
 
 <img src="shape-effect.png" alt="تأثير الشكل" style="zoom:50%;" />
 

@@ -2,7 +2,7 @@
 title: إطار الفيديو
 type: docs
 weight: 10
-url: /java/video-frame/
+url: /ar/java/video-frame/
 keywords: "إضافة فيديو، إنشاء إطار فيديو، استخراج فيديو، عرض تقديمي في PowerPoint، Java، Aspose.Slides لـ Java"
 description: "إضافة إطار فيديو إلى عرض PowerPoint تقديمي في Java"
 ---

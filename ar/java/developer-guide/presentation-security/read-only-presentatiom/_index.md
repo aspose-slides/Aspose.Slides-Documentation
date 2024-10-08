@@ -2,7 +2,7 @@
 title: تقديم للقراءة فقط
 type: docs
 weight: 30
-url: /java/read-only-presentation/
+url: /ar/java/read-only-presentation/
 
 ---
 

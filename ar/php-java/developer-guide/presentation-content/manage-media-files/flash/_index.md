@@ -2,7 +2,7 @@
 title: فلاش
 type: docs
 weight: 10
-url: /php-java/flash/
+url: /ar/php-java/flash/
 description: استخراج كائنات الفلاش من عرض PowerPoint باستخدام PHP
 ---
 

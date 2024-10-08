@@ -1,7 +1,7 @@
 ---
 title: خط الاتجاه
 type: docs
-url: /php-java/trend-line/
+url: /ar/php-java/trend-line/
 ---
 
 ## **إضافة خط اتجاه**

@@ -2,7 +2,7 @@
 title: إدارة العلامات والبيانات المخصصة
 type: docs
 weight: 300
-url: /python-net/managing-tags-and-custom-data/
+url: /ar/python-net/managing-tags-and-custom-data/
 keywords: "العلامات، البيانات المخصصة، قيمة العلامات، إضافة علامات، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إضافة علامات وبيانات مخصصة إلى عروض PowerPoint في بايثون"
 ---

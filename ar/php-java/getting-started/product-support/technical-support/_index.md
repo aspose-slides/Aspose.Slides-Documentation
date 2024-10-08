@@ -2,7 +2,7 @@
 title: الدعم الفني
 type: docs
 weight: 10
-url: /php-java/technical-support/
+url: /ar/php-java/technical-support/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: قيود واجهة البرمجة
 type: docs
 weight: 320
-url: /androidjava/api-limitations/
+url: /ar/androidjava/api-limitations/
 ---
 
 ## **العروض وصيغ التصدير الأخرى**

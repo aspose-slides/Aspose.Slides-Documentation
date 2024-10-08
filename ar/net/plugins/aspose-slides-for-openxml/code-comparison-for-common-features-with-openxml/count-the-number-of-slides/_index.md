@@ -2,7 +2,7 @@
 title: عد عدد الشرائح
 type: docs
 weight: 50
-url: /net/count-the-number-of-slides/
+url: /ar/net/count-the-number-of-slides/
 ---
 
 ## **OpenXML SDK**

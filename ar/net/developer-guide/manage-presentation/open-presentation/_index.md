@@ -3,7 +3,7 @@ title: فتح العرض التقديمي في C#
 linktitle: فتح العرض التقديمي
 type: docs
 weight: 20
-url: /net/open-presentation/
+url: /ar/net/open-presentation/
 keywords: "فتح باوربوينت, PPTX, PPT, فتح العرض التقديمي, تحميل العرض التقديمي, C#, Csharp, .NET"
 description: "فتح أو تحميل عرض تقديمي PPT, PPTX, ODP في C# أو .NET"
 ---

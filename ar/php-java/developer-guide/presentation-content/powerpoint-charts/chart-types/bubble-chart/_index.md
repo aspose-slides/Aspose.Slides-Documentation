@@ -1,7 +1,7 @@
 ---
 title: مخطط الفقاعات
 type: docs
-url: /php-java/bubble-chart/
+url: /ar/php-java/bubble-chart/
 ---
 
 ## **تغيير حجم المخطط الفقاعات**

@@ -4,7 +4,7 @@ second_title: وثائق Aspose.Slides
 description: Aspose.Slides لخدمات التقارير هي الحل الوحيد في السوق الذي يجعل من الممكن إنشاء تقارير PPT و PPS حقيقية في Microsoft SQL Server 2005 و 2008 و 2012 و 2016 و 2017 (32-bit و 64-bit).
 type: docs
 weight: 50
-url: /reportingservices/
+url: /ar/reportingservices/
 is_root: true
 ---
 
@@ -22,8 +22,8 @@ Aspose.Slides لخدمات التقارير هي الحل الوحيد في ال
 
 فيما يلي الروابط لبعض الموارد المفيدة التي قد تحتاجها لإكمال مهامك.
 
-- [وثائق Aspose.Slides لخدمات التقارير عبر الإنترنت](/slides/reportingservices/)
-- [ميزات Aspose.Slides لخدمات التقارير](/slides/reportingservices/features/)
+- [وثائق Aspose.Slides لخدمات التقارير عبر الإنترنت](/slides/ar/reportingservices/)
+- [ميزات Aspose.Slides لخدمات التقارير](/slides/ar/reportingservices/features/)
 - [ملاحظات إصدار Aspose.Slides لخدمات التقارير](https://releases.aspose.com/slides/reportingservices/release-notes/)
 - [صفحة منتج Aspose.Slides لخدمات التقارير](https://products.aspose.com/slides/reporting-services/)
 - [تحميل Aspose.Slides لخدمات التقارير](https://releases.aspose.com/slides/reportingservices/)

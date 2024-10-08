@@ -1,7 +1,7 @@
 ---
 title: سلسلة الرسم البياني
 type: docs
-url: /net/chart-series/
+url: /ar/net/chart-series/
 keywords: "سلسلة الرسم البياني, لون السلسلة, عرض تقديمي في PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "سلاسل الرسم البياني في عروض PowerPoint بلغة C# أو .NET"
 ---

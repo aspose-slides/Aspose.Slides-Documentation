@@ -1,7 +1,7 @@
 ---
 title: خصائص عرض العرض
 type: docs
-url: /androidjava/presentation-view-properties/
+url: /ar/androidjava/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -59,7 +59,7 @@ try {
 ## **تعيين قيمة التكبير الافتراضية**
 {{% alert color="primary" %}} 
 
-يدعم Aspose.Slides لـ Android عبر Java الآن تعيين قيمة التكبير الافتراضية للعرض بحيث عند فتح العرض، يتم تعيين التكبير مسبقًا. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) لعرض. يمكن أيضًا تعيين [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) بالإضافة إلى [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى مع مثال كيفية تعيين [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) في [Aspose.Slides](/slides/).
+يدعم Aspose.Slides لـ Android عبر Java الآن تعيين قيمة التكبير الافتراضية للعرض بحيث عند فتح العرض، يتم تعيين التكبير مسبقًا. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) لعرض. يمكن أيضًا تعيين [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) بالإضافة إلى [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى مع مثال كيفية تعيين [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) في [Aspose.Slides](/slides/ar/).
 
 {{% /alert %}} 
 

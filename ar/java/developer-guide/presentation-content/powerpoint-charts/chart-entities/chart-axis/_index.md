@@ -1,7 +1,7 @@
 ---
 title: محور الرسم البياني
 type: docs
-url: /java/chart-axis/
+url: /ar/java/chart-axis/
 keywords: "محور الرسم البياني PowerPoint، الرسوم البيانية التقديمية، جافا، معالجة محور الرسم البياني، بيانات الرسم البياني"
 description: "كيفية تحرير محور الرسم البياني PowerPoint في جافا"
 ---

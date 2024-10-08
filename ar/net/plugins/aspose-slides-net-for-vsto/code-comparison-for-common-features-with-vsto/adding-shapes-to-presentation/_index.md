@@ -2,7 +2,7 @@
 title: إضافة أشكال إلى العرض التقديمي
 type: docs
 weight: 30
-url: /net/adding-shapes-to-presentation/
+url: /ar/net/adding-shapes-to-presentation/
 ---
 
 ## **VSTO**

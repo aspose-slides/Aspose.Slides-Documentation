@@ -2,7 +2,7 @@
 title: إنشاء خط احتياطي
 type: docs
 weight: 10
-url: /python-net/create-fallback-font/
+url: /ar/python-net/create-fallback-font/
 keywords: "خطوط, خط احتياطي, عرض PowerPoint بايثون, Aspose.Slides لبايثون عبر .NET"
 description: "خط احتياطي في PowerPoint بايثون"
 ---
@@ -29,5 +29,5 @@ thirdRule = slides.FontFallBackRule(0x1F300, 0x1F64F, fontNames)
 يمكن استخدام [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) لتنظيم قائمة من [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) الكائنات، عندما تكون هناك حاجة لتحديد قواعد استبدال الخط الاحتياطي لعدة نطاقات يونيكود.
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [إنشاء مجموعة خطوط احتياطية](/slides/python-net/create-fallback-fonts-collection/)
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/python-net/create-fallback-fonts-collection/)
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: التكامل مع JasperServer
 type: docs
 weight: 45
-url: /jasperreports/integration-with-jasperserver/
+url: /ar/jasperreports/integration-with-jasperserver/
 ---
 
 {{% alert color="primary" %}} 

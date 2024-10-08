@@ -2,7 +2,7 @@
 title: القيود والفروقات في واجهة برمجة التطبيقات
 type: docs
 weight: 100
-url: /nodejs-java/limitations-and-api-differences/
+url: /ar/nodejs-java/limitations-and-api-differences/
 keywords: "node, powerpoint, limitation, api, differences"
 description: "قيود وفروقات واجهة برمجة التطبيقات لـ Aspose.Slides لـ Node.js عبر Java."
 ---

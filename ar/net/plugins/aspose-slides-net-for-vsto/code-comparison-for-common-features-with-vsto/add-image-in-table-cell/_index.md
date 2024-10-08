@@ -2,7 +2,7 @@
 title: إضافة صورة في خلية الجدول
 type: docs
 weight: 10
-url: /net/add-image-in-table-cell/
+url: /ar/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**

@@ -2,7 +2,7 @@
 title: صيغة جدول البيانات البيانية
 type: docs
 weight: 70
-url: /python-net/chart-worksheet-formulas/
+url: /ar/python-net/chart-worksheet-formulas/
 keywords: "جدول بيانات الرسم البياني، صيغة الرسم البياني، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "جدول بيانات الرسم البياني وصيغة في عرض PowerPoint باستخدام بايثون"
 ---

@@ -2,7 +2,7 @@
 title: إنشاء عرض تقديمي
 type: docs
 weight: 10
-url: /python-net/create-presentation/
+url: /ar/python-net/create-presentation/
 keywords: "إنشاء PowerPoint، PPTX، PPT، إنشاء عرض تقديمي، تهيئة عرض تقديمي، بايثون، .NET"
 description: "فتح عرض PowerPoint في بايثون"
 ---

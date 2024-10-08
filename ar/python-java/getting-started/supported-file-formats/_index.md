@@ -2,7 +2,7 @@
 title: صيغ الملفات المدعومة
 type: docs
 weight: 30
-url: /python-java/supported-file-formats/
+url: /ar/python-java/supported-file-formats/
 ---
 
 ## **إصدارات Microsoft PowerPoint المدعومة**

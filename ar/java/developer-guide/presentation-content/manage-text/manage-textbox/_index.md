@@ -2,7 +2,7 @@
 title: إدارة مربع النص
 type: docs
 weight: 20
-url: /java/manage-textbox/
+url: /ar/java/manage-textbox/
 description: إنشاء مربع نص على شرائح PowerPoint باستخدام Java. إضافة عمود في مربع نص أو إطار نص في شرائح PowerPoint باستخدام Java. إضافة مربع نص به رابط في شرائح PowerPoint باستخدام Java.
 ---
 

@@ -2,7 +2,7 @@
 title: إدارة عقدة شكل SmartArt
 type: docs
 weight: 30
-url: /cpp/manage-smartart-shape-node/
+url: /ar/cpp/manage-smartart-shape-node/
 keywords:
 - SmartArt
 - عقدة SmartArt

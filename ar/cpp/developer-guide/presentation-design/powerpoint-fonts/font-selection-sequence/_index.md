@@ -3,7 +3,7 @@ title: تسلسل اختيار الخط في C++
 linktitle: تسلسل اختيار الخط في C++
 type: docs
 weight: 80
-url: /cpp/font-selection-sequence/
+url: /ar/cpp/font-selection-sequence/
 keywords:
 - خط
 - اختيار الخط

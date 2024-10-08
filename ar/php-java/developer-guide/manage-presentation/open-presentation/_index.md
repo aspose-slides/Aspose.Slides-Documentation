@@ -3,7 +3,7 @@ title: فتح العرض التقديمي
 linktitle: فتح العرض التقديمي
 type: docs
 weight: 20
-url: /php-java/open-presentation/
+url: /ar/php-java/open-presentation/
 keywords: "فتح PowerPoint، PPTX، PPT، فتح العرض التقديمي، تحميل العرض التقديمي، Java"
 description: "فتح أو تحميل عرض تقديمي PPT، PPTX، ODP"
 ---

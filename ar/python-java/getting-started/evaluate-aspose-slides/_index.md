@@ -2,7 +2,7 @@
 title: تقييم Aspose.Slides
 type: docs
 weight: 120
-url: /python-java/evaluate-aspose-slides/
+url: /ar/python-java/evaluate-aspose-slides/
 ---
 
 يمكنك بسهولة تنزيل Aspose.Slides للتقييم. حزمة التقييم هي نفسها حزمة الشراء. نسخة التقييم تصبح مرخصة ببساطة بعد إضافة بعض الأسطر من التعليمات البرمجية لتطبيق الترخيص.

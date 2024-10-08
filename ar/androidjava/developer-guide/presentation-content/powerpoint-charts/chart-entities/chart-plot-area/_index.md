@@ -1,7 +1,7 @@
 ---
 title: منطقة رسم المخطط
 type: docs
-url: /androidjava/chart-plot-area/
+url: /ar/androidjava/chart-plot-area/
 ---
 
 ## **احصل على عرض وارتفاع منطقة رسم المخطط**

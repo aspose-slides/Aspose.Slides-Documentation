@@ -2,7 +2,7 @@
 title: استخراج النص من العرض
 type: docs
 weight: 90
-url: /java/extract-text-from-presentation/
+url: /ar/java/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 

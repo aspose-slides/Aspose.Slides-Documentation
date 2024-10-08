@@ -2,7 +2,7 @@
 title: ملاحظات العرض
 type: docs
 weight: 110
-url: /net/presentation-notes/
+url: /ar/net/presentation-notes/
 keywords: "ملاحظات، ملاحظات PowerPoint، إضافة ملاحظات، إزالة ملاحظات، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة وإزالة ملاحظات في عروض PowerPoint باستخدام C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: تأثيرات الرسوم المتحركة لبرنامج PowerPoint
 type: docs
 weight: 150
-url: /java/powerpoint-animation/
+url: /ar/java/powerpoint-animation/
 keywords: "تأثير الرسوم المتحركة لبرنامج PowerPoint"
 description: "تأثير الرسوم المتحركة لبرنامج PowerPoint، ورسوم المتحركة لشريحة PowerPoint باستخدام Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ description: "تأثير الرسوم المتحركة لبرنامج PowerPoint
 تسمح Aspose.Slides بتطبيق الرسوم المتحركة على الأشكال، والتي يمكن أن تكون نصًا أو مستطيلًا أو خطًا أو إطارًا أو كائن OLE، إلخ.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**الرسوم المتحركة للأشكال**](/slides/java/shape-animation/).
+اقرأ المزيد عن [**الرسوم المتحركة للأشكال**](/slides/ar/java/shape-animation/).
 {{% /alert %}}
 
 ## **الرسوم المتحركة للمخططات**
 لإنشاء مخططات متحركة، يجب عليك استخدام نفس الفئات المستخدمة للأشكال. ومع ذلك، من الممكن استخدام تأثيرات الرسوم المتحركة لبرنامج PowerPoint فقط على فئات المخططات أو سلسلة المخططات. يمكنك أيضًا تطبيق تأثير الرسوم المتحركة على عنصر فئة أو عنصر سلسلة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**الرسوم المتحركة للمخططات**](/slides/java/animated-charts/).
+اقرأ المزيد عن [**الرسوم المتحركة للمخططات**](/slides/ar/java/animated-charts/).
 {{% /alert %}}
 
 ## **الرسوم المتحركة للنص**
 باستثناء النص المتحرك، يمكن أيضًا تطبيق الرسوم المتحركة على فقرة.
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**الرسوم المتحركة للنص**](/slides/java/animated-text/).
+اقرأ المزيد عن [**الرسوم المتحركة للنص**](/slides/ar/java/animated-text/).
 {{% /alert %}}

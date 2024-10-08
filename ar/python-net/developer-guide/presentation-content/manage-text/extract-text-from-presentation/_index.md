@@ -2,7 +2,7 @@
 title: استخراج النص من العرض
 type: docs
 weight: 90
-url: /python-net/extract-text-from-presentation/
+url: /ar/python-net/extract-text-from-presentation/
 keywords: "استخراج النص من الشريحة، استخراج النص من PowerPoint، بايثون، Aspose.Slides لـ Python عبر .NET"
 description: "استخراج النص من الشريحة أو عرض PowerPoint في بايثون"
 ---
@@ -11,9 +11,9 @@ description: "استخراج النص من الشريحة أو عرض PowerPoint
 
 ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال على جميع الشرائح في العرض. يشرح هذا المقال كيفية استخراج النص من عروض Microsoft PowerPoint PPTX باستخدام Aspose.Slides. يمكن استخراج النص بطرق التالية:
 
-- [استخراج النص من شريحة واحدة](/slides/python-net/extracting-text-from-the-presentation/)
-- [استخراج النص باستخدام طريقة GetAllTextBoxes](/slides/python-net/extracting-text-from-the-presentation/)
-- [استخراج النص بشكل مصنف وسريع](/slides/python-net/extracting-text-from-the-presentation/)
+- [استخراج النص من شريحة واحدة](/slides/ar/python-net/extracting-text-from-the-presentation/)
+- [استخراج النص باستخدام طريقة GetAllTextBoxes](/slides/ar/python-net/extracting-text-from-the-presentation/)
+- [استخراج النص بشكل مصنف وسريع](/slides/ar/python-net/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **استخراج النص من الشريحة**

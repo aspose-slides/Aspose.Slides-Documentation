@@ -2,7 +2,7 @@
 title: تجميع الشرائح
 type: docs
 weight: 10
-url: /net/assemble-slides/
+url: /ar/net/assemble-slides/
 ---
 
 تغطي الميزات التالية:

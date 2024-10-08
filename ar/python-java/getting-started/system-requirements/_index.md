@@ -2,7 +2,7 @@
 title: متطلبات النظام
 type: docs
 weight: 60
-url: /python-java/system-requirements/
+url: /ar/python-java/system-requirements/
 ---
 
 لا يتطلب Aspose.Slides لـ Python عبر Java أي منتج طرف ثالث مثل Microsoft PowerPoint ليتم تثبيته. Aspose.Slides هو محرك لإنشاء وتعديل وتحويل وعرض المستندات بصيغ مختلفة، بما في ذلك صيغ عروض Microsoft PowerPoint.

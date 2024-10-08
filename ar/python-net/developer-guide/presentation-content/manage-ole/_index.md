@@ -2,7 +2,7 @@
 title: إدارة OLE
 type: docs
 weight: 40
-url: /python-net/manage-ole/
+url: /ar/python-net/manage-ole/
 keywords:
 - إضافة OLE
 - تضمين OLE

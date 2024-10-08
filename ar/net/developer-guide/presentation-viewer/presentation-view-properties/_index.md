@@ -1,7 +1,7 @@
 ---
 title: خصائص عرض العروض التقديمية
 type: docs
-url: /net/presentation-view-properties/
+url: /ar/net/presentation-view-properties/
 keywords: "عارض PowerPoint، خصائص العارض، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "خصائص عارض العروض التقديمية في C# أو .NET"
 ---

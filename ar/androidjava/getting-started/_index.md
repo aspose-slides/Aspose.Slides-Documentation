@@ -2,5 +2,5 @@
 title: البدء
 type: docs
 weight: 10
-url: /androidjava/getting-started/
+url: /ar/androidjava/getting-started/
 ---

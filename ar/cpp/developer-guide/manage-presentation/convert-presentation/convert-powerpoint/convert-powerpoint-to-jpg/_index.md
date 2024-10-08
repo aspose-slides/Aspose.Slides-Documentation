@@ -2,7 +2,7 @@
 title: تحويل باور بوينت PPT إلى JPG
 type: docs
 weight: 60
-url: /cpp/convert-powerpoint-to-jpg/
+url: /ar/cpp/convert-powerpoint-to-jpg/
 keywords:
 - تحويل عرض باور بوينت
 - JPG
@@ -90,4 +90,4 @@ pres->Dispose();
 
 انظر خيارات أخرى لتحويل PPT/PPTX إلى صورة مثل:
 
-- [تحويل PPT/PPTX إلى SVG](/slides/cpp/render-a-slide-as-an-svg-image/)
+- [تحويل PPT/PPTX إلى SVG](/slides/ar/cpp/render-a-slide-as-an-svg-image/)

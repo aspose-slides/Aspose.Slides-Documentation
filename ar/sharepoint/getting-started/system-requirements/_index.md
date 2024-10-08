@@ -2,7 +2,7 @@
 title: متطلبات النظام
 type: docs
 weight: 50
-url: /sharepoint/system-requirements/
+url: /ar/sharepoint/system-requirements/
 ---
 
 ## **متطلبات الخادم**

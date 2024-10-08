@@ -2,7 +2,7 @@
 title: إدارة الصفوف والأعمدة
 type: docs
 weight: 20
-url: /net/manage-rows-and-columns/
+url: /ar/net/manage-rows-and-columns/
 keywords: "جدول، صفوف وأعمدة الجدول، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إدارة صفوف وأعمدة الجدول في عروض PowerPoint باستخدام C# أو .NET"
 

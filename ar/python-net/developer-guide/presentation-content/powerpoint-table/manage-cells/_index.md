@@ -2,7 +2,7 @@
 title: إدارة الخلايا
 type: docs
 weight: 30
-url: /python-net/manage-cells/
+url: /ar/python-net/manage-cells/
 keywords: "جدول، خلايا مدمجة، خلايا مقسمة، صورة في خلية جدول، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "خلايا جدول في عروض PowerPoint التقديمية باستخدام بايثون"
 ---

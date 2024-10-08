@@ -3,7 +3,7 @@ title: استبدال الخط - واجهة برمجة تطبيقات PowerPoint
 linktitle: استبدال الخط
 type: docs
 weight: 60
-url: /java/font-replacement/
+url: /ar/java/font-replacement/
 description: تعلم كيفية استبدال الخطوط باستخدام طريقة الاستبدال الصريحة في PowerPoint باستخدام واجهة برمجة تطبيقات Java.
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="ملاحظة" color="warning" %}} 
 
-لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (إذا لم يكن من الممكن الوصول إلى خط، على سبيل المثال)، انظر [**استبدال الخط**](/slides/java/font-substitution/). 
+لتحديد القواعد التي تحدد ما يحدث في ظروف معينة (إذا لم يكن من الممكن الوصول إلى خط، على سبيل المثال)، انظر [**استبدال الخط**](/slides/ar/java/font-substitution/). 
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: قارن الشرائح
 type: docs
 weight: 50
-url: /androidjava/compare-slides/
+url: /ar/androidjava/compare-slides/
 ---
 
 ## **مقارنة شريحتين**

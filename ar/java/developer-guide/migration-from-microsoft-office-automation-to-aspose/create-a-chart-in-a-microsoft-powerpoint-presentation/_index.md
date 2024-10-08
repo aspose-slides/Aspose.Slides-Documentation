@@ -2,12 +2,12 @@
 title: إنشاء مخطط في عرض تقديمي من Microsoft PowerPoint
 type: docs
 weight: 70
-url: /java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ar/java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- المخططات هي تمثيلات مرئية للبيانات تستخدم على نطاق واسع في العروض التقديمية. يوضح هذا المقال الشيفرة اللازمة لإنشاء مخطط في Microsoft PowerPoint برمجياً باستخدام [VSTO](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) و [Aspose.Slides for Java](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ المخططات هي تمثيلات مرئية للبيانات تستخدم على نطاق واسع في العروض التقديمية. يوضح هذا المقال الشيفرة اللازمة لإنشاء مخطط في Microsoft PowerPoint برمجياً باستخدام [VSTO](/slides/ar/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) و [Aspose.Slides for Java](/slides/ar/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **إنشاء مخطط**

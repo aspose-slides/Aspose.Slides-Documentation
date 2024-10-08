@@ -2,7 +2,7 @@
 title: تحديث المخطط
 type: docs
 weight: 10
-url: /cpp/update-chart/
+url: /ar/cpp/update-chart/
 ---
 
 ## **تحديث المخطط**

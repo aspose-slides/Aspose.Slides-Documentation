@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 10
-url: /php-java/features-overview/
+url: /ar/php-java/features-overview/
 ---
 
 ## **المنصات المدعومة**
@@ -18,11 +18,11 @@ Aspose.Slides لـ PHP عبر Java تدعم معظم تنسيقات مستندا
 
 |**الميزة**|**الوصف**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/php-java/microsoft-powerpoint-ppt/)|توفر Aspose.Slides لـ PHP عبر Java أسرع معالجة لهذا التنسيق الخاص بمستند العرض التقديمي.|
-|[PresentationML (PPTX, XML)](/slides/php-java/presentationml-pptx-xml/)|تدعم Aspose.Slides لـ PHP عبر Java معالجة تنسيق OOXML للعروض التقديمية (المعروف أيضًا باسم PresentationML أو PPTX).|
-|[تحويل PPT إلى PPTX](/slides/php-java/ppt-to-pptx-conversion/)|تدعم Aspose.Slides لـ PHP عبر Java التحويل من PPT إلى PPTX.|
-|[Portable Document Format (PDF)](/slides/php-java/developer-guide/)|يمكن تصدير تنسيقات الملفات المدعومة إلى مستندات Adobe Portable Document Format (PDF) باستخدام طريقة واحدة.|
-|[XML Parser Specification (XPS)](/slides/php-java/xml-parser-specification-xps/)|يمكن تصدير جميع تنسيقات الملفات المدعومة إلى مستندات XML Parser Specification (XPS) باستخدام طريقة واحدة.|
+|[Microsoft PowerPoint (PPT)](/slides/ar/php-java/microsoft-powerpoint-ppt/)|توفر Aspose.Slides لـ PHP عبر Java أسرع معالجة لهذا التنسيق الخاص بمستند العرض التقديمي.|
+|[PresentationML (PPTX, XML)](/slides/ar/php-java/presentationml-pptx-xml/)|تدعم Aspose.Slides لـ PHP عبر Java معالجة تنسيق OOXML للعروض التقديمية (المعروف أيضًا باسم PresentationML أو PPTX).|
+|[تحويل PPT إلى PPTX](/slides/ar/php-java/ppt-to-pptx-conversion/)|تدعم Aspose.Slides لـ PHP عبر Java التحويل من PPT إلى PPTX.|
+|[Portable Document Format (PDF)](/slides/ar/php-java/developer-guide/)|يمكن تصدير تنسيقات الملفات المدعومة إلى مستندات Adobe Portable Document Format (PDF) باستخدام طريقة واحدة.|
+|[XML Parser Specification (XPS)](/slides/ar/php-java/xml-parser-specification-xps/)|يمكن تصدير جميع تنسيقات الملفات المدعومة إلى مستندات XML Parser Specification (XPS) باستخدام طريقة واحدة.|
 |[Tagged Image File Format (TIFF)](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-tiff/)|يمكن أيضًا تصدير تنسيقات الملفات الخاصة بالعروض التقديمية المدعومة بواسطة Aspose.Slides لـ PHP عبر Java إلى تنسيق Tagged Image File Format (TIFF).|
 |[تحويل ODP إلى PPTX](https://docs.aspose.com/slides/php-java/convert-odp-to-pptx/)|تدعم Aspose.Slides لـ PHP عبر Java تحميل مستندات OpenDocument Presentation (ODP) وتحويلها بعد ذلك إلى PPTX.|
 |[تحويل العرض التقديمي إلى HTML](https://docs.aspose.com/slides/php-java/convert-powerpoint-to-html/)|تدعم Aspose.Slides لـ PHP عبر Java تحويل PresentationEx إلى تنسيق HTML.|

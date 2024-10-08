@@ -2,7 +2,7 @@
 title: تقديم الطباعة
 type: docs
 weight: 50
-url: /java/print-presentation/
+url: /ar/java/print-presentation/
 keywords: "طباعة باوربوينت, PPT, PPTX, تقديم الطباعة, جافا, طابعة, PrinterJob, PrintService"
 description: "طباعة تقديم باوربوينت بلغة جافا"
 ---

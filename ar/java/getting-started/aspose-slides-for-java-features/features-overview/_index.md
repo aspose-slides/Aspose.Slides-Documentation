@@ -2,7 +2,7 @@
 title: نظرة عامة على الميزات
 type: docs
 weight: 10
-url: /java/features-overview/
+url: /ar/java/features-overview/
 ---
 
 ## **المنصات المدعومة**
@@ -18,11 +18,11 @@ url: /java/features-overview/
 
 |**الميزة**|**الوصف**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/java/microsoft-powerpoint-ppt/)|يوفر Aspose.Slides لـ Java أسرع معالجة لهذا التنسيق الخاص بمستند العروض التقديمية.|
-|[PresentationML (PPTX, XML)](/slides/java/presentationml-pptx-xml/)|يدعم Aspose.Slides لـ Java معالجة تنسيق العروض التقديمية OOXML (المعروف أيضًا باسم PresentationML أو PPTX).|
-|[تحويل PPT إلى PPTX](/slides/java/ppt-to-pptx-conversion/)|يدعم Aspose.Slides لـ Java التحويل من PPT إلى PPTX.|
-|[تنسيق مستندات Portable Document Format (PDF)](/slides/java/developer-guide/)|يمكن تصدير تنسيقات الملفات المدعومة إلى مستندات تنسيق Adobe Portable Document Format (PDF) باستخدام طريقة واحدة.|
-|[مواصفة محلل XML (XPS)](/slides/java/xml-parser-specification-xps/)|يمكن تصدير جميع تنسيقات الملفات المدعومة إلى مستندات مواصفة محلل XML (XPS) باستخدام طريقة واحدة.|
+|[Microsoft PowerPoint (PPT)](/slides/ar/java/microsoft-powerpoint-ppt/)|يوفر Aspose.Slides لـ Java أسرع معالجة لهذا التنسيق الخاص بمستند العروض التقديمية.|
+|[PresentationML (PPTX, XML)](/slides/ar/java/presentationml-pptx-xml/)|يدعم Aspose.Slides لـ Java معالجة تنسيق العروض التقديمية OOXML (المعروف أيضًا باسم PresentationML أو PPTX).|
+|[تحويل PPT إلى PPTX](/slides/ar/java/ppt-to-pptx-conversion/)|يدعم Aspose.Slides لـ Java التحويل من PPT إلى PPTX.|
+|[تنسيق مستندات Portable Document Format (PDF)](/slides/ar/java/developer-guide/)|يمكن تصدير تنسيقات الملفات المدعومة إلى مستندات تنسيق Adobe Portable Document Format (PDF) باستخدام طريقة واحدة.|
+|[مواصفة محلل XML (XPS)](/slides/ar/java/xml-parser-specification-xps/)|يمكن تصدير جميع تنسيقات الملفات المدعومة إلى مستندات مواصفة محلل XML (XPS) باستخدام طريقة واحدة.|
 |[تنسيق ملف الصورة المتجهة (TIFF)](https://docs.aspose.com/slides/java/convert-powerpoint-to-tiff/)|يمكن أيضًا تصدير التنسيقات المدعومة من beforeوب PowerPoint إلى تنسيق ملف الصورة المتجهة (TIFF).|
 |[تحويل ODP إلى PPTX](https://docs.aspose.com/slides/java/convert-odp-to-pptx/)|يدعم Aspose.Slides لـ Java تحميل واستيراد المستندات بتنسيق OpenDocument Presentation (ODP) وتحويلها إلى PPTX.|
 |[تحويل العروض التقديمية إلى HTML](https://docs.aspose.com/slides/java/convert-powerpoint-to-html/)|يدعم Aspose.Slides لـ Java التحويل من PresentationEx إلى تنسيق HTML.|

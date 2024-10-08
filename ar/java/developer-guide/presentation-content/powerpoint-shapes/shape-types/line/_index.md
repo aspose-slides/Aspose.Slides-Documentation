@@ -2,7 +2,7 @@
 title: خط
 type: docs
 weight: 50
-url: /java/Line/
+url: /ar/java/Line/
 ---
 
 

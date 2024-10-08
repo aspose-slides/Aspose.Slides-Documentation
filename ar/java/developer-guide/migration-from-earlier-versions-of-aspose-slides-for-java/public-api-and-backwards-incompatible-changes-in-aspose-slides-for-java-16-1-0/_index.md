@@ -2,12 +2,12 @@
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لجافا 16.1.0
 type: docs
 weight: 200
-url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
+url: /ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تقوم هذه الصفحة بإدراج جميع [الإضافات](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) أو [العمليات المحذوفة](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) من الفصول، والطرق، والخصائص، وما إلى ذلك، وأي تغييرات أخرى تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لجافا 16.1.0.
+تقوم هذه الصفحة بإدراج جميع [الإضافات](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) أو [العمليات المحذوفة](/slides/ar/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-16-1-0/) من الفصول، والطرق، والخصائص، وما إلى ذلك، وأي تغييرات أخرى تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لجافا 16.1.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة برمجة التطبيقات العامة**

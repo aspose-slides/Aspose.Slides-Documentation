@@ -2,7 +2,7 @@
 title: إدارة OLE
 type: docs
 weight: 40
-url: /php-java/manage-ole/
+url: /ar/php-java/manage-ole/
 keywords:
 - إضافة OLE
 - تضمين OLE

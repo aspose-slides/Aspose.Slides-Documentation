@@ -2,7 +2,7 @@
 title: استبدال الخط
 type: docs
 weight: 70
-url: /python-net/font-substitution/
+url: /ar/python-net/font-substitution/
 keywords: "خط, استبدال الخط, عرض تقديمي PowerPoint, بايثون, Aspose.Slides لبايثون عبر .NET"
 description: "استبدال الخط في PowerPoint باستخدام بايثون"
 ---
@@ -47,6 +47,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{%  alert title="ملاحظة"  color="warning"   %}} 
 
-قد ترغب في مشاهدة [**استبدال الخط**](/slides/python-net/font-replacement/). 
+قد ترغب في مشاهدة [**استبدال الخط**](/slides/ar/python-net/font-replacement/). 
 
 {{% /alert %}}

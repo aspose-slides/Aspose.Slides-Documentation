@@ -2,7 +2,7 @@
 title: دعم فني مجاني على مستوى عالمي
 type: docs
 weight: 20
-url: /sharepoint/world-class-free-technical-support/
+url: /ar/sharepoint/world-class-free-technical-support/
 ---
 
 {{% alert color="primary" %}} 

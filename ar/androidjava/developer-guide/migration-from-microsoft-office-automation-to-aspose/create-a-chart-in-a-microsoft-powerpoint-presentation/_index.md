@@ -2,12 +2,12 @@
 title: إنشاء رسم بياني في عرض تقديمي باستخدام Microsoft PowerPoint
 type: docs
 weight: 70
-url: /androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /ar/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- الرسوم البيانية هي تمثيلات بصرية للبيانات تُستخدم بشكل واسع في العروض التقديمية. يوضح هذا المقال الكود لإنشاء رسم بياني في Microsoft PowerPoint برمجياً باستخدام [VSTO](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) و [Aspose.Slides for Android via Java](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ الرسوم البيانية هي تمثيلات بصرية للبيانات تُستخدم بشكل واسع في العروض التقديمية. يوضح هذا المقال الكود لإنشاء رسم بياني في Microsoft PowerPoint برمجياً باستخدام [VSTO](/slides/ar/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) و [Aspose.Slides for Android via Java](/slides/ar/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **إنشاء رسم بياني**

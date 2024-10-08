@@ -2,12 +2,12 @@
 title: تنسيق النص باستخدام VSTO و Aspose.Slides لجافا
 type: docs
 weight: 30
-url: /java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /ar/java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-في بعض الأحيان، تحتاج إلى تنسيق النص على الشرائح برمجياً. يوضح هذا المقال كيفية قراءة عرض تقديمي عينة يحتوي على بعض النصوص في الشريحة الأولى باستخدام [VSTO](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides لجافا](/slides/java/format-text-using-vsto-and-aspose-slides-for-java/). يقوم الكود بتنسيق النص في مربع النص الثالث في الشريحة ليبدو مثل النص في مربع النص الأخير.
+في بعض الأحيان، تحتاج إلى تنسيق النص على الشرائح برمجياً. يوضح هذا المقال كيفية قراءة عرض تقديمي عينة يحتوي على بعض النصوص في الشريحة الأولى باستخدام [VSTO](/slides/ar/java/format-text-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides لجافا](/slides/ar/java/format-text-using-vsto-and-aspose-slides-for-java/). يقوم الكود بتنسيق النص في مربع النص الثالث في الشريحة ليبدو مثل النص في مربع النص الأخير.
 
 {{% /alert %}} 
 ## **تنسيق النص**

@@ -2,7 +2,7 @@
 title: إدارة إعدادات التكيف التلقائي
 type: docs
 weight: 30
-url: /cpp/manage-autofit-settings/
+url: /ar/cpp/manage-autofit-settings/
 keywords: "مربع نص, تكيف تلقائي, عرض بوربوينت, C++, Aspose.Slides for C++"
 description: "تعيين إعدادات التكيف التلقائي لمربع النص في عرض بوربوينت باستخدام C++"
 ---

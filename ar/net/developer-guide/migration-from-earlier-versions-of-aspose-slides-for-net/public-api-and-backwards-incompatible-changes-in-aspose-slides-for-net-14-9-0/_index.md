@@ -2,7 +2,7 @@
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 14.9.0
 type: docs
 weight: 110
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/
+url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-9-0/
 ---
 
 {{% alert color="primary" %}}

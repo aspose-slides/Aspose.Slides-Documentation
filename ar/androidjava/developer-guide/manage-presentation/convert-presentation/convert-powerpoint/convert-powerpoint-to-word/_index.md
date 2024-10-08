@@ -2,7 +2,7 @@
 title: تحويل باوربوينت إلى وورد
 type: docs
 weight: 110
-url: /androidjava/convert-powerpoint-to-word/
+url: /ar/androidjava/convert-powerpoint-to-word/
 keywords: "تحويل باوربوينت، PPT، PPTX، عرض، وورد، DOCX، DOC، PPTX إلى DOCX، PPT إلى DOC، PPTX إلى DOC، PPT إلى DOCX، Java، java، Aspose.Slides"
 description: "تحويل عرض باوربوينت إلى وورد في جافا"
 ---

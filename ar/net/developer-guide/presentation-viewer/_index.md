@@ -2,7 +2,7 @@
 title: عارض العروض التقديمية
 type: docs
 weight: 50
-url: /net/presentation-viewer/
+url: /ar/net/presentation-viewer/
 keywords: 
 - عرض تقديمية PowerPoint
 - عرض ppt

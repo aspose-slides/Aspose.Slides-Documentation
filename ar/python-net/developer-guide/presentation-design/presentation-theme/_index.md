@@ -2,14 +2,14 @@
 title: قالب العرض التقديمي
 type: docs
 weight: 10
-url: /python-net/presentation-theme/
+url: /ar/python-net/presentation-theme/
 keywords: "قالب، قالب PowerPoint، عرض تقديمي PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "قالب عرض تقديمي PowerPoint في بايثون"
 ---
 
 يعرف قالب العرض التقديمي خصائص عناصر التصميم. عندما تختار قالب عرض تقديمي، فإنك في الأساس تختار مجموعة معينة من العناصر المرئية وخصائصها.
 
-في PowerPoint، يتكون القالب من الألوان، [الخطوط](/slides/python-net/powerpoint-fonts/)، [أنماط الخلفية](/slides/python-net/presentation-background/)، والتأثيرات.
+في PowerPoint، يتكون القالب من الألوان، [الخطوط](/slides/ar/python-net/powerpoint-fonts/)، [أنماط الخلفية](/slides/ar/python-net/presentation-background/)، والتأثيرات.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -144,7 +144,7 @@ pres.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في الاطلاع على [خطوط PowerPoint](/slides/python-net/powerpoint-fonts/).
+قد ترغب في الاطلاع على [خطوط PowerPoint](/slides/ar/python-net/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -178,7 +178,7 @@ pres.masters[0].background.style_index = 2
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في الاطلاع على [خلفية PowerPoint](/slides/python-net/presentation-background/).
+قد ترغب في الاطلاع على [خلفية PowerPoint](/slides/ar/python-net/presentation-background/).
 
 {{% /alert %}}
 

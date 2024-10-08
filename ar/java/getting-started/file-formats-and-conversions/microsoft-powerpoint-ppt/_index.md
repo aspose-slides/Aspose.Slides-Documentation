@@ -2,7 +2,7 @@
 title: مايكروسوفت باوربوينت (PPT)
 type: docs
 weight: 10
-url: /java/microsoft-powerpoint-ppt/
+url: /ar/java/microsoft-powerpoint-ppt/
 ---
 
 {{% alert color="primary" %}} 
@@ -27,7 +27,7 @@ url: /java/microsoft-powerpoint-ppt/
 بالإضافة إلى المهام الأساسية المتعلقة بإنشاء وقراءة وكتابة ملفات وثيقة PPT، هناك عدة ميزات توفرها Aspose.Slides لـ Java:
 
 - استيراد تنسيقات ملفات مايكروسوفت أوفيس الأخرى كـ [كائنات OLE في وثائق PPT]().
-- [تصدير وثائق PPT إلى PDF](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
+- [تصدير وثائق PPT إلى PDF](/slides/ar/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
 - تصدير الشرائح في وثائق PPT إلى تنسيقات SVG.
 - عرض الشرائح إلى أي تنسيق صورة مدعوم بواسطة إطار عمل Java.
 - ضبط حجم الشرائح في وثائق PPT.

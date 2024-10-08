@@ -2,7 +2,7 @@
 title: إدارة التكبير
 type: docs
 weight: 60
-url: /python-net/manage-zoom/
+url: /ar/python-net/manage-zoom/
 keywords: "تكبير، إطار التكبير، إضافة تكبير، تنسيق إطار التكبير، تكبير ملخص، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إضافة تكبير أو إطارات تكبير لعرض PowerPoint في بايثون"
 ---

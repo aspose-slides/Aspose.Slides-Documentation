@@ -2,7 +2,7 @@
 title: استبدال الصور داخل مجموعة صور العرض
 type: docs
 weight: 90
-url: /cpp/replacing-images-inside-presentation-image-collection/
+url: /ar/cpp/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

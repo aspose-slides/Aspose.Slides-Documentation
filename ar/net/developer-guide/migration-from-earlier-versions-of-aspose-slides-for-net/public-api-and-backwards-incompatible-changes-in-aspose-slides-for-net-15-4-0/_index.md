@@ -2,12 +2,12 @@
 title: واجهة برمجة التطبيقات العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ .NET 15.4.0
 type: docs
 weight: 150
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+url: /ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع الفئات والطرق والخصائص [المضافة](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) أو [المزالة](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.4.0.
+تسرد هذه الصفحة جميع الفئات والطرق والخصائص [المضافة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) أو [المزالة](/slides/ar/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) وما إلى ذلك، والتغييرات الأخرى التي تم تقديمها مع واجهة برمجة التطبيقات Aspose.Slides لـ .NET 15.4.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة برمجة التطبيقات العامة**
@@ -16,7 +16,7 @@ url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net
 #### **تمت إضافة طريقة IBulletFormat.ApplyDefaultParagraphIndentsShifts**
 تقوم طريقة Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts بتعيين انزلاقات افتراضية غير صفرية لـ effective paragraph Indent و MarginLeft عند تمكين النقاط (كما يفعل PowerPoint إذا تم تمكين نقاط/ترقيم الفقرات فيه). إذا تم تعطيل النقاط، فإنه يقوم ببساطة بإعادة تعيين الفقرات Indent و MarginLeft (كما يفعل PowerPoint إذا تم تعطيل نقاط/ترقيم الفقرات فيه).
 
-انظر الأمثلة [هنا](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+انظر الأمثلة [هنا](/slides/ar/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **تمت إضافة طريقة IConnector.Reroute**
 تقوم طريقة Aspose.Slides.IConnector.Reroute بإعادة توجيه الموصل بحيث يأخذ أقصر مسار ممكن بين الأشكال التي يتصل بها. للقيام بذلك، قد تقوم طريقة Reroute() بتغيير StartShapeConnectionSiteIndex و EndShapeConnectionSiteIndex.
 

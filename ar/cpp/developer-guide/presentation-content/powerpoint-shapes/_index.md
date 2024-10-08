@@ -2,5 +2,5 @@
 title: أشكال PowerPoint
 type: docs
 weight: 90
-url: /cpp/powerpoint-shapes/
+url: /ar/cpp/powerpoint-shapes/
 ---

@@ -2,7 +2,7 @@
 title: تخطيط الشريحة
 type: docs
 weight: 60
-url: /androidjava/slide-layout/
+url: /ar/androidjava/slide-layout/
 keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية التذييل، تذييل الطفل، تعديل المحتوى، حجم الصفحة، جافا، Aspose.Slides"
 description: "تعيين حجم الشريحة وخياراتها في PowerPoint باستخدام جافا"
 ---

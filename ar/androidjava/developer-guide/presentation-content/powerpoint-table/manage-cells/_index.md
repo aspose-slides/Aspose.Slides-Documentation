@@ -2,7 +2,7 @@
 title: إدارة الخلايا
 type: docs
 weight: 30
-url: /androidjava/manage-cells/
+url: /ar/androidjava/manage-cells/
 keywords: "جدول، خلايا مدمجة، خلايا مقسمة، صورة في خلية جدول، جافا، Aspose.Slides for Android via Java"
 description: "خلايا الجدول في عروض PowerPoint التقديمية في جافا"
 ---

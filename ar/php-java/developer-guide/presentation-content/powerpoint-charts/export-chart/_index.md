@@ -2,7 +2,7 @@
 title: تصدير الرسم البياني
 type: docs
 weight: 90
-url: /php-java/export-chart/
+url: /ar/php-java/export-chart/
 ---
 
 ## **الحصول على صورة الرسم البياني**

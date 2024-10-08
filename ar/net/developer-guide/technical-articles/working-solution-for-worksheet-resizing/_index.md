@@ -2,7 +2,7 @@
 title: حل عملي لتغيير حجم ورقة العمل
 type: docs
 weight: 40
-url: /net/working-solution-for-worksheet-resizing/
+url: /ar/net/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ url: /net/working-solution-for-worksheet-resizing/
 
 {{% /alert %}} 
 ## **الخلفية**
-في [مقال إضافة إطارات Ole](), قمنا بشرح كيفية إضافة إطار Ole في العرض التقديمي في عرض PowerPoint باستخدام Aspose.Slides لـ .NET. من أجل استيعاب [مشكلة تغيير الكائن](/slides/net/object-changed-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة ورقة العمل للمنطقة المحددة إلى إطار OLE Object. في العرض الناتج، عند النقر المزدوج على إطار OLE Object الذي يظهر صورة ورقة العمل، يتم تنشيط مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة في دفتر عمل Excel الفعلي ثم العودة إلى الشريحة المعنية عن طريق النقر خارج دفتر عمل Excel المنشط. سيتغير حجم إطار OLE Object عندما يعود المستخدم إلى الشريحة. سيكون عامل إعادة الحجم مختلفًا لأحجام مختلفة من إطار OLE Object ودفتر عمل Excel المدمج. 
+في [مقال إضافة إطارات Ole](), قمنا بشرح كيفية إضافة إطار Ole في العرض التقديمي في عرض PowerPoint باستخدام Aspose.Slides لـ .NET. من أجل استيعاب [مشكلة تغيير الكائن](/slides/ar/net/object-changed-issue-when-adding-oleobjectframe/)، قمنا بتعيين صورة ورقة العمل للمنطقة المحددة إلى إطار OLE Object. في العرض الناتج، عند النقر المزدوج على إطار OLE Object الذي يظهر صورة ورقة العمل، يتم تنشيط مخطط Excel. يمكن للمستخدمين النهائيين إجراء أي تغييرات مرغوبة في دفتر عمل Excel الفعلي ثم العودة إلى الشريحة المعنية عن طريق النقر خارج دفتر عمل Excel المنشط. سيتغير حجم إطار OLE Object عندما يعود المستخدم إلى الشريحة. سيكون عامل إعادة الحجم مختلفًا لأحجام مختلفة من إطار OLE Object ودفتر عمل Excel المدمج. 
 ## **سبب إعادة الحجم**
 نظرًا لأن دفتر عمل Excel له حجمه الخاص من النافذة، فإنه يحاول الاحتفاظ بحجمه الأصلي عند التنشيط لأول مرة. من ناحية أخرى، سيكون لإطار OLE Object حجمه الخاص. وفقًا لشركة Microsoft، عند تنشيط دفتر عمل Excel، تتفاوض Excel وPowerPoint على الحجم وتضمن أنه في النسب الصحيحة كجزء من عملية التضمين. استنادًا إلى الفروق في حجم نافذة Excel وحجم إطار OLE Object / موضعه، يحدث إعادة الحجم. 
 ## **الحل العملي**
@@ -282,6 +282,6 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 {{% alert color="primary" %}}  هناك نهجان لحل مشكلة تغيير حجم ورقة العمل. يعتمد اختيار النهج المناسب على المتطلبات وحالة الاستخدام. يعمل كلا النهجين بنفس الطريقة سواء تم إنشاء العروض التقديمية من نموذج أو إنشاؤها من الصفر. أيضًا، لا يوجد حد لحجم إطار OLE Object في الحل. {{% /alert %}} 
 ## **الأقسام ذات الصلة**
-[إنشاء وتضمين مخطط Excel ككائن OLE في العرض التقديمي](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[إنشاء وتضمين مخطط Excel ككائن OLE في العرض التقديمي](/slides/ar/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[تحديث كائنات OLE تلقائيًا](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[تحديث كائنات OLE تلقائيًا](/slides/ar/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

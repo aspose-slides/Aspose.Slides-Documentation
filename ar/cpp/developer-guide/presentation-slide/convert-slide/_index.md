@@ -2,7 +2,7 @@
 title: تحويل الشريحة
 type: docs
 weight: 41
-url: /cpp/convert-slide/
+url: /ar/cpp/convert-slide/
 keywords: 
 - تحويل الشريحة إلى صورة
 - تصدير الشريحة كصورة

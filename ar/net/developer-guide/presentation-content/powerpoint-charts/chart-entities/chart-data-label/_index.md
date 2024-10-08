@@ -1,7 +1,7 @@
 ---
 title: ملصق بيانات الرسم البياني
 type: docs
-url: /net/chart-data-label/
+url: /ar/net/chart-data-label/
 keywords: "ملصق بيانات الرسم البياني, مسافة الملصق, C#, Csharp, Aspose.Slides for .NET"
 description: "تعيين ملصق بيانات الرسم البياني في PowerPoint والمسافة في C# أو .NET"
 ---

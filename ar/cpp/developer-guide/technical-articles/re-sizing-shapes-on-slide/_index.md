@@ -2,7 +2,7 @@
 title: تغيير حجم الأشكال على الشريحة
 type: docs
 weight: 100
-url: /cpp/re-sizing-shapes-on-slide/
+url: /ar/cpp/re-sizing-shapes-on-slide/
 ---
 
 #### **تغيير حجم الأشكال على الشريحة**

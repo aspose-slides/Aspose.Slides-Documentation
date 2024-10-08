@@ -2,7 +2,7 @@
 title: إزالة الشريحة من العرض التقديمي
 type: docs
 weight: 30
-url: /php-java/remove-slide-from-presentation/
+url: /ar/php-java/remove-slide-from-presentation/
 keywords: "إزالة الشريحة، حذف الشريحة، باوربوينت، عرض تقديمي، جافا، Aspose.Slides"
 description: "إزالة الشريحة من باوربوينت بواسطة المرجع أو الفهرس"
 

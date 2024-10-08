@@ -2,7 +2,7 @@
 title: PPT مقابل PPTX
 type: docs
 weight: 10
-url: /net/ppt-vs-pptx/
+url: /ar/net/ppt-vs-pptx/
 keywords: "PPT مقابل PPTX, PPT أو PPTX, عرض PowerPoint, تنسيق, C#, Csharp, .NET"
 description: "حول تنسيقات عرض PowerPoint. PPT مقابل PPTX. الاختلافات في C# أو .NET"
 ---
@@ -35,5 +35,5 @@ pres.Save("PPTtoPPTX_out.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="primary" %}} 
-اقرأ المزيد عن [**كيفية تحويل العروض التقديمية من PPT إلى PPTX**.](/slides/net/convert-ppt-to-pptx/)
+اقرأ المزيد عن [**كيفية تحويل العروض التقديمية من PPT إلى PPTX**.](/slides/ar/net/convert-ppt-to-pptx/)
 {{% /alert %}} 

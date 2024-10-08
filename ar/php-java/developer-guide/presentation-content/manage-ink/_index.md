@@ -2,7 +2,7 @@
 title: إدارة الحبر
 type: docs
 weight: 95
-url: /php-java/manage-ink/
+url: /ar/php-java/manage-ink/
 keywords: "الحبر في PowerPoint، أدوات الحبر، حبر Java، رسم في PowerPoint، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "استخدام أدوات الحبر لرسم الأشكال في PowerPoint Java"
 ---

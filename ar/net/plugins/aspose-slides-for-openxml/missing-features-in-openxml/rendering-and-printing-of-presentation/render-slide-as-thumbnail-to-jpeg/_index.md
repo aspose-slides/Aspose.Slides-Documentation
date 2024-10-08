@@ -2,7 +2,7 @@
 title: عرض الشريحة كصورة مصغرة بصيغة JPEG
 type: docs
 weight: 60
-url: /net/render-slide-as-thumbnail-to-jpeg/
+url: /ar/net/render-slide-as-thumbnail-to-jpeg/
 ---
 
 **Aspose.Slides لـ .NET** تُستخدم لإنشاء ملفات العروض التقديمية التي تحتوي على الشرائح. يمكن عرض هذه الشرائح من خلال فتح ملفات العروض التقديمية باستخدام Microsoft PowerPoint. ولكن في بعض الأحيان، قد يحتاج المطورون إلى عرض الشرائح كصور باستخدام عارض الصور المفضل لديهم. في مثل هذه الحالات، تساعدك Aspose.Slides لـ .NET في إنشاء صور مصغرة للشرائح.

@@ -3,7 +3,7 @@ title: خط احتياطي - واجهة برمجة تطبيقات PowerPoint C#
 linktitle: خط احتياطي
 type: docs
 weight: 50
-url: /net/fallback-font/
+url: /ar/net/fallback-font/
 keywords: "خط احتياطي، خط، عرض PowerPoint، C#، Csharp، Aspose.Slides for .NET"
 description: عندما لا يحتوي الخط على شكل رمزي ضروري، ستتيح لك واجهة برمجة تطبيقات PowerPoint C# استخدام أحد خطوط الاحتياطي المحددة لاستبدال الشكل الرمزي.
 ---
@@ -15,6 +15,6 @@ description: عندما لا يحتوي الخط على شكل رمزي ضرور
 
 للتعرف على هذه الميزات، استخدم الروابط التالية:
 
-- [إنشاء خط احتياطي](/slides/net/create-fallback-font)
-- [إنشاء مجموعة خطوط احتياطية](/slides/net/create-fallback-fonts-collection)
-- [عرض تقديمي باستخدام خط احتياطي](/slides/net/render-presentation-with-fallback-font)
+- [إنشاء خط احتياطي](/slides/ar/net/create-fallback-font)
+- [إنشاء مجموعة خطوط احتياطية](/slides/ar/net/create-fallback-fonts-collection)
+- [عرض تقديمي باستخدام خط احتياطي](/slides/ar/net/render-presentation-with-fallback-font)

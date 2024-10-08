@@ -3,7 +3,7 @@ title: تحويل PPT إلى PPTX
 linktitle: تحويل PPT إلى PPTX
 type: docs
 weight: 20
-url: /php-java/convert-ppt-to-pptx/
+url: /ar/php-java/convert-ppt-to-pptx/
 keywords: "PHP تحويل PPT إلى PPTX، PowerPoint PPT إلى PPTX"
 description: "تحويل PowerPoint PPT إلى PPTX."
 ---
@@ -47,7 +47,7 @@ description: "تحويل PowerPoint PPT إلى PPTX."
 {{% /alert %}} 
 
 ## **تحويل PPT إلى PPTX**
-يسهل Aspose.Slides لـ PHP عبر Java الآن للمطورين الوصول إلى PPT باستخدام مثيل فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحويله إلى تنسيق [PPTX](https://docs.fileformat.com/presentation/pptx/). حاليًا، يدعم التحويل الجزئي من [PPT ](https://docs.fileformat.com/presentation/ppt/)إلى PPTX. لمزيد من التفاصيل حول الميزات المدعومة وغير المدعومة في تحويل PPT إلى PPTX، يرجى الانتقال إلى وثائق هذا [الرابط](/slides/php-java/ppt-to-pptx-conversion/).
+يسهل Aspose.Slides لـ PHP عبر Java الآن للمطورين الوصول إلى PPT باستخدام مثيل فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) وتحويله إلى تنسيق [PPTX](https://docs.fileformat.com/presentation/pptx/). حاليًا، يدعم التحويل الجزئي من [PPT ](https://docs.fileformat.com/presentation/ppt/)إلى PPTX. لمزيد من التفاصيل حول الميزات المدعومة وغير المدعومة في تحويل PPT إلى PPTX، يرجى الانتقال إلى وثائق هذا [الرابط](/slides/ar/php-java/ppt-to-pptx-conversion/).
 
 يقدم Aspose.Slides لـ PHP عبر Java فئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) التي تمثل ملف عرض **PPTX**. يمكن لفئة Presentation الآن أيضًا الوصول إلى **PPT** من خلال Presentation عند إنشاء الكائن. توضح المثال التالي كيفية تحويل عرض PPT إلى عرض PPTX.
 

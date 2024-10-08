@@ -3,7 +3,7 @@ title: إنشاء أو تحديث رسوم بيانية في عروض PowerPoint
 linktitle: إنشاء أو تحديث الرسم البياني
 type: docs
 weight: 10
-url: /net/create-chart/
+url: /ar/net/create-chart/
 keywords: "إنشاء رسم بياني، رسم بياني متناثر، رسم بياني دائري، رسم بياني خريطة شجرية، رسم بياني للأسهم، رسم بياني للصندوق والشعيرات، رسم بياني هيستوجرام، رسم بياني قمع، رسم بياني شمسية، رسم بياني متعدد الفئات، عرض PowerPoint، C#، Csharp، Aspose.Slides ل .NET"
 description: "إنشاء رسم بياني في عرض PowerPoint باستخدام C# أو .NET"
 ---

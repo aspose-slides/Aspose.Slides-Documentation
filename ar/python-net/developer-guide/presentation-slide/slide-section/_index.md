@@ -2,7 +2,7 @@
 title: قسم الشريحة
 type: docs
 weight: 100
-url: /python-net/slide-section/
+url: /ar/python-net/slide-section/
 keywords: "إنشاء قسم، إضافة قسم، تعديل اسم القسم، عرض بوربوينت، بايثون، Aspose.Slides"
 description: "إضافة وتعديل قسم في عرض بوربوينت باستخدام بايثون"
 ---

@@ -2,7 +2,7 @@
 title: مستطيل
 type: docs
 weight: 80
-url: /python-net/rectangle/
+url: /ar/python-net/rectangle/
 keywords: "إنشاء مستطيل، شكل PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "إنشاء مستطيل في عرض PowerPoint باستخدام بايثون"
 ---

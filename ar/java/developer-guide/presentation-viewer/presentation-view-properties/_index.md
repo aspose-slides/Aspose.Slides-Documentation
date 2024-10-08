@@ -1,7 +1,7 @@
 ---
 title: خصائص عرض التقديم
 type: docs
-url: /java/presentation-view-properties/
+url: /ar/java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -59,7 +59,7 @@ try {
 ## **تعيين قيمة التكبير الافتراضية**
 {{% alert color="primary" %}} 
 
-يدعم Aspose.Slides لـ Java الآن تعيين قيمة التكبير الافتراضية للتقديم بحيث عند فتح التقديم، يتم تعيين التكبير مسبقًا. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) للتقديم. يمكن تعيين [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) وكذلك [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى مع مثال كيفية تعيين [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) في [Aspose.Slides](/slides/).
+يدعم Aspose.Slides لـ Java الآن تعيين قيمة التكبير الافتراضية للتقديم بحيث عند فتح التقديم، يتم تعيين التكبير مسبقًا. يمكن القيام بذلك عن طريق تعيين [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) للتقديم. يمكن تعيين [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) وكذلك [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) برمجيًا. في هذا الموضوع، سنرى مع مثال كيفية تعيين [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) لـ [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) في [Aspose.Slides](/slides/ar/).
 
 {{% /alert %}} 
 

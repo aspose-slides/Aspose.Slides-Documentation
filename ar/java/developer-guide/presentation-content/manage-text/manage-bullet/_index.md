@@ -2,7 +2,7 @@
 title: إدارة النقاط
 type: docs
 weight: 60
-url: /java/manage-bullet/
+url: /ar/java/manage-bullet/
 keywords: "النقاط، قوائم النقاط، الأرقام، قوائم مرقمة، نقاط صور، نقاط متعددة المستويات، عرض PowerPoint، Java، Aspose.Slides for Java"
 description: "إنشاء قوائم نقاط وقوائم مرقمة في عرض PowerPoint باستخدام Java"
 ---

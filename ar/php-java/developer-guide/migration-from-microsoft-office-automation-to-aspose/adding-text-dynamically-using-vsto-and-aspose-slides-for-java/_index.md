@@ -2,12 +2,12 @@
 title: إضافة نص ديناميكياً باستخدام VSTO و Aspose.Slides لـ PHP عبر Java
 type: docs
 weight: 20
-url: /php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+url: /ar/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-مهمة شائعة يجب على المطورين إنجازها هي إضافة نص إلى الشرائح ديناميكياً. توضح هذه المقالة أمثلة برمجية لإضافة نص ديناميكياً باستخدام [VSTO](/slides/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides لـ PHP عبر Java](/slides/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+مهمة شائعة يجب على المطورين إنجازها هي إضافة نص إلى الشرائح ديناميكياً. توضح هذه المقالة أمثلة برمجية لإضافة نص ديناميكياً باستخدام [VSTO](/slides/ar/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) و [Aspose.Slides لـ PHP عبر Java](/slides/ar/php-java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **إضافة نص ديناميكياً**

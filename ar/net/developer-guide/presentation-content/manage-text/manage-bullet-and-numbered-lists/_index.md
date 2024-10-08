@@ -2,7 +2,7 @@
 title: إدارة القوائم النقطية والقوائم المرقمة
 type: docs
 weight: 70
-url: /net/manage-bullet-and-numbered-lists
+url: /ar/net/manage-bullet-and-numbered-lists
 keywords: "النقاط، قوائم نقطية، أرقام، قوائم مرقمة، نقاط مصورة، نقاط متعددة المستويات، عرض PowerPoint، C#، Csharp، Aspose.Slides ل .NET"
 description: "إنشاء قوائم نقطية ومرقمة في عرض PowerPoint بلغة C# أو .NET"
 ---

@@ -2,7 +2,7 @@
 title: قسم الشريحة
 type: docs
 weight: 90
-url: /java/slide-section/
+url: /ar/java/slide-section/
 ---
 
 مع Aspose.Slides لـ Java، يمكنك تنظيم عرض PowerPoint تقديمي إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح محددة.

@@ -2,7 +2,7 @@
 title: تحويل إلى HTML
 type: docs
 weight: 20
-url: /net/conversion-to-html/
+url: /ar/net/conversion-to-html/
 ---
 
 **HTML** هو أحد عدة تنسيقات مستخدمة على نطاق واسع لتبادل البيانات. **Aspose.Slides لـ .NET** يوفر الدعم لتحويل عرض تقديمي إلى HTML. أدناه هو مقتطف من الكود يوضح لك كيفية ذلك.

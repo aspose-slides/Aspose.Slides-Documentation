@@ -2,7 +2,7 @@
 title: خط الاستبدال
 type: docs
 weight: 50
-url: /python-net/fallback-font/
+url: /ar/python-net/fallback-font/
 keywords: "خط الاستبدال، خط، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "خط الاستبدال في PowerPoint باستخدام بايثون"
 ---
@@ -14,6 +14,6 @@ description: "خط الاستبدال في PowerPoint باستخدام بايث�
 
 للتعرف على هذه الميزات، استخدم الروابط التالية:
 
-- [إنشاء خط استبدال](/slides/python-net/create-fallback-font)
-- [إنشاء مجموعة خطوط الاستبدال](/slides/python-net/create-fallback-fonts-collection)
-- [عرض العرض باستخدام خط استبدال](/slides/python-net/render-presentation-with-fallback-font)
+- [إنشاء خط استبدال](/slides/ar/python-net/create-fallback-font)
+- [إنشاء مجموعة خطوط الاستبدال](/slides/ar/python-net/create-fallback-fonts-collection)
+- [عرض العرض باستخدام خط استبدال](/slides/ar/python-net/render-presentation-with-fallback-font)

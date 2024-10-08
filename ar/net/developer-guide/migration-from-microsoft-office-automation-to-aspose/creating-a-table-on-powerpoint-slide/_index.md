@@ -2,12 +2,12 @@
 title: إنشاء جدول على شريحة باوربوينت
 type: docs
 weight: 50
-url: /net/creating-a-table-on-powerpoint-slide/
+url: /ar/net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-تستخدم الجداول على نطاق واسع لعرض البيانات على شرائح العروض التقديمية. توضح هذه المقالة كيفية إنشاء جدول بحجم 15 × 15 وحجم خط 10 برمجياً باستخدام [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for .NET](/slides/net/creating-a-table-on-powerpoint-slide/).
+تستخدم الجداول على نطاق واسع لعرض البيانات على شرائح العروض التقديمية. توضح هذه المقالة كيفية إنشاء جدول بحجم 15 × 15 وحجم خط 10 برمجياً باستخدام [VSTO 2008](/slides/ar/net/creating-a-table-on-powerpoint-slide/) ثم [Aspose.Slides for .NET](/slides/ar/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **إنشاء الجداول**

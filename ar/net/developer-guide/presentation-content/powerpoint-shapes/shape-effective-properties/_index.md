@@ -2,7 +2,7 @@
 title: خصائص الشكل الفعالة
 type: docs
 weight: 50
-url: /net/shape-effective-properties/
+url: /ar/net/shape-effective-properties/
 keywords: "خصائص الشكل، خصائص الكاميرا، تجهيز الضوء، شكل التبع، إطار النص، نمط النص، قيمة ارتفاع الخط، تنسيق التعبئة للجدول، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "احصل على خصائص الشكل الفعالة في عروض PowerPoint باستخدام C# أو .NET"
 ---

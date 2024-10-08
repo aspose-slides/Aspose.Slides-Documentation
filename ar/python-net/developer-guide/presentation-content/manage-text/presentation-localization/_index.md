@@ -2,7 +2,7 @@
 title: توطين العرض
 type: docs
 weight: 100
-url: /python-net/presentation-localization/
+url: /ar/python-net/presentation-localization/
 keywords: "تغيير اللغة، التدقيق الإملائي، فحص الإملاء، مدقق الإملاء، عرض PowerPoint، بايثون، Aspose.Slides لـ بايثون عبر .NET"
 description: "تغيير أو فحص اللغة في عرض PowerPoint. فحص إملائي للنص في بايثون"
 ---

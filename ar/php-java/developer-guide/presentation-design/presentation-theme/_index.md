@@ -2,14 +2,14 @@
 title: ثيم العرض
 type: docs
 weight: 10
-url: /php-java/presentation-theme/
+url: /ar/php-java/presentation-theme/
 keywords: "ثيم، ثيم PowerPoint، عرض PowerPoint، Java، Aspose.Slides لـ PHP عبر Java"
 description: "ثيم عرض PowerPoint"
 ---
 
 يحدد ثيم العرض خصائص عناصر التصميم. عند اختيار ثيم عرض، تقوم في الأساس باختيار مجموعة معينة من العناصر المرئية وخصائصها.
 
-في PowerPoint، يتكون الثيم من ألوان، [خطوط](/slides/php-java/powerpoint-fonts/)، [أنماط خلفية](/slides/php-java/presentation-background/)، وتأثيرات.
+في PowerPoint، يتكون الثيم من ألوان، [خطوط](/slides/ar/php-java/powerpoint-fonts/)، [أنماط خلفية](/slides/ar/php-java/presentation-background/)، وتأثيرات.
 
 ![مكونات الثيم](theme-constituents.png)
 
@@ -137,7 +137,7 @@ description: "ثيم عرض PowerPoint"
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خطوط PowerPoint](/slides/php-java/powerpoint-fonts/).
+قد ترغب في رؤية [خطوط PowerPoint](/slides/ar/php-java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -177,7 +177,7 @@ description: "ثيم عرض PowerPoint"
 
 {{% alert color="primary" title="نصيحة" %}} 
 
-قد ترغب في رؤية [خلفية PowerPoint](/slides/php-java/presentation-background/).
+قد ترغب في رؤية [خلفية PowerPoint](/slides/ar/php-java/presentation-background/).
 
 {{% /alert %}}
 

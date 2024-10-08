@@ -2,7 +2,7 @@
 title: فن الكلمات
 type: docs
 weight: 110
-url: /php-java/wordart/
+url: /ar/php-java/wordart/
 ---
 
 

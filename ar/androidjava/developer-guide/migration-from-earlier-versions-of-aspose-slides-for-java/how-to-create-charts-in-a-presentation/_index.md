@@ -2,7 +2,7 @@
 title: كيفية إنشاء الرسوم البيانية في عرض تقديمي
 type: docs
 weight: 30
-url: /androidjava/how-to-create-charts-in-a-presentation/
+url: /ar/androidjava/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

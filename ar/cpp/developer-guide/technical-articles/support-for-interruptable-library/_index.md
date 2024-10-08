@@ -2,7 +2,7 @@
 title: دعم المكتبة القابلة للإيقاف
 type: docs
 weight: 150
-url: /cpp/support-for-interruptable-library/
+url: /ar/cpp/support-for-interruptable-library/
 ---
 
 ## **المكتبة القابلة للإيقاف**

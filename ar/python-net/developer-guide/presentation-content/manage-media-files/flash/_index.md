@@ -2,7 +2,7 @@
 title: فلاش
 type: docs
 weight: 10
-url: /python-net/flash/
+url: /ar/python-net/flash/
 keywords: "استخراج فلاش، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
 description: "استخراج كائن فلاش من عرض PowerPoint باستخدام Python"
 ---

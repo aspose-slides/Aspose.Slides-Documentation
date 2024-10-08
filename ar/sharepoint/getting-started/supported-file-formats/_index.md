@@ -2,7 +2,7 @@
 title: تنسيقات الملفات المدعومة
 type: docs
 weight: 20
-url: /sharepoint/supported-file-formats/
+url: /ar/sharepoint/supported-file-formats/
 ---
 
 ## **إصدارات Microsoft PowerPoint المدعومة**

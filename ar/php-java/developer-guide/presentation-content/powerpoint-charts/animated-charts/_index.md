@@ -2,7 +2,7 @@
 title: الرسوم البيانية المتحركة
 type: docs
 weight: 80
-url: /php-java/animated-charts/
+url: /ar/php-java/animated-charts/
 ---
 
 {{% alert color="primary" %}} 

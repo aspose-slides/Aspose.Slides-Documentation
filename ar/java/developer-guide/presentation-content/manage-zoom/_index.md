@@ -2,7 +2,7 @@
 title: إدارة التكبير
 type: docs
 weight: 60
-url: /java/manage-zoom/
+url: /ar/java/manage-zoom/
 keywords: "تكبير, إطار تكبير, إضافة تكبير, تنسيق إطار التكبير, ملخص تكبير, عرض PowerPoint, جافا, Aspose.Slides for Java"
 description: "إضافة تكبير أو إطارات تكبير إلى عروض PowerPoint في جافا"
 ---

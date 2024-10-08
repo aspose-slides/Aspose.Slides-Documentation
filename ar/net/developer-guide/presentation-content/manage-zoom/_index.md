@@ -2,7 +2,7 @@
 title: إدارة الزوم
 type: docs
 weight: 60
-url: /net/manage-zoom/
+url: /ar/net/manage-zoom/
 keywords: 
 - زوم
 - إطار زوم

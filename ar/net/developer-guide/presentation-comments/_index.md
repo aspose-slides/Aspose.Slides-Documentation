@@ -2,7 +2,7 @@
 title: تعليقات العرض
 type: docs
 weight: 100
-url: /net/presentation-comments/
+url: /ar/net/presentation-comments/
 keywords: "تعليقات، تعليقات PowerPoint، عرض PowerPoint، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إضافة تعليقات وردود في عرض PowerPoint باستخدام C# أو .NET"
 ---

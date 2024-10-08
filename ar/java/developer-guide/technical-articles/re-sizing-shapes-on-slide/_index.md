@@ -2,7 +2,7 @@
 title: تغيير حجم الأشكال في الشريحة
 type: docs
 weight: 110
-url: /java/re-sizing-shapes-on-slide/
+url: /ar/java/re-sizing-shapes-on-slide/
 ---
 
 ## **تغيير حجم الأشكال في الشريحة**

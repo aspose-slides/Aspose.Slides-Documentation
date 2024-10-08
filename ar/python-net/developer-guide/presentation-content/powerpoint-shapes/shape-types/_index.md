@@ -2,5 +2,5 @@
 title: أنواع الأشكال
 type: docs
 weight: 10
-url: /python-net/shape-types/
+url: /ar/python-net/shape-types/
 ---

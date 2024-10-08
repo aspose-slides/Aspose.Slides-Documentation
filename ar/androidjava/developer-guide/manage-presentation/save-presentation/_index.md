@@ -2,13 +2,13 @@
 title: حفظ العرض التقديمي
 type: docs
 weight: 80
-url: /androidjava/save-presentation/
+url: /ar/androidjava/save-presentation/
 ---
 
 ## **نظرة عامة**
 {{% alert color="primary" %}} 
 
-[فتح العرض التقديمي](/slides/androidjava/open-presentation/) وصف كيفية استخدام فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) لفتح عرض تقديمي. تشرح هذه المقالة كيفية إنشاء وحفظ العروض التقديمية.
+[فتح العرض التقديمي](/slides/ar/androidjava/open-presentation/) وصف كيفية استخدام فئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) لفتح عرض تقديمي. تشرح هذه المقالة كيفية إنشاء وحفظ العروض التقديمية.
 
 {{% /alert %}} 
 

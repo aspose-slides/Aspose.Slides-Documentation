@@ -1,7 +1,7 @@
 ---
 title: سلسلة الرسوم البيانية
 type: docs
-url: /java/chart-series/
+url: /ar/java/chart-series/
 keywords: "سلسلة الرسوم البيانية، لون السلسلة، عرض PowerPoint، جافا، Aspose.Slides لجافا"
 description: "سلسلة الرسوم البيانية في عروض PowerPoint في جافا"
 ---

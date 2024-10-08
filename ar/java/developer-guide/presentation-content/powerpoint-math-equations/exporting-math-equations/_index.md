@@ -2,7 +2,7 @@
 title: تصدير المعادلات الرياضية
 type: docs
 weight: 30
-url: /java/exporting-math-equations/
+url: /ar/java/exporting-math-equations/
 
 ---
 

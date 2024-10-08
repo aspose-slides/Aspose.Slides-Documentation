@@ -2,7 +2,7 @@
 title: تعليقات العرض
 type: docs
 weight: 100
-url: /python-net/presentation-comments/
+url: /ar/python-net/presentation-comments/
 keywords: "تعليقات، تعليقات PowerPoint، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "إضافة تعليقات وردود في عرض PowerPoint باستخدام بايثون"
 ---

@@ -2,7 +2,7 @@
 title: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
-url: /java/3d-presentation/
+url: /ar/java/3d-presentation/
 keywords:
 - 3D
 - PowerPoint ثلاثي الأبعاد

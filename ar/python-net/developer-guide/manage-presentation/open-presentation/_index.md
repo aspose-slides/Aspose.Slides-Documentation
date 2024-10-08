@@ -2,7 +2,7 @@
 title: فتح العرض التقديمي
 type: docs
 weight: 20
-url: /python-net/open-presentation/
+url: /ar/python-net/open-presentation/
 keywords: "فتح PowerPoint, PPTX, PPT, فتح العرض التقديمي, تحميل العرض التقديمي, بايثون"
 description: "فتح أو تحميل العرض التقديمي PPT, PPTX, ODP في بايثون"
 ---

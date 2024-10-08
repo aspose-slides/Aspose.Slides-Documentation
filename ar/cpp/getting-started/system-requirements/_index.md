@@ -2,7 +2,7 @@
 title: متطلبات النظام
 type: docs
 weight: 80
-url: /cpp/system-requirements/
+url: /ar/cpp/system-requirements/
 ---
 
 ## **أنظمة التشغيل المدعومة**

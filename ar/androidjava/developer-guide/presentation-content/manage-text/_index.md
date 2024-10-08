@@ -2,5 +2,5 @@
 title: إدارة النص
 type: docs
 weight: 50
-url: /androidjava/manage-text/
+url: /ar/androidjava/manage-text/
 ---

@@ -2,7 +2,7 @@
 title: العمل مع حجم وتخطيط العرض
 type: docs
 weight: 90
-url: /net/working-with-size-and-layout-of-presentation/
+url: /ar/net/working-with-size-and-layout-of-presentation/
 ---
 
 **SlideSize.Type** و **SlideSize.Size** هي الخصائص في فئة العرض والتي يمكن تعيينها أو الحصول عليها كما هو موضح أدناه في المثال.
@@ -47,6 +47,6 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-للمزيد من التفاصيل، قم بزيارة [العمل مع حجم وتخطيط الشريحة](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+للمزيد من التفاصيل، قم بزيارة [العمل مع حجم وتخطيط الشريحة](/slides/ar/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

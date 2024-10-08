@@ -2,7 +2,7 @@
 title: فحص العرض التقديمي
 type: docs
 weight: 30
-url: /python-net/examine-presentation/
+url: /ar/python-net/examine-presentation/
 keywords:
 - PowerPoint
 - العرض التقديمي

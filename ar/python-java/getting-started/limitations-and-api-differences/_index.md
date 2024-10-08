@@ -2,7 +2,7 @@
 title: القيود واختلافات واجهة برمجة التطبيقات
 type: docs
 weight: 100
-url: /python-java/limitations-and-api-differences/
+url: /ar/python-java/limitations-and-api-differences/
 keywords: "node, powerpoint, limitation, api, differences"
 description: "قيود واختلافات واجهة برمجة التطبيقات لـ Aspose.Slides لـ Python عبر Java."
 ---

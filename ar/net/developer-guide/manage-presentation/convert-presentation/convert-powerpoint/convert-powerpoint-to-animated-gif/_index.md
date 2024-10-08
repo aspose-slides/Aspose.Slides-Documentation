@@ -2,7 +2,7 @@
 title: تحويل PowerPoint إلى GIF متحرك
 type: docs
 weight: 65
-url: /net/convert-powerpoint-to-animated-gif/
+url: /ar/net/convert-powerpoint-to-animated-gif/
 keywords: "تحويل PowerPoint، PPT، PPTX، GIF متحرك، PPT إلى GIF متحرك، PPTX إلى GIF متحرك C#، Csharp، .NET، إعدادات افتراضية، إعدادات مخصصة"
 description: "تحويل عرض PowerPoint إلى GIF متحرك: PPT إلى GIF، PPTX إلى GIF في C# أو .NET"
 ---

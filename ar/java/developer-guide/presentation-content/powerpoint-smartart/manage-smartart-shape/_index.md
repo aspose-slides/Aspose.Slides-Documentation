@@ -2,7 +2,7 @@
 title: إدارة شكل SmartArt
 type: docs
 weight: 20
-url: /java/manage-smartart-shape/
+url: /ar/java/manage-smartart-shape/
 ---
 
 

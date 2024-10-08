@@ -2,7 +2,7 @@
 title: صيغ الملفات المختلفة والتحويلات
 type: docs
 weight: 50
-url: /cpp/different-file-formats-and-conversions/
+url: /ar/cpp/different-file-formats-and-conversions/
 ---
 
 ## **مايكروسوفت باوربوينت (PPT)**
@@ -209,7 +209,7 @@ PresentationML هو اسم لعائلة من التنسيقات المستندة
 - النقاط
 - الجداول
 
-يمكنك تصدير مستندات العرض إلى مستندات PDF مباشرة باستخدام مكون Aspose.Slides لـ C++ فقط. أي أنك لا تحتاج إلى أي مكون آخر من الطرف الثالث أو Aspose.Pdf لهذا الغرض. علاوة على ذلك، يمكنك تخصيص عرض المستند إلى PDF مع خيارات مختلفة كما هو موضح في [هذا الموضوع](/slides/cpp/converting-presentation-to-pdf/).
+يمكنك تصدير مستندات العرض إلى مستندات PDF مباشرة باستخدام مكون Aspose.Slides لـ C++ فقط. أي أنك لا تحتاج إلى أي مكون آخر من الطرف الثالث أو Aspose.Pdf لهذا الغرض. علاوة على ذلك، يمكنك تخصيص عرض المستند إلى PDF مع خيارات مختلفة كما هو موضح في [هذا الموضوع](/slides/ar/cpp/converting-presentation-to-pdf/).
 
 مستند عرض تم تحويله إلى مستند PDF من خلال Aspose.Slides لـ C++
 ## **مواصفة محلل XML (XPS)**

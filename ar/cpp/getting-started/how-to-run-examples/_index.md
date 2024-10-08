@@ -2,7 +2,7 @@
 title: كيفية تشغيل الأمثلة
 type: docs
 weight: 130
-url: /cpp/how-to-run-examples/
+url: /ar/cpp/how-to-run-examples/
 ---
 
 ## **متطلبات البرمجيات**

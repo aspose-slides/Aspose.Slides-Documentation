@@ -2,7 +2,7 @@
 title: تثبيت ترخيص Aspose.Slides لـ SharePoint
 type: docs
 weight: 10
-url: /sharepoint/installing-aspose-slides-for-sharepoint-license/
+url: /ar/sharepoint/installing-aspose-slides-for-sharepoint-license/
 ---
 
 {{% alert color="primary" %}} 

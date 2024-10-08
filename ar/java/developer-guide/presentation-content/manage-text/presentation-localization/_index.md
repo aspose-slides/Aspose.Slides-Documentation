@@ -2,7 +2,7 @@
 title: تخصيص العرض التقديمي
 type: docs
 weight: 100
-url: /java/presentation-localization/
+url: /ar/java/presentation-localization/
 ---
 
 ## **تغيير اللغة لنص العرض التقديمي والشكل**

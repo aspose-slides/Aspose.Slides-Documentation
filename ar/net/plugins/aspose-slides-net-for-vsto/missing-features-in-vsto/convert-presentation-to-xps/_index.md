@@ -2,7 +2,7 @@
 title: تحويل العرض التقديمي إلى XPS
 type: docs
 weight: 60
-url: /net/convert-presentation-to-xps/
+url: /ar/net/convert-presentation-to-xps/
 ---
 
 **XPS** هو تنسيق يُستخدم على نطاق واسع لتبادل البيانات. تحرص Aspose.Slides لـ .NET على أهمية هذا التنسيق وتوفر دعمًا مدمجًا لتحويل العرض التقديمي إلى وثيقة XPS.
@@ -32,6 +32,6 @@ pres.Save("converted.xps", Aspose.Slides.Export.SaveFormat.Xps);
 
 {{% alert color="primary" %}} 
 
-للمزيد من التفاصيل، قم بزيارة [التحويل إلى XPS](/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
+للمزيد من التفاصيل، قم بزيارة [التحويل إلى XPS](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/).
 
 {{% /alert %}}

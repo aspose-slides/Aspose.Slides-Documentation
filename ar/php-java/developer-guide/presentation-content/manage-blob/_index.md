@@ -2,7 +2,7 @@
 title: إدارة Blob
 type: docs
 weight: 10
-url: /php-java/manage-blob/
+url: /ar/php-java/manage-blob/
 description: إدارة Blob في عرض PowerPoint باستخدام PHP. استخدم Blob لتقليل استهلاك الذاكرة في عرض PowerPoint باستخدام PHP. أضف ملفًا كبيرًا عبر Blob إلى عرض PowerPoint باستخدام PHP. قم بتصدير ملف كبير عبر Blob من عرض PowerPoint باستخدام PHP. قم بتحميل عرض PowerPoint كبير كـ Blob باستخدام PHP.
 ---
 
@@ -22,7 +22,7 @@ description: إدارة Blob في عرض PowerPoint باستخدام PHP. است
 
 ### **إضافة ملف كبير عبر BLOB إلى عرض**
 
-تتيح لك [Aspose.Slides](/slides/php-java/) لـ Java إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) من خلال عملية تتضمن BLOBs لتقليل استهلاك الذاكرة.
+تتيح لك [Aspose.Slides](/slides/ar/php-java/) لـ Java إضافة ملفات كبيرة (في هذه الحالة، ملف فيديو كبير) من خلال عملية تتضمن BLOBs لتقليل استهلاك الذاكرة.
 
 يوضح لك هذا المثال كيفية إضافة ملف فيديو كبير من خلال عملية BLOB إلى عرض:
 

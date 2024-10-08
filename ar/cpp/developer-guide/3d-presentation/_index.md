@@ -2,7 +2,7 @@
 title: عرض ثلاثي الأبعاد
 type: docs
 weight: 232
-url: /cpp/3d-presentation/
+url: /ar/cpp/3d-presentation/
 keywords:
 - ثلاثي الأبعاد
 - PowerPoint ثلاثي الأبعاد

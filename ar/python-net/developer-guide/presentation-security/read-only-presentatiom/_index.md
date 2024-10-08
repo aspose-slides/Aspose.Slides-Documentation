@@ -2,7 +2,7 @@
 title: عرض فقط للقراءة
 type: docs
 weight: 30
-url: /python-net/read-only-presentation/
+url: /ar/python-net/read-only-presentation/
 keywords: "إعداد فقط للقراءة، عرض PowerPoint، بايثون، Aspose.Slides لبايثون عبر .NET"
 description: "عرض PowerPoint فقط للقراءة في بايثون"
 ---

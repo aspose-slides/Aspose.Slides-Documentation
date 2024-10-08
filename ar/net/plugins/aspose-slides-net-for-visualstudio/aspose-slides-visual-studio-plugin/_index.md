@@ -2,7 +2,7 @@
 title: ملحق Aspose.Slides لــ Visual Studio
 type: docs
 weight: 10
-url: /net/aspose-slides-visual-studio-plugin/
+url: /ar/net/aspose-slides-visual-studio-plugin/
 ---
 
 ## **مقدمة**

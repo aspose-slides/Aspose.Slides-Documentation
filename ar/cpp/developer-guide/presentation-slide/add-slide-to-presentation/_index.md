@@ -2,7 +2,7 @@
 title: إضافة شريحة إلى العرض التقديمي
 type: docs
 weight: 10
-url: /cpp/add-slide-to-presentation/
+url: /ar/cpp/add-slide-to-presentation/
 ---
 
 ## **إضافة شريحة إلى العرض التقديمي**

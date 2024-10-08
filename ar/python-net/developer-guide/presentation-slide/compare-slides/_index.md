@@ -2,7 +2,7 @@
 title: قارن الشرائح
 type: docs
 weight: 50
-url: /python-net/compare-slides/
+url: /ar/python-net/compare-slides/
 keywords: "قارن شرائح PowerPoint, قارن شريحتين, عرض تقديمي, بايثون, Aspose.Slides"
 description: "قارن شرائح العرض التقديمي PowerPoint في بايثون"
 ---

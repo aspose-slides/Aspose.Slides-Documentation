@@ -2,7 +2,7 @@
 title: مشكلة تغيير الكائن عند إضافة OleObjectFrame
 type: docs
 weight: 10
-url: /androidjava/object-changed-issue-when-adding-oleobjectframe/
+url: /ar/androidjava/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **بيان المشكلة**
@@ -10,7 +10,7 @@ url: /androidjava/object-changed-issue-when-adding-oleobjectframe/
 ## **تحليل نقدي وشرح**
 أولاً وقبل كل شيء، من المهم معرفة أن رسالة **Object Changed** التي تظهر من قبل Aspose.Slides for Android عبر Java بعد إضافة **OleObjectFrame** في الشريحة، ليست **خطأ** أو **خللاً** في Aspose.Slides for Android عبر Java. إنها مجرد معلومة أو رسالة لإبلاغ المستخدمين بتغيير الكائن وأن الصورة يجب أن يتم تحديثها.
 
-على سبيل المثال، إذا قمت بإضافة **مخطط Microsoft Excel** كـ **OleObjectFrame** إلى شريحتك (لمزيد من التفاصيل وقطع الكود حول إضافة **OleObjectFrame** إلى شريحتك، [اضغط هنا](/slides/androidjava/adding-frame-to-the-slide/)) ثم فتحت ملف العرض باستخدام MS PowerPoint، فإن الشريحة (حيث تم إضافة **OLE Object**) ستبدو هكذا:
+على سبيل المثال، إذا قمت بإضافة **مخطط Microsoft Excel** كـ **OleObjectFrame** إلى شريحتك (لمزيد من التفاصيل وقطع الكود حول إضافة **OleObjectFrame** إلى شريحتك، [اضغط هنا](/slides/ar/androidjava/adding-frame-to-the-slide/)) ثم فتحت ملف العرض باستخدام MS PowerPoint، فإن الشريحة (حيث تم إضافة **OLE Object**) ستبدو هكذا:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

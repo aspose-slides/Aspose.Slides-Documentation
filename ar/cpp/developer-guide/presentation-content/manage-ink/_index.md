@@ -2,7 +2,7 @@
 title: إدارة الحبر
 type: docs
 weight: 95
-url: /cpp/manage-ink/
+url: /ar/cpp/manage-ink/
 keywords: "الحبر في PowerPoint، أدوات الحبر، C++ الحبر، الرسم في PowerPoint، تقديم PowerPoint، C++، CPP، Aspose.Slides لـ C++"
 description: "استخدم أدوات الحبر لرسم الكائنات في PowerPoint C++"
 ---

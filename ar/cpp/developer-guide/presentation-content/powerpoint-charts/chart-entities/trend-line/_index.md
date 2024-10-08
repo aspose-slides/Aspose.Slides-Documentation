@@ -1,7 +1,7 @@
 ---
 title: خط الاتجاه
 type: docs
-url: /cpp/trend-line/
+url: /ar/cpp/trend-line/
 ---
 
 ## **إضافة خط الاتجاه**

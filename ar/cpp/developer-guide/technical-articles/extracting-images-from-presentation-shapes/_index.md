@@ -2,7 +2,7 @@
 title: استخراج الصور من أشكال العرض التقديمي
 type: docs
 weight: 90
-url: /cpp/extracting-images-from-presentation-shapes/
+url: /ar/cpp/extracting-images-from-presentation-shapes/
 keywords: "استخراج صورة, PowerPoint, PPT, PPTX, عرض PowerPoint, C++, CPP, Aspose.Slides لـ C++"
 description: "استخراج الصور من عرض PowerPoint في C++"
 

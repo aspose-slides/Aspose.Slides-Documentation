@@ -1,7 +1,7 @@
 ---
 title: نقاط بيانات مخطط الشجرة ومخطط الشمس
 type: docs
-url: /androidjava/data-points-of-treemap-and-sunburst-chart/
+url: /ar/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "مخطط الشمس في Aspose.Slides لـ Android عبر Java"
 description: "مخطط الشمس، مخطط الشمس، مخطط شجرة، مخطط شعاعي، مخطط شعاعي أو مخطط دائري متعدد المستويات مع Aspose.Slides لـ Android عبر Java."
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [**إنشاء مخطط شمس**](/slides/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**إنشاء مخطط شمس**](/slides/ar/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

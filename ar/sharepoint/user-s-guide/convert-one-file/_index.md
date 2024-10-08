@@ -2,7 +2,7 @@
 title: تحويل ملف واحد
 type: docs
 weight: 10
-url: /sharepoint/convert-one-file/
+url: /ar/sharepoint/convert-one-file/
 ---
 
 لتحويل وثيقة في مكتبة الوثائق:

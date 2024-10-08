@@ -3,7 +3,7 @@ title: إنشاء مخططات عرض باوربوينت في C++
 linktitle: إنشاء مخطط
 type: docs
 weight: 10
-url: /cpp/create-chart/
+url: /ar/cpp/create-chart/
 keywords: "إنشاء مخطط، مخطط مبعثر، مخطط دائري، مخطط خريطة شجرية، مخطط أسهم، مخطط صندوق وشعيرات، مخطط هيستوغرام، مخطط قمع، مخطط شمس، مخطط متعدد الفئات، عرض باوربوينت، C++، CPP، Aspose.Slides for C++"
 description: "إنشاء مخطط في عرض باوربوينت في C++"
 ---

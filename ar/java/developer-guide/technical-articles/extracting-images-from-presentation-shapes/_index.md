@@ -2,7 +2,7 @@
 title: استخراج الصور من أشكال العروض التقديمية
 type: docs
 weight: 100
-url: /java/extracting-images-from-presentation-shapes/
+url: /ar/java/extracting-images-from-presentation-shapes/
 keywords: "استخراج صورة، PowerPoint، PPT، PPTX، عرض PowerPoint، Java، Aspose.Slides for Java"
 description: "استخراج الصور من عرض PowerPoint باستخدام Java"
 

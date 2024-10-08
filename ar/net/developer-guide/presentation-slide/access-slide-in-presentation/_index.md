@@ -2,7 +2,7 @@
 title: الوصول إلى الشريحة في العرض التقديمي
 type: docs
 weight: 20
-url: /net/access-slide-in-presentation/
+url: /ar/net/access-slide-in-presentation/
 keywords: "الوصول إلى عرض PowerPoint، الوصول إلى شريحة، تعديل خصائص الشريحة، تغيير موضع الشريحة، تعيين رقم الشريحة، الفهرس، المعرف، الموضع C#، Csharp، .NET، Aspose.Slides"
 description: "الوصول إلى شريحة PowerPoint بواسطة الفهرس أو المعرف أو الموضع في C# أو .NET. تعديل خصائص الشريحة"
 ---

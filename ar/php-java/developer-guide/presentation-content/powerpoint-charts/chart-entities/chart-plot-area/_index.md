@@ -1,7 +1,7 @@
 ---
 title: منطقة رسم الرسم البياني
 type: docs
-url: /php-java/chart-plot-area/
+url: /ar/php-java/chart-plot-area/
 ---
 
 

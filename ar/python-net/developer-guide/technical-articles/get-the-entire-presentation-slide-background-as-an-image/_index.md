@@ -2,7 +2,7 @@
 title: احصل على خلفية شريحة العرض كاملة كصورة
 type: docs
 weight: 95
-url: /python-net/get-the-entire-presentation-slide-background-as-an-image/
+url: /ar/python-net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - شريحة
 - خلفية
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides for Python
 ---
 
-في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المخصصة كـ [خلفية الشريحة](/slides/python-net/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط.
+في عروض PowerPoint، يمكن أن تتكون خلفية الشريحة من العديد من العناصر. بالإضافة إلى الصورة المخصصة كـ [خلفية الشريحة](/slides/ar/python-net/presentation-background/)، يمكن أن تتأثر الخلفية النهائية بموضوع العرض، ونظام الألوان، والأشكال الموضوعة على الشريحة الرئيسية وشريحة التخطيط.
 
 لا توفر Aspose.Slides for Python طريقة بسيطة لاستخراج خلفية شريحة العرض كاملة كصورة، ولكن يمكنك اتباع الخطوات أدناه للقيام بذلك:
 1. قم بتحميل العرض باستخدام فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).

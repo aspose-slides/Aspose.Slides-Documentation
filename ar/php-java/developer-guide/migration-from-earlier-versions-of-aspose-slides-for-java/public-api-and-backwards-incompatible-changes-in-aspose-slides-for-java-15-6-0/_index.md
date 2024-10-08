@@ -2,12 +2,12 @@
 title: واجهة API العامة والتغييرات غير المتوافقة مع الإصدارات السابقة في Aspose.Slides لـ PHP عبر Java 15.6.0
 type: docs
 weight: 140
-url: /php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/
+url: /ar/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/
 ---
 
 {{% alert color="primary" %}} 
 
-تسرد هذه الصفحة جميع [المضافات](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) من الفئات، والطرق، والخصائص وما إلى ذلك، وأي قيود جديدة والتغييرات الأخرى [المقدمة](/slides/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) التي تم تقديمها مع واجهة API Aspose.Slides لـ PHP عبر Java 15.6.0.
+تسرد هذه الصفحة جميع [المضافات](/slides/ar/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) من الفئات، والطرق، والخصائص وما إلى ذلك، وأي قيود جديدة والتغييرات الأخرى [المقدمة](/slides/ar/php-java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-6-0/) التي تم تقديمها مع واجهة API Aspose.Slides لـ PHP عبر Java 15.6.0.
 
 {{% /alert %}} 
 ## **تغييرات واجهة API العامة**

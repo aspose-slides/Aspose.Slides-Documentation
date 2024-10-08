@@ -3,7 +3,7 @@ title: تحويل شريحة كصورة SVG في C#
 linktitle: تحويل شريحة كصورة SVG
 type: docs
 weight: 50
-url: /net/render-a-slide-as-an-svg-image/
+url: /ar/net/render-a-slide-as-an-svg-image/
 description: يشرح هذا المقال كيفية تحويل عرض PowerPoint إلى تنسيق SVG باستخدام C#. يمكنك تحويل تنسيقات PPT و PPTX و ODP إلى صور SVG.
 keywords: C# تحويل PowerPoint إلى SVG، C# PPT إلى SVG، C# PPTX إلى SVG
 ---

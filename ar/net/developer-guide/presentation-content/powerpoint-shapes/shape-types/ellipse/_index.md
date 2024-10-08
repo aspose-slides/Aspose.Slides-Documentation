@@ -2,7 +2,7 @@
 title: إهليلج
 type: docs
 weight: 30
-url: /net/ellipse/
+url: /ar/net/ellipse/
 keywords: "إهليلج، شكل باوربوينت، عرض باوربوينت، C#، Csharp، Aspose.Slides لـ .NET"
 description: "إنشاء إهليلج في عرض باوربوينت باستخدام C# أو .NET"
 ---

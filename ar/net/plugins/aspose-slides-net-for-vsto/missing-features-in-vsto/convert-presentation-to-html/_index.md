@@ -2,7 +2,7 @@
 title: تحويل العرض التقديمي إلى HTML
 type: docs
 weight: 40
-url: /net/convert-presentation-to-html/
+url: /ar/net/convert-presentation-to-html/
 ---
 
 **HTML** هو أحد التنسيقات المستخدمة على نطاق واسع لتبادل البيانات. **Aspose.Slides for .NET** يوفر دعمًا لتحويل العرض التقديمي إلى HTML. أدناه هو مقتطف من الكود يوضح لك كيفية القيام بذلك.
@@ -33,6 +33,6 @@ pres.Save("Converted.html", Aspose.Slides.Export.SaveFormat.Html, htmlOpt);
 
 {{% alert color="primary" %}} 
 
-لمزيد من التفاصيل، قم بزيارة [تحويل العرض التقديمي إلى HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/).
+لمزيد من التفاصيل، قم بزيارة [تحويل العرض التقديمي إلى HTML](/slides/ar/net/convert-powerpoint-ppt-and-pptx-to-html/).
 
 {{% /alert %}}

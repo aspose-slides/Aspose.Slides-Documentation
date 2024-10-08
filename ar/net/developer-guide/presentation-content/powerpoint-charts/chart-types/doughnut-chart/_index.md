@@ -2,7 +2,7 @@
 title: مخطط الدونات
 type: docs
 weight: 30
-url: /net/doughnut-chart/
+url: /ar/net/doughnut-chart/
 keywords: "مخطط الدونات، ثقب الوسط، عرض PowerPoint، C#، Csharp، Aspose.Slides لإطار عمل .NET"
 description: "تحديد ثقب الوسط في مخطط الدونات في عرض PowerPoint باستخدام C# أو .NET"
 ---

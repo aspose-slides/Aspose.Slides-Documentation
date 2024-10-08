@@ -1,7 +1,7 @@
 ---
 title: تلميح
 type: docs
-url: /php-java/callout/
+url: /ar/php-java/callout/
 ---
 
 ## **استخدام التلميحات**

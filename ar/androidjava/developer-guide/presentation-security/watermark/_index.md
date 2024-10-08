@@ -2,7 +2,7 @@
 title: علامة مائية
 type: docs
 weight: 40
-url: /androidjava/watermark/
+url: /ar/androidjava/watermark/
 keywords:
 - علامة مائية
 - إضافة علامة مائية
@@ -49,7 +49,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية استخدام فئة TextFrame](/slides/androidjava/text-formatting/)
+- [كيفية استخدام فئة TextFrame](/slides/ar/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **إضافة علامة مائية نصية إلى عرض تقديمي**
@@ -69,7 +69,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
-- [كيفية استخدام شريحة Master](/slides/androidjava/slide-master/)
+- [كيفية استخدام شريحة Master](/slides/ar/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **تعيين شفافية شكل العلامة المائية**

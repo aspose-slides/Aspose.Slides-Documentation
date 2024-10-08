@@ -2,7 +2,7 @@
 title: تخطيط الشريحة
 type: docs
 weight: 60
-url: /net/slide-layout/
+url: /ar/net/slide-layout/
 keyword: "تعيين حجم الشريحة، تعيين خيارات الشريحة، تحديد حجم الشريحة، رؤية تذييل الشريحة، تذييل فرعي، تغيير محتوى الشريحة، حجم الصفحة، C#، Csharp، .NET، Aspose.Slides"
 description: "تعيين حجم خيارات الشريحة في PowerPoint باستخدام C# أو .NET"
 ---

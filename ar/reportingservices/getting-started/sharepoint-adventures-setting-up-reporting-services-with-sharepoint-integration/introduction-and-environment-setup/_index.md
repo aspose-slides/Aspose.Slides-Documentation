@@ -2,7 +2,7 @@
 title: مقدمة وإعداد البيئة
 type: docs
 weight: 10
-url: /reportingservices/introduction-and-environment-setup/
+url: /ar/reportingservices/introduction-and-environment-setup/
 ---
 
 {{% alert color="primary" %}} 

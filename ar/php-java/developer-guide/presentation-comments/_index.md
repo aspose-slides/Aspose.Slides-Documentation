@@ -2,7 +2,7 @@
 title: تعليقات العروض التقديمية
 type: docs
 weight: 100
-url: /php-java/presentation-comments/
+url: /ar/php-java/presentation-comments/
 keywords: "تعليقات, تعليقات PowerPoint, عرض PowerPoint, جافا, Aspose.Slides لـ PHP عبر جافا"
 description: "أضف تعليقات وردود في عرض PowerPoint"
 ---

@@ -2,5 +2,5 @@
 title: مخططات PowerPoint
 type: docs
 weight: 70
-url: /php-java/powerpoint-charts/
+url: /ar/php-java/powerpoint-charts/
 ---

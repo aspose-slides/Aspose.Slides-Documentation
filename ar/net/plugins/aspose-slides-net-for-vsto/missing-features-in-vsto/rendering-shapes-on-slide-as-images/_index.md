@@ -2,7 +2,7 @@
 title: عرض الأشكال على الشريحة كصور
 type: docs
 weight: 120
-url: /net/rendering-shapes-on-slide-as-images/
+url: /ar/net/rendering-shapes-on-slide-as-images/
 ---
 
 يغطي هذا وظيفتين رئيسيتين:

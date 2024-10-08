@@ -2,7 +2,7 @@
 title: إضافة شريحة إلى العرض التقديمي
 type: docs
 weight: 20
-url: /net/adding-slide-to-presentation/
+url: /ar/net/adding-slide-to-presentation/
 ---
 
 ## **عرض OpenXML**

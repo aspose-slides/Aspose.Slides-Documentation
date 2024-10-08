@@ -2,7 +2,7 @@
 title: لماذا لا الأتمتة
 type: docs
 weight: 40
-url: /net/why-not-automation/
+url: /ar/net/why-not-automation/
 ---
 
 ## **أسئلة مهمة**

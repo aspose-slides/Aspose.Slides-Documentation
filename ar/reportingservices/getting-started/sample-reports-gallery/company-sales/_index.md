@@ -2,7 +2,7 @@
 title: مبيعات الشركة
 type: docs
 weight: 20
-url: /reportingservices/company-sales/
+url: /ar/reportingservices/company-sales/
 ---
 
 ## **الميزات:**

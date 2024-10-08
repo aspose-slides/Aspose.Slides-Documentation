@@ -2,5 +2,5 @@
 title: تنسيقات الملفات والتحويلات
 type: docs
 weight: 40
-url: /php-java/file-formats-and-conversions/
+url: /ar/php-java/file-formats-and-conversions/
 ---

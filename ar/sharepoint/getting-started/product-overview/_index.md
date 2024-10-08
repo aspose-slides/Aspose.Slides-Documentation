@@ -2,7 +2,7 @@
 title: نظرة عامة على المنتج
 type: docs
 weight: 10
-url: /sharepoint/product-overview/
+url: /ar/sharepoint/product-overview/
 ---
 
 {{% alert color="primary" %}} 

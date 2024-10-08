@@ -4,7 +4,7 @@ second_title: "توثيق Aspose.Slides لـ Node.js عبر .NET"
 description: يوفر Aspose.Slides لـ Node.js عبر .NET الكثير من الميزات الرئيسية مثل إدارة النصوص والأشكال والجداول والرسوم المتحركة، وإضافة الصوت والفيديو إلى الشرائح، ومعاينة الشرائح، وتصدير الشرائح إلى SVG، وصيغة PDF والمزيد.
 type: docs
 weight: 47
-url: /nodejs-net/
+url: /ar/nodejs-net/
 is_root: true
 ---
 
@@ -32,13 +32,13 @@ Aspose.Slides لـ Node.js عبر .NET هو المكون الأول والوحي
 
 هذه روابط لموارد مفيدة:
 
-- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Node.js عبر .NET](/slides/net/developer-guide/)
-- [ميزات Aspose.Slides لـ Node.js عبر .NET](/slides/nodejs-net/features-overview/)
-- [قيود واختلافات API في Aspose.Slides لـ Node.js عبر .NET](/slides/nodejs-net/limitations-and-api-differences/)
+- [التوثيق عبر الإنترنت لـ Aspose.Slides لـ Node.js عبر .NET](/slides/ar/net/developer-guide/)
+- [ميزات Aspose.Slides لـ Node.js عبر .NET](/slides/ar/nodejs-net/features-overview/)
+- [قيود واختلافات API في Aspose.Slides لـ Node.js عبر .NET](/slides/ar/nodejs-net/limitations-and-api-differences/)
 - [ملاحظات الإصدار لـ Aspose.Slides لـ Node.js عبر .NET](https://releases.aspose.com/slides/nodejs-net/release-notes/)
 - [صفحة منتج Aspose.Slides لـ Node.js عبر .NET](https://products.aspose.com/slides/nodejs-net/)
 - [تحميل حزمة Aspose.Slides لـ Node.js عبر .NET](https://releases.aspose.com/slides/nodejs-net/)
-- [تثبيت Aspose.Slides لـ Node.js عبر .NET](/slides/nodejs-net/installation/)
+- [تثبيت Aspose.Slides لـ Node.js عبر .NET](/slides/ar/nodejs-net/installation/)
 - [مرجع API لـ Aspose.Slides لـ Node.js عبر .NET](https://reference.aspose.com/slides/nodejs-net/)
 - [منتدى الدعم المجاني لـ Aspose.Slides لـ Node.js عبر .NET](https://forum.aspose.com/c/slides/11)
 - [مكتب دعم المدفوع لـ Aspose.Slides لـ Node.js عبر .NET](https://helpdesk.aspose.com/)

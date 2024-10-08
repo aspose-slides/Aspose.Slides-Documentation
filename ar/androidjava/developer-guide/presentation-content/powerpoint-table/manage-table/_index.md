@@ -2,7 +2,7 @@
 title: إدارة الجدول
 type: docs
 weight: 10
-url: /androidjava/manage-table/
+url: /ar/androidjava/manage-table/
 keywords: "جدول، إنشاء جدول، الوصول إلى جدول، نسبة عرض إلى ارتفاع الجدول، عرض تقديمي PowerPoint، Java، Aspose.Slides لـ Android عبر Java"
 description: "إنشاء وإدارة جدول في عروض PowerPoint التقديمية باستخدام Java"
 ---

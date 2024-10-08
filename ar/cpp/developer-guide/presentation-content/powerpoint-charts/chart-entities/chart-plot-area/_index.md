@@ -1,7 +1,7 @@
 ---
 title: منطقة رسم المخطط
 type: docs
-url: /cpp/chart-plot-area/
+url: /ar/cpp/chart-plot-area/
 ---
 
 ## **احصل على عرض وارتفاع منطقة رسم المخطط**

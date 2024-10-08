@@ -2,18 +2,18 @@
 title: ترويسة وتذييل العرض التقديمي
 type: docs
 weight: 140
-url: /androidjava/presentation-header-and-footer/
+url: /ar/androidjava/presentation-header-and-footer/
 keywords: "ترويسة وتذييل PowerPoint في جافا"
 description: "ترويسة وتذييل PowerPoint في جافا"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/androidjava/) يوفر دعمًا للعمل مع نصوص ترويسة وتذييل الشرائح التي تُدار في الواقع على مستوى شريحة العرض الرئيسية.
+[Aspose.Slides](/slides/ar/androidjava/) يوفر دعمًا للعمل مع نصوص ترويسة وتذييل الشرائح التي تُدار في الواقع على مستوى شريحة العرض الرئيسية.
 
 {{% /alert %}} 
 
-[Aspose.Slides for Android via Java](/slides/androidjava/) يوفر ميزة إدارة الترويسات والتذييلات داخل شرائح العرض التقديمي. هذه في الواقع تُدار على مستوى العرض التقديمي الرئيسي.
+[Aspose.Slides for Android via Java](/slides/ar/androidjava/) يوفر ميزة إدارة الترويسات والتذييلات داخل شرائح العرض التقديمي. هذه في الواقع تُدار على مستوى العرض التقديمي الرئيسي.
 
 ## **إدارة الترويسة والتذييل في العرض التقديمي**
 يمكن إزالة ملاحظات بعض الشرائح المحددة كما هو موضح في المثال أدناه:

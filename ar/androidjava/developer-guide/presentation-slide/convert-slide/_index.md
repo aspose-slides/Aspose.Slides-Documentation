@@ -2,7 +2,7 @@
 title: تحويل الشريحة
 type: docs
 weight: 35
-url: /androidjava/convert-slide/
+url: /ar/androidjava/convert-slide/
 keywords: 
 - تحويل الشريحة إلى صورة
 - تصدير الشريحة كصورة

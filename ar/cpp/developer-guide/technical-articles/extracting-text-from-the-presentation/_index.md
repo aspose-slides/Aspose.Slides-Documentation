@@ -2,16 +2,16 @@
 title: استخراج النص من العرض التقديمي
 type: docs
 weight: 60
-url: /cpp/extracting-text-from-the-presentation/
+url: /ar/cpp/extracting-text-from-the-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 ليس من غير المألوف أن يحتاج المطورون إلى استخراج النص من عرض تقديمي. للقيام بذلك، تحتاج إلى استخراج النص من جميع الأشكال على جميع الشرائح في العرض التقديمي. تشرح هذه المقالة كيفية استخراج النص من عروض PowerPoint PPTX باستخدام Aspose.Slides. يمكن استخراج النص بطرق التالية:
 
-[استخراج النص من شريحة واحدة](/slides/cpp/extracting-text-from-the-presentation/)
-[استخراج النص باستخدام طريقة GetAllTextBoxes](/slides/cpp/extracting-text-from-the-presentation/)
-[استخراج النص بسرعة وبشكل مصنف](/slides/cpp/extracting-text-from-the-presentation/)
+[استخراج النص من شريحة واحدة](/slides/ar/cpp/extracting-text-from-the-presentation/)
+[استخراج النص باستخدام طريقة GetAllTextBoxes](/slides/ar/cpp/extracting-text-from-the-presentation/)
+[استخراج النص بسرعة وبشكل مصنف](/slides/ar/cpp/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **استخراج النص من شريحة**

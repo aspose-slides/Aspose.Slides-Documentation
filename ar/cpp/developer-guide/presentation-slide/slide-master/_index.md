@@ -2,7 +2,7 @@
 title: سلايد ماستر
 type: docs
 weight: 80
-url: /cpp/slide-master/
+url: /ar/cpp/slide-master/
 keywords: "إضافة سلايد ماستر، شريحة ماستر PPT، سلايد ماستر باوربوينت، صورة إلى سلايد ماستر، عنصر نائب، عدة سلايد ماستر، مقارنة سلايد ماستر، C++، CPP، Aspose.Slides لـ C++"
 description: "إضافة أو تحرير سلايد ماستر في عرض باوربوينت باستخدام C++"
 ---
@@ -128,7 +128,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
 
-لمزيد من المعلومات حول إضافة الصور إلى الشريحة، انظر المقالة [إطار الصورة](/slides/cpp/picture-frame/#create-picture-frame).
+لمزيد من المعلومات حول إضافة الصور إلى الشريحة، انظر المقالة [إطار الصورة](/slides/ar/cpp/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **إضافة عنصر نائب إلى سلايد ماستر**

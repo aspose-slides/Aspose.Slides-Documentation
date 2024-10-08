@@ -2,7 +2,7 @@
 title: ملاحظات العرض
 type: docs
 weight: 110
-url: /cpp/presentation-notes/
+url: /ar/cpp/presentation-notes/
 keywords: "ملاحظات المتحدث في عرض باوربوينت"
 ---
 

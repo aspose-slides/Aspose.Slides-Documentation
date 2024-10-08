@@ -2,7 +2,7 @@
 title: إنشاء مخطط Excel وإدراجه في العرض التقديمي ككائن OLE
 type: docs
 weight: 30
-url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ar/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -39,6 +39,6 @@ url: /php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-obje
 
 {{% /alert %}} 
 ## **الأقسام ذات الصلة**
-[حل عملي لتغيير حجم المخطط](/slides/php-java/working-solution-for-chart-resizing-in-pptx/)
+[حل عملي لتغيير حجم المخطط](/slides/ar/php-java/working-solution-for-chart-resizing-in-pptx/)
 
-[مشكلة تغيير الكائن](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[مشكلة تغيير الكائن](/slides/ar/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

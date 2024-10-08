@@ -2,7 +2,7 @@
 title: إنشاء مخطط إكسل وتضمينه في العرض كمكون OLE
 type: docs
 weight: 40
-url: /cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /ar/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 

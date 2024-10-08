@@ -2,7 +2,7 @@
 title: تنسيق المخططات
 type: docs
 weight: 60
-url: /php-java/chart-formatting/
+url: /ar/php-java/chart-formatting/
 ---
 
 ## **تنسيق كائنات المخططات**

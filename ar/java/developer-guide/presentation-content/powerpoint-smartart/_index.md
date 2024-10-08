@@ -2,5 +2,5 @@
 title: سمارت أرت في باور بوينت
 type: docs
 weight: 100
-url: /java/powerpoint-smartart/
+url: /ar/java/powerpoint-smartart/
 ---

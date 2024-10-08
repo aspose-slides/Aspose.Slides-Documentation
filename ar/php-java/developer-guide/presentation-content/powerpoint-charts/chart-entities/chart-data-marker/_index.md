@@ -1,7 +1,7 @@
 ---
 title: علامة بيانات الرسم البياني
 type: docs
-url: /php-java/chart-data-marker/
+url: /ar/php-java/chart-data-marker/
 ---
 
 ## **تعيين خيارات علامة الرسم البياني**

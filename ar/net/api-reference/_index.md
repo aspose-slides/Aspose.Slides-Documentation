@@ -2,7 +2,7 @@
 title: مرجع واجهة برمجة التطبيقات
 type: docs
 weight: 50
-url: /net/api-reference/
+url: /ar/net/api-reference/
 ---
 
 {{% alert color="primary" %}} 

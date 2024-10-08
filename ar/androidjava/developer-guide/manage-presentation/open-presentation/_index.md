@@ -3,7 +3,7 @@ title: فتح عرض تقديمي في جافا
 linktitle: فتح عرض تقديمي
 type: docs
 weight: 20
-url: /androidjava/open-presentation/
+url: /ar/androidjava/open-presentation/
 keywords: "فتح PowerPoint، PPTX، PPT، فتح عرض تقديمي، تحميل عرض تقديمي، جافا"
 description: "فتح أو تحميل عرض تقديمي PPT، PPTX، ODP في جافا"
 ---

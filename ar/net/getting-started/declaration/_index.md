@@ -2,7 +2,7 @@
 title: الإعلان
 type: docs
 weight: 110
-url: /net/declaration/
+url: /ar/net/declaration/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: البحث والاستبدال في العرض التقديمي
 type: docs
 weight: 20
-url: /net/find-and-replace-in-presentation/
+url: /ar/net/find-and-replace-in-presentation/
 ---
 
 فيما يلي الخطوات التي يجب اتباعها:

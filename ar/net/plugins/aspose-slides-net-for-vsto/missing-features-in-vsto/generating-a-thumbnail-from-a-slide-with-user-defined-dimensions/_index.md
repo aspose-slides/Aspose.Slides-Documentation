@@ -2,7 +2,7 @@
 title: إنشاء صورة مصغرة من شريحة مع أبعاد محددة من قبل المستخدم
 type: docs
 weight: 100
-url: /net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
+url: /ar/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
 ---
 
 لإنشاء صورة مصغرة لأي شريحة مرغوبة باستخدام Aspose.Slides لـ .NET:
@@ -48,6 +48,6 @@ using (Presentation pres = new Presentation("TestPresentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-للحصول على مزيد من التفاصيل، قم بزيارة [إنشاء صورة مصغرة للشرائح](/slides/net/presentation-viewer/#creating-slides-thumbnail-image).
+للحصول على مزيد من التفاصيل، قم بزيارة [إنشاء صورة مصغرة للشرائح](/slides/ar/net/presentation-viewer/#creating-slides-thumbnail-image).
 
 {{% /alert %}}

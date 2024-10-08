@@ -2,7 +2,7 @@
 title: صيغة العرض
 type: docs
 weight: 10
-url: /python-net/presentation-format/
+url: /ar/python-net/presentation-format/
 ---
 
 توفر Aspose.Slides لـ Python عبر .NET [**PresentationFactory**](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/) الذي يستخدم للحصول على صيغة العرض قبل تحميلها.

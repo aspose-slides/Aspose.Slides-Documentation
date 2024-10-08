@@ -2,7 +2,7 @@
 title: الحصول على تنسيق الملف للعروض التقديمية
 type: docs
 weight: 50
-url: /net/get-the-file-format-of-presentation/
+url: /ar/net/get-the-file-format-of-presentation/
 ---
 
 للحصول على تنسيق الملف. يرجى اتباع الخطوات أدناه:

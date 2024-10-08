@@ -2,7 +2,7 @@
 title: كيفية تشغيل الأمثلة
 type: docs
 weight: 130
-url: /net/how-to-run-examples/
+url: /ar/net/how-to-run-examples/
 ---
 
 ## **متطلبات البرمجيات**

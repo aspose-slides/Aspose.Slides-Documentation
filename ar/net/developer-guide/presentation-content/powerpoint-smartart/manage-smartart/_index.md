@@ -2,7 +2,7 @@
 title: إدارة الرسوم الذكية
 type: docs
 weight: 10
-url: /net/manage-smartart/
+url: /ar/net/manage-smartart/
 keywords: "الرسوم الذكية, نص من الرسوم الذكية, مخطط نوع المنظمة, مخطط تنظيم الصور, عرض PowerPoint, C#, Csharp, Aspose.Slides for .NET"
 description: "الرسوم الذكية ومخطط نوع المنظمة في عروض PowerPoint في C# أو .NET"
 ---

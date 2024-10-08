@@ -2,7 +2,7 @@
 title: تلاعب الأشكال
 type: docs
 weight: 40
-url: /java/shape-manipulations/
+url: /ar/java/shape-manipulations/
 ---
 
 ## **البحث عن شكل في الشريحة**

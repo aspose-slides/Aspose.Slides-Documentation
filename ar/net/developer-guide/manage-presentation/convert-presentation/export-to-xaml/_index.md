@@ -2,7 +2,7 @@
 title: تصدير إلى XAML
 type: docs
 weight: 30
-url: /net/export-to-xaml/
+url: /ar/net/export-to-xaml/
 keywords: "تصدير عرض PowerPoint، تحويل PowerPoint، XAML، PowerPoint إلى XAML، PPT إلى XAML، PPTX إلى XAML، C#، Csharp، .NET"
 description: "تصدير أو تحويل عرض PowerPoint إلى XAML"
 ---

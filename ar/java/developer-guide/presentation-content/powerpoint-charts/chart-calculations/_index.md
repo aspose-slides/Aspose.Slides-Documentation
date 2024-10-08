@@ -2,7 +2,7 @@
 title: حسابات المخطط
 type: docs
 weight: 50
-url: /java/chart-calculations/
+url: /ar/java/chart-calculations/
 ---
 
 ## **حساب القيم الفعلية لعناصر المخطط**

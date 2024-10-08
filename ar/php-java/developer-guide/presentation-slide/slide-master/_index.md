@@ -2,7 +2,7 @@
 title: ماستر الشريحة
 type: docs
 weight: 70
-url: /php-java/slide-master/
+url: /ar/php-java/slide-master/
 keywords: "إضافة ماستر الشريحة، شريحة ماستر PPT، ماستر الشريحة PowerPoint، صورة إلى ماستر الشريحة، عنصر نمطي، عدة ماسترات للشريحة، مقارنة ماسترات الشريحة، Java، Aspose.Slides لPHP عبر Java"
 description: "إضافة أو تعديل ماستر الشريحة في عرض PowerPoint"
 ---
@@ -152,7 +152,7 @@ VBA أيضًا يسمح لك بالتلاعب بماستر الشريحة وتن
 
 {{% alert color="primary" title="انظر أيضًا" %}} 
 
-لمزيد من المعلومات حول إضافة صور إلى شريحة، راجع المقالة [إطار الصورة](/slides/php-java/picture-frame/#create-picture-frame).
+لمزيد من المعلومات حول إضافة صور إلى شريحة، راجع المقالة [إطار الصورة](/slides/ar/php-java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

@@ -1,7 +1,7 @@
 ---
 title: محور الرسم البياني
 type: docs
-url: /net/chart-axis/
+url: /ar/net/chart-axis/
 keywords: "محور الرسم البياني في PowerPoint, الرسوم البيانية التقديمية, C#, .NET, التعامل مع محور الرسم البياني, بيانات الرسم البياني"
 description: "تعديل محور الرسم البياني في PowerPoint باستخدام C# أو .NET"
 ---

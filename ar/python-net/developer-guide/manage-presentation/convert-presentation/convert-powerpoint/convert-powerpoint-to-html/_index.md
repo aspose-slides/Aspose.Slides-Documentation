@@ -3,7 +3,7 @@ title: تحويل PowerPoint إلى HTML باستخدام Python
 linktitle: تحويل PowerPoint إلى HTML
 type: docs
 weight: 30
-url: /python-net/convert-powerpoint-to-html/
+url: /ar/python-net/convert-powerpoint-to-html/
 keywords: "Python PowerPoint إلى HTML, تحويل عرض PowerPoint, PPTX, PPT, PPT إلى HTML, PPTX إلى HTML, PowerPoint إلى HTML, حفظ PowerPoint كـ HTML, حفظ PPT كـ HTML, حفظ PPTX كـ HTML, Python, Aspose.Slides, تصدير HTML"
 description: "تحويل PowerPoint إلى HTML: حفظ PPTX أو PPT كـ HTML. حفظ الشرائح كـ HTML"
 ---

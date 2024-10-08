@@ -2,7 +2,7 @@
 title: حجم الشريحة
 type: docs
 weight: 70
-url: /net/slide-size/
+url: /ar/net/slide-size/
 keywords: "تعيين شريحة، تعديل حجم الشريحة، عرض PowerPoint، حجم شريحة مخصص، حل مشاكل الشريحة، C#، Csharp، .NET، Aspose.Slides"
 descriptions: "تعيين وتعديل حجم الشريحة أو نسبة العرض إلى الارتفاع في PowerPoint باستخدام C# أو .NET"
 ---

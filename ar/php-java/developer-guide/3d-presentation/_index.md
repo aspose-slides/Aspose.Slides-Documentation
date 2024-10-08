@@ -2,7 +2,7 @@
 title: تقديم ثلاثي الأبعاد
 type: docs
 weight: 232
-url: /php-java/3d-presentation/
+url: /ar/php-java/3d-presentation/
 keywords:
 - ثلاثي الأبعاد
 - باوربوينت ثلاثي الأبعاد

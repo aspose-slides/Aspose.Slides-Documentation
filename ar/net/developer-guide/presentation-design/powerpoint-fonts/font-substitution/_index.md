@@ -3,7 +3,7 @@ title: استبدال الخطوط - PowerPoint C# API
 linktitle: استبدال الخطوط
 type: docs
 weight: 70
-url: /net/font-substitution/
+url: /ar/net/font-substitution/
 keywords: 
 - خط
 - خط بديل
@@ -73,6 +73,6 @@ using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
 
 {{%  alert title="ملاحظة"  color="warning"   %}} 
 
-قد ترغب في رؤية [**استبدال الخطوط**](/slides/net/font-replacement/). 
+قد ترغب في رؤية [**استبدال الخطوط**](/slides/ar/net/font-replacement/). 
 
 {{% /alert %}}
