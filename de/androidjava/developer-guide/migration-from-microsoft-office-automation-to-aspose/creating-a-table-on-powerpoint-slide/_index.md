@@ -2,12 +2,12 @@
 title: Erstellen einer Tabelle auf einer PowerPoint-Folie
 type: docs
 weight: 50
-url: /androidjava/creating-a-table-on-powerpoint-slide/
+url: /de/androidjava/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien darzustellen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/androidjava/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für Android über Java](/slides/androidjava/creating-a-table-on-powerpoint-slide/).
+Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien darzustellen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/de/androidjava/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für Android über Java](/slides/de/androidjava/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Tabellen erstellen**

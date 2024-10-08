@@ -2,7 +2,7 @@
 title: Rendern Sie die Folie als Miniaturansicht im JPEG-Format mit benutzerdefinierten Werten  
 type: docs  
 weight: 70  
-url: /net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/  
+url: /de/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/  
 ---  
 
 Um die Miniaturansicht einer beliebigen gewünschten Folie mit Aspose.Slides für .NET zu generieren:  

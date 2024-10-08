@@ -2,7 +2,7 @@
 title: Zugriff auf Folie in der Präsentation
 type: docs
 weight: 20
-url: /net/access-slide-in-presentation/
+url: /de/net/access-slide-in-presentation/
 keywords: "Zugriff auf PowerPoint-Präsentation, Zugriff auf Folie, Folieneigenschaften bearbeiten, Folienposition ändern, Foliennummer, Index, ID, Position C#, Csharp, .NET, Aspose.Slides"
 description: "Zugriff auf PowerPoint-Folie nach Index, ID oder Position in C# oder .NET. Folieneigenschaften bearbeiten"
 ---

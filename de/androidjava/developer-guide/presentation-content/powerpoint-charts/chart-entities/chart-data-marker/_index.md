@@ -1,7 +1,7 @@
 ---
 title: Diagramm Datenmarkierer
 type: docs
-url: /androidjava/chart-data-marker/
+url: /de/androidjava/chart-data-marker/
 ---
 
 ## **Diagramm Marker Optionen festlegen**

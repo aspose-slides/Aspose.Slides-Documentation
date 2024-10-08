@@ -2,7 +2,7 @@
 title: Installation von Aspose.Slides für SharePoint  
 type: docs  
 weight: 10  
-url: /sharepoint/installing-aspose-slides-for-sharepoint/  
+url: /de/sharepoint/installing-aspose-slides-for-sharepoint/  
 ---  
 
 {{% alert color="primary" %}}  

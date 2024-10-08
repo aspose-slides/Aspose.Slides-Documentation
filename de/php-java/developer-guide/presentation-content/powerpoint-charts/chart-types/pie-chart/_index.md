@@ -1,7 +1,7 @@
 ---
 title: Kreisdiagramm
 type: docs
-url: /php-java/pie-chart/
+url: /de/php-java/pie-chart/
 ---
 
 ## **Zweite Plottoptionen für Kreisdiagramm und Balkendiagramm**

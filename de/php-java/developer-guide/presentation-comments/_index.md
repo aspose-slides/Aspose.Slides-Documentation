@@ -2,7 +2,7 @@
 title: Präsentationskommentare
 type: docs
 weight: 100
-url: /php-java/presentation-comments/
+url: /de/php-java/presentation-comments/
 keywords: "Kommentare, PowerPoint-Kommentare, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Kommentare und Antworten in PowerPoint-Präsentation hinzufügen"
 ---

@@ -2,12 +2,12 @@
 title: So erstellen Sie ein Hello World Präsentationsdokument
 type: docs
 weight: 10
-url: /net/how-to-create-hello-world-presentation-document/
+url: /de/net/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides für .NET API](/slides/net/) wurde veröffentlicht und jetzt unterstützt dieses Einzelprodukt die Möglichkeit, PowerPoint-Dokumente von Grund auf zu erstellen und bestehende zu bearbeiten.
+Eine neue [Aspose.Slides für .NET API](/slides/de/net/) wurde veröffentlicht und jetzt unterstützt dieses Einzelprodukt die Möglichkeit, PowerPoint-Dokumente von Grund auf zu erstellen und bestehende zu bearbeiten.
 
 {{% /alert %}} 
 ## **Unterstützung für Legacy-Code**

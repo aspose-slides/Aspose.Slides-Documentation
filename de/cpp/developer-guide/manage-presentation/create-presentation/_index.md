@@ -3,7 +3,7 @@ title: Präsentation erstellen - C++ PowerPoint API
 linktitle: Präsentation erstellen
 type: docs
 weight: 10
-url: /cpp/create-presentation/
+url: /de/cpp/create-presentation/
 description: Um eine PowerPoint-Präsentation in der C++ API zu erstellen, folgen Sie bitte den in diesem Artikel genannten Schritten. Der Code fügt eine Linie zur ersten Folie der Präsentation hinzu.
 ---
 

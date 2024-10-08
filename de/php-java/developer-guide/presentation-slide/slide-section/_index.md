@@ -2,7 +2,7 @@
 title: Abschnitt Folie
 type: docs
 weight: 90
-url: /php-java/slide-section/
+url: /de/php-java/slide-section/
 ---
 
 Mit Aspose.Slides für PHP über Java können Sie eine PowerPoint-Präsentation in Abschnitte organisieren. Sie können Abschnitte erstellen, die spezifische Folien enthalten.

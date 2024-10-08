@@ -2,7 +2,7 @@
 title: Zellen verwalten
 type: docs
 weight: 30
-url: /php-java/manage-cells/
+url: /de/php-java/manage-cells/
 keywords: "Tabelle, zusammengeführte Zellen, geteilte Zellen, Bild in Tabellenspalte, Java, Aspose.Slides für PHP über Java"
 description: "Tabellenzellen in PowerPoint-Präsentationen "
 ---

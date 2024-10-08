@@ -2,7 +2,7 @@
 title: Folie aus der Präsentation entfernen
 type: docs
 weight: 30
-url: /cpp/remove-slide-from-presentation/
+url: /de/cpp/remove-slide-from-presentation/
 keywords: "Folie entfernen, Folie löschen, PowerPoint, Präsentation, C++, Aspose.Slides"
 description: "Entfernen Sie eine Folie aus PowerPoint nach Referenz oder Index in C++"
 

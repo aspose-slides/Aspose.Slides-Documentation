@@ -2,7 +2,7 @@
 title: Hyperlinks verwalten
 type: docs
 weight: 20
-url: /php-java/manage-hyperlinks/
+url: /de/php-java/manage-hyperlinks/
 keywords: "PowerPoint Hyperlink, Text Hyperlink, Folien Hyperlink, Form Hyperlink, Bild Hyperlink, Video Hyperlink, Java"
 description: "So fügen Sie Hyperlinks zu einer PowerPoint-Präsentation hinzu"
 ---
@@ -151,7 +151,7 @@ try {
 
 {{%  alert  title="Tipp"  color="primary"  %}} 
 
-Sie sollten *[OLE verwalten](/slides/php-java/manage-ole/)* ansehen.
+Sie sollten *[OLE verwalten](/slides/de/php-java/manage-ole/)* ansehen.
 
 {{% /alert %}}
 

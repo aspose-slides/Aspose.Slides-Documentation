@@ -2,7 +2,7 @@
 title: Rechteck
 type: docs
 weight: 80
-url: /androidjava/rectangle/
+url: /de/androidjava/rectangle/
 ---
 
 {{% alert color="primary" %}} 

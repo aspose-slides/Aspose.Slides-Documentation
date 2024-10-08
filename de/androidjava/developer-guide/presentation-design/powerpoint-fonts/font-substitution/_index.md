@@ -3,7 +3,7 @@ title: Schriftartsubstitution - PowerPoint Java API
 linktitle: Schriftartsubstitution
 type: docs
 weight: 70
-url: /androidjava/font-substitution/
+url: /de/androidjava/font-substitution/
 keywords: "Schriftart, Ersatzschriftart, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Ersatzschriftart in PowerPoint in Java"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="HINWEIS"  color="warning"   %}} 
 
-Möglicherweise möchten Sie [**Schriftartenersatz**](/slides/androidjava/font-replacement/) sehen.
+Möglicherweise möchten Sie [**Schriftartenersatz**](/slides/de/androidjava/font-replacement/) sehen.
 
 {{% /alert %}}

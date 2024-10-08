@@ -2,7 +2,7 @@
 title: Hyperlinks verwalten
 type: docs
 weight: 20
-url: /net/manage-hyperlinks/
+url: /de/net/manage-hyperlinks/
 keywords: "Hyperlink hinzufügen, PowerPoint-Präsentation, PowerPoint-Hyperlink, Text-Hyperlink, Folien-Hyperlink, Formen-Hyperlink, Bild-Hyperlink, Video-Hyperlink, .NET, C#, Csharp"
 description: "Fügen Sie einer PowerPoint-Präsentation in C# oder .NET einen Hyperlink hinzu"
 ---

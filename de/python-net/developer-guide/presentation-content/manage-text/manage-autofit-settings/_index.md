@@ -2,7 +2,7 @@
 title: Autofit-Einstellungen verwalten
 type: docs
 weight: 30
-url: /python-net/manage-autofit-settings/
+url: /de/python-net/manage-autofit-settings/
 keywords: "Textbox, Autofit, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Legt die Autofit-Einstellungen für Textfelder in PowerPoint in Python fest"
 ---

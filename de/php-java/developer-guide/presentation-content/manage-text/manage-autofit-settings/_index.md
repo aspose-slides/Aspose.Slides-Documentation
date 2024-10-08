@@ -2,7 +2,7 @@
 title: Autofit-Einstellungen verwalten
 type: docs
 weight: 30
-url: /php-java/manage-autofit-settings/
+url: /de/php-java/manage-autofit-settings/
 keywords: "Textbox, Autofit, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Legen Sie die Autofit-Einstellungen für Textfelder in PowerPoint fest"
 ---

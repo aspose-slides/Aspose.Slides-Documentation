@@ -2,5 +2,5 @@
 title: PowerPoint SmartArt
 type: docs
 weight: 100
-url: /php-java/powerpoint-smartart/
+url: /de/php-java/powerpoint-smartart/
 ---

@@ -2,7 +2,7 @@
 title: Verwaltung von Tags und benutzerdefinierten Daten
 type: docs
 weight: 300
-url: /php-java/managing-tags-and-custom-data
+url: /de/php-java/managing-tags-and-custom-data
 
 ---
 

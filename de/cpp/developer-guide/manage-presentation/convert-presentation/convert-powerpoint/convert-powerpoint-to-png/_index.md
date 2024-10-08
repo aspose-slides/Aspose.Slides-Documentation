@@ -2,7 +2,7 @@
 title: PowerPoint in PNG konvertieren
 type: docs
 weight: 30
-url: /cpp/convert-powerpoint-to-png/
+url: /de/cpp/convert-powerpoint-to-png/
 keywords: PowerPoint in PNG, PPT in PNG, PPTX in PNG, C++, Aspose.Slides für C++
 description: PowerPoint-Präsentation in PNG konvertieren
 ---

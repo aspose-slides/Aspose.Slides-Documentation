@@ -2,7 +2,7 @@
 title: Produktübersicht
 type: docs
 weight: 10
-url: /cpp/product-overview/
+url: /de/cpp/product-overview/
 keywords: C++ PowerPoint API
 description: Die C++ PowerPoint API ermöglicht es C++-Anwendungen, PowerPoint-Dokumente zu lesen und zu schreiben, ohne Microsoft PowerPoint zu verwenden, und bietet wichtige Funktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG-, PDF-Format und mehr.
 ---
@@ -124,4 +124,4 @@ Diese Tabelle listet wichtige technische Ressourcen für Aspose.Slides für C++ 
 |[Aspose.Slide-Blog](https://blog.aspose.com/category/slides/)|Überprüfen Sie dies häufig auf Informationen zu neuen Versionen und nützlichen Tipps zu Aspose.Slides.|
 |[Aspose.Slides für C++-Download](https://downloads.aspose.com/slides/cpp)|Alle neuen und alten Produktversionen werden zur Kundenreferenz Pflege.|
 |[Aspose.Slides-Supportforum](https://forum.aspose.com/c/slides/11)|Posten Sie hier Ihre Fragen und Probleme für eine schnelle Lösung.|
-|[Aspose.Slides für C++-Produktdokumentation](/slides/cpp/)|Vollständige Online-Dokumentation, die diese Dokumentation sowie die Aspose.Slides-API-Referenz enthält.|
+|[Aspose.Slides für C++-Produktdokumentation](/slides/de/cpp/)|Vollständige Online-Dokumentation, die diese Dokumentation sowie die Aspose.Slides-API-Referenz enthält.|

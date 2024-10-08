@@ -2,7 +2,7 @@
 title: Präsentation über VBA
 type: docs
 weight: 250
-url: /java/praesentation-ueber-vba/
+url: /de/java/praesentation-ueber-vba/
 keywords: "Makro, Makros, VBA, VBA-Makro, Makro hinzufügen, Makro entfernen, VBA hinzufügen, VBA entfernen, Makro extrahieren, VBA extrahieren, PowerPoint-Makro, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "VBA-Makros in PowerPoint-Präsentationen in Java hinzufügen, entfernen und extrahieren"
 ---

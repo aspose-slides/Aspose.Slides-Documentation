@@ -2,7 +2,7 @@
 title: Exportieren von mathematischen Gleichungen
 type: docs
 weight: 30
-url: /python-net/exporting-math-equations/
+url: /de/python-net/exporting-math-equations/
 keywords: "Mathematische Gleichungen exportieren, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Exportieren von PowerPoint mathematischen Gleichungen in Python"
 ---

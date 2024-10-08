@@ -2,7 +2,7 @@
 title: Diagramm Arbeitsmappe
 type: docs
 weight: 70
-url: /androidjava/chart-workbook/
+url: /de/androidjava/chart-workbook/
 keywords: "Diagramm Arbeitsmappe, Diagrammdaten, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Diagramm Arbeitsmappe in PowerPoint-Präsentation in Java"
 ---

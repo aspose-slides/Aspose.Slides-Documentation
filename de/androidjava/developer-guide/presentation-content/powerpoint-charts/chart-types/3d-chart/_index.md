@@ -1,7 +1,7 @@
 ---
 title: 3D Diagramm
 type: docs
-url: /androidjava/3d-chart/
+url: /de/androidjava/3d-chart/
 ---
 
 ## **Setzen der Eigenschaften RotationX, RotationY und DepthPercents des 3D Diagramms**

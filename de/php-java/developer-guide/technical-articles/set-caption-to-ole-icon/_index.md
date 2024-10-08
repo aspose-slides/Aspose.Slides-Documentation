@@ -2,7 +2,7 @@
 title: Bildunterschrift für OLE-Icon festlegen
 type: docs
 weight: 130
-url: /php-java/set-caption-to-ole-icon/
+url: /de/php-java/set-caption-to-ole-icon/
 ---
 
 Neue Methoden **getSubstitutePictureTitle** und **setSubstitutePictureTitle** wurden zum **IOleObjectFrame**-Interface und zur **OleObjectFrame**-Klasse hinzugefügt. Sie ermöglichen das Abrufen, Setzen oder Ändern der Bildunterschrift eines OLE-Icons. Der folgende Codeausschnitt zeigt ein Beispiel zum Erstellen eines Excel-Objekts und zum Festlegen seiner Bildunterschrift.

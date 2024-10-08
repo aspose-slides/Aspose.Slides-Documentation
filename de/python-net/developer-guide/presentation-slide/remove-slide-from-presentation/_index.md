@@ -2,7 +2,7 @@
 title: Folie aus der Präsentation entfernen
 type: docs
 weight: 30
-url: /python-net/remove-slide-from-presentation/
+url: /de/python-net/remove-slide-from-presentation/
 keywords: "Folie entfernen, Folie löschen, PowerPoint, Präsentation, Python, Aspose.Slides"
 description: "Folie aus PowerPoint nach Referenz oder Index in Python entfernen"
 

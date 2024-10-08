@@ -2,7 +2,7 @@
 title: Tinte verwalten
 type: docs
 weight: 95
-url: /python-net/manage-ink/
+url: /de/python-net/manage-ink/
 keywords: "Tinte in PowerPoint, Tintentools, Python Tinte, Zeichnen in PowerPoint, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Verwenden Sie Tintentools, um Objekte in PowerPoint Python zu zeichnen"
 ---

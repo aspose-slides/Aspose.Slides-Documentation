@@ -1,7 +1,7 @@
 ---
 title: Diagrammachse
 type: docs
-url: /net/chart-axis/
+url: /de/net/chart-axis/
 keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, C#, .NET, Diagrammachse manipulieren, Diagrammdaten"
 description: "Bearbeiten der PowerPoint-Diagrammachse in C# oder .NET"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Diagramm-Daten Tabelle
 type: docs
-url: /cpp/chart-data-table/
+url: /de/cpp/chart-data-table/
 ---
 
 ## **Schriftart-Eigenschaften für Diagramm-Daten Tabelle festlegen**

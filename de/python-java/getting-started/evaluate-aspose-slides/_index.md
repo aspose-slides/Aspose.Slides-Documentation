@@ -2,7 +2,7 @@
 title: Aspose.Slides bewerten
 type: docs
 weight: 120
-url: /python-java/evaluate-aspose-slides/
+url: /de/python-java/evaluate-aspose-slides/
 ---
 
 Sie können Aspose.Slides problemlos zum Testen herunterladen. Das Evaluierungspaket ist dasselbe wie das gekaufte Paket. Die Evaluierungsversion wird einfach lizenziert, nachdem Sie einige Codezeilen hinzugefügt haben, um die Lizenz anzuwenden.

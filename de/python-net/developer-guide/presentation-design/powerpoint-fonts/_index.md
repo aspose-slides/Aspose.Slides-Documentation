@@ -2,5 +2,5 @@
 title: PowerPoint-Schriften
 type: docs
 weight: 30
-url: /python-net/powerpoint-fonts/
+url: /de/python-net/powerpoint-fonts/
 ---

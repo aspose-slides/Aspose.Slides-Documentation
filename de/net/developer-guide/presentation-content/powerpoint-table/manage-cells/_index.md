@@ -2,7 +2,7 @@
 title: Zellen verwalten
 type: docs
 weight: 30
-url: /net/manage-cells/
+url: /de/net/manage-cells/
 keywords:
 - Tabelle
 - zusammengeführte Zellen

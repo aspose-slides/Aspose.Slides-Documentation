@@ -3,7 +3,7 @@ title: Textformatierung
 linktitle: Textformatierung
 type: docs
 weight: 50
-url: /net/text-formatting/
+url: /de/net/text-formatting/
 keywords:
 - Text hervorheben
 - regulärer Ausdruck

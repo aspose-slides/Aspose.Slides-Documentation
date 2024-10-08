@@ -2,7 +2,7 @@
 title: Präsentation Untersuchen
 type: docs
 weight: 30
-url: /net/examine-presentation/
+url: /de/net/examine-presentation/
 keywords:
 - PowerPoint
 - präsentation

@@ -2,7 +2,7 @@
 title: Anpassung von Formen auf Folien
 type: docs
 weight: 110
-url: /java/re-sizing-shapes-on-slide/
+url: /de/java/re-sizing-shapes-on-slide/
 ---
 
 ## **Anpassung von Formen auf Folien**

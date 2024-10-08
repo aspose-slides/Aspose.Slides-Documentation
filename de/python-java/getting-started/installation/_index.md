@@ -2,7 +2,7 @@
 title: Installation
 type: docs
 weight: 70
-url: /python-java/installation/
+url: /de/python-java/installation/
 keySlides: "Laden Sie Aspose.Slides herunter, Installieren Sie Aspose.Slides, Aspose.Slides Installation, Windows, macOS, Linux, Python"
 description: "Installieren Sie Aspose.Slides für Python über Java in Windows, Linux oder macOS"
 ---

@@ -2,7 +2,7 @@
 title: Linie
 type: docs
 weight: 50
-url: /php-java/Linie/
+url: /de/php-java/Linie/
 ---
 
 

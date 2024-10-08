@@ -2,7 +2,7 @@
 title: Bilderrahmen
 type: docs
 weight: 10
-url: /java/picture-frame/
+url: /de/java/picture-frame/
 keywords: "Bilderrahmen hinzufügen, Bilderrahmen erstellen, Bild hinzufügen, Bild erstellen, Bild extrahieren, StretchOff-Eigenschaft, Bilderrahmenformatierung, Bilderrahmeneigenschaften, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Fügen Sie der PowerPoint-Präsentation in Java einen Bilderrahmen hinzu"
 

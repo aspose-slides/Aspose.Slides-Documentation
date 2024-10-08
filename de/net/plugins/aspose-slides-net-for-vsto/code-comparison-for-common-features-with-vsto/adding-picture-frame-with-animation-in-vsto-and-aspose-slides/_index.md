@@ -2,7 +2,7 @@
 title: Hinzufügen eines Bilderrahmens mit Animation in VSTO und Aspose.Slides
 type: docs
 weight: 20
-url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
+url: /de/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
 ---
 
 Die folgenden Codebeispiele erstellen eine Präsentation mit einer Folie, fügen ein Bild mit einem Bilderrahmen hinzu und wenden Animationen darauf an.

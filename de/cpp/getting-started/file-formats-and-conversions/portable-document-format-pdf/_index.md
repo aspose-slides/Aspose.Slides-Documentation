@@ -2,7 +2,7 @@
 title: Portable Document Format (PDF)  
 type: docs  
 weight: 30  
-url: /cpp/portable-document-format-pdf/  
+url: /de/cpp/portable-document-format-pdf/  
 ---  
 
 ## **Über PDF**  

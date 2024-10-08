@@ -2,7 +2,7 @@
 title: Ermitteln des Dateiformats der Präsentation
 type: docs
 weight: 50
-url: /net/get-the-file-format-of-presentation/
+url: /de/net/get-the-file-format-of-presentation/
 ---
 
 Um das Dateiformat zu ermitteln, folgen Sie bitte den unten stehenden Schritten:

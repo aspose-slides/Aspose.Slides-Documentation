@@ -2,12 +2,12 @@
 title: So fügen Sie Kopf- und Fußzeilen in einer Präsentation hinzu
 type: docs
 weight: 20
-url: /net/how-to-add-header-footer-in-a-presentation/
+url: /de/net/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides für .NET API](/slides/net/) wurde veröffentlicht und nun unterstützt dieses einzelne Produkt die Möglichkeit, PowerPoint-Dokumente von Grund auf neu zu erstellen und vorhandene zu bearbeiten.
+Eine neue [Aspose.Slides für .NET API](/slides/de/net/) wurde veröffentlicht und nun unterstützt dieses einzelne Produkt die Möglichkeit, PowerPoint-Dokumente von Grund auf neu zu erstellen und vorhandene zu bearbeiten.
 
 {{% /alert %}} 
 ## **Unterstützung für Legacy-Code**

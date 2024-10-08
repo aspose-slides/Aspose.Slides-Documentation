@@ -2,7 +2,7 @@
 title: Zellen verwalten
 type: docs
 weight: 30
-url: /java/manage-cells/
+url: /de/java/manage-cells/
 keywords: "Tabelle, zusammengeführte Zellen, geteilte Zellen, Bild in Tabellenzelle, Java, Aspose.Slides für Java"
 description: "Tabellenzellen in PowerPoint-Präsentationen in Java"
 ---

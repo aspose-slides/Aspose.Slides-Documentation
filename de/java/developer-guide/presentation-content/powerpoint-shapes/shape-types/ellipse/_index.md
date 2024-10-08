@@ -2,7 +2,7 @@
 title: Ellipse
 type: docs
 weight: 30
-url: /java/ellipse/
+url: /de/java/ellipse/
 ---
 
 

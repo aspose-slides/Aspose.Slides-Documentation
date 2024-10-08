@@ -2,7 +2,7 @@
 title: Hyperlinks verwalten
 type: docs
 weight: 20
-url: /cpp/manage-hyperlinks/
+url: /de/cpp/manage-hyperlinks/
 keywords: "PowerPoint Hyperlink, Text-Hyperlink, Folien-Hyperlink, Formen-Hyperlink, Bild-Hyperlink, Video-Hyperlink, C++"
 description: "So fügen Sie Hyperlinks in eine PowerPoint-Präsentation in C++ ein."
 ---

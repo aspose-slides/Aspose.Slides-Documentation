@@ -1,7 +1,7 @@
 ---
 title: Fehlerbalken
 type: docs
-url: /php-java/error-bar/
+url: /de/php-java/error-bar/
 ---
 
 ## **Fehlerbalken hinzufügen**

@@ -2,7 +2,7 @@
 title: API-Beschränkungen
 type: docs
 weight: 320
-url: /php-java/api-limitations/
+url: /de/php-java/api-limitations/
 ---
 
 ## **Präsentationen und andere Exportformate**

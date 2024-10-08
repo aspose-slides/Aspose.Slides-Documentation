@@ -2,7 +2,7 @@
 title: Folienübergänge  
 type: docs  
 weight: 80  
-url: /net/slide-transitions/  
+url: /de/net/slide-transitions/  
 ---  
 
 Um es einfacher zu verstehen, haben wir die Verwendung von Aspose.Slides für .NET zur Verwaltung einfacher Folienübergänge demonstriert. Entwickler können nicht nur verschiedene Folienübergangseffekte auf den Folien anwenden, sondern auch das Verhalten dieser Übergangseffekte anpassen. Um einen einfachen Folienübergangseffekt zu erstellen, folgen Sie den folgenden Schritten:
@@ -53,6 +53,6 @@ using (Presentation pres = new Presentation(FileName))
 
 {{% alert color="primary" %}}  
 
-Für weitere Details besuchen Sie [Managing Slides Transitions](/slides/net/slide-transition/).  
+Für weitere Details besuchen Sie [Managing Slides Transitions](/slides/de/net/slide-transition/).  
 
 {{% /alert %}}  

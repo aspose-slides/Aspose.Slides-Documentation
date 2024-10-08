@@ -2,7 +2,7 @@
 title: Generieren Sie ein Folienminiaturbild im JPEG-Format
 type: docs
 weight: 90
-url: /net/generate-slide-thumbnail-as-jpeg/
+url: /de/net/generate-slide-thumbnail-as-jpeg/
 ---
 
 Um die Miniaturansicht einer gewünschten Folie mit Aspose.Slides für .NET zu generieren:
@@ -38,6 +38,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-Für weitere Details besuchen Sie [Erstellen von Folienminiaturbildern](/slides/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
+Für weitere Details besuchen Sie [Erstellen von Folienminiaturbildern](/slides/de/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
 
 {{% /alert %}}

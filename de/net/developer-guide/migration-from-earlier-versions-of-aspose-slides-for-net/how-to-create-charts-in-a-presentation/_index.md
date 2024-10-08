@@ -2,12 +2,12 @@
 title: Wie man Diagramme in einer Präsentation erstellt
 type: docs
 weight: 30
-url: /net/how-to-create-charts-in-a-presentation/
+url: /de/net/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides für .NET API](/slides/net/) wurde veröffentlicht und unterstützt jetzt diese einzelne Produktfunktion, PowerPoint-Dokumente von Grund auf neu zu erstellen und vorhandene zu bearbeiten.
+Eine neue [Aspose.Slides für .NET API](/slides/de/net/) wurde veröffentlicht und unterstützt jetzt diese einzelne Produktfunktion, PowerPoint-Dokumente von Grund auf neu zu erstellen und vorhandene zu bearbeiten.
 
 {{% /alert %}} 
 ## **Unterstützung für Legacy-Code**

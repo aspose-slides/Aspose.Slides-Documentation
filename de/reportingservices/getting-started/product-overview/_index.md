@@ -2,7 +2,7 @@
 title: Produktübersicht
 type: docs
 weight: 10
-url: /reportingservices/product-overview/
+url: /de/reportingservices/product-overview/
 ---
 
 {{% alert color="primary" %}} 

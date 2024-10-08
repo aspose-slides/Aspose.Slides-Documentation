@@ -2,7 +2,7 @@
 title: Folien Vergleichen
 type: docs
 weight: 50
-url: /androidjava/compare-slides/
+url: /de/androidjava/compare-slides/
 ---
 
 ## **Zwei Folien Vergleichen**

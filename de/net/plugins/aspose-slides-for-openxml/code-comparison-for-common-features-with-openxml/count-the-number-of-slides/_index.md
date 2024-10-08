@@ -2,7 +2,7 @@
 title: Zähle die Anzahl der Folien
 type: docs
 weight: 50
-url: /net/count-the-number-of-slides/
+url: /de/net/count-the-number-of-slides/
 ---
 
 ## **OpenXML SDK**

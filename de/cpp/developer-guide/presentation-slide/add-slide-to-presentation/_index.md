@@ -2,7 +2,7 @@
 title: Folie zur Präsentation hinzufügen
 type: docs
 weight: 10
-url: /cpp/add-slide-to-presentation/
+url: /de/cpp/add-slide-to-presentation/
 ---
 
 ## **Folie zur Präsentation hinzufügen**

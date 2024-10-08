@@ -2,7 +2,7 @@
 title: Objekt geändert Problem beim Hinzufügen von OleObjectFrame
 type: docs
 weight: 10
-url: /java/object-changed-issue-when-adding-oleobjectframe/
+url: /de/java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **Problemstellung**
@@ -10,7 +10,7 @@ Wenn Entwickler ein **OleObjectFrame** zu ihren Folien mit Aspose.Slides für Ja
 ## **Kritische Analyse und Erklärung**
 Zuerst ist es wichtig zu wissen, dass die von Aspose.Slides für Java angezeigte **Objekt geändert**-Nachricht nach dem Hinzufügen von **OleObjectFrame** in die Folie **KEIN** Fehler oder Bug in Aspose.Slides für Java ist. Es ist nur eine Information oder Nachricht, die die Benutzer darüber informiert, dass das Objekt geändert wurde und das Bild aktualisiert werden sollte.
 
-Wenn Sie beispielsweise ein **Microsoft Excel-Diagramm** als **OleObjectFrame** zu Ihrer Folie hinzufügen (für weitere Details und Codebeispiele zum Hinzufügen von **OleObjectFrame** zu Ihrer Folie, [klicken Sie hier](/slides/java/adding-frame-to-the-slide/)) und dann die Präsentationsdatei mit MS PowerPoint öffnen, würde die Folie (auf der das **OLE-Objekt** hinzugefügt wurde) so aussehen:
+Wenn Sie beispielsweise ein **Microsoft Excel-Diagramm** als **OleObjectFrame** zu Ihrer Folie hinzufügen (für weitere Details und Codebeispiele zum Hinzufügen von **OleObjectFrame** zu Ihrer Folie, [klicken Sie hier](/slides/de/java/adding-frame-to-the-slide/)) und dann die Präsentationsdatei mit MS PowerPoint öffnen, würde die Folie (auf der das **OLE-Objekt** hinzugefügt wurde) so aussehen:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

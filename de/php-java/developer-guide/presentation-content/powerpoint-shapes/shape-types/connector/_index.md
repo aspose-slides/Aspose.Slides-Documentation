@@ -2,7 +2,7 @@
 title: Connector
 type: docs
 weight: 10
-url: /php-java/connector/
+url: /de/php-java/connector/
 keywords: "Formen verbinden, Verbindungen, PowerPoint Formen, PowerPoint Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Verbinden Sie PowerPoint Formen"
 ---
@@ -121,7 +121,7 @@ Dieser PHP-Code demonstriert eine Operation, bei der ein bevorzugter Verbindungs
 
 ## **Connector-Punkt anpassen**
 
-Sie können einen vorhandenen Connector über seine Anpassungspunkte anpassen. Nur Connectoren mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Typen von Connectors](/slides/php-java/connector/#types-of-connectors)**
+Sie können einen vorhandenen Connector über seine Anpassungspunkte anpassen. Nur Connectoren mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Typen von Connectors](/slides/de/php-java/connector/#types-of-connectors)**
 
 #### **Einfacher Fall**
 
@@ -169,7 +169,7 @@ Um kompliziertere Anpassungen vorzunehmen, müssen Sie folgende Dinge beachten:
 * Die Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe einer Connectorform wider. 
   * Die Form wird durch die Start- und Endpunkte des Connectors multipliziert mit 1000 begrenzt. 
   * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren den Prozentsatz von der Breite, den Prozentsatz von der Höhe und erneut den Prozentsatz von der Breite.
-* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Connectors bestimmen, müssen Sie die Drehung und die Spiegelung des Connectors berücksichtigen. **Hinweis**: Der Drehwinkel für alle Connectoren, die unter **[Typen von Connectors](/slides/php-java/connector/#types-of-connectors)** angezeigt werden, beträgt 0.
+* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Connectors bestimmen, müssen Sie die Drehung und die Spiegelung des Connectors berücksichtigen. **Hinweis**: Der Drehwinkel für alle Connectoren, die unter **[Typen von Connectors](/slides/de/php-java/connector/#types-of-connectors)** angezeigt werden, beträgt 0.
 
 #### **Fall 1**
 

@@ -1,7 +1,7 @@
 ---
 title: Druckpräsentation
 type: docs
-url: /net/print-the-presentation/
+url: /de/net/print-the-presentation/
 ---
 
 Aspose.Slides für .NET bietet vier Überladungsmethoden zum Drucken von Präsentationen. Diese Methoden sind flexibel genug, um die Präsentation an den Standarddrucker oder an jeden verfügbaren Drucker mit benutzerdefinierten Einstellungen zu drucken. Sie müssen lediglich die entsprechende Druckmethode gemäß den Anforderungen auswählen.

@@ -2,7 +2,7 @@
 title: Unterstützung für störbare Bibliothek
 type: docs
 weight: 150
-url: /cpp/support-for-interruptable-library/
+url: /de/cpp/support-for-interruptable-library/
 ---
 
 ## **Störbare Bibliothek**

@@ -2,14 +2,14 @@
 title: Präsentationsthema
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /de/java/presentation-theme/
 keywords: "Thema, PowerPoint Thema, PowerPoint Präsentation, Java, Aspose.Slides für Java"
 description: "PowerPoint Präsentationsthema in Java"
 ---
 
 Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz von visuellen Elementen und deren Eigenschaften aus.
 
-In PowerPoint umfasst ein Thema Farben, [Schriftarten](/slides/java/powerpoint-fonts/), [Hintergrundstile](/slides/java/presentation-background/) und Effekte.
+In PowerPoint umfasst ein Thema Farben, [Schriftarten](/slides/de/java/powerpoint-fonts/), [Hintergrundstile](/slides/de/java/presentation-background/) und Effekte.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ Die Schriftart in allen Textfeldern wird aktualisiert.
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten vielleicht die [PowerPoint Schriftarten](/slides/java/powerpoint-fonts/) sehen.
+Sie möchten vielleicht die [PowerPoint Schriftarten](/slides/de/java/powerpoint-fonts/) sehen.
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten vielleicht den [PowerPoint Hintergrund](/slides/java/presentation-background/) sehen.
+Sie möchten vielleicht den [PowerPoint Hintergrund](/slides/de/java/presentation-background/) sehen.
 
 {{% /alert %}}
 

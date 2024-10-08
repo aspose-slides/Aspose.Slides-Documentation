@@ -2,7 +2,7 @@
 title: Präsentation Zusammenführen
 type: docs
 weight: 40
-url: /java/merge-presentation/
+url: /de/java/merge-presentation/
 keywords: "Präsentation PowerPoint zusammenführen, PPTX, PPT, PowerPoint kombinieren, Präsentation zusammenführen, Präsentation kombinieren, Java"
 description: "Präsentationen in Java zusammenführen oder kombinieren"
 ---

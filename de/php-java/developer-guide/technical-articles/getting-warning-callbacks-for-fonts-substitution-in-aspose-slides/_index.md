@@ -2,7 +2,7 @@
 title: Warnungsrückrufe für Schriftartenersetzung in Aspose.Slides erhalten
 type: docs
 weight: 90
-url: /php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /de/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

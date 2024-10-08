@@ -2,7 +2,7 @@
 title: Funktionierende Lösung für das Skalieren von Diagrammen in PPTX
 type: docs
 weight: 60
-url: /net/working-solution-for-chart-resizing-in-pptx/
+url: /de/net/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Es wurde beobachtet, dass in einer PowerPoint-Präsentation eingebettete Excel-D
 
 {{% /alert %}} 
 ## **Hintergrund**
-Im [vorherigen Artikel](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) haben wir erklärt, wie man ein Excel-Diagramm mit Aspose.Cells für .NET erstellt und dieses Diagramm weiter in eine PowerPoint-Präsentation mit Aspose.Slides für .NET einbettet. Um das [Problem mit den geänderten Objekten](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) zu berücksichtigen, haben wir das Diagrammbild dem OLE-Objekt-Frame des Diagramms zugewiesen. In der Ausgabpräsentation wird das Excel-Diagramm aktiviert, wenn wir auf den OLE-Objekt-Frame mit dem Diagrammbild doppelklicken. Die Endbenutzer können alle gewünschten Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur betreffenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objekt-Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor wird für unterschiedliche Größen des OLE-Objekt-Frames und eingebetteten Excel-Arbeitsmappen unterschiedlich sein. 
+Im [vorherigen Artikel](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) haben wir erklärt, wie man ein Excel-Diagramm mit Aspose.Cells für .NET erstellt und dieses Diagramm weiter in eine PowerPoint-Präsentation mit Aspose.Slides für .NET einbettet. Um das [Problem mit den geänderten Objekten](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) zu berücksichtigen, haben wir das Diagrammbild dem OLE-Objekt-Frame des Diagramms zugewiesen. In der Ausgabpräsentation wird das Excel-Diagramm aktiviert, wenn wir auf den OLE-Objekt-Frame mit dem Diagrammbild doppelklicken. Die Endbenutzer können alle gewünschten Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur betreffenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objekt-Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor wird für unterschiedliche Größen des OLE-Objekt-Frames und eingebetteten Excel-Arbeitsmappen unterschiedlich sein. 
 ## **Ursache der Skalierung**
 Da die Excel-Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, ihre ursprüngliche Größe beim ersten Aktivieren beizubehalten. Andererseits hat der OLE-Objekt-Frame seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Excel-Arbeitsmappe die Größe und stellen sicher, dass diese im richtigen Maßstab im Rahmen des Einbettungsprozesses erfolgt. Basierend auf den Unterschieden in der Excel-Fenstergröße und der OLE-Objekt-Frame-Größe / -Position erfolgt die Skalierung. 
 ## **Funktionierende Lösung**
@@ -158,6 +158,6 @@ Es gibt zwei Ansätze zur Behebung des Problems der Diagrammskalierung. Die Ausw
 
 {{% /alert %}} 
 ## **Verwandte Abschnitte**
-[Erstellen und Einbetten eines Excel-Diagramms als OLE-Objekt in der Präsentation](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Erstellen und Einbetten eines Excel-Diagramms als OLE-Objekt in der Präsentation](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Automatisches Aktualisieren von OLE-Objekten](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Automatisches Aktualisieren von OLE-Objekten](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

@@ -1,7 +1,7 @@
 ---
 title: Trendlinie
 type: docs
-url: /cpp/trend-line/
+url: /de/cpp/trend-line/
 ---
 
 ## **Trendlinie hinzufügen**

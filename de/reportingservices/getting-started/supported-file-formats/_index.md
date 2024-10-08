@@ -2,7 +2,7 @@
 title: Unterstützte Dateiformate
 type: docs
 weight: 20
-url: /reportingservices/supported-file-formats/
+url: /de/reportingservices/supported-file-formats/
 ---
 
 ## **Unterstützte Microsoft PowerPoint-Versionen**

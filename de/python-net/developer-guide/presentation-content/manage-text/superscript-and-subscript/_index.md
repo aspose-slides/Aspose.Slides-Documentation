@@ -2,7 +2,7 @@
 title: Hoch- und Tiefgestellt
 type: docs
 weight: 80
-url: /python-net/superscript-and-subscript/
+url: /de/python-net/superscript-and-subscript/
 keywords: "Hochgestellt, Tiefgestellt, Hochgestellten Text hinzufügen, Tiefgestellten Text hinzufügen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Hochgestellten und tiefgestellten Text in PowerPoint-Präsentationen mit Python hinzufügen"
 ---

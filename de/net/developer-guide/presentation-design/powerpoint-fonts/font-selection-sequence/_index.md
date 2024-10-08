@@ -3,7 +3,7 @@ title: Schriftartauswahlsequenz in C#
 linktitle: Schriftartauswahlsequenz in C#
 type: docs
 weight: 80
-url: /net/font-selection-sequence/
+url: /de/net/font-selection-sequence/
 keywords:
 - schriftart
 - schriftartauswahl

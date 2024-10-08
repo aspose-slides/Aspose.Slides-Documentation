@@ -2,7 +2,7 @@
 title: Moderne API
 type: docs
 weight: 237
-url: /androidjava/modern-api/
+url: /de/androidjava/modern-api/
 keywords: "CrossPlatform Moderne API"
 description: "Moderne API"
 ---

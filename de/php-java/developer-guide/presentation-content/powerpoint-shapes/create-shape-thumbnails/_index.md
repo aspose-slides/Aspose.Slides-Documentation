@@ -2,7 +2,7 @@
 title: Erstellen von Form-Thumbnails
 type: docs
 weight: 70
-url: /php-java/create-shape-thumbnails/
+url: /de/php-java/create-shape-thumbnails/
 ---
 
 

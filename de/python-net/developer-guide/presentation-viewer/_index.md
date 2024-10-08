@@ -2,7 +2,7 @@
 title: Präsentationsbetrachter
 type: docs
 weight: 50
-url: /python-net/presentation-viewer/
+url: /de/python-net/presentation-viewer/
 keywords: "PowerPoint-Präsentation ansehen, ppt ansehen, PPTX ansehen, Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint-Präsentation in Python ansehen"
 ---

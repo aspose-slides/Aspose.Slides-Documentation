@@ -1,7 +1,7 @@
 ---
 title: Diagramm Legende
 type: docs
-url: /php-java/chart-legend/
+url: /de/php-java/chart-legend/
 ---
 
 ## **Positionierung der Legende**

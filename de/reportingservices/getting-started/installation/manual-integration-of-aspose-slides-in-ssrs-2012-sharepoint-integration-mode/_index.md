@@ -2,7 +2,7 @@
 title: Manuelle Integration von Aspose.Slides in SSRS 2012 SharePoint Integrationsmodus
 type: docs
 weight: 100
-url: /reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepoint-integration-mode/
+url: /de/reportingservices/manual-integration-of-aspose-slides-in-ssrs-2012-sharepoint-integration-mode/
 ---
 
 {{% alert color="primary" %}} 

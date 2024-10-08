@@ -1,7 +1,7 @@
 ---
 title: Diagrammserien
 type: docs
-url: /cpp/chart-series/
+url: /de/cpp/chart-series/
 ---
 
 Eine Serie ist eine Zeile oder Spalte von Zahlen, die in einem Diagramm dargestellt wird.

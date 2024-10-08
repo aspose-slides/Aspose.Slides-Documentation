@@ -2,7 +2,7 @@
 title: Export nach XAML
 type: docs
 weight: 30
-url: /net/export-to-xaml/
+url: /de/net/export-to-xaml/
 keywords: "PowerPoint-Präsentation exportieren, PowerPoint konvertieren, XAML, PowerPoint nach XAML, PPT nach XAML, PPTX nach XAML, C#, Csharp, .NET"
 description: "Exportieren oder konvertieren Sie eine PowerPoint-Präsentation nach XAML"
 ---

@@ -2,7 +2,7 @@
 title: Automatisches Aktualisieren von OLE-Objekten mit MS PowerPoint Add-In
 type: docs
 weight: 10
-url: /net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **Über das automatische Aktualisieren von OLE-Objekten**

@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Form
 type: docs
 weight: 20
-url: /net/custom-shape/
+url: /de/net/custom-shape/
 keywords: 
 - Form
 - benutzerdefinierte Form

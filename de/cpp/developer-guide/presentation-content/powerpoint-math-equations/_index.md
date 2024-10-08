@@ -2,7 +2,7 @@
 title: PowerPoint Mathematik Gleichungen
 type: docs
 weight: 80
-url: /cpp/powerpoint-math-equations/
+url: /de/cpp/powerpoint-math-equations/
 keywords: "PowerPoint Mathematik Gleichungen, PowerPoint Mathematik Symbole, PowerPoint Formel, PowerPoint Mathematik Text"
 description: "PowerPoint Mathematik Gleichungen, PowerPoint Mathematik Symbole, PowerPoint Formel, PowerPoint Mathematik Text"
 ---

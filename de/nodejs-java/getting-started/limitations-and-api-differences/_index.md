@@ -2,7 +2,7 @@
 title: Einschränkungen und API-Unterschiede
 type: docs
 weight: 100
-url: /nodejs-java/einschraenkungen-und-api-unterschiede/
+url: /de/nodejs-java/einschraenkungen-und-api-unterschiede/
 keywords: "node, powerpoint, einschränkung, api, unterschiede"
 description: "Einschränkungen und API-Unterschiede von Aspose.Slides für Node.js über Java."
 ---

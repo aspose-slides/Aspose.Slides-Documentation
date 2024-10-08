@@ -2,5 +2,5 @@
 title: Erste Schritte
 type: docs
 weight: 10
-url: /androidjava/getting-started/
+url: /de/androidjava/getting-started/
 ---

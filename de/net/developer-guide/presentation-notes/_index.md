@@ -2,7 +2,7 @@
 title: Präsentationsnotizen
 type: docs
 weight: 110
-url: /net/presentation-notes/
+url: /de/net/presentation-notes/
 keywords: "Notizen, PowerPoint-Notizen, Notizen hinzufügen, Notizen entfernen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Notizen in PowerPoint-Präsentationen in C# oder .NET hinzufügen und entfernen"
 ---

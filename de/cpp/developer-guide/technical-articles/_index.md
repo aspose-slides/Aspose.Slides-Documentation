@@ -2,5 +2,5 @@
 title: Technische Artikel
 type: docs
 weight: 270
-url: /cpp/technical-articles/
+url: /de/cpp/technical-articles/
 ---

@@ -2,7 +2,7 @@
 title: Folie konvertieren
 type: docs
 weight: 35
-url: /java/convert-slide/
+url: /de/java/convert-slide/
 keywords: 
 - Folie in Bild konvertieren
 - Folie als Bild exportieren

@@ -3,7 +3,7 @@ title: PowerPoint in PDF umwandeln
 linktitle: PowerPoint in PDF umwandeln
 type: docs
 weight: 40
-url: /php-java/powerpoint-in-pdf-umwandeln/
+url: /de/php-java/powerpoint-in-pdf-umwandeln/
 keywords: "PowerPoint umwandeln, Präsentation, PowerPoint in PDF, PPT in PDF, PPTX in PDF, PowerPoint als PDF speichern, PDF/A1a, PDF/A1b, PDF/UA, Java"
 description: "PowerPoint-Präsentation in PDF umwandeln. Speichern Sie PowerPoint als PDF unter Einhaltung von Standards für Compliance oder Barrierefreiheit."
 

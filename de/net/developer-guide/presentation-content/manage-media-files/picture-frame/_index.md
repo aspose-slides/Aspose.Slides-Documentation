@@ -2,7 +2,7 @@
 title: Bilderrahmen
 type: docs
 weight: 10
-url: /net/picture-frame/
+url: /de/net/picture-frame/
 keywords: 
 - Bilderrahmen hinzufügen
 - Bilderrahmen erstellen

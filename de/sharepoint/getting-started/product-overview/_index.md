@@ -2,7 +2,7 @@
 title: Produktübersicht  
 type: docs  
 weight: 10  
-url: /sharepoint/product-overview/  
+url: /de/sharepoint/product-overview/  
 ---  
   
 {{% alert color="primary" %}}  

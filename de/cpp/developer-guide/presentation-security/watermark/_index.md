@@ -2,7 +2,7 @@
 title: Wasserzeichen
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /de/cpp/watermark/
 keywords:
 - wasserzeichen
 - wasserzeichen hinzufügen
@@ -48,7 +48,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man die TextFrame-Klasse verwendet](/slides/cpp/text-formatting/)
+- [Wie man die TextFrame-Klasse verwendet](/slides/de/cpp/text-formatting/)
 {{% /alert %}}
 
 ### **Fügen Sie ein Textwasserzeichen zur gesamten Präsentation hinzu**
@@ -68,7 +68,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man den Folienmaster verwendet](/slides/cpp/slide-master/)
+- [Wie man den Folienmaster verwendet](/slides/de/cpp/slide-master/)
 {{% /alert %}}
 
 ### **Setzen Sie die Transparenz der Wasserzeichengestalt**

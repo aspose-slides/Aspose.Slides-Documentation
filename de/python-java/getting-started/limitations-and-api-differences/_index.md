@@ -2,7 +2,7 @@
 title: Einschränkungen und API-Unterschiede
 type: docs
 weight: 100
-url: /python-java/einschraenkungen-und-api-unterschiede/
+url: /de/python-java/einschraenkungen-und-api-unterschiede/
 keywords: "knoten, powerpoint, einschränkung, api, unterschiede"
 description: "Einschränkungen und API-Unterschiede von Aspose.Slides für Python über Java."
 ---

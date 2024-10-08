@@ -3,7 +3,7 @@ title: Schriftartenersetzung - PowerPoint Java API
 linktitle: Schriftartenersetzung
 type: docs
 weight: 70
-url: /php-java/font-substitution/
+url: /de/php-java/font-substitution/
 keywords: "Schriftart, Ersatzschriftart, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Ersatzschriftart in PowerPoint"
 ---
@@ -53,6 +53,6 @@ Dieser PHP-Code demonstriert den Prozess der Schriftartenersetzung:
 
 {{%  alert title="HINWEIS"  color="warning"   %}} 
 
-Möglicherweise möchten Sie [**Schriftartenersetzung**](/slides/php-java/font-replacement/) sehen.
+Möglicherweise möchten Sie [**Schriftartenersetzung**](/slides/de/php-java/font-replacement/) sehen.
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Präsentation importieren
 type: docs
 weight: 60
-url: /python-net/import-presentation/
+url: /de/python-net/import-presentation/
 keywords: "PowerPoint importieren, PDF in Präsentation, PDF in PPTX, PDF in PPT, Python, Aspose.Slides für Python über .NET"
 description: "Importieren Sie eine PowerPoint-Präsentation aus PDF. Konvertieren Sie PDF in PowerPoint"
 ---

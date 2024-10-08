@@ -2,7 +2,7 @@
 title: Digitale Signatur in PowerPoint
 type: docs
 weight: 10
-url: /androidjava/digital-signature-in-powerpoint/
+url: /de/androidjava/digital-signature-in-powerpoint/
 keywords: "Digitales Signaturzertifikat, Zertifizierungsstelle"
 description: "Fügen Sie ein digitales Signaturzertifikat, eine Zertifizierungsstelle in die PowerPoint-Präsentation mit Aspose.Slides hinzu."
 ---

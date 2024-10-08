@@ -2,7 +2,7 @@
 title: Präsentation Überprüfen
 type: docs
 weight: 30
-url: /androidjava/examine-presentation/
+url: /de/androidjava/examine-presentation/
 keywords:
 - PowerPoint
 - präsentation

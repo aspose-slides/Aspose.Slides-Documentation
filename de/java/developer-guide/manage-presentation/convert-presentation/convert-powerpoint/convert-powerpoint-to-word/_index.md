@@ -2,7 +2,7 @@
 title: PowerPoint in Word konvertieren
 type: docs
 weight: 110
-url: /java/convert-powerpoint-to-word/
+url: /de/java/convert-powerpoint-to-word/
 keywords: "PowerPoint konvertieren, PPT, PPTX, Präsentation, Word, DOCX, DOC, PPTX in DOCX, PPT in DOC, PPTX in DOC, PPT in DOCX, Java, java, Aspose.Slides"
 description: "PowerPoint Präsentation in Word in Java konvertieren"
 ---

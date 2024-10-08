@@ -2,7 +2,7 @@
 title: Druckpräsentation
 type: docs
 weight: 50
-url: /python-net/print-presentation/
+url: /de/python-net/print-presentation/
 keywords: "Print PowerPoint, PPT, PPTX, Print Präsentation, Python, Drucker, Druckoptionen"
 description: "Druck PowerPoint-Präsentation in Python"
 ---

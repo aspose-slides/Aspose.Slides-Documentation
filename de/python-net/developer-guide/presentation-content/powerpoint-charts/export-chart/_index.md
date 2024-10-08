@@ -2,7 +2,7 @@
 title: Diagramm exportieren
 type: docs
 weight: 90
-url: /python-net/export-chart/
+url: /de/python-net/export-chart/
 keywords:
 - diagramm
 - Diagrammbild

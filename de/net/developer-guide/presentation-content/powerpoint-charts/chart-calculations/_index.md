@@ -2,7 +2,7 @@
 title: Diagramm-Berechnungen
 type: docs
 weight: 50
-url: /net/chart-calculations/
+url: /de/net/chart-calculations/
 keywords: "Diagrammberechnungen, Diagrammelemente, Elementposition, Diagrammwerte C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint-Diagrammberechnungen und -werte in C# oder .NET"
 ---

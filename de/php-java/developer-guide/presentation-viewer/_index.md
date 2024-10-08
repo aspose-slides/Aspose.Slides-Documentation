@@ -2,7 +2,7 @@
 title: Präsentationsviewer
 type: docs
 weight: 50
-url: /php-java/presentation-viewer/
+url: /de/php-java/presentation-viewer/
 keywords: "PowerPoint PPT Viewer"
 description: "PowerPoint PPT Viewer "
 ---

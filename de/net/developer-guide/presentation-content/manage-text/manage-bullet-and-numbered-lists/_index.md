@@ -2,7 +2,7 @@
 title: Aufzählungs- und Nummerierungslisten verwalten
 type: docs
 weight: 70
-url: /net/manage-bullet-and-numbered-lists
+url: /de/net/manage-bullet-and-numbered-lists
 keywords: "Aufzählungen, Aufzählungslisten, Nummern, Nummerierte Listen, Bildaufzählungen, mehrstufige Aufzählungen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Erstellen Sie Aufzählungs- und nummerierte Listen in PowerPoint-Präsentationen in C# oder .NET"
 ---

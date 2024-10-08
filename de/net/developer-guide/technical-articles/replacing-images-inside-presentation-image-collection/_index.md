@@ -2,7 +2,7 @@
 title: Ersetzen von Bildern in der Präsentation Bildsammlung
 type: docs
 weight: 110
-url: /net/replacing-images-inside-presentation-image-collection/
+url: /de/net/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

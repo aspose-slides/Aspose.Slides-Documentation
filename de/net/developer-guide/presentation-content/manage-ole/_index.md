@@ -2,7 +2,7 @@
 title: OLE verwalten
 type: docs
 weight: 40
-url: /net/manage-ole/
+url: /de/net/manage-ole/
 keywords:
 - OLE hinzufügen
 - OLE einbetten

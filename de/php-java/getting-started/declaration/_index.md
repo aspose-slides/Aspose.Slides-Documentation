@@ -2,7 +2,7 @@
 title: Deklaration
 type: docs
 weight: 60
-url: /php-java/declaration/
+url: /de/php-java/declaration/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Produktübersicht
 type: docs
 weight: 10
-url: /java/product-overview/
+url: /de/java/product-overview/
 ---
 
 ![todo:image_alt_text](product-overview_1.png)

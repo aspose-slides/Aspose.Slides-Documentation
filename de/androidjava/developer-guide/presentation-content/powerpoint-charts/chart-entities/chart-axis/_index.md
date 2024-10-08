@@ -1,7 +1,7 @@
 ---
 title: Diagrammachse
 type: docs
-url: /androidjava/chart-axis/
+url: /de/androidjava/chart-axis/
 keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Java, Diagrammachse manipulieren, Diagrammdaten"
 description: "So bearbeiten Sie die Diagrammachse in PowerPoint mit Java"
 ---

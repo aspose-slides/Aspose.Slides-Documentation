@@ -2,7 +2,7 @@
 title: PPT vs PPTX
 type: docs
 weight: 10
-url: /net/ppt-vs-pptx/
+url: /de/net/ppt-vs-pptx/
 keywords: "PPT vs PPTX, PPT oder PPTX, PowerPoint-Präsentation, Format, C#, Csharp, .NET"
 description: "Über PowerPoint-Präsentationsformate. PPT vs PPTX. Unterschiede in C# oder .NET"
 ---

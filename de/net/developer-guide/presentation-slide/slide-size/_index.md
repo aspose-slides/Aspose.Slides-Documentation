@@ -2,7 +2,7 @@
 title: Foliengröße
 type: docs
 weight: 70
-url: /net/slide-size/
+url: /de/net/slide-size/
 keywords: "Folien festlegen, Foliengröße bearbeiten, PowerPoint-Präsentation, benutzerdefinierte Foliengröße, Folienprobleme lösen, C#, Csharp, .NET, Aspose.Slides"
 descriptions: "Foliengröße oder Seitenverhältnis in PowerPoint in C# oder .NET festlegen und bearbeiten"
 ---

@@ -2,14 +2,14 @@
 title: Schutz auf Präsentation anwenden  
 type: docs  
 weight: 60  
-url: /java/applying-protection-to-presentation/  
+url: /de/java/applying-protection-to-presentation/  
 ---  
 
 {{% alert color="primary" %}}  
   
 Eine häufige Verwendung von Aspose.Slides besteht darin, Microsoft PowerPoint 2007 (PPTX) Präsentationen im Rahmen eines automatisierten Workflows zu erstellen, zu aktualisieren und zu speichern. Benutzer der Anwendung, die Aspose.Slides auf diese Weise verwenden, erhalten Zugriff auf die ausgegebenen Präsentationen. Sie vor Bearbeitung zu schützen, ist eine gängige Sorge. Es ist wichtig, dass automatisch generierte Präsentationen ihr ursprüngliches Format und ihren Inhalt beibehalten.  
 
-Dieser Artikel erklärt, wie [Präsentationen und Folien aufgebaut sind](/slides/java/applying-protection-to-presentation/) und wie Aspose.Slides für Java [Schutz anwenden kann](/slides/java/applying-protection-to-presentation/), und dann [ihn von](/slides/java/applying-protection-to-presentation/) einer Präsentation [entfernen kann](/slides/java/applying-protection-to-presentation/). Dieses Feature ist einzigartig für Aspose.Slides und zum Zeitpunkt des Schreibens nicht in Microsoft PowerPoint verfügbar. Es gibt Entwicklern eine Möglichkeit, zu kontrollieren, wie die von ihren Anwendungen erstellten Präsentationen verwendet werden.  
+Dieser Artikel erklärt, wie [Präsentationen und Folien aufgebaut sind](/slides/de/java/applying-protection-to-presentation/) und wie Aspose.Slides für Java [Schutz anwenden kann](/slides/de/java/applying-protection-to-presentation/), und dann [ihn von](/slides/de/java/applying-protection-to-presentation/) einer Präsentation [entfernen kann](/slides/de/java/applying-protection-to-presentation/). Dieses Feature ist einzigartig für Aspose.Slides und zum Zeitpunkt des Schreibens nicht in Microsoft PowerPoint verfügbar. Es gibt Entwicklern eine Möglichkeit, zu kontrollieren, wie die von ihren Anwendungen erstellten Präsentationen verwendet werden.  
 
 {{% /alert %}}  
 ## **Aufbau einer Folie**  

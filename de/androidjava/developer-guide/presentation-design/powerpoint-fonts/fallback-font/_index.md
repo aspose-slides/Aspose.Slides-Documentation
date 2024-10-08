@@ -3,7 +3,7 @@ title: Fallback-Schriftart - PowerPoint Java API
 linktitle: Fallback-Schriftart
 type: docs
 weight: 50
-url: /androidjava/fallback-font/
+url: /de/androidjava/fallback-font/
 description: Die Fallback-Schriftart wird verwendet, wenn die für den Text angegebene Schriftart im System verfügbar ist, diese Schriftart jedoch ein notwendiges Glyphe nicht enthält. In diesem Fall ist es möglich, dass die PowerPoint Java API eine der angegebenen Fallback-Schriftarten für den Glyphe-Ersatz verwendet.
 ---
 
@@ -14,6 +14,6 @@ Aspose.Slides ermöglicht das Erstellen von Fallback-Schriftarten, das Hinzufüg
 
 Um sich mit diesen Funktionen vertraut zu machen, verwenden Sie die folgenden Links:
 
-- [Fallback-Schriftart erstellen](/slides/androidjava/create-fallback-font)
-- [Sammlung von Fallback-Schriftarten erstellen](/slides/androidjava/create-fallback-fonts-collection)
-- [Präsentation mit Fallback-Schriftart rendern](/slides/androidjava/render-presentation-with-fallback-font)
+- [Fallback-Schriftart erstellen](/slides/de/androidjava/create-fallback-font)
+- [Sammlung von Fallback-Schriftarten erstellen](/slides/de/androidjava/create-fallback-fonts-collection)
+- [Präsentation mit Fallback-Schriftart rendern](/slides/de/androidjava/render-presentation-with-fallback-font)

@@ -2,7 +2,7 @@
 title: Verwalten von BLOB
 type: docs
 weight: 10
-url: /cpp/manage-blob/
+url: /de/cpp/manage-blob/
 keywords: "Blob hinzufügen, Blob exportieren, Bild als Blob hinzufügen, PowerPoint-Präsentation, C++, Aspose.Slides für C++"
 description: "Blob zu einer PowerPoint-Präsentation in C++ hinzufügen. Blob exportieren. Bild als Blob hinzufügen"
 ---
@@ -17,7 +17,7 @@ Aspose.Slides für C++ ermöglicht es Ihnen, BLOBs für Objekte zu verwenden, um
 
 ### **Fügen Sie eine große Datei über BLOB zu einer Präsentation hinzu**
 
-[Aspose.Slides](/slides/cpp/) für C++ ermöglicht es Ihnen, große Dateien (in diesem Fall eine große Videodatei) über einen Prozess, der BLOBs umfasst, hinzuzufügen, um den Speicherverbrauch zu reduzieren.
+[Aspose.Slides](/slides/de/cpp/) für C++ ermöglicht es Ihnen, große Dateien (in diesem Fall eine große Videodatei) über einen Prozess, der BLOBs umfasst, hinzuzufügen, um den Speicherverbrauch zu reduzieren.
 
 Dieser C++-Code zeigt Ihnen, wie Sie eine große Videodatei über den BLOB-Prozess zu einer Präsentation hinzufügen:
 

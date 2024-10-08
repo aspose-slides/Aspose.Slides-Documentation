@@ -2,7 +2,7 @@
 title: Holen Sie sich den gesamten Präsentationsfolienhintergrund als Bild
 type: docs
 weight: 95
-url: /php-java/get-the-entire-presentation-slide-background-as-an-image/
+url: /de/php-java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - folie
 - hintergrund
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides für PHP über Java
 ---
 
-In PowerPoint-Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Neben dem Bild, das als [folienhintergrund](/slides/php-java/presentation-background/) festgelegt wurde, kann der endgültige Hintergrund durch das Präsentationsthema, das Farbschema und die Formen beeinflusst werden, die auf der Masterfolie und der Layoutfolie platziert sind.
+In PowerPoint-Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Neben dem Bild, das als [folienhintergrund](/slides/de/php-java/presentation-background/) festgelegt wurde, kann der endgültige Hintergrund durch das Präsentationsthema, das Farbschema und die Formen beeinflusst werden, die auf der Masterfolie und der Layoutfolie platziert sind.
 
 Aspose.Slides für PHP über Java bietet keine einfache Methode, um den gesamten Folienhintergrund der Präsentation als Bild zu extrahieren, aber Sie können die folgenden Schritte ausführen, um dies zu tun:
 1. Laden Sie die Präsentation mit der [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/) Klasse.

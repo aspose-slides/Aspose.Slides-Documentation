@@ -2,7 +2,7 @@
 title: Nur-Lese-Präsentation
 type: docs
 weight: 30
-url: /androidjava/nur-lesen-praesentation/
+url: /de/androidjava/nur-lesen-praesentation/
 
 ---
 

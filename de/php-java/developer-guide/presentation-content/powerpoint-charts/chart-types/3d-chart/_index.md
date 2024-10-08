@@ -1,7 +1,7 @@
 ---
 title: 3D-Diagramm
 type: docs
-url: /php-java/3d-chart/
+url: /de/php-java/3d-chart/
 ---
 
 ## **Setzen von RotationX, RotationY und DepthPercents Eigenschaften des 3D-Diagramms**

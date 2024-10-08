@@ -2,7 +2,7 @@
 title: Einfache und leichte Bereitstellung
 type: docs
 weight: 50
-url: /reportingservices/easy-and-lightweight-deployment/
+url: /de/reportingservices/easy-and-lightweight-deployment/
 ---
 
 {{% alert color="primary" %}} 

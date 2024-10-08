@@ -2,7 +2,7 @@
 title: Verwaltung von Tags und benutzerdefinierten Daten
 type: docs
 weight: 300
-url: /python-net/managing-tags-and-custom-data/
+url: /de/python-net/managing-tags-and-custom-data/
 keywords: "Tags, Benutzerdefinierte Daten, Wert für Tags, Tags hinzufügen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Tags und benutzerdefinierte Daten zu PowerPoint-Präsentationen in Python hinzufügen"
 ---

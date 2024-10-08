@@ -2,7 +2,7 @@
 title: Rendere eine Folie als SVG-Bild
 type: docs
 weight: 50
-url: /cpp/render-a-slide-as-an-svg-image/
+url: /de/cpp/render-a-slide-as-an-svg-image/
 ---
 
 SVG—ein Akronym für skalierbare Vektorgrafiken—ist ein Standardgrafiktyp oder -format, das verwendet wird, um zweidimensionale Bilder darzustellen. SVG speichert Bilder als Vektoren in XML mit Details, die ihr Verhalten oder Aussehen definieren.

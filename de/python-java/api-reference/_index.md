@@ -2,7 +2,7 @@
 title: API-Referenz
 type: docs
 weight: 50
-url: /python-java/api-reference/
+url: /de/python-java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

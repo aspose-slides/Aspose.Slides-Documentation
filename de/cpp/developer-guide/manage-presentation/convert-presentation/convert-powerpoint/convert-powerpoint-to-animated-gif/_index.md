@@ -2,7 +2,7 @@
 title: PowerPoint in animiertes GIF umwandeln
 type: docs
 weight: 65
-url: /cpp/convert-powerpoint-to-animated-gif/
+url: /de/cpp/convert-powerpoint-to-animated-gif/
 keywords: "PowerPoint in animiertes GIF umwandeln, "
 description: "PowerPoint in animiertes GIF umwandeln: PPT in GIF, PPTX in GIF, mit der Aspose.Slides API."
 ---

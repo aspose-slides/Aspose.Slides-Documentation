@@ -2,7 +2,7 @@
 title: Produktübersicht
 type: docs
 weight: 10
-url: /net/product-overview/
+url: /de/net/product-overview/
 ---
 
 
@@ -124,7 +124,7 @@ Diese Tabelle zeigt wichtige technische Ressourcen zu Aspose.Slides für .NET.
 |[Aspose.Slide Blog](https://blog.aspose.com/category/slides/)|Überprüfen Sie diese Seite regelmäßig auf Informationen zu neuen Veröffentlichungen und nützlichen Tipps zu Aspose.Slides.|
 |[Aspose.Slides für .NET Download](https://www.nuget.org/packages/Aspose.Slides.NET/)|Laden Sie hier die neueste Version von Aspose.Slides herunter. Wir veröffentlichen häufig neue Versionen.|
 |[Aspose.Slides Support-Forum](https://forum.aspose.com/c/slides/11)|Stellen Sie Ihre Fragen und Probleme hier zur schnellen Lösung ein.|
-|[Aspose.Slides für .NET Produktdokumentation](/slides/net/)|Vollständige Online-Dokumentation, die dieses Dokument und die Aspose.Slides API-Referenz enthält.|
+|[Aspose.Slides für .NET Produktdokumentation](/slides/de/net/)|Vollständige Online-Dokumentation, die dieses Dokument und die Aspose.Slides API-Referenz enthält.|
 ## **Erklärung**
 Alle Aspose .NET-Komponenten erfordern das Berechtigungssatz "Full Trust". Der Grund: Aspose .NET-Komponenten benötigen höchste Berechtigungen, um auf Registrierungseinstellungen, Systemdateien und virtuelle Verzeichnisse zuzugreifen, um bestimmte Operationen wie das Parsen von Schriftarten und ähnliche Aufgaben auszuführen. Darüber hinaus basieren Aspose .NET-Komponenten auf den Kernsystemklassen von .NET, die in vielen Fällen ebenfalls das Berechtigungssatz "Full Trust" erfordern. 
 

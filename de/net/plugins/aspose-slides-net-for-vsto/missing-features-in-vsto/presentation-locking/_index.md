@@ -2,7 +2,7 @@
 title: Präsentation Locking
 type: docs
 weight: 110
-url: /net/presentation-locking/
+url: /de/net/presentation-locking/
 ---
 
 ## **Präsentation Locking**

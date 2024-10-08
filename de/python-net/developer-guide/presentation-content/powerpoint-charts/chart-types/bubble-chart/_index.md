@@ -1,7 +1,7 @@
 ---
 title: Blasendiagramm
 type: docs
-url: /python-net/bubble-chart/
+url: /de/python-net/bubble-chart/
 keywords: "Blasendiagramm, Diagrammgröße, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Blasendiagrammgröße in PowerPoint-Präsentationen in Python"
 ---

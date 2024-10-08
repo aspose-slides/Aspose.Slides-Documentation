@@ -2,7 +2,7 @@
 title: Fallback-Schriftart erstellen
 type: docs
 weight: 10
-url: /java/create-fallback-font/
+url: /de/java/create-fallback-font/
 ---
 
 Aspose.Slides unterstützt das [IFontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRule) Interface und die [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) Klasse, um die Regeln für die Anwendung einer Fallback-Schriftart festzulegen. Die [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) Klasse stellt eine Zuordnung zwischen dem angegebenen Unicode-Bereich dar, der zum Suchen fehlender Glyphen verwendet wird, und einer Liste von Schriftarten, die die richtigen Glyphen enthalten können:
@@ -25,5 +25,5 @@ Es ist auch möglich, Fallback-Schriftarten [zu entfernen](https://reference.asp
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) kann verwendet werden, um eine Liste von [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) Objekten zu organisieren, wenn es notwendig ist, Fallback-Schriftart-Ersetzungsregeln für mehrere Unicode-Bereiche festzulegen.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Fallback-Schriftarten Sammlung erstellen](/slides/java/create-fallback-fonts-collection/)
+- [Fallback-Schriftarten Sammlung erstellen](/slides/de/java/create-fallback-fonts-collection/)
 {{% /alert %}}

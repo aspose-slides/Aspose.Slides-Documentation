@@ -3,7 +3,7 @@ title: Erste Schritte
 type: docs
 description: "Nutzen Sie diese Einführung in die Grundlagen von Aspose.Slides für Python über .NET, um den Wert von Aspose.Slides für Ihr Unternehmen zu erkennen."
 weight: 10
-url: /python-net/getting-started/
+url: /de/python-net/getting-started/
 ---
 
 Diese Erste Schritte bietet eine Einführung in die Grundlagen von Aspose.Slides. Für Benutzer, die neu bei Aspose.Slides sind, ist dies der schnellste Weg, um die grundlegenden Anforderungen und Fähigkeiten zu lernen und loszulegen.

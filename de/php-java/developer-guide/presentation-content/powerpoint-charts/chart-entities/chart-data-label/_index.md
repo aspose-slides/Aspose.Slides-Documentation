@@ -1,7 +1,7 @@
 ---
 title: Diagramm-Datenbeschriftung
 type: docs
-url: /php-java/chart-data-label/
+url: /de/php-java/chart-data-label/
 keywords: "Diagramm Datenbeschriftung,Beschriftungsabstand, Java, Aspose.Slides für PHP über Java"
 description: "Setze PowerPoint-Diagramm Datenbeschriftung und Abstand"
 ---

@@ -2,7 +2,7 @@
 title: Bild in Tabellenzelle hinzufügen
 type: docs
 weight: 10
-url: /net/add-image-in-table-cell/
+url: /de/net/add-image-in-table-cell/
 ---
 
 ## **VSTO**

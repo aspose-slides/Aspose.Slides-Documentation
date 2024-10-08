@@ -2,7 +2,7 @@
 title: Folienmaster
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /de/java/slide-master/
 keywords: "Folienmaster hinzufügen, PPT-Folienmaster, Folienmaster PowerPoint, Bild zu Folienmaster, Platzhalter, mehrere Folienmaster, Folienmaster vergleichen, Java, Aspose.Slides für Java"
 description: "Fügen Sie einen Folienmaster in einer PowerPoint-Präsentation in Java hinzu oder bearbeiten Sie ihn"
 ---
@@ -153,7 +153,7 @@ try {
 
 {{% alert color="primary" title="Siehe auch" %}} 
 
-Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bildrahmen](/slides/java/picture-frame/#create-picture-frame).
+Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bildrahmen](/slides/de/java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

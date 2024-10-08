@@ -2,7 +2,7 @@
 title: Warum keine Automatisierung
 type: docs
 weight: 50
-url: /cpp/why-not-automation/
+url: /de/cpp/why-not-automation/
 ---
 
 ## **Wichtige Fragen**

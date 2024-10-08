@@ -2,5 +2,5 @@
 title: Diagrammtypen
 type: docs
 weight: 20
-url: /androidjava/chart-types/
+url: /de/androidjava/chart-types/
 ---

@@ -2,7 +2,7 @@
 title: Präsentationslokalisierung
 type: docs
 weight: 100
-url: /python-net/presentation-localization/
+url: /de/python-net/presentation-localization/
 keywords: "Sprache ändern, Rechtschreibprüfung, Rechtschreibprüfung, Rechtschreibprüfer, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Sprache in einer PowerPoint-Präsentation ändern oder überprüfen. Text in Python Rechtschreibung prüfen"
 ---

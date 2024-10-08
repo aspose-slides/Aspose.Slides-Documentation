@@ -2,7 +2,7 @@
 title: Tabelle verwalten
 type: docs
 weight: 10
-url: /python-net/manage-table/
+url: /de/python-net/manage-table/
 keywords: "Tabelle, Tabelle erstellen, auf Tabelle zugreifen, Seitenverhältnis der Tabelle, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Tabelle in PowerPoint-Präsentationen in Python erstellen und verwalten"
 

@@ -1,7 +1,7 @@
 ---
 title: Diagramm Plot Bereich
 type: docs
-url: /java/chart-plot-area/
+url: /de/java/chart-plot-area/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Schriftarten in C++
 type: docs
 weight: 20
-url: /cpp/custom-font/
+url: /de/cpp/custom-font/
 keywords: "Schriftarten, benutzerdefinierte Schriftarten, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "PowerPoint benutzerdefinierte Schriftarten in C++"
 ---

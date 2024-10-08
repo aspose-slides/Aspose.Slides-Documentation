@@ -2,7 +2,7 @@
 title: API-Einschränkungen
 type: docs
 weight: 320
-url: /androidjava/api-limitations/
+url: /de/androidjava/api-limitations/
 ---
 
 ## **Präsentationen und andere Exportformate**

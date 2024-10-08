@@ -2,7 +2,7 @@
 title: Hole die Titel aller Folien
 type: docs
 weight: 120
-url: /net/get-the-titles-of-all-the-slides/
+url: /de/net/get-the-titles-of-all-the-slides/
 ---
 
 ## **OpenXML SDK**

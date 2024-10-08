@@ -2,7 +2,7 @@
 title: TextBox verwalten
 type: docs
 weight: 20
-url: /python-net/manage-textbox/
+url: /de/python-net/manage-textbox/
 keywords: "Textbox, Textfeld, Textbox hinzufügen, Textbox mit Hyperlink, Python, Aspose.Slides für Python über .NET"
 description: "Fügen Sie Textboxen oder Textfelder in PowerPoint-Präsentationen in Python oder .NET hinzu"
 ---

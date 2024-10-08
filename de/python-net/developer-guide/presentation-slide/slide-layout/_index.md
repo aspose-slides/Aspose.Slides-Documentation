@@ -2,7 +2,7 @@
 title: Folienlayout
 type: docs
 weight: 60
-url: /python-net/slide-layout/
+url: /de/python-net/slide-layout/
 keyword: "Folie Größe festlegen, Folienoptionen festlegen, Foliengröße angeben, Fußzeilenanzeige, Kindfußzeile, Inhaltsverkleinerung, Seitengröße, Python, Aspose.Slides"
 description: "Stellen Sie die PowerPoint-Foliengröße und -optionen in Python ein"
 ---

@@ -2,7 +2,7 @@
 title: Metered-Lizenzierung  
 type: docs  
 weight: 90  
-url: /net/metered-licensing/  
+url: /de/net/metered-licensing/  
 ---  
 
 {{% alert color="primary" %}}  

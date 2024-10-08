@@ -2,7 +2,7 @@
 title: Formatiertes Shape
 type: docs
 weight: 20
-url: /python-net/shape-formatting/
+url: /de/python-net/shape-formatting/
 keywords: "Shape formatieren, Linien formatieren, Join-Stile formatieren, Verlaufshintergrund, Musterfüllung, Bildfüllung, einfarbige Füllung, Formen drehen, 3D-Faseneffekte, 3D-Rotationseffekt, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Formatiere Formen in PowerPoint-Präsentationen mit Python"
 ---

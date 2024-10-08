@@ -2,7 +2,7 @@
 title: Verwalten von Tags und benutzerdefinierten Daten
 type: docs
 weight: 300
-url: /androidjava/managing-tags-and-custom-data
+url: /de/androidjava/managing-tags-and-custom-data
 
 ---
 

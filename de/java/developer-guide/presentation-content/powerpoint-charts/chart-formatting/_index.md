@@ -2,7 +2,7 @@
 title: Diagrammformatierung
 type: docs
 weight: 60
-url: /java/chart-formatting/
+url: /de/java/chart-formatting/
 ---
 
 ## **Diagramm-Elemente formatieren**

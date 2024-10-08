@@ -2,7 +2,7 @@
 title: Kopieren von Absatz und Portion in PPTX
 type: docs
 weight: 70
-url: /java/copying-paragraph-and-portion-in-pptx/
+url: /de/java/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

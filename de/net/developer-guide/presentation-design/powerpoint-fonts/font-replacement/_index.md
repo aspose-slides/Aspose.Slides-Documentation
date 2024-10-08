@@ -3,7 +3,7 @@ title: Schriftart ersetzen - PowerPoint C# API
 linktitle: Schriftart ersetzen
 type: docs
 weight: 60
-url: /net/font-replacement/
+url: /de/net/font-replacement/
 keywords: "Schriftart, Schriftart ersetzen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: Mit der C# PowerPoint API können Sie eine Schriftart explizit durch eine andere Schriftart in der Präsentation ersetzen.
 ---
@@ -39,6 +39,6 @@ presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 
 {{% alert title="Hinweis" color="warning" %}} 
 
-Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen passiert (wenn eine Schriftart beispielsweise nicht zugänglich ist), siehe [**Schriftartsubstitution**](/slides/net/font-substitution/). 
+Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen passiert (wenn eine Schriftart beispielsweise nicht zugänglich ist), siehe [**Schriftartsubstitution**](/slides/de/net/font-substitution/). 
 
 {{% /alert %}}

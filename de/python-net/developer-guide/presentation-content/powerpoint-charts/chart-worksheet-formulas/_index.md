@@ -2,7 +2,7 @@
 title: Diagramm Arbeitsblattformeln
 type: docs
 weight: 70
-url: /python-net/chart-worksheet-formulas/
+url: /de/python-net/chart-worksheet-formulas/
 keywords: "Diagramm Tabellenkalkulation, Diagramm Formel, PowerPoint Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Diagramm Tabellenkalkulation und Formel in PowerPoint Präsentation in Python"
 ---

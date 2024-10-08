@@ -2,7 +2,7 @@
 title: OLE verwalten
 type: docs
 weight: 40
-url: /androidjava/manage-ole/
+url: /de/androidjava/manage-ole/
 keywords:
 - OLE hinzufügen
 - OLE einbetten

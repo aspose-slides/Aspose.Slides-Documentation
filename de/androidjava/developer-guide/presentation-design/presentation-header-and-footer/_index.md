@@ -2,18 +2,18 @@
 title: Präsentationskopf und -fußzeile
 type: docs
 weight: 140
-url: /androidjava/presentation-header-and-footer/
+url: /de/androidjava/presentation-header-and-footer/
 keywords: "PowerPoint Kopf- und Fußzeile in Java"
 description: "PowerPoint Kopf- und Fußzeile in Java"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/androidjava/) bietet Unterstützung zum Arbeiten mit dem Text der Kopf- und Fußzeilen von Folien, die tatsächlich auf der Folienmaster-Ebene verwaltet werden.
+[Aspose.Slides](/slides/de/androidjava/) bietet Unterstützung zum Arbeiten mit dem Text der Kopf- und Fußzeilen von Folien, die tatsächlich auf der Folienmaster-Ebene verwaltet werden.
 
 {{% /alert %}} 
 
-[Aspose.Slides für Android über Java](/slides/androidjava/) bietet die Funktion zum Verwalten von Kopf- und Fußzeilen in Präsentationsfolien. Diese werden tatsächlich auf der Präsentationsmaster-Ebene verwaltet.
+[Aspose.Slides für Android über Java](/slides/de/androidjava/) bietet die Funktion zum Verwalten von Kopf- und Fußzeilen in Präsentationsfolien. Diese werden tatsächlich auf der Präsentationsmaster-Ebene verwaltet.
 
 ## **Kopf- und Fußzeile in der Präsentation verwalten**
 Die Notizen einiger spezifischer Folien können entfernt werden, wie im folgenden Beispiel gezeigt:

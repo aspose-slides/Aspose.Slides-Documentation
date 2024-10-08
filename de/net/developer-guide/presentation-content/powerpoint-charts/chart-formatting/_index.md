@@ -2,7 +2,7 @@
 title: Diagrammformatierung
 type: docs
 weight: 60
-url: /net/chart-formatting/
+url: /de/net/chart-formatting/
 keywords: "Diagrammobjekte, Diagrammeigenschaften, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Formatieren Sie Diagrammobjekte in PowerPoint-Präsentationen in C# oder .NET"
 ---

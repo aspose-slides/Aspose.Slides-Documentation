@@ -2,7 +2,7 @@
 title: Schriftartsubstitution
 type: docs
 weight: 70
-url: /cpp/font-substitution/
+url: /de/cpp/font-substitution/
 keywords: "Schriftart, Ersatzschriftart, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Ersatzschriftart in PowerPoint in C++"
 ---
@@ -48,6 +48,6 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 {{% alert title="HINWEIS" color="warning" %}} 
 
-Sie möchten möglicherweise [**Schriftartenersetzung**](/slides/cpp/font-replacement/) sehen. 
+Sie möchten möglicherweise [**Schriftartenersetzung**](/slides/de/cpp/font-replacement/) sehen. 
 
 {{% /alert %}}

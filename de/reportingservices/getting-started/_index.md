@@ -2,5 +2,5 @@
 title: Erste Schritte
 type: docs
 weight: 10
-url: /reportingservices/getting-started/
+url: /de/reportingservices/getting-started/
 ---

@@ -2,12 +2,12 @@
 title: Platzhalter verwalten
 type: docs
 weight: 10
-url: /php-java/manage-placeholder/
+url: /de/php-java/manage-placeholder/
 description: Ändern Sie den Text in einem Platzhalter in PowerPoint-Folien mithilfe von PHP. Setzen Sie den Aufforderungstext in einem Platzhalter in PowerPoint-Folien mithilfe von PHP.
 ---
 
 ## **Text im Platzhalter ändern**
-Mit [Aspose.Slides für PHP über Java](/slides/php-java/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
+Mit [Aspose.Slides für PHP über Java](/slides/de/php-java/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
 
 **Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der Standardanwendung Microsoft PowerPoint erstellen.
 

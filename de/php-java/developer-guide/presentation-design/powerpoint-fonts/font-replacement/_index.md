@@ -3,7 +3,7 @@ title: Schriftart ersetzen - PowerPoint Java API
 linktitle: Schriftart ersetzen
 type: docs
 weight: 60
-url: /php-java/font-replacement/
+url: /de/php-java/font-replacement/
 description: Erfahren Sie, wie Sie Schriftarten mit der expliziten Ersetzungsmethode in PowerPoint unter Verwendung der Java API ersetzen können.
 ---
 
@@ -40,6 +40,6 @@ Dieser PHP-Code demonstriert die Ersetzung von Schriftarten:
 
 {{% alert title="Hinweis" color="warning" %}} 
 
-Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen geschieht (wenn eine Schriftart beispielsweise nicht zugänglich ist), siehe [**Schriftartsubstitution**](/slides/php-java/font-substitution/).
+Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen geschieht (wenn eine Schriftart beispielsweise nicht zugänglich ist), siehe [**Schriftartsubstitution**](/slides/de/php-java/font-substitution/).
 
 {{% /alert %}}

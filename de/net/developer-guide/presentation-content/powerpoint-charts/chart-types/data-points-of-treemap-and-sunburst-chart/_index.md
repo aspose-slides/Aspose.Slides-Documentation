@@ -1,7 +1,7 @@
 ---
 title: Datenpunkte von Treemap- und Sunburst-Diagramm
 type: docs
-url: /net/data-points-of-treemap-and-sunburst-chart/
+url: /de/net/data-points-of-treemap-and-sunburst-chart/
 keywords: "Sunburst-Diagramm, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Fügen Sie ein Sunburst-Diagramm in PowerPoint-Präsentationen in C# oder .NET hinzu"
 ---
@@ -25,7 +25,7 @@ using (Presentation pres = new Presentation())
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [**Sunburst-Diagramm erstellen**](/slides/net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Sunburst-Diagramm erstellen**](/slides/de/net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 

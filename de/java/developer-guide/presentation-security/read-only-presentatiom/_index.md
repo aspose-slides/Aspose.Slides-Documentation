@@ -2,7 +2,7 @@
 title: Nur-Lese-Präsentation
 type: docs
 weight: 30
-url: /java/read-only-presentation/
+url: /de/java/read-only-presentation/
 
 ---
 

@@ -2,7 +2,7 @@
 title: Hintergrundfarbe der Masterfolie einstellen
 type: docs
 weight: 140
-url: /net/setting-background-color-of-master-slide/
+url: /de/net/setting-background-color-of-master-slide/
 ---
 
 ## **VSTO**

@@ -2,7 +2,7 @@
 title: Generierung eines Thumbnails aus einer Folie mit benutzerdefinierten Abmessungen
 type: docs
 weight: 100
-url: /net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
+url: /de/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/
 ---
 
 Um das Thumbnail einer gewünschten Folie mit Aspose.Slides für .NET zu generieren:
@@ -47,6 +47,6 @@ using (Presentation pres = new Presentation("TestPresentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-Für weitere Details besuchen Sie [Erstellen von Folien-Thumbnail-Bildern](/slides/net/presentation-viewer/#creating-slides-thumbnail-image).
+Für weitere Details besuchen Sie [Erstellen von Folien-Thumbnail-Bildern](/slides/de/net/presentation-viewer/#creating-slides-thumbnail-image).
 
 {{% /alert %}}

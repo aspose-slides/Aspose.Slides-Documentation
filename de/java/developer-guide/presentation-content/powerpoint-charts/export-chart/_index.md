@@ -2,7 +2,7 @@
 title: Diagramm exportieren
 type: docs
 weight: 90
-url: /java/export-chart/
+url: /de/java/export-chart/
 ---
 
 ## **Diagrammbild erhalten**

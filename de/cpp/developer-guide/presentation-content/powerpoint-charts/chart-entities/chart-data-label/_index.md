@@ -1,7 +1,7 @@
 ---
 title: Chart-Datenbeschriftung
 type: docs
-url: /cpp/chart-data-label/
+url: /de/cpp/chart-data-label/
 keywords: "Chart-Datenbeschriftung,Beschriftungsdistanz,C++,CPP,Aspose.Slides für C++"
 description: "Legt die PowerPoint-Chart-Datenbeschriftung und die Distanz in C++ fest"
 ---

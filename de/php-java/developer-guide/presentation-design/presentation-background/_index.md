@@ -2,7 +2,7 @@
 title: Präsentationshintergrund
 type: docs
 weight: 20
-url: /php-java/presentation-background/
+url: /de/php-java/presentation-background/
 keywords: "PowerPoint Hintergrund, Hintergrund setzen"
 description: "Hintergrund in PowerPoint-Präsentation setzen"
 ---

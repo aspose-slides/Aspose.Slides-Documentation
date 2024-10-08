@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /php-java/activex/
+url: /de/php-java/activex/
 ---
 
 

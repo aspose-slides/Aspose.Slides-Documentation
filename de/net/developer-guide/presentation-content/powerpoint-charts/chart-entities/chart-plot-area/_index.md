@@ -1,7 +1,7 @@
 ---
 title: Diagramm Plotbereich
 type: docs
-url: /net/chart-plot-area/
+url: /de/net/chart-plot-area/
 keywords: "Diagramm Plotbereich PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Erhalten Sie Breite, Höhe des Diagramm-Plotbereichs. Legen Sie den Layoutmodus fest. PowerPoint-Präsentation in C# oder .NET"
 ---

@@ -2,7 +2,7 @@
 title: Animierte Diagramme
 type: docs
 weight: 80
-url: /net/animated-charts/
+url: /de/net/animated-charts/
 keywords: "Diagramme, Diagrammserien, Animation PowerPoint-Präsentation, PPTX, PPT, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint-Diagrammserien und Animationen in C# oder .NET"
 ---

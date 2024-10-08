@@ -2,7 +2,7 @@
 title: Folie konvertieren
 type: docs
 weight: 35
-url: /androidjava/convert-slide/
+url: /de/androidjava/convert-slide/
 keywords: 
 - Folie in Bild umwandeln
 - Folie als Bild exportieren

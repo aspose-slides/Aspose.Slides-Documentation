@@ -1,7 +1,7 @@
 ---
 title: Trendlinie
 type: docs
-url: /python-net/trend-line/
+url: /de/python-net/trend-line/
 keywords: "Trendlinie, benutzerdefinierte Linie PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Fügen Sie Trendlinien und benutzerdefinierte Linien zu PowerPoint-Präsentationen in Python hinzu"
 ---

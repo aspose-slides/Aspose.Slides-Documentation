@@ -2,7 +2,7 @@
 title: Wasserzeichen
 type: docs
 weight: 40
-url: /java/watermark/
+url: /de/java/watermark/
 keywords:
 - wasserzeichen
 - wasserzeichen hinzufügen
@@ -48,7 +48,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [So verwenden Sie die TextFrame-Klasse](/slides/java/text-formatting/)
+- [So verwenden Sie die TextFrame-Klasse](/slides/de/java/text-formatting/)
 {{% /alert %}}
 
 ### **Fügen Sie ein Textwasserzeichen zu einer Präsentation hinzu**
@@ -68,7 +68,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [So verwenden Sie die Folienmaster](/slides/java/slide-master/)
+- [So verwenden Sie die Folienmaster](/slides/de/java/slide-master/)
 {{% /alert %}}
 
 ### **Setzen Sie die Transparenz der Wasserzeichenform**

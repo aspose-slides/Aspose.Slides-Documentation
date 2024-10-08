@@ -2,7 +2,7 @@
 title: FAQs
 type: docs
 weight: 340
-url: /php-java/faqs/
+url: /de/php-java/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **Q: Welche Dateiformate unterstützt Aspose.Slides für PHP über Java?**
 
-**A**: Aspose.Slides für PHP über Java unterstützt die in [Unterstützte Dateiformate](/slides/php-java/supported-file-formats/) beschriebenen Dateiformate.
+**A**: Aspose.Slides für PHP über Java unterstützt die in [Unterstützte Dateiformate](/slides/de/php-java/supported-file-formats/) beschriebenen Dateiformate.
 
 ## **Ausnahmen**
 
@@ -55,7 +55,7 @@ Im Allgemeinen kann Aspose.Slides für PHP über Java Präsentationsdateien von 
 
 **Q: Warum sind die Absatzgrößen unter Windows und Linux unterschiedlich?**
 
-**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den angegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der in der PowerPoint-Präsentation angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen in verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig von der installierten Schriftarten. Um dasselbe Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen Sie dieselben Schriftarten auf den Systemen installieren oder sie zur Laufzeit als [externe Schriftarten](/slides/php-java/custom-font/) laden.
+**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den angegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der in der PowerPoint-Präsentation angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen in verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig von der installierten Schriftarten. Um dasselbe Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen Sie dieselben Schriftarten auf den Systemen installieren oder sie zur Laufzeit als [externe Schriftarten](/slides/de/php-java/custom-font/) laden.
 
 ## **Formatierung und Bilder**
 

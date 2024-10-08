@@ -3,7 +3,7 @@ title: Eingebettete Schriftarten - PowerPoint Java API
 linktitle: Eingebettete Schriftarten
 type: docs
 weight: 40
-url: /java/embedded-font/
+url: /de/java/embedded-font/
 keywords: "Schriftarten, eingebettete Schriftarten, Schriftarten hinzufügen, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Verwenden Sie eingebettete Schriftarten in PowerPoint-Präsentationen in Java"
 

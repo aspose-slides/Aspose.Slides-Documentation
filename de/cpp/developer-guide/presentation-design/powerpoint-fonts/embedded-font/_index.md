@@ -2,7 +2,7 @@
 title: Eingebettete Schriftart
 type: docs
 weight: 40
-url: /cpp/embedded-font/
+url: /de/cpp/embedded-font/
 keywords: "Schriftarten, eingebettete Schriftarten, Schriftarten hinzufügen, PowerPoint-Präsentation C++, CPP, Aspose.Slides für C++"
 description: "Verwenden Sie eingebettete Schriftarten in PowerPoint-Präsentationen in C++"
 ---

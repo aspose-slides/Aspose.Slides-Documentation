@@ -2,7 +2,7 @@
 title: Diagramm-Arbeitsmappe
 type: docs
 weight: 70
-url: /python-net/chart-workbook/
+url: /de/python-net/chart-workbook/
 keywords: "Diagramm-Arbeitsmappe, Diagrammdaten, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Diagramm-Arbeitsmappe in PowerPoint-Präsentation in Python"
 ---

@@ -2,7 +2,7 @@
 title: So erstellen Sie Diagramme in einer Präsentation
 type: docs
 weight: 30
-url: /java/how-to-create-charts-in-a-presentation/
+url: /de/java/how-to-create-charts-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

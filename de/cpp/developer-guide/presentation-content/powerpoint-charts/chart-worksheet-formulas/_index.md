@@ -2,7 +2,7 @@
 title: Diagramm Arbeitsblattformeln
 type: docs
 weight: 70
-url: /cpp/chart-worksheet-formulas/
+url: /de/cpp/chart-worksheet-formulas/
 keywords: "powerpoint gleichungen, powerpoint tabellenformeln"
 description: "PowerPoint-Gleichungen und Tabellenformeln"
 ---

@@ -4,7 +4,7 @@ second_title: Aspose.Slides Dokumentation
 description: Aspose.Slides für C++ ist die erste und einzige Komponente, die die Funktionalität zur Verwaltung von PowerPoint®-Dokumenten bereitstellt.
 type: docs
 weight: 30
-url: /cpp/
+url: /de/cpp/
 is_root: true
 ---
 
@@ -22,8 +22,8 @@ Aspose.Slides für C++ ist eine Microsoft PowerPoint®-Verwaltungs-API, die C++-
 
 Dies sind Links zu nützlichen Ressourcen:
 
-- [Aspose.Slides für C++ Online-Dokumentation](/slides/cpp/)
-- [Aspose.Slides für C++ Funktionen](/slides/cpp/features-overview/)
+- [Aspose.Slides für C++ Online-Dokumentation](/slides/de/cpp/)
+- [Aspose.Slides für C++ Funktionen](/slides/de/cpp/features-overview/)
 - [Aspose.Slides für C++ Versionshinweise](https://releases.aspose.com/slides/cpp/release-notes/)
 - [Aspose.Slides für C++ Produktseite](https://products.aspose.com/slides/cpp/)
 - [Aspose.Slides für C++ herunterladen](https://releases.aspose.com/slides/cpp/)

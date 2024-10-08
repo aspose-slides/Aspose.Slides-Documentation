@@ -2,18 +2,18 @@
 title: Präsentationskopf und -fußzeile
 type: docs
 weight: 140
-url: /cpp/presentation-header-and-footer/
+url: /de/cpp/presentation-header-and-footer/
 keywords: "Kopf- und Fußzeile in PowerPoint"
 description: "Kopf- und Fußzeile in PowerPoint mit Aspose.Slides."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/cpp/) bietet Unterstützung für die Arbeit mit Texten in Kopf- und Fußzeilen, die tatsächlich auf der Ebene des Folienmeisters verwaltet werden.
+[Aspose.Slides](/slides/de/cpp/) bietet Unterstützung für die Arbeit mit Texten in Kopf- und Fußzeilen, die tatsächlich auf der Ebene des Folienmeisters verwaltet werden.
 
 {{% /alert %}} 
 
-[Aspose.Slides für C++](/slides/cpp/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen innerhalb von Präsentationsfolien. Diese werden tatsächlich auf der Ebene des Präsentationsmasters verwaltet.
+[Aspose.Slides für C++](/slides/de/cpp/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen innerhalb von Präsentationsfolien. Diese werden tatsächlich auf der Ebene des Präsentationsmasters verwaltet.
 ## **Kopf- und Fußzeilentext verwalten**
 Notizen bestimmter Folien können wie im folgenden Beispiel shown aktualisiert werden:
 

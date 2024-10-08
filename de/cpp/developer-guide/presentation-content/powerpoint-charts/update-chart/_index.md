@@ -2,7 +2,7 @@
 title: Diagramm aktualisieren
 type: docs
 weight: 10
-url: /cpp/update-chart/
+url: /de/cpp/update-chart/
 ---
 
 

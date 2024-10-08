@@ -2,7 +2,7 @@
 title: Füge einen Kommentar zu einer Folie hinzu
 type: docs
 weight: 10
-url: /net/add-a-comment-to-a-slide/
+url: /de/net/add-a-comment-to-a-slide/
 ---
 
 ## **OpenXML Präsentation:**

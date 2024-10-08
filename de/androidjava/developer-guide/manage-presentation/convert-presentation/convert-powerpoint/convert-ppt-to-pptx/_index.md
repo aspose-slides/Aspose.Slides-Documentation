@@ -3,7 +3,7 @@ title: PPT in PPTX in Java konvertieren
 linktitle: PPT in PPTX konvertieren
 type: docs
 weight: 20
-url: /androidjava/convert-ppt-to-pptx/
+url: /de/androidjava/convert-ppt-to-pptx/
 keywords: "Java PPT in PPTX konvertieren, PowerPoint PPT in PPTX in Java"
 description: "PowerPoint PPT in PPTX in Java konvertieren."
 ---
@@ -47,7 +47,7 @@ Finden Sie weitere Live- [**Aspose.Slides Conversion**](https://products.aspose.
 {{% /alert %}} 
 
 ## **PPT in PPTX konvertieren**
-Aspose.Slides für Android über Java erleichtert es Entwicklern, auf PPT mit der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Klasseninstanz zuzugreifen und diese in das jeweilige [PPTX](https://docs.fileformat.com/presentation/pptx/) Format zu konvertieren. Derzeit unterstützt es die teilweise Konvertierung von [PPT](https://docs.fileformat.com/presentation/ppt/) nach PPTX. Für weitere Details darüber, welche Funktionen in der PPT zu PPTX-Konvertierung unterstützt und nicht unterstützt werden, fahren Sie bitte mit diesem Dokumentations- [Link](/slides/androidjava/ppt-to-pptx-conversion/) fort.
+Aspose.Slides für Android über Java erleichtert es Entwicklern, auf PPT mit der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Klasseninstanz zuzugreifen und diese in das jeweilige [PPTX](https://docs.fileformat.com/presentation/pptx/) Format zu konvertieren. Derzeit unterstützt es die teilweise Konvertierung von [PPT](https://docs.fileformat.com/presentation/ppt/) nach PPTX. Für weitere Details darüber, welche Funktionen in der PPT zu PPTX-Konvertierung unterstützt und nicht unterstützt werden, fahren Sie bitte mit diesem Dokumentations- [Link](/slides/de/androidjava/ppt-to-pptx-conversion/) fort.
 
 Aspose.Slides für Android über Java bietet die [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) Klassen, die eine **PPTX** Präsentationsdatei repräsentiert. Die Presentation-Klasse kann jetzt auch auf **PPT** zugreifen, wenn das Objekt instanziiert wird. Das folgende Beispiel zeigt, wie man eine PPT-Präsentation in eine PPTX-Präsentation konvertiert.
 

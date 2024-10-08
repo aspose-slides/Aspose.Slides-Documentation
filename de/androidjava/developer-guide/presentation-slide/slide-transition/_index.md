@@ -2,7 +2,7 @@
 title: Folienübergang
 type: docs
 weight: 80
-url: /androidjava/slide-transition/
+url: /de/androidjava/slide-transition/
 keywords: "PowerPoint Folienübergang, Morph-Übergang in Java"
 description: "PowerPoint Folienübergang, PowerPoint Morph-Übergang in Java"
 ---

@@ -2,7 +2,7 @@
 title: Schriftartersetzung
 type: docs
 weight: 70
-url: /python-net/font-substitution/
+url: /de/python-net/font-substitution/
 keywords: "Schriftart, Ersatzschriftart, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Schriftart in PowerPoint in Python ersetzen"
 ---
@@ -47,6 +47,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{%  alert title="HINWEIS"  color="warning"   %}} 
 
-Vielleicht möchten Sie [**Schriftart ersetzen**](/slides/python-net/font-replacement/). 
+Vielleicht möchten Sie [**Schriftart ersetzen**](/slides/de/python-net/font-replacement/). 
 
 {{% /alert %}}

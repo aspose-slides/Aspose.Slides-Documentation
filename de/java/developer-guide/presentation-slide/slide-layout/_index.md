@@ -2,7 +2,7 @@
 title: Folienlayout
 type: docs
 weight: 60
-url: /java/slide-layout/
+url: /de/java/slide-layout/
 keyword: "Foliengröße festlegen, Folienoptionen festlegen, Foliengröße angeben, Fußzeilen Sichtbarkeit, Kinderfußzeile, Inhalts skalierung, Seitengröße, Java, Aspose.Slides"
 description: "PowerPoint-Foliengröße und Optionen in Java festlegen"
 ---

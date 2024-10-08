@@ -2,7 +2,7 @@
 title: Arbeitslösung für die Größenänderung von Diagrammen in PPTX
 type: docs
 weight: 40
-url: /php-java/working-solution-for-chart-resizing-in-pptx/
+url: /de/php-java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Es wurde beobachtet, dass in eine PowerPoint-Präsentation eingebettete Excel-Di
 
 {{% /alert %}} 
 ## **Hintergrund**
-Im [vorherigen Artikel](/slides/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) haben wir erklärt, wie man ein Excel-Diagramm mit Aspose.Cells für Java erstellt und dieses Diagramm anschließend in eine PowerPoint-Präsentation mit Aspose.Slides für PHP über Java einbettet. Um das [Problem mit dem geänderten Objekt](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) zu berücksichtigen, haben wir das Diagrammbild dem OLE-Diagrammobjektrahmen zugewiesen. In der Ausgabenpräsentation, wenn wir doppelt auf den OLE-Diagrammobjektrahmen klicken, der das Diagrammbild anzeigt, wird das Excel-Diagramm aktiviert. Die Endbenutzer können beliebige gewünschte Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und kehren dann zur betreffenden Folie zurück, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Diagrammobjektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Größenänderungsfaktor unterscheidet sich je nach Größe des OLE-Diagrammobjektrahmens und der eingebetteten Excel-Arbeitsmappe.
+Im [vorherigen Artikel](/slides/de/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) haben wir erklärt, wie man ein Excel-Diagramm mit Aspose.Cells für Java erstellt und dieses Diagramm anschließend in eine PowerPoint-Präsentation mit Aspose.Slides für PHP über Java einbettet. Um das [Problem mit dem geänderten Objekt](/slides/de/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) zu berücksichtigen, haben wir das Diagrammbild dem OLE-Diagrammobjektrahmen zugewiesen. In der Ausgabenpräsentation, wenn wir doppelt auf den OLE-Diagrammobjektrahmen klicken, der das Diagrammbild anzeigt, wird das Excel-Diagramm aktiviert. Die Endbenutzer können beliebige gewünschte Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und kehren dann zur betreffenden Folie zurück, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Diagrammobjektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Größenänderungsfaktor unterscheidet sich je nach Größe des OLE-Diagrammobjektrahmens und der eingebetteten Excel-Arbeitsmappe.
 ## **Ursache der Größenänderung**
 Da die Excel-Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, ihre ursprüngliche Größe bei der ersten Aktivierung beizubehalten. Andererseits wird der OLE-Diagrammobjektrahmen seine eigene Größe haben. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Excel-Arbeitsmappe über die Größe und stellen sicher, dass sie im richtigen Verhältnis als Teil des Einbettungsprozesses sind. Basierend auf den Unterschieden in der Größe und Position der Excel-Fenster und des OLE-Diagrammobjektrahmens erfolgt die Größenänderung.
 ## **Funktionierende Lösung**

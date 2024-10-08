@@ -2,7 +2,7 @@
 title: Präsentationshintergrund
 type: docs
 weight: 20
-url: /python-net/presentation-background/
+url: /de/python-net/presentation-background/
 keywords: "PowerPoint-Hintergrund, Hintergrund festlegen, Python, Aspose.Slides für Python über .NET"
 description: "Hintergrund in PowerPoint-Präsentation in Python festlegen"
 ---

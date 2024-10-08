@@ -2,7 +2,7 @@
 title: API-Einschränkungen
 type: docs
 weight: 320
-url: /java/api-limitations/
+url: /de/java/api-limitations/
 ---
 
 ## **Präsentationen und andere Exportformate**

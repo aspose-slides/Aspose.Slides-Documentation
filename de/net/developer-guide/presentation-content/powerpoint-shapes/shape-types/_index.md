@@ -2,5 +2,5 @@
 title: Formtypen
 type: docs
 weight: 10
-url: /net/shape-types/
+url: /de/net/shape-types/
 ---

@@ -2,7 +2,7 @@
 title: PowerPoint-Absätze in C# verwalten
 type: docs
 weight: 40
-url: /net/manage-paragraph/
+url: /de/net/manage-paragraph/
 keywords: 
 - Absatz hinzufügen
 - Absätze verwalten

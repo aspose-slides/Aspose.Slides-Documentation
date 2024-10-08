@@ -2,7 +2,7 @@
 title: PowerPoint-Absatz in C++ verwalten
 type: docs
 weight: 40
-url: /cpp/manage-paragraph/
+url: /de/cpp/manage-paragraph/
 keywords: "PowerPoint-Absatz hinzufügen, Absätze verwalten, Absatz-Indentation, Absatz-Eigenschaften, HTML-Text, Absatztext exportieren, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Erstellen und Verwalten von Absätzen, Text, Einrückungen und Eigenschaften in PowerPoint-Präsentationen in C++"
 ---

@@ -2,7 +2,7 @@
 title: Installation mit MSI-Installer
 type: docs
 weight: 20
-url: /reportingservices/install-with-msi-installer/
+url: /de/reportingservices/install-with-msi-installer/
 ---
 
 ## **Installation**

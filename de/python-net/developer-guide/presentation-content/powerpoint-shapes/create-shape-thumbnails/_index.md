@@ -2,7 +2,7 @@
 title: Erstellen von Form-Thumbnails
 type: docs
 weight: 70
-url: /python-net/create-shape-thumbnails/
+url: /de/python-net/create-shape-thumbnails/
 keywords: "Form Thumbnail. PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Form Thumbnail in PowerPoint-Präsentation in Python"
 ---

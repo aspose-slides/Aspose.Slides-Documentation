@@ -2,12 +2,12 @@
 title: Hinzufügen eines Bilderrahmens mit Animation
 type: docs
 weight: 60
-url: /net/adding-picture-frame-with-animation/
+url: /de/net/adding-picture-frame-with-animation/
 ---
 
 {{% alert color="primary" %}} 
 
-Bilderahmen werden in Microsoft PowerPoint auf Formen oder Bilder angewendet, um Bilder in einer Präsentation zu rahmen. Dieser Artikel zeigt, wie man programmgesteuert einen Bilderrahmen erstellt und Animation darauf anwendet, zunächst mit [VSTO 2008](/slides/net/adding-picture-frame-with-animation/) und dann mit [Aspose.Slides für .NET](/slides/net/adding-picture-frame-with-animation/). Zuerst zeigen wir Ihnen, wie Sie einen Rahmen und eine Animation mit VSTO 2008 anwenden. Dann zeigen wir Ihnen, wie Sie die gleichen Schritte mit Aspose.Slides für .NET ausführen.
+Bilderahmen werden in Microsoft PowerPoint auf Formen oder Bilder angewendet, um Bilder in einer Präsentation zu rahmen. Dieser Artikel zeigt, wie man programmgesteuert einen Bilderrahmen erstellt und Animation darauf anwendet, zunächst mit [VSTO 2008](/slides/de/net/adding-picture-frame-with-animation/) und dann mit [Aspose.Slides für .NET](/slides/de/net/adding-picture-frame-with-animation/). Zuerst zeigen wir Ihnen, wie Sie einen Rahmen und eine Animation mit VSTO 2008 anwenden. Dann zeigen wir Ihnen, wie Sie die gleichen Schritte mit Aspose.Slides für .NET ausführen.
 
 {{% /alert %}} 
 ## **Hinzugefügt Bilderrahmen mit Animation**

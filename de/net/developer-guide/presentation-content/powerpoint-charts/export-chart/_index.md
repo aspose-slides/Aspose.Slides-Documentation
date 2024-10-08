@@ -2,7 +2,7 @@
 title: Diagramm exportieren
 type: docs
 weight: 90
-url: /net/export-chart/
+url: /de/net/export-chart/
 keywords:
 - diagramm
 - diagramm bild

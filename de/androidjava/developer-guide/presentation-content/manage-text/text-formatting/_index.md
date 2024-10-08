@@ -2,7 +2,7 @@
 title: Textformatierung
 type: docs
 weight: 50
-url: /androidjava/text-formatting/
+url: /de/androidjava/text-formatting/
 keywords:
 - Text hervorheben
 - Regulärer Ausdruck

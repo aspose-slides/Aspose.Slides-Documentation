@@ -2,7 +2,7 @@
 title: Tags und benutzerdefinierte Daten verwalten
 type: docs
 weight: 300
-url: /cpp/managing-tags-and-custom-data
+url: /de/cpp/managing-tags-and-custom-data
 
 ---
 

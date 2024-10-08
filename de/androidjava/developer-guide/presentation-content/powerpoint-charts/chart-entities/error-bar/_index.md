@@ -1,7 +1,7 @@
 ---
 title: Fehlerbalken
 type: docs
-url: /androidjava/error-bar/
+url: /de/androidjava/error-bar/
 ---
 
 ## **Fehlerbalken hinzufügen**

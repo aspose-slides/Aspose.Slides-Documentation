@@ -3,7 +3,7 @@ title: Erstellen oder Verwalten von PowerPoint SmartArt-Former-Knoten in Java
 linktitle: Verwalten von SmartArt-Former-Knoten
 type: docs
 weight: 30
-url: /androidjava/manage-smartart-shape-node/
+url: /de/androidjava/manage-smartart-shape-node/
 keywords: smartart powerpoint, smartart knoten, smartart position, smartart entfernen, smartart knoten hinzufügen, powerpoint präsentation, powerpoint java, powerpoint java api
 description: Verwalten von SmartArt-Knoten und untergeordneten Knoten in PowerPoint-Präsentationen in Java
 ---

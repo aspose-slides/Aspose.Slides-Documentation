@@ -1,7 +1,7 @@
 ---
 title: Blasendiagramm
 type: docs
-url: /net/bubble-chart/
+url: /de/net/bubble-chart/
 keywords: "Blasendiagramm, Diagrammgröße, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Größe von Blasendiagrammen in PowerPoint-Präsentationen in C# oder .NET"
 ---

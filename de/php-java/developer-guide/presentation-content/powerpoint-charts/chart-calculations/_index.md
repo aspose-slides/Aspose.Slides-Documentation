@@ -2,7 +2,7 @@
 title: Diagramm Berechnungen
 type: docs
 weight: 50
-url: /php-java/chart-calculations/
+url: /de/php-java/chart-calculations/
 ---
 
 ## **Berechnung der tatsächlichen Werte von Diagrammelementen**

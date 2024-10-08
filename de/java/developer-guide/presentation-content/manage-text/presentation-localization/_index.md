@@ -2,7 +2,7 @@
 title: Präsentationslokalisierung
 type: docs
 weight: 100
-url: /java/presentation-localization/
+url: /de/java/presentation-localization/
 ---
 
 ## **Sprache für Präsentation und Text von Formen ändern**

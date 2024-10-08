@@ -2,5 +2,5 @@
 title: Entwicklerhandbuch
 type: docs
 weight: 20
-url: /python-net/developer-guide/
+url: /de/python-net/developer-guide/
 ---

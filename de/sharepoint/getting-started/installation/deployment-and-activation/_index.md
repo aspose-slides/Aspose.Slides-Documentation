@@ -2,7 +2,7 @@
 title: Bereitstellung und Aktivierung
 type: docs
 weight: 20
-url: /sharepoint/deployment-and-activation/
+url: /de/sharepoint/deployment-and-activation/
 ---
 
 ## **Bereitstellung**

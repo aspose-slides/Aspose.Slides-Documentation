@@ -2,7 +2,7 @@
 title: PowerPoint-Animation
 type: docs
 weight: 150
-url: /androidjava/powerpoint-animation/
+url: /de/androidjava/powerpoint-animation/
 keywords: "PowerPoint-Animation"
 description: "PowerPoint-Animation, PowerPoint-Folienanimation mit Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ Dies kann erreicht werden, wenn Sie mehrere Verhaltensweisen zu einer neuen benu
 Aspose.Slides ermöglicht es, Animationen auf Formen anzuwenden, die tatsächlich Text, Rechtecke, Linien, Rahmen, OLE-Objekte usw. sein können.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr [**Über Formanimation**](/slides/androidjava/shape-animation/).
+Erfahren Sie mehr [**Über Formanimation**](/slides/de/androidjava/shape-animation/).
 {{% /alert %}}
 
 ## **Animierte Diagramme**
 Um animierte Diagramme zu erstellen, sollten Sie alle gleichen Klassen wie für die Formen verwenden. Es ist jedoch möglich, die PowerPoint-Animation nur auf Diagrammkategorien oder Diagrammserien anzuwenden. Sie können auch einen Animationseffekt auf ein Kategorieelement oder ein Serienelement anwenden.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr [**Über animierte Diagramme**](/slides/androidjava/animated-charts/).
+Erfahren Sie mehr [**Über animierte Diagramme**](/slides/de/androidjava/animated-charts/).
 {{% /alert %}}
 
 ## **Animierter Text**
 Neben animiertem Text ist es auch möglich, Animationen auf einen Absatz anzuwenden.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr [**Über animierten Text**](/slides/androidjava/animated-text/).
+Erfahren Sie mehr [**Über animierten Text**](/slides/de/androidjava/animated-text/).
 {{% /alert %}}

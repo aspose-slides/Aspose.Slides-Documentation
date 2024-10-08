@@ -2,18 +2,18 @@
 title: Präsentationskopf und -fußzeile
 type: docs
 weight: 140
-url: /net/presentation-header-and-footer/
+url: /de/net/presentation-header-and-footer/
 keywords: "Kopfzeile, Fußzeile, Kopfzeile festlegen, Fußzeile festlegen, Kopf- und Fußzeile festlegen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint Kopf- und Fußzeile in C# oder .NET"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/net/) bietet Unterstützung für die Arbeit mit Kopf- und Fußzeilentexten, die tatsächlich auf der Folienmaster-Ebene verwaltet werden.
+[Aspose.Slides](/slides/de/net/) bietet Unterstützung für die Arbeit mit Kopf- und Fußzeilentexten, die tatsächlich auf der Folienmaster-Ebene verwaltet werden.
 
 {{% /alert %}} 
 
-[Aspose.Slides für .NET](/slides/net/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen in Präsentationsfolien. Diese werden tatsächlich auf der Präsentationsmaster-Ebene verwaltet.
+[Aspose.Slides für .NET](/slides/de/net/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen in Präsentationsfolien. Diese werden tatsächlich auf der Präsentationsmaster-Ebene verwaltet.
 ## **Kopf- und Fußzeilentext verwalten**
 Notizen einer bestimmten Folie können wie im folgenden Beispiel aktualisiert werden:
 

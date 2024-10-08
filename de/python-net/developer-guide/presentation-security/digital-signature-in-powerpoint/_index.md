@@ -2,7 +2,7 @@
 title: Digitale Signatur in PowerPoint
 type: docs
 weight: 10
-url: /python-net/digital-signature-in-powerpoint/
+url: /de/python-net/digital-signature-in-powerpoint/
 keywords: "Digitales Signaturzertifikat, Zertifizierungsstelle, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Digitale Signatur oder Zertifikat in PowerPoint hinzufügen. Zertifizierungsstelle in Python"
 ---

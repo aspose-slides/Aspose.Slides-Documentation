@@ -2,7 +2,7 @@
 title: Präsentation Untersuchen
 type: docs
 weight: 30
-url: /php-java/examine-presentation/
+url: /de/php-java/examine-presentation/
 keywords:
 - PowerPoint
 - präsentation

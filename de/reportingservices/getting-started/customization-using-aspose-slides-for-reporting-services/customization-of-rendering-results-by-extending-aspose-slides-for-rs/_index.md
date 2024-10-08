@@ -2,15 +2,15 @@
 title: Anpassung der Rendering-Ergebnisse durch Erweiterung von Aspose.Slides für RS
 type: docs
 weight: 10
-url: /reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
+url: /de/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/
 ---
 
 {{% alert color="primary" %}} 
 
 Diese Seite beschreibt, wie man eine Erweiterung für Aspose.Slides für RS erstellt.
 
-- [Eine Erweiterungsassembly erstellen](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
-- [Die Erweiterung integrieren](/slides/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [Eine Erweiterungsassembly erstellen](/slides/de/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
+- [Die Erweiterung integrieren](/slides/de/reportingservices/customization-of-rendering-results-by-extending-aspose-slides-for-rs/).
 
 {{% /alert %}} 
 

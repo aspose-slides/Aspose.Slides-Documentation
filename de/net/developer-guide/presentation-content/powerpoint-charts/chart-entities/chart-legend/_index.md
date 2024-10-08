@@ -1,7 +1,7 @@
 ---
 title: Diagramm Legende
 type: docs
-url: /net/chart-legend/
+url: /de/net/chart-legend/
 keywords: "Diagramm legende, legende schriftgröße, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Positionierung und Schriftgröße für die Diagrammlegende in PowerPoint-Präsentationen in C# oder .NET festlegen"
 ---

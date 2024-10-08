@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Form
 type: docs
 weight: 20
-url: /androidjava/custom-shape/
+url: /de/androidjava/custom-shape/
 keywords: "PowerPoint-Form, benutzerdefinierte Form, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Fügen Sie eine benutzerdefinierte Form in PowerPoint-Präsentationen in Java hinzu"
 ---

@@ -3,7 +3,7 @@ title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen
 linktitle: Diagramm erstellen
 type: docs
 weight: 10
-url: /php-java/create-chart/
+url: /de/php-java/create-chart/
 keywords: "Diagramm erstellen, Punktdiagramm, Kreisdiagramm, Baumdiagramm, Börsendiagramm, Box- und Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnenstrahldiagramm, Mehrkategoriediagramm, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Diagramm in PowerPoint-Präsentation erstellen"
 ---

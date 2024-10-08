@@ -2,7 +2,7 @@
 title: Folienmaster
 type: docs
 weight: 80
-url: /python-net/slide-master/
+url: /de/python-net/slide-master/
 keywords: "Folienmaster hinzufügen, PPT-Folienmaster, Folienmaster PowerPoint, Bild zum Folienmaster, Platzhalter, mehrere Folienmaster, Folienmaster vergleichen, Python, Aspose.Slides"
 description: "Fügen Sie Folienmaster in PowerPoint-Präsentationen in Python hinzu oder bearbeiten Sie diese"
 ---
@@ -133,7 +133,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="primary" title="Siehe auch" %}}
 
-Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bilderrahmen](/slides/python-net/picture-frame/#create-picture-frame).
+Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bilderrahmen](/slides/de/python-net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Platzhalter zum Folienmaster hinzufügen**

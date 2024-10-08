@@ -2,7 +2,7 @@
 title: Folienlayout
 type: docs
 weight: 60
-url: /androidjava/slide-layout/
+url: /de/androidjava/slide-layout/
 keyword: "Foliegröße festlegen, Folienoptionen festlegen, Foliengröße angeben, Fußzeilen Sichtbarkeit, Kind-Fußzeile, Inhaltsvergrößerung, Seitengröße, Java, Aspose.Slides"
 description: "Foliegröße und Optionen in Java festlegen"
 ---

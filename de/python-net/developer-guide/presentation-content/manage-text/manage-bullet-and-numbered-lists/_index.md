@@ -2,7 +2,7 @@
 title: Auflisten von Aufzählungs- und Nummerierten Listen verwalten
 type: docs
 weight: 70
-url: /python-net/manage-bullet-and-numbered-lists/
+url: /de/python-net/manage-bullet-and-numbered-lists/
 keywords: "Aufzählungen, Aufzählungslisten, Nummern, Nummerierte Listen, Bildaufzählungen, mehrstufige Aufzählungen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Erstellen Sie Aufzählungs- und nummerierte Listen in einer PowerPoint-Präsentation in Python"
 ---

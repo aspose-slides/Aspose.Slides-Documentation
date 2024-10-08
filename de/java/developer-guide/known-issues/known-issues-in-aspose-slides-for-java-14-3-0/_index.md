@@ -2,7 +2,7 @@
 title: Bekannte Probleme in Aspose.Slides für Java 14.3.0
 type: docs
 weight: 20
-url: /java/known-issues-in-aspose-slides-for-java-14-3-0/
+url: /de/java/known-issues-in-aspose-slides-for-java-14-3-0/
 ---
 
 Aspose.Slides für Java 14.3.0 (14.4.0) bietet eine komplett neue Implementierung der PPT-Verarbeitung. Es gibt viele Verbesserungen, teilweise Konvertierung von PPTX zu PPT. Aber es gibt einige nicht umgesetzte Funktionen:

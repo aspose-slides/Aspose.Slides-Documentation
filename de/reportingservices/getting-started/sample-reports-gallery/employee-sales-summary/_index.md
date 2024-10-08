@@ -2,7 +2,7 @@
 title: Verkaufsübersicht der Mitarbeiter
 type: docs
 weight: 30
-url: /reportingservices/employee-sales-summary/
+url: /de/reportingservices/employee-sales-summary/
 ---
 
 ## **Funktionen:**

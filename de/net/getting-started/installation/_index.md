@@ -2,7 +2,7 @@
 title: Installation  
 type: docs  
 weight: 70  
-url: /net/installation/  
+url: /de/net/installation/  
 keywords: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Installation, Windows, macOS, .NET"  
 description: "Installieren Sie Aspose.Slides für .NET unter Windows oder macOS"  
 ---  
@@ -81,6 +81,6 @@ Um mono-libgdiplus separat auf Ihrem Mac zu installieren, siehe [diesen Artikel]
 4. Geben Sie *Aspose.Slides* in das Textfeld ein.  
 5. Klicken Sie auf **Aspose.Slides für .NET** und dann auf **Paket hinzufügen**.  
 6. Fügen Sie einen einfachen Code-Schnipsel hinzu.  
-   * Sie können den Code auf [dieser Seite](/slides/net/create-presentation/) kopieren.  
+   * Sie können den Code auf [dieser Seite](/slides/de/net/create-presentation/) kopieren.  
 7. Führen Sie die Anwendung aus.  
 8. Öffnen Sie den *Ordner/bin/Debug/presentation_file_name* Ihres Projekts.  

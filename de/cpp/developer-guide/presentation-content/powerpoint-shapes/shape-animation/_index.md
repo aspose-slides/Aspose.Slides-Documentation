@@ -2,12 +2,12 @@
 title: Form-Animation
 type: docs
 weight: 60
-url: /cpp/shape-animation/
+url: /de/cpp/shape-animation/
 keywords: "PowerPoint-Animation, Animations-Effekt, Animation anwenden, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "PowerPoint-Animation in C++ anwenden"
 ---
 
-Animationen sind visuelle Effekte, die auf Texte, Bilder, Formen oder [Diagramme](/slides/cpp/animated-charts/) angewendet werden können. Sie bringen Präsentationen oder deren Bestandteile zum Leben.
+Animationen sind visuelle Effekte, die auf Texte, Bilder, Formen oder [Diagramme](/slides/de/cpp/animated-charts/) angewendet werden können. Sie bringen Präsentationen oder deren Bestandteile zum Leben.
 
 ### **Warum Animationen in Präsentationen verwenden?**
 
@@ -70,7 +70,7 @@ pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx
 
 {{%  alert color="primary"  %}} 
 
-Neben der Anwendung von Animationen auf Text können Sie auch Animationen auf einen einzelnen [Paragraph](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph) anwenden. Siehe [**Animierter Text**](/slides/cpp/animated-text/).
+Neben der Anwendung von Animationen auf Text können Sie auch Animationen auf einen einzelnen [Paragraph](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_paragraph) anwenden. Siehe [**Animierter Text**](/slides/de/cpp/animated-text/).
 
 {{% /alert %}} 
 

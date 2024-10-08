@@ -2,7 +2,7 @@
 title: Autofit-Einstellungen verwalten
 type: docs
 weight: 30
-url: /cpp/manage-autofit-settings/
+url: /de/cpp/manage-autofit-settings/
 keywords: "Textbox, Autofit, PowerPoint-Präsentation, C++, Aspose.Slides für C++"
 description: "Stellen Sie die Autofit-Einstellungen für Textfelder in PowerPoint in C++ ein"
 ---

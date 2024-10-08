@@ -2,7 +2,7 @@
 title: Folienübergang
 type: docs
 weight: 80
-url: /php-java/slide-transition/
+url: /de/php-java/slide-transition/
 keywords: "PowerPoint Folienübergang, Morphübergang"
 description: "PowerPoint Folienübergang, PowerPoint Morphübergang"
 ---

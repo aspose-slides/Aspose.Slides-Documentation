@@ -1,7 +1,7 @@
 ---
 title: Diagrammachse
 type: docs
-url: /cpp/chart-axis/
+url: /de/cpp/chart-axis/
 keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, C++, Diagrammachse manipulieren, Diagrammdaten"
 description: "Wie man die Diagrammachse in PowerPoint in C++ bearbeitet"
 ---

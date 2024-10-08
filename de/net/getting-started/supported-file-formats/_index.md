@@ -2,7 +2,7 @@
 title: Unterstützte Dateiformate
 type: docs
 weight: 30
-url: /net/supported-file-formats/
+url: /de/net/supported-file-formats/
 ---
 
 ## **Unterstützte Microsoft PowerPoint-Versionen**

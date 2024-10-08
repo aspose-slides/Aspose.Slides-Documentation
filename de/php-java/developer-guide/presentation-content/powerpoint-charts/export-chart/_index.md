@@ -2,7 +2,7 @@
 title: Diagramm exportieren
 type: docs
 weight: 90
-url: /php-java/export-chart/
+url: /de/php-java/export-chart/
 ---
 
 ## **Diagrammbild abrufen**

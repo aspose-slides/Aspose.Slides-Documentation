@@ -2,7 +2,7 @@
 title: Folienmaster
 type: docs
 weight: 80
-url: /cpp/slide-master/
+url: /de/cpp/slide-master/
 keywords: "Folienmaster hinzufügen, PPT Folienmaster, Folienmaster PowerPoint, Bild zu Folienmaster, Platzhalter, Mehrere Folienmaster, Folienmaster vergleichen, C++, CPP, Aspose.Slides für C++"
 description: "Fügen Sie einen Folienmaster in einer PowerPoint-Präsentation in C++ hinzu oder bearbeiten Sie ihn."
 ---
@@ -129,7 +129,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 {{% alert color="primary" title="Siehe auch" %}} 
 
-Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie, siehe den Artikel [Bilderrahmen](/slides/cpp/picture-frame/#create-picture-frame).
+Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie, siehe den Artikel [Bilderrahmen](/slides/de/cpp/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Platzhalter zum Folienmaster hinzufügen**

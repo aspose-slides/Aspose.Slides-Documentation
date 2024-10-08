@@ -2,7 +2,7 @@
 title: Folien Zusammenstellen
 type: docs
 weight: 10
-url: /net/assemble-slides/
+url: /de/net/assemble-slides/
 ---
 
 Es werden die folgenden Funktionen abgedeckt:

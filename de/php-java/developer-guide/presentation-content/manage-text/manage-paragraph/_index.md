@@ -2,7 +2,7 @@
 title: Verwaltete PowerPoint-Absätze
 type: docs
 weight: 40
-url: /php-java/manage-paragraph/
+url: /de/php-java/manage-paragraph/
 keywords: "Fügen Sie PowerPoint-Absatz hinzu, Verwalten Sie Absätze, Absatz Rückenmaß, Absatz Eigenschaften, HTML-Text, Absatztext exportieren, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Erstellen und Verwalten von Absätzen, Text, Rückenmaß und Eigenschaften in PowerPoint-Präsentationen"
 ---

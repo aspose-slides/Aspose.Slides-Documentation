@@ -2,7 +2,7 @@
 title: So führen Sie Beispiele aus
 type: docs
 weight: 130
-url: /net/how-to-run-examples/
+url: /de/net/how-to-run-examples/
 ---
 
 ## **Softwareanforderungen**

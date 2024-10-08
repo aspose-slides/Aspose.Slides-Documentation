@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /python-net/flash/
+url: /de/python-net/flash/
 keywords: "Flash extrahieren, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Flash-Objekt aus PowerPoint-Präsentation in Python extrahieren"
 ---

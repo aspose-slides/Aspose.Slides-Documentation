@@ -2,5 +2,5 @@
 title: Präsentationsfolie  
 type: docs  
 weight: 20  
-url: /net/presentation-slide/  
+url: /de/net/presentation-slide/  
 ---  

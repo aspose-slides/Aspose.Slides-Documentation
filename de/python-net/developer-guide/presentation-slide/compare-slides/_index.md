@@ -2,7 +2,7 @@
 title: Vergleiche Folien
 type: docs
 weight: 50
-url: /python-net/compare-slides/
+url: /de/python-net/compare-slides/
 keywords: "Vergleiche PowerPoint-Folien, Vergleiche zwei Folien, Präsentation, Python, Aspose.Slides"
 description: "Vergleiche PowerPoint-Präsentationsfolien in Python"
 ---

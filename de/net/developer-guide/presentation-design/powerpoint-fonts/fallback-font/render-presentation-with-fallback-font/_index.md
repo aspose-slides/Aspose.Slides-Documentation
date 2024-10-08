@@ -2,7 +2,7 @@
 title: Präsentation mit Fallback-Schriftart rendern
 type: docs
 weight: 30
-url: /net/render-presentation-with-fallback-font/
+url: /de/net/render-presentation-with-fallback-font/
 keywords: 
 - Fallback-Schriftart
 - PowerPoint rendern
@@ -16,7 +16,7 @@ description: "PowerPoint mit Fallback-Schriftart in C# oder .NET rendern"
 
 Das folgende Beispiel umfasst diese Schritte:
 
-1. Wir [erstellen eine Sammlung von Fallback-Schriftartregeln](/slides/net/create-fallback-fonts-collection/).
+1. Wir [erstellen eine Sammlung von Fallback-Schriftartregeln](/slides/de/net/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) eine Fallback-Schriftartregel und [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) zu einer anderen Regel hinzufügen.
 1. Die Regel-Sammlung der [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) Eigenschaft zuweisen.
 1. Mit der Methode [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4) können wir die Präsentation im selben Format speichern oder in einem anderen speichern. Nachdem die Fallback-Schriftartregeln-Sammlung dem FontsManager zugewiesen wurde, werden diese Regeln während aller Operationen über die Präsentation angewendet: speichern, rendern, konvertieren usw.
@@ -57,5 +57,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 ```
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr über [Speichern und Konvertieren in Präsentation](/slides/net/creating-saving-and-converting-a-presentation/).
+Erfahren Sie mehr über [Speichern und Konvertieren in Präsentation](/slides/de/net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

@@ -3,7 +3,7 @@ title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen in C
 linktitle: Diagramm erstellen oder aktualisieren
 type: docs
 weight: 10
-url: /net/create-chart/
+url: /de/net/create-chart/
 keywords: "Diagramm erstellen, Streudiagramm, Kreisdiagramm, Baumkarten-Diagramm, Aktiendurchschnitt, Box-and-Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnenstrahl-Diagramm, Multikategoriendiagramm, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Diagramm in PowerPoint-Präsentation in C# oder .NET erstellen"
 ---

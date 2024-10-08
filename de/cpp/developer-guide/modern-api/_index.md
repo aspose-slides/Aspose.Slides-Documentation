@@ -2,7 +2,7 @@
 title: Moderne API
 type: docs
 weight: 280
-url: /cpp/modern-api/
+url: /de/cpp/modern-api/
 keywords: "Moderne API, Zeichnen"
 description: "Moderne API"
 ---

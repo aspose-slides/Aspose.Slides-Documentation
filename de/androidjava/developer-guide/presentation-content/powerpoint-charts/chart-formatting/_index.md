@@ -2,7 +2,7 @@
 title: Diagrammformatierung
 type: docs
 weight: 60
-url: /androidjava/chart-formatting/
+url: /de/androidjava/chart-formatting/
 ---
 
 ## **Diagramm-Entitäten formatieren**

@@ -2,7 +2,7 @@
 title: Folie zur Präsentation hinzufügen
 type: docs
 weight: 10
-url: /java/add-slide-to-presentation/
+url: /de/java/add-slide-to-presentation/
 ---
 
 ## **Folie zur Präsentation hinzufügen**

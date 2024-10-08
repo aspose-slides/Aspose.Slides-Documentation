@@ -2,7 +2,7 @@
 title: PowerPoint in JPG konvertieren
 type: docs
 weight: 60
-url: /java/convert-powerpoint-to-jpg/
+url: /de/java/convert-powerpoint-to-jpg/
 keywords: "PowerPoint in JPG konvertieren, PPTX in JPEG, PPT in JPEG"
 description: "PowerPoint in JPG konvertieren: PPT in JPG, PPTX in JPG in Java"
 ---
@@ -118,4 +118,4 @@ Mit denselben Prinzipien, die in diesem Artikel beschrieben sind, können Sie Bi
 
 Siehe andere Optionen für die Konvertierung von PPT/PPTX in Bilder wie:
 
-- [PPT/PPTX in SVG-Konvertierung](/slides/java/render-a-slide-as-an-svg-image/).
+- [PPT/PPTX in SVG-Konvertierung](/slides/de/java/render-a-slide-as-an-svg-image/).

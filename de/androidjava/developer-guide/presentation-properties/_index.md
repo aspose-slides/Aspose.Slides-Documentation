@@ -2,7 +2,7 @@
 title: Präsentationseigenschaften
 type: docs
 weight: 70
-url: /androidjava/presentation-properties/
+url: /de/androidjava/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

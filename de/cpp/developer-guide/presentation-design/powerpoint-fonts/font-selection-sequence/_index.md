@@ -3,7 +3,7 @@ title: Schriftartauswahlsequenz in C++
 linktitle: Schriftartauswahlsequenz in C++
 type: docs
 weight: 80
-url: /cpp/font-selection-sequence/
+url: /de/cpp/font-selection-sequence/
 keywords:
 - schriftart
 - schriftarteinschätzung

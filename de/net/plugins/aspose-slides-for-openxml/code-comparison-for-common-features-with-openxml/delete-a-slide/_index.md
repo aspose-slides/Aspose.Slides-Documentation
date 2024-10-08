@@ -2,7 +2,7 @@
 title: Löschen einer Folie
 type: docs
 weight: 80
-url: /net/delete-a-slide/
+url: /de/net/delete-a-slide/
 ---
 
 ## **OpenXML SDK**

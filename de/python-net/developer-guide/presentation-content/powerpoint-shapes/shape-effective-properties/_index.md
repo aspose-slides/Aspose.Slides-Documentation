@@ -2,7 +2,7 @@
 title: Effektive Eigenschaften von Formen
 type: docs
 weight: 50
-url: /python-net/shape-effective-properties/
+url: /de/python-net/shape-effective-properties/
 keywords: "Formeigenschaften, Kameraeinstellungen, Lichtrig, Fasenform, Textfeld, Textstil, Schriftgrößenwert, Füllformat für Tabelle, PowerPoint-Präsentation, Python, Aspose.Slides für Python via .NET"
 description: "Erhalten Sie effektive Formeigenschaften in PowerPoint-Präsentationen in Python"
 ---

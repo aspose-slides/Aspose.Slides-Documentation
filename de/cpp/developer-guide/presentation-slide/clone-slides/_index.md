@@ -2,7 +2,7 @@
 title: Folien klonen
 type: docs
 weight: 40
-url: /cpp/clone-slides/
+url: /de/cpp/clone-slides/
 ---
 
 

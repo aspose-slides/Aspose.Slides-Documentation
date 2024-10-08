@@ -2,12 +2,12 @@
 title: Erstellung einer Tabelle auf einer PowerPoint-Folie
 type: docs
 weight: 50
-url: /net/creating-a-table-on-powerpoint-slide/
+url: /de/net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien anzuzeigen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für .NET](/slides/net/creating-a-table-on-powerpoint-slide/).
+Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien anzuzeigen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/de/net/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für .NET](/slides/de/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Tabellen erstellen**

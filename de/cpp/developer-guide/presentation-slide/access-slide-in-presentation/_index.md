@@ -2,7 +2,7 @@
 title: Zugriff auf Folien in der Präsentation
 type: docs
 weight: 20
-url: /cpp/access-slide-in-presentation/
+url: /de/cpp/access-slide-in-presentation/
 keywords: "Zugriff PowerPoint Präsentation, Zugriff Folie, Folieneigenschaften bearbeiten, Folienposition ändern, Foliennummer, Index, ID, Position C++, CPP, Aspose.Slides"
 description: "Zugriff auf PowerPoint-Folie nach Index, ID oder Position in C++. Folieneigenschaften bearbeiten"
 ---

@@ -2,7 +2,7 @@
 title: Passwortgeschützte Präsentation
 type: docs
 weight: 20
-url: /python-net/password-protected-presentation/
+url: /de/python-net/password-protected-presentation/
 keywords: "PowerPoint sperren, PowerPoint entsperren, PowerPoint schützen, Passwort festlegen, Passwort hinzufügen, PowerPoint verschlüsseln, PowerPoint entschlüsseln, Schreibschutz, PowerPoint-Sicherheit, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Passwortschutz, Verschlüsselung und Sicherheit für PowerPoint in Python"
 
@@ -223,5 +223,5 @@ with slides.Presentation("write-protected-pres.pptx") as pres:
 Es gibt `True` zurück, wenn die Präsentation mit dem angegebenen Passwort verschlüsselt wurde. Andernfalls gibt es `False` zurück.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Digitale Signatur in PowerPoint](/slides/python-net/digital-signature-in-powerpoint/)
+- [Digitale Signatur in PowerPoint](/slides/de/python-net/digital-signature-in-powerpoint/)
 {{% /alert %}}

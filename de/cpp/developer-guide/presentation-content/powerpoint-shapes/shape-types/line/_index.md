@@ -2,7 +2,7 @@
 title: Linie
 type: docs
 weight: 50
-url: /cpp/Line/
+url: /de/cpp/Line/
 ---
 
 ## **Einfache Linie erstellen**

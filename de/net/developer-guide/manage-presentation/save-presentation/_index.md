@@ -3,7 +3,7 @@ title: Präsentation in .NET speichern
 linktitle: Präsentation speichern
 type: docs
 weight: 80
-url: /net/save-presentation/
+url: /de/net/save-presentation/
 keywords: "PowerPoint speichern, PPT, PPTX, Präsentation speichern, Datei, Stream, C#, Csharp, .NET"
 description: "PowerPoint-Präsentation als Datei oder Stream in C# oder .NET speichern"
 ---

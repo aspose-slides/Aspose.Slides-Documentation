@@ -2,7 +2,7 @@
 title: Absatz
 type: docs
 weight: 60
-url: /net/paragraph/
+url: /de/net/paragraph/
 keywords: "Absatz, Portion, Absatzkoordinate, Portionkoordinate, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Absatz und Portion in PowerPoint-Präsentation in C# oder .NET"
 ---

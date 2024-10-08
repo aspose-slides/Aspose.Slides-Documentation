@@ -2,7 +2,7 @@
 title: Einfaches und Erschwingliches Lizenzieren
 type: docs
 weight: 60
-url: /reportingservices/simple-and-affordable-licensing/
+url: /de/reportingservices/simple-and-affordable-licensing/
 ---
 
 ## Lizenzarten

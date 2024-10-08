@@ -2,14 +2,14 @@
 title: Platzhalter verwalten
 type: docs
 weight: 10
-url: /python-net/manage-placeholder/
+url: /de/python-net/manage-placeholder/
 keywords: "Platzhalter, Platzhaltertext, Eingabetext, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Ändern Sie Platzhaltertext und Eingabetext in PowerPoint-Präsentationen mit Python"
 ---
 
 ## **Text im Platzhalter ändern**
 
-Mit [Aspose.Slides für Python über .NET](/slides/python-net/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, den Text in einem Platzhalter zu ändern.
+Mit [Aspose.Slides für Python über .NET](/slides/de/python-net/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, den Text in einem Platzhalter zu ändern.
 
 **Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der Standardanwendung Microsoft PowerPoint erstellen.
 

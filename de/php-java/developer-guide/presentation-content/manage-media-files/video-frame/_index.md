@@ -2,7 +2,7 @@
 title: Video-Frame
 type: docs
 weight: 10
-url: /php-java/video-frame/
+url: /de/php-java/video-frame/
 keywords: "Video hinzufügen, Video-Frame erstellen, Video extrahieren, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Video-Frame zu einer PowerPoint-Präsentation hinzufügen"
 ---

@@ -2,7 +2,7 @@
 title: Zoom verwalten
 type: docs
 weight: 60
-url: /androidjava/manage-zoom/
+url: /de/androidjava/manage-zoom/
 keywords: "Zoom, Zoom-Frame, Zoom hinzufügen, Zoom-Frame formatieren, Zusammenfassungs-Zoom, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Fügen Sie Zoom oder Zoom-Frames zu PowerPoint-Präsentationen in Java hinzu"
 ---

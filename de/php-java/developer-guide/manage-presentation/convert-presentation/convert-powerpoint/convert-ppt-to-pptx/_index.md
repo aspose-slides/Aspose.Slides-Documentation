@@ -3,7 +3,7 @@ title: PPT in PPTX konvertieren
 linktitle: PPT in PPTX konvertieren
 type: docs
 weight: 20
-url: /php-java/convert-ppt-to-pptx/
+url: /de/php-java/convert-ppt-to-pptx/
 keywords: "PHP  PPT in PPTX konvertieren, PowerPoint PPT in PPTX "
 description: "PowerPoint PPT in PPTX konvertieren."
 ---
@@ -47,7 +47,7 @@ Finden Sie weitere Live- [**Aspose.Slides Conversion**](https://products.aspose.
 {{% /alert %}} 
 
 ## **PPT in PPTX konvertieren**
-Aspose.Slides für PHP über Java erleichtert es Entwicklern, über die [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) Klasseninstanz auf das PPT zuzugreifen und dies in das entsprechende [PPTX](https://docs.fileformat.com/presentation/pptx/) Format zu konvertieren. Derzeit unterstützt es die partielle Konvertierung von [PPT ](https://docs.fileformat.com/presentation/ppt/) in PPTX. Für weitere Details zu den unterstützten und nicht unterstützten Funktionen bei der PPT-zu-PPTX-Konvertierung wenden Sie sich bitte an diese Dokumentation [link](/slides/php-java/ppt-to-pptx-conversion/).
+Aspose.Slides für PHP über Java erleichtert es Entwicklern, über die [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) Klasseninstanz auf das PPT zuzugreifen und dies in das entsprechende [PPTX](https://docs.fileformat.com/presentation/pptx/) Format zu konvertieren. Derzeit unterstützt es die partielle Konvertierung von [PPT ](https://docs.fileformat.com/presentation/ppt/) in PPTX. Für weitere Details zu den unterstützten und nicht unterstützten Funktionen bei der PPT-zu-PPTX-Konvertierung wenden Sie sich bitte an diese Dokumentation [link](/slides/de/php-java/ppt-to-pptx-conversion/).
 
 Aspose.Slides für PHP über Java bietet die [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) Klasse, die eine **PPTX** Präsentationsdatei darstellt. Die Presentation-Klasse kann jetzt auch **PPT** über Presentation zugreifen, wenn das Objekt instanziiert ist. Das folgende Beispiel zeigt, wie man eine PPT-Präsentation in eine PPTX-Präsentation konvertiert.
 

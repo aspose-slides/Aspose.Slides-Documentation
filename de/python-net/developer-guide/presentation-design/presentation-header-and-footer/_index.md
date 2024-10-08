@@ -2,18 +2,18 @@
 title: Präsentationskopf und -fußzeile
 type: docs
 weight: 140
-url: /python-net/presentation-header-and-footer/
+url: /de/python-net/presentation-header-and-footer/
 keywords: "Kopfzeile, Fußzeile, Kopfzeile setzen, Fußzeile setzen, Kopf- und Fußzeile setzen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint-Kopf- und Fußzeile in Python"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/python-net/) bietet Unterstützung für die Arbeit mit Texten von Kopf- und Fußzeilen, die tatsächlich auf der Masterfolie der Folien verwaltet werden.
+[Aspose.Slides](/slides/de/python-net/) bietet Unterstützung für die Arbeit mit Texten von Kopf- und Fußzeilen, die tatsächlich auf der Masterfolie der Folien verwaltet werden.
 
 {{% /alert %}} 
 
-[Aspose.Slides für Python über .NET](/slides/python-net/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen innerhalb von Präsentationsfolien. Diese werden tatsächlich auf der Masterebene der Präsentation verwaltet.
+[Aspose.Slides für Python über .NET](/slides/de/python-net/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen innerhalb von Präsentationsfolien. Diese werden tatsächlich auf der Masterebene der Präsentation verwaltet.
 ## **Kopf- und Fußzeilentext verwalten**
 Die Notizen einer bestimmten Folie können wie im folgenden Beispiel aktualisiert werden:
 

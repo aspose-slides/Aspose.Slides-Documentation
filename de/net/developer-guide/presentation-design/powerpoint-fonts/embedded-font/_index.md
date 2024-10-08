@@ -3,7 +3,7 @@ title: Eingebettete Schriftart - PowerPoint C# API
 linktitle: Eingebettete Schriftart
 type: docs
 weight: 40
-url: /net/embedded-font/
+url: /de/net/embedded-font/
 keywords:
 - schriften
 - eingebettete schriften

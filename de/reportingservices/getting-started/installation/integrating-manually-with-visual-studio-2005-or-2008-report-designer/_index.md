@@ -2,7 +2,7 @@
 title: Manuelle Integration mit Visual Studio 2005 oder 2008 Berichtsdesigner
 type: docs
 weight: 50
-url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
+url: /de/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Form
 type: docs
 weight: 20
-url: /python-net/custom-shape/
+url: /de/python-net/custom-shape/
 keywords: "PowerPoint-Form, benutzerdefinierte Form, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Fügen Sie eine benutzerdefinierte Form in einer PowerPoint-Präsentation in Python hinzu"
 ---

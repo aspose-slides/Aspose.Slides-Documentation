@@ -2,7 +2,7 @@
 title: Präsentation zusammenführen
 type: docs
 weight: 40
-url: /python-net/merge-presentation/
+url: /de/python-net/merge-presentation/
 keywords: "PowerPoint zusammenführen, PPTX, PPT, PowerPoint kombinieren, Präsentation zusammenführen, Präsentation kombinieren, Python"
 description: "PowerPoint-Präsentationen in Python zusammenführen oder kombinieren"
 ---

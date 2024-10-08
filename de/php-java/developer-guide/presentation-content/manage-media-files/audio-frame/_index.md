@@ -2,7 +2,7 @@
 title: Audio-Frame
 type: docs
 weight: 10
-url: /php-java/audio-frame/
+url: /de/php-java/audio-frame/
 keywords: "Audio hinzufügen, Audio-Frame, Audioeigenschaften, Audio extrahieren, Java, Aspose.Slides für PHP über Java"
 description: "Audio zu PowerPoint-Präsentationen hinzufügen"
 ---

@@ -2,5 +2,5 @@
 title: Funktionen
 type: docs
 weight: 30
-url: /sharepoint/features/
+url: /de/sharepoint/features/
 ---

@@ -2,7 +2,7 @@
 title: Folienabschnitt
 type: docs
 weight: 90
-url: /androidjava/slide-section/
+url: /de/androidjava/slide-section/
 ---
 
 Mit Aspose.Slides für Android über Java können Sie eine PowerPoint-Präsentation in Abschnitte organisieren. Sie können Abschnitte erstellen, die bestimmte Folien enthalten.

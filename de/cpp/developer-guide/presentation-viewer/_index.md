@@ -2,7 +2,7 @@
 title: Präsentationsbetrachter
 type: docs
 weight: 50
-url: /cpp/presentation-viewer/
+url: /de/cpp/presentation-viewer/
 keywords: 
 - PowerPoint-Präsentation anzeigen
 - ppt anzeigen

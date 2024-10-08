@@ -2,7 +2,7 @@
 title: Erstellen und Einfügen eines Excel-Diagramms als OLE-Objekt
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object/
+url: /de/net/create-and-embed-an-excel-chart-as-an-ole-object/
 ---
 
 Die beiden Codebeispiele unten sind lang und detailliert, da die beschriebene Aufgabe komplex ist. Sie erstellen eine Microsoft Excel-Arbeitsmappe, erstellen ein Diagramm und dann die Microsoft PowerPoint-Präsentation, in die Sie das Diagramm einfügen werden. OLE-Objekte enthalten Links zum ursprünglichen Dokument, sodass ein Benutzer, der die eingebettete Datei doppelt anklickt, die Datei und die zugehörige Anwendung öffnet.

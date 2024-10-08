@@ -2,7 +2,7 @@
 title: PowerPoint in XPS konvertieren
 type: docs
 weight: 70
-url: /net/convert-powerpoint-to-xps
+url: /de/net/convert-powerpoint-to-xps
 keywords: "PowerPoint-Präsentation konvertieren, PowerPoint in XPS, PPT in XPS, PPTX in XPS, Konvertierung, C#, Csharp, .NET, Aspose.Slides"
 description: "Konvertieren Sie PowerPoint-Präsentationen in XPS mit C# oder .NET."
 ---

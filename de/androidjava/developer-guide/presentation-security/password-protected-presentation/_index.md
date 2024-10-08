@@ -2,7 +2,7 @@
 title: Passwortgeschützte Präsentation
 type: docs
 weight: 20
-url: /androidjava/password-protected-presentation/
+url: /de/androidjava/password-protected-presentation/
 keywords: "PowerPoint-Präsentation in Java sperren"
 description: "PowerPoint-Präsentation sperren. Passwortgeschützte PowerPoint in Java"
 ---
@@ -238,5 +238,5 @@ try {
 Es gibt `true` zurück, wenn die Präsentation mit dem angegebenen Passwort verschlüsselt wurde. Andernfalls gibt es `false` zurück.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Digitale Signatur in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Digitale Signatur in PowerPoint](/slides/de/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

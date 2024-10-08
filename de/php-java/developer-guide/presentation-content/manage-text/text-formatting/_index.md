@@ -2,7 +2,7 @@
 title: Textformatierung
 type: docs
 weight: 50
-url: /php-java/text-formatting/
+url: /de/php-java/text-formatting/
 ---
 
 ## **Text hervorheben**

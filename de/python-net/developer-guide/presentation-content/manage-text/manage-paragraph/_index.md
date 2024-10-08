@@ -2,7 +2,7 @@
 title: PowerPoint-Absätze in Python verwalten
 type: docs
 weight: 40
-url: /python-net/manage-paragraph/
+url: /de/python-net/manage-paragraph/
 keywords: "PowerPoint-Absatz hinzufügen, Absätze verwalten, Absatz-Indentation, Absatz-Eigenschaften, HTML-Text, Absatztext exportieren, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Erstellen und Verwalten von Absätzen, Texten, Indentationen und Eigenschaften in PowerPoint-Präsentationen in Python"
 ---

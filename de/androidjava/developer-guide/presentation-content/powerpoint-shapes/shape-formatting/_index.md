@@ -2,7 +2,7 @@
 title: Formatausführung
 type: docs
 weight: 20
-url: /androidjava/shape-formatting/
+url: /de/androidjava/shape-formatting/
 keywords: "Formatausführung, Linieneinstellungen, Join-Stile, Farbverlauf, Musterfüllung, Bildfüllung, einfarbige Füllung, Formen drehen, 3D-Facetteneffekte, 3D-Rotationseffekt, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Formatiere Formen in PowerPoint-Präsentationen mit Java"
 ---

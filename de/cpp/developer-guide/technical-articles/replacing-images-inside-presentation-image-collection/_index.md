@@ -2,7 +2,7 @@
 title: Ersetzen von Bildern in der Präsentationsbildsammlung
 type: docs
 weight: 90
-url: /cpp/replacing-images-inside-presentation-image-collection/
+url: /de/cpp/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

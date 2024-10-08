@@ -2,14 +2,14 @@
 title: Präsentation mit Fallback-Schriftart rendern
 type: docs
 weight: 30
-url: /python-net/render-presentation-with-fallback-font/
+url: /de/python-net/render-presentation-with-fallback-font/
 keywords: "Fallback-Schriftart, PowerPoint rendern, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Rendern von PowerPoint mit Fallback-Schriftart in Python"
 ---
 
 Das folgende Beispiel umfasst diese Schritte:
 
-1. Wir [erstellen eine Sammlung von Fallback-Schriftartregeln](/slides/python-net/create-fallback-fonts-collection/).
+1. Wir [erstellen eine Sammlung von Fallback-Schriftartregeln](/slides/de/python-net/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) eine Fallback-Schriftartregel entfernen und [AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) zu einer anderen Regel hinzufügen.
 1. Setzen Sie die Regelauffassung auf die [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) Eigenschaft.
 1. Mit der [Presentation.Save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Methode können wir die Präsentation im gleichen Format speichern oder in ein anderes speichern. Nachdem die Fallback-Schriftartregeln Sammlung auf FontsManager gesetzt wurde, werden diese Regeln während aller Operationen an der Präsentation angewendet: speichern, rendern, konvertieren usw.
@@ -45,5 +45,5 @@ with slides.Presentation(path + "input.pptx") as pres:
 ```
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr über [Speichern und Konvertieren in Präsentationen](/slides/python-net/creating-saving-and-converting-a-presentation/).
+Erfahren Sie mehr über [Speichern und Konvertieren in Präsentationen](/slides/de/python-net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

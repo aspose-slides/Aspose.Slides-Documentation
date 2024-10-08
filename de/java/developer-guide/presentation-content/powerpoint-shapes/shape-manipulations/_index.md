@@ -2,7 +2,7 @@
 title: Formenmanipulationen
 type: docs
 weight: 40
-url: /java/shape-manipulations/
+url: /de/java/shape-manipulations/
 ---
 
 ## **Form in Folie finden**

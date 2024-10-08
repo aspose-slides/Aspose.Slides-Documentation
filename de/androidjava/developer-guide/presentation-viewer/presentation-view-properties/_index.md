@@ -1,7 +1,7 @@
 ---
 title: Eigenschaften der Präsentationsansicht
 type: docs
-url: /androidjava/presentation-view-properties/
+url: /de/androidjava/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -59,7 +59,7 @@ try {
 ## **Standard-Zoomwert festlegen**
 {{% alert color="primary" %}} 
 
-Aspose.Slides für Android über Java unterstützt nun das Festlegen des Standard-Zoomwerts für Präsentationen, sodass beim Öffnen der Präsentation der Zoom bereits festgelegt ist. Dies kann durch Festlegen der [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) einer Präsentation erreicht werden. [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert festgelegt werden. In diesem Thema werden wir mit einem Beispiel sehen, wie man die [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) in [Aspose.Slides](/slides/) festlegt.
+Aspose.Slides für Android über Java unterstützt nun das Festlegen des Standard-Zoomwerts für Präsentationen, sodass beim Öffnen der Präsentation der Zoom bereits festgelegt ist. Dies kann durch Festlegen der [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) einer Präsentation erreicht werden. [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert festgelegt werden. In diesem Thema werden wir mit einem Beispiel sehen, wie man die [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) in [Aspose.Slides](/slides/de/) festlegt.
 
 {{% /alert %}} 
 

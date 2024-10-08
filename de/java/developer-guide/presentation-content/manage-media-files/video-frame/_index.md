@@ -2,7 +2,7 @@
 title: Video Frame
 type: docs
 weight: 10
-url: /java/video-frame/
+url: /de/java/video-frame/
 keywords: "Video hinzufügen, Video-Frame erstellen, Video extrahieren, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Fügen Sie ein Video-Frame zu einer PowerPoint-Präsentation in Java hinzu"
 ---

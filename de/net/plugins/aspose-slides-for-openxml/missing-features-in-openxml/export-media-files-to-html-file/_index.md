@@ -2,7 +2,7 @@
 title: Medien Dateien in HTML-Datei exportieren
 type: docs
 weight: 40
-url: /net/export-media-files-to-html-file/
+url: /de/net/export-media-files-to-html-file/
 ---
 
 Um Medien Dateien in HTML zu exportieren, folgen Sie bitte den folgenden Schritten:
@@ -60,6 +60,6 @@ using (Presentation pres = new Presentation(srcFileName))
 
 {{% alert color="primary" %}} 
 
-Für weitere Details besuchen Sie [Exportieren von Medien Dateien in die HTML-Datei](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
+Für weitere Details besuchen Sie [Exportieren von Medien Dateien in die HTML-Datei](/slides/de/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
 
 {{% /alert %}}

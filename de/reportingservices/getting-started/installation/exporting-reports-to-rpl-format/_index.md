@@ -2,7 +2,7 @@
 title: Berichte im RPL-Format exportieren  
 type: docs  
 weight: 110  
-url: /reportingservices/exporting-reports-to-rpl-format/  
+url: /de/reportingservices/exporting-reports-to-rpl-format/  
 ---  
 
 ﻿  

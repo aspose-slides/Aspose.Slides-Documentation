@@ -2,12 +2,12 @@
 title: Präsentation mit Fallback-Schriftart rendern
 type: docs
 weight: 30
-url: /php-java/render-presentation-with-fallback-font/
+url: /de/php-java/render-presentation-with-fallback-font/
 ---
 
 Das folgende Beispiel beinhaltet diese Schritte:
 
-1. Wir [erstellen eine Sammlung von Fallback-Schriftartregeln](/slides/php-java/create-fallback-fonts-collection/).
+1. Wir [erstellen eine Sammlung von Fallback-Schriftartregeln](/slides/de/php-java/create-fallback-fonts-collection/).
 1. [Entfernen](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) Sie eine Fallback-Schriftartregel und [fügen Sie Fallback-Schriftarten hinzu](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einer anderen Regel.
 1. Setzen Sie die Regel-Sammlung auf [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--) Methode.
 1. Mit der [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) Methode können wir die Präsentation im gleichen Format speichern oder sie in ein anderes speichern. Nachdem die Fallback-Schriftartregeln-Sammlung auf [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager) gesetzt wurde, werden diese Regeln während aller Operationen über die Präsentation angewendet: speichern, rendern, konvertieren usw.
@@ -51,5 +51,5 @@ Das folgende Beispiel beinhaltet diese Schritte:
 ```
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr über [Speichern und Konvertierung in Präsentationen](/slides/php-java/creating-saving-and-converting-a-presentation/).
+Erfahren Sie mehr über [Speichern und Konvertierung in Präsentationen](/slides/de/php-java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

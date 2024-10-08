@@ -2,7 +2,7 @@
 title: Tinte verwalten
 type: docs
 weight: 95
-url: /cpp/manage-ink/
+url: /de/cpp/manage-ink/
 keywords: "Tinte in PowerPoint, Tintenwerkzeuge, C++ Tinte, Zeichnen in PowerPoint, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Verwenden Sie Tintenwerkzeuge, um Objekte in PowerPoint C++ zu zeichnen"
 ---

@@ -2,7 +2,7 @@
 title: Unterstützung für das Einbetten von Videos in Präsentationen  
 type: docs  
 weight: 80  
-url: /reportingservices/support-for-embedding-video-in-presentation/  
+url: /de/reportingservices/support-for-embedding-video-in-presentation/  
 ---  
 
 {{% alert color="primary" %}}  

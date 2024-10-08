@@ -2,7 +2,7 @@
 title: Unterstützte Dateiformate
 type: docs
 weight: 30
-url: /python-java/supported-file-formats/
+url: /de/python-java/supported-file-formats/
 ---
 
 ## **Unterstützte Microsoft PowerPoint-Versionen**

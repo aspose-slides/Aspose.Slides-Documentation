@@ -2,7 +2,7 @@
 title: Präsentation mit Fallback-Schriftart rendern
 type: docs
 weight: 30
-url: /cpp/render-presentation-with-fallback-font/
+url: /de/cpp/render-presentation-with-fallback-font/
 keywords: 
 - Fallback-Schriftart
 - PowerPoint rendern
@@ -15,7 +15,7 @@ description: "PowerPoint mit Fallback-Schriftart in C++ rendern"
 
 Das folgende Beispiel umfasst diese Schritte:
 
-1. Wir [erstellen eine Sammlung von Fallback-Schriftart-Regeln](/slides/cpp/create-fallback-fonts-collection/).
+1. Wir [erstellen eine Sammlung von Fallback-Schriftart-Regeln](/slides/de/cpp/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#aaf12e563d822f6e05e27732a837bcf33) eine Fallback-Schriftartregel und [AddFallBackFonts()](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule#a030268631ae616b775bdb6df8accf42c) zu einer anderen Regel hinzufügen.
 1. Regeln-Sammlung auf [FontsManager::set_FontFallBackRulesCollection()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fonts_manager#a375fc71abd64891a39673751d127d924) Eigenschaft setzen.
 1. Mit [Presentation::Save()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) Methode können wir die Präsentation im gleichen Format speichern oder in einem anderen. Nachdem die Fallback-Schriftart-Regeln-Sammlung dem FontsManager zugewiesen wurde, werden diese Regeln während aller Operationen über die Präsentation angewendet: speichern, rendern, konvertieren usw.
@@ -61,5 +61,5 @@ pres->Dispose();
 
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr über [Speichern und Konvertieren in Präsentationen](/slides/cpp/creating-saving-and-converting-a-presentation/).
+Erfahren Sie mehr über [Speichern und Konvertieren in Präsentationen](/slides/de/cpp/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Tragbares Dokumentenformat (PDF)
 type: docs
 weight: 40
-url: /java/portable-document-format-pdf/
+url: /de/java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.Slides unterstützt die folgenden Präsentationsmerkmale beim Konvertiere
 - Aufzählungszeichen.
 - Tabellen.
 
-Sie können Präsentationen direkt mit Aspose.Slides für Java in PDFs exportieren: Sie benötigen kein weiteres Element. Darüber hinaus können Sie den Export von Präsentationen nach PDF mit verschiedenen Optionen anpassen, wie in [Konvertieren in PDF](/slides/java/converting-a-presentation/) erklärt.
+Sie können Präsentationen direkt mit Aspose.Slides für Java in PDFs exportieren: Sie benötigen kein weiteres Element. Darüber hinaus können Sie den Export von Präsentationen nach PDF mit verschiedenen Optionen anpassen, wie in [Konvertieren in PDF](/slides/de/java/converting-a-presentation/) erklärt.
 
 **Die Eingabepräsentation** 
 

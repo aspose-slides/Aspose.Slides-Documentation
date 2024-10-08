@@ -2,5 +2,5 @@
 title: Erste Schritte
 type: docs
 weight: 10
-url: /cpp/getting-started/
+url: /de/cpp/getting-started/
 ---

@@ -2,7 +2,7 @@
 title: So führen Sie die Beispiele aus
 type: docs
 weight: 140
-url: /php-java/how-to-run-the-examples/
+url: /de/php-java/how-to-run-the-examples/
 ---
 
 ## **Herunterladen von GitHub**

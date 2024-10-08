@@ -1,7 +1,7 @@
 ---
 title: 3D-Diagramm
 type: docs
-url: /java/3d-chart/
+url: /de/java/3d-chart/
 ---
 
 ## **RotationX-, RotationY- und DepthPercents-Eigenschaften des 3D-Diagramms festlegen**

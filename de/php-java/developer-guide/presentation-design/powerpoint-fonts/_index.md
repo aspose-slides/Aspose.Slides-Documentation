@@ -2,5 +2,5 @@
 title: PowerPoint-Schriften
 type: docs
 weight: 30
-url: /php-java/powerpoint-fonts/
+url: /de/php-java/powerpoint-fonts/
 ---

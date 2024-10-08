@@ -2,7 +2,7 @@
 title: Konvertierung von PPT in PPTX-Format
 type: docs
 weight: 20
-url: /net/conversion-from-ppt-to-pptx-format/
+url: /de/net/conversion-from-ppt-to-pptx-format/
 ---
 
 Aspose.Slides ist ein einzigartiges Merkmal, das Flexibilität bei Versionen bietet, ohne die Arbeit zu beeinträchtigen. 

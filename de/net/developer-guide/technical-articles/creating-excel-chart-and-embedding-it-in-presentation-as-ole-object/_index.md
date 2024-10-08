@@ -2,7 +2,7 @@
 title: Erstellen eines Excel-Diagramms und Einbetten als OLE-Objekt in eine Präsentation
 type: docs
 weight: 50
-url: /net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -144,4 +144,4 @@ Durch die Verwendung von Aspose.Cells für .NET zusammen mit Aspose.Slides für 
 
 {{% /alert %}} 
 ## **Verwandte Abschnitte**
-[Funktionsfähige Lösung für Diagrammgrößenänderung](/slides/net/working-solution-for-chart-resizing-in-pptx/)[Problem mit geändertem Objekt](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Funktionsfähige Lösung für Diagrammgrößenänderung](/slides/de/net/working-solution-for-chart-resizing-in-pptx/)[Problem mit geändertem Objekt](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

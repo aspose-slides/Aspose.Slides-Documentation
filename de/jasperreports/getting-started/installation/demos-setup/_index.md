@@ -2,7 +2,7 @@
 title: Demos Einrichtung
 type: docs
 weight: 70
-url: /jasperreports/demos-einrichtung/
+url: /de/jasperreports/demos-einrichtung/
 ---
 
 Alle Demos, die mit Aspose.Slides für JasperReports bereitgestellt werden, sind veränderte Standard-Demos. Es ist besser, alle Demos in den Demo-Ordner von JasperReports zu kopieren:

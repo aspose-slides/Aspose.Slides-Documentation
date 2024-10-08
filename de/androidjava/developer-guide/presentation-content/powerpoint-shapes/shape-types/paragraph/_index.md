@@ -2,7 +2,7 @@
 title: Absatz
 type: docs
 weight: 60
-url: /androidjava/paragraph/
+url: /de/androidjava/paragraph/
 ---
 
 

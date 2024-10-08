@@ -2,7 +2,7 @@
 title: Präsentation öffnen
 type: docs
 weight: 20
-url: /python-net/open-presentation/
+url: /de/python-net/open-presentation/
 keywords: "PowerPoint öffnen, PPTX, PPT, Präsentation öffnen, Präsentation laden, Python"
 description: "Öffnen oder Laden von Präsentationen PPT, PPTX, ODP in Python"
 ---

@@ -3,7 +3,7 @@ title: PowerPoint in JPG umwandeln in C#
 linktitle: PowerPoint PPT in JPG umwandeln
 type: docs
 weight: 60
-url: /net/convert-powerpoint-to-jpg/
+url: /de/net/convert-powerpoint-to-jpg/
 keywords: 
 - PowerPoint-Präsentation umwandeln
 - JPG
@@ -147,4 +147,4 @@ Unter Verwendung derselben Prinzipien, die in diesem Artikel beschrieben sind, k
 
 Siehe andere Optionen, um PPT/PPTX in Bilder umzuwandeln wie:
 
-- [PPT/PPTX in SVG-Umwandlung](/slides/net/render-a-slide-as-an-svg-image/).
+- [PPT/PPTX in SVG-Umwandlung](/slides/de/net/render-a-slide-as-an-svg-image/).

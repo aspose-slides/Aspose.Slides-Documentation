@@ -1,7 +1,7 @@
 ---
 title: Kreisdiagramm
 type: docs
-url: /net/pie-chart/
+url: /de/net/pie-chart/
 keywords: "Kreisdiagramm, Plot-Optionen, Segmentfarben, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Plot-Optionen und Segmentfarben für Kreisdiagramme in PowerPoint-Präsentationen in C# oder .NET"
 ---

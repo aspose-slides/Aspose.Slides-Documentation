@@ -1,7 +1,7 @@
 ---
 title: Kuchendiagramm
 type: docs
-url: /cpp/pie-chart/
+url: /de/cpp/pie-chart/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Beschriftung für OLE-Symbol festlegen
 type: docs
 weight: 160
-url: /python-net/set-caption-to-ole-icon/
+url: /de/python-net/set-caption-to-ole-icon/
 ---
 
 Eine neue Eigenschaft **SubstitutePictureTitle** wurde zu der **IOleObjectFrame**-Schnittstelle und der **OleObjectFrame**-Klasse hinzugefügt. Sie ermöglicht es, die Beschriftung eines OLE-Symbols abzurufen, festzulegen oder zu ändern. Der folgende Codeausschnitt zeigt ein Beispiel zum Erstellen eines Excel-Objekts und zum Festlegen seiner Beschriftung.

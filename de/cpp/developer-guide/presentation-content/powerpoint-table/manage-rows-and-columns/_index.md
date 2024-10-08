@@ -2,7 +2,7 @@
 title: Zeilen und Spalten verwalten
 type: docs
 weight: 20
-url: /cpp/manage-rows-and-columns/
+url: /de/cpp/manage-rows-and-columns/
 keywords: "Tabelle, Tabellenzeilen und -spalten, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Verwalten von Tabellenzeilen und -spalten in PowerPoint-Präsentationen in C++"
 

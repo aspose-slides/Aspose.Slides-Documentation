@@ -2,7 +2,7 @@
 title: Folie konvertieren
 type: docs
 weight: 41
-url: /python-net/convert-slide/
+url: /de/python-net/convert-slide/
 keywords: 
 - Folie in Bild konvertieren
 - Folie als Bild exportieren

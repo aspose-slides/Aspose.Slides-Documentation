@@ -1,7 +1,7 @@
 ---
 title: Eigenschaften der Präsentationsansicht
 type: docs
-url: /net/presentation-view-properties/
+url: /de/net/presentation-view-properties/
 keywords: "PowerPoint-Viewer, Viewer-Eigenschaften, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Eigenschaften des PowerPoint-Präsentations-Viewers in C# oder .NET"
 ---

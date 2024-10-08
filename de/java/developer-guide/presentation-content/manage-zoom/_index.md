@@ -2,7 +2,7 @@
 title: Zoom verwalten
 type: docs
 weight: 60
-url: /java/manage-zoom/
+url: /de/java/manage-zoom/
 keywords: "Zoom, Zoomrahmen, Zoom hinzufügen, Zoomrahmen formatieren, Zusammenfassungszoom, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Fügen Sie Zoom oder Zoomrahmen zu PowerPoint-Präsentationen in Java hinzu"
 ---

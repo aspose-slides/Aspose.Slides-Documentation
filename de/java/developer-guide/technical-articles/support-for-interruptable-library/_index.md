@@ -2,7 +2,7 @@
 title: Unterstützung für unterbrechbare Bibliothek
 type: docs
 weight: 120
-url: /java/support-for-interruptable-library/
+url: /de/java/support-for-interruptable-library/
 ---
 
 ## **Unterbrechbare Bibliothek**

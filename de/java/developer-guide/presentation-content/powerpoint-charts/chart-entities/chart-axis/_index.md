@@ -1,7 +1,7 @@
 ---
 title: Diagrammachse
 type: docs
-url: /java/chart-axis/
+url: /de/java/chart-axis/
 keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Java, Diagrammachse manipulieren, Diagrammdaten"
 description: "Wie man die Diagrammachse von PowerPoint in Java bearbeitet"
 ---

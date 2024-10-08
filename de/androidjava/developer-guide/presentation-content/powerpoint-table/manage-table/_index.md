@@ -2,7 +2,7 @@
 title: Tabelle verwalten
 type: docs
 weight: 10
-url: /androidjava/manage-table/
+url: /de/androidjava/manage-table/
 keywords: "Tabelle, Tabelle erstellen, auf Tabelle zugreifen, Tabellenformat, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Tabelle in PowerPoint-Präsentationen in Java erstellen und verwalten"
 ---

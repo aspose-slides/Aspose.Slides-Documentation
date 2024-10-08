@@ -2,7 +2,7 @@
 title: Formanimation
 type: docs
 weight: 60
-url: /net/shape-animation/
+url: /de/net/shape-animation/
 keywords: 
 - PowerPoint-Animation
 - Animationseffekt
@@ -14,7 +14,7 @@ keywords:
 description: "PowerPoint-Animation in C# oder .NET anwenden"
 ---
 
-Animationen sind visuelle Effekte, die auf Texte, Bilder, Formen oder [Diagramme](/slides/net/animated-charts/) angewendet werden können. Sie verleihen Präsentationen oder deren Bestandteilen Leben.
+Animationen sind visuelle Effekte, die auf Texte, Bilder, Formen oder [Diagramme](/slides/de/net/animated-charts/) angewendet werden können. Sie verleihen Präsentationen oder deren Bestandteilen Leben.
 
 ### **Warum Animationen in Präsentationen verwenden?**
 
@@ -76,7 +76,7 @@ using (Presentation pres = new Presentation())
 
 {{%  alert color="primary"  %}} 
 
-Neben der Anwendung von Animationen auf Text können Sie auch Animationen auf einen einzelnen [Absatz](https://reference.aspose.com/slides/net/aspose.slides/iparagraph) anwenden. Siehe [**Animierter Text**](/slides/net/animated-text/).
+Neben der Anwendung von Animationen auf Text können Sie auch Animationen auf einen einzelnen [Absatz](https://reference.aspose.com/slides/net/aspose.slides/iparagraph) anwenden. Siehe [**Animierter Text**](/slides/de/net/animated-text/).
 
 {{% /alert %}} 
 

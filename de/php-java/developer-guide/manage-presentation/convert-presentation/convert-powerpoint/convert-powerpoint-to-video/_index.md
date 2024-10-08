@@ -2,7 +2,7 @@
 title: PowerPoint in Video umwandeln
 type: docs
 weight: 130
-url: /php-java/convert-powerpoint-to-video/
+url: /de/php-java/convert-powerpoint-to-video/
 keywords: "PowerPoint umwandeln, PPT, PPTX, Präsentation, Video, MP4, PPT in Video, PPT in MP4, Java, Aspose.Slides"
 description: "PowerPoint in Video umwandeln"
 ---

@@ -2,7 +2,7 @@
 title: Donut-Diagramm
 type: docs
 weight: 30
-url: /cpp/doughnut-chart/
+url: /de/cpp/doughnut-chart/
 ---
 
 ## **Zentrumslücke im Donut-Diagramm festlegen**

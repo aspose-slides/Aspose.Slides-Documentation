@@ -2,7 +2,7 @@
 title: Automatisches Aktualisieren von OLE-Objekten mit dem MS PowerPoint Add-In
 type: docs
 weight: 10
-url: /php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
+url: /de/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/
 ---
 
 ## **Über das automatische Aktualisieren von OLE-Objekten**

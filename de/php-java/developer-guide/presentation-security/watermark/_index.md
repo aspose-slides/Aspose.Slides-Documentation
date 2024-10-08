@@ -2,7 +2,7 @@
 title: Wasserzeichen
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /de/php-java/watermark/
 keywords:
 - wasserzeichen
 - wasserzeichen hinzufügen
@@ -49,7 +49,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man die TextFrame-Klasse verwendet](/slides/php-java/text-formatting/)
+- [Wie man die TextFrame-Klasse verwendet](/slides/de/php-java/text-formatting/)
 {{% /alert %}}
 
 ### **Fügen Sie ein Textwasserzeichen zu einer Präsentation hinzu**
@@ -69,7 +69,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man den Folienmaster verwendet](/slides/php-java/slide-master/)
+- [Wie man den Folienmaster verwendet](/slides/de/php-java/slide-master/)
 {{% /alert %}}
 
 ### **Setzen Sie die Transparenz der Wasserzeichenform**

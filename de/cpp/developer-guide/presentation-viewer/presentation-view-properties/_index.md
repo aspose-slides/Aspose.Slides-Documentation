@@ -1,7 +1,7 @@
 ---
 title: Eigenschaften der Präsentationsansicht
 type: docs
-url: /cpp/presentation-view-properties/
+url: /de/cpp/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 

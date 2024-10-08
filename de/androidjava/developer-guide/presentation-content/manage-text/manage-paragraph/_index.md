@@ -2,7 +2,7 @@
 title: PowerPoint-Absätze in Java verwalten
 type: docs
 weight: 40
-url: /androidjava/manage-paragraph/
+url: /de/androidjava/manage-paragraph/
 keywords: "PowerPoint-Absatz hinzufügen, Absätze verwalten, Absatz-Einzug, Absatz-Eigenschaften, HTML-Text, Absatztext exportieren, PowerPoint-Präsentation, Java, Aspose.Slides für Android via Java"
 description: "Erstellen und verwalten Sie Absätze, Text, Einzüge und Eigenschaften in PowerPoint-Präsentationen in Java"
 ---

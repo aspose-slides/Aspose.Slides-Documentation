@@ -2,7 +2,7 @@
 title: Multithreading in Aspose.Slides
 type: docs
 weight: 200
-url: /cpp/multithreading/
+url: /de/cpp/multithreading/
 keywords:
 - PowerPoint
 - Präsentation

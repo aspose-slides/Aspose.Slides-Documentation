@@ -2,7 +2,7 @@
 title: Formen auf Folie neu skalieren
 type: docs
 weight: 110
-url: /php-java/re-sizing-shapes-on-slide/
+url: /de/php-java/re-sizing-shapes-on-slide/
 ---
 
 ## **Formen auf Folie neu skalieren**

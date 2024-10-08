@@ -2,7 +2,7 @@
 title: Warum nicht Open XML SDK
 type: docs
 weight: 120
-url: /php-java/why-not-open-xml-sdk/
+url: /de/php-java/why-not-open-xml-sdk/
 ---
 
 {{% alert color="primary" %}} 
@@ -30,7 +30,7 @@ Aspose.Slides ist eine Klassenbibliothek, die Ihrer Anwendung die folgenden Prä
 - Unterstützung für das Hinzufügen von Animationen, Ole-Frames, Tabellen, Erstellen und Verwalten von Diagrammen.
 - Verfügbarkeit umfangreicher Steuerungsoptionen zur Verwaltung der Textformatierung auf den Ebenen TextFrames, Absätze und Teile.
 
-Für weitere Informationen zu den unterstützten Funktionen besuchen Sie bitte [Aspose.Slides-Funktionen](/slides/php-java/product-overview/).
+Für weitere Informationen zu den unterstützten Funktionen besuchen Sie bitte [Aspose.Slides-Funktionen](/slides/de/php-java/product-overview/).
 ## **Vergleich Open XML SDK und Aspose.Slides**
 {{% alert color="primary" %}} 
 

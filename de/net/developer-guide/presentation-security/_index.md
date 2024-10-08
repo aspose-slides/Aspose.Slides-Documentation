@@ -2,5 +2,5 @@
 title: Präsentationssicherheit
 type: docs
 weight: 60
-url: /net/presentation-security/
+url: /de/net/presentation-security/
 ---

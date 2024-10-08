@@ -2,7 +2,7 @@
 title: Textfeld verwalten
 type: docs
 weight: 20
-url: /java/manage-textbox/
+url: /de/java/manage-textbox/
 description: Erstellen Sie ein Textfeld auf PowerPoint-Folien mit Java. Fügen Sie eine Spalte in das Textfeld oder den Textcontainer auf PowerPoint-Folien mit Java ein. Fügen Sie ein Textfeld mit Hyperlink auf PowerPoint-Folien mit Java hinzu.
 ---
 

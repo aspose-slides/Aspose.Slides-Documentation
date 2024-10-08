@@ -2,7 +2,7 @@
 title: Hoch- und Tiefschrift
 type: docs
 weight: 80
-url: /php-java/superscript-and-subscript/
+url: /de/php-java/superscript-and-subscript/
 ---
 
 ## **Hoch- und Tiefschrifttext verwalten**

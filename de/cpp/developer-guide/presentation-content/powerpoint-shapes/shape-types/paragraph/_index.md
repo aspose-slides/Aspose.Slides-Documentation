@@ -2,7 +2,7 @@
 title: Absatz
 type: docs
 weight: 60
-url: /cpp/paragraph/
+url: /de/cpp/paragraph/
 ---
 
 ## **Abholen von Absatz- und Portionskoordinaten im TextFrame**

@@ -2,7 +2,7 @@
 title: Video-Rahmen
 type: docs
 weight: 10
-url: /net/video-frame/
+url: /de/net/video-frame/
 keywords: "Video hinzufügen, Video-Rahmen erstellen, Video extrahieren, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Fügen Sie einen Video-Rahmen zu einer PowerPoint-Präsentation in C# oder .NET hinzu"
 ---

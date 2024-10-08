@@ -2,7 +2,7 @@
 title: Warnungs-Callbacks für Schriftartenersatz in Aspose.Slides erhalten
 type: docs
 weight: 120
-url: /net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /de/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

@@ -3,7 +3,7 @@ title: PowerPoint in PDF umwandeln in C#
 linktitle: PowerPoint in PDF umwandeln
 type: docs
 weight: 40
-url: /net/convert-powerpoint-to-pdf/
+url: /de/net/convert-powerpoint-to-pdf/
 keywords:
 - PowerPoint umwandeln
 - Präsentation

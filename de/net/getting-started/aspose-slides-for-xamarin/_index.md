@@ -2,7 +2,7 @@
 title: Aspose.Slides für Xamarin
 type: docs
 weight: 150
-url: /net/aspose-slides-for-xamarin/
+url: /de/net/aspose-slides-for-xamarin/
 ---
 
 ## **Überblick**

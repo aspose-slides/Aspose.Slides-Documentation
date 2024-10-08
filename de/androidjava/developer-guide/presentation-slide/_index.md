@@ -2,5 +2,5 @@
 title: Präsentationsfolie
 type: docs
 weight: 20
-url: /androidjava/presentation-slide/
+url: /de/androidjava/presentation-slide/
 ---

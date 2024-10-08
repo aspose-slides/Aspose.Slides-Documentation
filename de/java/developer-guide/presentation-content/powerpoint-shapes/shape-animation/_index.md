@@ -2,7 +2,7 @@
 title: Formanimation
 type: docs
 weight: 60
-url: /java/shape-animation/
+url: /de/java/shape-animation/
 keywords: "PowerPoint-Animation, Animationseffekt, Animation anwenden, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "PowerPoint-Animation in Java anwenden"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-Neben der Anwendung von Animationen auf Text können Sie auch Animationen auf einen einzelnen [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) anwenden. Siehe [**Animierter Text**](/slides/java/animated-text/).
+Neben der Anwendung von Animationen auf Text können Sie auch Animationen auf einen einzelnen [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) anwenden. Siehe [**Animierter Text**](/slides/de/java/animated-text/).
 
 {{% /alert %}} 
 

@@ -2,7 +2,7 @@
 title: Foliengröße
 type: docs
 weight: 70
-url: /androidjava/slide-size/
+url: /de/androidjava/slide-size/
 
 ---
 

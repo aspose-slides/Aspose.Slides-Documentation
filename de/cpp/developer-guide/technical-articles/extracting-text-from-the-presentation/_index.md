@@ -2,16 +2,16 @@
 title: Extrahieren von Text aus der Präsentation
 type: docs
 weight: 60
-url: /cpp/extracting-text-from-the-presentation/
+url: /de/cpp/extracting-text-from-the-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Es ist nicht ungewöhnlich, dass Entwickler den Text aus einer Präsentation extrahieren müssen. Dazu müssen Sie den Text aus allen Formen auf allen Folien in einer Präsentation extrahieren. Dieser Artikel erklärt, wie man Text aus Microsoft PowerPoint PPTX-Präsentationen mit Aspose.Slides extrahiert. Der Text kann auf folgende Weise extrahiert werden:
 
-[Text aus einer Folie extrahieren](/slides/cpp/extracting-text-from-the-presentation/)
-[Text mit der GetAllTextBoxes-Methode extrahieren](/slides/cpp/extracting-text-from-the-presentation/)
-[Kategorisierte und schnelle Textextraktion](/slides/cpp/extracting-text-from-the-presentation/)
+[Text aus einer Folie extrahieren](/slides/de/cpp/extracting-text-from-the-presentation/)
+[Text mit der GetAllTextBoxes-Methode extrahieren](/slides/de/cpp/extracting-text-from-the-presentation/)
+[Kategorisierte und schnelle Textextraktion](/slides/de/cpp/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **Text aus einer Folie extrahieren**

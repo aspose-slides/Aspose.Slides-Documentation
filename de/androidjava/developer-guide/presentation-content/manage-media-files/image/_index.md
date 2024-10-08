@@ -2,7 +2,7 @@
 title: Bild
 type: docs
 weight: 10
-url: /androidjava/image/
+url: /de/androidjava/image/
 description: Arbeiten Sie mit Bildern in Folien in PowerPoint-Präsentationen mit Java. Fügen Sie Bilder von der Festplatte oder aus dem Web in PowerPoint-Folien mit Java hinzu. Fügen Sie Bilder zu Folienmaster oder als Folienhintergrund mit Java hinzu. Fügen Sie SVG zu PowerPoint-Präsentationen mit Java hinzu. Konvertieren Sie SVG in Formen in PowerPoint mit Java. Fügen Sie Bilder als EMF in Folien mit Java hinzu.
 ---
 

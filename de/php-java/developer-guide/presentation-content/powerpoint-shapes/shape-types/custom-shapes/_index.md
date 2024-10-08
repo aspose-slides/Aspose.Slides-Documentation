@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Form
 type: docs
 weight: 20
-url: /php-java/custom-shape/
+url: /de/php-java/custom-shape/
 keywords: "PowerPoint-Form, benutzerdefinierte Form, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Fügen Sie eine benutzerdefinierte Form in eine PowerPoint-Präsentation ein."
 ---

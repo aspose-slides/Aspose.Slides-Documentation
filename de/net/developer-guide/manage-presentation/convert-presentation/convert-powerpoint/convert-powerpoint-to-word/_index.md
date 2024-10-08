@@ -2,7 +2,7 @@
 title: PowerPoint in Word konvertieren
 type: docs
 weight: 110
-url: /net/convert-powerpoint-to-word/
+url: /de/net/convert-powerpoint-to-word/
 keywords:
 - PowerPoint konvertieren
 - PPT

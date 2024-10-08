@@ -1,7 +1,7 @@
 ---
 title: Trendlinie
 type: docs
-url: /java/trend-line/
+url: /de/java/trend-line/
 ---
 
 ## **Trendlinie hinzufügen**

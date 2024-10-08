@@ -2,7 +2,7 @@
 title: Audio-Frame
 type: docs
 weight: 10
-url: /cpp/audio-frame/
+url: /de/cpp/audio-frame/
 keywords: "Audio hinzufügen, Audio-Frame, Audio-Eigenschaften, Audio extrahieren, C++, CPP, Aspose.Slides für C++"
 description: "Audio zu einer PowerPoint-Präsentation in C++ hinzufügen"
 ---

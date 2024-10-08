@@ -2,7 +2,7 @@
 title: Moderne API
 type: docs
 weight: 237
-url: /java/modern-api/
+url: /de/java/modern-api/
 keywords: "Plattformübergreifende Moderne API"
 description: "Moderne API"
 ---

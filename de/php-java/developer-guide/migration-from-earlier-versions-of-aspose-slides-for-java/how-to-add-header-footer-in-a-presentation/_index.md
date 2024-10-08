@@ -2,7 +2,7 @@
 title: So fügen Sie Header und Footer in eine Präsentation ein
 type: docs
 weight: 20
-url: /php-java/how-to-add-header-footer-in-a-presentation/
+url: /de/php-java/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

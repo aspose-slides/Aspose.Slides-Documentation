@@ -2,7 +2,7 @@
 title: PowerPoint in TIFF mit Notizen konvertieren
 type: docs
 weight: 100
-url: /androidjava/convert-powerpoint-to-tiff-with-notes/
+url: /de/androidjava/convert-powerpoint-to-tiff-with-notes/
 keywords: "PowerPoint mit Notizen in TIFF konvertieren"
 description: "PowerPoint in TIFF mit Notizen in Aspose.Slides konvertieren."
 ---

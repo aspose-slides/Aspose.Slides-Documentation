@@ -2,7 +2,7 @@
 title: API-Referenz
 type: docs
 weight: 50
-url: /cpp/api-reference/
+url: /de/cpp/api-reference/
 ---
 
 {{% alert color="primary" %}} 

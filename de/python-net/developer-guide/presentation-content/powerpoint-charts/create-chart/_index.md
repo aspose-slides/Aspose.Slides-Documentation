@@ -3,7 +3,7 @@ title: Erstellen von PowerPoint-Präsentationen mit Diagrammen in Python
 linktitle: Diagramm erstellen
 type: docs
 weight: 10
-url: /python-net/create-chart/
+url: /de/python-net/create-chart/
 keywords: "Diagramm erstellen, Streudiagramm, Kreisdiagramm, Treemap-Diagramm, Aktienchart, Box-and-Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnendiagramm, Mehrkategorial-Diagramm, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Erstellen Sie ein Diagramm in einer PowerPoint-Präsentation in Python"
 ---

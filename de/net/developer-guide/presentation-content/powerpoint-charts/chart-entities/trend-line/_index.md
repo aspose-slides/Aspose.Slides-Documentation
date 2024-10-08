@@ -1,7 +1,7 @@
 ---
 title: Trendlinie
 type: docs
-url: /net/trend-line/
+url: /de/net/trend-line/
 keywords: "Trendlinie, benutzerdefinierte Linie PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Trendlinie und benutzerdefinierte Linie in PowerPoint-Präsentationen in C# oder .NET hinzufügen"
 ---

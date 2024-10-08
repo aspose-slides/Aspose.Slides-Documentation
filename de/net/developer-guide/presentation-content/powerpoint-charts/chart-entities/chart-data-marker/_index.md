@@ -1,7 +1,7 @@
 ---
 title: Diagrammdatenmarker
 type: docs
-url: /net/chart-data-marker/
+url: /de/net/chart-data-marker/
 keywords:
 - Diagrammmarkeroptionen
 - PowerPoint

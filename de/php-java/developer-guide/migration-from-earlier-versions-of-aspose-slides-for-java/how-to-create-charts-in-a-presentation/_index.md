@@ -2,7 +2,7 @@
 title: So erstellen Sie Diagramme in einer Präsentation
 type: docs
 weight: 30
-url: /php-java/so-erstellen-sie-diagramme-in-einer-praesentation/
+url: /de/php-java/so-erstellen-sie-diagramme-in-einer-praesentation/
 ---
 
 {{% alert color="primary" %}} 

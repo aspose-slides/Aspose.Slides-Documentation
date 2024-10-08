@@ -2,7 +2,7 @@
 title: Konvertierung zu XPS
 type: docs
 weight: 40
-url: /net/conversion-to-xps/
+url: /de/net/conversion-to-xps/
 ---
 
 **XPS**-Format wird ebenfalls häufig für den Austausch von Daten verwendet. Aspose.Slides für .NET erkennt dessen Bedeutung und bietet die integrierte Unterstützung für die Konvertierung einer Präsentation in ein XPS-Dokument.

@@ -2,7 +2,7 @@
 title: TextBox verwalten
 type: docs
 weight: 20
-url: /net/manage-textbox/
+url: /de/net/manage-textbox/
 keywords: "Textbox, Textfeld, Textbox hinzufügen, Textbox mit Hyperlink, C#, Csharp, Aspose.Slides für .NET"
 description: "Fügen Sie Textbox oder Textfeld zu PowerPoint-Präsentationen in C# oder .NET hinzu"
 ---

@@ -2,7 +2,7 @@
 title: Zoom verwalten
 type: docs
 weight: 60
-url: /python-net/manage-zoom/
+url: /de/python-net/manage-zoom/
 keywords: "Zoom, Zoomrahmen, Zoom hinzufügen, Zoomrahmen formatieren, Zusammenfassungszoom, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Fügen Sie Zoom oder Zoomrahmen zu PowerPoint-Präsentationen in Python hinzu"
 ---

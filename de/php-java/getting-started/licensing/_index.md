@@ -3,7 +3,7 @@ title: Lizenzierung
 description: "Aspose.Slides für PHP über Java bietet verschiedene Kaufpläne oder bietet eine kostenlose Testversion und eine 30-tägige zeitlich befristete Lizenz zur Evaluierung unter Verwendung von Lizenzierungs- und Abonnementrichtlinien."
 type: docs
 weight: 80
-url: /php-java/licensing/
+url: /de/php-java/licensing/
 ---
 
 Manchmal ist für die besten Evaluierungsergebnisse ein praktischer Ansatz erforderlich. Aus diesem Grund bietet Aspose.Slides verschiedene Kaufpläne an und bietet auch eine kostenlose Testversion und eine 30-tägige temporäre Lizenz zur Evaluierung.

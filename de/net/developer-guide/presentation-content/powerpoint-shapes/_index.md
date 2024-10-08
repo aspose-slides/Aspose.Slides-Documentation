@@ -2,5 +2,5 @@
 title: PowerPoint Formen
 type: docs
 weight: 90
-url: /net/powerpoint-shapes/
+url: /de/net/powerpoint-shapes/
 ---

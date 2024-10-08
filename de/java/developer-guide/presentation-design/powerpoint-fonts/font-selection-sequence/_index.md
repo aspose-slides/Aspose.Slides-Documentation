@@ -3,7 +3,7 @@ title: Auswahl der Schriftarten in Java
 linktitle: Auswahl der Schriftarten in Java
 type: docs
 weight: 80
-url: /java/font-selection-sequence/
+url: /de/java/font-selection-sequence/
 keywords:
 - schriftart
 - schriftauswahl

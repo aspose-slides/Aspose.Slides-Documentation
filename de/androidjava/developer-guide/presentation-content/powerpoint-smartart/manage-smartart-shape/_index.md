@@ -2,7 +2,7 @@
 title: SmartArt-Form verwalten
 type: docs
 weight: 20
-url: /androidjava/manage-smartart-shape/
+url: /de/androidjava/manage-smartart-shape/
 ---
 
 

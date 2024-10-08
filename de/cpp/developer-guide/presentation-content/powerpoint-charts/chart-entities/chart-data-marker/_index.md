@@ -1,7 +1,7 @@
 ---
 title: Diagramm Datenmarker
 type: docs
-url: /cpp/chart-data-marker/
+url: /de/cpp/chart-data-marker/
 ---
 
 ## **Diagrammmarker Setzen**

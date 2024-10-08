@@ -3,7 +3,7 @@ title: Schriftart ersetzen - PowerPoint Java API
 linktitle: Schriftart ersetzen
 type: docs
 weight: 60
-url: /androidjava/font-replacement/
+url: /de/androidjava/font-replacement/
 description: Erfahren Sie, wie Sie Schriftarten mit der expliziten Ersetzungsfunktion in PowerPoint mit der Java-API ersetzen können.
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="Hinweis" color="warning" %}} 
 
-Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen passiert (zum Beispiel, wenn eine Schriftart nicht zugänglich ist), siehe [**Schriftartsubstitution**](/slides/androidjava/font-substitution/).
+Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen passiert (zum Beispiel, wenn eine Schriftart nicht zugänglich ist), siehe [**Schriftartsubstitution**](/slides/de/androidjava/font-substitution/).
 
 {{% /alert %}}

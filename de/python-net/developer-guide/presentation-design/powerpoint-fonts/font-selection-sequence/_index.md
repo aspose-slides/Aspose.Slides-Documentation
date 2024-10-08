@@ -3,7 +3,7 @@ title: Schriftarten-Auswahlsequenz in Python
 linktitle: Schriftarten-Auswahlsequenz in Python
 type: docs
 weight: 80
-url: /python-net/font-selection-sequence/
+url: /de/python-net/font-selection-sequence/
 keywords:
 - schriftart
 - schriftauswahl

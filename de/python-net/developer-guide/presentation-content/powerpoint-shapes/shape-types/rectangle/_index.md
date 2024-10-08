@@ -2,7 +2,7 @@
 title: Rechteck
 type: docs
 weight: 80
-url: /python-net/rectangle/
+url: /de/python-net/rectangle/
 keywords: "Rechteck erstellen, PowerPoint-Form, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Rechteck in PowerPoint-Präsentation in Python erstellen"
 ---

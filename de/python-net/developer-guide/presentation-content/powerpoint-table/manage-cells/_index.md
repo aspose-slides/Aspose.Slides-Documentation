@@ -2,7 +2,7 @@
 title: Zellen verwalten
 type: docs
 weight: 30
-url: /python-net/manage-cells/
+url: /de/python-net/manage-cells/
 keywords: "Tabelle, zusammengefügte Zellen, geteilte Zellen, Bild in Tabellenzelle, Python, Aspose.Slides für Python über .NET"
 description: "Tabellenzellen in PowerPoint-Präsentationen in Python"
 ---

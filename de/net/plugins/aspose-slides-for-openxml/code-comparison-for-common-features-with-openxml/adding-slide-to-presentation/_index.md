@@ -2,7 +2,7 @@
 title: Folie zur Präsentation hinzufügen
 type: docs
 weight: 20
-url: /net/adding-slide-to-presentation/
+url: /de/net/adding-slide-to-presentation/
 ---
 
 ## **OpenXML Präsentation**

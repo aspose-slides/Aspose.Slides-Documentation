@@ -2,7 +2,7 @@
 title: Connector
 type: docs
 weight: 10
-url: /androidjava/connector/
+url: /de/androidjava/connector/
 keywords: "Verbindungen von Formen, Verbindungsstücken, PowerPoint Formen, PowerPoint Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Verbinden von PowerPoint Formen in Java"
 ---
@@ -133,7 +133,7 @@ try {
 
 ## **Connector-Punkt anpassen**
 
-Sie können einen bestehenden Connector über seine Anpassungspunkte anpassen. Nur Connectoren mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Arten von Connectoren](/slides/androidjava/connector/#types-of-connectors)**
+Sie können einen bestehenden Connector über seine Anpassungspunkte anpassen. Nur Connectoren mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Arten von Connectoren](/slides/de/androidjava/connector/#types-of-connectors)**
 
 #### **Einfacher Fall**
 
@@ -182,7 +182,7 @@ Um kompliziertere Anpassungen vorzunehmen, müssen Sie Folgendes berücksichtige
 * Die Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe der Connector-Form wider. 
   * Die Form wird durch die Start- und Endpunkte des Connectors multipliziert mit 1000 begrenzt. 
   * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren respektiv den Prozentsatz der Breite, den Prozentsatz der Höhe und den Prozentsatz der Breite (wieder).
-* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Connectors bestimmen, müssen Sie die Drehung und die Reflexion des Connectors berücksichtigen. **Hinweis**: Der Drehwinkel für alle Connectoren, die unter **[Arten von Connectoren](/slides/androidjava/connector/#types-of-connectors)** gezeigt werden, beträgt 0.
+* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Connectors bestimmen, müssen Sie die Drehung und die Reflexion des Connectors berücksichtigen. **Hinweis**: Der Drehwinkel für alle Connectoren, die unter **[Arten von Connectoren](/slides/de/androidjava/connector/#types-of-connectors)** gezeigt werden, beträgt 0.
 
 #### **Fall 1**
 

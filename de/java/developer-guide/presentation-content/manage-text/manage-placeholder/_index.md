@@ -2,12 +2,12 @@
 title: Platzhalter verwalten
 type: docs
 weight: 10
-url: /java/manage-placeholder/
+url: /de/java/manage-placeholder/
 description: Ändern Sie den Text in einem Platzhalter in PowerPoint-Folien mit Java. Setzen Sie den Eingabetext in einem Platzhalter in PowerPoint-Folien mit Java.
 ---
 
 ## **Text im Platzhalter ändern**
-Mit [Aspose.Slides für Java](/slides/java/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
+Mit [Aspose.Slides für Java](/slides/de/java/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
 
 **Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der Standardanwendung Microsoft PowerPoint erstellen.
 

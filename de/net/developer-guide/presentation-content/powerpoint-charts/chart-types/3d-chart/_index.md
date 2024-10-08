@@ -1,7 +1,7 @@
 ---
 title: 3D Diagramm
 type: docs
-url: /net/3d-chart/
+url: /de/net/3d-chart/
 keywords: "3d diagramm, rotationX, rotationY, tiefenprozentsatz, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Setzen Sie rotationX, rotationY und tiefenprozentsätze für 3D-Diagramm in PowerPoint-Präsentation in C# oder .NET"
 ---

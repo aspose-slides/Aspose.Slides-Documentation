@@ -1,7 +1,7 @@
 ---
 title: Diagrammdatenpunkt
 type: docs
-url: /java/chart-data-marker/
+url: /de/java/chart-data-marker/
 ---
 
 ## **Diagrammmarker-Optionen festlegen**

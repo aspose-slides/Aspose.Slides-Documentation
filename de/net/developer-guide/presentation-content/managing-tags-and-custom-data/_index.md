@@ -2,7 +2,7 @@
 title: Verwaltung von Tags und benutzerdefinierten Daten
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
+url: /de/net/managing-tags-and-custom-data
 keywords: "Tags, Benutzerdefinierte Daten, Wert für Tags, Tags hinzufügen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Tags und benutzerdefinierte Daten zu PowerPoint-Präsentationen in C# oder .NET hinzufügen"
 ---

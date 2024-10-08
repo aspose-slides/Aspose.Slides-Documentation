@@ -2,5 +2,5 @@
 title: Technische Artikel  
 type: docs  
 weight: 270  
-url: /java/technical-articles/  
+url: /de/java/technical-articles/  
 ---  

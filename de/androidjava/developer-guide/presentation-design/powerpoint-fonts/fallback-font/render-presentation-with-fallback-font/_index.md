@@ -2,12 +2,12 @@
 title: Präsentation mit Fallback-Schriftart rendern
 type: docs
 weight: 30
-url: /androidjava/render-presentation-with-fallback-font/
+url: /de/androidjava/render-presentation-with-fallback-font/
 ---
 
 Das folgende Beispiel umfasst diese Schritte:
 
-1. Wir [erstellen eine Fallback-Schriftartregel-Sammlung](/slides/androidjava/create-fallback-fonts-collection/).
+1. Wir [erstellen eine Fallback-Schriftartregel-Sammlung](/slides/de/androidjava/create-fallback-fonts-collection/).
 1. [Entfernen](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) einer Fallback-Schriftartregel und [fügen SieFallbackFonts hinzu](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) zu einer anderen Regel.
 1. Setzen Sie die Regel-Sammlung auf [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) Methode.
 1. Mit der [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) Methode können wir die Präsentation im gleichen Format speichern oder in ein anderes speichern. Nachdem die Fallback-Schriftartregel-Sammlung auf [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager) gesetzt ist, werden diese Regeln während aller Operationen über die Präsentation angewendet: speichern, rendern, konvertieren usw.
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr über [Speichern und Konvertieren in Präsentationen](/slides/androidjava/creating-saving-and-converting-a-presentation/).
+Erfahren Sie mehr über [Speichern und Konvertieren in Präsentationen](/slides/de/androidjava/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

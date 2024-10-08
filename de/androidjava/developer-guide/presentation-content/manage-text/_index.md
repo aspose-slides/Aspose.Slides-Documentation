@@ -2,5 +2,5 @@
 title: Text verwalten
 type: docs
 weight: 50
-url: /androidjava/manage-text/
+url: /de/androidjava/manage-text/
 ---

@@ -2,7 +2,7 @@
 title: Produktübersicht
 type: docs
 weight: 10
-url: /jasperreports/product-overview/
+url: /de/jasperreports/product-overview/
 ---
 
 {{% alert color="primary" %}} 

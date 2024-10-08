@@ -2,7 +2,7 @@
 title: Präsentation speichern
 type: docs
 weight: 80
-url: /python-net/save-presentation/
+url: /de/python-net/save-presentation/
 keywords: "PowerPoint speichern, PPT, PPTX, Präsentation speichern, Datei, Stream, Python"
 description: "PowerPoint-Präsentation als Datei oder Stream in Python speichern"
 ---

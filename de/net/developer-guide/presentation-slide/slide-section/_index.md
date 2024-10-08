@@ -2,7 +2,7 @@
 title: Abschnitt hinzufügen
 type: docs
 weight: 100
-url: /net/slide-section/
+url: /de/net/slide-section/
 keywords: "Abschnitt erstellen, Abschnitt hinzufügen, Abschnittsnamen bearbeiten, PowerPoint-Präsentation, C#, Csharp, .NET, Aspose.Slides"
 description: "Abschnitt in PowerPoint-Präsentation in C# oder .NET hinzufügen und bearbeiten"
 ---

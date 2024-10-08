@@ -2,14 +2,14 @@
 title: Präsentationsthema
 type: docs
 weight: 10
-url: /cpp/presentation-theme/
+url: /de/cpp/presentation-theme/
 keywords: "Thema, PowerPoint-Thema, PowerPoint-Präsentation, CPP, C++, Aspose.Slides für C++"
 description: "PowerPoint-Präsentationsthema in C++"
 ---
 
 Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz visueller Elemente und deren Eigenschaften aus. 
 
-In PowerPoint umfasst ein Thema Farben, [Schriften](/slides/cpp/powerpoint-fonts/), [Hintergrundstile](/slides/cpp/presentation-background/) und Effekte. 
+In PowerPoint umfasst ein Thema Farben, [Schriften](/slides/de/cpp/powerpoint-fonts/), [Hintergrundstile](/slides/de/cpp/presentation-background/) und Effekte. 
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ Die Schriftart in allen Textfeldern wird aktualisiert.
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten möglicherweise die [PowerPoint-Schriften](/slides/cpp/powerpoint-fonts/) sehen.
+Sie möchten möglicherweise die [PowerPoint-Schriften](/slides/de/cpp/powerpoint-fonts/) sehen.
 
 {{% /alert %}}
 
@@ -195,7 +195,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten möglicherweise den [PowerPoint-Hintergrund](/slides/cpp/presentation-background/) sehen.
+Sie möchten möglicherweise den [PowerPoint-Hintergrund](/slides/de/cpp/presentation-background/) sehen.
 
 {{% /alert %}}
 

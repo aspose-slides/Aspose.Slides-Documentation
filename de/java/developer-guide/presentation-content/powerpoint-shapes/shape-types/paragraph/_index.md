@@ -2,7 +2,7 @@
 title: Absatz
 type: docs
 weight: 60
-url: /java/paragraph/
+url: /de/java/paragraph/
 ---
 
 

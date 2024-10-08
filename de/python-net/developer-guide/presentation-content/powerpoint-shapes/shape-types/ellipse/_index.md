@@ -2,7 +2,7 @@
 title: Ellipse
 type: docs
 weight: 30
-url: /python-net/ellipse/
+url: /de/python-net/ellipse/
 keywords: "Ellipse, PowerPoint-Form, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Ellipse in PowerPoint-Präsentationen in Python erstellen"
 ---

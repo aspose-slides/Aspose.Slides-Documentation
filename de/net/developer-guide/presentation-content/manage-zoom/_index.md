@@ -2,7 +2,7 @@
 title: Zoom verwalten
 type: docs
 weight: 60
-url: /net/manage-zoom/
+url: /de/net/manage-zoom/
 keywords: 
 - zoom
 - zoom rahmen

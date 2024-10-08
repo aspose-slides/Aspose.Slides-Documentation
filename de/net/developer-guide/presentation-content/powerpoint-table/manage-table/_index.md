@@ -2,7 +2,7 @@
 title: Tabelle verwalten
 type: docs
 weight: 10
-url: /net/manage-table/
+url: /de/net/manage-table/
 keywords: "Tabelle, Tabelle erstellen, auf Tabelle zugreifen, Tabellen-Seitenverhältnis, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Erstellen und Verwalten von Tabellen in PowerPoint-Präsentationen in C# oder .NET"
 ---

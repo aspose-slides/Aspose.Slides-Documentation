@@ -3,7 +3,7 @@ title: Eingebettete Schriftart - PowerPoint Java API
 linktitle: Eingebettete Schriftart
 type: docs
 weight: 40
-url: /androidjava/embedded-font/
+url: /de/androidjava/embedded-font/
 keywords: "Schriftarten, eingebettete Schriftarten, Schriftarten hinzufügen, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Verwenden Sie eingebettete Schriftarten in PowerPoint-Präsentationen in Java"
 

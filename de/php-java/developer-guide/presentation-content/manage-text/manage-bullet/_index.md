@@ -2,7 +2,7 @@
 title: Bullet verwalten
 type: docs
 weight: 60
-url: /php-java/manage-bullet/
+url: /de/php-java/manage-bullet/
 keywords: "Aufzählungszeichen, Aufzählungslisten, Zahlen, nummerierte Listen, Bildaufzählungszeichen, mehrstufige Aufzählungszeichen, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Erstellen Sie Aufzählungs- und nummerierte Listen in PowerPoint-Präsentationen"
 ---

@@ -2,7 +2,7 @@
 title: Technischer Support
 type: docs
 weight: 10
-url: /androidjava/technical-support/
+url: /de/androidjava/technical-support/
 ---
 
 {{% alert color="primary" %}} 

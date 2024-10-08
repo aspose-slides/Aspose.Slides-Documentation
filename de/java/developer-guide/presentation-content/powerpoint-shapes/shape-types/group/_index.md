@@ -2,7 +2,7 @@
 title: Gruppe
 type: docs
 weight: 40
-url: /java/group/
+url: /de/java/group/
 ---
 
 ## **Gruppenform hinzufügen**

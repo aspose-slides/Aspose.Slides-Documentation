@@ -2,14 +2,14 @@
 title: Erstellen einer Fallback-Schriftarten-Sammlung
 type: docs
 weight: 20
-url: /net/create-fallback-fonts-collection/
+url: /de/net/create-fallback-fonts-collection/
 keywords: "Fallback-Schriftarten-Sammlung, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Fallback-Schriftarten-Sammlung in PowerPoint in C# oder .NET"
 ---
 
 Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) Klasse können in der [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/ifontfallbackrulescollection) Interface implementiert. Es ist möglich, Regeln zur Sammlung hinzuzufügen oder zu entfernen.
 
-Diese Sammlung kann dann der [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) Eigenschaft der [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) Klasse zugewiesen werden. FontsManager steuert die Schriftarten in der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/net/about-fontsmanager-and-fontsloader/).
+Diese Sammlung kann dann der [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection) Eigenschaft der [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager) Klasse zugewiesen werden. FontsManager steuert die Schriftarten in der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/net/about-fontsmanager-and-fontsloader/).
 
 Jede [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) hat eine [FontsManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/fontsmanager) Eigenschaft mit seiner eigenen Instanz der FontsManager-Klasse.
 
@@ -30,5 +30,5 @@ using (Presentation presentation = new Presentation())
 Nachdem der FontsManager mit der Fallback-Schriftarten-Sammlung initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsgerendering angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr darüber, wie Sie eine [Präsentation mit Fallback-Schriftart rendern](/slides/net/render-presentation-with-fallback-font/).
+Erfahren Sie mehr darüber, wie Sie eine [Präsentation mit Fallback-Schriftart rendern](/slides/de/net/render-presentation-with-fallback-font/).
 {{% /alert %}}

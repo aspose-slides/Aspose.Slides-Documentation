@@ -2,7 +2,7 @@
 title: SmartArt verwalten
 type: docs
 weight: 10
-url: /net/manage-smartart/
+url: /de/net/manage-smartart/
 keywords: "SmartArt, Text von SmartArt, Organisationstyp-Diagramm, Bild-Organisationsdiagramm, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "SmartArt und Organisationstyp-Diagramm in PowerPoint-Präsentationen in C# oder .NET"
 ---

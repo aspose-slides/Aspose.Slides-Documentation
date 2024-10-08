@@ -2,7 +2,7 @@
 title: Standard-Schriftart
 type: docs
 weight: 30
-url: /python-net/default-font/
+url: /de/python-net/default-font/
 keywords: "Schriftarten, Standard-Schriftarten, Präsentation PowerPoint-Präsentation Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint-Standard-Schriftarten in Python"
 ---

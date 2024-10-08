@@ -2,7 +2,7 @@
 title: Layout-Folien zur Präsentation hinzufügen
 type: docs
 weight: 20
-url: /net/add-layout-slides-to-presentation/
+url: /de/net/add-layout-slides-to-presentation/
 ---
 
 Aspose.Slides für .NET ermöglicht Entwicklern, neue Layout-Folien in einer Präsentation hinzuzufügen. Befolgen Sie die folgenden Schritte, um eine Layout-Folie hinzuzufügen:
@@ -128,6 +128,6 @@ using (Presentation p = new Presentation(FileName))
 
 {{% alert color="primary" %}} 
 
-Für weitere Details besuchen Sie [Layout-Folien zur Präsentation hinzufügen](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Für weitere Details besuchen Sie [Layout-Folien zur Präsentation hinzufügen](/slides/de/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

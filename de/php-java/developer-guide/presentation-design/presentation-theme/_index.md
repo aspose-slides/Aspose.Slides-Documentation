@@ -2,14 +2,14 @@
 title: Präsentationsthema
 type: docs
 weight: 10
-url: /php-java/presentation-theme/
+url: /de/php-java/presentation-theme/
 keywords: "Thema, PowerPoint-Thema, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "PowerPoint-Präsentationsthema"
 ---
 
 Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen eine spezifische Gruppe von visuellen Elementen und deren Eigenschaften aus.
 
-In PowerPoint umfasst ein Thema Farben, [Schriften](/slides/php-java/powerpoint-fonts/), [Hintergrundstile](/slides/php-java/presentation-background/) und Effekte.
+In PowerPoint umfasst ein Thema Farben, [Schriften](/slides/de/php-java/powerpoint-fonts/), [Hintergrundstile](/slides/de/php-java/presentation-background/) und Effekte.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -137,7 +137,7 @@ Die Schriftart in allen Textfeldern wird aktualisiert.
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten vielleicht die [PowerPoint-Schriften](/slides/php-java/powerpoint-fonts/) sehen.
+Sie möchten vielleicht die [PowerPoint-Schriften](/slides/de/php-java/powerpoint-fonts/) sehen.
 
 {{% /alert %}}
 
@@ -177,7 +177,7 @@ Dieser PHP-Code zeigt Ihnen, wie Sie den Hintergrund für eine Präsentation fes
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten vielleicht den [PowerPoint-Hintergrund](/slides/php-java/presentation-background/) sehen.
+Sie möchten vielleicht den [PowerPoint-Hintergrund](/slides/de/php-java/presentation-background/) sehen.
 
 {{% /alert %}}
 

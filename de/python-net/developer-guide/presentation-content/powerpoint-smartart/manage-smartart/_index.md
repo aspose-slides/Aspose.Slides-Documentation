@@ -2,7 +2,7 @@
 title: SmartArt verwalten
 type: docs
 weight: 10
-url: /python-net/manage-smartart/
+url: /de/python-net/manage-smartart/
 keywords: "SmartArt, Text aus SmartArt, Organigramm, Bildorganigramm, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "SmartArt und Organigramm in PowerPoint-Präsentationen in Python"
 ---

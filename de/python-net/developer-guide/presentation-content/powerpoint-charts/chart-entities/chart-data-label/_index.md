@@ -1,7 +1,7 @@
 ---
 title: Diagrammdatenbeschriftung
 type: docs
-url: /python-net/chart-data-label/
+url: /de/python-net/chart-data-label/
 keywords: "Diagrammdatenbeschriftung,Beschriftungsabstand, Python, Aspose.Slides für Python über .NET"
 description: "Diagrammdatenbeschriftung und Abstand in Python festlegen"
 ---

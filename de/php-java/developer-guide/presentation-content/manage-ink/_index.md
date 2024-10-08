@@ -2,7 +2,7 @@
 title: Tinte verwalten
 type: docs
 weight: 95
-url: /php-java/manage-ink/
+url: /de/php-java/manage-ink/
 keywords: "Tinte in PowerPoint, Tintenwerkzeuge, Java Tinte, Zeichnen in PowerPoint, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Verwenden Sie Tintenwerkzeuge, um Objekte in PowerPoint Java zu zeichnen"
 ---

@@ -2,7 +2,7 @@
 title: Verwalten von SmartArt-Form-Knoten
 type: docs
 weight: 30
-url: /cpp/manage-smartart-shape-node/
+url: /de/cpp/manage-smartart-shape-node/
 keywords:
 - SmartArt
 - SmartArt-Knoten

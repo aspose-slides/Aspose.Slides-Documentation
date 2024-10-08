@@ -2,14 +2,14 @@
 title: Präsentationsthema
 type: docs
 weight: 10
-url: /net/presentation-theme/
+url: /de/net/presentation-theme/
 keywords: "Thema, PowerPoint-Thema, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint-Präsentationsthema in C# oder .NET"
 ---
 
 Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz visueller Elemente und deren Eigenschaften aus.
 
-In PowerPoint umfasst ein Thema Farben, [Schriften](/slides/net/powerpoint-fonts/), [Hintergrundstile](/slides/net/presentation-background/) und Effekte.
+In PowerPoint umfasst ein Thema Farben, [Schriften](/slides/de/net/powerpoint-fonts/), [Hintergrundstile](/slides/de/net/presentation-background/) und Effekte.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -153,7 +153,7 @@ Die Schriftart in allen Textfeldern wird aktualisiert.
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten möglicherweise [PowerPoint-Schriften](/slides/net/powerpoint-fonts/) ansehen.
+Sie möchten möglicherweise [PowerPoint-Schriften](/slides/de/net/powerpoint-fonts/) ansehen.
 
 {{% /alert %}}
 
@@ -191,7 +191,7 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten möglicherweise [PowerPoint-Hintergrund](/slides/net/presentation-background/) ansehen.
+Sie möchten möglicherweise [PowerPoint-Hintergrund](/slides/de/net/presentation-background/) ansehen.
 
 {{% /alert %}}
 

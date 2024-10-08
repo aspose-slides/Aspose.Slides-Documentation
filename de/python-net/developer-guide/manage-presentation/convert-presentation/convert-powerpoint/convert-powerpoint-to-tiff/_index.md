@@ -2,7 +2,7 @@
 title: PowerPoint in TIFF umwandeln
 type: docs
 weight: 90
-url: /python-net/convert-powerpoint-to-tiff/
+url: /de/python-net/convert-powerpoint-to-tiff/
 keywords: "PowerPoint-Präsentation umwandeln, PowerPoint in TIFF, PPT in TIFF, PPTX in TIFF, Python, Aspose.Slides"
 description: "PowerPoint-Präsentation in TIFF in Python umwandeln"
 ---

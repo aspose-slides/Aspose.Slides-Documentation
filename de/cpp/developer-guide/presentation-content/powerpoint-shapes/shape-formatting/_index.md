@@ -2,7 +2,7 @@
 title: Formatausdruck
 type: docs
 weight: 20
-url: /cpp/shape-formatting/
+url: /de/cpp/shape-formatting/
 keywords: "Formatiere Form, formatiere Linien, formatiere Verbindungstile, Farbverlauf-Füllung, Muster-Füllung, Bildfüllung, einfarbige Füllung, Formen drehen, 3D-Facetteneffekte, 3D-Drehungseffekt, PowerPoint-Präsentation, C++, Aspose.Slides für C++"
 description: "Formatiere eine Form in PowerPoint-Präsentation in C++"
 ---

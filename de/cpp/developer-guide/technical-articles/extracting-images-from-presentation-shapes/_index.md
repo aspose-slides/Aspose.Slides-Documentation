@@ -2,7 +2,7 @@
 title: Extrahieren von Bildern aus Präsentationsformen
 type: docs
 weight: 90
-url: /cpp/extracting-images-from-presentation-shapes/
+url: /de/cpp/extracting-images-from-presentation-shapes/
 keywords: "Bild extrahieren, PowerPoint, PPT, PPTX, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Bilder aus PowerPoint-Präsentationen in C++ extrahieren"
 

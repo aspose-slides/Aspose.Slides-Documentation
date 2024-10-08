@@ -3,7 +3,7 @@ title: Benutzerdefinierte PowerPoint-Schriftart in C#
 linktitle: Benutzerdefinierte Schriftart
 type: docs
 weight: 20
-url: /net/custom-font/
+url: /de/net/custom-font/
 keywords: "Schriftarten, benutzerdefinierte Schriftarten, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint benutzerdefinierte Schriftarten in C#"
 ---

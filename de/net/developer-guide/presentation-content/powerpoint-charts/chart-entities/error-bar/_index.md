@@ -1,7 +1,7 @@
 ---
 title: Fehlerbalken
 type: docs
-url: /net/error-bar/
+url: /de/net/error-bar/
 keywords: "Fehlerbalken, Fehlerbalkenwerte PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Fügen Sie Fehlerbalken zu PowerPoint-Präsentationen in C# oder .NET hinzu"
 ---

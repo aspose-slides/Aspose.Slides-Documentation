@@ -2,7 +2,7 @@
 title: Donut-Diagramm
 type: docs
 weight: 30
-url: /net/doughnut-chart/
+url: /de/net/doughnut-chart/
 keywords: "Donut-Diagramm, Mittelpunktlücke, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Spezifizieren Sie die Mittelpunktlücke in einem Donut-Diagramm in einer PowerPoint-Präsentation in C# oder .NET"
 ---

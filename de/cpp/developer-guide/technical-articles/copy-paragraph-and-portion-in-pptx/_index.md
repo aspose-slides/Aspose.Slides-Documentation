@@ -2,7 +2,7 @@
 title: Absatz und Teil in PPTX kopieren
 type: docs
 weight: 30
-url: /cpp/copy-paragraph-and-portion-in-pptx/
+url: /de/cpp/copy-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

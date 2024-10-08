@@ -2,7 +2,7 @@
 title: Donut-Diagramm
 type: docs
 weight: 30
-url: /java/doughnut-chart/
+url: /de/java/doughnut-chart/
 ---
 
 ## **Ändern des Zentrumslochs im Donut-Diagramm**

@@ -2,7 +2,7 @@
 title: Effektive Eigenschaften von Formen
 type: docs
 weight: 50
-url: /php-java/shape-effective-properties/
+url: /de/php-java/shape-effective-properties/
 ---
 
 In diesem Thema werden wir **effektive** und **lokale** Eigenschaften besprechen. Wenn wir Werte direkt auf diesen Ebenen festlegen

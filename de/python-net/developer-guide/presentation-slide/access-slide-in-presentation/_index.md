@@ -2,7 +2,7 @@
 title: Zugriff auf Folie in Präsentation
 type: docs
 weight: 20
-url: /python-net/access-slide-in-presentation/
+url: /de/python-net/access-slide-in-presentation/
 keywords: "Zugriff auf PowerPoint-Präsentation, Zugriff auf Folie, Folieneigenschaften bearbeiten, Folienposition ändern, Foliennummer festlegen, Index, ID, Position Python, Aspose.Slides"
 description: "Zugriff auf PowerPoint-Folie über Index, ID oder Position in Python. Folieneigenschaften bearbeiten"
 ---

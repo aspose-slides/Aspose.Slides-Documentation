@@ -2,7 +2,7 @@
 title: FAQs
 type: docs
 weight: 340
-url: /androidjava/faqs/
+url: /de/androidjava/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **F: Welche Dateiformate unterstützt Aspose.Slides für Android über Java?**
 
-**A**: Aspose.Slides für Android über Java unterstützt die in [Unterstützte Dateiformate](/slides/androidjava/supported-file-formats/) beschriebenen Dateiformate.
+**A**: Aspose.Slides für Android über Java unterstützt die in [Unterstützte Dateiformate](/slides/de/androidjava/supported-file-formats/) beschriebenen Dateiformate.
 
 ## **Ausnahmen**
 
@@ -55,7 +55,7 @@ Im Allgemeinen kann Aspose.Slides für Android über Java Präsentationsdateien 
 
 **F: Warum sind die Absatzgrößen auf PC und Android unterschiedlich?**
 
-**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den gegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der in der PowerPoint-Präsentation angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen auf verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig von der Menge der installierten Schriftarten. Um das gleiche Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen Sie die gleichen Schriftarten auf den Systemen installieren oder sie zur Laufzeit als [externe Schriftarten](/slides/androidjava/custom-font/) laden.
+**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den gegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der in der PowerPoint-Präsentation angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen auf verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig von der Menge der installierten Schriftarten. Um das gleiche Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen Sie die gleichen Schriftarten auf den Systemen installieren oder sie zur Laufzeit als [externe Schriftarten](/slides/de/androidjava/custom-font/) laden.
 
 ## **Formatierung und Bilder**
 

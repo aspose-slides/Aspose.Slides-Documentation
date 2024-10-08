@@ -3,7 +3,7 @@ title: Schriftart-Auswahlsequenz
 linktitle: Schriftart-Auswahlsequenz
 type: docs
 weight: 80
-url: /php-java/schriftart-auswahlsequenz/
+url: /de/php-java/schriftart-auswahlsequenz/
 keywords: "Schriftart, Schriftartauswahl, Schriftartsubstitution, Schriftartersatz, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: PowerPoint Schriftart-Auswahlsequenz
 ---

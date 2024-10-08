@@ -2,7 +2,7 @@
 title: Moderne API
 type: docs
 weight: 280
-url: /python-net/modern-api/
+url: /de/python-net/modern-api/
 keywords: "Moderne API, Zeichnen"
 description: "Moderne API"
 ---

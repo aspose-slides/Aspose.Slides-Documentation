@@ -2,7 +2,7 @@
 title: Aspose.Slides .NET für VSTO
 type: docs
 weight: 20
-url: /net/aspose-slides-net-for-vsto/
+url: /de/net/aspose-slides-net-for-vsto/
 ---
 
 ## **Was ist VSTO?**
@@ -71,31 +71,31 @@ Bitte folgen Sie diesen einfachen Schritten, um loszulegen:
 ## **Beispielcode**
 Dieser Abschnitt enthält die folgenden Themen:
 
-- [Codevergleich für gemeinsame Funktionen mit VSTO](/slides/net/code-comparison-for-common-features-with-vsto/)
-  - [Bild in Tabellenzelle einfügen](/slides/net/add-image-in-table-cell/)
-  - [Bildrahmen mit Animation in VSTO und Aspose.Slides hinzufügen](/slides/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
-  - [Formen zur Präsentation hinzufügen](/slides/net/adding-shapes-to-presentation/)
-  - [Text dynamisch hinzufügen](/slides/net/adding-text-dynamically/)
-  - [Bildrahmen zur Präsentation hinzufügen](/slides/net/add-picture-frame-to-presentation/)
-  - [Ein Diagramm erstellen](/slides/net/create-a-chart/)
-  - [Ein Excel-Diagramm als OLE-Objekt erstellen und einfügen](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object/)
-  - [Eine neue Präsentation in VSTO und Aspose.Slides erstellen](/slides/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
-  - [Eine Tabelle auf einer PowerPoint-Folie in VSTO und Aspose.Slides erstellen](/slides/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
-  - [Text finden und ersetzen, ohne das Format in der Präsentation zu verlieren](/slides/net/find-and-replace-text-without-losing-format-in-presentation/)
-  - [Text formatieren](/slides/net/format-text/)
-  - [Öffnen einer Präsentation in VSTO und Aspose.Slides](/slides/net/opening-a-presentation-in-vsto-and-aspose-slides/)
-  - [Zeile oder Spalte in der Tabelle in VSTO und Aspose.Slides entfernen](/slides/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
-  - [Hintergrundfarbe der Masterfolie einstellen](/slides/net/setting-background-color-of-master-slide/)
-- [Fehlende Funktionen in VSTO](/slides/net/missing-features-in-vsto/)
-  - [Layoutfolie zur Präsentation hinzufügen](/slides/net/add-layout-slide-to-presentation/)
-  - [Konvertierung von PPT in PPTX-Format](/slides/net/conversion-from-ppt-to-pptx-format/)
-  - [Konvertierung von OpenOffice-Dokument](/slides/net/conversion-of-openoffice-document/)
-  - [Präsentation in HTML konvertieren](/slides/net/convert-presentation-to/)
-  - [Präsentation in Tiff mit Notizen konvertieren](/slides/net/convert-presentation-to-tiff-with-notes/)
-  - [Präsentation in XPS konvertieren](/slides/net/convert-presentation-to-xps/)
-  - [Folie als SVG-Bild erstellen](/slides/net/create-slide-as-svg-image/)
-  - [Medien-Dateien in HTML-Datei exportieren](/slides/net/export-media-files-into-file/)
-  - [Folio-Vorschaubild als JPEG generieren](/slides/net/generate-slide-thumbnail-as-jpeg/)
-  - [Erstellen eines Vorschaubildes von einer Folie mit benutzerdefinierten Abmessungen](/slides/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
-  - [Präsentation sperren](/slides/net/presentation-locking/)
-  - [Formen auf Folie als Bilder rendern](/slides/net/rendering-shapes-on-slide-as-images/)
+- [Codevergleich für gemeinsame Funktionen mit VSTO](/slides/de/net/code-comparison-for-common-features-with-vsto/)
+  - [Bild in Tabellenzelle einfügen](/slides/de/net/add-image-in-table-cell/)
+  - [Bildrahmen mit Animation in VSTO und Aspose.Slides hinzufügen](/slides/de/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/)
+  - [Formen zur Präsentation hinzufügen](/slides/de/net/adding-shapes-to-presentation/)
+  - [Text dynamisch hinzufügen](/slides/de/net/adding-text-dynamically/)
+  - [Bildrahmen zur Präsentation hinzufügen](/slides/de/net/add-picture-frame-to-presentation/)
+  - [Ein Diagramm erstellen](/slides/de/net/create-a-chart/)
+  - [Ein Excel-Diagramm als OLE-Objekt erstellen und einfügen](/slides/de/net/create-and-embed-an-excel-chart-as-an-ole-object/)
+  - [Eine neue Präsentation in VSTO und Aspose.Slides erstellen](/slides/de/net/create-a-new-presentation-in-vsto-and-aspose-slides/)
+  - [Eine Tabelle auf einer PowerPoint-Folie in VSTO und Aspose.Slides erstellen](/slides/de/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/)
+  - [Text finden und ersetzen, ohne das Format in der Präsentation zu verlieren](/slides/de/net/find-and-replace-text-without-losing-format-in-presentation/)
+  - [Text formatieren](/slides/de/net/format-text/)
+  - [Öffnen einer Präsentation in VSTO und Aspose.Slides](/slides/de/net/opening-a-presentation-in-vsto-and-aspose-slides/)
+  - [Zeile oder Spalte in der Tabelle in VSTO und Aspose.Slides entfernen](/slides/de/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/)
+  - [Hintergrundfarbe der Masterfolie einstellen](/slides/de/net/setting-background-color-of-master-slide/)
+- [Fehlende Funktionen in VSTO](/slides/de/net/missing-features-in-vsto/)
+  - [Layoutfolie zur Präsentation hinzufügen](/slides/de/net/add-layout-slide-to-presentation/)
+  - [Konvertierung von PPT in PPTX-Format](/slides/de/net/conversion-from-ppt-to-pptx-format/)
+  - [Konvertierung von OpenOffice-Dokument](/slides/de/net/conversion-of-openoffice-document/)
+  - [Präsentation in HTML konvertieren](/slides/de/net/convert-presentation-to/)
+  - [Präsentation in Tiff mit Notizen konvertieren](/slides/de/net/convert-presentation-to-tiff-with-notes/)
+  - [Präsentation in XPS konvertieren](/slides/de/net/convert-presentation-to-xps/)
+  - [Folie als SVG-Bild erstellen](/slides/de/net/create-slide-as-svg-image/)
+  - [Medien-Dateien in HTML-Datei exportieren](/slides/de/net/export-media-files-into-file/)
+  - [Folio-Vorschaubild als JPEG generieren](/slides/de/net/generate-slide-thumbnail-as-jpeg/)
+  - [Erstellen eines Vorschaubildes von einer Folie mit benutzerdefinierten Abmessungen](/slides/de/net/generating-a-thumbnail-from-a-slide-with-user-defined-dimensions/)
+  - [Präsentation sperren](/slides/de/net/presentation-locking/)
+  - [Formen auf Folie als Bilder rendern](/slides/de/net/rendering-shapes-on-slide-as-images/)

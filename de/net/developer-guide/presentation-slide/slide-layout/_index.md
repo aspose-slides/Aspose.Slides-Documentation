@@ -2,7 +2,7 @@
 title: Folienlayout
 type: docs
 weight: 60
-url: /net/slide-layout/
+url: /de/net/slide-layout/
 keyword: "Foliengröße festlegen, Folienoptionen festlegen, Foliengröße angeben, Fußzeilen-Sichtbarkeit, untere Fußzeile, Inhaltsverhältnis, Seitenformat, C#, Csharp, .NET, Aspose.Slides"
 description: "Foliengröße und -optionen in C# oder .NET festlegen"
 ---

@@ -2,7 +2,7 @@
 title: Beschriftung für OLE-Icon festlegen  
 type: docs  
 weight: 130  
-url: /java/set-caption-to-ole-icon/  
+url: /de/java/set-caption-to-ole-icon/  
 ---  
 
 Neue Methoden **getSubstitutePictureTitle** und **setSubstitutePictureTitle** wurden zum **IOleObjectFrame**-Interface und zur **OleObjectFrame**-Klasse hinzugefügt. Damit kann die Beschriftung eines OLE-Icons abgerufen, festgelegt oder geändert werden. Der folgende Codeausschnitt zeigt ein Beispiel für die Erstellung eines Excel-Objekts und das Festlegen seiner Beschriftung.  

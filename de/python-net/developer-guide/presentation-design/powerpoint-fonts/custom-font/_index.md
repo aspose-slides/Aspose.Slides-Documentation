@@ -3,7 +3,7 @@ title: Benutzerdefinierte PowerPoint-Schriftarten in Python
 linktitle: Benutzerdefinierte Schriftart
 type: docs
 weight: 20
-url: /python-net/custom-font/
+url: /de/python-net/custom-font/
 keywords: "Schriftarten, benutzerdefinierte Schriftarten, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint-Benutzerdefinierte Schriftarten in Python"
 ---

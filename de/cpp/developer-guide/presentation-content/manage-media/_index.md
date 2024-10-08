@@ -2,7 +2,7 @@
 title: Medien verwalten
 type: docs
 weight: 50
-url: /cpp/manage-media/
+url: /de/cpp/manage-media/
 ---
 
 ## **Mediendatei nach HTML exportieren**

@@ -1,7 +1,7 @@
 ---
 title: Callout
 type: docs
-url: /python-net/callout/
+url: /de/python-net/callout/
 keywords: "Diagramm-Callout, Diagrammdatenbeschriftung, Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint-Diagramm-Callouts und Datenbeschriftungen in Python"
 ---

@@ -3,7 +3,7 @@ title: Präsentation in .NET erstellen
 linktitle: Präsentation erstellen
 type: docs
 weight: 10
-url: /net/create-presentation/
+url: /de/net/create-presentation/
 keywords: "PowerPoint erstellen, PPTX, PPT, Präsentation erstellen, Präsentation initialisieren, C#, .NET"
 description: "Programmatisches Erstellen von PowerPoint-Präsentationen in C#, z.B. PPT, PPTX, ODP etc."
 ---

@@ -2,7 +2,7 @@
 title: Export nach HTML5
 type: docs
 weight: 40
-url: /androidjava/export-nach-html5/
+url: /de/androidjava/export-nach-html5/
 keywords:
 - PowerPoint zu HTML
 - Folien zu HTML
@@ -18,7 +18,7 @@ description: "Exportiere PowerPoint nach HTML5 in Java"
 
 {{% alert title="Info" color="info" %}}
 
-In [Aspose.Slides 21.9](/slides/androidjava/aspose-slides-for-java-21-9-release-notes/) haben wir die Unterstützung für den HTML5-Export implementiert.
+In [Aspose.Slides 21.9](/slides/de/androidjava/aspose-slides-for-java-21-9-release-notes/) haben wir die Unterstützung für den HTML5-Export implementiert.
 
 {{% /alert %}} 
 

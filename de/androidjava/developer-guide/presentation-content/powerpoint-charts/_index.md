@@ -2,5 +2,5 @@
 title: PowerPoint-Diagramme
 type: docs
 weight: 70
-url: /androidjava/powerpoint-charts/
+url: /de/androidjava/powerpoint-charts/
 ---

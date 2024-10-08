@@ -2,7 +2,7 @@
 title: Alle Texte in einer Folie abrufen
 type: docs
 weight: 110
-url: /net/get-all-the-text-in-a-slide/
+url: /de/net/get-all-the-text-in-a-slide/
 ---
 
 ## **OpenXML SDK**

@@ -2,7 +2,7 @@
 title: Öffentliche API und nicht rückwärtskompatible Änderungen in Aspose.Slides für .NET 14.4.0
 type: docs
 weight: 60
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-4-0/
+url: /de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-14-4-0/
 ---
 
 ## **Öffentliche API und nicht rückwärtskompatible Änderungen**

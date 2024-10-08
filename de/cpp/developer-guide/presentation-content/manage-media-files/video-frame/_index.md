@@ -2,7 +2,7 @@
 title: Video Frame
 type: docs
 weight: 10
-url: /cpp/video-frame/
+url: /de/cpp/video-frame/
 keywords: "Video hinzufügen, Video-Frame erstellen, Video extrahieren, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Fügen Sie einen Video-Frame zu einer PowerPoint-Präsentation in C++ hinzu"
 

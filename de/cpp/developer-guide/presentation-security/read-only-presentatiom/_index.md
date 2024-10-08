@@ -2,7 +2,7 @@
 title: Nur-Lese-Präsentation
 type: docs
 weight: 30
-url: /cpp/nur-lese-praesentation/
+url: /de/cpp/nur-lese-praesentation/
 
 ---
 

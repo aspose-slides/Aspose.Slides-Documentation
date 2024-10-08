@@ -1,7 +1,7 @@
 ---
 title: Callout
 type: docs
-url: /net/callout/
+url: /de/net/callout/
 keywords: "Chart Callout, Diagrammdatenelement, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint-Diagramm-Callouts und Datenbeschriftungen in C# oder .NET"
 ---

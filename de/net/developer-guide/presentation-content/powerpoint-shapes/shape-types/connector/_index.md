@@ -2,7 +2,7 @@
 title: Connector
 type: docs
 weight: 10
-url: /net/connector/
+url: /de/net/connector/
 keywords: "Formen verbinden, Verbinder, PowerPoint-Formen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Verbinden Sie PowerPoint-Formen in C# oder .NET"
 ---
@@ -128,7 +128,7 @@ using (Presentation presentation = new Presentation())
 
 ## **Anpassung des Verbindungspunkts**
 
-Sie können einen bestehenden Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Arten von Verbindern.](/slides/net/connector/#types-of-connectors)** 
+Sie können einen bestehenden Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Arten von Verbindern.](/slides/de/net/connector/#types-of-connectors)** 
 
 #### **Einfacher Fall**
 
@@ -174,7 +174,7 @@ Um kompliziertere Anpassungen vorzunehmen, müssen Sie diese Aspekte berücksich
 * Die Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe des Connector-Shape wider. 
   * Die Form wird durch die Start- und Endpunkte des Verbinders multipliziert mit 1000 begrenzt. 
   * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren jeweils den Prozentsatz von der Breite, den Prozentsatz von der Höhe und den Prozentsatz von der Breite (wiederum).
-* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung des Verbinders und seine Reflexion berücksichtigen. **Hinweis**: Der Drehwinkel für alle hier gezeigten Verbinder unter **[Arten von Verbindern](/slides/net/connector/#types-of-connectors)** beträgt 0.
+* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung des Verbinders und seine Reflexion berücksichtigen. **Hinweis**: Der Drehwinkel für alle hier gezeigten Verbinder unter **[Arten von Verbindern](/slides/de/net/connector/#types-of-connectors)** beträgt 0.
 
 #### **Fall 1**
 

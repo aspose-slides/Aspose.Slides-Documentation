@@ -2,7 +2,7 @@
 title: Animierte Diagramme
 type: docs
 weight: 80
-url: /php-java/animated-charts/
+url: /de/php-java/animated-charts/
 ---
 
 {{% alert color="primary" %}} 

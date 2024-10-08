@@ -1,7 +1,7 @@
 ---
 title: Kreisdiagramm
 type: docs
-url: /androidjava/pie-chart/
+url: /de/androidjava/pie-chart/
 ---
 
 ## **Zweite Plot-Optionen für Kreis- und Balkendiagramm**

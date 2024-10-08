@@ -2,7 +2,7 @@
 title: SmartArt-Formknoten verwalten
 type: docs
 weight: 30
-url: /python-net/manage-smartart-shape-node/
+url: /de/python-net/manage-smartart-shape-node/
 keywords: "SmartArt-Knoten, SmartArt-Kindknoten, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Smart-Knoten und Kindknoten in PowerPoint-Präsentationen in Python"
 ---

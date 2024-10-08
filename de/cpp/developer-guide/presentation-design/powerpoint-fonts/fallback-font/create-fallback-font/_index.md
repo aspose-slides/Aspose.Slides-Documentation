@@ -2,7 +2,7 @@
 title: Fallback-Schriftart erstellen
 type: docs
 weight: 10
-url: /cpp/create-fallback-font/
+url: /de/cpp/create-fallback-font/
 ---
 
 Aspose.Slides unterstützt das [IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) Interface und die [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) Klasse, um die Regeln für die Anwendung einer Fallback-Schriftart festzulegen. Die [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) Klasse stellt eine Verbindung zwischen dem angegebenen Unicode-Bereich, der zum Suchen fehlender Glyphen verwendet wird, und einer Liste von Schriftarten dar, die die richtigen Glyphen enthalten können:
@@ -25,5 +25,5 @@ Es ist auch möglich, die Fallback-Schriftart mit [Remove()](https://reference.a
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) kann verwendet werden, um eine Liste von [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) Objekten zu organisieren, wenn es notwendig ist, Fallback-Schriftart-Ersatzregeln für mehrere Unicode-Bereiche festzulegen.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Fallback-Schriftarten-Sammlung erstellen](/slides/cpp/create-fallback-fonts-collection/)
+- [Fallback-Schriftarten-Sammlung erstellen](/slides/de/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}

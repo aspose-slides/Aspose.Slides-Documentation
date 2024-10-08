@@ -2,7 +2,7 @@
 title: Gruppe
 type: docs
 weight: 40
-url: /net/group/
+url: /de/net/group/
 keywords: "Gruppengeometrie, PowerPoint-Geometrie, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Fügen Sie einer PowerPoint-Präsentation in C# oder .NET eine Gruppengeometrie hinzu"
 ---

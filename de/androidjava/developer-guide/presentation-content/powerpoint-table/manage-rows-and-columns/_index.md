@@ -2,7 +2,7 @@
 title: Zeilen und Spalten verwalten
 type: docs
 weight: 20
-url: /androidjava/manage-rows-and-columns/
+url: /de/androidjava/manage-rows-and-columns/
 keywords: "Tabelle, Tabellenzeilen und -spalten, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint-Präsentationen in Java"
 ---

@@ -2,7 +2,7 @@
 title: Passwortgeschützte Präsentation
 type: docs
 weight: 20
-url: /net/password-protected-presentation/
+url: /de/net/password-protected-presentation/
 keywords: "PowerPoint sperren, PowerPoint entsperren, PowerPoint schützen, Passwort festlegen, Passwort hinzufügen, PowerPoint verschlüsseln, PowerPoint entschlüsseln, Schreibschutz, PowerPoint-Sicherheit, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint-Passwortschutz, Verschlüsselung und Sicherheit in C# oder .NET"
 
@@ -219,5 +219,5 @@ using (IPresentation pres = new Presentation("pres.pptx"))
 Es gibt `true` zurück, wenn die Präsentation mit dem angegebenen Passwort verschlüsselt wurde. Andernfalls wird `false` zurückgegeben.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Digitale Signatur in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Digitale Signatur in PowerPoint](/slides/de/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

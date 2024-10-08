@@ -2,7 +2,7 @@
 title: PPT, PPS, PPTX und PPSX Export
 type: docs
 weight: 20
-url: /reportingservices/ppt-pps-pptx-and-ppsx-export/
+url: /de/reportingservices/ppt-pps-pptx-and-ppsx-export/
 ---
 
 {{% alert color="primary" %}} 

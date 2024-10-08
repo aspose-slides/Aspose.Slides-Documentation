@@ -2,7 +2,7 @@
 title: Formen auf Folie neu skalieren
 type: docs
 weight: 130
-url: /python-net/re-sizing-shapes-on-slide/
+url: /de/python-net/re-sizing-shapes-on-slide/
 ---
 
 ## **Formen auf Folie neu skalieren**

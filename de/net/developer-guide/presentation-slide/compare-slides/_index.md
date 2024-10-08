@@ -2,7 +2,7 @@
 title: Folien Vergleichen
 type: docs
 weight: 50
-url: /net/compare-slides/
+url: /de/net/compare-slides/
 keywords: "Vergleiche PowerPoint-Folien, Vergleiche zwei Folien, Präsentation, C#, Csharp, .NET, Aspose.Slides"
 description: "Vergleiche PowerPoint-Präsentationsfolien in C# oder .NET"
 ---

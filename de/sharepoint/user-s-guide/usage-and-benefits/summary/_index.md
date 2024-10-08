@@ -2,7 +2,7 @@
 title: Zusammenfassung
 type: docs
 weight: 50
-url: /sharepoint/summary/
+url: /de/sharepoint/summary/
 ---
 
 {{% alert color="primary" %}} 

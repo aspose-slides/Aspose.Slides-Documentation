@@ -2,7 +2,7 @@
 title: SharePoint auf dem RS-Server einrichten
 type: docs
 weight: 40
-url: /reportingservices/setting-up-sharepoint-on-the-rs-server/
+url: /de/reportingservices/setting-up-sharepoint-on-the-rs-server/
 ---
 
 {{% alert color="primary" %}} 

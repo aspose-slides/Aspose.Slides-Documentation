@@ -2,7 +2,7 @@
 title: Präsentation überprüfen
 type: docs
 weight: 30
-url: /python-net/examine-presentation/
+url: /de/python-net/examine-presentation/
 keywords:
 - PowerPoint
 - Präsentation

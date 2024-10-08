@@ -2,7 +2,7 @@
 title: Formenmanipulationen
 type: docs
 weight: 40
-url: /androidjava/shape-manipulations/
+url: /de/androidjava/shape-manipulations/
 ---
 
 ## **Form auf Folie finden**

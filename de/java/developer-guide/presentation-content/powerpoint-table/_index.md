@@ -2,5 +2,5 @@
 title: PowerPoint-Tabelle
 type: docs
 weight: 110
-url: /java/powerpoint-table/
+url: /de/java/powerpoint-table/
 ---

@@ -3,7 +3,7 @@ title: Audio-Frame - Audio in PowerPoint mit C# einfügen und extrahieren
 linktitle: Audio-Frame
 type: docs
 weight: 10
-url: /net/audio-frame/
+url: /de/net/audio-frame/
 keywords: "Audio-Vorschaubild, Audio hinzufügen, Audio-Frame, Audio-Eigenschaften, Audio extrahieren, C#, Csharp, Aspose.Slides für .NET"
 description: "Audio zu PowerPoint-Präsentationen in C# oder .NET hinzufügen"
 ---

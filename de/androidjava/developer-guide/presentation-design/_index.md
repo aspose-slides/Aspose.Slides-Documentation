@@ -2,5 +2,5 @@
 title: Präsentationsdesign
 type: docs
 weight: 40
-url: /androidjava/presentation-design/
+url: /de/androidjava/presentation-design/
 ---

@@ -2,7 +2,7 @@
 title: Absatz
 type: docs
 weight: 60
-url: /python-net/paragraph/
+url: /de/python-net/paragraph/
 keywords: "Absatz, Portion, Absatzkoordinate, Portionskoordinate, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Absatz und Portion in PowerPoint-Präsentation in Python"
 ---

@@ -2,7 +2,7 @@
 title: Präsentation über VBA
 type: docs
 weight: 250
-url: /php-java/presentation-via-vba/
+url: /de/php-java/presentation-via-vba/
 keywords: "Makro, makros, VBA, VBA-Makro, Makro hinzufügen, Makro entfernen, VBA hinzufügen, VBA entfernen, Makro extrahieren, VBA extrahieren, PowerPoint-Makro, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Hinzufügen, Entfernen und Extrahieren von VBA-Makros in PowerPoint-Präsentationen"
 ---

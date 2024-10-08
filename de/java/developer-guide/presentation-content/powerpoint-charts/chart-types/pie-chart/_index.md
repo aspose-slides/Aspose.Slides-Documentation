@@ -1,7 +1,7 @@
 ---
 title: Tortendiagramm
 type: docs
-url: /java/pie-chart/
+url: /de/java/pie-chart/
 ---
 
 ## **Zweite Diagrammoptionen für Tortendiagramm und Balkendiagramm**

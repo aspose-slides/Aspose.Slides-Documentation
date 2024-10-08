@@ -2,7 +2,7 @@
 title: Folienmaster
 type: docs
 weight: 80
-url: /net/slide-master/
+url: /de/net/slide-master/
 keywords: "Folienmaster hinzufügen, PPT-Folienmaster, Folienmaster PowerPoint, Bild zum Folienmaster, Platzhalter, mehrere Folienmaster, Folienmaster vergleichen, C#, Csharp, .NET, Aspose.Slides"
 description: "Fügen Sie einen Folienmaster in einer PowerPoint-Präsentation in C# oder .NET hinzu oder bearbeiten Sie ihn."
 ---
@@ -130,7 +130,7 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="primary" title="Siehe auch" %}} 
 
-Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bildrahmen](/slides/net/picture-frame/#create-picture-frame).
+Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bildrahmen](/slides/de/net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

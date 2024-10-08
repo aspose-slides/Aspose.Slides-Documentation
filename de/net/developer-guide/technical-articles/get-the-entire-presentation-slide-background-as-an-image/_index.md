@@ -2,7 +2,7 @@
 title: Holen Sie sich den gesamten Hintergrund der Präsentationsfolie als Bild
 type: docs
 weight: 95
-url: /net/get-the-entire-presentation-slide-background-as-an-image/
+url: /de/net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - folie
 - hintergrund
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides für .NET
 ---
 
-In PowerPoint-Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Neben dem Bild, das als [Folienhintergrund](/slides/net/presentation-background/) festgelegt ist, kann der endgültige Hintergrund durch das Präsentationsthema, das Farbschema und die Formen, die auf der Masterfolie und der Layoutfolie platziert sind, beeinflusst werden.
+In PowerPoint-Präsentationen kann der Folienhintergrund aus vielen Elementen bestehen. Neben dem Bild, das als [Folienhintergrund](/slides/de/net/presentation-background/) festgelegt ist, kann der endgültige Hintergrund durch das Präsentationsthema, das Farbschema und die Formen, die auf der Masterfolie und der Layoutfolie platziert sind, beeinflusst werden.
 
 Aspose.Slides für .NET bietet keine einfache Methode, um den gesamten Hintergrund der Präsentationsfolie als Bild zu extrahieren, aber Sie können die folgenden Schritte ausführen, um dies zu tun:
 1. Laden Sie die Präsentation mit der [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) Klasse.

@@ -2,7 +2,7 @@
 title: Arbeitslösung für die Größenänderung von Arbeitsblättern
 type: docs
 weight: 130
-url: /cpp/working-solution-for-worksheet-resizing/
+url: /de/cpp/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -315,4 +315,4 @@ Es gibt zwei Ansätze zur Behebung des Problems der Größenänderung von Arbeit
 h4. {_}Verwandte Abschnitte
 {_}
 
-[Erstellen und Einbetten eines Excel-Diagramms als OLE-Objekt in einer Präsentation](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Erstellen und Einbetten eines Excel-Diagramms als OLE-Objekt in einer Präsentation](/slides/de/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

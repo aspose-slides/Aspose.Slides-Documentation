@@ -2,7 +2,7 @@
 title: Diagramm Arbeitsblatt Formeln
 type: docs
 weight: 70
-url: /net/chart-worksheet-formulas/
+url: /de/net/chart-worksheet-formulas/
 keywords: "Diagramm Tabellenkalkulation, Diagramm Formel, PowerPoint Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Diagramm Tabellenkalkulation und Formel in PowerPoint Präsentation in C# oder .NET"
 ---

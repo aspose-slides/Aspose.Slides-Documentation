@@ -2,12 +2,12 @@
 title: Text formatieren mit VSTO und Aspose.Slides und .NET
 type: docs
 weight: 30
-url: /net/format-text-using-vsto-and-aspose-slides-and-net/
+url: /de/net/format-text-using-vsto-and-aspose-slides-and-net/
 ---
 
 {{% alert color="primary" %}} 
 
-Manchmal müssen Sie den Text auf Folien programmatisch formatieren. Dieser Artikel zeigt, wie Sie eine Beispielpräsentation mit etwas Text auf der ersten Folie lesen, entweder mit [VSTO](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/) oder [Aspose.Slides für .NET](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/). Der Code formatiert den Text im dritten Textfeld auf der Folie so, dass er wie der Text im letzten Textfeld aussieht.
+Manchmal müssen Sie den Text auf Folien programmatisch formatieren. Dieser Artikel zeigt, wie Sie eine Beispielpräsentation mit etwas Text auf der ersten Folie lesen, entweder mit [VSTO](/slides/de/net/format-text-using-vsto-and-aspose-slides-and-net/) oder [Aspose.Slides für .NET](/slides/de/net/format-text-using-vsto-and-aspose-slides-and-net/). Der Code formatiert den Text im dritten Textfeld auf der Folie so, dass er wie der Text im letzten Textfeld aussieht.
 
 {{% /alert %}} 
 ## **Textformatierung**

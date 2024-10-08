@@ -2,7 +2,7 @@
 title: Textformatierung
 type: docs
 weight: 50
-url: /java/text-formatting/
+url: /de/java/text-formatting/
 keywords:
 - Text hervorheben
 - regulärer Ausdruck

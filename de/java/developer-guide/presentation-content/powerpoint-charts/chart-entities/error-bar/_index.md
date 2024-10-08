@@ -1,7 +1,7 @@
 ---
 title: Fehlerbalken
 type: docs
-url: /java/error-bar/
+url: /de/java/error-bar/
 ---
 
 ## **Fehlerbalken hinzufügen**

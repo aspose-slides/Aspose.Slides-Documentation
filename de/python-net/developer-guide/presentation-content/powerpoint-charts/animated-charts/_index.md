@@ -2,7 +2,7 @@
 title: Animierte Diagramme
 type: docs
 weight: 80
-url: /python-net/animated-charts/
+url: /de/python-net/animated-charts/
 keywords: "Diagramme, Diagrammreihen, Animation PowerPoint-Präsentation, PPTX, PPT, Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint-Diagrammreihen und Animationen in Python"
 ---

@@ -4,7 +4,7 @@ second_title: "Aspose.Slides für PHP Dokumentation"
 description: Aspose.Slides für PHP über Java bietet viele wichtige Funktionen wie das Verwalten von Text, Formen, Tabellen & Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG-, PDF-Format und mehr.
 type: docs
 weight: 45
-url: /php-java/
+url: /de/php-java/
 is_root: true
 ---
 
@@ -32,13 +32,13 @@ Aspose.Slides für PHP über Java ist von Aspose.Slides für Java portiert, soda
 
 Dies sind Links zu nützlichen Ressourcen:
 
-- [Aspose.Slides für PHP über Java Online-Dokumentation](/slides/php-java/)
-- [Aspose.Slides für PHP über Java Funktionen](/slides/php-java/features-overview/)
-- [Aspose.Slides für PHP über Java Einschränkungen und API-Unterschiede](/slides/php-java/limitations-and-api-differences/)
+- [Aspose.Slides für PHP über Java Online-Dokumentation](/slides/de/php-java/)
+- [Aspose.Slides für PHP über Java Funktionen](/slides/de/php-java/features-overview/)
+- [Aspose.Slides für PHP über Java Einschränkungen und API-Unterschiede](/slides/de/php-java/limitations-and-api-differences/)
 - [Aspose.Slides für PHP über Java Versionshinweise](https://releases.aspose.com/slides/php-java/release-notes/)
 - [Aspose.Slides für PHP über Java Produktseite](https://products.aspose.com/slides/php-java/)
 - [Laden Sie das Aspose.Slides für PHP über Java-Paket herunter](https://releases.aspose.com/slides/php-java/)
-- [Aspose.Slides für PHP über Java installieren](/slides/php-java/installation/)
+- [Aspose.Slides für PHP über Java installieren](/slides/de/php-java/installation/)
 - [Aspose.Slides für PHP über Java API-Referenz](https://reference.aspose.com/slides/php-java/)
 - [Aspose.Slides für PHP über Java Kostenloses Support-Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides für PHP über Java Kostenpflichtiger Support-Hilfe-Desk](https://helpdesk.aspose.com/)

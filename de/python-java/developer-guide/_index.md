@@ -2,5 +2,5 @@
 title: Entwicklerhandbuch
 type: docs
 weight: 20
-url: /python-java/developer-guide/
+url: /de/python-java/developer-guide/
 ---

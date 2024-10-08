@@ -2,7 +2,7 @@
 title: Video Frame
 type: docs
 weight: 10
-url: /python-net/video-frame/
+url: /de/python-net/video-frame/
 keywords: "Video hinzufügen, Video-Frame erstellen, Video extrahieren, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Video-Frame zu PowerPoint-Präsentation in Python hinzufügen"
 ---

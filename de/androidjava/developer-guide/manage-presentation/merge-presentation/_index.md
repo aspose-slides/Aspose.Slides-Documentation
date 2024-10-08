@@ -2,7 +2,7 @@
 title: Präsentationen zusammenführen
 type: docs
 weight: 40
-url: /androidjava/merge-presentation/
+url: /de/androidjava/merge-presentation/
 keywords: "PowerPoint zusammenführen, PPTX, PPT, PowerPoint kombinieren, Präsentation zusammenführen, Präsentation kombinieren, Java"
 description: "PowerPoint-Präsentationen in Java zusammenführen oder kombinieren"
 ---

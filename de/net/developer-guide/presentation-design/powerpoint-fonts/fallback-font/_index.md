@@ -3,7 +3,7 @@ title: Fallback Schriftart - PowerPoint C# API
 linktitle: Fallback Schriftart
 type: docs
 weight: 50
-url: /net/fallback-font/
+url: /de/net/fallback-font/
 keywords: "Fallback-Schriftart, Schriftart, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: Wenn die Schriftart ein notwendiges Glyph nicht enthält, ermöglicht die PowerPoint C# API die Verwendung einer der angegebenen Fallback-Schriftarten für den Glyphen-Ersatz.
 ---
@@ -15,6 +15,6 @@ Aspose.Slides ermöglicht das Erstellen von Fallback-Schriftarten, das Hinzufüg
 
 Um sich mit diesen Funktionen vertraut zu machen, verwenden Sie die folgenden Links:
 
-- [Fallback Schriftart erstellen](/slides/net/create-fallback-font)
-- [Fallback Schriftarten Sammlung erstellen](/slides/net/create-fallback-fonts-collection)
-- [Präsentation mit Fallback Schriftart rendern](/slides/net/render-presentation-with-fallback-font)
+- [Fallback Schriftart erstellen](/slides/de/net/create-fallback-font)
+- [Fallback Schriftarten Sammlung erstellen](/slides/de/net/create-fallback-fonts-collection)
+- [Präsentation mit Fallback Schriftart rendern](/slides/de/net/render-presentation-with-fallback-font)

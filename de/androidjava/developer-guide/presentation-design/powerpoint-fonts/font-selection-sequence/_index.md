@@ -3,7 +3,7 @@ title: Schriftartauswahlfolge in Java
 linktitle: Schriftartauswahlfolge in Java
 type: docs
 weight: 80
-url: /androidjava/font-selection-sequence/
+url: /de/androidjava/font-selection-sequence/
 keywords:
 - schriftart
 - schriftartauswahl

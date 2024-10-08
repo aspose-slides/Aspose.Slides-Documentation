@@ -2,7 +2,7 @@
 title: Bilderrahmen
 type: docs
 weight: 10
-url: /python-net/picture-frame/
+url: /de/python-net/picture-frame/
 keywords: "Bilderrahmen hinzufügen, Bilderrahmen erstellen, Bild hinzufügen, Bild erstellen, Bild extrahieren, StretchOff-Eigenschaft, Bilderrahmen-Formatierung, Bilderrahmen-Eigenschaften, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Bilderrahmen zu PowerPoint-Präsentationen in Python hinzufügen"
 ---

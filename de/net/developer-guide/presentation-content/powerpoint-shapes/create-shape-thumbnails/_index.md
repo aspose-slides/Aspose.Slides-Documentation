@@ -2,7 +2,7 @@
 title: Erstellen von Formminiaturen
 type: docs
 weight: 70
-url: /net/create-shape-thumbnails/
+url: /de/net/create-shape-thumbnails/
 keywords: 
 - Formminiatur
 - Bild der Form

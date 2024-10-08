@@ -2,7 +2,7 @@
 title: PowerPoint in PDF mit Notizen konvertieren
 type: docs
 weight: 50
-url: /cpp/convert-powerpoint-to-pdf-with-notes/
+url: /de/cpp/convert-powerpoint-to-pdf-with-notes/
 keywords: "powerpoint in pdf mit notizen konvertieren"
 description: "Konvertieren Sie PowerPoint in PDF mit Notizen. Konvertieren Sie PPT und PPTX in PDF mit Notizen in Aspose.Slides."
 ---

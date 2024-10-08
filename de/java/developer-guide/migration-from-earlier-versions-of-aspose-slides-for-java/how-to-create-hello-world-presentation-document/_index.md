@@ -2,12 +2,12 @@
 title: Wie man ein Hello World Präsentationsdokument erstellt
 type: docs
 weight: 10
-url: /java/how-to-create-hello-world-presentation-document/
+url: /de/java/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-Eine neue [Aspose.Slides für Java API](/slides/java/) wurde veröffentlicht und jetzt unterstützt dieses Einzelprodukt die Fähigkeit, PowerPoint-Dokumente von Grund auf neu zu erstellen und bestehende zu bearbeiten.
+Eine neue [Aspose.Slides für Java API](/slides/de/java/) wurde veröffentlicht und jetzt unterstützt dieses Einzelprodukt die Fähigkeit, PowerPoint-Dokumente von Grund auf neu zu erstellen und bestehende zu bearbeiten.
 
 {{% /alert %}} 
 ## **Unterstützung für Legacy-Code**

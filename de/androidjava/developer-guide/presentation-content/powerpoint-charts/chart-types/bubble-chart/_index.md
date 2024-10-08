@@ -1,7 +1,7 @@
 ---
 title: Blasendiagramm
 type: docs
-url: /androidjava/bubble-chart/
+url: /de/androidjava/bubble-chart/
 ---
 
 ## **Größenskalierung des Blasendiagramms**

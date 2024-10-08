@@ -2,7 +2,7 @@
 title: Erstellen von Formvorschau-Bildern
 type: docs
 weight: 70
-url: /java/create-shape-thumbnails/
+url: /de/java/create-shape-thumbnails/
 ---
 
 

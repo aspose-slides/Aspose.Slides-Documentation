@@ -1,7 +1,7 @@
 ---
 title: Diagrammreihen
 type: docs
-url: /php-java/chart-series/
+url: /de/php-java/chart-series/
 keywords: "Diagrammreihe, Reihenfarbe, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Diagrammreihen in PowerPoint-Präsentationen"
 ---

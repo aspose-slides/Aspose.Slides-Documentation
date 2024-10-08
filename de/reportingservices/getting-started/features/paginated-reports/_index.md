@@ -2,7 +2,7 @@
 title: Erstellen von paginierten Berichten
 type: docs
 weight: 100
-url: /reportingservices/paginated-reports/
+url: /de/reportingservices/paginated-reports/
 keywords: "Erstellen von paginierten Berichten, Power BI, Aspose.Slides für Reporting Services"
 description: "Erstellen von paginierten Berichten"
 ---

@@ -2,7 +2,7 @@
 title: Diagramm Arbeitsmappe
 type: docs
 weight: 70
-url: /cpp/chart-workbook/
+url: /de/cpp/chart-workbook/
 keywords: "Diagramm Arbeitsmappe, Diagrammdaten, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Diagramm Arbeitsmappe in PowerPoint-Präsentation in C++"
 ---

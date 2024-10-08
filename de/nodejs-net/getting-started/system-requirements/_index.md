@@ -2,7 +2,7 @@
 title: Systemanforderungen
 type: docs
 weight: 60
-url: /nodejs-net/system-requirements/
+url: /de/nodejs-net/system-requirements/
 ---
 
 Aspose.Slides für Node.js über .NET erfordert keine Drittanbieterprodukte wie Microsoft PowerPoint. Aspose.Slides selbst ist eine Engine zur Erstellung, Modifizierung, Konvertierung und Darstellung von Dokumenten in verschiedenen Formaten, einschließlich Microsoft PowerPoint-Präsentationsformaten.

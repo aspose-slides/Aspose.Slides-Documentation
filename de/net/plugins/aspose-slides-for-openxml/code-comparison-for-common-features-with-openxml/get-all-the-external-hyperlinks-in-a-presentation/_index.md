@@ -2,7 +2,7 @@
 title: Alle externen Hyperlinks in einer Präsentation abrufen
 type: docs
 weight: 90
-url: /net/get-all-the-external-hyperlinks-in-a-presentation/
+url: /de/net/get-all-the-external-hyperlinks-in-a-presentation/
 ---
 
 ## **OpenXML-Präsentation**

@@ -2,7 +2,7 @@
 title: Bild
 type: docs
 weight: 10
-url: /php-java/image/
+url: /de/php-java/image/
 description: Arbeiten Sie mit Bildern in Folien in PowerPoint-Präsentationen unter Verwendung von PHP. Fügen Sie Bilder von der Festplatte oder aus dem Internet in PowerPoint-Folien mit PHP hinzu. Fügen Sie Bilder zu Folienmaster oder als Folienhintergrund mit PHP hinzu. Fügen Sie SVG zu PowerPoint-Präsentationen mit PHP hinzu. Konvertieren Sie SVG in Formen in PowerPoint mit PHP. Fügen Sie Bilder als EMF in Folien mit PHP hinzu.
 ---
 

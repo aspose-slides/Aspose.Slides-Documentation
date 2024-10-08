@@ -2,7 +2,7 @@
 title: Bullet verwalten
 type: docs
 weight: 60
-url: /java/manage-bullet/
+url: /de/java/manage-bullet/
 keywords: "Aufzählungen, Aufzählungslisten, Zahlen, nummerierte Listen, Bildaufzählungen, mehrstufige Aufzählungen, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Erstellen Sie Aufzählungs- und nummerierte Listen in PowerPoint-Präsentationen in Java"
 ---

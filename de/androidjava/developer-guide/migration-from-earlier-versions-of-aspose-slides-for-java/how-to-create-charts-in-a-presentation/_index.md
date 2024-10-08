@@ -2,7 +2,7 @@
 title: Wie man Diagramme in einer Präsentation erstellt
 type: docs
 weight: 30
-url: /androidjava/wie-man-diagramme-in-einer-praesentation-erstellt/
+url: /de/androidjava/wie-man-diagramme-in-einer-praesentation-erstellt/
 ---
 
 {{% alert color="primary" %}} 

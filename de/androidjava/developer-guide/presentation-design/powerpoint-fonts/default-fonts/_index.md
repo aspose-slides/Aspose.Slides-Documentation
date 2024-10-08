@@ -3,7 +3,7 @@ title: Standard-Schriften - PowerPoint Java API
 linktitle: Standard-Schriften
 type: docs
 weight: 30
-url: /androidjava/default-font/
+url: /de/androidjava/default-font/
 description: PowerPoint Java API ermöglicht es Ihnen, die Standardschriftart für das Rendern der Präsentation in PDF, XPS oder Thumbnails festzulegen. Dieser Artikel zeigt, wie Sie die DefaultRegular-Schriftart und die DefaultAsian-Schriftart als Standardschriftarten definieren können.
 ---
 

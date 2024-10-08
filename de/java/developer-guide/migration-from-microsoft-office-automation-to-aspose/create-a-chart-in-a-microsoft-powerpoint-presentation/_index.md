@@ -2,12 +2,12 @@
 title: Erstellen eines Diagramms in einer Microsoft PowerPoint-Präsentation
 type: docs
 weight: 70
-url: /java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /de/java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Diagramme sind visuelle Darstellungen von Daten, die häufig in Präsentationen verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint unter Verwendung von [VSTO](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für Java](/slides/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Diagramme sind visuelle Darstellungen von Daten, die häufig in Präsentationen verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint unter Verwendung von [VSTO](/slides/de/java/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für Java](/slides/de/java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Ein Diagramm erstellen**

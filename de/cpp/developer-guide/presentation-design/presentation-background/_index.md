@@ -2,7 +2,7 @@
 title: Präsentationshintergrund
 type: docs
 weight: 20
-url: /cpp/presentation-background/
+url: /de/cpp/presentation-background/
 keywords: "PowerPoint Hintergrund, Hintergrund einstellen"
 description: "Hintergrund in PowerPoint-Präsentation in CPP einstellen"
 ---

@@ -2,7 +2,7 @@
 title: Einschränkungen und API-Unterschiede
 type: docs
 weight: 100
-url: /php-java/einschraenkungen-und-api-unterschiede/
+url: /de/php-java/einschraenkungen-und-api-unterschiede/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Diagrammformatierung
 type: docs
 weight: 60
-url: /php-java/chart-formatting/
+url: /de/php-java/chart-formatting/
 ---
 
 ## **Formatieren von Diagrammobjekten**

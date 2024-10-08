@@ -1,7 +1,7 @@
 ---
 title: Diagrammdaten Tabelle
 type: docs
-url: /net/chart-data-table/
+url: /de/net/chart-data-table/
 keywords: "Schriftarten, Diagrammdaten Tabelle, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Schriftarteigenschaften für die Diagrammdaten Tabelle in PowerPoint-Präsentationen in C# oder .NET setzen"
 ---

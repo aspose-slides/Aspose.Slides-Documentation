@@ -2,7 +2,7 @@
 title: Präsentationsviewer
 type: docs
 weight: 50
-url: /androidjava/presentation-viewer/
+url: /de/androidjava/presentation-viewer/
 keywords: "PowerPoint PPT Viewer"
 description: "PowerPoint PPT Viewer in Java"
 ---

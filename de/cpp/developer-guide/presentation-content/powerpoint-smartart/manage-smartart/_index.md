@@ -2,7 +2,7 @@
 title: SmartArt verwalten
 type: docs
 weight: 10
-url: /cpp/manage-smartart/
+url: /de/cpp/manage-smartart/
 ---
 
 ## **Text aus SmartArt abrufen**

@@ -2,7 +2,7 @@
 title: PowerPoint in TIFF mit Notizen konvertieren
 type: docs
 weight: 100
-url: /php-java/convert-powerpoint-to-tiff-with-notes/
+url: /de/php-java/convert-powerpoint-to-tiff-with-notes/
 keywords: "PowerPoint in TIFF mit Notizen konvertieren"
 description: "PowerPoint in TIFF mit Notizen in Aspose.Slides konvertieren."
 ---

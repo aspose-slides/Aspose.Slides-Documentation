@@ -2,7 +2,7 @@
 title: Wasserzeichen
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /de/python-net/watermark/
 keywords:
 - wasserzeichen
 - wasserzeichen hinzufügen
@@ -46,7 +46,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man die TextFrame-Klasse verwendet](/slides/python-net/text-formatting/)
+- [Wie man die TextFrame-Klasse verwendet](/slides/de/python-net/text-formatting/)
 {{% /alert %}}
 
 ### **Fügen Sie ein Textwasserzeichen zur Präsentation hinzu**
@@ -64,7 +64,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man den Folienmaster verwendet](/slides/python-net/slide-master/)
+- [Wie man den Folienmaster verwendet](/slides/de/python-net/slide-master/)
 {{% /alert %}}
 
 ### **Setzen Sie die Transparenz der Wasserzeichenform**

@@ -2,7 +2,7 @@
 title: Erstellen Sie eine Folie als SVG-Bild
 type: docs
 weight: 70
-url: /net/create-slide-as-svg-image/
+url: /de/net/create-slide-as-svg-image/
 ---
 
 Um ein SVG-Bild aus einer gewünschten Folie mit Aspose.Slides.Pptx für .NET zu generieren, befolgen Sie bitte die folgenden Schritte:
@@ -59,6 +59,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-Für weitere Details besuchen Sie [Creating Slide SVG Image](/slides/net/presentation-viewer/).
+Für weitere Details besuchen Sie [Creating Slide SVG Image](/slides/de/net/presentation-viewer/).
 
 {{% /alert %}}

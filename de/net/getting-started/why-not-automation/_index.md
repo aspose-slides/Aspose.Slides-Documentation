@@ -2,7 +2,7 @@
 title: Warum nicht Automatisierung
 type: docs
 weight: 40
-url: /net/why-not-automation/
+url: /de/net/why-not-automation/
 ---
 
 ## **Wichtige Fragen**

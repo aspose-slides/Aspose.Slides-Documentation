@@ -2,7 +2,7 @@
 title: Arbeitslösung zur Größenänderung von Arbeitsblättern
 type: docs
 weight: 20
-url: /php-java/working-solution-for-worksheet-resizing/
+url: /de/php-java/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Es wurde festgestellt, dass Excel-Arbeitsblätter, die über Aspose-Komponenten 
 
 {{% /alert %}} 
 ## **Hintergrund**
-Im [Artikel Hinzufügen von Ole-Rahmen](), haben wir erläutert, wie man einen Ole-Rahmen in einer PowerPoint-Präsentation unter Verwendung von Aspose.Slides für PHP über Java hinzufügt. Um das [Objektänderungsproblem](/slides/php-java/object-changed-issue-when-adding-oleobjectframe/) zu berücksichtigen, haben wir das Arbeitsblattbild des ausgewählten Bereichs dem Chart OLE-Objektrahmen zugewiesen. In der Ausgabepräsentation wird das Excel-Diagramm aktiviert, wenn wir auf den OLE-Objektrahmen doppelklicken, der das Arbeitsblattbild anzeigt. Die Endbenutzer können alle gewünschten Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur betreffenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor wird für unterschiedliche Größen des OLE-Objektrahmens und der eingebetteten Excel-Arbeitsmappe unterschiedlich sein.
+Im [Artikel Hinzufügen von Ole-Rahmen](), haben wir erläutert, wie man einen Ole-Rahmen in einer PowerPoint-Präsentation unter Verwendung von Aspose.Slides für PHP über Java hinzufügt. Um das [Objektänderungsproblem](/slides/de/php-java/object-changed-issue-when-adding-oleobjectframe/) zu berücksichtigen, haben wir das Arbeitsblattbild des ausgewählten Bereichs dem Chart OLE-Objektrahmen zugewiesen. In der Ausgabepräsentation wird das Excel-Diagramm aktiviert, wenn wir auf den OLE-Objektrahmen doppelklicken, der das Arbeitsblattbild anzeigt. Die Endbenutzer können alle gewünschten Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur betreffenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objektrahmens ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor wird für unterschiedliche Größen des OLE-Objektrahmens und der eingebetteten Excel-Arbeitsmappe unterschiedlich sein.
 ## **Ursache der Größenänderung**
 Da die Excel-Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, ihre ursprüngliche Größe beim ersten Aktivieren beizubehalten. Andererseits hat der OLE-Objektrahmen seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint beim Aktivieren der Excel-Arbeitsmappe über die Größe und stellen sicher, dass sie in den richtigen Proportionen als Teil des Einbettungsvorgangs ist. Basierend auf den Unterschieden in der Fenstergröße von Excel und der Größe / Position des OLE-Objektrahmens findet die Größenänderung statt.
 ## **Arbeitslösung**

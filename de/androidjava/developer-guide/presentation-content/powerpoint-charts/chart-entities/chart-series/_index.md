@@ -1,7 +1,7 @@
 ---
 title: Diagrammserie
 type: docs
-url: /androidjava/chart-series/
+url: /de/androidjava/chart-series/
 keywords: "Diagrammserie, Serienfarbe, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Diagrammserien in PowerPoint-Präsentationen in Java"
 ---

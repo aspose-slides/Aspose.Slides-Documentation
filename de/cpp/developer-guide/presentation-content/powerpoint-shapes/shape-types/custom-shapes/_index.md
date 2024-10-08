@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Form
 type: docs
 weight: 20
-url: /cpp/custom-shape/
+url: /de/cpp/custom-shape/
 keywords: "PowerPoint-Form, benutzerdefinierte Form, PowerPoint-Präsentation, C++, Aspose.Slides für C++"
 description: "Fügen Sie eine benutzerdefinierte Form in einer PowerPoint-Präsentation in C++ hinzu"
 ---

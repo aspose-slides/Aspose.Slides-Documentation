@@ -2,7 +2,7 @@
 title: Folienmaster
 type: docs
 weight: 70
-url: /php-java/slide-master/
+url: /de/php-java/slide-master/
 keywords: "Folienmaster hinzufügen, PPT-Masterfolie, Folienmaster PowerPoint, Bild zum Folienmaster, Platzhalter, Mehrere Folienmaster, Folienmaster vergleichen, Java, Aspose.Slides für PHP über Java"
 description: "Fügen Sie Folienmaster in PowerPoint-Präsentationen hinzu oder bearbeiten Sie sie"
 ---
@@ -147,7 +147,7 @@ Sie können Bilder zu einem Folienmaster mit Aspose.Slides hinzufügen:
 
 {{% alert color="primary" title="Siehe auch" %}} 
 
-Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bilderrahmen](/slides/php-java/picture-frame/#create-picture-frame).
+Für weitere Informationen zum Hinzufügen von Bildern zu einer Folie siehe den Artikel [Bilderrahmen](/slides/de/php-java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Platzhalter zum Folienmaster hinzufügen**

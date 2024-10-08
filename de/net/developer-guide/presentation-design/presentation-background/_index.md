@@ -2,7 +2,7 @@
 title: Präsentationshintergrund
 type: docs
 weight: 20
-url: /net/presentation-background/
+url: /de/net/presentation-background/
 keywords:
 - PowerPoint-Hintergrund
 - Hintergrund festlegen

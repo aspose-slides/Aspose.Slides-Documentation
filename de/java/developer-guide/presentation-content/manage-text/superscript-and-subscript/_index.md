@@ -2,7 +2,7 @@
 title: Hochgestellt und Tiefgestellt
 type: docs
 weight: 80
-url: /java/superscript-and-subscript/
+url: /de/java/superscript-and-subscript/
 ---
 
 ## **Hochgestellten und tiefgestellten Text verwalten**

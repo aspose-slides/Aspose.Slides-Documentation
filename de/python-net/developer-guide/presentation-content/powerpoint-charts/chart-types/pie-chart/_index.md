@@ -1,7 +1,7 @@
 ---
 title: Kuchendiagramm
 type: docs
-url: /python-net/pie-chart/
+url: /de/python-net/pie-chart/
 keywords: "Kuchendiagramm, Plot-Optionen, Slice-Farben, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Plot-Optionen für Kuchendiagramme und Slice-Farben in PowerPoint-Präsentationen in Python"
 ---

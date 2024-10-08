@@ -2,7 +2,7 @@
 title: Unternehmensverkauf
 type: docs
 weight: 20
-url: /reportingservices/company-sales/
+url: /de/reportingservices/company-sales/
 ---
 
 ## **Funktionen:**

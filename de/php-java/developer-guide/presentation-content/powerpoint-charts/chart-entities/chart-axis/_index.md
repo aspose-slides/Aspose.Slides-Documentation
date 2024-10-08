@@ -1,7 +1,7 @@
 ---
 title: Diagrammachse
 type: docs
-url: /php-java/chart-axis/
+url: /de/php-java/chart-axis/
 keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Java, Diagrammacht manipulieren, Diagrammdaten"
 description: "Wie man die Diagrammachse in PowerPoint bearbeitet"
 ---

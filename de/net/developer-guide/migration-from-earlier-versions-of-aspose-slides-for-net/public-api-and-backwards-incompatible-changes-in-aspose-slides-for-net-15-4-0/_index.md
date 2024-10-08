@@ -2,12 +2,12 @@
 title: Öffentliche API und nicht abwärtskompatible Änderungen in Aspose.Slides für .NET 15.4.0
 type: docs
 weight: 150
-url: /net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
+url: /de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Diese Seite listet alle [hinzugefügten](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) oder [entfernten](/slides/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) Klassen, Methoden, Eigenschaften usw. und andere Änderungen, die mit der API von Aspose.Slides für .NET 15.4.0 eingeführt wurden.
+Diese Seite listet alle [hinzugefügten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) oder [entfernten](/slides/de/net/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-net-15-4-0/) Klassen, Methoden, Eigenschaften usw. und andere Änderungen, die mit der API von Aspose.Slides für .NET 15.4.0 eingeführt wurden.
 
 {{% /alert %}} 
 ## **Änderungen der öffentlichen API**
@@ -16,7 +16,7 @@ Das Aspose.Slides.SmartArt.OrganizationChartLayoutType-Enum stellt den Formatier
 #### **Methode IBulletFormat.ApplyDefaultParagraphIndentsShifts wurde hinzugefügt**
 Die Methode Aspose.Slides.IBulletFormat.ApplyDefaultParagraphIndentsShifts setzt standardmäßige, von null verschiedene Verschiebungen für die effektive Absatz-Indentation und MarginLeft, wenn Aufzählungszeichen aktiviert sind (wie PowerPoint es tut, wenn Aufzählungszeichen/Nummerierung aktiviert sind). Wenn Aufzählungszeichen deaktiviert sind, wird nur die Absatz-Indentation und MarginLeft zurückgesetzt (wie PowerPoint es tut, wenn Aufzählungszeichen/Nummerierung deaktiviert sind).
 
-Siehe Beispiele [hier](/slides/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
+Siehe Beispiele [hier](/slides/de/net/adding-and-formatting-text/#managing-paragraph-bullets-in-pptx):
 #### **Methode IConnector.Reroute wurde hinzugefügt**
 Die Methode Aspose.Slides.IConnector.Reroute leitet den Connector so um, dass er den kürzesten möglichen Weg zwischen den verbundenen Formen nimmt. Dazu kann die Methode Reroute() die StartShapeConnectionSiteIndex und EndShapeConnectionSiteIndex ändern.
 

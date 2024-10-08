@@ -3,7 +3,7 @@ title: Schriftarten verwalten - PowerPoint Java API
 linktitle: Schriftarten verwalten
 type: docs
 weight: 10
-url: /androidjava/manage-fonts/
+url: /de/androidjava/manage-fonts/
 description: Präsentationen enthalten in der Regel sowohl Text als auch Bilder. Dieser Artikel zeigt, wie man die Schriftarteigenschaften von Textabsätzen auf Folien mit der PowerPoint Java API konfiguriert.
 ---
 

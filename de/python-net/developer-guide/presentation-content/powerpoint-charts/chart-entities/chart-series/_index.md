@@ -1,7 +1,7 @@
 ---
 title: Diagrammserie
 type: docs
-url: /python-net/chart-series/
+url: /de/python-net/chart-series/
 keywords: "Diagrammserie, Serienfarbe, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Diagrammserien in PowerPoint-Präsentationen in Python"
 ---

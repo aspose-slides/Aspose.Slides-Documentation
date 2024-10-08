@@ -2,7 +2,7 @@
 title: Slide als Miniaturansicht zu JPEG rendern  
 type: docs  
 weight: 60  
-url: /net/render-slide-as-thumbnail-to-jpeg/  
+url: /de/net/render-slide-as-thumbnail-to-jpeg/  
 ---  
 
 **Aspose.Slides für .NET** wird verwendet, um Präsentationsdateien mit Folien zu erstellen. Diese Folien können angezeigt werden, indem man Präsentationsdateien mit Microsoft PowerPoint öffnet. Manchmal müssen Entwickler jedoch Folien als Bilder in ihrem bevorzugten Bildbetrachter anzeigen. In solchen Fällen hilft Ihnen Aspose.Slides für .NET, Miniaturansichten der Folien zu erstellen.  

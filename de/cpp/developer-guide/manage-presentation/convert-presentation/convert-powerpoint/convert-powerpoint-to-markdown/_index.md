@@ -2,7 +2,7 @@
 title: PowerPoint in Markdown konvertieren in C++
 type: docs
 weight: 140
-url: /cpp/convert-powerpoint-to-markdown/
+url: /de/cpp/convert-powerpoint-to-markdown/
 keywords: "PowerPoint in Markdown konvertieren, ppt in md konvertieren, PowerPoint, PPT, PPTX, Präsentation, Markdown, C++, CPP, Aspose.Slides für C++"
 description: "PowerPoint in Markdown konvertieren in C++"
 ---

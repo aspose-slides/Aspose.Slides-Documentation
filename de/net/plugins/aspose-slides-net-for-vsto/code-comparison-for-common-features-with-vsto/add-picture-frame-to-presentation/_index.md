@@ -2,7 +2,7 @@
 title: Fügen Sie einen Bilderrahmen zur Präsentation hinzu
 type: docs
 weight: 50
-url: /net/add-picture-frame-to-presentation/
+url: /de/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**

@@ -2,7 +2,7 @@
 title: Formen auf Folie Größenänderung
 type: docs
 weight: 100
-url: /cpp/re-sizing-shapes-on-slide/
+url: /de/cpp/re-sizing-shapes-on-slide/
 ---
 
 #### **Größenänderung von Formen auf Folie**

@@ -2,12 +2,12 @@
 title: Erstellen und Einfügen eines Excel-Diagramms als OLE-Objekt in eine Microsoft PowerPoint-Folie
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
- Diagramme sind visuelle Darstellungen Ihrer Daten und werden häufig in Präsentationsfolien verwendet. Dieser Artikel zeigt Ihnen den Code zum Erstellen und Einfügen eines Excel-Diagramms als OLE-Objekt in die PowerPoint-Folie programmgesteuert mit [VSTO](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) und [Aspose.Slides für .NET](/slides/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
+ Diagramme sind visuelle Darstellungen Ihrer Daten und werden häufig in Präsentationsfolien verwendet. Dieser Artikel zeigt Ihnen den Code zum Erstellen und Einfügen eines Excel-Diagramms als OLE-Objekt in die PowerPoint-Folie programmgesteuert mit [VSTO](/slides/de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) und [Aspose.Slides für .NET](/slides/de/net/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Erstellen und Einfügen eines Excel-Diagramms**

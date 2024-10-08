@@ -2,7 +2,7 @@
 title: Präsentationshintergrund
 type: docs
 weight: 20
-url: /androidjava/presentation-background/
+url: /de/androidjava/presentation-background/
 keywords: "PowerPoint-Hintergrund, Hintergrund in Java festlegen"
 description: "Hintergrund in der PowerPoint-Präsentation in Java festlegen"
 ---

@@ -2,7 +2,7 @@
 title: Funktionierende Lösung für das Ändern der Größe von Diagrammen in PPTX
 type: docs
 weight: 60
-url: /cpp/working-solution-for-chart-resizing-in-pptx/
+url: /de/cpp/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

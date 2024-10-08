@@ -2,7 +2,7 @@
 title: Lizenz von Aspose.Slides für Reporting Services
 type: docs
 weight: 70
-url: /reportingservices/license-aspose-slides-for-reporting-services/
+url: /de/reportingservices/license-aspose-slides-for-reporting-services/
 ---
 
 ## **Lizenzunterstützung**

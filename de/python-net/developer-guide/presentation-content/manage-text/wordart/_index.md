@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /python-net/wordart/
+url: /de/python-net/wordart/
 keywords: "WordArt, Wort Kunst, WordArt erstellen, WordArt Vorlage, WordArt Effekte, Schatteneffekte, Anzeigeeffekte, Glüheffekte, WordArt Transformationen, 3D Effekte, äußere Schatteneffekte, innere Schatteneffekte, Python, Aspose.Slides für Python über .NET"
 description: "Fügen Sie WordArt und Effekte in PowerPoint-Präsentationen in Python oder Aspose.Slides für Python über .NET hinzu, bearbeiten Sie sie und verwalten Sie sie."
 ---

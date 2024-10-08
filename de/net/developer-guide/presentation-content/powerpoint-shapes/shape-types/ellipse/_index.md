@@ -2,7 +2,7 @@
 title: Ellipse
 type: docs
 weight: 30
-url: /net/ellipse/
+url: /de/net/ellipse/
 keywords: "Ellipse, PowerPoint-Form, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Ellipse in PowerPoint-Präsentation in C# oder .NET erstellen"
 ---

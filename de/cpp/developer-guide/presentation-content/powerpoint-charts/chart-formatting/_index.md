@@ -2,7 +2,7 @@
 title: Diagrammformatierung
 type: docs
 weight: 60
-url: /cpp/chart-formatting/
+url: /de/cpp/chart-formatting/
 ---
 
 

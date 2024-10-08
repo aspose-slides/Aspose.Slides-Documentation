@@ -2,7 +2,7 @@
 title: Arbeiten mit Größe und Layout von Präsentationen
 type: docs
 weight: 90
-url: /net/working-with-size-and-layout-of-presentation/
+url: /de/net/working-with-size-and-layout-of-presentation/
 ---
 
 **SlideSize.Type** und **SlideSize.Size** sind die Eigenschaften der Präsentationsklasse, die wie im folgenden Beispiel gesetzt oder abgerufen werden können.
@@ -47,6 +47,6 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-Für weitere Einzelheiten besuchen Sie [Arbeiten mit Foliengröße und Layout](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Für weitere Einzelheiten besuchen Sie [Arbeiten mit Foliengröße und Layout](/slides/de/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

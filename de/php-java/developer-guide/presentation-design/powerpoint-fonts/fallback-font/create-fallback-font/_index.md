@@ -2,7 +2,7 @@
 title: Erstellen von Fallback-Schriftarten
 type: docs
 weight: 10
-url: /php-java/create-fallback-font/
+url: /de/php-java/create-fallback-font/
 ---
 
 Aspose.Slides unterstützt das [IFontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRule) Interface und die [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) Klasse, um die Regeln für die Anwendung einer Fallback-Schriftart festzulegen. Die [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) Klasse stellt eine Zuordnung zwischen dem angegebenen Unicode-Bereich, der zur Suche nach fehlenden Glyphen verwendet wird, und einer Liste von Schriftarten dar, die die richtigen Glyphen enthalten können:
@@ -22,5 +22,5 @@ Es ist auch möglich, die Fallback-Schriftart [zu entfernen](https://reference.a
 Die [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) kann verwendet werden, um eine Liste von [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) Objekten zu organisieren, wenn es erforderlich ist, Fallback-Schriftartenersetzungsregeln für mehrere Unicode-Bereiche festzulegen.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Erstellen von Fallback-Schriftarten-Sammlungen](/slides/php-java/create-fallback-fonts-collection/)
+- [Erstellen von Fallback-Schriftarten-Sammlungen](/slides/de/php-java/create-fallback-fonts-collection/)
 {{% /alert %}}

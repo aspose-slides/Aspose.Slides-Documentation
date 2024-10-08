@@ -2,18 +2,18 @@
 title: Präsentationskopf und -fußzeile
 type: docs
 weight: 140
-url: /php-java/presentation-header-and-footer/
+url: /de/php-java/presentation-header-and-footer/
 keywords: "PowerPoint Kopf- und Fußzeile"
 description: "PowerPoint Kopf- und Fußzeile"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/php-java/) bietet Unterstützung für die Arbeit mit Texten von Kopf- und Fußzeilen, die tatsächlich auf der Folienmaster-Ebene verwaltet werden.
+[Aspose.Slides](/slides/de/php-java/) bietet Unterstützung für die Arbeit mit Texten von Kopf- und Fußzeilen, die tatsächlich auf der Folienmaster-Ebene verwaltet werden.
 
 {{% /alert %}} 
 
-[Aspose.Slides für PHP über Java](/slides/php-java/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen innerhalb von Präsentationsfolien. Diese werden tatsächlich auf der Präsentationsmaster-Ebene verwaltet.
+[Aspose.Slides für PHP über Java](/slides/de/php-java/) bietet die Funktion zur Verwaltung von Kopf- und Fußzeilen innerhalb von Präsentationsfolien. Diese werden tatsächlich auf der Präsentationsmaster-Ebene verwaltet.
 
 ## **Kopf- und Fußzeile in der Präsentation verwalten**
 Notizen einer bestimmten Folie können entfernt werden, wie im folgenden Beispiel gezeigt:

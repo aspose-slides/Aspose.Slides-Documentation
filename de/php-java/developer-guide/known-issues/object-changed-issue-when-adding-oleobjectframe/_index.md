@@ -2,7 +2,7 @@
 title: Objektänderungsproblem beim Hinzufügen von OleObjectFrame
 type: docs
 weight: 10
-url: /php-java/object-changed-issue-when-adding-oleobjectframe/
+url: /de/php-java/object-changed-issue-when-adding-oleobjectframe/
 ---
 
 ## **Problemstellung**
@@ -10,7 +10,7 @@ Wenn Entwickler ein **OleObjectFrame** zu ihren Folien mithilfe von Aspose.Slide
 ## **Kritische Analyse und Erklärung**
 Zunächst ist es wichtig zu wissen, dass die **Objekt geändert**-Nachricht, die von Aspose.Slides für PHP über Java nach dem Hinzufügen eines **OleObjectFrame** in die Folie angezeigt wird, **KEIN** Fehler oder Bug in Aspose.Slides für PHP über Java ist. Es ist lediglich eine Information oder Nachricht, um die Benutzer zu benachrichtigen, dass das Objekt geändert wurde und das Bild aktualisiert werden sollte.
 
-Wenn Sie beispielsweise ein **Microsoft Excel-Diagramm** als **OleObjectFrame** zu Ihrer Folie hinzufügen (für weitere Details und Codebeispiele zum Hinzufügen von **OleObjectFrame** zu Ihrer Folie, [hier klicken](/slides/php-java/adding-frame-to-the-slide/)) und dann die Präsentationsdatei mit MS PowerPoint öffnen, sieht die Folie (auf der das **OLE-Objekt** hinzugefügt wurde) so aus:
+Wenn Sie beispielsweise ein **Microsoft Excel-Diagramm** als **OleObjectFrame** zu Ihrer Folie hinzufügen (für weitere Details und Codebeispiele zum Hinzufügen von **OleObjectFrame** zu Ihrer Folie, [hier klicken](/slides/de/php-java/adding-frame-to-the-slide/)) und dann die Präsentationsdatei mit MS PowerPoint öffnen, sieht die Folie (auf der das **OLE-Objekt** hinzugefügt wurde) so aus:
 
 ![todo:image_alt_text](object-changed-issue-when-adding-oleobjectframe_1.png)
 

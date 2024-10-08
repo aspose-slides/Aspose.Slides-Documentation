@@ -2,7 +2,7 @@
 title: Verwalten von Zeilen und Spalten
 type: docs
 weight: 20
-url: /net/manage-rows-and-columns/
+url: /de/net/manage-rows-and-columns/
 keywords: "Tabelle, Tabellenzeilen und -spalten, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Verwalten von Tabellenzeilen und -spalten in PowerPoint-Präsentationen in C# oder .NET"
 

@@ -2,7 +2,7 @@
 title: Zoom verwalten
 type: docs
 weight: 60
-url: /cpp/manage-zoom/
+url: /de/cpp/manage-zoom/
 keywords: "Zoom, Zoomrahmen, Zoom hinzufügen, Zoomrahmen formatieren, Zusammenfassungszoom, PowerPoint-Präsentation, C++, Aspose.Slides für C++"
 description: "Fügen Sie Zoom- oder Zoomrahmen zu PowerPoint-Präsentationen in C++ hinzu"
 ---

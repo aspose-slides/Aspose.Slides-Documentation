@@ -2,7 +2,7 @@
 title: Präsentation über VBA
 type: docs
 weight: 250
-url: /cpp/presentation-via-vba/
+url: /de/cpp/presentation-via-vba/
 keywords: "Makro, Makros, VBA, VBA-Makro, Makro hinzufügen, Makro entfernen, VBA hinzufügen, VBA entfernen, Makro extrahieren, VBA extrahieren, PowerPoint-Makro, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Fügen Sie VBA-Makros in PowerPoint-Präsentationen in C++ hinzu, entfernen und extrahieren Sie sie."
 ---

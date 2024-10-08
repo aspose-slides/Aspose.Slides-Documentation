@@ -2,7 +2,7 @@
 title: Extrahieren von Bildern aus Präsentationsformen
 type: docs
 weight: 100
-url: /java/extracting-images-from-presentation-shapes/
+url: /de/java/extracting-images-from-presentation-shapes/
 keywords: "Bild extrahieren, PowerPoint, PPT, PPTX, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Bilder aus PowerPoint-Präsentationen in Java extrahieren"
 

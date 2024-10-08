@@ -2,7 +2,7 @@
 title: Formmanipulationen
 type: docs
 weight: 40
-url: /php-java/formmanipulationen/
+url: /de/php-java/formmanipulationen/
 ---
 
 ## **Form in Folie finden**

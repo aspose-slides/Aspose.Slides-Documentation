@@ -3,7 +3,7 @@ title: Präsentation in Java öffnen
 linktitle: Präsentation öffnen
 type: docs
 weight: 20
-url: /java/open-presentation/
+url: /de/java/open-presentation/
 keywords: "PowerPoint öffnen, PPTX, PPT, Präsentation öffnen, Präsentation laden, Java"
 description: "Präsentation PPT, PPTX, ODP in Java öffnen oder laden"
 ---

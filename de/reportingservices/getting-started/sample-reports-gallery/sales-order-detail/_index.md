@@ -2,7 +2,7 @@
 title: Verkaufsauftrag Detail
 type: docs
 weight: 50
-url: /reportingservices/sales-order-detail/
+url: /de/reportingservices/sales-order-detail/
 ---
 
 ## **Funktionen:**

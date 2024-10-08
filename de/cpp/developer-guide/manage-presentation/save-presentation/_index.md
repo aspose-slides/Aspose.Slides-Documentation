@@ -3,7 +3,7 @@ title: Präsentation speichern - C++ PowerPoint-Bibliothek
 linktitle: Präsentation speichern
 type: docs
 weight: 80
-url: /cpp/save-presentation/
+url: /de/cpp/save-presentation/
 description: C++ PowerPoint-API oder Bibliothek ermöglicht es Ihnen, Präsentationen in eine Datei oder einen Stream zu speichern. Sie können eine Präsentation von Grund auf neu erstellen oder eine bestehende modifizieren.
 ---
 

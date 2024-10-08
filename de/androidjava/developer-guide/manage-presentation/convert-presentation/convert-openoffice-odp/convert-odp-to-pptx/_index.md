@@ -2,7 +2,7 @@
 title: ODP in PPTX umwandeln
 type: docs
 weight: 10
-url: /androidjava/convert-odp-to-pptx/
+url: /de/androidjava/convert-odp-to-pptx/
 ---
 
 ## **ODP in PPTX/PPT-Präsentation umwandeln**

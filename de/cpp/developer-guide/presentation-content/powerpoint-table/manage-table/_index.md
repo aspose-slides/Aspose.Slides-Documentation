@@ -2,7 +2,7 @@
 title: Tabelle verwalten
 type: docs
 weight: 10
-url: /cpp/manage-table/
+url: /de/cpp/manage-table/
 keywords: "Tabelle, Tabelle erstellen, auf Tabelle zugreifen, Tabellen-Seitenverhältnis, PowerPoint-Präsentation, C++, Aspose.Slides für C++"
 description: "Tabelle in PowerPoint-Präsentationen in C++ erstellen und verwalten"
 ---

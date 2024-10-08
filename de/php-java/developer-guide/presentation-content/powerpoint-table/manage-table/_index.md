@@ -2,7 +2,7 @@
 title: Tabelle verwalten
 type: docs
 weight: 10
-url: /php-java/manage-table/
+url: /de/php-java/manage-table/
 keywords: "Tabelle, Tabelle erstellen, auf Tabelle zugreifen, Seitenverhältnis der Tabelle, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Erstellen und verwalten Sie Tabellen in PowerPoint-Präsentationen"
 ---

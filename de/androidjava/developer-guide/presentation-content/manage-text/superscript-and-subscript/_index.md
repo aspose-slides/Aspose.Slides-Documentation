@@ -2,7 +2,7 @@
 title: Hoch- und Tiefgestellt
 type: docs
 weight: 80
-url: /androidjava/superscript-and-subscript/
+url: /de/androidjava/superscript-and-subscript/
 ---
 
 ## **Hochgestellten und tiefgestellten Text verwalten**

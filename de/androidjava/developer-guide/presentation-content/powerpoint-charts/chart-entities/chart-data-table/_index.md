@@ -1,7 +1,7 @@
 ---
 title: Diagrammdaten Tabelle
 type: docs
-url: /androidjava/chart-data-table/
+url: /de/androidjava/chart-data-table/
 ---
 
 ## **Schriftarteigenschaften für Diagrammdaten Tabelle setzen**

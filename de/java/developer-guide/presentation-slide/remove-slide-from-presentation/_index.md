@@ -2,7 +2,7 @@
 title: Folie aus Präsentation entfernen
 type: docs
 weight: 30
-url: /java/remove-slide-from-presentation/
+url: /de/java/remove-slide-from-presentation/
 keywords: "Folie entfernen, Folie löschen, PowerPoint, Präsentation, Java, Aspose.Slides"
 description: "Folie aus PowerPoint durch Referenz oder Index in Java entfernen"
 

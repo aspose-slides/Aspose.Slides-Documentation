@@ -2,7 +2,7 @@
 title: Bullet verwalten
 type: docs
 weight: 60
-url: /androidjava/manage-bullet/
+url: /de/androidjava/manage-bullet/
 keywords: "Aufzählungszeichen, Aufzählungslisten, Zahlen, nummerierte Listen, Bildaufzählungszeichen, mehrstufige Aufzählungen, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Erstellen Sie Aufzählungs- und nummerierte Listen in PowerPoint-Präsentationen in Java"
 ---

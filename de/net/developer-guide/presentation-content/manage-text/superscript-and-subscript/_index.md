@@ -2,7 +2,7 @@
 title: Hochgestellt und Tiefgestellt
 type: docs
 weight: 80
-url: /net/superscript-and-subscript/
+url: /de/net/superscript-and-subscript/
 keywords: "Hochgestellt, Tiefgestellt, Hochgestellten Text hinzufügen, Tiefgestellten Text hinzufügen, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Hochgestellten und tiefgestellten Text zu PowerPoint-Präsentationen in C# oder .NET hinzufügen"
 ---

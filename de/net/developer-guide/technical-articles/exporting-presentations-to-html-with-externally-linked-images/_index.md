@@ -2,7 +2,7 @@
 title: Exportieren von Präsentationen nach HTML mit extern verlinkten Bildern
 type: docs
 weight: 100
-url: /net/exporting-presentations-to-html-with-externally-linked-images/
+url: /de/net/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

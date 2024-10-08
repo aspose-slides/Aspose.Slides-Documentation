@@ -2,7 +2,7 @@
 title: Hyperlinks verwalten
 type: docs
 weight: 20
-url: /python-net/manage-hyperlinks/
+url: /de/python-net/manage-hyperlinks/
 keywords: "Hyperlink hinzufügen, PowerPoint-Präsentation, PowerPoint-Hyperlink, Text-Hyperlink, Folien-Hyperlink, Formen-Hyperlink, Bild-Hyperlink, Video-Hyperlink, Python"
 description: "Hyperlink zu einer PowerPoint-Präsentation in Python hinzufügen"
 ---

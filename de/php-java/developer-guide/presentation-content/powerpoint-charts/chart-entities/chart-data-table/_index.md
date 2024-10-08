@@ -1,7 +1,7 @@
 ---
 title: Diagrammdaten Tabelle
 type: docs
-url: /php-java/chart-data-table/
+url: /de/php-java/chart-data-table/
 ---
 
 ## **Schriftart-Eigenschaften für Diagrammdaten Tabelle festlegen**

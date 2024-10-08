@@ -1,7 +1,7 @@
 ---
 title: Diagrammdatenbeschriftung
 type: docs
-url: /java/chart-data-label/
+url: /de/java/chart-data-label/
 keywords: "Diagrammdatenbeschriftung,Beschriftungsabstand, Java, Aspose.Slides für Java"
 description: "Setzen Sie die Diagrammdatenbeschriftung und den Abstand in Java"
 ---

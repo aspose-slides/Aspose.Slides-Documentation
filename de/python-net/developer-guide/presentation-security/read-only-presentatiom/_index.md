@@ -2,7 +2,7 @@
 title: Nur-Lesen-Präsentation
 type: docs
 weight: 30
-url: /python-net/read-only-presentation/
+url: /de/python-net/read-only-presentation/
 keywords: "Nur-Lesen-Einstellung, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Nur-Lesen PowerPoint-Präsentation in Python"
 ---

@@ -2,7 +2,7 @@
 title: Eine Folie als SVG-Bild rendern
 type: docs
 weight: 50
-url: /androidjava/render-a-slide-as-an-svg-image/
+url: /de/androidjava/render-a-slide-as-an-svg-image/
 ---
 
 SVG—eine Abkürzung für skalierbare Vektorgrafiken—ist ein standardisiertes Grafikformat, das verwendet wird, um zweidimensionale Bilder darzustellen. SVG speichert Bilder als Vektoren in XML mit Details, die ihr Verhalten oder Aussehen definieren.

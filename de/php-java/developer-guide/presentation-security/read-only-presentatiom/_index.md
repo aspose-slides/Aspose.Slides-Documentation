@@ -2,7 +2,7 @@
 title: Nur-Lese-Präsentation
 type: docs
 weight: 30
-url: /php-java/nur-lese-praesentation/
+url: /de/php-java/nur-lese-praesentation/
 
 ---
 

@@ -2,7 +2,7 @@
 title: Wasserzeichen
 type: docs
 weight: 40
-url: /androidjava/wasserzeichen/
+url: /de/androidjava/wasserzeichen/
 keywords:
 - wasserzeichen
 - wasserzeichen hinzufügen
@@ -49,7 +49,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man die TextFrame-Klasse verwendet](/slides/androidjava/text-formatting/)
+- [Wie man die TextFrame-Klasse verwendet](/slides/de/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **Textwasserzeichen zu einer Präsentation hinzufügen**
@@ -69,7 +69,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man den Folienmaster verwendet](/slides/androidjava/slide-master/)
+- [Wie man den Folienmaster verwendet](/slides/de/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **Wasserzeichenformtransparenz einstellen**

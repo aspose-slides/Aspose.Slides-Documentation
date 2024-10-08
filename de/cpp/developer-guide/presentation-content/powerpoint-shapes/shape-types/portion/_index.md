@@ -2,7 +2,7 @@
 title: Portion
 type: docs
 weight: 70
-url: /cpp/portion/
+url: /de/cpp/portion/
 ---
 
 ## **Positionkoordinaten der Portion abrufen**

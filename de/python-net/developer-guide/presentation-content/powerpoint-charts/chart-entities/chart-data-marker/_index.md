@@ -1,7 +1,7 @@
 ---
 title: Diagrammdatenmarkierung
 type: docs
-url: /python-net/chart-data-marker/
+url: /de/python-net/chart-data-marker/
 keywords: "Diagramm-Markierungsoptionen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Diagramm-Markierungsoptionen in PowerPoint-Präsentationen in Python festlegen"
 ---

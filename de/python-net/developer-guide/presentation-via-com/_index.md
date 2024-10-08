@@ -2,5 +2,5 @@
 title: Präsentation über COM
 type: docs
 weight: 260
-url: /python-net/presentation-via-com/
+url: /de/python-net/presentation-via-com/
 ---

@@ -2,7 +2,7 @@
 title: Formen auf Folien als Bilder rendern
 type: docs
 weight: 120
-url: /net/rendering-shapes-on-slide-as-images/
+url: /de/net/rendering-shapes-on-slide-as-images/
 ---
 
 Dies behandelt zwei Hauptfunktionen:

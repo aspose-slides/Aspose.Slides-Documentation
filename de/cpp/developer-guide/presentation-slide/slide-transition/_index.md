@@ -2,7 +2,7 @@
 title: Folienübergang
 type: docs
 weight: 80
-url: /cpp/slide-transition/
+url: /de/cpp/slide-transition/
 keywords: "PowerPoint Folienübergang, Morphübergang"
 description: "PowerPoint Folienübergang, PowerPoint Morphübergang mit Aspose.Slides."
 ---

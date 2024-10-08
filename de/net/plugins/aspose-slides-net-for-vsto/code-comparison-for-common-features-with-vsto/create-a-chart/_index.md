@@ -2,7 +2,7 @@
 title: Erstellt ein Diagramm
 type: docs
 weight: 60
-url: /net/create-a-chart/
+url: /de/net/create-a-chart/
 ---
 
 Die folgenden Codebeispiele beschreiben den Prozess, ein einfaches 3D gruppiertes Säulendiagramm mit VSTO hinzuzufügen. Sie erstellen eine Präsentationsinstanz, fügen ein Standarddiagramm hinzu. Dann verwenden Sie die Microsoft Excel-Arbeitsmappe, um auf die Diagrammdaten zuzugreifen und diese zu ändern sowie die Diagrammeigenschaften festzulegen. Schließlich speichern Sie die Präsentation.

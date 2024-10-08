@@ -2,7 +2,7 @@
 title: Textformatierung
 type: docs
 weight: 50
-url: /cpp/text-formatting/
+url: /de/cpp/text-formatting/
 keywords:
 - Text hervorheben
 - regulärer Ausdruck

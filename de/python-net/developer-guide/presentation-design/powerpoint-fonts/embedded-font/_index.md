@@ -2,7 +2,7 @@
 title: Eingebettete Schriftart
 type: docs
 weight: 40
-url: /python-net/embedded-font/
+url: /de/python-net/embedded-font/
 keywords: "Schriftarten, eingebettete Schriftarten, Schriftarten hinzufügen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Verwenden Sie eingebettete Schriftarten in PowerPoint-Präsentationen in Python"
 ---

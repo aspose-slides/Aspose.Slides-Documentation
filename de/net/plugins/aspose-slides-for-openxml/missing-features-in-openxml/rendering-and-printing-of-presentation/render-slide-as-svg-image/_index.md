@@ -2,7 +2,7 @@
 title: Folie als SVG-Bild rendern
 type: docs
 weight: 50
-url: /net/render-slide-as-svg-image/
+url: /de/net/render-slide-as-svg-image/
 ---
 
 SVG—eine Abkürzung für Scalable Vector Graphics—ist ein standardisiertes Grafikformat, das zur Darstellung zweidimensionaler Bilder verwendet wird. SVG speichert Bilder als Vektoren in XML mit Details, die ihr Verhalten oder Erscheinungsbild definieren.

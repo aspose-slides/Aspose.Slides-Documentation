@@ -2,7 +2,7 @@
 title: Autofit-Einstellungen verwalten
 type: docs
 weight: 30
-url: /androidjava/manage-autofit-settings/
+url: /de/androidjava/manage-autofit-settings/
 keywords: "Textbox, Autofit, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Stellen Sie die Autofit-Einstellungen für Textboxen in PowerPoint in Java ein"
 ---

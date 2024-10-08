@@ -2,5 +2,5 @@
 title: Formtypen
 type: docs
 weight: 10
-url: /cpp/shape-types/
+url: /de/cpp/shape-types/
 ---

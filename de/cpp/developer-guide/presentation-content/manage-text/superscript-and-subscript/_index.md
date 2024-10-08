@@ -2,7 +2,7 @@
 title: Hochgestellt und Tiefgestellt
 type: docs
 weight: 80
-url: /cpp/superscript-and-subscript/
+url: /de/cpp/superscript-and-subscript/
 ---
 
 ## **Hochgestellten und Tiefgestellten Text verwalten**

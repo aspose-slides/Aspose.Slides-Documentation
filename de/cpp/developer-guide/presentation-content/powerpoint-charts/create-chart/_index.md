@@ -3,7 +3,7 @@ title: Erstellen von PowerPoint-Präsentationsdiagrammen in C++
 linktitle: Diagramm erstellen
 type: docs
 weight: 10
-url: /cpp/create-chart/
+url: /de/cpp/create-chart/
 keywords: "Diagramm erstellen, Punktdiagramm, Kreisdiagramm, Baumkarten-Diagramm, Aktiendiagramm, Box- und Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnenstrahl-Diagramm, Mehrkategoriediagramm, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Diagramm in PowerPoint-Präsentation in C++ erstellen"
 ---

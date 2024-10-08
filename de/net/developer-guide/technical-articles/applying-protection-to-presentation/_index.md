@@ -2,14 +2,14 @@
 title: Anwendung von Schutz auf Präsentationen
 type: docs
 weight: 70
-url: /net/applying-protection-to-presentation/
+url: /de/net/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Eine häufige Verwendung von Aspose.Slides besteht darin, Microsoft PowerPoint 2007 (PPTX) Präsentationen im Rahmen eines automatisierten Workflows zu erstellen, zu aktualisieren und zu speichern. Die Benutzer der Anwendung, die Aspose.Slides auf diese Weise verwenden, erhalten Zugriff auf die erstellten Präsentationen. Sie vor Bearbeitung zu schützen, ist ein häufiges Anliegen. Es ist wichtig, dass automatisch generierte Präsentationen ihr ursprüngliches Format und ihren Inhalt beibehalten.
 
-Dieser Artikel erklärt, wie [Präsentationen und Folien aufgebaut sind](/slides/net/applying-protection-to-presentation/) und wie Aspose.Slides für .NET [Schutz anwenden kann](/slides/net/applying-protection-to-presentation/) und anschließend [von](/slides/net/applying-protection-to-presentation/) einer Präsentation entfernt. Diese Funktion ist einzigartig für Aspose.Slides und ist zum Zeitpunkt des Schreibens in Microsoft PowerPoint nicht verfügbar. Sie gibt Entwicklern die Möglichkeit, zu steuern, wie die Präsentationen, die ihre Anwendungen erstellen, verwendet werden.
+Dieser Artikel erklärt, wie [Präsentationen und Folien aufgebaut sind](/slides/de/net/applying-protection-to-presentation/) und wie Aspose.Slides für .NET [Schutz anwenden kann](/slides/de/net/applying-protection-to-presentation/) und anschließend [von](/slides/de/net/applying-protection-to-presentation/) einer Präsentation entfernt. Diese Funktion ist einzigartig für Aspose.Slides und ist zum Zeitpunkt des Schreibens in Microsoft PowerPoint nicht verfügbar. Sie gibt Entwicklern die Möglichkeit, zu steuern, wie die Präsentationen, die ihre Anwendungen erstellen, verwendet werden.
 
 {{% /alert %}} 
 ## **Zusammensetzung einer Folie**

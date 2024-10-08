@@ -2,7 +2,7 @@
 title: Tabelle verwalten
 type: docs
 weight: 10
-url: /java/manage-table/
+url: /de/java/manage-table/
 keywords: "Tabelle, Tabelle erstellen, auf Tabelle zugreifen, Seitenverhältnis der Tabelle, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Erstellen und Verwalten von Tabellen in PowerPoint-Präsentationen in Java"
 ---

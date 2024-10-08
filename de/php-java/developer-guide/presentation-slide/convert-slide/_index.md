@@ -2,7 +2,7 @@
 title: Folie konvertieren
 type: docs
 weight: 35
-url: /php-java/convert-slide/
+url: /de/php-java/convert-slide/
 keywords: 
 - folie in bild konvertieren
 - folie als bild exportieren

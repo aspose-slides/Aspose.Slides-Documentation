@@ -2,7 +2,7 @@
 title: Erstellen einer Tabelle auf einer PowerPoint-Folie in VSTO und Aspose.Slides
 type: docs
 weight: 90
-url: /net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
+url: /de/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
 Die folgenden Schritte fügen einer Microsoft PowerPoint-Folie eine Tabelle mit VSTO hinzu:

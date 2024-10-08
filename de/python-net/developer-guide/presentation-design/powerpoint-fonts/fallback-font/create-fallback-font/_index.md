@@ -2,7 +2,7 @@
 title: Erstellen von Fallback-Schriftarten
 type: docs
 weight: 10
-url: /python-net/create-fallback-font/
+url: /de/python-net/create-fallback-font/
 keywords: "Schriftarten, Fallback-Schriftart, PowerPoint-Präsentation Python, Aspose.Slides für Python über .NET"
 description: "Fallback-Schriftart in PowerPoint in Python"
 ---
@@ -27,5 +27,5 @@ Es ist auch möglich, die [Remove()](https://reference.aspose.com/slides/python-
 Die [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) kann verwendet werden, um eine Liste von [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) Objekten zu organisieren, wenn es erforderlich ist, Fallback-Schriftartenersatzregeln für mehrere Unicode-Bereiche festzulegen.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Fallback-Schriftarten-Sammlung erstellen](/slides/python-net/create-fallback-fonts-collection/)
+- [Fallback-Schriftarten-Sammlung erstellen](/slides/de/python-net/create-fallback-fonts-collection/)
 {{% /alert %}}

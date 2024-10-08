@@ -2,7 +2,7 @@
 title: TextBox verwalten
 type: docs
 weight: 20
-url: /php-java/manage-textbox/
+url: /de/php-java/manage-textbox/
 description: Erstellen Sie ein Textfeld auf PowerPoint-Folien mit PHP. Fügen Sie eine Spalte in das Textfeld oder den Textrahmen in PowerPoint-Folien mit PHP ein. Fügen Sie ein Textfeld mit Hyperlink in PowerPoint-Folien mit PHP hinzu.
 ---
 

@@ -2,7 +2,7 @@
 title: FAQs
 type: docs
 weight: 340
-url: /python-net/faqs/
+url: /de/python-net/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **Q: Welche Dateiformate unterstützt Aspose.Slides für Python über .NET?**
 
-**A**: Aspose.Slides für Python über .NET unterstützt die in [Unterstützte Dateiformate](/slides/python-net/supported-file-formats/) beschriebenen Dateiformate.
+**A**: Aspose.Slides für Python über .NET unterstützt die in [Unterstützte Dateiformate](/slides/de/python-net/supported-file-formats/) beschriebenen Dateiformate.
 
 ## **Ausnahmen**
 
@@ -54,7 +54,7 @@ Im Allgemeinen kann Aspose.Slides für Python über .NET Präsentationsdateien v
 
 **Q: Warum sind die Absatzgrößen in Windows- und Linux-Betriebssystemen unterschiedlich?**
 
-**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den angegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der Schriftart, die in der PowerPoint-Präsentation angegeben ist. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprüngliche. Infolgedessen führt die Berechnung der Absatzgrößen auf verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig vom Satz der installierten Schriften. Um dasselbe Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen Sie die gleichen Schriften auf den Systemen installieren oder sie zur Laufzeit als [externe Schriften](/slides/python-net/custom-font/) laden.
+**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den angegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der Schriftart, die in der PowerPoint-Präsentation angegeben ist. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprüngliche. Infolgedessen führt die Berechnung der Absatzgrößen auf verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig vom Satz der installierten Schriften. Um dasselbe Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen Sie die gleichen Schriften auf den Systemen installieren oder sie zur Laufzeit als [externe Schriften](/slides/de/python-net/custom-font/) laden.
 
 ## **Formatierung und Bilder**
 

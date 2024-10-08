@@ -2,7 +2,7 @@
 title: Präsentationsnotizen
 type: docs
 weight: 110
-url: /java/presentation-notes/
+url: /de/java/presentation-notes/
 keywords: "PowerPoint Referentennotizen in Java"
 description: "Präsentationsnotizen, Referentennotizen in Java"
 ---

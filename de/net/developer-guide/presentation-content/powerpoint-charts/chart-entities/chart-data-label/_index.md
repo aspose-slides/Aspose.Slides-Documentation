@@ -1,7 +1,7 @@
 ---
 title: Diagrammdatenbeschriftung
 type: docs
-url: /net/chart-data-label/
+url: /de/net/chart-data-label/
 keywords: "Diagrammdatenbeschriftung,Beschriftungsabstand,C#,Csharp,Aspose.Slides für .NET"
 description: "Diagrammdatenbeschriftung und Abstand in C# oder .NET festlegen"
 ---

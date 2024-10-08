@@ -2,7 +2,7 @@
 title: Formatin von Formen
 type: docs
 weight: 20
-url: /java/shape-formatting/
+url: /de/java/shape-formatting/
 keywords: "Form formatieren, Linien formatieren, Verbindungsstile formatieren, Farbverlauffüllung, Musterfüllung, Bildfüllung, einfarbige Füllung, Formen drehen, 3D-Fasen-Effekte, 3D-Drehungseffekt, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Form in PowerPoint-Präsentation in Java formatieren"
 ---

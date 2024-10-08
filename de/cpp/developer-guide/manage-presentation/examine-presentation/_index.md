@@ -3,7 +3,7 @@ title: Präsentation überprüfen - C++ PowerPoint API
 linktitle: Präsentation überprüfen
 type: docs
 weight: 30
-url: /cpp/examine-presentation/
+url: /de/cpp/examine-presentation/
 keywords:
 - PowerPoint
 - präsentation

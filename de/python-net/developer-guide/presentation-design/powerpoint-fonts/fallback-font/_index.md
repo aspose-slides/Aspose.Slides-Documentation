@@ -2,7 +2,7 @@
 title: Fallback-Schriftart
 type: docs
 weight: 50
-url: /python-net/fallback-font/
+url: /de/python-net/fallback-font/
 keywords: "Fallback-Schriftart, Schriftart, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint-Fallback-Schriftart in Python"
 ---
@@ -14,6 +14,6 @@ Aspose.Slides ermöglicht es, Fallback-Schriftarten zu erstellen, sie zur Sammlu
 
 Um sich mit diesen Funktionen vertraut zu machen, nutzen Sie die folgenden Links:
 
-- [Fallback-Schriftart erstellen](/slides/python-net/create-fallback-font)
-- [Fallback-Schriftartensammlung erstellen](/slides/python-net/create-fallback-fonts-collection)
-- [Präsentation mit Fallback-Schriftart rendern](/slides/python-net/render-presentation-with-fallback-font)
+- [Fallback-Schriftart erstellen](/slides/de/python-net/create-fallback-font)
+- [Fallback-Schriftartensammlung erstellen](/slides/de/python-net/create-fallback-fonts-collection)
+- [Präsentation mit Fallback-Schriftart rendern](/slides/de/python-net/render-presentation-with-fallback-font)

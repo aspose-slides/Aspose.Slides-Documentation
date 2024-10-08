@@ -3,7 +3,7 @@ title: Benutzerdefinierte PowerPoint-Schriftart in Java
 linktitle: Benutzerdefinierte Schriftart
 type: docs
 weight: 20
-url: /androidjava/custom-font/
+url: /de/androidjava/custom-font/
 keywords: "Schriftarten, benutzerdefinierte Schriftarten, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Benutzerdefinierte PowerPoint-Schriftarten in Java"
 ---

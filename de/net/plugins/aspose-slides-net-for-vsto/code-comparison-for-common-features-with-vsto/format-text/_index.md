@@ -2,7 +2,7 @@
 title: Text formatieren
 type: docs
 weight: 110
-url: /net/format-text/
+url: /de/net/format-text/
 ---
 
 Sowohl die VSTO- als auch die Aspose.Slides-Methoden führen die folgenden Schritte aus:

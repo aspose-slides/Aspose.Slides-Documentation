@@ -2,7 +2,7 @@
 title: PowerPoint-Mathematikgleichungen
 type: docs
 weight: 80
-url: /java/powerpoint-math-equations/
+url: /de/java/powerpoint-math-equations/
 keywords: "PowerPoint-Mathematikgleichungen, PowerPoint-Mathematiksymbole, PowerPoint-Formel, PowerPoint-Mathematiktext"
 description: "PowerPoint-Mathematikgleichungen, PowerPoint-Mathematiksymbole, PowerPoint-Formel, PowerPoint-Mathematiktext"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Präsentationsansicht Eigenschaften
 type: docs
-url: /java/presentation-view-properties/
+url: /de/java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -59,7 +59,7 @@ try {
 ## **Standard-Zoom-Wert festlegen**
 {{% alert color="primary" %}} 
 
-Aspose.Slides für Java unterstützt jetzt das Festlegen des Standard-Zoomwerts für Präsentationen, sodass beim Öffnen der Präsentation bereits der Zoom eingestellt ist. Dies kann erfolgen, indem die [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) einer Präsentation festgelegt werden. [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert eingestellt werden. In diesem Thema werden wir an einem Beispiel sehen, wie man die [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) in [Aspose.Slides](/slides/) festlegt.
+Aspose.Slides für Java unterstützt jetzt das Festlegen des Standard-Zoomwerts für Präsentationen, sodass beim Öffnen der Präsentation bereits der Zoom eingestellt ist. Dies kann erfolgen, indem die [ViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) einer Präsentation festgelegt werden. [getSlideViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getSlideViewProperties--) sowie [getNotesViewProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties#getNotesViewProperties--) können programmgesteuert eingestellt werden. In diesem Thema werden wir an einem Beispiel sehen, wie man die [View Properties](https://reference.aspose.com/slides/java/com.aspose.slides/ViewProperties) der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) in [Aspose.Slides](/slides/de/) festlegt.
 
 {{% /alert %}} 
 

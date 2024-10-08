@@ -2,7 +2,7 @@
 title: Foliengröße
 type: docs
 weight: 70
-url: /cpp/slide-size/
+url: /de/cpp/slide-size/
 
 ---
 

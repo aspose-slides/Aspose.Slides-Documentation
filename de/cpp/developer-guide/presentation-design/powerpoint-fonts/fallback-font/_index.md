@@ -2,7 +2,7 @@
 title: Fallback-Schriftart
 type: docs
 weight: 50
-url: /cpp/fallback-font/
+url: /de/cpp/fallback-font/
 ---
 
 ## **Fallback-Schriftart**
@@ -12,6 +12,6 @@ Aspose.Slides ermöglicht das Erstellen von Fallback-Schriftarten, das Hinzufüg
 
 Um sich mit diesen Funktionen vertraut zu machen, verwenden Sie die folgenden Links:
 
-- [Fallback-Schriftart erstellen](/slides/cpp/create-fallback-font)
-- [Fallback-Schriftartensammlung erstellen](/slides/cpp/create-fallback-fonts-collection)
-- [Präsentation mit Fallback-Schriftart rendern](/slides/cpp/render-presentation-with-fallback-font)
+- [Fallback-Schriftart erstellen](/slides/de/cpp/create-fallback-font)
+- [Fallback-Schriftartensammlung erstellen](/slides/de/cpp/create-fallback-fonts-collection)
+- [Präsentation mit Fallback-Schriftart rendern](/slides/de/cpp/render-presentation-with-fallback-font)

@@ -4,7 +4,7 @@ second_title: "Aspose.Slides für Python Dokumentation"
 description: Aspose.Slides für Python über .NET bietet viele wichtige Funktionen wie das Verwalten von Text, Formen, Tabellen und Animationen, das Hinzufügen von Audio und Video zu Folien, das Vorschauen von Folien, das Exportieren von Folien in SVG, PDF-Format und mehr.
 type: docs
 weight: 35
-url: /python-net/
+url: /de/python-net/
 is_root: true
 ---
 
@@ -26,8 +26,8 @@ Aspose.Slides für Python über .NET bietet viele wichtige Funktionen wie das Ve
 
 Dies sind Links zu nützlichen Ressourcen:
 
-- [Aspose.Slides für Python über .NET Online-Dokumentation](/slides/python-net/)
-- [Aspose.Slides für Python über .NET Funktionen](/slides/python-net/features-overview/)
+- [Aspose.Slides für Python über .NET Online-Dokumentation](/slides/de/python-net/)
+- [Aspose.Slides für Python über .NET Funktionen](/slides/de/python-net/features-overview/)
 - [Aspose.Slides für Python über .NET Versionshinweise](https://releases.aspose.com/slides/python-net/release-notes/)
 - [Aspose.Slides für Python über .NET Produktseite](https://products.aspose.com/slides/python-net/)
 - [Aspose.Slides für Python über .NET herunterladen](https://releases.aspose.com/slides/python-net/)

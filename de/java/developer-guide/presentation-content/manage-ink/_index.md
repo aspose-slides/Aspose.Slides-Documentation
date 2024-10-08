@@ -2,7 +2,7 @@
 title: Tinte verwalten
 type: docs
 weight: 95
-url: /java/manage-ink/
+url: /de/java/manage-ink/
 keywords: "Tinte in PowerPoint, Tintwerkzeuge, Java Ink, Zeichnen in PowerPoint, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Verwenden Sie Tintwerkzeuge, um Objekte in PowerPoint Java zu zeichnen"
 ---

@@ -2,7 +2,7 @@
 title: Formenmanipulationen
 type: docs
 weight: 40
-url: /cpp/shape-manipulations/
+url: /de/cpp/shape-manipulations/
 ---
 
 ## **Form in Folie finden**

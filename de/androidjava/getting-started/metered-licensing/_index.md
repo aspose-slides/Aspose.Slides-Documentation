@@ -2,7 +2,7 @@
 title: Metered Lizenzierung
 type: docs
 weight: 100
-url: /androidjava/metered-licensing/
+url: /de/androidjava/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

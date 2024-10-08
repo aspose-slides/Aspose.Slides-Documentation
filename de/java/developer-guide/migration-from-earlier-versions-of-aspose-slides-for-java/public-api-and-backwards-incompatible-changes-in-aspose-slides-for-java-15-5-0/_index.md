@@ -2,12 +2,12 @@
 title: Öffentliches API und rückwärtsinkompatible Änderungen in Aspose.Slides für Java 15.5.0
 type: docs
 weight: 130
-url: /java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/
+url: /de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/
 ---
 
 {{% alert color="primary" %}} 
 
-Diese Seite listet alle [hinzugefügten](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) Klassen, Methoden, Eigenschaften usw. auf, sowie neue Einschränkungen und andere [Änderungen](/slides/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/), die mit der Aspose.Slides für Java 15.5.0 API eingeführt wurden.
+Diese Seite listet alle [hinzugefügten](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/) Klassen, Methoden, Eigenschaften usw. auf, sowie neue Einschränkungen und andere [Änderungen](/slides/de/java/public-api-and-backwards-incompatible-changes-in-aspose-slides-for-java-15-5-0/), die mit der Aspose.Slides für Java 15.5.0 API eingeführt wurden.
 
 {{% /alert %}} 
 ## **Änderungen des öffentlichen APIs**

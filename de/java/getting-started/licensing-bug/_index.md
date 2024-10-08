@@ -2,7 +2,7 @@
 title: Lizenzierungsfehler
 type: docs
 weight: 95
-url: /java/licensing-bug/
+url: /de/java/licensing-bug/
 ---
 
 Dieser Artikel beschreibt einen Lizenzierungsfehler, der in den Aspose.Slides-Versionen für Java 23.2, 23.3, 23.4, 23.5, 23.6 und 23.7 aufgetreten ist. Dieser Fehler führte dazu, dass zeitlich unbegrenzte Lizenzen nach Ablauf ihrer Abonnements vorübergehend unbrauchbar wurden.

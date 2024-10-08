@@ -1,7 +1,7 @@
 ---
 title: Diagramm Plotbereich
 type: docs
-url: /cpp/chart-plot-area/
+url: /de/cpp/chart-plot-area/
 ---
 
 ## **Breite und Höhe des Diagramm Plotbereichs erhalten**

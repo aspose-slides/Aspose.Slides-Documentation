@@ -2,7 +2,7 @@
 title: Wenden Sie ein Thema auf eine Präsentation an
 type: docs
 weight: 30
-url: /net/apply-a-theme-to-a-presentation/
+url: /de/net/apply-a-theme-to-a-presentation/
 ---
 
 ## **OpenXML-Präsentation:**

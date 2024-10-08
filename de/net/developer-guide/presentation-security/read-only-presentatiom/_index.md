@@ -2,7 +2,7 @@
 title: Nur-Lese-Präsentation
 type: docs
 weight: 30
-url: /net/read-only-presentation/
+url: /de/net/read-only-presentation/
 keywords: "Nur-Lese-Einstellung, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Nur-Lese PowerPoint-Präsentation in C# oder .NET"
 ---

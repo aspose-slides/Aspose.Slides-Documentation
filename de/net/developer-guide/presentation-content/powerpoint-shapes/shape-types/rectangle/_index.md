@@ -2,7 +2,7 @@
 title: Rechteck
 type: docs
 weight: 80
-url: /net/rectangle/
+url: /de/net/rectangle/
 keywords: "Rechteck erstellen, PowerPoint-Form, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Rechteck in einer PowerPoint-Präsentation in C# oder .NET erstellen"
 ---

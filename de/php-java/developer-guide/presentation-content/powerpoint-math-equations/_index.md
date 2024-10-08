@@ -2,7 +2,7 @@
 title: PowerPoint mathematik Gleichungen
 type: docs
 weight: 80
-url: /php-java/powerpoint-math-equations/
+url: /de/php-java/powerpoint-math-equations/
 keywords: " PowerPoint Mathematik Gleichungen, PowerPoint Mathematik Symbole, PowerPoint Formel, PowerPoint Mathematik Text"
 description: "PowerPoint Mathematik Gleichungen, PowerPoint Mathematik Symbole, PowerPoint Formel, PowerPoint Mathematik Text"
 ---

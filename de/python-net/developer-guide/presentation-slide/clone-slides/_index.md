@@ -2,7 +2,7 @@
 title: Folien klonen
 type: docs
 weight: 40
-url: /python-net/clone-slides/
+url: /de/python-net/clone-slides/
 keywords: "Folie klonen, Folie kopieren, Folienkopie speichern, PowerPoint, Präsentation, Python, Aspose.Slides"
 description: "PowerPoint-Folie in Python klonen"
 ---

@@ -2,7 +2,7 @@
 title: So führen Sie Beispiele aus
 type: docs
 weight: 130
-url: /cpp/how-to-run-examples/
+url: /de/cpp/how-to-run-examples/
 ---
 
 ## **Softwareanforderungen**

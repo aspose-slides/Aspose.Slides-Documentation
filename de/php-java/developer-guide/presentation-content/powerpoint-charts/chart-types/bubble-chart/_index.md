@@ -1,7 +1,7 @@
 ---
 title: Blasendiagramm
 type: docs
-url: /php-java/bubble-chart/
+url: /de/php-java/bubble-chart/
 ---
 
 ## **Blasendiagramm Größen-Skalierung**

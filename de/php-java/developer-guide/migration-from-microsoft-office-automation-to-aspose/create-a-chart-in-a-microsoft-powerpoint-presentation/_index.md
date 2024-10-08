@@ -2,12 +2,12 @@
 title: Ein Diagramm in einer Microsoft PowerPoint-Präsentation erstellen
 type: docs
 weight: 70
-url: /php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /de/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-Diagramme sind visuelle Darstellungen von Daten, die häufig in Präsentationen verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint mithilfe von [VSTO](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für PHP über Java](/slides/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+Diagramme sind visuelle Darstellungen von Daten, die häufig in Präsentationen verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint mithilfe von [VSTO](/slides/de/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für PHP über Java](/slides/de/php-java/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Erstellen eines Diagramms**

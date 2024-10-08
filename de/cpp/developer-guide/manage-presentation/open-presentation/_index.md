@@ -3,7 +3,7 @@ title: Präsentation Öffnen - C++ PowerPoint API
 linktitle: Präsentation Öffnen
 type: docs
 weight: 20
-url: /cpp/open-presentation/
+url: /de/cpp/open-presentation/
 keywords: "PowerPoint öffnen, PPTX, PPT, Präsentation öffnen, Präsentation laden, C++, CPP"
 description: "Öffnen oder Laden von Präsentationen PPT, PPTX, ODP in C++"
 ---

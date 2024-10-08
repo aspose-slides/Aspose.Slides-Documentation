@@ -2,7 +2,7 @@
 title: Audio-Frame
 type: docs
 weight: 10
-url: /python-net/audio-frame/
+url: /de/python-net/audio-frame/
 keywords: "Audio hinzufügen, Audio-Frame, Audioeigenschaften, Audio extrahieren, Python, Aspose.Slides für Python über .NET"
 description: "Audio zu PowerPoint-Präsentation in Python hinzufügen"
 ---

@@ -2,7 +2,7 @@
 title: Abschnitt Folien
 type: docs
 weight: 100
-url: /cpp/slide-section/
+url: /de/cpp/slide-section/
 ---
 
 Mit Aspose.Slides für C++ können Sie eine PowerPoint-Präsentation in Abschnitte organisieren. Sie können Abschnitte erstellen, die spezifische Folien enthalten.

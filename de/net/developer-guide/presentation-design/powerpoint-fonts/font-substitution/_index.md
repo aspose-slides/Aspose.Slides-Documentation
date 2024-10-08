@@ -3,7 +3,7 @@ title: Schriftartenersetzung - PowerPoint C# API
 linktitle: Schriftartenersetzung
 type: docs
 weight: 70
-url: /net/font-substitution/
+url: /de/net/font-substitution/
 keywords: 
 - schriftart
 - ersatzschriftart
@@ -73,6 +73,6 @@ using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
 
 {{%  alert title="HINWEIS"  color="warning"   %}} 
 
-Sie möchten möglicherweise [**Schriftartenersetzung**](/slides/net/font-replacement/) sehen. 
+Sie möchten möglicherweise [**Schriftartenersetzung**](/slides/de/net/font-replacement/) sehen. 
 
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Häufige Ausnahmen und Fehler im Zusammenhang mit Schriftarten unter Linux
 type: docs
 weight: 200
-url: /php-java/technical-articles/common-errors-involving-fonts
+url: /de/php-java/technical-articles/common-errors-involving-fonts
 keywords: "Schriftarten-Ausnahme, Schriftarten-Fehler, Linux, Java, Aspose.Slides für PHP über Java"
 description: "Ausnahmen und Fehler bei Schriftarten unter Linux"
 ---

@@ -2,7 +2,7 @@
 title: Manuelle Installation
 type: docs
 weight: 30
-url: /reportingservices/install-manually/
+url: /de/reportingservices/install-manually/
 ---
 
 {{% alert color="primary" %}} 

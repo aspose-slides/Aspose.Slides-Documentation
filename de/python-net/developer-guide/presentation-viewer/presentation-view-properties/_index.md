@@ -1,7 +1,7 @@
 ---
 title: Eigenschaften der Normalansicht
 type: docs
-url: /python-net/presentation-view-properties/
+url: /de/python-net/presentation-view-properties/
 keywords: "PowerPoint-Viewer, Viewer-Eigenschaften, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Eigenschaften des PowerPoint-Präsentationsviewers in Python"
 ---

@@ -2,7 +2,7 @@
 title: Deklaration
 type: docs
 weight: 60
-url: /cpp/declaration/
+url: /de/cpp/declaration/
 ---
 
 {{% alert color="primary" %}} 

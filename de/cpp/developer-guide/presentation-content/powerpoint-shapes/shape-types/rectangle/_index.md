@@ -2,7 +2,7 @@
 title: Rechteck
 type: docs
 weight: 80
-url: /cpp/rectangle/
+url: /de/cpp/rectangle/
 ---
 
 

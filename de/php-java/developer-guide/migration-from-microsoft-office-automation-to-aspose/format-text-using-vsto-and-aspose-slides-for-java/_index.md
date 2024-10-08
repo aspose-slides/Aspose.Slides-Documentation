@@ -2,12 +2,12 @@
 title: Formatieren von Text mit VSTO und Aspose.Slides für PHP über Java
 type: docs
 weight: 30
-url: /php-java/format-text-using-vsto-and-aspose-slides-for-java/
+url: /de/php-java/format-text-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-Manchmal müssen Sie den Text auf Folien programmgesteuert formatieren. Dieser Artikel zeigt, wie man eine Beispielpräsentation mit etwas Text auf der ersten Folie liest, entweder mit [VSTO](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/) oder [Aspose.Slides für PHP über Java](/slides/php-java/format-text-using-vsto-and-aspose-slides-for-java/). Der Code formatiert den Text im dritten Textfeld auf der Folie, sodass er wie der Text im letzten Textfeld aussieht.
+Manchmal müssen Sie den Text auf Folien programmgesteuert formatieren. Dieser Artikel zeigt, wie man eine Beispielpräsentation mit etwas Text auf der ersten Folie liest, entweder mit [VSTO](/slides/de/php-java/format-text-using-vsto-and-aspose-slides-for-java/) oder [Aspose.Slides für PHP über Java](/slides/de/php-java/format-text-using-vsto-and-aspose-slides-for-java/). Der Code formatiert den Text im dritten Textfeld auf der Folie, sodass er wie der Text im letzten Textfeld aussieht.
 
 {{% /alert %}} 
 ## **Textformatierung**

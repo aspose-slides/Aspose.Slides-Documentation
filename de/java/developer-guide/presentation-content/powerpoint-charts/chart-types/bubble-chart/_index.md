@@ -1,7 +1,7 @@
 ---
 title: Blasendiagramm
 type: docs
-url: /java/bubble-chart/
+url: /de/java/bubble-chart/
 ---
 
 ## **Blasendiagramm Größenanpassung**

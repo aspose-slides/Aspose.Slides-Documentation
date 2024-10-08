@@ -1,7 +1,7 @@
 ---
 title: Diagrammserien
 type: docs
-url: /java/chart-series/
+url: /de/java/chart-series/
 keywords: "Diagrammserien, Serienfarbe, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Diagrammserien in PowerPoint-Präsentationen in Java"
 ---

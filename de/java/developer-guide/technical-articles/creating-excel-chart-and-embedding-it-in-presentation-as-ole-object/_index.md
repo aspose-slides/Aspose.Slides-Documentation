@@ -2,7 +2,7 @@
 title: Excel-Diagramm erstellen und als OLE-Objekt in die Präsentation einbetten
 type: docs
 weight: 30
-url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /de/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -33,6 +33,6 @@ Durch die Verwendung von Aspose.Cells für Java zusammen mit Aspose.Slides für 
 
 {{% /alert %}} 
 ## **Verwandte Abschnitte**
-[Funktionsfähige Lösung zum Skalieren von Diagrammen](/slides/java/working-solution-for-chart-resizing-in-pptx/)
+[Funktionsfähige Lösung zum Skalieren von Diagrammen](/slides/de/java/working-solution-for-chart-resizing-in-pptx/)
 
-[Problem mit geänderten Objekten](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Problem mit geänderten Objekten](/slides/de/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

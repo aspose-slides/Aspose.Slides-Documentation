@@ -2,7 +2,7 @@
 title: Funktionale Lösung für die Größenänderung von Arbeitsblättern
 type: docs
 weight: 40
-url: /net/working-solution-for-worksheet-resizing/
+url: /de/net/working-solution-for-worksheet-resizing/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Es wurde beobachtet, dass in eine PowerPoint-Präsentation eingebettete Excel-Ar
 
 {{% /alert %}} 
 ## **Hintergrund**
-Im [Artikel „Ole-Frames hinzufügen“]() haben wir erklärt, wie man ein Ole-Frame in einer PowerPoint-Präsentation mit Aspose.Slides für .NET hinzufügt. Um das [Problem „Objekt geändert“](/slides/net/object-changed-issue-when-adding-oleobjectframe/) zu berücksichtigen, haben wir das Arbeitsblattbild des ausgewählten Bereichs dem Chart OLE-Objekt-Frame zugewiesen. In der Ausgangspräsentation wird das Excel-Diagramm aktiviert, wenn wir doppelt auf den OLE-Objekt-Frame klicken, der das Arbeitsblattbild zeigt. Die Endbenutzer können alle gewünschten Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur betreffenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objekt-Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor wird für unterschiedliche Größen von OLE-Objekt-Frames und eingebetteten Excel-Arbeitsmappen unterschiedlich sein.
+Im [Artikel „Ole-Frames hinzufügen“]() haben wir erklärt, wie man ein Ole-Frame in einer PowerPoint-Präsentation mit Aspose.Slides für .NET hinzufügt. Um das [Problem „Objekt geändert“](/slides/de/net/object-changed-issue-when-adding-oleobjectframe/) zu berücksichtigen, haben wir das Arbeitsblattbild des ausgewählten Bereichs dem Chart OLE-Objekt-Frame zugewiesen. In der Ausgangspräsentation wird das Excel-Diagramm aktiviert, wenn wir doppelt auf den OLE-Objekt-Frame klicken, der das Arbeitsblattbild zeigt. Die Endbenutzer können alle gewünschten Änderungen in der tatsächlichen Excel-Arbeitsmappe vornehmen und dann zur betreffenden Folie zurückkehren, indem sie außerhalb der aktivierten Excel-Arbeitsmappe klicken. Die Größe des OLE-Objekt-Frames ändert sich, wenn der Benutzer zur Folie zurückkehrt. Der Skalierungsfaktor wird für unterschiedliche Größen von OLE-Objekt-Frames und eingebetteten Excel-Arbeitsmappen unterschiedlich sein.
 
 ## **Ursache der Größenänderung**
 Da die Excel-Arbeitsmappe ihre eigene Fenstergröße hat, versucht sie, ihre ursprüngliche Größe bei der ersten Aktivierung beizubehalten. Andererseits hat der OLE-Objekt-Frame seine eigene Größe. Laut Microsoft verhandeln Excel und PowerPoint bei der Aktivierung der Excel-Arbeitsmappe die Größe und stellen sicher, dass sie im richtigen Verhältnis als Teil des Einbettungsprozesses ist. Basierend auf den Unterschieden in der Fenstergröße von Excel und der Größe / Position des OLE-Objekt-Frames erfolgt die Größenänderung. 
@@ -283,6 +283,6 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 {{% alert color="primary" %}} Es gibt zwei Ansätze zur Behebung des Problems mit der Größenänderung des Arbeitsblatts. Die Auswahl des geeigneten Ansatzes hängt von den Anforderungen und dem Anwendungsfall ab. Beide Ansätze funktionieren auf dieselbe Weise, unabhängig davon, ob die Präsentationen aus einer Vorlage oder von Grund auf neu erstellt werden. Außerdem gibt es in der Lösung keine Begrenzung der Größe des OLE-Objekt-Frames. {{% /alert %}} 
 ## **Verwandte Abschnitte**
-[Erstellen und Einfügen eines Excel-Diagramms als OLE-Objekt in die Präsentation](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Erstellen und Einfügen eines Excel-Diagramms als OLE-Objekt in die Präsentation](/slides/de/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[OLE-Objekte automatisch aktualisieren](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[OLE-Objekte automatisch aktualisieren](/slides/de/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

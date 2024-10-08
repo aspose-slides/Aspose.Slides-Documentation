@@ -2,7 +2,7 @@
 title: Effektive Eigenschaften von Formen
 type: docs
 weight: 50
-url: /net/shape-effective-properties/
+url: /de/net/shape-effective-properties/
 keywords: "Formeigenschaften, Kamer Eigenschaften, Licht Rig, Fasenform, Textfeld, Textstil, Schriftgrößewert, Füllformat für Tabelle, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Erhalten Sie effektive Eigenschaften von Formen in PowerPoint-Präsentationen in C# oder .NET"
 ---

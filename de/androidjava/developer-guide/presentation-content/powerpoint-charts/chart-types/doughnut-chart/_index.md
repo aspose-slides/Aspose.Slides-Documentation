@@ -2,7 +2,7 @@
 title: Donut-Diagramm
 type: docs
 weight: 30
-url: /androidjava/doughnut-chart/
+url: /de/androidjava/doughnut-chart/
 ---
 
 ## **Ändern der Innenlücke im Donut-Diagramm**

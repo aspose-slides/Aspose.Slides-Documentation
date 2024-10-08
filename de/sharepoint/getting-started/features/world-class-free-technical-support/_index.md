@@ -2,7 +2,7 @@
 title: Weltklasse Kostenloser Technischer Support
 type: docs
 weight: 20
-url: /sharepoint/weltklasse-kostenloser-technischer-support/
+url: /de/sharepoint/weltklasse-kostenloser-technischer-support/
 ---
 
 {{% alert color="primary" %}} 

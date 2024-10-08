@@ -2,12 +2,12 @@
 title: Erstelle ein Diagramm in einer Microsoft PowerPoint-Präsentation
 type: docs
 weight: 70
-url: /androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /de/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Diagramme sind visuelle Darstellungen von Daten, die häufig in Präsentationen verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint unter Verwendung von [VSTO](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für Android über Java](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Diagramme sind visuelle Darstellungen von Daten, die häufig in Präsentationen verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint unter Verwendung von [VSTO](/slides/de/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für Android über Java](/slides/de/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Erstellen eines Diagramms**

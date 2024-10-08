@@ -2,7 +2,7 @@
 title: Diagramm-Arbeitsmappe
 type: docs
 weight: 70
-url: /java/chart-workbook/
+url: /de/java/chart-workbook/
 keywords: "Diagramm-Arbeitsmappe, Diagrammdaten, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Diagramm-Arbeitsmappe in PowerPoint-Präsentation in Java"
 ---

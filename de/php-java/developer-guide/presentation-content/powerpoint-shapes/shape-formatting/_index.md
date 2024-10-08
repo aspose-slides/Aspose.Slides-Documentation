@@ -2,7 +2,7 @@
 title: Formenformatierung
 type: docs
 weight: 20
-url: /php-java/shape-formatting/
+url: /de/php-java/shape-formatting/
 keywords: "Form formatieren, Linien formatieren, Verbindungstile formatieren, Verlaufshintergrund, Musterfüllung, Bildfüllung, einfarbige Füllung, Formen drehen, 3D-Prägeffekte, 3D-Rotationseffekt, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Form in PowerPoint-Präsentation formatieren"
 ---

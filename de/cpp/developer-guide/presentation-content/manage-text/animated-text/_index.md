@@ -2,7 +2,7 @@
 title: Animierter Text
 type: docs
 weight: 60
-url: /cpp/animierter-text/
+url: /de/cpp/animierter-text/
 keywords: "Animierter Text in PowerPoint"
 description: "Animierter Text in PowerPoint-Präsentation mit Aspose.Slides"
 ---

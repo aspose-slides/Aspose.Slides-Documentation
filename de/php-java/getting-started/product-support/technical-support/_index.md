@@ -2,7 +2,7 @@
 title: Technischer Support
 type: docs
 weight: 10
-url: /php-java/technischer-support/
+url: /de/php-java/technischer-support/
 ---
 
 {{% alert color="primary" %}} 

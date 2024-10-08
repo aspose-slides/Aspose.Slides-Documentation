@@ -1,7 +1,7 @@
 ---
 title: Datenpunkte von Treemap- und Sunburst-Diagramm
 type: docs
-url: /php-java/data-points-of-treemap-and-sunburst-chart/
+url: /de/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Sunburst-Diagramm in Aspose.Slides für PHP über Java"
 description: "Sunburst-Diagramm, Sunburst-Diagramm, Sunburst-Chart, Radialdiagramm, Radialgraph oder Mehrstufiges Tortendiagramm mit Aspose.Slides für PHP über Java."
@@ -28,7 +28,7 @@ Lass uns mit dem Hinzufügen eines neuen Sunburst-Diagramms zur Präsentation be
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [**Erstellen eines Sunburst-Diagramms**](/slides/php-java/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Erstellen eines Sunburst-Diagramms**](/slides/de/php-java/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 Falls es notwendig ist, die Datenpunkte des Diagramms zu formatieren, sollten wir Folgendes verwenden:

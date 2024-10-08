@@ -2,7 +2,7 @@
 title: PPT vs PPTX
 type: docs
 weight: 10
-url: /python-net/ppt-vs-pptx/
+url: /de/python-net/ppt-vs-pptx/
 keywords: "PPT vs PPTX, PPT oder PPTX, PowerPoint-Präsentation, Format, Python"
 description: "Über PowerPoint-Präsentationsformate. PPT vs PPTX. Unterschiede in Python"
 ---
@@ -37,5 +37,5 @@ pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert color="primary" %}} 
-Lesen Sie mehr [**Wie man Präsentationen von PPT nach PPTX konvertiert**.](/slides/python-net/convert-ppt-to-pptx/)
+Lesen Sie mehr [**Wie man Präsentationen von PPT nach PPTX konvertiert**.](/slides/de/python-net/convert-ppt-to-pptx/)
 {{% /alert %}} 

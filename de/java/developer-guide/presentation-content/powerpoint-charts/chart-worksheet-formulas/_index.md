@@ -2,7 +2,7 @@
 title: Diagramm Arbeitsblattformeln
 type: docs
 weight: 70
-url: /java/chart-worksheet-formulas/
+url: /de/java/chart-worksheet-formulas/
 keywords: "powerpoint gleichungen, powerpoint tabellenformeln"
 description: "PowerPoint Gleichungen und Tabellenformeln"
 ---

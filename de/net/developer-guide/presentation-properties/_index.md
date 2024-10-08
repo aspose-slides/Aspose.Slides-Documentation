@@ -3,7 +3,7 @@ title: Präsentationseigenschaften - Zugriff auf oder Änderung der PowerPoint-P
 linktitle: Präsentationseigenschaften
 type: docs
 weight: 70
-url: /net/presentation-properties/
+url: /de/net/presentation-properties/
 keywords: "wie man den zuletzt geändert von in PowerPoint entfernt, PowerPoint-Eigenschaften, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint-Präsentationseigenschaften in C# oder .NET"
 ---

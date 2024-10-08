@@ -2,7 +2,7 @@
 title: Bilderrahmen
 type: docs
 weight: 10
-url: /cpp/picture-frame/
+url: /de/cpp/picture-frame/
 keywords: "Bilderrahmen hinzufügen, Bilderrahmen erstellen, Bild hinzufügen, Bild erstellen, Bild extrahieren, StretchOff-Eigenschaft, Bilderrahmenformatierung, Bilderrahmeneigenschaften, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Fügen Sie einen Bilderrahmen zu einer PowerPoint-Präsentation in C++ hinzu."
 ---

@@ -2,7 +2,7 @@
 title: Größenanpassung von Formen auf Folien
 type: docs
 weight: 130
-url: /net/re-sizing-shapes-on-slide/
+url: /de/net/re-sizing-shapes-on-slide/
 ---
 
 ## **Größenanpassung von Formen auf Folien**

@@ -3,7 +3,7 @@ title: Erstellen oder Aktualisieren von PowerPoint-Präsentationsdiagrammen in J
 linktitle: Diagramm erstellen
 type: docs
 weight: 10
-url: /androidjava/create-chart/
+url: /de/androidjava/create-chart/
 keywords: "Diagramm erstellen, Streudiagramm, Tortendiagramm, Baumkarten-Diagramm, Aktien-Diagramm, Box- und Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnenblumen-Diagramm, Mehrkategorie-Diagramm, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Diagramm in PowerPoint-Präsentation in Java erstellen"
 ---

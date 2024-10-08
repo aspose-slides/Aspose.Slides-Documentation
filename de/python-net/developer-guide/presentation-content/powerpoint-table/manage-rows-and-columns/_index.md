@@ -2,7 +2,7 @@
 title: Zeilen und Spalten verwalten
 type: docs
 weight: 20
-url: /python-net/manage-rows-and-columns/
+url: /de/python-net/manage-rows-and-columns/
 keywords: "Tabelle, Tabellenzeilen und -spalten, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Verwalten von Tabellenzeilen und -spalten in PowerPoint-Präsentationen mit Python"
 ---

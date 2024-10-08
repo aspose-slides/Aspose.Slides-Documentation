@@ -2,7 +2,7 @@
 title: Bildunterschrift für OLE-Icon festlegen
 type: docs
 weight: 160
-url: /net/set-caption-to-ole-icon/
+url: /de/net/set-caption-to-ole-icon/
 ---
 
 Eine neue Eigenschaft **SubstitutePictureTitle** wurde zum **IOleObjectFrame**-Interface und zur **OleObjectFrame**-Klasse hinzugefügt. Sie ermöglicht es, die Bildunterschrift eines OLE-Icons abzurufen, festzulegen oder zu ändern. Der folgende Codeausschnitt zeigt ein Beispiel zur Erstellung eines Excel-Objekts und zur Festlegung seiner Bildunterschrift.

@@ -2,7 +2,7 @@
 title: So führen Sie Hintergrundaufgaben in ASP.NET Core aus
 type: docs
 weight: 300
-url: /net/how-to-run-background-tasks-in-asp-net-core/
+url: /de/net/how-to-run-background-tasks-in-asp-net-core/
 ---
 
 ## **Übersicht**

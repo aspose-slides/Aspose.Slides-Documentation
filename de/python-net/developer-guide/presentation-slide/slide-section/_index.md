@@ -2,7 +2,7 @@
 title: Folienabschnitt
 type: docs
 weight: 100
-url: /python-net/slide-section/
+url: /de/python-net/slide-section/
 keywords: "Abschnitt erstellen, Abschnitt hinzufügen, Abschnittsname bearbeiten, PowerPoint-Präsentation, Python, Aspose.Slides"
 description: "Abschnitt in PowerPoint-Präsentation in Python hinzufügen und bearbeiten"
 ---

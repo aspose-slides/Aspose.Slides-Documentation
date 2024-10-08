@@ -2,7 +2,7 @@
 title: Folie aus der Präsentation entfernen
 type: docs
 weight: 30
-url: /net/remove-slide-from-presentation/
+url: /de/net/remove-slide-from-presentation/
 keywords: "Folie entfernen, Folie löschen, PowerPoint, Präsentation, C#, Csharp, .NET, Aspose.Slides"
 description: "Folie aus PowerPoint über Referenz oder Index in C# oder .NET entfernen"
 

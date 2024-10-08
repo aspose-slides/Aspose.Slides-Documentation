@@ -2,7 +2,7 @@
 title: Funktionenübersicht
 type: docs
 weight: 20
-url: /php-java/features-overview/
+url: /de/php-java/features-overview/
 ---
 
 ## **Unterstützte Plattformen**

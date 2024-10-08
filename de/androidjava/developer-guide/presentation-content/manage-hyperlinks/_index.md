@@ -2,7 +2,7 @@
 title: Hyperlinks verwalten
 type: docs
 weight: 20
-url: /androidjava/manage-hyperlinks/
+url: /de/androidjava/manage-hyperlinks/
 keywords: "PowerPoint Hyperlink, Texthyperlink, Folienhyperlink, Formenhyperlink, Bildhyperlink, Videohyperlink, Java"
 description: "Wie man einen Hyperlink zu einer PowerPoint-Präsentation in Java hinzufügt"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{% alert title="Tipp" color="primary" %}} 
 
-Vielleicht möchten Sie *[OLE verwalten](/slides/androidjava/manage-ole/)* sehen.
+Vielleicht möchten Sie *[OLE verwalten](/slides/de/androidjava/manage-ole/)* sehen.
 
 {{% /alert %}}
 

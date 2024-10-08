@@ -2,7 +2,7 @@
 title: Abschnitt Folien
 type: docs
 weight: 90
-url: /java/slide-section/
+url: /de/java/slide-section/
 ---
 
 Mit Aspose.Slides für Java können Sie eine PowerPoint-Präsentation in Abschnitte organisieren. Sie können Abschnitte erstellen, die bestimmte Folien enthalten.

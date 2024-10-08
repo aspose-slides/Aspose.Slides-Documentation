@@ -2,7 +2,7 @@
 title: Folie aus Präsentation entfernen
 type: docs
 weight: 30
-url: /php-java/remove-slide-from-presentation/
+url: /de/php-java/remove-slide-from-presentation/
 keywords: "Folie entfernen, Folie löschen, PowerPoint, Präsentation, Java, Aspose.Slides"
 description: "Entfernen Sie Folien aus PowerPoint nach Referenz oder Index"
 

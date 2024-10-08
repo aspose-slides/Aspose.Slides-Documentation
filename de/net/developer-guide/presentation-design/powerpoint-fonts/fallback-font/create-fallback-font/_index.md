@@ -2,7 +2,7 @@
 title: Fallback-Schriftart erstellen
 type: docs
 weight: 10
-url: /net/create-fallback-font/
+url: /de/net/create-fallback-font/
 keywords: "Schriftarten, Fallback-Schriftart, PowerPoint-Präsentation C#, Csharp, Aspose.Slides für .NET"
 description: "Fallback-Schriftart in PowerPoint in C# oder .NET"
 ---
@@ -29,5 +29,5 @@ Es ist auch möglich, die [Remove()](https://reference.aspose.com/slides/net/asp
 Die [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) kann verwendet werden, um eine Liste von [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule) Objekten zu organisieren, wenn es notwendig ist, Regeln für den Fallback-Schriftersatz für mehrere Unicode-Bereiche festzulegen.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Fallback-Schriftarten-Kollektion erstellen](/slides/net/create-fallback-fonts-collection/)
+- [Fallback-Schriftarten-Kollektion erstellen](/slides/de/net/create-fallback-fonts-collection/)
 {{% /alert %}}

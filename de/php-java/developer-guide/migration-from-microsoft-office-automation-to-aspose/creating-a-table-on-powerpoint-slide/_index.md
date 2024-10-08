@@ -2,12 +2,12 @@
 title: Erstellen einer Tabelle auf einer PowerPoint-Folie
 type: docs
 weight: 50
-url: /php-java/creating-a-table-on-powerpoint-slide/
+url: /de/php-java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien anzuzeigen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/php-java/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für PHP über Java](/slides/php-java/creating-a-table-on-powerpoint-slide/).
+Tabellen werden häufig verwendet, um Daten auf Präsentationsfolien anzuzeigen. Dieser Artikel zeigt, wie man programmgesteuert eine 15 x 15 Tabelle mit einer Schriftgröße von 10 erstellt, zunächst mit [VSTO 2008](/slides/de/php-java/creating-a-table-on-powerpoint-slide/) und dann mit [Aspose.Slides für PHP über Java](/slides/de/php-java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Tabellen erstellen**

@@ -2,7 +2,7 @@
 title: Medien Dateien in HTML-Datei exportieren  
 type: docs  
 weight: 80  
-url: /net/export-media-files-into-html-file/  
+url: /de/net/export-media-files-into-html-file/  
 ---  
 
 Um Medien Dateien in HTML zu exportieren, folgen Sie bitte den folgenden Schritten:  

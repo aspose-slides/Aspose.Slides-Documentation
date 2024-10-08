@@ -3,7 +3,7 @@ title: Lizenzierung
 description: "Aspose.Slides für Node.js über Java bietet verschiedene Kaufpläne an oder bietet eine kostenlose Testversion und eine 30-tägige temporäre Lizenz zur evaluierung unter Verwendung von Lizenzierungs- und Abonnementrichtlinien."
 type: docs
 weight: 80
-url: /nodejs-java/licensing/
+url: /de/nodejs-java/licensing/
 ---
 
 Manchmal ist für die besten Evaluierungsergebnisse ein praktischer Ansatz erforderlich. Aus diesem Grund bietet Aspose.Slides verschiedene Kaufpläne an und bietet auch eine kostenlose Testversion sowie eine 30-tägige temporäre Lizenz zur Evaluierung an.

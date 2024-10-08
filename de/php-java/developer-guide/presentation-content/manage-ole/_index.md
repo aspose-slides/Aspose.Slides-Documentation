@@ -2,7 +2,7 @@
 title: OLE verwalten
 type: docs
 weight: 40
-url: /php-java/manage-ole/
+url: /de/php-java/manage-ole/
 keywords:
 - OLE hinzufügen
 - OLE einbetten

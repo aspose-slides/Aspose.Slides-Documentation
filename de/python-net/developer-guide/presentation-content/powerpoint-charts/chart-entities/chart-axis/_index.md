@@ -1,7 +1,7 @@
 ---
 title: Diagrammachse
 type: docs
-url: /python-net/chart-axis/
+url: /de/python-net/chart-axis/
 keywords: "PowerPoint Diagrammachse, Präsentationsdiagramme, Python, Diagrammachse manipulieren, Diagrammdaten"
 description: "Bearbeiten Sie PowerPoint-Diagrammachsen in Python"
 ---

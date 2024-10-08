@@ -2,7 +2,7 @@
 title: Bilderrahmen
 type: docs
 weight: 10
-url: /androidjava/picture-frame/
+url: /de/androidjava/picture-frame/
 keywords: "Bilderrahmen hinzufügen, Bilderrahmen erstellen, Bild hinzufügen, Bild erstellen, Bild extrahieren, StretchOff-Eigenschaft, Bilderrahmenformatierung, Bilderrahmeneigenschaften, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "Fügen Sie einen Bilderrahmen zu einer PowerPoint-Präsentation in Java hinzu"
 

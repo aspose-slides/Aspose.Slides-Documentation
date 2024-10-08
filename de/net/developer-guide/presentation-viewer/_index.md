@@ -2,7 +2,7 @@
 title: Präsentation Viewer
 type: docs
 weight: 50
-url: /net/presentation-viewer/
+url: /de/net/presentation-viewer/
 keywords: 
 - PowerPoint-Präsentation anzeigen
 - ppt anzeigen

@@ -2,7 +2,7 @@
 title: Doughnut-Diagramm
 type: docs
 weight: 30
-url: /php-java/doughnut-chart/
+url: /de/php-java/doughnut-chart/
 ---
 
 ## **Ändern des Mittelbereichs im Doughnut-Diagramm**

@@ -1,7 +1,7 @@
 ---
 title: Diagrammplotbereich
 type: docs
-url: /python-net/chart-plot-area/
+url: /de/python-net/chart-plot-area/
 keywords: "Diagrammplotbereich PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Breite, Höhe des Diagrammplotbereichs abrufen. Layoutmodus festlegen. PowerPoint-Präsentation in Python"
 ---

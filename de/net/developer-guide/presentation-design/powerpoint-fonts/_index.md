@@ -2,5 +2,5 @@
 title: PowerPoint-Schriftarten
 type: docs
 weight: 30
-url: /net/powerpoint-fonts/
+url: /de/net/powerpoint-fonts/
 ---

@@ -2,12 +2,12 @@
 title: Formeffekt
 type: docs
 weight: 30
-url: /php-java/shape-effect
+url: /de/php-java/shape-effect
 keywords: "Formeffekt, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Effekt auf PowerPoint-Form anwenden"
 ---
 
-Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/php-java/shape-formatting/#gradient-fill) oder Linien. Mit PowerPoint-Effekten können Sie überzeugende Reflexionen auf einer Form erstellen, den Glanz einer Form verbreiten usw.
+Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/de/php-java/shape-formatting/#gradient-fill) oder Linien. Mit PowerPoint-Effekten können Sie überzeugende Reflexionen auf einer Form erstellen, den Glanz einer Form verbreiten usw.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

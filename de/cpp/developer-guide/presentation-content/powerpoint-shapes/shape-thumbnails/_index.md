@@ -2,7 +2,7 @@
 title: Form Miniaturen
 type: docs
 weight: 70
-url: /cpp/shape-thumbnails/
+url: /de/cpp/shape-thumbnails/
 keywords: 
 - Form Miniatur
 - Form Bild

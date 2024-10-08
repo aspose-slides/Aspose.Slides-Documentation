@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /net/activex/
+url: /de/net/activex/
 keywords: "ActiveX, ActiveX-Steuerelemente, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Verwalten Sie ActiveX-Steuerelemente in PowerPoint-Präsentationen in C# oder .NET"
 ---

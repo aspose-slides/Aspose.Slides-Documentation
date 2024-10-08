@@ -2,7 +2,7 @@
 title: Zellen verwalten
 type: docs
 weight: 30
-url: /cpp/manage-cells/
+url: /de/cpp/manage-cells/
 keywords: "Tabelle, zusammengeführte Zellen, geteilte Zellen, Bild in Tabellenzelle, C++, CPP, Aspose.Slides für C++"
 description: "Tabellenzellen in PowerPoint-Präsentationen in C++"
 ---

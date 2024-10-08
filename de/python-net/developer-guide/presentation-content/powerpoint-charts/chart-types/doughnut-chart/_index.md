@@ -2,7 +2,7 @@
 title: Donut-Diagramm
 type: docs
 weight: 30
-url: /python-net/doughnut-chart/
+url: /de/python-net/doughnut-chart/
 keywords: "Donut-Diagramm, Loch in der Mitte, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Loch in der Mitte im Donut-Diagramm in PowerPoint-Präsentation in Python angeben"
 ---

@@ -2,7 +2,7 @@
 title: So fügen Sie Kopf- und Fußzeilen in einer Präsentation hinzu
 type: docs
 weight: 20
-url: /androidjava/how-to-add-header-footer-in-a-presentation/
+url: /de/androidjava/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

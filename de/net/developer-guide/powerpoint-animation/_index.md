@@ -2,7 +2,7 @@
 title: PowerPoint-Animation
 type: docs
 weight: 150
-url: /net/powerpoint-animation/
+url: /de/net/powerpoint-animation/
 keywords: "Animation, Animationseffekte, PowerPoint-Animation, Animationszeitleiste, interaktive Animation, Formanimation, animiertes Diagramm, animierter Text, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Animation und Effekte von PowerPoint-Präsentationen in C# oder .NET"
 ---
@@ -49,19 +49,19 @@ Dies kann erreicht werden, indem mehrere Verhaltensweisen zu einer neuen benutze
 Aspose.Slides ermöglicht es, Animationen auf Formen anzuwenden, die tatsächlich Text, Rechtecke, Linien, Rahmen, OLE-Objekte usw. sein können.
 
 {{% alert color="primary" %}} 
-Lesen Sie mehr [**Über Formanimation**](/slides/net/shape-animation/).
+Lesen Sie mehr [**Über Formanimation**](/slides/de/net/shape-animation/).
 {{% /alert %}}
 
 ## **Animierte Diagramme**
 Um animierte Diagramme zu erstellen, sollten Sie alle gleichen Klassen wie für die Formen verwenden. Es ist jedoch möglich, PowerPoint-Animationen nur auf Diagrammkategorien oder Diagrammserien anzuwenden. Sie können auch einen Animations effekt auf ein Kategorieelement oder ein Serienelement anwenden.
 
 {{% alert color="primary" %}} 
-Lesen Sie mehr [**Über animierte Diagramme**](/slides/net/animated-charts/).
+Lesen Sie mehr [**Über animierte Diagramme**](/slides/de/net/animated-charts/).
 {{% /alert %}}
 
 ## **Animierter Text**
 Neben animiertem Text ist es auch möglich, Animationen auf einen Absatz anzuwenden.
 
 {{% alert color="primary" %}} 
-Lesen Sie mehr [**Über animierten Text**](/slides/net/animated-text/).
+Lesen Sie mehr [**Über animierten Text**](/slides/de/net/animated-text/).
 {{% /alert %}}

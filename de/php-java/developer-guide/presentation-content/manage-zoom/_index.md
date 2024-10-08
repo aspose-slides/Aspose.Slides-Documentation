@@ -2,7 +2,7 @@
 title: Zoom verwalten
 type: docs
 weight: 60
-url: /php-java/manage-zoom/
+url: /de/php-java/manage-zoom/
 keywords: "Zoom, Zoom-Frame, Zoom hinzufügen, Zoom-Frame formatieren, Zusammenfassungszoom, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Fügen Sie Zoom oder Zoom-Frames zu PowerPoint-Präsentationen hinzu"
 ---

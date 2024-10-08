@@ -2,7 +2,7 @@
 title: Präsentation überprüfen
 type: docs
 weight: 30
-url: /java/examine-presentation/
+url: /de/java/examine-presentation/
 keywords:
 - PowerPoint
 - präsentation

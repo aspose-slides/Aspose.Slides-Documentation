@@ -2,7 +2,7 @@
 title: Folienübergang
 type: docs
 weight: 90
-url: /net/slide-transition/
+url: /de/net/slide-transition/
 keywords: "Fügen Sie Folienübergänge hinzu, PowerPoint-Folienübergänge, Morphübergang, erweiterte Folienübergänge, Übergangseffekte, C#, Csharp, .NET, Aspose.Slides"
 description: " Fügen Sie PowerPoint-Folienübergänge und Übergangseffekte in C# oder .NET hinzu "
 ---

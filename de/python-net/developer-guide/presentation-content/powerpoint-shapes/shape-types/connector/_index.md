@@ -2,7 +2,7 @@
 title: Connector
 type: docs
 weight: 10
-url: /python-net/connector/
+url: /de/python-net/connector/
 keywords: "Verbinde Formen, Verbinder, PowerPoint Formen, PowerPoint Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Verbinde PowerPoint Formen in Python"
 ---
@@ -129,7 +129,7 @@ with slides.Presentation() as presentation:
 
 ## **Anpassung des Verbindungspunktes**
 
-Sie können einen bestehenden Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Arten von Verbindern](/slides/python-net/connector/#types-of-connectors)** 
+Sie können einen bestehenden Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Arten von Verbindern](/slides/de/python-net/connector/#types-of-connectors)** 
 
 #### **Einfacher Fall**
 
@@ -178,7 +178,7 @@ Um kompliziertere Anpassungen vorzunehmen, müssen Sie diese Dinge berücksichti
 * Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe der Form des Verbinders wider. 
   * Die Form wird durch die Start- und Endpunkte des Verbinders multipliziert mit 1000 begrenzt. 
   * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren den Prozentsatz von der Breite, den Prozentsatz von der Höhe und den Prozentsatz von der Breite (wieder) jeweils.
-* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung des Verbinders und seine Spiegelung berücksichtigen. **Beachten Sie**, dass der Drehwinkel für alle Verbinder, die unter **[Arten von Verbindern](/slides/python-net/connector/#types-of-connectors)** angezeigt werden, 0 ist.
+* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung des Verbinders und seine Spiegelung berücksichtigen. **Beachten Sie**, dass der Drehwinkel für alle Verbinder, die unter **[Arten von Verbindern](/slides/de/python-net/connector/#types-of-connectors)** angezeigt werden, 0 ist.
 
 #### **Fall 1**
 

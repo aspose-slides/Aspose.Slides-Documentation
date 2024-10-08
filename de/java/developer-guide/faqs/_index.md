@@ -2,7 +2,7 @@
 title: FAQs
 type: docs
 weight: 340
-url: /java/faqs/
+url: /de/java/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **F: Welche Dateiformate werden von Aspose.Slides für Java unterstützt?**
 
-**A**: Aspose.Slides für Java unterstützt die Dateiformate, die in [Unterstützte Dateiformate](/slides/java/supported-file-formats/) beschrieben sind.
+**A**: Aspose.Slides für Java unterstützt die Dateiformate, die in [Unterstützte Dateiformate](/slides/de/java/supported-file-formats/) beschrieben sind.
 
 ## **Ausnahmen**
 
@@ -54,7 +54,7 @@ Im Allgemeinen kann Aspose.Slides für Java Präsentationsdateien von etwa 300 M
 
 **F: Warum sind die Absatzgrößen unter Windows und Linux-Betriebssystemen unterschiedlich?**
 
-**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den gegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der im PowerPoint-Dokument angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, jedoch hat diese Schriftart unterschiedliche Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen in unterschiedlichen Systemen zu unterschiedlichen Ergebnissen, abhängig von der installierten Schriftarten. Um dasselbe Ergebnis auf unterschiedlichen Betriebssystemen zu erzielen, müssen Sie die gleichen Schriftarten auf den Systemen installieren oder sie zur Laufzeit als [externe Schriftarten](/slides/java/custom-font/) laden.
+**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den gegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der im PowerPoint-Dokument angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, jedoch hat diese Schriftart unterschiedliche Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen in unterschiedlichen Systemen zu unterschiedlichen Ergebnissen, abhängig von der installierten Schriftarten. Um dasselbe Ergebnis auf unterschiedlichen Betriebssystemen zu erzielen, müssen Sie die gleichen Schriftarten auf den Systemen installieren oder sie zur Laufzeit als [externe Schriftarten](/slides/de/java/custom-font/) laden.
 
 ## **Formatierung und Bilder**
 

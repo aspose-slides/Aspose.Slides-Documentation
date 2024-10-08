@@ -3,7 +3,7 @@ title: PowerPoint in PDF umwandeln mit Python
 linktitle: PowerPoint in PDF umwandeln
 type: docs
 weight: 40
-url: /python-net/convert-powerpoint-to-pdf/
+url: /de/python-net/convert-powerpoint-to-pdf/
 keywords:
 - PowerPoint umwandeln
 - Präsentation

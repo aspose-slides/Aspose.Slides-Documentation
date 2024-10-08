@@ -2,7 +2,7 @@
 title: Passwortgeschützte Präsentation
 type: docs
 weight: 20
-url: /php-java/password-protected-presentation/
+url: /de/php-java/password-protected-presentation/
 keywords: "PowerPoint-Präsentation sperren"
 description: "PowerPoint-Präsentation sperren. Passwortgeschützte PowerPoint"
 ---
@@ -255,5 +255,5 @@ Dieser Beispielcode zeigt Ihnen, wie Sie ein Passwort validieren:
 Es gibt `true` zurück, wenn die Präsentation mit dem angegebenen Passwort verschlüsselt wurde. Andernfalls gibt es `false` zurück.
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Digitale Signatur in PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Digitale Signatur in PowerPoint](/slides/de/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

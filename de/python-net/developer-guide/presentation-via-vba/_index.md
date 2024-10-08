@@ -2,7 +2,7 @@
 title: Präsentation über VBA
 type: docs
 weight: 250
-url: /python-net/presentation-via-vba/
+url: /de/python-net/presentation-via-vba/
 keywords: "Makro, Makros, VBA, VBA-Makro, Makro hinzufügen, Makro entfernen, VBA hinzufügen, VBA entfernen, Makro extrahieren, VBA extrahieren, PowerPoint-Makro, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Fügen Sie VBA-Makros in PowerPoint-Präsentationen in Python hinzu, entfernen und extrahieren Sie sie."
 ---

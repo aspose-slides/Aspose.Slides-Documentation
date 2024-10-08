@@ -2,7 +2,7 @@
 title: Formatausgestaltung von Formen
 type: docs
 weight: 20
-url: /net/shape-formatting/
+url: /de/net/shape-formatting/
 keywords:
 - formatiere Form
 - forme Linien

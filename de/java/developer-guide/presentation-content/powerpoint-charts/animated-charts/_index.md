@@ -2,7 +2,7 @@
 title: Animierte Diagramme
 type: docs
 weight: 80
-url: /java/animated-charts/
+url: /de/java/animated-charts/
 ---
 
 

@@ -2,7 +2,7 @@
 title: Verwendung von Aspose.Slides mit ReportViewer 2010 und 2012
 type: docs
 weight: 80
-url: /reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/
+url: /de/reportingservices/using-aspose-slides-with-reportviewer-2010-and-2012/
 ---
 
 {{% alert color="primary" %}} 

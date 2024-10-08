@@ -2,7 +2,7 @@
 title: Text aus Präsentation extrahieren
 type: docs
 weight: 90
-url: /python-net/extract-text-from-presentation/
+url: /de/python-net/extract-text-from-presentation/
 keywords: "Text aus Folie extrahieren, Text aus PowerPoint extrahieren, Python, Aspose.Slides für Python über .NET"
 description: "Text aus Folie oder PowerPoint-Präsentation in Python extrahieren"
 ---
@@ -11,9 +11,9 @@ description: "Text aus Folie oder PowerPoint-Präsentation in Python extrahieren
 
 Es ist nicht unüblich, dass Entwickler den Text aus einer Präsentation extrahieren müssen. Um dies zu tun, müssen Sie den Text aus allen Formen auf allen Folien einer Präsentation extrahieren. Dieser Artikel erklärt, wie man Text aus Microsoft PowerPoint PPTX-Präsentationen mit Aspose.Slides extrahiert. Text kann auf folgende Weise extrahiert werden:
 
-- [Text aus einer Folie extrahieren](/slides/python-net/extracting-text-from-the-presentation/)
-- [Text mit der Methode GetAllTextBoxes extrahieren](/slides/python-net/extracting-text-from-the-presentation/)
-- [Kategorisierte und schnelle Textextraktion](/slides/python-net/extracting-text-from-the-presentation/)
+- [Text aus einer Folie extrahieren](/slides/de/python-net/extracting-text-from-the-presentation/)
+- [Text mit der Methode GetAllTextBoxes extrahieren](/slides/de/python-net/extracting-text-from-the-presentation/)
+- [Kategorisierte und schnelle Textextraktion](/slides/de/python-net/extracting-text-from-the-presentation/)
 
 {{% /alert %}} 
 ## **Text aus Folie extrahieren**

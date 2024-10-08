@@ -2,12 +2,12 @@
 title: Erstellen und Einbetten eines Excel-Diagramms als OLE-Objekt in eine Microsoft PowerPoint-Folie
 type: docs
 weight: 60
-url: /java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
+url: /de/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Diagramme sind visuelle Darstellungen Ihrer Daten und werden häufig in Präsentationsfolien verwendet. Dieser Artikel zeigt Ihnen den Code, um ein Excel-Diagramm programmgesteuert als OLE-Objekt in die PowerPoint-Folie einzufügen, indem Sie [VSTO](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) und [Aspose.Slides für Java](/slides/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) verwenden.
+Diagramme sind visuelle Darstellungen Ihrer Daten und werden häufig in Präsentationsfolien verwendet. Dieser Artikel zeigt Ihnen den Code, um ein Excel-Diagramm programmgesteuert als OLE-Objekt in die PowerPoint-Folie einzufügen, indem Sie [VSTO](/slides/de/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) und [Aspose.Slides für Java](/slides/de/java/create-and-embed-an-excel-chart-as-an-ole-object-into-a-microsoft-powerpoint-slide/) verwenden.
 
 {{% /alert %}} 
 ## **Erstellen und Einbetten eines Excel-Diagramms**

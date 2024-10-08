@@ -2,7 +2,7 @@
 title: Diagramm exportieren
 type: docs
 weight: 90
-url: /cpp/export-chart/
+url: /de/cpp/export-chart/
 keywords:
 - diagramm
 - diagramm bild

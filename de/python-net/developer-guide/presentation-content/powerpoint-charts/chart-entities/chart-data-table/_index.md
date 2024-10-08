@@ -1,7 +1,7 @@
 ---
 title: Daten Tabelle für Diagramme
 type: docs
-url: /python-net/chart-data-table/
+url: /de/python-net/chart-data-table/
 keywords: "Schriftarten-Eigenschaften, Daten Tabelle für Diagramme, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Schriftarten-Eigenschaften für die Datenbank Tabelle von Diagrammen in PowerPoint-Präsentationen in Python festlegen"
 ---

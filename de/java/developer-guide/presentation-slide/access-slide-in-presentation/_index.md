@@ -2,7 +2,7 @@
 title: Folie in der Präsentation zugreifen
 type: docs
 weight: 20
-url: /java/access-slide-in-presentation/
+url: /de/java/access-slide-in-presentation/
 keywords: "Zugriff auf PowerPoint-Präsentation, Zugriff auf Folie, Bearbeiten von Folienspezifikationen, Ändern der Folienposition, Festlegen der Foliennummer, Index, ID, Position Java, Aspose.Slides"
 description: "Zugriff auf PowerPoint-Folie über Index, ID oder Position in Java. Eigenschaften der Folie bearbeiten."
 ---

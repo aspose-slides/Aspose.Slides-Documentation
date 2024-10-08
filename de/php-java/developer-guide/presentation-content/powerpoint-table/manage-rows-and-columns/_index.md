@@ -2,7 +2,7 @@
 title: Zeilen und Spalten verwalten
 type: docs
 weight: 20
-url: /php-java/manage-rows-and-columns/
+url: /de/php-java/manage-rows-and-columns/
 keywords: "Tabelle, Tabellenzeilen und -spalten, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Verwalten Sie Tabellenzeilen und -spalten in PowerPoint-Präsentationen"
 ---

@@ -2,7 +2,7 @@
 title: Folien klonen
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /de/java/clone-slides/
 ---
 
 

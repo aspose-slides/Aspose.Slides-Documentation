@@ -2,7 +2,7 @@
 title: Export nach XAML
 type: docs
 weight: 30
-url: /python-net/export-to-xaml/
+url: /de/python-net/export-to-xaml/
 keywords: "Export PowerPoint-Präsentation, PowerPoint konvertieren, XAML, PowerPoint nach XAML, PPT nach XAML, PPTX nach XAML, Python"
 description: "Exportieren oder Konvertieren von PowerPoint-Präsentationen nach XAML"
 ---

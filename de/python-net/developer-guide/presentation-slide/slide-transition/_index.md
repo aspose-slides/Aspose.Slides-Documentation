@@ -2,7 +2,7 @@
 title: Folienübergang
 type: docs
 weight: 90
-url: /python-net/slide-transition/
+url: /de/python-net/slide-transition/
 keywords: "Folienübergang hinzufügen, PowerPoint-Folienübergang, Morphübergang, erweiterte Folienübergänge, Übergangseffekte, Python, Aspose.Slides"
 description: "Folienübergang und Übergangseffekte in Python hinzufügen"
 ---

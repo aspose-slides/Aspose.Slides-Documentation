@@ -2,14 +2,14 @@
 title: Präsentationsthema
 type: docs
 weight: 10
-url: /androidjava/presentation-theme/
+url: /de/androidjava/presentation-theme/
 keywords: "Thema, PowerPoint-Thema, PowerPoint-Präsentation, Java, Aspose.Slides für Android über Java"
 description: "PowerPoint-Präsentationsthema in Java"
 ---
 
 Ein Präsentationsthema definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsthema auswählen, wählen Sie im Wesentlichen einen bestimmten Satz von visuellen Elementen und deren Eigenschaften aus.
 
-In PowerPoint besteht ein Thema aus Farben, [Schriften](/slides/androidjava/powerpoint-fonts/), [Hintergrundstilen](/slides/androidjava/presentation-background/) und Effekten.
+In PowerPoint besteht ein Thema aus Farben, [Schriften](/slides/de/androidjava/powerpoint-fonts/), [Hintergrundstilen](/slides/de/androidjava/presentation-background/) und Effekten.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ Die Schriftart in allen Textfeldern wird aktualisiert.
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten möglicherweise die [PowerPoint-Schriften](/slides/androidjava/powerpoint-fonts/) sehen.
+Sie möchten möglicherweise die [PowerPoint-Schriften](/slides/de/androidjava/powerpoint-fonts/) sehen.
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="TIPP" %}} 
 
-Sie möchten möglicherweise den [PowerPoint-Hintergrund](/slides/androidjava/presentation-background/) sehen.
+Sie möchten möglicherweise den [PowerPoint-Hintergrund](/slides/de/androidjava/presentation-background/) sehen.
 
 {{% /alert %}}
 

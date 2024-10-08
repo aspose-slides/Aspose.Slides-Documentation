@@ -2,7 +2,7 @@
 title: Formenmanipulationen
 type: docs
 weight: 40
-url: /python-net/shape-manipulations/
+url: /de/python-net/shape-manipulations/
 keywords: "PowerPoint-Form, Form auf Folie, Form finden, Form klonen, Form entfernen, Form ausblenden, Formreihenfolge ändern, Interop-Form-ID abrufen, alternative Formtexte, Formularlayoutformate, Form als SVG, Form ausrichten, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Manipulieren Sie PowerPoint-Formen in Python"
 ---

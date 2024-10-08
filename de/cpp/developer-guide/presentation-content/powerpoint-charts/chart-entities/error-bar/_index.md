@@ -1,7 +1,7 @@
 ---
 title: Fehlerbalken
 type: docs
-url: /cpp/error-bar/
+url: /de/cpp/error-bar/
 ---
 
 ## **Fehlerbalken hinzufügen**

@@ -2,7 +2,7 @@
 title: Microsoft PowerPoint (PPT)
 type: docs
 weight: 10
-url: /java/microsoft-powerpoint-ppt/
+url: /de/java/microsoft-powerpoint-ppt/
 ---
 
 {{% alert color="primary" %}} 
@@ -27,7 +27,7 @@ Aspose.Slides für Java bietet Unterstützung für nahezu alle Funktionen, die v
 Neben den grundlegenden Aufgaben, die mit dem Erstellen, Lesen und Schreiben von PPT-Dokumentdateien verbunden sind, bietet Aspose.Slides für Java mehrere Funktionen:
 
 - Importieren anderer Microsoft Office-Dateiformate als [OLE-Objekte in PPT-Dokumente]().
-- [Exportieren von PPT-Dokumenten nach PDF](/slides/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
+- [Exportieren von PPT-Dokumenten nach PDF](/slides/de/java/convert-powerpoint-ppt-and-pptx-to-pdf/).
 - Exportieren von Folien in den PPT-Dokumenten in SVG-Formate.
 - Rendern von Folien in jedes vom Java-Framework unterstützte Bildformat.
 - Festlegen der Größe von Folien in PPT-Dokumenten.

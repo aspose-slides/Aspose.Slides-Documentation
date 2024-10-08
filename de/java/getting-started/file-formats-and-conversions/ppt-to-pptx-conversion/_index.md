@@ -2,12 +2,12 @@
 title: PPT zu PPTX-Konvertierung
 type: docs
 weight: 30
-url: /java/ppt-to-pptx-conversion/
+url: /de/java/ppt-to-pptx-conversion/
 ---
 
 {{% alert color="primary" %}} 
 
-Die PPT zu PPTX-Konvertierung wird von Aspose.Slides für Java unterstützt. Die meisten Präsentationsfunktionen - Masterfolien, Struktur usw. - bleiben bei der Konvertierung von einem Format in ein anderes erhalten, aber es gibt [einige Einschränkungen](/slides/java/ppt-to-pptx-conversion/).
+Die PPT zu PPTX-Konvertierung wird von Aspose.Slides für Java unterstützt. Die meisten Präsentationsfunktionen - Masterfolien, Struktur usw. - bleiben bei der Konvertierung von einem Format in ein anderes erhalten, aber es gibt [einige Einschränkungen](/slides/de/java/ppt-to-pptx-conversion/).
 
 {{% /alert %}} 
 ## **Unterstützte Funktionen bei der Konvertierung**

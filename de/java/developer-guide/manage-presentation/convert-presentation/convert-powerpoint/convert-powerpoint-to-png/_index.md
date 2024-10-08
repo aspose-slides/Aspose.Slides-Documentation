@@ -2,7 +2,7 @@
 title: PowerPoint in PNG konvertieren
 type: docs
 weight: 30
-url: /java/convert-powerpoint-to-png/
+url: /de/java/convert-powerpoint-to-png/
 keywords: PowerPoint in PNG, PPT in PNG, PPTX in PNG, java, Aspose.Slides für Java
 description: PowerPoint-Präsentation in PNG konvertieren
 ---

@@ -1,7 +1,7 @@
 ---
 title: Datenpunkte von Baumkarten und Sonnenstrahl-Diagrammen
 type: docs
-url: /androidjava/data-points-of-treemap-and-sunburst-chart/
+url: /de/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords: "Sonnenstrahl-Diagramm in Aspose.Slides für Android über Java"
 description: "Sonnenstrahl-Diagramm, Sonnenstrahl-Grafik, Sonnenstrahl-Diagramm, Radialdiagramm, Radialgrafik oder Mehrstufiges Kreisdiagramm mit Aspose.Slides für Android über Java."
@@ -27,7 +27,7 @@ try {
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [**Erstellen eines Sonnenstrahl-Diagramms**](/slides/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Erstellen eines Sonnenstrahl-Diagramms**](/slides/de/androidjava/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 Wenn es notwendig ist, die Datenpunkte des Diagramms zu formatieren, sollten wir Folgendes verwenden:

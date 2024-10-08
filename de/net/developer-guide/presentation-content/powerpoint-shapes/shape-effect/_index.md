@@ -2,12 +2,12 @@
 title: Formeffekt
 type: docs
 weight: 30
-url: /net/shape-effect
+url: /de/net/shape-effect
 keywords: "Formeffekt, PowerPoint-Präsentation C#, Csharp, Aspose.Slides für .NET"
 description: "Effekt auf PowerPoint-Form in C# oder .NET anwenden"
 ---
 
-Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/net/shape-formatting/#gradient-fill) oder Konturen. Mit PowerPoint-Effekten können Sie überzeugende Spiegelungen auf einer Form erstellen, den Glanz einer Form verbreiten usw.
+Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/de/net/shape-formatting/#gradient-fill) oder Konturen. Mit PowerPoint-Effekten können Sie überzeugende Spiegelungen auf einer Form erstellen, den Glanz einer Form verbreiten usw.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

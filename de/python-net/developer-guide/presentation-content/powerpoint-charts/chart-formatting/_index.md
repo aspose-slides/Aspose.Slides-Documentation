@@ -2,7 +2,7 @@
 title: Diagrammformatierung
 type: docs
 weight: 60
-url: /python-net/chart-formatting/
+url: /de/python-net/chart-formatting/
 keywords: "Diagrammobjekte, Diagrammeigenschaften, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Formatieren Sie Diagrammobjekte in PowerPoint-Präsentationen in Python"
 ---

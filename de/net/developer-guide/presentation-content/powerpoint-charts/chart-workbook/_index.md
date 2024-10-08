@@ -2,7 +2,7 @@
 title: Diagrammarbeitsbuch
 type: docs
 weight: 70
-url: /net/chart-workbook/
+url: /de/net/chart-workbook/
 keywords: "Diagrammarbeitsbuch, Diagrammdaten, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Diagrammarbeitsbuch in PowerPoint-Präsentation in C# oder .NET"
 ---

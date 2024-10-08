@@ -2,7 +2,7 @@
 title: Diagramm Berechnungen
 type: docs
 weight: 50
-url: /androidjava/chart-calculations/
+url: /de/androidjava/chart-calculations/
 ---
 
 ## **Berechnung der tatsächlichen Werte von Diagrammelementen**

@@ -2,7 +2,7 @@
 title: Digitale Signatur in PowerPoint
 type: docs
 weight: 10
-url: /net/digital-signature-in-powerpoint/
+url: /de/net/digital-signature-in-powerpoint/
 keywords: "Digitales Signaturzertifikat, Zertifizierungsstelle, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Digitale Signatur oder Zertifikat in PowerPoint hinzufügen. Zertifizierungsstelle in C# oder .NET"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Diagramm-Plotbereich
 type: docs
-url: /php-java/chart-plot-area/
+url: /de/php-java/chart-plot-area/
 ---
 
 

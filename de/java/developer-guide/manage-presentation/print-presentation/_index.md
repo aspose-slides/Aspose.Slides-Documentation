@@ -2,7 +2,7 @@
 title: Druckpräsentation
 type: docs
 weight: 50
-url: /java/print-presentation/
+url: /de/java/print-presentation/
 keywords: "Druck PowerPoint, PPT, PPTX, Druckpräsentation, Java, Drucker, PrinterJob, PrintService"
 description: "Drucken von PowerPoint-Präsentationen in Java"
 ---

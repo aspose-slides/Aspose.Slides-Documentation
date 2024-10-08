@@ -2,7 +2,7 @@
 title: Anpassen der Beschriftung der PowerPoint-Rendering-Erweiterung
 type: docs
 weight: 60
-url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
+url: /de/reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
 {{% alert color="primary" %}} 

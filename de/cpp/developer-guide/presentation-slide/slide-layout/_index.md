@@ -2,7 +2,7 @@
 title: Folienlayout
 type: docs
 weight: 60
-url: /cpp/slide-layout/
+url: /de/cpp/slide-layout/
 keyword: "Foliengröße festlegen, Folienoptionen festlegen, Foliengröße angeben, Fußzeilenanzeige, Kindfußzeile, Inhaltsmaßstab, Seitengröße, C++, CPP, Aspose.Slides"
 description: "Legen Sie die Größe und Optionen von PowerPoint-Folien in C++ fest"
 ---

@@ -2,7 +2,7 @@
 title: Tinte verwalten  
 type: docs  
 weight: 95  
-url: /net/manage-ink/  
+url: /de/net/manage-ink/  
 keywords: "Tinte in PowerPoint, Tintentools, C# Tinte, Zeichnen in PowerPoint, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET "  
 description: "Verwenden Sie Tintentools, um Objekte in PowerPoint C# zu zeichnen"  
 ---  

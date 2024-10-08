@@ -3,7 +3,7 @@ title: Benutzerdefinierte PowerPoint-Schriftart
 linktitle: Benutzerdefinierte Schriftart
 type: docs
 weight: 20
-url: /php-java/custom-font/
+url: /de/php-java/custom-font/
 keywords: "Schriftarten, benutzerdefinierte Schriftarten, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "PowerPoint benutzerdefinierte Schriftarten"
 ---

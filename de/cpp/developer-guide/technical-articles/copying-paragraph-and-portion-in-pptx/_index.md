@@ -2,7 +2,7 @@
 title: Kopieren von Absatz und Portion in PPTX
 type: docs
 weight: 30
-url: /cpp/copying-paragraph-and-portion-in-pptx/
+url: /de/cpp/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

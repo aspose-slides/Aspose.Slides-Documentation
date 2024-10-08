@@ -1,7 +1,7 @@
 ---
 title: Fehlerbalken
 type: docs
-url: /python-net/error-bar/
+url: /de/python-net/error-bar/
 keywords: "Fehlerbalken, Fehlerbalkenwerte PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Fehlerbalken zu PowerPoint-Präsentationen in Python hinzufügen"
 ---

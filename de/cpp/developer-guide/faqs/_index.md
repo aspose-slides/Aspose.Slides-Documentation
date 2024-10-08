@@ -2,7 +2,7 @@
 title: FAQs
 type: docs
 weight: 340
-url: /cpp/faqs/
+url: /de/cpp/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **F: Welche Dateiformate unterstützt Aspose.Slides für C++?**
 
-**A**: Aspose.Slides für C++ unterstützt die in [Unterstützte Dateiformate](/slides/cpp/supported-file-formats/) beschriebenen Dateiformate.
+**A**: Aspose.Slides für C++ unterstützt die in [Unterstützte Dateiformate](/slides/de/cpp/supported-file-formats/) beschriebenen Dateiformate.
 
 ## **Ausnahmen**
 
@@ -54,7 +54,7 @@ Im Allgemeinen kann Aspose.Slides für C++ Präsentationsdateien von etwa 300 MB
 
 **F: Warum sind die Absatzgrößen auf Windows und Linux-Betriebssystemen unterschiedlich?**
 
-**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den gegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der in der PowerPoint-Präsentation angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen auf verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig von der Menge der installierten Schriftarten. Um dasselbe Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen die gleichen Schriftarten auf den Systemen installiert oder zur Laufzeit als [externe Schriftarten](/slides/cpp/custom-font/) geladen werden.
+**A**: Die Berechnung der Absatzgrößen basiert auf der Berechnung der Textgröße, die den gegebenen Absatz darstellt. Die Berechnung der Textgröße basiert auf den Metriken der in der PowerPoint-Präsentation angegebenen Schriftart. Wenn die angegebene Schriftart fehlt, wird sie durch die ähnlichste Schriftart ersetzt, aber diese Schriftart hat andere Metriken als die ursprünglichen. Infolgedessen führt die Berechnung der Absatzgrößen auf verschiedenen Systemen zu unterschiedlichen Ergebnissen, abhängig von der Menge der installierten Schriftarten. Um dasselbe Ergebnis auf verschiedenen Betriebssystemen zu erzielen, müssen die gleichen Schriftarten auf den Systemen installiert oder zur Laufzeit als [externe Schriftarten](/slides/de/cpp/custom-font/) geladen werden.
 
 ## **Formatierung und Bilder**
 

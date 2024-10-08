@@ -1,7 +1,7 @@
 ---
 title: Blasendiagramm
 type: docs
-url: /cpp/bubble-chart/
+url: /de/cpp/bubble-chart/
 ---
 
 ## **Skalierung der Blasendiagrammgröße**

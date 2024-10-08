@@ -2,13 +2,13 @@
 title: Präsentation speichern
 type: docs
 weight: 80
-url: /java/save-presentation/
+url: /de/java/save-presentation/
 ---
 
 ## **Übersicht**
 {{% alert color="primary" %}} 
 
-[Öffnen der Präsentation](/slides/java/open-presentation/) beschreibt, wie die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse verwendet wird, um eine Präsentation zu öffnen. Dieser Artikel erklärt, wie man Präsentationen erstellt und speichert.
+[Öffnen der Präsentation](/slides/de/java/open-presentation/) beschreibt, wie die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) Klasse verwendet wird, um eine Präsentation zu öffnen. Dieser Artikel erklärt, wie man Präsentationen erstellt und speichert.
 
 {{% /alert %}} 
 

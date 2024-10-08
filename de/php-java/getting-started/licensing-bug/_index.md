@@ -2,7 +2,7 @@
 title: Lizenzierungsfehler
 type: docs
 weight: 95
-url: /php-java/licensing-bug/
+url: /de/php-java/licensing-bug/
 ---
 
 Dieser Artikel beschreibt einen Lizenzierungsfehler, der in den Versionen 23.2, 23.3, 23.4, 23.5, 23.6 und 23.7 von Aspose.Slides für PHP über Java aufgetreten ist. Dieser Fehler führte dazu, dass unbefristete Lizenzen nach Ablauf ihres Abonnements vorübergehend unbrauchbar wurden.

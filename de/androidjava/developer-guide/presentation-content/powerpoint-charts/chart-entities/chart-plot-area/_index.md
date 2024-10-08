@@ -1,7 +1,7 @@
 ---
 title: Diagramm Plotbereich
 type: docs
-url: /androidjava/chart-plot-area/
+url: /de/androidjava/chart-plot-area/
 ---
 
 

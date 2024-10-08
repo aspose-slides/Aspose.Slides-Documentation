@@ -2,7 +2,7 @@
 title: Wasserzeichen
 type: docs
 weight: 40
-url: /net/watermark/
+url: /de/net/watermark/
 keywords:
 - wasserzeichen
 - wasserzeichen hinzufügen
@@ -47,7 +47,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man die TextFrame-Klasse verwendet](/slides/net/text-formatting/)
+- [Wie man die TextFrame-Klasse verwendet](/slides/de/net/text-formatting/)
 {{% /alert %}}
 
 ### **Textwasserzeichen zu einer Präsentation hinzufügen**
@@ -65,7 +65,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="Siehe auch" %}} 
-- [Wie man den Folienmaster verwendet](/slides/net/slide-master/)
+- [Wie man den Folienmaster verwendet](/slides/de/net/slide-master/)
 {{% /alert %}}
 
 ### **Transparenz der Wasserzeichenform einstellen**

@@ -2,5 +2,5 @@
 title: Text verwalten
 type: docs
 weight: 50
-url: /cpp/manage-text/
+url: /de/cpp/manage-text/
 ---

@@ -1,7 +1,7 @@
 ---
 title: Diagrammlegende
 type: docs
-url: /python-net/chart-legend/
+url: /de/python-net/chart-legend/
 keywords: "Diagrammlegende, Schriftgröße der Legende, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Positionierung und Schriftgröße für die Diagrammlegende in PowerPoint-Präsentationen in Python festlegen"
 ---

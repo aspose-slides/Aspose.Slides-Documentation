@@ -2,7 +2,7 @@
 title: Folienmaster
 type: docs
 weight: 70
-url: /androidjava/slide-master/
+url: /de/androidjava/slide-master/
 keywords: "Folienmaster hinzufügen, PPT-Masterfolie, Folienmaster PowerPoint, Bild zum Folienmaster, Platzhalter, Mehrere Folienmaster, Folienmaster vergleichen, Java, Aspose.Slides für Android über Java"
 description: "Folienmaster in einer PowerPoint-Präsentation in Java hinzufügen oder bearbeiten"
 ---
@@ -149,7 +149,7 @@ try {
 
 {{% alert color="primary" title="Siehe auch" %}} 
 
-Weitere Informationen zum Hinzufügen von Bildern zu einer Folie finden Sie im Artikel [Bildrahmen](/slides/androidjava/picture-frame/#create-picture-frame).
+Weitere Informationen zum Hinzufügen von Bildern zu einer Folie finden Sie im Artikel [Bildrahmen](/slides/de/androidjava/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

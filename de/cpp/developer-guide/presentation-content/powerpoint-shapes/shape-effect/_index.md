@@ -2,12 +2,12 @@
 title: Formeffekt
 type: docs
 weight: 30
-url: /cpp/shape-effect
+url: /de/cpp/shape-effect
 keywords: "Formeffekt, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Effekt auf eine PowerPoint-Form in C++ anwenden"
 ---
 
-Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/cpp/shape-formatting/#gradient-fill) oder Umrissen. Mit PowerPoint-Effekten können Sie überzeugende Reflexionen auf einer Form erstellen, den Glanz einer Form verbreiten usw.
+Während Effekte in PowerPoint verwendet werden können, um eine Form hervorzuheben, unterscheiden sie sich von [Füllungen](/slides/de/cpp/shape-formatting/#gradient-fill) oder Umrissen. Mit PowerPoint-Effekten können Sie überzeugende Reflexionen auf einer Form erstellen, den Glanz einer Form verbreiten usw.
 
 <img src="shape-effect.png" alt="shape-effect" style="zoom:50%;" />
 

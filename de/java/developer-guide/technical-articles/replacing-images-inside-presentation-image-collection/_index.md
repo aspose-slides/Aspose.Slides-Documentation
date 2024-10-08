@@ -2,7 +2,7 @@
 title: Ersetzen von Bildern in der Präsentationsbildsammlung
 type: docs
 weight: 80
-url: /java/replacing-images-inside-presentation-image-collection/
+url: /de/java/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

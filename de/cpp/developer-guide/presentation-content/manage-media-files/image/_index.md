@@ -2,7 +2,7 @@
 title: Bild
 type: docs
 weight: 10
-url: /cpp/image/
+url: /de/cpp/image/
 ---
 
 
@@ -18,7 +18,7 @@ Aspose bietet kostenlose Konverter—[JPEG zu PowerPoint](https://products.aspos
 
 {{% alert title="Info" color="info" %}}
 
-Wenn Sie ein Bild als Rahmenobjekt hinzufügen möchten, insbesondere wenn Sie planen, Standardformatierungsoptionen zu verwenden, um dessen Größe zu ändern, Effekte hinzuzufügen usw., siehe [Bilderrahmen](/slides/cpp/picture-frame/). 
+Wenn Sie ein Bild als Rahmenobjekt hinzufügen möchten, insbesondere wenn Sie planen, Standardformatierungsoptionen zu verwenden, um dessen Größe zu ändern, Effekte hinzuzufügen usw., siehe [Bilderrahmen](/slides/de/cpp/picture-frame/). 
 
 {{% /alert %}} 
 

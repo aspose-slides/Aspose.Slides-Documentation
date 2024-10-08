@@ -2,7 +2,7 @@
 title: Systemanforderungen  
 type: docs  
 weight: 80  
-url: /cpp/system-requirements/  
+url: /de/cpp/system-requirements/  
 ---  
 
 ## **Unterstützte Betriebssysteme**  

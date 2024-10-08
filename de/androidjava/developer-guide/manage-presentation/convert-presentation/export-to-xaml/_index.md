@@ -2,7 +2,7 @@
 title: Export nach XAML
 type: docs
 weight: 30
-url: /androidjava/export-to-xaml/
+url: /de/androidjava/export-to-xaml/
 
 ---
 

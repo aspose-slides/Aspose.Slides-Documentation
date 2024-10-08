@@ -2,7 +2,7 @@
 title: Produktsupport
 type: docs
 weight: 100
-url: /nodejs-net/product-support/
+url: /de/nodejs-net/product-support/
 ---
 
 ## **Technischer Support**
@@ -36,4 +36,4 @@ Wenn Sie ein Problem mit Aspose.Slides für Node.js über .NET haben, befolgen S
 |[Aspose.Slide-Blog](https://blog.aspose.com/category/slides/)|Überprüfen Sie diese Seite regelmäßig auf Informationen über neue Versionen und nützliche Tipps zu Aspose.Slides.|
 |[Aspose.Slides für Node.js über .NET Download](https://releases.aspose.com/slides/nodejs-net/)|Laden Sie hier die neueste Version von Aspose.Slides herunter. Wir bringen oft neue Versionen heraus.|
 |[Aspose.Slides-Supportforum](https://forum.aspose.com/c/slides/11)|Stellen Sie hier Ihre Fragen und Probleme für eine schnelle Lösung.|
-|[Aspose.Slides für Node.js über .NET Produktdokumentation](/slides/nodejs-net/)|Vollständige Online-Dokumentation, die dieses Dokument und die API-Referenz von Aspose.Slides enthält.|
+|[Aspose.Slides für Node.js über .NET Produktdokumentation](/slides/de/nodejs-net/)|Vollständige Online-Dokumentation, die dieses Dokument und die API-Referenz von Aspose.Slides enthält.|

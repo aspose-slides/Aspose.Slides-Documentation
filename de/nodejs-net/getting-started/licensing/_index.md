@@ -3,7 +3,7 @@ title: Lizenzierung
 description: "Aspose.Slides für Node.js über .NET bietet verschiedene Kaufpläne oder bietet eine kostenlose Testversion und eine 30-tägige temporäre Lizenz zur Bewertung unter Verwendung von Lizenzierungs- und Abonnementrichtlinien an."
 type: docs
 weight: 80
-url: /nodejs-net/licensing/
+url: /de/nodejs-net/licensing/
 ---
 
 Manchmal ist für die besten Bewertungsergebnisse ein praktischer Ansatz erforderlich. Aus diesem Grund bietet Aspose.Slides verschiedene Kaufpläne an und bietet auch eine kostenlose Testversion sowie eine 30-tägige temporäre Lizenz zur Bewertung.

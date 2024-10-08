@@ -2,7 +2,7 @@
 title: Fehlersuche bei der Installation von Aspose.Slides für Node.js über Java
 type: docs
 weight: 75
-url: /nodejs-java/troubleshooting-installation/
+url: /de/nodejs-java/troubleshooting-installation/
 keySlides: "Laden Sie Aspose.Slides herunter, Installieren Sie Aspose.Slides, Aspose.Slides Fehlersuche bei der Installation, Windows, macOS, Linux, Javascript, Node.js"
 description: "Fehlersuche bei der Installation von Aspose.Slides für Node.js über Java in Windows, Linux oder macOS"
 ---

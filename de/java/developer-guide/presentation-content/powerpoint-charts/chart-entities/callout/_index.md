@@ -1,7 +1,7 @@
 ---
 title: Callout
 type: docs
-url: /java/callout/
+url: /de/java/callout/
 ---
 
 ## **Verwendung von Callouts**

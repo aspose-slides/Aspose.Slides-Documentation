@@ -2,7 +2,7 @@
 title: API-Beschränkungen
 type: docs
 weight: 210
-url: /python-net/api-limitations/
+url: /de/python-net/api-limitations/
 ---
 
 ## **Präsentationen und andere Exportformate**

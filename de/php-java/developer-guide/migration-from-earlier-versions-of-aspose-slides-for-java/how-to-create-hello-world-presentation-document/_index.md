@@ -2,12 +2,12 @@
 title: Wie man ein Hello World Präsentationsdokument erstellt
 type: docs
 weight: 10
-url: /php-java/how-to-create-hello-world-presentation-document/
+url: /de/php-java/how-to-create-hello-world-presentation-document/
 ---
 
 {{% alert color="primary" %}} 
 
-Ein neues [Aspose.Slides für PHP über Java API](/slides/php-java/) wurde veröffentlicht und unterstützt jetzt die Möglichkeit, PowerPoint-Dokumente von Grund auf zu erstellen und bestehende zu bearbeiten.
+Ein neues [Aspose.Slides für PHP über Java API](/slides/de/php-java/) wurde veröffentlicht und unterstützt jetzt die Möglichkeit, PowerPoint-Dokumente von Grund auf zu erstellen und bestehende zu bearbeiten.
 
 {{% /alert %}} 
 ## **Unterstützung für Legacy-Code**

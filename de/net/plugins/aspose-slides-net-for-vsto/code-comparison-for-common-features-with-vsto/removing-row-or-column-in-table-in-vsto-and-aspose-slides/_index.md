@@ -2,7 +2,7 @@
 title: Entfernen von Zeilen oder Spalten in Tabellen in VSTO und Aspose.Slides
 type: docs
 weight: 130
-url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
+url: /de/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

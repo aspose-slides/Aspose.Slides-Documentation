@@ -2,7 +2,7 @@
 title: Folie konvertieren
 type: docs
 weight: 41
-url: /cpp/convert-slide/
+url: /de/cpp/convert-slide/
 keywords: 
 - folie in bild konvertieren
 - folie als bild exportieren

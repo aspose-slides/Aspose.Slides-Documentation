@@ -2,7 +2,7 @@
 title: Kopieren von Absatz und Portion in PPTX
 type: docs
 weight: 80
-url: /python-net/copying-paragraph-and-portion-in-pptx/
+url: /de/python-net/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

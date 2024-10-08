@@ -2,7 +2,7 @@
 title: Benutzerdefinierte Form
 type: docs
 weight: 20
-url: /java/custom-shape/
+url: /de/java/custom-shape/
 keywords: "PowerPoint-Form, benutzerdefinierte Form, PowerPoint-Präsentation, Java, Aspose.Slides für Java"
 description: "Fügen Sie eine benutzerdefinierte Form in eine PowerPoint-Präsentation in Java ein"
 ---

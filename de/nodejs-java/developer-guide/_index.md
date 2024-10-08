@@ -2,5 +2,5 @@
 title: Entwicklerratgeber
 type: docs
 weight: 20
-url: /nodejs-java/developer-guide/
+url: /de/nodejs-java/developer-guide/
 ---

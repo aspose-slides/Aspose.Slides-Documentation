@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /java/flash/
+url: /de/java/flash/
 description: Extrahieren von Flash-Objekten aus PowerPoint-Präsentationen mit Java
 ---
 

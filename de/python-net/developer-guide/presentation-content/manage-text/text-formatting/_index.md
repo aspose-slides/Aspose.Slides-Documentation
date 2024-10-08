@@ -2,7 +2,7 @@
 title: Textformatierung
 type: docs
 weight: 50
-url: /python-net/text-formatting/
+url: /de/python-net/text-formatting/
 keywords:
 - Text hervorheben
 - regulärer Ausdruck

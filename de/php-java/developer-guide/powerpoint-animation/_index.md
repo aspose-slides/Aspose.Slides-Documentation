@@ -2,7 +2,7 @@
 title: PowerPoint-Animation
 type: docs
 weight: 150
-url: /php-java/powerpoint-animation/
+url: /de/php-java/powerpoint-animation/
 keywords: "PowerPoint-Animation"
 description: "PowerPoint-Animation, PowerPoint-Folienanimation mit Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ Dies kann erreicht werden, indem mehrere Verhaltensweisen zu einer neuen benutze
 Aspose.Slides ermöglicht die Anwendung von Animationen auf Formen, die tatsächlich Text, Rechtecke, Linien, Rahmen, OLE-Objekte usw. sein können.
 
 {{% alert color="primary" %}} 
-Mehr lesen [**Über Form-Animation**](/slides/php-java/shape-animation/).
+Mehr lesen [**Über Form-Animation**](/slides/de/php-java/shape-animation/).
 {{% /alert %}}
 
 ## **Animierte Diagramme**
 Um animierte Diagramme zu erstellen, sollten Sie alle gleichen Klassen wie für die Formen verwenden. Es ist jedoch möglich, PowerPoint-Animationen nur auf Diagrammkategorien oder Diagrammserien anzuwenden. Sie können auch Animations-Effekte auf ein Kategorienelement oder ein Serienelement anwenden.
 
 {{% alert color="primary" %}} 
-Mehr lesen [**Über animierte Diagramme**](/slides/php-java/animated-charts/).
+Mehr lesen [**Über animierte Diagramme**](/slides/de/php-java/animated-charts/).
 {{% /alert %}}
 
 ## **Animierter Text**
 Neben animiertem Text ist es auch möglich, Animationen auf einen Absatz anzuwenden.
 
 {{% alert color="primary" %}} 
-Mehr lesen [**Über animierten Text**](/slides/php-java/animated-text/).
+Mehr lesen [**Über animierten Text**](/slides/de/php-java/animated-text/).
 {{% /alert %}}

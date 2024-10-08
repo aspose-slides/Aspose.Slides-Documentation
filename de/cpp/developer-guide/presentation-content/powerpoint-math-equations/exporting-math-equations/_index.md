@@ -2,7 +2,7 @@
 title: Exportieren von mathematischen Gleichungen
 type: docs
 weight: 30
-url: /cpp/exporting-math-equations/
+url: /de/cpp/exporting-math-equations/
 
 ---
 

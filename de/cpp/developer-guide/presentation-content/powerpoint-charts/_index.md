@@ -2,5 +2,5 @@
 title: PowerPoint-Diagramme
 type: docs
 weight: 70
-url: /cpp/powerpoint-charts/
+url: /de/cpp/powerpoint-charts/
 ---

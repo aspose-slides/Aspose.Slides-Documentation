@@ -2,7 +2,7 @@
 title: Funktionenübersicht
 type: docs
 weight: 20
-url: /python-java/features-overview/
+url: /de/python-java/features-overview/
 ---
 
 ## **Unterstützte Plattformen**

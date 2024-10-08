@@ -2,7 +2,7 @@
 title: Connector
 type: docs
 weight: 10
-url: /cpp/connector/
+url: /de/cpp/connector/
 keywords: "Formen verbinden, Verbinder, PowerPoint Formen, PowerPoint Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Verbinden Sie PowerPoint Formen in C++"
 ---
@@ -143,7 +143,7 @@ Dieser C++-Code demonstriert einen Vorgang, bei dem ein bevorzugter Verbindungsp
 
 ## **Verbinder Punkt anpassen**
 
-Sie können einen vorhandenen Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Arten von Verbindern.](/slides/cpp/connector/#types-of-connectors)** 
+Sie können einen vorhandenen Verbinder über seine Anpassungspunkte anpassen. Nur Verbinder mit Anpassungspunkten können auf diese Weise geändert werden. Siehe die Tabelle unter **[Arten von Verbindern.](/slides/de/cpp/connector/#types-of-connectors)** 
 
 #### **Einfacher Fall**
 
@@ -192,7 +192,7 @@ Um kompliziertere Anpassungen vorzunehmen, müssen Sie diese Dinge berücksichti
 * Die Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe der Verbinderform wider.
   * Die Form wird durch die Start- und Endpunkte des Verbinders multipliziert mit 1000 begrenzt. 
   * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren den Prozentsatz von der Breite, den Prozentsatz von der Höhe und den Prozentsatz von der Breite (noch einmal), jeweils.
-* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung und Reflexion des Verbinders berücksichtigen. **Hinweis**: Der Drehwinkel für alle in **[Arten von Verbindern](/slides/cpp/connector/#types-of-connectors)** gezeigten Verbinder beträgt 0.
+* Für Berechnungen, die die Koordinaten der Anpassungspunkte eines Verbinders bestimmen, müssen Sie die Drehung und Reflexion des Verbinders berücksichtigen. **Hinweis**: Der Drehwinkel für alle in **[Arten von Verbindern](/slides/de/cpp/connector/#types-of-connectors)** gezeigten Verbinder beträgt 0.
 
 #### **Fall 1**
 

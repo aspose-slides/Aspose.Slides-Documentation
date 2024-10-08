@@ -2,7 +2,7 @@
 title: Präsentationen als HTML mit extern verknüpften Bildern exportieren
 type: docs
 weight: 50
-url: /cpp/exporting-presentations-to-html-with-externally-linked-images/
+url: /de/cpp/exporting-presentations-to-html-with-externally-linked-images/
 ---
 
 {{% alert color="primary" %}} 

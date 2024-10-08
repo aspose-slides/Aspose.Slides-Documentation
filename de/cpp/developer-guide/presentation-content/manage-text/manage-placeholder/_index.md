@@ -2,13 +2,13 @@
 title: Platzhalter verwalten
 type: docs
 weight: 10
-url: /cpp/manage-placeholder/
+url: /de/cpp/manage-placeholder/
 keywords: "Platzhalter, Platzhaltertext, Eingabetext, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Ändern Sie Platzhaltertext und Eingabetext in PowerPoint-Präsentationen in C++"
 ---
 
 ## **Text im Platzhalter ändern**
-Mit [Aspose.Slides für C++](/slides/cpp/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
+Mit [Aspose.Slides für C++](/slides/de/cpp/) können Sie Platzhalter auf Folien in Präsentationen finden und ändern. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
 
 **Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der Standardanwendung Microsoft PowerPoint erstellen.
 

@@ -2,7 +2,7 @@
 title: Bild
 type: docs
 weight: 10
-url: /net/image/
+url: /de/net/image/
 keywords: "Bild hinzufügen, Foto hinzufügen, PowerPoint-Präsentation, EMF, SVG, C#, Csharp, Aspose.Slides für .NET"
 description: "Bild zu PowerPoint-Folie oder Präsentation in C# oder .NET hinzufügen"
 ---

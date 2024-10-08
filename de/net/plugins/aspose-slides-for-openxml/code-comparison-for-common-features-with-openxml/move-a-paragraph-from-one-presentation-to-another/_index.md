@@ -2,7 +2,7 @@
 title: Verschieben eines Absatzes von einer Präsentation zu einer anderen
 type: docs
 weight: 130
-url: /net/move-a-paragraph-from-one-presentation-to-another/
+url: /de/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **OpenXML Präsentation**

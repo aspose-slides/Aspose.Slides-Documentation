@@ -2,7 +2,7 @@
 title: TextBox verwalten
 type: docs
 weight: 20
-url: /cpp/manage-textbox/
+url: /de/cpp/manage-textbox/
 keywords: "Textbox, Textfeld, Textbox hinzufügen, Textbox mit Hyperlink, C++, Aspose.Slides für C++"
 description: "Fügen Sie Textbox oder Textfeld in PowerPoint-Präsentationen in C++ hinzu"
 ---

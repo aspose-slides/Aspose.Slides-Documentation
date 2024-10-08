@@ -2,7 +2,7 @@
 title: Vergleiche Folien
 type: docs
 weight: 50
-url: /cpp/compare-slides/
+url: /de/cpp/compare-slides/
 ---
 
 ## **Vergleiche Zwei Folien**

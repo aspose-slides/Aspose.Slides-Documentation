@@ -2,7 +2,7 @@
 title: Diagramm-Berechnungen
 type: docs
 weight: 50
-url: /python-net/chart-calculations/
+url: /de/python-net/chart-calculations/
 keywords: "Diagramm Berechnungen, Diagramm Elemente, Elementposition, Diagramm Werte Python, Aspose.Slides für Python über .NET"
 description: "PowerPoint Diagramm Berechnungen und Werte in Python"
 ---

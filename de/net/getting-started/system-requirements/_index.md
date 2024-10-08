@@ -2,7 +2,7 @@
 title: Systemanforderungen  
 type: docs  
 weight: 60  
-url: /net/system-requirements/  
+url: /de/net/system-requirements/  
 ---  
 
 ## **Übersicht**  

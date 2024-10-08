@@ -2,12 +2,12 @@
 title: Erstellen eines Diagramms in einer Microsoft PowerPoint-Präsentation
 type: docs
 weight: 80
-url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /de/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Diagramme sind visuelle Darstellungen von Daten, die in Präsentationen häufig verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint mit [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Diagramme sind visuelle Darstellungen von Daten, die in Präsentationen häufig verwendet werden. Dieser Artikel zeigt den Code zum programmgesteuerten Erstellen eines Diagramms in Microsoft PowerPoint mit [VSTO](/slides/de/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) und [Aspose.Slides für .NET](/slides/de/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Einen Diagramm erstellen**

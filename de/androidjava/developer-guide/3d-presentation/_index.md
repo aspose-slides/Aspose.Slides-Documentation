@@ -2,7 +2,7 @@
 title: 3D-Präsentation
 type: docs
 weight: 232
-url: /androidjava/3d-presentation/
+url: /de/androidjava/3d-presentation/
 keywords:
 - 3D
 - 3D PowerPoint

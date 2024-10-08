@@ -3,7 +3,7 @@ title: PPT in PPTX in Java konvertieren
 linktitle: PPT in PPTX konvertieren
 type: docs
 weight: 20
-url: /java/convert-ppt-to-pptx/
+url: /de/java/convert-ppt-to-pptx/
 keywords: "Java PPT in PPTX konvertieren, PowerPoint PPT in PPTX in Java"
 description: "PowerPoint PPT in PPTX in Java konvertieren."
 ---
@@ -47,7 +47,7 @@ Finden Sie weitere Live-Beispiele für [**Aspose.Slides Conversion**](https://pr
 {{% /alert %}} 
 
 ## **PPT in PPTX konvertieren**
-Aspose.Slides für Java ermöglicht es Entwicklern jetzt, auf das PPT über eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) Klasse zuzugreifen und dieses in das jeweilige [PPTX](https://docs.fileformat.com/presentation/pptx/) Format zu konvertieren. Derzeit unterstützt es die teilweise Konvertierung von [PPT](https://docs.fileformat.com/presentation/ppt/) in PPTX. Für weitere Einzelheiten zu den unterstützten und nicht unterstützten Funktionen bei der PPT-zu-PPTX-Konvertierung klicken Sie bitte auf diesen Dokumentations-[link](/slides/java/ppt-to-pptx-conversion/).
+Aspose.Slides für Java ermöglicht es Entwicklern jetzt, auf das PPT über eine Instanz der [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) Klasse zuzugreifen und dieses in das jeweilige [PPTX](https://docs.fileformat.com/presentation/pptx/) Format zu konvertieren. Derzeit unterstützt es die teilweise Konvertierung von [PPT](https://docs.fileformat.com/presentation/ppt/) in PPTX. Für weitere Einzelheiten zu den unterstützten und nicht unterstützten Funktionen bei der PPT-zu-PPTX-Konvertierung klicken Sie bitte auf diesen Dokumentations-[link](/slides/de/java/ppt-to-pptx-conversion/).
 
 Aspose.Slides für Java bietet die [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) Klasse, die eine **PPTX** Präsentationsdatei darstellt. Die Präsentationsklasse kann jetzt auch auf **PPT** zugreifen, wenn das Objekt instanziiert wird. Das folgende Beispiel zeigt, wie man eine PPT-Präsentation in eine PPTX-Präsentation konvertiert.
 

@@ -2,7 +2,7 @@
 title: Abrechnungslizenzierung
 type: docs
 weight: 100
-url: /php-java/metered-licensing/
+url: /de/php-java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

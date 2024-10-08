@@ -2,7 +2,7 @@
 title: Audio-Frame
 type: docs
 weight: 10
-url: /androidjava/audio-frame/
+url: /de/androidjava/audio-frame/
 keywords: "Audio hinzufügen, Audio-Frame, Audioeigenschaften, Audio extrahieren, Java, Aspose.Slides für Android über Java"
 description: "Audio zu einer PowerPoint-Präsentation in Java hinzufügen"
 ---

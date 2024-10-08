@@ -2,7 +2,7 @@
 title: Produktlinienverkäufe
 type: docs
 weight: 40
-url: /reportingservices/product-line-sales/
+url: /de/reportingservices/product-line-sales/
 ---
 
 ## **Funktionen:**

@@ -2,7 +2,7 @@
 title: Diagramm exportieren
 type: docs
 weight: 90
-url: /androidjava/export-chart/
+url: /de/androidjava/export-chart/
 ---
 
 ## **Diagrammbild abrufen**

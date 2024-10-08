@@ -2,7 +2,7 @@
 title: Präsentationslokalisierung
 type: docs
 weight: 100
-url: /net/presentation-localization/
+url: /de/net/presentation-localization/
 keywords: "Sprache ändern, Rechtschreibprüfung, Rechtschreibprüfung, Rechtschreibprüfer, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Sprache in PowerPoint-Präsentationen ändern oder überprüfen. Rechtschreibung in C# oder .NET prüfen"
 ---

@@ -2,7 +2,7 @@
 title: Diagramm Arbeitsmappe
 type: docs
 weight: 70
-url: /php-java/chart-workbook/
+url: /de/php-java/chart-workbook/
 keywords: "Diagramm Arbeitsmappe, Diagrammdaten, PowerPoint-Präsentation, Java, Aspose.Slides für PHP über Java"
 description: "Diagramm Arbeitsmappe in PowerPoint-Präsentation "
 ---

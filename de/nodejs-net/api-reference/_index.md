@@ -2,7 +2,7 @@
 title: API-Referenz
 type: docs
 weight: 50
-url: /nodejs-net/api-reference/
+url: /de/nodejs-net/api-reference/
 ---
 
 {{% alert color="primary" %}} 

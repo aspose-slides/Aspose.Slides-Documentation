@@ -2,7 +2,7 @@
 title: Präsentationsnotizen
 type: docs
 weight: 110
-url: /cpp/presentation-notes/
+url: /de/cpp/presentation-notes/
 keywords: "PowerPoint-Präsentationssprechernotizen"
 ---
 

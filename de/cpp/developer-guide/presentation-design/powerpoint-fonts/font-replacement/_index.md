@@ -2,7 +2,7 @@
 title: Schriftarten ersetzen
 type: docs
 weight: 60
-url: /cpp/font-replacement/
+url: /de/cpp/font-replacement/
 keywords: "Schriftart, Schriftart ersetzen, PowerPoint-Präsentation, C++, CPP, Aspose.Slides für C++"
 description: "Schriftarten explizit in PowerPoint in C++ ersetzen"
 ---
@@ -38,6 +38,6 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 
 {{% alert title="Hinweis" color="warning" %}} 
 
-Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen passiert (z. B. wenn auf eine Schriftart nicht zugegriffen werden kann), siehe [**Schriftartsubstitution**](/slides/cpp/font-substitution/). 
+Um Regeln festzulegen, die bestimmen, was unter bestimmten Bedingungen passiert (z. B. wenn auf eine Schriftart nicht zugegriffen werden kann), siehe [**Schriftartsubstitution**](/slides/de/cpp/font-substitution/). 
 
 {{% /alert %}}

@@ -2,14 +2,14 @@
 title: Erstellen einer Fallback-Schriftarten-Sammlung
 type: docs
 weight: 20
-url: /python-net/create-fallback-fonts-collection/
+url: /de/python-net/create-fallback-fonts-collection/
 keywords: "Fallback-Schriftarten-Sammlung, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
 description: "Fallback-Schriftarten-Sammlung in PowerPoint in Python"
 ---
 
 Instanzen der [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) Klasse können in der [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/) organisiert werden, die das [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) Interface implementiert. Es ist möglich, Regeln von der Sammlung hinzuzufügen oder zu entfernen.
 
-Dann kann diese Sammlung der [FontFallBackRulesCollection ](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)Eigenschaft der [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) Klasse zugewiesen werden. FontsManager steuert die Schriftarten der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/python-net/about-fontsmanager-and-fontsloader/).
+Dann kann diese Sammlung der [FontFallBackRulesCollection ](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)Eigenschaft der [FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/) Klasse zugewiesen werden. FontsManager steuert die Schriftarten der Präsentation. Erfahren Sie mehr [Über FontsManager und FontsLoader](/slides/de/python-net/about-fontsmanager-and-fontsloader/).
 
 Jede [Präsentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)hat eine [FontsManager ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)Eigenschaft mit ihrer eigenen Instanz der FontsManager-Klasse.
 
@@ -30,5 +30,5 @@ with slides.Presentation() as presentation:
 Nachdem der FontsManager mit der Fallback-Schriftartensammlung initialisiert wurde, werden die Fallback-Schriftarten während der Präsentationsdarstellung angewendet.
 
 {{% alert color="primary" %}} 
-Erfahren Sie mehr darüber, wie man eine [Präsentation mit Fallback-Schriftart rendern](/slides/python-net/render-presentation-with-fallback-font/).
+Erfahren Sie mehr darüber, wie man eine [Präsentation mit Fallback-Schriftart rendern](/slides/de/python-net/render-presentation-with-fallback-font/).
 {{% /alert %}}

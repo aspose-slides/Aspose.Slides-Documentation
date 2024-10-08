@@ -2,7 +2,7 @@
 title: Folien klonen
 type: docs
 weight: 40
-url: /net/clone-slides/
+url: /de/net/clone-slides/
 keywords: "Folien klonen, Folie kopieren, Folienkopie speichern, PowerPoint, Präsentation, C#, Csharp, .NET, Aspose.Slides"
 description: "Klonen einer PowerPoint-Folie in C# oder .NET"
 ---

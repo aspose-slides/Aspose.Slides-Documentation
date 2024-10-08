@@ -2,7 +2,7 @@
 title: Hyperlinks verwalten
 type: docs
 weight: 20
-url: /java/manage-hyperlinks/
+url: /de/java/manage-hyperlinks/
 keywords: "PowerPoint-Hyperlink, Text-Hyperlink, Folien-Hyperlink, Form-Hyperlink, Bild-Hyperlink, Video-Hyperlink, Java"
 description: "Wie man einen Hyperlink zu einer PowerPoint-Präsentation in Java hinzufügt"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{% alert title="Tipp" color="primary" %}} 
 
-Sie möchten vielleicht *[OLE verwalten](/slides/java/manage-ole/)* sehen.
+Sie möchten vielleicht *[OLE verwalten](/slides/de/java/manage-ole/)* sehen.
 
 {{% /alert %}}
 

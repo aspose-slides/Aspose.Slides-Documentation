@@ -2,7 +2,7 @@
 title: Präsentationsnotizen
 type: docs
 weight: 110
-url: /php-java/presentation-notes/
+url: /de/php-java/presentation-notes/
 keywords: "PowerPoint Referentennotizen"
 description: "Präsentationsnotizen, Referentennotizen"
 ---

@@ -3,7 +3,7 @@ title: PowerPoint aus PDF oder HTML importieren
 linktitle: Präsentation importieren
 type: docs
 weight: 60
-url: /net/import-presentation/
+url: /de/net/import-presentation/
 keywords: "PowerPoint importieren, PDF zu PowerPoint, HTML zu PowerPoint, PDF zu PPT, HTML zu PPT, C#, Csharp, Aspose.Slides für .NET"
 description: "PowerPoint aus PDF oder HTML importieren. PDF in PowerPoint konvertieren. HTML in PowerPoint konvertieren"
 ---

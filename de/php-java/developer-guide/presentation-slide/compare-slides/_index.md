@@ -2,7 +2,7 @@
 title: Vergleiche Folien
 type: docs
 weight: 50
-url: /php-java/compare-slides/
+url: /de/php-java/compare-slides/
 ---
 
 ## **Vergleiche Zwei Folien**

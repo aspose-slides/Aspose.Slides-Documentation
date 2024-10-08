@@ -3,7 +3,7 @@ title: Ein Slide als SVG-Bild in C# rendern
 linktitle: Ein Slide als SVG-Bild rendern
 type: docs
 weight: 50
-url: /net/render-a-slide-as-an-svg-image/
+url: /de/net/render-a-slide-as-an-svg-image/
 description: Dieser Artikel erklärt, wie man eine PowerPoint-Präsentation in das SVG-Format mithilfe von C# konvertiert. Sie können PPT-, PPTX- und ODP-Formate in SVG-Bilder umwandeln.
 keywords: C# PowerPoint in SVG konvertieren, C# PPT in SVG, C# PPTX in SVG
 ---

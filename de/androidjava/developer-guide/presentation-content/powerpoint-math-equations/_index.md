@@ -2,7 +2,7 @@
 title: PowerPoint Math-Gleichungen
 type: docs
 weight: 80
-url: /androidjava/powerpoint-math-equations/
+url: /de/androidjava/powerpoint-math-equations/
 keywords: " PowerPoint Math-Gleichungen, PowerPoint Math-Symbole, PowerPoint Formel, PowerPoint Math-Text"
 description: "PowerPoint Math-Gleichungen, PowerPoint Math-Symbole, PowerPoint Formel, PowerPoint Math-Text"
 ---

@@ -2,7 +2,7 @@
 title: Bildunterschrift für OLE-Icon festlegen
 type: docs
 weight: 110
-url: /cpp/set-caption-to-ole-icon/
+url: /de/cpp/set-caption-to-ole-icon/
 ---
 
 Neue **get_SubstitutePictureTitle()** und **set_SubstitutePictureTitle()** Methoden wurden zu den Klassen **IOleObjectFrame** und **OleObjectFrame** hinzugefügt. Sie ermöglichen das Abrufen, Setzen oder Ändern der Bildunterschrift eines OLE-Icons. Der folgende Code-Schnipsel zeigt ein Beispiel zum Erstellen eines Excel-Objekts und zum Festlegen seiner Bildunterschrift.

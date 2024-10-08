@@ -2,7 +2,7 @@
 title: Folie zur Präsentation hinzufügen
 type: docs
 weight: 10
-url: /net/add-slide-to-presentation/
+url: /de/net/add-slide-to-presentation/
 keywords: "Folie zur Präsentation hinzufügen, C#, Csharp, .NET, Aspose.Slides"
 description: "Folie zur Präsentation in C# oder .NET hinzufügen"
 ---

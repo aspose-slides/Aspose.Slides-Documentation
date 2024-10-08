@@ -2,7 +2,7 @@
 title: Connector
 type: docs
 weight: 10
-url: /java/connector/
+url: /de/java/connector/
 keywords: "Formen verbinden, Verbindungen, PowerPoint Formen, PowerPoint Präsentation, Java, Aspose.Slides für Java"
 description: "Verbinden Sie PowerPoint Formen in Java"
 ---
@@ -133,7 +133,7 @@ try {
 
 ## **Connector-Punkt anpassen**
 
-Sie können einen bestehenden Connector über seine Anpassungspunkte anpassen. Nur Connectoren mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Arten von Connectoren.](/slides/java/connector/#types-of-connectors)** 
+Sie können einen bestehenden Connector über seine Anpassungspunkte anpassen. Nur Connectoren mit Anpassungspunkten können auf diese Weise verändert werden. Siehe die Tabelle unter **[Arten von Connectoren.](/slides/de/java/connector/#types-of-connectors)** 
 
 #### **Einfacher Fall**
 
@@ -182,7 +182,7 @@ Um kompliziertere Anpassungen vorzunehmen, müssen Sie diese Dinge berücksichti
 * Die Werte der Anpassungspunkte spiegeln den Prozentsatz der Breite/Höhe der Connectorform wider. 
   * Die Form wird durch die Start- und Endpunkte des Connectors multipliziert mit 1000 begrenzt. 
   * Der erste Punkt, der zweite Punkt und der dritte Punkt definieren den Prozentsatz von der Breite, den Prozentsatz von der Höhe und den Prozentsatz von der Breite (erneut) jeweils.
-* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Connectors bestimmen, müssen Sie die Rotation und Reflexion des Connectors berücksichtigen. **Hinweis**: Der Rotationswinkel für alle unter **[Arten von Connectoren](/slides/java/connector/#types-of-connectors)** gezeigten Connectoren ist 0.
+* Bei Berechnungen, die die Koordinaten der Anpassungspunkte eines Connectors bestimmen, müssen Sie die Rotation und Reflexion des Connectors berücksichtigen. **Hinweis**: Der Rotationswinkel für alle unter **[Arten von Connectoren](/slides/de/java/connector/#types-of-connectors)** gezeigten Connectoren ist 0.
 
 #### **Fall 1**
 

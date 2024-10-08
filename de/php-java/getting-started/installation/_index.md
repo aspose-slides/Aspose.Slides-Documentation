@@ -2,7 +2,7 @@
 title: Installation
 type: docs
 weight: 70
-url: /php-java/installation/
+url: /de/php-java/installation/
 keySlides: "Laden Sie Aspose.Slides herunter, Installieren Sie Aspose.Slides, Aspose.Slides Installation, Windows, macOS, Linux, PHP"
 description: "Installieren Sie Aspose.Slides für PHP über Java in Windows, Linux oder macOS"
 ---

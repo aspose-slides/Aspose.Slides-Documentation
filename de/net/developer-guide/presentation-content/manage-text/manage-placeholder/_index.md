@@ -2,13 +2,13 @@
 title: Platzhalter verwalten
 type: docs
 weight: 10
-url: /net/manage-placeholder/
+url: /de/net/manage-placeholder/
 keywords: "Platzhalter, Platzhaltertext, Eingabetext, PowerPoint-Präsentation, C#, Csharp, Aspose.Slides für .NET"
 description: "Ändern Sie Platzhaltertext und Eingabetext in PowerPoint-Präsentationen in C# oder .NET"
 ---
 
 ## **Text im Platzhalter ändern**
-Mit [Aspose.Slides für .NET](/slides/net/) können Sie Platzhalter auf Folien in Präsentationen finden und bearbeiten. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
+Mit [Aspose.Slides für .NET](/slides/de/net/) können Sie Platzhalter auf Folien in Präsentationen finden und bearbeiten. Aspose.Slides ermöglicht es Ihnen, Änderungen am Text in einem Platzhalter vorzunehmen.
 
 **Voraussetzung**: Sie benötigen eine Präsentation, die einen Platzhalter enthält. Sie können eine solche Präsentation in der Standardanwendung Microsoft PowerPoint erstellen.
 

@@ -2,7 +2,7 @@
 title: API-Beschränkungen
 type: docs
 weight: 320
-url: /net/api-limitations/
+url: /de/net/api-limitations/
 ---
 
 ## **Präsentationen und andere Exportformate**

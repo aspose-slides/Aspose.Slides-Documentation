@@ -2,7 +2,7 @@
 title: Diagramm-Berechnungen
 type: docs
 weight: 50
-url: /cpp/chart-calculations/
+url: /de/cpp/chart-calculations/
 ---
 
 ## **Berechnung der tatsächlichen Werte von Diagrammelementen**

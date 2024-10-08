@@ -2,7 +2,7 @@
 title: Merkmale Übersicht
 type: docs
 weight: 20
-url: /nodejs-net/features-overview/
+url: /de/nodejs-net/features-overview/
 ---
 
 ## **Unterstützte Plattformen**

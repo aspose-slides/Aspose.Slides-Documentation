@@ -2,7 +2,7 @@
 title: Standard Schriftart
 type: docs
 weight: 30
-url: /cpp/default-font/
+url: /de/cpp/default-font/
 keywords: 
 - schriftart
 - standard schriftart

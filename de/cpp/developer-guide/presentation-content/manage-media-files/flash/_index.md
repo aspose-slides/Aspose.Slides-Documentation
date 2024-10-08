@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /cpp/flash/
+url: /de/cpp/flash/
 ---
 
 ## **Flash-Objekte aus der Präsentation extrahieren**
