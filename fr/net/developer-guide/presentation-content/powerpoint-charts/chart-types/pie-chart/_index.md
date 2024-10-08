@@ -1,7 +1,7 @@
 ---
 title: Graphique à secteurs
 type: docs
-url: /net/pie-chart/
+url: /fr/net/pie-chart/
 keywords: "Graphique à secteurs, options de tracé, couleurs des segments, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Options de tracé des graphiques à secteurs et couleurs des segments dans une présentation PowerPoint en C# ou .NET"
 ---

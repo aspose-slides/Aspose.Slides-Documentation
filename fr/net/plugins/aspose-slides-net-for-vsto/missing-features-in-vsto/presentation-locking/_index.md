@@ -2,7 +2,7 @@
 title: Verrouillage de Présentation
 type: docs
 weight: 110
-url: /net/presentation-locking/
+url: /fr/net/presentation-locking/
 ---
 
 ## **Verrouillage de Présentation**

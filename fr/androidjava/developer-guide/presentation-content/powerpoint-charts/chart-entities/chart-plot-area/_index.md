@@ -1,7 +1,7 @@
 ---
 title: Zone de traçage du graphique
 type: docs
-url: /androidjava/chart-plot-area/
+url: /fr/androidjava/chart-plot-area/
 ---
 
 

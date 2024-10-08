@@ -2,13 +2,13 @@
 title: Enregistrer la présentation
 type: docs
 weight: 80
-url: /php-java/save-presentation/
+url: /fr/php-java/save-presentation/
 ---
 
 ## **Aperçu**
 {{% alert color="primary" %}} 
 
-[L'ouverture de la présentation](/slides/php-java/open-presentation/) a décrit comment utiliser la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) pour ouvrir une présentation. Cet article explique comment créer et enregistrer des présentations.
+[L'ouverture de la présentation](/slides/fr/php-java/open-presentation/) a décrit comment utiliser la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) pour ouvrir une présentation. Cet article explique comment créer et enregistrer des présentations.
 
 {{% /alert %}} 
 

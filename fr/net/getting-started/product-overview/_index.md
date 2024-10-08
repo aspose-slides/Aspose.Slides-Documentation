@@ -2,7 +2,7 @@
 title: Aperçu du Produit
 type: docs
 weight: 10
-url: /net/product-overview/
+url: /fr/net/product-overview/
 ---
 
 
@@ -122,7 +122,7 @@ Ce tableau répertorie les ressources techniques importantes d'Aspose.Slides pou
 |[Blog d'Aspose.Slide](https://blog.aspose.com/category/slides/)|Vérifiez régulièrement cette page pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Téléchargez la dernière version d'Aspose.Slides ici. Nous publions souvent de nouvelles versions.|
 |[Forum de support d'Aspose.Slides](https://forum.aspose.com/c/slides/11)|Posez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour .NET](/slides/net/)|Documentation en ligne complète contenant ce document et la Référence API Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour .NET](/slides/fr/net/)|Documentation en ligne complète contenant ce document et la Référence API Aspose.Slides.|
 ## **Déclaration**
 Tous les composants Aspose .NET nécessitent l'ensemble de permissions Full Trust. La raison : les composants Aspose .NET ont besoin de privilèges élevés pour accéder aux paramètres du registre, aux fichiers système et aux répertoires virtuels pour exécuter certaines opérations comme le parsing des polices et des tâches similaires. De plus, les composants Aspose .NET sont basés sur les classes système .NET de base, qui nécessitent également l'ensemble de permissions Full Trust dans de nombreux cas.
 

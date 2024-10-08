@@ -2,7 +2,7 @@
 title: Création de graphiques Excel et intégration dans la présentation en tant qu'objet OLE
 type: docs
 weight: 50
-url: /net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /fr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 
@@ -149,4 +149,4 @@ En utilisant Aspose.Cells pour .NET ainsi qu'Aspose.Slides pour .NET, nous pouvo
 
 {{% /alert %}} 
 ## **Sections Connexes**
-[Solution Fonctionnelle pour le Redimensionnement des Graphiques](/slides/net/working-solution-for-chart-resizing-in-pptx/)[Problème d'Objet Modifié](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Solution Fonctionnelle pour le Redimensionnement des Graphiques](/slides/fr/net/working-solution-for-chart-resizing-in-pptx/)[Problème d'Objet Modifié](/slides/fr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

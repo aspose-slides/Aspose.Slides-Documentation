@@ -2,7 +2,7 @@
 title: Création d'un tableau sur une diapositive PowerPoint dans VSTO et Aspose.Slides
 type: docs
 weight: 90
-url: /net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
+url: /fr/net/creating-a-table-on-powerpoint-slide-in-vsto-and-aspose-slides/
 ---
 
 Les étapes suivantes ajoutent un tableau à une diapositive Microsoft PowerPoint à l'aide de VSTO :

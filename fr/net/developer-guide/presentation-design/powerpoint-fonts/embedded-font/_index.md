@@ -3,7 +3,7 @@ title: Police intégrée - API PowerPoint C#
 linktitle: Police intégrée
 type: docs
 weight: 40
-url: /net/embedded-font/
+url: /fr/net/embedded-font/
 keywords:
 - polices
 - polices intégrées

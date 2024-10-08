@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /net/wordart/
+url: /fr/net/wordart/
 keywords: "WordArt, Art de texte, Créer WordArt, Modèle WordArt, Effets WordArt, Effets d'ombre, Effets d'affichage, Effets de lueur, Transformations WordArt, Effets 3D, Effets d'ombre externe, Effets d'ombre interne, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter, manipuler et gérer le WordArt et les effets dans des présentations PowerPoint en C# ou Aspose.Slides pour .NET"
 ---

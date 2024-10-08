@@ -2,7 +2,7 @@
 title: Déploiement Facile et Léger
 type: docs
 weight: 50
-url: /reportingservices/easy-and-lightweight-deployment/
+url: /fr/reportingservices/easy-and-lightweight-deployment/
 ---
 
 {{% alert color="primary" %}} 

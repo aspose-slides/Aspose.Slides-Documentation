@@ -2,7 +2,7 @@
 title: Formats de fichier pris en charge
 type: docs
 weight: 20
-url: /java/supported-file-formats/
+url: /fr/java/supported-file-formats/
 ---
 
 ## **Versions Microsoft PowerPoint prises en charge**

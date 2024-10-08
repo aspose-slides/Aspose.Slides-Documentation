@@ -2,12 +2,12 @@
 title: Effet de forme
 type: docs
 weight: 30
-url: /cpp/shape-effect
+url: /fr/cpp/shape-effect
 keywords: "Effet de forme, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Appliquer un effet à une forme PowerPoint en C++"
 ---
 
-Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/cpp/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre l'éclat d'une forme, etc.
+Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/fr/cpp/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre l'éclat d'une forme, etc.
 
 <img src="shape-effect.png" alt="effet-de-forme" style="zoom:50%;" />
 

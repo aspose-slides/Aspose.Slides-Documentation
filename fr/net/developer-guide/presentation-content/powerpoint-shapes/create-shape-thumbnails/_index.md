@@ -2,7 +2,7 @@
 title: Créer des vignettes de forme
 type: docs
 weight: 70
-url: /net/create-shape-thumbnails/
+url: /fr/net/create-shape-thumbnails/
 keywords: 
 - vignette de forme
 - image de forme

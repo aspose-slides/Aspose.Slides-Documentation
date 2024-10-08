@@ -2,7 +2,7 @@
 title: Rendre la diapositive en miniature au format JPEG selon les valeurs définies par l'utilisateur
 type: docs
 weight: 70
-url: /net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
+url: /fr/net/render-slide-as-thumbnail-to-jpeg-by-user-defined-values/
 ---
 
 Pour générer la miniature de n'importe quelle diapositive souhaitée en utilisant Aspose.Slides pour .NET :

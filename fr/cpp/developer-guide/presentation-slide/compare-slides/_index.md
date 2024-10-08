@@ -2,7 +2,7 @@
 title: Comparer les Diapositives
 type: docs
 weight: 50
-url: /cpp/compare-slides/
+url: /fr/cpp/compare-slides/
 ---
 
 ## **Comparer Deux Diapositives**

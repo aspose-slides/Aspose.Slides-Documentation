@@ -2,7 +2,7 @@
 title: Mettre à jour le graphique
 type: docs
 weight: 10
-url: /cpp/update-chart/
+url: /fr/cpp/update-chart/
 ---
 
 ## **Mettre à jour le graphique**

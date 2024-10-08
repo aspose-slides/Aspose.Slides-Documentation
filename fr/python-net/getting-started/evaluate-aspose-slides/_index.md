@@ -2,7 +2,7 @@
 title: Évaluer Aspose.Slides
 type: docs
 weight: 120
-url: /python-net/evaluate-aspose-slides/
+url: /fr/python-net/evaluate-aspose-slides/
 ---
 
 

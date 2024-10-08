@@ -3,7 +3,7 @@ title: Examiner une Présentation - API PowerPoint C++
 linktitle: Examiner une Présentation
 type: docs
 weight: 30
-url: /cpp/examine-presentation/
+url: /fr/cpp/examine-presentation/
 keywords:
 - PowerPoint
 - présentation

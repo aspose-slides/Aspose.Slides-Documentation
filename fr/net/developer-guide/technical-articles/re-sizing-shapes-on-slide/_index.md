@@ -2,7 +2,7 @@
 title: Redimensionnement des formes sur la diapositive
 type: docs
 weight: 130
-url: /net/redimensionnement-des-formes-sur-la-diapositive/
+url: /fr/net/redimensionnement-des-formes-sur-la-diapositive/
 ---
 
 ## **Redimensionnement des Formes sur la Diapositive**

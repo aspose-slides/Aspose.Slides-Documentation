@@ -3,7 +3,7 @@ title: Enregistrer la présentation - Bibliothèque C++ PowerPoint
 linktitle: Enregistrer la présentation
 type: docs
 weight: 80
-url: /cpp/save-presentation/
+url: /fr/cpp/save-presentation/
 description: L'API ou bibliothèque C++ PowerPoint vous permet d'enregistrer une présentation dans un fichier ou un flux. Vous pouvez créer une présentation à partir de zéro ou modifier une existante.
 ---
 

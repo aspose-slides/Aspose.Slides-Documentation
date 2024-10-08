@@ -1,7 +1,7 @@
 ---
 title: Appel
 type: docs
-url: /python-net/callout/
+url: /fr/python-net/callout/
 keywords: "Appel de graphique, étiquette de données de graphique, Python, Aspose.Slides pour Python via .NET"
 description: "Appels de graphiques PowerPoint et étiquettes de données en Python"
 ---

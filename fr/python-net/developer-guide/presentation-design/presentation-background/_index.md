@@ -2,7 +2,7 @@
 title: Arrière-plan de la présentation
 type: docs
 weight: 20
-url: /python-net/presentation-background/
+url: /fr/python-net/presentation-background/
 keywords: "arrière-plan PowerPoint, définir l'arrière-plan, Python, Aspose.Slides pour Python via .NET"
 description: "Définir l'arrière-plan dans une présentation PowerPoint en Python"
 ---

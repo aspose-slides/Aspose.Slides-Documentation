@@ -2,7 +2,7 @@
 title: Formules de Feuille de Calcul de Graphique
 type: docs
 weight: 70
-url: /net/chart-worksheet-formulas/
+url: /fr/net/chart-worksheet-formulas/
 keywords: "Feuille de calcul de graphique, formule de graphique, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Feuille de calcul de graphique et formule dans la présentation PowerPoint en C# ou .NET"
 ---

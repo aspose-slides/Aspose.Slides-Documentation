@@ -3,7 +3,7 @@ title: Séquence de sélection de police en Java
 linktitle: Séquence de sélection de police en Java
 type: docs
 weight: 80
-url: /androidjava/font-selection-sequence/
+url: /fr/androidjava/font-selection-sequence/
 keywords:
 - police
 - sélection de police

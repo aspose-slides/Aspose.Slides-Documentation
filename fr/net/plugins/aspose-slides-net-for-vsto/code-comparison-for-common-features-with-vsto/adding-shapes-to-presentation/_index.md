@@ -2,7 +2,7 @@
 title: Ajouter des formes à la présentation
 type: docs
 weight: 30
-url: /net/adding-shapes-to-presentation/
+url: /fr/net/adding-shapes-to-presentation/
 ---
 
 ## **VSTO**

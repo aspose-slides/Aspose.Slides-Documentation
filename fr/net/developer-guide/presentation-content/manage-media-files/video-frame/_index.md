@@ -2,7 +2,7 @@
 title: Cadre Vidéo
 type: docs
 weight: 10
-url: /net/video-frame/
+url: /fr/net/video-frame/
 keywords: "Ajouter vidéo, créer cadre vidéo, extraire vidéo, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter un cadre vidéo à une présentation PowerPoint en C# ou .NET"
 ---

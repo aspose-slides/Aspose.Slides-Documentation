@@ -2,7 +2,7 @@
 title: FAQ
 type: docs
 weight: 340
-url: /php-java/faqs/
+url: /fr/php-java/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -23,7 +23,7 @@ keywords:
 
 **Q: Quels formats de fichiers Aspose.Slides pour PHP via Java supporte-t-il ?**
 
-**A**: Aspose.Slides pour PHP via Java supporte les formats de fichiers décrits dans [Formats de Fichiers Supportés](/slides/php-java/supported-file-formats/).
+**A**: Aspose.Slides pour PHP via Java supporte les formats de fichiers décrits dans [Formats de Fichiers Supportés](/slides/fr/php-java/supported-file-formats/).
 
 ## **Exceptions**
 
@@ -55,7 +55,7 @@ En général, Aspose.Slides pour PHP via Java peut facilement gérer des fichier
 
 **Q: Pourquoi les tailles de paragraphe diffèrent-elles sur les systèmes d'exploitation Windows et Linux ?**
 
-**A**: Le calcul des tailles de paragraphe est basé sur le calcul de la taille de texte représentant le paragraphe donné. Le calcul de la taille de texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. Par conséquent, le calcul des tailles de paragraphe sur différents systèmes conduira à des résultats différents selon l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger à l'exécution en tant que [polices externes](/slides/php-java/custom-font/).
+**A**: Le calcul des tailles de paragraphe est basé sur le calcul de la taille de texte représentant le paragraphe donné. Le calcul de la taille de texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. Par conséquent, le calcul des tailles de paragraphe sur différents systèmes conduira à des résultats différents selon l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger à l'exécution en tant que [polices externes](/slides/fr/php-java/custom-font/).
 
 ## **Formatage et Images**
 

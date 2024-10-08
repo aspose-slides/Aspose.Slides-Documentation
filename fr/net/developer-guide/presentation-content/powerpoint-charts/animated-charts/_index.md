@@ -2,7 +2,7 @@
 title: Graphiques Animés
 type: docs
 weight: 80
-url: /net/animated-charts/
+url: /fr/net/animated-charts/
 keywords: "Graphiques, Séries de Graphiques, Animation Présentation PowerPoint, PPTX, PPT, C#, Csharp, Aspose.Slides pour .NET"
 description: "Séries de graphiques et animations dans C# ou .NET"
 ---

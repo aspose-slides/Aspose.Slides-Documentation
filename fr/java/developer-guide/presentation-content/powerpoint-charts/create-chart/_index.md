@@ -3,7 +3,7 @@ title: Créer ou Mettre à Jour des Graphiques de Présentation PowerPoint en Ja
 linktitle: Créer un Graphique
 type: docs
 weight: 10
-url: /java/create-chart/
+url: /fr/java/create-chart/
 keywords: "Créer un graphique, graphique dispersé, graphique circulaire, graphique en carte arborescente, graphique boursier, graphique en boîte à moustaches, graphique histogramme, graphique en entonnoir, graphique en soleil, graphique multicatégorie, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Créer un graphique dans une présentation PowerPoint en Java"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Diagramme en secteurs
 type: docs
-url: /androidjava/pie-chart/
+url: /fr/androidjava/pie-chart/
 ---
 
 ## **Options de deuxième tracé pour les diagrammes en secteurs et en barres de secteurs**

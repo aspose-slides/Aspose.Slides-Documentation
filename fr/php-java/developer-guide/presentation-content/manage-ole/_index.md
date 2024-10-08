@@ -2,7 +2,7 @@
 title: Gérer OLE
 type: docs
 weight: 40
-url: /php-java/manage-ole/
+url: /fr/php-java/manage-ole/
 keywords:
 - ajouter OLE
 - intégrer OLE

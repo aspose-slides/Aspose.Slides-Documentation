@@ -2,7 +2,7 @@
 title: Formatage de Texte
 type: docs
 weight: 50
-url: /php-java/text-formatting/
+url: /fr/php-java/text-formatting/
 ---
 
 

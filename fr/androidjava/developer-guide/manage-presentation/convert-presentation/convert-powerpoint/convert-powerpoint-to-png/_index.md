@@ -2,7 +2,7 @@
 title: Convertir PowerPoint en PNG
 type: docs
 weight: 30
-url: /androidjava/convert-powerpoint-to-png/
+url: /fr/androidjava/convert-powerpoint-to-png/
 keywords: PowerPoint en PNG, PPT en PNG, PPTX en PNG, java, Aspose.Slides pour Android via Java
 description: Convertir une présentation PowerPoint en PNG
 ---

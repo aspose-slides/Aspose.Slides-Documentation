@@ -2,12 +2,12 @@
 title: Rendre une présentation avec une police de remplacement
 type: docs
 weight: 30
-url: /java/render-presentation-with-fallback-font/
+url: /fr/java/render-presentation-with-fallback-font/
 ---
 
 L'exemple suivant inclut ces étapes :
 
-1. Nous [créons une collection de règles de police de remplacement](/slides/java/create-fallback-fonts-collection/).
+1. Nous [créons une collection de règles de police de remplacement](/slides/fr/java/create-fallback-fonts-collection/).
 1. [Supprimer](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) une règle de police de remplacement et [ajouter des polices de remplacement](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) à une autre règle.
 1. Définir la collection de règles sur [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) méthode.
 1. Avec [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#save-java.lang.String-int-) méthode, nous pouvons enregistrer la présentation dans le même format ou l'enregistrer dans un autre. Après que la collection de règles de police de remplacement est définie sur [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager), ces règles sont appliquées lors de toute opération sur la présentation : sauvegarde, rendu, conversion, etc.
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Lisez-en plus sur [Sauvegarde et conversion dans Presentation](/slides/java/creating-saving-and-converting-a-presentation/).
+Lisez-en plus sur [Sauvegarde et conversion dans Presentation](/slides/fr/java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

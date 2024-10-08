@@ -2,7 +2,7 @@
 title: Localisation de Présentation
 type: docs
 weight: 100
-url: /java/presentation-localization/
+url: /fr/java/presentation-localization/
 ---
 
 ## **Changer la Langue du Texte de la Présentation et de la Forme**

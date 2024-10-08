@@ -2,7 +2,7 @@
 title: Formats de Fichier Pris en Charge
 type: docs
 weight: 20
-url: /jasperreports/supported-file-formats/
+url: /fr/jasperreports/supported-file-formats/
 ---
 
 ## **Versions de Microsoft PowerPoint Prises en Charge**

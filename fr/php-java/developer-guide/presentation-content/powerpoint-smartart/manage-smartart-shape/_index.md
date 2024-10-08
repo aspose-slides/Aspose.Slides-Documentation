@@ -2,7 +2,7 @@
 title: Gérer les formes SmartArt
 type: docs
 weight: 20
-url: /php-java/manage-smartart-shape/
+url: /fr/php-java/manage-smartart-shape/
 ---
 
 

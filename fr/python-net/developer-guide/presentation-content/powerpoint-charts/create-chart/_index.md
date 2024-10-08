@@ -3,7 +3,7 @@ title: Créer des graphiques de présentation PowerPoint en Python
 linktitle: Créer un graphique
 type: docs
 weight: 10
-url: /python-net/create-chart/
+url: /fr/python-net/create-chart/
 keywords: "Créer un graphique, graphique éparpillé, graphique à secteurs, graphique en arbre, graphique boursier, graphique en boîte et moustaches, graphique histogramme, graphique en entonnoir, graphique en éclat, graphique multicatégorie, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Créer un graphique dans une présentation PowerPoint en Python"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Barre d'erreur
 type: docs
-url: /python-net/error-bar/
+url: /fr/python-net/error-bar/
 keywords: "Barre d'erreur, valeurs de barre d'erreur présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter une barre d'erreur aux présentations PowerPoint en Python"
 ---

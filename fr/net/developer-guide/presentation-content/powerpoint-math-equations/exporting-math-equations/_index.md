@@ -2,7 +2,7 @@
 title: Exportation des Équations Mathématiques
 type: docs
 weight: 30
-url: /net/exporting-math-equations/
+url: /fr/net/exporting-math-equations/
 keywords: "Exporter des équations mathématiques, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Exporter des équations mathématiques PowerPoint en C# ou .NET"
 ---

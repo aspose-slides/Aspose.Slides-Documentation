@@ -1,7 +1,7 @@
 ---
 title: Ligne de Tendance
 type: docs
-url: /androidjava/trend-line/
+url: /fr/androidjava/trend-line/
 ---
 
 ## **Ajouter une Ligne de Tendance**

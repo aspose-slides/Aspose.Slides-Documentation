@@ -2,7 +2,7 @@
 title: Créer une nouvelle présentation
 type: docs
 weight: 10
-url: /net/create-a-new-presentation/
+url: /fr/net/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides pour .NET est un composant qui peut être utilisé pour manipuler 
 
 {{% /alert %}} 
 ## **Création d'une présentation**
-Voici deux exemples de code qui illustrent comment VSTO et Aspose.Slides pour .NET peuvent être utilisés pour atteindre le même objectif. Le premier exemple est [VSTO](/slides/net/create-a-new-presentation/) ; [le deuxième exemple](/slides/net/create-a-new-presentation/) utilise Aspose.Slides.
+Voici deux exemples de code qui illustrent comment VSTO et Aspose.Slides pour .NET peuvent être utilisés pour atteindre le même objectif. Le premier exemple est [VSTO](/slides/fr/net/create-a-new-presentation/) ; [le deuxième exemple](/slides/fr/net/create-a-new-presentation/) utilise Aspose.Slides.
 ### **Exemple VSTO**
 **La sortie VSTO** 
 

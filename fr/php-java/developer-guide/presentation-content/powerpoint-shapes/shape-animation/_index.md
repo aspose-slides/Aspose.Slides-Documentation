@@ -2,7 +2,7 @@
 title: Animation de Forme
 type: docs
 weight: 60
-url: /php-java/shape-animation/
+url: /fr/php-java/shape-animation/
 keywords: "animation PowerPoint, effet d'animation, appliquer une animation, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Appliquer l'animation PowerPoint"
 ---
@@ -67,7 +67,7 @@ Ce code PHP vous montre comment appliquer l'effet `Fade` à AutoShape et défini
 
 {{% alert color="primary" %}} 
 
-En plus d'appliquer des animations au texte, vous pouvez également appliquer des animations à un seul [Paragraphe](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph). Voir [**Texte animé**](/slides/php-java/animated-text/).
+En plus d'appliquer des animations au texte, vous pouvez également appliquer des animations à un seul [Paragraphe](https://reference.aspose.com/slides/php-java/aspose.slides/iparagraph). Voir [**Texte animé**](/slides/fr/php-java/animated-text/).
 
 {{% /alert %}} 
 

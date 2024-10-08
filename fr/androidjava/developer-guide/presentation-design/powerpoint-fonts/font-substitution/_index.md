@@ -3,7 +3,7 @@ title: Substitution de police - API Java PowerPoint
 linktitle: Substitution de police
 type: docs
 weight: 70
-url: /androidjava/font-substitution/
+url: /fr/androidjava/font-substitution/
 keywords: "Police, police de substitution, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Substituer une police dans PowerPoint en Java"
 ---
@@ -55,6 +55,6 @@ try {
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Vous voudrez peut-être voir [**Remplacement de police**](/slides/androidjava/font-replacement/).
+Vous voudrez peut-être voir [**Remplacement de police**](/slides/fr/androidjava/font-replacement/).
 
 {{% /alert %}}

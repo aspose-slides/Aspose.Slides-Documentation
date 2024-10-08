@@ -2,7 +2,7 @@
 title: Référence API
 type: docs
 weight: 50
-url: /java/api-reference/
+url: /fr/java/api-reference/
 ---
 
 {{% alert color="primary" %}} 

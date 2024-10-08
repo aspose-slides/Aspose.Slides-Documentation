@@ -2,7 +2,7 @@
 title: Gérer les lignes et colonnes
 type: docs
 weight: 20
-url: /php-java/manage-rows-and-columns/
+url: /fr/php-java/manage-rows-and-columns/
 keywords: "Table, lignes et colonnes de table, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Gérer les lignes et colonnes des tableaux dans les présentations PowerPoint"
 ---

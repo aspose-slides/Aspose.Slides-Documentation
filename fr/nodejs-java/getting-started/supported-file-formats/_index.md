@@ -2,7 +2,7 @@
 title: Formats de Fichiers Prise en Charge
 type: docs
 weight: 30
-url: /nodejs-java/supported-file-formats/
+url: /fr/nodejs-java/supported-file-formats/
 ---
 
 ## **Versions de Microsoft PowerPoint Prises en Charge**

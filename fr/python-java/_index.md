@@ -4,7 +4,7 @@ second_title: "Documentation d'Aspose.Slides pour Python"
 description: Aspose.Slides pour Python via Java propose de nombreuses fonctionnalités clés telles que la gestion du texte, des formes, des tableaux et des animations, l'ajout de fichiers audio et vidéo aux diapositives, l'aperçu des diapositives, l'exportation des diapositives au format SVG, PDF et plus encore.
 type: docs
 weight: 47
-url: /python-java/
+url: /fr/python-java/
 is_root: true
 ---
 
@@ -32,13 +32,13 @@ Aspose.Slides pour Python via Java est porté d'Aspose.Slides pour Java, vous po
 
 Voici des liens vers des ressources utiles :
 
-- [Documentation en ligne d'Aspose.Slides pour Python via Java](/slides/java/developer-guide/)
-- [Fonctionnalités d'Aspose.Slides pour Python via Java](/slides/python-java/features-overview/)
-- [Limitations et différences API d'Aspose.Slides pour Python via Java](/slides/python-java/limitations-and-api-differences/)
+- [Documentation en ligne d'Aspose.Slides pour Python via Java](/slides/fr/java/developer-guide/)
+- [Fonctionnalités d'Aspose.Slides pour Python via Java](/slides/fr/python-java/features-overview/)
+- [Limitations et différences API d'Aspose.Slides pour Python via Java](/slides/fr/python-java/limitations-and-api-differences/)
 - [Notes de version d'Aspose.Slides pour Python via Java](https://releases.aspose.com/slides/python-java/release-notes/)
 - [Page produit d'Aspose.Slides pour Python via Java](https://products.aspose.com/slides/python-java/)
 - [Télécharger le package d'Aspose.Slides pour Python via Java](https://releases.aspose.com/slides/python-java/)
-- [Installer Aspose.Slides pour Python via Java](/slides/python-java/installation/)
+- [Installer Aspose.Slides pour Python via Java](/slides/fr/python-java/installation/)
 - [Référence API d'Aspose.Slides pour Python via Java](https://reference.aspose.com/slides/python-java/)
 - [Forum de support gratuit d'Aspose.Slides pour Python via Java](https://forum.aspose.com/c/slides/11)
 - [Centre d'assistance payant d'Aspose.Slides pour Python via Java](https://helpdesk.aspose.com/)

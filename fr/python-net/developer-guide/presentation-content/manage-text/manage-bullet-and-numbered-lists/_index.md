@@ -2,7 +2,7 @@
 title: Gérer les listes à puces et numérotées
 type: docs
 weight: 70
-url: /python-net/manage-bullet-and-numbered-lists/
+url: /fr/python-net/manage-bullet-and-numbered-lists/
 keywords: "Puces, Listes à puces, Nombres, Listes numérotées, Puces d'image, puces multilevel, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Créer des listes à puces et numérotées dans une présentation PowerPoint en Python"
 ---

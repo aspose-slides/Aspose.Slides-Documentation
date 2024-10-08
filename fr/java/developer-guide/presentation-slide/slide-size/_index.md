@@ -2,7 +2,7 @@
 title: Taille de la diapositive
 type: docs
 weight: 70
-url: /java/slide-size/
+url: /fr/java/slide-size/
 
 ---
 

@@ -2,7 +2,7 @@
 title: Mise en forme du texte
 type: docs
 weight: 50
-url: /androidjava/text-formatting/
+url: /fr/androidjava/text-formatting/
 keywords:
 - surligner du texte
 - expression régulière

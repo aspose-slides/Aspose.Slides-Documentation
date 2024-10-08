@@ -2,7 +2,7 @@
 title: Cadre Audio
 type: docs
 weight: 10
-url: /androidjava/audio-frame/
+url: /fr/androidjava/audio-frame/
 keywords: "Ajouter de l'audio, Cadre audio, Propriétés audio, Extraire l'audio, Java, Aspose.Slides pour Android via Java"
 description: "Ajouter de l'audio à une présentation PowerPoint en Java"
 ---

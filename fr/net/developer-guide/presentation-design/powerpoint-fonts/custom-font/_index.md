@@ -3,7 +3,7 @@ title: Police PowerPoint personnalisée en C#
 linktitle: Police personnalisée
 type: docs
 weight: 20
-url: /net/custom-font/
+url: /fr/net/custom-font/
 keywords: "Polices, polices personnalisées, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Polices personnalisées PowerPoint en C#"
 ---

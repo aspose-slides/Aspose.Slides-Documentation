@@ -2,7 +2,7 @@
 title: Filigrane
 type: docs
 weight: 40
-url: /java/watermark/
+url: /fr/java/watermark/
 keywords:
 - filigrane
 - ajouter filigrane
@@ -48,7 +48,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser la classe TextFrame](/slides/java/text-formatting/)
+- [Comment utiliser la classe TextFrame](/slides/fr/java/text-formatting/)
 {{% /alert %}}
 
 ### **Ajouter un Filigrane Texte à une Présentation**
@@ -68,7 +68,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Maître de Diapositive](/slides/java/slide-master/)
+- [Comment utiliser le Maître de Diapositive](/slides/fr/java/slide-master/)
 {{% /alert %}}
 
 ### **Définir la Transparence de la Forme du Filigrane**

@@ -2,7 +2,7 @@
 title: Résolution des problèmes d'installation d'Aspose.Slides pour Node.js via Java
 type: docs
 weight: 75
-url: /nodejs-java/troubleshooting-installation/
+url: /fr/nodejs-java/troubleshooting-installation/
 keySlides: "Télécharger Aspose.Slides, Installer Aspose.Slides, Résolution des problèmes d'installation d'Aspose.Slides, Windows, macOS, Linux, Javascript, Node.js"
 description: "Résolution des problèmes d'installation d'Aspose.Slides pour Node.js via Java sous Windows, Linux ou macOS"
 ---

@@ -2,7 +2,7 @@
 title: Intégration manuelle avec le concepteur de rapports Visual Studio 2005 ou 2008
 type: docs
 weight: 50
-url: /reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
+url: /fr/reportingservices/integrating-manually-with-visual-studio-2005-or-2008-report-designer/
 ---
 
 {{% alert color="primary" %}} 

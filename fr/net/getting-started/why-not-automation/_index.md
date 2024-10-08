@@ -2,7 +2,7 @@
 title: Pourquoi Pas d'Automatisation
 type: docs
 weight: 40
-url: /net/why-not-automation/
+url: /fr/net/why-not-automation/
 ---
 
 ## **Questions Importantes**

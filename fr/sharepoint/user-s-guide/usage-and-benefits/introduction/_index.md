@@ -2,7 +2,7 @@
 title: Introduction
 type: docs
 weight: 10
-url: /sharepoint/introduction/
+url: /fr/sharepoint/introduction/
 ---
 
 {{% alert color="primary" %}} 
@@ -15,7 +15,7 @@ Aspose.Slides pour SharePoint est une solution flexible pour convertir des docum
 
 Cet article couvre les points suivants : 
 
-- [Une note sur la bibliothèque de documents SharePoint](/slides/sharepoint/sharepoint-document-library/).
-- [Les avantages d'utiliser Aspose.Slides pour SharePoint](/slides/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
-- [Comment convertir des documents Microsoft PowerPoint en d'autres formats](/slides/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
-- [Résumé](/slides/sharepoint/summary/)
+- [Une note sur la bibliothèque de documents SharePoint](/slides/fr/sharepoint/sharepoint-document-library/).
+- [Les avantages d'utiliser Aspose.Slides pour SharePoint](/slides/fr/sharepoint/benefits-of-using-aspose-slides-for-sharepoint/).
+- [Comment convertir des documents Microsoft PowerPoint en d'autres formats](/slides/fr/sharepoint/converting-microsoft-powerpoint-documents-into-other-formats/).
+- [Résumé](/slides/fr/sharepoint/summary/)

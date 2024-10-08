@@ -2,7 +2,7 @@
 title: Présentation Protégée par Mot de Passe
 type: docs
 weight: 20
-url: /php-java/presentation-protegee-par-mot-de-passe/
+url: /fr/php-java/presentation-protegee-par-mot-de-passe/
 keywords: "Verrouiller la présentation PowerPoint"
 description: "Verrouiller la présentation PowerPoint. Présentation PowerPoint protégée par mot de passe"
 ---
@@ -255,5 +255,5 @@ Ce code d'exemple vous montre comment valider un mot de passe :
 Il retourne `true` si la présentation a été chiffrée avec le mot de passe spécifié. Sinon, il retourne `false`.
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Signature numérique dans PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Signature numérique dans PowerPoint](/slides/fr/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Support Technique
 type: docs
 weight: 10
-url: /jasperreports/support-technique/
+url: /fr/jasperreports/support-technique/
 ---
 
 {{% alert color="primary" %}} 

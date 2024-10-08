@@ -2,7 +2,7 @@
 title: PPT vs PPTX
 type: docs
 weight: 10
-url: /php-java/ppt-vs-pptx/
+url: /fr/php-java/ppt-vs-pptx/
 keywords: "PPT vs PPTX"
 description: "Lisez les différences entre PPT et PPTX dans Aspose.Slides."
 ---
@@ -39,5 +39,5 @@ Vérifiez la qualité des conversions PPT à PPTX et PPTX à PPT avec l'applicat
 ```
 
 {{% alert color="primary" %}} 
-Lisez plus sur [**Comment convertir des présentations PPT en PPTX**.](/slides/php-java/convert-ppt-to-pptx/)
+Lisez plus sur [**Comment convertir des présentations PPT en PPTX**.](/slides/fr/php-java/convert-ppt-to-pptx/)
 {{% /alert %}} 

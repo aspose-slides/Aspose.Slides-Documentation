@@ -2,7 +2,7 @@
 title: Définir la légende sur l'icône OLE
 type: docs
 weight: 130
-url: /java/set-caption-to-ole-icon/
+url: /fr/java/set-caption-to-ole-icon/
 ---
 
 De nouvelles méthodes **getSubstitutePictureTitle** et **setSubstitutePictureTitle** ont été ajoutées à l'interface **IOleObjectFrame** et à la classe **OleObjectFrame**. Cela permet d'obtenir, de définir ou de changer la légende d'une icône OLE. L'extrait de code ci-dessous montre un exemple de création d'objet Excel et de définition de sa légende.

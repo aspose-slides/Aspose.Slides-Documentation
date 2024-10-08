@@ -2,7 +2,7 @@
 title: Commentaires de Présentation
 type: docs
 weight: 100
-url: /net/presentation-comments/
+url: /fr/net/presentation-comments/
 keywords: "Commentaires, commentaires PowerPoint, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter des commentaires et des réponses dans une présentation PowerPoint en C# ou .NET"
 ---

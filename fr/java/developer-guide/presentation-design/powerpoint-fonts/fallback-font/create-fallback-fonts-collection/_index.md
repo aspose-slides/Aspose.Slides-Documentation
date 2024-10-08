@@ -2,12 +2,12 @@
 title: Créer une Collection de Polices de Secours
 type: docs
 weight: 20
-url: /java/create-fallback-fonts-collection/
+url: /fr/java/create-fallback-fonts-collection/
 ---
 
 Les instances de la [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) peuvent être organisées dans une [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection), qui implémente l'interface [IFontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRulesCollection). Il est possible d'ajouter ou de supprimer des règles de la collection.
 
-Ensuite, cette collection peut être assignée à la méthode [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) de la classe [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager contrôle les polices à travers la présentation. Lire la suite [À propos de FontsManager et FontsLoader](/slides/java/about-fontsmanager-and-fontsloader/).
+Ensuite, cette collection peut être assignée à la méthode [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) de la classe [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager). FontsManager contrôle les polices à travers la présentation. Lire la suite [À propos de FontsManager et FontsLoader](/slides/fr/java/about-fontsmanager-and-fontsloader/).
 
 Chaque [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) a une méthode [getFontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation#getFontsManager--) avec sa propre instance de la classe [FontsManager](https://reference.aspose.com/slides/java/com.aspose.slides/FontsManager).
 
@@ -30,5 +30,5 @@ try {
 Une fois que le FontsManager est initialisé avec la collection de polices de secours, les polices de secours sont appliquées lors du rendu de la présentation.
 
 {{% alert color="primary" %}} 
-Lire la suite sur [Rendre une Présentation avec une Police de Secours](/slides/java/render-presentation-with-fallback-font/).
+Lire la suite sur [Rendre une Présentation avec une Police de Secours](/slides/fr/java/render-presentation-with-fallback-font/).
 {{% /alert %}}

@@ -3,7 +3,7 @@ title: Créer ou mettre à jour des graphiques de présentation PowerPoint en Ja
 linktitle: Créer un graphique
 type: docs
 weight: 10
-url: /androidjava/create-chart/
+url: /fr/androidjava/create-chart/
 keywords: "Créer un graphique, graphique dispersé, graphique à secteurs, graphique en carte thermique, graphique boursier, graphique boîte et moustache, graphique histogramme, graphique en entonnoir, graphique en soleil, graphique multi-catégories, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Créer un graphique dans une présentation PowerPoint en Java"
 ---

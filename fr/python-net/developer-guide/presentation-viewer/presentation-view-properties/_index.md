@@ -1,7 +1,7 @@
 ---
 title: Propriétés de la vue de présentation
 type: docs
-url: /python-net/presentation-view-properties/
+url: /fr/python-net/presentation-view-properties/
 keywords: "Visionneuse PowerPoint, propriétés de la visionneuse, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Propriétés de la visionneuse de présentation PowerPoint en Python"
 ---

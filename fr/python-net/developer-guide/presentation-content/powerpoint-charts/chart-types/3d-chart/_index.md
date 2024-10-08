@@ -1,7 +1,7 @@
 ---
 title: Graphique 3D
 type: docs
-url: /python-net/3d-chart/
+url: /fr/python-net/3d-chart/
 keywords: "graphique 3d, rotationX, rotationY, profondeurpourcentage, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Définir rotationX, rotationY et profondeurpourcentages pour un graphique 3D dans une présentation PowerPoint en Python"
 ---

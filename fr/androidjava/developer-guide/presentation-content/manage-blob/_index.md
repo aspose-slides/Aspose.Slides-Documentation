@@ -2,7 +2,7 @@
 title: Gérer le Blob
 type: docs
 weight: 10
-url: /androidjava/manage-blob/
+url: /fr/androidjava/manage-blob/
 description: Gérer Blob dans une présentation PowerPoint en utilisant Java. Utiliser Blob pour réduire la consommation de mémoire dans une présentation PowerPoint en utilisant Java. Ajouter un gros fichier via Blob à une présentation PowerPoint en utilisant Java. Exporter un gros fichier via Blob d'une présentation PowerPoint en utilisant Java. Charger une grande présentation PowerPoint en tant que Blob en utilisant Java.
 ---
 
@@ -22,7 +22,7 @@ Pour contourner certaines limitations lors de l'interaction avec des flux, Aspos
 
 ### **Ajouter un gros fichier via BLOB à une présentation**
 
-[Aspose.Slides](/slides/androidjava/) pour Java vous permet d'ajouter de gros fichiers (dans ce cas, un gros fichier vidéo) via un processus impliquant des BLOBs pour réduire la consommation de mémoire.
+[Aspose.Slides](/slides/fr/androidjava/) pour Java vous permet d'ajouter de gros fichiers (dans ce cas, un gros fichier vidéo) via un processus impliquant des BLOBs pour réduire la consommation de mémoire.
 
 Ce Java vous montre comment ajouter un gros fichier vidéo via le processus BLOB à une présentation :
 

@@ -2,7 +2,7 @@
 title: Formats de Fichier Supportés
 type: docs
 weight: 20
-url: /sharepoint/supported-file-formats/
+url: /fr/sharepoint/supported-file-formats/
 ---
 
 ## **Versions de Microsoft PowerPoint Supportées**

@@ -2,7 +2,7 @@
 title: Manipulations de Formes
 type: docs
 weight: 40
-url: /java/shape-manipulations/
+url: /fr/java/shape-manipulations/
 ---
 
 ## **Trouver une Forme dans une Diapositive**

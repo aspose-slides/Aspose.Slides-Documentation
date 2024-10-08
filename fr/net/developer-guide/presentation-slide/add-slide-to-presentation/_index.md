@@ -2,7 +2,7 @@
 title: Ajouter une diapositive à la présentation
 type: docs
 weight: 10
-url: /net/add-slide-to-presentation/
+url: /fr/net/add-slide-to-presentation/
 keywords: "Ajouter une diapositive à la présentation, C#, Csharp, .NET, Aspose.Slides"
 description: "Ajouter une diapositive à la présentation en C# ou .NET"
 ---

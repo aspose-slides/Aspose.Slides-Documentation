@@ -2,7 +2,7 @@
 title: Prise en charge complète des RDL
 type: docs
 weight: 30
-url: /reportingservices/comprehensive-rdl-support/
+url: /fr/reportingservices/comprehensive-rdl-support/
 ---
 
 {{% alert color="primary" %}} 
@@ -35,4 +35,4 @@ Aspose.Slides pour Reporting Services prend en charge les éléments RDL suivant
 
 ![todo:image_alt_text](comprehensive-rdl-support_2.png)
 
-Pour plus d'exemples de rapports, consultez la section [Galerie d'exemples de rapports](/slides/reportingservices/sample-reports-gallery/). 
+Pour plus d'exemples de rapports, consultez la section [Galerie d'exemples de rapports](/slides/fr/reportingservices/sample-reports-gallery/). 

@@ -2,7 +2,7 @@
 title: Gérer les Hyperliens
 type: docs
 weight: 20
-url: /python-net/manage-hyperlinks/
+url: /fr/python-net/manage-hyperlinks/
 keywords: "Ajouter un hyperlien, Présentation PowerPoint, Hyperlien PowerPoint, hyperlien texte, hyperlien diapositive, hyperlien forme, hyperlien image, hyperlien vidéo, Python"
 description: "Ajouter un hyperlien à une présentation PowerPoint en Python"
 ---

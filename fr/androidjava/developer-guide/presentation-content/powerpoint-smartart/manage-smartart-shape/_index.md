@@ -2,7 +2,7 @@
 title: Gérer la forme SmartArt
 type: docs
 weight: 20
-url: /androidjava/manage-smartart-shape/
+url: /fr/androidjava/manage-smartart-shape/
 ---
 
 ## **Créer une forme SmartArt**

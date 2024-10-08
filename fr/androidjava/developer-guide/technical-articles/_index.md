@@ -2,5 +2,5 @@
 title: Articles Techniques
 type: docs
 weight: 270
-url: /androidjava/technical-articles/
+url: /fr/androidjava/technical-articles/
 ---

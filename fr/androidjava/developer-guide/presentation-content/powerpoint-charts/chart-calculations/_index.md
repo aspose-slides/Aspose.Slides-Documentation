@@ -2,7 +2,7 @@
 title: Calculs de Diagrammes
 type: docs
 weight: 50
-url: /androidjava/chart-calculations/
+url: /fr/androidjava/chart-calculations/
 ---
 
 ## **Calculer les Valeurs Réelles des Éléments de Diagramme**

@@ -2,7 +2,7 @@
 title: Gérer le Zoom
 type: docs
 weight: 60
-url: /androidjava/manage-zoom/
+url: /fr/androidjava/manage-zoom/
 keywords: "Zoom, cadre de zoom, Ajouter du zoom, Cadre de zoom formaté, Zoom résumé, Présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Ajouter un zoom ou des cadres de zoom aux présentations PowerPoint en Java"
 ---

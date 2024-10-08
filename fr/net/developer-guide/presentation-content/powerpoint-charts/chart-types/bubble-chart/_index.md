@@ -1,7 +1,7 @@
 ---
 title: Graphique à Bulles
 type: docs
-url: /net/bubble-chart/
+url: /fr/net/bubble-chart/
 keywords: "Graphique à bulles, taille du graphique, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Taille des graphiques à bulles dans les présentations PowerPoint en C# ou .NET"
 ---

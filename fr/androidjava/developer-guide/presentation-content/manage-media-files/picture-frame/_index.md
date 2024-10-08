@@ -2,7 +2,7 @@
 title: Cadre Photo
 type: docs
 weight: 10
-url: /androidjava/picture-frame/
+url: /fr/androidjava/picture-frame/
 keywords: "Ajouter un cadre photo, créer un cadre photo, ajouter une image, créer une image, extraire une image, propriété StretchOff, mise en forme du cadre photo, propriétés du cadre photo, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Ajouter un cadre photo à une présentation PowerPoint en Java"
 

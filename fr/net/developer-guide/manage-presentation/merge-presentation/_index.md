@@ -3,7 +3,7 @@ title: Fusionner des présentations PowerPoint PPT, PPTX utilisant C#
 linktitle: Fusionner la présentation
 type: docs
 weight: 40
-url: /net/merge-presentation/
+url: /fr/net/merge-presentation/
 keywords: "Fusionner PowerPoint, PPTX, PPT, combiner PowerPoint, fusionner présentation, combiner présentation, C#, Csharp, .NET"
 description: "Fusionner ou combiner des présentations PowerPoint en C# ou .NET"
 ---

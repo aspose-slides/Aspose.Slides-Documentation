@@ -2,7 +2,7 @@
 title: Gérer l'encre
 type: docs
 weight: 95
-url: /python-net/manage-ink/
+url: /fr/python-net/manage-ink/
 keywords: "Encre dans PowerPoint, outils d'encre, encre Python, dessiner dans PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Utilisez des outils d'encre pour dessiner des objets dans PowerPoint Python"
 ---

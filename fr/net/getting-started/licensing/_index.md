@@ -2,7 +2,7 @@
 title: Licence
 type: docs
 weight: 80
-url: /net/licensing/
+url: /fr/net/licensing/
 ---
 
 ## **Évaluez Aspose.Slides**

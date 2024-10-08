@@ -2,7 +2,7 @@
 title: Licence à compteur
 type: docs
 weight: 100
-url: /php-java/metered-licensing/
+url: /fr/php-java/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

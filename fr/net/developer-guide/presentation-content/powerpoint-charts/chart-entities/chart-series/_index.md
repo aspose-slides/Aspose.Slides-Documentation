@@ -1,7 +1,7 @@
 ---
 title: Séries de Graphiques
 type: docs
-url: /net/chart-series/
+url: /fr/net/chart-series/
 keywords: "Séries de graphiques, couleur de série, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Séries de graphiques dans les présentations PowerPoint en C# ou .NET"
 ---

@@ -2,7 +2,7 @@
 title: Créer et intégrer un graphique Excel en tant qu'objet OLE
 type: docs
 weight: 70
-url: /net/create-and-embed-an-excel-chart-as-an-ole-object/
+url: /fr/net/create-and-embed-an-excel-chart-as-an-ole-object/
 ---
 
 Les deux exemples de code ci-dessous sont longs et détaillés car la tâche qu'ils décrivent est complexe. Vous créez un classeur Microsoft Excel, créez un graphique puis créez la présentation Microsoft PowerPoint dans laquelle vous allez intégrer le graphique. Les objets OLE contiennent des liens vers le document original, donc un utilisateur qui double-clique sur le fichier intégré lancera le fichier et son application.

@@ -2,14 +2,14 @@
 title: Thème de Présentation
 type: docs
 weight: 10
-url: /net/presentation-theme/
+url: /fr/net/presentation-theme/
 keywords: "Thème, thème PowerPoint, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Thème de présentation PowerPoint en C# ou .NET"
 ---
 
 Un thème de présentation définit les propriétés des éléments de design. Lorsque vous sélectionnez un thème de présentation, vous choisissez essentiellement un ensemble spécifique d'éléments visuels et de leurs propriétés.
 
-Dans PowerPoint, un thème comprend des couleurs, [polices](/slides/net/powerpoint-fonts/), [styles d'arrière-plan](/slides/net/presentation-background/), et effets.
+Dans PowerPoint, un thème comprend des couleurs, [polices](/slides/fr/net/powerpoint-fonts/), [styles d'arrière-plan](/slides/fr/net/presentation-background/), et effets.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -152,7 +152,7 @@ La police dans toutes les zones de texte sera mise à jour.
 
 {{% alert color="primary" title="CONSEIL" %}} 
 
-Vous voudrez peut-être voir [polices PowerPoint](/slides/net/powerpoint-fonts/).
+Vous voudrez peut-être voir [polices PowerPoint](/slides/fr/net/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -189,7 +189,7 @@ pres.Masters[0].Background.StyleIndex = 2;
 
 {{% alert color="primary" title="CONSEIL" %}} 
 
-Vous voudrez peut-être voir [Arrière-plan PowerPoint](/slides/net/presentation-background/).
+Vous voudrez peut-être voir [Arrière-plan PowerPoint](/slides/fr/net/presentation-background/).
 
 {{% /alert %}}
 

@@ -2,7 +2,7 @@
 title: Définir la légende de l'icône OLE
 type: docs
 weight: 110
-url: /cpp/set-caption-to-ole-icon/
+url: /fr/cpp/set-caption-to-ole-icon/
 ---
 
 De nouvelles méthodes **get_SubstitutePictureTitle()** et **set_SubstitutePictureTitle()** ont été ajoutées aux classes **IOleObjectFrame** et **OleObjectFrame**. Cela permet d'obtenir, de définir ou de changer la légende d'une icône OLE. L'extrait de code ci-dessous montre un exemple de création d'un objet Excel et de définition de sa légende.

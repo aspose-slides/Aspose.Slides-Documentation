@@ -2,7 +2,7 @@
 title: Conversion de Document OpenOffice
 type: docs
 weight: 30
-url: /net/conversion-of-openoffice-document/
+url: /fr/net/conversion-of-openoffice-document/
 ---
 
 Aspose.Slides pour .NET propose la classe **Presentation** qui représente un fichier de présentation. La classe **Presentation** peut maintenant également accéder à **ODP** via le constructeur Presentation lors de l'instantiation de l'objet.

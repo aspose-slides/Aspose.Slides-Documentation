@@ -2,7 +2,7 @@
 title: Gérer les Hyperliens
 type: docs
 weight: 20
-url: /net/manage-hyperlinks/
+url: /fr/net/manage-hyperlinks/
 keywords: "Ajouter un hyperlien, Présentation PowerPoint, Hyperlien PowerPoint, hyperlien texte, hyperlien diapositive, hyperlien forme, hyperlien image, hyperlien vidéo, .NET, C#, Csharp"
 description: "Ajouter un hyperlien à une Présentation PowerPoint en C# ou .NET"
 ---

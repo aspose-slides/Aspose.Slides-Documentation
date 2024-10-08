@@ -2,7 +2,7 @@
 title: Support produit
 type: docs
 weight: 100
-url: /nodejs-java/product-support/
+url: /fr/nodejs-java/product-support/
 ---
 
 ## **Support technique**
@@ -41,4 +41,4 @@ Ce tableau liste des ressources techniques utiles pour Aspose.Slides pour Node.j
 |[Blog d'Aspose.Slides](https://blog.aspose.com/category/slides/)|Vérifiez cette section régulièrement pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour Node.js via Java](https://releases.aspose.com/slides/nodejs-java/)|Téléchargez la dernière version d'Aspose.Slides à partir de cette page. Nous publions souvent de nouvelles versions.|
 |[Forum de support d'Aspose.Slides](https://forum.aspose.com/c/slides/11)|Posez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour Node.js via Java](/slides/nodejs-java/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour Node.js via Java](/slides/fr/nodejs-java/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|

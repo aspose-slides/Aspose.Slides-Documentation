@@ -2,7 +2,7 @@
 title: Gérer TextBox
 type: docs
 weight: 20
-url: /androidjava/manage-textbox/
+url: /fr/androidjava/manage-textbox/
 description: Créer une zone de texte sur des diapositives PowerPoint en utilisant Java. Ajouter une colonne dans une zone de texte ou un cadre de texte dans des diapositives PowerPoint en utilisant Java. Ajouter une zone de texte avec un lien hypertexte dans des diapositives PowerPoint en utilisant Java.
 ---
 

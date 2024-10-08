@@ -1,7 +1,7 @@
 ---
 title: Graphique en bulles
 type: docs
-url: /cpp/bubble-chart/
+url: /fr/cpp/bubble-chart/
 ---
 
 ## **Mise à l'échelle de la taille des graphiques en bulles**

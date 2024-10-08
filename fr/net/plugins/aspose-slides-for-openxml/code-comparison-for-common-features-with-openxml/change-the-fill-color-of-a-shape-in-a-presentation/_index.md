@@ -2,7 +2,7 @@
 title: Changer la couleur de remplissage d'une forme dans une présentation
 type: docs
 weight: 40
-url: /net/change-the-fill-color-of-a-shape-in-a-presentation/
+url: /fr/net/change-the-fill-color-of-a-shape-in-a-presentation/
 ---
 
 ## **OpenXML Presentation**

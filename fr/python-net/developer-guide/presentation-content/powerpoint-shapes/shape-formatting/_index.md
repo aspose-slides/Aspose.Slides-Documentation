@@ -2,7 +2,7 @@
 title: Formatage des Formes
 type: docs
 weight: 20
-url: /python-net/shape-formatting/
+url: /fr/python-net/shape-formatting/
 keywords: "Format de forme, format de lignes, styles de jointure, remplissage dégradé, remplissage à motifs, remplissage d'image, remplissage en couleur uniforme, rotation des formes, effets de biseau 3D, effet de rotation 3D, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Formater les formes dans une présentation PowerPoint en Python"
 ---

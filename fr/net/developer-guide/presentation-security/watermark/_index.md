@@ -2,7 +2,7 @@
 title: Filigrane
 type: docs
 weight: 40
-url: /net/watermark/
+url: /fr/net/watermark/
 keywords:
 - filigrane
 - ajouter filigrane
@@ -47,7 +47,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser la classe TextFrame](/slides/net/text-formatting/)
+- [Comment utiliser la classe TextFrame](/slides/fr/net/text-formatting/)
 {{% /alert %}}
 
 ### **Ajouter un Filigrane Texte à une Présentation**
@@ -65,7 +65,7 @@ ITextFrame watermarkFrame = watermarkShape.AddTextFrame(watermarkText);
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Master Slide](/slides/net/slide-master/)
+- [Comment utiliser le Master Slide](/slides/fr/net/slide-master/)
 {{% /alert %}}
 
 ### **Définir la Transparence de la Forme de Filigrane**

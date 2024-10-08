@@ -2,14 +2,14 @@
 title: Thème de présentation
 type: docs
 weight: 10
-url: /cpp/presentation-theme/
+url: /fr/cpp/presentation-theme/
 keywords: "Thème, thème PowerPoint, présentation PowerPoint, CPP, C++, Aspose.Slides pour C++"
 description: "Thème de présentation PowerPoint en C++"
 ---
 
 Un thème de présentation définit les propriétés des éléments de design. Lorsque vous sélectionnez un thème de présentation, vous choisissez essentiellement un ensemble spécifique d'éléments visuels et leurs propriétés.
 
-Dans PowerPoint, un thème est composé de couleurs, de [polices](/slides/cpp/powerpoint-fonts/), de [styles d'arrière-plan](/slides/cpp/presentation-background/) et d'effets.
+Dans PowerPoint, un thème est composé de couleurs, de [polices](/slides/fr/cpp/powerpoint-fonts/), de [styles d'arrière-plan](/slides/fr/cpp/presentation-background/) et d'effets.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ La police de tous les zones de texte sera mise à jour.
 
 {{% alert color="primary" title="ASTUCE" %}} 
 
-Vous pouvez consulter les [polices PowerPoint](/slides/cpp/powerpoint-fonts/).
+Vous pouvez consulter les [polices PowerPoint](/slides/fr/cpp/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -195,7 +195,7 @@ pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
 
 {{% alert color="primary" title="ASTUCE" %}} 
 
-Vous pouvez consulter [l'Arrière-plan PowerPoint](/slides/cpp/presentation-background/).
+Vous pouvez consulter [l'Arrière-plan PowerPoint](/slides/fr/cpp/presentation-background/).
 
 {{% /alert %}}
 

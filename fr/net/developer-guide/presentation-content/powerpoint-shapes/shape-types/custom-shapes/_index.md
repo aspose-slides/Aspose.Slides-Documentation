@@ -2,7 +2,7 @@
 title: Forme Personnalisée
 type: docs
 weight: 20
-url: /net/custom-shape/
+url: /fr/net/custom-shape/
 keywords: 
 - forme
 - forme personnalisée

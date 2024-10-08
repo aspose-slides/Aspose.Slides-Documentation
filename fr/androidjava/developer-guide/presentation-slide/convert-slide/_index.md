@@ -2,7 +2,7 @@
 title: Convertir la Diapositive
 type: docs
 weight: 35
-url: /androidjava/convert-slide/
+url: /fr/androidjava/convert-slide/
 keywords: 
 - convertir diapositive en image
 - exporter diapositive en tant qu'image

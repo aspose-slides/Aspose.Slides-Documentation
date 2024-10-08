@@ -2,7 +2,7 @@
 title: Propriétés Efficaces de la Forme
 type: docs
 weight: 50
-url: /php-java/shape-effective-properties/
+url: /fr/php-java/shape-effective-properties/
 ---
 
 Dans ce sujet, nous allons discuter des propriétés **efficaces** et **locales**. Lorsque nous définissons des valeurs directement à ces niveaux

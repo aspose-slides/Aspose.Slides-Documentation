@@ -2,7 +2,7 @@
 title: Formats de Fichier Prise en Charge
 type: docs
 weight: 20
-url: /cpp/supported-file-formats/
+url: /fr/cpp/supported-file-formats/
 keywords: Bibliothèque C++ PowerPoint, API C++ PowerPoint, Formats PowerPoint
 description: La bibliothèque ou l'API C++ PowerPoint peut charger et enregistrer divers formats de fichiers PowerPoint, y compris PPT, PPTX, POT, PPS, PPSX, ODP, OTP, PDF, XPS, SVG, etc.
 ---

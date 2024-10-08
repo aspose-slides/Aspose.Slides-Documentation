@@ -2,7 +2,7 @@
 title: Licence Mesurée
 type: docs
 weight: 90
-url: /python-net/metered-licensing/
+url: /fr/python-net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Comment exécuter des exemples
 type: docs
 weight: 130
-url: /cpp/comment-executer-des-exemples/
+url: /fr/cpp/comment-executer-des-exemples/
 ---
 
 ## **Exigences logicielles**

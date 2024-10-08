@@ -1,7 +1,7 @@
 ---
 title: Ligne de Tendance
 type: docs
-url: /net/trend-line/
+url: /fr/net/trend-line/
 keywords: "Ligne de tendance, ligne personnalisée présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter une ligne de tendance et une ligne personnalisée aux présentations PowerPoint en C# ou .NET"
 ---

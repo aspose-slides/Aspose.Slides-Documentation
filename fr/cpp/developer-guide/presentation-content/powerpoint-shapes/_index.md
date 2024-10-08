@@ -2,5 +2,5 @@
 title: Formes PowerPoint
 type: docs
 weight: 90
-url: /cpp/powerpoint-shapes/
+url: /fr/cpp/powerpoint-shapes/
 ---

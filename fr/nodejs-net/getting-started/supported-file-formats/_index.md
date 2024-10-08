@@ -2,7 +2,7 @@
 title: Formats de Fichier Supportés
 type: docs
 weight: 30
-url: /nodejs-net/supported-file-formats/
+url: /fr/nodejs-net/supported-file-formats/
 ---
 
 ## **Versions Microsoft PowerPoint Supportées**

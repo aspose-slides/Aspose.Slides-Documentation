@@ -2,7 +2,7 @@
 title: Problèmes connus dans Aspose.Slides pour Java 14.4.0
 type: docs
 weight: 30
-url: /java/known-issues-in-aspose-slides-for-java-14-4-0/
+url: /fr/java/known-issues-in-aspose-slides-for-java-14-4-0/
 ---
 
 {{% alert color="primary" %}} 

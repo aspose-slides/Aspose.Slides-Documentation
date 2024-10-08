@@ -2,7 +2,7 @@
 title: Paragraphe
 type: docs
 weight: 60
-url: /python-net/paragraph/
+url: /fr/python-net/paragraph/
 keywords: "Paragraphe, portion, coordonnées de paragraphe, coordonnées de portion, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Paragraphe et portion dans une présentation PowerPoint en Python"
 ---

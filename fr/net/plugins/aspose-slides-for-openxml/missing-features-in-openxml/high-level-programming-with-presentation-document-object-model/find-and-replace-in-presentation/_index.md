@@ -2,7 +2,7 @@
 title: Trouver et Remplacer dans une Présentation
 type: docs
 weight: 20
-url: /net/find-and-replace-in-presentation/
+url: /fr/net/find-and-replace-in-presentation/
 ---
 
 Voici les étapes à suivre :

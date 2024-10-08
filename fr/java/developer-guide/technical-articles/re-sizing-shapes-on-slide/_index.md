@@ -2,7 +2,7 @@
 title: Redimensionner des formes sur la diapositive
 type: docs
 weight: 110
-url: /java/re-sizing-shapes-on-slide/
+url: /fr/java/re-sizing-shapes-on-slide/
 ---
 
 ## **Redimensionner des formes sur la diapositive**

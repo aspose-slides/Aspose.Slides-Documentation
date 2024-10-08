@@ -2,7 +2,7 @@
 title: Obtenir des rappels d'avertissement pour la substitution de polices dans Aspose.Slides
 type: docs
 weight: 120
-url: /python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /fr/python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

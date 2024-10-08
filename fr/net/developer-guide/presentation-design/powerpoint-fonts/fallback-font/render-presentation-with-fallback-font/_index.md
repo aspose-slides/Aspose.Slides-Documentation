@@ -2,7 +2,7 @@
 title: Rendre une présentation avec une police de remplacement
 type: docs
 weight: 30
-url: /net/render-presentation-with-fallback-font/
+url: /fr/net/render-presentation-with-fallback-font/
 keywords: 
 - police de remplacement
 - rendre PowerPoint
@@ -16,7 +16,7 @@ description: "Rendre PowerPoint avec une police de remplacement en C# ou .NET"
 
 L'exemple suivant comprend ces étapes :
 
-1. Nous [créons une collection de règles de police de remplacement](/slides/net/create-fallback-fonts-collection/).
+1. Nous [créons une collection de règles de police de remplacement](/slides/fr/net/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/remove) une règle de police de remplacement et [AddFallBackFonts()](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrule/methods/addfallbackfonts) à une autre règle.
 1. Définir la collection de règles à la propriété [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/properties/fontfallbackrulescollection).
 1. Avec la méthode [Presentation.Save()](https://reference.aspose.com/slides/net/aspose.slides.presentation/save/methods/4), nous pouvons enregistrer la présentation dans le même format ou l'enregistrer dans un autre. Après que la collection de règles de police de remplacement est définie pour FontsManager, ces règles sont appliquées lors de toute opération sur la présentation : sauvegarde, rendu, conversion, etc.
@@ -57,5 +57,5 @@ using (Presentation pres = new Presentation("input.pptx"))
 ```
 
 {{% alert color="primary" %}} 
-Lisez-en plus sur [Sauvegarde et conversion dans la présentation](/slides/net/creating-saving-and-converting-a-presentation/).
+Lisez-en plus sur [Sauvegarde et conversion dans la présentation](/slides/fr/net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

@@ -2,7 +2,7 @@
 title: Notes de Présentation
 type: docs
 weight: 110
-url: /php-java/presentation-notes/
+url: /fr/php-java/presentation-notes/
 keywords: "Notes de conférencier PowerPoint"
 description: "Notes de présentation, notes de conférencier"
 ---

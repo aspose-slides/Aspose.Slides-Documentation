@@ -3,7 +3,7 @@ title: Créer ou Mettre à Jour des Graphiques de Présentation PowerPoint
 linktitle: Créer un Graphique
 type: docs
 weight: 10
-url: /php-java/create-chart/
+url: /fr/php-java/create-chart/
 keywords: "Créer un graphique, graphique en nuage de points, graphique en secteurs, graphique en carte arborescente, graphique boursier, graphique en boîte à moustaches, graphique histogramme, graphique en entonnoir, graphique en soleil, graphique multicatégorie, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Créer un graphique dans une présentation PowerPoint"
 ---

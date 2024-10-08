@@ -2,7 +2,7 @@
 title: Gérer les Tableaux
 type: docs
 weight: 10
-url: /cpp/manage-table/
+url: /fr/cpp/manage-table/
 keywords: "Tableau, créer un tableau, accéder au tableau, rapport d'aspect du tableau, présentation PowerPoint, C++, Aspose.Slides pour C++"
 description: "Créer et gérer des tableaux dans les présentations PowerPoint en C++"
 ---

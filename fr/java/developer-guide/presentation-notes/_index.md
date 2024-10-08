@@ -2,7 +2,7 @@
 title: Notes de Présentation
 type: docs
 weight: 110
-url: /java/presentation-notes/
+url: /fr/java/presentation-notes/
 keywords: "Notes de conférencier PowerPoint en Java"
 description: "Notes de présentation, notes de conférencier en Java"
 ---

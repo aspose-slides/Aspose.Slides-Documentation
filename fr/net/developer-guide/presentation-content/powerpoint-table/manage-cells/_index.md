@@ -2,7 +2,7 @@
 title: Gérer les cellules
 type: docs
 weight: 30
-url: /net/manage-cells/
+url: /fr/net/manage-cells/
 keywords:
 - tableau
 - cellules fusionnées

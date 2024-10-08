@@ -2,7 +2,7 @@
 title: Gérer les Hyperliens
 type: docs
 weight: 20
-url: /cpp/manage-hyperlinks/
+url: /fr/cpp/manage-hyperlinks/
 keywords: "Hyperlien PowerPoint, hyperlien texte, hyperlien diapositive, hyperlien forme, hyperlien image, hyperlien vidéo, C++"
 description: "Comment ajouter un hyperlien à une présentation PowerPoint en C++"
 ---

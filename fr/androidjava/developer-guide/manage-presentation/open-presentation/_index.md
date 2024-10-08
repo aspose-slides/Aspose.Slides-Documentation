@@ -3,7 +3,7 @@ title: Ouvrir une présentation en Java
 linktitle: Ouvrir la présentation
 type: docs
 weight: 20
-url: /androidjava/open-presentation/
+url: /fr/androidjava/open-presentation/
 keywords: "Ouvrir PowerPoint, PPTX, PPT, Ouvrir la présentation, Charger la présentation, Java"
 description: "Ouvrir ou charger une présentation PPT, PPTX, ODP en Java"
 ---

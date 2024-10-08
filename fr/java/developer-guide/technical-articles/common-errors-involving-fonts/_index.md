@@ -2,7 +2,7 @@
 title: Exceptions et Erreurs Courantes Impliquant des Polices sur Linux
 type: docs
 weight: 200
-url: /java/technical-articles/common-errors-involving-fonts
+url: /fr/java/technical-articles/common-errors-involving-fonts
 keywords: "Exception de police, Erreur de police, Linux, Java, Aspose.Slides for Java"
 description: "Exceptions et erreurs de police sur Linux"
 ---

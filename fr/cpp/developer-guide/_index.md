@@ -2,5 +2,5 @@
 title: Guide du Développeur
 type: docs
 weight: 20
-url: /cpp/developer-guide/
+url: /fr/cpp/developer-guide/
 ---

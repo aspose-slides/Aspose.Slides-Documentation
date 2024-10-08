@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /cpp/activex/
+url: /fr/cpp/activex/
 ---
 
 

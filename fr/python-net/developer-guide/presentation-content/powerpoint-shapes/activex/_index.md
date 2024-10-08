@@ -2,7 +2,7 @@
 title: ActiveX
 type: docs
 weight: 80
-url: /python-net/activex/
+url: /fr/python-net/activex/
 keywords: "ActiveX, contrôles ActiveX, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Gérer les contrôles ActiveX dans une présentation PowerPoint en Python"
 ---

@@ -2,7 +2,7 @@
 title: Créer des rapports paginés
 type: docs
 weight: 100
-url: /reportingservices/paginated-reports/
+url: /fr/reportingservices/paginated-reports/
 keywords: "Créer des rapports paginés, Power BI, Aspose.Slides pour Reporting Services"
 description: "Créer des rapports paginés"
 ---

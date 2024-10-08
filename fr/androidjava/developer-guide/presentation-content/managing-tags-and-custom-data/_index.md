@@ -2,7 +2,7 @@
 title: Gestion des balises et des données personnalisées
 type: docs
 weight: 300
-url: /androidjava/managing-tags-and-custom-data
+url: /fr/androidjava/managing-tags-and-custom-data
 
 ---
 

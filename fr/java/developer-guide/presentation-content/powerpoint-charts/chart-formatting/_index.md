@@ -2,7 +2,7 @@
 title: Formatage des Graphiques
 type: docs
 weight: 60
-url: /java/chart-formatting/
+url: /fr/java/chart-formatting/
 ---
 
 ## **Formater les Entités de Graphique**

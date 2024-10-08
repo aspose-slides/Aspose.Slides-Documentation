@@ -2,7 +2,7 @@
 title: Convertir Powerpoint PPT en JPG
 type: docs
 weight: 60
-url: /cpp/convert-powerpoint-to-jpg/
+url: /fr/cpp/convert-powerpoint-to-jpg/
 keywords:
 - Convertir présentation PowerPoint
 - JPG
@@ -90,4 +90,4 @@ En utilisant les mêmes principes décrits dans cet article, vous pouvez convert
 
 Voir d'autres options pour convertir PPT/PPTX en image comme :
 
-- [Conversion PPT/PPTX en SVG](/slides/cpp/render-a-slide-as-an-svg-image/)
+- [Conversion PPT/PPTX en SVG](/slides/fr/cpp/render-a-slide-as-an-svg-image/)

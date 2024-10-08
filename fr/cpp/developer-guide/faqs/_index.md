@@ -2,7 +2,7 @@
 title: FAQs
 type: docs
 weight: 340
-url: /cpp/faqs/
+url: /fr/cpp/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **Q: Quels formats de fichier Aspose.Slides pour C++ supporte-t-il ?**
 
-**A**: Aspose.Slides pour C++ supporte les formats de fichier décrits dans [Formats de Fichier Pris en Charge](/slides/cpp/supported-file-formats/).
+**A**: Aspose.Slides pour C++ supporte les formats de fichier décrits dans [Formats de Fichier Pris en Charge](/slides/fr/cpp/supported-file-formats/).
 
 ## **Exceptions**
 
@@ -54,7 +54,7 @@ En général, Aspose.Slides pour C++ peut facilement gérer des fichiers de pré
 
 **Q: Pourquoi les tailles de paragraphe sont-elles différentes sur les systèmes d'exploitation Windows et Linux ?**
 
-**A**: Le calcul des tailles de paragraphe est basé sur le calcul de la taille de texte représentant le paragraphe donné. Le calcul de la taille du texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. En conséquence, le calcul des tailles de paragraphe dans différents systèmes donnera des résultats différents selon l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger au moment de l'exécution comme [polices externes](/slides/cpp/custom-font/).
+**A**: Le calcul des tailles de paragraphe est basé sur le calcul de la taille de texte représentant le paragraphe donné. Le calcul de la taille du texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. En conséquence, le calcul des tailles de paragraphe dans différents systèmes donnera des résultats différents selon l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger au moment de l'exécution comme [polices externes](/slides/fr/cpp/custom-font/).
 
 ## **Mise en Forme et Images**
 

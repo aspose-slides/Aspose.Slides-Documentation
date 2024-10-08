@@ -2,7 +2,7 @@
 title: Gérer Blob
 type: docs
 weight: 10
-url: /php-java/manage-blob/
+url: /fr/php-java/manage-blob/
 description: Gérer Blob dans une présentation PowerPoint en utilisant PHP. Utiliser Blob pour réduire la consommation de mémoire dans une présentation PowerPoint en utilisant PHP. Ajouter un gros fichier par le biais de Blob à une présentation PowerPoint en utilisant PHP. Exporter un gros fichier par le biais de Blob depuis une présentation PowerPoint en utilisant PHP. Charger une grande présentation PowerPoint en tant que Blob en utilisant PHP.
 ---
 
@@ -22,7 +22,7 @@ Pour contourner certaines limitations lors de l'interaction avec les flux, Aspos
 
 ### **Ajouter un Gros Fichier par BLOB à une Présentation**
 
-[Aspose.Slides](/slides/php-java/) pour Java vous permet d'ajouter de gros fichiers (dans ce cas, un gros fichier vidéo) par un processus impliquant des BLOBs pour réduire la consommation de mémoire.
+[Aspose.Slides](/slides/fr/php-java/) pour Java vous permet d'ajouter de gros fichiers (dans ce cas, un gros fichier vidéo) par un processus impliquant des BLOBs pour réduire la consommation de mémoire.
 
 Ce code Java vous montre comment ajouter un gros fichier vidéo via le processus BLOB à une présentation :
 

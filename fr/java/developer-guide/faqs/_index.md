@@ -2,7 +2,7 @@
 title: FAQs
 type: docs
 weight: 340
-url: /java/faqs/
+url: /fr/java/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **Q : Quels formats de fichier Aspose.Slides pour Java prend-il en charge ?**
 
-**R** : Aspose.Slides pour Java prend en charge les formats de fichier décrits dans [Formats de fichier pris en charge](/slides/java/supported-file-formats/).
+**R** : Aspose.Slides pour Java prend en charge les formats de fichier décrits dans [Formats de fichier pris en charge](/slides/fr/java/supported-file-formats/).
 
 ## **Exceptions**
 
@@ -54,7 +54,7 @@ En général, Aspose.Slides pour Java peut facilement gérer des fichiers de pr�
 
 **Q : Pourquoi les tailles de paragraphe sont-elles différentes sur les systèmes d'exploitation Windows et Linux ?**
 
-**R** : Le calcul des tailles de paragraphe est basé sur le calcul de la taille du texte représentant le paragraphe donné. Le calcul de la taille du texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. En conséquence, le calcul des tailles de paragraphe sur différents systèmes entraînera des résultats différents en fonction de l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger en temps réel en tant que [polices externes](/slides/java/custom-font/).
+**R** : Le calcul des tailles de paragraphe est basé sur le calcul de la taille du texte représentant le paragraphe donné. Le calcul de la taille du texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. En conséquence, le calcul des tailles de paragraphe sur différents systèmes entraînera des résultats différents en fonction de l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger en temps réel en tant que [polices externes](/slides/fr/java/custom-font/).
 
 ## **Formatage et images**
 

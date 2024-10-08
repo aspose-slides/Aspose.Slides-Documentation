@@ -2,7 +2,7 @@
 title: Police de secours
 type: docs
 weight: 50
-url: /cpp/fallback-font/
+url: /fr/cpp/fallback-font/
 ---
 
 ## **Police de secours**
@@ -12,6 +12,6 @@ Aspose.Slides permet de créer des polices de secours, de les ajouter à la coll
 
 Pour vous familiariser avec ces fonctionnalités, utilisez les liens suivants :
 
-- [Créer une police de secours](/slides/cpp/create-fallback-font)
-- [Créer une collection de polices de secours](/slides/cpp/create-fallback-fonts-collection)
-- [Rendre la présentation avec une police de secours](/slides/cpp/render-presentation-with-fallback-font)
+- [Créer une police de secours](/slides/fr/cpp/create-fallback-font)
+- [Créer une collection de polices de secours](/slides/fr/cpp/create-fallback-fonts-collection)
+- [Rendre la présentation avec une police de secours](/slides/fr/cpp/render-presentation-with-fallback-font)

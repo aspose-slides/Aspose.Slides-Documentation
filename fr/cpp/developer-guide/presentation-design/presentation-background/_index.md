@@ -2,7 +2,7 @@
 title: Arrière-plan de Présentation
 type: docs
 weight: 20
-url: /cpp/presentation-background/
+url: /fr/cpp/presentation-background/
 keywords: "arrière-plan PowerPoint, définir arrière-plan"
 description: "Définir l'arrière-plan dans une présentation PowerPoint en CPP"
 ---

@@ -2,7 +2,7 @@
 title: Visionneuse de Présentation  
 type: docs  
 weight: 50  
-url: /net/presentation-viewer/  
+url: /fr/net/presentation-viewer/  
 keywords:  
 - voir présentation PowerPoint  
 - voir ppt  

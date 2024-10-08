@@ -2,7 +2,7 @@
 title: Gestion des étiquettes et des données personnalisées
 type: docs
 weight: 300
-url: /net/managing-tags-and-custom-data
+url: /fr/net/managing-tags-and-custom-data
 keywords: "Étiquettes, Données personnalisées, Valeur des étiquettes, Ajouter des étiquettes, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter des étiquettes et des données personnalisées aux présentations PowerPoint en C# ou .NET"
 ---

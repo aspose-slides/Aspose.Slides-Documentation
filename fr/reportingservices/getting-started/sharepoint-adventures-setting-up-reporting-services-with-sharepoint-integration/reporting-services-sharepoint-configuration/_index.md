@@ -2,7 +2,7 @@
 title: Configuration de Reporting Services pour SharePoint
 type: docs
 weight: 50
-url: /reportingservices/reporting-services-sharepoint-configuration/
+url: /fr/reportingservices/reporting-services-sharepoint-configuration/
 ---
 
 {{% alert color="primary" %}} 

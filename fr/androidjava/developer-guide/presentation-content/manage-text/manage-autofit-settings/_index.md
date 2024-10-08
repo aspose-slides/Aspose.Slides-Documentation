@@ -2,7 +2,7 @@
 title: Gérer les paramètres d'ajustement automatique
 type: docs
 weight: 30
-url: /androidjava/manage-autofit-settings/
+url: /fr/androidjava/manage-autofit-settings/
 keywords: "Textbox, Autofit, Présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Définir les paramètres d'ajustement automatique pour la zone de texte dans PowerPoint en Java"
 ---

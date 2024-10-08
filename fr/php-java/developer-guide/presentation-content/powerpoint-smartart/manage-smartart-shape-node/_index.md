@@ -3,7 +3,7 @@ title: Créer ou Gérer un Nœud de Forme SmartArt PowerPoint
 linktitle: Gérer le Nœud de Forme SmartArt
 type: docs
 weight: 30
-url: /php-java/manage-smartart-shape-node/
+url: /fr/php-java/manage-smartart-shape-node/
 keywords: smartart powerpoint, nœuds smartart, position smartart, supprimer smartart, ajouter nœuds smartart, présentation powerpoint, powerpoint java, api java powerpoint
 description: Gérer le nœud smartart et le nœud enfant dans les présentations PowerPoint
 ---

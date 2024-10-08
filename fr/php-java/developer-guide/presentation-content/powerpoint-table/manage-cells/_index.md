@@ -2,7 +2,7 @@
 title: Gérer les cellules
 type: docs
 weight: 30
-url: /php-java/manage-cells/
+url: /fr/php-java/manage-cells/
 keywords: "Table, cellules fusionnées, cellules divisées, image dans la cellule de table, Java, Aspose.Slides pour PHP via Java"
 description: "Cellules de table dans les présentations PowerPoint"
 ---

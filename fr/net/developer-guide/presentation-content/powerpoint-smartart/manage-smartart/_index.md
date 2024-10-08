@@ -2,7 +2,7 @@
 title: Gérer SmartArt
 type: docs
 weight: 10
-url: /net/manage-smartart/
+url: /fr/net/manage-smartart/
 keywords: "SmartArt, texte de SmartArt, graphique de type organisation, graphique d'organisation avec image, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "SmartArt et graphique de type organisation dans les présentations PowerPoint en C# ou .NET"
 ---

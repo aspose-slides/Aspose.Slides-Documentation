@@ -2,7 +2,7 @@
 title: Cadre Audio
 type: docs
 weight: 10
-url: /cpp/audio-frame/
+url: /fr/cpp/audio-frame/
 keywords: "Ajouter de l'audio, Cadre audio, Propriétés audio, Extraire l'audio, C++, CPP, Aspose.Slides pour C++"
 description: "Ajouter de l'audio à une présentation PowerPoint en C++"
 ---

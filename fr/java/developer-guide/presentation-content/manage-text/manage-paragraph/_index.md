@@ -2,7 +2,7 @@
 title: Gérer les Paragraphes PowerPoint en Java
 type: docs
 weight: 40
-url: /java/manage-paragraph/
+url: /fr/java/manage-paragraph/
 keywords: "Ajouter un paragraphe PowerPoint, Gérer les paragraphes, Retrait de paragraphe, Propriétés de paragraphe, Texte HTML, Exporter le texte du paragraphe, Présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Créer et gérer un paragraphe, du texte, un retrait et des propriétés dans des présentations PowerPoint en Java"
 ---

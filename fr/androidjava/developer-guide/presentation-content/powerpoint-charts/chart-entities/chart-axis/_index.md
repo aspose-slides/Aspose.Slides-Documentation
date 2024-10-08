@@ -1,7 +1,7 @@
 ---
 title: Axe de graphique
 type: docs
-url: /androidjava/chart-axis/
+url: /fr/androidjava/chart-axis/
 keywords: "Axe de graphique PowerPoint, Graphiques de présentation, Java, Manipuler l'axe de graphique, Données de graphique"
 description: "Comment modifier l'axe de graphique PowerPoint en Java"
 ---

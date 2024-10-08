@@ -2,7 +2,7 @@
 title: Filigrane
 type: docs
 weight: 40
-url: /php-java/watermark/
+url: /fr/php-java/watermark/
 keywords:
 - filigrane
 - ajouter filigrane
@@ -49,7 +49,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser la classe TextFrame](/slides/php-java/text-formatting/)
+- [Comment utiliser la classe TextFrame](/slides/fr/php-java/text-formatting/)
 {{% /alert %}}
 
 ### **Ajouter un Filigrane Texte à une Présentation**
@@ -69,7 +69,7 @@ $presentation->dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Master de Diapositive](/slides/php-java/slide-master/)
+- [Comment utiliser le Master de Diapositive](/slides/fr/php-java/slide-master/)
 {{% /alert %}}
 
 ### **Définir la Transparence de la Forme de Filigrane**

@@ -2,7 +2,7 @@
 title: Groupe
 type: docs
 weight: 40
-url: /androidjava/group/
+url: /fr/androidjava/group/
 ---
 
 ## **Ajouter une forme de groupe**

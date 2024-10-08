@@ -1,7 +1,7 @@
 ---
 title: Points de données du graphique Treemap et Sunburst
 type: docs
-url: /python-net/data-points-of-treemap-and-sunburst-chart/
+url: /fr/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords: "Graphique Sunburst, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter un graphique Sunburst dans une présentation PowerPoint en Python"
 ---
@@ -20,7 +20,7 @@ with slides.Presentation() as pres:
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [**Créer un graphique Sunburst**](/slides/python-net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Créer un graphique Sunburst**](/slides/fr/python-net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 S'il est nécessaire de formater les points de données du graphique, nous devrions utiliser ce qui suit :

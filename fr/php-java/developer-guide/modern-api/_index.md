@@ -2,7 +2,7 @@
 title: API Moderne
 type: docs
 weight: 237
-url: /php-java/modern-api/
+url: /fr/php-java/modern-api/
 keywords: "API Moderne CrossPlatform"
 description: "API Moderne"
 ---

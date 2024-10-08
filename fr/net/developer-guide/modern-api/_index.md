@@ -2,7 +2,7 @@
 title: API Moderne
 type: docs
 weight: 237
-url: /net/modern-api/
+url: /fr/net/modern-api/
 keywords: "CrossPlatform API Moderne System.Drawing"
 description: "API Moderne"
 ---

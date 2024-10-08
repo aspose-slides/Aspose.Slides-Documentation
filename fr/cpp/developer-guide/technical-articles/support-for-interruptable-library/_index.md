@@ -2,7 +2,7 @@
 title: Prise en charge de la bibliothèque interrompable
 type: docs
 weight: 150
-url: /cpp/support-for-interruptable-library/
+url: /fr/cpp/support-for-interruptable-library/
 ---
 
 ## **Bibliothèque interrompable**

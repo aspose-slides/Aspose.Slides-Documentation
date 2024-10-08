@@ -2,7 +2,7 @@
 title: Aperçu des fonctionnalités
 type: docs
 weight: 20
-url: /nodejs-net/features-overview/
+url: /fr/nodejs-net/features-overview/
 ---
 
 ## **Plateformes prises en charge**

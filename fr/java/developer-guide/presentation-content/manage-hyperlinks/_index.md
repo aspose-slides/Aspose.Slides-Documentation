@@ -2,7 +2,7 @@
 title: Gérer les Hyperliens
 type: docs
 weight: 20
-url: /java/manage-hyperlinks/
+url: /fr/java/manage-hyperlinks/
 keywords: "Hyperlien PowerPoint, hyperlien texte, hyperlien diapositive, hyperlien forme, hyperlien image, hyperlien vidéo, Java"
 description: "Comment ajouter un hyperlien à une présentation PowerPoint en Java"
 ---
@@ -129,7 +129,7 @@ try {
 
 {{%  alert  title="Astuce"  color="primary"  %}} 
 
-Vous voudrez peut-être voir *[Gérer OLE](/slides/java/manage-ole/)*.
+Vous voudrez peut-être voir *[Gérer OLE](/slides/fr/java/manage-ole/)*.
 
 {{% /alert %}}
 

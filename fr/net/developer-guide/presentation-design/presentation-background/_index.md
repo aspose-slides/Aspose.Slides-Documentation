@@ -2,7 +2,7 @@
 title: Fond de présentation
 type: docs
 weight: 20
-url: /net/presentation-background/
+url: /fr/net/presentation-background/
 keywords:
 - Fond PowerPoint
 - définir le fond

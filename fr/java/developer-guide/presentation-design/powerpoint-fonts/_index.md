@@ -2,5 +2,5 @@
 title: Polices PowerPoint
 type: docs
 weight: 30
-url: /java/powerpoint-fonts/
+url: /fr/java/powerpoint-fonts/
 ---

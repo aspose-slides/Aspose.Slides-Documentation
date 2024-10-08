@@ -2,7 +2,7 @@
 title: Ajouter une diapositive à la présentation
 type: docs
 weight: 10
-url: /python-net/add-slide-to-presentation/
+url: /fr/python-net/add-slide-to-presentation/
 keywords: "Ajouter diapositive à la présentation, Python, Aspose.Slides"
 description: "Ajouter une diapositive à la présentation en Python"
 ---

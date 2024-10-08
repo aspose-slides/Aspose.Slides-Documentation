@@ -3,7 +3,7 @@ title: Convertir PPT en PPTX en Java
 linktitle: Convertir PPT en PPTX
 type: docs
 weight: 20
-url: /androidjava/convert-ppt-to-pptx/
+url: /fr/androidjava/convert-ppt-to-pptx/
 keywords: "Java Convertir PPT en PPTX, PowerPoint PPT en PPTX en Java"
 description: "Convertir PowerPoint PPT en PPTX en Java."
 ---
@@ -47,7 +47,7 @@ Trouvez d'autres exemples en direct de [**Conversion Aspose.Slides**](https://pr
 {{% /alert %}} 
 
 ## **Convertir PPT en PPTX**
-Aspose.Slides pour Android via Java facilite maintenant aux développeurs l'accès à PPT en utilisant une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et de la convertir au format [PPTX](https://docs.fileformat.com/presentation/pptx/). Actuellement, cela prend en charge la conversion partielle de [PPT](https://docs.fileformat.com/presentation/ppt/) en PPTX. Pour plus de détails sur les fonctionnalités prises en charge et non prises en charge dans la conversion PPT en PPTX, veuillez consulter cette documentation [lien](/slides/androidjava/ppt-to-pptx-conversion/).
+Aspose.Slides pour Android via Java facilite maintenant aux développeurs l'accès à PPT en utilisant une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) et de la convertir au format [PPTX](https://docs.fileformat.com/presentation/pptx/). Actuellement, cela prend en charge la conversion partielle de [PPT](https://docs.fileformat.com/presentation/ppt/) en PPTX. Pour plus de détails sur les fonctionnalités prises en charge et non prises en charge dans la conversion PPT en PPTX, veuillez consulter cette documentation [lien](/slides/fr/androidjava/ppt-to-pptx-conversion/).
 
 Aspose.Slides pour Android via Java offre la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) qui représente un fichier de présentation **PPTX**. La classe Presentation peut maintenant également accéder au **PPT** lorsque l'objet est instancié. L'exemple suivant montre comment convertir une présentation PPT en présentation PPTX.
 

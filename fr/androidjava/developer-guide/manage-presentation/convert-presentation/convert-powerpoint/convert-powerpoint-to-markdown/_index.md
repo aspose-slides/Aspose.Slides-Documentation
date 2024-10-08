@@ -2,7 +2,7 @@
 title: Convertir PowerPoint en Markdown en Java
 type: docs
 weight: 140
-url: /androidjava/convert-powerpoint-to-markdown/
+url: /fr/androidjava/convert-powerpoint-to-markdown/
 keywords: "Convertir PowerPoint en Markdown, Convertir ppt en md, PowerPoint, PPT, PPTX, Présentation, Markdown, Java, Aspose.Slides pour Android via Java"
 description: "Convertir PowerPoint en Markdown en Java"
 ---

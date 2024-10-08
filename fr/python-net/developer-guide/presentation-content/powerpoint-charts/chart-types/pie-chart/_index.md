@@ -1,7 +1,7 @@
 ---
 title: Diagramme en Secteurs
 type: docs
-url: /python-net/pie-chart/
+url: /fr/python-net/pie-chart/
 keywords: "Diagramme en secteurs, options de tracé, couleurs des parts, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Options de tracé du diagramme en secteurs et couleurs des parts dans la présentation PowerPoint en Python"
 ---

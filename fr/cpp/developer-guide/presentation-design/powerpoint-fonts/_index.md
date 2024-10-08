@@ -2,5 +2,5 @@
 title: Polices PowerPoint
 type: docs
 weight: 30
-url: /cpp/powerpoint-fonts/
+url: /fr/cpp/powerpoint-fonts/
 ---

@@ -2,7 +2,7 @@
 title: Mise en Page des Diapositives
 type: docs
 weight: 60
-url: /net/slide-layout/
+url: /fr/net/slide-layout/
 keyword: "Définir la taille des diapositives, définir les options des diapositives, spécifier la taille des diapositives, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, C#, Csharp, .NET, Aspose.Slides"
 description: "Définir la taille et les options des diapositives PowerPoint en C# ou .NET"
 ---

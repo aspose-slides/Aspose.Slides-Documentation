@@ -2,7 +2,7 @@
 title: Créer une police de secours
 type: docs
 weight: 10
-url: /net/create-fallback-font/
+url: /fr/net/create-fallback-font/
 keywords: "Polices, police de secours, présentation PowerPoint C#, Csharp, Aspose.Slides pour .NET"
 description: "Police de secours dans PowerPoint en C# ou .NET"
 ---
@@ -30,5 +30,5 @@ Il est également possible de [Remove()](https://reference.aspose.com/slides/net
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection)[ ](https://reference.aspose.com/slides/net/aspose.slides/fontfallbackrulescollection) peut être utilisé pour organiser une liste d'objets [FontFallBackRule](https://reference.aspose.com/slides/net/aspose.slides/FontFallBackRule), lorsque cela est nécessaire pour spécifier des règles de remplacement de police de secours pour plusieurs plages Unicode.
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Créer une collection de polices de secours](/slides/net/create-fallback-fonts-collection/)
+- [Créer une collection de polices de secours](/slides/fr/net/create-fallback-fonts-collection/)
 {{% /alert %}}

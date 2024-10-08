@@ -2,7 +2,7 @@
 title: Gérer les paramètres d'Autofit
 type: docs
 weight: 30
-url: /java/manage-autofit-settings/
+url: /fr/java/manage-autofit-settings/
 keywords: "Textbox, Autofit, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Définir les paramètres d'autofit pour la zone de texte dans PowerPoint en Java"
 ---

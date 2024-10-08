@@ -2,7 +2,7 @@
 title: Convertir PowerPoint en TIFF
 type: docs
 weight: 90
-url: /net/convert-powerpoint-to-tiff/
+url: /fr/net/convert-powerpoint-to-tiff/
 keywords: "Convertir la présentation PowerPoint, PowerPoint en TIFF, PPT en TIFF, PPTX en TIFF, C#, Csharp, .NET, Aspose.Slides"
 description: "Convertir une présentation PowerPoint en TIFF en C# ou .NET."
 

@@ -2,7 +2,7 @@
 title: Prise en charge de .NET6
 type: docs
 weight: 235
-url: /net/net6/
+url: /fr/net/net6/
 keywords: 
 - .NET 6
 - Cloud

@@ -2,7 +2,7 @@
 title: Présentation Protégée par Mot de Passe
 type: docs
 weight: 20
-url: /cpp/password-protected-presentation/
+url: /fr/cpp/password-protected-presentation/
 keywords: "Verrouiller la présentation PowerPoint"
 description: "Verrouiller la présentation PowerPoint. Présentation PowerPoint protégée par mot de passe avec Aspose.Slides."
 ---
@@ -213,5 +213,5 @@ bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my
 Cela retourne `true` si la présentation a été chiffrée avec le mot de passe spécifié. Sinon, cela retourne `false`. 
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Signature Numérique dans PowerPoint](/slides/cpp/digital-signature-in-powerpoint/)
+- [Signature Numérique dans PowerPoint](/slides/fr/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}

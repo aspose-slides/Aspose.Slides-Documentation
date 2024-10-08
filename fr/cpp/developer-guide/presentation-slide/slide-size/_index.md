@@ -2,7 +2,7 @@
 title: Taille des diapositives
 type: docs
 weight: 70
-url: /cpp/slide-size/
+url: /fr/cpp/slide-size/
 
 ---
 

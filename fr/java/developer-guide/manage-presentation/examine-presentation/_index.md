@@ -2,7 +2,7 @@
 title: Examiner la présentation
 type: docs
 weight: 30
-url: /java/examine-presentation/
+url: /fr/java/examine-presentation/
 keywords:
 - PowerPoint
 - présentation

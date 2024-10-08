@@ -2,7 +2,7 @@
 title: Exigences Système
 type: docs
 weight: 80
-url: /cpp/system-requirements/
+url: /fr/cpp/system-requirements/
 ---
 
 ## **Systèmes d'exploitation pris en charge**

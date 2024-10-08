@@ -2,7 +2,7 @@
 title: Ligne
 type: docs
 weight: 50
-url: /python-net/line/
+url: /fr/python-net/line/
 keywords: "Ligne, forme PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter une ligne dans une présentation PowerPoint en Python"
 ---

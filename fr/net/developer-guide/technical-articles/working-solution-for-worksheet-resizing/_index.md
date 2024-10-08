@@ -2,7 +2,7 @@
 title: Solution Fonctionnelle pour le Redimensionnement de Worksheet
 type: docs
 weight: 40
-url: /net/solution-fonctionnelle-pour-le-redimensionnement-de-worksheet/
+url: /fr/net/solution-fonctionnelle-pour-le-redimensionnement-de-worksheet/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Il a été observé que les feuilles de calcul Excel intégrées en tant qu'OLE 
 
 {{% /alert %}} 
 ## **Contexte**
-Dans l'[article Ajouter des cadres Ole]() , nous avons expliqué comment ajouter un cadre Ole dans une présentation PowerPoint en utilisant Aspose.Slides pour .NET. Afin de tenir compte de [l'issue d'objet modifié](/slides/net/object-changed-issue-when-adding-oleobjectframe/), nous avons assigné l'image de la feuille de calcul de la zone sélectionnée au cadre d'objet OLE de graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur le cadre d'objet OLE affichant l'image de la feuille de calcul, le graphique Excel est activé. Les utilisateurs peuvent apporter toutes les modifications désirées dans le classeur Excel réel, puis revenir à la diapositive concernée en cliquant à l'extérieur du classeur Excel activé. La taille du cadre d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour les différentes tailles de cadres d'objet OLE et de classeurs Excel intégrés.
+Dans l'[article Ajouter des cadres Ole]() , nous avons expliqué comment ajouter un cadre Ole dans une présentation PowerPoint en utilisant Aspose.Slides pour .NET. Afin de tenir compte de [l'issue d'objet modifié](/slides/fr/net/object-changed-issue-when-adding-oleobjectframe/), nous avons assigné l'image de la feuille de calcul de la zone sélectionnée au cadre d'objet OLE de graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur le cadre d'objet OLE affichant l'image de la feuille de calcul, le graphique Excel est activé. Les utilisateurs peuvent apporter toutes les modifications désirées dans le classeur Excel réel, puis revenir à la diapositive concernée en cliquant à l'extérieur du classeur Excel activé. La taille du cadre d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour les différentes tailles de cadres d'objet OLE et de classeurs Excel intégrés.
 ## **Cause du Redimensionnement**
 Étant donné que le classeur Excel a sa propre taille de fenêtre, il essaie de conserver sa taille originale lors de la première activation. D'un autre côté, le cadre d'objet OLE aura sa propre taille. Selon Microsoft, lors de l'activation du classeur Excel, Excel et PowerPoint négocient la taille et s'assurent qu'elle est dans les bonnes proportions dans le cadre de l'opération d'intégration. En fonction des différences de taille de fenêtre Excel et de taille / position du cadre d'objet OLE, le redimensionnement a lieu.
 ## **Solution Fonctionnelle**
@@ -283,6 +283,6 @@ private static Image ScaleImage(Image image, Int32 outputWidth, Int32 outputHeig
 
 {{% alert color="primary" %}}  Il existe deux approches pour résoudre le problème de redimensionnement de la feuille de calcul. Le choix de l'approche appropriée dépend des besoins et du cas d'utilisation. Les deux approches fonctionnent de la même manière, que les présentations soient créées à partir d'un modèle ou créées à partir de zéro. De plus, il n'y a pas de limite de taille pour le cadre d'objet OLE dans la solution. {{% /alert %}} 
 ## **Sections Connexes**
-[Créer et intégrer un graphique Excel en tant qu'objet OLE dans une présentation](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Créer et intégrer un graphique Excel en tant qu'objet OLE dans une présentation](/slides/fr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Mettre à jour automatiquement les objets OLE](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Mettre à jour automatiquement les objets OLE](/slides/fr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

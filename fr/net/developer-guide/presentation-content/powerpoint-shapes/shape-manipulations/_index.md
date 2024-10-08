@@ -2,7 +2,7 @@
 title: Manipulations de Formes
 type: docs
 weight: 40
-url: /net/manipulations-de-formes/
+url: /fr/net/manipulations-de-formes/
 keywords: "forme PowerPoint, forme sur une diapositive, trouver forme, cloner forme, supprimer forme, cacher forme, changer ordre de forme, obtenir ID forme interop, texte alternatif de forme, formats de mise en page de forme, forme en tant que SVG, aligner forme, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Manipuler les formes PowerPoint en C# ou .NET"
 ---

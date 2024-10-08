@@ -2,7 +2,7 @@
 title: Ligne
 type: docs
 weight: 50
-url: /java/Ligne/
+url: /fr/java/Ligne/
 ---
 
 

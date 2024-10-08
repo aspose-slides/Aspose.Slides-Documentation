@@ -3,7 +3,7 @@ title: Cadre Audio - Insérer et Extraire de l'Audio dans PowerPoint avec C#
 linktitle: Cadre Audio
 type: docs
 weight: 10
-url: /net/audio-frame/
+url: /fr/net/audio-frame/
 keywords: "image miniature audio, Ajouter de l'audio, Cadre audio, Propriétés audio, Extraire de l'audio, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter de l'audio à une présentation PowerPoint en C# ou .NET"
 ---

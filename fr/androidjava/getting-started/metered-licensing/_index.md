@@ -2,7 +2,7 @@
 title: Licence à l'utilisation
 type: docs
 weight: 100
-url: /androidjava/metered-licensing/
+url: /fr/androidjava/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Notes de Présentation
 type: docs
 weight: 110
-url: /cpp/presentation-notes/
+url: /fr/cpp/presentation-notes/
 keywords: "Notes pour le présentateur de la présentation PowerPoint"
 ---
 

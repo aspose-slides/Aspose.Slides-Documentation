@@ -2,12 +2,12 @@
 title: Rendre une présentation avec une police de secours
 type: docs
 weight: 30
-url: /php-java/render-presentation-with-fallback-font/
+url: /fr/php-java/render-presentation-with-fallback-font/
 ---
 
 L'exemple suivant comprend ces étapes :
 
-1. Nous [créons une collection de règles de police de secours](/slides/php-java/create-fallback-fonts-collection/).
+1. Nous [créons une collection de règles de police de secours](/slides/fr/php-java/create-fallback-fonts-collection/).
 1. [Supprimez](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) une règle de police de secours et [ajoutezFallBackFonts](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) à une autre règle.
 1. Définissez la collection de règles sur [getFontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager#getFontFallBackRulesCollection--) méthode.
 1. Avec la méthode [Presentation.save](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) nous pouvons enregistrer la présentation dans le même format ou l'enregistrer dans un autre. Après que la collection de règles de police de secours soit définie sur [FontsManager](https://reference.aspose.com/slides/php-java/aspose.slides/FontsManager), ces règles sont appliquées lors de toutes les opérations sur la présentation : sauvegarde, rendu, conversion, etc.
@@ -51,5 +51,5 @@ L'exemple suivant comprend ces étapes :
 ```
 
 {{% alert color="primary" %}} 
-Lisez-en plus sur [Sauvegarde et conversion dans une présentation](/slides/php-java/creating-saving-and-converting-a-presentation/).
+Lisez-en plus sur [Sauvegarde et conversion dans une présentation](/slides/fr/php-java/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

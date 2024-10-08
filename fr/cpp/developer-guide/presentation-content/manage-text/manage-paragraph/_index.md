@@ -2,7 +2,7 @@
 title: Gérer les Paragraphes PowerPoint en C++
 type: docs
 weight: 40
-url: /cpp/manage-paragraph/
+url: /fr/cpp/manage-paragraph/
 keywords: "Ajouter un paragraphe PowerPoint, Gérer les paragraphes, Indentation des paragraphes, Propriétés des paragraphes, Texte HTML, Exporter le texte des paragraphes, Présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Créer et gérer des Paragraphes, du texte, de l'indentation et des propriétés dans des présentations PowerPoint en C++"
 ---

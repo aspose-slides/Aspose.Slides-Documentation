@@ -2,7 +2,7 @@
 title: Vue d'ensemble des fonctionnalités
 type: docs
 weight: 20
-url: /python-java/features-overview/
+url: /fr/python-java/features-overview/
 ---
 
 ## **Plateformes prises en charge**

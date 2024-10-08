@@ -3,7 +3,7 @@ title: Ouvrir une présentation en C#
 linktitle: Ouvrir une présentation
 type: docs
 weight: 20
-url: /net/open-presentation/
+url: /fr/net/open-presentation/
 keywords: "Ouvrir PowerPoint, PPTX, PPT, Ouvrir présentation, Charger présentation, C#, Csharp, .NET"
 description: "Ouvrir ou charger une présentation PPT, PPTX, ODP en C# ou .NET"
 ---

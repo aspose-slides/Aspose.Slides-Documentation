@@ -1,7 +1,7 @@
 ---
 title: Appel
 type: docs
-url: /php-java/callout/
+url: /fr/php-java/callout/
 ---
 
 ## **Utilisation des Appels**

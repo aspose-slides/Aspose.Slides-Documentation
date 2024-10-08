@@ -2,7 +2,7 @@
 title: Propriétés Effectives de Forme
 type: docs
 weight: 50
-url: /python-net/shape-effective-properties/
+url: /fr/python-net/shape-effective-properties/
 keywords: "Propriétés de forme, Propriétés de caméra, éclairage, forme de chanfrein, cadre de texte, style de texte, valeur de hauteur de police, format de remplissage pour tableau, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Obtenez les propriétés effectives de forme dans les présentations PowerPoint en Python"
 ---

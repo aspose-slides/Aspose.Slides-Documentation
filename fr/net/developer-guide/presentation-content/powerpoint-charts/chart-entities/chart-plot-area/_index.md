@@ -1,7 +1,7 @@
 ---
 title: Zone de tracé de graphique
 type: docs
-url: /net/chart-plot-area/
+url: /fr/net/chart-plot-area/
 keywords: "Zone de tracé de graphique présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Obtenez la largeur, la hauteur de la zone de tracé de graphique. Définir le mode de disposition. Présentation PowerPoint en C# ou .NET"
 ---

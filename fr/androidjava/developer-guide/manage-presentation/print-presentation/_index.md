@@ -2,7 +2,7 @@
 title: Impression de présentation
 type: docs
 weight: 50
-url: /androidjava/print-presentation/
+url: /fr/androidjava/print-presentation/
 keywords: "Impression PowerPoint, PPT, PPTX, Impression de présentation, Java, Imprimante, PrinterJob, PrintService"
 description: "Imprimer une présentation PowerPoint en Java"
 ---

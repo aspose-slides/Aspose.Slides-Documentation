@@ -2,7 +2,7 @@
 title: Localisation de la Présentation
 type: docs
 weight: 100
-url: /net/presentation-localization/
+url: /fr/net/presentation-localization/
 keywords: "Changer de langue, Vérification orthographique, Vérification de l'orthographe, Correcteur orthographique, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Changer ou vérifier la langue dans une présentation PowerPoint. Vérifier l'orthographe du texte en C# ou .NET"
 ---

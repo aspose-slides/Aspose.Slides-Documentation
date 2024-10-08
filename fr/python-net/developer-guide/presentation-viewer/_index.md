@@ -2,7 +2,7 @@
 title: Visionneuse de Présentation
 type: docs
 weight: 50
-url: /python-net/presentation-viewer/
+url: /fr/python-net/presentation-viewer/
 keywords: "Voir la présentation PowerPoint, voir ppt, voir PPTX, Python, Aspose.Slides pour Python via .NET"
 description: "Voir la présentation PowerPoint en Python "
 ---

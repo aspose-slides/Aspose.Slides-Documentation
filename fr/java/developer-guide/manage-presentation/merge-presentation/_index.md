@@ -2,7 +2,7 @@
 title: Fusionner une Présentation
 type: docs
 weight: 40
-url: /java/merge-presentation/
+url: /fr/java/merge-presentation/
 keywords: "Fusionner PowerPoint, PPTX, PPT, combiner PowerPoint, fusionner présentation, combiner présentation, Java"
 description: "Fusionner ou combiner des présentations PowerPoint en Java"
 ---

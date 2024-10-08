@@ -2,7 +2,7 @@
 title: Convertir PowerPoint en Word
 type: docs
 weight: 110
-url: /cpp/convert-powerpoint-to-word/
+url: /fr/cpp/convert-powerpoint-to-word/
 keywords: "Convertir PowerPoint, PPT, PPTX, Présentation, Word, DOCX, DOC, PPTX à DOCX, PPT à DOC, PPTX à DOC, PPT à DOCX, C++, Aspose.Slides"
 description: "Convertir une présentation PowerPoint en Word en C++ "
 ---

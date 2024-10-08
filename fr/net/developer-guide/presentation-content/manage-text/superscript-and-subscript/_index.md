@@ -2,7 +2,7 @@
 title: Superposition et Sous-cription
 type: docs
 weight: 80
-url: /net/superscript-and-subscript/
+url: /fr/net/superscript-and-subscript/
 keywords: "Super script, Sous script, Ajouter du texte en superposition, Ajouter du texte en souscription, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajoutez du texte en superposition et en souscription aux présentations PowerPoint en C# ou .NET"
 ---

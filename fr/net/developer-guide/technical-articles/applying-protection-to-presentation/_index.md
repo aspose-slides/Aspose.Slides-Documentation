@@ -2,14 +2,14 @@
 title: Application de la protection à la présentation
 type: docs
 weight: 70
-url: /net/applying-protection-to-presentation/
+url: /fr/net/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Une utilisation courante d'Aspose.Slides est de créer, mettre à jour et enregistrer des présentations Microsoft PowerPoint 2007 (PPTX) dans le cadre d'un flux de travail automatisé. Les utilisateurs de l'application qui utilise Aspose.Slides de cette manière ont accès aux présentations exportées. Les protéger contre l'édition est une préoccupation fréquente. Il est important que les présentations générées automatiquement conservent leur formatage et leur contenu d'origine.
 
-Cet article explique comment [les présentations et les diapositives sont construites](/slides/net/applying-protection-to-presentation/) et comment Aspose.Slides pour .NET peut [appliquer la protection à](/slides/net/applying-protection-to-presentation/), puis [la retirer de](/slides/net/applying-protection-to-presentation/) une présentation. Cette fonctionnalité est unique à Aspose.Slides et, au moment de l'écriture, n'est pas disponible dans Microsoft PowerPoint. Elle offre aux développeurs un moyen de contrôler comment les présentations créées par leurs applications sont utilisées.
+Cet article explique comment [les présentations et les diapositives sont construites](/slides/fr/net/applying-protection-to-presentation/) et comment Aspose.Slides pour .NET peut [appliquer la protection à](/slides/fr/net/applying-protection-to-presentation/), puis [la retirer de](/slides/fr/net/applying-protection-to-presentation/) une présentation. Cette fonctionnalité est unique à Aspose.Slides et, au moment de l'écriture, n'est pas disponible dans Microsoft PowerPoint. Elle offre aux développeurs un moyen de contrôler comment les présentations créées par leurs applications sont utilisées.
 
 {{% /alert %}} 
 ## **Composition d'une diapositive**

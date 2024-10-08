@@ -2,12 +2,12 @@
 title: Comment créer un document de présentation Hello World
 type: docs
 weight: 10
-url: /androidjava/comment-creer-un-document-de-presentation-hello-world/
+url: /fr/androidjava/comment-creer-un-document-de-presentation-hello-world/
 ---
 
 {{% alert color="primary" %}} 
 
-Une nouvelle [Aspose.Slides pour Java API](/slides/androidjava/) a été publiée et maintenant ce produit unique prend en charge la capacité de générer des documents PowerPoint à partir de zéro et de modifier les documents existants.
+Une nouvelle [Aspose.Slides pour Java API](/slides/fr/androidjava/) a été publiée et maintenant ce produit unique prend en charge la capacité de générer des documents PowerPoint à partir de zéro et de modifier les documents existants.
 
 {{% /alert %}} 
 ## **Support pour le code ancien**

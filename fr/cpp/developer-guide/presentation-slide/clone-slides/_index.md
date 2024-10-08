@@ -2,7 +2,7 @@
 title: Cloner des diapositives
 type: docs
 weight: 40
-url: /cpp/clone-slides/
+url: /fr/cpp/clone-slides/
 ---
 
 

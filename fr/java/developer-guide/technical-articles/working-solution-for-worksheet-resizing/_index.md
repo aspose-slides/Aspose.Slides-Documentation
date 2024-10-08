@@ -2,7 +2,7 @@
 title: Solution Fonctionnelle pour le Redimensionnement des Feuilles de Calcul  
 type: docs  
 weight: 20  
-url: /java/solution-fonctionnelle-pour-le-redimensionnement-des-feuilles-de-calcul/  
+url: /fr/java/solution-fonctionnelle-pour-le-redimensionnement-des-feuilles-de-calcul/  
 ---  
 
 {{% alert color="primary" %}}  
@@ -11,7 +11,7 @@ Il a été observé que les feuilles de calcul Excel intégrées en tant qu'OLE 
 
 {{% /alert %}}  
 ## **Contexte**  
-Dans l'[article Ajouter des Cadres Ole](#), nous avons expliqué comment ajouter un Cadre Ole dans une présentation PowerPoint en utilisant Aspose.Slides pour Java. Afin de tenir compte du [problème de changement d'objet](/slides/java/probleme-de-changement-dobjet-lors-de-lajout-doleobjectframe/), nous avons attribué l'image de la feuille de calcul de la zone sélectionnée au Cadre d'Objet OLE du graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur le Cadre d'Objet OLE affichant l'image de la feuille de calcul, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les modifications souhaitées dans le classeur Excel réel puis revenir à la diapositive concernée en cliquant en dehors du classeur Excel activé. La taille du Cadre d'Objet OLE changera lorsque l'utilisateur revient à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de Cadre d'Objet OLE et de classeur Excel intégré.  
+Dans l'[article Ajouter des Cadres Ole](#), nous avons expliqué comment ajouter un Cadre Ole dans une présentation PowerPoint en utilisant Aspose.Slides pour Java. Afin de tenir compte du [problème de changement d'objet](/slides/fr/java/probleme-de-changement-dobjet-lors-de-lajout-doleobjectframe/), nous avons attribué l'image de la feuille de calcul de la zone sélectionnée au Cadre d'Objet OLE du graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur le Cadre d'Objet OLE affichant l'image de la feuille de calcul, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les modifications souhaitées dans le classeur Excel réel puis revenir à la diapositive concernée en cliquant en dehors du classeur Excel activé. La taille du Cadre d'Objet OLE changera lorsque l'utilisateur revient à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de Cadre d'Objet OLE et de classeur Excel intégré.  
 ## **Cause du Redimensionnement**  
 Étant donné que le classeur Excel a sa propre taille de fenêtre, il essaie de conserver sa taille d'origine lors de la première activation. D'autre part, le Cadre d'Objet OLE aura sa propre taille. Selon Microsoft, lors de l'activation du classeur Excel, Excel et PowerPoint négocient la taille et s'assurent qu'elle est dans les bonnes proportions dans le cadre de l'opération d'incrustation. En fonction des différences de taille de la fenêtre Excel et de la taille / position du Cadre d'Objet OLE, le redimensionnement se produit.  
 ## **Solution Fonctionnelle**  

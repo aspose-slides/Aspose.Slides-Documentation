@@ -3,7 +3,7 @@ title: Convertir PPT en PPTX en Java
 linktitle: Convertir PPT en PPTX
 type: docs
 weight: 20
-url: /java/convert-ppt-to-pptx/
+url: /fr/java/convert-ppt-to-pptx/
 keywords: "Java Convertir PPT en PPTX, PowerPoint PPT en PPTX en Java"
 description: "Convertir PowerPoint PPT en PPTX en Java."
 ---
@@ -47,7 +47,7 @@ Trouvez d'autres exemples en direct de [**Conversion Aspose.Slides**](https://pr
 {{% /alert %}} 
 
 ## **Convertir PPT en PPTX**
-Aspose.Slides pour Java facilite maintenant aux développeurs l'accès au PPT en utilisant une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) et en le convertissant au format respectif [PPTX](https://docs.fileformat.com/presentation/pptx/). Actuellement, il prend en charge la conversion partielle de [PPT](https://docs.fileformat.com/presentation/ppt/) en PPTX. Pour plus de détails sur les fonctionnalités prises en charge et non prises en charge dans la conversion de PPT en PPTX, veuillez consulter cette documentation [lien](/slides/java/ppt-to-pptx-conversion/).
+Aspose.Slides pour Java facilite maintenant aux développeurs l'accès au PPT en utilisant une instance de la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) et en le convertissant au format respectif [PPTX](https://docs.fileformat.com/presentation/pptx/). Actuellement, il prend en charge la conversion partielle de [PPT](https://docs.fileformat.com/presentation/ppt/) en PPTX. Pour plus de détails sur les fonctionnalités prises en charge et non prises en charge dans la conversion de PPT en PPTX, veuillez consulter cette documentation [lien](/slides/fr/java/ppt-to-pptx-conversion/).
 
 Aspose.Slides pour Java propose la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation) qui représente un fichier de présentation **PPTX**. La classe Presentation peut également accéder à **PPT** lorsque l'objet est instancié. L'exemple suivant montre comment convertir une présentation PPT en présentation PPTX.
 

@@ -2,7 +2,7 @@
 title: Support produit
 type: docs
 weight: 100
-url: /php-java/product-support/
+url: /fr/php-java/product-support/
 ---
 
 ## **Support technique**
@@ -41,4 +41,4 @@ Ce tableau liste des ressources techniques utiles pour Aspose.Slides pour PHP vi
 |[Blog d'Aspose.Slides](https://blog.aspose.com/category/slides/)|Vérifiez cette section régulièrement pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour PHP via Java](https://packagist.org/packages/aspose/slides)|Téléchargez la dernière version d'Aspose.Slides depuis cette page. Nous publions souvent de nouvelles versions.|
 |[Forum de support d'Aspose.Slides](https://forum.aspose.com/c/slides/11)|Postez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour PHP via Java](/slides/php-java/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour PHP via Java](/slides/fr/php-java/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|

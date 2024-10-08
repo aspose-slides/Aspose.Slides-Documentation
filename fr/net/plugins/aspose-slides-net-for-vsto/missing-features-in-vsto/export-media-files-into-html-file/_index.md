@@ -2,7 +2,7 @@
 title: Exporter des fichiers multimédias dans un fichier HTML
 type: docs
 weight: 80
-url: /net/export-media-files-into-html-file/
+url: /fr/net/export-media-files-into-html-file/
 ---
 
 Afin d'exporter des fichiers multimédias en HTML. Veuillez suivre les étapes ci-dessous :

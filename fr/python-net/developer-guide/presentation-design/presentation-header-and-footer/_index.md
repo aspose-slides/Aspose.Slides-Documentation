@@ -2,18 +2,18 @@
 title: En-tête et pied de page de présentation
 type: docs
 weight: 140
-url: /python-net/presentation-header-and-footer/
+url: /fr/python-net/presentation-header-and-footer/
 keywords: "En-tête, pied de page, définir en-tête, définir pied de page, définir en-tête et pied de page, présentation PowerPoint, Python, Aspose.Slides for Python via .NET"
 description: "En-tête et pied de page PowerPoint en Python"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/python-net/) fournit un support pour travailler avec le texte des en-têtes et des pieds de page des diapositives qui sont en fait maintenus au niveau du maître de diapositive.
+[Aspose.Slides](/slides/fr/python-net/) fournit un support pour travailler avec le texte des en-têtes et des pieds de page des diapositives qui sont en fait maintenus au niveau du maître de diapositive.
 
 {{% /alert %}} 
 
-[Aspose.Slides for Python via .NET](/slides/python-net/) fournit la fonctionnalité de gestion des en-têtes et des pieds de page à l'intérieur des diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
+[Aspose.Slides for Python via .NET](/slides/fr/python-net/) fournit la fonctionnalité de gestion des en-têtes et des pieds de page à l'intérieur des diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
 ## **Gérer le texte de l'en-tête et du pied de page**
 Les notes de certaines diapositives spécifiques peuvent être mises à jour comme le montre l'exemple ci-dessous :
 

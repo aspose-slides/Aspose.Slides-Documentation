@@ -2,7 +2,7 @@
 title: Installer Manuellement
 type: docs
 weight: 30
-url: /reportingservices/install-manually/
+url: /fr/reportingservices/install-manually/
 ---
 
 {{% alert color="primary" %}} 

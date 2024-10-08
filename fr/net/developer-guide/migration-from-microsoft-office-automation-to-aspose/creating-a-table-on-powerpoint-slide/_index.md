@@ -2,12 +2,12 @@
 title: Création d'un Tableau sur une Diapositive PowerPoint
 type: docs
 weight: 50
-url: /net/creating-a-table-on-powerpoint-slide/
+url: /fr/net/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Les tableaux sont largement utilisés pour afficher des données sur des diapositives de présentation. Cet article montre comment créer un tableau 15 x 15 avec une taille de police de 10 de manière programmatique en utilisant d'abord [VSTO 2008](/slides/net/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides pour .NET](/slides/net/creating-a-table-on-powerpoint-slide/).
+Les tableaux sont largement utilisés pour afficher des données sur des diapositives de présentation. Cet article montre comment créer un tableau 15 x 15 avec une taille de police de 10 de manière programmatique en utilisant d'abord [VSTO 2008](/slides/fr/net/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides pour .NET](/slides/fr/net/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Création de Tableaux**

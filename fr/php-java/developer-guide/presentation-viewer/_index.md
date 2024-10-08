@@ -2,7 +2,7 @@
 title: Visionneuse de Présentation
 type: docs
 weight: 50
-url: /php-java/presentation-viewer/
+url: /fr/php-java/presentation-viewer/
 keywords: "Visionneuse PPT PowerPoint"
 description: "Visionneuse PPT PowerPoint "
 ---

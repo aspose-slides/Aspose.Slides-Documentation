@@ -2,7 +2,7 @@
 title: Accéder à la diapositive dans la présentation
 type: docs
 weight: 20
-url: /net/access-slide-in-presentation/
+url: /fr/net/access-slide-in-presentation/
 keywords: "Accéder à la présentation PowerPoint, Accéder à la diapositive, Modifier les propriétés de la diapositive, Changer la position de la diapositive, Définir le numéro de diapositive, index, ID, position C#, Csharp, .NET, Aspose.Slides"
 description: "Accéder à la diapositive PowerPoint par index, ID ou position en C# ou .NET. Modifier les propriétés de la diapositive"
 ---

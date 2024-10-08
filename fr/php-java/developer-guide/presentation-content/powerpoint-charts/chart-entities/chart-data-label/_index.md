@@ -1,7 +1,7 @@
 ---
 title: Étiquette de données de graphique
 type: docs
-url: /php-java/chart-data-label/
+url: /fr/php-java/chart-data-label/
 keywords: "Étiquette de données de graphique, distance d'étiquette, Java, Aspose.Slides pour PHP via Java"
 description: "Définir l'étiquette de données et la distance du graphique PowerPoint"
 ---

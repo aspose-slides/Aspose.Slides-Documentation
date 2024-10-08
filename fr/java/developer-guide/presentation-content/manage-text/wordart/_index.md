@@ -2,7 +2,7 @@
 title: WordArt
 type: docs
 weight: 110
-url: /java/wordart/
+url: /fr/java/wordart/
 ---
 
 

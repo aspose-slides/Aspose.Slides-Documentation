@@ -1,7 +1,7 @@
 ---
 title: Axe de graphique
 type: docs
-url: /php-java/chart-axis/
+url: /fr/php-java/chart-axis/
 keywords: "Axe de graphique PowerPoint, Graphiques de présentation, Java, Manipuler l'axe de graphique, Données de graphique"
 description: "Comment éditer l'axe de graphique PowerPoint"
 ---

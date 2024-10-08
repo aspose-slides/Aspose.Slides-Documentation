@@ -3,7 +3,7 @@ title: Formatage du texte
 linktitle: Formatage du texte
 type: docs
 weight: 50
-url: /net/text-formatting/
+url: /fr/net/text-formatting/
 keywords:
 - surligner du texte
 - expression régulière

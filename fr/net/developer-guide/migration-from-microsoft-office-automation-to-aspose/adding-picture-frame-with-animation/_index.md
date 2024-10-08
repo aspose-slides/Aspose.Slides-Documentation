@@ -2,12 +2,12 @@
 title: Ajout de cadre photo avec animation
 type: docs
 weight: 60
-url: /net/adding-picture-frame-with-animation/
+url: /fr/net/adding-picture-frame-with-animation/
 ---
 
 {{% alert color="primary" %}} 
 
-Les cadres photo sont appliqués aux formes ou aux images dans Microsoft PowerPoint pour encadrer les images dans une présentation. Cet article montre comment créer un cadre photo et appliquer une animation dessus par programmation en utilisant d'abord [VSTO 2008](/slides/net/adding-picture-frame-with-animation/) puis [Aspose.Slides for .NET](/slides/net/adding-picture-frame-with-animation/). Tout d'abord, nous vous montrons comment appliquer un cadre et une animation en utilisant VSTO 2008. Nous vous montrons ensuite comment effectuer les mêmes étapes en utilisant Aspose.Slides pour .NET.
+Les cadres photo sont appliqués aux formes ou aux images dans Microsoft PowerPoint pour encadrer les images dans une présentation. Cet article montre comment créer un cadre photo et appliquer une animation dessus par programmation en utilisant d'abord [VSTO 2008](/slides/fr/net/adding-picture-frame-with-animation/) puis [Aspose.Slides for .NET](/slides/fr/net/adding-picture-frame-with-animation/). Tout d'abord, nous vous montrons comment appliquer un cadre et une animation en utilisant VSTO 2008. Nous vous montrons ensuite comment effectuer les mêmes étapes en utilisant Aspose.Slides pour .NET.
 
 {{% /alert %}} 
 ## **Ajout de cadres photo avec animation**

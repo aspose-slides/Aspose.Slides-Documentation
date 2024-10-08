@@ -1,7 +1,7 @@
 ---
 title: Graphique en Secteurs
 type: docs
-url: /php-java/pie-chart/
+url: /fr/php-java/pie-chart/
 ---
 
 ## **Options de Second Plot pour Graphique en Secteurs**

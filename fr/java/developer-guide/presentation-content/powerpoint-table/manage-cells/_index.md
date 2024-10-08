@@ -2,7 +2,7 @@
 title: Gérer les cellules
 type: docs
 weight: 30
-url: /java/manage-cells/
+url: /fr/java/manage-cells/
 keywords: "Table, cellules fusionnées, cellules séparées, image dans cellule de tableau, Java, Aspose.Slides pour Java"
 description: "Cellules de tableau dans des présentations PowerPoint en Java"
 ---

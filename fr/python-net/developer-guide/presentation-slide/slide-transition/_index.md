@@ -2,7 +2,7 @@
 title: Transition de Diapo
 type: docs
 weight: 90
-url: /python-net/slide-transition/
+url: /fr/python-net/slide-transition/
 keywords: "Ajouter une transition de diapositive, transition de diapositive PowerPoint, transition morph, transition de diapositive avancée, effets de transition, Python, Aspose.Slides"
 description: " Ajouter une transition de diapositive PowerPoint et des effets de transition en Python "
 ---

@@ -2,7 +2,7 @@
 title: Superscript et Subscript
 type: docs
 weight: 80
-url: /java/superscript-and-subscript/
+url: /fr/java/superscript-and-subscript/
 ---
 
 ## **Gérer le texte en exposant et en indice**

@@ -3,7 +3,7 @@ title: Licences
 description: "Aspose.Slides pour Python via Java propose différents plans d'achat ou offre un essai gratuit et une licence temporaire de 30 jours pour l'évaluation en utilisant des politiques de licence et d'abonnement."
 type: docs
 weight: 80
-url: /python-java/licensing/
+url: /fr/python-java/licensing/
 ---
 
 Parfois, pour obtenir les meilleurs résultats d'évaluation, une approche pratique peut être nécessaire. Pour cette raison, Aspose.Slides propose différents plans d'achat et offre également un essai gratuit ainsi qu'une licence temporaire de 30 jours pour l'évaluation.

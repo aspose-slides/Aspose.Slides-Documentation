@@ -2,5 +2,5 @@
 title: Tableau PowerPoint
 type: docs
 weight: 110
-url: /cpp/powerpoint-table/
+url: /fr/cpp/powerpoint-table/
 ---

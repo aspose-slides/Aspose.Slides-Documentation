@@ -2,7 +2,7 @@
 title: Gérer les lignes et les colonnes
 type: docs
 weight: 20
-url: /java/manage-rows-and-columns/
+url: /fr/java/manage-rows-and-columns/
 keywords: "Table, lignes et colonnes de tableau, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Gérer les lignes et les colonnes des tableaux dans les présentations PowerPoint en Java"
 ---

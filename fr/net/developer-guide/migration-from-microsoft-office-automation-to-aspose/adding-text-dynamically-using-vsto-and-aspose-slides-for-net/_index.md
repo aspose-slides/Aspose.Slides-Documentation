@@ -2,12 +2,12 @@
 title: Ajouter du texte dynamiquement en utilisant VSTO et Aspose.Slides pour .NET
 type: docs
 weight: 20
-url: /net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
+url: /fr/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/
 ---
 
 {{% alert color="primary" %}} 
 
-Une tâche courante que les développeurs doivent accomplir est d'ajouter du texte aux diapositives de manière dynamique. Cet article montre des exemples de code pour ajouter du texte dynamiquement en utilisant [VSTO](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) et [Aspose.Slides for .NET](/slides/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
+Une tâche courante que les développeurs doivent accomplir est d'ajouter du texte aux diapositives de manière dynamique. Cet article montre des exemples de code pour ajouter du texte dynamiquement en utilisant [VSTO](/slides/fr/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/) et [Aspose.Slides for .NET](/slides/fr/net/adding-text-dynamically-using-vsto-and-aspose-slides-for-net/).
 
 {{% /alert %}} 
 ## **Ajouter du texte dynamiquement**

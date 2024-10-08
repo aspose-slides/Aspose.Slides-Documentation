@@ -2,7 +2,7 @@
 title: Obtenir l'arrière-plan entier de la diapositive de présentation en tant qu'image
 type: docs
 weight: 95
-url: /php-java/get-the-entire-presentation-slide-background-as-an-image/
+url: /fr/php-java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositive
 - arrière-plan
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides pour PHP via Java
 ---
 
-Dans les présentations PowerPoint, l'arrière-plan de diapositive peut être constitué de nombreux éléments. En plus de l'image définie comme l'[arrière-plan de la diapositive](/slides/php-java/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive maître et la diapositive de mise en page.
+Dans les présentations PowerPoint, l'arrière-plan de diapositive peut être constitué de nombreux éléments. En plus de l'image définie comme l'[arrière-plan de la diapositive](/slides/fr/php-java/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive maître et la diapositive de mise en page.
 
 Aspose.Slides pour PHP via Java ne fournit pas de méthode simple pour extraire l'arrière-plan entier de la diapositive de présentation en tant qu'image, mais vous pouvez suivre les étapes ci-dessous pour le faire :
 1. Chargez la présentation en utilisant la classe [Presentation](https://reference.aspose.com/slides/php-java/com.aspose.slides/presentation/).

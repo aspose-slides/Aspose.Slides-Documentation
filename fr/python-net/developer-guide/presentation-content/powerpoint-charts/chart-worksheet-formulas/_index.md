@@ -2,7 +2,7 @@
 title: Formules de Feuille de Calcul de Diagramme
 type: docs
 weight: 70
-url: /python-net/chart-worksheet-formulas/
+url: /fr/python-net/chart-worksheet-formulas/
 keywords: "Feuille de calcul de diagramme, formule de diagramme, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Feuille de calcul de diagramme et formule dans une présentation PowerPoint en Python"
 ---

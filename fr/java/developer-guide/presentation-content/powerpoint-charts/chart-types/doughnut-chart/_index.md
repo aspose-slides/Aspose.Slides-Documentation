@@ -2,7 +2,7 @@
 title: Graphique en anneau
 type: docs
 weight: 30
-url: /java/doughnut-chart/
+url: /fr/java/doughnut-chart/
 ---
 
 ## **Modifier l'espace central dans un graphique en anneau**

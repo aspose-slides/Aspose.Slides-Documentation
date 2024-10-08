@@ -2,7 +2,7 @@
 title: Formatage des formes
 type: docs
 weight: 20
-url: /androidjava/shape-formatting/
+url: /fr/androidjava/shape-formatting/
 keywords: "Format de forme, format des lignes, styles de jointure, remplissage en dégradé, remplissage en motif, remplissage d'image, remplissage en couleur solide, rotation des formes, effets de biseau 3D, effet de rotation 3D, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Formatage des formes dans une présentation PowerPoint en Java"
 ---

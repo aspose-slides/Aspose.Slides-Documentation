@@ -3,7 +3,7 @@ title: Convertir PPT en PPTX
 linktitle: Convertir PPT en PPTX
 type: docs
 weight: 20
-url: /php-java/convert-ppt-to-pptx/
+url: /fr/php-java/convert-ppt-to-pptx/
 keywords: "PHP Convertir PPT en PPTX, PowerPoint PPT en PPTX"
 description: "Convertir PowerPoint PPT en PPTX."
 ---
@@ -47,7 +47,7 @@ Trouvez d'autres exemples en direct de [**Conversion Aspose.Slides**](https://pr
 {{% /alert %}} 
 
 ## **Convertir PPT en PPTX**
-Aspose.Slides pour PHP via Java facilite désormais aux développeurs l'accès au PPT à l'aide de l'instance de classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et sa conversion au format respectif [PPTX](https://docs.fileformat.com/presentation/pptx/). Actuellement, il prend en charge la conversion partielle de [PPT](https://docs.fileformat.com/presentation/ppt/) en PPTX. Pour plus de détails sur les fonctionnalités prises en charge et non prises en charge dans la conversion PPT en PPTX, veuillez consulter ce document [lien](/slides/php-java/ppt-to-pptx-conversion/).
+Aspose.Slides pour PHP via Java facilite désormais aux développeurs l'accès au PPT à l'aide de l'instance de classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) et sa conversion au format respectif [PPTX](https://docs.fileformat.com/presentation/pptx/). Actuellement, il prend en charge la conversion partielle de [PPT](https://docs.fileformat.com/presentation/ppt/) en PPTX. Pour plus de détails sur les fonctionnalités prises en charge et non prises en charge dans la conversion PPT en PPTX, veuillez consulter ce document [lien](/slides/fr/php-java/ppt-to-pptx-conversion/).
 
 Aspose.Slides pour PHP via Java propose la classe [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) qui représente un fichier de présentation **PPTX**. La classe Presentation peut également accéder au **PPT** lorsque l'objet est instancié. L'exemple suivant montre comment convertir une présentation PPT en présentation PPTX.
 

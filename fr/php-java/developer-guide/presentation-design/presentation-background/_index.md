@@ -2,7 +2,7 @@
 title: Contexte de la Présentation
 type: docs
 weight: 20
-url: /php-java/presentation-background/
+url: /fr/php-java/presentation-background/
 keywords: "contexte PowerPoint, définir le contexte "
 description: "Définir le contexte dans une présentation PowerPoint "
 ---

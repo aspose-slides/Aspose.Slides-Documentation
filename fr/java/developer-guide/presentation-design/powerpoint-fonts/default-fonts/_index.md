@@ -3,7 +3,7 @@ title: Polices par défaut - API Java PowerPoint
 linktitle: Polices par défaut
 type: docs
 weight: 30
-url: /java/default-font/
+url: /fr/java/default-font/
 description: L'API Java PowerPoint vous permet de définir la police par défaut pour le rendu de la présentation en PDF, XPS ou en vignettes. Cet article montre comment définir la police DefaultRegular et la police DefaultAsian à utiliser comme polices par défaut.
 ---
 

@@ -2,7 +2,7 @@
 title: Cadre Vidéo
 type: docs
 weight: 10
-url: /python-net/video-frame/
+url: /fr/python-net/video-frame/
 keywords: "Ajouter une vidéo, créer un cadre vidéo, extraire une vidéo, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter un cadre vidéo à une présentation PowerPoint en Python"
 ---

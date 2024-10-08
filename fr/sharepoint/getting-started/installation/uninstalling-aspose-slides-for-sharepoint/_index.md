@@ -2,7 +2,7 @@
 title: Désinstaller Aspose.Slides pour SharePoint
 type: docs
 weight: 30
-url: /sharepoint/uninstalling-aspose-slides-for-sharepoint/
+url: /fr/sharepoint/uninstalling-aspose-slides-for-sharepoint/
 ---
 
 Pour désinstaller Aspose.Slides pour SharePoint :

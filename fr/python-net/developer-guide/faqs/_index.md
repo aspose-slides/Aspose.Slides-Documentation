@@ -2,7 +2,7 @@
 title: FAQ
 type: docs
 weight: 340
-url: /python-net/faqs/
+url: /fr/python-net/faqs/
 keywords:
 - FAQ
 - PowerPoint
@@ -22,7 +22,7 @@ keywords:
 
 **Q : Quels formats de fichier Aspose.Slides pour Python via .NET prend-il en charge ?**
 
-**R** : Aspose.Slides pour Python via .NET prend en charge les formats de fichier décrits dans [Formats de Fichier Pris en Charge](/slides/python-net/supported-file-formats/).
+**R** : Aspose.Slides pour Python via .NET prend en charge les formats de fichier décrits dans [Formats de Fichier Pris en Charge](/slides/fr/python-net/supported-file-formats/).
 
 ## **Exceptions**
 
@@ -54,7 +54,7 @@ En général, Aspose.Slides pour Python via .NET peut facilement gérer des fich
 
 **Q : Pourquoi les tailles de paragraphe diffèrent-elles entre les systèmes d'exploitation Windows et Linux ?**
 
-**R** : Le calcul des tailles de paragraphe est basé sur le calcul de la taille du texte représentant le paragraphe donné. Le calcul de la taille du texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. En conséquence, le calcul des tailles de paragraphe sur différents systèmes entraînera des résultats différents en fonction de l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger à l'exécution en tant que [polices externes](/slides/python-net/custom-font/).
+**R** : Le calcul des tailles de paragraphe est basé sur le calcul de la taille du texte représentant le paragraphe donné. Le calcul de la taille du texte est basé sur les métriques de la police spécifiée dans la présentation PowerPoint. Si la police spécifiée est manquante, elle est remplacée par la police la plus similaire, mais cette police a des métriques différentes de celles d'origine. En conséquence, le calcul des tailles de paragraphe sur différents systèmes entraînera des résultats différents en fonction de l'ensemble des polices installées. Pour obtenir le même résultat sur différents systèmes d'exploitation, vous devez installer les mêmes polices sur les systèmes ou les charger à l'exécution en tant que [polices externes](/slides/fr/python-net/custom-font/).
 
 ## **Formatage et Images**
 

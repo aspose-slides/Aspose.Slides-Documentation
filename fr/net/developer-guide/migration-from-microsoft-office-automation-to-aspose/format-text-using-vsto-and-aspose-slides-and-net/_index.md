@@ -2,12 +2,12 @@
 title: Formater du texte avec VSTO et Aspose.Slides et .NET
 type: docs
 weight: 30
-url: /net/format-text-using-vsto-and-aspose-slides-and-net/
+url: /fr/net/format-text-using-vsto-and-aspose-slides-and-net/
 ---
 
 {{% alert color="primary" %}} 
 
-Parfois, vous devez formater le texte sur les diapositives de manière programmatique. Cet article montre comment lire une présentation d'exemple avecdu texte sur la première diapositive en utilisant soit [VSTO](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/) soit [Aspose.Slides for .NET](/slides/net/format-text-using-vsto-and-aspose-slides-and-net/). Le code formate le texte dans la troisième zone de texte de la diapositive pour qu'il ressemble au texte dans la dernière zone de texte.
+Parfois, vous devez formater le texte sur les diapositives de manière programmatique. Cet article montre comment lire une présentation d'exemple avecdu texte sur la première diapositive en utilisant soit [VSTO](/slides/fr/net/format-text-using-vsto-and-aspose-slides-and-net/) soit [Aspose.Slides for .NET](/slides/fr/net/format-text-using-vsto-and-aspose-slides-and-net/). Le code formate le texte dans la troisième zone de texte de la diapositive pour qu'il ressemble au texte dans la dernière zone de texte.
 
 {{% /alert %}} 
 ## **Formatage du texte**

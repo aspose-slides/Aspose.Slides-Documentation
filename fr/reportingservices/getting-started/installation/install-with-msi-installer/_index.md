@@ -2,7 +2,7 @@
 title: Installer avec le programme d'installation MSI
 type: docs
 weight: 20
-url: /reportingservices/install-with-msi-installer/
+url: /fr/reportingservices/install-with-msi-installer/
 ---
 
 ## **Installation**

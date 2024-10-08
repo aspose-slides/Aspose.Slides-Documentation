@@ -2,7 +2,7 @@
 title: Propriétés Effectives des Formes
 type: docs
 weight: 50
-url: /cpp/shape-effective-properties/
+url: /fr/cpp/shape-effective-properties/
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Tableau de données de graphique
 type: docs
-url: /python-net/chart-data-table/
+url: /fr/python-net/chart-data-table/
 keywords: "Propriétés de police, tableau de données de graphique, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Définir les propriétés de police pour le tableau de données de graphique dans les présentations PowerPoint en Python"
 ---

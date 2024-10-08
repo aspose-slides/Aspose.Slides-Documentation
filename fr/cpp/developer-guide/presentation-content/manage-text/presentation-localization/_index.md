@@ -2,7 +2,7 @@
 title: Localisation de la Présentation
 type: docs
 weight: 100
-url: /cpp/presentation-localization/
+url: /fr/cpp/presentation-localization/
 ---
 
 ## **Changer la Langue pour le Texte de Présentation et de Forme**

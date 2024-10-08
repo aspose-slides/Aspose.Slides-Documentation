@@ -2,7 +2,7 @@
 title: Présentation protégée par mot de passe
 type: docs
 weight: 20
-url: /java/password-protected-presentation/
+url: /fr/java/password-protected-presentation/
 keywords: "Verrouiller une présentation PowerPoint en Java"
 description: "Verrouiller une présentation PowerPoint. Présentation PowerPoint protégée par mot de passe en Java"
 ---
@@ -238,5 +238,5 @@ try {
 Il retourne `true` si la présentation a été chiffrée avec le mot de passe spécifié. Sinon, il retourne `false`.
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Signature numérique dans PowerPoint](/slides/net/digital-signature-in-powerpoint/)
+- [Signature numérique dans PowerPoint](/slides/fr/net/digital-signature-in-powerpoint/)
 {{% /alert %}}

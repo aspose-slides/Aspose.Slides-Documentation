@@ -2,7 +2,7 @@
 title: Superscript et Subscript
 type: docs
 weight: 80
-url: /cpp/superscript-and-subscript/
+url: /fr/cpp/superscript-and-subscript/
 ---
 
 ## **Gérer le texte en Super Script et Sub Script**

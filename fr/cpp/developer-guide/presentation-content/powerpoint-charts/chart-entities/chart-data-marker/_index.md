@@ -1,7 +1,7 @@
 ---
 title: Marqueur de Données de Graphique
 type: docs
-url: /cpp/chart-data-marker/
+url: /fr/cpp/chart-data-marker/
 ---
 
 ## **Définir le Marqueur de Graphique**

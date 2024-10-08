@@ -2,7 +2,7 @@
 title: Gérer OLE
 type: docs
 weight: 40
-url: /cpp/manage-ole/
+url: /fr/cpp/manage-ole/
 keywords:
 - ajouter OLE
 - intégrer OLE

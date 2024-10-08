@@ -2,7 +2,7 @@
 title: Solution Fonctionnelle pour le Redimensionnement des Graphiques dans PPTX
 type: docs
 weight: 40
-url: /java/working-solution-for-chart-resizing-in-pptx/
+url: /fr/java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Il a été observé que les graphiques Excel intégrés en tant qu'OLE dans une 
 
 {{% /alert %}} 
 ## **Contexte**
-Dans [l'article précédent](/slides/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), nous avons expliqué comment créer un graphique Excel en utilisant Aspose.Cells pour Java et intégrer ce graphique dans une présentation PowerPoint en utilisant Aspose.Slides pour Java. Pour accommoder le [problème de changement d'objet](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/), nous avons assigné l'image du graphique à la trame d'objet OLE du graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur la trame d'objet OLE affichant l'image du graphique, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les changements souhaités dans le classeur Excel réel, puis revenir à la diapositive concernée en cliquant à l'extérieur du classeur Excel activé. La taille de la trame d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de trame d'objet OLE et de classeur Excel intégré.
+Dans [l'article précédent](/slides/fr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), nous avons expliqué comment créer un graphique Excel en utilisant Aspose.Cells pour Java et intégrer ce graphique dans une présentation PowerPoint en utilisant Aspose.Slides pour Java. Pour accommoder le [problème de changement d'objet](/slides/fr/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/), nous avons assigné l'image du graphique à la trame d'objet OLE du graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur la trame d'objet OLE affichant l'image du graphique, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les changements souhaités dans le classeur Excel réel, puis revenir à la diapositive concernée en cliquant à l'extérieur du classeur Excel activé. La taille de la trame d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de trame d'objet OLE et de classeur Excel intégré.
 ## **Cause du Redimensionnement**
 Étant donné que le classeur Excel a sa propre taille de fenêtre, il essaie de conserver sa taille d'origine lors de la première activation. D'autre part, la trame d'objet OLE aura sa propre taille. Selon Microsoft, lors de l'activation du classeur Excel, Excel et PowerPoint négocient la taille et s'assurent qu'elle est dans les bonnes proportions dans le cadre de l'opération d'intégration. En fonction des différences de taille de fenêtre Excel et de taille / position de la trame d'objet OLE, le redimensionnement se produit.
 ## **Solution Fonctionnelle**

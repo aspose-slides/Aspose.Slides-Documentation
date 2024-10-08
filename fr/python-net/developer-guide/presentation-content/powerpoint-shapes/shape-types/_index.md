@@ -2,5 +2,5 @@
 title: Types de Formes
 type: docs
 weight: 10
-url: /python-net/shape-types/
+url: /fr/python-net/shape-types/
 ---

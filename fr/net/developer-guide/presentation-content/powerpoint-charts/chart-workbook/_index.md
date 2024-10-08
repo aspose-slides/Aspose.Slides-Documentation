@@ -2,7 +2,7 @@
 title: Classeur de graphiques
 type: docs
 weight: 70
-url: /net/chart-workbook/
+url: /fr/net/chart-workbook/
 keywords: "Classeur de graphiques, données de graphique, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Classeur de graphiques dans la présentation PowerPoint en C# ou .NET"
 ---

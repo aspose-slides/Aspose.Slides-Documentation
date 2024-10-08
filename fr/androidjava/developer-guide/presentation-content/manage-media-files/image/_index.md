@@ -2,7 +2,7 @@
 title: Image
 type: docs
 weight: 10
-url: /androidjava/image/
+url: /fr/androidjava/image/
 description: Travailler avec des images dans les diapositives de PowerPoint Presentation en utilisant Java. Ajouter des images depuis le disque ou depuis le web dans les diapositives PowerPoint en utilisant Java. Ajouter des images aux masques de diapositives ou comme arrière-plan de diapositive en utilisant Java. Ajouter du SVG à la présentation PowerPoint en utilisant Java. Convertir SVG en formes dans PowerPoint en utilisant Java. Ajouter des images en tant qu'EMF dans les diapositives en utilisant Java.
 ---
 

@@ -2,7 +2,7 @@
 title: Modèle de Diapositive
 type: docs
 weight: 70
-url: /androidjava/slide-master/
+url: /fr/androidjava/slide-master/
 keywords: "Ajouter Modèle de Diapositive, diapositive maître PPT, modèle de diapositive PowerPoint, image au Modèle de Diapositive, espace réservé, plusieurs Modèles de Diapositive, comparer les Modèles de Diapositive, Java, Aspose.Slides pour Android via Java"
 description: "Ajouter ou modifier le modèle de diapositive dans une présentation PowerPoint en Java"
 ---
@@ -144,7 +144,7 @@ try {
 
 {{% alert color="primary" title="Voir aussi" %}} 
 
-Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article [Cadre d'image](/slides/androidjava/picture-frame/#create-picture-frame).
+Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article [Cadre d'image](/slides/fr/androidjava/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Ajouter un Espace Réservé au Modèle de Diapositive**

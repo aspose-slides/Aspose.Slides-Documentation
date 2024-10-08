@@ -2,7 +2,7 @@
 title: API Moderne
 type: docs
 weight: 237
-url: /python-java/modern-api/
+url: /fr/python-java/modern-api/
 keywords: "API Moderne Multi-plateforme"
 description: "API Moderne"
 ---

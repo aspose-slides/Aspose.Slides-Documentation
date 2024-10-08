@@ -2,7 +2,7 @@
 title: API Moderne
 type: docs
 weight: 237
-url: /nodejs-java/modern-api/
+url: /fr/nodejs-java/modern-api/
 keywords: "API Moderne CrossPlatform"
 description: "API Moderne"
 ---

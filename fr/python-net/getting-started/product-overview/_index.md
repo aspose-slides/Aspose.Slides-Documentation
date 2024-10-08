@@ -2,7 +2,7 @@
 title: Aperçu du produit
 type: docs
 weight: 10
-url: /python-net/product-overview/
+url: /fr/python-net/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python.png)
@@ -129,4 +129,4 @@ Ce tableau énumère des ressources techniques importantes d'Aspose.Slides pour 
 |[Blog d'Aspose.Slides](https://blog.aspose.com/category/slides/)|Vérifiez régulièrement cette page pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour Python via .NET](https://pypi.org/project/aspose.slides/)|Téléchargez la dernière version d'Aspose.Slides ici. Nous publions souvent de nouvelles versions.|
 |[Forum de support d'Aspose.Slides](https://forum.aspose.com/c/slides/11)|Posez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour Python via .NET](/slides/python-net/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour Python via .NET](/slides/fr/python-net/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|

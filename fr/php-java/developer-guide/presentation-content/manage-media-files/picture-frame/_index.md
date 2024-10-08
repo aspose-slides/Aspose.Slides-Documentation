@@ -2,7 +2,7 @@
 title: Cadre de Photo
 type: docs
 weight: 10
-url: /php-java/picture-frame/
+url: /fr/php-java/picture-frame/
 keywords: "Ajouter un cadre de photo, créer un cadre de photo, ajouter une image, créer une image, extraire une image, propriété StretchOff, formatage du cadre de photo, propriétés du cadre de photo, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Ajouter un cadre de photo à une présentation PowerPoint"
 

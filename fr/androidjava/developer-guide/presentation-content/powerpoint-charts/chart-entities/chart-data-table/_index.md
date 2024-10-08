@@ -1,7 +1,7 @@
 ---
 title: Tableau de Données du Graphique
 type: docs
-url: /androidjava/chart-data-table/
+url: /fr/androidjava/chart-data-table/
 ---
 
 ## **Définir les Propriétés de Police pour le Tableau de Données du Graphique**

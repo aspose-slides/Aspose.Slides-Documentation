@@ -2,7 +2,7 @@
 title: Convertir PowerPoint en Vidéo
 type: docs
 weight: 130
-url: /net/convert-powerpoint-to-video/
+url: /fr/net/convert-powerpoint-to-video/
 keywords: "Convertir PowerPoint, PPT, PPTX, Présentation, Vidéo, MP4, PPT en vidéo, PPT en MP4, C#, Csharp, .NET, Aspose.Slides"
 description: "Convertir PowerPoint en Vidéo en C# ou .NET "
 ---

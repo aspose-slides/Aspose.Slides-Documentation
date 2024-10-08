@@ -2,7 +2,7 @@
 title: Classeur de graphique
 type: docs
 weight: 70
-url: /java/chart-workbook/
+url: /fr/java/chart-workbook/
 keywords: "Classeur de graphique, données de graphique, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Classeur de graphique dans une présentation PowerPoint en Java"
 ---

@@ -2,7 +2,7 @@
 title: Calculs de Graphiques
 type: docs
 weight: 50
-url: /net/chart-calculations/
+url: /fr/net/chart-calculations/
 keywords: "Calculs de graphiques, éléments de graphique, position d'élément, valeurs de graphique C#, Csharp, Aspose.Slides pour .NET"
 description: "Calculs et valeurs de graphiques PowerPoint en C# ou .NET"
 ---

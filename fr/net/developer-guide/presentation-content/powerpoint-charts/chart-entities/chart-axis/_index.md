@@ -1,7 +1,7 @@
 ---
 title: Axe de diagramme
 type: docs
-url: /net/chart-axis/
+url: /fr/net/chart-axis/
 keywords: "Axe de diagramme PowerPoint, Diagrammes de présentation, C#, .NET, Manipuler l'Axe de diagramme, Données de diagramme"
 description: "Modifier l'axe du diagramme PowerPoint en C# ou .NET"
 ---

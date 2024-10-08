@@ -3,7 +3,7 @@ title: Convertir PPTX en PPT
 linktitle: Convertir PPTX en PPT
 type: docs
 weight: 21
-url: /php-java/convert-pptx-to-ppt/
+url: /fr/php-java/convert-pptx-to-ppt/
 keywords: "PHP  Convertir PPTX en PPT, Convertir Présentation PowerPoint, PPTX en PPT, Java, Aspose.Slides"
 description: "Convertir une présentation PowerPoint PPTX en PPT"
 ---

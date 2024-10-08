@@ -2,7 +2,7 @@
 title: Album de graphiques
 type: docs
 weight: 70
-url: /python-net/chart-workbook/
+url: /fr/python-net/chart-workbook/
 keywords: "Album de graphiques, données de graphique, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Album de graphiques dans une présentation PowerPoint en Python"
 ---

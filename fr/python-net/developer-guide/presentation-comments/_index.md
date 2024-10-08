@@ -2,7 +2,7 @@
 title: Commentaires de Présentation
 type: docs
 weight: 100
-url: /python-net/presentation-comments/
+url: /fr/python-net/presentation-comments/
 keywords: "Commentaires, commentaires PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajoutez des commentaires et des réponses dans une présentation PowerPoint en Python"
 ---

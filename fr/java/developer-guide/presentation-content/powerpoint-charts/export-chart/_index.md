@@ -2,7 +2,7 @@
 title: Exporter un graphique
 type: docs
 weight: 90
-url: /java/export-chart/
+url: /fr/java/export-chart/
 ---
 
 ## **Obtenir l'image du graphique**

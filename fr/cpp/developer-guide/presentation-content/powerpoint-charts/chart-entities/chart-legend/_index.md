@@ -1,7 +1,7 @@
 ---
 title: Légende du graphique
 type: docs
-url: /cpp/chart-legend/
+url: /fr/cpp/chart-legend/
 ---
 
 ## **Positionnement de la légende**

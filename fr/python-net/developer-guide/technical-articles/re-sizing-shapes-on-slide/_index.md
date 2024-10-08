@@ -2,7 +2,7 @@
 title: Redimensionner les formes sur la diapositive
 type: docs
 weight: 130
-url: /python-net/re-sizing-shapes-on-slide/
+url: /fr/python-net/re-sizing-shapes-on-slide/
 ---
 
 ## **Redimensionner les formes sur la diapositive**

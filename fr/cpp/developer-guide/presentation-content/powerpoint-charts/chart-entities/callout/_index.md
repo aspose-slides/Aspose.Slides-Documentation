@@ -1,7 +1,7 @@
 ---
 title: Appel
 type: docs
-url: /cpp/callout/
+url: /fr/cpp/callout/
 ---
 
 ## **Utilisation de l'Appel**

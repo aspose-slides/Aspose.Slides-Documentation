@@ -2,7 +2,7 @@
 title: Obtenir l'ensemble de l'arrière-plan de la diapositive de présentation en tant qu'image
 type: docs
 weight: 95
-url: /cpp/get-the-entire-presentation-slide-background-as-an-image/
+url: /fr/cpp/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositive
 - arrière-plan
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides pour C++
 ---
 
-Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut se composer de nombreux éléments. En plus de l'image définie comme [arrière-plan de diapositive](/slides/cpp/presentation-background/), l'arrière-plan final peut être influencé par le thème de présentation, le schéma de couleurs et les formes placées sur la diapositive maître et la diapositive de mise en page.
+Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut se composer de nombreux éléments. En plus de l'image définie comme [arrière-plan de diapositive](/slides/fr/cpp/presentation-background/), l'arrière-plan final peut être influencé par le thème de présentation, le schéma de couleurs et les formes placées sur la diapositive maître et la diapositive de mise en page.
 
 Aspose.Slides pour C++ ne propose pas de méthode simple pour extraire l'ensemble de l'arrière-plan de la diapositive de présentation en tant qu'image, mais vous pouvez suivre les étapes ci-dessous pour le faire :
 1. Chargez la présentation en utilisant la classe [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).

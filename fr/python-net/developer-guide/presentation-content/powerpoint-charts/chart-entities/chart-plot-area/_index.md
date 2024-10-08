@@ -1,7 +1,7 @@
 ---
 title: Zone de Traçage du Graphique
 type: docs
-url: /python-net/chart-plot-area/
+url: /fr/python-net/chart-plot-area/
 keywords: "Zone de Traçage du Graphique présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Obtenez la largeur, la hauteur de la zone de traçage du graphique. Définissez le mode de disposition. Présentation PowerPoint en Python"
 ---

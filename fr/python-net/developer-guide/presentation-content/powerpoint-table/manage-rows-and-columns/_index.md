@@ -2,7 +2,7 @@
 title: Gérer les lignes et les colonnes
 type: docs
 weight: 20
-url: /python-net/manage-rows-and-columns/
+url: /fr/python-net/manage-rows-and-columns/
 keywords: "Table, lignes et colonnes de table, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Gérez les lignes et les colonnes des tables dans les présentations PowerPoint en Python"
 ---

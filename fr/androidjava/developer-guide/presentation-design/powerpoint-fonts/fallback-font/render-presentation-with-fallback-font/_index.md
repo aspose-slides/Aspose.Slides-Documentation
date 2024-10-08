@@ -2,12 +2,12 @@
 title: Rendre la présentation avec une police de secours
 type: docs
 weight: 30
-url: /androidjava/render-presentation-with-fallback-font/
+url: /fr/androidjava/render-presentation-with-fallback-font/
 ---
 
 L'exemple suivant comprend ces étapes :
 
-1. Nous [créons une collection de règles de police de secours](/slides/androidjava/create-fallback-fonts-collection/).
+1. Nous [créons une collection de règles de police de secours](/slides/fr/androidjava/create-fallback-fonts-collection/).
 1. [Supprimez](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#remove-java.lang.String-) une règle de police de secours et [ajoutez des polices de secours](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) à une autre règle.
 1. Définissez la collection de règles pour [getFontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#getFontsManager--).[getFontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager#getFontFallBackRulesCollection--) méthode.
 1. Avec la méthode [Presentation.save](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) nous pouvons enregistrer la présentation dans le même format ou l'enregistrer dans un autre format. Après que la collection de règles de police de secours est définie sur [FontsManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontsManager), ces règles sont appliquées lors de toutes les opérations sur la présentation : enregistrer, rendre, convertir, etc.
@@ -53,5 +53,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-En savoir plus sur [Sauvegarde et Conversion dans la Présentation](/slides/androidjava/creating-saving-and-converting-a-presentation/).
+En savoir plus sur [Sauvegarde et Conversion dans la Présentation](/slides/fr/androidjava/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

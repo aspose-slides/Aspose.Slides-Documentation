@@ -2,7 +2,7 @@
 title: Ellipse
 type: docs
 weight: 30
-url: /cpp/ellipse/
+url: /fr/cpp/ellipse/
 ---
 
 

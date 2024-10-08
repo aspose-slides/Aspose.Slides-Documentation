@@ -2,7 +2,7 @@
 title: Ajouter un cadre photo à la présentation
 type: docs
 weight: 50
-url: /net/add-picture-frame-to-presentation/
+url: /fr/net/add-picture-frame-to-presentation/
 ---
 
 ## **VSTO**

@@ -2,7 +2,7 @@
 title: Support produit
 type: docs
 weight: 100
-url: /python-net/product-support/
+url: /fr/python-net/product-support/
 ---
 
 ## **Support technique**
@@ -41,4 +41,4 @@ Ce tableau répertorie des ressources techniques utiles pour Aspose.Slides pour 
 |[Blog Aspose.Slides](https://blog.aspose.com/category/slides/)|Consultez régulièrement cette section pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour Python via .NET](https://pypi.org/project/aspose.slides/)|Téléchargez la dernière version d'Aspose.Slides depuis cette page. Nous publions souvent de nouvelles versions.|
 |[Forum de support Aspose.Slides](https://forum.aspose.com/c/slides/11)|Postez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour Python via .NET](/slides/python-net/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour Python via .NET](/slides/fr/python-net/)|Documentation en ligne complète contenant ce document et la Référence API d'Aspose.Slides.|

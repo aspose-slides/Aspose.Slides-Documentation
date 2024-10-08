@@ -3,7 +3,7 @@ title: Convertir PowerPoint en PDF en Java
 linktitle: Convertir PowerPoint en PDF
 type: docs
 weight: 40
-url: /java/convert-powerpoint-to-pdf/
+url: /fr/java/convert-powerpoint-to-pdf/
 keywords:
 - convertir PowerPoint
 - présentation

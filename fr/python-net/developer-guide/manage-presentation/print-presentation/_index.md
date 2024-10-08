@@ -2,7 +2,7 @@
 title: Impression de Présentation
 type: docs
 weight: 50
-url: /python-net/impression-presentation/
+url: /fr/python-net/impression-presentation/
 keywords: "Imprimer PowerPoint, PPT, PPTX, Impression de Présentation, Python, Imprimante, Options d'Impression"
 description: "Imprimer une présentation PowerPoint en Python"
 ---

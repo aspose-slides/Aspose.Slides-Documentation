@@ -2,7 +2,7 @@
 title: Notes de présentation
 type: docs
 weight: 110
-url: /python-net/presentation-notes/
+url: /fr/python-net/presentation-notes/
 keywords: "Notes, notes PowerPoint, ajouter des notes, supprimer des notes, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter et supprimer des notes dans des présentations PowerPoint en Python"
 ---

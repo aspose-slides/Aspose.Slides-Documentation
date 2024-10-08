@@ -2,7 +2,7 @@
 title: Plugin Visual Studio Aspose.Slides  
 type: docs  
 weight: 10  
-url: /net/aspose-slides-visual-studio-plugin/  
+url: /fr/net/aspose-slides-visual-studio-plugin/  
 ---  
   
 ## **Introduction**  

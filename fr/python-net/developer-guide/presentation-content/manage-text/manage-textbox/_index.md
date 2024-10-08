@@ -2,7 +2,7 @@
 title: Gérer TextBox
 type: docs
 weight: 20
-url: /python-net/manage-textbox/
+url: /fr/python-net/manage-textbox/
 keywords: "Textbox, Cadre de texte, Ajouter textbox, Textbox avec lien hypertexte, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter un textbox ou un cadre de texte aux présentations PowerPoint en Python ou .NET"
 ---

@@ -2,7 +2,7 @@
 title: Format de Texte
 type: docs
 weight: 110
-url: /net/format-text/
+url: /fr/net/format-text/
 ---
 
 Les méthodes VSTO et Aspose.Slides suivent les étapes suivantes :

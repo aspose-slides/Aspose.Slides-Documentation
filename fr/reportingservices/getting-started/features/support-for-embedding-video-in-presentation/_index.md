@@ -2,7 +2,7 @@
 title: Prise en charge de l'intégration de vidéos dans la présentation
 type: docs
 weight: 80
-url: /reportingservices/support-for-embedding-video-in-presentation/
+url: /fr/reportingservices/support-for-embedding-video-in-presentation/
 ---
 
 {{% alert color="primary" %}} 

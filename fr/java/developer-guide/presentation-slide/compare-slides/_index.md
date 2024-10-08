@@ -2,7 +2,7 @@
 title: Comparer des Diapositives
 type: docs
 weight: 50
-url: /java/compare-slides/
+url: /fr/java/compare-slides/
 ---
 
 ## **Comparer Deux Diapositives**

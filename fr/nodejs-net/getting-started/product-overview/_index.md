@@ -2,7 +2,7 @@
 title: Présentation du produit
 type: docs
 weight: 10
-url: /nodejs-net/product-overview/
+url: /fr/nodejs-net/product-overview/
 ---
 
 ![todo:image_alt_text](aspose_slides-for-nodejs-via-net.png)
@@ -134,4 +134,4 @@ Ce tableau répertorie les ressources techniques importantes d'Aspose.Slides pou
 |[Blog Aspose.Slide](https://blog.aspose.com/category/slides/)|Vérifiez régulièrement cette page pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour Node.js via .NET](https://releases.aspose.com/slides/nodejs-net/)|Téléchargez la dernière version d'Aspose.Slides ici. Nous publions souvent de nouvelles versions.|
 |[Forum de support d'Aspose.Slides](https://forum.aspose.com/c/slides/11)|Publiez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour Node.js via .NET](/slides/nodejs-net/)|Documentation en ligne complète contenant ce document et la Référence de l'API d'Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour Node.js via .NET](/slides/fr/nodejs-net/)|Documentation en ligne complète contenant ce document et la Référence de l'API d'Aspose.Slides.|

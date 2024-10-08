@@ -2,7 +2,7 @@
 title: Section de Diapositive
 type: docs
 weight: 100
-url: /net/slide-section/
+url: /fr/net/slide-section/
 keywords: "Créer section, Ajouter section, Modifier le nom de section, Présentation PowerPoint, C#, Csharp, .NET, Aspose.Slides"
 description: "Ajouter et modifier une section dans une présentation PowerPoint en C# ou .NET"
 ---

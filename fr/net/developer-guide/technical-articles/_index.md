@@ -2,5 +2,5 @@
 title: Articles Techniques
 type: docs
 weight: 270
-url: /net/technical-articles/
+url: /fr/net/technical-articles/
 ---

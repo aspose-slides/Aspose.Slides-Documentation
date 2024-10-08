@@ -2,7 +2,7 @@
 title: Diagramme en anneau
 type: docs
 weight: 30
-url: /cpp/doughnut-chart/
+url: /fr/cpp/doughnut-chart/
 ---
 
 ## **Spécifier l'espacement central dans le diagramme en anneau**

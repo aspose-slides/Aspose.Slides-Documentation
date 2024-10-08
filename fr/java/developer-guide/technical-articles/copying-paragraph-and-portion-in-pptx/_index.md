@@ -2,7 +2,7 @@
 title: Copier un paragraphe et une portion dans PPTX
 type: docs
 weight: 70
-url: /java/copying-paragraph-and-portion-in-pptx/
+url: /fr/java/copying-paragraph-and-portion-in-pptx/
 ---
 
 {{% alert color="primary" %}} 

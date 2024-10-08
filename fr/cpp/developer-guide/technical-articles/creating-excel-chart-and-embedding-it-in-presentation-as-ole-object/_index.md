@@ -2,7 +2,7 @@
 title: Création d'un graphique Excel et son intégration dans une présentation en tant qu'objet OLE
 type: docs
 weight: 40
-url: /cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+url: /fr/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Localisation de la Présentation
 type: docs
 weight: 100
-url: /php-java/presentation-localization/
+url: /fr/php-java/presentation-localization/
 ---
 
 ## **Changer la Langue pour le Texte de la Présentation et des Formes**

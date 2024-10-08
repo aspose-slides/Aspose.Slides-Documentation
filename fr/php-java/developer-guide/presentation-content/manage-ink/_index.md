@@ -2,7 +2,7 @@
 title: Gérer l'encre
 type: docs
 weight: 95
-url: /php-java/manage-ink/
+url: /fr/php-java/manage-ink/
 keywords: "Encre dans PowerPoint, outils d'encre, Encre Java, Dessiner dans PowerPoint, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Utilisez les outils d'encre pour dessiner des objets dans PowerPoint Java"
 ---

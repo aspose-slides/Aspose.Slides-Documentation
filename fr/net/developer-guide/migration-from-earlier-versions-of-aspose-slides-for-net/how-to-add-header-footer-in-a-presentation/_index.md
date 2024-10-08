@@ -2,12 +2,12 @@
 title: Comment ajouter un en-tête et un pied de page dans une présentation
 type: docs
 weight: 20
-url: /net/how-to-add-header-footer-in-a-presentation/
+url: /fr/net/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
-Une nouvelle [Aspose.Slides for .NET API](/slides/net/) a été publiée et maintenant ce produit unique prend en charge la capacité de générer des documents PowerPoint à partir de zéro et de modifier ceux existants.
+Une nouvelle [Aspose.Slides for .NET API](/slides/fr/net/) a été publiée et maintenant ce produit unique prend en charge la capacité de générer des documents PowerPoint à partir de zéro et de modifier ceux existants.
 
 {{% /alert %}} 
 ## **Support pour le code hérité**

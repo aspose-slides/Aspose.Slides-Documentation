@@ -1,7 +1,7 @@
 ---
 title: Axe de graphique
 type: docs
-url: /python-net/chart-axis/
+url: /fr/python-net/chart-axis/
 keywords: "Axe de graphique PowerPoint, Graphiques de présentation, Python, Manipuler l'axe du graphique, Données du graphique"
 description: "Modifier l'axe du graphique PowerPoint en Python"
 ---

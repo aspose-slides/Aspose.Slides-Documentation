@@ -2,7 +2,7 @@
 title: Rectangle
 type: docs
 weight: 80
-url: /cpp/rectangle/
+url: /fr/cpp/rectangle/
 ---
 
 

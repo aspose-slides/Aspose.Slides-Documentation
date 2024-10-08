@@ -1,7 +1,7 @@
 ---
 title: Graphique Circulaire
 type: docs
-url: /cpp/pie-chart/
+url: /fr/cpp/pie-chart/
 ---
 
 

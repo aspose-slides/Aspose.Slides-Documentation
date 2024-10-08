@@ -1,7 +1,7 @@
 ---
 title: Propriétés de la vue normale
 type: docs
-url: /androidjava/presentation-view-properties/
+url: /fr/androidjava/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -59,7 +59,7 @@ try {
 ## **Définir la valeur de zoom par défaut**
 {{% alert color="primary" %}} 
 
-Aspose.Slides pour Android via Java prend désormais en charge la définition de la valeur de zoom par défaut pour la présentation afin que, lorsque la présentation est ouverte, le zoom soit déjà défini. Cela peut être fait en définissant les [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) d'une présentation. [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) ainsi que [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) peuvent être définis par programme. Dans ce sujet, nous allons voir avec un exemple comment définir les [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) dans [Aspose.Slides](/slides/).
+Aspose.Slides pour Android via Java prend désormais en charge la définition de la valeur de zoom par défaut pour la présentation afin que, lorsque la présentation est ouverte, le zoom soit déjà défini. Cela peut être fait en définissant les [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) d'une présentation. [getSlideViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getSlideViewProperties--) ainsi que [getNotesViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties#getNotesViewProperties--) peuvent être définis par programme. Dans ce sujet, nous allons voir avec un exemple comment définir les [View Properties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ViewProperties) de [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation) dans [Aspose.Slides](/slides/fr/).
 
 {{% /alert %}} 
 

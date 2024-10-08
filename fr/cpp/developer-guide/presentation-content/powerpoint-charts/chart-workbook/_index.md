@@ -2,7 +2,7 @@
 title: Classeur de graphique
 type: docs
 weight: 70
-url: /cpp/chart-workbook/
+url: /fr/cpp/chart-workbook/
 keywords: "Classeur de graphique, données de graphique, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Classeur de graphique dans une présentation PowerPoint en C++"
 ---

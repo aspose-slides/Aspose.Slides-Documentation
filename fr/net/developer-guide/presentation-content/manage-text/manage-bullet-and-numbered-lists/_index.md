@@ -2,7 +2,7 @@
 title: Gérer les listes à puces et numérotées
 type: docs
 weight: 70
-url: /net/manage-bullet-and-numbered-lists
+url: /fr/net/manage-bullet-and-numbered-lists
 keywords: "Puces, Listes à puces, Nombres, Listes numérotées, Puces d'image, puces multiniveaux, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Créer des listes à puces et numérotées dans une présentation PowerPoint en C# ou .NET"
 ---

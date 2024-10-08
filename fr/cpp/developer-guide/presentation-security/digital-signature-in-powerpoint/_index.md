@@ -2,7 +2,7 @@
 title: Signature numérique dans PowerPoint
 type: docs
 weight: 10
-url: /cpp/digital-signature-in-powerpoint/
+url: /fr/cpp/digital-signature-in-powerpoint/
 keywords: "Certificat de signature numérique, autorité de certification"
 description: "Ajoutez un certificat de signature numérique, une autorité de certification dans une présentation PowerPoint avec Aspose.Slides."
 ---

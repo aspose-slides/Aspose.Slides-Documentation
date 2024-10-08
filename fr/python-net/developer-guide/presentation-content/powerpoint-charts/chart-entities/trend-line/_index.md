@@ -1,7 +1,7 @@
 ---
 title: Ligne de Tendance
 type: docs
-url: /python-net/trend-line/
+url: /fr/python-net/trend-line/
 keywords: "Ligne de tendance, ligne personnalisée présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter une ligne de tendance et une ligne personnalisée aux présentations PowerPoint en Python"
 ---

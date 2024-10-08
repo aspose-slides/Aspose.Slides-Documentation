@@ -1,7 +1,7 @@
 ---
 title: Tableau de Données du Graphique
 type: docs
-url: /php-java/chart-data-table/
+url: /fr/php-java/chart-data-table/
 ---
 
 ## **Définir les Propriétés de Police pour le Tableau de Données du Graphique**

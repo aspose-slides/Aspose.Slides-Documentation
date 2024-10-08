@@ -2,18 +2,18 @@
 title: En-tête et Pied de Page de Présentation
 type: docs
 weight: 140
-url: /net/presentation-header-and-footer/
+url: /fr/net/presentation-header-and-footer/
 keywords: "En-tête, pied de page, définir en-tête, définir pied de page, définir en-tête et pied de page, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "En-tête et pied de page PowerPoint en C# ou .NET"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/net/) fournit un support pour travailler avec le texte des en-têtes et pieds de page des diapositives qui sont en fait maintenus au niveau du maître de diapositive.
+[Aspose.Slides](/slides/fr/net/) fournit un support pour travailler avec le texte des en-têtes et pieds de page des diapositives qui sont en fait maintenus au niveau du maître de diapositive.
 
 {{% /alert %}} 
 
-[Aspose.Slides pour .NET](/slides/net/) fournit la fonctionnalité de gestion des en-têtes et pieds de page à l'intérieur des diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
+[Aspose.Slides pour .NET](/slides/fr/net/) fournit la fonctionnalité de gestion des en-têtes et pieds de page à l'intérieur des diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
 ## **Gérer le Texte de l'En-tête et du Pied de Page**
 Les notes d'une diapositive spécifique peuvent être mises à jour comme indiqué dans l'exemple ci-dessous :
 

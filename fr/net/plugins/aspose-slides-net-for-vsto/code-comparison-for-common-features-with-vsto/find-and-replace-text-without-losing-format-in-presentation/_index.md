@@ -2,7 +2,7 @@
 title: Trouver et remplacer du texte sans perdre le format dans la présentation
 type: docs
 weight: 100
-url: /net/find-and-replace-text-without-losing-format-in-presentation/
+url: /fr/net/find-and-replace-text-without-losing-format-in-presentation/
 ---
 
 Les deux méthodes suivent ces étapes :

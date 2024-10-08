@@ -2,7 +2,7 @@
 title: Comparer les Diapositives
 type: docs
 weight: 50
-url: /python-net/compare-slides/
+url: /fr/python-net/compare-slides/
 keywords: "Comparer les diapositives PowerPoint, Comparer deux diapositives, Présentation, Python, Aspose.Slides"
 description: "Comparer les diapositives de présentation PowerPoint en Python"
 ---

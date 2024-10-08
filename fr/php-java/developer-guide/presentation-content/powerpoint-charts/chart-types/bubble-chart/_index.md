@@ -1,7 +1,7 @@
 ---
 title: Diagramme à Bulles
 type: docs
-url: /php-java/bubble-chart/
+url: /fr/php-java/bubble-chart/
 ---
 
 ## **Mise à l'Échelle de la Taille du Diagramme à Bulles**

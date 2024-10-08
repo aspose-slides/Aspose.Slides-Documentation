@@ -1,7 +1,7 @@
 ---
 title: Barre d'erreur
 type: docs
-url: /cpp/error-bar/
+url: /fr/cpp/error-bar/
 ---
 
 ## **Ajouter une barre d'erreur**

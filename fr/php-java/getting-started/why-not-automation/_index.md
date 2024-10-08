@@ -2,7 +2,7 @@
 title: Pourquoi pas d'automatisation
 type: docs
 weight: 50
-url: /php-java/pourquoi-pas-dautomatisation/
+url: /fr/php-java/pourquoi-pas-dautomatisation/
 ---
 
 {{% alert color="primary" %}} 

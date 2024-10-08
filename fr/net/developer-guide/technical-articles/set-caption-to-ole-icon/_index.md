@@ -2,7 +2,7 @@
 title: Définir la légende de l'icône OLE
 type: docs
 weight: 160
-url: /net/set-caption-to-ole-icon/
+url: /fr/net/set-caption-to-ole-icon/
 ---
 
 Une nouvelle propriété **SubstitutePictureTitle** a été ajoutée à l'interface **IOleObjectFrame** et à la classe **OleObjectFrame**. Elle permet d'obtenir, de définir ou de changer la légende d'une icône OLE. L'extrait de code ci-dessous montre un exemple de création d'un objet Excel et de définition de sa légende.

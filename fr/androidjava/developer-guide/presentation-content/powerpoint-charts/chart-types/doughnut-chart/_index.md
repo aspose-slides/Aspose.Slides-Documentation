@@ -2,7 +2,7 @@
 title: Graphique en Anneau
 type: docs
 weight: 30
-url: /androidjava/doughnut-chart/
+url: /fr/androidjava/doughnut-chart/
 ---
 
 ## **Modifier le Trou Central dans un Graphique en Anneau**

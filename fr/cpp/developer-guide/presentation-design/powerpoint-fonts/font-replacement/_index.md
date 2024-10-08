@@ -2,7 +2,7 @@
 title: Remplacement de police
 type: docs
 weight: 60
-url: /cpp/font-replacement/
+url: /fr/cpp/font-replacement/
 keywords: "Police, remplacer police, présentation PowerPoint, C++, CPP, Aspose.Slides for C++"
 description: "Remplacer les polices explicitement dans PowerPoint en C++"
 ---
@@ -38,6 +38,6 @@ presentation->Save(u"UpdatedFont_out.pptx", SaveFormat::Pptx);
 
 {{% alert title="Note" color="warning" %}} 
 
-Pour définir des règles déterminant ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), consultez [**Substitution de police**](/slides/cpp/font-substitution/).
+Pour définir des règles déterminant ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), consultez [**Substitution de police**](/slides/fr/cpp/font-substitution/).
 
 {{% /alert %}}

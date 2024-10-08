@@ -3,7 +3,7 @@ title: Police embarquée - PowerPoint Java API
 linktitle: Police embarquée
 type: docs
 weight: 40
-url: /php-java/embedded-font/
+url: /fr/php-java/embedded-font/
 keywords: "Polices, polices embarquées, ajouter des polices, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Utiliser des polices embarquées dans une présentation PowerPoint"
 

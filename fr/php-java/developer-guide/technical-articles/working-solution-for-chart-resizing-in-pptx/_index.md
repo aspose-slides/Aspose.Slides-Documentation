@@ -2,7 +2,7 @@
 title: Solution Fonctionnelle pour le Redimensionnement de Graphiques dans PPTX
 type: docs
 weight: 40
-url: /php-java/working-solution-for-chart-resizing-in-pptx/
+url: /fr/php-java/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Il a été observé que les graphiques Excel intégrés en tant qu'OLE dans une 
 
 {{% /alert %}} 
 ## **Contexte**
-Dans [l'article précédent](/slides/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), nous avons expliqué comment créer un graphique Excel à l'aide d'Aspose.Cells pour Java et l'intégrer ensuite dans une présentation PowerPoint à l'aide d'Aspose.Slides pour PHP via Java. Afin de résoudre le [problème de changement d'objet](/slides/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/), nous avons attribué l'image du graphique au cadre de l'objet OLE du graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur le cadre d'objet OLE montrant l'image du graphique, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les modifications souhaitées dans le classeur Excel réel, puis revenir à la diapositive concernée en cliquant en dehors du classeur Excel activé. La taille du cadre de l'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de cadre d'objet OLE et de classeur Excel intégré.
+Dans [l'article précédent](/slides/fr/php-java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), nous avons expliqué comment créer un graphique Excel à l'aide d'Aspose.Cells pour Java et l'intégrer ensuite dans une présentation PowerPoint à l'aide d'Aspose.Slides pour PHP via Java. Afin de résoudre le [problème de changement d'objet](/slides/fr/php-java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/), nous avons attribué l'image du graphique au cadre de l'objet OLE du graphique. Dans la présentation de sortie, lorsque nous double-cliquons sur le cadre d'objet OLE montrant l'image du graphique, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les modifications souhaitées dans le classeur Excel réel, puis revenir à la diapositive concernée en cliquant en dehors du classeur Excel activé. La taille du cadre de l'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de cadre d'objet OLE et de classeur Excel intégré.
 ## **Cause du Redimensionnement**
 Étant donné que le classeur Excel a sa propre taille de fenêtre, il essaie de conserver sa taille d'origine lors de la première activation. D'autre part, le cadre d'objet OLE aura sa propre taille. Selon Microsoft, lors de l'activation du classeur Excel, Excel et PowerPoint négocient la taille et s'assurent qu'elle est dans les bonnes proportions dans le cadre de l'opération d'intégration. En fonction des différences de taille de fenêtres Excel et de taille / position du cadre d'objet OLE, le redimensionnement est effectué.
 ## **Solution Fonctionnelle**

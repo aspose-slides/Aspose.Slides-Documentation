@@ -2,7 +2,7 @@
 title: Cloner des diapositives
 type: docs
 weight: 35
-url: /php-java/cloner-des-diapositives/
+url: /fr/php-java/cloner-des-diapositives/
 ---
 
 ## **Cloner des Diapositives dans une Présentation**

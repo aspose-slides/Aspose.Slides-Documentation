@@ -2,7 +2,7 @@
 title: Aperçu des fonctionnalités
 type: docs
 weight: 20
-url: /net/features-overview/
+url: /fr/net/features-overview/
 ---
 
 ## **Plateformes prises en charge**
@@ -18,12 +18,12 @@ Aspose.Slides pour .NET prend en charge la plupart des formats de document Power
 
 |**Fonctionnalité**|**Description**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/net/ppt-vs-pptx/)|Aspose.Slides pour .NET fournit le traitement le plus rapide pour ce format de document de présentation.|
-|[Conversion PPT à PPTX](/slides/net/convert-ppt-to-pptx/)|Aspose.Slides pour .NET prend en charge la conversion de PPT à PPTX.|
-|[Format de document portable (PDF)](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Vous pouvez exporter tous les formats de fichiers pris en charge vers des documents au format PDF d'Adobe avec une seule méthode.|
+|[Microsoft PowerPoint (PPT)](/slides/fr/net/ppt-vs-pptx/)|Aspose.Slides pour .NET fournit le traitement le plus rapide pour ce format de document de présentation.|
+|[Conversion PPT à PPTX](/slides/fr/net/convert-ppt-to-pptx/)|Aspose.Slides pour .NET prend en charge la conversion de PPT à PPTX.|
+|[Format de document portable (PDF)](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Vous pouvez exporter tous les formats de fichiers pris en charge vers des documents au format PDF d'Adobe avec une seule méthode.|
 |[Spécification du parseur XML (XPS)](https://docs.aspose.com/slides/net/convert-powerpoint-to-xps/)|Vous pouvez exporter tous les formats de fichiers pris en charge vers des documents de spécification XPS avec une seule méthode.|
-|[Format de fichier image de balisage (TIFF)](/slides/net/convert-powerpoint-to-tiff/)|Vous pouvez exporter tous les formats de fichiers de présentation pris en charge au format TIFF.|
-|[Conversion PPTX à HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides pour .NET prend en charge la conversion de PresentationEx au format HTML.|
+|[Format de fichier image de balisage (TIFF)](/slides/fr/net/convert-powerpoint-to-tiff/)|Vous pouvez exporter tous les formats de fichiers de présentation pris en charge au format TIFF.|
+|[Conversion PPTX à HTML](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-html/)|Aspose.Slides pour .NET prend en charge la conversion de PresentationEx au format HTML.|
 ## **Rendu et impression**
 Aspose.Slides pour .NET prend en charge le rendu haute fidélité des diapositives dans les documents de présentation vers divers formats graphiques. Découvrez ces détails:
 

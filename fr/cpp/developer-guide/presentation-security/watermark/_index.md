@@ -2,7 +2,7 @@
 title: Filigrane
 type: docs
 weight: 40
-url: /cpp/watermark/
+url: /fr/cpp/watermark/
 keywords:
 - filigrane
 - ajouter filigrane
@@ -48,7 +48,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser la classe TextFrame](/slides/cpp/text-formatting/)
+- [Comment utiliser la classe TextFrame](/slides/fr/cpp/text-formatting/)
 {{% /alert %}}
 
 ### **Ajouter un Filigrane Texte à une Présentation**
@@ -68,7 +68,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Maître de Diapositive](/slides/cpp/slide-master/)
+- [Comment utiliser le Maître de Diapositive](/slides/fr/cpp/slide-master/)
 {{% /alert %}}
 
 ### **Définir la Transparence de la Forme de Filigrane**

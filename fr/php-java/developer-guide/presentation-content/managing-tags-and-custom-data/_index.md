@@ -2,7 +2,7 @@
 title: Gestion des balises et des données personnalisées
 type: docs
 weight: 300
-url: /php-java/managing-tags-and-custom-data
+url: /fr/php-java/managing-tags-and-custom-data
 
 ---
 

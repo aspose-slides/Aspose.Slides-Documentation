@@ -2,7 +2,7 @@
 title: Manipulations de Formes
 type: docs
 weight: 40
-url: /androidjava/manipulations-de-formes/
+url: /fr/androidjava/manipulations-de-formes/
 ---
 
 ## **Trouver une Forme dans une Diapositive**

@@ -2,7 +2,7 @@
 title: Support produit
 type: docs
 weight: 100
-url: /net/product-support/
+url: /fr/net/product-support/
 ---
 
 ## **Support technique**
@@ -41,4 +41,4 @@ Cette table liste des ressources techniques utiles pour Aspose.Slides pour .NET.
 |[Blog d'Aspose.Slides](https://blog.aspose.com/category/slides/)|Vérifiez cette section régulièrement pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour .NET](https://www.nuget.org/packages/Aspose.Slides.NET/)|Téléchargez la dernière version d'Aspose.Slides depuis cette page. Nous publions souvent de nouvelles versions.|
 |[Forum de support d'Aspose.Slides](https://forum.aspose.com/c/slides/11)|Posez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour .NET](/slides/net/)|Documentation en ligne complète qui contient ce document et la Référence API d'Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour .NET](/slides/fr/net/)|Documentation en ligne complète qui contient ce document et la Référence API d'Aspose.Slides.|

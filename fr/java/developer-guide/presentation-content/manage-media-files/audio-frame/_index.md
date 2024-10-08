@@ -2,7 +2,7 @@
 title: Cadre Audio
 type: docs
 weight: 10
-url: /java/audio-frame/
+url: /fr/java/audio-frame/
 keywords: "Ajouter audio, Cadre audio, Propriétés audio, Extraire audio, Java, Aspose.Slides pour Java"
 description: "Ajouter de l'audio à une présentation PowerPoint en Java"
 ---

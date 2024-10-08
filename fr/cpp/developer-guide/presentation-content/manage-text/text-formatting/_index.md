@@ -2,7 +2,7 @@
 title: Mise en Forme du Texte
 type: docs
 weight: 50
-url: /cpp/text-formatting/
+url: /fr/cpp/text-formatting/
 keywords:
 - mettre en surbrillance du texte
 - expression régulière

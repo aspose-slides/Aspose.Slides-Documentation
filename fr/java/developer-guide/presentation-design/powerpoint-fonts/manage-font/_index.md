@@ -3,7 +3,7 @@ title: Gérer les polices - API Java PowerPoint
 linktitle: Gérer les polices
 type: docs
 weight: 10
-url: /java/manage-fonts/
+url: /fr/java/manage-fonts/
 description: Les présentations contiennent généralement à la fois du texte et des images. Cet article montre comment utiliser l'API Java PowerPoint pour configurer les propriétés de police des paragraphes de texte sur les diapositives.
 ---
 

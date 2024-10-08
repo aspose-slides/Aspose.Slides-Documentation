@@ -2,7 +2,7 @@
 title: Sécurité
 type: docs
 weight: 160
-url: /net/security/
+url: /fr/net/security/
 ---
 
 ## **Sécurité dans Aspose.Slides**

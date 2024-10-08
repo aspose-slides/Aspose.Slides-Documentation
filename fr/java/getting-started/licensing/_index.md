@@ -2,7 +2,7 @@
 title: Licence
 type: docs
 weight: 90
-url: /java/licensing/
+url: /fr/java/licensing/
 ---
 
 ## **Évaluer Aspose.Slides**
@@ -40,7 +40,7 @@ Pour tester Aspose.Slides sans limitations, vous pouvez demander une **licence t
 
 {{% alert color="primary" %}} 
 
-Vous voudrez peut-être consulter [Licences à la consommation](/slides/java/metered-licensing/).
+Vous voudrez peut-être consulter [Licences à la consommation](/slides/fr/java/metered-licensing/).
 
 {{% /alert %}} 
 
@@ -90,7 +90,7 @@ license.setLicense(new java.io.FileInputStream("Aspose.Slides.Java.lic"));
 
 ### **Pont PHP/Java**
 
-Si vous utilisez Aspose.Slides pour PHP via Java, vous pouvez définir une licence via un pont PHP/Java. Ce pont vous permet d'utiliser des classes Java en syntaxe PHP. Pour plus d'informations, consultez [Licence en PHP](/slides/php-java/licensing/).
+Si vous utilisez Aspose.Slides pour PHP via Java, vous pouvez définir une licence via un pont PHP/Java. Ce pont vous permet d'utiliser des classes Java en syntaxe PHP. Pour plus d'informations, consultez [Licence en PHP](/slides/fr/php-java/licensing/).
 
 ## **Validation d'une Licence**
 

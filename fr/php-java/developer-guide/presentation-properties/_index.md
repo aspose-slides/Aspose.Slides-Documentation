@@ -2,7 +2,7 @@
 title: Propriétés de Présentation
 type: docs
 weight: 70
-url: /php-java/presentation-properties/
+url: /fr/php-java/presentation-properties/
 ---
 
 {{% alert color="primary" %}} 

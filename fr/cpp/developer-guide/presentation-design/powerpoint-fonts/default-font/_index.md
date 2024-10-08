@@ -2,7 +2,7 @@
 title: Police par défaut
 type: docs
 weight: 30
-url: /cpp/default-font/
+url: /fr/cpp/default-font/
 keywords: 
 - police
 - police par défaut

@@ -2,7 +2,7 @@
 title: Microsoft PowerPoint (PPT)
 type: docs
 weight: 10
-url: /cpp/microsoft-powerpoint-ppt/
+url: /fr/cpp/microsoft-powerpoint-ppt/
 ---
 
 ## **À propos de PPT**

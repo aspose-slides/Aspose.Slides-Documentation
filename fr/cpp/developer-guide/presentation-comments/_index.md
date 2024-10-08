@@ -2,7 +2,7 @@
 title: Commentaires de présentation
 type: docs
 weight: 100
-url: /cpp/presentation-comments/
+url: /fr/cpp/presentation-comments/
 keywords: "Commentaires, commentaires PowerPoint, présentation PowerPoint, C++, Aspose.Slides pour C++"
 description: "Ajoutez des commentaires et des réponses dans une présentation PowerPoint en C++"
 ---

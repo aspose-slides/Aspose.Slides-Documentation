@@ -2,7 +2,7 @@
 title: Ajouter un Cadre d'Image avec Animation dans VSTO et Aspose.Slides
 type: docs
 weight: 20
-url: /net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
+url: /fr/net/adding-picture-frame-with-animation-in-vsto-and-aspose-slides/
 ---
 
 Les exemples de code ci-dessous créent une présentation avec une diapositive, ajoutent une image avec un cadre d'image et appliquent une animation à celle-ci.

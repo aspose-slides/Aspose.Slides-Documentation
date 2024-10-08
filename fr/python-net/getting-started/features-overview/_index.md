@@ -2,7 +2,7 @@
 title: Aperçu des fonctionnalités
 type: docs
 weight: 20
-url: /python-net/features-overview/
+url: /fr/python-net/features-overview/
 ---
 
 ## **Plateformes prises en charge**
@@ -20,11 +20,11 @@ Aspose.Slides pour Python via .NET prend en charge la plupart des formats de doc
 
 |**Fonctionnalité**|**Description**|
 | :- | :- |
-|[Microsoft PowerPoint (PPT)](/slides/python-net/ppt-vs-pptx/)|Aspose.Slides pour Python via .NET fournit le traitement le plus rapide pour ce format de document de présentation.|
-|[Conversion PPT en PPTX](/slides/python-net/convert-ppt-to-pptx/)|Aspose.Slides pour Python via .NET prend en charge la conversion de PPT en PPTX.|
-|[Format de document portable (PDF)](/slides/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Vous pouvez exporter tous les formats de fichiers pris en charge vers des documents au format PDF (Portable Document Format) d'Adobe avec une méthode unique.|
+|[Microsoft PowerPoint (PPT)](/slides/fr/python-net/ppt-vs-pptx/)|Aspose.Slides pour Python via .NET fournit le traitement le plus rapide pour ce format de document de présentation.|
+|[Conversion PPT en PPTX](/slides/fr/python-net/convert-ppt-to-pptx/)|Aspose.Slides pour Python via .NET prend en charge la conversion de PPT en PPTX.|
+|[Format de document portable (PDF)](/slides/fr/python-net/convert-powerpoint-ppt-and-pptx-to-pdf/)|Vous pouvez exporter tous les formats de fichiers pris en charge vers des documents au format PDF (Portable Document Format) d'Adobe avec une méthode unique.|
 |[Spécification du parseur XML (XPS)](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)|Vous pouvez exporter tous les formats de fichiers pris en charge vers des documents au format XML Parser Specification (XPS) avec une méthode unique.|
-|[Format de fichier image tagué (TIFF)](/slides/python-net/convert-powerpoint-to-tiff/)|Vous pouvez exporter tous les formats de fichiers de présentation pris en charge vers le format de fichier image tagué (TIFF).|
+|[Format de fichier image tagué (TIFF)](/slides/fr/python-net/convert-powerpoint-to-tiff/)|Vous pouvez exporter tous les formats de fichiers de présentation pris en charge vers le format de fichier image tagué (TIFF).|
 |[Conversion PPTX en HTML](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)|Aspose.Slides pour Python via .NET prend en charge la conversion de PresentationEx au format HTML.|
 
 ## **Rendu et impression**

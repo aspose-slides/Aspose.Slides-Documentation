@@ -2,7 +2,7 @@
 title: Support produit
 type: docs
 weight: 100
-url: /python-java/product-support/
+url: /fr/python-java/product-support/
 ---
 
 ## **Assistance technique**
@@ -40,4 +40,4 @@ Ce tableau répertorie des ressources techniques utiles pour Aspose.Slides pour 
 |[Blog d'Aspose.Slides](https://blog.aspose.com/category/slides/)|Vérifiez cette section régulièrement pour des informations sur les nouvelles versions et des conseils utiles sur Aspose.Slides.|
 |[Téléchargement d'Aspose.Slides pour Python via Java](https://releases.aspose.com/slides/python-java/)|Téléchargez la dernière version d'Aspose.Slides depuis cette page. Nous publions souvent de nouvelles versions.|
 |[Forum de support d'Aspose.Slides](https://forum.aspose.com/c/slides/11)|Postez vos questions et problèmes ici pour une résolution rapide.|
-|[Documentation produit d'Aspose.Slides pour Python via Java](/slides/python-java/)|Documentation en ligne complète qui contient ce document et la Référence API d'Aspose.Slides.|
+|[Documentation produit d'Aspose.Slides pour Python via Java](/slides/fr/python-java/)|Documentation en ligne complète qui contient ce document et la Référence API d'Aspose.Slides.|

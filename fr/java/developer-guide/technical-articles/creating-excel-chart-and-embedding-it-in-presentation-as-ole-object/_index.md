@@ -2,7 +2,7 @@
 title: Création d'un graphique Excel et intégration dans la présentation en tant qu'objet OLE  
 type: docs  
 weight: 30  
-url: /java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/  
+url: /fr/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/  
 ---  
 
 {{% alert color="primary" %}}  
@@ -39,6 +39,6 @@ En utilisant Aspose.Cells pour Java avec Aspose.Slides pour Java, nous pouvons c
 
 {{% /alert %}}  
 ## **Sections Connexes**  
-[Solution Fonctionnelle pour le Redimensionnement de Graphiques](/slides/java/working-solution-for-chart-resizing-in-pptx/)  
+[Solution Fonctionnelle pour le Redimensionnement de Graphiques](/slides/fr/java/working-solution-for-chart-resizing-in-pptx/)  
 
-[Problème d'Objet Modifié](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)  
+[Problème d'Objet Modifié](/slides/fr/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)  

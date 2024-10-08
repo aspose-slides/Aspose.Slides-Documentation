@@ -2,14 +2,14 @@
 title: Gérer le Placeholder
 type: docs
 weight: 10
-url: /python-net/manage-placeholder/
+url: /fr/python-net/manage-placeholder/
 keywords: "Placeholder, Texte de Placeholder, Texte d'invite, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Modifier le texte du Placeholder et le texte d'invite dans les présentations PowerPoint en Python"
 ---
 
 ## **Modifier le Texte dans un Placeholder**
 
-En utilisant [Aspose.Slides pour Python via .NET](/slides/python-net/), vous pouvez trouver et modifier des placeholders sur des diapositives dans des présentations. Aspose.Slides vous permet d'apporter des modifications au texte d'un placeholder.
+En utilisant [Aspose.Slides pour Python via .NET](/slides/fr/python-net/), vous pouvez trouver et modifier des placeholders sur des diapositives dans des présentations. Aspose.Slides vous permet d'apporter des modifications au texte d'un placeholder.
 
 **Prérequis** : Vous avez besoin d'une présentation contenant un placeholder. Vous pouvez créer une telle présentation dans l'application standard Microsoft PowerPoint.
 

@@ -1,7 +1,7 @@
 ---
 title: Zone de tracé du graphique
 type: docs
-url: /java/chart-plot-area/
+url: /fr/java/chart-plot-area/
 ---
 
 ## **Obtenir la largeur, la hauteur de la zone de tracé du graphique**

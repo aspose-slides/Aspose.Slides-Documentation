@@ -2,7 +2,7 @@
 title: Déploiement et Activation
 type: docs
 weight: 20
-url: /sharepoint/deployment-and-activation/
+url: /fr/sharepoint/deployment-and-activation/
 ---
 
 ## **Déploiement**

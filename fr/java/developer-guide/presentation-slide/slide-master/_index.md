@@ -2,7 +2,7 @@
 title: Maître de diapositive
 type: docs
 weight: 70
-url: /java/slide-master/
+url: /fr/java/slide-master/
 keywords: "Ajouter Maître de diapositive, diapositive maître PPT, maître de diapositive PowerPoint, image au maître de diapositive, espace réservé, plusieurs maîtres de diapositive, comparer les maîtres de diapositive, Java, Aspose.Slides pour Java"
 description: "Ajouter ou modifier le maître de diapositive dans une présentation PowerPoint en Java"
 ---
@@ -148,7 +148,7 @@ try {
 
 {{% alert color="primary" title="Voir aussi" %}} 
 
-Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article [Image Frame](/slides/java/picture-frame/#create-picture-frame).
+Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article [Image Frame](/slides/fr/java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

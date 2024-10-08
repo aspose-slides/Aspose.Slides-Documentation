@@ -1,7 +1,7 @@
 ---
 title: Ligne de Tendance
 type: docs
-url: /php-java/ligne-de-tendance/
+url: /fr/php-java/ligne-de-tendance/
 ---
 
 ## **Ajouter une Ligne de Tendance**

@@ -2,7 +2,7 @@
 title: Support pour la bibliothèque interrompable
 type: docs
 weight: 150
-url: /net/support-for-interruptable-library/
+url: /fr/net/support-for-interruptable-library/
 
 ---
 

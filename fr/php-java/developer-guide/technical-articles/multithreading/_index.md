@@ -2,7 +2,7 @@
 title: Multithreading dans Aspose.Slides
 type: docs
 weight: 310
-url: /php-java/multithreading/
+url: /fr/php-java/multithreading/
 keywords:
 - PowerPoint
 - présentation

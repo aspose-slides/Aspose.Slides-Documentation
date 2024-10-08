@@ -3,7 +3,7 @@ title: Police PowerPoint personnalisée en Java
 linktitle: Police personnalisée
 type: docs
 weight: 20
-url: /androidjava/custom-font/
+url: /fr/androidjava/custom-font/
 keywords: "Polices, polices personnalisées, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Polices PowerPoint personnalisées en Java"
 ---

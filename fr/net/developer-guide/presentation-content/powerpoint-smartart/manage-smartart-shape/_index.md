@@ -2,7 +2,7 @@
 title: Gérer la forme SmartArt
 type: docs
 weight: 20
-url: /net/manage-smartart-shape/
+url: /fr/net/manage-smartart-shape/
 keywords: "forme SmartArt, style de forme SmartArt, style de couleur de forme SmartArt, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Gérer les SmartArt dans les présentations PowerPoint en C# ou .NET"
 ---

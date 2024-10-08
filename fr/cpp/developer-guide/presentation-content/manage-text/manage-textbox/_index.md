@@ -2,7 +2,7 @@
 title: Gérer les TextBox
 type: docs
 weight: 20
-url: /cpp/manage-textbox/
+url: /fr/cpp/manage-textbox/
 keywords: "Textbox, Cadre texte, Ajouter textbox, Textbox avec lien, C++, Aspose.Slides pour C++"
 description: "Ajouter un textbox ou un cadre texte aux présentations PowerPoint en C++"
 ---

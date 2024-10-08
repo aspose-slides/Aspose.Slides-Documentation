@@ -2,5 +2,5 @@
 title: Conception de Présentation
 type: docs
 weight: 40
-url: /androidjava/presentation-design/
+url: /fr/androidjava/presentation-design/
 ---

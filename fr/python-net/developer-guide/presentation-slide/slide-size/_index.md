@@ -2,7 +2,7 @@
 title: Taille des diapositives
 type: docs
 weight: 70
-url: /python-net/slide-size/
+url: /fr/python-net/slide-size/
 keywords: "Définir la diapositive, modifier la taille de la diapositive, présentation PowerPoint, taille de diapositive personnalisée, résoudre les problèmes de diapositive, Python, Aspose.Slides"
 descriptions: "Définir et modifier la taille ou le rapport d'aspect des diapositives dans PowerPoint en Python"
 ---

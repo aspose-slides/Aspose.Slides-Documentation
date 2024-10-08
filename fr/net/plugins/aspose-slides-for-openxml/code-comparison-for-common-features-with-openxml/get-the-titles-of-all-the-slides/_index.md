@@ -2,7 +2,7 @@
 title: Obtenez les titres de toutes les diapositives
 type: docs
 weight: 120
-url: /net/get-the-titles-of-all-the-slides/
+url: /fr/net/get-the-titles-of-all-the-slides/
 ---
 
 ## **OpenXML SDK**

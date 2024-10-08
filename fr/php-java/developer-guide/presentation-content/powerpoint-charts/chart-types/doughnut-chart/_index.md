@@ -2,7 +2,7 @@
 title: Graphique en Anneau
 type: docs
 weight: 30
-url: /php-java/doughnut-chart/
+url: /fr/php-java/doughnut-chart/
 ---
 
 ## **Modifier l'Espace au Centre du Graphique en Anneau**

@@ -2,7 +2,7 @@
 title: Ajouter une diapositive de mise en page à la présentation
 type: docs
 weight: 10
-url: /net/add-layout-slide-to-presentation/
+url: /fr/net/add-layout-slide-to-presentation/
 ---
 
 Aspose.Slides pour .NET permet aux développeurs d'ajouter de nouvelles diapositives de mise en page dans une présentation. Pour ajouter une diapositive de mise en page, veuillez suivre les étapes ci-dessous :
@@ -129,6 +129,6 @@ using (Presentation p = new Presentation("Test.pptx"))
 
 {{% alert color="primary" %}} 
 
-Pour plus de détails, visitez [Ajouter une diapositive de mise en page à la présentation](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Pour plus de détails, visitez [Ajouter une diapositive de mise en page à la présentation](/slides/fr/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

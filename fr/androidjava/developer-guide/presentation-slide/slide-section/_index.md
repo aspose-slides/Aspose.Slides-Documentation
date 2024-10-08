@@ -2,7 +2,7 @@
 title: Section diapositive
 type: docs
 weight: 90
-url: /androidjava/slide-section/
+url: /fr/androidjava/slide-section/
 ---
 
 Avec Aspose.Slides pour Android via Java, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections contenant des diapositives spécifiques.

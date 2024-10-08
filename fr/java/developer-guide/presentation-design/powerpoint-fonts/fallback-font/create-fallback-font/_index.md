@@ -2,7 +2,7 @@
 title: Créer une police de secours
 type: docs
 weight: 10
-url: /java/create-fallback-font/
+url: /fr/java/create-fallback-font/
 ---
 
 Aspose.Slides prend en charge l'interface [IFontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/IFontFallBackRule) et la classe [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) pour spécifier les règles d'application d'une police de secours. La classe [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule) représente une association entre la plage Unicode spécifiée, utilisée pour rechercher les glyphes manquants, et une liste de polices qui peuvent contenir des glyphes appropriés :
@@ -25,5 +25,5 @@ Il est également possible de [supprimer](https://reference.aspose.com/slides/ja
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRulesCollection) peut être utilisé pour organiser une liste d'objets [FontFallBackRule](https://reference.aspose.com/slides/java/com.aspose.slides/FontFallBackRule), lorsqu'il est nécessaire de spécifier des règles de remplacement de polices de secours pour plusieurs plages Unicode.
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Créer une collection de polices de secours](/slides/java/create-fallback-fonts-collection/)
+- [Créer une collection de polices de secours](/slides/fr/java/create-fallback-fonts-collection/)
 {{% /alert %}}

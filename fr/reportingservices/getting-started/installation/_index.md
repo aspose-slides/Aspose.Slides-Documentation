@@ -2,5 +2,5 @@
 title: Installation
 type: docs
 weight: 40
-url: /reportingservices/installation/
+url: /fr/reportingservices/installation/
 ---

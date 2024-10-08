@@ -2,7 +2,7 @@
 title: Convertir une diapositive
 type: docs
 weight: 35
-url: /php-java/convert-slide/
+url: /fr/php-java/convert-slide/
 keywords: 
 - convertir diapositive en image
 - exporter diapositive en tant qu'image

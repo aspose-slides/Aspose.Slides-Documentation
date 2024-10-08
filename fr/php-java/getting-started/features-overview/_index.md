@@ -2,7 +2,7 @@
 title: Vue d'ensemble des fonctionnalités
 type: docs
 weight: 20
-url: /php-java/features-overview/
+url: /fr/php-java/features-overview/
 ---
 
 ## **Plateformes prises en charge**

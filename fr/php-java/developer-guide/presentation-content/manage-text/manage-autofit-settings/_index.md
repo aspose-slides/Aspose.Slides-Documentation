@@ -2,7 +2,7 @@
 title: Gérer les paramètres d'ajustement automatique
 type: docs
 weight: 30
-url: /php-java/manage-autofit-settings/
+url: /fr/php-java/manage-autofit-settings/
 keywords: "Textbox, Ajustement automatique, Présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Définir les paramètres d'ajustement automatique pour la zone de texte dans PowerPoint"
 ---

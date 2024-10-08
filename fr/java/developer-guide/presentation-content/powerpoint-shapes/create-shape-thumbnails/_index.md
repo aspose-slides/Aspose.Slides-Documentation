@@ -2,7 +2,7 @@
 title: Créer des vignettes de forme
 type: docs
 weight: 70
-url: /java/create-shape-thumbnails/
+url: /fr/java/create-shape-thumbnails/
 ---
 
 

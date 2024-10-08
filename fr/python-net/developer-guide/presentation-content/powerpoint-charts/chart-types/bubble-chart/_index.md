@@ -1,7 +1,7 @@
 ---
 title: Graphique en bulles
 type: docs
-url: /python-net/bubble-chart/
+url: /fr/python-net/bubble-chart/
 keywords: "Graphique en bulles, taille du graphique, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Taille des graphiques en bulles dans les présentations PowerPoint en Python"
 ---

@@ -2,7 +2,7 @@
 title: Cadre Vidéo
 type: docs
 weight: 10
-url: /cpp/video-frame/
+url: /fr/cpp/video-frame/
 keywords: "Ajouter vidéo, créer cadre vidéo, extraire vidéo, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Ajouter un cadre vidéo à une présentation PowerPoint en C++"
 

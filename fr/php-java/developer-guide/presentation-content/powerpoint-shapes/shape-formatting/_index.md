@@ -2,7 +2,7 @@
 title: Formatage des Formes
 type: docs
 weight: 20
-url: /php-java/shape-formatting/
+url: /fr/php-java/shape-formatting/
 keywords: "Format de forme, format de lignes, styles de jonction de format, remplissage dégradé, remplissage de motifs, remplissage d'image, remplissage de couleur unie, rotation des formes, effets de biseautage 3D, effet de rotation 3D, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Formatage des formes dans une présentation PowerPoint"
 ---

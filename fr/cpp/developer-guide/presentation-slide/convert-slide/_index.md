@@ -2,7 +2,7 @@
 title: Convertir une diapositive
 type: docs
 weight: 41
-url: /cpp/convert-slide/
+url: /fr/cpp/convert-slide/
 keywords: 
 - convertir une diapositive en image
 - exporter une diapositive en tant qu'image

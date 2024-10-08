@@ -1,7 +1,7 @@
 ---
 title: Propriétés de la vue de présentation
 type: docs
-url: /net/presentation-view-properties/
+url: /fr/net/presentation-view-properties/
 keywords: "visionneuse PowerPoint, propriétés de la visionneuse, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Propriétés de la visionneuse de présentation PowerPoint en C# ou .NET"
 ---

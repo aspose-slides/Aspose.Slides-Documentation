@@ -2,7 +2,7 @@
 title: Gérer la Table
 type: docs
 weight: 10
-url: /net/manage-table/
+url: /fr/net/manage-table/
 keywords: "Table, créer une table, accéder à la table, rapport d'aspect de la table, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Créer et gérer une table dans des présentations PowerPoint en C# ou .NET"
 ---

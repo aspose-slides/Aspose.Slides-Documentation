@@ -2,18 +2,18 @@
 title: En-tête et pied de page de présentation
 type: docs
 weight: 140
-url: /cpp/presentation-header-and-footer/
+url: /fr/cpp/presentation-header-and-footer/
 keywords: "En-tête et pied de page dans PowerPoint"
 description: "En-tête et pied de page dans PowerPoint avec Aspose.Slides."
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/cpp/) fournit une prise en charge pour travailler avec le texte des en-têtes et des pieds de page qui sont en fait maintenus au niveau du maître de diapositives.
+[Aspose.Slides](/slides/fr/cpp/) fournit une prise en charge pour travailler avec le texte des en-têtes et des pieds de page qui sont en fait maintenus au niveau du maître de diapositives.
 
 {{% /alert %}} 
 
-[Aspose.Slides pour C++](/slides/cpp/) fournit la fonctionnalité pour gérer les en-têtes et pieds de page à l'intérieur des diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
+[Aspose.Slides pour C++](/slides/fr/cpp/) fournit la fonctionnalité pour gérer les en-têtes et pieds de page à l'intérieur des diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
 ## **Gérer le texte des en-têtes et des pieds de page**
 Les notes d'une diapositive spécifique peuvent être mises à jour comme montré dans l'exemple ci-dessous :
 

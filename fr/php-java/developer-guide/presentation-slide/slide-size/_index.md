@@ -2,7 +2,7 @@
 title: Taille des diapositives
 type: docs
 weight: 70
-url: /php-java/slide-size/
+url: /fr/php-java/slide-size/
 
 ---
 

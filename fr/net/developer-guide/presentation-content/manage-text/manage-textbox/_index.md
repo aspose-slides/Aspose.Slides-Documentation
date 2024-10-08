@@ -2,7 +2,7 @@
 title: Gérer le TextBox
 type: docs
 weight: 20
-url: /net/manage-textbox/
+url: /fr/net/manage-textbox/
 keywords: "Textbox, Cadre de texte, Ajouter un textbox, Textbox avec lien hypertexte, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter un textbox ou un cadre de texte aux présentations PowerPoint en C# ou .NET"
 ---

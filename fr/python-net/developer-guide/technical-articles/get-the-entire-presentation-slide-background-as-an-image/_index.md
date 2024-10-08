@@ -2,7 +2,7 @@
 title: Obtenir l'Arrière-Plan de la Diapositive de Présentation Complète en Tant qu'Image
 type: docs
 weight: 95
-url: /python-net/get-the-entire-presentation-slide-background-as-an-image/
+url: /fr/python-net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositive
 - arrière-plan
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides pour Python
 ---
 
-Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut se composer de nombreux éléments. En plus de l'image définie comme [arrière-plan de diapositive](/slides/python-net/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive principale et la diapositive de mise en page.
+Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut se composer de nombreux éléments. En plus de l'image définie comme [arrière-plan de diapositive](/slides/fr/python-net/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive principale et la diapositive de mise en page.
 
 Aspose.Slides pour Python ne fournit pas de méthode simple pour extraire l'arrière-plan complet de la diapositive de présentation en tant qu'image, mais vous pouvez suivre les étapes ci-dessous pour le faire :
 1. Charger la présentation à l'aide de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).

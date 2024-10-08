@@ -2,7 +2,7 @@
 title: Connecteur
 type: docs
 weight: 10
-url: /php-java/connector/
+url: /fr/php-java/connector/
 keywords: "Connecter des formes, connecteurs, formes PowerPoint, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Connecter des formes PowerPoint"
 ---
@@ -121,7 +121,7 @@ Ce code PHP illustre une opération où un point de connexion préféré est sp�
 
 ## **Ajuster un point de connecteur**
 
-Vous pouvez ajuster un connecteur existant à travers ses points d'ajustement. Seuls les connecteurs avec des points d'ajustement peuvent être modifiés de cette manière. Voir le tableau sous **[Types de connecteurs](/slides/php-java/connector/#types-of-connectors)**
+Vous pouvez ajuster un connecteur existant à travers ses points d'ajustement. Seuls les connecteurs avec des points d'ajustement peuvent être modifiés de cette manière. Voir le tableau sous **[Types de connecteurs](/slides/fr/php-java/connector/#types-of-connectors)**
 
 #### **Cas simple**
 
@@ -169,7 +169,7 @@ Pour effectuer des ajustements plus compliqués, vous devez prendre en compte ce
 * Les valeurs des points d'ajustement reflètent le pourcentage de la largeur/hauteur d'une forme de connecteur. 
   * La forme est limitée par les points de départ et d'arrivée du connecteur multipliés par 1000. 
   * Le premier point, le deuxième point, et le troisième point définissent respectivement le pourcentage de la largeur, le pourcentage de la hauteur, et le pourcentage de la largeur (à nouveau).
-* Pour les calculs qui déterminent les coordonnées des points d'ajustement d'un connecteur, vous devez prendre en compte la rotation du connecteur et sa réflexion. **Remarque** : l'angle de rotation pour tous les connecteurs affichés sous **[Types de connecteurs](/slides/php-java/connector/#types-of-connectors)** est 0.
+* Pour les calculs qui déterminent les coordonnées des points d'ajustement d'un connecteur, vous devez prendre en compte la rotation du connecteur et sa réflexion. **Remarque** : l'angle de rotation pour tous les connecteurs affichés sous **[Types de connecteurs](/slides/fr/php-java/connector/#types-of-connectors)** est 0.
 
 #### **Cas 1**
 

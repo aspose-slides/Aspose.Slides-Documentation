@@ -2,7 +2,7 @@
 title: Gérer le zoom
 type: docs
 weight: 60
-url: /php-java/manage-zoom/
+url: /fr/php-java/manage-zoom/
 keywords: "Zoom, cadre de zoom, Ajouter un zoom, Format cadre de zoom, Résumé de zoom, Présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Ajouter un zoom ou des cadres de zoom aux présentations PowerPoint "
 ---

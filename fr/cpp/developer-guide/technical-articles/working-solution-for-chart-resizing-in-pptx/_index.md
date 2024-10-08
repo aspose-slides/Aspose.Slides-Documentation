@@ -2,7 +2,7 @@
 title: Solution Fonctionnelle pour le Redimensionnement de Graphiques dans PPTX
 type: docs
 weight: 60
-url: /cpp/solution-fonctionnelle-pour-le-redimensionnement-de-graphique-dans-pptx/
+url: /fr/cpp/solution-fonctionnelle-pour-le-redimensionnement-de-graphique-dans-pptx/
 ---
 
 {{% alert color="primary" %}} 

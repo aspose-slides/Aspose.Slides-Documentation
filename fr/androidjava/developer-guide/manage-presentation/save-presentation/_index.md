@@ -2,13 +2,13 @@
 title: Enregistrer la présentation
 type: docs
 weight: 80
-url: /androidjava/save-presentation/
+url: /fr/androidjava/save-presentation/
 ---
 
 ## **Aperçu**
 {{% alert color="primary" %}} 
 
-[L'ouverture de la présentation](/slides/androidjava/open-presentation/) a décrit comment utiliser la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) pour ouvrir une présentation. Cet article explique comment créer et enregistrer des présentations.
+[L'ouverture de la présentation](/slides/fr/androidjava/open-presentation/) a décrit comment utiliser la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) pour ouvrir une présentation. Cet article explique comment créer et enregistrer des présentations.
 
 {{% /alert %}} 
 

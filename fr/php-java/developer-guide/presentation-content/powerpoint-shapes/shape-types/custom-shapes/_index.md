@@ -2,7 +2,7 @@
 title: Forme Personnalisée
 type: docs
 weight: 20
-url: /php-java/custom-shape/
+url: /fr/php-java/custom-shape/
 keywords: "forme PowerPoint, forme personnalisée, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Ajouter une forme personnalisée dans une présentation PowerPoint"
 ---

@@ -3,7 +3,7 @@ title: Remplacement de police - API Java PowerPoint
 linktitle: Remplacement de police
 type: docs
 weight: 60
-url: /androidjava/font-replacement/
+url: /fr/androidjava/font-replacement/
 description: Apprenez à remplacer des polices en utilisant la méthode de remplacement explicite dans PowerPoint avec l'API Java.
 ---
 
@@ -41,6 +41,6 @@ try {
 
 {{% alert title="Remarque" color="warning" %}} 
 
-Pour définir des règles qui déterminent ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), consultez [**Substitution de police**](/slides/androidjava/font-substitution/).
+Pour définir des règles qui déterminent ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), consultez [**Substitution de police**](/slides/fr/androidjava/font-substitution/).
 
 {{% /alert %}}

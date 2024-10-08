@@ -3,7 +3,7 @@ title: Remplacement de police - API PowerPoint C#
 linktitle: Remplacement de police  
 type: docs  
 weight: 60  
-url: /net/font-replacement/  
+url: /fr/net/font-replacement/  
 keywords: "Police, remplacer police, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"  
 description: Avec l'API PowerPoint C#, vous pouvez remplacer explicitement une police par une autre dans la présentation.  
 ---
@@ -39,6 +39,6 @@ presentation.Save("UpdatedFont_out.pptx", SaveFormat.Pptx);
 
 {{% alert title="Note" color="warning" %}} 
 
-Pour définir des règles qui déterminent ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), consultez [**Substitution de police**](/slides/net/font-substitution/).
+Pour définir des règles qui déterminent ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), consultez [**Substitution de police**](/slides/fr/net/font-substitution/).
 
 {{% /alert %}}

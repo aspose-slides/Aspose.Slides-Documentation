@@ -2,7 +2,7 @@
 title: Formules de Feuille de Calcul de Graphique
 type: docs
 weight: 70
-url: /php-java/chart-worksheet-formulas/
+url: /fr/php-java/chart-worksheet-formulas/
 keywords: "équations powerpoint, formules feuille de calcul powerpoint"
 description: "Équations PowerPoint et Formules de Feuille de Calcul"
 ---

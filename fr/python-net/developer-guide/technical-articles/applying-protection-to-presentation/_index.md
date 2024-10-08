@@ -2,14 +2,14 @@
 title: Appliquer la protection à la présentation
 type: docs
 weight: 70
-url: /python-net/applying-protection-to-presentation/
+url: /fr/python-net/applying-protection-to-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
 Une utilisation courante d'Aspose.Slides est de créer, mettre à jour et enregistrer des présentations Microsoft PowerPoint 2007 (PPTX) dans le cadre d'un flux de travail automatisé. Les utilisateurs de l'application qui utilise Aspose.Slides de cette manière ont accès aux présentations de sortie. Les protéger contre la modification est une préoccupation courante. Il est important que les présentations générées automatiquement conservent leur formatage et leur contenu d'origine.
 
-Cet article explique comment [les présentations et les diapositives sont construites](/slides/python-net/applying-protection-to-presentation/) et comment Aspose.Slides pour Python via .NET peut [appliquer une protection à](/slides/python-net/applying-protection-to-presentation/) puis [la supprimer de](/slides/python-net/applying-protection-to-presentation/) une présentation. Cette fonctionnalité est exclusive à Aspose.Slides et, au moment de la rédaction, n'est pas disponible dans Microsoft PowerPoint. Cela donne aux développeurs un moyen de contrôler comment les présentations créées par leurs applications sont utilisées.
+Cet article explique comment [les présentations et les diapositives sont construites](/slides/fr/python-net/applying-protection-to-presentation/) et comment Aspose.Slides pour Python via .NET peut [appliquer une protection à](/slides/fr/python-net/applying-protection-to-presentation/) puis [la supprimer de](/slides/fr/python-net/applying-protection-to-presentation/) une présentation. Cette fonctionnalité est exclusive à Aspose.Slides et, au moment de la rédaction, n'est pas disponible dans Microsoft PowerPoint. Cela donne aux développeurs un moyen de contrôler comment les présentations créées par leurs applications sont utilisées.
 
 {{% /alert %}} 
 ## **Composition d'une Diapositive**

@@ -2,7 +2,7 @@
 title: Gestion des balises et des données personnalisées
 type: docs
 weight: 300
-url: /python-net/managing-tags-and-custom-data/
+url: /fr/python-net/managing-tags-and-custom-data/
 keywords: "Balises, Données personnalisées, Valeur des balises, Ajouter des balises, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter des balises et des données personnalisées aux présentations PowerPoint en Python"
 ---

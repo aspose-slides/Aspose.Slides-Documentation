@@ -2,7 +2,7 @@
 title: Exporter des fichiers multimédias vers un fichier HTML
 type: docs
 weight: 40
-url: /net/export-media-files-to-html-file/
+url: /fr/net/export-media-files-to-html-file/
 ---
 
 Afin d'exporter des fichiers multimédias vers HTML. Veuillez suivre les étapes ci-dessous :
@@ -60,6 +60,6 @@ using (Presentation pres = new Presentation(srcFileName))
 
 {{% alert color="primary" %}} 
 
-Pour plus de détails, visitez [Exporter des fichiers multimédias vers un fichier html](/slides/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
+Pour plus de détails, visitez [Exporter des fichiers multimédias vers un fichier html](/slides/fr/net/cloning-commenting-and-manipulating-slides/#extracting-video-from-a-slide).
 
 {{% /alert %}}

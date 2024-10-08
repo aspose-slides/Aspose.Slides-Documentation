@@ -2,7 +2,7 @@
 title: Supprimer une diapositive
 type: docs
 weight: 80
-url: /net/delete-a-slide/
+url: /fr/net/delete-a-slide/
 ---
 
 ## **OpenXML SDK**

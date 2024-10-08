@@ -2,7 +2,7 @@
 title: Gérer les Paragraphes PowerPoint en C#
 type: docs
 weight: 40
-url: /net/manage-paragraph/
+url: /fr/net/manage-paragraph/
 keywords: 
 - ajouter un paragraphe
 - gérer les paragraphes

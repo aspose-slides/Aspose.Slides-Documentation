@@ -2,7 +2,7 @@
 title: Animation de forme
 type: docs
 weight: 60
-url: /androidjava/shape-animation/
+url: /fr/androidjava/shape-animation/
 keywords: "animation PowerPoint, effet d'animation, appliquer une animation, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Appliquer une animation PowerPoint en Java"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-En plus d'appliquer des animations au texte, vous pouvez également appliquer des animations à un seul [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph). Voir [**Texte Animé**](/slides/androidjava/animated-text/).
+En plus d'appliquer des animations au texte, vous pouvez également appliquer des animations à un seul [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph). Voir [**Texte Animé**](/slides/fr/androidjava/animated-text/).
 
 {{% /alert %}} 
 

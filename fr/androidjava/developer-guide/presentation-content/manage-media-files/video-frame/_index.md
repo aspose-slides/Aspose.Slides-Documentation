@@ -2,7 +2,7 @@
 title: Cadre Vidéo
 type: docs
 weight: 10
-url: /androidjava/video-frame/
+url: /fr/androidjava/video-frame/
 keywords: "Ajouter vidéo, créer cadre vidéo, extraire vidéo, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Ajouter un cadre vidéo à une présentation PowerPoint en Java"
 ---

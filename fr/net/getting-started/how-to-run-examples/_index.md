@@ -2,7 +2,7 @@
 title: Comment exécuter des exemples
 type: docs
 weight: 130
-url: /net/how-to-run-examples/
+url: /fr/net/how-to-run-examples/
 ---
 
 ## **Exigences Logicielles**

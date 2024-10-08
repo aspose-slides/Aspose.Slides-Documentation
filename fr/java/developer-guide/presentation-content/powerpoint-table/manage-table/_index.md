@@ -2,7 +2,7 @@
 title: Gérer le Tableau
 type: docs
 weight: 10
-url: /java/manage-table/
+url: /fr/java/manage-table/
 keywords: "Table, créer un tableau, accéder au tableau, rapport d'aspect du tableau, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Créer et gérer des tableaux dans des présentations PowerPoint en Java"
 ---

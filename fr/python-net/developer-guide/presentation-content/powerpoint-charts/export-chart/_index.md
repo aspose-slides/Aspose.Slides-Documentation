@@ -2,7 +2,7 @@
 title: Exporter un Graphique
 type: docs
 weight: 90
-url: /python-net/export-chart/
+url: /fr/python-net/export-chart/
 keywords:
 - graphique
 - image de graphique

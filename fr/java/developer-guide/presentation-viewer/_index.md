@@ -2,7 +2,7 @@
 title: Visionneuse de Présentation
 type: docs
 weight: 50
-url: /java/presentation-viewer/
+url: /fr/java/presentation-viewer/
 keywords: "Visionneuse PPT PowerPoint"
 description: "Visionneuse PPT PowerPoint en Java"
 ---

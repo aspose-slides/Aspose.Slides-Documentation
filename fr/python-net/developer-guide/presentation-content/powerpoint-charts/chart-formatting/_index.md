@@ -2,7 +2,7 @@
 title: Formatage de Diagrammes
 type: docs
 weight: 60
-url: /python-net/chart-formatting/
+url: /fr/python-net/chart-formatting/
 keywords: "Entités de diagramme, propriétés de diagramme, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Formater les entités de diagrammes dans des présentations PowerPoint en Python"
 ---

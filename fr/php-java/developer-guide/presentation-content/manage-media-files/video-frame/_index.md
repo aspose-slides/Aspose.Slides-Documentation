@@ -2,7 +2,7 @@
 title: Cadre Vidéo
 type: docs
 weight: 10
-url: /php-java/video-frame/
+url: /fr/php-java/video-frame/
 keywords: "Ajouter vidéo, créer cadre vidéo, extraire vidéo, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Ajouter un cadre vidéo à la présentation PowerPoint"
 ---

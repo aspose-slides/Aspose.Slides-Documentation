@@ -2,7 +2,7 @@
 title: Mise à jour automatique des objets OLE à l'aide d'un complément MS PowerPoint
 type: docs
 weight: 10
-url: /php-java/mise-a-jour-automatique-des-objets-ole-a-l-aide-d-un-complement-ms-powerpoint/
+url: /fr/php-java/mise-a-jour-automatique-des-objets-ole-a-l-aide-d-un-complement-ms-powerpoint/
 ---
 
 ## **À propos de la mise à jour automatique des objets OLE**

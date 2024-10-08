@@ -2,7 +2,7 @@
 title: Cloner des diapositives
 type: docs
 weight: 35
-url: /java/clone-slides/
+url: /fr/java/clone-slides/
 ---
 
 

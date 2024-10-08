@@ -2,7 +2,7 @@
 title: Extraire du texte d'une présentation
 type: docs
 weight: 90
-url: /php-java/extract-text-from-presentation/
+url: /fr/php-java/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 

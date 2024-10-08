@@ -3,7 +3,7 @@ title: Convertir PowerPoint en PNG en C#
 linktitle: Convertir PowerPoint en PNG
 type: docs
 weight: 30
-url: /net/convert-powerpoint-to-png/
+url: /fr/net/convert-powerpoint-to-png/
 keywords:
 - PowerPoint en png
 - ppt en png

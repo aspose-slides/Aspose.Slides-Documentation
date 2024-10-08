@@ -2,5 +2,5 @@
 title: Types de Forme
 type: docs
 weight: 10
-url: /php-java/shape-types/
+url: /fr/php-java/shape-types/
 ---

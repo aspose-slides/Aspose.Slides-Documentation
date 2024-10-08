@@ -2,7 +2,7 @@
 title: Graphique en anneau
 type: docs
 weight: 30
-url: /python-net/doughnut-chart/
+url: /fr/python-net/doughnut-chart/
 keywords: "Graphique en anneau, espace central, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Spécifiez l'espace central dans un graphique en anneau dans une présentation PowerPoint en Python"
 ---

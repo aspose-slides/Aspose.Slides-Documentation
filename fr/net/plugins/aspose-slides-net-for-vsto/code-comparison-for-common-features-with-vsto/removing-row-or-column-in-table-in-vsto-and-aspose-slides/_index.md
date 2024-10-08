@@ -2,7 +2,7 @@
 title: Suppression de ligne ou de colonne dans un tableau dans VSTO et Aspose.Slides
 type: docs
 weight: 130
-url: /net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
+url: /fr/net/removing-row-or-column-in-table-in-vsto-and-aspose-slides/
 ---
 
 ## **VSTO**

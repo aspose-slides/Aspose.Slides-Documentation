@@ -2,7 +2,7 @@
 title: Gérer une Table
 type: docs
 weight: 10
-url: /androidjava/manage-table/
+url: /fr/androidjava/manage-table/
 keywords: "Table, créer table, accéder à la table, ratio d'aspect de la table, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Créer et gérer des tables dans des présentations PowerPoint en Java"
 ---

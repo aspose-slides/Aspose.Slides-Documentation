@@ -2,7 +2,7 @@
 title: Classeur de graphiques
 type: docs
 weight: 70
-url: /php-java/chart-workbook/
+url: /fr/php-java/chart-workbook/
 keywords: "Classeur de graphiques, données de graphiques, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Classeur de graphiques dans une présentation PowerPoint"
 ---

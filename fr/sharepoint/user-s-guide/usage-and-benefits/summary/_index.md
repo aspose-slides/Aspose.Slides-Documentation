@@ -2,7 +2,7 @@
 title: Résumé
 type: docs
 weight: 50
-url: /sharepoint/summary/
+url: /fr/sharepoint/summary/
 ---
 
 {{% alert color="primary" %}} 

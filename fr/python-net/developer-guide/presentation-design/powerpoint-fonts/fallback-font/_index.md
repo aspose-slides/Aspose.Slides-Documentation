@@ -2,7 +2,7 @@
 title: Police de secours
 type: docs
 weight: 50
-url: /python-net/fallback-font/
+url: /fr/python-net/fallback-font/
 keywords: "Police de secours, police, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Police de secours PowerPoint en Python"
 ---
@@ -14,6 +14,6 @@ Aspose.Slides permet de créer des polices de secours, de les ajouter à la coll
 
 Pour vous familiariser avec ces fonctionnalités, utilisez les liens suivants :
 
-- [Créer une police de secours](/slides/python-net/create-fallback-font)
-- [Créer une collection de polices de secours](/slides/python-net/create-fallback-fonts-collection)
-- [Rendre une présentation avec une police de secours](/slides/python-net/render-presentation-with-fallback-font)
+- [Créer une police de secours](/slides/fr/python-net/create-fallback-font)
+- [Créer une collection de polices de secours](/slides/fr/python-net/create-fallback-fonts-collection)
+- [Rendre une présentation avec une police de secours](/slides/fr/python-net/render-presentation-with-fallback-font)

@@ -2,14 +2,14 @@
 title: Thème de Présentation
 type: docs
 weight: 10
-url: /java/presentation-theme/
+url: /fr/java/presentation-theme/
 keywords: "Thème, thème PowerPoint, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Thème de présentation PowerPoint en Java"
 ---
 
 Un thème de présentation définit les propriétés des éléments de design. Lorsque vous sélectionnez un thème de présentation, vous choisissez essentiellement un ensemble spécifique d'éléments visuels et leurs propriétés.
 
-Dans PowerPoint, un thème se compose de couleurs, [polices](/slides/java/powerpoint-fonts/), [styles de fond](/slides/java/presentation-background/), et d'effets.
+Dans PowerPoint, un thème se compose de couleurs, [polices](/slides/fr/java/powerpoint-fonts/), [styles de fond](/slides/fr/java/presentation-background/), et d'effets.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ La police de tous les blocs de texte sera mise à jour.
 
 {{% alert color="primary" title="ASTUCE" %}} 
 
-Vous voudrez peut-être voir [polices PowerPoint](/slides/java/powerpoint-fonts/).
+Vous voudrez peut-être voir [polices PowerPoint](/slides/fr/java/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="ASTUCE" %}} 
 
-Vous voudrez peut-être voir [Fond PowerPoint](/slides/java/presentation-background/).
+Vous voudrez peut-être voir [Fond PowerPoint](/slides/fr/java/presentation-background/).
 
 {{% /alert %}}
 

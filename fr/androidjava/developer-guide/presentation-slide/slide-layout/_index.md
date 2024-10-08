@@ -2,7 +2,7 @@
 title: Mise en page de diapositive
 type: docs
 weight: 60
-url: /androidjava/slide-layout/
+url: /fr/androidjava/slide-layout/
 keyword: "Définir la taille des diapositives, définir les options de diapositive, spécifier la taille de la diapositive, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, Java, Aspose.Slides"
 description: "Définir la taille et les options des diapositives PowerPoint en Java"
 ---

@@ -3,7 +3,7 @@ title: Police par défaut - API PowerPoint C#
 linktitle: Police par défaut
 type: docs
 weight: 30
-url: /net/default-font/
+url: /fr/net/default-font/
 keywords: 
 - police
 - police par défaut

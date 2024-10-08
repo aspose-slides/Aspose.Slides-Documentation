@@ -2,12 +2,12 @@
 title: Gérer le Placeholder
 type: docs
 weight: 10
-url: /java/manage-placeholder/
+url: /fr/java/manage-placeholder/
 description: Modifier le texte dans un placeholder dans des diapositives PowerPoint en utilisant Java. Définir le texte d'invite dans un placeholder dans des diapositives PowerPoint en utilisant Java.
 ---
 
 ## **Modifier le texte dans un Placeholder**
-En utilisant [Aspose.Slides pour Java](/slides/java/), vous pouvez trouver et modifier des placeholders sur des diapositives dans des présentations. Aspose.Slides vous permet d'apporter des modifications au texte dans un placeholder.
+En utilisant [Aspose.Slides pour Java](/slides/fr/java/), vous pouvez trouver et modifier des placeholders sur des diapositives dans des présentations. Aspose.Slides vous permet d'apporter des modifications au texte dans un placeholder.
 
 **Prérequis** : Vous avez besoin d'une présentation contenant un placeholder. Vous pouvez créer une telle présentation dans l'application standard Microsoft PowerPoint.
 

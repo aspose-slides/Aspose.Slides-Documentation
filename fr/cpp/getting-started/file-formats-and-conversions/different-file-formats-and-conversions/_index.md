@@ -2,7 +2,7 @@
 title: Différents formats de fichiers et conversions
 type: docs
 weight: 50
-url: /cpp/different-file-formats-and-conversions/
+url: /fr/cpp/different-file-formats-and-conversions/
 ---
 
 ## **Microsoft PowerPoint (PPT)**
@@ -210,7 +210,7 @@ Tout document de présentation pouvant être chargé dans Aspose.Slides pour C++
 - Puces
 - Tables
 
-Vous pouvez exporter directement les documents de présentation vers des documents PDF en utilisant uniquement le composant Aspose.Slides pour C++. C'est-à-dire que vous n'avez pas besoin d'autre composant tiers ou composant Aspose.Pdf à cette fin. De plus, vous pouvez personnaliser l'exportation de la présentation vers PDF avec différentes options comme expliqué dans [ce sujet](/slides/cpp/converting-presentation-to-pdf/).
+Vous pouvez exporter directement les documents de présentation vers des documents PDF en utilisant uniquement le composant Aspose.Slides pour C++. C'est-à-dire que vous n'avez pas besoin d'autre composant tiers ou composant Aspose.Pdf à cette fin. De plus, vous pouvez personnaliser l'exportation de la présentation vers PDF avec différentes options comme expliqué dans [ce sujet](/slides/fr/cpp/converting-presentation-to-pdf/).
 
 Un document de présentation converti en document PDF via Aspose.Slides pour C++
 ## **Spécification de l'analyseur XML (XPS)**

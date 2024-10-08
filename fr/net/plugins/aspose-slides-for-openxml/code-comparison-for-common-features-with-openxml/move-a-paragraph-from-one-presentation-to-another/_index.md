@@ -2,7 +2,7 @@
 title: Déplacer un paragraphe d'une présentation à une autre
 type: docs
 weight: 130
-url: /net/move-a-paragraph-from-one-presentation-to-another/
+url: /fr/net/move-a-paragraph-from-one-presentation-to-another/
 ---
 
 ## **Présentation OpenXML**

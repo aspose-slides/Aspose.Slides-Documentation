@@ -2,7 +2,7 @@
 title: Filigrane
 type: docs
 weight: 40
-url: /python-net/watermark/
+url: /fr/python-net/watermark/
 keywords:
 - filigrane
 - ajouter filigrane
@@ -46,7 +46,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser la classe TextFrame](/slides/python-net/text-formatting/)
+- [Comment utiliser la classe TextFrame](/slides/fr/python-net/text-formatting/)
 {{% /alert %}}
 
 ### **Ajouter un Filigrane de Texte à une Présentation**
@@ -64,7 +64,7 @@ with Presentation() as presentation:
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Slide Master](/slides/python-net/slide-master/)
+- [Comment utiliser le Slide Master](/slides/fr/python-net/slide-master/)
 {{% /alert %}}
 
 ### **Définir la Transparence de la Forme du Filigrane**

@@ -2,7 +2,7 @@
 title: Protéger par mot de passe la présentation exportée
 type: docs
 weight: 90
-url: /reportingservices/password-protecting-the-exported-presentation/
+url: /fr/reportingservices/password-protecting-the-exported-presentation/
 ---
 
 {{% alert color="primary" %}} 

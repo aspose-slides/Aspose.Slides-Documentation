@@ -3,7 +3,7 @@ title: Police Personnalisée PowerPoint
 linktitle: Police Personnalisée
 type: docs
 weight: 20
-url: /php-java/custom-font/
+url: /fr/php-java/custom-font/
 keywords: "Polices, polices personnalisées, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Polices personnalisées PowerPoint"
 ---

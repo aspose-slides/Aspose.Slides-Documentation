@@ -2,7 +2,7 @@
 title: Licences Simples et Abordables  
 type: docs  
 weight: 60  
-url: /reportingservices/simple-and-affordable-licensing/  
+url: /fr/reportingservices/simple-and-affordable-licensing/  
 ---  
 
 ## Types de Licences  

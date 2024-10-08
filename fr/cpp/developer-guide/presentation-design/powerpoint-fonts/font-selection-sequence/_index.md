@@ -3,7 +3,7 @@ title: Séquence de sélection de police en C++
 linktitle: Séquence de sélection de police en C++
 type: docs
 weight: 80
-url: /cpp/font-selection-sequence/
+url: /fr/cpp/font-selection-sequence/
 keywords:
 - police
 - sélection de police

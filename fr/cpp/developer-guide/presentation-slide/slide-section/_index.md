@@ -2,7 +2,7 @@
 title: Section de diapositive
 type: docs
 weight: 100
-url: /cpp/slide-section/
+url: /fr/cpp/slide-section/
 ---
 
 Avec Aspose.Slides pour C++, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections qui contiennent des diapos spécifiques.

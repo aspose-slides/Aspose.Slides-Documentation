@@ -2,7 +2,7 @@
 title: Extraire le texte d'une présentation
 type: docs
 weight: 90
-url: /java/extract-text-from-presentation/
+url: /fr/java/extract-text-from-presentation/
 ---
 
 {{% alert color="primary" %}} 

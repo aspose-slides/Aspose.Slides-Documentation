@@ -2,7 +2,7 @@
 title: Gérer OLE
 type: docs
 weight: 40
-url: /python-net/manage-ole/
+url: /fr/python-net/manage-ole/
 keywords:
 - ajouter OLE
 - intégrer OLE

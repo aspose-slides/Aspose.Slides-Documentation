@@ -2,7 +2,7 @@
 title: Gérer les lignes et les colonnes
 type: docs
 weight: 20
-url: /cpp/manage-rows-and-columns/
+url: /fr/cpp/manage-rows-and-columns/
 keywords: "Table, lignes et colonnes de table, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Gérer les lignes et les colonnes de table dans des présentations PowerPoint en C++"
 

@@ -1,7 +1,7 @@
 ---
 title: Points de données du diagramme Treemap et Sunburst
 type: docs
-url: /net/data-points-of-treemap-and-sunburst-chart/
+url: /fr/net/data-points-of-treemap-and-sunburst-chart/
 keywords: "Diagramme Sunburst, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Ajouter un diagramme Sunburst dans une présentation PowerPoint en C# ou .NET"
 ---
@@ -23,7 +23,7 @@ using (Presentation pres = new Presentation())
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [**Créer un diagramme Sunburst**](/slides/net/adding-charts/#addingcharts-creatingsunburstchart)
+- [**Créer un diagramme Sunburst**](/slides/fr/net/adding-charts/#addingcharts-creatingsunburstchart)
 {{% /alert %}}
 
 S'il est nécessaire de formater les points de données du diagramme, nous devrions utiliser ce qui suit :

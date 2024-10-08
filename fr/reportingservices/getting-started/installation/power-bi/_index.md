@@ -2,7 +2,7 @@
 title: Installer Aspose.Slides pour Reporting Services dans Power BI
 type: docs
 weight: 20
-url: /reportingservices/power-bi/
+url: /fr/reportingservices/power-bi/
 keywords: "Power BI, installation, Aspose.Slides pour Reporting Services dans Power BI"
 description: "Installer Aspose.Slides pour Reporting Services dans Power BI"
 ---

@@ -2,7 +2,7 @@
 title: Enregistrer la Présentation
 type: docs
 weight: 80
-url: /python-net/save-presentation/
+url: /fr/python-net/save-presentation/
 keywords: "Enregistrer PowerPoint, PPT, PPTX, Enregistrer la Présentation, fichier, flux, Python"
 description: "Enregistrer une Présentation PowerPoint en tant que fichier ou flux en Python"
 ---

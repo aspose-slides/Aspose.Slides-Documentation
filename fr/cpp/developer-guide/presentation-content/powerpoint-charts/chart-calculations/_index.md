@@ -2,7 +2,7 @@
 title: Calculs de Diagrammes
 type: docs
 weight: 50
-url: /cpp/chart-calculations/
+url: /fr/cpp/chart-calculations/
 ---
 
 ## **Calculer les Valeurs Réelles des Éléments du Diagramme**

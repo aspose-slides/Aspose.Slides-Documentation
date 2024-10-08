@@ -2,7 +2,7 @@
 title: Cadre Audio
 type: docs
 weight: 10
-url: /php-java/audio-frame/
+url: /fr/php-java/audio-frame/
 keywords: "Ajouter de l'audio, Cadre audio, Propriétés audio, Extraire l'audio, Java, Aspose.Slides pour PHP via Java"
 description: "Ajouter de l'audio à une présentation PowerPoint"
 ---

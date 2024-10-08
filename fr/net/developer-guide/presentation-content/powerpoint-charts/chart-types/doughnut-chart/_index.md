@@ -2,7 +2,7 @@
 title: Graphique en Anneau
 type: docs
 weight: 30
-url: /net/doughnut-chart/
+url: /fr/net/doughnut-chart/
 keywords: "Graphique en anneau, trou central, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Spécifiez le trou central dans un graphique en anneau dans une présentation PowerPoint en C# ou .NET"
 ---

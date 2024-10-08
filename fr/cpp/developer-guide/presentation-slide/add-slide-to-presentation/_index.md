@@ -2,7 +2,7 @@
 title: Ajouter une diapositive à la présentation
 type: docs
 weight: 10
-url: /cpp/add-slide-to-presentation/
+url: /fr/cpp/add-slide-to-presentation/
 ---
 
 ## **Ajouter une diapositive à la présentation**

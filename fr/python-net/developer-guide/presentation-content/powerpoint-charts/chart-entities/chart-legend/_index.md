@@ -1,7 +1,7 @@
 ---
 title: Légende de Graphique
 type: docs
-url: /python-net/chart-legend/
+url: /fr/python-net/chart-legend/
 keywords: "Légende de graphique, taille de police de légende, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Définir le positionnement et la taille de police pour la légende de graphique dans des présentations PowerPoint en Python"
 ---

@@ -2,7 +2,7 @@
 title: Arrière-plan de Présentation
 type: docs
 weight: 20
-url: /java/presentation-background/
+url: /fr/java/presentation-background/
 keywords: "arrière-plan PowerPoint, définir un arrière-plan en Java"
 description: "Définir un arrière-plan dans une présentation PowerPoint en Java"
 ---

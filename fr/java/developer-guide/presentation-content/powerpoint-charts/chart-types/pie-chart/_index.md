@@ -1,7 +1,7 @@
 ---
 title: Graphique en secteurs
 type: docs
-url: /java/pie-chart/
+url: /fr/java/pie-chart/
 ---
 
 ## **Options de deuxième graphique pour le graphique en secteurs de secteurs et le graphique en secteurs à barres**

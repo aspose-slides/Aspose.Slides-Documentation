@@ -2,7 +2,7 @@
 title: Mise en forme des formes
 type: docs
 weight: 20
-url: /net/shape-formatting/
+url: /fr/net/shape-formatting/
 keywords:
 - mise en forme des formes
 - mise en forme des lignes

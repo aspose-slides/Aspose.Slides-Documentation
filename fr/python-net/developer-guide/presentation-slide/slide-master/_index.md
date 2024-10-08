@@ -2,7 +2,7 @@
 title: Maître de Diapositive
 type: docs
 weight: 80
-url: /python-net/slide-master/
+url: /fr/python-net/slide-master/
 keywords: "Ajouter Maître de Diapositive, diapositive maître PPT, maître de diapositive PowerPoint, Image au Maître de Diapositive, Espace réservé, Plusieurs Maîtres de Diapositives, Comparer Maîtres de Diapositives, Python, Aspose.Slides"
 description: "Ajouter ou modifier le maître de diapositive dans la présentation PowerPoint en Python"
 ---
@@ -133,7 +133,7 @@ with slides.Presentation() as pres:
 
 {{% alert color="primary" title="À voir aussi" %}} 
 
-Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article sur le [Cadre d'Image](/slides/python-net/picture-frame/#create-picture-frame).
+Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article sur le [Cadre d'Image](/slides/fr/python-net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Ajouter un Espace Réservé au Maître de Diapositive**

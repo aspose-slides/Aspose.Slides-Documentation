@@ -2,18 +2,18 @@
 title: En-tête et pied de page de présentation
 type: docs
 weight: 140
-url: /java/presentation-header-and-footer/
+url: /fr/java/presentation-header-and-footer/
 keywords: "En-tête et pied de page PowerPoint en Java"
 description: "En-tête et pied de page PowerPoint en Java"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/java/) fournit un support pour travailler avec le texte des en-têtes et des pieds de page des diapositives qui sont en fait maintenus au niveau du maître des diapositives.
+[Aspose.Slides](/slides/fr/java/) fournit un support pour travailler avec le texte des en-têtes et des pieds de page des diapositives qui sont en fait maintenus au niveau du maître des diapositives.
 
 {{% /alert %}} 
 
-[Aspose.Slides pour Java](/slides/java/) propose la fonctionnalité de gestion des en-têtes et des pieds de page dans les diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
+[Aspose.Slides pour Java](/slides/fr/java/) propose la fonctionnalité de gestion des en-têtes et des pieds de page dans les diapositives de présentation. Ceux-ci sont en fait gérés au niveau du maître de présentation.
 
 ## **Gérer l'en-tête et le pied de page dans la présentation**
 Les notes de certaines diapositives spécifiques peuvent être supprimées comme montré dans l'exemple ci-dessous :

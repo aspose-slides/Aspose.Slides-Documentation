@@ -2,7 +2,7 @@
 title: Comment ajouter un en-tête et un pied de page dans une présentation
 type: docs
 weight: 20
-url: /java/how-to-add-header-footer-in-a-presentation/
+url: /fr/java/how-to-add-header-footer-in-a-presentation/
 ---
 
 {{% alert color="primary" %}} 

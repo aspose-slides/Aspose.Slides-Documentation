@@ -2,7 +2,7 @@
 title: Flash
 type: docs
 weight: 10
-url: /androidjava/flash/
+url: /fr/androidjava/flash/
 description: Extraire des objets Flash d'une présentation PowerPoint en utilisant Java
 ---
 

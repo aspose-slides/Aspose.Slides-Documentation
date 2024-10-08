@@ -2,7 +2,7 @@
 title: Présentation 3D
 type: docs
 weight: 232
-url: /cpp/3d-presentation/
+url: /fr/cpp/3d-presentation/
 keywords:
 - 3D
 - PowerPoint 3D

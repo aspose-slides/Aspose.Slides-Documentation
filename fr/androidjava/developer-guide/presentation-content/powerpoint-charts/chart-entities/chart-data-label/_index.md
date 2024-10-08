@@ -1,7 +1,7 @@
 ---
 title: Étiquette de Données de Graphique
 type: docs
-url: /androidjava/chart-data-label/
+url: /fr/androidjava/chart-data-label/
 keywords: "Étiquette de données de graphique, distance d'étiquette, Java, Aspose.Slides pour Android via Java"
 description: "Définir l'étiquette de données de graphique PowerPoint et la distance en Java"
 ---

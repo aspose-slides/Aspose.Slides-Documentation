@@ -2,7 +2,7 @@
 title: Importer une présentation
 type: docs
 weight: 60
-url: /java/import-presentation/
+url: /fr/java/import-presentation/
 keywords: "Importer PowerPoint, PDF vers présentation, PDF vers PPTX, PDF vers PPT, Java, Aspose.Slides pour Java"
 description: "Importer une présentation PowerPoint à partir d'un PDF. Convertir PDF en PowerPoint"
 ---

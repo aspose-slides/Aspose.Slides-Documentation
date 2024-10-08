@@ -1,7 +1,7 @@
 ---
 title: Propriétés de la vue normale
 type: docs
-url: /cpp/presentation-view-properties/
+url: /fr/cpp/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 

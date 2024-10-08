@@ -2,7 +2,7 @@
 title: Gestion des tags et des données personnalisées
 type: docs
 weight: 300
-url: /java/managing-tags-and-custom-data
+url: /fr/java/managing-tags-and-custom-data
 
 ---
 

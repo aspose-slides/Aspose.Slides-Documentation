@@ -2,7 +2,7 @@
 title: PPT vs PPTX
 type: docs
 weight: 10
-url: /androidjava/ppt-vs-pptx/
+url: /fr/androidjava/ppt-vs-pptx/
 keywords: "PPT vs PPTX"
 description: "Lisez les différences entre PPT et PPTX dans Aspose.Slides."
 ---
@@ -37,5 +37,5 @@ try {
 ```
 
 {{% alert color="primary" %}} 
-Lisez plus [**Comment convertir des présentations PPT en PPTX**.](/slides/androidjava/convert-ppt-to-pptx/)
+Lisez plus [**Comment convertir des présentations PPT en PPTX**.](/slides/fr/androidjava/convert-ppt-to-pptx/)
 {{% /alert %}} 

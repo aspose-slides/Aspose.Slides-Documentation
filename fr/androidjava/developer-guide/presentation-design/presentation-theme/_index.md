@@ -2,14 +2,14 @@
 title: Thème de Présentation
 type: docs
 weight: 10
-url: /androidjava/presentation-theme/
+url: /fr/androidjava/presentation-theme/
 keywords: "Thème, thème PowerPoint, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Thème de présentation PowerPoint en Java"
 ---
 
 Un thème de présentation définit les propriétés des éléments de design. Lorsque vous sélectionnez un thème de présentation, vous choisissez essentiellement un ensemble spécifique d'éléments visuels et leurs propriétés.
 
-Dans PowerPoint, un thème se compose de couleurs, [polices](/slides/androidjava/powerpoint-fonts/), [styles d'arrière-plan](/slides/androidjava/presentation-background/), et effets.
+Dans PowerPoint, un thème se compose de couleurs, [polices](/slides/fr/androidjava/powerpoint-fonts/), [styles d'arrière-plan](/slides/fr/androidjava/presentation-background/), et effets.
 
 ![theme-constituents](theme-constituents.png)
 
@@ -159,7 +159,7 @@ La police dans toutes les zones de texte sera mise à jour.
 
 {{% alert color="primary" title="ASTUCE" %}} 
 
-Vous voudrez peut-être voir [les polices PowerPoint](/slides/androidjava/powerpoint-fonts/).
+Vous voudrez peut-être voir [les polices PowerPoint](/slides/fr/androidjava/powerpoint-fonts/).
 
 {{% /alert %}}
 
@@ -198,7 +198,7 @@ pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
 
 {{% alert color="primary" title="ASTUCE" %}} 
 
-Vous voudrez peut-être voir [l'Arrière-plan PowerPoint](/slides/androidjava/presentation-background/).
+Vous voudrez peut-être voir [l'Arrière-plan PowerPoint](/slides/fr/androidjava/presentation-background/).
 
 {{% /alert %}}
 

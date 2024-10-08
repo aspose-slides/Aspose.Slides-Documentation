@@ -2,5 +2,5 @@
 title: Articles Techniques
 type: docs
 weight: 270
-url: /python-net/technical-articles/
+url: /fr/python-net/technical-articles/
 ---

@@ -2,7 +2,7 @@
 title: Personnaliser la légende de l'extension de rendu PowerPoint
 type: docs
 weight: 60
-url: /reportingservices/customizing-powerpoint-rendering-extension-caption/
+url: /fr/reportingservices/customizing-powerpoint-rendering-extension-caption/
 ---
 
 {{% alert color="primary" %}} 

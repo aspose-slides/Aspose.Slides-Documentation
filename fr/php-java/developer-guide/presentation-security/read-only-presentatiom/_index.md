@@ -2,7 +2,7 @@
 title: Présentation en Lecture Seule
 type: docs
 weight: 30
-url: /php-java/read-only-presentation/
+url: /fr/php-java/read-only-presentation/
 
 ---
 

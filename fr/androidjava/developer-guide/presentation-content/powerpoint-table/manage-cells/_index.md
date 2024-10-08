@@ -2,7 +2,7 @@
 title: Gérer les cellules
 type: docs
 weight: 30
-url: /androidjava/manage-cells/
+url: /fr/androidjava/manage-cells/
 keywords: "Table, cellules fusionnées, cellules divisées, image dans une cellule de tableau, Java, Aspose.Slides pour Android via Java"
 description: "Cellules de tableau dans les présentations PowerPoint en Java"
 ---

@@ -2,7 +2,7 @@
 title: Questions Fréquemment Posées
 type: docs
 weight: 110
-url: /reportingservices/frequently-asked-questions/
+url: /fr/reportingservices/frequently-asked-questions/
 ---
 
 {{% alert color="primary" %}} 

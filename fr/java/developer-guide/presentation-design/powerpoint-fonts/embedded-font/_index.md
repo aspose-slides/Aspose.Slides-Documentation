@@ -3,7 +3,7 @@ title: Police Embarquée - API Java de PowerPoint
 linktitle: Police Embarquée
 type: docs
 weight: 40
-url: /java/embedded-font/
+url: /fr/java/embedded-font/
 keywords: "Polices, polices embarquées, ajouter des polices, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Utilisez des polices embarquées dans une présentation PowerPoint en Java"
 

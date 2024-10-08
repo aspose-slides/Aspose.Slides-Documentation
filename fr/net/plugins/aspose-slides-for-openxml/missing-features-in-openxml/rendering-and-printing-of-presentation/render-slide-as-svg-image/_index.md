@@ -2,7 +2,7 @@
 title: Rendre une diapositive en tant qu'image SVG
 type: docs
 weight: 50
-url: /net/render-slide-as-svg-image/
+url: /fr/net/render-slide-as-svg-image/
 ---
 
 SVG—un acronyme pour Scalable Vector Graphics—est un type ou format graphique standard utilisé pour rendre des images deux dimensions. SVG stocke les images sous forme de vecteurs dans XML avec des détails qui définissent leur comportement ou leur apparence.

@@ -2,12 +2,12 @@
 title: Ajout de Texte Dynamiquement avec VSTO et Aspose.Slides pour Java
 type: docs
 weight: 20
-url: /java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
+url: /fr/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/
 ---
 
 {{% alert color="primary" %}} 
 
-Une tâche courante que les développeurs doivent accomplir est d'ajouter du texte aux diapositives de manière dynamique. Cet article montre des exemples de code pour ajouter du texte dynamiquement en utilisant [VSTO](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) et [Aspose.Slides for Java](/slides/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
+Une tâche courante que les développeurs doivent accomplir est d'ajouter du texte aux diapositives de manière dynamique. Cet article montre des exemples de code pour ajouter du texte dynamiquement en utilisant [VSTO](/slides/fr/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/) et [Aspose.Slides for Java](/slides/fr/java/adding-text-dynamically-using-vsto-and-aspose-slides-for-java/).
 
 {{% /alert %}} 
 ## **Ajout de Texte Dynamiquement**

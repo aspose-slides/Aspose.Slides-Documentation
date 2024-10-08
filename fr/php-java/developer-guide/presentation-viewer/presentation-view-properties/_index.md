@@ -1,7 +1,7 @@
 ---
 title: Propriétés de la Vue de Présentation
 type: docs
-url: /php-java/presentation-view-properties/
+url: /fr/php-java/presentation-view-properties/
 ---
 
 {{% alert color="primary" %}} 
@@ -57,7 +57,7 @@ Un exemple est donné ci-dessous pour montrer comment vous pouvez accéder aux p
 ## **Définir la valeur de zoom par défaut**
 {{% alert color="primary" %}} 
 
-Aspose.Slides pour PHP via Java prend désormais en charge la définition de la valeur de zoom par défaut pour une présentation de sorte que lorsque la présentation est ouverte, le zoom est déjà réglé. Cela peut être fait en définissant les [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) d'une présentation. Les [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) ainsi que [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) peuvent être définis par programmation. Dans ce sujet, nous allons voir avec un exemple comment définir les [Propriétés de Vue](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) dans [Aspose.Slides](/slides/).
+Aspose.Slides pour PHP via Java prend désormais en charge la définition de la valeur de zoom par défaut pour une présentation de sorte que lorsque la présentation est ouverte, le zoom est déjà réglé. Cela peut être fait en définissant les [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) d'une présentation. Les [getSlideViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getSlideViewProperties--) ainsi que [getNotesViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#getNotesViewProperties--) peuvent être définis par programmation. Dans ce sujet, nous allons voir avec un exemple comment définir les [Propriétés de Vue](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) de [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) dans [Aspose.Slides](/slides/fr/).
 
 {{% /alert %}} 
 

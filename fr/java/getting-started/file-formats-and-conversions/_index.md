@@ -2,5 +2,5 @@
 title: Formats de Fichier et Conversions  
 type: docs  
 weight: 40  
-url: /java/file-formats-and-conversions/  
+url: /fr/java/file-formats-and-conversions/  
 ---  

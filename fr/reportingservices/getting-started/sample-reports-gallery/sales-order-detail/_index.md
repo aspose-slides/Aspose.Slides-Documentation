@@ -2,7 +2,7 @@
 title: Détails de la commande de vente  
 type: docs  
 weight: 50  
-url: /reportingservices/sales-order-detail/  
+url: /fr/reportingservices/sales-order-detail/  
 ---  
 
 ## **Fonctionnalités :**  

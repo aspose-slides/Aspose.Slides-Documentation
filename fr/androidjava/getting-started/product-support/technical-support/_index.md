@@ -2,7 +2,7 @@
 title: Support Technique
 type: docs
 weight: 10
-url: /androidjava/support-technique/
+url: /fr/androidjava/support-technique/
 ---
 
 {{% alert color="primary" %}} 

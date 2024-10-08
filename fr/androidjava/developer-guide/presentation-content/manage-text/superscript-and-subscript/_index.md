@@ -2,7 +2,7 @@
 title: Texte en exposant et en indice
 type: docs
 weight: 80
-url: /androidjava/superscript-and-subscript/
+url: /fr/androidjava/superscript-and-subscript/
 ---
 
 ## **Gérer le texte en exposant et en indice**

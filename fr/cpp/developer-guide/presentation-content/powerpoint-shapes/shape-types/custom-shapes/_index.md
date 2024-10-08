@@ -2,7 +2,7 @@
 title: Forme Personnalisée
 type: docs
 weight: 20
-url: /cpp/custom-shape/
+url: /fr/cpp/custom-shape/
 keywords: "forme PowerPoint, forme personnalisée, présentation PowerPoint, C++, Aspose.Slides pour C++"
 description: "Ajouter une forme personnalisée dans une présentation PowerPoint en C++"
 ---

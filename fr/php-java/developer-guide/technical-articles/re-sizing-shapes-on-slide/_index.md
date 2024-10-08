@@ -2,7 +2,7 @@
 title: Redimensionnement des formes sur une diapositive
 type: docs
 weight: 110
-url: /php-java/redimensionnement-des-formes-sur-une-diapositive/
+url: /fr/php-java/redimensionnement-des-formes-sur-une-diapositive/
 ---
 
 ## **Redimensionnement des formes sur une diapositive**

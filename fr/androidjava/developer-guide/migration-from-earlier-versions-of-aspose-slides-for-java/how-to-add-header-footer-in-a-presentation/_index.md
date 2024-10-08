@@ -2,7 +2,7 @@
 title: Comment ajouter un en-tête et un pied de page dans une présentation
 type: docs
 weight: 20
-url: /androidjava/comment-ajouter-un-en-tete-et-un-pied-de-page-dans-une-presentation/
+url: /fr/androidjava/comment-ajouter-un-en-tete-et-un-pied-de-page-dans-une-presentation/
 ---
 
 {{% alert color="primary" %}} 

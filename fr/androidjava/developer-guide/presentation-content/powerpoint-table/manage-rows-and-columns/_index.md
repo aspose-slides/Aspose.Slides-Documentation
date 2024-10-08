@@ -2,7 +2,7 @@
 title: Gérer les lignes et les colonnes
 type: docs
 weight: 20
-url: /androidjava/manage-rows-and-columns/
+url: /fr/androidjava/manage-rows-and-columns/
 keywords: "Table, lignes et colonnes de tableau, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Gérer les lignes et les colonnes des tableaux dans des présentations PowerPoint en Java"
 ---

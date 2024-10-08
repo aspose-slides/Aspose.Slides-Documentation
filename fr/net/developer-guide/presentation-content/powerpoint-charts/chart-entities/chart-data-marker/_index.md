@@ -1,7 +1,7 @@
 ---
 title: Options de Marqueur de Graphique
 type: docs
-url: /net/chart-data-marker/
+url: /fr/net/chart-data-marker/
 keywords:
 - options de marqueur de graphique
 - PowerPoint

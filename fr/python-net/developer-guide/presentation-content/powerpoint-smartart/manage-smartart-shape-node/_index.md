@@ -2,7 +2,7 @@
 title: Gérer le nœud de forme SmartArt
 type: docs
 weight: 30
-url: /python-net/manage-smartart-shape-node/
+url: /fr/python-net/manage-smartart-shape-node/
 keywords: "nœud SmartArt, nœud enfant SmartArt, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Nœud intelligent et nœud enfant dans les présentations PowerPoint en Python"
 ---

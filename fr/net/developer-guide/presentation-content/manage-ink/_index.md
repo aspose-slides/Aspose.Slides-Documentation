@@ -2,7 +2,7 @@
 title: Gérer l'encre
 type: docs
 weight: 95
-url: /net/manage-ink/
+url: /fr/net/manage-ink/
 keywords: "Encre dans PowerPoint, Outils d'encre, C# Encre, Dessiner dans PowerPoint, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET "
 description: "Utilisez les outils d'encre pour dessiner des objets dans PowerPoint C#"
 ---

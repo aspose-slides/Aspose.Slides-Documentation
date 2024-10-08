@@ -2,7 +2,7 @@
 title: Formatage du texte
 type: docs
 weight: 50
-url: /java/text-formatting/
+url: /fr/java/text-formatting/
 keywords:
 - texte surligné
 - expression régulière

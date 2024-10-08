@@ -2,7 +2,7 @@
 title: Présentation en Lecture Seule
 type: docs
 weight: 30
-url: /net/read-only-presentation/
+url: /fr/net/read-only-presentation/
 keywords: "Paramètre en lecture seule, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Présentation PowerPoint en lecture seule en C# ou .NET"
 ---

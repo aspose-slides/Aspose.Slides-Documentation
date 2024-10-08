@@ -2,7 +2,7 @@
 title: Obtenir l'arrière-plan de la diapositive de présentation entière en tant qu'image
 type: docs
 weight: 95
-url: /net/get-the-entire-presentation-slide-background-as-an-image/
+url: /fr/net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositive
 - arrière-plan
@@ -17,7 +17,7 @@ keywords:
 - Aspose.Slides for .NET
 ---
 
-Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut se composer de nombreux éléments. En plus de l'image définie comme [arrière-plan de diapositive](/slides/net/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive maîtresse et la diapositive de mise en page.
+Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut se composer de nombreux éléments. En plus de l'image définie comme [arrière-plan de diapositive](/slides/fr/net/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive maîtresse et la diapositive de mise en page.
 
 Aspose.Slides for .NET ne fournit pas de méthode simple pour extraire l'arrière-plan entier de la diapositive de présentation en tant qu'image, mais vous pouvez suivre les étapes ci-dessous pour le faire :
 1. Chargez la présentation à l'aide de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).

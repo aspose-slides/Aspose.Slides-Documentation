@@ -2,7 +2,7 @@
 title: Maître de diapositive
 type: docs
 weight: 80
-url: /net/slide-master/
+url: /fr/net/slide-master/
 keywords: "Ajouter Maître de diapositive, diapositive maître PPT, maître de diapositive PowerPoint, image au Maître de diapositive, espace réservé, plusieurs Maîtres de diapositive, comparer Maîtres de diapositive, C#, Csharp, .NET, Aspose.Slides"
 description: "Ajouter ou modifier le maître de diapositive dans une présentation PowerPoint en C# ou .NET"
 ---
@@ -130,7 +130,7 @@ using (Presentation pres = new Presentation())
 
 {{% alert color="primary" title="Voir aussi" %}} 
 
-Pour plus d'informations sur l'ajout d'images à une diapositive, voir l'article sur [Image Frame](/slides/net/picture-frame/#create-picture-frame).
+Pour plus d'informations sur l'ajout d'images à une diapositive, voir l'article sur [Image Frame](/slides/fr/net/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 

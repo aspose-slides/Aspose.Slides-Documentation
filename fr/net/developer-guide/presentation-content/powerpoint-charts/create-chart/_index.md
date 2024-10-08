@@ -3,7 +3,7 @@ title: Créer ou Mettre à Jour des Graphiques de Présentation PowerPoint en C#
 linktitle: Créer ou Mettre à Jour un Graphique
 type: docs
 weight: 10
-url: /net/create-chart/
+url: /fr/net/create-chart/
 keywords: "Créer un graphique, graphique dispersé, graphique à secteurs, diagramme en arbre, graphique boursier, graphique de boîte et de moustache, graphique histogramme, graphique en entonnoir, graphique en soleil, graphique multicatégorie, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Créer un graphique dans une présentation PowerPoint en C# ou .NET"
 ---

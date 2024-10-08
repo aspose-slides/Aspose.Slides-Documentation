@@ -2,7 +2,7 @@
 title: Superscript et Subscript
 type: docs
 weight: 80
-url: /php-java/superscript-and-subscript/
+url: /fr/php-java/superscript-and-subscript/
 ---
 
 ## **Gérer le texte en exposant et en indice**

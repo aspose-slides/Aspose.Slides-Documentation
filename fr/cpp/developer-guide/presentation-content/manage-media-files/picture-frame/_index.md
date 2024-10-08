@@ -2,7 +2,7 @@
 title: Cadre photo
 type: docs
 weight: 10
-url: /cpp/picture-frame/
+url: /fr/cpp/picture-frame/
 keywords: "Ajouter un cadre photo, créer un cadre photo, ajouter une image, créer une image, extraire une image, propriété StretchOff, mise en forme du cadre photo, propriétés du cadre photo, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Ajouter un cadre photo à une présentation PowerPoint en C++"
 ---

@@ -2,7 +2,7 @@
 title: Gérer le Zoom
 type: docs
 weight: 60
-url: /cpp/manage-zoom/
+url: /fr/cpp/manage-zoom/
 keywords: "Zoom, cadre de zoom, Ajouter un zoom, Formater le cadre de zoom, Résumé zoom, Présentation PowerPoint, C++, Aspose.Slides for C++"
 description: "Ajoutez un zoom ou des cadres de zoom aux présentations PowerPoint en C++"
 ---

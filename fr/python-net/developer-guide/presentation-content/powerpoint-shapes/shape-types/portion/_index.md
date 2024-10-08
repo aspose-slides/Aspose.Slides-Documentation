@@ -2,7 +2,7 @@
 title: Portion
 type: docs
 weight: 70
-url: /python-net/portion/
+url: /fr/python-net/portion/
 keywords: "Portion, forme PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Obtenir la portion dans une présentation PowerPoint en Python"
 ---

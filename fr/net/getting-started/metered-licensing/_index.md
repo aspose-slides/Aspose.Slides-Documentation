@@ -2,7 +2,7 @@
 title: Licence à la consommation
 type: docs
 weight: 90
-url: /net/metered-licensing/
+url: /fr/net/metered-licensing/
 ---
 
 {{% alert color="primary" %}} 

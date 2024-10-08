@@ -2,7 +2,7 @@
 title: Cadre Audio
 type: docs
 weight: 10
-url: /python-net/audio-frame/
+url: /fr/python-net/audio-frame/
 keywords: "Ajouter de l'audio, Cadre audio, Propriétés audio, Extraire de l'audio, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter de l'audio à une présentation PowerPoint en Python"
 ---

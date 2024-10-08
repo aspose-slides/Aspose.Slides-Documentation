@@ -2,7 +2,7 @@
 title: Travailler avec la Taille et la Mise en Page de la Présentation
 type: docs
 weight: 90
-url: /net/working-with-size-and-layout-of-presentation/
+url: /fr/net/working-with-size-and-layout-of-presentation/
 ---
 
 **SlideSize.Type** et **SlideSize.Size** sont les propriétés de la classe présentation qui peuvent être définies ou récupérées comme montré ci-dessous dans l'exemple.
@@ -47,6 +47,6 @@ auxPresentation.Save(FileName, Aspose.Slides.Export.SaveFormat.Pptx);
 
 {{% alert color="primary" %}} 
 
-Pour plus de détails, visitez [Travailler Avec la Taille et la Mise en Page de la Diapositive](/slides/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
+Pour plus de détails, visitez [Travailler Avec la Taille et la Mise en Page de la Diapositive](/slides/fr/net/adding-and-editing-slides/#working-with-slide-size-and-layout).
 
 {{% /alert %}}

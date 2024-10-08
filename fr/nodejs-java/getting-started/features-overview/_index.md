@@ -2,7 +2,7 @@
 title: Aperçu des Fonctionnalités
 type: docs
 weight: 20
-url: /nodejs-java/features-overview/
+url: /fr/nodejs-java/features-overview/
 ---
 
 ## **Plateformes Supportées**

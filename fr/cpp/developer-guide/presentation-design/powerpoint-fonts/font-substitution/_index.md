@@ -2,7 +2,7 @@
 title: Substitution de police
 type: docs
 weight: 70
-url: /cpp/font-substitution/
+url: /fr/cpp/font-substitution/
 keywords: "Police, police de substitution, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Substituer la police dans PowerPoint en C++"
 ---
@@ -48,6 +48,6 @@ pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Vous voudrez peut-être voir [**Remplacement de police**](/slides/cpp/font-replacement/). 
+Vous voudrez peut-être voir [**Remplacement de police**](/slides/fr/cpp/font-replacement/). 
 
 {{% /alert %}}

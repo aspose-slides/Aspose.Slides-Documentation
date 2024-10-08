@@ -2,7 +2,7 @@
 title: Paragraphe
 type: docs
 weight: 60
-url: /cpp/paragraph/
+url: /fr/cpp/paragraph/
 ---
 
 ## **Obtenir les coordonnées de paragraphe et de portion dans TextFrame**

@@ -2,12 +2,12 @@
 title: Effet de forme
 type: docs
 weight: 30
-url: /python-net/shape-effect
+url: /fr/python-net/shape-effect
 keywords: "Effet de forme, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Appliquer un effet à une forme PowerPoint en Python"
 ---
 
-Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/python-net/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre la lueur d'une forme, etc.
+Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/fr/python-net/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre la lueur d'une forme, etc.
 
 <img src="shape-effect.png" alt="effet-de-forme" style="zoom:50%;" />
 

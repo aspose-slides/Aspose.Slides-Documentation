@@ -2,12 +2,12 @@
 title: Gérer le Remplaçant
 type: docs
 weight: 10
-url: /php-java/manage-placeholder/
+url: /fr/php-java/manage-placeholder/
 description: Modifier le texte dans un remplaçant dans des diapositives PowerPoint à l'aide de PHP. Définir le texte d'invite dans un remplaçant dans des diapositives PowerPoint à l'aide de PHP.
 ---
 
 ## **Modifier le texte dans le remplaçant**
-À l'aide de [Aspose.Slides pour PHP via Java](/slides/php-java/), vous pouvez trouver et modifier des remplaçants sur des diapositives dans des présentations. Aspose.Slides vous permet de modifier le texte dans un remplaçant.
+À l'aide de [Aspose.Slides pour PHP via Java](/slides/fr/php-java/), vous pouvez trouver et modifier des remplaçants sur des diapositives dans des présentations. Aspose.Slides vous permet de modifier le texte dans un remplaçant.
 
 **Conditions préalables** : Vous avez besoin d'une présentation contenant un remplaçant. Vous pouvez créer une telle présentation dans l'application Microsoft PowerPoint standard.
 

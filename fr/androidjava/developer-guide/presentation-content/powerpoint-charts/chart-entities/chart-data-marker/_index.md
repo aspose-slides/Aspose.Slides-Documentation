@@ -1,7 +1,7 @@
 ---
 title: Marqueur de données du graphique
 type: docs
-url: /androidjava/chart-data-marker/
+url: /fr/androidjava/chart-data-marker/
 ---
 
 ## **Définir les options de marqueur de graphique**

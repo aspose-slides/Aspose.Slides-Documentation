@@ -2,7 +2,7 @@
 title: Convertir un fichier
 type: docs
 weight: 10
-url: /sharepoint/convert-one-file/
+url: /fr/sharepoint/convert-one-file/
 ---
 
 Pour convertir un document dans la bibliothèque de documents :

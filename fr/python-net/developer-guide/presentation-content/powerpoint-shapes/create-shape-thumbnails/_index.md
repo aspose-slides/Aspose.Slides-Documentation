@@ -2,7 +2,7 @@
 title: Créer des Vignettes de Forme
 type: docs
 weight: 70
-url: /python-net/create-shape-thumbnails/
+url: /fr/python-net/create-shape-thumbnails/
 keywords: "Vignette de forme. Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Vignette de forme dans une présentation PowerPoint en Python"
 ---

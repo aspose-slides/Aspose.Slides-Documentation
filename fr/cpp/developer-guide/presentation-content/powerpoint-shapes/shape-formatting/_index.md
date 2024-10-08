@@ -2,7 +2,7 @@
 title: Mise en forme des formes
 type: docs
 weight: 20
-url: /cpp/shape-formatting/
+url: /fr/cpp/shape-formatting/
 keywords: "Mise en forme de forme, mise en forme des lignes, styles de jointure, remplissage dégradé, remplissage de motif, remplissage d'image, remplissage couleur unie, rotation des formes, effets de biseau 3D, effet de rotation 3D, présentation PowerPoint, C++, Aspose.Slides pour C++"
 description: "Mise en forme des formes dans une présentation PowerPoint en C++"
 ---

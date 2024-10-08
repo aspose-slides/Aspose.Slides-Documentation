@@ -2,7 +2,7 @@
 title: Propriétés Efficaces de Forme
 type: docs
 weight: 50
-url: /androidjava/shape-effective-properties/
+url: /fr/androidjava/shape-effective-properties/
 ---
 
 Dans ce sujet, nous allons discuter des **propriétés** **efficaces** et **locales**. Lorsque nous définissons des valeurs directement à ces niveaux :

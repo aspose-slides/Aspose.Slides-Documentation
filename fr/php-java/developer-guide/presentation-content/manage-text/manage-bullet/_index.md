@@ -2,7 +2,7 @@
 title: Gérer les Puces
 type: docs
 weight: 60
-url: /php-java/manage-bullet/
+url: /fr/php-java/manage-bullet/
 keywords: "Puces, Listes à puces, Nombres, Listes numérotées, Puces d'image, puces multilevel, Présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Créer des listes à puces et des listes numérotées dans une présentation PowerPoint"
 ---

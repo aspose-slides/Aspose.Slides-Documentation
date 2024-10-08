@@ -2,7 +2,7 @@
 title: Limitations et différences d'API
 type: docs
 weight: 100
-url: /php-java/limitations-and-api-differences/
+url: /fr/php-java/limitations-and-api-differences/
 ---
 
 

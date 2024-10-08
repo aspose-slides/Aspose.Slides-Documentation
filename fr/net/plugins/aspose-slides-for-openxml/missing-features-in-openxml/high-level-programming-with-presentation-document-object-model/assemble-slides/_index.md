@@ -2,7 +2,7 @@
 title: Assembler des diapositives
 type: docs
 weight: 10
-url: /net/assemble-slides/
+url: /fr/net/assemble-slides/
 ---
 
 Il couvre les fonctionnalités suivantes :

@@ -3,7 +3,7 @@ title: Substitution de police - API Java PowerPoint
 linktitle: Substitution de police
 type: docs
 weight: 70
-url: /php-java/font-substitution/
+url: /fr/php-java/font-substitution/
 keywords: "Police, police de substitution, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Substituer une police dans PowerPoint"
 ---
@@ -53,6 +53,6 @@ Ce code PHP démontre le processus de substitution de police :
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Vous voudrez peut-être voir [**Remplacement de police**](/slides/php-java/font-replacement/).
+Vous voudrez peut-être voir [**Remplacement de police**](/slides/fr/php-java/font-replacement/).
 
 {{% /alert %}}

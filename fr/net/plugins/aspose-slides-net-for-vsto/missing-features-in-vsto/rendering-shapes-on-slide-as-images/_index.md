@@ -2,7 +2,7 @@
 title: Rendu des formes sur la diapositive en tant qu'images
 type: docs
 weight: 120
-url: /net/rendering-shapes-on-slide-as-images/
+url: /fr/net/rendering-shapes-on-slide-as-images/
 ---
 
 Cela couvre deux fonctions principales :

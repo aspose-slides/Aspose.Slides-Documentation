@@ -2,7 +2,7 @@
 title: Texte Animé
 type: docs
 weight: 60
-url: /python-net/animated-text/
+url: /fr/python-net/animated-text/
 keywords: "Texte animé, Effets d'animation, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajoutez du texte animé et des effets à une présentation PowerPoint en Python"
 ---

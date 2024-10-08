@@ -2,7 +2,7 @@
 title: Manipulations de Formes
 type: docs
 weight: 40
-url: /php-java/shape-manipulations/
+url: /fr/php-java/shape-manipulations/
 ---
 
 ## **Trouver une forme dans une diapositive**

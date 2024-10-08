@@ -2,12 +2,12 @@
 title: Créer un graphique dans une présentation Microsoft PowerPoint
 type: docs
 weight: 70
-url: /androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /fr/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Les graphiques sont des représentations visuelles de données largement utilisées dans les présentations. Cet article montre le code pour créer un graphique dans Microsoft PowerPoint de manière programmatique en utilisant [VSTO](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) et [Aspose.Slides pour Android via Java](/slides/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Les graphiques sont des représentations visuelles de données largement utilisées dans les présentations. Cet article montre le code pour créer un graphique dans Microsoft PowerPoint de manière programmatique en utilisant [VSTO](/slides/fr/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/) et [Aspose.Slides pour Android via Java](/slides/fr/androidjava/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Création d'un graphique**

@@ -2,13 +2,13 @@
 title: Gérer les Espaces réservés
 type: docs
 weight: 10
-url: /net/manage-placeholder/
+url: /fr/net/manage-placeholder/
 keywords: "Espace réservé, Texte d'espace réservé, Texte d'invite, Présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Modifier le texte de l'espace réservé et le texte d'invite dans des présentations PowerPoint en C# ou .NET"
 ---
 
 ## **Modifier le Texte dans l'Espace Réservé**
-En utilisant [Aspose.Slides pour .NET](/slides/net/), vous pouvez trouver et modifier les espaces réservés sur des diapositives dans des présentations. Aspose.Slides vous permet de modifier le texte dans un espace réservé.
+En utilisant [Aspose.Slides pour .NET](/slides/fr/net/), vous pouvez trouver et modifier les espaces réservés sur des diapositives dans des présentations. Aspose.Slides vous permet de modifier le texte dans un espace réservé.
 
 **Prérequis**: Vous avez besoin d'une présentation qui contient un espace réservé. Vous pouvez créer une telle présentation dans l'application Microsoft PowerPoint standard.
 

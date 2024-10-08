@@ -2,7 +2,7 @@
 title: Propriétés de Présentation
 type: docs
 weight: 70
-url: /python-net/presentation-properties/
+url: /fr/python-net/presentation-properties/
 keywords: "propriétés PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Propriétés de présentation PowerPoint en Python"
 ---

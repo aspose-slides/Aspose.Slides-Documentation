@@ -2,7 +2,7 @@
 title: Formats de Fichiers Prise en Charge
 type: docs
 weight: 150
-url: /androidjava/supported-file-formats/
+url: /fr/androidjava/supported-file-formats/
 ---
 
 ## **Versions Microsoft PowerPoint Prises en Charge**

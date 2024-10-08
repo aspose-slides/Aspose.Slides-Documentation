@@ -2,7 +2,7 @@
 title: Support Technique
 type: docs
 weight: 10
-url: /php-java/support-technique/
+url: /fr/php-java/support-technique/
 ---
 
 {{% alert color="primary" %}} 

@@ -2,7 +2,7 @@
 title: Créer une Police de Repli
 type: docs
 weight: 10
-url: /androidjava/create-fallback-font/
+url: /fr/androidjava/create-fallback-font/
 ---
 
 Aspose.Slides prend en charge l'interface [IFontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IFontFallBackRule) et la classe [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) pour spécifier les règles d'application d'une police de repli. La classe [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule) représente une association entre la plage Unicode spécifiée, utilisée pour rechercher des glyphes manquants, et une liste de polices qui peuvent contenir des glyphes appropriés :
@@ -25,5 +25,5 @@ Il est également possible de [supprimer](https://reference.aspose.com/slides/an
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRulesCollection) peut être utilisée pour organiser une liste d'objets [FontFallBackRule](https://reference.aspose.com/slides/androidjava/com.aspose.slides/FontFallBackRule), lorsqu'il est nécessaire de spécifier des règles de remplacement de polices de repli pour plusieurs plages Unicode.
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Créer une Collection de Polices de Repli](/slides/androidjava/create-fallback-fonts-collection/)
+- [Créer une Collection de Polices de Repli](/slides/fr/androidjava/create-fallback-fonts-collection/)
 {{% /alert %}}

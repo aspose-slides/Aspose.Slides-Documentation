@@ -2,7 +2,7 @@
 title: Police personnalisée en C++
 type: docs
 weight: 20
-url: /cpp/custom-font/
+url: /fr/cpp/custom-font/
 keywords: "Polices, polices personnalisées, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Polices personnalisées PowerPoint en C++"
 ---

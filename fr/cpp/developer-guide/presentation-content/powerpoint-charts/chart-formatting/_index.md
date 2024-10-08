@@ -2,7 +2,7 @@
 title: Formatage de Graphiques
 type: docs
 weight: 60
-url: /cpp/chart-formatting/
+url: /fr/cpp/chart-formatting/
 ---
 
 

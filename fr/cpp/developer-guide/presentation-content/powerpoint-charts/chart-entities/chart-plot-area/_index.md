@@ -1,7 +1,7 @@
 ---
 title: Zone de Tracé de Graphique
 type: docs
-url: /cpp/chart-plot-area/
+url: /fr/cpp/chart-plot-area/
 ---
 
 ## **Obtenir Largeur, Hauteur de la Zone de Tracé de Graphique**

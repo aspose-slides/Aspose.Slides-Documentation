@@ -2,12 +2,12 @@
 title: Créer un tableau sur une diapositive PowerPoint
 type: docs
 weight: 50
-url: /java/creating-a-table-on-powerpoint-slide/
+url: /fr/java/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Les tableaux sont largement utilisés pour afficher des données sur des diapositives de présentation. Cet article montre comment créer un tableau 15 x 15 avec une taille de police de 10 de manière programmatique en utilisant d'abord [VSTO 2008](/slides/java/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides pour Java](/slides/java/creating-a-table-on-powerpoint-slide/).
+Les tableaux sont largement utilisés pour afficher des données sur des diapositives de présentation. Cet article montre comment créer un tableau 15 x 15 avec une taille de police de 10 de manière programmatique en utilisant d'abord [VSTO 2008](/slides/fr/java/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides pour Java](/slides/fr/java/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Créer des tableaux**

@@ -2,7 +2,7 @@
 title: Gérer les Paramètres d'Auto-Ajustement
 type: docs
 weight: 30
-url: /python-net/manage-autofit-settings/
+url: /fr/python-net/manage-autofit-settings/
 keywords: "Textbox, Auto-Ajustement, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Configurer les paramètres d'auto-ajustement pour les zones de texte dans PowerPoint en Python"
 ---

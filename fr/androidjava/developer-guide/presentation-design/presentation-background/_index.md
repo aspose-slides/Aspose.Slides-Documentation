@@ -2,7 +2,7 @@
 title: Fond de Présentation
 type: docs
 weight: 20
-url: /androidjava/presentation-background/
+url: /fr/androidjava/presentation-background/
 keywords: "fond PowerPoint, définir fond en Java"
 description: "Définir le fond dans une présentation PowerPoint en Java"
 ---

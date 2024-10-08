@@ -2,7 +2,7 @@
 title: Gérer les cellules
 type: docs
 weight: 30
-url: /python-net/manage-cells/
+url: /fr/python-net/manage-cells/
 keywords: "Table, cellules fusionnées, cellules divisées, image dans cellule de table, Python, Aspose.Slides pour Python via .NET"
 description: "Cellules de table dans des présentations PowerPoint en Python"
 ---

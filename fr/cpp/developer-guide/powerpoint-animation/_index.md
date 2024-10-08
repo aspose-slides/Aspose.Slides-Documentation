@@ -2,7 +2,7 @@
 title: Animation PowerPoint
 type: docs
 weight: 150
-url: /cpp/powerpoint-animation/
+url: /fr/cpp/powerpoint-animation/
 keywords: "animation PowerPoint"
 description: "Animation PowerPoint, animation de diapositives PowerPoint avec Aspose.Slides."
 ---
@@ -52,19 +52,19 @@ Cela peut être réalisé si vous combinez plusieurs comportements ensemble en u
 Aspose.Slides permet d'appliquer de l'animation aux formes, qui peuvent être en fait du texte, un rectangle, une ligne, un cadre, un objet OLE, etc.
 
 {{% alert color="primary" %}} 
-Lire la suite [**À propos de l'animation des formes**](/slides/cpp/shape-animation/).
+Lire la suite [**À propos de l'animation des formes**](/slides/fr/cpp/shape-animation/).
 {{% /alert %}}
 
 ## **Graphiques animés**
 Pour créer des graphiques animés, vous devez utiliser toutes les mêmes classes que pour les formes. Cependant, il est possible d'utiliser l'animation PowerPoint uniquement sur des catégories de graphiques ou des séries de graphiques. Vous pouvez également appliquer un effet d'animation à un élément de catégorie ou un élément de série.
 
 {{% alert color="primary" %}} 
-Lire la suite [**À propos des graphiques animés**](/slides/cpp/animated-charts/).
+Lire la suite [**À propos des graphiques animés**](/slides/fr/cpp/animated-charts/).
 {{% /alert %}}
 
 ## **Texte animé**
 En plus du texte animé, il est également possible d'appliquer de l'animation à un paragraphe.
 
 {{% alert color="primary" %}} 
-Lire la suite [**À propos du texte animé**](/slides/cpp/animated-text/).
+Lire la suite [**À propos du texte animé**](/slides/fr/cpp/animated-text/).
 {{% /alert %}}

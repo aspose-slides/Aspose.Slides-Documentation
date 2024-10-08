@@ -2,7 +2,7 @@
 title: Propriétés Effectives de la Forme
 type: docs
 weight: 50
-url: /net/shape-effective-properties/
+url: /fr/net/shape-effective-properties/
 keywords: "Propriétés de forme, propriétés de caméra, rig de lumière, forme biseautée, cadre de texte, style de texte, valeur de hauteur de police, format de remplissage pour tableau, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Obtenez les propriétés effectives des formes dans les présentations PowerPoint en C# ou .NET"
 ---

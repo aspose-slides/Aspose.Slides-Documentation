@@ -3,7 +3,7 @@ title: Ouvrir la Présentation
 linktitle: Ouvrir la Présentation
 type: docs
 weight: 20
-url: /php-java/open-presentation/
+url: /fr/php-java/open-presentation/
 keywords: "Ouvrir PowerPoint, PPTX, PPT, Ouvrir la Présentation, Charger la Présentation, Java"
 description: "Ouvrir ou charger la Présentation PPT, PPTX, ODP"
 ---

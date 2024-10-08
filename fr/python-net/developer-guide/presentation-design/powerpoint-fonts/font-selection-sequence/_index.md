@@ -3,7 +3,7 @@ title: Séquence de sélection de polices en Python
 linktitle: Séquence de sélection de polices en Python
 type: docs
 weight: 80
-url: /python-net/font-selection-sequence/
+url: /fr/python-net/font-selection-sequence/
 keywords:
 - police
 - sélection de police

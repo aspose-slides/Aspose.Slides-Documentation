@@ -2,7 +2,7 @@
 title: Conversion en Tiff avec Notes  
 type: docs  
 weight: 10  
-url: /net/conversion-to-tiff-with-notes/  
+url: /fr/net/conversion-to-tiff-with-notes/  
 ---  
 
 TIFF est l'un des plusieurs formats d'image largement utilisés que Aspose.Slides pour .NET prend en charge pour convertir une présentation avec des notes en images. Vous pouvez également générer des miniatures de diapositives dans la vue Diapositive de Notes. Ci-dessous, deux extraits de code montrent comment générer des images TIFF d'une présentation en vue Diapositive de Notes.

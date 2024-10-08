@@ -1,7 +1,7 @@
 ---
 title: Légende du graphique
 type: docs
-url: /java/chart-legend/
+url: /fr/java/chart-legend/
 ---
 
 ## **Positionnement de la légende**

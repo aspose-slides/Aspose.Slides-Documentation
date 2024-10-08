@@ -2,7 +2,7 @@
 title: Convertir diapositive
 type: docs
 weight: 41
-url: /net/convert-slide/
+url: /fr/net/convert-slide/
 keywords: 
 - convertir diapositive en image
 - exporter diapositive en tant qu'image

@@ -1,7 +1,7 @@
 ---
 title: Tableau de Données du Graphique
 type: docs
-url: /net/chart-data-table/
+url: /fr/net/chart-data-table/
 keywords: "Propriétés de police, tableau de données du graphique, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Définir les propriétés de police pour le tableau de données du graphique dans les présentations PowerPoint en C# ou .NET"
 ---

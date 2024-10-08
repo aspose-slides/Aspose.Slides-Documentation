@@ -2,7 +2,7 @@
 title: Gérer le nœud de forme SmartArt
 type: docs
 weight: 30
-url: /net/manage-smartart-shape-node/
+url: /fr/net/manage-smartart-shape-node/
 keywords:
 - SmartArt
 - nœud SmartArt

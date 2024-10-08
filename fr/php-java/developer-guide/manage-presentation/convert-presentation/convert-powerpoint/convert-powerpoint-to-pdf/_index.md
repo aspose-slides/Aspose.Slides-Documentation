@@ -3,7 +3,7 @@ title: Convertir PowerPoint en PDF
 linktitle: Convertir PowerPoint en PDF
 type: docs
 weight: 40
-url: /php-java/convert-powerpoint-to-pdf/
+url: /fr/php-java/convert-powerpoint-to-pdf/
 keywords: "Convertir PowerPoint, Présentation, PowerPoint en PDF, PPT en PDF, PPTX en PDF, Enregistrer PowerPoint en PDF, PDF/A1a, PDF/A1b, PDF/UA, Java"
 description: "Convertir la présentation PowerPoint en PDF. Enregistrer PowerPoint en PDF avec conformité ou normes d'accessibilité"
 

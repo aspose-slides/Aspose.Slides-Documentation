@@ -2,7 +2,7 @@
 title: Remplacement de police
 type: docs
 weight: 60
-url: /python-net/font-replacement/
+url: /fr/python-net/font-replacement/
 keywords: "Police, remplacer police, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Remplacer des polices explicitement dans PowerPoint en Python"
 ---
@@ -40,6 +40,6 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
 
 {{% alert title="Remarque" color="warning" %}} 
 
-Pour définir des règles qui déterminent ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), voir [**Substitution de police**](/slides/python-net/font-substitution/). 
+Pour définir des règles qui déterminent ce qui se passe dans certaines conditions (si une police ne peut pas être accessible, par exemple), voir [**Substitution de police**](/slides/fr/python-net/font-substitution/). 
 
 {{% /alert %}}

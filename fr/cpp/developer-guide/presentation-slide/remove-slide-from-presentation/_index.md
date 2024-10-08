@@ -2,7 +2,7 @@
 title: Supprimer une diapositive de la présentation
 type: docs
 weight: 30
-url: /cpp/remove-slide-from-presentation/
+url: /fr/cpp/remove-slide-from-presentation/
 keywords: "Supprimer diapositive, Delete slide, PowerPoint, Présentation, C++, Aspose.Slides"
 description: "Supprimer une diapositive de PowerPoint par référence ou index en C++"
 

@@ -2,7 +2,7 @@
 title: Animation de Formes
 type: docs
 weight: 60
-url: /java/shape-animation/
+url: /fr/java/shape-animation/
 keywords: "animation PowerPoint, effet d'animation, appliquer une animation, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Appliquer une animation PowerPoint en Java"
 ---
@@ -71,7 +71,7 @@ try {
 
 {{%  alert color="primary"  %}} 
 
-En plus d'appliquer des animations au texte, vous pouvez également appliquer des animations à un seul [Paragraphe](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph). Voir [**Texte Animé**](/slides/java/animated-text/).
+En plus d'appliquer des animations au texte, vous pouvez également appliquer des animations à un seul [Paragraphe](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph). Voir [**Texte Animé**](/slides/fr/java/animated-text/).
 
 {{% /alert %}} 
 

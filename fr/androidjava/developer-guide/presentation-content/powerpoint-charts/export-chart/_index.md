@@ -2,7 +2,7 @@
 title: Exporter un graphique
 type: docs
 weight: 90
-url: /androidjava/export-chart/
+url: /fr/androidjava/export-chart/
 ---
 
 ## **Obtenir l'image du graphique**

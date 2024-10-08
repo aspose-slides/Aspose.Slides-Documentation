@@ -2,7 +2,7 @@
 title: Gérer le Zoom
 type: docs
 weight: 60
-url: /net/manage-zoom/
+url: /fr/net/manage-zoom/
 keywords: 
 - zoom
 - cadre de zoom

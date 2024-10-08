@@ -2,7 +2,7 @@
 title: Obtenir l'ensemble de l'arrière-plan de la diapositive de présentation en tant qu'image
 type: docs
 weight: 95
-url: /java/get-the-entire-presentation-slide-background-as-an-image/
+url: /fr/java/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - diapositive
 - arrière-plan
@@ -16,7 +16,7 @@ keywords:
 - Aspose.Slides pour Java
 ---
 
-Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut être constitué de nombreux éléments. En plus de l'image définie comme l'[arrière-plan de la diapositive](/slides/java/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive maître et la diapositive de mise en page.
+Dans les présentations PowerPoint, l'arrière-plan de la diapositive peut être constitué de nombreux éléments. En plus de l'image définie comme l'[arrière-plan de la diapositive](/slides/fr/java/presentation-background/), l'arrière-plan final peut être influencé par le thème de la présentation, le schéma de couleurs et les formes placées sur la diapositive maître et la diapositive de mise en page.
 
 Aspose.Slides pour Java ne fournit pas de méthode simple pour extraire l'ensemble de l'arrière-plan de la diapositive de présentation en tant qu'image, mais vous pouvez suivre les étapes ci-dessous pour le faire :
 1. Charger la présentation en utilisant la classe [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).

@@ -2,7 +2,7 @@
 title: Mise en Page des Diapositives
 type: docs
 weight: 60
-url: /cpp/mise-en-page-des-diapositives/
+url: /fr/cpp/mise-en-page-des-diapositives/
 keyword: "Définir la taille des diapositives, définir les options des diapositives, spécifier la taille des diapositives, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, C++, CPP, Aspose.Slides"
 description: "Définir la taille et les options des diapositives PowerPoint en C++"
 ---

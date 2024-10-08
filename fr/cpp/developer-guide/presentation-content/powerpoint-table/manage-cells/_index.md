@@ -2,7 +2,7 @@
 title: Gérer les cellules
 type: docs
 weight: 30
-url: /cpp/manage-cells/
+url: /fr/cpp/manage-cells/
 keywords: "Table, cellules fusionnées, cellules divisées, image dans la cellule de table, C++, CPP, Aspose.Slides pour C++"
 description: "Cellules de tableau dans des présentations PowerPoint en C++"
 ---

@@ -2,7 +2,7 @@
 title: Localisation de la Présentation
 type: docs
 weight: 100
-url: /python-net/presentation-localization/
+url: /fr/python-net/presentation-localization/
 keywords: "Changer la langue, Vérification orthographique, Vérifier l'orthographe, Correcteur orthographique, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Changer ou vérifier la langue dans une présentation PowerPoint. Vérifier l'orthographe du texte en Python"
 ---

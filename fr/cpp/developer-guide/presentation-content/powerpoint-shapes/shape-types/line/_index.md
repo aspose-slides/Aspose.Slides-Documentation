@@ -2,7 +2,7 @@
 title: Ligne
 type: docs
 weight: 50
-url: /cpp/Ligne/
+url: /fr/cpp/Ligne/
 ---
 
 ## **Créer une Ligne Simple**

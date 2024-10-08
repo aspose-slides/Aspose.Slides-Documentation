@@ -2,7 +2,7 @@
 title: Convertir ODP en PPTX
 type: docs
 weight: 10
-url: /java/convert-odp-to-pptx/
+url: /fr/java/convert-odp-to-pptx/
 ---
 
 ## **Convertir ODP en Présentation PPTX/PPT**

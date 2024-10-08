@@ -2,7 +2,7 @@
 title: Ligne
 type: docs
 weight: 50
-url: /androidjava/Ligne/
+url: /fr/androidjava/Ligne/
 ---
 
 

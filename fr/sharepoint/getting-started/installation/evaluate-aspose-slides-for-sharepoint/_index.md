@@ -2,7 +2,7 @@
 title: Évaluer Aspose.Slides pour SharePoint
 type: docs
 weight: 40
-url: /sharepoint/evaluate-aspose-slides-for-sharepoint/
+url: /fr/sharepoint/evaluate-aspose-slides-for-sharepoint/
 ---
 
 {{% alert color="primary" %}} 

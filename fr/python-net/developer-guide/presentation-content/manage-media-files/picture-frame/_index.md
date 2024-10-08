@@ -2,7 +2,7 @@
 title: Cadre Photo
 type: docs
 weight: 10
-url: /python-net/picture-frame/
+url: /fr/python-net/picture-frame/
 keywords: "Ajouter cadre photo, créer cadre photo, ajouter image, créer image, extraire image, propriété StretchOff, mise en forme du cadre photo, propriétés du cadre photo, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Ajouter un cadre photo à une présentation PowerPoint en Python"
 ---

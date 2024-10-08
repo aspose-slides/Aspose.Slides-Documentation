@@ -2,7 +2,7 @@
 title: Maître de Diapositive
 type: docs
 weight: 80
-url: /cpp/slide-master/
+url: /fr/cpp/slide-master/
 keywords: "Ajouter Maître de Diapositive, diapositive maître PPT, maître de diapositive PowerPoint, Image au Maître de Diapositive, Espace réservé, Plusieurs Maîtres de Diapositive, Comparer Maîtres de Diapositive, C++, CPP, Aspose.Slides pour C++"
 description: "Ajouter ou modifier le maître de diapositive dans la présentation PowerPoint en C++"
 ---

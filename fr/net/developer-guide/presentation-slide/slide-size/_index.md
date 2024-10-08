@@ -2,7 +2,7 @@
 title: Taille de diapositive
 type: docs
 weight: 70
-url: /net/slide-size/
+url: /fr/net/slide-size/
 keywords: "Définir la diapositive, modifier la taille de la diapositive, Présentation PowerPoint, taille de diapositive personnalisée, résoudre les problèmes de diapositive, C#, Csharp, .NET, Aspose.Slides"
 descriptions: "Définir et modifier la taille de la diapositive ou le format d'aspect dans PowerPoint en C# ou .NET"
 ---

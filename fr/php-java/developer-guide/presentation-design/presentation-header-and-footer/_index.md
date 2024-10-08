@@ -2,18 +2,18 @@
 title: En-tête et Pied de page de Présentation
 type: docs
 weight: 140
-url: /php-java/presentation-header-and-footer/
+url: /fr/php-java/presentation-header-and-footer/
 keywords: "En-tête et pied de page PowerPoint"
 description: "En-tête et pied de page PowerPoint"
 ---
 
 {{% alert color="primary" %}} 
 
-[Aspose.Slides](/slides/php-java/) offre la prise en charge pour travailler avec le texte des en-têtes et pieds de page qui sont en fait maintenus au niveau du modèle de diapositive.
+[Aspose.Slides](/slides/fr/php-java/) offre la prise en charge pour travailler avec le texte des en-têtes et pieds de page qui sont en fait maintenus au niveau du modèle de diapositive.
 
 {{% /alert %}} 
 
-[Aspose.Slides pour PHP via Java](/slides/php-java/) fournit la fonction pour gérer les en-têtes et pieds de page dans les diapositives de présentation. Ceux-ci sont en fait gérés au niveau du modèle de présentation.
+[Aspose.Slides pour PHP via Java](/slides/fr/php-java/) fournit la fonction pour gérer les en-têtes et pieds de page dans les diapositives de présentation. Ceux-ci sont en fait gérés au niveau du modèle de présentation.
 
 ## **Gérer l'en-tête et le pied de page dans la présentation**
 Les notes de certaines diapositives spécifiques peuvent être supprimées comme indiqué dans l'exemple ci-dessous :

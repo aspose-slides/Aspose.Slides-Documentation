@@ -1,7 +1,7 @@
 ---
 title: Graphique 3D
 type: docs
-url: /cpp/3d-chart/
+url: /fr/cpp/3d-chart/
 ---
 
 ## **Définir les propriétés RotationX, RotationY et DepthPercents du graphique 3D**

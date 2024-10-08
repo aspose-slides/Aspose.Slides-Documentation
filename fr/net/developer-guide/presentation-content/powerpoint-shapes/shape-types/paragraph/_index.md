@@ -2,7 +2,7 @@
 title: Paragraphe
 type: docs
 weight: 60
-url: /net/paragraph/
+url: /fr/net/paragraph/
 keywords: "Paragraphe, portion, coordonnées de paragraphe, coordonnées de portion, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Paragraphe et portion dans la présentation PowerPoint en C# ou .NET"
 ---

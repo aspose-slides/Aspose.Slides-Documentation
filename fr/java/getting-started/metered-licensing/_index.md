@@ -2,7 +2,7 @@
 title: Licence Mesurée  
 type: docs  
 weight: 100  
-url: /java/metered-licensing/  
+url: /fr/java/metered-licensing/  
 ---  
 
 {{% alert color="primary" %}}  

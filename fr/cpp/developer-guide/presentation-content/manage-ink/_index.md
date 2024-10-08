@@ -2,7 +2,7 @@
 title: Gérer l'encre  
 type: docs  
 weight: 95  
-url: /cpp/manage-ink/  
+url: /fr/cpp/manage-ink/  
 keywords: "Encre dans PowerPoint, outils d'encre, C++ Encre, Dessiner dans PowerPoint, présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"  
 description: "Utilisez des outils d'encre pour dessiner des objets dans PowerPoint C++"  
 ---  

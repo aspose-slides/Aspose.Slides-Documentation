@@ -3,7 +3,7 @@ title: Licences
 description: "Aspose.Slides pour Python via .NET propose différents plans d'achat ou offre un essai gratuit et une licence temporaire de 30 jours pour l'évaluation utilisant les politiques de licences et d'abonnement."
 type: docs
 weight: 80
-url: /python-net/licensing/
+url: /fr/python-net/licensing/
 ---
 
 ## **Évaluer Aspose.Slides**
@@ -41,7 +41,7 @@ Pour tester Aspose.Slides sans limitations, vous pouvez demander une **licence t
 
 {{% alert color="primary" %}} 
 
-Vous pouvez consulter [Licences à la consommation](/slides/python-net/metered-licensing/).
+Vous pouvez consulter [Licences à la consommation](/slides/fr/python-net/metered-licensing/).
 
 {{% /alert %}} 
 

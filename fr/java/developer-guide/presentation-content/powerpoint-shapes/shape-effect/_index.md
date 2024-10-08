@@ -2,12 +2,12 @@
 title: Effet de Forme
 type: docs
 weight: 30
-url: /java/shape-effect
+url: /fr/java/shape-effect
 keywords: "Effet de forme, présentation PowerPoint, Java, Aspose.Slides for Java"
 description: "Appliquer un effet à une forme PowerPoint en Java"
 ---
 
-Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/java/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre l’ombre d’une forme, etc.
+Bien que les effets dans PowerPoint puissent être utilisés pour faire ressortir une forme, ils diffèrent des [remplissages](/slides/fr/java/shape-formatting/#gradient-fill) ou des contours. En utilisant les effets PowerPoint, vous pouvez créer des réflexions convaincantes sur une forme, étendre l’ombre d’une forme, etc.
 
 <img src="shape-effect.png" alt="effect de forme" style="zoom:50%;" />
 

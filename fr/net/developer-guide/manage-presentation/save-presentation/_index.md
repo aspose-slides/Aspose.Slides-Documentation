@@ -3,7 +3,7 @@ title: Sauvegarder une présentation en .NET
 linktitle: Sauvegarder la présentation
 type: docs
 weight: 80
-url: /net/save-presentation/
+url: /fr/net/save-presentation/
 keywords: "Sauvegarder PowerPoint, PPT, PPTX, Sauvegarder présentation, fichier, flux, C#, Csharp, .NET"
 description: "Sauvegarder une présentation PowerPoint en tant que fichier ou flux en C# ou .NET"
 ---

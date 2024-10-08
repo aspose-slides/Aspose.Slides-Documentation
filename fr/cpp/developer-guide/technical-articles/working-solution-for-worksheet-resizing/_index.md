@@ -2,7 +2,7 @@
 title: Solution efficace pour le redimensionnement des feuilles de calcul  
 type: docs  
 weight: 130  
-url: /cpp/solution-efficace-pour-le-redimensionnement-des-feuilles-de-calcul/  
+url: /fr/cpp/solution-efficace-pour-le-redimensionnement-des-feuilles-de-calcul/  
 ---  
 
 {{% alert color="primary" %}}  
@@ -314,4 +314,4 @@ Il existe deux approches pour résoudre le problème de redimensionnement des fe
 h4. {_}Sections connexes  
 {_}  
 
-[Créer et intégrer un graphique Excel en tant qu'objet OLE dans la présentation](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)  
+[Créer et intégrer un graphique Excel en tant qu'objet OLE dans la présentation](/slides/fr/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)  

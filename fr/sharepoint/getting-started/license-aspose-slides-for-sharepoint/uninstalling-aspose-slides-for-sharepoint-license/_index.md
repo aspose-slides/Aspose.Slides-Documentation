@@ -2,7 +2,7 @@
 title: Désinstallation de la licence Aspose.Slides pour SharePoint
 type: docs
 weight: 20
-url: /sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
+url: /fr/sharepoint/uninstalling-aspose-slides-for-sharepoint-license/
 ---
 
 Pour désinstaller la licence, veuillez suivre les étapes ci-dessous depuis la console du serveur.

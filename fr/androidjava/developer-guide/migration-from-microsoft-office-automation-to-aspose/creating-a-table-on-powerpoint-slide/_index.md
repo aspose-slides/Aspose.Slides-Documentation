@@ -2,12 +2,12 @@
 title: Créer un tableau dans une diapositive PowerPoint
 type: docs
 weight: 50
-url: /androidjava/creating-a-table-on-powerpoint-slide/
+url: /fr/androidjava/creating-a-table-on-powerpoint-slide/
 ---
 
 {{% alert color="primary" %}} 
 
-Les tableaux sont largement utilisés pour afficher des données sur des diapositives de présentation. Cet article montre comment créer un tableau de 15 x 15 avec une taille de police de 10 de manière programmatique en utilisant d'abord [VSTO 2008](/slides/androidjava/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides pour Android via Java](/slides/androidjava/creating-a-table-on-powerpoint-slide/).
+Les tableaux sont largement utilisés pour afficher des données sur des diapositives de présentation. Cet article montre comment créer un tableau de 15 x 15 avec une taille de police de 10 de manière programmatique en utilisant d'abord [VSTO 2008](/slides/fr/androidjava/creating-a-table-on-powerpoint-slide/) puis [Aspose.Slides pour Android via Java](/slides/fr/androidjava/creating-a-table-on-powerpoint-slide/).
 
 {{% /alert %}} 
 ## **Créer des tableaux**

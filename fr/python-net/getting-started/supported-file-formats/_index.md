@@ -2,7 +2,7 @@
 title: Formats de Fichiers Pris en Charge
 type: docs
 weight: 30
-url: /python-net/supported-file-formats/
+url: /fr/python-net/supported-file-formats/
 ---
 
 ## **Versions de Microsoft PowerPoint Pris en Charge**

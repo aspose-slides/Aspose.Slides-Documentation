@@ -2,7 +2,7 @@
 title: Police intégrée
 type: docs
 weight: 40
-url: /python-net/embedded-font/
+url: /fr/python-net/embedded-font/
 keywords: "Polices, polices intégrées, ajouter des polices, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Utiliser des polices intégrées dans une présentation PowerPoint en Python"
 ---

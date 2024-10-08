@@ -2,7 +2,7 @@
 title: Cadre Photo
 type: docs
 weight: 10
-url: /net/picture-frame/
+url: /fr/net/picture-frame/
 keywords: 
 - ajouter un cadre photo
 - créer un cadre photo

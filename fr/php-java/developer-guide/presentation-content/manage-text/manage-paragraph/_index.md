@@ -2,7 +2,7 @@
 title: Gérer les Paragraphes PowerPoint
 type: docs
 weight: 40
-url: /php-java/manage-paragraph/
+url: /fr/php-java/manage-paragraph/
 keywords: "Ajouter un paragraphe PowerPoint, Gérer les paragraphes, Retrait de paragraphe, Propriétés de paragraphe, Texte HTML, Exporter le texte du paragraphe, Présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Créer et gérer des Paragraphes, du texte, des retraits et des propriétés dans des présentations PowerPoint"
 ---

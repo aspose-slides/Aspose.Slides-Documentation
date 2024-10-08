@@ -2,7 +2,7 @@
 title: Gérer les paramètres d'ajustement automatique
 type: docs
 weight: 30
-url: /cpp/manage-autofit-settings/
+url: /fr/cpp/manage-autofit-settings/
 keywords: "Textbox, Ajustement automatique, Présentation PowerPoint, C++, Aspose.Slides pour C++"
 description: "Définir les paramètres d'ajustement automatique pour les zones de texte dans PowerPoint en C++"
 ---

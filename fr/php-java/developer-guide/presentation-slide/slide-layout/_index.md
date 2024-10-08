@@ -2,7 +2,7 @@
 title: Mise en page de diapositive
 type: docs
 weight: 60
-url: /php-java/slide-layout/
+url: /fr/php-java/slide-layout/
 keyword: "Définir la taille de la diapositive, définir les options de diapositive, spécifier la taille de la diapositive, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, Java, Aspose.Slides"
 description: "Définir la taille et les options des diapositives PowerPoint "
 ---

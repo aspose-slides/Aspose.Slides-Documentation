@@ -2,7 +2,7 @@
 title: Gérer les paramètres d'Autoajustement
 type: docs
 weight: 30
-url: /net/manage-autofit-settings/
+url: /fr/net/manage-autofit-settings/
 keywords: "Zone de texte, Autoajustement, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Définir les paramètres d'autoajustement pour la zone de texte dans PowerPoint en C# ou .NET"
 ---

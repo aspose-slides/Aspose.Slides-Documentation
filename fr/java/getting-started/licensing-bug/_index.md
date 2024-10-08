@@ -2,7 +2,7 @@
 title: Bug de Licence
 type: docs
 weight: 95
-url: /java/licensing-bug/
+url: /fr/java/licensing-bug/
 ---
 
 Cet article décrit un bug de licence rencontré dans Aspose.Slides pour Java versions 23.2, 23.3, 23.4, 23.5, 23.6 et 23.7. Ce bug a provoqué une utilisation temporairement impossible des licences perpétuelles après l'expiration de leur abonnement.

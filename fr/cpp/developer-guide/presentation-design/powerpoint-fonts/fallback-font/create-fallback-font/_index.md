@@ -2,7 +2,7 @@
 title: Créer une Police de Repli
 type: docs
 weight: 10
-url: /cpp/create-fallback-font/
+url: /fr/cpp/create-fallback-font/
 ---
 
 Aspose.Slides prend en charge l'interface [IFontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_font_fall_back_rule) et la classe [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) pour spécifier les règles d'application d'une police de repli. La classe [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule) représente une association entre la plage Unicode spécifiée, utilisée pour rechercher des glyphes manquants, et une liste de polices qui peuvent contenir des glyphes appropriés :
@@ -25,5 +25,5 @@ Il est également possible de [Remove()](https://reference.aspose.com/slides/cpp
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rules_collection) peut être utilisée pour organiser une liste d'objets [FontFallBackRule](https://reference.aspose.com/slides/cpp/class/aspose.slides.font_fall_back_rule), lorsqu'il est nécessaire de spécifier des règles de remplacement de police de repli pour plusieurs plages Unicode.
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Créer une Collection de Polices de Repli](/slides/cpp/create-fallback-fonts-collection/)
+- [Créer une Collection de Polices de Repli](/slides/fr/cpp/create-fallback-fonts-collection/)
 {{% /alert %}}

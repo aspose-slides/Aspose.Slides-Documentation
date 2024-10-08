@@ -2,12 +2,12 @@
 title: Créer un graphique dans une présentation Microsoft PowerPoint
 type: docs
 weight: 80
-url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+url: /fr/net/create-a-chart-in-a-microsoft-powerpoint-presentation/
 ---
 
 {{% alert color="primary" %}} 
 
- Les graphiques sont des représentations visuelles de données qui sont largement utilisées dans les présentations. Cet article montre le code pour créer un graphique dans Microsoft PowerPoint programmatiquement en utilisant [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) et [Aspose.Slides pour .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+ Les graphiques sont des représentations visuelles de données qui sont largement utilisées dans les présentations. Cet article montre le code pour créer un graphique dans Microsoft PowerPoint programmatiquement en utilisant [VSTO](/slides/fr/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) et [Aspose.Slides pour .NET](/slides/fr/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
 
 {{% /alert %}} 
 ## **Créer un graphique**

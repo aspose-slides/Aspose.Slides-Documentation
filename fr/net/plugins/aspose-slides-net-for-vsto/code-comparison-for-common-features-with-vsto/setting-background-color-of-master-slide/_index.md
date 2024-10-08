@@ -2,7 +2,7 @@
 title: Définir la couleur d'arrière-plan de la diapositive maître
 type: docs
 weight: 140
-url: /net/setting-background-color-of-master-slide/
+url: /fr/net/setting-background-color-of-master-slide/
 ---
 
 ## **VSTO**

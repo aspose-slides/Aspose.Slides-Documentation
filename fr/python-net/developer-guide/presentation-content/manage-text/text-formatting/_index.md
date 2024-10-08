@@ -2,7 +2,7 @@
 title: Mise en forme du texte
 type: docs
 weight: 50
-url: /python-net/text-formatting/
+url: /fr/python-net/text-formatting/
 keywords:
 - surligner le texte
 - expression régulière

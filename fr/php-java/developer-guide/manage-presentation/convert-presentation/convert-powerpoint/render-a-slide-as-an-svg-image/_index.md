@@ -2,7 +2,7 @@
 title: Rendre une diapositive en tant qu'image SVG
 type: docs
 weight: 50
-url: /php-java/render-a-slide-as-an-svg-image/
+url: /fr/php-java/render-a-slide-as-an-svg-image/
 ---
 
 SVG—un acronyme pour Scalable Vector Graphics—est un type ou format graphique standard utilisé pour rendre des images en deux dimensions. SVG stocke les images sous forme de vecteurs en XML avec des détails qui définissent leur comportement ou leur apparence.

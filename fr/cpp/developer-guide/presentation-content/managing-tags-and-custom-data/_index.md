@@ -2,7 +2,7 @@
 title: Gestion des Balises et des Données Personnalisées
 type: docs
 weight: 300
-url: /cpp/managing-tags-and-custom-data
+url: /fr/cpp/managing-tags-and-custom-data
 
 ---
 

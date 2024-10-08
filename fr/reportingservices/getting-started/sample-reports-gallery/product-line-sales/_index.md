@@ -2,7 +2,7 @@
 title: Ventes par gamme de produits
 type: docs
 weight: 40
-url: /reportingservices/product-line-sales/
+url: /fr/reportingservices/product-line-sales/
 ---
 
 ## **Fonctionnalités :**

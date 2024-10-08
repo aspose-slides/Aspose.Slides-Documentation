@@ -2,7 +2,7 @@
 title: Image
 type: docs
 weight: 10
-url: /cpp/image/
+url: /fr/cpp/image/
 ---
 
 
@@ -18,7 +18,7 @@ Aspose fournit des convertisseurs gratuits—[JPEG to PowerPoint](https://produc
 
 {{% alert title="Info" color="info" %}}
 
-Si vous souhaitez ajouter une image en tant qu'objet cadre—surtout si vous prévoyez d'utiliser des options de mise en forme standard pour en modifier la taille, ajouter des effets, etc.—voir [Cadre d'Image](/slides/cpp/picture-frame/). 
+Si vous souhaitez ajouter une image en tant qu'objet cadre—surtout si vous prévoyez d'utiliser des options de mise en forme standard pour en modifier la taille, ajouter des effets, etc.—voir [Cadre d'Image](/slides/fr/cpp/picture-frame/). 
 
 {{% /alert %}} 
 

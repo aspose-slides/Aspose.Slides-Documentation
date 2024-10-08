@@ -2,7 +2,7 @@
 title: Créer une nouvelle présentation
 type: docs
 weight: 10
-url: /androidjava/create-a-new-presentation/
+url: /fr/androidjava/create-a-new-presentation/
 ---
 
 {{% alert color="primary" %}} 
@@ -17,7 +17,7 @@ Aspose.Slides pour Android via Java est un composant qui peut être utilisé pou
 
 {{% /alert %}} 
 ## **Création d'une présentation**
-Voici deux exemples de code qui illustrent comment VSTO et Aspose.Slides pour Android via Java peuvent être utilisés pour atteindre le même objectif. Le premier exemple est [VSTO](/slides/androidjava/create-a-new-presentation/) ; [le deuxième exemple](/slides/androidjava/create-a-new-presentation/) utilise Aspose.Slides.
+Voici deux exemples de code qui illustrent comment VSTO et Aspose.Slides pour Android via Java peuvent être utilisés pour atteindre le même objectif. Le premier exemple est [VSTO](/slides/fr/androidjava/create-a-new-presentation/) ; [le deuxième exemple](/slides/fr/androidjava/create-a-new-presentation/) utilise Aspose.Slides.
 ### **Exemple VSTO**
 **La sortie de VSTO** 
 

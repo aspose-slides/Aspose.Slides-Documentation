@@ -2,7 +2,7 @@
 title: Cloner des diapositives
 type: docs
 weight: 35
-url: /androidjava/cloner-des-diapositives/
+url: /fr/androidjava/cloner-des-diapositives/
 ---
 
 

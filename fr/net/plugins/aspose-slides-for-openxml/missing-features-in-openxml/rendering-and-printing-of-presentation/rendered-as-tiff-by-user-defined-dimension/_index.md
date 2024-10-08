@@ -2,7 +2,7 @@
 title: Rendu en Tiff par Dimension Définie par l'Utilisateur
 type: docs
 weight: 40
-url: /net/rendered-as-tiff-by-user-defined-dimension/
+url: /fr/net/rendered-as-tiff-by-user-defined-dimension/
 ---
 
 L'exemple suivant montre comment convertir une présentation en document TIFF avec une taille d'image personnalisée en utilisant la classe **TiffOptions**.

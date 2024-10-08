@@ -2,7 +2,7 @@
 title: Comment exécuter les exemples
 type: docs
 weight: 140
-url: /java/comment-executer-les-exemples/
+url: /fr/java/comment-executer-les-exemples/
 ---
 
 ## **Télécharger depuis GitHub**

@@ -2,7 +2,7 @@
 title: Exceptions et erreurs courantes liées aux polices sur Linux
 type: docs
 weight: 200
-url: /php-java/technical-articles/common-errors-involving-fonts
+url: /fr/php-java/technical-articles/common-errors-involving-fonts
 keywords: "exception de police, erreur de police, Linux, Java, Aspose.Slides pour PHP via Java"
 description: "Exceptions et erreurs de police sur Linux"
 ---

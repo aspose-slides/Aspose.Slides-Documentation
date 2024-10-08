@@ -2,7 +2,7 @@
 title: Prise en charge de plusieurs formats
 type: docs
 weight: 10
-url: /sharepoint/multiple-format-support/
+url: /fr/sharepoint/multiple-format-support/
 ---
 
 {{% alert color="primary" %}} 

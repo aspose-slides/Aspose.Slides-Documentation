@@ -1,7 +1,7 @@
 ---
 title: Légende du graphique
 type: docs
-url: /net/chart-legend/
+url: /fr/net/chart-legend/
 keywords: "Légende du graphique, taille de police de légende, présentation PowerPoint, C#, Csharp, Aspose.Slides pour .NET"
 description: "Définir le positionnement et la taille de police de la légende du graphique dans les présentations PowerPoint en C# ou .NET"
 ---

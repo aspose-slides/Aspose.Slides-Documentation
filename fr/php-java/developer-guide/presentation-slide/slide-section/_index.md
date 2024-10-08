@@ -2,7 +2,7 @@
 title: Section de Diapositive
 type: docs
 weight: 90
-url: /php-java/slide-section/
+url: /fr/php-java/slide-section/
 ---
 
 Avec Aspose.Slides pour PHP via Java, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections qui contiennent des diapos spécifiques.

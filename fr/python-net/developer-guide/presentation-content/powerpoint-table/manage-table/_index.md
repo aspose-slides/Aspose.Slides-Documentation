@@ -2,7 +2,7 @@
 title: Gérer la Table
 type: docs
 weight: 10
-url: /python-net/manage-table/
+url: /fr/python-net/manage-table/
 keywords: "Table, créer une table, accéder à la table, rapport d'aspect de la table, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Créer et gérer une table dans des présentations PowerPoint en Python"
 

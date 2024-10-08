@@ -2,7 +2,7 @@
 title: Convertir OpenOffice ODP
 type: docs
 weight: 10
-url: /net/convert-openoffice-odp/
+url: /fr/net/convert-openoffice-odp/
 keywords: "Convertir ODP en PDF, ODP en PPT, ODP en PPTX, ODP en XPS, ODP en HTML, ODP en TIFF"
 description: "Convertir ODP en PDF, ODP en PPT, ODP en PPTX, ODP en HTML et d'autres formats avec Aspose.Slides."
 ---
@@ -11,13 +11,13 @@ description: "Convertir ODP en PDF, ODP en PPT, ODP en PPTX, ODP en HTML et d'au
 
 Ces exemples vous montrent comment convertir des documents ODP en d'autres formats (il suffit de changer le fichier ODP source) :
 
-- [Convertir ODP en HTML](/slides/net/convert-powerpoint-ppt-and-pptx-to-html/)
-- [Convertir ODP en PDF](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
-- [Convertir ODP en TIFF](/slides/net/convert-powerpoint-to-tiff/)
-- [Convertir ODP en SWF Flash](/slides/net/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
-- [Convertir ODP en XPS](/slides/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
-- [Convertir ODP en PDF avec des notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
-- [Convertir ODP en TIFF avec des notes](/slides/net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
+- [Convertir ODP en HTML](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-html/)
+- [Convertir ODP en PDF](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-pdf/)
+- [Convertir ODP en TIFF](/slides/fr/net/convert-powerpoint-to-tiff/)
+- [Convertir ODP en SWF Flash](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-swf-flash/)
+- [Convertir ODP en XPS](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-microsoft-xps-document/)
+- [Convertir ODP en PDF avec des notes](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-pdf-with-notes/)
+- [Convertir ODP en TIFF avec des notes](/slides/fr/net/convert-powerpoint-ppt-and-pptx-to-tiff-with-notes/)
 
 Par exemple, si vous devez convertir une présentation ODP en PDF, cela peut se faire de cette manière :
 

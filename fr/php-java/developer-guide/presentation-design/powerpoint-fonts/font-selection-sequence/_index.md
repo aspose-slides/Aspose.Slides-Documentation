@@ -3,7 +3,7 @@ title: Séquence de sélection de police
 linktitle: Séquence de sélection de police
 type: docs
 weight: 80
-url: /php-java/font-selection-sequence/
+url: /fr/php-java/font-selection-sequence/
 keywords: "Police, sélection de police, substitution de police, remplacement de police, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: Séquence de sélection de police PowerPoint
 ---

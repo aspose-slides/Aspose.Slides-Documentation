@@ -2,7 +2,7 @@
 title: Créer des miniatures de formes
 type: docs
 weight: 70
-url: /androidjava/create-shape-thumbnails/
+url: /fr/androidjava/create-shape-thumbnails/
 ---
 
 

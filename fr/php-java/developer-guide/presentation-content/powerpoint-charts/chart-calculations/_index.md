@@ -2,7 +2,7 @@
 title: Calculs de Graphique
 type: docs
 weight: 50
-url: /php-java/chart-calculations/
+url: /fr/php-java/chart-calculations/
 ---
 
 ## **Calculer les Valeurs Réelles des Éléments de Graphique**

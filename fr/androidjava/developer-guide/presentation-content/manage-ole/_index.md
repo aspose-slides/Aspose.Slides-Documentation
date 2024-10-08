@@ -2,7 +2,7 @@
 title: Gérer OLE
 type: docs
 weight: 40
-url: /androidjava/manage-ole/
+url: /fr/androidjava/manage-ole/
 keywords:
 - ajouter OLE
 - intégrer OLE

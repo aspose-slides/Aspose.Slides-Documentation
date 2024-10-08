@@ -2,7 +2,7 @@
 title: Introduction &amp; Configuration de l'environnement
 type: docs
 weight: 10
-url: /reportingservices/introduction-&amp;-configuration-de-l-environnement/
+url: /fr/reportingservices/introduction-&amp;-configuration-de-l-environnement/
 ---
 
 {{% alert color="primary" %}} 

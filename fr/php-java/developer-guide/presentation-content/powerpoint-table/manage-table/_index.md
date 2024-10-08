@@ -2,7 +2,7 @@
 title: Gérer la Table
 type: docs
 weight: 10
-url: /php-java/manage-table/
+url: /fr/php-java/manage-table/
 keywords: "Table, créer table, accéder table, rapport d'aspect de table, présentation PowerPoint, Java, Aspose.Slides pour PHP via Java"
 description: "Créer et gérer des tables dans des présentations PowerPoint"
 ---

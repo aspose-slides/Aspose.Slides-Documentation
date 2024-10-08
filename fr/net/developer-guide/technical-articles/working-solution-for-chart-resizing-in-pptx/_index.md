@@ -2,7 +2,7 @@
 title: Solution Fonctionnelle pour le Redimensionnement de Graphiques dans PPTX
 type: docs
 weight: 60
-url: /net/working-solution-for-chart-resizing-in-pptx/
+url: /fr/net/working-solution-for-chart-resizing-in-pptx/
 ---
 
 {{% alert color="primary" %}} 
@@ -11,7 +11,7 @@ Il a été observé que les graphiques Excel intégrés en tant qu'OLE dans une 
 
 {{% /alert %}} 
 ## **Contexte**
-Dans [l'article précédent](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) , nous avons expliqué comment créer un graphique Excel en utilisant Aspose.Cells pour .NET et ensuite intégrer ce graphique dans une présentation PowerPoint en utilisant Aspose.Slides pour .NET. Afin de prendre en compte le [problème d'objet changé](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) , nous avons assigné l'image du graphique au cadre d'objet OLE du graphique. Dans la présentation résultante, lorsque nous double-cliquons sur le cadre d'objet OLE affichant l'image du graphique, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les modifications souhaitées dans le classeur Excel réel puis retourner à la diapositive concernée en cliquant en dehors du classeur Excel activé. La taille du cadre d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de cadre d'objet OLE et de classeur Excel intégré.
+Dans [l'article précédent](/slides/fr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) , nous avons expliqué comment créer un graphique Excel en utilisant Aspose.Cells pour .NET et ensuite intégrer ce graphique dans une présentation PowerPoint en utilisant Aspose.Slides pour .NET. Afin de prendre en compte le [problème d'objet changé](/slides/fr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/) , nous avons assigné l'image du graphique au cadre d'objet OLE du graphique. Dans la présentation résultante, lorsque nous double-cliquons sur le cadre d'objet OLE affichant l'image du graphique, le graphique Excel est activé. Les utilisateurs finaux peuvent apporter les modifications souhaitées dans le classeur Excel réel puis retourner à la diapositive concernée en cliquant en dehors du classeur Excel activé. La taille du cadre d'objet OLE changera lorsque l'utilisateur reviendra à la diapositive. Le facteur de redimensionnement sera différent pour différentes tailles de cadre d'objet OLE et de classeur Excel intégré.
 ## **Cause du Redimensionnement**
 Puisque le classeur Excel a sa propre taille de fenêtre, il essaie de conserver sa taille d'origine lors de la première activation. D'autre part, le cadre d'objet OLE aura sa propre taille. Selon Microsoft, lors de l'activation du classeur Excel, Excel et PowerPoint négocient la taille et s'assurent qu'elle est dans les bonnes proportions dans le cadre de l'opération d'intégration. En fonction des différences dans la taille de la fenêtre Excel et la taille / position du cadre d'objet OLE, le redimensionnement a lieu.
 ## **Solution Fonctionnelle**
@@ -151,6 +151,6 @@ Il existe deux approches pour résoudre le problème de redimensionnement des gr
 
 {{% /alert %}} 
 ## **Sections Connexes**
-[Créer et Intégrer un Graphique Excel en tant qu'Objet OLE dans la Présentation](/slides/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
+[Créer et Intégrer un Graphique Excel en tant qu'Objet OLE dans la Présentation](/slides/fr/net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
-[Mettre à jour les objets OLE automatiquement](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+[Mettre à jour les objets OLE automatiquement](/slides/fr/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)

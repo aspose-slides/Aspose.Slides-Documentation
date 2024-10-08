@@ -2,7 +2,7 @@
 title: Support Technique Gratuit de Classe Mondiale
 type: docs
 weight: 20
-url: /sharepoint/support-technique-gratuit-de-classe-mondiale/
+url: /fr/sharepoint/support-technique-gratuit-de-classe-mondiale/
 ---
 
 {{% alert color="primary" %}} 

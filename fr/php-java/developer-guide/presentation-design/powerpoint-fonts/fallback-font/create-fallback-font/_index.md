@@ -2,7 +2,7 @@
 title: Créer une police de secours
 type: docs
 weight: 10
-url: /php-java/create-fallback-font/
+url: /fr/php-java/create-fallback-font/
 ---
 
 Aspose.Slides prend en charge l'interface [IFontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/IFontFallBackRule) et la classe [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) pour spécifier les règles à appliquer à une police de secours. La classe [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule) représente une association entre la plage Unicode spécifiée, utilisée pour rechercher les glyphes manquants, et une liste de polices qui peuvent contenir des glyphes appropriés :
@@ -22,5 +22,5 @@ Il est également possible de [supprimer](https://reference.aspose.com/slides/ph
 [FontFallBackRulesCollection](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRulesCollection) peut être utilisé pour organiser une liste d'objets [FontFallBackRule](https://reference.aspose.com/slides/php-java/aspose.slides/FontFallBackRule), lorsqu'il est nécessaire de spécifier des règles de remplacement de police de secours pour plusieurs plages Unicode.
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Créer une collection de polices de secours](/slides/php-java/create-fallback-fonts-collection/)
+- [Créer une collection de polices de secours](/slides/fr/php-java/create-fallback-fonts-collection/)
 {{% /alert %}}

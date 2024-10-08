@@ -2,7 +2,7 @@
 title: Police par défaut
 type: docs
 weight: 30
-url: /python-net/default-font/
+url: /fr/python-net/default-font/
 keywords: "Polices, polices par défaut, présentation PowerPoint de rendu Python, Aspose.Slides pour Python via .NET"
 description: "Polices par défaut PowerPoint en Python"
 ---

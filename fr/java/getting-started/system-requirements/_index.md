@@ -2,7 +2,7 @@
 title: Exigences Système
 type: docs
 weight: 80
-url: /java/system-requirements/
+url: /fr/java/system-requirements/
 ---
 
 ## **Aperçu**

@@ -2,7 +2,7 @@
 title: Aspose.Slides pour .NET 6 Multiplateforme
 type: docs
 weight: 237
-url: /net/slides-for-net-6-cross-platform
+url: /fr/net/slides-for-net-6-cross-platform
 keywords: Aspose.Slides, .NET, Multiplateforme
 description: Aspose.Slides pour .NET 6 Multiplateforme
 ---

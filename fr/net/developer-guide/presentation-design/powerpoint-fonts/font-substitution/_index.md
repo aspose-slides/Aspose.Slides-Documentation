@@ -3,7 +3,7 @@ title: Substitution de police - API C# PowerPoint
 linktitle: Substitution de police
 type: docs
 weight: 70
-url: /net/font-substitution/
+url: /fr/net/font-substitution/
 keywords: 
 - police
 - police de substitution
@@ -73,6 +73,6 @@ using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Vous voudrez peut-être voir [**Remplacement de police**](/slides/net/font-replacement/). 
+Vous voudrez peut-être voir [**Remplacement de police**](/slides/fr/net/font-replacement/). 
 
 {{% /alert %}}

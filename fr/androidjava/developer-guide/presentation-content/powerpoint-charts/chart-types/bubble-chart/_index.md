@@ -1,7 +1,7 @@
 ---
 title: Graphique à Bulles
 type: docs
-url: /androidjava/bubble-chart/
+url: /fr/androidjava/bubble-chart/
 ---
 
 ## **Échelle de Taille du Graphique à Bulles**

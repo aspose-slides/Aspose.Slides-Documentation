@@ -2,7 +2,7 @@
 title: Compatibilité avec PyInstaller et cx_Freeze
 type: docs
 weight: 122
-url: /python-net/compatibility-with-pyinstaller/
+url: /fr/python-net/compatibility-with-pyinstaller/
 ---
 
 

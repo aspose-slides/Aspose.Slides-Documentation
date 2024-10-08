@@ -3,7 +3,7 @@ title: Créez une présentation PowerPoint en utilisant PHP
 linktitle: Créer une présentation
 type: docs
 weight: 10
-url: /php-java/create-presentation/
+url: /fr/php-java/create-presentation/
 keywords: créer ppt java, créer présentation ppt, créer pptx java
 description: Découvrez comment créer des présentations PowerPoint, par exemple PPT, PPTX, en utilisant PHP à partir de zéro.
 ---

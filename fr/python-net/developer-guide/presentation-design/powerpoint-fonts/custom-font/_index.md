@@ -3,7 +3,7 @@ title: Police PowerPoint personnalisée en Python
 linktitle: Police personnalisée
 type: docs
 weight: 20
-url: /python-net/custom-font/
+url: /fr/python-net/custom-font/
 keywords: "Polices, polices personnalisées, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Polices personnalisées PowerPoint en Python"
 ---

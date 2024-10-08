@@ -2,7 +2,7 @@
 title: Manipulations de Formes
 type: docs
 weight: 40
-url: /cpp/shape-manipulations/
+url: /fr/cpp/shape-manipulations/
 ---
 
 ## **Trouver une Forme dans une Diapositive**

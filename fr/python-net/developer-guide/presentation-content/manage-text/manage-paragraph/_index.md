@@ -2,7 +2,7 @@
 title: Gérer les Paragraphes PowerPoint en Python
 type: docs
 weight: 40
-url: /python-net/manage-paragraph/
+url: /fr/python-net/manage-paragraph/
 keywords: "Ajouter un paragraphe PowerPoint, Gérer les paragraphes, Indentation de paragraphe, Propriétés de paragraphe, Texte HTML, Exporter le texte du paragraphe, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Créer et gérer des Paragraphes, du texte, de l'indentation et des propriétés dans des présentations PowerPoint en Python"
 ---

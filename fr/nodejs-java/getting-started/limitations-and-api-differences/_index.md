@@ -2,7 +2,7 @@
 title: Limitations et Différences d'API
 type: docs
 weight: 100
-url: /nodejs-java/limitations-and-api-differences/
+url: /fr/nodejs-java/limitations-and-api-differences/
 keywords: "node, powerpoint, limitation, api, différences"
 description: "Limitations et différences d'API d'Aspose.Slides pour Node.js via Java."
 ---

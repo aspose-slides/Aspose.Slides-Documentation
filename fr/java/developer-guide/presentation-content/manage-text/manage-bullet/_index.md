@@ -2,7 +2,7 @@
 title: Gérer les Puces
 type: docs
 weight: 60
-url: /java/manage-bullet/
+url: /fr/java/manage-bullet/
 keywords: "Puces, Listes à puces, Nombres, Listes numérotées, Puces d'image, puces multilevel, Présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Créer des listes à puces et numérotées dans une présentation PowerPoint en Java"
 ---

@@ -1,7 +1,7 @@
 ---
 title: Séries de Graphiques
 type: docs
-url: /python-net/chart-series/
+url: /fr/python-net/chart-series/
 keywords: "Séries de graphiques, couleur de série, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Séries de graphiques dans des présentations PowerPoint en Python"
 ---

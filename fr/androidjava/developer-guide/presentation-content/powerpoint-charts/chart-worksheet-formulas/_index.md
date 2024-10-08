@@ -2,7 +2,7 @@
 title: Formules de Tableau de Bord
 type: docs
 weight: 70
-url: /androidjava/chart-worksheet-formulas/
+url: /fr/androidjava/chart-worksheet-formulas/
 keywords: "équations powerpoint, formules de tableau powerpoint"
 description: "Équations et Formules de Tableau PowerPoint"
 ---

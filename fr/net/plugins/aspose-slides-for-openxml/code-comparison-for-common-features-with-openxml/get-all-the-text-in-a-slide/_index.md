@@ -2,7 +2,7 @@
 title: Obtenir tout le texte dans une diapositive
 type: docs
 weight: 110
-url: /net/get-all-the-text-in-a-slide/
+url: /fr/net/get-all-the-text-in-a-slide/
 ---
 
 ## **OpenXML SDK**

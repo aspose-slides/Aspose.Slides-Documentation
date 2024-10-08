@@ -2,7 +2,7 @@
 title: Convertir PowerPoint en SWF Flash
 type: docs
 weight: 80
-url: /python-net/convert-powerpoint-to-swf-flash/
+url: /fr/python-net/convert-powerpoint-to-swf-flash/
 keywords: "Convertir PowerPoint, Présentation, PowerPoint en SWF, SWF flash PPT en SWF, PPTX en SWF, Python"
 description: "Convertir une Présentation PowerPoint en SWF Flash en Python"
 ---

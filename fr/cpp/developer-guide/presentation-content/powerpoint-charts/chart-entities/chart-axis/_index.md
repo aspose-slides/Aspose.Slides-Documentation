@@ -1,7 +1,7 @@
 ---
 title: Axe de Graphique
 type: docs
-url: /cpp/chart-axis/
+url: /fr/cpp/chart-axis/
 keywords: "Axe de Graphique PowerPoint, Graphiques de Présentation, C++, Manipuler Axe de Graphique, Données de graphique"
 description: "Comment éditer l'axe de graphique PowerPoint en C++"
 ---

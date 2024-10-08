@@ -1,7 +1,7 @@
 ---
 title: Tableau de données de graphique
 type: docs
-url: /cpp/chart-data-table/
+url: /fr/cpp/chart-data-table/
 ---
 
 ## **Définir les propriétés de police pour le tableau de données du graphique**

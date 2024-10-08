@@ -2,5 +2,5 @@
 title: Polices PowerPoint
 type: docs
 weight: 30
-url: /python-net/powerpoint-fonts/
+url: /fr/python-net/powerpoint-fonts/
 ---

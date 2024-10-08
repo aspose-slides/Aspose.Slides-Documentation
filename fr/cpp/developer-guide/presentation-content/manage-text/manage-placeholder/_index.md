@@ -2,13 +2,13 @@
 title: Gérer les espaces réservés
 type: docs
 weight: 10
-url: /cpp/manage-placeholder/
+url: /fr/cpp/manage-placeholder/
 keywords: "Espace réservé, Texte d'espace réservé, Texte d'invite, Présentation PowerPoint, C++, CPP, Aspose.Slides pour C++"
 description: "Modifier le texte des espaces réservés et le texte d'invite dans les présentations PowerPoint en C++"
 ---
 
 ## **Modifier le texte dans un espace réservé**
-En utilisant [Aspose.Slides pour C++](/slides/cpp/), vous pouvez trouver et modifier des espaces réservés sur des diapositives dans des présentations. Aspose.Slides vous permet d'apporter des modifications au texte dans un espace réservé.
+En utilisant [Aspose.Slides pour C++](/slides/fr/cpp/), vous pouvez trouver et modifier des espaces réservés sur des diapositives dans des présentations. Aspose.Slides vous permet d'apporter des modifications au texte dans un espace réservé.
 
 **Prérequis** : Vous avez besoin d'une présentation contenant un espace réservé. Vous pouvez créer une telle présentation dans l'application Microsoft PowerPoint standard.
 

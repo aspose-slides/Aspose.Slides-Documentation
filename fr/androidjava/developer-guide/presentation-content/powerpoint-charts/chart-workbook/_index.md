@@ -2,7 +2,7 @@
 title: Carnet de Chart
 type: docs
 weight: 70
-url: /androidjava/chart-workbook/
+url: /fr/androidjava/chart-workbook/
 keywords: "Carnet de Chart, données de chart, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Carnet de chart dans la présentation PowerPoint en Java"
 ---

@@ -2,7 +2,7 @@
 title: Bugs de licence
 type: docs
 weight: 95
-url: /php-java/licensing-bug/
+url: /fr/php-java/licensing-bug/
 ---
 
 Cet article décrit un bug de licence rencontré dans Aspose.Slides pour PHP via Java versions 23.2, 23.3, 23.4, 23.5, 23.6 et 23.7. Ce bug a causé des licences perpétuelles à devenir temporairement inutilisables après l'expiration de leur abonnement.

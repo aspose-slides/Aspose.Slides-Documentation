@@ -2,14 +2,14 @@
 title: Rendre la présentation avec une police de secours
 type: docs
 weight: 30
-url: /python-net/render-presentation-with-fallback-font/
+url: /fr/python-net/render-presentation-with-fallback-font/
 keywords: "Police de secours, rendre PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
 description: "Rendre PowerPoint avec une police de secours en Python"
 ---
 
 L'exemple suivant comprend ces étapes :
 
-1. Nous [créons une collection de règles de police de secours](/slides/python-net/create-fallback-fonts-collection/).
+1. Nous [créons une collection de règles de police de secours](/slides/fr/python-net/create-fallback-fonts-collection/).
 1. [Remove()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) une règle de police de secours et [AddFallBackFonts()](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrule/) à une autre règle.
 1. Définir la collection de règles sur la propriété [FontsManager.FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/).
 1. Avec la méthode [Presentation.Save()](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), nous pouvons enregistrer la présentation dans le même format, ou l'enregistrer dans un autre. Après que la collection de règles de police de secours soit définie sur FontsManager, ces règles sont appliquées lors de toute opération sur la présentation : enregistrer, rendre, convertir, etc.
@@ -46,5 +46,5 @@ with slides.Presentation(path + "input.pptx") as pres:
 
 
 {{% alert color="primary" %}} 
-En savoir plus sur [Enregistrement et conversion dans la présentation](/slides/python-net/creating-saving-and-converting-a-presentation/).
+En savoir plus sur [Enregistrement et conversion dans la présentation](/slides/fr/python-net/creating-saving-and-converting-a-presentation/).
 {{% /alert %}}

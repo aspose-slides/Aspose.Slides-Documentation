@@ -2,7 +2,7 @@
 title: Supprimer une diapositive de la présentation
 type: docs
 weight: 30
-url: /net/remove-slide-from-presentation/
+url: /fr/net/remove-slide-from-presentation/
 keywords: "Supprimer diapositive, Effacer diapositive, PowerPoint, Présentation, C#, Csharp, .NET, Aspose.Slides"
 description: "Supprimez une diapositive de PowerPoint par référence ou index en C# ou .NET"
 

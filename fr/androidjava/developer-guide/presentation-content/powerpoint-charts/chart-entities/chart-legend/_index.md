@@ -1,7 +1,7 @@
 ---
 title: Légende du graphique
 type: docs
-url: /androidjava/chart-legend/
+url: /fr/androidjava/chart-legend/
 ---
 
 ## **Positionnement de la légende**

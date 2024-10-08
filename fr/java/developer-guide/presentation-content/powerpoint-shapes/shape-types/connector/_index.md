@@ -2,7 +2,7 @@
 title: Connecteur
 type: docs
 weight: 10
-url: /java/connector/
+url: /fr/java/connector/
 keywords: "Connecter des formes, connecteurs, formes PowerPoint, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Connecter des formes PowerPoint en Java"
 ---
@@ -133,7 +133,7 @@ try {
 
 ## **Ajuster le point du connecteur**
 
-Vous pouvez ajuster un connecteur existant via ses points d'ajustement. Seuls les connecteurs avec des points d'ajustement peuvent être modifiés de cette manière. Voir le tableau sous **[Types de connecteurs.](/slides/java/connector/#types-of-connecteurs)** 
+Vous pouvez ajuster un connecteur existant via ses points d'ajustement. Seuls les connecteurs avec des points d'ajustement peuvent être modifiés de cette manière. Voir le tableau sous **[Types de connecteurs.](/slides/fr/java/connector/#types-of-connecteurs)** 
 
 #### **Cas simple**
 
@@ -182,7 +182,7 @@ Pour effectuer des ajustements plus compliqués, vous devez prendre en compte ce
 * Les valeurs des points d'ajustement reflètent le pourcentage de la largeur/hauteur de la forme du connecteur. 
   * La forme est délimitée par les points de départ et d'arrivée du connecteur multipliés par 1000. 
   * Le premier point, le deuxième point et le troisième point définissent respectivement le pourcentage de la largeur, le pourcentage de la hauteur et le pourcentage de la largeur (à nouveau).
-* Pour les calculs qui déterminent les coordonnées des points d'ajustement d'un connecteur, vous devez prendre en compte la rotation du connecteur et sa réflexion. **Notez** que l'angle de rotation pour tous les connecteurs montrés sous **[Types de connecteurs](/slides/java/connector/#types-of-connecteurs)** est 0.
+* Pour les calculs qui déterminent les coordonnées des points d'ajustement d'un connecteur, vous devez prendre en compte la rotation du connecteur et sa réflexion. **Notez** que l'angle de rotation pour tous les connecteurs montrés sous **[Types de connecteurs](/slides/fr/java/connector/#types-of-connecteurs)** est 0.
 
 #### **Cas 1**
 

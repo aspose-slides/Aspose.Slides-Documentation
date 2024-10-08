@@ -2,7 +2,7 @@
 title: Accéder à une diapositive dans la présentation
 type: docs
 weight: 20
-url: /php-java/access-slide-in-presentation/
+url: /fr/php-java/access-slide-in-presentation/
 keywords: "Accéder à la présentation PowerPoint, Accéder à la diapositive, Modifier les propriétés de la diapositive, Changer la position de la diapositive, Définir le numéro de diapositive, index, ID, position Java, Aspose.Slides"
 description: "Accéder à la diapositive PowerPoint par index, ID, ou position. Modifier les propriétés de la diapositive."
 ---

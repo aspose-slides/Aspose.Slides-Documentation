@@ -1,7 +1,7 @@
 ---
 title: Tableau de données du graphique
 type: docs
-url: /java/chart-data-table/
+url: /fr/java/chart-data-table/
 ---
 
 ## **Définir les propriétés de la police pour le tableau de données du graphique**

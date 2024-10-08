@@ -2,7 +2,7 @@
 title: Gérer l'encre
 type: docs
 weight: 95
-url: /androidjava/manage-ink/
+url: /fr/androidjava/manage-ink/
 keywords: "Encre dans PowerPoint, outils d'encre, Encre Java, Dessiner dans PowerPoint, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Utilisez des outils d'encre pour dessiner des objets dans PowerPoint Java"
 ---

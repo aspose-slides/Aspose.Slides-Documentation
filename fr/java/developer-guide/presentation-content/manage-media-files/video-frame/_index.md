@@ -2,7 +2,7 @@
 title: Cadre Vidéo
 type: docs
 weight: 10
-url: /java/video-frame/
+url: /fr/java/video-frame/
 keywords: "Ajouter une vidéo, créer un cadre vidéo, extraire une vidéo, présentation PowerPoint, Java, Aspose.Slides pour Java"
 description: "Ajouter un cadre vidéo à une présentation PowerPoint en Java"
 ---

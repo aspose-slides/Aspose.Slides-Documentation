@@ -2,7 +2,7 @@
 title: Filigrane
 type: docs
 weight: 40
-url: /androidjava/watermark/
+url: /fr/androidjava/watermark/
 keywords:
 - filigrane
 - ajouter filigrane
@@ -49,7 +49,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser la classe TextFrame](/slides/androidjava/text-formatting/)
+- [Comment utiliser la classe TextFrame](/slides/fr/androidjava/text-formatting/)
 {{% /alert %}}
 
 ### **Ajouter un filigrane texte à une présentation**
@@ -69,7 +69,7 @@ presentation.dispose();
 ```
 
 {{% alert color="primary" title="Voir aussi" %}} 
-- [Comment utiliser le Maître de Diapositive](/slides/androidjava/slide-master/)
+- [Comment utiliser le Maître de Diapositive](/slides/fr/androidjava/slide-master/)
 {{% /alert %}}
 
 ### **Définir la transparence de la forme du filigrane**

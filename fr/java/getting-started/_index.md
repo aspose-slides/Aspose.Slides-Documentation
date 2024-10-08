@@ -2,5 +2,5 @@
 title: Prise en Main
 type: docs
 weight: 10
-url: /java/getting-started/
+url: /fr/java/getting-started/
 ---

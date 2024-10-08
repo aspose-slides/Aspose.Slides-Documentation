@@ -1,7 +1,7 @@
 ---
 title: Impression de présentation
 type: docs
-url: /net/impression-de-la-presentation/
+url: /fr/net/impression-de-la-presentation/
 ---
 
 Aspose.Slides pour .NET fournit quatre méthodes de surcharge pour l'impression des présentations. Ces méthodes sont suffisamment flexibles pour imprimer la présentation sur l'imprimante par défaut ou sur n'importe quelle imprimante disponible avec des paramètres personnalisés. Il vous suffit de sélectionner la méthode d'impression appropriée en fonction de vos besoins.

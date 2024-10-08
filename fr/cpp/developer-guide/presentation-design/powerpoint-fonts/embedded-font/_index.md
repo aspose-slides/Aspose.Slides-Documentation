@@ -2,7 +2,7 @@
 title: Police intégrée
 type: docs
 weight: 40
-url: /cpp/embedded-font/
+url: /fr/cpp/embedded-font/
 keywords: "Polices, polices intégrées, ajouter des polices, présentation PowerPoint C++, CPP, Aspose.Slides pour C++"
 description: "Utilisez des polices intégrées dans une présentation PowerPoint en C++"
 ---

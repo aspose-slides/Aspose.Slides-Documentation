@@ -2,7 +2,7 @@
 title: Format de Document Portable (PDF)
 type: docs
 weight: 40
-url: /java/portable-document-format-pdf/
+url: /fr/java/portable-document-format-pdf/
 ---
 
 {{% alert color="primary" %}} 
@@ -24,7 +24,7 @@ Aspose.Slides prend en charge les fonctionnalités de présentation suivantes lo
 - Puces.
 - Tableaux.
 
-Vous pouvez exporter des présentations en PDF directement avec Aspose.Slides pour Java : vous n'avez besoin d'aucun autre composant. De plus, vous pouvez personnaliser l'exportation de la présentation vers le PDF avec diverses options comme expliqué dans [Conversion en PDF](/slides/java/converting-a-presentation/).
+Vous pouvez exporter des présentations en PDF directement avec Aspose.Slides pour Java : vous n'avez besoin d'aucun autre composant. De plus, vous pouvez personnaliser l'exportation de la présentation vers le PDF avec diverses options comme expliqué dans [Conversion en PDF](/slides/fr/java/converting-a-presentation/).
 
 **La présentation d'entrée** 
 

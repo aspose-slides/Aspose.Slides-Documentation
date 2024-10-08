@@ -2,7 +2,7 @@
 title: Fusionner une présentation
 type: docs
 weight: 40
-url: /python-net/merge-presentation/
+url: /fr/python-net/merge-presentation/
 keywords: "Fusionner PowerPoint, PPTX, PPT, combiner PowerPoint, fusionner présentation, combiner présentation, Python"
 description: "Fusionner ou combiner des présentations PowerPoint en Python"
 ---

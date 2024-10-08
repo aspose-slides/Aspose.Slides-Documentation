@@ -2,7 +2,7 @@
 title: Accéder à la Présentation OpenDocument
 type: docs
 weight: 10
-url: /net/access-opendocument-presentation/
+url: /fr/net/access-opendocument-presentation/
 ---
 
 Aspose.Slides pour .NET offre la classe **Presentation** qui représente un fichier de présentation. La classe **Presentation** peut maintenant également accéder à **ODP** via le constructeur **Presentation** lors de l'instanciation de l'objet.

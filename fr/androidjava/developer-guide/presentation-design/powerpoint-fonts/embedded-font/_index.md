@@ -3,7 +3,7 @@ title: Police intégrée - API Java PowerPoint
 linktitle: Police intégrée
 type: docs
 weight: 40
-url: /androidjava/embedded-font/
+url: /fr/androidjava/embedded-font/
 keywords: "Polices, polices intégrées, ajouter des polices, présentation PowerPoint, Java, Aspose.Slides pour Android via Java"
 description: "Utilisez des polices intégrées dans une présentation PowerPoint en Java"
 

@@ -2,7 +2,7 @@
 title: Maître des diapositives
 type: docs
 weight: 70
-url: /php-java/slide-master/
+url: /fr/php-java/slide-master/
 keywords: "Ajouter Maître des diapositives, diapositive maître PPT, maître des diapositives PowerPoint, image au Maître des diapositives, espace réservé, plusieurs maîtres des diapositives, comparer maîtres des diapositives, Java, Aspose.Slides pour PHP via Java"
 description: "Ajouter ou modifier le maître des diapositives dans une présentation PowerPoint"
 ---
@@ -147,7 +147,7 @@ Vous pouvez ajouter des images à un maître des diapositives avec Aspose.Slides
 
 {{% alert color="primary" title="Voir aussi" %}} 
 
-Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article [Cadre d'image](/slides/php-java/picture-frame/#create-picture-frame).
+Pour plus d'informations sur l'ajout d'images à une diapositive, consultez l'article [Cadre d'image](/slides/fr/php-java/picture-frame/#create-picture-frame).
 {{% /alert %}}
 
 ## **Ajouter un espace réservé au Maître des Diapositives**

@@ -1,7 +1,7 @@
 ---
 title: Zone de Traçage du Graphique
 type: docs
-url: /php-java/chart-plot-area/
+url: /fr/php-java/chart-plot-area/
 ---
 
 

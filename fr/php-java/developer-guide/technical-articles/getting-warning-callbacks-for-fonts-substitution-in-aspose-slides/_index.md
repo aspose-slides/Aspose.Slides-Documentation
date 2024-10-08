@@ -2,7 +2,7 @@
 title: Obtenir des rappels d'avertissement pour la substitution de polices dans Aspose.Slides
 type: docs
 weight: 90
-url: /php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+url: /fr/php-java/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
 ---
 
 {{% alert color="primary" %}} 

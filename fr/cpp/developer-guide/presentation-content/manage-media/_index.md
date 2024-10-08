@@ -2,7 +2,7 @@
 title: Gérer les Médias
 type: docs
 weight: 50
-url: /cpp/manage-media/
+url: /fr/cpp/manage-media/
 ---
 
 ## **Exporter un Fichier Média en HTML**
