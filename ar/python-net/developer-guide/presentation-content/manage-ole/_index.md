@@ -1,4 +1,3 @@
-```markdown
 ---
 title: إدارة OLE
 type: docs
@@ -245,4 +244,3 @@ with slides.Presentation("embeddedOle.pptx") as pres:
                 fs.write(data)
         index += 1
 ``` 
-```
