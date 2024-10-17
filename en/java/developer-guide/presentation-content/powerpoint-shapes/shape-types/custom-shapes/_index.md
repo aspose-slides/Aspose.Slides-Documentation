@@ -309,7 +309,7 @@ try {
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```java
-boolean IsGeometryClosed(GeometryShape geometryShape)
+boolean isGeometryClosed(GeometryShape geometryShape)
 {
     Boolean isClosed = null;
 
