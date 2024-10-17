@@ -3,8 +3,20 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /java/custom-shape/
-keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "Add custom shape in PowerPoint presentation in Java"
+keywords: 
+- shape
+- custom shape
+- create shape
+- geometry
+- shape geometry
+- geometry path
+- path points
+- edit points
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides for Java
+description: "Add a custom shape to a PowerPoint presentation in Java"
 ---
 
 # Change a Shape Using Edit Points
@@ -289,6 +301,31 @@ try {
     pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres!= null) pres.dispose();
+}
+```
+
+## **Find Out If a Shape Geometry Is Closed**
+
+A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
+
+```java
+boolean IsGeometryClosed(GeometryShape geometryShape)
+{
+    Boolean isClosed = null;
+
+    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+        int dataLength = geometryPath.getPathData().length;
+        if (dataLength == 0)
+            continue;
+
+        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
+        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+
+        if (isClosed == false)
+            return false;
+    }
+
+    return isClosed == true;
 }
 ```
 

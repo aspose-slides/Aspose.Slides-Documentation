@@ -295,7 +295,7 @@ using (var presentation = new Presentation())
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```cs
-bool IsGeometryClosed(GeometryShape geometryShape)
+bool IsGeometryClosed(IGeometryShape geometryShape)
 {
     bool? isClosed = null;
 
@@ -311,6 +311,7 @@ bool IsGeometryClosed(GeometryShape geometryShape)
         if (isClosed == false)
             return false;
     }
+    
     return isClosed == true;
 }
 ```

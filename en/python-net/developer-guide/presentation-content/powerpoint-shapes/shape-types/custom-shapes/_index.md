@@ -3,8 +3,20 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /python-net/custom-shape/
-keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add custom shape in PowerPoint presentation in Python"
+keywords: 
+- shape
+- custom shape
+- create shape
+- geometry
+- shape geometry
+- geometry path
+- path points
+- edit points
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides for Python via .NET
+description: "Add a custom shape to a PowerPoint presentation in Python"
 ---
 
 # Change a Shape Using Edit Points
@@ -272,6 +284,28 @@ with slides.Presentation() as presentation:
     childShape.set_geometry_path(geometryPath)
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Find Out If a Shape Geometry Is Closed**
+
+A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
+
+```py
+def is_geometry_closed(geometry_shape):
+    is_closed = None
+
+    for geometry_path in geometry_shape.get_geometry_paths():
+        data_length = len(geometry_path.path_data)
+        if data_length == 0:
+            continue
+
+        last_segment = geometry_path.path_data[data_length - 1]
+        is_closed = last_segment.path_command == PathCommandType.CLOSE
+
+        if is_closed is False:
+            return False
+
+    return is_closed is True
 ```
 
 ## Conversion of GeometryPath to GraphicsPath (System.Drawing.Drawing2D) 

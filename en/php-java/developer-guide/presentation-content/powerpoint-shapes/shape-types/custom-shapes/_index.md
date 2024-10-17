@@ -3,8 +3,21 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /php-java/custom-shape/
-keywords: "PowerPoint shape, custom shape, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Add custom shape in PowerPoint presentation "
+keywords: 
+- shape
+- custom shape
+- create shape
+- geometry
+- shape geometry
+- geometry path
+- path points
+- edit points
+- PowerPoint
+- presentation
+- PHP
+- Java
+- Aspose.Slides for PHP via Java
+description: "Add a custom shape to a PowerPoint presentation in PHP"
 ---
 
 # Change a Shape Using Edit Points
@@ -265,6 +278,33 @@ This PHP code shows you how to create a custom shape with curved corners (inward
       $pres->dispose();
     }
   }
+```
+
+## **Find Out If a Shape Geometry Is Closed**
+
+A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
+
+```php
+function isGeometryClosed($geometryShape)
+{
+    $isClosed = null;
+
+    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
+        $dataLength = count(java_values($geometryPath->getPathData()));
+        if ($dataLength === 0) {
+            continue;
+        }
+
+        $lastSegment = java_values($geometryPath->getPathData())[$dataLength - 1];
+        $isClosed = $lastSegment->getPathCommand() === PathCommandType::Close;
+
+        if ($isClosed === false) {
+            return false;
+        }
+    }
+
+    return $isClosed === true;
+}
 ```
 
 ## **Convert GeometryPath to java.awt.Shape** 
