@@ -302,10 +302,10 @@ def is_geometry_closed(geometry_shape):
         last_segment = geometry_path.path_data[data_length - 1]
         is_closed = last_segment.path_command == PathCommandType.CLOSE
 
-        if is_closed is False:
+        if not is_closed:
             return False
 
-    return is_closed is True
+    return is_closed
 ```
 
 ## Conversion of GeometryPath to GraphicsPath (System.Drawing.Drawing2D) 
