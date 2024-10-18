@@ -295,22 +295,22 @@ A closed shape is defined as one where all its sides connect, forming a single b
 ```cpp
 bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
 {
-    bool isClosed = -1;
+    bool isClosed = false;
 
-    for (const auto geometryPath : geometryShape->GetGeometryPaths())
+    for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->Count();
+        auto dataLength = geometryPath->get_PathData()->get_Length();
         if (dataLength == 0)
             continue;
 
         auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = (lastSegment->get_PathCommand() == PathCommandType::Close);
+        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
 
-        if (isClosed == false)
+        if (!isClosed)
             return false;
     }
 
-    return isClosed == true;
+    return isClosed;
 }
 ```
 
