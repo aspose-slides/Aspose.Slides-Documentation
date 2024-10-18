@@ -293,7 +293,7 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<GeometryShape> geometryShape)
+bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
 {
     bool isClosed = -1;
 
