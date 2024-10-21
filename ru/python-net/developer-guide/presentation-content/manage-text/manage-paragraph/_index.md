@@ -2,7 +2,7 @@
 title: Управление абзацами PowerPoint на Python
 type: docs
 weight: 40
-url: /python-net/manage-paragraph/
+url: /ru/python-net/manage-paragraph/
 keywords: "Добавить абзац PowerPoint, Управлять абзацами, Отступ абзаца, Свойства абзаца, HTML текст, Экспорт текста абзаца, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Создание и управление абзацами, текстом, отступами и свойствами в презентациях PowerPoint на Python"
 ---

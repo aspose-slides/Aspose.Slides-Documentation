@@ -2,7 +2,7 @@
 title: Форматирование текста
 type: docs
 weight: 50
-url: /php-java/text-formatting/
+url: /ru/php-java/text-formatting/
 ---
 
 

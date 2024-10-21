@@ -2,7 +2,7 @@
 title: Рамка для изображения
 type: docs
 weight: 10
-url: /androidjava/picture-frame/
+url: /ru/androidjava/picture-frame/
 keywords: "Добавить рамку для изображения, создать рамку для изображения, добавить изображение, создать изображение, извлечь изображение, свойство StretchOff, форматирование рамки для изображения, свойства рамки для изображения, презентация PowerPoint, Java, Aspose.Slides для Android через Java"
 description: "Добавьте рамку для изображения в презентацию PowerPoint на Java"
 

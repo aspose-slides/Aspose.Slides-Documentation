@@ -2,7 +2,7 @@
 title: Управление абзацем PowerPoint в C++
 type: docs
 weight: 40
-url: /cpp/manage-paragraph/
+url: /ru/cpp/manage-paragraph/
 keywords: "Добавить абзац PowerPoint, Управлять абзацами, Отступ абзаца, Свойства абзаца, HTML текст, Экспорт текста абзаца, Презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Создавайте и управляйте абзацем, текстом, отступом и свойствами в презентациях PowerPoint на C++"
 ---
