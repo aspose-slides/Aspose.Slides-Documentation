@@ -3,7 +3,7 @@ title: Создание диаграмм для презентаций PowerPoin
 linktitle: Создать диаграмму
 type: docs
 weight: 10
-url: /python-net/create-chart/
+url: /ru/python-net/create-chart/
 keywords: "Создать диаграмму, разбросанная диаграмма, круговая диаграмма, диаграмма дерева, фондовая диаграмма, диаграмма ящика и усов, гистограмма, воронкообразная диаграмма, диаграмма с солнечным всплеском, многокатегорная диаграмма, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
 description: "Создайте диаграмму в презентации PowerPoint на Python"
 ---

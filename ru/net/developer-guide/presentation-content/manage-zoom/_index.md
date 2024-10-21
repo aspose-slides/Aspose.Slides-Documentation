@@ -2,7 +2,7 @@
 title: Управление Зумом
 type: docs
 weight: 60
-url: /net/manage-zoom/
+url: /ru/net/manage-zoom/
 keywords: "Zoom, рамка зума, добавить зум, формат рамки зума, Зум резюме, презентация PowerPoint, C#, Csharp, Aspose.Slides для .NET"
 description: "Добавьте зум или рамки зума в презентации PowerPoint на C# или .NET"
 ---

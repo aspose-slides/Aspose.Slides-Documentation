@@ -3,7 +3,7 @@ title: Создание диаграмм для презентаций PowerPoin
 linktitle: Создать диаграмму
 type: docs
 weight: 10
-url: /cpp/create-chart/
+url: /ru/cpp/create-chart/
 keywords: "Создание диаграммы, разбросанная диаграмма, круговая диаграмма, диаграмма с деревом, фондовая диаграмма, диаграмма box and whisker, гистограмма, воронка, солнечная диаграмма, многокатегорийная диаграмма, презентация PowerPoint, C++, CPP, Aspose.Slides для C++"
 description: "Создайте диаграмму в презентации PowerPoint на C++"
 ---

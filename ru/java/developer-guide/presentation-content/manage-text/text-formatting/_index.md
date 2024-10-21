@@ -2,7 +2,7 @@
 title: Форматирование текста
 type: docs
 weight: 50
-url: /java/text-formatting/
+url: /ru/java/text-formatting/
 keywords:
 - выделение текста
 - регулярное выражение
