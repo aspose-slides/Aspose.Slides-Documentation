@@ -621,6 +621,8 @@ In this section, we will explore two examples that demonstrate how to save a tex
 
 Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
 
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
 **Example 1**
 
 In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
@@ -656,6 +658,10 @@ imageGraphics.DrawImage(shapeBitmap, drawingRectangle, paragraphRectangle, Graph
 
 paragraphBitmap.Save("paragraph.png", System.Drawing.Imaging.ImageFormat.Png);
 ```
+
+The result:
+
+![The paragraph image](paragraph_to_image_output.png)
 
 **Example 2**
 
