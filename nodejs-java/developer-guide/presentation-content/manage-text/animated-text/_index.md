@@ -12,7 +12,7 @@ description: "Animated text in PowerPoint with Java"
 We added the [**addEffect()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence#addEffect-aspose.slides.IParagraph-int-int-int-) method to the [**Sequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence) and [**Sequence**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Sequence) classes. This method allows you to add animation effects to a single paragraph. This sample code shows you how to add an animation effect to a single paragraph:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("Presentation.pptx");
+    var presentation = new aspose.slides.Presentation("Presentation.pptx");
     try {
         // select paragraph to add effect
         var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -34,7 +34,7 @@ You may decide to find out the animation effects added to a paragraph—for exam
 Aspose.Slides for Node.js via Java allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation.pptx");
+    var pres = new aspose.slides.Presentation("Presentation.pptx");
     try {
         var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
         var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);

@@ -20,7 +20,7 @@ Notes of some specific slide could be removed as shown in example below:
 
 ```javascript
     // Load Presentation
-    var pres = new  aspose.slides.Presentation("headerTest.pptx");
+    var pres = new aspose.slides.Presentation("headerTest.pptx");
     try {
         // Setting Footer
         pres.getHeaderFooterManager().setAllFootersText("My Footer text");
@@ -57,7 +57,7 @@ Aspose.Slides for Node.js via Java supports Header and Footer in Handout and not
 Code Snippet provided in below Example.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("presentation.pptx");
+    var pres = new aspose.slides.Presentation("presentation.pptx");
     try {
         // Change Header and Footer settings for notes master and all notes slides
         var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();

@@ -22,7 +22,7 @@ The following code is used to create a chart with Trend Lines.
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Creating a clustered column chart
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 400);
@@ -76,7 +76,7 @@ The following code is used to create a chart with Custom Lines.
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
         var shape = chart.getUserShapes().getShapes().addAutoShape(aspose.slides.ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0);

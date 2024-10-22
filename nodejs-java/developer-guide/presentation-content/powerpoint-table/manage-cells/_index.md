@@ -17,7 +17,7 @@ description: "Table cells in PowerPoint presentations in Javascript"
 This Javascript code shows you how to identify merged table cells in a presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("SomePresentationWithTable.pptx");
+    var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
     try {
         var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// assuming that Slide#0.Shape#0 is a table
         for (var i = 0; i < table.getRows().size(); i++) {
@@ -48,7 +48,7 @@ This Javascript code shows you how to remove the borders from table cells:
 
 ```javascript
     // Instantiates Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -80,7 +80,7 @@ If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting 
 
 ```javascript
     // Instantiates Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses first slide
         var sld = pres.getSlides().get_Item(0);
@@ -122,7 +122,7 @@ We then merge the cells further by merging (1, 1) and (1, 2). The result is a ta
 
 ```javascript
     // Instantiates Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses first slide
         var sld = pres.getSlides().get_Item(0);
@@ -172,7 +172,7 @@ This Javascript code demonstrates the process we described:
 
 ```javascript
     // Instantiates the Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -218,7 +218,7 @@ This Javascript code demonstrates the process we described:
 This Javascript code shows you how to change a table cell's background color:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         var slide = presentation.getSlides().get_Item(0);
         var dblCols = java.newArray("double", [150, 150, 150, 150]);
@@ -254,7 +254,7 @@ This Javascript code shows you how to place an image inside a table cell when cr
 
 ```javascript
     // Instantiates the Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var islide = pres.getSlides().get_Item(0);

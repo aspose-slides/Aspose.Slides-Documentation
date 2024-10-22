@@ -49,7 +49,7 @@ The worksheet of the chart is automatically created and can be accessed with 
 
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
         var workbook = chart.getChartData().getChartDataWorkbook();

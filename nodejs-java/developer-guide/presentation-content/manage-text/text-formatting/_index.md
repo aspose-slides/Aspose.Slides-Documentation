@@ -31,9 +31,9 @@ It allows to highlight text part with background color using text sample, simila
 The code snippet below shows how to use this feature:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation.pptx");
+    var pres = new aspose.slides.Presentation("Presentation.pptx");
     try {
-        var textHighlightingOptions = new  aspose.slides.TextHighlightingOptions();
+        var textHighlightingOptions = new aspose.slides.TextHighlightingOptions();
         textHighlightingOptions.setWholeWordsOnly(true);
         pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("title", java.getStaticFieldValue("java.awt.Color", "BLUE"));// highlighting all words 'important'
         pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), textHighlightingOptions);// highlighting all separate 'the' occurrences
@@ -60,9 +60,9 @@ It allows to highlight text part with background color using regex, similar to T
 The code snippet below shows how to use this feature:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation.pptx");
+    var pres = new aspose.slides.Presentation("Presentation.pptx");
     try {
-        var options = new  aspose.slides.TextHighlightingOptions();
+        var options = new aspose.slides.TextHighlightingOptions();
         pres.getSlides().get_Item(0).getShapes().get_Item(0).getTextFrame().highlightRegex("\\b[^\\s]{4}\\b", java.getStaticFieldValue("java.awt.Color", "YELLOW"), options);// highlighting all words with 10 symbols or longer
         pres.save("OutputPresentation-highlight.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -79,15 +79,15 @@ Aspose.Slides allows you to specify your preferred color for the background of a
 This Javascript code shows you how to set the background color for an entire text:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
         autoShape.getTextFrame().getParagraphs().clear();
-        var para = new  aspose.slides.Paragraph();
-        var portion1 = new  aspose.slides.Portion("Black");
+        var para = new aspose.slides.Paragraph();
+        var portion1 = new aspose.slides.Portion("Black");
         portion1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-        var portion2 = new  aspose.slides.Portion(" Red ");
-        var portion3 = new  aspose.slides.Portion("Black");
+        var portion2 = new aspose.slides.Portion(" Red ");
+        var portion3 = new aspose.slides.Portion("Black");
         portion3.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
         para.getPortions().add(portion1);
         para.getPortions().add(portion2);
@@ -99,7 +99,7 @@ This Javascript code shows you how to set the background color for an entire tex
             pres.dispose();
         }
     }
-    var presentation = new  aspose.slides.Presentation("text.pptx");
+    var presentation = new aspose.slides.Presentation("text.pptx");
     try {
         var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
         java.callStaticMethodSync("StreamSupport", "stream", autoShape.getTextFrame().getParagraphs().spliterator(), false).map(p -> p.getPortions()).forEach(c -> c.forEach(ic -> ic.getPortionFormat().getHighlightColor().setColor(Color.BLUE)));
@@ -114,15 +114,15 @@ This Javascript code shows you how to set the background color for an entire tex
 This Javascript code shows you how to set the background color for only a portion of a text:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
         autoShape.getTextFrame().getParagraphs().clear();
-        var para = new  aspose.slides.Paragraph();
-        var portion1 = new  aspose.slides.Portion("Black");
+        var para = new aspose.slides.Paragraph();
+        var portion1 = new aspose.slides.Portion("Black");
         portion1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-        var portion2 = new  aspose.slides.Portion(" Red ");
-        var portion3 = new  aspose.slides.Portion("Black");
+        var portion2 = new aspose.slides.Portion(" Red ");
+        var portion3 = new aspose.slides.Portion("Black");
         portion3.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
         para.getPortions().add(portion1);
         para.getPortions().add(portion2);
@@ -134,7 +134,7 @@ This Javascript code shows you how to set the background color for only a portio
             pres.dispose();
         }
     }
-    var presentation = new  aspose.slides.Presentation("text.pptx");
+    var presentation = new aspose.slides.Presentation("text.pptx");
     try {
         var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
         var redPortion = java.callStaticMethodSync("StreamSupport", "stream", autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().spliterator(), false).filter(p -> p.getText().contains("Red")).findFirst();
@@ -164,7 +164,7 @@ The implementation of the above steps is given below.
 
 ```javascript
     // Instantiate a Presentation object that represents a PPTX file
-    var pres = new  aspose.slides.Presentation("ParagraphsAlignment.pptx");
+    var pres = new aspose.slides.Presentation("ParagraphsAlignment.pptx");
     try {
         // Accessing first slide
         var slide = pres.getSlides().get_Item(0);
@@ -200,7 +200,7 @@ This article demonstrates how to set transparency property to any text shape us
 The implementation of the above steps is given below.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("transparency.pptx");
+    var pres = new aspose.slides.Presentation("transparency.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var effects = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getEffectFormat();
@@ -224,7 +224,7 @@ Aspose.Slides allows you to set the space between letters in a textbox. This way
 This Javascript code shows you how to expand the spacing for one line of text and condense the spacing for another line:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("in.pptx");
+    var presentation = new aspose.slides.Presentation("in.pptx");
     var textBox1 = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     var textBox2 = presentation.getSlides().get_Item(0).getShapes().get_Item(1);
     textBox1.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setSpacing(20);// expand
@@ -252,7 +252,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
 
 ```javascript
     // Instantiate a Presentation object that represents a PPTX file
-    var pres = new  aspose.slides.Presentation("FontProperties.pptx");
+    var pres = new aspose.slides.Presentation("FontProperties.pptx");
     try {
         // Accessing a slide using its slide position
         var slide = pres.getSlides().get_Item(0);
@@ -266,8 +266,8 @@ The implementation of the above steps is given below. It takes an unadorned pres
         var port1 = para1.getPortions().get_Item(0);
         var port2 = para2.getPortions().get_Item(0);
         // Define new fonts
-        var fd1 = new  aspose.slides.FontData("Elephant");
-        var fd2 = new  aspose.slides.FontData("Castellar");
+        var fd1 = new aspose.slides.FontData("Elephant");
+        var fd2 = new aspose.slides.FontData("Castellar");
         // Assign new fonts to portion
         port1.getPortionFormat().setLatinFont(fd1);
         port2.getPortionFormat().setLatinFont(fd2);
@@ -309,7 +309,7 @@ The implementation of the above steps is given below.
 
 ```javascript
     // Instantiate Presentation
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get first slide
         var sld = pres.getSlides().get_Item(0);
@@ -351,7 +351,7 @@ Aspose.Slides allows you to choose your preferred font size for existing text in
 This Javascript code shows you how to set the font size for texts contained in a paragraph:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("example.pptx");
+    var presentation = new aspose.slides.Presentation("example.pptx");
     try {
         // Gets the first shape, for example.
         var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -386,7 +386,7 @@ Aspose.Slides for Node.js via Java allows developers to rotate the text. Text co
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -426,7 +426,7 @@ In the example given below, we set the RotationAngle property.
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -475,7 +475,7 @@ This Javascript code shows you how to specify the line spacing for a paragraph:
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation("Fonts.pptx");
+    var pres = new aspose.slides.Presentation("Fonts.pptx");
     try {
         // Obtain a slide's reference by its index
         var sld = pres.getSlides().get_Item(0);
@@ -508,7 +508,7 @@ In this topic, we will explore the different formatting properties of text frame
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Access the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -548,7 +548,7 @@ Aspose.Slides for Node.js via Java allows developers to Anchor of any TextFrame.
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -594,7 +594,7 @@ All text tabulations are given in pixels.
 If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `getDefaultTextStyle` method from the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         // Get the top level paragraph format.
         var paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);

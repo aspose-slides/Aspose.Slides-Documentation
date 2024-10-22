@@ -46,7 +46,7 @@ This Javascript code shows you how to add a connector (a bent connector) between
 
 ```javascript
     // Instantiates a presentation class that represents the PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the shapes collection for a specific slide
         var shapes = pres.getSlides().get_Item(0).getShapes();
@@ -92,7 +92,7 @@ This Javascript code demonstrates an operation where a preferred connection dot 
 
 ```javascript
     // Instantiates a presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the shapes collection for a specific slide
         var shapes = pres.getSlides().get_Item(0).getShapes();
@@ -132,7 +132,7 @@ Consider a case where a connector between two shapes (A and B) passes through a 
 ![connector-obstruction](connector-obstruction.png)
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var sld = pres.getSlides().get_Item(0);
         var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 150, 150, 75);
@@ -180,7 +180,7 @@ Consider a case where two text frame objects are linked together through a conne
 
 ```javascript
     // Instantiates a presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide in the presentation
         var sld = pres.getSlides().get_Item(0);
@@ -321,7 +321,7 @@ We demonstrated calculations involving simple adjustments and complicated adjust
 This Javascript code demonstrates an operation in which we calculated the angle for a connector line shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("ConnectorLineAngle.pptx");
+    var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
         for (var i = 0; i < slide.getShapes().size(); i++) {

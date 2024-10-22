@@ -25,7 +25,7 @@ In the example given below, we have added a line to the first slide of the prese
 
 ```javascript
     // Instantiate PresentationEx class that represents the PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -56,7 +56,7 @@ Aspose.Slides for Node.js via Java also allows developers to configure some prop
 
 ```javascript
     // Instantiate PresentationEx class that represents the PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);

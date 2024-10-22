@@ -17,7 +17,7 @@ Upon execution, the Slide method scans the entire text from the slide passed as
 
 ```javascript
     // Instatiate Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation("demo.pptx");
+    var pres = new aspose.slides.Presentation("demo.pptx");
     try {
         pres.getSlides().forEach(function(slide) {
             // Get an Array of ITextFrame objects from all slides in the PPTX
@@ -55,7 +55,7 @@ To scan the text from the whole presentation, use the
 
 ```javascript
     // Instatiate Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation("demo.pptx");
+    var pres = new aspose.slides.Presentation("demo.pptx");
     try {
         // Get an Array of ITextFrame objects from all slides in the PPTX
         var textFramesPPTX = aspose.slides.SlideUtil.getAllTextFrames(pres, true);
@@ -85,6 +85,9 @@ To scan the text from the whole presentation, use the
 The new static method getPresentationText has been added to Presentation class. There are three overloads for this method:
 
 ```javascript
+IPresentationText getPresentationText(String file, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode);
+IPresentationText getPresentationText(InputStream stream, int mode, ILoadOptions options);
 ``` 
 
 The [TextExtractionArrangingMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextExtractionArrangingMode) enum argument indicates the mode to organize the output of text result and can be set to the following values:

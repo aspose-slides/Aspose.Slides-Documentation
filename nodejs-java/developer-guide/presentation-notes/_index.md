@@ -25,7 +25,7 @@ Notes of some specific slide could be removed as shown in example below:
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("presWithNotes.pptx");
+    var pres = new aspose.slides.Presentation("presWithNotes.pptx");
     try {
         // Removing notes of first slide
         var mgr = pres.getSlides().get_Item(0).getNotesSlideManager();
@@ -44,7 +44,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("presWithNotes.pptx");
+    var pres = new aspose.slides.Presentation("presWithNotes.pptx");
     try {
         // Removing notes of all slides
         var mgr = null;
@@ -66,7 +66,7 @@ Notes of all the slides of a presentation could be removed as shown in example b
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("demo.pptx");
+    var pres = new aspose.slides.Presentation("demo.pptx");
     try {
         var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
         if (notesMaster != null) {

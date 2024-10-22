@@ -21,7 +21,7 @@ This Javascript code shows you how to set a table's first row as its header:
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  aspose.slides.Presentation("table.pptx");
+    var pres = new aspose.slides.Presentation("table.pptx");
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -60,7 +60,7 @@ This Javascript code shows you how to clone a PowerPoint table's row or column:
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  aspose.slides.Presentation("Test.pptx");
+    var pres = new aspose.slides.Presentation("Test.pptx");
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -108,7 +108,7 @@ This Javascript code shows you how to clone a PowerPoint table's row or column:
 This Javascript code shows you how to remove a row or column from a table:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var colWidth = java.newArray("double", [100, 50, 30]);
@@ -138,21 +138,21 @@ This Javascript code demonstrates the operation.
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Let's assume that the first shape on the first slide is a table
         var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         // Sets first row cells' font height
-        var portionFormat = new  aspose.slides.PortionFormat();
+        var portionFormat = new aspose.slides.PortionFormat();
         portionFormat.setFontHeight(25);
         someTable.getRows().get_Item(0).setTextFormat(portionFormat);
         // Sets the first row cells' text alignment and right margin
-        var paragraphFormat = new  aspose.slides.ParagraphFormat();
+        var paragraphFormat = new aspose.slides.ParagraphFormat();
         paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
         paragraphFormat.setMarginRight(20);
         someTable.getRows().get_Item(0).setTextFormat(paragraphFormat);
         // Sets the second row cells' text vertical type
-        var textFrameFormat = new  aspose.slides.TextFrameFormat();
+        var textFrameFormat = new aspose.slides.TextFrameFormat();
         textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
         someTable.getRows().get_Item(1).setTextFormat(textFrameFormat);
         // Saves the presentation to disk
@@ -178,21 +178,21 @@ This Javascript code demonstrates the operation:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Let's assume that the first shape on the first slide is a table
         var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         // Sets the first column cells' font height
-        var portionFormat = new  aspose.slides.PortionFormat();
+        var portionFormat = new aspose.slides.PortionFormat();
         portionFormat.setFontHeight(25);
         someTable.getColumns().get_Item(0).setTextFormat(portionFormat);
         // Sets the first column cells' text alignment and right margin in one call
-        var paragraphFormat = new  aspose.slides.ParagraphFormat();
+        var paragraphFormat = new aspose.slides.ParagraphFormat();
         paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
         paragraphFormat.setMarginRight(20);
         someTable.getColumns().get_Item(0).setTextFormat(paragraphFormat);
         // Sets the second column cells' text vertical type
-        var textFrameFormat = new  aspose.slides.TextFrameFormat();
+        var textFrameFormat = new aspose.slides.TextFrameFormat();
         textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
         someTable.getColumns().get_Item(1).setTextFormat(textFrameFormat);
         pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
@@ -208,7 +208,7 @@ This Javascript code demonstrates the operation:
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Javascript code shows you how to get the style properties from a table preset style:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
         table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme

@@ -35,7 +35,7 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 You can add one or several images on your computer onto a slide in a presentation. This sample code in Java shows you how to add an image to a slide:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var picture;
@@ -63,7 +63,7 @@ If the image you want to add to a slide is unavailable on your computer, you can
 This sample code shows you how to add an image from the web to a slide in Java:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -71,7 +71,7 @@ This sample code shows you how to add an image from the web to a slide in Java:
         var readStream = fs.readFileSync("book1.xlsx");
         var byteArray = Array.from(readStream);
         // Creates a data object for embedding
-        var dataInfo = new  aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
+        var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
         // Adds an Ole Object Frame shape
         var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
         // Writes the PPTX file to disk
@@ -91,7 +91,7 @@ A slide master is the top slide that stores and controls information (theme, lay
 This Java sample code shows you how to add an image to a slide master:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var masterSlide = slide.getLayoutSlide().getMasterSlide();
@@ -129,10 +129,10 @@ To create an image object based on SVG image, you can do it this way:
 This sample code shows you how to implement the steps above to add an SVG image into a presentation:
 ```javascript
     // Instantiate Presentation class that represents PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var svgContent = java.newInstanceSync("java.lang.String", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg")));
-        var svgImage = new  aspose.slides.SvgImage(svgContent);
+        var svgImage = new aspose.slides.SvgImage(svgContent);
         var ppImage = pres.getImages().addImage(svgImage);
         pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 0, 0, ppImage.getWidth(), ppImage.getHeight(), ppImage);
         pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
@@ -155,12 +155,12 @@ This sample code shows you how to use the described method to convert an SVG fil
 
 ```javascript
     // Create new presentation
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         // Read SVG file content
         var svgContent = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "image.svg"));
         // Create SvgImage object
-        var svgImage = new  aspose.slides.SvgImage(svgContent);
+        var svgImage = new aspose.slides.SvgImage(svgContent);
         // Get slide size
         var slideSize = presentation.getSlideSize().getSize();
         // Convert SVG image to group of shapes scaling it to slide size
@@ -189,7 +189,7 @@ This sample code shows you how to perform the described task:
     options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
     // Save the workbook to stream
     var sr = java.newInstanceSync("SheetRender", sheet, options);
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         pres.getSlides().removeAt(0);
         var EmfSheetName = "";

@@ -20,7 +20,7 @@ A PowerPoint theme uses a specific set of colors for different elements on a sli
 This Javascript code shows you how to change the accent color for a theme:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
         shape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
@@ -64,7 +64,7 @@ When you apply luminance transformations to the main theme color(1), colors from
 This Javascript code demonstrates an operation where additional palette colors are obtained from the main theme color and then used in shapes:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         var slide = presentation.getSlides().get_Item(0);
         // Accent 4
@@ -120,8 +120,8 @@ This Javascript code shows you how to assign the Latin font to a theme element:
 
 ```javascript
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
-    var paragraph = new  aspose.slides.Paragraph();
-    var portion = new  aspose.slides.Portion("Theme text format");
+    var paragraph = new aspose.slides.Paragraph();
+    var portion = new aspose.slides.Portion("Theme text format");
     paragraph.getPortions().add(portion);
     shape.getTextFrame().getParagraphs().add(paragraph);
     portion.getPortionFormat().setLatinFont(new  aspose.slides.FontData("+mn-lt"));
@@ -150,7 +150,7 @@ By default, the PowerPoint app provides 12 predefined backgrounds but only 3 fro
 For example, after you save a presentation in the PowerPoint app, you can run this Javascript code to find out the number of predefined backgrounds in the presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         var numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
         console.log("Number of background fill styles for theme is " + numberOfBackgroundFills);
@@ -194,7 +194,7 @@ Using 3 properties ([FillStyles](https://reference.aspose.com/slides/nodejs-java
 This Javascript code shows you how to change a theme effect by altering parts of elements:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
+    var pres = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
     try {
         pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
         pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(aspose.slides.FillType.Solid);

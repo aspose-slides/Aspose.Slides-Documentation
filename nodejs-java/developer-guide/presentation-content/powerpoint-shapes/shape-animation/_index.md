@@ -43,7 +43,7 @@ This Javascript code shows you how to apply the `Fade` effect to AutoShape and s
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var sld = pres.getSlides().get_Item(0);
         // Adds new AutoShape with text
@@ -84,7 +84,7 @@ This Javascript code shows you how to apply the `Fly` effect to a picture frame:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Load Image to be added in presentaiton image collection
         var picture;
@@ -127,7 +127,7 @@ This Javascript code shows you how to apply the `PathFootball` (path football) e
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file.
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var sld = pres.getSlides().get_Item(0);
         // Creates PathFootball effect for existing shape from scratch.
@@ -165,7 +165,7 @@ This Javascript code shows you how to get the all effects applied to a specific 
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
-    var pres = new  aspose.slides.Presentation("AnimExample_out.pptx");
+    var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
     try {
         var firstSlide = pres.getSlides().get_Item(0);
         // Gets the main sequence of the slide.
@@ -208,7 +208,7 @@ This Javascript code demonstrates the operation:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
-    var pres = new  aspose.slides.Presentation("AnimExample_out.pptx");
+    var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
     try {
         // Gets the main sequence of the slide.
         var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
@@ -241,7 +241,7 @@ Aspose.Slides provides these properties to allow you to work with sounds in anim
 This Javascript code shows you how to add an animation effect sound and stop it when the next effect starts:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("AnimExample_out.pptx");
+    var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
     try {
         // Adds audio to presentation audio collection
         var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
@@ -279,7 +279,7 @@ This Javascript code shows you how to extract the sound embedded in an animation
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
-    var presentation = new  aspose.slides.Presentation("EffectSound.pptx");
+    var presentation = new aspose.slides.Presentation("EffectSound.pptx");
     try {
         var slide = presentation.getSlides().get_Item(0);
         // Gets the main sequence of the slide.
@@ -319,7 +319,7 @@ This Javascript code shows you how to change an after animation effect:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("AnimImage_out.pptx");
+    var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
     try {
         var firstSlide = pres.getSlides().get_Item(0);
         // Gets the first effect of the main sequence
@@ -358,7 +358,7 @@ This Javascript code demonstrates the operation:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file.
-    var pres = new  aspose.slides.Presentation("AnimTextBox_out.pptx");
+    var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
     try {
         var firstSlide = pres.getSlides().get_Item(0);
         // Gets the first effect of the main sequence

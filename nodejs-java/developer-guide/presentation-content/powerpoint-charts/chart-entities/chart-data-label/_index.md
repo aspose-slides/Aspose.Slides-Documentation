@@ -13,7 +13,7 @@ Data labels on a chart show details about the chart data series or individual da
 This Javascript code shows you how to set the data precision in a chart data label:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 50, 50, 450, 300);
         chart.setDataTable(true);
@@ -31,7 +31,7 @@ Aspose.Slides for Node.js via Java allows you to set percentage labels on displa
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -51,7 +51,7 @@ Aspose.Slides for Node.js via Java allows you to set percentage labels on displa
             for (var j = 0; j < series.getDataPoints().size(); j++) {
                 var lbl = series.getDataPoints().get_Item(j).getLabel();
                 dataPontPercent = (series.getDataPoints().get_Item(j).getValue().getData() / total_for_Cat[j]) * 100;
-                var port = new  aspose.slides.Portion();
+                var port = new aspose.slides.Portion();
                 port.setText(java.callStaticMethodSync("java.lang.String", "format", "{0:F2} %.2f", dataPontPercent));
                 port.getPortionFormat().setFontHeight(8.0);
                 lbl.getTextFrameForOverriding().setText("");
@@ -78,7 +78,7 @@ This Javascript code shows you to set the percentage sign for a chart data label
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets a slide's reference through its index
         var slide = pres.getSlides().get_Item(0);
@@ -137,7 +137,7 @@ This Javascript code shows you how to set the label distance from a category axi
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets a slide's reference
         var sld = pres.getSlides().get_Item(0);
@@ -161,7 +161,7 @@ When you create a chart that does not rely on any axis such as a pie chart, the 
 This Javascript code shows you how to adjust the label location on a pie chart:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 200, 200);
         var series = chart.getChartData().getSeries();

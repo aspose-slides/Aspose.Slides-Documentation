@@ -99,7 +99,7 @@ This Javascript code shows you how to
 This Javascript code shows you how to add custom points to a shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
         var geometryPath = shape.getGeometryPaths()[0];
@@ -124,7 +124,7 @@ This Javascript code shows you how to add custom points to a shape:
 This Javascript code shows you how to remove points from a shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Heart, 100, 100, 300, 300);
         var path = shape.getGeometryPaths()[0];
@@ -163,13 +163,13 @@ This Java shows you how to create a custom shape:
         y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
         points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
     }
-    var starPath = new  aspose.slides.GeometryPath();
+    var starPath = new aspose.slides.GeometryPath();
     starPath.moveTo(points.get(0));
     for (var i = 1; i < points.size(); i++) {
         starPath.lineTo(points.get(i));
     }
     starPath.closeFigure();
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, R * 2, R * 2);
         shape.setGeometryPath(starPath);
@@ -192,16 +192,16 @@ This Java shows you how to create a custom shape:
 This Javascript code shows you to create a composite custom shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-        var geometryPath0 = new  aspose.slides.GeometryPath();
+        var geometryPath0 = new aspose.slides.GeometryPath();
         geometryPath0.moveTo(0, 0);
         geometryPath0.lineTo(shape.getWidth(), 0);
         geometryPath0.lineTo(shape.getWidth(), shape.getHeight() / 3);
         geometryPath0.lineTo(0, shape.getHeight() / 3);
         geometryPath0.closeFigure();
-        var geometryPath1 = new  aspose.slides.GeometryPath();
+        var geometryPath1 = new aspose.slides.GeometryPath();
         geometryPath1.moveTo(0, (shape.getHeight() / 3) * 2);
         geometryPath1.lineTo(shape.getWidth(), (shape.getHeight() / 3) * 2);
         geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
@@ -229,10 +229,10 @@ This Javascript code shows you how to create a custom shape with curved corners 
     var rightTopSize = 20.0;
     var rightBottomSize = 40.0;
     var leftBottomSize = 10.0;
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
-        var geometryPath = new  aspose.slides.GeometryPath();
+        var geometryPath = new aspose.slides.GeometryPath();
         var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftTopSize, 0);
         var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth - rightTopSize, 0);
         var point3 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth, shapeHeight - rightBottomSize);
@@ -267,7 +267,7 @@ This Javascript code shows you how to create a custom shape with curved corners 
 This Javascript code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Create new shape
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 100);

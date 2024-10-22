@@ -34,7 +34,7 @@ Here are the steps to convert PPT/PPTX to JPG:
 {{% /alert %}} 
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("PowerPoint-Presentation.pptx");
+    var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
     try {
         pres.getSlides().forEach(function(sld) {
             // Creates a full scale image
@@ -59,7 +59,7 @@ Here are the steps to convert PPT/PPTX to JPG:
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**Slide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-float-float-) methods:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("PowerPoint-Presentation.pptx");
+    var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
     try {
         // Defines dimensions
         var desiredX = 1200;
@@ -90,11 +90,11 @@ To change the dimension of the resulting thumbnail and JPG image, you can set th
 Aspose.Slides for Node.js via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("presentation.pptx");
+    var pres = new aspose.slides.Presentation("presentation.pptx");
     try {
-        var notesOptions = new  aspose.slides.NotesCommentsLayoutingOptions();
+        var notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
         notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
-        var opts = new  aspose.slides.RenderingOptions();
+        var opts = new aspose.slides.RenderingOptions();
         opts.setSlidesLayoutOptions(notesOptions);
         pres.getSlides().forEach(function(sld) {
             var slideImage = sld.getImage(opts, java.newInstanceSync("java.awt.Dimension", 740, 960));

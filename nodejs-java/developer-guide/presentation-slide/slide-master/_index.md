@@ -110,13 +110,13 @@ In PowerPoint, Slide Master can be accessed from the View -> Slide Master menu:
 Using Aspose.Slides, you can access a Slide Master this way: 
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
-    try {
-        // Gives access to the Presentation's master slide
-        var masterSlide = pres.getMasters().get_Item(0);
-    } finally {
-        pres.dispose();
-    }
+var pres = new aspose.slides.Presentation();
+try {
+    // Gives access to the Presentation's master slide
+    var masterSlide = pres.getMasters().get_Item(0);
+} finally {
+    pres.dispose();
+}
 ```
 
 The [MasterSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlide) class represents a Slide Master. The [Masters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getMasters--) property (related to [MasterSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MasterSlideCollection) type) contains a list of all Slide Masters that are defined in the presentation. 
@@ -133,25 +133,25 @@ For example, you can place your company's logo and a few images on the Slide Mas
 You can add images to a slide master with Aspose.Slides:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+var pres = new aspose.slides.Presentation();
+try {
+    var picture;
+    var image = aspose.slides.Images.fromFile("image.png");
     try {
-        var picture;
-        var image = aspose.slides.Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-        pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
+        picture = pres.getImages().addImage(image);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (image != null) {
+            image.dispose();
         }
     }
+    pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -199,6 +199,37 @@ We want to change the Title and Subtitle formatting on the Slide Master this way
 First, we retrieve the title placeholder content from the Slide Master object and then use the`PlaceHolder.FillFormat` field: 
 
 ```javascript
+var pres = new aspose.slides.Presentation();
+try {
+    var master = pres.getMasters().get_Item(0);
+    var placeHolder = findPlaceholder(master, aspose.slides.PlaceholderType.Title);
+    placeHolder.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+    placeHolder.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+    var awtColor = java.import('java.awt.Color');
+    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(0, java.newInstanceSync('java.awt.Color', 255, 0, 0));
+    placeHolder.getFillFormat().getGradientFormat().getGradientStops().add(255, java.newInstanceSync('java.awt.Color', 128, 0, 128));
+
+    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
+}
+
+function findPlaceholder(master, type)
+{    
+    for (var i = 0 ; i < master.getShapes().size(); i++)
+    {
+        var autoShape = master.getShapes().get_Item(i);
+        if (autoShape != null)
+        {
+            if (autoShape.getPlaceholder().getType() == type)
+            {
+                return autoShape;
+            }
+        }
+    }
+
+    return null;
+}
 ```
 
 The title style and formatting will change for all slides based on the slide master:
@@ -220,18 +251,18 @@ The title style and formatting will change for all slides based on the slide mas
 When you change a master slide's background color, all the normal slides in the presentation will get the new color. This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
-    try {
-        var master = pres.getMasters().get_Item(0);
-        master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-        master.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-        pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var master = pres.getMasters().get_Item(0);
+    master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
+    master.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert color="primary" title="See also" %}} 
@@ -247,15 +278,15 @@ When you change a master slide's background color, all the normal slides in the 
 To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Javascript code shows you how to clone a Slide Master to another presentation:
 
 ```javascript
-    var presSource = new  aspose.slides.Presentation();
-    var presTarget = new  aspose.slides.Presentation();
-    try {
-        var master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
-    } finally {
-        if (presSource != null) {
-            presSource.dispose();
-        }
+var presSource = new aspose.slides.Presentation();
+var presTarget = new aspose.slides.Presentation();
+try {
+    var master = presTarget.getMasters().addClone(presSource.getMasters().get_Item(0));
+} finally {
+    if (presSource != null) {
+        presSource.dispose();
     }
+}
 ```
 
 
@@ -270,8 +301,8 @@ In PowerPoint, you can add new Slide Masters and Layouts (from the "Slide Master
 Using Aspose.Slides, you can add a new Slide Master by calling the  [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method:
 
 ```javascript
-    // Adds a new master slide
-    var secondMasterSlide = pres.getMasters().addClone(masterSlide);
+// Adds a new master slide
+var secondMasterSlide = pres.getMasters().addClone(masterSlide);
 ```
 
 
@@ -289,16 +320,16 @@ Aspose.Slides allows you to set a Slide Master as the default view for a present
 This code shows you how to set a Slide Master as a presentation's default view in Java:
 
 ```javascript
-    // Instantiates a Presentation class that represents the presentation file
-    var presentation = new  aspose.slides.Presentation();
-    try {
-        // Sets the Default View as SlideMasterView
-        presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
-        // Saves the presentation
-        presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+// Instantiates a Presentation class that represents the presentation file
+var presentation = new aspose.slides.Presentation();
+try {
+    // Sets the Default View as SlideMasterView
+    presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
+    // Saves the presentation
+    presentation.save("PresView.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Remove Unused Master Slide**
@@ -306,13 +337,13 @@ This code shows you how to set a Slide Master as a presentation's default view i
 Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Javascript code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
-    try {
-        aspose.slides.Compress.removeUnusedMasterSlides(pres);
-        pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    aspose.slides.Compress.removeUnusedMasterSlides(pres);
+    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```

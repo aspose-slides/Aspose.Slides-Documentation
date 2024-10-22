@@ -32,7 +32,7 @@ With Aspose.Slides for Node.js via Java, you can easily create your own WordArt 
 First, we create a simple text using this Javascript code:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
@@ -48,7 +48,7 @@ First, we create a simple text using this Javascript code:
 Now, we set the text’s font height to a bigger value to make the effect more noticeable through this code:
 
 ```javascript
-    var fontData = new  aspose.slides.FontData("Arial Black");
+    var fontData = new aspose.slides.FontData("Arial Black");
     portion.getPortionFormat().setLatinFont(fontData);
     portion.getPortionFormat().setFontHeight(36);
 ```
@@ -277,7 +277,7 @@ Aspose.Slides for Node.js via Java provides the [**OuterShadow**](https://refere
 This sample code in Java—an implementation of the steps above—shows you how to apply the outer shadow effect to a text:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get reference of the slide
         var sld = pres.getSlides().get_Item(0);
@@ -319,7 +319,7 @@ Go through these steps:
 This sample code (based on the steps above) shows you how to add a connector between two shapes in Java:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get reference of the slide
         var slide = pres.getSlides().get_Item(0);

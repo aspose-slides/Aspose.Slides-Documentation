@@ -24,7 +24,7 @@ In the example given below, we have added an ellipse to the first slide
 
 ```javascript
     // Instantiate Presentation class that represents the PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -55,7 +55,7 @@ In the example given below, we have added a formatted ellipse to the first slide
 
 ```javascript
     // Instantiate Presentation class that represents the PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);

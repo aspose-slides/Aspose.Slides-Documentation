@@ -41,7 +41,7 @@ The implementation of the above steps is given below. It takes an unadorned pres
 
 ```javascript
     // Instantiate a Presentation object that represents a PPTX file
-    var pres = new  aspose.slides.Presentation("FontProperties.pptx");
+    var pres = new aspose.slides.Presentation("FontProperties.pptx");
     try {
         // Accessing a slide using its slide position
         var slide = pres.getSlides().get_Item(0);
@@ -57,8 +57,8 @@ The implementation of the above steps is given below. It takes an unadorned pres
         var port1 = para1.getPortions().get_Item(0);
         var port2 = para2.getPortions().get_Item(0);
         // Define new fonts
-        var fd1 = new  aspose.slides.FontData("Elephant");
-        var fd2 = new  aspose.slides.FontData("Castellar");
+        var fd1 = new aspose.slides.FontData("Elephant");
+        var fd2 = new aspose.slides.FontData("Castellar");
         // Assign new fonts to portion
         port1.getPortionFormat().setLatinFont(fd1);
         port2.getPortionFormat().setLatinFont(fd2);
@@ -110,7 +110,7 @@ The implementation of the above steps is given below.
 
 ```javascript
     // Instantiate a Presentation object that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get first slide
         var sld = pres.getSlides().get_Item(0);

@@ -53,7 +53,7 @@ Aspose.Slides for Node.js via Java offers [Presentation](https://reference.aspos
 
 ```javascript
     // Instantiate a Presentation object that represents a PPTX file
-    var pres = new  aspose.slides.Presentation("Aspose.ppt");
+    var pres = new aspose.slides.Presentation("Aspose.ppt");
     try {
         // Saving the PPTX presentation to PPTX format
         pres.save("ConvertedAspose.pptx", aspose.slides.SaveFormat.Pptx);

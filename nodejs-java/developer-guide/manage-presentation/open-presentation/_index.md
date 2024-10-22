@@ -18,7 +18,7 @@ This Javascript code shows you how to open a presentation and also find out the 
 
 ```javascript
     // Instantiates the Presentation class and passes the file path to its constructor
-    var pres = new  aspose.slides.Presentation("Presentation.pptx");
+    var pres = new aspose.slides.Presentation("Presentation.pptx");
     try {
         // Prints the total number of slides present in the presentation
         console.log(pres.getSlides().size());
@@ -34,9 +34,9 @@ This Javascript code shows you how to open a presentation and also find out the 
 When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Javascript code demonstrates the operation:
 
 ```javascript
-    var loadOptions = new  aspose.slides.LoadOptions();
+    var loadOptions = new aspose.slides.LoadOptions();
     loadOptions.setPassword("YOUR_PASSWORD");
-    var pres = new  aspose.slides.Presentation("pres.pptx", loadOptions);
+    var pres = new aspose.slides.Presentation("pres.pptx", loadOptions);
     try {
         // Do some work with the decrypted presentation
     } finally {
@@ -53,11 +53,11 @@ Aspose.Slides provides options (the [BlobManagementOptions](https://reference.as
 This Java demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
 
 ```javascript
-    var loadOptions = new  aspose.slides.LoadOptions();
+    var loadOptions = new aspose.slides.LoadOptions();
     loadOptions.getBlobManagementOptions().setPresentationLockingBehavior(aspose.slides.PresentationLockingBehavior.KeepLocked);
     loadOptions.getBlobManagementOptions().setTemporaryFilesAllowed(true);
     loadOptions.getBlobManagementOptions().setMaxBlobsBytesInMemory(0);
-    var pres = new  aspose.slides.Presentation("veryLargePresentation.pptx", loadOptions);
+    var pres = new aspose.slides.Presentation("veryLargePresentation.pptx", loadOptions);
     try {
         // The large presentation has been loaded and can be used, but the memory consumption is still low.
         // makes changes to the presentation.
@@ -85,9 +85,9 @@ When you want to create a presentation that contains large objects (video, audio
 Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/resourceloadingcallback/) with a single method to allow you to manage external resources. This Javascript code shows you how to use the `IResourceLoadingCallback` class:
 
 ```javascript
-    var opts = new  aspose.slides.LoadOptions();
+    var opts = new aspose.slides.LoadOptions();
     opts.setResourceLoadingCallback(java.newInstanceSync("ImageLoadingHandler"));
-    var pres = new  aspose.slides.Presentation("presentation.pptx", opts);
+    var pres = new aspose.slides.Presentation("presentation.pptx", opts);
 ```
 You will need to implement ImageLoadingHandler in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
 ```java
@@ -133,9 +133,9 @@ This property can be useful for removing potentially malicious binary content.
 The code demonstrates how to load and save a presentation without any malware content:
 
 ```javascript
-    var loadOptions = new  aspose.slides.LoadOptions();
+    var loadOptions = new aspose.slides.LoadOptions();
     loadOptions.setDeleteEmbeddedBinaryObjects(true);
-    var pres = new  aspose.slides.Presentation("malware.ppt", loadOptions);
+    var pres = new aspose.slides.Presentation("malware.ppt", loadOptions);
     try {
         pres.save("clean.ppt", aspose.slides.SaveFormat.Ppt);
     } finally {
@@ -154,7 +154,7 @@ Steps to Open and Save Presentation:
 
 ```javascript
     // Instantiates a Presentation object that represents a PPT file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // ...do some work here...
         // Saves your presentation to a file

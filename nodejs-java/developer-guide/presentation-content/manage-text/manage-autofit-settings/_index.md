@@ -34,11 +34,11 @@ If you want the text in a box to always fit into that box after changes are made
 This Javascript code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  aspose.slides.Portion("lorem ipsum...");
+        var portion = new aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
@@ -63,11 +63,11 @@ If you want a textbox or shape to retain its dimensions no matter the changes ma
 This Javascript code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  aspose.slides.Portion("lorem ipsum...");
+        var portion = new aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
@@ -92,11 +92,11 @@ If a text becomes too long for its box, through the **Shrink text on overflow** 
 This Javascript code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  aspose.slides.Portion("lorem ipsum...");
+        var portion = new aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
@@ -123,11 +123,11 @@ If you want the text in a shape to get wrapped inside that shape when the text g
 This Javascript code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
-        var portion = new  aspose.slides.Portion("lorem ipsum...");
+        var portion = new aspose.slides.Portion("lorem ipsum...");
         portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);

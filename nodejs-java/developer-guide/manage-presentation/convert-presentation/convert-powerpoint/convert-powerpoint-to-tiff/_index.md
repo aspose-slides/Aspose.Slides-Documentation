@@ -26,7 +26,7 @@ This Javascript code shows you how to convert PowerPoint to TIFF:
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("presentation.pptx");
+    var pres = new aspose.slides.Presentation("presentation.pptx");
     try {
         // Saves the presentation as TIFF
         pres.save("tiff-image.tiff", aspose.slides.SaveFormat.Tiff);
@@ -44,10 +44,10 @@ In Aspose.Slides 23.10, Aspose.Slides added a new property ([BwConversionMode](h
 This Javascript code shows you how to convert a colored slide or image to black-and-white TIFF:
 
 ```javascript
-    var tiffOptions = new  aspose.slides.TiffOptions();
+    var tiffOptions = new aspose.slides.TiffOptions();
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.CCITT4);
     tiffOptions.setBwConversionMode(aspose.slides.BlackWhiteConversionMode.Dithering);
-    var presentation = new  aspose.slides.Presentation("sample.pptx");
+    var presentation = new aspose.slides.Presentation("sample.pptx");
     try {
         presentation.save("output.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
     } finally {
@@ -65,10 +65,10 @@ This Javascript code shows you how to convert PowerPoint to TIFF images with cus
 
 ```javascript
     // Instantiates a Presentation object that represents a Presentation file
-    var pres = new  aspose.slides.Presentation("presentation.pptx");
+    var pres = new aspose.slides.Presentation("presentation.pptx");
     try {
         // Instantiates the TiffOptions class
-        var opts = new  aspose.slides.TiffOptions();
+        var opts = new aspose.slides.TiffOptions();
         // Sets the compression type
         // Possible values are:
         // Default - Specifies the default compression scheme (LZW).
@@ -104,9 +104,9 @@ This Javascript code shows you how to convert PowerPoint to TIFF image with cust
 
 ```javascript
     // Instantiates a Presentation object that represents a Presentation file
-    var pres = new  aspose.slides.Presentation("presentation.pptx");
+    var pres = new aspose.slides.Presentation("presentation.pptx");
     try {
-        var options = new  aspose.slides.TiffOptions();
+        var options = new aspose.slides.TiffOptions();
         options.setPixelFormat(aspose.slides.ImagePixelFormat.Format8bppIndexed);
         /* ImagePixelFormat contains the following values (as stated in the documentation):
         Format1bppIndexed; // 1 bits per pixel, indexed.

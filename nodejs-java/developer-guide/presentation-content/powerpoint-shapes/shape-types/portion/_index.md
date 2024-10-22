@@ -10,7 +10,7 @@ url: /nodejs-java/portion/
 
 ```javascript
     // Instantiate Prseetation class that represents the PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Reshaping the context of presentation
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);

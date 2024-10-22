@@ -26,7 +26,7 @@ To add text watermark in PPT, PPTX or ODP you can first add a shape into the sli
 
 ```javascript
     // Open presentation
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         var slide = presentation.getSlides().get_Item(0);
         var watermarkShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 0, 0, 0, 0);
@@ -51,7 +51,7 @@ All the other logic is the same as in adding watermark into a single slide - cre
 
 ```javascript
     // Open presentation
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var master = pres.getMasters().get_Item(0);
         var watermarkShape = master.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 0, 0, 0, 0);

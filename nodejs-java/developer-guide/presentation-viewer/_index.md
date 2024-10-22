@@ -29,56 +29,56 @@ To generate an SVG image from any desired slide with Aspose.Slides for Node.js v
 - Save the memory stream to file.
 
 ```javascript
-    // Instantiate a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("CreateSlidesSVGImage.pptx");
-    try {
-        // Access the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Create a memory stream object
-        var svgStream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
-        // Generate SVG image of slide and save in memory stream
-        sld.writeAsSvg(svgStream);
-        svgStream.close();
-    } catch (e) {console.log(e);
-    } finally {
-        pres.dispose();
-    }
+// Instantiate a Presentation class that represents the presentation file
+var pres = new aspose.slides.Presentation("CreateSlidesSVGImage.pptx");
+try {
+    // Access the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Create a memory stream object
+    var svgStream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
+    // Generate SVG image of slide and save in memory stream
+    sld.writeAsSvg(svgStream);
+    svgStream.close();
+} catch (e) {console.log(e);
+} finally {
+    pres.dispose();
+}
 ```
 
 ## **Generate SVG with Custom Shape IDS**
 Aspose.Slides for Node.js via Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [SvgShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pptxFileName.pptx");
+var pres = new aspose.slides.Presentation("pptxFileName.pptx");
+try {
+    var stream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
     try {
-        var stream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
-        try {
-            var svgOptions = new  aspose.slides.SVGOptions();
-            svgOptions.setShapeFormattingController(java.newInstanceSync("CustomSvgShapeFormattingController"));
-            pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-        } finally {
-            if (stream != null) {
-                stream.close();
-            }
-        }
-    } catch (e) {console.log(e);
+        var svgOptions = new aspose.slides.SVGOptions();
+        svgOptions.setShapeFormattingController(java.newInstanceSync("CustomSvgShapeFormattingController"));
+        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
     } finally {
-        pres.dispose();
+        if (stream != null) {
+            stream.close();
+        }
     }
+} catch (e) {console.log(e);
+} finally {
+    pres.dispose();
+}
 ```
 ```javascript
-    class CustomSvgShapeFormattingController implements aspose.slides.ISvgShapeFormattingController {
-        private var m_shapeIndex;
-        public CustomSvgShapeFormattingController() {
-            m_shapeIndex = 0;
-        }
-        public CustomSvgShapeFormattingController(int shapeStartIndex) {
-            m_shapeIndex = shapeStartIndex;
-        }
-        public void formatShape(aspose.slides.ISvgShape svgShape, aspose.slides.IShape shape) {
-            svgShape.setId(java.callStaticMethodSync("java.lang.String", "format", "shape-%d", m_shapeIndex++));
-        }
+class CustomSvgShapeFormattingController implements aspose.slides.ISvgShapeFormattingController {
+    private var m_shapeIndex;
+    public CustomSvgShapeFormattingController() {
+        m_shapeIndex = 0;
     }
+    public CustomSvgShapeFormattingController(int shapeStartIndex) {
+        m_shapeIndex = shapeStartIndex;
+    }
+    public void formatShape(aspose.slides.ISvgShape svgShape, aspose.slides.IShape shape) {
+        svgShape.setId(java.callStaticMethodSync("java.lang.String", "format", "shape-%d", m_shapeIndex++));
+    }
+}
 ```
 
 ## **Create Slides Thumbnail Image**
@@ -90,24 +90,24 @@ Aspose.Slides for Node.js via Java help you generate thumbnail images of the sli
 1. Save the thumbnail image in any desired image format.
 
 ```javascript
-    // Instantiate a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("ThumbnailFromSlide.pptx");
+// Instantiate a Presentation class that represents the presentation file
+var pres = new aspose.slides.Presentation("ThumbnailFromSlide.pptx");
+try {
+    // Access the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Create a full scale image
+    var slideImage = sld.getImage(1.0, 1.0);
+    // Save the image to disk in JPEG format
     try {
-        // Access the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Create a full scale image
-        var slideImage = sld.getImage(1.0, 1.0);
-        // Save the image to disk in JPEG format
-        try {
-            slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
-        pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
+        }
     }
+} finally {
+    pres.dispose();
+}
 ```
 
 ## **Create Thumbnail with User Defined Dimensions**
@@ -118,30 +118,30 @@ Aspose.Slides for Node.js via Java help you generate thumbnail images of the sli
 1. Save the thumbnail image in any desired image format.
 
 ```javascript
-    // Instantiate a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("ThumbnailWithUserDefinedDimensions.pptx");
+// Instantiate a Presentation class that represents the presentation file
+var pres = new aspose.slides.Presentation("ThumbnailWithUserDefinedDimensions.pptx");
+try {
+    // Access the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // User defined dimension
+    var desiredX = 1200;
+    var desiredY = 800;
+    // Getting scaled value  of X and Y
+    var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
+    var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
+    // Create a full scale image
+    var slideImage = sld.getImage(ScaleX, ScaleY);
+    // Save the image to disk in JPEG format
     try {
-        // Access the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // User defined dimension
-        var desiredX = 1200;
-        var desiredY = 800;
-        // Getting scaled value  of X and Y
-        var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
-        var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
-        // Create a full scale image
-        var slideImage = sld.getImage(ScaleX, ScaleY);
-        // Save the image to disk in JPEG format
-        try {
-            slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
-        pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
+        }
     }
+} finally {
+    pres.dispose();
+}
 ```
 
 ## **Create Thumbnail from Slide in Notes Slides View**
@@ -155,30 +155,30 @@ To generate the thumbnail of any desired slide in Notes Slide View using Aspose.
 The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
 
 ```javascript
-    // Instantiate a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("ThumbnailWithUserDefinedDimensions.pptx");
+// Instantiate a Presentation class that represents the presentation file
+var pres = new aspose.slides.Presentation("ThumbnailWithUserDefinedDimensions.pptx");
+try {
+    // Access the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // User defined dimension
+    var desiredX = 1200;
+    var desiredY = 800;
+    // Getting scaled value  of X and Y
+    var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
+    var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
+    var opts = new aspose.slides.RenderingOptions();
+    opts.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+    // Create a full scale image
+    var slideImage = sld.getImage(opts, ScaleX, ScaleY);
+    // Save the image to disk in JPEG format
     try {
-        // Access the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // User defined dimension
-        var desiredX = 1200;
-        var desiredY = 800;
-        // Getting scaled value  of X and Y
-        var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
-        var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
-        var opts = new  aspose.slides.RenderingOptions();
-        opts.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
-        // Create a full scale image
-        var slideImage = sld.getImage(opts, ScaleX, ScaleY);
-        // Save the image to disk in JPEG format
-        try {
-            slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
-        pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
+        }
     }
+} finally {
+    pres.dispose();
+}
 ```

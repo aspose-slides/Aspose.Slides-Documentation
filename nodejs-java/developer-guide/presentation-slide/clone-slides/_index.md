@@ -29,7 +29,7 @@ In the example given below, we have cloned a slide (lying at the first position 
 
 ```javascript
     // Instantiate Presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("CloneWithinSamePresentationToEnd.pptx");
+    var pres = new aspose.slides.Presentation("CloneWithinSamePresentationToEnd.pptx");
     try {
         // Clone the desired slide to the end of the collection of slides in the same presentation
         var slds = pres.getSlides();
@@ -53,7 +53,7 @@ In the example given below, we have cloned a slide (lying at the zero index – 
 
 ```javascript
     // Instantiate Presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("CloneWithInSamePresentation.pptx");
+    var pres = new aspose.slides.Presentation("CloneWithInSamePresentation.pptx");
     try {
         // Clone the desired slide to the end of the collection of slides in the same presentation
         var slds = pres.getSlides();
@@ -79,10 +79,10 @@ In the example given below, we have cloned a slide (from the first index of the 
 
 ```javascript
     // Instantiate Presentation class to load the source presentation file
-    var srcPres = new  aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
+    var srcPres = new aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
     try {
         // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
-        var destPres = new  aspose.slides.Presentation();
+        var destPres = new aspose.slides.Presentation();
         try {
             // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
             var slds = destPres.getSlides();
@@ -110,10 +110,10 @@ In the example given below, we have cloned a slide (from the zero index of the s
 
 ```javascript
     // Instantiate Presentation class to load the source presentation file
-    var srcPres = new  aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
+    var srcPres = new aspose.slides.Presentation("CloneAtEndOfAnother.pptx");
     try {
         // Instantiate Presentation class for destination PPTX (where slide is to be cloned)
-        var destPres = new  aspose.slides.Presentation();
+        var destPres = new aspose.slides.Presentation();
         try {
             // Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
             var slds = destPres.getSlides();
@@ -144,10 +144,10 @@ In the example given below, we have cloned a slide with a master (lying at the z
 
 ```javascript
     // Instantiate Presentation class to load the source presentation file
-    var srcPres = new  aspose.slides.Presentation("CloneToAnotherPresentationWithMaster.pptx");
+    var srcPres = new aspose.slides.Presentation("CloneToAnotherPresentationWithMaster.pptx");
     try {
         // Instantiate Presentation class for destination presentation (where slide is to be cloned)
-        var destPres = new  aspose.slides.Presentation();
+        var destPres = new aspose.slides.Presentation();
         try {
             // Instantiate ISlide from the collection of slides in source presentation along with
             // Master slide
@@ -180,7 +180,7 @@ If you want to clone a slide and then use it within the same presentation file b
 The following code snippet shows you how to clone a slide and insert the cloned slide into a specified section.
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 50, 300, 100);
         presentation.getSections().addSection("Section 1", presentation.getSlides().get_Item(0));

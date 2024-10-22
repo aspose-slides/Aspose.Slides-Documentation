@@ -16,7 +16,7 @@ Aspose.Slides for Node.js via Java provides a simple API for managing error bar 
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Creating a bubble chart
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);
@@ -54,7 +54,7 @@ Aspose.Slides for Node.js via Java provides a simple API for managing custom err
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Creating a bubble chart
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 400, 300, true);

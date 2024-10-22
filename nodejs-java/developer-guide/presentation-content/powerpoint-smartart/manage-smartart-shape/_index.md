@@ -16,7 +16,7 @@ Aspose.Slides for Node.js via Java has provided an API to create SmartArt shapes
 
 ```javascript
     // Instantiate Presentation Class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get first slide
         var slide = pres.getSlides().get_Item(0);
@@ -40,7 +40,7 @@ The following code will be used to access the SmartArt shapes added in presentat
 
 ```javascript
     // Load the desired the presentation
-    var pres = new  aspose.slides.Presentation("AccessSmartArtShape.pptx");
+    var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
     try {
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
@@ -68,7 +68,7 @@ The following sample code will help to access the [SmartArt](https://reference.a
 1. Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("AccessSmartArtShape.pptx");
+    var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
     try {
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
@@ -102,7 +102,7 @@ In this example, we will learn to change the quick style for any SmartArt shape.
 
 ```javascript
     // Instantiate Presentation Class
-    var pres = new  aspose.slides.Presentation("SimpleSmartArt.pptx");
+    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
     try {
         // Get first slide
         var slide = pres.getSlides().get_Item(0);
@@ -143,7 +143,7 @@ In this example, we will learn to change the color style for any SmartArt shape.
 
 ```javascript
     // Instantiate Presentation Class
-    var pres = new  aspose.slides.Presentation("SimpleSmartArt.pptx");
+    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
     try {
         // Get first slide
         var slide = pres.getSlides().get_Item(0);

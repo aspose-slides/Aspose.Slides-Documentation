@@ -42,7 +42,7 @@ Let's see how we can create the following mathematical equation via Aspose.Slide
 To add a mathematical expression on the slide, first, add a shape that will contain the mathematical text:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var mathShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 720, 150);
     } finally {
@@ -61,14 +61,14 @@ After creating, the shape will already contain one paragraph with a mathematical
 The [**MathParagraph**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathParagraph) class allows to read, add, edit and delete math blocks ([**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock)), that consist of a combination of mathematical elements. For example, create a fraction and place it in the presentation:
 
 ```javascript
-    var fraction = new  aspose.slides.MathematicalText("x").divide("y");
+    var fraction = new aspose.slides.MathematicalText("x").divide("y");
     mathParagraph.add(new  aspose.slides.MathBlock(fraction));
 ``` 
 
 Each mathematical element is represented by some class that implements the [**MathElement**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement) class. This class provides a lot of methods for easily creating mathematical expressions. You can create a fairly complex mathematical expression with a single line of code. For example, the Pythagorean theorem would look like this:
 
 ```javascript
-    var mathBlock = new  aspose.slides.MathematicalText("c").setSuperscript("2").join("=").join(new  aspose.slides.MathematicalText("a").setSuperscript("2")).join("+").join(new  aspose.slides.MathematicalText("b").setSuperscript("2"));
+    var mathBlock = new aspose.slides.MathematicalText("c").setSuperscript("2").join("=").join(new  aspose.slides.MathematicalText("a").setSuperscript("2")).join("+").join(new  aspose.slides.MathematicalText("b").setSuperscript("2"));
 ``` 
 
 Operations of the class [**MathElement**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement) are implemented in any type of element, including the [**MathBlock**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathBlock).
@@ -76,13 +76,13 @@ Operations of the class [**MathElement**](https://reference.aspose.com/slides/n
 The full source code sample:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var mathShape = pres.getSlides().get_Item(0).getShapes().addMathShape(0, 0, 720, 150);
         var mathParagraph = mathShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getMathParagraph();
-        var fraction = new  aspose.slides.MathematicalText("x").divide("y");
+        var fraction = new aspose.slides.MathematicalText("x").divide("y");
         mathParagraph.add(new  aspose.slides.MathBlock(fraction));
-        var mathBlock = new  aspose.slides.MathematicalText("c").setSuperscript("2").join("=").join(new  aspose.slides.MathematicalText("a").setSuperscript("2")).join("+").join(new  aspose.slides.MathematicalText("b").setSuperscript("2"));
+        var mathBlock = new aspose.slides.MathematicalText("c").setSuperscript("2").join("=").join(new  aspose.slides.MathematicalText("a").setSuperscript("2")).join("+").join(new  aspose.slides.MathematicalText("b").setSuperscript("2"));
         mathParagraph.add(mathBlock);
         pres.save("math.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -136,8 +136,8 @@ Example:
 is created using a combination of [**MathFunction**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction) and [**MathLimit**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLimit) elements this way:
 
 ```javascript
-    var funcName = new  aspose.slides.MathLimit(new  aspose.slides.MathematicalText("lim"), new  aspose.slides.MathematicalText("𝑥→∞"));
-    var mathFunc = new  aspose.slides.MathFunction(funcName, new  aspose.slides.MathematicalText("𝑥"));
+    var funcName = new aspose.slides.MathLimit(new  aspose.slides.MathematicalText("lim"), new  aspose.slides.MathematicalText("𝑥→∞"));
+    var mathFunc = new aspose.slides.MathFunction(funcName, new  aspose.slides.MathematicalText("𝑥"));
 ``` 
 
 
@@ -196,8 +196,8 @@ Each mathematical element and mathematical expression (via [**MathBlock**](https
 Joins a mathematical element and forms a mathematical block. For example:
 
 ```javascript
-    var element1 = new  aspose.slides.MathematicalText("x");
-    var element2 = new  aspose.slides.MathematicalText("y");
+    var element1 = new aspose.slides.MathematicalText("x");
+    var element2 = new aspose.slides.MathematicalText("y");
     var block = element1.join(element2);
 ``` 
 
@@ -210,7 +210,7 @@ Joins a mathematical element and forms a mathematical block. For example:
 Creates a fraction of the specified type with this numerator and specified denominator. For example:
 
 ```javascript
-    var numerator = new  aspose.slides.MathematicalText("x");
+    var numerator = new aspose.slides.MathematicalText("x");
     var fraction = numerator.divide("y", aspose.slides.MathFractionTypes.Linear);
 ``` 
 
@@ -240,8 +240,8 @@ public IMathDelimiter enclose(char beginningCharacter, char endingCharacter);
 For example:
 
 ```javascript
-    var delimiter = new  aspose.slides.MathematicalText("x").enclose('[', ']');
-    var delimiter2 = new  aspose.slides.MathematicalText("elem1").join("elem2").enclose();
+    var delimiter = new aspose.slides.MathematicalText("x").enclose('[', ']');
+    var delimiter2 = new aspose.slides.MathematicalText("elem1").join("elem2").enclose();
 ``` 
 
 ### **Function method**
@@ -270,7 +270,7 @@ public IMathFunction function(String functionArgument);
 For example:
 
 ```javascript
-    var func = new  aspose.slides.MathematicalText("sin").function("x");
+    var func = new aspose.slides.MathematicalText("sin").function("x");
 ``` 
 
 ### **AsArgumentOfFunction method**
@@ -289,11 +289,11 @@ Takes the specified function using the current instance as the argument. You can
 For example:
 
 ```javascript
-    var funcName = new  aspose.slides.MathLimit(new  aspose.slides.MathematicalText("lim"), new  aspose.slides.MathematicalText("𝑛→∞"));
-    var func1 = new  aspose.slides.MathematicalText("2x").asArgumentOfFunction(funcName);
-    var func2 = new  aspose.slides.MathematicalText("x").asArgumentOfFunction("sin");
-    var func3 = new  aspose.slides.MathematicalText("x").asArgumentOfFunction(aspose.slides.MathFunctionsOfOneArgument.Sin);
-    var func4 = new  aspose.slides.MathematicalText("x").asArgumentOfFunction(aspose.slides.MathFunctionsOfTwoArguments.Log, "3");
+    var funcName = new aspose.slides.MathLimit(new  aspose.slides.MathematicalText("lim"), new  aspose.slides.MathematicalText("𝑛→∞"));
+    var func1 = new aspose.slides.MathematicalText("2x").asArgumentOfFunction(funcName);
+    var func2 = new aspose.slides.MathematicalText("x").asArgumentOfFunction("sin");
+    var func3 = new aspose.slides.MathematicalText("x").asArgumentOfFunction(aspose.slides.MathFunctionsOfOneArgument.Sin);
+    var func4 = new aspose.slides.MathematicalText("x").asArgumentOfFunction(aspose.slides.MathFunctionsOfTwoArguments.Log, "3");
 ``` 
 
 ### **SetSubscript, SetSuperscript, SetSubSuperscriptOnTheRight, SetSubSuperscriptOnTheLeft methods**
@@ -311,7 +311,7 @@ Sets subscript and superscript. You can set subscript and superscript at the sam
 Example:
 
 ```javascript
-    var script = new  aspose.slides.MathematicalText("y").setSubSuperscriptOnTheLeft("2x", "3z");
+    var script = new aspose.slides.MathematicalText("y").setSubSuperscriptOnTheLeft("2x", "3z");
 ``` 
 
 ### **Radical method**
@@ -323,7 +323,7 @@ Specifies the mathematical root of the given degree from the specified argument.
 Example:
 
 ```javascript
-    var radical = new  aspose.slides.MathematicalText("x").radical("3");
+    var radical = new aspose.slides.MathematicalText("x").radical("3");
 ``` 
 
 ### **SetUpperLimit and SetLowerLimit methods**
@@ -341,7 +341,7 @@ Let's consider an expression: 
 Such expressions can be created through a combination of classes [MathFunction](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathFunction) and [MathLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathLimit), and operations of the [MathElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/MathElement) as follows:
 
 ```javascript
-    var mathExpression = new  aspose.slides.MathematicalText("lim").setLowerLimit("x→∞").function("x");
+    var mathExpression = new aspose.slides.MathematicalText("lim").setLowerLimit("x→∞").function("x");
 ``` 
 
 ### **Nary and Integral methods**
@@ -358,7 +358,7 @@ Both **nary** and **integral** methods create and return the N-ary operator repr
 Example:
 
 ```javascript
-    var baseArg = new  aspose.slides.MathematicalText("x").join(new  aspose.slides.MathematicalText("dx").toBox());
+    var baseArg = new aspose.slides.MathematicalText("x").join(new  aspose.slides.MathematicalText("dx").toBox());
     var integral = baseArg.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ``` 
 
@@ -368,7 +368,7 @@ Example:
 Example:
 
 ```javascript
-    var arrayFunction = new  aspose.slides.MathematicalText("x").join("y").toMathArray();
+    var arrayFunction = new aspose.slides.MathematicalText("x").join("y").toMathArray();
 ``` 
 
 ### **Formatting operations: Accent, Overbar, Underbar, Group, ToBorderBox, ToBox**
@@ -381,9 +381,9 @@ Example:
 Examples:
 
 ```javascript
-    var accent = new  aspose.slides.MathematicalText("x").accent('̃');
-    var bar = new  aspose.slides.MathematicalText("x").overbar();
-    var groupChr = new  aspose.slides.MathematicalText("x").join("y").join("z").group('⏡', aspose.slides.MathTopBotPositions.Bottom, aspose.slides.MathTopBotPositions.Top);
-    var borderBox = new  aspose.slides.MathematicalText("x+y+z").toBorderBox();
-    var boxedOperator = new  aspose.slides.MathematicalText(":=").toBox();
+    var accent = new aspose.slides.MathematicalText("x").accent('̃');
+    var bar = new aspose.slides.MathematicalText("x").overbar();
+    var groupChr = new aspose.slides.MathematicalText("x").join("y").join("z").group('⏡', aspose.slides.MathTopBotPositions.Bottom, aspose.slides.MathTopBotPositions.Top);
+    var borderBox = new aspose.slides.MathematicalText("x+y+z").toBorderBox();
+    var boxedOperator = new aspose.slides.MathematicalText(":=").toBox();
 ``` 

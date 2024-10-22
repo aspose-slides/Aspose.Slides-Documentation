@@ -32,10 +32,10 @@ The following code example extracts the entire presentation slide background as 
 ```javascript
     var slideIndex = 0;
     var imageScale = 1;
-    var presentation = new  aspose.slides.Presentation("sample.pptx");
+    var presentation = new aspose.slides.Presentation("sample.pptx");
     var slideSize = presentation.getSlideSize().getSize();
     var slide = presentation.getSlides().get_Item(slideIndex);
-    var tempPresentation = new  aspose.slides.Presentation();
+    var tempPresentation = new aspose.slides.Presentation();
     var slideWidth = slideSize.getWidth();
     var slideHeight = slideSize.getHeight();
     tempPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.DoNotScale);

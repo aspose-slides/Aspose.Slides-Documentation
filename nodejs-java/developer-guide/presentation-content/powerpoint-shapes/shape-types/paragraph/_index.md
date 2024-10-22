@@ -24,7 +24,7 @@ Using Aspose.Slides for Node.js via Java, developers can now get the rectangular
 Using [**getRect()**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Paragraph#getRect--) method developers can get paragraph bounds rectangle.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("HelloWorld.pptx");
+    var pres = new aspose.slides.Presentation("HelloWorld.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var textFrame = shape.getTextFrame();
@@ -44,7 +44,7 @@ To get the [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slid
 This sample code demonstrates the described operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("source.pptx");
+    var pres = new aspose.slides.Presentation("source.pptx");
     try {
         var tbl = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var cell = tbl.getRows().get_Item(1).get_Item(1);

@@ -65,7 +65,7 @@ This Javascript code shows you how to convert a PowerPoint to PDF:
 
 ```javascript
     // Instantiates a Presentation class that represents a PowerPoint file
-    var pres = new  aspose.slides.Presentation("PowerPoint.ppt");
+    var pres = new aspose.slides.Presentation("PowerPoint.ppt");
     try {
         // Saves the presentation as a PDF
         pres.save("PPT-to-PDF.pdf", aspose.slides.SaveFormat.Pdf);
@@ -94,7 +94,7 @@ The code example below demonstrates an operation in which a PowerPoint presentat
 
 ```javascript
     // Instantiates the PdfOptions class
-    var pdfOptions = new  aspose.slides.PdfOptions();
+    var pdfOptions = new aspose.slides.PdfOptions();
     // Sets the quality for JPG images
     pdfOptions.setJpegQuality(90);
     // Sets DPI for images
@@ -106,7 +106,7 @@ The code example below demonstrates an operation in which a PowerPoint presentat
     // Defines the PDF compliance mode
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.Pdf15);
     // Instantiates the Presentation class that represents a PowerPoint document
-    var presentation = new  aspose.slides.Presentation("PowerPoint.pptx");
+    var presentation = new aspose.slides.Presentation("PowerPoint.pptx");
     try {
         // Saves the presentation as a PDF document
         presentation.save("PowerPoint-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
@@ -123,10 +123,10 @@ This Javascript code shows you how to convert a PowerPoint presentation to PDF w
 
 ```javascript
     // Instantiates a Presentation class that represents a PowerPoint file
-    var pres = new  aspose.slides.Presentation("PowerPoint.pptx");
+    var pres = new aspose.slides.Presentation("PowerPoint.pptx");
     try {
         // Instantiates the PdfOptions class
-        var pdfOptions = new  aspose.slides.PdfOptions();
+        var pdfOptions = new aspose.slides.PdfOptions();
         // Adds hidden slides
         pdfOptions.setShowHiddenSlides(true);
         // Saves the presentation as a PDF
@@ -144,10 +144,10 @@ This Javascript code shows you how to convert a PowerPoint to a password-protect
 
 ```javascript
     // Instantiates a Presentation object that represents a PowerPoint file
-    var pres = new  aspose.slides.Presentation("PowerPoint.pptx");
+    var pres = new aspose.slides.Presentation("PowerPoint.pptx");
     try {
         // / Instantiates the PdfOptions class
-        var pdfOptions = new  aspose.slides.PdfOptions();
+        var pdfOptions = new aspose.slides.PdfOptions();
         // Sets PDF password and access permissions
         pdfOptions.setPassword("password");
         pdfOptions.setAccessPermissions(aspose.slides.PdfAccessPermissions.PrintDocument | aspose.slides.PdfAccessPermissions.HighQualityPrint);
@@ -183,7 +183,7 @@ This Javascript code shows you how to convert specific slides in a PowerPoint pr
 
 ```javascript
     // Instantiates a Presentation object that represents a PowerPoint file
-    var pres = new  aspose.slides.Presentation("PowerPoint.pptx");
+    var pres = new aspose.slides.Presentation("PowerPoint.pptx");
     try {
         // Sets an array of slides positions
         var slides = java.newArray("int", [1, 3]);
@@ -202,15 +202,15 @@ This Javascript code shows you how to convert a PowerPoint when its slide size i
 
 ```javascript
     // Instantiates a Presentation object that represents a PowerPoint file
-    var pres = new  aspose.slides.Presentation("SelectedSlides.pptx");
+    var pres = new aspose.slides.Presentation("SelectedSlides.pptx");
     try {
-        var outPres = new  aspose.slides.Presentation();
+        var outPres = new aspose.slides.Presentation();
         try {
             var slide = pres.getSlides().get_Item(0);
             outPres.getSlides().insertClone(0, slide);
             // Sets the slide type and size
             outPres.getSlideSize().setSize(612.0, 792.0, aspose.slides.SlideSizeScaleType.EnsureFit);
-            var pdfOptions = new  aspose.slides.PdfOptions();
+            var pdfOptions = new aspose.slides.PdfOptions();
             var options = pdfOptions.getNotesCommentsLayouting();
             options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
             outPres.save("PDFnotes_out.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
@@ -232,9 +232,9 @@ This Javascript code shows you how to convert a PowerPoint to PDF notes:
 
 ```javascript
     // Instantiates a Presentation class that represents a PowerPoint file
-    var pres = new  aspose.slides.Presentation("SelectedSlides.pptx");
+    var pres = new aspose.slides.Presentation("SelectedSlides.pptx");
     try {
-        var pdfOptions = new  aspose.slides.PdfOptions();
+        var pdfOptions = new aspose.slides.PdfOptions();
         var options = pdfOptions.getNotesCommentsLayouting();
         options.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
         pres.save("Pdf_With_Notes.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
@@ -252,9 +252,9 @@ Aspose.Slides allows you to use a conversion procedure that complies with [Web C
 This Javascript code demonstrates a PowerPoint to PDF conversion operation in which multiple PDFs based on different compliance standards are obtained:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
-        var pdfOptions = new  aspose.slides.PdfOptions();
+        var pdfOptions = new aspose.slides.PdfOptions();
         pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1a);
         pres.save("pres-a1a-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
         pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1b);

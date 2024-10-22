@@ -16,7 +16,7 @@ those values are called **local** values. At any level, **local** values could b
 This sample code shows you how to get effective values:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new aspose.slides.Presentation("Presentation1.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
@@ -36,7 +36,7 @@ Aspose.Slides for Node.js via Java allows developers to get effective propertie
 This sample code sample shows you how to get effective properties for the camera:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
         console.log("= Effective camera properties =");
@@ -56,7 +56,7 @@ Aspose.Slides for Node.js via Java allows developers to get effective propertie
 This sample code sample shows you how to get effective properties of Light Rig:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
         console.log("= Effective light rig properties =");
@@ -75,7 +75,7 @@ Aspose.Slides for Node.js via Java allows developers to get effective propertie
 This sample code sample shows you how to get effective properties for the Bevel Shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new aspose.slides.Presentation("Presentation1.pptx");
     try {
         var threeDEffectiveData = pres.getSlides().get_Item(0).getShapes().get_Item(0).getThreeDFormat().getEffective();
         console.log("= Effective shape's top face relief properties =");
@@ -95,7 +95,7 @@ Using Aspose.Slides for Node.js via Java, you can get effective properties of a 
 This sample code shows you how to get effective text frame formatting properties:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new aspose.slides.Presentation("Presentation1.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
@@ -120,7 +120,7 @@ Using Aspose.Slides for Node.js via Java, you can get effective properties of Te
 This sample code sample shows you how to get effective text style properties:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new aspose.slides.Presentation("Presentation1.pptx");
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
@@ -143,13 +143,13 @@ This sample code sample shows you how to get effective text style properties:
 Using Aspose.Slides for Node.js via Java, you can get effective properties of Font Height. Here, we are providing a code that shows the portion's effective font height value changing after local font height values are set on different presentation structure levels:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var newShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 75, false);
         newShape.addTextFrame("");
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().clear();
-        var portion0 = new  aspose.slides.Portion("Sample text with first portion");
-        var portion1 = new  aspose.slides.Portion(" and second portion.");
+        var portion0 = new aspose.slides.Portion("Sample text with first portion");
+        var portion1 = new aspose.slides.Portion(" and second portion.");
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion0);
         newShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion1);
         console.log("Effective font height just after creation:");
@@ -183,7 +183,7 @@ Using Aspose.Slides for Node.js via Java, you can get effective properties of Fo
 Using Aspose.Slides for Node.js via Java, you can get effective fill formatting for different table logic parts. For this purpose, the [**CellFormatEffectiveData**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CellFormatEffectiveData) class was added in Aspose.Slides. It contains effective fill formatting properties. Please note this: cell formatting always gets priority over row formatting; row gets priority over column; and column gets priority over the whole table.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation1.pptx");
+    var pres = new aspose.slides.Presentation("Presentation1.pptx");
     try {
         var tbl = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var tableFormatEffective = tbl.getTableFormat().getEffective();

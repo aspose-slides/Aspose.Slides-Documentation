@@ -32,7 +32,7 @@ This Javascript code shows you how to create a picture frame:
 
 ```javascript
     // Instantiates the Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -71,7 +71,7 @@ This Javascript code shows you how to create a picture frame with relative scale
 
 ```javascript
     // Instantiate Presentation class that represents the PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -97,7 +97,7 @@ This Javascript code shows you how to create a picture frame with relative scale
 You can extract images from [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("sample.pptx");
+    var presentation = new aspose.slides.Presentation("sample.pptx");
     try {
         var firstSlide = presentation.getSlides().get_Item(0);
         var firstShape = firstSlide.getShapes().get_Item(0);
@@ -123,7 +123,7 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/n
 Aspose.Slides allows you to get the transparency of an image. This Javascript code demonstrates the operation:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation(folderPath + "Test.pptx");
+    var presentation = new aspose.slides.Presentation(folderPath + "Test.pptx");
     var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
     imageTransform.forEach(function(effect) {
@@ -157,7 +157,7 @@ This Javascript code demonstrates the picture frame formatting process:
 
 ```javascript
     // Instantiates the Presentation class that represents the PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -191,7 +191,7 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Javascript code shows you how to add an image and video into a placeholder:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("input.pptx");
+    var presentation = new aspose.slides.Presentation("input.pptx");
     try {
         var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
         var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
@@ -230,7 +230,7 @@ To avoid large presentation sizes, you can add images (or videos) through links 
 This Javascript code shows you how to crop an existing image on a slide:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     // Creates new image object
     try {
         var picture;
@@ -266,7 +266,7 @@ If you want to delete the cropped areas of an image contained in a frame, you ca
 This Javascript code demonstrates the operation:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("PictureFrameCrop.pptx");
+    var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
     try {
         var slide = presentation.getSlides().get_Item(0);
         // Gets the PictureFrame from the first slide
@@ -297,7 +297,7 @@ If you want a shape containing an image to retain its aspect ratio even after yo
 This Javascript code shows you how to lock a shape's aspect ratio:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
         var emptySlide = pres.getSlides().addEmptySlide(layout);
@@ -347,7 +347,7 @@ This Javascript code demonstrates a process in which a StretchOff property is us
 
 ```javascript
     // Instantiates the Prseetation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var slide = pres.getSlides().get_Item(0);

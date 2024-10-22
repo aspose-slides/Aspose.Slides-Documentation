@@ -12,7 +12,7 @@ Aspose.Slides for Node.js via Java provides a facility for extracting flash obje
 
 ```javascript
     // Instantiate Presentation class that represents the PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var controls = pres.getSlides().get_Item(0).getControls();
         var flashControl = null;

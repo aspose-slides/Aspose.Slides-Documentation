@@ -25,7 +25,7 @@ This Javascript code shows you how to add a comment to a slide in a PowerPoint p
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Adds an empty slide
         pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
@@ -61,7 +61,7 @@ This Javascript code shows you how to access an existing comment on a slide in a
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  aspose.slides.Presentation("Comments1.pptx");
+    var pres = new aspose.slides.Presentation("Comments1.pptx");
     try {
         pres.getCommentAuthors().forEach(function(commentAuthor) {
             var author = commentAuthor;
@@ -84,7 +84,7 @@ A parent comment is the top or original comment in a hierarchy of comments or re
 This Javascript code shows you how to add comments and get replies to them:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Adds a comment
         var author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
@@ -142,7 +142,7 @@ In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/nodejs-java/asp
 This Javascript code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
         var modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(100), java.newFloat(100)), java.newInstanceSync("java.util.Date"));
@@ -161,7 +161,7 @@ This Javascript code shows you how to add a modern comment to a slide in a Power
 This Javascript code shows you how to remove all comments and authors in a presentation:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("example.pptx");
+    var presentation = new aspose.slides.Presentation("example.pptx");
     try {
         // Deletes all comments from the presentation
         presentation.getCommentAuthors().forEach(function(author) {
@@ -182,7 +182,7 @@ This Javascript code shows you how to remove all comments and authors in a prese
 This Javascript code shows you how to delete specific comments on a slide:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         var slide = presentation.getSlides().get_Item(0);
         // add comments...

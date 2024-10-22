@@ -35,7 +35,7 @@ This Javascript code—an implementation of the steps above—shows you how to a
 
 ```javascript
     // Instantiates Presentation
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide in the presentation
         var sld = pres.getSlides().get_Item(0);
@@ -69,7 +69,7 @@ Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/nod
 This Javascript code shows you how to check whether a shape was created as a text box:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         java.callStaticMethodSync("ForEach", "shape", pres, (shape, slide, index) -> {
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
@@ -91,7 +91,7 @@ Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/nod
 This code in Java demonstrates the described operation: 
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide in the presentation
         var slide = pres.getSlides().get_Item(0);
@@ -122,14 +122,14 @@ This Javascript code shows you how to add a column inside a text frame:
 
 ```javascript
     var outPptxFileName = "ColumnsTest.pptx";
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
         var format = shape1.getTextFrame().getTextFrameFormat();
         format.setColumnCount(2);
         shape1.getTextFrame().setText((("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts ") + "itself to stay within the container. You cannot have text spill over from one container ") + "to other, though -- because PowerPoint's column options for text are limited!");
         pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-        var test = new  aspose.slides.Presentation(outPptxFileName);
+        var test = new aspose.slides.Presentation(outPptxFileName);
         try {
             var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
             java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
@@ -141,7 +141,7 @@ This Javascript code shows you how to add a column inside a text frame:
         }
         format.setColumnSpacing(20);
         pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-        var test1 = new  aspose.slides.Presentation(outPptxFileName);
+        var test1 = new aspose.slides.Presentation(outPptxFileName);
         try {
             var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
             java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
@@ -154,7 +154,7 @@ This Javascript code shows you how to add a column inside a text frame:
         format.setColumnCount(3);
         format.setColumnSpacing(15);
         pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-        var test2 = new  aspose.slides.Presentation(outPptxFileName);
+        var test2 = new aspose.slides.Presentation(outPptxFileName);
         try {
             var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
             java.callStaticMethodSync("Assert", "assertTrue", 3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
@@ -178,7 +178,7 @@ Aspose.Slides allows you to change or update the text contained in a text box or
 This Javascript code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("text.pptx");
+    var pres = new aspose.slides.Presentation("text.pptx");
     try {
         pres.getSlides().forEach(function(slide) {
             slide.getShapes().forEach(function(shape) {
@@ -223,7 +223,7 @@ This Javascript code—an implementation of the steps above—shows you how to a
 
 ```javascript
     // Instantiates a Presentation class that represents a PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide in the presentation
         var slide = pres.getSlides().get_Item(0);

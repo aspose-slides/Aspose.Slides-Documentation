@@ -18,7 +18,7 @@ The example below adds a group shape to a slide.
 
 ```javascript
     // Instantiate Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -55,7 +55,7 @@ The example below accesses alternative text of group shape.
 
 ```javascript
     // Instantiate Presentation class that represents PPTX file
-    var pres = new  aspose.slides.Presentation("AltText.pptx");
+    var pres = new aspose.slides.Presentation("AltText.pptx");
     try {
         // Get the first slide
         var sld = pres.getSlides().get_Item(0);

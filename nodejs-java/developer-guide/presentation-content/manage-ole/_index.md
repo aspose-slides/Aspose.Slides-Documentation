@@ -32,7 +32,7 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
 
 ```javascript
     // Instantiates Prseetation class that represents the PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -40,7 +40,7 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
         var readStream = fs.readFileSync("book1.xlsx");
         var byteArray = Array.from(readStream);
         // Creates a data object for embedding
-        var dataInfo = new  aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
+        var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
         // Adds an Ole Object Frame shape
         var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
         // Writes the PPTX file to disk
@@ -67,7 +67,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
 
 ```javascript
     // Loads the PPTX to  a Presentation object
-    var pres = new  aspose.slides.Presentation("AccessingOLEObjectFrame.pptx");
+    var pres = new aspose.slides.Presentation("AccessingOLEObjectFrame.pptx");
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -115,7 +115,7 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data is modified to change the chart data:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("ChangeOLEObjectData.pptx");
+    var pres = new aspose.slides.Presentation("ChangeOLEObjectData.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
         var ole = null;
@@ -140,7 +140,7 @@ In the example below, an OLE Object Frame (an Excel chart object embedded in a s
                     var so1 = java.newInstanceSync("OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
                     Wb.save(msout, so1);
                     // Changes Ole frame object data
-                    var newData = new  aspose.slides.OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
+                    var newData = new aspose.slides.OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
                     ole.setEmbeddedData(newData);
                 } finally {
                     if (msout != null) {
@@ -169,15 +169,15 @@ Besides Excel charts, Aspose.Slides for Node.js via Java allows you to embed oth
 This Javascript code shows you how to embed HTML and ZIP in a slide:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var htmlBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.html"));
-        var dataInfoHtml = new  aspose.slides.OleEmbeddedDataInfo(htmlBytes, "html");
+        var dataInfoHtml = new aspose.slides.OleEmbeddedDataInfo(htmlBytes, "html");
         var oleFrameHtml = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
         oleFrameHtml.setObjectIcon(true);
         var zipBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.zip"));
-        var dataInfoZip = new  aspose.slides.OleEmbeddedDataInfo(zipBytes, "zip");
+        var dataInfoZip = new aspose.slides.OleEmbeddedDataInfo(zipBytes, "zip");
         var oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
         oleFrameZip.setObjectIcon(true);
         pres.save("embeddedOle.pptx", aspose.slides.SaveFormat.Pptx);
@@ -198,7 +198,7 @@ Aspose.Slides for Node.js via Java allows you to set the file type for an embedd
 This Java shows you how to set the file type for an embedded OLE object:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("embeddedOle.pptx");
+    var pres = new aspose.slides.Presentation("embeddedOle.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
         var oleObjectFrame = slide.getShapes().get_Item(0);
@@ -222,7 +222,7 @@ If you want to use a specific image and text as elements in the preview, you can
 This Javascript code shows you how to set the icon image and title for an embedded object:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var oleObjectFrame = slide.getShapes().get_Item(0);
@@ -258,7 +258,7 @@ Aspose.Slides for Node.js via Java allows you to extract the files embedded in s
 This Javascript code shows you how to extract a file embedded in a slide as an OLE object:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("embeddedOle.pptx");
+    var pres = new aspose.slides.Presentation("embeddedOle.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
         for (var index = 0; index < slide.getShapes().size(); index++) {

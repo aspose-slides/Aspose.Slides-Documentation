@@ -40,7 +40,7 @@ This Javascript code shows you how to add a slide layout to a PowerPoint present
 
 ```javascript
     // Instantiates a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("AccessSlides.pptx");
+    var pres = new aspose.slides.Presentation("AccessSlides.pptx");
     try {
         // Goes through layout slide types
         var layoutSlides = pres.getMasters().get_Item(0).getLayoutSlides();
@@ -93,7 +93,7 @@ This Javascript code shows you how to add a slide layout to a PowerPoint present
 Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides-aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Javascript code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         aspose.slides.Compress.removeUnusedLayoutSlides(pres);
         pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -111,9 +111,9 @@ To allow you to set the size and type for a specific layout slide, Aspose.Slides
 
 ```javascript
     // Instantiates a Presentation object that represents presentation file
-    var presentation = new  aspose.slides.Presentation("demo.pptx");
+    var presentation = new aspose.slides.Presentation("demo.pptx");
     try {
-        var auxPresentation = new  aspose.slides.Presentation();
+        var auxPresentation = new aspose.slides.Presentation();
         try {
             // Sets the slide size for the generated presentation to that of the source
             auxPresentation.getSlideSize().setSize(540, 720, aspose.slides.SlideSizeScaleType.EnsureFit);
@@ -144,7 +144,7 @@ To allow you to set the size and type for a specific layout slide, Aspose.Slides
 This Javascript code shows you how to set the visibility for a slide footer (and perform related tasks):
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("presentation.ppt");
+    var presentation = new aspose.slides.Presentation("presentation.ppt");
     try {
         var headerFooterManager = presentation.getSlides().get_Item(0).getHeaderFooterManager();
         // Method isFooterVisible is used to specify that a slide footer placeholder is missing
@@ -178,7 +178,7 @@ This Javascript code shows you how to set the visibility for a slide footer (and
 This Javascript code demonstrates the operation:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("presentation.ppt");
+    var presentation = new aspose.slides.Presentation("presentation.ppt");
     try {
         var headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
         headerFooterManager.setFooterAndChildFootersVisibility(true);// Method setFooterAndChildFootersVisibility is used to set the master slide and all child footer placeholders to visible
@@ -204,7 +204,7 @@ This Javascript code demonstrates the operation:
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var presentation = new  aspose.slides.Presentation("demo.pptx");
+    var presentation = new aspose.slides.Presentation("demo.pptx");
     try {
         // Sets the slide size for the generated presentations to that of the source
         presentation.getSlideSize().setSize(540, 720, aspose.slides.SlideSizeScaleType.EnsureFit);// Method SetSize is used to set slide size with scale content to ensure fit
@@ -224,12 +224,12 @@ Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/nodej
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         // Sets the SlideSize.Type Property
         presentation.getSlideSize().setSize(aspose.slides.SlideSizeType.A4Paper, aspose.slides.SlideSizeScaleType.EnsureFit);
         // Sets different properties for PDF Options
-        var opts = new  aspose.slides.PdfOptions();
+        var opts = new aspose.slides.PdfOptions();
         opts.setSufficientResolution(600);
         // Saves the presentation to disk
         presentation.save("SetPDFPageSize_out.pdf", aspose.slides.SaveFormat.Pdf, opts);

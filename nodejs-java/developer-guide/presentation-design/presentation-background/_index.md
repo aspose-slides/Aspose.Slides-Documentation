@@ -25,7 +25,7 @@ This Javascript code shows you how to set a solid color (blue) as the background
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation("MasterBG.pptx");
+    var pres = new aspose.slides.Presentation("MasterBG.pptx");
     try {
         // Sets the background color for the first ISlide to Blue
         pres.getSlides().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
@@ -54,7 +54,7 @@ This Javascript code shows you how to set a solid color (forest green) as the ba
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Sets the background color for the Master ISlide to Forest Green
         pres.getMasters().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
@@ -83,7 +83,7 @@ This Javascript code shows you how to set a gradient color as the background for
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation("MasterBG.pptx");
+    var pres = new aspose.slides.Presentation("MasterBG.pptx");
     try {
         // Apply Gradient effect to the Background
         pres.getSlides().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
@@ -114,7 +114,7 @@ This Javascript code shows you how to set an image as the background for a slide
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Sets conditions for background image
         pres.getSlides().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
@@ -176,7 +176,7 @@ This Javascript code shows you how to get a slide's effective background value:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation("SamplePresentation.pptx");
+    var pres = new aspose.slides.Presentation("SamplePresentation.pptx");
     try {
         var effBackground = pres.getSlides().get_Item(0).getBackground().getEffective();
         if (effBackground.getFillFormat().getFillType() == aspose.slides.FillType.Solid) {

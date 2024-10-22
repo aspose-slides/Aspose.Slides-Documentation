@@ -22,7 +22,7 @@ Aspose.Slides for Node.js via Java allows developers to add empty slides to thei
 
 ```javascript
     // Instantiate Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Instantiate SlideCollection calss
         var slds = pres.getSlides();

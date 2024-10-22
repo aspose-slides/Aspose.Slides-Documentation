@@ -21,7 +21,7 @@ To add a section that will house slides in a presentation, Aspose.Slides for Nod
 This sample code shows you to create a section in a presentation in Java:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var defaultSlide = pres.getSlides().get_Item(0);
         var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
@@ -50,7 +50,7 @@ After you create a section in a PowerPoint presentation, you may decide to chang
 This sample code shows you how to change the name of a section in a presentation in Java using Aspose.Slides:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         var section = pres.getSections().get_Item(0);
         section.setName("My section");

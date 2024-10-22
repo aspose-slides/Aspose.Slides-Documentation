@@ -14,7 +14,7 @@ The following example includes these steps:
 
 ```javascript
     // Create new instance of a rules collection
-    var rulesList = new  aspose.slides.FontFallBackRulesCollection();
+    var rulesList = new aspose.slides.FontFallBackRulesCollection();
     // create a number of rules
     rulesList.add(new  aspose.slides.FontFallBackRule(0x400, 0x4ff, "Times New Roman"));
     rulesList.forEach(function(fallBackRule) {
@@ -29,7 +29,7 @@ The following example includes these steps:
     if (rulesList.size() > 0) {
         rulesList.remove(rulesList.get_Item(0));
     }
-    var pres = new  aspose.slides.Presentation("input.pptx");
+    var pres = new aspose.slides.Presentation("input.pptx");
     try {
         // Assigning a prepared rules list for using
         pres.getFontsManager().setFontFallBackRulesCollection(rulesList);

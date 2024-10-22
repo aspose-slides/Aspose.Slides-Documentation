@@ -31,7 +31,7 @@ This sample code shows you how to generate a shape thumbnail from a slide:
 
 ```javascript
     // Instantiate a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("Thumbnail.pptx");
+    var pres = new aspose.slides.Presentation("Thumbnail.pptx");
     try {
         // Create a full scale image
         var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
@@ -62,7 +62,7 @@ This sample code shows you how to generate a shape thumbnail based on a defined 
 
 ```javascript
     // Instantiate a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("Thumbnail.pptx");
+    var pres = new aspose.slides.Presentation("Thumbnail.pptx");
     try {
         // Create a full scale image
         var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Shape, 1, 1);
@@ -93,7 +93,7 @@ This sample code is based on the steps above:
 
 ```javascript
     // Instantiate a Presentation class that represents the presentation file
-    var pres = new  aspose.slides.Presentation("Thumbnail.pptx");
+    var pres = new aspose.slides.Presentation("Thumbnail.pptx");
     try {
         // Create a full scale image
         var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Appearance, 1, 1);

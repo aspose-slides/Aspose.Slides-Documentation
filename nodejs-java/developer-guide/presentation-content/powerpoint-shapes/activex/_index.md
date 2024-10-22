@@ -25,7 +25,7 @@ This sample code, based on the steps above, shows to how to add Media Player Act
 
 ```javascript
     // Create empty presentation instance
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Adding the Media Player ActiveX control
         pres.getSlides().get_Item(0).getControls().addControl(aspose.slides.ControlType.WindowsMediaPlayer, 100, 100, 400, 400);
@@ -63,7 +63,7 @@ This sample code, based on the steps above, shows how to manage a simple ActiveX
 
 ```javascript
     // Accessing the presentation with ActiveX controls
-    var pres = new  aspose.slides.Presentation("ActiveX.pptm");
+    var pres = new aspose.slides.Presentation("ActiveX.pptm");
     try {
         // Accessing the first slide in presentation
         var slide = pres.getSlides().get_Item(0);

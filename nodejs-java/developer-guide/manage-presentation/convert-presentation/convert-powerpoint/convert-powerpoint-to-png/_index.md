@@ -27,7 +27,7 @@ Go through these steps:
 This Javascript code shows you how to convert a PowerPoint presentation to PNG:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         for (var index = 0; index < pres.getSlides().size(); index++) {
             var slide = pres.getSlides().get_Item(index);
@@ -54,7 +54,7 @@ If you want to obtain PNG files around a certain scale, you can set the values f
 This code in Java demonstrates the described operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         var scaleX = 2.0;
         var scaleY = 2.0;
@@ -83,7 +83,7 @@ If you want to obtain PNG files around a certain size, you can pass your preferr
 This code shows you how to convert a PowerPoint to PNG while specifying the size for the images: 
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         var size = java.newInstanceSync("java.awt.Dimension", 960, 720);
         for (var index = 0; index < pres.getSlides().size(); index++) {

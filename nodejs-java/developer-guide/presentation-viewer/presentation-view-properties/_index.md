@@ -39,19 +39,19 @@ Method [**getAutoAdjust**](https://reference.aspose.com/slides/nodejs-java/aspos
 An example is given below shows how can you access [**ViewProperties.getNormalViewProperties**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ViewProperties#getNormalViewProperties--) properties for a presentation.
 
 ```javascript
-    // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
-    try {
-        pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
-        pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
-        // Restore View Properties of Presentation
-        pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
-        pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
-        pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
-        pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+// Instantiate a Presentation object that represents a presentation file
+var pres = new aspose.slides.Presentation();
+try {
+    pres.getViewProperties().getNormalViewProperties().setHorizontalBarState(aspose.slides.SplitterBarStateType.Restored);
+    pres.getViewProperties().getNormalViewProperties().setVerticalBarState(aspose.slides.SplitterBarStateType.Maximized);
+    // Restore View Properties of Presentation
+    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setAutoAdjust(true);
+    pres.getViewProperties().getNormalViewProperties().getRestoredTop().setDimensionSize(80);
+    pres.getViewProperties().getNormalViewProperties().setShowOutlineIcons(true);
+    pres.save("presentation_normal_view_state.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 ## **Set Default Zoom Value**
@@ -69,14 +69,14 @@ In order to set the view properties. Please follow the steps below:
    In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```javascript
-    // Instantiate a Presentation object that represents a presentation file
-    var presentation = new  aspose.slides.Presentation();
-    try {
-        // Setting View Properties of Presentation
-        presentation.getViewProperties().getSlideViewProperties().setScale(100);// Zoom value in percentages for slide view
-        presentation.getViewProperties().getNotesViewProperties().setScale(100);// Zoom value in percentages for notes view
-        presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+// Instantiate a Presentation object that represents a presentation file
+var presentation = new aspose.slides.Presentation();
+try {
+    // Setting View Properties of Presentation
+    presentation.getViewProperties().getSlideViewProperties().setScale(100);// Zoom value in percentages for slide view
+    presentation.getViewProperties().getNotesViewProperties().setScale(100);// Zoom value in percentages for notes view
+    presentation.save("Zoom_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```

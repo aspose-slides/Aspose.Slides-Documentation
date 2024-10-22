@@ -52,7 +52,7 @@ This sample code in Java shows you how to convert a presentation to an XPS docum
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("Convert_XPS.pptx");
+    var pres = new aspose.slides.Presentation("Convert_XPS.pptx");
     try {
         // Saving the presentation to XPS document
         pres.save("XPS_Output_Without_XPSOption.xps", aspose.slides.SaveFormat.Xps);
@@ -69,10 +69,10 @@ This sample code shows you how to convert a presentation to an XPS document usin
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("Convert_XPS_Options.pptx");
+    var pres = new aspose.slides.Presentation("Convert_XPS_Options.pptx");
     try {
         // Instantiate the TiffOptions class
-        var options = new  aspose.slides.XpsOptions();
+        var options = new aspose.slides.XpsOptions();
         // Save MetaFiles as PNG
         options.setSaveMetafilesAsPng(true);
         // Save the presentation to XPS document

@@ -27,7 +27,7 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 This Javascript code shows you how to add a website hyperlink to a text:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         var shape1 = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);
         shape1.addTextFrame("Aspose: File Format APIs");
@@ -48,7 +48,7 @@ This Javascript code shows you how to add a website hyperlink to a text:
 This sample code in Java shows you how to add a website hyperlink to a shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50);
         shape.setHyperlinkClick(new  aspose.slides.Hyperlink("https://www.aspose.com/"));
@@ -68,7 +68,7 @@ Aspose.Slides allows you to add hyperlinks to images, audio, and video files.
 This sample code shows you how to add a hyperlink to an **image**:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Adds image to presentation
         var picture;
@@ -96,7 +96,7 @@ This sample code shows you how to add a hyperlink to an **image**:
 This sample code shows you how to add a hyperlink to an **audio file**:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var audio = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.mp3")));
         var audioFrame = pres.getSlides().get_Item(0).getShapes().addAudioFrameEmbedded(10, 10, 100, 100, audio);
@@ -114,7 +114,7 @@ This sample code shows you how to add a hyperlink to an **audio file**:
 This sample code shows you how to add a hyperlink to a **video**:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var video = pres.getVideos().addVideo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "video.avi")));
         var videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 100, 100, video);
@@ -142,7 +142,7 @@ Since hyperlinks allow you to add references to objects or places, you can use t
 This sample code shows you how to create a table of contents with hyperlinks:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var firstSlide = pres.getSlides().get_Item(0);
         var secondSlide = pres.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
@@ -150,11 +150,11 @@ This sample code shows you how to create a table of contents with hyperlinks:
         contentTable.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
         contentTable.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
         contentTable.getTextFrame().getParagraphs().clear();
-        var paragraph = new  aspose.slides.Paragraph();
+        var paragraph = new aspose.slides.Paragraph();
         paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
         paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
         paragraph.setText("Title of slide 2 .......... ");
-        var linkPortion = new  aspose.slides.Portion();
+        var linkPortion = new aspose.slides.Portion();
         linkPortion.setText("Page 2");
         linkPortion.getPortionFormat().getHyperlinkManager().setInternalHyperlinkClick(secondSlide);
         paragraph.getPortions().add(linkPortion);
@@ -176,7 +176,7 @@ With the [ColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 450, 50, false);
         shape1.addTextFrame("This is a sample of colored hyperlink.");
@@ -203,7 +203,7 @@ This sample code demonstrates an operation where hyperlinks with different color
 This Javascript code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         slide.getShapes().forEach(function(shape) {
@@ -229,7 +229,7 @@ This Javascript code shows you how to remove the hyperlink from a text in a pres
 This Javascript code shows you how to remove the hyperlink from a shape in a presentation slide:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         slide.getShapes().forEach(function(shape) {
@@ -256,7 +256,7 @@ The [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hy
 The code snippet shows you how to add a hyperlink to a slide and edit its tooltip later:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 600, 50, false);
         shape1.addTextFrame("Aspose: File Format APIs");

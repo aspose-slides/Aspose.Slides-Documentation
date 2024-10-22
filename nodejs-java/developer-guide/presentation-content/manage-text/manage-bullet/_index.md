@@ -56,7 +56,7 @@ This sample code in Java—an implementation of the steps above—shows you to c
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accessing first slide
         var slide = pres.getSlides().get_Item(0);
@@ -67,7 +67,7 @@ This sample code in Java—an implementation of the steps above—shows you to c
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().removeAt(0);
         // Creating a paragraph
-        var para = new  aspose.slides.Paragraph();
+        var para = new aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
         para.getParagraphFormat().getBullet().setChar(8226);
@@ -124,7 +124,7 @@ To create a picture bullet, go through these steps:
 This Javascript code shows you to create a picture bullet in a slide:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accessing the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -145,7 +145,7 @@ This Javascript code shows you to create a picture bullet in a slide:
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().removeAt(0);
         // Creating new paragraph
-        var para = new  aspose.slides.Paragraph();
+        var para = new aspose.slides.Paragraph();
         para.setText("Welcome to Aspose.Slides");
         // Setting paragraph bullet style and image
         para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Picture);
@@ -184,7 +184,7 @@ This code, which is an implementation of the steps above, shows you how to creat
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accessing first slide
         var slide = pres.getSlides().get_Item(0);
@@ -195,7 +195,7 @@ This code, which is an implementation of the steps above, shows you how to creat
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().clear();
         // Creating first paragraph
-        var para1 = new  aspose.slides.Paragraph();
+        var para1 = new aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para1.setText("Content");
         para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
@@ -205,7 +205,7 @@ This code, which is an implementation of the steps above, shows you how to creat
         // Setting bullet level
         para1.getParagraphFormat().setDepth(0);
         // Creating second paragraph
-        var para2 = new  aspose.slides.Paragraph();
+        var para2 = new aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para2.setText("Second level");
         para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
@@ -215,7 +215,7 @@ This code, which is an implementation of the steps above, shows you how to creat
         // Setting bullet level
         para2.getParagraphFormat().setDepth(1);
         // Creating third paragraph
-        var para3 = new  aspose.slides.Paragraph();
+        var para3 = new aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para3.setText("Third level");
         para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
@@ -225,7 +225,7 @@ This code, which is an implementation of the steps above, shows you how to creat
         // Setting bullet level
         para3.getParagraphFormat().setDepth(2);
         // Creating fourth paragraph
-        var para4 = new  aspose.slides.Paragraph();
+        var para4 = new aspose.slides.Paragraph();
         // Setting paragraph bullet style and symbol
         para4.setText("Fourth Level");
         para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
@@ -266,7 +266,7 @@ This Javascript code shows you how to create a numbered list in a slide:
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accessing first slide
         var slide = pres.getSlides().get_Item(0);
@@ -277,20 +277,20 @@ This Javascript code shows you how to create a numbered list in a slide:
         // Removing the default exisiting paragraph
         txtFrm.getParagraphs().clear();
         // First list
-        var paragraph1 = new  aspose.slides.Paragraph();
+        var paragraph1 = new aspose.slides.Paragraph();
         paragraph1.setText("bullet 2");
         paragraph1.getParagraphFormat().setDepth(4);
         paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(2);
         paragraph1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
         txtFrm.getParagraphs().add(paragraph1);
-        var paragraph2 = new  aspose.slides.Paragraph();
+        var paragraph2 = new aspose.slides.Paragraph();
         paragraph2.setText("bullet 3");
         paragraph2.getParagraphFormat().setDepth(4);
         paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(3);
         paragraph2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
         txtFrm.getParagraphs().add(paragraph2);
         // Second list
-        var paragraph5 = new  aspose.slides.Paragraph();
+        var paragraph5 = new aspose.slides.Paragraph();
         paragraph5.setText("bullet 5");
         paragraph5.getParagraphFormat().setDepth(4);
         paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(5);

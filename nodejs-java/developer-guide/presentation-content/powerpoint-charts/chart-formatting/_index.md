@@ -42,7 +42,7 @@ Aspose.Slides for Node.js via Java provides a simple API for managing different 
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accessing the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -186,7 +186,7 @@ Below sample example is given.
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
         chart.getTextFormat().getPortionFormat().setFontHeight(20);
@@ -214,7 +214,7 @@ Aspose.Slides for Node.js via Java provides a simple API for managing chart data
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Access the first presentation slide
         var slide = pres.getSlides().get_Item(0);
@@ -292,7 +292,7 @@ Below sample example is given. 
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);

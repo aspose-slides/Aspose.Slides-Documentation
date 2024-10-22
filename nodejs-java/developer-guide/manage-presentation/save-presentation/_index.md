@@ -21,7 +21,7 @@ The examples that follow show how to save a presentation with Aspose.Slides for 
 
 ```javascript
     // Instantiate a Presentation object that represents a PPT file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // ...do some work here...
         // Save your presentation to a file
@@ -38,7 +38,7 @@ It is possible to save a presentation to a stream by passing an output stream to
 
 ```javascript
     // Instantiate a Presentation object that represents a PPT file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 200, 200);
         // Add text to shape
@@ -59,7 +59,7 @@ Aspose.Slides for Node.js via Java provides a facility to set the view type for 
 
 ```javascript
     // Opening the presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Setting view type
         pres.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
@@ -79,14 +79,14 @@ The following sample code creates a presentation and saves it in the Strict Offi
 
 ```javascript
     // Instantiate a Presentation object that represents a PPT file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var slide = pres.getSlides().get_Item(0);
         // Add an autoshape of type line
         slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 150, 300, 0);
         // Set Strict Office Open XML Format save options
-        var options = new  aspose.slides.PptxOptions();
+        var options = new aspose.slides.PptxOptions();
         options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
         // Save your presentation to a file
         pres.save("demoPass.pptx", aspose.slides.SaveFormat.Pptx, options);
@@ -112,9 +112,9 @@ This property provides the following modes:
 The following code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Sample.pptx");
+    var pres = new aspose.slides.Presentation("Sample.pptx");
     try {
-        var pptxOptions = new  aspose.slides.PptxOptions();
+        var pptxOptions = new aspose.slides.PptxOptions();
         pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
         pres.save("Sample-zip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
     } finally {
@@ -137,9 +137,9 @@ The following code snippets below show how to use [ProgressCallback](https://ref
 
 ```javascript
     // Opening the presentation file
-    var pres = new  aspose.slides.Presentation("ConvertToPDF.pptx");
+    var pres = new aspose.slides.Presentation("ConvertToPDF.pptx");
     try {
-        var saveOptions = new  aspose.slides.PdfOptions();
+        var saveOptions = new aspose.slides.PdfOptions();
         saveOptions.setProgressCallback(java.newInstanceSync("ExportProgressHandler"));
         pres.save("ConvertToPDF.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
     } finally {

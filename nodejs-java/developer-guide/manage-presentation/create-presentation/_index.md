@@ -20,7 +20,7 @@ In the example given below, we have added a line to the first slide of the prese
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get the first slide
         var slide = pres.getSlides().get_Item(0);

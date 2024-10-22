@@ -44,7 +44,7 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slide
 This Javascript code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         // Adds a smile shape and then animates it
         var smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.SmileyFace, 110, 20, 500, 500);
@@ -55,9 +55,9 @@ This Javascript code shows you how to convert a presentation (containing a figur
         effectOut.setPresetClassType(aspose.slides.EffectPresetClassType.Exit);
         final var fps = 33;
         var frames = java.newInstanceSync("java.util.ArrayList");
-        var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
+        var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
-            var player = new  aspose.slides.PresentationPlayer(animationsGenerator, fps);
+            var player = new aspose.slides.PresentationPlayer(animationsGenerator, fps);
             try {
                 player.setFrameTick((sender, arguments) -> {
                     try {
@@ -116,15 +116,15 @@ Animations and transitions make slideshows more engaging and interesting—and t
 Aspose.Slides also supports animation for texts. So we animate paragraphs on objects, which will appear one after the other (with the delay set to a second):
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         // Adds text and animations
         var autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 120, 300, 300);
-        var para1 = new  aspose.slides.Paragraph();
+        var para1 = new aspose.slides.Paragraph();
         para1.getPortions().add(new  aspose.slides.Portion("Aspose Slides for Java"));
-        var para2 = new  aspose.slides.Paragraph();
+        var para2 = new aspose.slides.Paragraph();
         para2.getPortions().add(new  aspose.slides.Portion("convert PowerPoint Presentation with text to video"));
-        var para3 = new  aspose.slides.Paragraph();
+        var para3 = new aspose.slides.Paragraph();
         para3.getPortions().add(new  aspose.slides.Portion("paragraph by paragraph"));
         var paragraphCollection = autoShape.getTextFrame().getParagraphs();
         paragraphCollection.add(para1);
@@ -142,9 +142,9 @@ Aspose.Slides also supports animation for texts. So we animate paragraphs on obj
         effect4.getTiming().setTriggerDelayTime(1.0);
         final var fps = 33;
         var frames = java.newInstanceSync("java.util.ArrayList");
-        var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
+        var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
-            var player = new  aspose.slides.PresentationPlayer(animationsGenerator, fps);
+            var player = new aspose.slides.PresentationPlayer(animationsGenerator, fps);
             try {
                 player.setFrameTick((sender, arguments) -> {
                     try {
@@ -188,7 +188,7 @@ When animations are generated, a `NewAnimation` event is generated for each subs
 To work with [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/), the [Duration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#getDuration--) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `GetFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         // Adds a smile shape and animates it
         var smile = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.SmileyFace, 110, 20, 500, 500);
@@ -197,7 +197,7 @@ To work with [PresentationAnimationPlayer](https://reference.aspose.com/slides/n
         var effectOut = mainSequence.addEffect(smile, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.BottomRight, aspose.slides.EffectTriggerType.AfterPrevious);
         effectIn.getTiming().setDuration(2.0);
         effectOut.setPresetClassType(aspose.slides.EffectPresetClassType.Exit);
-        var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
+        var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
             animationsGenerator.setNewAnimation(animationPlayer -> {
                 console.log(java.callStaticMethodSync("java.lang.String", "format", "Animation total duration: %f", animationPlayer.getDuration()));
@@ -231,11 +231,11 @@ To work with [PresentationAnimationPlayer](https://reference.aspose.com/slides/n
 To make all animations in a presentation play at once, the [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) class is used. This class  takes a [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) instance and FPS for effects in its constructor and then calls the `FrameTick` event for all the animations to get them played:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("animated.pptx");
+    var presentation = new aspose.slides.Presentation("animated.pptx");
     try {
-        var animationsGenerator = new  aspose.slides.PresentationAnimationsGenerator(presentation);
+        var animationsGenerator = new aspose.slides.PresentationAnimationsGenerator(presentation);
         try {
-            var player = new  aspose.slides.PresentationPlayer(animationsGenerator, 33);
+            var player = new aspose.slides.PresentationPlayer(animationsGenerator, 33);
             try {
                 player.setFrameTick((sender, arguments) -> {
                     try {

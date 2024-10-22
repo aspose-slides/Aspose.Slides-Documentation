@@ -16,7 +16,7 @@ Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, w
 Let’s start with adding a new Sunburst chart to the presentation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
         // ...
@@ -75,7 +75,7 @@ Set "Branch 1" data label to show series name ("Series1") instead of category na
 Change color of "Steam 4" branch:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
         var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();

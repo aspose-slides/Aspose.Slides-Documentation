@@ -17,7 +17,7 @@ The Presentation class, representing a presentation file, exposes all slides as 
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("demo.pptx");
+    var pres = new aspose.slides.Presentation("demo.pptx");
     try {
         // Accesses a slide using its slide index
         var slide = pres.getSlides().get_Item(0);
@@ -32,7 +32,7 @@ Each slide in a presentation has a unique ID associated with it. You can use the
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("demo.pptx");
+    var pres = new aspose.slides.Presentation("demo.pptx");
     try {
         // Gets a slide ID
         var id = pres.getSlides().get_Item(0).getSlideId();
@@ -56,7 +56,7 @@ This Javascript code demonstrates an operation in which the slide in position 1 
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("Presentation.pptx");
+    var pres = new aspose.slides.Presentation("Presentation.pptx");
     try {
         // Gets the slide whose position will be changed
         var sld = pres.getSlides().get_Item(0);
@@ -85,7 +85,7 @@ This Javascript code demonstrates an operation where the first slide number is s
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("HelloWorld.pptx");
+    var pres = new aspose.slides.Presentation("HelloWorld.pptx");
     try {
         // Gets the slide number
         var firstSlideNumber = pres.getFirstSlideNumber();
@@ -101,7 +101,7 @@ This Javascript code demonstrates an operation where the first slide number is s
 If you prefer to skip the first slide, you can start the numbering from the second slide (and hide the numbering for the first slide) this way:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         var layoutSlide = presentation.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank);
         presentation.getSlides().addEmptySlide(layoutSlide);

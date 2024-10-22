@@ -18,7 +18,7 @@ In the example given below, we have set the chart marker options on data points 
 
 ```javascript
     // Creating empty presentation
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Access first slide
         var slide = pres.getSlides().get_Item(0);

@@ -29,7 +29,7 @@ The implementation of the above steps is given below.
 
 ```javascript
     // Instantiate a Presentation class that represents a PPTX
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Get slide
         var slide = pres.getSlides().get_Item(0);
@@ -38,24 +38,24 @@ The implementation of the above steps is given below.
         var textFrame = shape.getTextFrame();
         textFrame.getParagraphs().clear();
         // Create paragraph for superscript text
-        var superPar = new  aspose.slides.Paragraph();
+        var superPar = new aspose.slides.Paragraph();
         // Create portion with usual text
-        var portion1 = new  aspose.slides.Portion();
+        var portion1 = new aspose.slides.Portion();
         portion1.setText("SlideTitle");
         superPar.getPortions().add(portion1);
         // Create portion with superscript text
-        var superPortion = new  aspose.slides.Portion();
+        var superPortion = new aspose.slides.Portion();
         superPortion.getPortionFormat().setEscapement(30);
         superPortion.setText("TM");
         superPar.getPortions().add(superPortion);
         // Create paragraph for subscript text
-        var paragraph2 = new  aspose.slides.Paragraph();
+        var paragraph2 = new aspose.slides.Paragraph();
         // Create portion with usual text
-        var portion2 = new  aspose.slides.Portion();
+        var portion2 = new aspose.slides.Portion();
         portion2.setText("a");
         paragraph2.getPortions().add(portion2);
         // Create portion with subscript text
-        var subPortion = new  aspose.slides.Portion();
+        var subPortion = new aspose.slides.Portion();
         subPortion.getPortionFormat().setEscapement(-25);
         subPortion.setText("i");
         paragraph2.getPortions().add(subPortion);

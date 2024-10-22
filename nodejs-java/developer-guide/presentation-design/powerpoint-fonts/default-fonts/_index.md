@@ -22,11 +22,11 @@ The implementation of the above is given below.
 
 ```javascript
     // Use load options to define the default regualr and asian fonts
-    var loadOptions = new  aspose.slides.LoadOptions(aspose.slides.LoadFormat.Auto);
+    var loadOptions = new aspose.slides.LoadOptions(aspose.slides.LoadFormat.Auto);
     loadOptions.setDefaultRegularFont("Wingdings");
     loadOptions.setDefaultAsianFont("Wingdings");
     // Load the presentation
-    var pres = new  aspose.slides.Presentation("DefaultFonts.pptx", loadOptions);
+    var pres = new aspose.slides.Presentation("DefaultFonts.pptx", loadOptions);
     try {
         // Generate slide thumbnail
         var slideImage = pres.getSlides().get_Item(0).getImage(1, 1);

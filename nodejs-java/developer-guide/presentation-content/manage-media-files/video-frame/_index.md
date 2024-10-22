@@ -30,7 +30,7 @@ This Javascript code shows you how to add a video stored locally to a presentati
 
 ```javascript
     // Instantiates the Presentation class
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         // Loads the video
         var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
@@ -50,7 +50,7 @@ This Javascript code shows you how to add a video stored locally to a presentati
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) method:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var sld = pres.getSlides().get_Item(0);
         var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
@@ -76,7 +76,7 @@ This Javascript code shows you how to add a video from the web to a slide in a P
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         addVideoFromYouTube(pres, "Tj75Arhq5ho");
         pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -103,7 +103,7 @@ This Javascript code shows you how to extract the video on a presentation slide:
 
 ```javascript
     // Instantiates a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("VideoSample.pptx");
+    var pres = new aspose.slides.Presentation("VideoSample.pptx");
     try {
         pres.getSlides().forEach(function(slide) {
             slide.getShapes().forEach(function(shape) {

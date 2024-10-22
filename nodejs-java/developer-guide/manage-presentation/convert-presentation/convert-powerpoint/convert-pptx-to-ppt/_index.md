@@ -29,7 +29,7 @@ To convert a PPTX to PPT simply pass the file name and save format to the **Save
 
 ```javascript
     // instantiate a Presentation object that represents a PPTX file
-    var presentation = new  aspose.slides.Presentation("template.pptx");
+    var presentation = new aspose.slides.Presentation("template.pptx");
     // save the presentation as PPT
     presentation.save("output.ppt", aspose.slides.SaveFormat.Ppt);
 ```

@@ -32,7 +32,7 @@ This Javascript code demonstrates an operation where we formatted a rectangle `A
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -73,7 +73,7 @@ This Java demonstrates an operation where 3 rectangles (the image above) were cr
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -133,7 +133,7 @@ This Javascript code demonstrates an operation where the gradient fill effect wa
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -177,7 +177,7 @@ This Javascript code demonstrates an operation where a pattern fill was used to 
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -218,7 +218,7 @@ This Javascript code shows you how to fill a shape with a picture:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -266,7 +266,7 @@ This Javascript code shows you how to apply the solid color fill to a box in Pow
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -301,7 +301,7 @@ This Javascript code demonstrates the process:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         // Adds a solid shape
@@ -332,7 +332,7 @@ This Javascript code shows you how to rotate a shape by 90 degrees:
 
 ```javascript
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -363,7 +363,7 @@ This Javascript code shows you how to add 3D bevel effects to a shape:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var slide = pres.getSlides().get_Item(0);
         // Adds a shape to the slide
@@ -405,7 +405,7 @@ This Javascript code shows you how to apply 3D rotation effects to a shape:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 200, 200);
         autoShape.getThreeDFormat().setDepth(6);
@@ -431,7 +431,7 @@ This Javascript code shows you how to apply 3D rotation effects to a shape:
 This Javascript code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LayoutSlide) to their defaults:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         pres.getSlides().forEach(function(slide) {
             // each shape on the slide that has a placeholder on the layout will be reverted

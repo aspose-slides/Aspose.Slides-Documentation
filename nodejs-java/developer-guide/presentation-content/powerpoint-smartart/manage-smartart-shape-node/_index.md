@@ -21,7 +21,7 @@ Aspose.Slides for Node.js via Java has provided the simplest API to manage the S
 
 ```javascript
     // Load the desired the presentation
-    var pres = new  aspose.slides.Presentation("SimpleSmartArt.pptx");
+    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
     try {
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
@@ -60,7 +60,7 @@ In the following sample code we have explained how to add the child nodes belong
 
 ```javascript
     // Creating a presentation instance
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Access the presentation slide
         var slide = pres.getSlides().get_Item(0);
@@ -93,7 +93,7 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
 
 ```javascript
     // Instantiate Presentation Class
-    var pres = new  aspose.slides.Presentation("SmartArtShape.pptx");
+    var pres = new aspose.slides.Presentation("SmartArtShape.pptx");
     try {
         // Get first slide
         var slide = pres.getSlides().get_Item(0);
@@ -133,7 +133,7 @@ The following sample code will help to access the child nodes belonging to respe
 
 ```javascript
     // Instantiate Presentation Class
-    var pres = new  aspose.slides.Presentation("AccessChildNodes.pptx");
+    var pres = new aspose.slides.Presentation("AccessChildNodes.pptx");
     try {
         // Get first slide
         var slide = pres.getSlides().get_Item(0);
@@ -177,7 +177,7 @@ In this example, we will learn to access the child nodes at some particular posi
 
 ```javascript
     // Instantiate the presentation
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accessing the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -211,7 +211,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 
 ```javascript
     // Load the desired the presentation
-    var pres = new  aspose.slides.Presentation("AddSmartArtNode.pptx");
+    var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
     try {
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
@@ -250,7 +250,7 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 
 ```javascript
     // Load the desired the presentation
-    var pres = new  aspose.slides.Presentation("AddSmartArtNode.pptx");
+    var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
     try {
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
@@ -282,7 +282,7 @@ Now Aspose.Slides for Node.js via Java support for setting [SmartArtShape](https
 
 ```javascript
     // Instantiate Presentation Class
-    var pres = new  aspose.slides.Presentation("SimpleSmartArt.pptx");
+    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
     try {
         var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, aspose.slides.SmartArtLayoutType.OrganizationChart);
         // Move SmartArt shape to new position
@@ -333,7 +333,7 @@ In the following sample code we will investigate how to identify **Assistant Nod
 
 ```javascript
     // Creating a presentation instance
-    var pres = new  aspose.slides.Presentation("AddNodes.pptx");
+    var pres = new aspose.slides.Presentation("AddNodes.pptx");
     try {
         // Traverse through every shape inside first slide
         pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
@@ -378,7 +378,7 @@ Please follow the steps below:
 
 ```javascript
     // Instantiate the presentation
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accessing the slide
         var slide = pres.getSlides().get_Item(0);
@@ -411,7 +411,7 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 
 ```javascript
     // Instantiate Presentation class that represents the PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Add SmartArt
         var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicCycle);

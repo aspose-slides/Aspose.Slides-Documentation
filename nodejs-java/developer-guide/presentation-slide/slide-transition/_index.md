@@ -26,7 +26,7 @@ To create a simple slide transition effect, follow the steps below:
 
 ```javascript
     // Instantiate Presentation class to load the source presentation file
-    var presentation = new  aspose.slides.Presentation("AccessSlides.pptx");
+    var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
     try {
         // Apply circle type transition on slide 1
         presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
@@ -50,7 +50,7 @@ In the above section, we just applied a simple transition effect on the slide. N
 
 ```javascript
     // Instantiate Presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("BetterSlideTransitions.pptx");
+    var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
     try {
         // Apply circle type transition on slide 1
         pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
@@ -86,7 +86,7 @@ The Morph transition allows you to animate smooth movement from one slide to the
 The following code snippet shows you how to add a clone of the slide with some text to the presentation and set a transition of [morph type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TransitionType) to the second slide.
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation();
+    var presentation = new aspose.slides.Presentation();
     try {
         var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
         autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
@@ -115,7 +115,7 @@ TransitionMorphType enum has three members:
 The following code snippet shows you how to set morph transition to slide and change morph type:
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("presentation.pptx");
+    var presentation = new aspose.slides.Presentation("presentation.pptx");
     try {
         presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
         presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
@@ -137,7 +137,7 @@ In the example given below, we have set the transition effects.
 
 ```javascript
     // Create an instance of Presentation class
-    var presentation = new  aspose.slides.Presentation("AccessSlides.pptx");
+    var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
     try {
         // Set effect
         presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);

@@ -23,7 +23,7 @@ In the example given below, we have set the size of the hole in a doughnut chart
 
 ```javascript
     // Create an instance of Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Doughnut, 50, 50, 400, 400);
         chart.getChartData().getSeriesGroups().get_Item(0).setDoughnutHoleSize(90);

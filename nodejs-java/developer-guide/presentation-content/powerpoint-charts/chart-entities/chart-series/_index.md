@@ -25,7 +25,7 @@ Use the `ParentSeriesGroup.Overlap` read/write property to set your preferred va
 This Javascript code shows you how to set the overlap for a chart series:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Adds chart
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
@@ -55,7 +55,7 @@ Aspose.Slides for Node.js via Java allows you to change a series' color this way
 This Javascript code shows you how to change a series' color:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("test.pptx");
+    var pres = new aspose.slides.Presentation("test.pptx");
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
         var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
@@ -82,7 +82,7 @@ Aspose.Slides for Node.js via Java allows you to change a series category's colo
 This code in Java shows you how to change a series category's color:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
         var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
@@ -110,7 +110,7 @@ Aspose.Slides for Node.js via Java allows you to update or change a series name 
 This Javascript code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
         var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
@@ -126,7 +126,7 @@ This Javascript code shows you how to change a series' name in its chart data `C
 This Javascript code shows you how to change a series name in its legend through`Series`:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
         var series = chart.getChartData().getSeries().get_Item(0);
@@ -152,7 +152,7 @@ Aspose.Slides for Node.js via Java allows you to set the automatic fill color fo
 This Javascript code shows you how to set the automatic fill color for a chart series:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Creates a clustered column chart
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
@@ -182,7 +182,7 @@ This Javascript code demonstrates the operation:
 
 ```javascript
     var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
         var workBook = chart.getChartData().getChartDataWorkbook();
@@ -218,7 +218,7 @@ Aspose.Slides allows you to set inverts through the`IChartDataPoint.InvertIfNega
 This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
         var series = chart.getChartData().getSeries();
@@ -251,7 +251,7 @@ Aspose.Slides for Node.js via Java allows you to clear the `DataPoints` data for
 This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("TestChart.pptx");
+    var pres = new aspose.slides.Presentation("TestChart.pptx");
     try {
         var sl = pres.getSlides().get_Item(0);
         var chart = sl.getShapes().get_Item(0);
@@ -282,7 +282,7 @@ This code in Java shows you how to set a series' Gap Width:
 
 ```javascript
     // Creates empty presentation
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the presentation's first slide
         var slide = pres.getSlides().get_Item(0);

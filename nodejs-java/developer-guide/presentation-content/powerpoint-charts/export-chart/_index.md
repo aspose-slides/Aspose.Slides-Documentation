@@ -9,7 +9,7 @@ url: /nodejs-java/export-chart/
 Aspose.Slides for Node.js via Java provides support for extracting image of specific chart. Below sample example is given. 
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
         var slideImage = chart.getImage();

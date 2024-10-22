@@ -10,11 +10,11 @@ Aspose.Slides supports [FontFallBackRule](https://reference.aspose.com/slides/no
 ```javascript
     var startUnicodeIndex = 0xb80;
     var endUnicodeIndex = 0xbff;
-    var firstRule = new  aspose.slides.FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya");
-    var secondRule = new  aspose.slides.FontFallBackRule(0x3040, 0x309f, "MS Mincho, MS Gothic");
+    var firstRule = new aspose.slides.FontFallBackRule(startUnicodeIndex, endUnicodeIndex, "Vijaya");
+    var secondRule = new aspose.slides.FontFallBackRule(0x3040, 0x309f, "MS Mincho, MS Gothic");
     // Using multiple ways you can add fonts list:
     var fontNames = java.newArray("java.lang.String", ["Segoe UI Emoji, Segoe UI Symbol", "Arial"]));
-    var thirdRule = new  aspose.slides.FontFallBackRule(0x1f300, 0x1f64f, fontNames);
+    var thirdRule = new aspose.slides.FontFallBackRule(0x1f300, 0x1f64f, fontNames);
 ```
 
 It is also possible to [remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule#remove-java.lang.String-) fallback font or [addFallBackFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule#addFallBackFonts-java.lang.String-) into existing [FontFallBackRule](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontFallBackRule) object.

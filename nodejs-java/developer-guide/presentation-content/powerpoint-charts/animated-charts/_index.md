@@ -24,7 +24,7 @@ In the example given below, we animated chart series.
 
 ```javascript
     // Instantiate Presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("ExistingChart.pptx");
+    var pres = new aspose.slides.Presentation("ExistingChart.pptx");
     try {
         // Get reference of the chart object
         var slide = pres.getSlides().get_Item(0);
@@ -57,7 +57,7 @@ In the example given below, we animated chart category.
 
 ```javascript
     // Instantiate Presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("ExistingChart.pptx");
+    var pres = new aspose.slides.Presentation("ExistingChart.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
         var shapes = slide.getShapes();
@@ -87,7 +87,7 @@ In the example given below, we have animated series' elements.
 
 ```javascript
     // Instantiate Presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("ExistingChart.pptx");
+    var pres = new aspose.slides.Presentation("ExistingChart.pptx");
     try {
         // Get reference of the chart object
         var slide = pres.getSlides().get_Item(0);
@@ -128,7 +128,7 @@ In the example given below, we have animated categories elements.
 
 ```javascript
     // Instantiate Presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("ExistingChart.pptx");
+    var pres = new aspose.slides.Presentation("ExistingChart.pptx");
     try {
         // Get reference of the chart object
         var slide = pres.getSlides().get_Item(0);

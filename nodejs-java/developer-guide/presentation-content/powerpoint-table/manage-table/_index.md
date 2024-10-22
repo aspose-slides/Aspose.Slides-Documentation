@@ -28,7 +28,7 @@ This Javascript code shows you how to create a table in a presentation:
 
 ```javascript
     // Instantiates a Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -84,7 +84,7 @@ This Javascript code shows you how to specify the numbering for cells in a table
 
 ```javascript
     // Instantiates a Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Accesses first slide
         var sld = pres.getSlides().get_Item(0);
@@ -139,7 +139,7 @@ This Javascript code shows you how to access and work with an existing table:
 
 ```javascript
     // Instantiates the Presentation class that represents a PPTX file
-    var pres = new  aspose.slides.Presentation("UpdateExistingTable.pptx");
+    var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
     try {
         // Accesses the first slide
         var sld = pres.getSlides().get_Item(0);
@@ -177,7 +177,7 @@ This Javascript code shows you how to align the text in a table:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Gets the first slide
         var slide = pres.getSlides().get_Item(0);
@@ -225,21 +225,21 @@ This Javascript code shows you how to apply your preferred formatting options to
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation("simpletable.pptx");
+    var pres = new aspose.slides.Presentation("simpletable.pptx");
     try {
         // Let's assume that the first shape on the first slide is a table
         var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         // Sets the table cells' font height
-        var portionFormat = new  aspose.slides.PortionFormat();
+        var portionFormat = new aspose.slides.PortionFormat();
         portionFormat.setFontHeight(25);
         someTable.setTextFormat(portionFormat);
         // Sets the table cells' text alignment and right margin in one call
-        var paragraphFormat = new  aspose.slides.ParagraphFormat();
+        var paragraphFormat = new aspose.slides.ParagraphFormat();
         paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
         paragraphFormat.setMarginRight(20);
         someTable.setTextFormat(paragraphFormat);
         // Sets the table cells' text vertical type
-        var textFrameFormat = new  aspose.slides.TextFrameFormat();
+        var textFrameFormat = new aspose.slides.TextFrameFormat();
         textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
         someTable.setTextFormat(textFrameFormat);
         pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
@@ -255,7 +255,7 @@ This Javascript code shows you how to apply your preferred formatting options to
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Javascript code shows you how to get the style properties from a table preset style:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
         table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
@@ -274,7 +274,7 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 This Javascript code shows you how to lock the aspect ratio for a table:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());

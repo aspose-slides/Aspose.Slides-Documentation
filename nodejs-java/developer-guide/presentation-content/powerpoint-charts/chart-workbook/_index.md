@@ -13,7 +13,7 @@ Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/sli
 This Javascript code demonstrates a sample operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("chart.pptx");
+    var pres = new aspose.slides.Presentation("chart.pptx");
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var data = chart.getChartData();
@@ -44,7 +44,7 @@ This Javascript code shows you to set a workbook cell as a chart data label:
     var lbl1 = "Label 1 cell value";
     var lbl2 = "Label 2 cell value";
     // Instantiates a presentation class that represents a presentation file
-    var pres = new  aspose.slides.Presentation("chart2.pptx");
+    var pres = new aspose.slides.Presentation("chart2.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
         var chart = slide.getShapes().addChart(aspose.slides.ChartType.Bubble, 50, 50, 600, 400, true);
@@ -68,7 +68,7 @@ This Javascript code shows you to set a workbook cell as a chart data label:
 This Javascript code demonstrates an operation where the [ChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
         var wb = chart.getChartData().getChartDataWorkbook();
@@ -87,7 +87,7 @@ This Javascript code demonstrates an operation where the [ChartDataWorkbook.Work
 This Javascript code shows you how to specify a type for a data source:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
         var val = chart.getChartData().getSeries().get_Item(0).getName();
@@ -116,7 +116,7 @@ Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you ca
 This Javascript code demonstrates the external workbook creation process:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         final var workbookPath = "externalWorkbook1.xlsx";
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
@@ -149,7 +149,7 @@ This Javascript code shows you how to set an external workbook:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation("chart.pptx");
+    var pres = new aspose.slides.Presentation("chart.pptx");
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
         var chartData = chart.getChartData();
@@ -176,7 +176,7 @@ The `ChartData` parameter (under the `setExternalWorkbook` method) is used to s
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation("chart.pptx");
+    var pres = new aspose.slides.Presentation("chart.pptx");
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
         var chartData = chart.getChartData();
@@ -201,7 +201,7 @@ This Javascript code demonstrates the operation:
 
 ```javascript
     // Creates an instance of the Presentation class
-    var pres = new  aspose.slides.Presentation("chart.pptx");
+    var pres = new aspose.slides.Presentation("chart.pptx");
     try {
         var slide = pres.getSlides().get_Item(1);
         var chart = slide.getShapes().get_Item(0);
@@ -226,7 +226,7 @@ This Javascript code is an implementation of the described process:
 
 ```javascript
     // Creates an instance of tthe Presentation class
-    var pres = new  aspose.slides.Presentation("chart.pptx");
+    var pres = new aspose.slides.Presentation("chart.pptx");
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
         var chartData = chart.getChartData();

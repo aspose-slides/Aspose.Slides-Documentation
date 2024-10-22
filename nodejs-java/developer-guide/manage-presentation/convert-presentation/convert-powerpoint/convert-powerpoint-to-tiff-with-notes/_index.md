@@ -12,9 +12,9 @@ The [Save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Present
 
 ```javascript
     // Instantiate a Presentation object that represents a presentation file
-    var pres = new  aspose.slides.Presentation("demo.pptx");
+    var pres = new aspose.slides.Presentation("demo.pptx");
     try {
-        var opts = new  aspose.slides.TiffOptions();
+        var opts = new aspose.slides.TiffOptions();
         opts.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
         // Saving the presentation to TIFF notes
         pres.save("Tiff-Notes.tiff", aspose.slides.SaveFormat.Tiff, opts);

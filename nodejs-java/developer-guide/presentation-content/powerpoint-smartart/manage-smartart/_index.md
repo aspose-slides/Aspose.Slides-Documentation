@@ -9,7 +9,7 @@ url: /nodejs-java/manage-smartart/
 Now TextFrame method has been added to [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) class and [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) class respectively. This property allows you to get all text from [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("Presentation.pptx");
+    var pres = new aspose.slides.Presentation("Presentation.pptx");
     try {
         var slide = pres.getSlides().get_Item(0);
         var smartArt = slide.getShapes().get_Item(0);
@@ -39,7 +39,7 @@ In order to change the layout type of [SmartArt](https://reference.aspose.com/sl
   In the example given below, we have added a connector between two shapes.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Add SmartArt BasicProcess
         var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicBlockList);
@@ -66,7 +66,7 @@ Please note: method [SmartArtNode.isHidden()]((https://reference.aspose.com/slid
 In the example given below, we have added a connector between two shapes.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Add SmartArt BasicProcess
         var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.RadialCycle);
@@ -96,7 +96,7 @@ Methods [SmartArtNode.getOrganizationChartLayout()](https://reference.aspose.com
   In the example given below, we have added a connector between two shapes.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Add SmartArt BasicProcess
         var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.OrganizationChart);
@@ -122,7 +122,7 @@ Aspose.Slides for Node.js via Java provides a simple API for creating and Pictu
 The following code is used to create a chart.
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("test.pptx");
+    var pres = new aspose.slides.Presentation("test.pptx");
     try {
         var smartArt = pres.getSlides().get_Item(0).getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.PictureOrganizationChart);
         pres.save("OrganizationChart.pptx", aspose.slides.SaveFormat.Pptx);
@@ -145,7 +145,7 @@ The following code is used to create a chart.
 
 ```javascript
     // Instantiate Presentation class that represents the PPTX file
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         // Add SmartArt BasicProcess
         var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicProcess);

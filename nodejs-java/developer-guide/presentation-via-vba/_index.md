@@ -33,29 +33,29 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/node
 This Javascript code shows you how to add a VBA macro from scratch to a presentation:
 
 ```javascript
-    // Creates an instance of the presentation class
-    var pres = new  aspose.slides.Presentation();
-    try {
-        // Creates a new VBA Project
-        pres.setVbaProject(new  aspose.slides.VbaProject());
-        // Adds an empty module to the VBA project
-        var module = pres.getVbaProject().getModules().addEmptyModule("Module");
-        // Sets the module source code
-        module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
-        // Creates a reference to <stdole>
-        var stdoleReference = new  aspose.slides.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
-        // Creates a reference to Office
-        var officeReference = new  aspose.slides.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
-        // Adds references to the VBA project
-        pres.getVbaProject().getReferences().add(stdoleReference);
-        pres.getVbaProject().getReferences().add(officeReference);
-        // Saves the Presentation
-        pres.save("test.pptm", aspose.slides.SaveFormat.Pptm);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Creates an instance of the presentation class
+var pres = new aspose.slides.Presentation();
+try {
+    // Creates a new VBA Project
+    pres.setVbaProject(new  aspose.slides.VbaProject());
+    // Adds an empty module to the VBA project
+    var module = pres.getVbaProject().getModules().addEmptyModule("Module");
+    // Sets the module source code
+    module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
+    // Creates a reference to <stdole>
+    var stdoleReference = new aspose.slides.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
+    // Creates a reference to Office
+    var officeReference = new aspose.slides.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
+    // Adds references to the VBA project
+    pres.getVbaProject().getReferences().add(stdoleReference);
+    pres.getVbaProject().getReferences().add(officeReference);
+    // Saves the Presentation
+    pres.save("test.pptm", aspose.slides.SaveFormat.Pptm);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert color="primary" %}} 
@@ -75,18 +75,18 @@ Using the [VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 This Javascript code shows you how to remove a VBA macro:
 
 ```javascript
-    // Loads the presentation containing the macro
-    var pres = new  aspose.slides.Presentation("VBA.pptm");
-    try {
-        // Accesses the Vba module and removes it
-        pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
-        // Saves the Presentation
-        pres.save("test.pptm", aspose.slides.SaveFormat.Pptm);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Loads the presentation containing the macro
+var pres = new aspose.slides.Presentation("VBA.pptm");
+try {
+    // Accesses the Vba module and removes it
+    pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
+    // Saves the Presentation
+    pres.save("test.pptm", aspose.slides.SaveFormat.Pptm);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Extract VBA Macros**
@@ -98,20 +98,20 @@ This Javascript code shows you how to remove a VBA macro:
 This Javascript code shows you how to extract VBA macros from a presentation containing macros:
 
 ```javascript
-    // Loads the presentation containing the macro
-    var pres = new  aspose.slides.Presentation("VBA.pptm");
-    try {
-        // Checks whether the Presentation contains a VBA Project
-        if (pres.getVbaProject() != null) {
-            pres.getVbaProject().getModules().forEach(function(module) {
-                console.log(module.getName());
-                console.log(module.getSourceCode());
-            });
-        }
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Loads the presentation containing the macro
+var pres = new aspose.slides.Presentation("VBA.pptm");
+try {
+    // Checks whether the Presentation contains a VBA Project
+    if (pres.getVbaProject() != null) {
+        pres.getVbaProject().getModules().forEach(function(module) {
+            console.log(module.getName());
+            console.log(module.getSourceCode());
+        });
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 

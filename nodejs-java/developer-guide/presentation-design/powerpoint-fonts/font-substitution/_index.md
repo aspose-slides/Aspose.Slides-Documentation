@@ -21,16 +21,16 @@ This Javascript code demonstrates the font substitution process:
 
 ```javascript
     // Loads a presentation
-    var pres = new  aspose.slides.Presentation("Fonts.pptx");
+    var pres = new aspose.slides.Presentation("Fonts.pptx");
     try {
         // Loads the source font that will be replaced
-        var sourceFont = new  aspose.slides.FontData("SomeRareFont");
+        var sourceFont = new aspose.slides.FontData("SomeRareFont");
         // Loads the new font
-        var destFont = new  aspose.slides.FontData("Arial");
+        var destFont = new aspose.slides.FontData("Arial");
         // Adds a font rule for font replacement
-        var fontSubstRule = new  aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+        var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
         // Adds the rule to font substitute rules collection
-        var fontSubstRuleCollection = new  aspose.slides.FontSubstRuleCollection();
+        var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
         fontSubstRuleCollection.add(fontSubstRule);
         // Adds a font rule collection to the rule list
         pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);

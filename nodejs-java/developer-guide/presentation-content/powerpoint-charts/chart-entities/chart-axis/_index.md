@@ -23,7 +23,7 @@ Aspose.Slides for Node.js via Java allows you to obtain the minimum and maximum 
 This sample code—an implementation of the steps above—shows you how to get the required values in Java:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 100, 100, 500, 350);
         chart.validateChartLayout();
@@ -46,7 +46,7 @@ Aspose.Slides allows you to quickly swap the data between axes—the data repres
 This Javascript code shows you how to perform the data swap task between axes on a chart:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
         // Switches rows and columns
@@ -65,7 +65,7 @@ This Javascript code shows you how to perform the data swap task between axes on
 This Javascript code shows you how to hide the vertical axis for a line chart:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
         chart.getAxes().getVerticalAxis().setVisible(false);
@@ -82,7 +82,7 @@ This Javascript code shows you how to hide the vertical axis for a line chart:
 This code shows you how to hide the horizontal axis for a line chart:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 100, 100, 400, 300);
         chart.getAxes().getHorizontalAxis().setVisible(false);
@@ -99,7 +99,7 @@ This code shows you how to hide the horizontal axis for a line chart:
 Using the **CategoryAxisType** property, you can specify your preferred category axis type (**date** or **text**). This code in Java demonstrates the operation: 
 
 ```javascript
-    var presentation = new  aspose.slides.Presentation("ExistingChart.pptx");
+    var presentation = new aspose.slides.Presentation("ExistingChart.pptx");
     try {
         var chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
         chart.getAxes().getHorizontalAxis().setCategoryAxisType(aspose.slides.CategoryAxisType.Date);
@@ -118,7 +118,7 @@ Using the **CategoryAxisType** property, you can specify your preferred category
 Aspose.Slides for Node.js via Java allows you to set the date format for a category axis value. The operation is demonstrated in this Javascript code:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Area, 50, 50, 450, 300);
         var wb = chart.getChartData().getChartDataWorkbook();
@@ -151,7 +151,7 @@ Aspose.Slides for Node.js via Java allows you to set the date format for a categ
 Aspose.Slides for Node.js via Java allows you to set the rotation angle for a chart axis title. This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
         chart.getAxes().getVerticalAxis().setTitle(true);
@@ -168,7 +168,7 @@ Aspose.Slides for Node.js via Java allows you to set the rotation angle for a ch
 Aspose.Slides for Node.js via Java allows you to set the position axis in a category or value axis. This Javascript code shows how to perform the task:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
         chart.getAxes().getHorizontalAxis().setAxisBetweenCategories(true);
@@ -184,7 +184,7 @@ Aspose.Slides for Node.js via Java allows you to set the position axis in a cate
 Aspose.Slides for Node.js via Java allows you to configure a chart to show a unit label on its chart value axis. This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 450, 300);
         chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Millions);

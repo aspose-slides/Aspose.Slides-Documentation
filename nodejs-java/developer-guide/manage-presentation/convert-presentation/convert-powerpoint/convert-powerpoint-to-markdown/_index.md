@@ -27,7 +27,7 @@ PowerPoint to markdown export is **without images** by default. If you want to e
 This Javascript code shows you how to convert PowerPoint to markdown:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         pres.save("pres.md", aspose.slides.SaveFormat.Md);
     } finally {
@@ -44,9 +44,9 @@ Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syn
 This Javascript code shows you how to convert PowerPoint to CommonMark:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
-        var markdownSaveOptions = new  aspose.slides.MarkdownSaveOptions();
+        var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
         markdownSaveOptions.setFlavor(aspose.slides.Flavor.CommonMark);
         pres.save("pres.md", aspose.slides.SaveFormat.Md, markdownSaveOptions);
     } finally {
@@ -67,9 +67,9 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose
 If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Javascript code shows you how to convert a presentation containing images to markdown:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
-        var markdownSaveOptions = new  aspose.slides.MarkdownSaveOptions();
+        var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
         markdownSaveOptions.setShowHiddenSlides(true);
         markdownSaveOptions.setShowSlideNumber(true);
         markdownSaveOptions.setFlavor(aspose.slides.Flavor.Github);
@@ -90,10 +90,10 @@ If you want the images to appear together in the resulting markdown, you have to
 This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation("pres.pptx");
+    var pres = new aspose.slides.Presentation("pres.pptx");
     try {
         final var outPath = "c:/documents";
-        var markdownSaveOptions = new  aspose.slides.MarkdownSaveOptions();
+        var markdownSaveOptions = new aspose.slides.MarkdownSaveOptions();
         markdownSaveOptions.setExportType(aspose.slides.MarkdownExportType.Visual);
         markdownSaveOptions.setImagesSaveFolderName("md-images");
         markdownSaveOptions.setBasePath(outPath);

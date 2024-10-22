@@ -34,7 +34,7 @@ This Javascript code demonstrates the font loading process:
     // Loads the custom font directory fonts
     aspose.slides.FontsLoader.loadExternalFonts(folders);
     // Do Some work and perform presentation/slide rendering
-    var pres = new  aspose.slides.Presentation("DefaultFonts.pptx");
+    var pres = new aspose.slides.Presentation("DefaultFonts.pptx");
     try {
         pres.save("NewFonts_out.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
@@ -65,10 +65,10 @@ This Javascript code shows you how to use the [setDocumentLevelFontSources](http
 ```javascript
     var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
     var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
-    var loadOptions = new  aspose.slides.LoadOptions();
+    var loadOptions = new aspose.slides.LoadOptions();
     loadOptions.getDocumentLevelFontSources().setFontFolders(java.newArray("java.lang.String", ["assets/fonts", "global/fonts"]));
     loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [java.newArray("byte", ["item1", "item2", "item3"])]));
-    var pres = new  aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
+    var pres = new aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
     try {
         // Work with the presentation
         // CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
@@ -90,7 +90,7 @@ This Javascript code demonstrates the byte array font loading process:
     java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
     java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));
     try {
-        var pres = new  aspose.slides.Presentation("");
+        var pres = new aspose.slides.Presentation("");
         try {
             // external font loaded during the presentation lifetime
         } finally {

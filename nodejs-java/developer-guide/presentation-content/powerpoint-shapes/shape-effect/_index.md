@@ -22,7 +22,7 @@ Aspose.Slides provides properties and methods under the [EffectFormat](https://r
 This Javascript code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
         shape.getEffectFormat().enableOuterShadowEffect();
@@ -42,7 +42,7 @@ This Javascript code shows you how to apply the outer shadow effect ([OuterShado
 This Javascript code shows you how to apply the reflection effect to a shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
         shape.getEffectFormat().enableReflectionEffect();
@@ -63,7 +63,7 @@ This Javascript code shows you how to apply the reflection effect to a shape:
 This Javascript code shows you how to apply the glow effect to a shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
         shape.getEffectFormat().enableGlowEffect();
@@ -82,7 +82,7 @@ This Javascript code shows you how to apply the glow effect to a shape:
 This Javascript code shows you how to apply the soft edges to a shape:
 
 ```javascript
-    var pres = new  aspose.slides.Presentation();
+    var pres = new aspose.slides.Presentation();
     try {
         var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 20, 20, 200, 150);
         shape.getEffectFormat().enableSoftEdgeEffect();
