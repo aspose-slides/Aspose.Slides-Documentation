@@ -54,7 +54,7 @@ with slides.Presentation("pres.pptx") as presentation:
     presentation.save("index.html", slides.export.SaveFormat.HTML5, options)
 ```
 
-#### **Export PowerPoint to HTML**
+## **Export PowerPoint to HTML**
 
 This python code demonstrates the standard PowerPoint to HTML process:
 
