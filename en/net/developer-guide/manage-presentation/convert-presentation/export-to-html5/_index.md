@@ -55,7 +55,7 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-#### **Export PowerPoint to HTML**
+## **Export PowerPoint to HTML**
 
 This C# demonstrates the standard PowerPoint to HTML process:
 
