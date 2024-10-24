@@ -32,18 +32,18 @@ If you prefer to use a special slide size for your presentations, we strongly re
 
 ## Changing the Slide Size in Presentations 
 
- This sample code shows you how to change the slide size in a presentation in Java using Aspose.Slides:
+ This sample code shows you how to change the slide size in a presentation in Javascript using Aspose.Slides:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres-4x3-aspect-ratio.pptx");
-    try {
-        pres.getSlideSize().setSize(aspose.slides.SlideSizeType.OnScreen16x9, aspose.slides.SlideSizeScaleType.DoNotScale);
-        pres.save("pres-4x3-aspect-ratio.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres-4x3-aspect-ratio.pptx");
+try {
+    pres.getSlideSize().setSize(aspose.slides.SlideSizeType.OnScreen16x9, aspose.slides.SlideSizeScaleType.DoNotScale);
+    pres.save("pres-4x3-aspect-ratio.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## Specifying Custom Slide Sizes in Presentations
@@ -53,15 +53,15 @@ If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you 
 This sample code shows you how to use Aspose.Slides for Node.js via Java to specify a custom slide size for a presentation in Java:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        pres.getSlideSize().setSize(780, 540, aspose.slides.SlideSizeScaleType.DoNotScale);// A4 paper size
-        pres.save("pres-a4-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    pres.getSlideSize().setSize(780, 540, aspose.slides.SlideSizeScaleType.DoNotScale);// A4 paper size
+    pres.save("pres-a4-slide-size.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## Dealing With Issues When Changing the Size of Slides in Presentations
@@ -85,13 +85,13 @@ Depending on what you intend to do or achieve, you can use any of these settings
 This sample code shows you how to use the `Maximize` setting when changing the size of a presentation’s slide:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        pres.getSlideSize().setSize(aspose.slides.SlideSizeType.Ledger, aspose.slides.SlideSizeScaleType.Maximize);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    pres.getSlideSize().setSize(aspose.slides.SlideSizeType.Ledger, aspose.slides.SlideSizeScaleType.Maximize);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 

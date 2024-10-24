@@ -25,18 +25,18 @@ To create a simple slide transition effect, follow the steps below:
 1. Write the modified presentation file.
 
 ```javascript
-    // Instantiate Presentation class to load the source presentation file
-    var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
-    try {
-        // Apply circle type transition on slide 1
-        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-        // Apply comb type transition on slide 2
-        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-        // Write the presentation to disk
-        presentation.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+// Instantiate Presentation class to load the source presentation file
+var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+try {
+    // Apply circle type transition on slide 1
+    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
+    // Apply comb type transition on slide 2
+    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
+    // Write the presentation to disk
+    presentation.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Add Advanced Slide Transition**
@@ -49,29 +49,29 @@ In the above section, we just applied a simple transition effect on the slide. N
 1. Write the modified presentation as a presentation file.
 
 ```javascript
-    // Instantiate Presentation class that represents a presentation file
-    var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
-    try {
-        // Apply circle type transition on slide 1
-        pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
-        // Set the transition time of 3 seconds
-        pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
-        pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
-        // Apply comb type transition on slide 2
-        pres.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
-        // Set the transition time of 5 seconds
-        pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
-        pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
-        // Apply zoom type transition on slide 3
-        pres.getSlides().get_Item(2).getSlideShowTransition().setType(aspose.slides.TransitionType.Zoom);
-        // Set the transition time of 7 seconds
-        pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
-        pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
-        // Write the presentation to disk
-        pres.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+// Instantiate Presentation class that represents a presentation file
+var pres = new aspose.slides.Presentation("BetterSlideTransitions.pptx");
+try {
+    // Apply circle type transition on slide 1
+    pres.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Circle);
+    // Set the transition time of 3 seconds
+    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceOnClick(true);
+    pres.getSlides().get_Item(0).getSlideShowTransition().setAdvanceAfterTime(3000);
+    // Apply comb type transition on slide 2
+    pres.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Comb);
+    // Set the transition time of 5 seconds
+    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceOnClick(true);
+    pres.getSlides().get_Item(1).getSlideShowTransition().setAdvanceAfterTime(5000);
+    // Apply zoom type transition on slide 3
+    pres.getSlides().get_Item(2).getSlideShowTransition().setType(aspose.slides.TransitionType.Zoom);
+    // Set the transition time of 7 seconds
+    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceOnClick(true);
+    pres.getSlides().get_Item(2).getSlideShowTransition().setAdvanceAfterTime(7000);
+    // Write the presentation to disk
+    pres.save("SampleTransition_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 ## **Morph Transition**
@@ -86,21 +86,21 @@ The Morph transition allows you to animate smooth movement from one slide to the
 The following code snippet shows you how to add a clone of the slide with some text to the presentation and set a transition of [morph type](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TransitionType) to the second slide.
 
 ```javascript
-    var presentation = new aspose.slides.Presentation();
-    try {
-        var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
-        autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
-        presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
-        var shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
-        shape.setX(shape.getX() + 100);
-        shape.setY(shape.getY() + 50);
-        shape.setWidth(shape.getWidth() - 200);
-        shape.setHeight(shape.getHeight() - 10);
-        presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-        presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+var presentation = new aspose.slides.Presentation();
+try {
+    var autoshape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 400, 100);
+    autoshape.getTextFrame().setText("Morph Transition in PowerPoint Presentations");
+    presentation.getSlides().addClone(presentation.getSlides().get_Item(0));
+    var shape = presentation.getSlides().get_Item(1).getShapes().get_Item(0);
+    shape.setX(shape.getX() + 100);
+    shape.setY(shape.getY() + 50);
+    shape.setWidth(shape.getWidth() - 200);
+    shape.setHeight(shape.getHeight() - 10);
+    presentation.getSlides().get_Item(1).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
+    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Morph Transition Types**
@@ -115,14 +115,14 @@ TransitionMorphType enum has three members:
 The following code snippet shows you how to set morph transition to slide and change morph type:
 
 ```javascript
-    var presentation = new aspose.slides.Presentation("presentation.pptx");
-    try {
-        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
-        presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
-        presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Morph);
+    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setMorphType(aspose.slides.TransitionMorphType.ByWord);
+    presentation.save("presentation-out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Set Transition Effects**
@@ -136,15 +136,15 @@ Aspose.Slides for Node.js via Java supports setting the transition effects like,
 In the example given below, we have set the transition effects.
 
 ```javascript
-    // Create an instance of Presentation class
-    var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
-    try {
-        // Set effect
-        presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);
-        presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setFromBlack(true);
-        // Write the presentation to disk
-        presentation.save("SetTransitionEffects_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+// Create an instance of Presentation class
+var presentation = new aspose.slides.Presentation("AccessSlides.pptx");
+try {
+    // Set effect
+    presentation.getSlides().get_Item(0).getSlideShowTransition().setType(aspose.slides.TransitionType.Cut);
+    presentation.getSlides().get_Item(0).getSlideShowTransition().getValue().setFromBlack(true);
+    // Write the presentation to disk
+    presentation.save("SetTransitionEffects_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```

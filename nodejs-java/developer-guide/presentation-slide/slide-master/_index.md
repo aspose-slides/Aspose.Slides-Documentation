@@ -146,7 +146,8 @@ try {
     }
     pres.getMasters().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
     pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
+} catch (e) {
+    console.log(e);
 } finally {
     if (pres != null) {
         pres.dispose();

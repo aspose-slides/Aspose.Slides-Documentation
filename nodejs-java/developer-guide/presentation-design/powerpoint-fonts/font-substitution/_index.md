@@ -1,5 +1,5 @@
 ---
-title: Font Substitution - PowerPoint Java API
+title: Font Substitution - PowerPoint Javascript API
 linktitle: Font Substitution
 type: docs
 weight: 70
@@ -20,35 +20,35 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 This Javascript code demonstrates the font substitution process:
 
 ```javascript
-    // Loads a presentation
-    var pres = new aspose.slides.Presentation("Fonts.pptx");
+// Loads a presentation
+var pres = new aspose.slides.Presentation("Fonts.pptx");
+try {
+    // Loads the source font that will be replaced
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    // Loads the new font
+    var destFont = new aspose.slides.FontData("Arial");
+    // Adds a font rule for font replacement
+    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+    // Adds the rule to font substitute rules collection
+    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
+    fontSubstRuleCollection.add(fontSubstRule);
+    // Adds a font rule collection to the rule list
+    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
+    // Arial font will be used in place of SomeRareFont when the latter is inaccessible
+    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
+    // Saves the image to disk in the JPEG format
     try {
-        // Loads the source font that will be replaced
-        var sourceFont = new aspose.slides.FontData("SomeRareFont");
-        // Loads the new font
-        var destFont = new aspose.slides.FontData("Arial");
-        // Adds a font rule for font replacement
-        var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-        // Adds the rule to font substitute rules collection
-        var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-        fontSubstRuleCollection.add(fontSubstRule);
-        // Adds a font rule collection to the rule list
-        pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-        // Arial font will be used in place of SomeRareFont when the latter is inaccessible
-        var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-        // Saves the image to disk in the JPEG format
-        try {
-            slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
         }
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 {{%  alert title="NOTE"  color="warning"   %}} 

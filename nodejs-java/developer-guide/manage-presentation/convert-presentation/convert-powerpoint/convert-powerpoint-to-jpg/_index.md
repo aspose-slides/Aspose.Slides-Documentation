@@ -34,83 +34,83 @@ Here are the steps to convert PPT/PPTX to JPG:
 {{% /alert %}} 
 
 ```javascript
-    var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
-    try {
-        pres.getSlides().forEach(function(sld) {
-            // Creates a full scale image
-            var slideImage = sld.getImage(1.0, 1.0);
-            // Saves the image to disk in JPEG format
-            try {
-                slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), aspose.slides.ImageFormat.Jpeg);
-            } finally {
-                if (slideImage != null) {
-                    slideImage.dispose();
-                }
+var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
+try {
+    pres.getSlides().forEach(function(sld) {
+        // Creates a full scale image
+        var slideImage = sld.getImage(1.0, 1.0);
+        // Saves the image to disk in JPEG format
+        try {
+            slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), aspose.slides.ImageFormat.Jpeg);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
             }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
 To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**Slide.getImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-float-float-) methods:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
-    try {
-        // Defines dimensions
-        var desiredX = 1200;
-        var desiredY = 800;
-        // Gets scaled values of X and Y
-        var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
-        var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
-        pres.getSlides().forEach(function(sld) {
-            // Creates a full scale image
-            var slideImage = sld.getImage(ScaleX, ScaleY);
-            // Saves the image to disk in JPEG format
-            try {
-                slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), aspose.slides.ImageFormat.Jpeg);
-            } finally {
-                if (slideImage != null) {
-                    slideImage.dispose();
-                }
+var pres = new aspose.slides.Presentation("PowerPoint-Presentation.pptx");
+try {
+    // Defines dimensions
+    var desiredX = 1200;
+    var desiredY = 800;
+    // Gets scaled values of X and Y
+    var ScaleX = 1.0 / pres.getSlideSize().getSize().getWidth() * desiredX;
+    var ScaleY = 1.0 / pres.getSlideSize().getSize().getHeight() * desiredY;
+    pres.getSlides().forEach(function(sld) {
+        // Creates a full scale image
+        var slideImage = sld.getImage(ScaleX, ScaleY);
+        // Saves the image to disk in JPEG format
+        try {
+            slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.jpg", sld.getSlideNumber()), aspose.slides.ImageFormat.Jpeg);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
             }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Render Comments when saving Presentation into Image**
 Aspose.Slides for Node.js via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Javascript code demonstrates the operation:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("presentation.pptx");
-    try {
-        var notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-        notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
-        var opts = new aspose.slides.RenderingOptions();
-        opts.setSlidesLayoutOptions(notesOptions);
-        pres.getSlides().forEach(function(sld) {
-            var slideImage = sld.getImage(opts, java.newInstanceSync("java.awt.Dimension", 740, 960));
-            try {
-                slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.png", sld.getSlideNumber()));
-            } finally {
-                if (slideImage != null) {
-                    slideImage.dispose();
-                }
+var pres = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+    notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+    var opts = new aspose.slides.RenderingOptions();
+    opts.setSlidesLayoutOptions(notesOptions);
+    pres.getSlides().forEach(function(sld) {
+        var slideImage = sld.getImage(opts, java.newInstanceSync("java.awt.Dimension", 740, 960));
+        try {
+            slideImage.save(java.callStaticMethodSync("java.lang.String", "format", "Slide_%d.png", sld.getSlideNumber()));
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
             }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert title="Tip" color="primary" %}}

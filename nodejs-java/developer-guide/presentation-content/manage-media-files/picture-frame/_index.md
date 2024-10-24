@@ -31,23 +31,23 @@ Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.a
 This Javascript code shows you how to create a picture frame:
 
 ```javascript
-    // Instantiates the Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Gets the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Instantiates the Image class
-        var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-        // Adds a picture frame with the picture's equivalent height and width
-        sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-        // Write the PPTX file to disk
-        pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates the Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Gets the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Instantiates the Image class
+    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
+    // Adds a picture frame with the picture's equivalent height and width
+    sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
+    // Write the PPTX file to disk
+    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert color="warning" %}} 
@@ -70,26 +70,26 @@ By altering an image's relative scaling, you can create a more complicated pictu
 This Javascript code shows you how to create a picture frame with relative scale:
 
 ```javascript
-    // Instantiate Presentation class that represents the PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Get the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Instantiate the Image class
-        var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-        // Add Picture Frame with height and width equivalent of Picture
-        var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-        // Setting relative scale width and height
-        pf.setRelativeScaleHeight(0.8);
-        pf.setRelativeScaleWidth(1.35);
-        // Write the PPTX file to disk
-        pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate Presentation class that represents the PPTX
+var pres = new aspose.slides.Presentation();
+try {
+    // Get the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Instantiate the Image class
+    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
+    // Add Picture Frame with height and width equivalent of Picture
+    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
+    // Setting relative scale width and height
+    pf.setRelativeScaleHeight(0.8);
+    pf.setRelativeScaleWidth(1.35);
+    // Write the PPTX file to disk
+    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Extract Image from Picture Frame**
@@ -97,25 +97,25 @@ This Javascript code shows you how to create a picture frame with relative scale
 You can extract images from [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```javascript
-    var presentation = new aspose.slides.Presentation("sample.pptx");
-    try {
-        var firstSlide = presentation.getSlides().get_Item(0);
-        var firstShape = firstSlide.getShapes().get_Item(0);
-        if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
-            var pictureFrame = firstShape;
-            try {
-                var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-                slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
-            } finally {
-                if (slideImage != null) {
-                    slideImage.dispose();
-                }
+var presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    var firstSlide = presentation.getSlides().get_Item(0);
+    var firstShape = firstSlide.getShapes().get_Item(0);
+    if (java.instanceOf(firstShape, "com.aspose.slides.IPictureFrame")) {
+        var pictureFrame = firstShape;
+        try {
+            var slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
+            slideImage.save("slide_1_shape_1.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            if (slideImage != null) {
+                slideImage.dispose();
             }
         }
-    } catch (e) {console.log(e);
-    } finally {
-        presentation.dispose();
     }
+} catch (e) {console.log(e);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Get Transparency of Image**
@@ -123,16 +123,16 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/n
 Aspose.Slides allows you to get the transparency of an image. This Javascript code demonstrates the operation:
 
 ```javascript
-    var presentation = new aspose.slides.Presentation(folderPath + "Test.pptx");
-    var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-    imageTransform.forEach(function(effect) {
-        if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
-            var alphaModulateFixed = effect;
-            var transparencyValue = 100 - alphaModulateFixed.getAmount();
-            console.log("Picture transparency: " + transparencyValue);
-        }
-    });
+var presentation = new aspose.slides.Presentation(folderPath + "Test.pptx");
+var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
+imageTransform.forEach(function(effect) {
+    if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
+        var alphaModulateFixed = effect;
+        var transparencyValue = 100 - alphaModulateFixed.getAmount();
+        console.log("Picture transparency: " + transparencyValue);
+    }
+});
 ```
 
 ## **Picture Frame Formatting**
@@ -156,28 +156,28 @@ Aspose.Slides provides many formatting options that can be applied to a picture 
 This Javascript code demonstrates the picture frame formatting process:
 
 ```javascript
-    // Instantiates the Presentation class that represents the PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Gets the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Instantiates the Image class
-        var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
-        // Adds Picture Frame with height and width equivalent of Picture
-        var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
-        // Applies some formatting to PictureFrameEx
-        pf.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-        pf.getLineFormat().setWidth(20);
-        pf.setRotation(45);
-        // Writes the PPTX file to disk
-        pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates the Presentation class that represents the PPTX
+var pres = new aspose.slides.Presentation();
+try {
+    // Gets the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Instantiates the Image class
+    var imgx = pres.getImages().addImage(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "asp1.jpg")));
+    // Adds Picture Frame with height and width equivalent of Picture
+    var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
+    // Applies some formatting to PictureFrameEx
+    pf.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    pf.getLineFormat().setWidth(20);
+    pf.setRotation(45);
+    // Writes the PPTX file to disk
+    pres.save("RectPicFrame.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert title="Tip" color="primary" %}}
@@ -191,38 +191,38 @@ Aspose recently developed a [free Collage Maker](https://products.aspose.app/sli
 To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This Javascript code shows you how to add an image and video into a placeholder:
 
 ```javascript
-    var presentation = new aspose.slides.Presentation("input.pptx");
-    try {
-        var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
-        var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
-        for (var i = 0; i < shapesCount; i++) {
-            var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
-            if (autoShape.getPlaceholder() == null) {
-                continue;
-            }
-            switch (autoShape.getPlaceholder().getType()) {
-                case aspose.slides.PlaceholderType.Picture :
-                    var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
-                    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                    shapesToRemove.add(autoShape);
-                    break;
-                case aspose.slides.PlaceholderType.Media :
-                    var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
-                    videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
-                    videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
-                    shapesToRemove.add(autoShape);
-                    break;
-            }
+var presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    var shapesToRemove = java.newInstanceSync("java.util.ArrayList");
+    var shapesCount = presentation.getSlides().get_Item(0).getShapes().size();
+    for (var i = 0; i < shapesCount; i++) {
+        var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(i);
+        if (autoShape.getPlaceholder() == null) {
+            continue;
         }
-        shapesToRemove.forEach(function(shape) {
-            presentation.getSlides().get_Item(0).getShapes().remove(shape);
-        });
-        presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (presentation != null) {
-            presentation.dispose();
+        switch (autoShape.getPlaceholder().getType()) {
+            case aspose.slides.PlaceholderType.Picture :
+                var pictureFrame = presentation.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), null);
+                pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+                shapesToRemove.add(autoShape);
+                break;
+            case aspose.slides.PlaceholderType.Media :
+                var videoFrame = presentation.getSlides().get_Item(0).getShapes().addVideoFrame(autoShape.getX(), autoShape.getY(), autoShape.getWidth(), autoShape.getHeight(), "");
+                videoFrame.getPictureFormat().getPicture().setLinkPathLong("https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg");
+                videoFrame.setLinkPathLong("https://youtu.be/t_1LYZ102RA");
+                shapesToRemove.add(autoShape);
+                break;
         }
     }
+    shapesToRemove.forEach(function(shape) {
+        presentation.getSlides().get_Item(0).getShapes().remove(shape);
+    });
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
+    }
+}
 ```
 
 ## **Crop Image**
@@ -230,33 +230,33 @@ To avoid large presentation sizes, you can add images (or videos) through links 
 This Javascript code shows you how to crop an existing image on a slide:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    // Creates new image object
+var pres = new aspose.slides.Presentation();
+// Creates new image object
+try {
+    var picture;
+    var image = aspose.slides.Images.fromFile(imagePath);
     try {
-        var picture;
-        var image = aspose.slides.Images.fromFile(imagePath);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-        // Adds a PictureFrame to a Slide
-        var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
-        // Crops the image (percentage values)
-        picFrame.getPictureFormat().setCropLeft(23.6);
-        picFrame.getPictureFormat().setCropRight(21.5);
-        picFrame.getPictureFormat().setCropTop(3);
-        picFrame.getPictureFormat().setCropBottom(31);
-        // Saves the result
-        pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
+        picture = pres.getImages().addImage(image);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (image != null) {
+            image.dispose();
         }
     }
+    // Adds a PictureFrame to a Slide
+    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 100, 100, 420, 250, picture);
+    // Crops the image (percentage values)
+    picFrame.getPictureFormat().setCropLeft(23.6);
+    picFrame.getPictureFormat().setCropRight(21.5);
+    picFrame.getPictureFormat().setCropTop(3);
+    picFrame.getPictureFormat().setCropBottom(31);
+    // Saves the result
+    pres.save(outPptxFile, aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## Delete Cropped Areas of Picture
@@ -266,20 +266,20 @@ If you want to delete the cropped areas of an image contained in a frame, you ca
 This Javascript code demonstrates the operation:
 
 ```javascript
-    var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
-    try {
-        var slide = presentation.getSlides().get_Item(0);
-        // Gets the PictureFrame from the first slide
-        var picFrame = slide.getShapes().get_Item(0);
-        // Deletes cropped areas of the PictureFrame image and returns the cropped image
-        var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
-        // Saves the result
-        presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (presentation != null) {
-            presentation.dispose();
-        }
+var presentation = new aspose.slides.Presentation("PictureFrameCrop.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+    // Gets the PictureFrame from the first slide
+    var picFrame = slide.getShapes().get_Item(0);
+    // Deletes cropped areas of the PictureFrame image and returns the cropped image
+    var croppedImage = picFrame.getPictureFormat().deletePictureCroppedAreas();
+    // Saves the result
+    presentation.save("PictureFrameDeleteCroppedAreas.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
     }
+}
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
@@ -297,28 +297,28 @@ If you want a shape containing an image to retain its aspect ratio even after yo
 This Javascript code shows you how to lock a shape's aspect ratio:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
+    var emptySlide = pres.getSlides().addEmptySlide(layout);
+    var picture;
+    var image = aspose.slides.Images.fromFile("image.png");
     try {
-        var layout = pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Custom);
-        var emptySlide = pres.getSlides().addEmptySlide(layout);
-        var picture;
-        var image = aspose.slides.Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-        var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
-        // set shape to have to preserve aspect ratio on resizing
-        pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
-    } catch (e) {console.log(e);
+        picture = pres.getImages().addImage(image);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (image != null) {
+            image.dispose();
         }
     }
+    var pictureFrame = emptySlide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, presImage.getWidth(), presImage.getHeight(), picture);
+    // set shape to have to preserve aspect ratio on resizing
+    pictureFrame.getPictureFrameLock().setAspectRatioLocked(true);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 {{% alert title="NOTE" color="warning" %}} 
@@ -346,41 +346,41 @@ When stretching is specified for an image, a source rectangle is scaled to fit t
 This Javascript code demonstrates a process in which a StretchOff property is used:
 
 ```javascript
-    // Instantiates the Prseetation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
+// Instantiates the Prseetation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Gets the first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Instantiates the ImageEx class
+    var picture;
+    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
     try {
-        // Gets the first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Instantiates the ImageEx class
-        var picture;
-        var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-        // Adds an AutoShape set to Rectangle
-        var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-        // Sets the shape's fill type
-        aShape.getFillFormat().setFillType(aspose.slides.FillType.Picture);
-        // Sets the shape's picture fill mode
-        aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-        // Sets the image to fill the shape
-        aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-        // Specifies the image offsets from the corresponding edge of the shape's bounding box
-        aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
-        aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
-        aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
-        aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
-        // Writes the PPTX file to disk
-        pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
+        picture = pres.getImages().addImage(image);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (image != null) {
+            image.dispose();
         }
     }
+    // Adds an AutoShape set to Rectangle
+    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
+    // Sets the shape's fill type
+    aShape.getFillFormat().setFillType(aspose.slides.FillType.Picture);
+    // Sets the shape's picture fill mode
+    aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    // Sets the image to fill the shape
+    aShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    // Specifies the image offsets from the corresponding edge of the shape's bounding box
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetLeft(25);
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetRight(25);
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetTop(-20);
+    aShape.getFillFormat().getPictureFillFormat().setStretchOffsetBottom(-10);
+    // Writes the PPTX file to disk
+    pres.save("StretchOffsetLeftForPictureFrame_out.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 

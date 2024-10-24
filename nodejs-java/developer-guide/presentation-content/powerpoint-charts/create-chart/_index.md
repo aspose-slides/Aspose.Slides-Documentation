@@ -124,72 +124,72 @@ _Code Steps:_
 This Javascript code shows you how to create a normal chart:
 
 ```javascript
-    // Instantiates a presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Adds a chart with its default data
-        var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
-        // Sets the chart Title
-        chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-        chart.getChartTitle().setHeight(20);
-        chart.hasTitle();
-        // Sets the first series to show values
-        chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-        // Sets the index for the chart data sheet
-        var defaultWorksheetIndex = 0;
-        // Gets the chart data WorkSheet
-        var fact = chart.getChartData().getChartDataWorkbook();
-        // Deletes the default generated series and categories
-        chart.getChartData().getSeries().clear();
-        chart.getChartData().getCategories().clear();
-        var s = chart.getChartData().getSeries().size();
-        s = chart.getChartData().getCategories().size();
-        // Adds new series
-        chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-        chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-        // Adds new categories
-        chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-        chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-        chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-        // Takes the first chart series
-        var series = chart.getChartData().getSeries().get_Item(0);
-        // Now populates the series data
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-        // Sets the fill color for series
-        series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
-        series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-        // Takes the second chart series
-        series = chart.getChartData().getSeries().get_Item(1);
-        // Populates series data
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-        // Sets the fill color for the series
-        series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
-        series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-        // Create custom labels for each categories for the new series
-        // Sets the first label to show Category name
-        var lbl = series.getDataPoints().get_Item(0).getLabel();
-        lbl.getDataLabelFormat().setShowCategoryName(true);
-        lbl = series.getDataPoints().get_Item(1).getLabel();
-        lbl.getDataLabelFormat().setShowSeriesName(true);
-        // Shows value for the third label
-        lbl = series.getDataPoints().get_Item(2).getLabel();
-        lbl.getDataLabelFormat().setShowValue(true);
-        lbl.getDataLabelFormat().setShowSeriesName(true);
-        lbl.getDataLabelFormat().setSeparator("/");
-        // Saves the presentation with chart
-        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates a presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Adds a chart with its default data
+    var chart = sld.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 0, 0, 500, 500);
+    // Sets the chart Title
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().setHeight(20);
+    chart.hasTitle();
+    // Sets the first series to show values
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    // Sets the index for the chart data sheet
+    var defaultWorksheetIndex = 0;
+    // Gets the chart data WorkSheet
+    var fact = chart.getChartData().getChartDataWorkbook();
+    // Deletes the default generated series and categories
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    var s = chart.getChartData().getSeries().size();
+    s = chart.getChartData().getCategories().size();
+    // Adds new series
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
+    // Adds new categories
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
+    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
+    // Takes the first chart series
+    var series = chart.getChartData().getSeries().get_Item(0);
+    // Now populates the series data
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
+    // Sets the fill color for series
+    series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    // Takes the second chart series
+    series = chart.getChartData().getSeries().get_Item(1);
+    // Populates series data
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
+    // Sets the fill color for the series
+    series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    // Create custom labels for each categories for the new series
+    // Sets the first label to show Category name
+    var lbl = series.getDataPoints().get_Item(0).getLabel();
+    lbl.getDataLabelFormat().setShowCategoryName(true);
+    lbl = series.getDataPoints().get_Item(1).getLabel();
+    lbl.getDataLabelFormat().setShowSeriesName(true);
+    // Shows value for the third label
+    lbl = series.getDataPoints().get_Item(2).getLabel();
+    lbl.getDataLabelFormat().setShowValue(true);
+    lbl.getDataLabelFormat().setShowSeriesName(true);
+    lbl.getDataLabelFormat().setSeparator("/");
+    // Saves the presentation with chart
+    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Scattered Charts**
@@ -217,52 +217,52 @@ You may want to use a scattered chart when
 This Javascript code shows you how to create a scattered charts with a different series of markers:
 
 ```javascript
-    // Instantiates a presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses the first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Creates the default chart
-        var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
-        // Gets the default chart data worksheet index
-        var defaultWorksheetIndex = 0;
-        // Gets the chart data worksheet
-        var fact = chart.getChartData().getChartDataWorkbook();
-        // Deletes the demo series
-        chart.getChartData().getSeries().clear();
-        // Adds new series
-        chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
-        chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
-        // Takes first chart series
-        var series = chart.getChartData().getSeries().get_Item(0);
-        // Adds a new point (1:3) to the series
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
-        // Adds a new point (2:10)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
-        // Changes the series type
-        series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
-        // Changes the chart series marker
-        series.getMarker().setSize(10);
-        series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
-        // Takes the second chart series
-        series = chart.getChartData().getSeries().get_Item(1);
-        // Adds a new point (5:2) there
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
-        // Adds a new point (3:1)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
-        // Adds a new point (2:2)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
-        // Adds a new point (5:1)
-        series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
-        // Changes the chart series marker
-        series.getMarker().setSize(10);
-        series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
-        pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates a presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Creates the default chart
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
+    // Gets the default chart data worksheet index
+    var defaultWorksheetIndex = 0;
+    // Gets the chart data worksheet
+    var fact = chart.getChartData().getChartDataWorkbook();
+    // Deletes the demo series
+    chart.getChartData().getSeries().clear();
+    // Adds new series
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 1, "Series 1"), chart.getType());
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 1, 3, "Series 2"), chart.getType());
+    // Takes first chart series
+    var series = chart.getChartData().getSeries().get_Item(0);
+    // Adds a new point (1:3) to the series
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 1), fact.getCell(defaultWorksheetIndex, 2, 2, 3));
+    // Adds a new point (2:10)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 2), fact.getCell(defaultWorksheetIndex, 3, 2, 10));
+    // Changes the series type
+    series.setType(aspose.slides.ChartType.ScatterWithStraightLinesAndMarkers);
+    // Changes the chart series marker
+    series.getMarker().setSize(10);
+    series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Star);
+    // Takes the second chart series
+    series = chart.getChartData().getSeries().get_Item(1);
+    // Adds a new point (5:2) there
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 5), fact.getCell(defaultWorksheetIndex, 2, 4, 2));
+    // Adds a new point (3:1)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 3), fact.getCell(defaultWorksheetIndex, 3, 4, 1));
+    // Adds a new point (2:2)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 4, 3, 2), fact.getCell(defaultWorksheetIndex, 4, 4, 2));
+    // Adds a new point (5:1)
+    series.getDataPoints().addDataPointForScatterSeries(fact.getCell(defaultWorksheetIndex, 5, 3, 5), fact.getCell(defaultWorksheetIndex, 5, 4, 1));
+    // Changes the chart series marker
+    series.getMarker().setSize(10);
+    series.getMarker().setSymbol(aspose.slides.MarkerStyleType.Circle);
+    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Pie Charts**
@@ -289,90 +289,90 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 This Javascript code shows you how to create a pie chart:
 
 ```javascript
-    // Instantiates a presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses the first slide
-        var slides = pres.getSlides().get_Item(0);
-        // Adds a chart with default data
-        var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-        // Sets the chart Title
-        chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-        chart.getChartTitle().setHeight(20);
-        chart.setTitle(true);
-        // Sets the first series to show values
-        chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-        // Sets the index for the chart data sheet
-        var defaultWorksheetIndex = 0;
-        // Gets the chart data worksheet
-        var fact = chart.getChartData().getChartDataWorkbook();
-        // Deletes the default generated series and categories
-        chart.getChartData().getSeries().clear();
-        chart.getChartData().getCategories().clear();
-        // Adds new categories
-        chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-        chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-        chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-        // Adds new series
-        var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-        // Populates the series data
-        series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-        series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-        series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-        // Not working in new version
-        // Adding new points and setting sector color
-        // series.IsColorVaried = true;
-        chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
-        var point = series.getDataPoints().get_Item(0);
-        point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
-        point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
-        // Sets the Sector border
-        point.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-        point.getFormat().getLine().setWidth(3.0);
-        point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
-        point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-        var point1 = series.getDataPoints().get_Item(1);
-        point1.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
-        point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-        // Sets the Sector border
-        point1.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-        point1.getFormat().getLine().setWidth(3.0);
-        point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
-        point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
-        var point2 = series.getDataPoints().get_Item(2);
-        point2.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
-        point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-        // Sets the Sector border
-        point2.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-        point2.getFormat().getLine().setWidth(2.0);
-        point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
-        point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
-        // Creates custom labels for each of categories for new series
-        var lbl1 = series.getDataPoints().get_Item(0).getLabel();
-        // lbl.ShowCategoryName = true;
-        lbl1.getDataLabelFormat().setShowValue(true);
-        var lbl2 = series.getDataPoints().get_Item(1).getLabel();
-        lbl2.getDataLabelFormat().setShowValue(true);
-        lbl2.getDataLabelFormat().setShowLegendKey(true);
-        lbl2.getDataLabelFormat().setShowPercentage(true);
-        var lbl3 = series.getDataPoints().get_Item(2).getLabel();
-        lbl3.getDataLabelFormat().setShowSeriesName(true);
-        lbl3.getDataLabelFormat().setShowPercentage(true);
-        // Shows Leader Lines for Chart
-        series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
-        // Sets the Rotation Angle for Pie Chart Sectors
-        chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
-        // Saves the presentation with a chart
-        pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates a presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var slides = pres.getSlides().get_Item(0);
+    // Adds a chart with default data
+    var chart = slides.getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+    // Sets the chart Title
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
+    // Sets the first series to show values
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    // Sets the index for the chart data sheet
+    var defaultWorksheetIndex = 0;
+    // Gets the chart data worksheet
+    var fact = chart.getChartData().getChartDataWorkbook();
+    // Deletes the default generated series and categories
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    // Adds new categories
+    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    // Adds new series
+    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+    // Populates the series data
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
+    // Not working in new version
+    // Adding new points and setting sector color
+    // series.IsColorVaried = true;
+    chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
+    var point = series.getDataPoints().get_Item(0);
+    point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
+    // Sets the Sector border
+    point.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    point.getFormat().getLine().setWidth(3.0);
+    point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
+    point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
+    var point1 = series.getDataPoints().get_Item(1);
+    point1.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    // Sets the Sector border
+    point1.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    point1.getFormat().getLine().setWidth(3.0);
+    point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
+    point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
+    var point2 = series.getDataPoints().get_Item(2);
+    point2.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
+    // Sets the Sector border
+    point2.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    point2.getFormat().getLine().setWidth(2.0);
+    point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
+    point2.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDotDot);
+    // Creates custom labels for each of categories for new series
+    var lbl1 = series.getDataPoints().get_Item(0).getLabel();
+    // lbl.ShowCategoryName = true;
+    lbl1.getDataLabelFormat().setShowValue(true);
+    var lbl2 = series.getDataPoints().get_Item(1).getLabel();
+    lbl2.getDataLabelFormat().setShowValue(true);
+    lbl2.getDataLabelFormat().setShowLegendKey(true);
+    lbl2.getDataLabelFormat().setShowPercentage(true);
+    var lbl3 = series.getDataPoints().get_Item(2).getLabel();
+    lbl3.getDataLabelFormat().setShowSeriesName(true);
+    lbl3.getDataLabelFormat().setShowPercentage(true);
+    // Shows Leader Lines for Chart
+    series.getLabels().getDefaultDataLabelFormat().setShowLeaderLines(true);
+    // Sets the Rotation Angle for Pie Chart Sectors
+    chart.getChartData().getSeriesGroups().get_Item(0).setFirstSliceAngle(180);
+    // Saves the presentation with a chart
+    pres.save("PieChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Line Charts**
@@ -391,24 +391,24 @@ Line charts (also known as a line graphs) are best used in situations where you 
 This Javascript code shows you how to create a line chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-        pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+    pres.save("lineChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 By default, points on a line chart are joined by straight continuous lines. If you want to the points to be joined by dashes instead, you can specify your preferred dash type this way:
 
 ```javascript
-    var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-    lineChart.getChartData().getSeries().forEach(function(series) {
-        series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
-    });
+var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
+lineChart.getChartData().getSeries().forEach(function(series) {
+    series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
+});
 ```
 
 ### **Creating Tree Map Charts**
@@ -431,46 +431,46 @@ Tree map charts are best used for sales data when you want to show the relative 
 This Javascript code shows you how to create a tree map chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
-        chart.getChartData().getCategories().clear();
-        chart.getChartData().getSeries().clear();
-        var wb = chart.getChartData().getChartDataWorkbook();
-        wb.clear(0);
-        // branch 1
-        var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
-        leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-        leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
-        // branch 2
-        leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
-        leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-        leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
-        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
-        series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
-        series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
-        pres.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Treemap, 50, 50, 500, 400);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+    var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
+    // branch 1
+    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
+    leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    // branch 2
+    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
+    leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Treemap);
+    series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D1", 4));
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D2", 5));
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D3", 3));
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D4", 6));
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D5", 9));
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D6", 9));
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D7", 4));
+    series.getDataPoints().addDataPointForTreemapSeries(wb.getCell(0, "D8", 3));
+    series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+    pres.save("Treemap.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Stock Charts**
@@ -492,46 +492,46 @@ This Javascript code shows you how to create a tree map chart:
 Sample Javascript code used to create a stock chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
-        chart.getChartData().getSeries().clear();
-        chart.getChartData().getCategories().clear();
-        var wb = chart.getChartData().getChartDataWorkbook();
-        chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
-        chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
-        chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
-        chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
-        chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
-        chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
-        chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
-        var series = chart.getChartData().getSeries().get_Item(0);
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
-        series = chart.getChartData().getSeries().get_Item(1);
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
-        series = chart.getChartData().getSeries().get_Item(2);
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
-        series = chart.getChartData().getSeries().get_Item(3);
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
-        series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
-        chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
-        chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        chart.getChartData().getSeries().forEach(function(ser) {
-            ser.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-        });
-        pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    var wb = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
+    chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
+    chart.getChartData().getCategories().add(wb.getCell(0, 3, 0, "C"));
+    chart.getChartData().getSeries().add(wb.getCell(0, 0, 1, "Open"), chart.getType());
+    chart.getChartData().getSeries().add(wb.getCell(0, 0, 2, "High"), chart.getType());
+    chart.getChartData().getSeries().add(wb.getCell(0, 0, 3, "Low"), chart.getType());
+    chart.getChartData().getSeries().add(wb.getCell(0, 0, 4, "Close"), chart.getType());
+    var series = chart.getChartData().getSeries().get_Item(0);
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 1, 72));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 1, 25));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 1, 38));
+    series = chart.getChartData().getSeries().get_Item(1);
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 2, 172));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 2, 57));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 2, 57));
+    series = chart.getChartData().getSeries().get_Item(2);
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 3, 12));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 3, 12));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 3, 13));
+    series = chart.getChartData().getSeries().get_Item(3);
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 1, 4, 25));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
+    series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
+    chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
+    chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    chart.getChartData().getSeries().forEach(function(ser) {
+        ser.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    });
+    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Box and Whisker Charts**
@@ -552,37 +552,37 @@ Sample Javascript code used to create a stock chart:
 This Javascript code shows you how to create a box and whisker chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
-        chart.getChartData().getCategories().clear();
-        chart.getChartData().getSeries().clear();
-        var wb = chart.getChartData().getChartDataWorkbook();
-        wb.clear(0);
-        chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
-        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
-        series.setQuartileMethod(aspose.slides.QuartileMethodType.Exclusive);
-        series.setShowMeanLine(true);
-        series.setShowMeanMarkers(true);
-        series.setShowInnerPoints(true);
-        series.setShowOutlierPoints(true);
-        series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
-        series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
-        series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
-        series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
-        series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
-        series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
-        pres.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.BoxAndWhisker, 50, 50, 500, 400);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+    var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
+    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 1"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 1"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 1"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 1"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 1"));
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.BoxAndWhisker);
+    series.setQuartileMethod(aspose.slides.QuartileMethodType.Exclusive);
+    series.setShowMeanLine(true);
+    series.setShowMeanMarkers(true);
+    series.setShowInnerPoints(true);
+    series.setShowOutlierPoints(true);
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B1", 15));
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B2", 41));
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B3", 16));
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B4", 10));
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B5", 23));
+    series.getDataPoints().addDataPointForBoxAndWhiskerSeries(wb.getCell(0, "B6", 16));
+    pres.save("BoxAndWhisker.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Funnel Charts**
@@ -600,32 +600,32 @@ This Javascript code shows you how to create a box and whisker chart:
 The Javascript code shows you how to create a funnel chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
-        chart.getChartData().getCategories().clear();
-        chart.getChartData().getSeries().clear();
-        var wb = chart.getChartData().getChartDataWorkbook();
-        wb.clear(0);
-        chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
-        chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
-        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
-        series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
-        series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
-        series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
-        series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
-        series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
-        series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
-        pres.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Funnel, 50, 50, 500, 400);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+    var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
+    chart.getChartData().getCategories().add(wb.getCell(0, "A1", "Category 1"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A2", "Category 2"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A3", "Category 3"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A4", "Category 4"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A5", "Category 5"));
+    chart.getChartData().getCategories().add(wb.getCell(0, "A6", "Category 6"));
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Funnel);
+    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B1", 50));
+    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B2", 100));
+    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B3", 200));
+    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B4", 300));
+    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B5", 400));
+    series.getDataPoints().addDataPointForFunnelSeries(wb.getCell(0, "B6", 500));
+    pres.save("Funnel.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Sunburst Charts**
@@ -642,45 +642,45 @@ The Javascript code shows you how to create a funnel chart:
 This Javascript code shows you how to create a sunburst chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
-        chart.getChartData().getCategories().clear();
-        chart.getChartData().getSeries().clear();
-        var wb = chart.getChartData().getChartDataWorkbook();
-        wb.clear(0);
-        // branch 1
-        var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
-        leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
-        leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
-        // branch 2
-        leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
-        leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
-        leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
-        leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
-        chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
-        var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
-        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
-        series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
-        pres.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 50, 50, 500, 400);
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+    var wb = chart.getChartData().getChartDataWorkbook();
+    wb.clear(0);
+    // branch 1
+    var leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C1", "Leaf1"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem1");
+    leaf.getGroupingLevels().setGroupingItem(2, "Branch1");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C2", "Leaf2"));
+    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C3", "Leaf3"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem2");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C4", "Leaf4"));
+    // branch 2
+    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C5", "Leaf5"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem3");
+    leaf.getGroupingLevels().setGroupingItem(2, "Branch2");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C6", "Leaf6"));
+    leaf = chart.getChartData().getCategories().add(wb.getCell(0, "C7", "Leaf7"));
+    leaf.getGroupingLevels().setGroupingItem(1, "Stem4");
+    chart.getChartData().getCategories().add(wb.getCell(0, "C8", "Leaf8"));
+    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Sunburst);
+    series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D1", 4));
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D2", 5));
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D3", 3));
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D4", 6));
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D5", 9));
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D6", 9));
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D7", 4));
+    series.getDataPoints().addDataPointForSunburstSeries(wb.getCell(0, "D8", 3));
+    pres.save("Sunburst.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Histogram Charts**
@@ -700,20 +700,20 @@ This Javascript code shows you how to create a sunburst chart:
 This Javascript code shows you how to create an histogram chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
-    chart.getChartData().getCategories().clear();
-    chart.getChartData().getSeries().clear();
-    var wb = chart.getChartData().getChartDataWorkbook();
-    wb.clear(0);
-    var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
-    series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
-    chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
+var pres = new aspose.slides.Presentation();
+var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Histogram, 50, 50, 500, 400);
+chart.getChartData().getCategories().clear();
+chart.getChartData().getSeries().clear();
+var wb = chart.getChartData().getChartDataWorkbook();
+wb.clear(0);
+var series = chart.getChartData().getSeries().add(aspose.slides.ChartType.Histogram);
+series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A1", 15));
+series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A2", -41));
+series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A3", 16));
+series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A4", 10));
+series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A5", -23));
+series.getDataPoints().addDataPointForHistogramSeries(wb.getCell(0, "A6", 16));
+chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggregationType.Automatic);
 ```
 
 ### **Creating Radar Charts**
@@ -730,15 +730,15 @@ This Javascript code shows you how to create an histogram chart:
 This Javascript code shows you how to create an radar chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
-        pres.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Radar, 20, 20, 400, 300);
+    pres.save("Radar-chart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Multi Category Charts**
@@ -759,43 +759,43 @@ This Javascript code shows you how to create an radar chart:
 This Javascript code shows you how to create a multicategory chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
-        ch.getChartData().getSeries().clear();
-        ch.getChartData().getCategories().clear();
-        var fact = ch.getChartData().getChartDataWorkbook();
-        fact.clear(0);
-        var defaultWorksheetIndex = 0;
-        var category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
-        category.getGroupingLevels().setGroupingItem(1, "Group1");
-        category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
-        category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
-        category.getGroupingLevels().setGroupingItem(1, "Group2");
-        category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
-        category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
-        category.getGroupingLevels().setGroupingItem(1, "Group3");
-        category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
-        category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
-        category.getGroupingLevels().setGroupingItem(1, "Group4");
-        category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
-        // Adding Series
-        var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
-        // Save presentation with chart
-        pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var ch = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 600, 450);
+    ch.getChartData().getSeries().clear();
+    ch.getChartData().getCategories().clear();
+    var fact = ch.getChartData().getChartDataWorkbook();
+    fact.clear(0);
+    var defaultWorksheetIndex = 0;
+    var category = ch.getChartData().getCategories().add(fact.getCell(0, "c2", "A"));
+    category.getGroupingLevels().setGroupingItem(1, "Group1");
+    category = ch.getChartData().getCategories().add(fact.getCell(0, "c3", "B"));
+    category = ch.getChartData().getCategories().add(fact.getCell(0, "c4", "C"));
+    category.getGroupingLevels().setGroupingItem(1, "Group2");
+    category = ch.getChartData().getCategories().add(fact.getCell(0, "c5", "D"));
+    category = ch.getChartData().getCategories().add(fact.getCell(0, "c6", "E"));
+    category.getGroupingLevels().setGroupingItem(1, "Group3");
+    category = ch.getChartData().getCategories().add(fact.getCell(0, "c7", "F"));
+    category = ch.getChartData().getCategories().add(fact.getCell(0, "c8", "G"));
+    category.getGroupingLevels().setGroupingItem(1, "Group4");
+    category = ch.getChartData().getCategories().add(fact.getCell(0, "c9", "H"));
+    // Adding Series
+    var series = ch.getChartData().getSeries().add(fact.getCell(0, "D1", "Series 1"), aspose.slides.ChartType.ClusteredColumn);
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D2", 10));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D3", 20));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D4", 30));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D5", 40));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D6", 50));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D7", 60));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D8", 70));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, "D9", 80));
+    // Save presentation with chart
+    pres.save("AsposeChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Map Charts**
@@ -809,15 +809,15 @@ A map chart is a visualization of an area containing data. Map charts are best u
 This Javascript code shows you how to create a map chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
-        pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
+    pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ### **Creating Combination Charts**
@@ -848,49 +848,49 @@ This Javascript code shows you how to create a combination chart in PowerPoint:
 This Javascript code shows you how to update a chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Access first slideMarker
-        var sld = pres.getSlides().get_Item(0);
-        // Get chart with default data
-        var chart = sld.getShapes().get_Item(0);
-        // Setting the index of chart data sheet
-        var defaultWorksheetIndex = 0;
-        // Getting the chart data worksheet
-        var fact = chart.getChartData().getChartDataWorkbook();
-        // Changing chart Category Name
-        fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
-        fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
-        // Take first chart series
-        var series = chart.getChartData().getSeries().get_Item(0);
-        // Now updating series data
-        fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifying series name
-        series.getDataPoints().get_Item(0).getValue().setData(90);
-        series.getDataPoints().get_Item(1).getValue().setData(123);
-        series.getDataPoints().get_Item(2).getValue().setData(44);
-        // Take Second chart series
-        series = chart.getChartData().getSeries().get_Item(1);
-        // Now updating series data
-        fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifying series name
-        series.getDataPoints().get_Item(0).getValue().setData(23);
-        series.getDataPoints().get_Item(1).getValue().setData(67);
-        series.getDataPoints().get_Item(2).getValue().setData(99);
-        // Now, Adding a new series
-        chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
-        // Take 3rd chart series
-        series = chart.getChartData().getSeries().get_Item(2);
-        // Now populating series data
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
-        series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
-        chart.setType(aspose.slides.ChartType.ClusteredCylinder);
-        // Save presentation with chart
-        pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    // Access first slideMarker
+    var sld = pres.getSlides().get_Item(0);
+    // Get chart with default data
+    var chart = sld.getShapes().get_Item(0);
+    // Setting the index of chart data sheet
+    var defaultWorksheetIndex = 0;
+    // Getting the chart data worksheet
+    var fact = chart.getChartData().getChartDataWorkbook();
+    // Changing chart Category Name
+    fact.getCell(defaultWorksheetIndex, 1, 0, "Modified Category 1");
+    fact.getCell(defaultWorksheetIndex, 2, 0, "Modified Category 2");
+    // Take first chart series
+    var series = chart.getChartData().getSeries().get_Item(0);
+    // Now updating series data
+    fact.getCell(defaultWorksheetIndex, 0, 1, "New_Series1");// Modifying series name
+    series.getDataPoints().get_Item(0).getValue().setData(90);
+    series.getDataPoints().get_Item(1).getValue().setData(123);
+    series.getDataPoints().get_Item(2).getValue().setData(44);
+    // Take Second chart series
+    series = chart.getChartData().getSeries().get_Item(1);
+    // Now updating series data
+    fact.getCell(defaultWorksheetIndex, 0, 2, "New_Series2");// Modifying series name
+    series.getDataPoints().get_Item(0).getValue().setData(23);
+    series.getDataPoints().get_Item(1).getValue().setData(67);
+    series.getDataPoints().get_Item(2).getValue().setData(99);
+    // Now, Adding a new series
+    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 3, "Series 3"), chart.getType());
+    // Take 3rd chart series
+    series = chart.getChartData().getSeries().get_Item(2);
+    // Now populating series data
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 3, 20));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 3, 50));
+    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 3, 30));
+    chart.setType(aspose.slides.ChartType.ClusteredCylinder);
+    // Save presentation with chart
+    pres.save("AsposeChartModified_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Setting Data Range for Charts**
@@ -906,17 +906,17 @@ To set the data range for a chart, do this:
 This Javascript code shows you how to set the data range for a chart:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var slide = pres.getSlides().get_Item(0);
-        var chart = slide.getShapes().get_Item(0);
-        chart.getChartData().setRange("Sheet1!A1:B4");
-        pres.save("SetDataRange_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var chart = slide.getShapes().get_Item(0);
+    chart.getChartData().setRange("Sheet1!A1:B4");
+    pres.save("SetDataRange_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Using Default Markers in Charts**
@@ -925,37 +925,37 @@ When you use a default marker in charts, each chart series get different default
 This Javascript code shows you how to set a chart series market automatically:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var slide = pres.getSlides().get_Item(0);
-        var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
-        chart.getChartData().getSeries().clear();
-        chart.getChartData().getCategories().clear();
-        var fact = chart.getChartData().getChartDataWorkbook();
-        chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-        var series = chart.getChartData().getSeries().get_Item(0);
-        chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
-        series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
-        chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
-        series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
-        chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
-        series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
-        chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
-        series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
-        chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
-        // Take second chart series
-        var series2 = chart.getChartData().getSeries().get_Item(1);
-        // Now populating series data
-        series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
-        series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
-        series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
-        series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
-        chart.setLegend(true);
-        chart.getLegend().setOverlay(false);
-        pres.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 10, 10, 400, 400);
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    var fact = chart.getChartData().getChartDataWorkbook();
+    chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+    var series = chart.getChartData().getSeries().get_Item(0);
+    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "C1"));
+    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 1, 24));
+    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "C2"));
+    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 1, 23));
+    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "C3"));
+    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 1, -10));
+    chart.getChartData().getCategories().add(fact.getCell(0, 4, 0, "C4"));
+    series.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 1, null));
+    chart.getChartData().getSeries().add(fact.getCell(0, 0, 2, "Series 2"), chart.getType());
+    // Take second chart series
+    var series2 = chart.getChartData().getSeries().get_Item(1);
+    // Now populating series data
+    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 1, 2, 30));
+    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 2, 2, 10));
+    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 3, 2, 60));
+    series2.getDataPoints().addDataPointForLineSeries(fact.getCell(0, 4, 2, 40));
+    chart.setLegend(true);
+    chart.getLegend().setOverlay(false);
+    pres.save("DefaultMarkersInChart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```

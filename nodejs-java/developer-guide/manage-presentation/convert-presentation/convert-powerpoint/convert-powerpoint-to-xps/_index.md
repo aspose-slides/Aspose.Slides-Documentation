@@ -48,19 +48,19 @@ When converting a presentation to XPS, you have to save the presentation using e
 
 ### **Converting Presentations to XPS Using Default Settings**
 
-This sample code in Java shows you how to convert a presentation to an XPS document using standard settings:
+This sample code in Javascript shows you how to convert a presentation to an XPS document using standard settings:
 
 ```javascript
-    // Instantiate a Presentation object that represents a presentation file
-    var pres = new aspose.slides.Presentation("Convert_XPS.pptx");
-    try {
-        // Saving the presentation to XPS document
-        pres.save("XPS_Output_Without_XPSOption.xps", aspose.slides.SaveFormat.Xps);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate a Presentation object that represents a presentation file
+var pres = new aspose.slides.Presentation("Convert_XPS.pptx");
+try {
+    // Saving the presentation to XPS document
+    pres.save("XPS_Output_Without_XPSOption.xps", aspose.slides.SaveFormat.Xps);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 
@@ -68,18 +68,18 @@ This sample code in Java shows you how to convert a presentation to an XPS docum
 This sample code shows you how to convert a presentation to an XPS document using custom settings in Java:
 
 ```javascript
-    // Instantiate a Presentation object that represents a presentation file
-    var pres = new aspose.slides.Presentation("Convert_XPS_Options.pptx");
-    try {
-        // Instantiate the TiffOptions class
-        var options = new aspose.slides.XpsOptions();
-        // Save MetaFiles as PNG
-        options.setSaveMetafilesAsPng(true);
-        // Save the presentation to XPS document
-        pres.save("XPS_Output_With_Options.xps", aspose.slides.SaveFormat.Xps, options);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate a Presentation object that represents a presentation file
+var pres = new aspose.slides.Presentation("Convert_XPS_Options.pptx");
+try {
+    // Instantiate the TiffOptions class
+    var options = new aspose.slides.XpsOptions();
+    // Save MetaFiles as PNG
+    options.setSaveMetafilesAsPng(true);
+    // Save the presentation to XPS document
+    pres.save("XPS_Output_With_Options.xps", aspose.slides.SaveFormat.Xps, options);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```

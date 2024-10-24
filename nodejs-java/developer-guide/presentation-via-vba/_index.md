@@ -37,7 +37,7 @@ This Javascript code shows you how to add a VBA macro from scratch to a presenta
 var pres = new aspose.slides.Presentation();
 try {
     // Creates a new VBA Project
-    pres.setVbaProject(new  aspose.slides.VbaProject());
+    pres.setVbaProject(new aspose.slides.VbaProject());
     // Adds an empty module to the VBA project
     var module = pres.getVbaProject().getModules().addEmptyModule("Module");
     // Sets the module source code

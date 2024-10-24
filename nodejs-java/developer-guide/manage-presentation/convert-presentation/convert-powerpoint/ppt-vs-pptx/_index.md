@@ -26,16 +26,16 @@ Check the quality of PPT to PPTX and PPTX to PPT conversions with online [**Asp
 {{% /alert %}} 
 
 ```javascript
-    // Instantiate a Presentation object that represents a PPT file
-    var pres = new aspose.slides.Presentation("PPTtoPPTX.ppt");
-    try {
-        // Saving the PPT presentation to PPTX format
-        pres.save("PPTtoPPTX_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate a Presentation object that represents a PPT file
+var pres = new aspose.slides.Presentation("PPTtoPPTX.ppt");
+try {
+    // Saving the PPT presentation to PPTX format
+    pres.save("PPTtoPPTX_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert color="primary" %}} 

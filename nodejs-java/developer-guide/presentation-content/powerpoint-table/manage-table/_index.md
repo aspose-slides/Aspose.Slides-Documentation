@@ -27,45 +27,45 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-ja
 This Javascript code shows you how to create a table in a presentation:
 
 ```javascript
-    // Instantiates a Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [50, 50, 50]);
-        var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-        // Adds a table shape to slide
-        var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-        // Sets the border format for each cell
-        for (var row = 0; row < tbl.getRows().size(); row++) {
-            for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
-                var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
-                cellFormat.getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cellFormat.getBorderTop().setWidth(5);
-                cellFormat.getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cellFormat.getBorderBottom().setWidth(5);
-                cellFormat.getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cellFormat.getBorderLeft().setWidth(5);
-                cellFormat.getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cellFormat.getBorderRight().setWidth(5);
-            }
-        }
-        // Merges cells 1 & 2 of row 1
-        tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
-        // Adds some text to the merged cell
-        tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
-        // Saves the presentation to Disk
-        pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+// Instantiates a Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [50, 50, 50]);
+    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
+    // Adds a table shape to slide
+    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    // Sets the border format for each cell
+    for (var row = 0; row < tbl.getRows().size(); row++) {
+        for (var cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++) {
+            var cellFormat = tbl.getRows().get_Item(row).get_Item(cell).getCellFormat();
+            cellFormat.getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cellFormat.getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderTop().setWidth(5);
+            cellFormat.getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cellFormat.getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderBottom().setWidth(5);
+            cellFormat.getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cellFormat.getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderLeft().setWidth(5);
+            cellFormat.getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cellFormat.getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cellFormat.getBorderRight().setWidth(5);
         }
     }
+    // Merges cells 1 & 2 of row 1
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    // Adds some text to the merged cell
+    tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
+    // Saves the presentation to Disk
+    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Numbering in Standard Table**
@@ -83,40 +83,40 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 This Javascript code shows you how to specify the numbering for cells in a table:
 
 ```javascript
-    // Instantiates a Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [70, 70, 70, 70]);
-        var dblRows = java.newArray("double", [70, 70, 70, 70]);
-        // Adds a table shape to slide
-        var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-        // Sets the border format for each cell
-        tbl.getRows().forEach(function(row) {
-            row.forEach(function(cell) {
-                cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderTop().setWidth(5);
-                cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderBottom().setWidth(5);
-                cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderLeft().setWidth(5);
-                cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderRight().setWidth(5);
-            });
+// Instantiates a Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [70, 70, 70, 70]);
+    var dblRows = java.newArray("double", [70, 70, 70, 70]);
+    // Adds a table shape to slide
+    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    // Sets the border format for each cell
+    tbl.getRows().forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderTop().setWidth(5);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderRight().setWidth(5);
         });
-        // Saves presentation to disk
-        pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+    });
+    // Saves presentation to disk
+    pres.save("StandardTables_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Access Existing Table**
@@ -138,28 +138,28 @@ This Javascript code shows you how to specify the numbering for cells in a table
 This Javascript code shows you how to access and work with an existing table:
 
 ```javascript
-    // Instantiates the Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Initializes null TableEx
-        var tbl = null;
-        // Iterates through the shapes and sets a reference to the table found
-        sld.getShapes().forEach(function(shp) {
-            if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
-                tbl = shp;
-                // Sets the text for the first column of the second row
-                tbl.get_Item(0, 1).getTextFrame().setText("New");
-            }
-        });
-        // Saves the modified presentation to disk
-        pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+// Instantiates the Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation("UpdateExistingTable.pptx");
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Initializes null TableEx
+    var tbl = null;
+    // Iterates through the shapes and sets a reference to the table found
+    sld.getShapes().forEach(function(shp) {
+        if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
+            tbl = shp;
+            // Sets the text for the first column of the second row
+            tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
+    });
+    // Saves the modified presentation to disk
+    pres.save("table1_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 
@@ -176,39 +176,39 @@ This Javascript code shows you how to access and work with an existing table:
 This Javascript code shows you how to align the text in a table:
 
 ```javascript
-    // Creates an instance of the Presentation class
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Gets the first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [120, 120, 120, 120]);
-        var dblRows = java.newArray("double", [100, 100, 100, 100]);
-        // Adds the table shape to the slide
-        var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
-        tbl.get_Item(1, 0).getTextFrame().setText("10");
-        tbl.get_Item(2, 0).getTextFrame().setText("20");
-        tbl.get_Item(3, 0).getTextFrame().setText("30");
-        // Accesses the text frame
-        var txtFrame = tbl.get_Item(0, 0).getTextFrame();
-        // Creates the Paragraph object for the text frame
-        var paragraph = txtFrame.getParagraphs().get_Item(0);
-        // Creates the Portion object for paragraph
-        var portion = paragraph.getPortions().get_Item(0);
-        portion.setText("Text here");
-        portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        // Aligns the text vertically
-        var cell = tbl.get_Item(0, 0);
-        cell.setTextAnchorType(aspose.slides.TextAnchorType.Center);
-        cell.setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
-        // Saves the presentation to disk
-        pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Creates an instance of the Presentation class
+var pres = new aspose.slides.Presentation();
+try {
+    // Gets the first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [120, 120, 120, 120]);
+    var dblRows = java.newArray("double", [100, 100, 100, 100]);
+    // Adds the table shape to the slide
+    var tbl = slide.getShapes().addTable(100, 50, dblCols, dblRows);
+    tbl.get_Item(1, 0).getTextFrame().setText("10");
+    tbl.get_Item(2, 0).getTextFrame().setText("20");
+    tbl.get_Item(3, 0).getTextFrame().setText("30");
+    // Accesses the text frame
+    var txtFrame = tbl.get_Item(0, 0).getTextFrame();
+    // Creates the Paragraph object for the text frame
+    var paragraph = txtFrame.getParagraphs().get_Item(0);
+    // Creates the Portion object for paragraph
+    var portion = paragraph.getPortions().get_Item(0);
+    portion.setText("Text here");
+    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    // Aligns the text vertically
+    var cell = tbl.get_Item(0, 0);
+    cell.setTextAnchorType(aspose.slides.TextAnchorType.Center);
+    cell.setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
+    // Saves the presentation to disk
+    pres.save("Vertical_Align_Text_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Set Text Formatting on Table Level**
@@ -224,30 +224,30 @@ This Javascript code shows you how to align the text in a table:
 This Javascript code shows you how to apply your preferred formatting options to the text in a table:
 
 ```javascript
-    // Creates an instance of the Presentation class
-    var pres = new aspose.slides.Presentation("simpletable.pptx");
-    try {
-        // Let's assume that the first shape on the first slide is a table
-        var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-        // Sets the table cells' font height
-        var portionFormat = new aspose.slides.PortionFormat();
-        portionFormat.setFontHeight(25);
-        someTable.setTextFormat(portionFormat);
-        // Sets the table cells' text alignment and right margin in one call
-        var paragraphFormat = new aspose.slides.ParagraphFormat();
-        paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
-        paragraphFormat.setMarginRight(20);
-        someTable.setTextFormat(paragraphFormat);
-        // Sets the table cells' text vertical type
-        var textFrameFormat = new aspose.slides.TextFrameFormat();
-        textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
-        someTable.setTextFormat(textFrameFormat);
-        pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Creates an instance of the Presentation class
+var pres = new aspose.slides.Presentation("simpletable.pptx");
+try {
+    // Let's assume that the first shape on the first slide is a table
+    var someTable = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    // Sets the table cells' font height
+    var portionFormat = new aspose.slides.PortionFormat();
+    portionFormat.setFontHeight(25);
+    someTable.setTextFormat(portionFormat);
+    // Sets the table cells' text alignment and right margin in one call
+    var paragraphFormat = new aspose.slides.ParagraphFormat();
+    paragraphFormat.setAlignment(aspose.slides.TextAlignment.Right);
+    paragraphFormat.setMarginRight(20);
+    someTable.setTextFormat(paragraphFormat);
+    // Sets the table cells' text vertical type
+    var textFrameFormat = new aspose.slides.TextFrameFormat();
+    textFrameFormat.setTextVerticalType(aspose.slides.TextVerticalType.Vertical);
+    someTable.setTextFormat(textFrameFormat);
+    pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Get Table Style Properties**
@@ -255,16 +255,16 @@ This Javascript code shows you how to apply your preferred formatting options to
 Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Javascript code shows you how to get the style properties from a table preset style:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
-        table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
-        pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, java.newArray("double", [100, 150]), java.newArray("double", [5, 5, 5]));
+    table.setStylePreset(aspose.slides.TableStylePreset.DarkStyle1);// change the default style preset theme
+    pres.save("table.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Lock Aspect Ratio of Table**
@@ -274,16 +274,16 @@ The aspect ratio of a geometric shape is the ratio of its sizes in different dim
 This Javascript code shows you how to lock the aspect ratio for a table:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-        console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-        table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// invert
-        console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
-        pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
+    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked());// invert
+    console.log("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
+    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```

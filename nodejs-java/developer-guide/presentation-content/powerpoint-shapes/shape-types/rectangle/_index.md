@@ -22,20 +22,20 @@ To add a simple rectangle to a selected slide of the presentation, please follow
 In the example given below, we have added a simple rectangle to the first slide of the presentation.
 
 ```javascript
-    // Instantiate Prseetation class that represents the PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Get the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Add AutoShape of ellipse type
-        var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
-        // Write the PPTX file to disk
-        pres.save("RecShp1.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate Prseetation class that represents the PPTX
+var pres = new aspose.slides.Presentation();
+try {
+    // Get the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Add AutoShape of ellipse type
+    var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
+    // Write the PPTX file to disk
+    pres.save("RecShp1.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Add Formatted Rectangle to Slide**
@@ -53,25 +53,25 @@ To add a formatted rectangle to a slide, please follow the steps below:
 The above steps are implemented in the example given below.
 
 ```javascript
-    // Instantiate Prseetation class that represents the PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Get the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Add AutoShape of ellipse type
-        var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
-        // Apply some formatting to ellipse shape
-        shp.getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        shp.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-        // Apply some formatting to the line of Ellipse
-        shp.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-        shp.getLineFormat().setWidth(5);
-        // Write the PPTX file to disk
-        pres.save("RecShp2.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate Prseetation class that represents the PPTX
+var pres = new aspose.slides.Presentation();
+try {
+    // Get the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Add AutoShape of ellipse type
+    var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 50);
+    // Apply some formatting to ellipse shape
+    shp.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    // Apply some formatting to the line of Ellipse
+    shp.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    shp.getLineFormat().setWidth(5);
+    // Write the PPTX file to disk
+    pres.save("RecShp2.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```

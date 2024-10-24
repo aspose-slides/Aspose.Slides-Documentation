@@ -1,10 +1,10 @@
 ---
-title: Manage Fonts - PowerPoint Java API
+title: Manage Fonts - PowerPoint Javascript API
 linktitle: Manage Fonts
 type: docs
 weight: 10
 url: /nodejs-java/manage-fonts/
-description: Presentations usually contain both text and images. This article shows how to use PowerPoint Java API to configure the font properties of paragraphs of text on slides.
+description: Presentations usually contain both text and images. This article shows how to use PowerPoint Javascript API to configure the font properties of paragraphs of text on slides.
 ---
 
 ## **Manage Font Related Properties**
@@ -40,46 +40,46 @@ The implementation of the above steps is given below. It takes an unadorned pres
 |**Figure: The same text with updated formatting**|
 
 ```javascript
-    // Instantiate a Presentation object that represents a PPTX file
-    var pres = new aspose.slides.Presentation("FontProperties.pptx");
-    try {
-        // Accessing a slide using its slide position
-        var slide = pres.getSlides().get_Item(0);
-        // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
-        var tf1 = slide.getShapes().get_Item(0).getTextFrame();
-        var tf2 = slide.getShapes().get_Item(1).getTextFrame();
-        // Accessing the first Paragraph
-        var para1 = tf1.getParagraphs().get_Item(0);
-        var para2 = tf2.getParagraphs().get_Item(0);
-        // Justify the paragraph
-        para2.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.JustifyLow);
-        // Accessing the first portion
-        var port1 = para1.getPortions().get_Item(0);
-        var port2 = para2.getPortions().get_Item(0);
-        // Define new fonts
-        var fd1 = new aspose.slides.FontData("Elephant");
-        var fd2 = new aspose.slides.FontData("Castellar");
-        // Assign new fonts to portion
-        port1.getPortionFormat().setLatinFont(fd1);
-        port2.getPortionFormat().setLatinFont(fd2);
-        // Set font to Bold
-        port1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-        port2.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-        // Set font to Italic
-        port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-        port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-        // Set font color
-        port1.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-        port2.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-        // Save the PPTX to disk
-        pres.save("WelcomeFont.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate a Presentation object that represents a PPTX file
+var pres = new aspose.slides.Presentation("FontProperties.pptx");
+try {
+    // Accessing a slide using its slide position
+    var slide = pres.getSlides().get_Item(0);
+    // Accessing the first and second placeholder in the slide and typecasting it as AutoShape
+    var tf1 = slide.getShapes().get_Item(0).getTextFrame();
+    var tf2 = slide.getShapes().get_Item(1).getTextFrame();
+    // Accessing the first Paragraph
+    var para1 = tf1.getParagraphs().get_Item(0);
+    var para2 = tf2.getParagraphs().get_Item(0);
+    // Justify the paragraph
+    para2.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.JustifyLow);
+    // Accessing the first portion
+    var port1 = para1.getPortions().get_Item(0);
+    var port2 = para2.getPortions().get_Item(0);
+    // Define new fonts
+    var fd1 = new aspose.slides.FontData("Elephant");
+    var fd2 = new aspose.slides.FontData("Castellar");
+    // Assign new fonts to portion
+    port1.getPortionFormat().setLatinFont(fd1);
+    port2.getPortionFormat().setLatinFont(fd2);
+    // Set font to Bold
+    port1.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+    port2.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+    // Set font to Italic
+    port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+    port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+    // Set font color
+    port1.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    port2.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    // Save the PPTX to disk
+    pres.save("WelcomeFont.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Set Text Font Properties**
@@ -109,40 +109,40 @@ The implementation of the above steps is given below.
 |**Figure: Text with some font properties set by Aspose.Slides for Node.js via Java**|
 
 ```javascript
-    // Instantiate a Presentation object that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Get first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Add an AutoShape of Rectangle type
-        var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
-        // Remove any fill style associated with the AutoShape
-        ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-        // Access the TextFrame associated with the AutoShape
-        var tf = ashp.getTextFrame();
-        tf.setText("Aspose TextBox");
-        // Access the Portion associated with the TextFrame
-        var port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
-        // Set the Font for the Portion
-        port.getPortionFormat().setLatinFont(new  aspose.slides.FontData("Times New Roman"));
-        // Set Bold property of the Font
-        port.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-        // Set Italic property of the Font
-        port.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-        // Set Underline property of the Font
-        port.getPortionFormat().setFontUnderline(aspose.slides.TextUnderlineType.Single);
-        // Set the Height of the Font
-        port.getPortionFormat().setFontHeight(25);
-        // Set the color of the Font
-        port.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-        // Save the presentation to disk
-        pres.save("pptxFont.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate a Presentation object that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Get first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Add an AutoShape of Rectangle type
+    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
+    // Remove any fill style associated with the AutoShape
+    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    // Access the TextFrame associated with the AutoShape
+    var tf = ashp.getTextFrame();
+    tf.setText("Aspose TextBox");
+    // Access the Portion associated with the TextFrame
+    var port = tf.getParagraphs().get_Item(0).getPortions().get_Item(0);
+    // Set the Font for the Portion
+    port.getPortionFormat().setLatinFont(new aspose.slides.FontData("Times New Roman"));
+    // Set Bold property of the Font
+    port.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+    // Set Italic property of the Font
+    port.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+    // Set Underline property of the Font
+    port.getPortionFormat().setFontUnderline(aspose.slides.TextUnderlineType.Single);
+    // Set the Height of the Font
+    port.getPortionFormat().setFontHeight(25);
+    // Set the color of the Font
+    port.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    // Save the presentation to disk
+    pres.save("pptxFont.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 

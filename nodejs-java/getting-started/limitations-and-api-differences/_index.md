@@ -68,7 +68,8 @@ aspose.slides.Presentation.createPresentationFromStream(readStream, function(err
    console.log('saved to file');
 });
 ```
-### **Read Files as Byte[] in Java**
+### **Read Files as Byte[] in Node.js**
+
 **Aspose.Slides for Java**
 ```java
 Presentation pres = new Presentation("embeddedOle.pptx");

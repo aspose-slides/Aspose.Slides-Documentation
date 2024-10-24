@@ -69,51 +69,51 @@ Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/s
 This Javascript code shows you how to merge presentations:
 
 ```javascript
-    var pres1 = new aspose.slides.Presentation("pres1.pptx");
+var pres1 = new aspose.slides.Presentation("pres1.pptx");
+try {
+    var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        var pres2 = new aspose.slides.Presentation("pres2.pptx");
-        try {
-            pres2.getSlides().forEach(function(slide) {
-                pres1.getSlides().addClone(slide);
-            });
-        } finally {
-            if (pres2 != null) {
-                pres2.dispose();
-            }
-        }
-        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+        pres2.getSlides().forEach(function(slide) {
+            pres1.getSlides().addClone(slide);
+        });
     } finally {
-        if (pres1 != null) {
-            pres1.dispose();
+        if (pres2 != null) {
+            pres2.dispose();
         }
     }
+    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres1 != null) {
+        pres1.dispose();
+    }
+}
 ```
 
 ## **Merge Presentations with Slide Master**
 
 Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation.
 
-This code in Java demonstrates the described operation:
+This code in Javascript demonstrates the described operation:
 
 ```javascript
-    var pres1 = new aspose.slides.Presentation("pres1.pptx");
+var pres1 = new aspose.slides.Presentation("pres1.pptx");
+try {
+    var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        var pres2 = new aspose.slides.Presentation("pres2.pptx");
-        try {
-            pres2.getSlides().forEach(function(slide) {
-                pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-            });
-        } finally {
-            if (pres2 != null) {
-                pres2.dispose();
-            }
-        }
-        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+        pres2.getSlides().forEach(function(slide) {
+            pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
+        });
     } finally {
-        if (pres1 != null) {
-            pres1.dispose();
+        if (pres2 != null) {
+            pres2.dispose();
         }
     }
+    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres1 != null) {
+        pres1.dispose();
+    }
+}
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -129,24 +129,24 @@ If you want the slides in the output presentation to have a different slide layo
 This Javascript code shows you how to select and combine specific slides from different presentations to get one output presentation:
 
 ```javascript
-    var pres1 = new aspose.slides.Presentation("pres1.pptx");
+var pres1 = new aspose.slides.Presentation("pres1.pptx");
+try {
+    var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        var pres2 = new aspose.slides.Presentation("pres2.pptx");
-        try {
-            pres2.getSlides().forEach(function(slide) {
-                pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-            });
-        } finally {
-            if (pres2 != null) {
-                pres2.dispose();
-            }
-        }
-        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+        pres2.getSlides().forEach(function(slide) {
+            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+        });
     } finally {
-        if (pres1 != null) {
-            pres1.dispose();
+        if (pres2 != null) {
+            pres2.dispose();
         }
     }
+    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres1 != null) {
+        pres1.dispose();
+    }
+}
 ```
 
 ## **Merge Presentations With Slide Layout**
@@ -154,24 +154,24 @@ This Javascript code shows you how to select and combine specific slides from di
 This Javascript code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```javascript
-    var pres1 = new aspose.slides.Presentation("pres1.pptx");
+var pres1 = new aspose.slides.Presentation("pres1.pptx");
+try {
+    var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        var pres2 = new aspose.slides.Presentation("pres2.pptx");
-        try {
-            pres2.getSlides().forEach(function(slide) {
-                pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-            });
-        } finally {
-            if (pres2 != null) {
-                pres2.dispose();
-            }
-        }
-        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+        pres2.getSlides().forEach(function(slide) {
+            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
+        });
     } finally {
-        if (pres1 != null) {
-            pres1.dispose();
+        if (pres2 != null) {
+            pres2.dispose();
         }
     }
+    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres1 != null) {
+        pres1.dispose();
+    }
+}
 ```
 
 ## **Merge Presentations With Different Slide Sizes**
@@ -187,25 +187,25 @@ To merge 2 presentations with different slide sizes, you have to resize one of t
 This sample code demonstrates the described operation:
 
 ```javascript
-    var pres1 = new aspose.slides.Presentation("pres1.pptx");
+var pres1 = new aspose.slides.Presentation("pres1.pptx");
+try {
+    var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        var pres2 = new aspose.slides.Presentation("pres2.pptx");
-        try {
-            pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-            pres2.getSlides().forEach(function(slide) {
-                pres1.getSlides().addClone(slide);
-            });
-        } finally {
-            if (pres2 != null) {
-                pres2.dispose();
-            }
-        }
-        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+        pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
+        pres2.getSlides().forEach(function(slide) {
+            pres1.getSlides().addClone(slide);
+        });
     } finally {
-        if (pres1 != null) {
-            pres1.dispose();
+        if (pres2 != null) {
+            pres2.dispose();
         }
     }
+    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres1 != null) {
+        pres1.dispose();
+    }
+}
 ```
 
 ## **Merge Slides to Presentation Section**
@@ -213,24 +213,24 @@ This sample code demonstrates the described operation:
 This Javascript code shows you how to merge a specific slide to a section in a presentation:
 
 ```javascript
-    var pres1 = new aspose.slides.Presentation("pres1.pptx");
+var pres1 = new aspose.slides.Presentation("pres1.pptx");
+try {
+    var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        var pres2 = new aspose.slides.Presentation("pres2.pptx");
-        try {
-            pres2.getSlides().forEach(function(slide) {
-                pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-            });
-        } finally {
-            if (pres2 != null) {
-                pres2.dispose();
-            }
-        }
-        pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+        pres2.getSlides().forEach(function(slide) {
+            pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
+        });
     } finally {
-        if (pres1 != null) {
-            pres1.dispose();
+        if (pres2 != null) {
+            pres2.dispose();
         }
     }
+    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres1 != null) {
+        pres1.dispose();
+    }
+}
 ```
 
 The slide is added at the end of the section. 

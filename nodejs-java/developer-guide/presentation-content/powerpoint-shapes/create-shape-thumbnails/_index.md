@@ -30,24 +30,24 @@ To generate a shape thumbnail from any slide using Aspose.Slides for Node.js via
 This sample code shows you how to generate a shape thumbnail from a slide:
 
 ```javascript
-    // Instantiate a Presentation class that represents the presentation file
-    var pres = new aspose.slides.Presentation("Thumbnail.pptx");
+// Instantiate a Presentation class that represents the presentation file
+var pres = new aspose.slides.Presentation("Thumbnail.pptx");
+try {
+    // Create a full scale image
+    var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
+    // Save the image to disk in PNG format
     try {
-        // Create a full scale image
-        var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-        // Save the image to disk in PNG format
-        try {
-            slideImage.save("output.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("output.png", aspose.slides.ImageFormat.Png);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
         }
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Generating Shape Thumbnails with User-Defined Scaling Factor**
@@ -61,24 +61,24 @@ To generate the shape thumbnail of a slide using Aspose.Slides for Node.js via J
 This sample code shows you how to generate a shape thumbnail based on a defined scaling factor:
 
 ```javascript
-    // Instantiate a Presentation class that represents the presentation file
-    var pres = new aspose.slides.Presentation("Thumbnail.pptx");
+// Instantiate a Presentation class that represents the presentation file
+var pres = new aspose.slides.Presentation("Thumbnail.pptx");
+try {
+    // Create a full scale image
+    var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Shape, 1, 1);
+    // Save the image to disk in PNG format
     try {
-        // Create a full scale image
-        var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Shape, 1, 1);
-        // Save the image to disk in PNG format
-        try {
-            slideImage.save("output.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("output.png", aspose.slides.ImageFormat.Png);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
         }
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Generating Shape Thumbnail of Bounds**
@@ -92,22 +92,22 @@ This method of creating thumbnails of shapes allows developers to generate a thu
 This sample code is based on the steps above:
 
 ```javascript
-    // Instantiate a Presentation class that represents the presentation file
-    var pres = new aspose.slides.Presentation("Thumbnail.pptx");
+// Instantiate a Presentation class that represents the presentation file
+var pres = new aspose.slides.Presentation("Thumbnail.pptx");
+try {
+    // Create a full scale image
+    var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Appearance, 1, 1);
+    // Save the image to disk in PNG format
     try {
-        // Create a full scale image
-        var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Appearance, 1, 1);
-        // Save the image to disk in PNG format
-        try {
-            slideImage.save("output.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("output.png", aspose.slides.ImageFormat.Png);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
         }
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```

@@ -31,26 +31,26 @@ In the example below, we added a chart from an Excel file to a slide as an OLE O
 **Note** that the [OleEmbeddedDataInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/OleEmbeddedDataInfo) constructor takes an embeddable object extension as a second parameter. This extension allows PowerPoint to correctly interpret the file type and choose the right application to open this OLE object.
 
 ```javascript
-    // Instantiates Prseetation class that represents the PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Loads an excel file to stream
-        var readStream = fs.readFileSync("book1.xlsx");
-        var byteArray = Array.from(readStream);
-        // Creates a data object for embedding
-        var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
-        // Adds an Ole Object Frame shape
-        var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
-        // Writes the PPTX file to disk
-        pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates Prseetation class that represents the PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Loads an excel file to stream
+    var readStream = fs.readFileSync("book1.xlsx");
+    var byteArray = Array.from(readStream);
+    // Creates a data object for embedding
+    var dataInfo = new aspose.slides.OleEmbeddedDataInfo(java.newArray("byte", byteArray), "xlsx");
+    // Adds an Ole Object Frame shape
+    var oleObjectFrame = sld.getShapes().addOleObjectFrame(0, 0, pres.getSlideSize().getSize().getWidth(), pres.getSlideSize().getSize().getHeight(), dataInfo);
+    // Writes the PPTX file to disk
+    pres.save("OleEmbed_out.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Accessing OLE Object Frames**
@@ -66,35 +66,35 @@ If an OLE object is already embedded in a slide, you can find or access that obj
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data gets written to an Excel file.
 
 ```javascript
-    // Loads the PPTX to  a Presentation object
-    var pres = new aspose.slides.Presentation("AccessingOLEObjectFrame.pptx");
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Casts the shape to OleObjectFrame
-        var oleObjectFrame = sld.getShapes().get_Item(0);
-        // Reads the OLE Object and writes it to disk
-        if (oleObjectFrame != null) {
-            // Get embedded file data
-            var data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
-            // Gets embedded file extention
-            var fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
-            // Creates a path to save the extracted file
-            var extractedPath = "excelFromOLE_out" + fileExtention;
-            // Saves extracted data
-            var fstr = java.newInstanceSync("java.io.FileOutputStream", extractedPath);
-            try {
-                fstr.write(data, 0, data.length);
-            } finally {
-                fstr.close();
-            }
-        }
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+// Loads the PPTX to  a Presentation object
+var pres = new aspose.slides.Presentation("AccessingOLEObjectFrame.pptx");
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Casts the shape to OleObjectFrame
+    var oleObjectFrame = sld.getShapes().get_Item(0);
+    // Reads the OLE Object and writes it to disk
+    if (oleObjectFrame != null) {
+        // Get embedded file data
+        var data = oleObjectFrame.getEmbeddedData().getEmbeddedFileData();
+        // Gets embedded file extention
+        var fileExtention = oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension();
+        // Creates a path to save the extracted file
+        var extractedPath = "excelFromOLE_out" + fileExtention;
+        // Saves extracted data
+        var fstr = java.newInstanceSync("java.io.FileOutputStream", extractedPath);
+        try {
+            fstr.write(data, 0, data.length);
+        } finally {
+            fstr.close();
         }
     }
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Changing OLE Object Data**
@@ -115,51 +115,51 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 In the example below, an OLE Object Frame (an Excel chart object embedded in a slide) is accessed—and then its file data is modified to change the chart data:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("ChangeOLEObjectData.pptx");
-    try {
-        var slide = pres.getSlides().get_Item(0);
-        var ole = null;
-        // Traverses all shapes for Ole frame
-        slide.getShapes().forEach(function(shape) {
-            if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
-                ole = shape;
-            }
-        });
-        if (ole != null) {
-            var msln = java.newInstanceSync("java.io.ByteArrayInputStream", ole.getEmbeddedData().getEmbeddedFileData());
-            try {
-                // Reads object data in Workbook
-                var Wb = java.newInstanceSync("Workbook", msln);
-                var msout = java.newInstanceSync("java.io.ByteArrayOutputStream");
-                try {
-                    // Modifies the workbook data
-                    Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
-                    Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
-                    Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
-                    Wb.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
-                    var so1 = java.newInstanceSync("OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
-                    Wb.save(msout, so1);
-                    // Changes Ole frame object data
-                    var newData = new aspose.slides.OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
-                    ole.setEmbeddedData(newData);
-                } finally {
-                    if (msout != null) {
-                        msout.close();
-                    }
-                }
-            } finally {
-                if (msln != null) {
-                    msln.close();
-                }
-            }
+var pres = new aspose.slides.Presentation("ChangeOLEObjectData.pptx");
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var ole = null;
+    // Traverses all shapes for Ole frame
+    slide.getShapes().forEach(function(shape) {
+        if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
+            ole = shape;
         }
-        pres.save("OleEdit_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+    });
+    if (ole != null) {
+        var msln = java.newInstanceSync("java.io.ByteArrayInputStream", ole.getEmbeddedData().getEmbeddedFileData());
+        try {
+            // Reads object data in Workbook
+            var Wb = java.newInstanceSync("Workbook", msln);
+            var msout = java.newInstanceSync("java.io.ByteArrayOutputStream");
+            try {
+                // Modifies the workbook data
+                Wb.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
+                Wb.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
+                Wb.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
+                Wb.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
+                var so1 = java.newInstanceSync("OoxmlSaveOptions", java.getStaticFieldValue("com.aspose.cells.SaveFormat", "XLSX"));
+                Wb.save(msout, so1);
+                // Changes Ole frame object data
+                var newData = new aspose.slides.OleEmbeddedDataInfo(msout.toByteArray(), ole.getEmbeddedData().getEmbeddedFileExtension());
+                ole.setEmbeddedData(newData);
+            } finally {
+                if (msout != null) {
+                    msout.close();
+                }
+            }
+        } finally {
+            if (msln != null) {
+                msln.close();
+            }
         }
     }
+    pres.save("OleEdit_out.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## Embedding Other File Types in Slides
@@ -169,24 +169,24 @@ Besides Excel charts, Aspose.Slides for Node.js via Java allows you to embed oth
 This Javascript code shows you how to embed HTML and ZIP in a slide:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var slide = pres.getSlides().get_Item(0);
-        var htmlBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.html"));
-        var dataInfoHtml = new aspose.slides.OleEmbeddedDataInfo(htmlBytes, "html");
-        var oleFrameHtml = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
-        oleFrameHtml.setObjectIcon(true);
-        var zipBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.zip"));
-        var dataInfoZip = new aspose.slides.OleEmbeddedDataInfo(zipBytes, "zip");
-        var oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
-        oleFrameZip.setObjectIcon(true);
-        pres.save("embeddedOle.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var htmlBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.html"));
+    var dataInfoHtml = new aspose.slides.OleEmbeddedDataInfo(htmlBytes, "html");
+    var oleFrameHtml = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, dataInfoHtml);
+    oleFrameHtml.setObjectIcon(true);
+    var zipBytes = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.zip"));
+    var dataInfoZip = new aspose.slides.OleEmbeddedDataInfo(zipBytes, "zip");
+    var oleFrameZip = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, dataInfoZip);
+    oleFrameZip.setObjectIcon(true);
+    pres.save("embeddedOle.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## Setting File Types for Embedded Objects
@@ -195,22 +195,22 @@ When working on presentations, you may need to replace old OLE objects with new 
 
 Aspose.Slides for Node.js via Java allows you to set the file type for an embedded object. This way, you get to change the OLE frame data or its extension.
 
-This Java shows you how to set the file type for an embedded OLE object:
+This Javascript shows you how to set the file type for an embedded OLE object:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("embeddedOle.pptx");
-    try {
-        var slide = pres.getSlides().get_Item(0);
-        var oleObjectFrame = slide.getShapes().get_Item(0);
-        console.log("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
-        oleObjectFrame.setEmbeddedData(new  aspose.slides.OleEmbeddedDataInfo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.zip")), "zip"));
-        pres.save("embeddedChanged.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("embeddedOle.pptx");
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var oleObjectFrame = slide.getShapes().get_Item(0);
+    console.log("Current embedded data extension is: " + oleObjectFrame.getEmbeddedData().getEmbeddedFileExtension());
+    oleObjectFrame.setEmbeddedData(new aspose.slides.OleEmbeddedDataInfo(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "embedOle.zip")), "zip"));
+    pres.save("embeddedChanged.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## Setting Icon Images and Titles for Embedded Objects
@@ -222,29 +222,29 @@ If you want to use a specific image and text as elements in the preview, you can
 This Javascript code shows you how to set the icon image and title for an embedded object:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
+var pres = new aspose.slides.Presentation();
+try {
+    var slide = pres.getSlides().get_Item(0);
+    var oleObjectFrame = slide.getShapes().get_Item(0);
+    var oleImage;
+    var image = aspose.slides.Images.fromFile("image.png");
     try {
-        var slide = pres.getSlides().get_Item(0);
-        var oleObjectFrame = slide.getShapes().get_Item(0);
-        var oleImage;
-        var image = aspose.slides.Images.fromFile("image.png");
-        try {
-            oleImage = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-        oleObjectFrame.setSubstitutePictureTitle("My title");
-        oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
-        oleObjectFrame.setObjectIcon(false);
-        pres.save("embeddedOle-newImage.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
+        oleImage = pres.getImages().addImage(image);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (image != null) {
+            image.dispose();
         }
     }
+    oleObjectFrame.setSubstitutePictureTitle("My title");
+    oleObjectFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
+    oleObjectFrame.setObjectIcon(false);
+    pres.save("embeddedOle-newImage.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## Extracting Embedded Files
@@ -258,28 +258,28 @@ Aspose.Slides for Node.js via Java allows you to extract the files embedded in s
 This Javascript code shows you how to extract a file embedded in a slide as an OLE object:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("embeddedOle.pptx");
-    try {
-        var slide = pres.getSlides().get_Item(0);
-        for (var index = 0; index < slide.getShapes().size(); index++) {
-            var shape = slide.getShapes().get_Item(index);
-            var oleFrame = shape;
-            if (oleFrame != null) {
-                var data = oleFrame.getEmbeddedData().getEmbeddedFileData();
-                var extension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
-                // Save extracted data
-                var fstr = java.newInstanceSync("java.io.FileOutputStream", ("oleFrame" + index) + extension);
-                try {
-                    fstr.write(data, 0, data.length);
-                } finally {
-                    fstr.close();
-                }
+var pres = new aspose.slides.Presentation("embeddedOle.pptx");
+try {
+    var slide = pres.getSlides().get_Item(0);
+    for (var index = 0; index < slide.getShapes().size(); index++) {
+        var shape = slide.getShapes().get_Item(index);
+        var oleFrame = shape;
+        if (oleFrame != null) {
+            var data = oleFrame.getEmbeddedData().getEmbeddedFileData();
+            var extension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+            // Save extracted data
+            var fstr = java.newInstanceSync("java.io.FileOutputStream", ("oleFrame" + index) + extension);
+            try {
+                fstr.write(data, 0, data.length);
+            } finally {
+                fstr.close();
             }
         }
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
     }
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```

@@ -9,17 +9,17 @@ description: "Convert PowerPoint to animated GIF: PPT to GIF, PPTX to GIF, with 
 
 ## Converting Presentations to Animated GIF Using Default Settings ##
 
-This sample code in Java shows you how to convert a presentation to animated GIF using standard settings:
+This sample code in Javascript shows you how to convert a presentation to animated GIF using standard settings:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        pres.save("pres.gif", aspose.slides.SaveFormat.Gif);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    pres.save("pres.gif", aspose.slides.SaveFormat.Gif);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 The animated GIF will be created with default parameters. 
@@ -34,18 +34,18 @@ If you prefer to customize the parameters for the GIF, you can use the [GifOptio
 This sample code shows you how to convert a presentation to animated GIF using custom settings in Java:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        var gifOptions = new aspose.slides.GifOptions();
-        gifOptions.setFrameSize(java.newInstanceSync("java.awt.Dimension", 960, 720));// the size of the resulted GIF
-        gifOptions.setDefaultDelay(2000);// how long each slide will be showed until it will be changed to the next one
-        gifOptions.setTransitionFps(35);// increase FPS to better transition animation quality
-        pres.save("pres.gif", aspose.slides.SaveFormat.Gif, gifOptions);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var gifOptions = new aspose.slides.GifOptions();
+    gifOptions.setFrameSize(java.newInstanceSync("java.awt.Dimension", 960, 720));// the size of the resulted GIF
+    gifOptions.setDefaultDelay(2000);// how long each slide will be showed until it will be changed to the next one
+    gifOptions.setTransitionFps(35);// increase FPS to better transition animation quality
+    pres.save("pres.gif", aspose.slides.SaveFormat.Gif, gifOptions);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert title="Info" color="info" %}}

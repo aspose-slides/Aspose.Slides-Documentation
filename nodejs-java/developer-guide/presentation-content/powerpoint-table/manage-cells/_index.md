@@ -17,22 +17,22 @@ description: "Table cells in PowerPoint presentations in Javascript"
 This Javascript code shows you how to identify merged table cells in a presentation:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
-    try {
-        var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// assuming that Slide#0.Shape#0 is a table
-        for (var i = 0; i < table.getRows().size(); i++) {
-            for (var j = 0; j < table.getColumns().size(); j++) {
-                var currentCell = table.getRows().get_Item(i).get_Item(j);
-                if (currentCell.isMergedCell()) {
-                    console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
-                }
+var pres = new aspose.slides.Presentation("SomePresentationWithTable.pptx");
+try {
+    var table = pres.getSlides().get_Item(0).getShapes().get_Item(0);// assuming that Slide#0.Shape#0 is a table
+    for (var i = 0; i < table.getRows().size(); i++) {
+        for (var j = 0; j < table.getColumns().size(); j++) {
+            var currentCell = table.getRows().get_Item(i).get_Item(j);
+            if (currentCell.isMergedCell()) {
+                console.log(java.callStaticMethodSync("java.lang.String", "format", "Cell %d;%d is a part of merged cell with RowSpan=%d and ColSpan=%d starting from Cell %d;%d.", i, j, currentCell.getRowSpan(), currentCell.getColSpan(), currentCell.getFirstRowIndex(), currentCell.getFirstColumnIndex()));
             }
         }
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Remove Table Cells Border**
@@ -47,120 +47,120 @@ This Javascript code shows you how to identify merged table cells in a presentat
 This Javascript code shows you how to remove the borders from table cells:
 
 ```javascript
-    // Instantiates Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [50, 50, 50, 50]);
-        var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
-        // Adds table shape to slide
-        var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-        // Sets the border format for each cell
-        tbl.getRows().forEach(function(row) {
-            row.forEach(function(cell) {
-                cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-                cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-                cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-                cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-            });
+// Instantiates Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [50, 50, 50, 50]);
+    var dblRows = java.newArray("double", [50, 30, 30, 30, 30]);
+    // Adds table shape to slide
+    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    // Sets the border format for each cell
+    tbl.getRows().forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
         });
-        // Writes the PPTX to disk
-        pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+    });
+    // Writes the PPTX to disk
+    pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Numbering in Merged Cells**
 If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This Javascript code demonstrates the process:
 
 ```javascript
-    // Instantiates Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [70, 70, 70, 70]);
-        var dblRows = java.newArray("double", [70, 70, 70, 70]);
-        // Adds a table shape to the slide
-        var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-        // Sets the border format for each cell
-        tbl.getRows().forEach(function(row) {
-            row.forEach(function(cell) {
-                cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderTop().setWidth(5);
-                cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderBottom().setWidth(5);
-                cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderLeft().setWidth(5);
-                cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderRight().setWidth(5);
-            });
+// Instantiates Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [70, 70, 70, 70]);
+    var dblRows = java.newArray("double", [70, 70, 70, 70]);
+    // Adds a table shape to the slide
+    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    // Sets the border format for each cell
+    tbl.getRows().forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderTop().setWidth(5);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderRight().setWidth(5);
         });
-        // Merges cells (1, 1) x (2, 1)
-        tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-        // Merges cells (1, 2) x (2, 2)
-        tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-        pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+    });
+    // Merges cells (1, 1) x (2, 1)
+    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
+    // Merges cells (1, 2) x (2, 2)
+    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
+    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
 
 ```javascript
-    // Instantiates Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [70, 70, 70, 70]);
-        var dblRows = java.newArray("double", [70, 70, 70, 70]);
-        // Adds a table shape to the slide
-        var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-        // Sets the border format for each cell
-        tbl.getRows().forEach(function(row) {
-            row.forEach(function(cell) {
-                cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderTop().setWidth(5);
-                cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderBottom().setWidth(5);
-                cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderLeft().setWidth(5);
-                cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderRight().setWidth(5);
-            });
+// Instantiates Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [70, 70, 70, 70]);
+    var dblRows = java.newArray("double", [70, 70, 70, 70]);
+    // Adds a table shape to the slide
+    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    // Sets the border format for each cell
+    tbl.getRows().forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderTop().setWidth(5);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderRight().setWidth(5);
         });
-        // Merges cells (1, 1) x (2, 1)
-        tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-        // Merges cells (1, 2) x (2, 2)
-        tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-        // Merges cells (1, 1) x (1, 2)
-        tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
-        // Writes the PPTX file to disk
-        pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+    });
+    // Merges cells (1, 1) x (2, 1)
+    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
+    // Merges cells (1, 2) x (2, 2)
+    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
+    // Merges cells (1, 1) x (1, 2)
+    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(1, 2), true);
+    // Writes the PPTX file to disk
+    pres.save("MergeCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Numbering in Splitted Cell**
@@ -171,46 +171,46 @@ This time, we take a regular table (a table without merged cells) and then try t
 This Javascript code demonstrates the process we described:
 
 ```javascript
-    // Instantiates the Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [70, 70, 70, 70]);
-        var dblRows = java.newArray("double", [70, 70, 70, 70]);
-        // Adds a table shape to the slide
-        var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
-        // Sets the border format for each cell
-        tbl.getRows().forEach(function(row) {
-            row.forEach(function(cell) {
-                cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderTop().setWidth(5);
-                cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderBottom().setWidth(5);
-                cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderLeft().setWidth(5);
-                cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-                cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                cell.getCellFormat().getBorderRight().setWidth(5);
-            });
+// Instantiates the Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [70, 70, 70, 70]);
+    var dblRows = java.newArray("double", [70, 70, 70, 70]);
+    // Adds a table shape to the slide
+    var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
+    // Sets the border format for each cell
+    tbl.getRows().forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderTop().setWidth(5);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderBottom().setWidth(5);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderLeft().setWidth(5);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+            cell.getCellFormat().getBorderRight().setWidth(5);
         });
-        // Merges cells (1, 1) x (2, 1)
-        tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
-        // Merges cells (1, 2) x (2, 2)
-        tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
-        // Splits cell (1, 1)
-        tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
-        // Writes the PPTX file to disk
-        pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+    });
+    // Merges cells (1, 1) x (2, 1)
+    tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
+    // Merges cells (1, 2) x (2, 2)
+    tbl.mergeCells(tbl.get_Item(1, 2), tbl.get_Item(2, 2), false);
+    // Splits cell (1, 1)
+    tbl.get_Item(1, 1).splitByWidth(tbl.get_Item(2, 1).getWidth() / 2);
+    // Writes the PPTX file to disk
+    pres.save("SplitCells_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Change Table Cell Background Color**
@@ -218,23 +218,23 @@ This Javascript code demonstrates the process we described:
 This Javascript code shows you how to change a table cell's background color:
 
 ```javascript
-    var presentation = new aspose.slides.Presentation();
-    try {
-        var slide = presentation.getSlides().get_Item(0);
-        var dblCols = java.newArray("double", [150, 150, 150, 150]);
-        var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
-        // create a new table
-        var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
-        // set the background color for a cell
-        var cell = table.get_Item(2, 3);
-        cell.getCellFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-        presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (presentation != null) {
-            presentation.dispose();
-        }
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+    var dblCols = java.newArray("double", [150, 150, 150, 150]);
+    var dblRows = java.newArray("double", [50, 50, 50, 50, 50]);
+    // create a new table
+    var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
+    // set the background color for a cell
+    var cell = table.get_Item(2, 3);
+    cell.getCellFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
     }
+}
 ```
 
 ## **Add Image Inside Table Cell**
@@ -253,37 +253,37 @@ This Javascript code shows you how to change a table cell's background color:
 This Javascript code shows you how to place an image inside a table cell when creating a table:
 
 ```javascript
-    // Instantiates the Presentation class that represents a PPTX file
-    var pres = new aspose.slides.Presentation();
+// Instantiates the Presentation class that represents a PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Accesses the first slide
+    var islide = pres.getSlides().get_Item(0);
+    // Defines columns with widths and rows with heights
+    var dblCols = java.newArray("double", [150, 150, 150, 150]);
+    var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
+    // Adds a table shape to the slide
+    var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
+    // Create an PPImage object using the image file
+    var picture;
+    var image = aspose.slides.Images.fromFile("image.jpg");
     try {
-        // Accesses the first slide
-        var islide = pres.getSlides().get_Item(0);
-        // Defines columns with widths and rows with heights
-        var dblCols = java.newArray("double", [150, 150, 150, 150]);
-        var dblRows = java.newArray("double", [100, 100, 100, 100, 90]);
-        // Adds a table shape to the slide
-        var tbl = islide.getShapes().addTable(50, 50, dblCols, dblRows);
-        // Create an PPImage object using the image file
-        var picture;
-        var image = aspose.slides.Images.fromFile("image.jpg");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-        // Adds the image to the first table cell
-        var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-        cellFormat.getFillFormat().setFillType(aspose.slides.FillType.Picture);
-        cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
-        cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
-        // Saves the PPTX file to Disk
-        pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
+        picture = pres.getImages().addImage(image);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (image != null) {
+            image.dispose();
         }
     }
+    // Adds the image to the first table cell
+    var cellFormat = tbl.get_Item(0, 0).getCellFormat();
+    cellFormat.getFillFormat().setFillType(aspose.slides.FillType.Picture);
+    cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    // Saves the PPTX file to Disk
+    pres.save("Image_In_TableCell_out.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```

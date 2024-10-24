@@ -34,30 +34,30 @@ To create a textbox on a slide, go through these steps:
 This Javascript code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```javascript
-    // Instantiates Presentation
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Gets the first slide in the presentation
-        var sld = pres.getSlides().get_Item(0);
-        // Adds an AutoShape with type set as Rectangle
-        var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-        // Adds TextFrame to the Rectangle
-        ashp.addTextFrame(" ");
-        // Accesses the text frame
-        var txtFrame = ashp.getTextFrame();
-        // Creates the Paragraph object for text frame
-        var para = txtFrame.getParagraphs().get_Item(0);
-        // Creates a Portion object for paragraph
-        var portion = para.getPortions().get_Item(0);
-        // Sets Text
-        portion.setText("Aspose TextBox");
-        // Saves the presentation to disk
-        pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates Presentation
+var pres = new aspose.slides.Presentation();
+try {
+    // Gets the first slide in the presentation
+    var sld = pres.getSlides().get_Item(0);
+    // Adds an AutoShape with type set as Rectangle
+    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
+    // Adds TextFrame to the Rectangle
+    ashp.addTextFrame(" ");
+    // Accesses the text frame
+    var txtFrame = ashp.getTextFrame();
+    // Creates the Paragraph object for text frame
+    var para = txtFrame.getParagraphs().get_Item(0);
+    // Creates a Portion object for paragraph
+    var portion = para.getPortions().get_Item(0);
+    // Sets Text
+    portion.setText("Aspose TextBox");
+    // Saves the presentation to disk
+    pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Check for Text Box Shape**
@@ -69,49 +69,49 @@ Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/nod
 This Javascript code shows you how to check whether a shape was created as a text box:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        java.callStaticMethodSync("ForEach", "shape", pres, (shape, slide, index) -> {
-            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-                var autoShape = shape;
-                System.out.println(autoShape.isTextBox() ? "shape is text box" : "shape is text not box");
-            }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    java.callStaticMethodSync("ForEach", "shape", pres, (shape, slide, index) -> {
+        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+            var autoShape = shape;
+            System.out.println(autoShape.isTextBox() ? "shape is text box" : "shape is text not box");
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Add Column In Text Box**
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) properties (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
 
-This code in Java demonstrates the described operation: 
+This code in Javascript demonstrates the described operation: 
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Gets the first slide in the presentation
-        var slide = pres.getSlides().get_Item(0);
-        // Add an AutoShape with type set as Rectangle
-        var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-        // Add TextFrame to the Rectangle
-        aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-        // Gets the text format of TextFrame
-        var format = aShape.getTextFrame().getTextFrameFormat();
-        // Specifies the number of columns in TextFrame
-        format.setColumnCount(3);
-        // Specifies the spacing between columns
-        format.setColumnSpacing(10);
-        // Saves the presentation
-        pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    // Gets the first slide in the presentation
+    var slide = pres.getSlides().get_Item(0);
+    // Add an AutoShape with type set as Rectangle
+    var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
+    // Add TextFrame to the Rectangle
+    aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
+    // Gets the text format of TextFrame
+    var format = aShape.getTextFrame().getTextFrameFormat();
+    // Specifies the number of columns in TextFrame
+    format.setColumnCount(3);
+    // Specifies the spacing between columns
+    format.setColumnSpacing(10);
+    // Saves the presentation
+    pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 
@@ -121,54 +121,54 @@ Aspose.Slides for Node.js via Java provides the [ColumnCount](https://reference.
 This Javascript code shows you how to add a column inside a text frame:
 
 ```javascript
-    var outPptxFileName = "ColumnsTest.pptx";
-    var pres = new aspose.slides.Presentation();
+var outPptxFileName = "ColumnsTest.pptx";
+var pres = new aspose.slides.Presentation();
+try {
+    var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
+    var format = shape1.getTextFrame().getTextFrameFormat();
+    format.setColumnCount(2);
+    shape1.getTextFrame().setText("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts " + "itself to stay within the container. You cannot have text spill over from one container " + "to other, though -- because PowerPoint's column options for text are limited!");
+    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
+    var test = new aspose.slides.Presentation(outPptxFileName);
     try {
-        var shape1 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-        var format = shape1.getTextFrame().getTextFrameFormat();
-        format.setColumnCount(2);
-        shape1.getTextFrame().setText((("All these columns are forced to stay within a single text container -- " + "you can add or delete text - and the new or remaining text automatically adjusts ") + "itself to stay within the container. You cannot have text spill over from one container ") + "to other, though -- because PowerPoint's column options for text are limited!");
-        pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-        var test = new aspose.slides.Presentation(outPptxFileName);
-        try {
-            var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-            java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-            java.callStaticMethodSync("Assert", "assertTrue", java.getStaticFieldValue("java.lang.Double", "NaN") == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-        } finally {
-            if (test != null) {
-                test.dispose();
-            }
-        }
-        format.setColumnSpacing(20);
-        pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-        var test1 = new aspose.slides.Presentation(outPptxFileName);
-        try {
-            var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-            java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-            java.callStaticMethodSync("Assert", "assertTrue", 20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-        } finally {
-            if (test1 != null) {
-                test1.dispose();
-            }
-        }
-        format.setColumnCount(3);
-        format.setColumnSpacing(15);
-        pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
-        var test2 = new aspose.slides.Presentation(outPptxFileName);
-        try {
-            var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-            java.callStaticMethodSync("Assert", "assertTrue", 3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-            java.callStaticMethodSync("Assert", "assertTrue", 15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
-        } finally {
-            if (test2 != null) {
-                test2.dispose();
-            }
-        }
+        var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
+        java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        java.callStaticMethodSync("Assert", "assertTrue", java.getStaticFieldValue("java.lang.Double", "NaN") == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (test != null) {
+            test.dispose();
         }
     }
+    format.setColumnSpacing(20);
+    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
+    var test1 = new aspose.slides.Presentation(outPptxFileName);
+    try {
+        var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
+        java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        java.callStaticMethodSync("Assert", "assertTrue", 20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+    } finally {
+        if (test1 != null) {
+            test1.dispose();
+        }
+    }
+    format.setColumnCount(3);
+    format.setColumnSpacing(15);
+    pres.save(outPptxFileName, aspose.slides.SaveFormat.Pptx);
+    var test2 = new aspose.slides.Presentation(outPptxFileName);
+    try {
+        var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
+        java.callStaticMethodSync("Assert", "assertTrue", 3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        java.callStaticMethodSync("Assert", "assertTrue", 15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+    } finally {
+        if (test2 != null) {
+            test2.dispose();
+        }
+    }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 ## **Update Text**
@@ -178,31 +178,31 @@ Aspose.Slides allows you to change or update the text contained in a text box or
 This Javascript code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("text.pptx");
-    try {
-        pres.getSlides().forEach(function(slide) {
-            slide.getShapes().forEach(function(shape) {
-                // Checks if shape supports text frame (IAutoShape).
-                if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
-                    var autoShape = shape;
-                    // Iterates through paragraphs in text frame
-                    autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
-                        // Iterates through each portion in paragraph
-                        paragraph.getPortions().forEach(function(portion) {
-                            portion.setText(portion.getText().replace("years", "months"));// Changes text
-                            portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);// Changes formatting
-                        });
+var pres = new aspose.slides.Presentation("text.pptx");
+try {
+    pres.getSlides().forEach(function(slide) {
+        slide.getShapes().forEach(function(shape) {
+            // Checks if shape supports text frame (IAutoShape).
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                var autoShape = shape;
+                // Iterates through paragraphs in text frame
+                autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
+                    // Iterates through each portion in paragraph
+                    paragraph.getPortions().forEach(function(portion) {
+                        portion.setText(portion.getText().replace("years", "months"));// Changes text
+                        portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);// Changes formatting
                     });
-                }
-            });
+                });
+            }
         });
-        // Saves modified presentation
-        pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+    });
+    // Saves modified presentation
+    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Add Text Box with Hyperlink** 
@@ -222,28 +222,28 @@ You can insert a link inside a text box. When the text box is clicked, users are
 This Javascript code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```javascript
-    // Instantiates a Presentation class that represents a PPTX
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Gets the first slide in the presentation
-        var slide = pres.getSlides().get_Item(0);
-        // Adds an AutoShape object with type set as Rectangle
-        var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
-        // Casts the shape to AutoShape
-        var pptxAutoShape = shape;
-        // Accesses the ITextFrame property associated with the AutoShape
-        pptxAutoShape.addTextFrame("");
-        var textFrame = pptxAutoShape.getTextFrame();
-        // Adds some text to the frame
-        textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-        // Sets the Hyperlink for the portion text
-        var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
-        hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
-        // Saves the PPTX Presentation
-        pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates a Presentation class that represents a PPTX
+var pres = new aspose.slides.Presentation();
+try {
+    // Gets the first slide in the presentation
+    var slide = pres.getSlides().get_Item(0);
+    // Adds an AutoShape object with type set as Rectangle
+    var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
+    // Casts the shape to AutoShape
+    var pptxAutoShape = shape;
+    // Accesses the ITextFrame property associated with the AutoShape
+    pptxAutoShape.addTextFrame("");
+    var textFrame = pptxAutoShape.getTextFrame();
+    // Adds some text to the frame
+    textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
+    // Sets the Hyperlink for the portion text
+    var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
+    hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
+    // Saves the PPTX Presentation
+    pres.save("hLink_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```

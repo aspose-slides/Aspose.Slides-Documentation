@@ -21,12 +21,12 @@ Before working on a presentation, you may want to find out what format (PPT, PPT
 You can check a presentation's format without loading the presentation. See this Javascript code:
 
 ```javascript
-    var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-    console.log(info.getLoadFormat());// PPTX
-    var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
-    console.log(info2.getLoadFormat());// PPT
-    var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
-    console.log(info3.getLoadFormat());// ODP
+var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
+console.log(info.getLoadFormat());// PPTX
+var info2 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.ppt");
+console.log(info2.getLoadFormat());// PPT
+var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.odp");
+console.log(info3.getLoadFormat());// ODP
 ```
 
 ## **Get a Presentation Properties**
@@ -34,12 +34,12 @@ You can check a presentation's format without loading the presentation. See this
 This Javascript code shows you how to get a presentation’s properties (information about the presentation):
 
 ```javascript
-    var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-    var props = info.readDocumentProperties();
-    console.log(props.getCreatedTime());
-    console.log(props.getSubject());
-    console.log(props.getTitle());
-    // ..
+var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
+var props = info.readDocumentProperties();
+console.log(props.getCreatedTime());
+console.log(props.getSubject());
+console.log(props.getTitle());
+// ..
 ```
 
 You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) class.
@@ -51,10 +51,10 @@ Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://r
 This Javascript code shows you how to edit a presentation's properties:
 
 ```javascript
-    var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-    var props = info.readDocumentProperties();
-    props.setTitle("My title");
-    info.updateDocumentProperties(props);
+var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
+var props = info.readDocumentProperties();
+props.setTitle("My title");
+info.updateDocumentProperties(props);
 ```
 
 ### **Useful Links**

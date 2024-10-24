@@ -29,36 +29,36 @@ If the video file you want to add to your slide is stored locally, you can creat
 This Javascript code shows you how to add a video stored locally to a presentation:
 
 ```javascript
-    // Instantiates the Presentation class
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        // Loads the video
-        var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
-        var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
-        // Gets the first slide and adds a videoframe
-        pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
-        // Saves the presentation to disk
-        pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates the Presentation class
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    // Loads the video
+    var fileStream = java.newInstanceSync("java.io.FileInputStream", "Wildlife.mp4");
+    var video = pres.getVideos().addVideo(fileStream, aspose.slides.LoadingStreamBehavior.KeepLocked);
+    // Gets the first slide and adds a videoframe
+    pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
+    // Saves the presentation to disk
+    pres.save("pres-with-video.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 Alternatively, you can add a video by passing its file path directly to the [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-) method:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var sld = pres.getSlides().get_Item(0);
-        var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var sld = pres.getSlides().get_Item(0);
+    var vf = sld.getShapes().addVideoFrame(50, 150, 300, 150, "video1.avi");
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 
@@ -75,19 +75,52 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 This Javascript code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
 ```javascript
-    // Instantiates a Presentation object that represents a presentation file
-    var pres = new aspose.slides.Presentation();
-    try {
-        addVideoFromYouTube(pres, "Tj75Arhq5ho");
-        pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiates a Presentation object that represents a presentation file
+var pres = new aspose.slides.Presentation();
+try {
+    addVideoFromYouTube(pres, "Tj75Arhq5ho");
+    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ```javascript
+async function addVideoFromYouTube(pres, videoID) {
+    let slide = pres.getSlides().get_Item(0);
+    let videoUrl = "https://www.youtube.com/embed/" + videoID;
+    let videoFrame = slide.getShapes().addVideoFrame(10, 10, 427, 240, videoUrl);
+    
+    videoFrame.setPlayMode(aspose.slides.VideoPlayModePreset.Auto);
+
+    let thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
+
+    try {
+        const imageStream = await getImageStream(thumbnailUri);
+        let image = pres.getImages().addImage(imageStream);
+        videoFrame.getPictureFormat().getPicture().setImage(image);
+    } catch (error) {
+        console.error("Error loading thumbnail:", error);
+    }
+}
+
+// 
+async function getImageStream(url) {
+    return new Promise((resolve, reject) => {
+        http.get(url, (response) => {
+            if (response.statusCode === 200) {
+                resolve(response);
+            } else {
+                reject(new Error(`Failed to load image: ${response.statusCode}`));
+            }
+        }).on('error', (e) => {
+            reject(e);
+        });
+    });
+}
+
 ```
 
 ## **Extract Video From Slide**
@@ -102,31 +135,31 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 This Javascript code shows you how to extract the video on a presentation slide:
 
 ```javascript
-    // Instantiates a Presentation object that represents a presentation file
-    var pres = new aspose.slides.Presentation("VideoSample.pptx");
-    try {
-        pres.getSlides().forEach(function(slide) {
-            slide.getShapes().forEach(function(shape) {
-                if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
-                    var vf = shape;
-                    var type = vf.getEmbeddedVideo().getContentType();
-                    var ss = type.lastIndexOf('-');
-                    var buffer = vf.getEmbeddedVideo().getBinaryData();
-                    // Gets the File Extension
-                    var charIndex = type.indexOf("/");
-                    type = type.substring(charIndex + 1);
-                    var fop = java.newInstanceSync("java.io.FileOutputStream", "testing2." + type);
-                    fop.write(buffer);
-                    fop.flush();
-                    fop.close();
-                }
-            });
+// Instantiates a Presentation object that represents a presentation file
+var pres = new aspose.slides.Presentation("VideoSample.pptx");
+try {
+    pres.getSlides().forEach(function(slide) {
+        slide.getShapes().forEach(function(shape) {
+            if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+                var vf = shape;
+                var type = vf.getEmbeddedVideo().getContentType();
+                var ss = type.lastIndexOf('-');
+                var buffer = vf.getEmbeddedVideo().getBinaryData();
+                // Gets the File Extension
+                var charIndex = type.indexOf("/");
+                type = type.substring(charIndex + 1);
+                var fop = java.newInstanceSync("java.io.FileOutputStream", "testing2." + type);
+                fop.write(buffer);
+                fop.flush();
+                fop.close();
+            }
         });
-    } catch (e) {console.log(e);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+    });
+} catch (e) {console.log(e);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 

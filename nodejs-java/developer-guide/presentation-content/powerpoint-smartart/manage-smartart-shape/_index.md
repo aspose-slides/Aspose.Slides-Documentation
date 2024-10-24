@@ -15,20 +15,20 @@ Aspose.Slides for Node.js via Java has provided an API to create SmartArt shapes
 1. Save the modified presentation as a PPTX file.
 
 ```javascript
-    // Instantiate Presentation Class
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Get first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Add Smart Art Shape
-        var smart = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.BasicBlockList);
-        // Saving presentation
-        pres.save("SimpleSmartArt.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate Presentation Class
+var pres = new aspose.slides.Presentation();
+try {
+    // Get first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Add Smart Art Shape
+    var smart = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.BasicBlockList);
+    // Saving presentation
+    pres.save("SimpleSmartArt.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
@@ -39,23 +39,23 @@ Aspose.Slides for Node.js via Java has provided an API to create SmartArt shapes
 The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a [SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) shape. If shape is of SmartArt type then we will typecast that to [**SmartArt**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArt) instance.
 
 ```javascript
-    // Load the desired the presentation
-    var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
-    try {
-        // Traverse through every shape inside first slide
-        pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArtEx
-                var smart = shape;
-                console.log("Shape Name:" + smart.getName());
-            }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+// Load the desired the presentation
+var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
+try {
+    // Traverse through every shape inside first slide
+    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArtEx
+            var smart = shape;
+            console.log("Shape Name:" + smart.getName());
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Access SmartArt Shape with Particular Layout Type**
@@ -68,25 +68,25 @@ The following sample code will help to access the [SmartArt](https://reference.a
 1. Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
 
 ```javascript
-    var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
-    try {
-        // Traverse through every shape inside first slide
-        pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArtEx
-                var smart = shape;
-                // Checking SmartArt Layout
-                if (smart.getLayout() == aspose.slides.SmartArtLayoutType.BasicBlockList) {
-                    console.log("Do some thing here....");
-                }
+var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
+try {
+    // Traverse through every shape inside first slide
+    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArtEx
+            var smart = shape;
+            // Checking SmartArt Layout
+            if (smart.getLayout() == aspose.slides.SmartArtLayoutType.BasicBlockList) {
+                console.log("Do some thing here....");
             }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Change SmartArt Shape Style**
@@ -101,29 +101,29 @@ In this example, we will learn to change the quick style for any SmartArt shape.
 1. Save the Presentation.
 
 ```javascript
-    // Instantiate Presentation Class
-    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
-    try {
-        // Get first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Traverse through every shape inside first slide
-        slide.getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArtEx
-                var smart = shape;
-                // Checking SmartArt style
-                if (smart.getQuickStyle() == aspose.slides.SmartArtQuickStyleType.SimpleFill) {
-                    // Changing SmartArt Style
-                    smart.setQuickStyle(aspose.slides.SmartArtQuickStyleType.Cartoon);
-                }
+// Instantiate Presentation Class
+var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
+try {
+    // Get first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Traverse through every shape inside first slide
+    slide.getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArtEx
+            var smart = shape;
+            // Checking SmartArt style
+            if (smart.getQuickStyle() == aspose.slides.SmartArtQuickStyleType.SimpleFill) {
+                // Changing SmartArt Style
+                smart.setQuickStyle(aspose.slides.SmartArtQuickStyleType.Cartoon);
             }
-        });
-        // Saving presentation
-        pres.save("ChangeSmartArtStyle.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+        }
+    });
+    // Saving presentation
+    pres.save("ChangeSmartArtStyle.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/A7PUdeV.png)|
@@ -142,29 +142,29 @@ In this example, we will learn to change the color style for any SmartArt shape.
 1. Save the Presentation.
 
 ```javascript
-    // Instantiate Presentation Class
-    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
-    try {
-        // Get first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Traverse through every shape inside first slide
-        slide.getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArtEx
-                var smart = shape;
-                // Checking SmartArt color type
-                if (smart.getColorStyle() == aspose.slides.SmartArtColorType.ColoredFillAccent1) {
-                    // Changing SmartArt color type
-                    smart.setColorStyle(aspose.slides.SmartArtColorType.ColorfulAccentColors);
-                }
+// Instantiate Presentation Class
+var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
+try {
+    // Get first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Traverse through every shape inside first slide
+    slide.getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArtEx
+            var smart = shape;
+            // Checking SmartArt color type
+            if (smart.getColorStyle() == aspose.slides.SmartArtColorType.ColoredFillAccent1) {
+                // Changing SmartArt color type
+                smart.setColorStyle(aspose.slides.SmartArtColorType.ColorfulAccentColors);
             }
-        });
-        // Saving presentation
-        pres.save("ChangeSmartArtColorStyle.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+        }
+    });
+    // Saving presentation
+    pres.save("ChangeSmartArtColorStyle.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/v2Hwocs.png)|

@@ -30,19 +30,19 @@ Aspose.Slides for Node.js via Java does not provide a simple method to extract t
 
 The following code example extracts the entire presentation slide background as an image.
 ```javascript
-    var slideIndex = 0;
-    var imageScale = 1;
-    var presentation = new aspose.slides.Presentation("sample.pptx");
-    var slideSize = presentation.getSlideSize().getSize();
-    var slide = presentation.getSlides().get_Item(slideIndex);
-    var tempPresentation = new aspose.slides.Presentation();
-    var slideWidth = slideSize.getWidth();
-    var slideHeight = slideSize.getHeight();
-    tempPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.DoNotScale);
-    var clonedSlide = tempPresentation.getSlides().addClone(slide);
-    clonedSlide.getShapes().clear();
-    var background = clonedSlide.getImage(imageScale, imageScale);
-    background.save("output.png", aspose.slides.ImageFormat.Png);
-    tempPresentation.dispose();
-    presentation.dispose();
+var slideIndex = 0;
+var imageScale = 1;
+var presentation = new aspose.slides.Presentation("sample.pptx");
+var slideSize = presentation.getSlideSize().getSize();
+var slide = presentation.getSlides().get_Item(slideIndex);
+var tempPresentation = new aspose.slides.Presentation();
+var slideWidth = slideSize.getWidth();
+var slideHeight = slideSize.getHeight();
+tempPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.DoNotScale);
+var clonedSlide = tempPresentation.getSlides().addClone(slide);
+clonedSlide.getShapes().clear();
+var background = clonedSlide.getImage(imageScale, imageScale);
+background.save("output.png", aspose.slides.ImageFormat.Png);
+tempPresentation.dispose();
+presentation.dispose();
 ```

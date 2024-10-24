@@ -228,8 +228,3 @@ for (int i = 0; i < slide.getShapes().size(); i++)
 }
 ```
 
-
-## **Live Example**
-You may want to check out **Aspose.Slides** **free** [**Add Watermark** ](https://products.aspose.app/slides/watermark) and [**Remove Watermark**](https://products.aspose.app/slides/watermark/remove-watermark) online tools. 
-
-![todo:image_alt_text](slides-watermark.png)

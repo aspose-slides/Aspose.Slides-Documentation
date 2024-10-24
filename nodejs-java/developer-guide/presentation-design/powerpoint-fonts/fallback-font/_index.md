@@ -1,5 +1,5 @@
 ---
-title: Fallback Font - PowerPoint Java API
+title: Fallback Font - PowerPoint Javascript API
 linktitle: Fallback Font
 type: docs
 weight: 50

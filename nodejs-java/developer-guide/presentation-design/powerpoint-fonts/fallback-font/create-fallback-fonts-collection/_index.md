@@ -14,17 +14,17 @@ Each [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slide
 Here is an examples how to create fallback fonts rules collection and assign in into the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getFontsManager--) of a certain presentation:  
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var userRulesList = new aspose.slides.FontFallBackRulesCollection();
-        userRulesList.add(new  aspose.slides.FontFallBackRule(0xb80, 0xbff, "Vijaya"));
-        userRulesList.add(new  aspose.slides.FontFallBackRule(0x3040, 0x309f, "MS Mincho, MS Gothic"));
-        pres.getFontsManager().setFontFallBackRulesCollection(userRulesList);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var userRulesList = new aspose.slides.FontFallBackRulesCollection();
+    userRulesList.add(new aspose.slides.FontFallBackRule(0xb80, 0xbff, "Vijaya"));
+    userRulesList.add(new aspose.slides.FontFallBackRule(0x3040, 0x309f, "MS Mincho, MS Gothic"));
+    pres.getFontsManager().setFontFallBackRulesCollection(userRulesList);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 After FontsManager is initialised with fallback fonts collection, the fallback fonts are applied during presentation rendering.

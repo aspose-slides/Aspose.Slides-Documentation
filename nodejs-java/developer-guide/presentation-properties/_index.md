@@ -261,7 +261,7 @@ console.log("Application Version: " + ver);
 
 Aspose.Slides provides the LanguageId property (exposed by the PortionFormat class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
 
-This Javascript code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Java PortionFormat class?
+This Javascript code shows you how to set the proofing language for a PowerPoint: xxx Why is LanguageId missing from Javascript PortionFormat class?
 
 ```javascript
 var pres = new aspose.slides.Presentation(pptxFileName);

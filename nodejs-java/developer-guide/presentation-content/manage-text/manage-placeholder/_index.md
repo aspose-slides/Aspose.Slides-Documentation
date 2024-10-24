@@ -22,25 +22,25 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 This Javascript code shows how to change the text in a placeholder:
 
 ```javascript
-    // Instantiates a Presentation class
-    var pres = new aspose.slides.Presentation("ReplacingText.pptx");
-    try {
-        // Accesses the first slide
-        var sld = pres.getSlides().get_Item(0);
-        // Iterates through shapes to find the placeholder
-        sld.getShapes().forEach(function(shp) {
-            if (shp.getPlaceholder() != null) {
-                // Changes the text in each placeholder
-                shp.getTextFrame().setText("This is Placeholder");
-            }
-        });
-        // Saves the presentation to disk
-        pres.save("output_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+// Instantiates a Presentation class
+var pres = new aspose.slides.Presentation("ReplacingText.pptx");
+try {
+    // Accesses the first slide
+    var sld = pres.getSlides().get_Item(0);
+    // Iterates through shapes to find the placeholder
+    sld.getShapes().forEach(function(shp) {
+        if (shp.getPlaceholder() != null) {
+            // Changes the text in each placeholder
+            shp.getTextFrame().setText("This is Placeholder");
         }
+    });
+    // Saves the presentation to disk
+    pres.save("output_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Set Prompt Text in Placeholder**
@@ -49,30 +49,30 @@ Standard and pre-built layouts contain placeholder prompt texts such as ***Click
 This Javascript code shows you how to set the prompt text in a placeholder:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("Presentation.pptx");
-    try {
-        var slide = pres.getSlides().get_Item(0);
-        // Iterates through the slide
-        slide.getSlide().getShapes().forEach(function(shape) {
-            if ((shape.getPlaceholder() != null) && (java.instanceOf(shape, "com.aspose.slides.AutoShape"))) {
-                var text = "";
-                // PowerPoint displays "Click to add title"
-                if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.CenteredTitle) {
-                    text = "Add Title";
-                } else // Adds subtitle
-                if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.Subtitle) {
-                    text = "Add Subtitle";
-                }
-                shape.getTextFrame().setText(text);
-                console.log("Placeholder with text: " + text);
+var pres = new aspose.slides.Presentation("Presentation.pptx");
+try {
+    var slide = pres.getSlides().get_Item(0);
+    // Iterates through the slide
+    slide.getSlide().getShapes().forEach(function(shape) {
+        if ((shape.getPlaceholder() != null) && (java.instanceOf(shape, "com.aspose.slides.AutoShape"))) {
+            var text = "";
+            // PowerPoint displays "Click to add title"
+            if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.CenteredTitle) {
+                text = "Add Title";
+            } else // Adds subtitle
+            if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.Subtitle) {
+                text = "Add Subtitle";
             }
-        });
-        pres.save("Placeholders_PromptText.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+            shape.getTextFrame().setText(text);
+            console.log("Placeholder with text: " + text);
         }
+    });
+    pres.save("Placeholders_PromptText.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Set Placeholder Image Transparency**
@@ -82,18 +82,18 @@ Aspose.Slides allows you to set the transparency of the background image in a te
 This Javascript code shows you how to set the transparency for a picture background (inside a shape):
 
 ```javascript
-    var presentation = new aspose.slides.Presentation("example.pptx");
-    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    var operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-    for (var i = 0; i < operationCollection.size(); i++) {
-        if (java.instanceOf(operationCollection.get_Item(i), "com.aspose.slides.AlphaModulateFixed")) {
-            var alphaModulate = operationCollection.get_Item(i);
-            var currentValue = 100 - alphaModulate.getAmount();
-            console.log("Current transparency value: " + currentValue);
-            var alphaValue = 40;
-            alphaModulate.setAmount(100 - alphaValue);
-        }
+var presentation = new aspose.slides.Presentation("example.pptx");
+var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+var operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
+for (var i = 0; i < operationCollection.size(); i++) {
+    if (java.instanceOf(operationCollection.get_Item(i), "com.aspose.slides.AlphaModulateFixed")) {
+        var alphaModulate = operationCollection.get_Item(i);
+        var currentValue = 100 - alphaModulate.getAmount();
+        console.log("Current transparency value: " + currentValue);
+        var alphaValue = 40;
+        alphaModulate.setAmount(100 - alphaValue);
     }
-    presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
+}
+presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 

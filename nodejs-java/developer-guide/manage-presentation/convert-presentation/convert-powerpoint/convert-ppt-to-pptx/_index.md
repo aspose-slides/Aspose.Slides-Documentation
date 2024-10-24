@@ -10,13 +10,13 @@ description: "Convert PowerPoint PPT to PPTX in Java."
 
 ## **Overview**
 
-This article explains how to convert PowerPoint Presentation in PPT format into PPTX format using Java and with online PPT to PPTX conversion app. The following topic is covered.
+This article explains how to convert PowerPoint Presentation in PPT format into PPTX format using Javascript and with online PPT to PPTX conversion app. The following topic is covered.
 
 - Convert PPT to PPTX in Java
 
 ## **Java Convert PPT to PPTX**
 
-For Java sample code to convert PPT to PPTX, please see the section below i.e. [Convert PPT to PPTX](#convert-ppt-to-pptx). It just loads the PPT file and saves in PPTX format. By specifiying different save formats, you can also save PPT file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles.
+For Javascript sample code to convert PPT to PPTX, please see the section below i.e. [Convert PPT to PPTX](#convert-ppt-to-pptx). It just loads the PPT file and saves in PPTX format. By specifiying different save formats, you can also save PPT file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles.
 
 - [Java Convert PPT to PDF](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-pdf/)
 - [Java Convert PPT to XPS](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-xps/)
@@ -52,16 +52,16 @@ Aspose.Slides for Node.js via Java now facilitates the developers to access the 
 Aspose.Slides for Node.js via Java offers [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class that represents a **PPTX** presentation file. Presentation class can now also access **PPT** through Presentation when the object is instantiated. The following example shows how to convert a PPT presentation into PPTX Presentation.
 
 ```javascript
-    // Instantiate a Presentation object that represents a PPTX file
-    var pres = new aspose.slides.Presentation("Aspose.ppt");
-    try {
-        // Saving the PPTX presentation to PPTX format
-        pres.save("ConvertedAspose.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate a Presentation object that represents a PPTX file
+var pres = new aspose.slides.Presentation("Aspose.ppt");
+try {
+    // Saving the PPTX presentation to PPTX format
+    pres.save("ConvertedAspose.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 |![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|

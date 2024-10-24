@@ -22,15 +22,15 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 This Javascript code demonstrates the PDF to PowerPoint operation:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        pres.getSlides().addFromPdf("InputPDF.pdf");
-        pres.save("OutputPresentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    pres.getSlides().addFromPdf("InputPDF.pdf");
+    pres.save("OutputPresentation.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert  title="Tip" color="primary" %}} 
@@ -50,23 +50,24 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 This Javascript code demonstrates the HTML to PowerPoint operation:
 
 ```javascript
-    var presentation = new aspose.slides.Presentation();
+var presentation = new aspose.slides.Presentation();
+try {
+    var htmlStream = java.newInstanceSync("java.io.FileInputStream", "page.html");
     try {
-        var htmlStream = java.newInstanceSync("java.io.FileInputStream", "page.html");
-        try {
-            presentation.getSlides().addFromHtml(htmlStream);
-        } finally {
-            if (htmlStream != null) {
-                htmlStream.close();
-            }
-        }
-        presentation.save("MyPresentation.pptx", aspose.slides.SaveFormat.Pptx);
-    } catch (e) {console.log(e);
+        presentation.getSlides().addFromHtml(htmlStream);
     } finally {
-        if (presentation != null) {
-            presentation.dispose();
+        if (htmlStream != null) {
+            htmlStream.close();
         }
     }
+    presentation.save("MyPresentation.pptx", aspose.slides.SaveFormat.Pptx);
+} catch (e) {
+    console.log(e);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
+    }
+}
 ```
 
 {{% alert title="Note" color="warning" %}} 

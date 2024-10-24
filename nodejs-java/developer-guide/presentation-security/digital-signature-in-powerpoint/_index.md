@@ -28,45 +28,45 @@ The code sample below demonstrates how to add digital signature from a PFX cer
 1. Add created signature to the presentation object.
 
 ```javascript
-    // Opening the presentation file
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Create DigitalSignature object with PFX file and PFX password
-        var signature = new aspose.slides.DigitalSignature("testsignature1.pfx", "testpass1");
-        // Comment new digital signature
-        signature.setComments("Aspose.Slides digital signing test.");
-        // Add digital signature to presentation
-        pres.getDigitalSignatures().add(signature);
-        // Save presentation
-        pres.save("SomePresentationSigned.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+// Opening the presentation file
+var pres = new aspose.slides.Presentation();
+try {
+    // Create DigitalSignature object with PFX file and PFX password
+    var signature = new aspose.slides.DigitalSignature("testsignature1.pfx", "testpass1");
+    // Comment new digital signature
+    signature.setComments("Aspose.Slides digital signing test.");
+    // Add digital signature to presentation
+    pres.getDigitalSignatures().add(signature);
+    // Save presentation
+    pres.save("SomePresentationSigned.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 Now its possible to check if the presentation was digitally signed and has not been modified:
 
 ```javascript
-    // Open presentation
-    var pres = new aspose.slides.Presentation("SomePresentationSigned.pptx");
-    try {
-        if (pres.getDigitalSignatures().size() > 0) {
-            var allSignaturesAreValid = true;
-            console.log("Signatures used to sign the presentation: ");
-            // Check if all digital signatures are valid
-            pres.getDigitalSignatures().forEach(function(signature) {
-                console.log((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
-                allSignaturesAreValid &= signature.isValid();
-            });
-            if (allSignaturesAreValid) {
-                console.log("Presentation is genuine, all signatures are valid.");
-            } else {
-                console.log("Presentation has been modified since signing.");
-            }
-        }
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+// Open presentation
+var pres = new aspose.slides.Presentation("SomePresentationSigned.pptx");
+try {
+    if (pres.getDigitalSignatures().size() > 0) {
+        var allSignaturesAreValid = true;
+        console.log("Signatures used to sign the presentation: ");
+        // Check if all digital signatures are valid
+        pres.getDigitalSignatures().forEach(function(signature) {
+            console.log((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
+            allSignaturesAreValid &= signature.isValid();
+        });
+        if (allSignaturesAreValid) {
+            console.log("Presentation is genuine, all signatures are valid.");
+        } else {
+            console.log("Presentation has been modified since signing.");
         }
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```

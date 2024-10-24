@@ -20,14 +20,14 @@ The export to HTML5 process here allows you to convert PowerPoint to HTML withou
 This Javascript code shows how you to export a presentation to HTML5 without web extensions and dependencies:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        pres.save("pres.html", aspose.slides.SaveFormat.Html5);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    pres.save("pres.html", aspose.slides.SaveFormat.Html5);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 {{% alert color="primary" %}} 
@@ -39,32 +39,32 @@ In this case, you get clean HTML.
 You may want to specify settings for shape animations and slide transitions this way:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        var html5Options = new aspose.slides.Html5Options();
-        html5Options.setAnimateShapes(false);
-        html5Options.setAnimateTransitions(false);
-        pres.save("pres5.html", aspose.slides.SaveFormat.Html5, html5Options);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var html5Options = new aspose.slides.Html5Options();
+    html5Options.setAnimateShapes(false);
+    html5Options.setAnimateTransitions(false);
+    pres.save("pres5.html", aspose.slides.SaveFormat.Html5, html5Options);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Export PowerPoint to HTML**
 
-This Java demonstrates the standard PowerPoint to HTML process:
+This Javascript demonstrates the standard PowerPoint to HTML process:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        pres.save("pres.html", aspose.slides.SaveFormat.Html);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    pres.save("pres.html", aspose.slides.SaveFormat.Html);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 In this case, the presentation content is rendered through SVG in a form like this:
@@ -77,7 +77,6 @@ In this case, the presentation content is rendered through SVG in a form like th
      </svg>
 </div>
 </body>
-```javascript
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -93,16 +92,16 @@ When you use this method to export PowerPoint to HTML, due to the SVG rendering,
 This Javascript code demonstrates the PowerPoint to HTML5 Slide View export process:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        var html5Options = new aspose.slides.Html5Options();
-        html5Options.setAnimateShapes(true);
-        html5Options.setAnimateTransitions(true);
-        pres.save("HTML5-slide-view.html", aspose.slides.SaveFormat.Html5, html5Options);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var html5Options = new aspose.slides.Html5Options();
+    html5Options.setAnimateShapes(true);
+    html5Options.setAnimateTransitions(true);
+    pres.save("HTML5-slide-view.html", aspose.slides.SaveFormat.Html5, html5Options);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 

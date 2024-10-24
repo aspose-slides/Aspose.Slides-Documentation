@@ -21,44 +21,44 @@ To add a section that will house slides in a presentation, Aspose.Slides for Nod
 This sample code shows you to create a section in a presentation in Java:
 
 ```javascript
-    var pres = new aspose.slides.Presentation();
-    try {
-        var defaultSlide = pres.getSlides().get_Item(0);
-        var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-        var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-        var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-        var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-        var section1 = pres.getSections().addSection("Section 1", newSlide1);
-        var section2 = pres.getSections().addSection("Section 2", newSlide3);// section1 will be ended at newSlide2 and after it section2 will start
-        pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-        pres.getSections().reorderSectionWithSlides(section2, 0);
-        pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-        pres.getSections().removeSectionWithSlides(section2);
-        pres.getSections().appendEmptySection("Last empty section");
-        pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation();
+try {
+    var defaultSlide = pres.getSlides().get_Item(0);
+    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    var section1 = pres.getSections().addSection("Section 1", newSlide1);
+    var section2 = pres.getSections().addSection("Section 2", newSlide3);// section1 will be ended at newSlide2 and after it section2 will start
+    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.getSections().reorderSectionWithSlides(section2, 0);
+    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.getSections().removeSectionWithSlides(section2);
+    pres.getSections().appendEmptySection("Last empty section");
+    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## Changing the Names of Sections
 
 After you create a section in a PowerPoint presentation, you may decide to change its name. 
 
-This sample code shows you how to change the name of a section in a presentation in Java using Aspose.Slides:
+This sample code shows you how to change the name of a section in a presentation in Javascript using Aspose.Slides:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        var section = pres.getSections().get_Item(0);
-        section.setName("My section");
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    var section = pres.getSections().get_Item(0);
+    section.setName("My section");
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 

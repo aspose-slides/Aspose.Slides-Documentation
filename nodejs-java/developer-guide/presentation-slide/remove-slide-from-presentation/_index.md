@@ -20,18 +20,18 @@ If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides
 This Javascript code shows you how to remove a slide through its reference:
 
 ```javascript
-    // Instantiate a Presentation object that represents a presentation file
-    var pres = new aspose.slides.Presentation("demo.pptx");
-    try {
-        // Accesses a slide through its index in the slides collection
-        var slide = pres.getSlides().get_Item(0);
-        // Removes a slide through its reference
-        pres.getSlides().remove(slide);
-        // Saves the modified presentation
-        pres.save("modified.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+// Instantiate a Presentation object that represents a presentation file
+var pres = new aspose.slides.Presentation("demo.pptx");
+try {
+    // Accesses a slide through its index in the slides collection
+    var slide = pres.getSlides().get_Item(0);
+    // Removes a slide through its reference
+    pres.getSlides().remove(slide);
+    // Saves the modified presentation
+    pres.save("modified.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 
@@ -44,16 +44,16 @@ This Javascript code shows you how to remove a slide through its reference:
 This Javascript code shows you how to remove a slide through its index:
 
 ```javascript
-    // Instantiates a Presentation object that represents a presentation file
-    var pres = new aspose.slides.Presentation("demo.pptx");
-    try {
-        // Removes a slide through its slide index
-        pres.getSlides().removeAt(0);
-        // Saves the modified presentation
-        pres.save("modified.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+// Instantiates a Presentation object that represents a presentation file
+var pres = new aspose.slides.Presentation("demo.pptx");
+try {
+    // Removes a slide through its slide index
+    pres.getSlides().removeAt(0);
+    // Saves the modified presentation
+    pres.save("modified.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 ## **Remove Unused Layout Slide**
@@ -61,15 +61,15 @@ This Javascript code shows you how to remove a slide through its index:
 Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused layout slides. This Javascript code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        aspose.slides.Compress.removeUnusedLayoutSlides(pres);
-        pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    aspose.slides.Compress.removeUnusedLayoutSlides(pres);
+    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Remove Unused Master Slide**
@@ -77,14 +77,14 @@ Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.c
 Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Javascript code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```javascript
-    var pres = new aspose.slides.Presentation("pres.pptx");
-    try {
-        aspose.slides.Compress.removeUnusedMasterSlides(pres);
-        pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+var pres = new aspose.slides.Presentation("pres.pptx");
+try {
+    aspose.slides.Compress.removeUnusedMasterSlides(pres);
+    pres.save("pres-out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 

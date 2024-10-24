@@ -53,30 +53,29 @@ var pres = new aspose.slides.Presentation("pptxFileName.pptx");
 try {
     var stream = java.newInstanceSync("java.io.FileOutputStream", "Aspose_out.svg");
     try {
-        var svgOptions = new aspose.slides.SVGOptions();
-        svgOptions.setShapeFormattingController(java.newInstanceSync("CustomSvgShapeFormattingController"));
+        let svgOptions = new aspose.slides.SVGOptions();
+        let customController = new CustomSvgShapeFormattingController(0);
+        svgOptions.setShapeFormattingController(customController);
         pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
     } finally {
         if (stream != null) {
             stream.close();
         }
     }
-} catch (e) {console.log(e);
+} catch (e) {
+    console.log(e);
 } finally {
     pres.dispose();
 }
 ```
 ```javascript
-class CustomSvgShapeFormattingController implements aspose.slides.ISvgShapeFormattingController {
-    private var m_shapeIndex;
-    public CustomSvgShapeFormattingController() {
-        m_shapeIndex = 0;
+class CustomSvgShapeFormattingController {
+    constructor(shapeStartIndex = 0) {
+        this.m_shapeIndex = shapeStartIndex;
     }
-    public CustomSvgShapeFormattingController(int shapeStartIndex) {
-        m_shapeIndex = shapeStartIndex;
-    }
-    public void formatShape(aspose.slides.ISvgShape svgShape, aspose.slides.IShape shape) {
-        svgShape.setId(java.callStaticMethodSync("java.lang.String", "format", "shape-%d", m_shapeIndex++));
+
+    formatShape(svgShape, shape) {
+        svgShape.setId(`shape-${this.m_shapeIndex++}`);
     }
 }
 ```

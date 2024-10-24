@@ -15,23 +15,23 @@ Aspose.Slides for Node.js via Java now supports second plot options for Pie of P
 In the example given below, we have set different properties of Pie of Pie chart.
 
 ```javascript
-    // Create an instance of Presentation class
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Add chart on slide
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
-        // Set different properties
-        chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-        chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
-        chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
-        chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
-        // Write presentation to disk
-        pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Create an instance of Presentation class
+var pres = new aspose.slides.Presentation();
+try {
+    // Add chart on slide
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.PieOfPie, 50, 50, 500, 400);
+    // Set different properties
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setSecondPieSize(149);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitBy(aspose.slides.PieSplitType.ByPercentage);
+    chart.getChartData().getSeries().get_Item(0).getParentSeriesGroup().setPieSplitPosition(53);
+    // Write presentation to disk
+    pres.save("SecondPlotOptionsforCharts_out.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Set Automatic Pie Chart Slice Colors**
@@ -51,40 +51,40 @@ Aspose.Slides for Node.js via Java provides a simple API for setting automatic p
 Write the modified presentation to a PPTX file.
 
 ```javascript
-    // Create an instance of Presentation class
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Add chart with default data
-        var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
-        // Setting chart Title
-        chart.getChartTitle().addTextFrameForOverriding("Sample Title");
-        chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
-        chart.getChartTitle().setHeight(20);
-        chart.setTitle(true);
-        // Set first series to Show Values
-        chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-        // Setting the index of chart data sheet
-        var defaultWorksheetIndex = 0;
-        // Getting the chart data worksheet
-        var fact = chart.getChartData().getChartDataWorkbook();
-        // Delete default generated series and categories
-        chart.getChartData().getSeries().clear();
-        chart.getChartData().getCategories().clear();
-        // Adding new categories
-        chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
-        chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
-        chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
-        // Adding new series
-        var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
-        // Now populating series data
-        series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-        series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-        series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-        series.getParentSeriesGroup().setColorVaried(true);
-        pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Create an instance of Presentation class
+var pres = new aspose.slides.Presentation();
+try {
+    // Add chart with default data
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 100, 100, 400, 400);
+    // Setting chart Title
+    chart.getChartTitle().addTextFrameForOverriding("Sample Title");
+    chart.getChartTitle().getTextFrameForOverriding().getTextFrameFormat().setCenterText(aspose.slides.NullableBool.True);
+    chart.getChartTitle().setHeight(20);
+    chart.setTitle(true);
+    // Set first series to Show Values
+    chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
+    // Setting the index of chart data sheet
+    var defaultWorksheetIndex = 0;
+    // Getting the chart data worksheet
+    var fact = chart.getChartData().getChartDataWorkbook();
+    // Delete default generated series and categories
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    // Adding new categories
+    chart.getChartData().getCategories().add(fact.getCell(0, 1, 0, "First Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 2, 0, "2nd Qtr"));
+    chart.getChartData().getCategories().add(fact.getCell(0, 3, 0, "3rd Qtr"));
+    // Adding new series
+    var series = chart.getChartData().getSeries().add(fact.getCell(0, 0, 1, "Series 1"), chart.getType());
+    // Now populating series data
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
+    series.getDataPoints().addDataPointForPieSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
+    series.getParentSeriesGroup().setColorVaried(true);
+    pres.save("Pie.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```

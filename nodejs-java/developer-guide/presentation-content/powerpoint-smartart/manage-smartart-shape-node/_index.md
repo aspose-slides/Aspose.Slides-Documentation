@@ -4,7 +4,7 @@ linktitle: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /nodejs-java/manage-smartart-shape-node/
-keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint java api
+keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint Javascript api
 description: Manage smart art node and child node in PowerPoint Presentations in Java
 ---
 
@@ -20,32 +20,32 @@ Aspose.Slides for Node.js via Java has provided the simplest API to manage the S
 1. Save the Presentation.
 
 ```javascript
-    // Load the desired the presentation
-    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
-    try {
-        // Traverse through every shape inside first slide
-        pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
-                // Typecast shape to SmartArt
-                var smart = shape;
-                // Adding a new SmartArt Node
-                var TemNode = smart.getAllNodes().addNode();
-                // Adding text
-                TemNode.getTextFrame().setText("Test");
-                // Adding new child node in parent node. It will be added in the end of collection
-                var newNode = TemNode.getChildNodes().addNode();
-                // Adding text
-                newNode.getTextFrame().setText("New Node Added");
-            }
-        });
-        // Saving Presentation
-        pres.save("AddSmartArtNode.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
+// Load the desired the presentation
+var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
+try {
+    // Traverse through every shape inside first slide
+    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
+            // Typecast shape to SmartArt
+            var smart = shape;
+            // Adding a new SmartArt Node
+            var TemNode = smart.getAllNodes().addNode();
+            // Adding text
+            TemNode.getTextFrame().setText("Test");
+            // Adding new child node in parent node. It will be added in the end of collection
+            var newNode = TemNode.getChildNodes().addNode();
+            // Adding text
+            newNode.getTextFrame().setText("New Node Added");
         }
+    });
+    // Saving Presentation
+    pres.save("AddSmartArtNode.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Add SmartArt Node at Specific Position**
@@ -59,26 +59,26 @@ In the following sample code we have explained how to add the child nodes belong
 1. Save the Presentation
 
 ```javascript
-    // Creating a presentation instance
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Access the presentation slide
-        var slide = pres.getSlides().get_Item(0);
-        // Add Smart Art IShape
-        var smart = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.StackedList);
-        // Accessing the SmartArt node at index 0
-        var node = smart.getAllNodes().get_Item(0);
-        // Adding new child node at position 2 in parent node
-        var chNode = node.getChildNodes().addNodeByPosition(2);
-        // Add Text
-        chNode.getTextFrame().setText("Sample Text Added");
-        // Save Presentation
-        pres.save("AddSmartArtNodeByPosition.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Creating a presentation instance
+var pres = new aspose.slides.Presentation();
+try {
+    // Access the presentation slide
+    var slide = pres.getSlides().get_Item(0);
+    // Add Smart Art IShape
+    var smart = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.StackedList);
+    // Accessing the SmartArt node at index 0
+    var node = smart.getAllNodes().get_Item(0);
+    // Adding new child node at position 2 in parent node
+    var chNode = node.getChildNodes().addNodeByPosition(2);
+    // Add Text
+    chNode.getTextFrame().setText("Sample Text Added");
+    // Save Presentation
+    pres.save("AddSmartArtNodeByPosition.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Access SmartArt Node in PowerPoint Presentation using Java**
@@ -92,31 +92,31 @@ The following sample code will help to access nodes inside SmartArt shape. Pleas
 1. Access and display information like SmartArt Node position, level and Text.
 
 ```javascript
-    // Instantiate Presentation Class
-    var pres = new aspose.slides.Presentation("SmartArtShape.pptx");
-    try {
-        // Get first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Traverse through every shape inside first slide
-        slide.getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArt
-                var smart = shape;
-                // Traverse through all nodes inside SmartArt
-                for (var i = 0; i < smart.getAllNodes().size(); i++) {
-                    // Accessing SmartArt node at index i
-                    var node = smart.getAllNodes().get_Item(i);
-                    // Printing the SmartArt node parameters
-                    console.log((((node.getTextFrame().getText() + " ") + node.getLevel()) + " ") + node.getPosition());
-                }
+// Instantiate Presentation Class
+var pres = new aspose.slides.Presentation("SmartArtShape.pptx");
+try {
+    // Get first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Traverse through every shape inside first slide
+    slide.getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArt
+            var smart = shape;
+            // Traverse through all nodes inside SmartArt
+            for (var i = 0; i < smart.getAllNodes().size(); i++) {
+                // Accessing SmartArt node at index i
+                var node = smart.getAllNodes().get_Item(i);
+                // Printing the SmartArt node parameters
+                console.log(node.getTextFrame().getText() + " " + node.getLevel() + " " + node.getPosition());
             }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 
@@ -132,36 +132,36 @@ The following sample code will help to access the child nodes belonging to respe
 1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getChildNodes--) position, level and Text.
 
 ```javascript
-    // Instantiate Presentation Class
-    var pres = new aspose.slides.Presentation("AccessChildNodes.pptx");
-    try {
-        // Get first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Traverse through every shape inside first slide
-        slide.getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArt
-                var smart = shape;
-                // Traverse through all nodes inside SmartArt
-                for (var i = 0; i < smart.getAllNodes().size(); i++) {
-                    // Accessing SmartArt node at index i
-                    var node0 = smart.getAllNodes().get_Item(i);
-                    // Traversing through the child nodes in SmartArt node at index i
-                    for (var j = 0; j < node0.getChildNodes().size(); j++) {
-                        // Accessing the child node in SmartArt node
-                        var node = node0.getChildNodes().get_Item(j);
-                        // Printing the SmartArt child node parameters
-                        console.log((((((("j = " + j) + ", Text = ") + node.getTextFrame().getText()) + ",  Level = ") + node.getLevel()) + ", Position = ") + node.getPosition());
-                    }
+// Instantiate Presentation Class
+var pres = new aspose.slides.Presentation("AccessChildNodes.pptx");
+try {
+    // Get first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Traverse through every shape inside first slide
+    slide.getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArt
+            var smart = shape;
+            // Traverse through all nodes inside SmartArt
+            for (var i = 0; i < smart.getAllNodes().size(); i++) {
+                // Accessing SmartArt node at index i
+                var node0 = smart.getAllNodes().get_Item(i);
+                // Traversing through the child nodes in SmartArt node at index i
+                for (var j = 0; j < node0.getChildNodes().size(); j++) {
+                    // Accessing the child node in SmartArt node
+                    var node = node0.getChildNodes().get_Item(j);
+                    // Printing the SmartArt child node parameters
+                    console.log("j = " + j + ", Text = " + node.getTextFrame().getText() + ",  Level = " + node.getLevel() + ", Position = " + node.getPosition());
                 }
             }
-        });
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Access SmartArt Child Node at Specific Position**
@@ -176,25 +176,25 @@ In this example, we will learn to access the child nodes at some particular posi
 1. Access and display information like [**Child Node**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtNode#getChildNodes--) position, level and Text.
 
 ```javascript
-    // Instantiate the presentation
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accessing the first slide
-        var slide = pres.getSlides().get_Item(0);
-        // Adding the SmartArt shape in first slide
-        var smart = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.StackedList);
-        // Accessing the SmartArt node at index 0
-        var node = smart.getAllNodes().get_Item(0);
-        // Accessing the child node at position 1 in parent node
-        var position = 1;
-        var chNode = node.getChildNodes().get_Item(position);
-        // Printing the SmartArt child node parameters
-        console.log((((("Text = " + chNode.getTextFrame().getText()) + ",  Level = ") + chNode.getLevel()) + ", Position = ") + chNode.getPosition());
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate the presentation
+var pres = new aspose.slides.Presentation();
+try {
+    // Accessing the first slide
+    var slide = pres.getSlides().get_Item(0);
+    // Adding the SmartArt shape in first slide
+    var smart = slide.getShapes().addSmartArt(0, 0, 400, 400, aspose.slides.SmartArtLayoutType.StackedList);
+    // Accessing the SmartArt node at index 0
+    var node = smart.getAllNodes().get_Item(0);
+    // Accessing the child node at position 1 in parent node
+    var position = 1;
+    var chNode = node.getChildNodes().get_Item(position);
+    // Printing the SmartArt child node parameters
+    console.log("Text = " + chNode.getTextFrame().getText() + ",  Level = " + chNode.getLevel() + ", Position = " + chNode.getPosition());
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Remove SmartArt Node in PowerPoint Presentation using Java**
@@ -210,30 +210,30 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 1. Save the Presentation.
 
 ```javascript
-    // Load the desired the presentation
-    var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
-    try {
-        // Traverse through every shape inside first slide
-        pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArt
-                var smart = shape;
-                if (smart.getAllNodes().size() > 0) {
-                    // Accessing SmartArt node at index 0
-                    var node = smart.getAllNodes().get_Item(0);
-                    // Removing the selected node
-                    smart.getAllNodes().removeNode(node);
-                }
+// Load the desired the presentation
+var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
+try {
+    // Traverse through every shape inside first slide
+    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArt
+            var smart = shape;
+            if (smart.getAllNodes().size() > 0) {
+                // Accessing SmartArt node at index 0
+                var node = smart.getAllNodes().get_Item(0);
+                // Removing the selected node
+                smart.getAllNodes().removeNode(node);
             }
-        });
-        // Save Presentation
-        pres.save("RemoveSmartArtNode.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+    // Save Presentation
+    pres.save("RemoveSmartArtNode.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Remove SmartArt Node at Specific Position**
@@ -249,63 +249,63 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 1. Save the Presentation.
 
 ```javascript
-    // Load the desired the presentation
-    var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
-    try {
-        // Traverse through every shape inside first slide
-        pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
-                // Typecast shape to SmartArt
-                var smart = shape;
-                if (smart.getAllNodes().size() > 0) {
-                    // Accessing SmartArt node at index 0
-                    var node = smart.getAllNodes().get_Item(0);
-                    if (node.getChildNodes().size() >= 2) {
-                        // Removing the child node at position 1
-                        node.getChildNodes().removeNode(1);
-                    }
+// Load the desired the presentation
+var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
+try {
+    // Traverse through every shape inside first slide
+    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
+            // Typecast shape to SmartArt
+            var smart = shape;
+            if (smart.getAllNodes().size() > 0) {
+                // Accessing SmartArt node at index 0
+                var node = smart.getAllNodes().get_Item(0);
+                if (node.getChildNodes().size() >= 2) {
+                    // Removing the child node at position 1
+                    node.getChildNodes().removeNode(1);
                 }
             }
-        });
-        // Save Presentation
-        pres.save("RemoveSmartArtNodeByPosition.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+    // Save Presentation
+    pres.save("RemoveSmartArtNodeByPosition.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Set Custom Position for Child Node in SmartArt**
 Now Aspose.Slides for Node.js via Java support for setting [SmartArtShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SmartArtShape) [X](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setX-float-) and [Y](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setY-float-) properties. The code snippet below shows how to set custom SmartArtShape position, size and rotation also please note that adding new nodes causes a recalculation of the positions and sizes of all nodes. Also with custom position settings, user may set the nodes as per requirements.
 
 ```javascript
-    // Instantiate Presentation Class
-    var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
-    try {
-        var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, aspose.slides.SmartArtLayoutType.OrganizationChart);
-        // Move SmartArt shape to new position
-        var node = smart.getAllNodes().get_Item(1);
-        var shape = node.getShapes().get_Item(1);
-        shape.setX(shape.getX() + (shape.getWidth() * 2));
-        shape.setY(shape.getY() - (shape.getHeight() * 2));
-        // Change SmartArt shape's widths
-        node = smart.getAllNodes().get_Item(2);
-        shape = node.getShapes().get_Item(1);
-        shape.setWidth(shape.getWidth() + (shape.getWidth() * 2));
-        // Change SmartArt shape's height
-        node = smart.getAllNodes().get_Item(3);
-        shape = node.getShapes().get_Item(1);
-        shape.setHeight(shape.getHeight() + (shape.getHeight() * 2));
-        // Change SmartArt shape's rotation
-        node = smart.getAllNodes().get_Item(4);
-        shape = node.getShapes().get_Item(1);
-        shape.setRotation(90);
-        pres.save("SmartArt.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        pres.dispose();
-    }
+// Instantiate Presentation Class
+var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
+try {
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(20, 20, 600, 500, aspose.slides.SmartArtLayoutType.OrganizationChart);
+    // Move SmartArt shape to new position
+    var node = smart.getAllNodes().get_Item(1);
+    var shape = node.getShapes().get_Item(1);
+    shape.setX(shape.getX() + (shape.getWidth() * 2));
+    shape.setY(shape.getY() - (shape.getHeight() * 2));
+    // Change SmartArt shape's widths
+    node = smart.getAllNodes().get_Item(2);
+    shape = node.getShapes().get_Item(1);
+    shape.setWidth(shape.getWidth() + (shape.getWidth() * 2));
+    // Change SmartArt shape's height
+    node = smart.getAllNodes().get_Item(3);
+    shape = node.getShapes().get_Item(1);
+    shape.setHeight(shape.getHeight() + (shape.getHeight() * 2));
+    // Change SmartArt shape's rotation
+    node = smart.getAllNodes().get_Item(4);
+    shape = node.getShapes().get_Item(1);
+    shape.setRotation(90);
+    pres.save("SmartArt.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
 ```
 
 ## **Check Assistant Node**
@@ -332,33 +332,33 @@ In the following sample code we will investigate how to identify **Assistant Nod
 1. Save the Presentation.
 
 ```javascript
-    // Creating a presentation instance
-    var pres = new aspose.slides.Presentation("AddNodes.pptx");
-    try {
-        // Traverse through every shape inside first slide
-        pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
-            // Check if shape is of SmartArt type
-            if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
-                // Typecast shape to SmartArt
-                var smart = shape;
-                // Traversing through all nodes of SmartArt shape
-                for (var i = 0; i < smart.getAllNodes().size(); i++) {
-                    var node = smart.getAllNodes().get_Item(i);
-                    // Check if node is Assistant node
-                    if (node.isAssistant()) {
-                        // Setting Assistant node to false and making it normal node
-                        node.isAssistant();
-                    }
+// Creating a presentation instance
+var pres = new aspose.slides.Presentation("AddNodes.pptx");
+try {
+    // Traverse through every shape inside first slide
+    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+        // Check if shape is of SmartArt type
+        if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
+            // Typecast shape to SmartArt
+            var smart = shape;
+            // Traversing through all nodes of SmartArt shape
+            for (var i = 0; i < smart.getAllNodes().size(); i++) {
+                var node = smart.getAllNodes().get_Item(i);
+                // Check if node is Assistant node
+                if (node.isAssistant()) {
+                    // Setting Assistant node to false and making it normal node
+                    node.isAssistant();
                 }
             }
-        });
-        // Save Presentation
-        pres.save("ChangeAssitantNode.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
         }
+    });
+    // Save Presentation
+    pres.save("ChangeAssitantNode.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 |![todo:image_alt_text](https://i.imgur.com/qpAl4rN.png)|
@@ -377,27 +377,27 @@ Please follow the steps below:
 1. Write the modified presentation as a PPTX file.
 
 ```javascript
-    // Instantiate the presentation
-    var pres = new aspose.slides.Presentation();
-    try {
-        // Accessing the slide
-        var slide = pres.getSlides().get_Item(0);
-        // Adding SmartArt shape and nodes
-        var chevron = slide.getShapes().addSmartArt(10, 10, 800, 60, aspose.slides.SmartArtLayoutType.ClosedChevronProcess);
-        var node = chevron.getAllNodes().addNode();
-        node.getTextFrame().setText("Some text");
-        // Setting node fill color
-        node.getShapes().forEach(function(item) {
-            item.getFillFormat().setFillType(aspose.slides.FillType.Solid);
-            item.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-        });
-        // Save the presentation
-        pres.save("TestSmart.pptx", aspose.slides.SaveFormat.Pptx);
-    } finally {
-        if (pres != null) {
-            pres.dispose();
-        }
+// Instantiate the presentation
+var pres = new aspose.slides.Presentation();
+try {
+    // Accessing the slide
+    var slide = pres.getSlides().get_Item(0);
+    // Adding SmartArt shape and nodes
+    var chevron = slide.getShapes().addSmartArt(10, 10, 800, 60, aspose.slides.SmartArtLayoutType.ClosedChevronProcess);
+    var node = chevron.getAllNodes().addNode();
+    node.getTextFrame().setText("Some text");
+    // Setting node fill color
+    node.getShapes().forEach(function(item) {
+        item.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+        item.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    });
+    // Save the presentation
+    pres.save("TestSmart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) {
+        pres.dispose();
     }
+}
 ```
 
 ## **Generate Thumbnail of SmartArt Child Node**
@@ -410,28 +410,28 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 1. Save the thumbnail image in any desired image format.
 
 ```javascript
-    // Instantiate Presentation class that represents the PPTX file
-    var pres = new aspose.slides.Presentation();
+// Instantiate Presentation class that represents the PPTX file
+var pres = new aspose.slides.Presentation();
+try {
+    // Add SmartArt
+    var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicCycle);
+    // Obtain the reference of a node by using its Index
+    var node = smart.getNodes().get_Item(1);
+    // Get thumbnail
+    var slideImage = node.getShapes().get_Item(0).getImage();
+    // Save thumbnail
     try {
-        // Add SmartArt
-        var smart = pres.getSlides().get_Item(0).getShapes().addSmartArt(10, 10, 400, 300, aspose.slides.SmartArtLayoutType.BasicCycle);
-        // Obtain the reference of a node by using its Index
-        var node = smart.getNodes().get_Item(1);
-        // Get thumbnail
-        var slideImage = node.getShapes().get_Item(0).getImage();
-        // Save thumbnail
-        try {
-            slideImage.save("SmartArt_ChildNote_Thumbnail.png", aspose.slides.ImageFormat.Png);
-        } finally {
-            if (slideImage != null) {
-                slideImage.dispose();
-            }
-        }
+        slideImage.save("SmartArt_ChildNote_Thumbnail.png", aspose.slides.ImageFormat.Png);
     } finally {
-        if (pres != null) {
-            pres.dispose();
+        if (slideImage != null) {
+            slideImage.dispose();
         }
     }
+} finally {
+    if (pres != null) {
+        pres.dispose();
+    }
+}
 ```
 
 
