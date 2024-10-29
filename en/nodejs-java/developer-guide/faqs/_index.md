@@ -3,6 +3,19 @@ title: FAQs
 type: docs
 weight: 340
 url: /nodejs-java/faqs/
+- FAQ
+- PowerPoint
+- presentation format
+- out of memory error
+- slide size
+- extract text
+- retrieve text
+- paragraph size
+- formatting tables
+- font
+- Node
+- Javascript
+- Aspose.Slides for Node.js via Java
 ---
 
 ## **Supported File Formats**
@@ -33,11 +46,15 @@ In general, Aspose.Slides for Node.js via Java can easily handle presentation fi
 
 **A**: You can render the presentation slides to images and can use these images for previewing the slides.
 
-## **Working with Presentations**
+## **Working with Text**
 
 **Q: Is it possible to retrieve all the text from a presentation?**
 
 **A**: Aspose.Slides for Node.js via Java provides the [SlideUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideutil/) class that provides various methods for retrieving whole text from the presentations.
+
+**Q: Why are paragraph sizes different on Windows and Linux operating systems?**
+
+**A**: The calculation of paragraph sizes is based on the calculation of the text size representing the given paragraph. The text size calculation is based on the metrics of the font specified in the PowerPoint presentation. If the specified font is missing, it is replaced with the most similar font, but this font has metrics different from the original ones. As a result, the calculation of paragraph sizes in different systems will lead to different results depending on the set of installed fonts. To achieve the same result on different operating systems, you need to install the same fonts on the systems or load them at runtime as [external fonts](/slides/nodejs-java/custom-font/).
 
 ## **Formatting and Images**
 

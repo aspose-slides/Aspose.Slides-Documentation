@@ -3,7 +3,21 @@ title: Examine Presentation
 type: docs
 weight: 30
 url: /nodejs-java/examine-presentation/
-
+keywords:
+- PowerPoint
+- presentation
+- presentation format
+- presentation properties
+- document properties
+- get properties
+- read properties
+- change properties
+- modify properties
+- PPTX
+- PPT
+- Javascript
+- Node
+description: "Read and modify PowerPoint presentation properties in Node"
 ---
 
 Aspose.Slides for Node.js via Java allows you to examine a presentation to find out its properties and understand its behavior.
@@ -29,9 +43,9 @@ var info3 = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(
 console.log(info3.getLoadFormat());// ODP
 ```
 
-## **Get a Presentation Properties**
+## **Get Presentation Properties**
 
-This Javascript code shows you how to get a presentation’s properties (information about the presentation):
+his Javascript code shows you how to get presentation properties (information about the presentation):
 
 ```javascript
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
@@ -44,18 +58,32 @@ console.log(props.getTitle());
 
 You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/documentproperties/#DocumentProperties--) class.
 
-## **Update a Presentation Properties**
+## **Update Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) method that allows you to make changes to presentation properties.
 
-This Javascript code shows you how to edit a presentation's properties:
+Let's say we have a PowerPoint presentation with the document properties shown below.
+
+![Original document properties of the PowerPoint presentation](input_properties.png)
+
+This code example shows you how to edit some presentation properties:
 
 ```javascript
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
-var props = info.readDocumentProperties();
-props.setTitle("My title");
-info.updateDocumentProperties(props);
+let fileName = "sample.pptx";
+
+let info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(fileName);
+
+let properties = info.readDocumentProperties();
+properties.setTitle("My title");
+properties.setLastSavedTime(java.newInstanceSync("java.util.Date"));
+
+info.updateDocumentProperties(properties);
+info.writeBindedPresentation(fileName);
 ```
+
+The results of changing the document properties are shown below.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
 
 ### **Useful Links**
 
