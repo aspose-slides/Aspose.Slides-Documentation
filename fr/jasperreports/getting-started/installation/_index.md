@@ -1,0 +1,6 @@
+---
+title: Installation
+type: docs
+weight: 40
+url: /fr/jasperreports/installation/
+---

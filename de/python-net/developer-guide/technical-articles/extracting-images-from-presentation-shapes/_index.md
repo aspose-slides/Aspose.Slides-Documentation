@@ -1,0 +1,81 @@
+---
+title: Extrahieren von Bildern aus Präsentationsformen
+type: docs
+weight: 90
+url: /de/python-net/extracting-images-from-presentation-shapes/
+keywords: "Bild extrahieren, PowerPoint, PPT, PPTX, PowerPoint-Präsentation, Python, Aspose.Slides für Python"
+description: "Bilder aus PowerPoint-Präsentationen in Python extrahieren"
+---
+
+{{% alert color="primary" %}} 
+
+Bilder werden häufig zu Formen hinzugefügt und auch oft als Hintergründe von Folien verwendet. Die Bildobjekte werden durch [IImageCollection](https://reference.aspose.com/slides/python-net/aspose.slides/iimagecollection/), die eine Sammlung von [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) Objekten ist, hinzugefügt. 
+
+Dieser Artikel erklärt, wie Sie die Bilder, die zu Präsentationen hinzugefügt wurden, extrahieren können. 
+
+{{% /alert %}} 
+
+Um ein Bild aus einer Präsentation zu extrahieren, müssen Sie das Bild zunächst finden, indem Sie jede Folie und dann jede Form durchgehen. Sobald das Bild gefunden oder identifiziert ist, können Sie es extrahieren und als neue Datei speichern. XXX 
+
+```py
+import aspose.slides as slides
+
+def get_image_format(image_type):
+    return {
+        "jpeg": slides.ImageFormat.JPEG,
+        "emf": slides.ImageFormat.EMF,
+        "bmp": slides.ImageFormat.BMP,
+        "png": slides.ImageFormat.PNG,
+        "wmf": slides.ImageFormat.WMF,
+        "gif": slides.ImageFormat.GIF,
+    }.get(image_type, slides.ImageFormat.JPEG)
+
+with slides.Presentation("pres.pptx") as pres:
+    #Zugriff auf die Präsentation
+    
+    slideIndex = 0
+    image_type = ""
+    ifImageFound = False
+    for slide in pres.slides:
+        slideIndex += 1
+        #Zugriff auf die erste Folie
+        image_format = slides.ImageFormat.JPEG
+
+        back_image = None
+        file_name = "BackImage_Slide_{0}{1}.{2}"
+        is_layout = False
+
+        if slide.background.fill_format.fill_type == slides.FillType.PICTURE:
+            #Hintergrundbild abrufen  
+            back_image = slide.background.fill_format.picture_fill_format.picture.image
+        elif slide.layout_slide.background.fill_format.fill_type == slides.FillType.PICTURE:
+            #Hintergrundbild abrufen  
+            back_image = slide.layout_slide.background.fill_format.picture_fill_format.picture.image
+            is_layout = True
+
+        if back_image is not None:
+            #Festlegen des gewünschten Bildformats 
+            image_type = back_image.content_type.split("/")[1]
+            image_format = get_image_format(image_type)
+
+            back_image.image.save(
+                file_name.format("LayoutSlide_" if is_layout else "", slideIndex, image_type), 
+                image_format)
+
+        for i in range(len(slide.shapes)):
+            shape = slide.shapes[i]
+            shape_image = None
+
+            if type(shape) is slides.AutoShape and shape.fill_format.fill_type == slides.FillType.PICTURE:
+                shape_image = shape.fill_format.picture_fill_format.picture.image
+            elif type(shape) is slides.PictureFrame:
+                shape_image = shape.picture_format.picture.image
+
+            if shape_image is not None:
+                image_type = shape_image.content_type.split("/")[1]
+                image_format = get_image_format(image_type)
+
+                shape_image.image.save(
+                                file_name.format("shape_"+str(i)+"_", slideIndex, image_type), 
+                                image_format)
+```
