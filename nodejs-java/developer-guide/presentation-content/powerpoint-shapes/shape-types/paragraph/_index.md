@@ -12,11 +12,13 @@ Using Aspose.Slides for Node.js via Java, developers can now get the rectangular
 ```javascript
 var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
 var textFrame = shape.getTextFrame();
-textFrame.getParagraphs().forEach(function(paragraph) {
-    paragraph.getPortions().forEach(function(portion) {
+for (let i = 0; i < textFrame.getParagraphs().getCount(); i++) {
+    const paragraph = textFrame.getParagraphs().get_Item(i);
+    for (let j = 0; j < paragraph.getPortions().getCount(); j++) {
+        const portion = paragraph.getPortions().get_Item(j);
         var point = portion.getCoordinates();
-    });
-});
+    }
+}
 ```
 
 
@@ -29,7 +31,7 @@ try {
     var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     var textFrame = shape.getTextFrame();
     var rect = textFrame.getParagraphs().get_Item(0).getRect();
-    console.log((((((("X: " + rect.x) + " Y: ") + rect.y) + " Width: ") + rect.width) + " Height: ") + rect.height);
+    console.log("X: " + rect.x + " Y: " + rect.y + " Width: " + rect.width + " Height: " + rect.height);
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -44,29 +46,33 @@ To get the [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slid
 This sample code demonstrates the described operation:
 
 ```javascript
-var pres = new aspose.slides.Presentation("source.pptx");
+var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var tbl = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     var cell = tbl.getRows().get_Item(1).get_Item(1);
     var x = tbl.getX() + tbl.getRows().get_Item(1).get_Item(1).getOffsetX();
     var y = tbl.getY() + tbl.getRows().get_Item(1).get_Item(1).getOffsetY();
-    cell.getTextFrame().getParagraphs().forEach(function(para) {
-        if (para.getText().equals("")) {
+    
+    for (let i = 0; i < cell.getTextFrame().getParagraphs().getCount(); i++) {
+        const para = cell.getTextFrame().getParagraphs().get_Item(i);
+        if (para.getText() === "") {
             continue;
         }
         var rect = para.getRect();
-        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, rect.getX() + x, rect.getY() + y, rect.getWidth(), rect.getHeight());
-        shape.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+        var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, java.newFloat(rect.getX() + x), java.newFloat(rect.getY() + y), java.newFloat(rect.getWidth()), java.newFloat(rect.getHeight()));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
         shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-        shape.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-        para.getPortions().forEach(function(portion) {
-            if (portion.getText().contains("0")) {
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        for (let j = 0; j < para.getPortions().getCount(); j++) {
+            const portion = para.getPortions().get_Item(j);
+            if (portion.getText().includes("0")) {
                 rect = portion.getRect();
-                shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, rect.getX() + x, rect.getY() + y, rect.getWidth(), rect.getHeight());
-                shape.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+                shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, java.newFloat(rect.getX() + x), java.newFloat(rect.getY() + y), java.newFloat(rect.getWidth()), java.newFloat(rect.getHeight()));
+                shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
             }
-        });
-    });
+        }
+    }
+    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();

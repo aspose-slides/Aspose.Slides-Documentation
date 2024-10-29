@@ -69,9 +69,9 @@ try {
     port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     // Set font color
-    port1.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port1.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    port2.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port2.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // Save the PPTX to disk
     pres.save("WelcomeFont.pptx", aspose.slides.SaveFormat.Pptx);
@@ -117,7 +117,7 @@ try {
     // Add an AutoShape of Rectangle type
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
     // Remove any fill style associated with the AutoShape
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Access the TextFrame associated with the AutoShape
     var tf = ashp.getTextFrame();
     tf.setText("Aspose TextBox");
@@ -134,7 +134,7 @@ try {
     // Set the Height of the Font
     port.getPortionFormat().setFontHeight(25);
     // Set the color of the Font
-    port.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     // Save the presentation to disk
     pres.save("pptxFont.pptx", aspose.slides.SaveFormat.Pptx);

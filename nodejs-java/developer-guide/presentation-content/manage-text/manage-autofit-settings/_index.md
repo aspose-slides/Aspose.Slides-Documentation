@@ -40,7 +40,7 @@ try {
     var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
     var portion = new aspose.slides.Portion("lorem ipsum...");
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
     textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Shape);
@@ -69,7 +69,7 @@ try {
     var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
     var portion = new aspose.slides.Portion("lorem ipsum...");
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
     textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.None);
@@ -98,7 +98,7 @@ try {
     var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
     var portion = new aspose.slides.Portion("lorem ipsum...");
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
     textFrameFormat.setAutofitType(aspose.slides.TextAutofitType.Normal);
@@ -129,7 +129,7 @@ try {
     var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30, 350, 100);
     var portion = new aspose.slides.Portion("lorem ipsum...");
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().add(portion);
     var textFrameFormat = autoShape.getTextFrame().getTextFrameFormat();
     textFrameFormat.setWrapText(aspose.slides.NullableBool.True);

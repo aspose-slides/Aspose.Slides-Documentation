@@ -186,47 +186,43 @@ This Javascript code shows you how to convert a slide in a PowerPoint presentati
 ```javascript
 var pres = new aspose.slides.Presentation("Individual-Slide.pptx");
 try {
-    var htmlOptions = new aspose.slides.HtmlOptions();
+    let htmlOptions = new aspose.slides.HtmlOptions();
     htmlOptions.getNotesCommentsLayouting().setNotesPosition(aspose.slides.NotesPositions.BottomFull);
-    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(java.newInstanceSync("CustomFormattingController")));
+    
+    const CustomFormattingController = java.newProxy("com.aspose.slides.IHtmlFormattingController", {
+        writeDocumentStart: function(generator, presentation) {
+
+        },
+
+        writeDocumentEnd: function(generator, presentation) {
+
+        },
+
+        writeSlideStart: function(generator, slide) {
+            const slideIndex = generator.getSlideIndex() + 1;
+            const slideHeaderHtml = `<div class="slide" name="slide" id="slide${slideIndex}">`;
+            generator.addHtml(slideHeaderHtml);
+        },
+
+        writeSlideEnd: function(generator, slide) {
+            const slideFooterHtml = "</div>";
+            generator.addHtml(slideFooterHtml);
+        },
+
+        writeShapeStart: function(generator, shape) {
+        },
+
+        writeShapeEnd: function(generator, shape) {
+        }
+    });
+    
+    htmlOptions.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(CustomFormattingController));
     // Saving File
     for (var i = 0; i < pres.getSlides().size(); i++) {
         pres.save(("Individual Slide" + (i + 1)) + "_out.html", java.newArray("int", [i + 1]), aspose.slides.SaveFormat.Html, htmlOptions);
     }
 } finally {
     if (pres != null) pres.dispose();
-}
-```
-You will need to implement CustomFormattingController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
-```java
-public class CustomFormattingController implements IHtmlFormattingController
-{
-    @Override
-    public void writeDocumentStart(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeDocumentEnd(IHtmlGenerator generator, IPresentation presentation) { }
-
-    @Override
-    public void writeSlideStart(IHtmlGenerator generator, ISlide slide)
-	{
-        generator.addHtml(String.format(SlideHeader, generator.getSlideIndex() + 1));
-    }
-
-    @Override
-    public void writeSlideEnd(IHtmlGenerator generator, ISlide slide)
-	{
-        generator.addHtml(SlideFooter);
-        }
-
-    @Override
-    public void writeShapeStart(IHtmlGenerator generator, IShape shape) { }
-
-    @Override
-    public void writeShapeEnd(IHtmlGenerator generator, IShape shape) { }
-
-    private final String SlideHeader = "<div class=\"slide\" name=\"slide\" id=\"slide%d\">";
-    private final String SlideFooter = "</div>";
 }
 ```
 
@@ -248,7 +244,8 @@ try {
     }
 }
 ```
-You also will need to implement CustomHeaderAndFontsController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
+You will need to implement CustomHeaderAndFontsController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
+This Java code shows you how `CustomHeaderAndFontsController` is implemented:
 ```java
 public class CustomHeaderAndFontsController extends EmbedAllFontsHtmlController
 {
@@ -294,7 +291,7 @@ This Javascript code shows you how to convert a PowerPoint to HTML while linking
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     // Exclude default presentation fonts
-    var fontNameExcludeList = java.newArray("java.lang.String", [Calibri", "Arial"]));
+    var fontNameExcludeList = java.newArray("java.lang.String", ["Calibri", "Arial"]));
     var linkcont = java.newInstanceSync("LinkAllFontsHtmlController", fontNameExcludeList, "C:/Windows/Fonts/");
     var htmlOptionsEmbed = new aspose.slides.HtmlOptions();
     htmlOptionsEmbed.setHtmlFormatter(aspose.slides.HtmlFormatter.createCustomFormatter(linkcont));
@@ -306,8 +303,8 @@ try {
 }
 ```
 
-This Javascript code shows you how `LinkAllFontsHtmlController` is implemented:
-You also will need to implement LinkAllFontsHtmlController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
+You will need to implement LinkAllFontsHtmlController in Java, compile it, and add it to the module location \aspose.slides.via.java\lib\.
+This Java code shows you how `LinkAllFontsHtmlController` is implemented:
 ```java
 public class LinkAllFontsHtmlController extends EmbedAllFontsHtmlController
 {

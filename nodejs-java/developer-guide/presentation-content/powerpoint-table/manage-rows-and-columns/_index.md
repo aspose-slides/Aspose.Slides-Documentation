@@ -28,13 +28,14 @@ try {
     // Initializes the null TableEx
     var tbl = null;
     // Iterates through the shapes and sets a reference to the table
-    sld.getShapes().forEach(function(shp) {
+    for (let i = 0; i < sld.getShapes().size(); i++) {
+        let shp = sld.getShapes().get_Item(i);
         if (java.instanceOf(shp, "com.aspose.slides.ITable")) {
             tbl = shp;
             // Sets the first row of a table as its header
             tbl.setFirstRow(true);
         }
-    });
+    }
     // Saves the presentation to disk
     pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

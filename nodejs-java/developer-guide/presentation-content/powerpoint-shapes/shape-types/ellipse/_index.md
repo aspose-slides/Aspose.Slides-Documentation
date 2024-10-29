@@ -62,10 +62,10 @@ try {
     // Add AutoShape of ellipse type
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 150, 150, 50);
     // Apply some formatting to ellipse shape
-    shp.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.Chocolate));
     // Apply some formatting to the line of Ellipse
-    shp.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     shp.getLineFormat().setWidth(5);
     // Write the PPTX file to disk

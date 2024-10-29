@@ -76,7 +76,7 @@ var pres = new aspose.slides.Presentation("Fonts.pptx");
 try {
     var allFonts = pres.getFontsManager().getFonts();
     var embeddedFonts = pres.getFontsManager().getEmbeddedFonts();
-    allFonts.forEach(function(font) {
+    allFonts.forEach(font => {
         var embeddedFontsContainsFont = false;
         for (var i = 0; i < embeddedFonts.length; i++) {
             if (embeddedFonts[i].equals(font)) {

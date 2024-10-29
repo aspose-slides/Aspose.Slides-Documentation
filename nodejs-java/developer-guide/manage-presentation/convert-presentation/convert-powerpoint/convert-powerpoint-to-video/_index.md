@@ -98,7 +98,7 @@ Animations and transitions make slideshows more engaging and interesting—and t
 // Adds a new slide and animated transition
 var newSlide = presentation.getSlides().addEmptySlide(presentation.getSlides().get_Item(0).getLayoutSlide());
 newSlide.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-newSlide.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+newSlide.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 newSlide.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
 newSlide.getSlideShowTransition().setType(aspose.slides.TransitionType.Push);
 ```

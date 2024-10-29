@@ -19,15 +19,18 @@ Upon execution, the Slide method scans the entire text from the slide passed as
 // Instatiate Presentation class that represents a PPTX file
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
-    pres.getSlides().forEach(function(slide) {
+    for (var s = 0; s < pres.getSlides().size(); s++) {
+        let slide = pres.getSlides().get_Item(s);
         // Get an Array of ITextFrame objects from all slides in the PPTX
         var textFramesPPTX = aspose.slides.SlideUtil.getAllTextBoxes(slide);
         // Loop through the Array of TextFrames
         for (var i = 0; i < textFramesPPTX.length; i++) {
             // Loop through paragraphs in current ITextFrame
-            for (var para : textFramesPPTX[i].getParagraphs()) {
+            for (let j = 0; j < textFramesPPTX[i].getParagraphs().getCount(); j++) {
+                let para = textFramesPPTX[i].getParagraphs().get_Item(j);
                 // Loop through portions in the current IParagraph
-                para.getPortions().forEach(function(port) {
+                for (let k = 0; k < para.getPortions().getCount(); k++) {
+                    let port = para.getPortions().get_Item(k);
                     // Display text in the current portion
                     console.log(port.getText());
                     // Display font height of the text
@@ -62,9 +65,11 @@ try {
     // Loop through the Array of TextFrames
     for (var i = 0; i < textFramesPPTX.length; i++) {
         // Loop through paragraphs in current ITextFrame
-        for (var para : textFramesPPTX[i].getParagraphs()) {
+        for (let j = 0; j < textFramesPPTX[i].getParagraphs().getCount(); j++) {
+            let para = textFramesPPTX[i].getParagraphs().get_Item(j);
             // Loop through portions in the current IParagraph
-            para.getPortions().forEach(function(port) {
+            for (let k = 0; k < para.getPortions().getCount(); k++) {
+                let port = para.getPortions().get_Item(k);
                 // Display text in the current portion
                 console.log(port.getText());
                 // Display font height of the text
@@ -73,7 +78,7 @@ try {
                 if (port.getPortionFormat().getLatinFont() != null) {
                     console.log(port.getPortionFormat().getLatinFont().getFontName());
                 }
-            });
+            }
         }
     }
 } finally {

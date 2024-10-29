@@ -14,13 +14,17 @@ try {
     var slide = pres.getSlides().get_Item(0);
     var smartArt = slide.getShapes().get_Item(0);
     var smartArtNodes = smartArt.getAllNodes();
-    smartArtNodes.forEach(function(smartArtNode) {
-        smartArtNode.getShapes().forEach(function(nodeShape) {
+    
+    for (let i = 0; i < smartArtNodes.size(); i++) {
+        const smartArtNode = smartArtNodes.get_Item(i);
+        for (let j = 0; j < smartArtNode.getShapes().size(); j++) {
+            const nodeShape = smartArtNode.getShapes().get_Item(j);
             if (nodeShape.getTextFrame() != null) {
                 console.log(nodeShape.getTextFrame().getText());
             }
-        });
-    });
+        }
+    }
+    
 } finally {
     if (pres != null) {
         pres.dispose();

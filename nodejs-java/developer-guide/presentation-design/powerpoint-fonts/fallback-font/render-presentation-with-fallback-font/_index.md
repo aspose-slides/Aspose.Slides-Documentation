@@ -17,14 +17,15 @@ The following example includes these steps:
 var rulesList = new aspose.slides.FontFallBackRulesCollection();
 // create a number of rules
 rulesList.add(new aspose.slides.FontFallBackRule(0x400, 0x4ff, "Times New Roman"));
-rulesList.forEach(function(fallBackRule) {
+for (let i = 0; i < rulesList.size(); i++) {
+    let fallBackRule = rulesList.get_Item(0);
     // Trying to remove FallBack font "Tahoma" from loaded rules
     fallBackRule.remove("Tahoma");
     // And to update of rules for specified range
     if ((fallBackRule.getRangeEndIndex() >= 0x4000) && (fallBackRule.getRangeStartIndex() < 0x5000)) {
         fallBackRule.addFallBackFonts("Verdana");
     }
-});
+}
 // Also we can remove any existing rules from list
 if (rulesList.size() > 0) {
     rulesList.remove(rulesList.get_Item(0));

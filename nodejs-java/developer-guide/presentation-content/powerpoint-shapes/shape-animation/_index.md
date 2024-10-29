@@ -284,13 +284,14 @@ try {
     var slide = presentation.getSlides().get_Item(0);
     // Gets the main sequence of the slide.
     var sequence = slide.getTimeline().getMainSequence();
-    sequence.forEach(function(effect) {
+    for (var i = 0; i < sequence.getCount(); i++) {
+        var effect = sequence.get_Item(i);
         if (effect.getSound() == null) {
             continue;
         }
         // Extracts the effect sound in byte array
         var audio = effect.getSound().getBinaryData();
-    });
+    }
 } finally {
     if (presentation != null) {
         presentation.dispose();

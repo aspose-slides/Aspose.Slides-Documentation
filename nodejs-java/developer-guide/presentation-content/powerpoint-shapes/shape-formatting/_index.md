@@ -39,14 +39,14 @@ try {
     // Adds autoshape of rectangle type
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
     // Sets the fill color for the rectangle shape
-    shp.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
     // Applies some formatting on the rectangle's lines
     shp.getLineFormat().setStyle(aspose.slides.LineStyle.ThickThin);
     shp.getLineFormat().setWidth(7);
     shp.getLineFormat().setDashStyle(aspose.slides.LineDashStyle.Dash);
     // Sets the color for the rectangle's line
-    shp.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     // Writes the PPTX file to disk
     pres.save("RectShpLn_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -82,22 +82,22 @@ try {
     var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 300, 100, 150, 75);
     var shp3 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 250, 150, 75);
     // Sets the fill color for the rectangle shape
-    shp1.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shp2.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shp3.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the line's width
     shp1.getLineFormat().setWidth(15);
     shp2.getLineFormat().setWidth(15);
     shp3.getLineFormat().setWidth(15);
     // Sets the color for the rectangle's line
-    shp1.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shp2.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shp3.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     // Sets the Join Style
     shp1.getLineFormat().setJoinStyle(aspose.slides.LineJoinStyle.Miter);
@@ -140,7 +140,7 @@ try {
     // Adds an ellipse autoshape
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 150, 75, 150);
     // Applies the gradient formatting to the ellipse
-    shp.getFillFormat().setFillType(aspose.slides.FillType.Gradient);
+    shp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shp.getFillFormat().getGradientFormat().setGradientShape(aspose.slides.GradientShape.Linear);
     // Sets the direction of the gradient
     shp.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
@@ -184,9 +184,9 @@ try {
     // Adds a rectangle autoshape
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 75, 150);
     // Sets the fill type to Pattern
-    shp.getFillFormat().setFillType(aspose.slides.FillType.Pattern);
+    shp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
     // Sets the pattern style
-    shp.getFillFormat().getPatternFormat().setPatternStyle(aspose.slides.PatternStyle.Trellis);
+    shp.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
     // Sets the pattern back and fore colors
     shp.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shp.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
@@ -225,7 +225,7 @@ try {
     // Add a rectangle autoshape
     var shp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 75, 150);
     // Sets the fill type to Picture
-    shp.getFillFormat().setFillType(aspose.slides.FillType.Picture);
+    shp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
     // Sets the picture fill mode
     shp.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     // Sets the picture
@@ -273,7 +273,7 @@ try {
     // Adds a rectangle autoshape
     var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 75, 150);
     // Sets the fill type to Solid
-    shape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     // Sets the color for the rectangle
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     // Writes the PPTX file to disk
@@ -308,7 +308,7 @@ try {
     var solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 75, 175, 75, 150);
     // Adds a transparent shape over the solid shape
     var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 204, 102, 0, 128));
     // Writes the PPTX file to disk
     pres.save("ShapeTransparentOverSolid_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -368,10 +368,10 @@ try {
     var slide = pres.getSlides().get_Item(0);
     // Adds a shape to the slide
     var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 30, 30, 100, 100);
-    shape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     var format = shape.getLineFormat().getFillFormat();
-    format.setFillType(aspose.slides.FillType.Solid);
+    format.setFillType(java.newByte(aspose.slides.FillType.Solid));
     format.getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
     shape.getLineFormat().setWidth(2.0);
     // Sets the shape's ThreeDFormat properties
@@ -433,10 +433,11 @@ This Javascript code shows you how to reset the formatting in a slide and revert
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
-    pres.getSlides().forEach(function(slide) {
+    for (let i = 0; i < pres.getSlides().size(); i++) {
+        let slide = pres.getSlides().get_Item(i);
         // each shape on the slide that has a placeholder on the layout will be reverted
         slide.reset();
-    });
+    }
 } finally {
     if (pres != null) {
         pres.dispose();

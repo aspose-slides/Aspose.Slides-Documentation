@@ -111,7 +111,7 @@ try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 250, 250);
     shape.getTextFrame().setText("3D");
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(64);
-    shape.getFillFormat().setFillType(aspose.slides.FillType.Gradient);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "BLUE"));
     shape.getFillFormat().getGradientFormat().getGradientStops().add(100, java.getStaticFieldValue("java.awt.Color", "ORANGE"));
     shape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.OrthographicFront);
@@ -141,7 +141,7 @@ Thats how it looks like:
   
 You may also create an image gradient:
 ```javascript
-shape.getFillFormat().setFillType(aspose.slides.FillType.Picture);
+shape.getFillFormat().setFillType(java.newByte(java.newByteaspose.slides.FillType.Picture));
 var picture;
 var image = aspose.slides.Images.fromFile("image.png");
 try {
@@ -175,18 +175,18 @@ To create a 3D text (WordArt), do the following:
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 150, 200, 200);
-    shape.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-    shape.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     shape.getTextFrame().setText("3D Text");
     var portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Pattern);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
     portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.newInstanceSync("java.awt.Color", 255, 140, 0));
     portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(aspose.slides.PatternStyle.LargeGrid);
+    portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.LargeGrid));
     shape.getTextFrame().getParagraphs().get_Item(0).getParagraphFormat().getDefaultPortionFormat().setFontHeight(128);
     var textFrame = shape.getTextFrame();
     // setup "Arch Up" WordArt transform effect
-    textFrame.getTextFrameFormat().setTransform(aspose.slides.TextShapeType.ArchUp);
+    textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUp));
     textFrame.getTextFrameFormat().getThreeDFormat().setExtrusionHeight(3.5);
     textFrame.getTextFrameFormat().getThreeDFormat().setDepth(3);
     textFrame.getTextFrameFormat().getThreeDFormat().setMaterial(aspose.slides.MaterialPresetType.Plastic);

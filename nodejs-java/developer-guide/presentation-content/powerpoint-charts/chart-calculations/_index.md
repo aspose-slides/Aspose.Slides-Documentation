@@ -60,7 +60,7 @@ try {
     // Hiding Legend
     chart.setLegend(false);
     // Hiding MajorGridLines
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
         chart.getChartData().getSeries().removeAt(i);
     }
@@ -70,7 +70,7 @@ try {
     series.getLabels().getDefaultDataLabelFormat().setPosition(aspose.slides.LegendDataLabelPosition.Top);
     series.getMarker().setSize(15);
     // Setting series line color
-    series.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    series.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
     series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Solid);
     pres.save("HideInformationFromChart.pptx", aspose.slides.SaveFormat.Pptx);

@@ -28,14 +28,15 @@ try {
     // Accesses the first slide
     var sld = pres.getSlides().get_Item(0);
     // Iterates through shapes to find the placeholder
-    sld.getShapes().forEach(function(shp) {
+    for (let i = 0; i < sld.getShapes().size(); i++) {
+        let shp = sld.getShapes().get_Item(i);
         if (shp.getPlaceholder() != null) {
             // Changes the text in each placeholder
             shp.getTextFrame().setText("This is Placeholder");
         }
-    });
+    }
     // Saves the presentation to disk
-    pres.save("output_out.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -53,7 +54,8 @@ var pres = new aspose.slides.Presentation("Presentation.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     // Iterates through the slide
-    slide.getSlide().getShapes().forEach(function(shape) {
+    for (let i = 0; i < slide.getSlide().getShapes().size(); i++) {
+        let shape = slide.getSlide().getShapes().get_Item(i);
         if ((shape.getPlaceholder() != null) && (java.instanceOf(shape, "com.aspose.slides.AutoShape"))) {
             var text = "";
             // PowerPoint displays "Click to add title"
@@ -66,7 +68,7 @@ try {
             shape.getTextFrame().setText(text);
             console.log("Placeholder with text: " + text);
         }
-    });
+    }
     pres.save("Placeholders_PromptText.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

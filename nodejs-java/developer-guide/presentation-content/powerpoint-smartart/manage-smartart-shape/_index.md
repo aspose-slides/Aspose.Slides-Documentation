@@ -43,14 +43,15 @@ The following code will be used to access the SmartArt shapes added in presentat
 var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
 try {
     // Traverse through every shape inside first slide
-    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getSlides().get_Item(0).getShapes().size(); i++) {
+        let shape = pres.getSlides().get_Item(0).getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArtEx
             var smart = shape;
             console.log("Shape Name:" + smart.getName());
         }
-    });
+    }
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -71,7 +72,8 @@ The following sample code will help to access the [SmartArt](https://reference.a
 var pres = new aspose.slides.Presentation("AccessSmartArtShape.pptx");
 try {
     // Traverse through every shape inside first slide
-    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getSlides().get_Item(0).getShapes().size(); i++) {
+        let shape = pres.getSlides().get_Item(0).getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArtEx
@@ -81,12 +83,13 @@ try {
                 console.log("Do some thing here....");
             }
         }
-    });
+    }
 } finally {
     if (pres != null) {
         pres.dispose();
     }
 }
+
 ```
 
 ## **Change SmartArt Shape Style**
@@ -107,7 +110,8 @@ try {
     // Get first slide
     var slide = pres.getSlides().get_Item(0);
     // Traverse through every shape inside first slide
-    slide.getShapes().forEach(function(shape) {
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArtEx
@@ -118,7 +122,7 @@ try {
                 smart.setQuickStyle(aspose.slides.SmartArtQuickStyleType.Cartoon);
             }
         }
-    });
+    }
     // Saving presentation
     pres.save("ChangeSmartArtStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -148,7 +152,8 @@ try {
     // Get first slide
     var slide = pres.getSlides().get_Item(0);
     // Traverse through every shape inside first slide
-    slide.getShapes().forEach(function(shape) {
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArtEx
@@ -159,7 +164,7 @@ try {
                 smart.setColorStyle(aspose.slides.SmartArtColorType.ColorfulAccentColors);
             }
         }
-    });
+    }
     // Saving presentation
     pres.save("ChangeSmartArtColorStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

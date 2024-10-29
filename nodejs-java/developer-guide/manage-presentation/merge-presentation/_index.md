@@ -73,9 +73,10 @@ var pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        pres2.getSlides().forEach(function(slide) {
+        for (let i = 0; i < pres2.getSlides().size(); i++) {
+            let slide = pres2.getSlides().get_Item(i);
             pres1.getSlides().addClone(slide);
-        });
+        }
     } finally {
         if (pres2 != null) {
             pres2.dispose();
@@ -100,9 +101,10 @@ var pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        pres2.getSlides().forEach(function(slide) {
+        for (let i = 0; i < pres2.getSlides().size(); i++) {
+            let slide = pres2.getSlides().get_Item(i);
             pres1.getSlides().addClone(slide, pres2.getMasters().get_Item(0), true);
-        });
+        }
     } finally {
         if (pres2 != null) {
             pres2.dispose();
@@ -133,9 +135,10 @@ var pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        pres2.getSlides().forEach(function(slide) {
+        for (let i = 0; i < pres2.getSlides().size(); i++) {
+            let slide = pres2.getSlides().get_Item(i);
             pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        });
+        }
     } finally {
         if (pres2 != null) {
             pres2.dispose();
@@ -158,9 +161,10 @@ var pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        pres2.getSlides().forEach(function(slide) {
+        for (let i = 0; i < pres2.getSlides().size(); i++) {
+            let slide = pres2.getSlides().get_Item(i);
             pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        });
+        }
     } finally {
         if (pres2 != null) {
             pres2.dispose();
@@ -192,9 +196,10 @@ try {
     var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
-        pres2.getSlides().forEach(function(slide) {
+        for (let i = 0; i < pres2.getSlides().size(); i++) {
+            let slide = pres2.getSlides().get_Item(i);
             pres1.getSlides().addClone(slide);
-        });
+        }
     } finally {
         if (pres2 != null) {
             pres2.dispose();
@@ -217,9 +222,10 @@ var pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
     var pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
-        pres2.getSlides().forEach(function(slide) {
+        for (let i = 0; i < pres2.getSlides().size(); i++) {
+            let slide = pres2.getSlides().get_Item(i);
             pres1.getSlides().addClone(slide, pres1.getSections().get_Item(0));
-        });
+        }
     } finally {
         if (pres2 != null) {
             pres2.dispose();

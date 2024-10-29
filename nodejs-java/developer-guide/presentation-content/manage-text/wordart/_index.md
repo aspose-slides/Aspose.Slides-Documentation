@@ -70,11 +70,11 @@ These are some of the available parameters or options:
 Here, we apply the [SmallGrid](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternStyle#SmallGrid) pattern color to the text and add a 1-width black text border using this code:
 
 ```javascript
-portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Pattern);
+portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
 portion.getPortionFormat().getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
-portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(aspose.slides.PatternStyle.SmallGrid);
-portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+portion.getPortionFormat().getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.SmallGrid));
+portion.getPortionFormat().getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 portion.getPortionFormat().getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 ```
 
@@ -171,7 +171,7 @@ You can change the parameters for shadow, display, and glow. The effects’ prop
 
 We use the Transform property (inherent in the entire block of text) through this code:
 ```javascript
-textFrame.getTextFrameFormat().setTransform(aspose.slides.TextShapeType.ArchUpPour);
+textFrame.getTextFrameFormat().setTransform(java.newByte(aspose.slides.TextShapeType.ArchUpPour));
 ```
 
 The result:
@@ -286,7 +286,7 @@ try {
     // Add TextFrame to the Rectangle
     ashp.addTextFrame("Aspose TextBox");
     // Disable shape fill in case we want to get shadow of text
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Add outer shadow and set all necessary parameters
     ashp.getEffectFormat().enableOuterShadowEffect();
     var shadow = ashp.getEffectFormat().getOuterShadowEffect();
@@ -325,7 +325,7 @@ try {
     var slide = pres.getSlides().get_Item(0);
     // Add an AutoShape of Rectangle type
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 400, 300);
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Add TextFrame to the Rectangle
     ashp.addTextFrame("Aspose TextBox");
     var port = ashp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);

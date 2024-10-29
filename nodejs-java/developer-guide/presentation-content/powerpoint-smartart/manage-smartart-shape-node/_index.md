@@ -24,7 +24,8 @@ Aspose.Slides for Node.js via Java has provided the simplest API to manage the S
 var pres = new aspose.slides.Presentation("SimpleSmartArt.pptx");
 try {
     // Traverse through every shape inside first slide
-    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getSlides().get_Item(0).getShapes().size(); i++) {
+        let shape = pres.getSlides().get_Item(0).getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
             // Typecast shape to SmartArt
@@ -38,7 +39,7 @@ try {
             // Adding text
             newNode.getTextFrame().setText("New Node Added");
         }
-    });
+    }
     // Saving Presentation
     pres.save("AddSmartArtNode.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -98,20 +99,21 @@ try {
     // Get first slide
     var slide = pres.getSlides().get_Item(0);
     // Traverse through every shape inside first slide
-    slide.getShapes().forEach(function(shape) {
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArt
             var smart = shape;
             // Traverse through all nodes inside SmartArt
-            for (var i = 0; i < smart.getAllNodes().size(); i++) {
+            for (var j = 0; j < smart.getAllNodes().size(); j++) {
                 // Accessing SmartArt node at index i
-                var node = smart.getAllNodes().get_Item(i);
+                var node = smart.getAllNodes().get_Item(j);
                 // Printing the SmartArt node parameters
                 console.log(node.getTextFrame().getText() + " " + node.getLevel() + " " + node.getPosition());
             }
         }
-    });
+    }
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -138,7 +140,8 @@ try {
     // Get first slide
     var slide = pres.getSlides().get_Item(0);
     // Traverse through every shape inside first slide
-    slide.getShapes().forEach(function(shape) {
+    for (let s = 0; s < slide.getShapes().size(); s++) {
+        let shape = slide.getShapes().get_Item(s);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArt
@@ -156,7 +159,7 @@ try {
                 }
             }
         }
-    });
+    }
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -214,7 +217,8 @@ In this example, we will learn to remove the nodes inside SmartArt shape.
 var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
 try {
     // Traverse through every shape inside first slide
-    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getSlides().get_Item(0).getShapes().size(); i++) {
+        let shape = pres.getSlides().get_Item(0).getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArt
@@ -226,7 +230,7 @@ try {
                 smart.getAllNodes().removeNode(node);
             }
         }
-    });
+    }
     // Save Presentation
     pres.save("RemoveSmartArtNode.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -253,7 +257,8 @@ In this example, we will learn to remove the nodes inside SmartArt shape at part
 var pres = new aspose.slides.Presentation("AddSmartArtNode.pptx");
 try {
     // Traverse through every shape inside first slide
-    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getSlides().get_Item(0).getShapes().size(); i++) {
+        let shape = pres.getSlides().get_Item(0).getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.SmartArt")) {
             // Typecast shape to SmartArt
@@ -267,7 +272,7 @@ try {
                 }
             }
         }
-    });
+    }
     // Save Presentation
     pres.save("RemoveSmartArtNodeByPosition.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -336,14 +341,15 @@ In the following sample code we will investigate how to identify **Assistant Nod
 var pres = new aspose.slides.Presentation("AddNodes.pptx");
 try {
     // Traverse through every shape inside first slide
-    pres.getSlides().get_Item(0).getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getSlides().get_Item(0).getShapes().size(); i++) {
+        let shape = pres.getSlides().get_Item(0).getShapes().get_Item(i);
         // Check if shape is of SmartArt type
         if (java.instanceOf(shape, "com.aspose.slides.ISmartArt")) {
             // Typecast shape to SmartArt
             var smart = shape;
             // Traversing through all nodes of SmartArt shape
-            for (var i = 0; i < smart.getAllNodes().size(); i++) {
-                var node = smart.getAllNodes().get_Item(i);
+            for (var j = 0; j < smart.getAllNodes().size(); j++) {
+                var node = smart.getAllNodes().get_Item(j);
                 // Check if node is Assistant node
                 if (node.isAssistant()) {
                     // Setting Assistant node to false and making it normal node
@@ -351,7 +357,7 @@ try {
                 }
             }
         }
-    });
+    }
     // Save Presentation
     pres.save("ChangeAssitantNode.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -387,10 +393,11 @@ try {
     var node = chevron.getAllNodes().addNode();
     node.getTextFrame().setText("Some text");
     // Setting node fill color
-    node.getShapes().forEach(function(item) {
-        item.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    for (let i = 0; i < node.getShapes().size(); i++) {
+        let item = node.getShapes().get_Item(i);
+        item.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
         item.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    });
+    }
     // Save the presentation
     pres.save("TestSmart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

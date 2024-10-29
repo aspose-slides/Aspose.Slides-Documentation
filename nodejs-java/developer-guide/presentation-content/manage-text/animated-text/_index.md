@@ -34,17 +34,19 @@ You may decide to find out the animation effects added to a paragraph—for exam
 Aspose.Slides for Node.js via Java allows you to get all the animation effects applied to paragraphs contained in a text frame (shape). This sample code shows you how to get the animation effects in a paragraph:
 
 ```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
     var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
+    for (let i = 0; i < autoShape.getTextFrame().getParagraphs().getCount(); i++) {
+        let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(i);
         var effects = sequence.getEffectsByParagraph(paragraph);
         if (effects.length > 0) {
             console.log("Paragraph \"" + paragraph.getText() + "\" has " + effects[0].getType() + " effect.");
         }
-    });
+    }
 } finally {
     pres.dispose();
 }
+
 ```

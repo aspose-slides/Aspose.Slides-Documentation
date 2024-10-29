@@ -60,16 +60,15 @@ try {
 This Javascript code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```javascript
-// Instantiates the Presentation class
 var pres = new aspose.slides.Presentation("Comments1.pptx");
 try {
-    pres.getCommentAuthors().forEach(function(commentAuthor) {
-        var author = commentAuthor;
-        author.getComments().forEach(function(comment1) {
-            var comment = comment1;
+    for (let i = 0; i < pres.getCommentAuthors().size(); i++) {
+        let commentAuthor = pres.getCommentAuthors().get_Item(i);
+        for (let j = 0; j < commentAuthor.getComments().size(); j++) {
+            const comment = commentAuthor.getComments().get_Item(j);
             console.log("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() + " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
-        });
-    });
+        }
+    }
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -164,9 +163,10 @@ This Javascript code shows you how to remove all comments and authors in a prese
 var presentation = new aspose.slides.Presentation("example.pptx");
 try {
     // Deletes all comments from the presentation
-    presentation.getCommentAuthors().forEach(function(author) {
+    for (let i = 0; i < presentation.getCommentAuthors().size(); i++) {
+    var author = presentation.getCommentAuthors().get_Item(i)
         author.getComments().clear();
-    });
+    }
     // Deletes all authors
     presentation.getCommentAuthors().clear();
     presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -190,17 +190,22 @@ try {
     author.getComments().addComment("comment 1", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.2), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
     author.getComments().addComment("comment 2", slide, java.newInstanceSync("com.aspose.slides.Point2DFloat",  java.newFloat(0.3), java.newFloat(0.2)), java.newInstanceSync("java.util.Date"));
     // remove all comments that contain "comment 1" text
-    presentation.getCommentAuthors().forEach(function(commentAuthor) {
+    
+    
+    for (var i = 0; i < presentation.getCommentAuthors().length; i++) {
+        var commentAuthor = presentation.getCommentAuthors().get_Item(i);
         var toRemove = java.newInstanceSync("java.util.ArrayList");
-        slide.getSlideComments(commentAuthor).forEach(function(comment) {
-            if (comment.getText().equals("comment 1")) {
+        for (let j = 0; j < slide.getSlideComments(commentAuthor).size(); j++) {
+            let comment = slide.getSlideComments(commentAuthor).get_Item(j);
+            if (comment.getText() === "comment 1") {
                 toRemove.add(comment);
             }
-        });
-        toRemove.forEach(function(comment) {
+        }
+        for (var i = 0; i < toRemove.length; i++) {
+            var comment = toRemove.get_Item(i);
             commentAuthor.getComments().remove(comment);
         }
-    });
+    }
     presentation.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (presentation != null) {

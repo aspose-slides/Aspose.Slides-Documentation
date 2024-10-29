@@ -140,7 +140,7 @@ try {
     var shapeTo = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 70, 30);
     var connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector5, 20, 20, 400, 300);
     connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    connector.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     connector.setStartShapeConnectedTo(shapeFrom);
     connector.setEndShapeConnectedTo(shapeTo);
@@ -194,7 +194,7 @@ try {
     // Specifies the connector's direction
     connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
     // Specifies the connector's color
-    connector.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // Specifies the thickness of the connector's line
     connector.getLineFormat().setWidth(3);
@@ -254,7 +254,7 @@ shapeTo_1.getTextFrame().setText("To 1");
 // Creates a new connector
 connector = sld.getShapes().addConnector(aspose.slides.ShapeType.BentConnector4, 20, 20, 400, 300);
 connector.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-connector.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+connector.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
 connector.getLineFormat().setWidth(3);
 // Connects objects using the newly created connector
@@ -301,7 +301,7 @@ var yy = (x - connector.getFrame().getCenterX()) + connector.getFrame().getCente
 // Determines the width of the horizontal component using the second adjustment point value
 var width = (connector.getHeight() * adjValue_1.getRawValue()) / 100000;
 var shape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, xx, yy, width, 0);
-shape.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
 

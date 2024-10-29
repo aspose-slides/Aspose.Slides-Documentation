@@ -70,7 +70,7 @@ try {
     shp.getLineFormat().setBeginArrowheadStyle(aspose.slides.LineArrowheadStyle.Oval);
     shp.getLineFormat().setEndArrowheadLength(aspose.slides.LineArrowheadLength.Long);
     shp.getLineFormat().setEndArrowheadStyle(aspose.slides.LineArrowheadStyle.Triangle);
-    shp.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.Maroon));
     // Write the PPTX to Disk
     pres.save("LineShape.pptx", aspose.slides.SaveFormat.Pptx);

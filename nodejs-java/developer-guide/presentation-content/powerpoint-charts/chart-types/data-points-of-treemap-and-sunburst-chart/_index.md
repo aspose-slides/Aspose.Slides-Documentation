@@ -65,7 +65,7 @@ Set "Branch 1" data label to show series name ("Series1") instead of category na
 var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
 branch1Label.getDataLabelFormat().setShowCategoryName(false);
 branch1Label.getDataLabelFormat().setShowSeriesName(true);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 ```
 
@@ -80,7 +80,7 @@ try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
     var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
     var stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-    stem4branch.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    stem4branch.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     stem4branch.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

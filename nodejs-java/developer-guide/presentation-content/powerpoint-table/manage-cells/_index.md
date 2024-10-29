@@ -58,14 +58,16 @@ try {
     // Adds table shape to slide
     var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
     // Sets the border format for each cell
-    tbl.getRows().forEach(function(row) {
-        row.forEach(function(cell) {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-        });
-    });
+    for (let i = 0; i < tbl.getRows().size(); i++) {
+        const row = tbl.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        }
+    }
     // Writes the PPTX to disk
     pres.save("table_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -90,22 +92,24 @@ try {
     // Adds a table shape to the slide
     var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
     // Sets the border format for each cell
-    tbl.getRows().forEach(function(row) {
-        row.forEach(function(cell) {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    for (let i = 0; i < tbl.getRows().size(); i++) {
+        const row = tbl.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderRight().setWidth(5);
-        });
-    });
+        }
+    }
     // Merges cells (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
     // Merges cells (1, 2) x (2, 2)
@@ -132,22 +136,24 @@ try {
     // Adds a table shape to the slide
     var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
     // Sets the border format for each cell
-    tbl.getRows().forEach(function(row) {
-        row.forEach(function(cell) {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    for (let i = 0; i < tbl.getRows().size(); i++) {
+        const row = tbl.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderRight().setWidth(5);
-        });
-    });
+        }
+    }
     // Merges cells (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
     // Merges cells (1, 2) x (2, 2)
@@ -182,22 +188,24 @@ try {
     // Adds a table shape to the slide
     var tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
     // Sets the border format for each cell
-    tbl.getRows().forEach(function(row) {
-        row.forEach(function(cell) {
-            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    for (let i = 0; i < tbl.getRows().size(); i++) {
+        const row = tbl.getRows().get_Item(i);
+        for (let j = 0; j < row.size(); j++) {
+            const cell = row.get_Item(j);
+            cell.getCellFormat().getBorderTop().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderTop().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderTop().setWidth(5);
-            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderBottom().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderBottom().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderBottom().setWidth(5);
-            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderLeft().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderLeft().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderLeft().setWidth(5);
-            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            cell.getCellFormat().getBorderRight().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             cell.getCellFormat().getBorderRight().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
             cell.getCellFormat().getBorderRight().setWidth(5);
-        });
-    });
+        }
+    }
     // Merges cells (1, 1) x (2, 1)
     tbl.mergeCells(tbl.get_Item(1, 1), tbl.get_Item(2, 1), false);
     // Merges cells (1, 2) x (2, 2)
@@ -227,7 +235,7 @@ try {
     var table = slide.getShapes().addTable(50, 50, dblCols, dblRows);
     // set the background color for a cell
     var cell = table.get_Item(2, 3);
-    cell.getCellFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    cell.getCellFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     cell.getCellFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     presentation.save("cell_background_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -275,7 +283,7 @@ try {
     }
     // Adds the image to the first table cell
     var cellFormat = tbl.get_Item(0, 0).getCellFormat();
-    cellFormat.getFillFormat().setFillType(aspose.slides.FillType.Picture);
+    cellFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
     cellFormat.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
     cellFormat.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
     // Saves the PPTX file to Disk

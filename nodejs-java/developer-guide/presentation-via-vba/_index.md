@@ -103,10 +103,11 @@ var pres = new aspose.slides.Presentation("VBA.pptm");
 try {
     // Checks whether the Presentation contains a VBA Project
     if (pres.getVbaProject() != null) {
-        pres.getVbaProject().getModules().forEach(function(module) {
+        for (let i = 0; i < pres.getVbaProject().getModules().size(); i++) {
+            let module = pres.getVbaProject().getModules().get_Item(i);
             console.log(module.getName());
             console.log(module.getSourceCode());
-        });
+        }
     }
 } finally {
     if (pres != null) {

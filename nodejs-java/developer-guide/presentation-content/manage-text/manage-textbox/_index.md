@@ -180,22 +180,26 @@ This Javascript code demonstrates an operation where all the texts in a presenta
 ```javascript
 var pres = new aspose.slides.Presentation("text.pptx");
 try {
-    pres.getSlides().forEach(function(slide) {
-        slide.getShapes().forEach(function(shape) {
+    for (let s = 0; s < pres.getSlides().size(); s++) {
+        let slide = pres.getSlides().get_Item(s);
+        for (let i = 0; i < slide.getShapes().size(); i++) {
+            let shape = slide.getShapes().get_Item(i);
             // Checks if shape supports text frame (IAutoShape).
             if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
                 var autoShape = shape;
                 // Iterates through paragraphs in text frame
-                autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
+                for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
+                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
                     // Iterates through each portion in paragraph
-                    paragraph.getPortions().forEach(function(portion) {
+                    for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
+                        let portion = paragraph.getPortions().get_Item(k);
                         portion.setText(portion.getText().replace("years", "months"));// Changes text
-                        portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);// Changes formatting
-                    });
-                });
+                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Changes formatting
+                    }
+                }
             }
-        });
-    });
+        }
+    }
     // Saves modified presentation
     pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

@@ -98,14 +98,14 @@ try {
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 1, 0.8));
     series.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 1, 0.65));
     // Sets the fill color of series
-    series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // Sets the LabelFormat properties
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
     series.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
     series.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     // Adds new series
@@ -115,13 +115,13 @@ try {
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 3, 2, 0.2));
     series2.getDataPoints().addDataPointForBarSeries(workbook.getCell(defaultWorksheetIndex, 4, 2, 0.35));
     // Sets Fill type and color
-    series2.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    series2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     series2.getLabels().getDefaultDataLabelFormat().setShowValue(true);
     series2.getLabels().getDefaultDataLabelFormat().setNumberFormatLinkedToSource(false);
     series2.getLabels().getDefaultDataLabelFormat().setNumberFormat("0.0%");
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(10);
-    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series2.getLabels().getDefaultDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
     // Writes the presentation to disk
     pres.save("SetDataLabelsPercentageSign_out.pptx", aspose.slides.SaveFormat.Pptx);

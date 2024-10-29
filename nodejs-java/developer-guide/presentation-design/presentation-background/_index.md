@@ -29,7 +29,7 @@ var pres = new aspose.slides.Presentation("MasterBG.pptx");
 try {
     // Sets the background color for the first ISlide to Blue
     pres.getSlides().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     // Writes the presentation to disk
     pres.save("ContentBG.pptx", aspose.slides.SaveFormat.Pptx);
@@ -58,7 +58,7 @@ var pres = new aspose.slides.Presentation();
 try {
     // Sets the background color for the Master ISlide to Forest Green
     pres.getMasters().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    pres.getMasters().get_Item(0).getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     pres.getMasters().get_Item(0).getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // Writes the presentation to disk
     pres.save("MasterBG.pptx", aspose.slides.SaveFormat.Pptx);
@@ -87,7 +87,7 @@ var pres = new aspose.slides.Presentation("MasterBG.pptx");
 try {
     // Apply Gradient effect to the Background
     pres.getSlides().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(aspose.slides.FillType.Gradient);
+    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getGradientFormat().setTileFlip(aspose.slides.TileFlip.FlipBoth);
     // Writes the presentation to disk
     pres.save("ContentBG_Grad.pptx", aspose.slides.SaveFormat.Pptx);
@@ -118,7 +118,7 @@ var pres = new aspose.slides.Presentation();
 try {
     // Sets conditions for background image
     pres.getSlides().get_Item(0).getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(aspose.slides.FillType.Picture);
+    pres.getSlides().get_Item(0).getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
     pres.getSlides().get_Item(0).getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
     // Loads the image
     var imgx;
@@ -152,12 +152,13 @@ var transparencyValue = 30;// for example
 var imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
 // Finds a transparency effect with fixed percentage.
 var transparencyOperation = null;
-imageTransform.forEach(function(operation) {
+for (let i = 0; i < imageTransform.size(); i++) {
+    let operation = imageTransform.get_Item(i);
     if (java.instanceOf(operation, "com.aspose.slides.AlphaModulateFixed")) {
         transparencyOperation = operation;
         break;
     }
-});
+}
 // Sets the new transparency value.
 if (transparencyOperation == null) {
     imageTransform.addAlphaModulateFixedEffect(100 - transparencyValue);

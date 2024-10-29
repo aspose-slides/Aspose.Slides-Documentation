@@ -68,12 +68,12 @@ try {
             var portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j);
             portion.setText("Portion0" + j);
             if (j == 0) {
-                portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+                portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
                 portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
             } else if (j == 1) {
-                portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+                portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
                 portion.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
                 portion.getPortionFormat().setFontHeight(18);
@@ -268,7 +268,7 @@ try {
     para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar(8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
     para1.getParagraphFormat().setDepth(0);
@@ -277,7 +277,7 @@ try {
     para2.setText("Second Level");
     para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
     para2.getParagraphFormat().setDepth(1);
@@ -286,7 +286,7 @@ try {
     para3.setText("Third Level");
     para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar(8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
     para3.getParagraphFormat().setDepth(2);
@@ -295,7 +295,7 @@ try {
     para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Sets the bullet level
     para4.getParagraphFormat().setDepth(3);
@@ -392,7 +392,7 @@ try {
     // Set the text to fit the shape
     tf.getTextFrameFormat().setAutofitType(aspose.slides.TextAutofitType.Shape);
     // Hide the lines of the Rectangle
-    rect.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    rect.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     // Get first Paragraph in the TextFrame and set its Indent
     var para1 = tf.getParagraphs().get_Item(0);
     // Setting paragraph bullet style and symbol
@@ -510,7 +510,7 @@ try {
     var slide = pres.getSlides().get_Item(0);
     // Adding the AutoShape to accomodate the HTML content
     var ashape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, pres.getSlideSize().getSize().getWidth() - 20, pres.getSlideSize().getSize().getHeight() - 10);
-    ashape.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Adding text frame to the shape
     ashape.addTextFrame("");
     // Clearing all paragraphs in added text frame

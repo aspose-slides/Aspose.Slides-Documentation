@@ -49,8 +49,8 @@ try {
         while (i < chart.getChartData().getSeries().size()) {
             var iCS = chart.getChartData().getSeries().get_Item(i);
             var dataPoint = iCS.getDataPoints().addDataPointForDoughnutSeries(workBook.getCell(0, categoryIndex + 1, i + 1, 1));
-            dataPoint.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
-            dataPoint.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+            dataPoint.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
+            dataPoint.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
             dataPoint.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
             dataPoint.getFormat().getLine().setWidth(1);
             dataPoint.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
@@ -61,7 +61,7 @@ try {
                 lbl.getDataLabelFormat().getTextFormat().getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
                 lbl.getDataLabelFormat().getTextFormat().getPortionFormat().setLatinFont(new aspose.slides.FontData("DINPro-Bold"));
                 lbl.getDataLabelFormat().getTextFormat().getPortionFormat().setFontHeight(12);
-                lbl.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+                lbl.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 lbl.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
                 lbl.getDataLabelFormat().getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "WHITE"));
                 lbl.getDataLabelFormat().setShowValue(false);

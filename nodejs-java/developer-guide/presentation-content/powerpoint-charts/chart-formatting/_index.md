@@ -53,18 +53,18 @@ try {
     chart.getChartTitle().addTextFrameForOverriding("");
     var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
-    chartTitle.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    chartTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     chartTitle.getPortionFormat().setFontHeight(20);
     chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     // Setting Major grid lines format for value axis
-    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
     // Setting Minor grid lines format for value axis
-    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
     // Setting value axis number format
@@ -85,7 +85,7 @@ try {
     txtVal.setFontBold(aspose.slides.NullableBool.True);
     txtVal.setFontHeight(16);
     txtVal.setFontItalic(aspose.slides.NullableBool.True);
-    txtVal.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    txtVal.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
     txtVal.setLatinFont(new aspose.slides.FontData("Times New Roman"));
     // Setting value axis title
@@ -93,17 +93,17 @@ try {
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
     var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    valtitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     valtitle.getPortionFormat().setFontHeight(20);
     valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
     valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     // Setting Major grid lines format for Category axis
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     // Setting Minor grid lines format for Category axis
-    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
     // Setting Category Axis Text Properties
@@ -111,7 +111,7 @@ try {
     txtCat.setFontBold(aspose.slides.NullableBool.True);
     txtCat.setFontHeight(16);
     txtCat.setFontItalic(aspose.slides.NullableBool.True);
-    txtCat.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    txtCat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     txtCat.setLatinFont(new aspose.slides.FontData("Arial"));
     // Setting Category Title
@@ -119,7 +119,7 @@ try {
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
     var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    catTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     catTitle.getPortionFormat().setFontHeight(20);
     catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
@@ -133,7 +133,7 @@ try {
     txtleg.setFontBold(aspose.slides.NullableBool.True);
     txtleg.setFontHeight(16);
     txtleg.setFontItalic(aspose.slides.NullableBool.True);
-    txtleg.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
     // Set show chart legends without overlapping chart
     chart.getLegend().setOverlay(true);
@@ -158,12 +158,12 @@ try {
     chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
     // Setting chart back wall color
     chart.getBackWall().setThickness(1);
-    chart.getBackWall().getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-    chart.getFloor().getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    chart.getFloor().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // Setting Plot area color
-    chart.getPlotArea().getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
     // Save Presentation
     pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
@@ -223,13 +223,15 @@ try {
     // Accessing the chart series collection
     var series = chart.getChartData().getSeries();
     // Traverse through every chart series
-    series.forEach(function(ser) {
+    for (var i = 0; i < series.size(); i++) {
+        var ser = series.get_Item(i);
         // Traverse through every data cell in series
-        ser.getDataPoints().forEach(function(cell) {
+        for (var j = 0; j < ser.getDataPoints().size(); j++) {
+            var cell = ser.getDataPoints().get_Item(j);
             // Setting the number format
-            cell.getValue().getAsCell().setPresetNumberFormat(10);// 0.00%
-        });
-    });
+            cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
+        }
+    }
     // Saving presentation
     pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -296,7 +298,7 @@ var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
     var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
-    chart.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    chart.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
     chart.setRoundedCorners(true);
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);

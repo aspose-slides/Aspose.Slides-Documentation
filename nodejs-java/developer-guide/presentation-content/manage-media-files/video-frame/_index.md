@@ -106,7 +106,6 @@ async function addVideoFromYouTube(pres, videoID) {
     }
 }
 
-// 
 async function getImageStream(url) {
     return new Promise((resolve, reject) => {
         http.get(url, (response) => {
@@ -138,23 +137,24 @@ This Javascript code shows you how to extract the video on a presentation slide:
 // Instantiates a Presentation object that represents a presentation file
 var pres = new aspose.slides.Presentation("VideoSample.pptx");
 try {
-    pres.getSlides().forEach(function(slide) {
-        slide.getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getSlides().size(); i++) {
+        let slide = pres.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            let shape = slide.getShapes().get_Item(j);
             if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
                 var vf = shape;
+                console.log(shape);
                 var type = vf.getEmbeddedVideo().getContentType();
                 var ss = type.lastIndexOf('-');
-                var buffer = vf.getEmbeddedVideo().getBinaryData();
+                const buffer = Buffer.from(vf.getEmbeddedVideo().getBinaryData());
+                console.log(buffer);
                 // Gets the File Extension
                 var charIndex = type.indexOf("/");
                 type = type.substring(charIndex + 1);
-                var fop = java.newInstanceSync("java.io.FileOutputStream", "testing2." + type);
-                fop.write(buffer);
-                fop.flush();
-                fop.close();
+                fs.writeFileSync("testing2." + type, buffer);
             }
-        });
-    });
+        }
+    }
 } catch (e) {console.log(e);
 } finally {
     if (pres != null) {

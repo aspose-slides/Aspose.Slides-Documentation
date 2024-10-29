@@ -33,7 +33,7 @@ try {
     // Adding Linear trend line for chart series 1
     var tredLineLin = chart.getChartData().getSeries().get_Item(0).getTrendLines().add(aspose.slides.TrendlineType.Linear);
     tredLineLin.setTrendlineType(aspose.slides.TrendlineType.Linear);
-    tredLineLin.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    tredLineLin.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     tredLineLin.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // Adding Logarithmic trend line for chart series 2
     var tredLineLog = chart.getChartData().getSeries().get_Item(1).getTrendLines().add(aspose.slides.TrendlineType.Logarithmic);
@@ -80,7 +80,7 @@ var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
     var shape = chart.getUserShapes().getShapes().addAutoShape(aspose.slides.ShapeType.Line, 0, chart.getHeight() / 2, chart.getWidth(), 0);
-    shape.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     pres.save("Presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

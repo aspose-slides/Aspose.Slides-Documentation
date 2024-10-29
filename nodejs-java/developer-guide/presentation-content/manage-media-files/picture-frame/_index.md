@@ -126,13 +126,14 @@ Aspose.Slides allows you to get the transparency of an image. This Javascript co
 var presentation = new aspose.slides.Presentation(folderPath + "Test.pptx");
 var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
-imageTransform.forEach(function(effect) {
+for (var i = 0; i < imageTransform.size(); i++) {
+    var effect = imageTransform.get_Item(i);
     if (java.instanceOf(effect, "com.aspose.slides.IAlphaModulateFixed")) {
         var alphaModulateFixed = effect;
         var transparencyValue = 100 - alphaModulateFixed.getAmount();
         console.log("Picture transparency: " + transparencyValue);
     }
-});
+}
 ```
 
 ## **Picture Frame Formatting**
@@ -166,7 +167,7 @@ try {
     // Adds Picture Frame with height and width equivalent of Picture
     var pf = sld.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 150, imgx.getWidth(), imgx.getHeight(), imgx);
     // Applies some formatting to PictureFrameEx
-    pf.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    pf.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     pf.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     pf.getLineFormat().setWidth(20);
     pf.setRotation(45);
@@ -214,9 +215,10 @@ try {
                 break;
         }
     }
-    shapesToRemove.forEach(function(shape) {
+    for (var i = 0; i < shapesToRemove.length; i++) {
+        var shape = shapesToRemove.get_Item(i);
         presentation.getSlides().get_Item(0).getShapes().remove(shape);
-    });
+    }
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (presentation != null) {
@@ -364,7 +366,7 @@ try {
     // Adds an AutoShape set to Rectangle
     var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
     // Sets the shape's fill type
-    aShape.getFillFormat().setFillType(aspose.slides.FillType.Picture);
+    aShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
     // Sets the shape's picture fill mode
     aShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
     // Sets the image to fill the shape

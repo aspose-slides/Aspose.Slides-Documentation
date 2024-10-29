@@ -54,10 +54,11 @@ try {
         var allSignaturesAreValid = true;
         console.log("Signatures used to sign the presentation: ");
         // Check if all digital signatures are valid
-        pres.getDigitalSignatures().forEach(function(signature) {
+        for (let i = 0; i < pres.getDigitalSignatures().size(); i++) {
+        let signature = pres.getDigitalSignatures().get_Item(i);
             console.log((((signature.getComments() + ", ") + signature.getSignTime().toString()) + " -- ") + (signature.isValid() ? "VALID" : "INVALID"));
             allSignaturesAreValid &= signature.isValid();
-        });
+        }
         if (allSignaturesAreValid) {
             console.log("Presentation is genuine, all signatures are valid.");
         } else {

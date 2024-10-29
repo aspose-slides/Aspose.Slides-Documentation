@@ -23,7 +23,7 @@ This Javascript code shows you how to change the accent color for a theme:
 var pres = new aspose.slides.Presentation();
 try {
     var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
-    shape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
 } finally {
     if (pres != null) {
@@ -44,7 +44,7 @@ To further demonstrate the color change operation, we create another element and
 
 ```javascript
 var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
-otherShape.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
 otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
 pres.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
 ```
@@ -69,34 +69,34 @@ try {
     var slide = presentation.getSlides().get_Item(0);
     // Accent 4
     var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 50, 50);
-    shape1.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
     // Accent 4, Lighter 80%
     var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 50, 50);
-    shape2.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape2.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.2);
     shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.8);
     // Accent 4, Lighter 60%
     var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 50, 50);
-    shape3.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape3.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.4);
     shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.6);
     // Accent 4, Lighter 40%
     var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 50, 50);
-    shape4.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape4.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape4.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.6);
     shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.4);
     // Accent 4, Darker 25%
     var shape5 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 250, 50, 50);
-    shape5.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape5.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
     shape5.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.75);
     // Accent 4, Darker 50%
     var shape6 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 50, 50);
-    shape6.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shape6.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
     shape6.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.5);
     presentation.save(path + "example_accent4.pptx", aspose.slides.SaveFormat.Pptx);
@@ -197,7 +197,7 @@ This Javascript code shows you how to change a theme effect by altering parts of
 var pres = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
 try {
     pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(aspose.slides.FillType.Solid);
+    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
     pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     pres.getMasterTheme().getFormatScheme().getEffectStyles().get_Item(2).getEffectFormat().getOuterShadowEffect().setDistance(10.0);
     pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", aspose.slides.SaveFormat.Pptx);

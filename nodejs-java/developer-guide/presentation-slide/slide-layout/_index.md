@@ -45,10 +45,10 @@ try {
     // Goes through layout slide types
     var layoutSlides = pres.getMasters().get_Item(0).getLayoutSlides();
     var layoutSlide = null;
-    if (layoutSlides.getByType(aspose.slides.SlideLayoutType.TitleAndObject) != null) {
-        layoutSlide = layoutSlides.getByType(aspose.slides.SlideLayoutType.TitleAndObject);
+    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
+        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
     } else {
-        layoutSlide = layoutSlides.getByType(aspose.slides.SlideLayoutType.Title);
+        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
     }
     if (layoutSlide == null) {
         // The situation where a presentation doesn't contain some layout types.
@@ -58,23 +58,25 @@ try {
         // names for layout slide selection.
         // You can also use a set of placeholder shape types. For example,
         // Title slide should have only Title placeholder type, etc.
-        layoutSlides.forEach(function(titleAndObjectLayoutSlide) {
-            if (titleAndObjectLayoutSlide.getName() == "Title and Object") {
+        for (let i = 0; i < layoutSlides.size(); i++) {
+            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
+            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
                 layoutSlide = titleAndObjectLayoutSlide;
                 break;
             }
-        });
+        }
         if (layoutSlide == null) {
-            layoutSlides.forEach(function(titleLayoutSlide) {
-                if (titleLayoutSlide.getName() == "Title") {
+            for (let i = 0; i < layoutSlides.size(); i++) {
+                let titleLayoutSlide = layoutSlides.get_Item(i);
+                if (titleLayoutSlide.getName() === "Title") {
                     layoutSlide = titleLayoutSlide;
                     break;
                 }
-            });
+            }
             if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(aspose.slides.SlideLayoutType.Blank);
+                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
                 if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(aspose.slides.SlideLayoutType.TitleAndObject, "Title and Object");
+                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
                 }
             }
         }

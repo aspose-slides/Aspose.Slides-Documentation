@@ -136,23 +136,21 @@ New [**ProgressCallback**](https://reference.aspose.com/slides/nodejs-java/aspos
 The following code snippets below show how to use [ProgressCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProgressCallback) class:
 
 ```javascript
-// Opening the presentation file
 var pres = new aspose.slides.Presentation("ConvertToPDF.pptx");
 try {
-    var saveOptions = new aspose.slides.PdfOptions();
-    saveOptions.setProgressCallback(java.newInstanceSync("ExportProgressHandler"));
+    let saveOptions = new aspose.slides.PdfOptions();
+    
+    const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
+        reporting: function(progressValue) {
+            const progress = Math.floor(progressValue);
+            console.log(`${progress}% file converted`);
+        }
+    });
+    
+    saveOptions.setProgressCallback(ExportProgressHandler);
     pres.save("ConvertToPDF.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
 } finally {
     pres.dispose();
-}
-```
-```javascript
-class ExportProgressHandler implements aspose.slides.IProgressCallback {
-    public void reporting(double progressValue) {
-        // Use progress percentage value here
-        var progress = java.callStaticMethodSync("java.lang.Double", "valueOf", progressValue).intValue();
-        console.log(progress + "% file converted");
-    }
 }
 ```
 

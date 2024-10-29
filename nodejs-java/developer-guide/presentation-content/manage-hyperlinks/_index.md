@@ -147,11 +147,11 @@ try {
     var firstSlide = pres.getSlides().get_Item(0);
     var secondSlide = pres.getSlides().addEmptySlide(firstSlide.getLayoutSlide());
     var contentTable = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 40, 300, 100);
-    contentTable.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-    contentTable.getLineFormat().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    contentTable.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    contentTable.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     contentTable.getTextFrame().getParagraphs().clear();
     var paragraph = new aspose.slides.Paragraph();
-    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     paragraph.setText("Title of slide 2 .......... ");
     var linkPortion = new aspose.slides.Portion();
@@ -183,7 +183,7 @@ try {
     var portionFormat = shape1.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat();
     portionFormat.setHyperlinkClick(new aspose.slides.Hyperlink("https://www.aspose.com/"));
     portionFormat.getHyperlinkClick().setColorSource(aspose.slides.HyperlinkColorSource.PortionFormat);
-    portionFormat.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portionFormat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     portionFormat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     var shape2 = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 200, 450, 50, false);
     shape2.addTextFrame("This is a sample of usual hyperlink.");
@@ -203,20 +203,30 @@ try {
 This Javascript code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var pres = new aspose.slides.Presentation("text.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    slide.getShapes().forEach(function(shape) {
-        var autoShape = shape;
-        if (autoShape != null) {
-            autoShape.getTextFrame().getParagraphs().forEach(function(paragraph) {
-                paragraph.getPortions().forEach(function(portion) {
-                    portion.getPortionFormat().getHyperlinkManager().removeHyperlinkClick();
-                });
-            });
+    for (let i = 0; i < pres.getSlides().size(); i++) {
+        let slide = pres.getSlides().get_Item(i);
+        for (let j = 0; j < slide.getShapes().size(); j++) {
+            let shape = slide.getShapes().get_Item(j);
+            // Checks if shape supports text frame (IAutoShape).
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                var autoShape = shape;
+                // Iterates through paragraphs in text frame
+                for (let i1 = 0; i1 < autoShape.getTextFrame().getParagraphs().getCount(); i1++) {
+                    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(i1);
+                    // Iterates through each portion in paragraph
+                    for (let j1 = 0; j1 < paragraph.getPortions().getCount(); j1++) {
+                        let portion = paragraph.getPortions().get_Item(j1)
+                        portion.setText(portion.getText().replace("years", "months"));// Changes text
+                        portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));// Changes formatting
+                    }
+                }
+            }
         }
-    });
-    pres.save("pres-removed-hyperlinks.pptx", aspose.slides.SaveFormat.Pptx);
+    }
+    // Saves modified presentation
+    pres.save("text-changed.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -229,12 +239,13 @@ try {
 This Javascript code shows you how to remove the hyperlink from a shape in a presentation slide:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
-    slide.getShapes().forEach(function(shape) {
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
         shape.getHyperlinkManager().removeHyperlinkClick();
-    });
+    }
     pres.save("pres-removed-hyperlinks.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

@@ -60,7 +60,7 @@ try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
     var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
     point.setExplosion(30);
-    point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -86,7 +86,7 @@ var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
     var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -200,7 +200,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
     var seriesColor = series.getAutomaticSeriesColor();
     series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
     series.getInvertedSolidFillColor().setColor(inverColor);
     pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -255,10 +255,11 @@ var pres = new aspose.slides.Presentation("TestChart.pptx");
 try {
     var sl = pres.getSlides().get_Item(0);
     var chart = sl.getShapes().get_Item(0);
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().forEach(function(dataPoint) {
+    for (let i = 0; i < chart.getChartData().getSeries().get_Item(0).getDataPoints().size(); i++) {
+        let dataPoint = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(i);
         dataPoint.getXValue().getAsCell().setValue(null);
         dataPoint.getYValue().getAsCell().setValue(null);
-    });
+    }
     chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
     pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

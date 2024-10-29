@@ -10,17 +10,19 @@ url: /nodejs-java/portion/
 
 ```javascript
 // Instantiate Prseetation class that represents the PPTX
-var pres = new aspose.slides.Presentation();
+var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     // Reshaping the context of presentation
     var shape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     var textFrame = shape.getTextFrame();
-    textFrame.getParagraphs().forEach(function(paragraph) {
-        paragraph.getPortions().forEach(function(portion) {
+    for (let i = 0; i < textFrame.getParagraphs().getCount(); i++) {
+        const paragraph = textFrame.getParagraphs().get_Item(i);
+        for (let j = 0; j < paragraph.getPortions().getCount(); j++) {
+            const portion = paragraph.getPortions().get_Item(j);
             var point = portion.getCoordinates();
-            console.log((("X: " + point.x) + " Y: ") + point.y);
-        });
-    });
+            console.log("X: " + point.x + " Y: " + point.y);
+        }
+    }
 } finally {
     if (pres != null) {
         pres.dispose();

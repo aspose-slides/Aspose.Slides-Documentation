@@ -161,7 +161,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
     // Sets the fill color for series
-    series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     // Takes the second chart series
     series = chart.getChartData().getSeries().get_Item(1);
@@ -170,7 +170,7 @@ try {
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
     series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
     // Sets the fill color for the series
-    series.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     series.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     // Create custom labels for each categories for the new series
     // Sets the first label to show Category name
@@ -325,28 +325,28 @@ try {
     // series.IsColorVaried = true;
     chart.getChartData().getSeriesGroups().get_Item(0).setColorVaried(true);
     var point = series.getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "CYAN"));
     // Sets the Sector border
-    point.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    point.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     point.getFormat().getLine().setWidth(3.0);
     point.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThick);
     point.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
     var point1 = series.getDataPoints().get_Item(1);
-    point1.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point1.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
     // Sets the Sector border
-    point1.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    point1.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point1.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     point1.getFormat().getLine().setWidth(3.0);
     point1.getFormat().getLine().setStyle(aspose.slides.LineStyle.Single);
     point1.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.LargeDashDot);
     var point2 = series.getDataPoints().get_Item(2);
-    point2.getFormat().getFill().setFillType(aspose.slides.FillType.Solid);
+    point2.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     // Sets the Sector border
-    point2.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    point2.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     point2.getFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     point2.getFormat().getLine().setWidth(2.0);
     point2.getFormat().getLine().setStyle(aspose.slides.LineStyle.ThinThin);
@@ -406,7 +406,8 @@ By default, points on a line chart are joined by straight continuous lines. If y
 
 ```javascript
 var lineChart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Line, 10, 50, 600, 350);
-lineChart.getChartData().getSeries().forEach(function(series) {
+for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
+    let series = lineChart.getChartData().getSeries().get_Item(i);
     series.getFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.Dash);
 });
 ```
@@ -494,9 +495,8 @@ Sample Javascript code used to create a stock chart:
 ```javascript
 var pres = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
+    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.OpenHighLowClose, 50, 50, 600, 400);
+  
     var wb = chart.getChartData().getChartDataWorkbook();
     chart.getChartData().getCategories().add(wb.getCell(0, 1, 0, "A"));
     chart.getChartData().getCategories().add(wb.getCell(0, 2, 0, "B"));
@@ -522,10 +522,11 @@ try {
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 2, 4, 38));
     series.getDataPoints().addDataPointForStockSeries(wb.getCell(0, 3, 4, 50));
     chart.getChartData().getSeriesGroups().get_Item(0).getUpDownBars().setUpDownBars(true);
-    chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.Solid);
-    chart.getChartData().getSeries().forEach(function(ser) {
-        ser.getFormat().getLine().getFillFormat().setFillType(aspose.slides.FillType.NoFill);
-    });
+    chart.getChartData().getSeriesGroups().get_Item(0).getHiLowLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    for (let i = 0; i < chart.getChartData().getSeries().size(); i++) {
+        let ser = chart.getChartData().getSeries().get_Item(i);
+        ser.getFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    }
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {

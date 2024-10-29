@@ -200,7 +200,7 @@ try {
     para1.setText("Content");
     para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para1.getParagraphFormat().getBullet().setChar(8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Setting bullet level
     para1.getParagraphFormat().setDepth(0);
@@ -210,7 +210,7 @@ try {
     para2.setText("Second level");
     para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Setting bullet level
     para2.getParagraphFormat().setDepth(1);
@@ -220,7 +220,7 @@ try {
     para3.setText("Third level");
     para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para3.getParagraphFormat().getBullet().setChar(8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Setting bullet level
     para3.getParagraphFormat().setDepth(2);
@@ -230,7 +230,7 @@ try {
     para4.setText("Fourth Level");
     para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
     para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Setting bullet level
     para4.getParagraphFormat().setDepth(3);

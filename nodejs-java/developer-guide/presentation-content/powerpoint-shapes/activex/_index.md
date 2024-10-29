@@ -57,6 +57,7 @@ To manage a simple ActiveX control like a text box and simple command button on 
 This sample code, based on the steps above, shows how to manage a simple ActiveX control: 
 
 ```javascript
+const imageio = java.import("javax.imageio.ImageIO");
 // Accessing the presentation with ActiveX controls
 var pres = new aspose.slides.Presentation("ActiveX.pptm");
 try {
@@ -64,73 +65,81 @@ try {
     var slide = pres.getSlides().get_Item(0);
     // changing TextBox text
     var control = slide.getControls().get_Item(0);
-    if (control.getName().equalsIgnoreCase("TextBox1") && (control.getProperties() != null)) {
+    if (control.getName().toUpperCase() === "TextBox1".toUpperCase() && (control.getProperties() != null)) {
         var newText = "Changed text";
         control.getProperties().set_Item("Value", newText);
         // Changing substitute image. PowerPoint will replace this image during activeX activation,
         // so sometime it's OK to leave image unchanged.
-        var image = java.newInstanceSync("BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
+        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
         var graphics = image.getGraphics();
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "window"));
         graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
         var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
         graphics.setFont(font);
         graphics.drawString(newText, 10, 20);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
         graphics.drawLine(0, image.getHeight() - 1, 0, 0);
         graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
         graphics.drawLine(1, image.getHeight() - 2, 1, 1);
         graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
         graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
         graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
         graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
         graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
         graphics.dispose();
         var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        java.callStaticMethodSync("javax.imageio.ImageIO", "write", image, "PNG", baos);
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+        imageio.write(image, "PNG", baos);
+        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
+        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
+            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
+        });
     }
     // Changing Button caption
     control = pres.getSlides().get_Item(0).getControls().get_Item(1);
-    if (control.getName().equalsIgnoreCase("CommandButton1") && (control.getProperties() != null)) {
+    if (control.getName().toUpperCase() === "CommandButton1".toUpperCase() && (control.getProperties() != null)) {
         var newCaption = "Show MessageBox";
         control.getProperties().set_Item("Caption", newCaption);
         // Changing substitute
-        var image = java.newInstanceSync("BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
+        var image = java.newInstanceSync("java.awt.image.BufferedImage", control.getFrame().getWidth(), control.getFrame().getHeight(), java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
         var graphics = image.getGraphics();
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "control"));
         graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
         var font = java.newInstanceSync("java.awt.Font", control.getProperties().get_Item("FontName"), java.getStaticFieldValue("java.awt.Font", "PLAIN"), 16);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "windowText"));
         graphics.setFont(font);
         var metrics = graphics.getFontMetrics(font);
-        graphics.drawString(newCaption, (image.getWidth() - metrics.stringWidth(newCaption)) / 2, 20);
-        graphics.setColor(SystemColor);
+        graphics.drawString(newCaption, java.newFloat((image.getWidth() - metrics.stringWidth(newCaption)) / 2), 20);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlLtHighlight"));
         graphics.drawLine(0, image.getHeight() - 1, 0, 0);
         graphics.drawLine(0, 0, image.getWidth() - 1, 0);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlHighlight"));
         graphics.drawLine(1, image.getHeight() - 2, 1, 1);
         graphics.drawLine(1, 1, image.getWidth() - 2, 1);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlShadow"));
         graphics.drawLine(1, image.getHeight() - 1, image.getWidth() - 1, image.getHeight() - 1);
         graphics.drawLine(image.getWidth() - 1, image.getHeight() - 1, image.getWidth() - 1, 1);
-        graphics.setColor(SystemColor);
+        graphics.setColor(java.getStaticFieldValue("java.awt.SystemColor", "controlDkShadow"));
         graphics.drawLine(0, image.getHeight(), image.getWidth(), image.getHeight());
         graphics.drawLine(image.getWidth(), image.getHeight(), image.getWidth(), 0);
         graphics.dispose();
+        
         var baos = java.newInstanceSync("java.io.ByteArrayOutputStream");
-        java.callStaticMethodSync("javax.imageio.ImageIO", "write", image, "PNG", baos);
-        control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(baos.toByteArray()));
+        imageio.write(image, "PNG", baos);
+        var byteStream = Readable.from([Buffer.from(baos.toByteArray())]);
+        aspose.slides.readBytesFromStream(byteStream, (imgData) => {
+            control.getSubstitutePictureFormat().getPicture().setImage(pres.getImages().addImage(imgData));
+        });
     }
     // moving 100 points down
-    pres.getSlides().get_Item(0).getControls().forEach(function(ctl) {
+    for (let i = 0; i < pres.getSlides().get_Item(0).getControls().size(); i++) {
+        let ctl = pres.getSlides().get_Item(0).getControls().get_Item(i);
         var frame = ctl.getFrame();
-        ctl.setFrame(new aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), frame.getFlipH(), frame.getFlipV(), frame.getRotation()));
-    });
+        ctl.setFrame(new aspose.slides.ShapeFrame(frame.getX(), frame.getY() + 100, frame.getWidth(), frame.getHeight(), java.newByte(frame.getFlipH()), java.newByte(frame.getFlipV()), frame.getRotation()));
+    }
     pres.save("withActiveX-edited_java.pptm", aspose.slides.SaveFormat.Pptm);
     // removing controls
     pres.getSlides().get_Item(0).getControls().clear();

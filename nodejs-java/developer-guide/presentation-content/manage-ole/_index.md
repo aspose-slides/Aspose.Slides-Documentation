@@ -120,11 +120,12 @@ try {
     var slide = pres.getSlides().get_Item(0);
     var ole = null;
     // Traverses all shapes for Ole frame
-    slide.getShapes().forEach(function(shape) {
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
         if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
             ole = shape;
         }
-    });
+    }
     if (ole != null) {
         var msln = java.newInstanceSync("java.io.ByteArrayInputStream", ole.getEmbeddedData().getEmbeddedFileData());
         try {

@@ -96,7 +96,7 @@ try {
     var iCount = sld.getShapes().size();
     for (var i = 0; i < iCount; i++) {
         var ashp = sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText())) {
+        if (alttext === ashp.getAlternativeText()) {
             sld.getShapes().remove(ashp);
         }
     }
@@ -131,7 +131,7 @@ try {
     var iCount = sld.getShapes().size();
     for (var i = 0; i < iCount; i++) {
         var ashp = sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText())) {
+        if (alttext === ashp.getAlternativeText()) {
             ashp.setHidden(true);
         }
     }
@@ -160,7 +160,7 @@ var pres = new aspose.slides.Presentation("ChangeShapeOrder.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
     var shp3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    shp3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     shp3.addTextFrame(" ");
     var para = shp3.getTextFrame().getParagraphs().get_Item(0);
     var portion = para.getPortions().get_Item(0);
@@ -215,7 +215,7 @@ try {
     // Add autoshape of rectangle type
     var shp1 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 40, 150, 50);
     var shp2 = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    shp2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shp2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     for (var i = 0; i < sld.getShapes().size(); i++) {
         var shape = sld.getShapes().get_Item(i);
@@ -240,12 +240,14 @@ Below sample code is given.
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
-    pres.getLayoutSlides().forEach(function(layoutSlide) {
-        layoutSlide.getShapes().forEach(function(shape) {
+    for (let i = 0; i < pres.getLayoutSlides().size(); i++) {
+        let layoutSlide = pres.getLayoutSlides().get_Item(i);
+        for (let j = 0; j < layoutSlide.getShapes().size(); j++) {
+            let shape = layoutSlide.getShapes().get_Item(j);
             var fillFormats = shape.getFillFormat();
             var lineFormats = shape.getLineFormat();
-        });
-    });
+        }
+    }
 } finally {
     if (pres != null) {
         pres.dispose();

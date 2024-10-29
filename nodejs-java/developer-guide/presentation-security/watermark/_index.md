@@ -87,7 +87,7 @@ To set the transparency of text watermark use this code:
     var green = 200;
     var blue = 200;
     var watermarkPortion = watermarkTextFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    watermarkPortion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    watermarkPortion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     watermarkPortion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", red, green, blue, alpha));
 ```
 
@@ -123,7 +123,7 @@ To add image watermark into all presentation slides, you may do the following:
         }
     }
     // ...
-    watermarkShape.getFillFormat().setFillType(aspose.slides.FillType.Picture);
+    watermarkShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
     watermarkShape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
     watermarkShape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
 ```

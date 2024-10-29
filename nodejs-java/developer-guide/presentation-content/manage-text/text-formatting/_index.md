@@ -99,15 +99,25 @@ try {
         pres.dispose();
     }
 }
-var presentation = new aspose.slides.Presentation("text.pptx");
+const pres = new aspose.slides.Presentation("text.pptx");
 try {
-    var autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    java.callStaticMethodSync("StreamSupport", "stream", autoShape.getTextFrame().getParagraphs().spliterator(), false).map(p -> p.getPortions()).forEach(c -> c.forEach(ic -> ic.getPortionFormat().getHighlightColor().setColor(Color.BLUE)));
-    presentation.save("text-red.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const slide = pres.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
+    if (autoShape.getTextFrame() != null) {
+        const paragraphs = autoShape.getTextFrame().getParagraphs();
+        const paragraphCount = paragraphs.size();
+        for (let i = 0; i < paragraphCount; i++) {
+            const portions = paragraphs.get_Item(i).getPortions();
+            const portionCount = portions.size();
+            for (let j = 0; j < portionCount; j++) {
+                const portion = portions.get_Item(j);
+                portion.getPortionFormat().getHighlightColor().setColor(Color.BLUE);
+            }
+        }
     }
+    pres.save("text-red.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    if (pres != null) pres.dispose();
 }
 ```
 
@@ -278,9 +288,9 @@ try {
     port1.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     port2.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
     // Set font color
-    port1.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port1.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port1.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
-    port2.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port2.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port2.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
     // Write the PPTX to disk
     pres.save("WelcomeFont_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -316,7 +326,7 @@ try {
     // Add an AutoShape of Rectangle type
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 50);
     // Remove any fill style associated with the AutoShape
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Access the TextFrame associated with the AutoShape
     var tf = ashp.getTextFrame();
     tf.setText("Aspose TextBox");
@@ -333,7 +343,7 @@ try {
     // Set the Height of the Font
     port.getPortionFormat().setFontHeight(25);
     // Set the color of the Font
-    port.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    port.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     port.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     // Write the PPTX to disk
     pres.save("SetTextFontProperties_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -362,9 +372,10 @@ try {
         // Sets the default font size to 20 pt for all text portions in the paragraph.
         paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(20);
         // Sets the font size to 20 pt for current text portions in the paragraph.
-        paragraph.getPortions().forEach(function(portion) {
+        for (let i = 0; i < paragraph.getPortions().getCount(); i++) {
+            let portion = paragraph.getPortions().get_Item(i);
             portion.getPortionFormat().setFontHeight(20);
-        });
+        }
     }
 } finally {
     if (presentation != null) {
@@ -394,7 +405,7 @@ try {
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
     ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Accessing the text frame
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setTextVerticalType(aspose.slides.TextVerticalType.Vertical270);
@@ -403,7 +414,7 @@ try {
     // Create Portion object for paragraph
     var portion = para.getPortions().get_Item(0);
     portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Save Presentation
     pres.save("RotateText_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -434,7 +445,7 @@ try {
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
     ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Accessing the text frame
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setRotationAngle(25);
@@ -443,7 +454,7 @@ try {
     // Create Portion object for paragraph
     var portion = para.getPortions().get_Item(0);
     portion.setText("Text rotation example.");
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Save Presentation
     pres.save(resourcesOutputPath + "RotateText_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -516,7 +527,7 @@ try {
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 150);
     // Add TextFrame to the Rectangle
     ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Accessing the text frame
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAutofitType(aspose.slides.TextAutofitType.Shape);
@@ -525,7 +536,7 @@ try {
     // Create Portion object for paragraph
     var portion = para.getPortions().get_Item(0);
     portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Save Presentation
     pres.save(resourcesOutputPath + "formatText_out.pptx", aspose.slides.SaveFormat.Pptx);
@@ -556,7 +567,7 @@ try {
     var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 350, 350);
     // Add TextFrame to the Rectangle
     ashp.addTextFrame("");
-    ashp.getFillFormat().setFillType(aspose.slides.FillType.NoFill);
+    ashp.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
     // Accessing the text frame
     var txtFrame = ashp.getTextFrame();
     txtFrame.getTextFrameFormat().setAnchoringType(aspose.slides.TextAnchorType.Bottom);
@@ -565,7 +576,7 @@ try {
     // Create Portion object for paragraph
     var portion = para.getPortions().get_Item(0);
     portion.setText("A quick brown fox jumps over the lazy dog. A quick brown fox jumps over the lazy dog.");
-    portion.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
     // Save Presentation
     pres.save("AnchorText_out.pptx", aspose.slides.SaveFormat.Pptx);

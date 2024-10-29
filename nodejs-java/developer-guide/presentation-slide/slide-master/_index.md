@@ -256,7 +256,7 @@ var pres = new aspose.slides.Presentation();
 try {
     var master = pres.getMasters().get_Item(0);
     master.getBackground().setType(aspose.slides.BackgroundType.OwnBackground);
-    master.getBackground().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    master.getBackground().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     master.getBackground().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
     pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {

@@ -85,7 +85,7 @@ try {
     tf.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
     tf.getPortionFormat().setFontHeight(20);
     tf.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    tf.getPortionFormat().getFillFormat().setFillType(aspose.slides.FillType.Solid);
+    tf.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     tf.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
