@@ -33,30 +33,30 @@ As a standalone API, [Aspose.Slides](https://products.aspose.app/slides) for jav
 3. Use this code snippet to convert the PowerPoint to Word:
 
 ```java
-Presentation pres = new Presentation(inputPres);
-try {
-    Document doc = new Document();
-    DocumentBuilder builder = new DocumentBuilder(doc);
-    for (ISlide slide : pres.getSlides())
-    {
-        // generates and inserts slide image
-        BufferedImage bitmap = slide.getThumbnail(1, 1);
+Presentation pres = new Presentation("sample.pptx");
 
-        builder.insertImage(bitmap);
+Document doc = new Document();
+DocumentBuilder builder = new DocumentBuilder(doc);
 
-        // inserts slide's texts
-        for (IShape shape : slide.getShapes())
-        {
-            if (shape instanceof AutoShape)
-            {
-                builder.writeln(((AutoShape)shape).getTextFrame().getText());
-            }
+for (ISlide slide : pres.getSlides()) {
+    // generates a slide image as a byte array stream
+    IImage image = slide.getImage(1, 1);
+    ByteArrayOutputStream imageStream = new ByteArrayOutputStream();
+    image.save(imageStream, ImageFormat.Png);
+    image.dispose();
+
+    builder.insertImage(imageStream.toByteArray());
+
+    // inserts slide's texts
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof AutoShape) {
+            builder.writeln(((AutoShape) shape).getTextFrame().getText());
         }
-
-        builder.insertBreak(BreakType.PAGE_BREAK);
     }
-    doc.save(outputDoc);
-} finally {
-    if (pres != null) pres.dispose();
+
+    builder.insertBreak(BreakType.PAGE_BREAK);
 }
+
+doc.save("output.docx");
+pres.dispose();
 ```

@@ -3,7 +3,18 @@ title: Convert Powerpoint to JPG
 type: docs
 weight: 60
 url: /androidjava/convert-powerpoint-to-jpg/
-keywords: "Convert PowerPoint to JPG, PPTX to JPEG, PPT to JPEG"
+keywords:
+- Convert PowerPoint presentation
+- JPG
+- JPEG
+- PowerPoint to JPG
+- PowerPoint to JPEG
+- PPT to JPG
+- PPTX to JPG
+- PPT to JPEG
+- PPTX to JPEG
+- Android
+- Aspose.Slides
 description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in Java"
 ---
 
@@ -17,7 +28,7 @@ To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try 
 
 {{% /alert %}} 
 
-[![todo:image_alt_text](ppt-to-jpg.png)
+![todo:image_alt_text](ppt-to-jpg.png)
 
 ## **Convert PowerPoint PPT/PPTX to JPG**
 Here are the steps to convert PPT/PPTX to JPG:
