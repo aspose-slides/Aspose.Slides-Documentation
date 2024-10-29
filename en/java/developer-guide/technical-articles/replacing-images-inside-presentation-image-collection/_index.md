@@ -20,6 +20,26 @@ Aspose.Slides for Java provides a simple API methods for replacing the images in
 1. In third approach replace the image with already added image in presentation image collection.
 1. Write the modified presentation as a PPTX file.
 
+```java
+//Instantiate the presentation
+Presentation presentation = new Presentation("presentation.pptx");
 
+//the first way
+byte[] data = Files.readAllBytes(Paths.get("image0.jpeg"));
+IPPImage oldImage = presentation.getImages().get_Item(0);
+oldImage.replaceImage(data);
 
-{{< gist "aspose-com-gists" "1f55f0222bc39a382d831900e8de7400" "Examples-src-main-java-com-aspose-slides-examples-Presentation-Images-ReplaceImage-ReplaceImage.java" >}}
+//the second way
+IImage newImage = Images.fromFile("image1.png");
+oldImage = presentation.getImages().get_Item(1);
+oldImage.replaceImage(newImage);
+newImage.dispose();
+
+//the third way
+oldImage = presentation.getImages().get_Item(2);
+oldImage.replaceImage(presentation.getImages().get_Item(3));
+
+//Save the presentation
+presentation.save("c:\\Presentations\\TestSmart.pptx", SaveFormat.Pptx);
+presentation.dispose();
+```

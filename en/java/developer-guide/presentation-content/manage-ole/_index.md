@@ -3,6 +3,20 @@ title: Manage OLE
 type: docs
 weight: 40
 url: /java/manage-ole/
+keywords:
+- add OLE
+- embed OLE
+- add an object
+- embed an object
+- embed a file
+- linked object
+- Object Linking & Embedding
+- OLE object
+- PowerPoint 
+- presentation
+- Java
+- Aspose.Slides for Java
+description: Add OLE objects to PowerPoint presentations in Java
 ---
 
 {{% alert color="primary" %}} 
@@ -265,6 +279,14 @@ try {
 } finally {
     if (pres != null) pres.dispose();
 }
+```
+
+## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
+
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `setUpdateAutomatic` method of the [IOleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ioleobjectframe/) interface to `false`:
+
+```java
+oleObjectFrame.setUpdateAutomatic(false);
 ```
 
 ## Extracting Embedded Files
