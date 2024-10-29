@@ -3,6 +3,14 @@ title: Render Presentation with Fallback Font
 type: docs
 weight: 30
 url: /cpp/render-presentation-with-fallback-font/
+keywords: 
+- fallback font
+- render PowerPoint
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
+description: "Render PowerPoint with fallback font in C++"
 ---
 
 The following example includes these steps:
@@ -44,7 +52,11 @@ auto pres = System::MakeObject<Presentation>(u"input.pptx");
 pres->get_FontsManager()->set_FontFallBackRulesCollection(rulesList);
 
 // Rendering of thumbnail with using of initialized rules collection and saving to PNG
-pres->get_Slides()->idx_get(0)->GetImage(1.f, 1.f)->Save(u"Slide_0.png", ImageFormat::Png);
+auto image = pres->get_Slide(0)->GetImage(1.f, 1.f);
+image->Save(u"Slide_0.png", ImageFormat::Png);
+image->Dispose();
+
+pres->Dispose();
 ```
 
 

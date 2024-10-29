@@ -46,7 +46,7 @@ The above steps are implemented in the example given below.
 
   //Instantiate the ImageEx class
 
-  Image img = (Image)new Bitmap(ImageFilePath);
+  using IImage img = Images.FromFile(ImageFilePath);
 
   IPPImage imgx = pres.Images.AddImage(img);
 

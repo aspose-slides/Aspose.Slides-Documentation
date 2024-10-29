@@ -3,6 +3,19 @@ title: 3D Presentation
 type: docs
 weight: 232
 url: /cpp/3d-presentation/
+keywords:
+- 3D
+- 3D PowerPoint
+- 3D presentation
+- 3D rotation
+- 3D depth
+- 3D extrusion
+- 3D gradient
+- 3D text
+- PowerPoint presentation
+- C++
+- Aspose.Slides for C++
+description: "3D PowerPoint presentation in C++"
 ---
 
 ## Overview
@@ -13,26 +26,32 @@ modifying shapes contour, adding a bevel make 3D model more volume. All the 3D e
 
 Let us observe the first example of creating 3D models, which includes all the abovementioned features:
 ``` cpp
-{
-    using namespace Aspose::Slides;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-    auto pres = System::MakeObject<Presentation>();
-    auto slide = pres->get_Slide(0);
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
-    shape->get_TextFrame()->set_Text(u"3D");
-    shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
+auto imageScale = 2;
 
-    shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
-    shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-    shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
-    shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-    shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Matte);
-    shape->get_ThreeDFormat()->set_ExtrusionHeight(100);
-    shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Blue());
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-    slide->GetImage(2.0f, 2.0f)->Save(u"sample_3d.png");
-    pres->Save(u"sandbox_3d.pptx", Export::SaveFormat::Pptx);
-}
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+shape->get_TextFrame()->set_Text(u"3D");
+shape->get_TextFrame()->get_Paragraphs()->idx_get(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
+
+shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
+shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
+shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
+shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
+shape->get_ThreeDFormat()->set_Material(MaterialPresetType::Matte);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(100);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Blue());
+
+auto thumbnail = slide->GetImage(imageScale, imageScale);
+thumbnail->Save(u"sample_3d.png");
+thumbnail->Dispose();
+
+presentation->Save(u"sandbox_3d.pptx", Export::SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 The resulting PowerPoint 3D model:
@@ -49,15 +68,13 @@ method. The rotation method is called from the camera class as if you would be
 rotating the camera. In fact, when you rotate the camera relatively to the shape, you rotate the shape on the 3D plane.
 
 ``` cpp
-{
-    using namespace Aspose::Slides;
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
+// ... set other 3D scene parameters
 
-    auto slide = pres->get_Slide(0);
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
-    shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-    // ... set other 3D scene parameters
-    slide->GetImage(2, 2)->Save(u"sample_3d.png");
-}
+auto thumbnail = slide->GetImage(imageScale, imageScale);
+thumbnail->Save(u"sample_3d.png");
+thumbnail->Dispose();
 ```
 
 ## 3D Depth and Extrusion
@@ -67,17 +84,15 @@ For modifying extrusion color use
 [IThreeDFormat.get_ExtrusionColor()](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format#aa7db8859d23a9b4eb2f35f3a42025e9e) method:
 
 ``` cpp
-{
-    using namespace Aspose::Slides;
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
+shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Purple());
+// ... set other 3D scene parameters
 
-    auto slide = pres->get_Slide(0);
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 200.0f, 200.0f);
-    shape->get_ThreeDFormat()->get_Camera()->SetRotation(20.0f, 30.0f, 40.0f);
-    shape->get_ThreeDFormat()->set_ExtrusionHeight(100.0);
-    shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_Purple());
-    // ... set other 3D scene parameters
-    slide->GetImage(2, 2)->Save(u"sample_3d.png");
-}
+auto thumbnail = slide->GetImage(imageScale, imageScale);
+thumbnail->Save(u"sample_3d.png");
+thumbnail->Dispose();
 ```
 
 Depth menu in PowerPoint:
@@ -91,27 +106,31 @@ Drawing a 3D gradient on PowerPoint 3D model can be done via
 method:
 
 ``` cpp
-{
-    using namespace Aspose::Slides;
+using namespace Aspose::Slides;
 
-    auto slide = pres->get_Slide(0);
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
-    shape->get_TextFrame()->set_Text(u"3D Gradient");
-    shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
+auto imageScale = 2;
 
-    shape->get_FillFormat()->set_FillType(FillType::Gradient);
-    shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0, System::Drawing::Color::get_Blue());
-    shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, System::Drawing::Color::get_Orange());
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-    shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
-    shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
-    shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
-    shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-    shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
-    shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_DarkOrange());
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
+shape->get_TextFrame()->set_Text(u"3D Gradient");
+shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(64.0f);
 
-    slide->GetImage(2, 2)->Save(u"sample_3d.png");
-}
+shape->get_FillFormat()->set_FillType(FillType::Gradient);
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0, System::Drawing::Color::get_Blue());
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(100.0f, System::Drawing::Color::get_Orange());
+
+shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::OrthographicFront);
+shape->get_ThreeDFormat()->get_Camera()->SetRotation(10.0f, 20.0f, 30.0f);
+shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Flat);
+shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
+shape->get_ThreeDFormat()->set_ExtrusionHeight(150.0);
+shape->get_ThreeDFormat()->get_ExtrusionColor()->set_Color(System::Drawing::Color::get_DarkOrange());
+
+auto thumbnail = slide->GetImage(imageScale, imageScale);
+thumbnail->Save(u"sample_3d.png");
+thumbnail->Dispose();
 ```
 
 3D model with 3D gradient:
@@ -121,16 +140,17 @@ method:
 To create image gradient use 
 [Shape.get_FillFormat().get_PictureFillFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#ac01c9a38197ddcd80c180aceeaf155cb) method:
 ``` cpp
-{
-    using namespace Aspose::Slides;
+auto imageData = System::IO::File::ReadAllBytes(u"image.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-    shape->get_FillFormat()->set_FillType(FillType::Picture);
-    shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(pres->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.jpg")));
-    shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
-    // .. setup 3D: Camera, LightRig, Extrusion
-    pres->get_Slide(0)->GetImage(2, 2)->Save(u"sample_3d.png");
-}
-    
+shape->get_FillFormat()->set_FillType(FillType::Picture);
+shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+// .. setup 3D: Camera, LightRig, Extrusion
+
+auto thumbnail = slide->GetImage(imageScale, imageScale);
+thumbnail->Save(u"sample_3d.png");
+thumbnail->Dispose();
 ```
 
 
@@ -142,41 +162,46 @@ To create image gradient use
 To apply rotation, extrusion, light, gradient on text and make it a 3D text(WordArt), you need to access [IAutoShape.get_TextFrame().get_TextFrameFormat().get_ThreeDFormat()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_text_frame_format#a5e681109403c2e57aa76a500fe508b30) method:
 
 ``` cpp
-{
-    using namespace Aspose::Slides;
-    using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-    auto slide = pres->get_Slide(0);
-    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
+auto imageScale = 2;
 
-    shape->get_FillFormat()->set_FillType(FillType::NoFill);
-    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
-    shape->get_TextFrame()->set_Text(u"3D Text");
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-    auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
-    portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
-    portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(System::Drawing::Color::get_DarkOrange());
-    portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(System::Drawing::Color::get_White());
-    portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::LargeGrid);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 150.0f, 250.0f, 250.0f);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_TextFrame()->set_Text(u"3D Text");
 
-    shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(128.0f);
+auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Pattern);
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(System::Drawing::Color::get_DarkOrange());
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(System::Drawing::Color::get_White());
+portion->get_PortionFormat()->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::LargeGrid);
 
-    auto textFrame = shape->get_TextFrame();
-    // setup "Arch Up" WordArt transform effect
-    textFrame->get_TextFrameFormat()->set_Transform(TextShapeType::ArchUp);
+shape->get_TextFrame()->get_Paragraph(0)->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(128.0f);
 
-    textFrame->get_TextFrameFormat()->get_ThreeDFormat()->set_ExtrusionHeight(3.5);
-    textFrame->get_TextFrameFormat()->get_ThreeDFormat()->set_Depth(3.0);
-    textFrame->get_TextFrameFormat()->get_ThreeDFormat()->set_Material(MaterialPresetType::Plastic);
-    textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
-    textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
-    textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
+auto textFrameFormat = shape->get_TextFrame()->get_TextFrameFormat();
+// setup "Arch Up" WordArt transform effect
+textFrameFormat->set_Transform(TextShapeType::ArchUp);
 
-    textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+textFrameFormat->get_ThreeDFormat()->set_ExtrusionHeight(3.5);
+textFrameFormat->get_ThreeDFormat()->set_Depth(3.0);
+textFrameFormat->get_ThreeDFormat()->set_Material(MaterialPresetType::Plastic);
+textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
+textFrameFormat->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
+textFrameFormat->get_ThreeDFormat()->get_LightRig()->SetRotation(0.0f, 0.0f, 40.0f);
 
-    pres->get_Slide(0)->GetImage(2, 2)->Save(u"text3d.png");
-    pres->Save(u"text3d.pptx", SaveFormat::Pptx);
-}
+textFrame->get_TextFrameFormat()->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::PerspectiveContrastingRightFacing);
+
+auto thumbnail = slide->GetImage(imageScale, imageScale);
+thumbnail->Save(u"text3d.png");
+thumbnail->Dispose();
+
+presentation->Save(u"text3d.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 An example of 3D text (WordArt):

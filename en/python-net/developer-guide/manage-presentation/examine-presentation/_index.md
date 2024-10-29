@@ -3,8 +3,20 @@ title: Examine Presentation
 type: docs
 weight: 30
 url: /python-net/examine-presentation/
-keywords: "Check PowerPoint, PPTX, PPT, Check Presentation, PowerPoint Properties, Presentation Properties, Python"
-description: "Check and get PowerPoint Presentation Properties in Python"
+keywords:
+- PowerPoint
+- presentation
+- presentation format
+- presentation properties
+- document properties
+- get properties
+- read properties
+- change properties
+- modify properties
+- PPTX
+- PPT
+- Python
+description: "Read and modify PowerPoint presentation properties in Python"
 ---
 
 Aspose.Slides for Python via .NET allows you to examine a presentation to find out its properties and understand its behavior. 
@@ -34,9 +46,9 @@ info3 = slides.PresentationFactory.instance.get_presentation_info("pres.ppt")
 print(info3.load_format, info3.load_format == slides.LoadFormat.PPT)
 ```
 
-## **Get a Presentation Properties**
+## **Get Presentation Properties**
 
-This Python code shows you how to get a presentation’s properties (information about the presentation):
+This Python code shows you how to get presentation properties (information about the presentation):
 
 ```py
 import aspose.slides as slides
@@ -50,26 +62,34 @@ print(props.title)
 
 You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/#properties) class.
 
-## **Update a Presentation Properties**
+## **Update Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfoUpdateDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.update_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/update_document_properties/#idocumentproperties) method that allows you to make changes to presentation properties.
 
-This Python code shows you how to edit a presentation's properties:
+Let's say we have a PowerPoint presentation with the document properties shown below.
+
+![Original document properties of the PowerPoint presentation](input_properties.png)
+
+This code example shows you how to edit some presentation properties:
 
 ```py
-import aspose.slides as slides
+file_name = "sample.pptx"
 
-info = slides.PresentationFactory.instance.get_presentation_info("pres.pptx")
-props = info.read_document_properties()
-print(props.title)
+info = PresentationFactory.instance.get_presentation_info(file_name)
 
-props.title = "My title"
-info.update_document_properties(props)
+properties = info.read_document_properties()
+properties.title = "My title"
+properties.last_saved_time = datetime.now()
 
-print(props.title)
+info.update_document_properties(properties)
+info.write_binded_presentation(file_name)
 ```
 
-### **Useful Links**
+The results of changing the document properties are shown below.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
+
+## **Useful Links**
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 

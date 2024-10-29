@@ -40,7 +40,8 @@ with slides.Presentation(path + "input.pptx") as pres:
 	pres.fonts_manager.font_fall_back_rules_collection = rulesList
 
 	# Rendering of thumbnail with using of initialized rules collection and saving to PNG
-	pres.slides[0].get_image(1, 1).save("Slide_0.png", slides.ImageFormat.PNG)
+	with pres.slides[0].get_image(1, 1) as img:
+		img.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
 

@@ -3,7 +3,16 @@ title: Convert Slide
 type: docs
 weight: 41
 url: /python-net/convert-slide/
-keywords: "Convert slide to image, export slide as image, save slide as image, slide to image, slide to PNG, slide to JPEG, slide to Bitmap, Python, Aspose.Slides"
+keywords: 
+- convert slide to image
+- export slide as image
+- save slide as image
+- slide to image
+- slide to PNG
+- slide to JPEG
+- slide to bitmap
+- PHP
+- Aspose.Slides for Python via .NET
 description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in Python"
 ---
 
@@ -11,10 +20,11 @@ Aspose.Slides for Python via .NET allows you to convert slides (in presentations
 
 To convert a slide to an image, do this: 
 
-1. First, convert the slide to a Bitmap first by using the [get_image](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method.
-2. Second, set additional options for conversion and convertible slide objects through
+1. First, set the conversion parameters and the slide objects to convert using:
    * the [ITiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/itiffoptions/) interface or
    * the [IRenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/irenderingoptions/) interface. 
+
+2. Second, convert the slide to an image by using the [get_image](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method. 
 
 ## **About Bitmap and Other Image Formats**
 
@@ -98,10 +108,9 @@ with slides.Presentation("AddNotesSlideWithNotesStyle_out.pptx") as pres:
     options.notes_comments_layouting.comments_area_color = draw.Color.antique_white
                 
     # Converts the first slide of the presentation to a Bitmap object
-    bmp = pres.slides[0].get_image(options, 2, 2)
-
-    # Saves the image in the GIF format
-    bmp.save("Slide_Notes_Comments_0.gif", slides.ImageFormat.GIF)
+    with pres.slides[0].get_image(options, 2, 2) as bmp:
+        # Saves the image in the GIF format
+        bmp.save("Slide_Notes_Comments_0.gif", slides.ImageFormat.GIF)
 ```
 
 {{% alert title="Note" color="warning" %}} 
@@ -164,7 +173,7 @@ with slides.Presentation("Presentation.pptx") as pres:
             continue
 
         # Converts the slide to a Bitmap object
-        with pres.slides[i].get_image2) as bmp:
+        with pres.slides[i].get_image() as bmp:
             # Saves the image in the JPEG format
             bmp.save("image_{0}.jpeg".format(i), slides.ImageFormat.JPEG)
 ```

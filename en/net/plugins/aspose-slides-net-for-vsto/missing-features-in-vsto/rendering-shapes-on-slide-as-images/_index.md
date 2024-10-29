@@ -156,38 +156,25 @@ for (int i = 0; i < pres.Slides.Count; i++)
 - [Codeplex](http://goo.gl/G3JI6p)
 - [Bitbucket](https://bitbucket.org/asposemarketplace/aspose-for-vsto/downloads/Rendering%20Shapes%20and%20Slide%20to%20Images%20%28Aspose.Slides%29.zip)
 ## **Extracting Shapes as image file**
-``` csharp
-
- //Instantiate a Presentation object that represents a PPT file
-
+```cs
+//Instantiate the Presentation object that represents a PPT file
 Presentation pres = new Presentation("RenderShapeAsImage.ppt");
 
 //Accessing a slide using its slide position
+ISlide slide = pres.Slides[2];
 
-Slide slide = pres.GetSlideByPosition(2);
-
-
-//Iterate all shapes on a slide and create thumbnails
-
-ShapeCollection shapes = slide.Shapes;
-
-for (int i = 0; i < shapes.Count; i++)
-
+for (int i = 0; i < slide.Shapes.Count; i++)
 {
+    IShape shape = slide.Shapes[i];
 
-	Shape shape = shapes[i];
-
-	//Getting the thumbnail image of the shape
-
-	Image img = slide.GetThumbnail(new object[] { shape }, 1.0, 1.0,shape.ShapeRectangle);
-
-	//Saving the thumbnail image in gif format
-
-	img.Save(i + ".gif", ImageFormat.Gif);
-
+    //Getting the thumbnail image of the shape
+    using (IImage image = shape.GetImage(ShapeThumbnailBounds.Shape, 1.0f, 1.0f))
+    {
+        //Saving the thumbnail image in gif format
+        image.Save(i + ".gif", ImageFormat.Gif);
+    }
 }
-
-``` 
+```
 
 *Note:*Extraction of shape is currently supported in .ppt file.
 ## **Download Sample Code**

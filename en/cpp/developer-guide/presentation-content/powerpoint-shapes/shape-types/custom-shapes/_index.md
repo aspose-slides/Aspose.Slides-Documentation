@@ -3,8 +3,20 @@ title: Custom Shape
 type: docs
 weight: 20
 url: /cpp/custom-shape/
-keywords: "PowerPoint shape, custom shape, PowerPoint presentation, C++, Aspose.Slides for C++"
-description: "Add custom shape in PowerPoint presentation in C++"
+keywords: 
+- shape
+- custom shape
+- create shape
+- geometry
+- shape geometry
+- geometry path
+- path points
+- edit points
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
+description: "Add a custom shape to a PowerPoint presentation in C++"
 ---
 
 # Change a Shape Using Edit Points
@@ -274,6 +286,32 @@ geometryPath->CloseFigure();
 childShape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
+```
+
+## **Find Out If a Shape Geometry Is Closed**
+
+A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
+
+```cpp
+bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
+{
+    bool isClosed = false;
+
+    for (auto&& geometryPath : geometryShape->GetGeometryPaths())
+    {
+        auto dataLength = geometryPath->get_PathData()->get_Length();
+        if (dataLength == 0)
+            continue;
+
+        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
+        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
+
+        if (!isClosed)
+            return false;
+    }
+
+    return isClosed;
+}
 ```
 
 ## **Convert GeometryPath to GraphicsPath** 

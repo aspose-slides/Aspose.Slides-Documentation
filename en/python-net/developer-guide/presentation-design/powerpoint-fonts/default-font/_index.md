@@ -30,7 +30,8 @@ loadOptions.default_asian_font = "Wingdings"
 # Load the presentation
 with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as pptx:
     # Generate slide thumbnail
-    pptx.slides[0].get_image(1, 1).save("output_out.png", slides.ImageFormat.PNG)
+    with pptx.slides[0].get_image(1, 1) as img:
+        img.save("output_out.png", slides.ImageFormat.PNG)
 
     # Generate PDF
     pptx.save("output_out.pdf", slides.export.SaveFormat.PDF)

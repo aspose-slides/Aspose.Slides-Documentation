@@ -401,10 +401,9 @@ with slides.Presentation() as presentation:
     node = smart.nodes[1]
 
     # Get thumbnail
-    bmp = node.shapes[0].get_image()
-
-    # save thumbnail
-    bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", slides.ImageFormat.JPEG)
+    with node.shapes[0].get_image() as bmp:
+        # save thumbnail
+        bmp.save("SmartArt_ChildNote_Thumbnail_out.jpeg", slides.ImageFormat.JPEG)
 ```
 
 

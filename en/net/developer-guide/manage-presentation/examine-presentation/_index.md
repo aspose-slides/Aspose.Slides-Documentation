@@ -3,8 +3,22 @@ title: Examine Presentation
 type: docs
 weight: 30
 url: /net/examine-presentation/
-keywords: "Check PowerPoint, PPTX, PPT, Check Presentation, PowerPoint Properties, Presentation Properties, C#, Csharp, .NET"
-description: "Check and get PowerPoint Presentation Properties in C# or .NET"
+keywords:
+- PowerPoint
+- presentation
+- presentation format
+- presentation properties
+- document properties
+- get properties
+- read properties
+- change properties
+- modify properties
+- PPTX
+- PPT
+- C#
+- Csharp
+- .NET
+description: "Read and modify PowerPoint presentation properties in C# or .NET"
 ---
 
 Aspose.Slides for .NET allows you to examine a presentation to find out its properties and understand its behavior. 
@@ -32,9 +46,9 @@ IPresentationInfo info3 = PresentationFactory.Instance.GetPresentationInfo("pres
 Console.WriteLine(info3.LoadFormat); // ODP
 ```
 
-## **Get a Presentation Properties**
+## **Get Presentation Properties**
 
-This C# code shows you how to get a presentation’s properties (information about the presentation):
+This C# code shows you how to get presentation properties (information about the presentation):
 
 ```c#
 IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
@@ -47,21 +61,34 @@ Console.WriteLine(props.Title);
 
 You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/#properties) class.
 
-## **Update a Presentation Properties**
+## **Update Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfoUpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.UpdateDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentationinfo/methods/updatedocumentproperties) method that allows you to make changes to presentation properties.
 
-This C# code shows you how to edit a presentation's properties:
+Let's say we have a PowerPoint presentation with the document properties shown below.
+
+![Original document properties of the PowerPoint presentation](input_properties.png)
+
+This code example shows you how to edit some presentation properties:
 
 ```c#
-IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo("pres.pptx");
+string fileName = "sample.pptx";
 
-IDocumentProperties props = info.ReadDocumentProperties();
-props.Title = "My title";
-info.UpdateDocumentProperties(props);
+IPresentationInfo info = PresentationFactory.Instance.GetPresentationInfo(fileName);
+
+IDocumentProperties properties = info.ReadDocumentProperties();
+properties.Title = "My title";
+properties.LastSavedTime = DateTime.Now;
+
+info.UpdateDocumentProperties(properties);
+info.WriteBindedPresentation(fileName);
 ```
 
-### **Useful Links**
+The results of changing the document properties are shown below.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
+
+## **Useful Links**
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 

@@ -22,7 +22,7 @@ Aspose.Slides for .NET provides a simple API methods for replacing the images in
 
 ```c#
 //Instantiate the presentation
-Presentation presentation = new Presentation("presentation.pptx");
+using Presentation presentation = new Presentation("presentation.pptx");
 
 //the first way
 byte[] data = File.ReadAllBytes("image0.jpeg");
@@ -30,7 +30,7 @@ IPPImage oldImage = presentation.Images[0];
 oldImage.ReplaceImage(data);
 
 //the second way
-Image newImage = Image.FromFile("image1.png");
+using IImage newImage = Images.FromFile("image1.png");
 oldImage = presentation.Images[1];
 oldImage.ReplaceImage(newImage);
 

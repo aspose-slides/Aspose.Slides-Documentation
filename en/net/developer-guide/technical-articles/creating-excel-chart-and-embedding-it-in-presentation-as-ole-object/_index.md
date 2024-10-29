@@ -112,15 +112,23 @@ static void AddExcelChartInPresentation(Presentation pres, ISlide sld, Stream wb
 {
     float oleWidth = pres.SlideSize.Size.Width;
     float oleHeight = pres.SlideSize.Size.Height;
-    int x = 0;
+
     byte[] chartOleData = new byte[wbStream.Length];
     wbStream.Position = 0;
     wbStream.Read(chartOleData, 0, chartOleData.Length);
-    
+
     OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(chartOleData, "xls");
-    IOleObjectFrame oof = null;
-    oof = sld.Shapes.AddOleObjectFrame(x, 0, oleWidth, oleHeight, dataInfo);
-    oof.SubstitutePictureFormat.Picture.Image = pres.Images.AddImage((System.Drawing.Image)imgChart);
+    IOleObjectFrame oof = sld.Shapes.AddOleObjectFrame(0, 0, oleWidth, oleHeight, dataInfo);
+
+    using (MemoryStream imageStream = new MemoryStream())
+    {
+        imgChart.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+
+	imageStream.Position = 0;
+        IPPImage ppImage = pres.Images.AddImage(imageStream);
+
+        oof.SubstitutePictureFormat.Picture.Image = ppImage;
+    }
 }
 ```
 

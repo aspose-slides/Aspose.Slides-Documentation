@@ -8,7 +8,6 @@ url: /net/rendering-and-printing-of-presentation/
 This section includes the following topics
 
 - [Conversion to Tiff with Notes](/slides/net/conversion-to-tiff-with-notes/)
-- [Print Presentation](/slides/net/print-presentation/)
 - [Rendered As Tiff](/slides/net/rendered-as-tiff/)
 - [Rendered As Tiff By User Defined Dimension](/slides/net/rendered-as-tiff-by-user-defined-dimension/)
 - [Render Slide As SVG Image](/slides/net/render-slide-as-svg-image/)

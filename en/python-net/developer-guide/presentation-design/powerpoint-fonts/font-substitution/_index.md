@@ -40,10 +40,9 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
     presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
 
     #Arial font will be used in place of SomeRareFont when the latter is inaccessible
-    bmp = presentation.slides[0].get_image(1, 1)
-
-    # Saves the image to disk in the JPEG format
-    bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+    with presentation.slides[0].get_image(1, 1) as bmp:
+        # Saves the image to disk in the JPEG format
+        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
 ```
 
 {{%  alert title="NOTE"  color="warning"   %}} 

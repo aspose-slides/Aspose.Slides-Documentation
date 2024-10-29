@@ -106,7 +106,6 @@ This section includes the following topics
     - [Find and Replace in Presentation](/slides/net/find-and-replace-in-presentation/)
   - [Rendering and Printing of Presentation](/slides/net/rendering-and-printing-of-presentation/)
     - [Conversion to Tiff with Notes](/slides/net/conversion-to-tiff-with-notes/)
-    - [Print Presentation](/slides/net/print-presentation/)
     - [Rendered As Tiff](/slides/net/rendered-as-tiff/)
     - [Rendered As Tiff By User Defined Dimension](/slides/net/rendered-as-tiff-by-user-defined-dimension/)
     - [Render Slide As SVG Image](/slides/net/render-slide-as-svg-image/)

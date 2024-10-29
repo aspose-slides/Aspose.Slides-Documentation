@@ -68,7 +68,7 @@ Aspose.Slides for .NET has provided the simplest API to create tables in an easi
 
   //Creating a Bitmap Image object to hold the image file
 
-  System.Drawing.Bitmap image = new Bitmap(ImageFile);
+  using IImage image = Images.FromFile(ImageFile);
 
   //Create an IPPImage object using the bitmap object
 

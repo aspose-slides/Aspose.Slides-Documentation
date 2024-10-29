@@ -3,8 +3,16 @@ title: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /net/manage-smartart-shape-node/
-keywords: "SmartArt node, SmartArt child node, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "Smart node and child node in PowerPoint presentations in C# or .NET"
+keywords:
+- SmartArt
+- SmartArt node
+- SmartArt child node
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: "Manage SmartArt nodes and child nodes in PowerPoint presentations in C# or .NET"
 ---
 
 
@@ -441,20 +449,18 @@ Developers can generate a thumbnail of Child node of a SmartArt by following the
 The example below generating a thumbnail of SmartArt child node
 
 ```c#
-// Instantiate Presentation class that represents the PPTX file 
-Presentation pres = new Presentation();
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
 
-// Add SmartArt 
-ISmartArt smart = pres.Slides[0].Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
+    ISmartArt smartArt = slide.Shapes.AddSmartArt(10, 10, 400, 300, SmartArtLayoutType.BasicCycle);
+    ISmartArtNode node = smartArt.Nodes[1];
 
-// Obtain the reference of a node by using its Index  
-ISmartArtNode node = smart.Nodes[1];
-
-// Get thumbnail
-Bitmap bmp = node.Shapes[0].GetThumbnail();
-
-// Save thumbnail
-bmp.Save("SmartArt_ChildNote_Thumbnail_out.jpeg", ImageFormat.Jpeg);
+    using (IImage image = node.Shapes[0].GetImage())
+    {
+        image.Save("SmartArt_ChildNote_Thumbnail_out.jpeg", ImageFormat.Jpeg);
+    }
+}
 ```
 
 

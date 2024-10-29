@@ -3,7 +3,21 @@ title: Shape Formatting
 type: docs
 weight: 20
 url: /net/shape-formatting/
-keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
+keywords:
+- format shape
+- format lines
+- format join styles
+- gradient fill
+- pattern fill
+- picture fill
+- solid color fill
+- rotate shapes
+- 3d bevel effects
+- 3d rotation effect
+- PowerPoint presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
 description: "Format shape in PowerPoint presentation in C# or .NET"
 ---
 
@@ -225,30 +239,31 @@ This is how you use Aspose.Slides to fill a shape with a picture:
 This C# code shows you how to fill a shape with a picture:
 
 ```c#
-// Instantiates a presentation class that represents a presentation file
-using (Presentation pres = new Presentation())
+// Instantiates the Presentation class that represents a presentation file
+using (Presentation presentation = new Presentation())
 {
-
     // Gets the first slide
-    ISlide sld = pres.Slides[0];
+    ISlide slide = presentation.Slides[0];
 
     // Adds a rectangle autoshape
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
 
     // Sets the fill type to Picture
-    shp.FillFormat.FillType = FillType.Picture;
+    shape.FillFormat.FillType = FillType.Picture;
 
     // Sets the picture fill mode
-    shp.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+
+    // Loads an image and adds it to the presentation resources
+    IImage image = Images.FromFile("Tulips.jpg");
+    IPPImage ppImage = presentation.Images.AddImage(image);
+    image.Dispose();
 
     // Sets the picture
-    System.Drawing.Image img = (System.Drawing.Image)new Bitmap("Tulips.jpg");
-    IPPImage imgx = pres.Images.AddImage(img);
-    shp.FillFormat.PictureFillFormat.Picture.Image = imgx;
+    shape.FillFormat.PictureFillFormat.Picture.Image = ppImage;
 
     // Writes the PPTX file to disk
-    pres.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
+    presentation.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
 }
 ```
 

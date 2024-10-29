@@ -10,22 +10,19 @@ A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** 
 ```csharp
 using (Presentation pres = new Presentation())
 {
-    IPPImage image = null;
     ISlide slide = pres.Slides[0];
 
     // Add Ole objects
-    byte[] allbytes = File.ReadAllBytes("oleSourceFile.bin");
-    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(allbytes, "xls");
-    
+    byte[] allbytes = File.ReadAllBytes("oleSourceFile.xlsx");
+    OleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(allbytes, "xlsx");
+
     IOleObjectFrame oof = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
     oof.IsObjectIcon = true;
 
     // Add image object
     byte[] imgBuf = File.ReadAllBytes("oleIconFile.ico");
-    using (MemoryStream ms = new MemoryStream(imgBuf))
-    {
-        image = pres.Images.AddImage(new Bitmap(ms));
-    }
+    IPPImage image = pres.Images.AddImage(imgBuf);
+
     oof.SubstitutePictureFormat.Picture.Image = image;
 
     // Set caption to OLE icon

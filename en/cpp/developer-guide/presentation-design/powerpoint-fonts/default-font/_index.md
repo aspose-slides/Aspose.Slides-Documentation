@@ -3,6 +3,15 @@ title: Default Font
 type: docs
 weight: 30
 url: /cpp/default-font/
+keywords: 
+- font
+- default font
+- render presentation
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
+description: PowerPoint C++ API lets you set the default font for rendering presentations to PDF, XPS or thumbnails
 ---
 
 ## **Set Default Font**
@@ -25,5 +34,20 @@ Font and DefaultAsian Font for use as default fonts. Please follow the steps bel
 
 The implementation of the above is given below.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-DefaultFonts-DefaultFonts.cpp" >}}
+```cpp
+// Use the load options to specify default regular and Asian fonts
+auto loadOptions = MakeObject<LoadOptions>(LoadFormat::Auto);
+loadOptions->set_DefaultRegularFont(u"Wingdings");
+loadOptions->set_DefaultAsianFont(u"Wingdings");
 
+auto pptx = MakeObject<Presentation>(u"DefaultFonts.pptx", loadOptions);
+
+auto image = pptx->get_Slide(0)->GetImage(1, 1);
+image->Save(u"DefaultFonts_out.png", ImageFormat::Png);
+image->Dispose();
+
+pptx->Save(u"DefaultFonts_out.pdf", SaveFormat::Pdf);
+pptx->Save(u"DefaultFonts_out.xps", SaveFormat::Xps);
+
+pptx->Dispose();
+```
