@@ -3,8 +3,25 @@ title: Manage PowerPoint Paragraph in Java
 type: docs
 weight: 40
 url: /androidjava/manage-paragraph/
-keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in Java"
+keywords:
+- add text
+- add paragraphs
+- manage text
+- manage paragraphs
+- paragraph indent
+- paragraph bullet
+- numbered list
+- paragraph properties
+- import HTML
+- text to HTML
+- paragraph to HTML
+- paragraphs to images
+- export paragraphs
+- PowerPoint presentation
+- Android
+- Java
+- Aspose.Slides for Android via Java
+description: "Create paragraphs and manage paragraph properties in PowerPoint presentations on Android in Java"
 ---
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
@@ -629,4 +646,95 @@ try {
 }
 ```
 
- 
+## **Save a Paragraph as an Image**
+
+In this section, we will explore two examples that demonstrate how to save a text paragraph, represented by the [IParagraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/) interface, as an image. Both examples include obtaining the image of a shape containing the paragraph using the `getImage` methods from the [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interface, calculating the bounds of the paragraph within the shape, and exporting it as a bitmap image. These approaches allow you to extract specific parts of the text from PowerPoint presentations and save them as separate images, which can be useful for further use in various scenarios.
+
+Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+**Example 1**
+
+In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+// Save the shape in memory as a bitmap.
+IImage shapeImage = firstShape.getImage();
+ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+shapeImage.save(shapeImageStream, ImageFormat.Png);
+shapeImage.dispose();
+
+// Create a shape bitmap from memory.
+InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+
+// Calculate the rectangle of the second paragraph.
+IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+RectF paragraphRectangle = secondParagraph.getRect();
+
+// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+int imageX = (int) Math.floor(paragraphRectangle.left);
+int imageY = (int) Math.floor(paragraphRectangle.top);
+int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
+int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
+
+// Crop the shape bitmap to get the paragraph bitmap only.
+BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+
+presentation.dispose();
+```
+
+The result:
+
+![The paragraph image](paragraph_to_image_output.png)
+
+**Example 2**
+
+In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
+
+```java
+float imageScaleX = 2f;
+float imageScaleY = imageScaleX;
+
+Presentation presentation = new Presentation("sample.pptx");
+IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+// Save the shape in memory as a bitmap with scaling.
+IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
+ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+shapeImage.save(shapeImageStream, ImageFormat.Png);
+shapeImage.dispose();
+
+// Create a shape bitmap from memory.
+InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+
+// Calculate the rectangle of the second paragraph.
+IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+RectF paragraphRectangle = secondParagraph.getRect();
+paragraphRectangle.set(
+        paragraphRectangle.left * imageScaleX,
+        paragraphRectangle.top * imageScaleY,
+        paragraphRectangle.right * imageScaleX,
+        paragraphRectangle.bottom * imageScaleY
+);
+
+// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+int imageX = (int) Math.floor(paragraphRectangle.left);
+int imageY = (int) Math.floor(paragraphRectangle.top);
+int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
+int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
+
+// Crop the shape bitmap to get the paragraph bitmap only.
+BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+
+presentation.dispose();
+```
