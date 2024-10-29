@@ -3,7 +3,21 @@ title: Examine Presentation
 type: docs
 weight: 30
 url: /php-java/examine-presentation/
-
+keywords:
+- PowerPoint
+- presentation
+- presentation format
+- presentation properties
+- document properties
+- get properties
+- read properties
+- change properties
+- modify properties
+- PPTX
+- PPT
+- PHP
+- Java
+description: "Read and modify PowerPoint presentation properties in PHP via Java"
 ---
 
 Aspose.Slides for PHP via Java allows you to examine a presentation to find out its properties and understand its behavior.
@@ -33,9 +47,9 @@ You can check a presentation's format without loading the presentation. See this
 
 ```
 
-## **Get a Presentation Properties**
+## **Get Presentation Properties**
 
-This PHP code shows you how to get a presentation’s properties (information about the presentation):
+This PHP code shows you how to get presentation properties (information about the presentation):
 
 ```php
   $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
@@ -49,21 +63,34 @@ This PHP code shows you how to get a presentation’s properties (information ab
 
 You may want to see the [properties under the DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/#DocumentProperties--) class.
 
-## **Update a Presentation Properties**
+## **Update Presentation Properties**
 
-Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to a presentation’s properties.
+Aspose.Slides provides the [PresentationInfo.updateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/PresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) method that allows you to make changes to presentation properties.
 
-This PHP code shows you how to edit a presentation's properties:
+Let's say we have a PowerPoint presentation with the document properties shown below.
+
+![Original document properties of the PowerPoint presentation](input_properties.png)
+
+This code example shows you how to edit some presentation properties:
 
 ```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("pres.pptx");
-  $props = $info->readDocumentProperties();
-  $props->setTitle("My title");
-  $info->updateDocumentProperties($props);
+$fileName = "sample.pptx";
 
+$info = PresentationFactory::getInstance()->getPresentationInfo($fileName);
+
+$properties = $info->readDocumentProperties();
+$properties->setTitle("My title");
+$properties->setLastSavedTime(new Java("java.util.Date"));
+
+$info->updateDocumentProperties($properties);
+$info->writeBindedPresentation($fileName);
 ```
 
-### **Useful Links**
+The results of changing the document properties are shown below.
+
+![Changed document properties of the PowerPoint presentation](output_properties.png)
+
+## **Useful Links**
 
 To get more information about a presentation and its security attributes, you may find these links useful:
 

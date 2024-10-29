@@ -154,7 +154,7 @@ This PHP code shows you how to convert a PowerPoint to a password-protected PDF 
   }
 ```
 
-### **Detect Font Substitutions**
+### **Detect Font Substitutions**
 
 Aspose.Slides provides the [getWarningCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#getWarningCallback--) method under the [SaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) class to allow you to detect font substitutions in a presentation to PDF conversion process.
 
@@ -174,11 +174,16 @@ class FontSubstSendsWarningCallback {
     }
 }
 
-$loadOptions = new LoadOptions();
-$warningCallback = java_closure(new FontSubstSendsWarningCallback(), null, java("com.aspose.slides.IWarningCallback"));
-$loadOptions->setWarningCallback($warningCallback);
-$pres = new Presentation("pres.pptx", $loadOptions);
-$pres->dispose();
+  $loadOptions = new LoadOptions();
+  $warningCallback = java_closure(new FontSubstSendsWarningCallback(), null, java("com.aspose.slides.IWarningCallback"));
+  $loadOptions->setWarningCallback($warningCallback);
+  $pres = new Presentation("pres.pptx", $loadOptions);
+  try {
+  } finally {
+    if (!java_is_null($pres)) {
+      $pres->dispose();
+    }
+  }
 ```
 
 {{%  alert color="primary"  %}} 

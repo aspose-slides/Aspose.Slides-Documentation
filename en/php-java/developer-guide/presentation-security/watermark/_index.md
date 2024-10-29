@@ -3,200 +3,199 @@ title: Watermark
 type: docs
 weight: 40
 url: /php-java/watermark/
-keywords: "watermark in presentation"
-description: "Use watermark in PowerPoint with Aspose.Slides. Add watermark in ppt presentation or remove watermark. Insert image watermark or text watermark."
+keywords:
+- watermark
+- add watermark
+- text watermark
+- image watermark
+- PowerPoint
+- presentation
+- PHP
+- Java
+- Aspose.Slides for PHP via Java
+description: "Add text and image watermarks to PowerPoint presentations in PHP"
 ---
 
+## **About Watermarks**
 
-## **About Watermark**
-**Watermark** in presentation is a text or image stamp, used upon a slide or all presentation slides. Usually, watermark is used to indicate that the presentation is a draft (e.g. "Draft" watermark); that it contains confidential information (e.g. "Confidential" watermak); specify which company it belongs to (e.g. "Company name" watermark); identify presentation author, etc. Watermark helps to prevent presentation copyrights violation, indicating that the presentation should not be copied. Watermarks are used with both PowerPoint and OpenOffice presentation formats. In Aspose.Slides you can add watermark to PowerPoint PPT, PPTX and OpenOffice ODP file formats.
+**A watermark** in a presentation is a text or image stamp used on a slide or throughout all presentation slides. Usually, a watermark is used to indicate that the presentation is a draft (e.g., a "Draft" watermark), that it contains confidential information (e.g., a "Confidential" watermark), to specify which company it belongs to (e.g., a "Company Name" watermark), to identify the presentation author, etc. A watermark helps to prevent copyright violations by indicating that the presentation should not be copied. Watermarks are used in both PowerPoint and OpenOffice presentation formats. In Aspose.Slides, you can add a watermark to PowerPoint PPT, PPTX, and OpenOffice ODP file formats.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/php-java/) there are various ways you can create watermark in PowerPoint or OpenOffice, to wrap it into different shapes, to change the design and behavior., etc  The common things is, that to add text watermarks you should use [**TextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) class and to add image watermark - [**PictureFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame/). [PictureFrame]((https://reference.aspose.com/slides/php-java/aspose.slides/PictureFrame/)) implements [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) interface and can use all the power of flexible settings of shape object. [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) is not a shape and its settings are limited. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) into [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape) object.
+In [**Aspose.Slides**](https://products.aspose.com/slides/php-java/), there are various ways you can create watermarks in PowerPoint or OpenOffice documents and modify their design and behavior. The common aspect is that to add text watermarks, you should use the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) class, and to add image watermarks, use the [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) class or fill a watermark shape with an image. `PictureFrame` implements the [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class, allowing you to use all the flexible settings of the shape object. Since `ITextFrame` is not a shape and its settings are limited, it is wrapped into an [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) object.
 
-There are two ways watermark can be applied: to a single slide and to all presentation slides. Slide Master is used to apply watermark to all presentation slides - watermark is added into Slide Master, completely designed there and applied to all slides without modifying a permission to modify watermark on slides.
+There are two ways a watermark can be applied: to a single slide or to all presentation slides. The Slide Master is used to apply a watermark to all presentation slides — the watermark is added to the Slide Master, fully designed there, and applied to all slides without affecting the permission to modify the watermark on individual slides.
 
-Watermark is usually considered not to be available for editing by other users. To prevent editing watermark (or rather watermark parent shape), Aspose.Slides provides shape locking functionality. A certain shape can be locked on a normal slide or on a Slide Master. When locking watermark shape on a Slide Master - it will be locked on all presentation slides.
+A watermark is usually considered to be unavailable for editing by other users. To prevent the watermark (or rather the watermark's parent shape) from being edited, Aspose.Slides provides shape locking functionality. A specific shape can be locked on a normal slide or on a Slide Master. When the watermark shape is locked on the Slide Master, it will be locked on all presentation slides.
 
-You can set the name of watermark, so in future, if you want to delete the watermark, you may find it in slide shapes by name.
+You can set a name for the watermark so that in the future, if you want to delete it, you can find it in the slide's shapes by name.
 
-You can design watermark in any way however there are usually attend common features within watermarks, like: center alignment, rotation, front position, etc. We will consider how to use them in the examples below.
+You can design the watermark in any way; however, there are usually common features in watermarks, such as center alignment, rotation, front position, etc. We will consider how to use these in the examples below.
+
 ## **Text Watermark**
-### **Add Text Watermark to Slide**
-To add text watermark in PPT, PPTX or ODP you can first add a shape into the slide, then add a text frame into this shape. Text frame is represented with [**TextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) type. This type is not inherited from [IShape](https://reference.aspose.com/slides/php-java/aspose.slides/IShape), which has a wide set of properties to settle the watermark in a flexible way. Therefore, it is advised to wrap [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/TextFrame) object into [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) object. To add watermark into the shape, use [**addTextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method with watermark text passed into it:
+
+### **Add a Text Watermark to a Slide**
+
+To add a text watermark in PPT, PPTX, or ODP, you can first add a shape to the slide, then add a text frame to this shape. The text frame is represented by the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) class. This type is not inherited from [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/), which has a wide set of properties for positioning the watermark in a flexible way. Therefore, the [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) object is wrapped in an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) object. To add watermark text to the shape, use the [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) method as shown below.
 
 ```php
-  # Open presentation
-  $presentation = new Presentation();
-  try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
-    $watermarkTextFrame = $watermarkShape->addTextFrame("Watermark");
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+$watermarkText = "CONFIDENTIAL";
+
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+
+$watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+$watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
+
+$presentation->dispose();
 ```
-
-
 
 {{% alert color="primary" title="See also" %}} 
-- [How to use ](/slides/php-java/slide-master/)[TextFrame](/slides/php-java/adding-and-formatting-text/)
+- [How to Use the TextFrame Class](/slides/php-java/text-formatting/)
 {{% /alert %}}
 
-### **Add Text Watermark to Presentation**
-If you want to add watermark in presentation (means, all slides at once), 
-add it into [**MasterSlide**](https://reference.aspose.com/slides/php-java/aspose.slides/MasterSlide).
-All the other logic is the same as in adding watermark into a single slide - create an [IAutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape) object and then add watermark into it with [**addTextFrame**](https://reference.aspose.com/slides/php-java/aspose.slides/IAutoShape#addTextFrame-java.lang.String-) method:
+### **Add a Text Watermark to a Presentation**
+
+If you want to add a text watermark to the entire presentation (i.e., all slides at once), add it to the [MasterSlide](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/). The rest of the logic is the same as when adding a watermark to a single slide — create an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) object and then add the watermark to it using the [addTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#addTextFrame) method.
 
 ```php
-  # Open presentation
-  $pres = new Presentation();
-  try {
-    $master = $pres->getMasters()->get_Item(0);
-    $watermarkShape = $master->getShapes()->addAutoShape(ShapeType::Triangle, 0, 0, 0, 0);
-    $watermarkTextFrame = $watermarkShape->addTextFrame("Watermark");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$watermarkText = "CONFIDENTIAL";
 
+$presentation = new Presentation();
+$masterSlide = $presentation->getMasters()->get_Item(0);
+
+$watermarkShape = $masterSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 40);
+$watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
+
+$presentation->dispose();
+```
 
 {{% alert color="primary" title="See also" %}} 
-- [How to use ](/slides/php-java/slide-master/)[Slide Master](/slides/php-java/slide-master/)
+- [How to Use the Slide Master](/slides/php-java/slide-master/)
 {{% /alert %}}
 
-### **Set Font of Text Watermark**
-You can change the font of text watermark:
+### **Set Watermark Shape Transparency**
+
+By default, the rectangle shape is styled with fill and line colors. The following lines of code make the shape transparent.
 
 ```php
-  $watermarkPortion = $watermarkTextFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-  $watermarkPortion->getPortionFormat()->setFontBold(NullableBool::True);
-  $watermarkPortion->getPortionFormat()->setFontHeight(52);
-
+$watermarkShape->getFillFormat()->setFillType(FillType::NoFill);
+$watermarkShape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
 ```
 
+### **Set the Font for a Text Watermark**
 
-### **Set Text Watermark Transparency**
-To set the transparency of text watermark use this code:
+You can change the font of the text watermark as shown below.
 
 ```php
-  $alpha = 150;
-  $red = 200;
-  $green = 200;
-  $blue = 200;
-  $watermarkPortion = $watermarkTextFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-  $watermarkPortion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $watermarkPortion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", $red, $green, $blue, $alpha));
-
+$textFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat();
+$textFormat->setLatinFont(new FontData("Arial"));
+$textFormat->setFontHeight(50);
 ```
 
+### **Set the Watermark Text Color**
 
-### **Center Text Watermark**
-It is possible to center watermark on a slide and for that you can do the following:
-
-
+To set the color of the watermark text, use this code:
 
 ```php
-  $center = new Point2DFloat($pres->getSlideSize()->getSize()->getWidth() / 2, $pres->getSlideSize()->getSize()->getHeight() / 2);
-  $width = 300;
-  $height = 300;
-  $x = $center->getX() - $width / 2;
-  $y = $center->getY() - $height / 2;
-  # ...
-  $watermarkShape = $slide->getShapes()->addAutoShape(ShapeType::Triangle, $x, $y, $width, $height);
+$alpha = 150;
+$red = 200;
+$green = 200;
+$blue = 200;
+$textColor = new Java("java.awt.Color", $red, $green, $blue, $alpha);
 
+$fillFormat = $watermarkFrame->getParagraphs()->get_Item(0)->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
+$fillFormat->setFillType(FillType::Solid);
+$fillFormat->getSolidFillColor()->setColor($textColor);
 ```
 
+### **Center a Text Watermark**
+
+It is possible to center the watermark on a slide, and for that, you can do the following:
+
+```php
+$slideSize = $presentation->getSlideSize()->getSize();
+$slideWidth = java_values($slideSize->getWidth());
+$slideHeight = java_values($slideSize->getHeight());
+
+$watermarkWidth = 400;
+$watermarkHeight = 40;
+$watermarkX = ($slideWidth - $watermarkWidth) / 2;
+$watermarkY = ($slideHeight - $watermarkHeight) / 2;
+
+$watermarkShape = $slide->getShapes()->addAutoShape(
+        ShapeType::Rectangle, $watermarkX, $watermarkY, $watermarkWidth, $watermarkHeight);
+
+$watermarkFrame = $watermarkShape->addTextFrame($watermarkText);
+```
+
+The image below shows the final result.
+
+![The text watermark](text_watermark.png)
 
 ## **Image Watermark**
-### **Add Image Watermark to Presentation**
-To add image watermark into all presentation slides, you may do the following:
+
+### **Add an Image Watermark to a Presentation**
+
+To add an image watermark to a presentation slide, you can do the following:
 
 ```php
-  $picture;
-  $image = Images->fromFile("watermark.png");
-  try {
-    $picture = $pres->getImages()->addImage($image);
-  } finally {
-    if (!java_is_null($image)) {
-      $image->dispose();
+$image = Images::fromFile("watermark.png");
+$picture = $presentation->getImages()->addImage($image);
+$image->dispose();
+
+$watermarkShape->getFillFormat()->setFillType(FillType::Picture);
+$watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
+$watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+```
+
+### **Lock a Watermark from Editing**
+
+If it is necessary to prevent a watermark from being edited, use the [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) method on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
+
+```php
+// Lock the watermark shape from modifying
+$watermarkShape->getAutoShapeLock()->setSelectLocked(true);
+$watermarkShape->getAutoShapeLock()->setSizeLocked(true);
+$watermarkShape->getAutoShapeLock()->setTextLocked(true);
+$watermarkShape->getAutoShapeLock()->setPositionLocked(true);
+$watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
+```
+
+### **Bring a Watermark to Front**
+
+In Aspose.Slides, the Z-order of shapes can be set via the [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
+
+```php
+$shapeCount = java_values($slide->getShapes()->size());
+$slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
+```
+
+### **Set Watermark Rotation**
+
+Here is a code example of how to adjust the rotation of the watermark so that it is positioned diagonally across the slide:
+
+```php
+$diagonalAngle = atan($slideWidth / $slideHeight) * 180 / M_PI;
+
+$watermarkShape->setRotation($diagonalAngle);
+```
+
+### **Set a Name for a Watermark**
+
+Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName) method:
+
+```php
+$watermarkShape->setName("watermark");
+```
+
+### **Remove a Watermark**
+
+To remove the watermark shape, use the [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) method to find it in the slide shapes. Then, pass the watermark shape into the [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove) method:
+
+```php
+$slideShapes = $slide->getShapes()->toArray();
+foreach ($slideShapes as $shape) {
+    if ($shape->getName() === "watermark") {
+        $slide->getShapes()->remove($shape);
     }
-  }
-  # ...
-  $watermarkShape->getFillFormat()->setFillType(FillType::Picture);
-  $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
-  $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode->Stretch);
-
-```
-
-
-
-
-## **Lock Watermark from Editing**
-If its needed to prevent watermark from editing, use [**AutoShape.getShapeLock**](https://reference.aspose.com/slides/php-java/aspose.slides/AutoShape#getShapeLock--) method on the shape, that wraps its. With this method you can protect shape from selection, resize, change position, grouping with other elements, lock its text from editing and many others:
-
-```php
-  # Lock Shapes from modifying
-  $watermarkShape->getShapeLock()->setSelectLocked(true);
-  $watermarkShape->getShapeLock()->setSizeLocked(true);
-  $watermarkShape->getShapeLock()->setTextLocked(true);
-  $watermarkShape->getShapeLock()->setPositionLocked(true);
-  $watermarkShape->getShapeLock()->setGroupingLocked(true);
-
-```
-
-{{% alert color="primary" title="See also" %}} 
-- [How to Lock Shapes from Editing](/slides/php-java/presentation-locking/)
-{{% /alert %}}
-
-## **Bring Watermark to Front**
-In Aspose.Slides the Z-Order of shapes can be set via [**SlideCollection.reorder**](https://reference.aspose.com/slides/php-java/aspose.slides/SlideCollection#reorder-int-com.aspose.slides.ISlide...-) method. For that, you need to call this method from presentation slides list and pass shape reference and its order number into the method. This way its possible to put shape to the front or back of the slide. This feature is especially useful if you need to place watermark on front of presentation:
-
-```php
-  $slide->getShapes()->reorder($slide->getShapes()->size() - 1, $watermarkShape);
-
-```
-
-
-## **Set Watermark Rotation**
-Here is an example how to set the rotation of watermark (and its parent shape):
-
-```php
-  $h = $pres->getSlideSize()->getSize()->getHeight();
-  $w = $pres->getSlideSize()->getSize()->getWidth();
-  $watermarkShape->setX($w - $watermarkShape->getWidth() / 2);
-  $watermarkShape->setY($h - $watermarkShape->getHeight() / 2);
-  $watermarkShape->setRotation(calculateRotation($h, $w));
-
-```
-
-```php
-
-```
-
-
-## **Set Name to Watermark**
-Aspose.Slides allows to set the name of shape. By shape name you can access it in future to modify or delete. To set the name of watermark parent shape - set it into [**AutoShape.getName**](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getName--) method:
-
-
-
-```php
-  $watermarkShape->setName("watermark");
-
-```
-
-
-## **Remove Watermark**
-To remove watermark shape and its child controls from slide, use [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/IShape#getName--) method to find it in slide shapes. Then pass watermark shape into [**ShapeCollection.remove**](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeCollection#remove-com.aspose.slides.IShape-) method:
-
-```php
-  for($i = 0; $i < java_values($slide->getShapes()->size()) ; $i++) {
-    $shape = $slide->getShapes()->get_Item($i);
-    if ("watermark"->equals($shape->getName())) {
-      $slide->getShapes()->remove($watermarkShape);
-    }
-  }
+}
 ```
