@@ -53,21 +53,23 @@ If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the pr
 
 ```java
 Presentation presentation = new Presentation("embeddedOLE.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
-ISlide slide = presentation.getSlides().get_Item(0);
-IOleObjectFrame oleFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
+    // Add an image to presentation resources.
+    IImage image = Images.fromFile("myImage.png");
+    IPPImage oleImage = presentation.getImages().addImage(image);
 
-// Add an image to presentation resources.
-InputStream imageStream = new FileInputStream("myImage.png");
-IPPImage oleImage = presentation.getImages().addImage(imageStream);
+    // Set a title and the image for the OLE object preview.
+    oleFrame.setSubstitutePictureTitle("My title");
+    oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
+    oleFrame.setObjectIcon(false);
 
-// Set a title and the image for the OLE object preview.
-oleFrame.setSubstitutePictureTitle("My title");
-oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
-oleFrame.setObjectIcon(false);
-
-presentation.save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
-presentation.dispose();
+    presentation.save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
+} finally {
+    if (presentation != null) presentation.dispose();    
+}
 ```
 
 The slide containing the `OleObjectFrame` then changes to this:

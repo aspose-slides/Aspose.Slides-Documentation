@@ -53,22 +53,26 @@ If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the pr
 
 ```php
 $presentation = new Presentation("embeddedOLE.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $oleFrame = $slide->getShapes()->get_Item(0);
 
-$slide = $presentation->getSlides()->get_Item(0);
-$oleFrame = $slide->getShapes()->get_Item(0);
+    // Add an image to presentation resources.
+    $image = Images::fromFile("myImage.png");
+    $oleImage = $presentation->getImages()->addImage($image);
+    $image->dispose();
 
-// Add an image to presentation resources.
-$image = Images::fromFile("myImage.png");
-$oleImage = $presentation->getImages()->addImage($image);
-$image->dispose();
+    // Set a title and the image for the OLE object preview.
+    $oleFrame->setSubstitutePictureTitle("My title");
+    $oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
+    $oleFrame->setObjectIcon(false);
 
-// Set a title and the image for the OLE object preview.
-$oleFrame->setSubstitutePictureTitle("My title");
-$oleFrame->getSubstitutePictureFormat()->getPicture()->setImage($oleImage);
-$oleFrame->setObjectIcon(false);
-
-$presentation->save("embeddedOLE-newImage.pptx", SaveFormat::Pptx);
-$presentation->dispose();
+    $presentation->save("embeddedOLE-newImage.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
 
 The slide containing the `OleObjectFrame` then changes to this:
