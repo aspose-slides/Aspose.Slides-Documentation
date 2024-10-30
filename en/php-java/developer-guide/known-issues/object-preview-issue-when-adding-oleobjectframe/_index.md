@@ -1,5 +1,5 @@
 ---
-title: Object Preview Issue When Adding OleObjectFrame
+title: Object Preview Issue when Adding OleObjectFrame
 type: docs
 weight: 10
 url: /php-java/object-preview-issue-when-adding-oleobjectframe/

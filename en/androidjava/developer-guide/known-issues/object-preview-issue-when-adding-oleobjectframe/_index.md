@@ -1,5 +1,5 @@
 ---
-title: Object Preview Issue When Adding OleObjectFrame
+title: Object Preview Issue when Adding OleObjectFrame
 type: docs
 weight: 10
 url: /androidjava/object-preview-issue-when-adding-oleobjectframe/
@@ -51,7 +51,7 @@ Now, you may want to save your presentation to ensure the image for the OLE Obje
 
 If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the presentation in PowerPoint and then saving it, you can replace the message with your preferred preview image. These lines of code demonstrate the process:
 
-``` java
+```java
 Presentation presentation = new Presentation("embeddedOLE.pptx");
 
 ISlide slide = presentation.getSlides().get_Item(0);

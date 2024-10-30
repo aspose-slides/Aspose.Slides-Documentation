@@ -50,7 +50,7 @@ Now, you may want to save your presentation to ensure the image for the OLE Obje
 
 If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the presentation in PowerPoint and then saving it, you can replace the message with your preferred preview image. These lines of code demonstrate the process:
 
-``` csharp 
+```cs
 using var presentation = new Presentation("embeddedOLE.pptx");
 
 var slide = presentation.Slides[0];
