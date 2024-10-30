@@ -59,6 +59,7 @@ IOleObjectFrame oleFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
 
 InputStream imageStream = new FileInputStream("my_image.png");
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
+
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(false);

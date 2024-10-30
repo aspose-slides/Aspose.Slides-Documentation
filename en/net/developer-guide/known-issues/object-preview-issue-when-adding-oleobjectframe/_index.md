@@ -58,6 +58,7 @@ var oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
 using var imageStream = File.OpenRead("my_image.png");
 var oleImage = presentation.Images.AddImage(imageStream);
+
 oleFrame.SubstitutePictureTitle = "My title";
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
 oleFrame.IsObjectIcon = false;
