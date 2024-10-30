@@ -2,7 +2,7 @@
 title: Object Preview Issue when Adding OleObjectFrame
 type: docs
 weight: 10
-url: /net/object-preview-issue-when-adding-oleobjectframe/
+url: /java/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - embed object
@@ -12,21 +12,21 @@ keywords:
 - object preview
 - presentation
 - PowerPoint
-- C#
-- Aspose.Slides for .NET
+- Java
+- Aspose.Slides for Java
 ---
 
 ## **Introduction**
 
-Using Aspose.Slides for .NET, when you add [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) to a slide, an "EMBEDDED OLE OBJECT" message is shown on the output slide. This message is intentional and NOT a bug.
+Using Aspose.Slides for Java, when you add [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe/) to a slide, an "EMBEDDED OLE OBJECT" message is shown on the output slide. This message is intentional and NOT a bug.
 
-For more information on working with OLE objects, see [Manage OLE](/slides/net/manage-ole/). 
+For more information on working with OLE objects, see [Manage OLE](/slides/java/manage-ole/). 
 
 ## **Explanation and Solution**
 
 Aspose.Slides displays the "EMBEDDED OLE OBJECT" message to notify you that the OLE object has been changed and the preview image has to be updated. 
 
-For example, if you add a Microsoft Excel сhart as an [OleObjectFrame](https://reference.aspose.com/slides/net/aspose.slides/oleobjectframe) to a slide (for more details, see the "Manage OLE" article) and then open the presentation in the Microsoft PowerPoint, you will see this image on the slide:
+For example, if you add a Microsoft Excel сhart as an [OleObjectFrame](https://reference.aspose.com/slides/java/com.aspose.slides/oleobjectframe/) to a slide (for more details, see the "Manage OLE" article) and then open the presentation in the Microsoft PowerPoint, you will see this image on the slide:
 
 ![OLE object message](OLE_object_message.png)
 
@@ -50,19 +50,20 @@ Now, you may want to save your presentation to ensure the image for the OLE Obje
 
 If you do not want to remove the "EMBEDDED OLE OBJECT" message by opening the presentation in PowerPoint and then saving it, you can replace the message with your preferred preview image. These lines of code demonstrate the process:
 
-``` csharp 
-using var presentation = new Presentation("embeddedOLE.pptx");
+``` java
+Presentation presentation = new Presentation("embeddedOLE.pptx");
 
-var slide = presentation.Slides[0];
-var oleFrame = (IOleObjectFrame)slide.Shapes[0];
+ISlide slide = presentation.getSlides().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
 
-using var imageStream = File.OpenRead("my_image.png");
-var oleImage = presentation.Images.AddImage(imageStream);
-oleFrame.SubstitutePictureTitle = "My title";
-oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
-oleFrame.IsObjectIcon = false;
+InputStream imageStream = new FileInputStream("my_image.png");
+IPPImage oleImage = presentation.getImages().addImage(imageStream);
+oleFrame.setSubstitutePictureTitle("My title");
+oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
+oleFrame.setObjectIcon(false);
 
-presentation.Save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
+presentation.save("embeddedOLE-newImage.pptx", SaveFormat.Pptx);
+presentation.dispose();
 ```
 
 The slide containing the `OleObjectFrame` then changes to this:
@@ -71,4 +72,4 @@ The slide containing the `OleObjectFrame` then changes to this:
 
 ### **Solution 2: Create an Add-On for PowerPoint**
 
-You can also create an add-on for Microsoft PowerPoint that updates all OLE objects when you open presentations in the program. 
+You can also create an add-on for Microsoft PowerPoint that updates all OLE objects when you open presentations in the program.
