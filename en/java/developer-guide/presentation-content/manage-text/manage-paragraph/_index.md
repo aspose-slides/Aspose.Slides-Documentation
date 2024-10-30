@@ -659,34 +659,37 @@ In this example, we obtain the second paragraph as an image. To do this, we extr
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
-IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+try {
+    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-// Save the shape in memory as a bitmap.
-IImage shapeImage = firstShape.getImage();
-ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-shapeImage.save(shapeImageStream, ImageFormat.Png);
-shapeImage.dispose();
+    // Save the shape in memory as a bitmap.
+    IImage shapeImage = firstShape.getImage();
+    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+    shapeImage.save(shapeImageStream, ImageFormat.Png);
+    shapeImage.dispose();
 
-// Create a shape bitmap from memory.
-InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+    // Create a shape bitmap from memory.
+    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-// Calculate the boundaries of the second paragraph.
-IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-Rectangle2D paragraphRectangle = secondParagraph.getRect();
+    // Calculate the boundaries of the second paragraph.
+    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    Rectangle2D paragraphRectangle = secondParagraph.getRect();
 
-// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
-int imageX = (int) Math.floor(paragraphRectangle.getX());
-int imageY = (int) Math.floor(paragraphRectangle.getY());
-int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
-int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
+    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+    int imageX = (int) Math.floor(paragraphRectangle.getX());
+    int imageY = (int) Math.floor(paragraphRectangle.getY());
+    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
+    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
 
-// Crop the shape bitmap to get the paragraph bitmap only.
-BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+    // Crop the shape bitmap to get the paragraph bitmap only.
+    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
-ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-
-presentation.dispose();
+    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+} catch (IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```
 
 The result:
@@ -702,38 +705,41 @@ float imageScaleX = 2f;
 float imageScaleY = imageScaleX;
 
 Presentation presentation = new Presentation("sample.pptx");
-IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+try {
+    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-// Save the shape in memory as a bitmap with scaling.
-IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-shapeImage.save(shapeImageStream, ImageFormat.Png);
-shapeImage.dispose();
+    // Save the shape in memory as a bitmap with scaling.
+    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
+    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
+    shapeImage.save(shapeImageStream, ImageFormat.Png);
+    shapeImage.dispose();
 
-// Create a shape bitmap from memory.
-InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
+    // Create a shape bitmap from memory.
+    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
+    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-// Calculate the boundaries of the second paragraph.
-IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-Rectangle2D paragraphRectangle = secondParagraph.getRect();
-paragraphRectangle.setRect(
-        paragraphRectangle.getX() * imageScaleX,
-        paragraphRectangle.getY() * imageScaleY,
-        paragraphRectangle.getWidth() * imageScaleX,
-        paragraphRectangle.getHeight() * imageScaleY
-);
+    // Calculate the boundaries of the second paragraph.
+    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    Rectangle2D paragraphRectangle = secondParagraph.getRect();
+    paragraphRectangle.setRect(
+            paragraphRectangle.getX() * imageScaleX,
+            paragraphRectangle.getY() * imageScaleY,
+            paragraphRectangle.getWidth() * imageScaleX,
+            paragraphRectangle.getHeight() * imageScaleY
+    );
 
-// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
-int imageX = (int) Math.floor(paragraphRectangle.getX());
-int imageY = (int) Math.floor(paragraphRectangle.getY());
-int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
-int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
+    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+    int imageX = (int) Math.floor(paragraphRectangle.getX());
+    int imageY = (int) Math.floor(paragraphRectangle.getY());
+    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
+    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
 
-// Crop the shape bitmap to get the paragraph bitmap only.
-BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+    // Crop the shape bitmap to get the paragraph bitmap only.
+    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
 
-ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-
-presentation.dispose();
+    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
+} catch (IOException e) {
+} finally {
+    if (presentation != null) presentation.dispose();
+}
 ```

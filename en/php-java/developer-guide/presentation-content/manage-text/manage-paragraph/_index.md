@@ -49,9 +49,9 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 This PHP code is an implementation of the steps for adding paragraphs containing portions:
 
 ```php
-  # Instantiate a Presentation class that represents a PPTX file
-  $pres = new Presentation();
-  try {
+# Instantiate a Presentation class that represents a PPTX file
+$pres = new Presentation();
+try {
     # Accessing first slide
     $slide = $pres->getSlides()->get_Item(0);
     # Add an AutoShape of Rectangle type
@@ -81,29 +81,29 @@ This PHP code is an implementation of the steps for adding paragraphs containing
     $para2->getPortions()->add($port21);
     $para2->getPortions()->add($port22);
     for($i = 0; $i < 3; $i++) {
-      for($j = 0; $j < 3; $j++) {
-        $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
-        $portion->setText("Portion0" . $j);
-        if ($j == 0) {
-          $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-          $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-          $portion->getPortionFormat()->setFontBold(NullableBool::True);
-          $portion->getPortionFormat()->setFontHeight(15);
-        } else if ($j == 1) {
-          $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-          $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-          $portion->getPortionFormat()->setFontItalic(NullableBool::True);
-          $portion->getPortionFormat()->setFontHeight(18);
+        for($j = 0; $j < 3; $j++) {
+            $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
+            $portion->setText("Portion0" . $j);
+            if ($j == 0) {
+                $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+                $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
+                $portion->getPortionFormat()->setFontBold(NullableBool::True);
+                $portion->getPortionFormat()->setFontHeight(15);
+            } else if ($j == 1) {
+                $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+                $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+                $portion->getPortionFormat()->setFontItalic(NullableBool::True);
+                $portion->getPortionFormat()->setFontHeight(18);
+            }
         }
-      }
     }
     # Write PPTX to Disk
     $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 
@@ -129,9 +129,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This PHP code shows you how to add a paragraph bullet:
 
 ```php
-  # Instantiates a Presentation class that represents a PPTX file
-  $pres = new Presentation();
-  try {
+# Instantiates a Presentation class that represents a PPTX file
+$pres = new Presentation();
+try {
     # Accesses the first slide
     $slide = $pres->getSlides()->get_Item(0);
     # Adds and accesses Autoshape
@@ -177,11 +177,11 @@ This PHP code shows you how to add a paragraph bullet:
     $txtFrm->getParagraphs()->add($para2);
     # Saves the modified presentation
     $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 
@@ -208,20 +208,20 @@ Bullet lists help you to organize and present information quickly and efficientl
 This PHP code shows you how to add and manage picture bullets:
 
 ```php
-  # Instantiates a Presentation class that represents a PPTX file
-  $presentation = new Presentation();
-  try {
+# Instantiates a Presentation class that represents a PPTX file
+$presentation = new Presentation();
+try {
     # Accesses the first slide
     $slide = $presentation->getSlides()->get_Item(0);
     # Instantiates the image for bullets
     $picture;
     $image = Images->fromFile("bullets.png");
     try {
-      $picture = $presentation->getImages()->addImage($image);
+        $picture = $presentation->getImages()->addImage($image);
     } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
+        if (!java_is_null($image)) {
+            $image->dispose();
+        }
     }
     # Adds and accesses Autoshape
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
@@ -243,12 +243,12 @@ This PHP code shows you how to add and manage picture bullets:
     $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
     # Writes the presentation as a PPT file
     $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-  } catch (JavaException $e) {
-  } finally {
+} catch (JavaException $e) {
+} finally {
     if (!java_is_null($presentation)) {
-      $presentation->dispose();
+        $presentation->dispose();
     }
-  }
+}
 ```
 
 
@@ -271,9 +271,9 @@ Bullet lists help you to organize and present information quickly and efficientl
 This PHP code shows you how to add and manage multilevel bullets:
 
 ```php
-  # Instantiates a Presentation class that represents a PPTX file
-  $pres = new Presentation();
-  try {
+# Instantiates a Presentation class that represents a PPTX file
+$pres = new Presentation();
+try {
     # Accesses the first slide
     $slide = $pres->getSlides()->get_Item(0);
     # Adds and accesses Autoshape
@@ -325,11 +325,11 @@ This PHP code shows you how to add and manage multilevel bullets:
     $text->getParagraphs()->add($para4);
     # Writes the presentation as a PPTX file
     $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 
@@ -351,8 +351,8 @@ The [IBulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/i
 This PHP code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```php
-  $presentation = new Presentation();
-  try {
+$presentation = new Presentation();
+try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
     # Accesses the text frame of created autoshape
     $textFrame = $shape->getTextFrame();
@@ -378,11 +378,11 @@ This PHP code shows you how to add and manage paragraphs with custom numbering o
     $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $textFrame->getParagraphs()->add($paragraph5);
     $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($presentation)) {
-      $presentation->dispose();
+        $presentation->dispose();
     }
-  }
+}
 ```
 
 
@@ -399,9 +399,9 @@ This PHP code shows you how to add and manage paragraphs with custom numbering o
 This PHP code shows you how to set a paragraph indent:
 
 ```php
-  # Instantiate Presentation Class
-  $pres = new Presentation();
-  try {
+# Instantiate Presentation Class
+$pres = new Presentation();
+try {
     # Get first slide
     $sld = $pres->getSlides()->get_Item(0);
     # Add a Rectangle Shape
@@ -436,11 +436,11 @@ This PHP code shows you how to set a paragraph indent:
     $para3->getParagraphFormat()->setIndent(50);
     # Write the Presentation to disk
     $pres->save("InOutDent_out.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 ## **Set Hanging Indent for Paragraph**
@@ -448,8 +448,8 @@ This PHP code shows you how to set a paragraph indent:
 This PHP code shows you how to set the hanging indent for a paragraph:
 
 ```php
-  $pres = new Presentation();
-  try {
+$pres = new Presentation();
+try {
     $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 250, 550, 150);
     $para1 = new Paragraph();
     $para1->setText("Example");
@@ -463,11 +463,11 @@ This PHP code shows you how to set the hanging indent for a paragraph:
     $autoShape->getTextFrame()->getParagraphs()->add($para2);
     $autoShape->getTextFrame()->getParagraphs()->add($para3);
     $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 ## **Manage End Paragraph Run Properties for Paragraph**
@@ -483,8 +483,8 @@ This PHP code shows you how to set the hanging indent for a paragraph:
 This PHP code shows you how to set the End properties for paragraphs in PowerPoint:
 
 ```php
-  $pres = new Presentation();
-  try {
+$pres = new Presentation();
+try {
     $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
     $para1 = new Paragraph();
     $para1->getPortions()->add(new Portion("Sample text"));
@@ -497,11 +497,11 @@ This PHP code shows you how to set the End properties for paragraphs in PowerPoi
     $shape->getTextFrame()->getParagraphs()->add($para1);
     $shape->getTextFrame()->getParagraphs()->add($para2);
     $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 
@@ -522,9 +522,9 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 This PHP code is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```php
-  # Create Empty presentation instance
-  $pres = new Presentation();
-  try {
+# Create Empty presentation instance
+$pres = new Presentation();
+try {
     # Acesss the default first slide of presentation
     $slide = $pres->getSlides()->get_Item(0);
     # Adding the AutoShape to accomodate the HTML content
@@ -540,11 +540,11 @@ This PHP code is an implementation of the steps for importing HTML texts in para
     $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
     # Saving Presentation
     $pres->save("output_out.pptx", SaveFormat::Pptx);
-  } finally {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 
@@ -562,9 +562,9 @@ Aspose.Slides provides enhanced support for exporting texts (contained in paragr
 This PHP code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```php
-  # Load the presentation file
-  $pres = new Presentation("ExportingHTMLText.pptx");
-  try {
+# Load the presentation file
+$pres = new Presentation("ExportingHTMLText.pptx");
+try {
     # Acesss the default first slide of presentation
     $slide = $pres->getSlides()->get_Item(0);
     # Desired index
@@ -578,12 +578,12 @@ This PHP code shows you how to export PowerPoint paragraph texts to HTML:
     # Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
     $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
     $writer->close();
-  } catch (JavaException $e) {
-  } finally {
+} catch (JavaException $e) {
+} finally {
     if (!java_is_null($pres)) {
-      $pres->dispose();
+        $pres->dispose();
     }
-  }
+}
 ```
 
 ## **Save a Paragraph as an Image**
@@ -602,34 +602,38 @@ In this example, we obtain the second paragraph as an image. To do this, we extr
 $imageIO = new Java("javax.imageio.ImageIO");
 
 $presentation = new Presentation("sample.pptx");
-$firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+try {
+    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-// Save the shape in memory as a bitmap.
-$shapeImage = $firstShape->getImage();
-$shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-$shapeImage->save($shapeImageStream, ImageFormat::Png);
-$shapeImage->dispose();
+    // Save the shape in memory as a bitmap.
+    $shapeImage = $firstShape->getImage();
+    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
+    $shapeImage->save($shapeImageStream, ImageFormat::Png);
+    $shapeImage->dispose();
 
-// Create a shape bitmap from memory.
-$shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-$shapeBitmap = $imageIO->read($shapeImageInputStream);
+    // Create a shape bitmap from memory.
+    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
+    $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
-// Calculate the boundaries of the second paragraph.
-$secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-$paragraphRectangle = $secondParagraph->getRect();
+    // Calculate the boundaries of the second paragraph.
+    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
+    $paragraphRectangle = $secondParagraph->getRect();
 
-// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
-$imageX = floor(java_values($paragraphRectangle->getX()));
-$imageY = floor(java_values($paragraphRectangle->getY()));
-$imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-$imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
+    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+    $imageX = floor(java_values($paragraphRectangle->getX()));
+    $imageY = floor(java_values($paragraphRectangle->getY()));
+    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
+    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-// Crop the shape bitmap to get the paragraph bitmap only.
-$paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
+    // Crop the shape bitmap to get the paragraph bitmap only.
+    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
-$imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-
-$presentation->dispose();
+    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
 
 The result:
@@ -647,38 +651,42 @@ $imageScaleX = 2;
 $imageScaleY = $imageScaleX;
 
 $presentation = new Presentation("sample.pptx");
-$firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+try {
+    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-// Save the shape in memory as a bitmap with scaling.
-$shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
-$shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-$shapeImage->save($shapeImageStream, ImageFormat::Png);
-$shapeImage->dispose();
+    // Save the shape in memory as a bitmap with scaling.
+    $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
+    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
+    $shapeImage->save($shapeImageStream, ImageFormat::Png);
+    $shapeImage->dispose();
 
-// Create a shape bitmap from memory.
-$shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-$shapeBitmap = $imageIO->read($shapeImageInputStream);
+    // Create a shape bitmap from memory.
+    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
+    $shapeBitmap = $imageIO->read($shapeImageInputStream);
 
-// Calculate the boundaries of the second paragraph.
-$secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-$paragraphRectangle = $secondParagraph->getRect();
-$paragraphRectangle->setRect(
-        java_values($paragraphRectangle->getX()) * $imageScaleX,
-        java_values($paragraphRectangle->getY()) * $imageScaleY,
-        java_values($paragraphRectangle->getWidth()) * $imageScaleX,
-        java_values($paragraphRectangle->getHeight()) * $imageScaleY
-);
+    // Calculate the boundaries of the second paragraph.
+    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
+    $paragraphRectangle = $secondParagraph->getRect();
+    $paragraphRectangle->setRect(
+            java_values($paragraphRectangle->getX()) * $imageScaleX,
+            java_values($paragraphRectangle->getY()) * $imageScaleY,
+            java_values($paragraphRectangle->getWidth()) * $imageScaleX,
+            java_values($paragraphRectangle->getHeight()) * $imageScaleY
+    );
 
-// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
-$imageX = floor(java_values($paragraphRectangle->getX()));
-$imageY = floor(java_values($paragraphRectangle->getY()));
-$imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-$imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
+    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+    $imageX = floor(java_values($paragraphRectangle->getX()));
+    $imageY = floor(java_values($paragraphRectangle->getY()));
+    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
+    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
 
-// Crop the shape bitmap to get the paragraph bitmap only.
-$paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
+    // Crop the shape bitmap to get the paragraph bitmap only.
+    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
 
-$imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-
-$presentation->dispose();
+    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
