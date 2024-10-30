@@ -672,7 +672,7 @@ shapeImage.dispose();
 InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
 BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-// Calculate the rectangle of the second paragraph.
+// Calculate the boundaries of the second paragraph.
 IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
 RectF paragraphRectangle = secondParagraph.getRect();
 
@@ -715,7 +715,7 @@ shapeImage.dispose();
 InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
 BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
 
-// Calculate the rectangle of the second paragraph.
+// Calculate the boundaries of the second paragraph.
 IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
 RectF paragraphRectangle = secondParagraph.getRect();
 paragraphRectangle.set(

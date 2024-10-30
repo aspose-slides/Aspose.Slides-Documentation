@@ -640,7 +640,7 @@ shapeImage.Save(shapeImageStream, ImageFormat.Png);
 shapeImageStream.Seek(0, SeekOrigin.Begin);
 using var shapeBitmap = Image.FromStream(shapeImageStream);
 
-// Calculate the rectangle of the second paragraph.
+// Calculate the boundaries of the second paragraph.
 var secondParagraph = firstShape.TextFrame.Paragraphs[1];
 var paragraphRectangle = secondParagraph.GetRect();
 
@@ -683,7 +683,7 @@ shapeImage.Save(shapeImageStream, ImageFormat.Png);
 shapeImageStream.Seek(0, SeekOrigin.Begin);
 using var shapeBitmap = Image.FromStream(shapeImageStream);
 
-// Calculate the rectangle of the second paragraph.
+// Calculate the boundaries of the second paragraph.
 var secondParagraph = firstShape.TextFrame.Paragraphs[1];
 var paragraphRectangle = secondParagraph.GetRect();
 paragraphRectangle.X *= imageScaleX;

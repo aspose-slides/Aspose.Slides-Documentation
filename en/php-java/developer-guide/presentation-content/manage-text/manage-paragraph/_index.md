@@ -3,8 +3,25 @@ title: Manage PowerPoint Paragraph
 type: docs
 weight: 40
 url: /php-java/manage-paragraph/
-keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations "
+keywords:
+- add text
+- add paragraphs
+- manage text
+- manage paragraphs
+- paragraph indent
+- paragraph bullet
+- numbered list
+- paragraph properties
+- import HTML
+- text to HTML
+- paragraph to HTML
+- paragraphs to images
+- export paragraphs
+- PowerPoint presentation
+- PHP
+- Java
+- Aspose.Slides for PHP via Java
+description: "Create paragraphs and manage paragraph properties in PowerPoint presentations in PHP"
 ---
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions .
@@ -569,4 +586,99 @@ This PHP code shows you how to export PowerPoint paragraph texts to HTML:
   }
 ```
 
- 
+## **Save a Paragraph as an Image**
+
+In this section, we will explore two examples that demonstrate how to save a text paragraph, represented by the [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) class, as an image. Both examples include obtaining the image of a shape containing the paragraph using the `getImage` methods from the [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class, calculating the bounds of the paragraph within the shape, and exporting it as a bitmap image. These approaches allow you to extract specific parts of the text from PowerPoint presentations and save them as separate images, which can be useful for further use in various scenarios.
+
+Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+**Example 1**
+
+In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
+
+```php
+$imageIO = new Java("javax.imageio.ImageIO");
+
+$presentation = new Presentation("sample.pptx");
+$firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+
+// Save the shape in memory as a bitmap.
+$shapeImage = $firstShape->getImage();
+$shapeImageStream = new Java("java.io.ByteArrayOutputStream");
+$shapeImage->save($shapeImageStream, ImageFormat::Png);
+$shapeImage->dispose();
+
+// Create a shape bitmap from memory.
+$shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
+$shapeBitmap = $imageIO->read($shapeImageInputStream);
+
+// Calculate the boundaries of the second paragraph.
+$secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
+$paragraphRectangle = $secondParagraph->getRect();
+
+// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+$imageX = floor(java_values($paragraphRectangle->getX()));
+$imageY = floor(java_values($paragraphRectangle->getY()));
+$imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
+$imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
+
+// Crop the shape bitmap to get the paragraph bitmap only.
+$paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
+
+$imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
+
+$presentation->dispose();
+```
+
+The result:
+
+![The paragraph image](paragraph_to_image_output.png)
+
+**Example 2**
+
+In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
+
+```php
+$imageIO = new Java("javax.imageio.ImageIO");
+
+$imageScaleX = 2;
+$imageScaleY = $imageScaleX;
+
+$presentation = new Presentation("sample.pptx");
+$firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+
+// Save the shape in memory as a bitmap with scaling.
+$shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
+$shapeImageStream = new Java("java.io.ByteArrayOutputStream");
+$shapeImage->save($shapeImageStream, ImageFormat::Png);
+$shapeImage->dispose();
+
+// Create a shape bitmap from memory.
+$shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
+$shapeBitmap = $imageIO->read($shapeImageInputStream);
+
+// Calculate the boundaries of the second paragraph.
+$secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
+$paragraphRectangle = $secondParagraph->getRect();
+$paragraphRectangle->setRect(
+        java_values($paragraphRectangle->getX()) * $imageScaleX,
+        java_values($paragraphRectangle->getY()) * $imageScaleY,
+        java_values($paragraphRectangle->getWidth()) * $imageScaleX,
+        java_values($paragraphRectangle->getHeight()) * $imageScaleY
+);
+
+// Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+$imageX = floor(java_values($paragraphRectangle->getX()));
+$imageY = floor(java_values($paragraphRectangle->getY()));
+$imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
+$imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
+
+// Crop the shape bitmap to get the paragraph bitmap only.
+$paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
+
+$imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
+
+$presentation->dispose();
+```

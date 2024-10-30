@@ -759,7 +759,7 @@ shapeImage->Dispose();
 shapeImageStream->set_Position(0);
 auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
 
-// Calculate the rectangle of the second paragraph.
+// Calculate the boundaries of the second paragraph.
 auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
 auto paragraphRectangle = secondParagraph->GetRect();
 
@@ -806,7 +806,7 @@ shapeImage->Dispose();
 shapeImageStream->set_Position(0);
 auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
 
-// Calculate the rectangle of the second paragraph.
+// Calculate the boundaries of the second paragraph.
 auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
 auto paragraphRectangle = secondParagraph->GetRect();
 paragraphRectangle.set_X(paragraphRectangle.get_X() * imageScaleX);
