@@ -56,9 +56,11 @@ using var presentation = new Presentation("embeddedOLE.pptx");
 var slide = presentation.Slides[0];
 var oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
-using var imageStream = File.OpenRead("my_image.png");
+// Add an image to presentation resources.
+using var imageStream = File.OpenRead("myImage.png");
 var oleImage = presentation.Images.AddImage(imageStream);
 
+// Set a title and the image for the OLE object preview.
 oleFrame.SubstitutePictureTitle = "My title";
 oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
 oleFrame.IsObjectIcon = false;

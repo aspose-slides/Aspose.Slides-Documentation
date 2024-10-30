@@ -18,7 +18,7 @@ keywords:
 
 ## **Introduction**
 
-Using Aspose.Slides for .NET, when you add [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) to a slide, an "EMBEDDED OLE OBJECT" message is shown on the output slide. This message is intentional and NOT a bug.
+Using Aspose.Slides for C++, when you add [OleObjectFrame](https://reference.aspose.com/slides/cpp/aspose.slides/oleobjectframe/) to a slide, an "EMBEDDED OLE OBJECT" message is shown on the output slide. This message is intentional and NOT a bug.
 
 For more information on working with OLE objects, see [Manage OLE](/slides/cpp/manage-ole/). 
 
@@ -56,10 +56,12 @@ auto presentation = MakeObject<Presentation>(u"embeddedOLE.pptx");
 auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
-auto imageStream = File::OpenRead(u"my_image.png");
+// Add an image to presentation resources.
+auto imageStream = File::OpenRead(u"myImage.png");
 auto oleImage = presentation->get_Images()->AddImage(imageStream);
 imageStream->Dispose();
 
+// Set a title and the image for the OLE object preview.
 oleFrame->set_SubstitutePictureTitle(u"My title");
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
 oleFrame->set_IsObjectIcon(false);

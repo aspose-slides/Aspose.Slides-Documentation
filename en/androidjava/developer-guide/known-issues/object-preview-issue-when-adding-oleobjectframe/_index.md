@@ -19,7 +19,7 @@ keywords:
 
 ## **Introduction**
 
-Using Aspose.Slides for Java, when you add [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe/) to a slide, an "EMBEDDED OLE OBJECT" message is shown on the output slide. This message is intentional and NOT a bug.
+Using Aspose.Slides for Android via Java, when you add [OleObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe/) to a slide, an "EMBEDDED OLE OBJECT" message is shown on the output slide. This message is intentional and NOT a bug.
 
 For more information on working with OLE objects, see [Manage OLE](/slides/androidjava/manage-ole/). 
 
@@ -57,9 +57,11 @@ Presentation presentation = new Presentation("embeddedOLE.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
 
-InputStream imageStream = new FileInputStream("my_image.png");
+// Add an image to presentation resources.
+InputStream imageStream = new FileInputStream("myImage.png");
 IPPImage oleImage = presentation.getImages().addImage(imageStream);
 
+// Set a title and the image for the OLE object preview.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
 oleFrame.setObjectIcon(false);
