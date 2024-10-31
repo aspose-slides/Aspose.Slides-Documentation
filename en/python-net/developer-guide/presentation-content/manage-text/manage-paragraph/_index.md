@@ -622,15 +622,18 @@ Let's assume we have a presentation file called sample.pptx with one slide, wher
 In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
 
 ```py
+import aspose.slides as slides
+import math
+import io
 from PIL import Image
 
-with Presentation("sample.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     first_shape = presentation.slides[0].shapes[0]
-
     # Save the shape in memory as a bitmap.
+
     with first_shape.get_image() as shape_image:
-        shape_image_stream = BytesIO()
-        shape_image.save(shape_image_stream, ImageFormat.PNG)
+        shape_image_stream = io.BytesIO()
+        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
 
     # Create a shape bitmap from memory.
     shape_image_stream.seek(0)
@@ -661,18 +664,21 @@ The result:
 In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
 
 ```py
+import aspose.slides as slides
+import math
+import io
 from PIL import Image
 
 image_scale_x = 2
 image_scale_y = image_scale_x
 
-with Presentation("sample.pptx") as presentation:
+with slides.Presentation("sample.pptx") as presentation:
     first_shape = presentation.slides[0].shapes[0]
 
     # Save the shape in memory as a bitmap.
-    with first_shape.get_image(ShapeThumbnailBounds.SHAPE, image_scale_x, image_scale_y) as shape_image:
-        shape_image_stream = BytesIO()
-        shape_image.save(shape_image_stream, ImageFormat.PNG)
+    with first_shape.get_image(slides.ShapeThumbnailBounds.SHAPE, image_scale_x, image_scale_y) as shape_image:
+        shape_image_stream = io.BytesIO()
+        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
 
     # Create a shape bitmap from memory.
     shape_image_stream.seek(0)
