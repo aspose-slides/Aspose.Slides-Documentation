@@ -2,7 +2,7 @@
 title: Object Preview Issue when Adding OleObjectFrame
 type: docs
 weight: 10
-url: /net/object-preview-issue-when-adding-oleobjectframe/
+url: /cpp/object-preview-issue-when-adding-oleobjectframe/
 keywords:
 - OLE
 - embed object
