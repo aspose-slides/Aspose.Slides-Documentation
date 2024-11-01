@@ -122,28 +122,32 @@ var aspose = aspose || {};
 
 aspose.slides = require("aspose.slides.via.java");
 
-# Create an instance of CAD Metered class
+// Create an instance of the Metered class
 var metered = new aspose.slides.Metered();
 
-# Access the set_metered_key property and pass public and private keys as parameters
+// Access the metered key property and pass public and private keys as parameters
 metered.setMeteredKey("*****", "*****");
 
-# Get metered data amount before calling API
+// Get metered data amount before calling API
 var amountbefore = aspose.slides.Metered.getConsumptionQuantity();
-# Display information
-console.log('Amount Consumed Before: " + amountbefore + "' );
 
-# Load the document from disk.
-var pres = new aspose.slides.Presentation();
-# Get the page count of document
-console.log('Amount Consumed After: " +  pres.getSlides().size()) + "' );
-# save as PDF
+// Display information
+console.log("Amount consumed before: " + amountbefore);
+
+// Load the document from disk
+var pres = new aspose.slides.Presentation("sample.pptx");
+
+// Get the number of slides in the document
+console.log("The number of slides: " +  pres.getSlides().size());
+
+// Save the presentation as PDF
 pres.save("out_pdf.pdf", aspose.slides.SaveFormat.Pdf);
 
-# Get metered data amount After calling API
+// Get metered data amount after calling API
 var amountafter = aspose.slides.Metered.getConsumptionQuantity();
-# Display information
-console.log('Amount Consumed After: " + amountafter + "' );
+
+// Display information
+console.log("Amount consumed after: " + amountafter);
 ```
 
 {{% alert color="primary" %}}

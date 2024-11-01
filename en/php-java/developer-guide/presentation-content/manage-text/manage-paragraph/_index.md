@@ -456,7 +456,7 @@ try {
     $para2 = new Paragraph();
     $para2->setText("Set Hanging Indent for Paragraph");
     $para3 = new Paragraph();
-    $para3->setText("This C# code shows you how to set the hanging indent for a paragraph: ");
+    $para3->setText("This code shows you how to set the hanging indent for a paragraph: ");
     $para2->getParagraphFormat()->setMarginLeft(10.0);
     $para3->getParagraphFormat()->setMarginLeft(20.0);
     $autoShape->getTextFrame()->getParagraphs()->add($para1);

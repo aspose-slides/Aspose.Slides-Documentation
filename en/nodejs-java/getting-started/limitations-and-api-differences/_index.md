@@ -64,7 +64,7 @@ aspose.slides.Presentation.createPresentationFromStream(readStream, function(err
       console.log("open Presentation error");
       return;
    }
-   pres.save("result.pptx", aspose.slides.SaveFormat.Pptx));
+   pres.save("result.pptx", aspose.slides.SaveFormat.Pptx);
    console.log('saved to file');
 });
 ```

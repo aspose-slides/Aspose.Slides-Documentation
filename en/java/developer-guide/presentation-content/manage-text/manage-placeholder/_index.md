@@ -39,7 +39,7 @@ try {
     }
 
     // Saves the presentation to disk
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }

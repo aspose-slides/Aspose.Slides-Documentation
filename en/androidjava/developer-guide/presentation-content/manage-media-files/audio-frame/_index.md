@@ -140,15 +140,9 @@ try {
 
 Aspose.Slides for Android via Java allows you to extract the sound used in slide show transitions. For example, you can extract the sound used in a specific slide.
 
-<<<<<<< HEAD
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class and load the presentation with slide transitions.
-2. Access the desired slide.
-3. Access the [slideshow transitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) for the slide.
-=======
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class and load the presentation containing the audio.
 2. Get the relevant slide's reference through its index.
 3. Access the [slideshow transitions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IBaseSlide#getSlideShowTransition--) for the slide.
->>>>>>> master
 4. Extract the sound in byte data.
 
 This code in Java shows you how to extract the audio used in a slide:

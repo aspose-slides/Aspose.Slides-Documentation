@@ -9,7 +9,7 @@ Aspose.Slides for Node.js via Java does not require any third party product such
 
 ## Supported Operating Systems
 
-Aspose.Slides for Java supports any 32-bit or 64-bit operating system that runs the Java runtime including but not limited to:
+Aspose.Slides for Node.js via Java supports any 32-bit or 64-bit operating system that runs the Java runtime including but not limited to:
 
 ### **Windows**
 - Microsoft Windows 2003 Server ( x64, x86)
