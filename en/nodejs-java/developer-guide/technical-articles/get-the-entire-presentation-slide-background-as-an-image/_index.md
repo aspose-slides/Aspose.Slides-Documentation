@@ -12,7 +12,8 @@ keywords:
 - PPT
 - PPTX
 - PowerPoint presentation
-- Java
+- Node
+- JavaScript
 - Aspose.Slides for Node.js via Java
 ---
 

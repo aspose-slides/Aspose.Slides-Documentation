@@ -3,6 +3,7 @@ title: FAQs
 type: docs
 weight: 340
 url: /nodejs-java/faqs/
+keywords:
 - FAQ
 - PowerPoint
 - presentation format
