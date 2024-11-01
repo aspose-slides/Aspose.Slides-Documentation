@@ -3,7 +3,7 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /nodejs-java/manage-textbox/
-description: Create Text Box on PowerPoint Slides using Java. Add Column in Text Box or Text Frame in PowerPoint Slides using Java. Add Text Box with Hyperlink in PowerPoint Slides using Java.
+description: Create Text Box on PowerPoint Slides using JavaScript. Add Column in Text Box or Text Frame in PowerPoint Slides using JavaScript. Add Text Box with Hyperlink in PowerPoint Slides using JavaScript.
 ---
 
 
@@ -11,13 +11,13 @@ Texts on slides typically exist in text boxes or shapes. Therefore, to add a tex
 
 {{% alert title="Info" color="info" %}}
 
-Aspose.Slides also provides the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class that allows you to add shapes to slides. However, not all shapes added through the `IShape` class can hold text. But shapes added through the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) class may contain text.
+Aspose.Slides also provides the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) class that allows you to add shapes to slides. However, not all shapes added through the `Shape` class can hold text. But shapes added through the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) class may contain text.
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` class. Only then will you be able to work with [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/nodejs-java/manage-textbox/#update-text) section on this page.
+Therefore, when dealing with a shape to which you want to add text, you may want to check and confirm that it was cast through the `AutoShape` class. Only then will you be able to work with [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame), which is a property under `AutoShape`. See the [Update Text](https://docs.aspose.com/slides/nodejs-java/manage-textbox/#update-text) section on this page.
 
 {{% /alert %}}
 
@@ -27,11 +27,11 @@ To create a textbox on a slide, go through these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a reference for the first slide in the newly created presentation. 
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object with [ShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object.
-4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
+3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) object with [ShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#setShapeType-int-) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `AutoShape` object.
+4. Add a `TextFrame` property to the `AutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
 5. Finally, write the PPTX file through the `Presentation` object. 
 
-This Javascript code—an implementation of the steps above—shows you how to add text to a slide:
+This JavaScript code—an implementation of the steps above—shows you how to add text to a slide:
 
 ```javascript
 // Instantiates Presentation
@@ -62,11 +62,11 @@ try {
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#isTextBox--) property (from the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#isTextBox--) method (from the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
 
 ![Text box and shape](istextbox.png)
 
-This Javascript code shows you how to check whether a shape was created as a text box:
+This JavaScript code shows you how to check whether a shape was created as a text box:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -86,9 +86,9 @@ try {
 
 ## **Add Column In Text Box**
 
-Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) properties (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
+Aspose.Slides provides the [setColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) and [setColumnSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) methods from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class and [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
 
-This code in Javascript demonstrates the described operation: 
+This code in JavaScript demonstrates the described operation: 
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -116,9 +116,9 @@ try {
 
 
 ## **Add Column In Text Frame**
-Aspose.Slides for Node.js via Java provides the [ColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
+Aspose.Slides for Node.js via Java provides the [setColumnCount](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) method from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame.
 
-This Javascript code shows you how to add a column inside a text frame:
+This JavaScript code shows you how to add a column inside a text frame:
 
 ```javascript
 var outPptxFileName = "ColumnsTest.pptx";
@@ -175,7 +175,7 @@ try {
 
 Aspose.Slides allows you to change or update the text contained in a text box or all the texts contained in a presentation. 
 
-This Javascript code demonstrates an operation where all the texts in a presentation are updated or changed:
+This JavaScript code demonstrates an operation where all the texts in a presentation are updated or changed:
 
 ```javascript
 var pres = new aspose.slides.Presentation("text.pptx");
@@ -185,7 +185,7 @@ try {
         for (let i = 0; i < slide.getShapes().size(); i++) {
             let shape = slide.getShapes().get_Item(i);
             // Checks if shape supports text frame (IAutoShape).
-            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
                 var autoShape = shape;
                 // Iterates through paragraphs in text frame
                 for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
@@ -219,11 +219,11 @@ You can insert a link inside a text box. When the text box is clicked, users are
 2. Obtain a reference for the first slide in the newly created presentation. 
 3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
 4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
-5. Instantiate the `IHyperlinkManager` class. 
-6. Assign the `IHyperlinkManager` object to the [HyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick--) property associated with your preferred portion of the `TextFrame`.
+5. Instantiate the `HyperlinkManager` class. 
+6. Assign the `HyperlinkManager` object to the [HyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick--) property associated with your preferred portion of the `TextFrame`.
 7. Finally, write the PPTX file through the `Presentation` object. 
 
-This Javascript code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
+This JavaScript code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
 
 ```javascript
 // Instantiates a Presentation class that represents a PPTX

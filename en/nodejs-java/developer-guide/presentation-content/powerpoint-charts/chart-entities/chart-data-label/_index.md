@@ -3,14 +3,14 @@ title: Chart Data Label
 type: docs
 url: /nodejs-java/chart-data-label/
 keywords: "Chart data label,label distance, Java, Aspose.Slides for Node.js via Java"
-description: "Set PowerPoint chart data label and distance in Javascript"
+description: "Set PowerPoint chart data label and distance in JavaScript"
 ---
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.
 
 ## **Set Precision of Data in Chart Data Labels**
 
-This Javascript code shows you how to set the data precision in a chart data label:
+This JavaScript code shows you how to set the data precision in a chart data label:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -27,7 +27,7 @@ try {
 ```
 
 ## **Display Percentage as Labels**
-Aspose.Slides for Node.js via Java allows you to set percentage labels on displayed charts. This Javascript code demonstrates the operation:
+Aspose.Slides for Node.js via Java allows you to set percentage labels on displayed charts. This JavaScript code demonstrates the operation:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -74,7 +74,7 @@ try {
 ```
 
 ## **Set Percentage Sign with Chart Data Labels**
-This Javascript code shows you to set the percentage sign for a chart data label:
+This JavaScript code shows you to set the percentage sign for a chart data label:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -133,7 +133,7 @@ try {
 ```
 
 ## **Set Label Distances** From Axis
-This Javascript code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
+This JavaScript code shows you how to set the label distance from a category axis when you are dealing with a chart plotted from axes:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -158,7 +158,7 @@ try {
 
 When you create a chart that does not rely on any axis such as a pie chart, the chart's data labels may end up being too close to its edge. In such a case, you have to adjust the location of the data label so that the leader lines get displayed clearly.
 
-This Javascript code shows you how to adjust the label location on a pie chart:
+This JavaScript code shows you how to adjust the label location on a pie chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();

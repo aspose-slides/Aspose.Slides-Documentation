@@ -1,11 +1,11 @@
 ---
-title: Embedded Font - PowerPoint Javascript API
+title: Embedded Font - PowerPoint JavaScript API
 linktitle: Embedded Font
 type: docs
 weight: 40
 url: /nodejs-java/embedded-font/
 keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Use embedded fonts in PowerPoint presentation in Javascript"
+description: "Use embedded fonts in PowerPoint presentation in JavaScript"
 
 ---
 
@@ -17,7 +17,7 @@ The [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides
 
 Aspose.Slides provides the [getEmbeddedFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) method (exposed by the [FontsManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FontsManager) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [removeEmbeddedFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/#removeEmbeddedFont-aspose.slides.IFontData-) method (exposed by the same class) is used.
 
-This Javascript code shows you how to get and remove embedded fonts from a presentation:
+This JavaScript code shows you how to get and remove embedded fonts from a presentation:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file
@@ -68,7 +68,7 @@ try {
 
 ## **Add Embedded Fonts to Presentation**
 
-Using the [EmbedFontCharacters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/#addEmbeddedFont-aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This Javascript code shows you how to embed and add fonts to a presentation:
+Using the [EmbedFontCharacters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/embedfontcharacters/) enum and two overloads of the [addEmbeddedFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsmanager/#addEmbeddedFont-aspose.slides.IFontData-int-) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This JavaScript code shows you how to embed and add fonts to a presentation:
 
 ```javascript
 // Loads the presentation
@@ -102,7 +102,7 @@ try {
 
 To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the [compressEmbeddedFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts-aspose.slides.Presentation-) method (exposed by the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class).
 
-This Javascript code shows you how to compress embedded PowerPoint fonts:
+This JavaScript code shows you how to compress embedded PowerPoint fonts:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

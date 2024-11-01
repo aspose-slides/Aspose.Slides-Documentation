@@ -1,16 +1,16 @@
 ---
-title: Create or Update PowerPoint Presentation Charts in Java
+title: Create or Update PowerPoint Presentation Charts in JavaScript
 linktitle: Create Chart
 type: docs
 weight: 10
 url: /nodejs-java/create-chart/
 keywords: "Create chart, scattered chart, pie chart, tree map chart, stock chart, box and whisker chart, histogram chart, funnel chart, sunburst chart, multicategory chart, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create chart in PowerPoint presentation in Javascript"
+description: "Create chart in PowerPoint presentation in JavaScript"
 ---
 
 ## Overview
 
-This article describes how to **create PowerPoint Presentation Charts in the Java**. You can also **update the charts in Java**. It covers these topics.
+This article describes how to **create PowerPoint Presentation Charts in the Java**. You can also **update the charts in JavaScript**. It covers these topics.
 
 _Chart_: **Normal**
 - [Java Create PowerPoint Chart](#java-create-powerpoint-chart)
@@ -103,9 +103,9 @@ To allow you create charts, Aspose.Slides provides the [ChartType](https://refer
 ### **Creating Normal Charts**
 
 _Steps: Create Chart_
-- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart in Java</strong></a>
-- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart in Java</strong></a>
-- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart in Java</strong></a>
+- <a name="java-create-powerpoint-chart" id="java-create-powerpoint-chart"><strong><em>Steps:</em> Create PowerPoint Chart in JavaScript</strong></a>
+- <a name="java-create-presentation-chart" id="java-create-presentation-chart"><strong><em>Steps:</em> Create Presentation Chart in JavaScript</strong></a>
+- <a name="java-create-powerpoint-presentation-chart" id="java-create-powerpoint-presentation-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Chart in JavaScript</strong></a>
 
 _Code Steps:_
 
@@ -121,7 +121,7 @@ _Code Steps:_
 10. Add labels for the chart series. 
 11. Write the modified presentation as a PPTX file.
 
-This Javascript code shows you how to create a normal chart:
+This JavaScript code shows you how to create a normal chart:
 
 ```javascript
 // Instantiates a presentation class that represents a PPTX file
@@ -202,9 +202,9 @@ You may want to use a scattered chart when
 * you want to determine whether 2 variables are related
 * you have an independent variable that has multiple values for a dependent variable
 
-<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart in Java</strong></a>
+<a name="java-create-scattered-chart" id="java-create-scattered-chart"><strong><em>Steps:</em> Create Scattered Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-scattered-chart" id="java-create-powerpoint-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Scattered Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-scattered-chart" id="java-create-powerpoint-presentation-scattered-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Scattered Chart in JavaScript</strong></a>
 
 1. Please follow the steps mentioned above in [Creating Normal Charts](#creating-normal-charts)
 2. For third step, Add a chart with some data and specify your chart type as one of the following
@@ -214,7 +214,7 @@ You may want to use a scattered chart when
    4. [ChartType.ScatterWithStraightLinesAndMarkers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLinesAndMarkers) - _Represents Scatter Chart connected by lines, with data markers._
    5. [ChartType.ScatterWithStraightLines](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/#ScatterWithStraightLines) - _Represents Scatter Chart connected by lines, without data markers._
 
-This Javascript code shows you how to create a scattered charts with a different series of markers:
+This JavaScript code shows you how to create a scattered charts with a different series of markers:
 
 ```javascript
 // Instantiates a presentation class that represents a PPTX file
@@ -269,9 +269,9 @@ try {
 
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you may want to consider using a bar chart instead.
 
-<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart in Java</strong></a>
+<a name="java-create-pie-chart" id="java-create-pie-chart"><strong><em>Steps:</em> Create Pie Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-pie-chart" id="java-create-powerpoint-pie-chart"><strong><em>Steps:</em> Create PowerPoint Pie Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-pie-chart" id="java-create-powerpoint-presentation-pie-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Pie Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
@@ -286,7 +286,7 @@ Pie charts are best used to show the part-to-whole relationship in data, especia
 11. Set the rotation angle for pie chart slides.
 12. Write the modified presentation to a PPTX file
 
-This Javascript code shows you how to create a pie chart:
+This JavaScript code shows you how to create a pie chart:
 
 ```javascript
 // Instantiates a presentation class that represents a PPTX file
@@ -388,7 +388,7 @@ Line charts (also known as a line graphs) are best used in situations where you 
 1. Add new chart data for the chart series.
 1. Write the modified presentation to a PPTX file
 
-This Javascript code shows you how to create a line chart:
+This JavaScript code shows you how to create a line chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -416,9 +416,9 @@ for (let i = 0; i < lineChart.getChartData().getSeries().size(); i++) {
 
 Tree map charts are best used for sales data when you want to show the relative size of data categories and (at the same time) quickly draw attention to items that are large contributors to each category. 
 
-<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart in Java</strong></a>
+<a name="java-create-tree-map-chart" id="java-create-tree-map-chart"><strong><em>Steps:</em> Create Tree Map Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-tree-map-chart" id="java-create-powerpoint-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Tree Map Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-tree-map-chart" id="java-create-powerpoint-presentation-tree-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Tree Map Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -429,7 +429,7 @@ Tree map charts are best used for sales data when you want to show the relative 
 7. Add new chart data for the chart series.
 8. Write the modified presentation to a PPTX file
 
-This Javascript code shows you how to create a tree map chart:
+This JavaScript code shows you how to create a tree map chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -476,9 +476,9 @@ try {
 
 ### **Creating Stock Charts**
 
-<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart in Java</strong></a>
+<a name="java-create-stock-chart" id="java-create-stock-chart"><strong><em>Steps:</em> Create Stock Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-stock-chart" id="java-powerpoint-stock-chart"><strong><em>Steps:</em> Create PowerPoint Stock Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-stock-chart" id="java-create-powerpoint-presentation-stock-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Stock Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide's reference by its index.
@@ -490,7 +490,7 @@ try {
 8. Specify HiLowLines format.
 9. Write the modified presentation to a PPTX file
 
-Sample Javascript code used to create a stock chart:
+Sample JavaScript code used to create a stock chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -537,9 +537,9 @@ try {
 
 ### **Creating Box and Whisker Charts**
 
-<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart in Java</strong></a>
+<a name="java-create-box-and-whisker-chart" id="java-create-box-and-whisker-chart"><strong><em>Steps:</em> Create Box and Whisker Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-box-and-whisker-chart" id="java-powerpoint-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Box and Whisker Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-box-and-whisker-chart" id="java-create-powerpoint-presentation-box-and-whisker-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Box and Whisker Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -550,7 +550,7 @@ try {
 7. Add new chart data for the chart series.
 8. Write the modified presentation to a PPTX file
 
-This Javascript code shows you how to create a box and whisker chart:
+This JavaScript code shows you how to create a box and whisker chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -588,9 +588,9 @@ try {
 
 ### **Creating Funnel Charts**
 
-<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart in Java</strong></a>
+<a name="java-create-funnel-chart" id="java-create-funnel-chart"><strong><em>Steps:</em> Create Funnel Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-funnel-chart" id="java-create-powerpoint-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Funnel Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-funnel-chart" id="java-create-powerpoint-presentation-funnel-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Funnel Chart in JavaScript</strong></a>
 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
@@ -598,7 +598,7 @@ try {
 3. Add a chart with default data along with the desired type ([ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).Funnel).
 4. Write the modified presentation to a PPTX file
 
-The Javascript code shows you how to create a funnel chart:
+The JavaScript code shows you how to create a funnel chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -631,16 +631,16 @@ try {
 
 ### **Creating Sunburst Charts**
 
-<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart in Java</strong></a>
+<a name="java-create-sunburst-chart" id="java-create-sunburst-chart"><strong><em>Steps:</em> Create Sunburst Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-sunburst-chart" id="java-create-powerpoint-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Sunburst Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-sunburst-chart" id="java-create-powerpoint-presentation-sunburst-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Sunburst Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
 3. Add a chart with default data along with the desired type (in this case,[ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartType).sunburst).
 4. Write the modified presentation to a PPTX file
 
-This Javascript code shows you how to create a sunburst chart:
+This JavaScript code shows you how to create a sunburst chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -686,9 +686,9 @@ try {
 
 ### **Creating Histogram Charts**
 
-<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart in Java</strong></a>
+<a name="java-create-histogram-chart" id="java-create-histogram-chart"><strong><em>Steps:</em> Create Histogram Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-histogram-chart" id="java-create-powerpoint-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Histogram Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-histogram-chart" id="java-create-powerpoint-presentation-histogram-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Histogram Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index.
@@ -698,7 +698,7 @@ try {
 6. Add new series and categories.
 7. Write the modified presentation to a PPTX file
 
-This Javascript code shows you how to create an histogram chart:
+This JavaScript code shows you how to create an histogram chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -719,16 +719,16 @@ chart.getAxes().getHorizontalAxis().setAggregationType(aspose.slides.AxisAggrega
 
 ### **Creating Radar Charts**
 
-<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart in Java</strong></a>
+<a name="java-create-radar-chart" id="java-create-radar-chart"><strong><em>Steps:</em> Create Radar Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-radar-chart" id="java-create-powerpoint-radar-chart"><strong><em>Steps:</em> Create PowerPoint Radar Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-radar-chart" id="java-create-powerpoint-presentation-radar-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Radar Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Add a chart with some data and specify your preferred chart type (`ChartType.Radar` in this case).
 4. Write the modified presentation to a PPTX file
 
-This Javascript code shows you how to create an radar chart:
+This JavaScript code shows you how to create an radar chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -744,9 +744,9 @@ try {
 
 ### **Creating Multi Category Charts**
 
-<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart in Java</strong></a>
+<a name="java-create-multi-category-chart" id="java-create-multi-category-chart"><strong><em>Steps:</em> Create Multi Category Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-multi-category-chart" id="java-create-powerpoint-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Multi Category Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-multi-category-chart" id="java-create-powerpoint-presentation-multi-category-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Multi Category Chart in JavaScript</strong></a>
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
@@ -757,7 +757,7 @@ try {
 7. Add new chart data for the chart series.
 8. Write the modified presentation to a PPTX file.
 
-This Javascript code shows you how to create a multicategory chart:
+This JavaScript code shows you how to create a multicategory chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -803,11 +803,11 @@ try {
 
 A map chart is a visualization of an area containing data. Map charts are best used to compare data or values across geographical regions.
 
-<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart in Java</strong></a> |
-<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart in Java</strong></a>
+<a name="java-create-map-chart" id="java-create-map-chart"><strong><em>Steps:</em> Create Map Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-map-chart" id="java-create-powerpoint-map-chart"><strong><em>Steps:</em> Create PowerPoint Map Chart in JavaScript</strong></a> |
+<a name="java-create-powerpoint-presentation-map-chart" id="java-create-powerpoint-presentation-map-chart"><strong><em>Steps:</em> Create PowerPoint Presentation Map Chart in JavaScript</strong></a>
 
-This Javascript code shows you how to create a map chart:
+This JavaScript code shows you how to create a map chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -827,16 +827,16 @@ A combination chart (or combo chart) is a chart that combines two or more charts
 
 ![combination-chart-ppt](combination-chart-ppt.png)
 
-This Javascript code shows you how to create a combination chart in PowerPoint:
+This JavaScript code shows you how to create a combination chart in PowerPoint:
 
 ```javascript
 ```
 
 ## **Updating Charts**
 
-<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in Java</strong></a> |
-<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in Java</strong></a> |
-<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart in Java</strong></a>
+<a name="java-update-powerpoint-chart" id="java-update-powerpoint-chart"><strong><em>Steps:</em> Update PowerPoint Chart in JavaScript</strong></a> |
+<a name="java-update-presentation-chart" id="java-update-presentation-chart"><strong><em>Steps:</em> Update Presentation Chart in JavaScript</strong></a> |
+<a name="java-update-powerpoint-presentation-chart" id="java-update-powerpoint-presentation-chart"><strong><em>Steps:</em> Update PowerPoint Presentation Chart in JavaScript</strong></a>
 
 1. Instantiate a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class that represents the presentation containing the chart you want to update.
 2. Obtain the reference of a slide by using its Index.
@@ -846,7 +846,7 @@ This Javascript code shows you how to create a combination chart in PowerPoint:
 6. Add a new series and populate the data in it.
 7. Write the modified presentation as a PPTX file.
 
-This Javascript code shows you how to update a chart:
+This JavaScript code shows you how to update a chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -904,7 +904,7 @@ To set the data range for a chart, do this:
 4. Access the chart data and set the range.
 5. Save the modified presentation as a PPTX file.
 
-This Javascript code shows you how to set the data range for a chart:
+This JavaScript code shows you how to set the data range for a chart:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -923,7 +923,7 @@ try {
 ## **Using Default Markers in Charts**
 When you use a default marker in charts, each chart series get different default marker symbols automatically.
 
-This Javascript code shows you how to set a chart series market automatically:
+This JavaScript code shows you how to set a chart series market automatically:
 
 ```javascript
 var pres = new aspose.slides.Presentation();

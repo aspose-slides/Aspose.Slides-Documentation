@@ -14,9 +14,9 @@ keywords:
 - OLE object
 - PowerPoint 
 - presentation
-- Javascript
+- JavaScript
 - Aspose.Slides for Node.js via Java
-description: Add OLE objects to PowerPoint presentations in Javascript, Node
+description: Add OLE objects to PowerPoint presentations in JavaScript, Node
 ---
 
 {{% alert color="primary" %}} 
@@ -181,7 +181,7 @@ try {
 
 Besides Excel charts, Aspose.Slides for Node.js via Java allows you to embed other types of files in slides. For example, you can insert HTML, PDF, and ZIP files as objects into a slide. When a user double-clicks the inserted object, the object automatically gets launched in the relevant program, or the user gets directed to select an appropriate program to open the object.
 
-This Javascript code shows you how to embed HTML and ZIP in a slide:
+This JavaScript code shows you how to embed HTML and ZIP in a slide:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -210,7 +210,7 @@ When working on presentations, you may need to replace old OLE objects with new 
 
 Aspose.Slides for Node.js via Java allows you to set the file type for an embedded object. This way, you get to change the OLE frame data or its extension.
 
-This Javascript shows you how to set the file type for an embedded OLE object:
+This JavaScript shows you how to set the file type for an embedded OLE object:
 
 ```javascript
 var pres = new aspose.slides.Presentation("embeddedOle.pptx");
@@ -234,7 +234,7 @@ After you embed an OLE object, a preview consisting of an icon image and title g
 
 If you want to use a specific image and text as elements in the preview, you can set the icon image and title using Aspose.Slides for Node.js via Java.
 
-This Javascript code shows you how to set the icon image and title for an embedded object:
+This JavaScript code shows you how to set the icon image and title for an embedded object:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -264,7 +264,7 @@ try {
 
 ## **Prevent an OLE Object Frame from Being Resized and Pepositioned**
 
-After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, set the `setUpdateAutomatic` method of the [IOleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) property to `false`:
+After you add a linked OLE object to a presentation slide, when you open the presentation in PowerPoint, you might see a message asking you to update the links. Clicking the "Update Links" button may change the size and position of the OLE object frame because PowerPoint updates the data from the linked OLE object and refreshes the object preview. To prevent PowerPoint from prompting to update the object's data, use the `setUpdateAutomatic` method of the [IOleObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe/) interface with `false` value:
 
 ```javascript
 oleObjectFrame.setUpdateAutomatic(false);
@@ -278,7 +278,7 @@ Aspose.Slides for Node.js via Java allows you to extract the files embedded in s
 2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleobjectframe) shape.
 3. Access the embedded file's data from the OLE Object Frame and write it to disk. 
 
-This Javascript code shows you how to extract a file embedded in a slide as an OLE object:
+This JavaScript code shows you how to extract a file embedded in a slide as an OLE object:
 
 ```javascript
 var pres = new aspose.slides.Presentation("embeddedOle.pptx");

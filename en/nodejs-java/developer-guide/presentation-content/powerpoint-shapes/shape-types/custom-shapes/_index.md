@@ -14,9 +14,9 @@ keywords:
 - edit points
 - PowerPoint
 - presentation
-- Javascript
+- JavaScript
 - Aspose.Slides for Node.js via Java
-description: "Add a custom shape to a PowerPoint presentation in Javascript"
+description: "Add a custom shape to a PowerPoint presentation in JavaScript"
 ---
 
 # Change a Shape Using Edit Points
@@ -48,7 +48,7 @@ Before you start editing PowerPoint shapes through edit points, you might want t
 To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class and [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class.
 
 * A [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) instance represents a geometry path of the [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape) object.
-* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#getGeometryPaths--) method.
+* To retrieve the`GeometryPath` from the `GeometryShape` instance, you can use the [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#getGeometryPaths--) method.
 * To set the `GeometryPath` for a shape, you can use these methods: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#setGeometryPath-aspose.slides.IGeometryPath-) for *solid shapes* and [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#setGeometryPaths-aspose.slides.IGeometryPath:A-) for *composite shapes*.
 * To add segments, you can use the methods under [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath).
 * Using the [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath#setStroke-boolean-) and [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath#setFillMode-byte-) methods, you can set the appearance for a geometry path.
@@ -58,7 +58,7 @@ To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [*
 
 ## **Simple Editing Operations**
 
-This Javascript code shows you how to
+This JavaScript code shows you how to
 
 **Add a line** to the end of a path
 
@@ -125,7 +125,7 @@ removeAt(index);
 4. Add a new point between the two bottom points on the path.
 5. Apply the path to the shape.
 
-This Javascript code shows you how to add custom points to a shape:
+This JavaScript code shows you how to add custom points to a shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -150,7 +150,7 @@ try {
 3. Remove the segment for the path.
 4. Apply the path to the shape.
 
-This Javascript code shows you how to remove points from a shape:
+This JavaScript code shows you how to remove points from a shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -175,7 +175,7 @@ try {
 4. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape) class.
 5. Apply the path to the shape.
 
-This Javascript shows you how to create a custom shape:
+This JavaScript shows you how to create a custom shape:
 
 ```javascript
 var points = java.newInstanceSync("java.util.ArrayList");
@@ -218,7 +218,7 @@ try {
   3. Create a second instance of the [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) class.
   4. Apply the paths to the shape.
 
-This Javascript code shows you to create a composite custom shape:
+This JavaScript code shows you to create a composite custom shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -247,7 +247,7 @@ try {
 
 ## **Create Custom Shape With Curved Corners**
 
-This Javascript code shows you how to create a custom shape with curved corners (inwards);
+This JavaScript code shows you how to create a custom shape with curved corners (inwards);
 
 ```javascript
 var shapeX = 20.0;
@@ -318,7 +318,7 @@ function isGeometryClosed(geometryShape)
 3. Convert the [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) instance to the [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) instance using [ShapeUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeUtil).
 4. Apply the paths to the shape.
 
-This Javascript code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
+This JavaScript code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
 
 ```javascript
 var pres = new aspose.slides.Presentation();

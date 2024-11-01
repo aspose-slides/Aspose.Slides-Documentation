@@ -4,7 +4,7 @@ type: docs
 weight: 70
 url: /nodejs-java/convert-powerpoint-to-xps/
 keywords: "PPT, PPTX to XPS"
-description: "Convert PowerPoint PPT(X) to XPS in Javascript"
+description: "Convert PowerPoint PPT(X) to XPS in JavaScript"
 ---
 
 ## **About XPS**
@@ -39,7 +39,7 @@ Microsoft eventually implemented support for printing operations in PDF through 
 
 ## XPS Conversion with Aspose.Slides
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/) for Java, you can use the [**Save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class to convert the entire presentation into an XPS document.
+In [**Aspose.Slides for Node.js via Java**](https://products.aspose.com/slides/nodejs-java/), you can use the [**save**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-aspose.slides.ISaveOptions-) method exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class to convert the entire presentation into an XPS document.
 
 When converting a presentation to XPS, you have to save the presentation using either of these settings:
 
@@ -48,7 +48,7 @@ When converting a presentation to XPS, you have to save the presentation using e
 
 ### **Converting Presentations to XPS Using Default Settings**
 
-This sample code in Javascript shows you how to convert a presentation to an XPS document using standard settings:
+This sample code in JavaScript shows you how to convert a presentation to an XPS document using standard settings:
 
 ```javascript
 // Instantiate a Presentation object that represents a presentation file
@@ -65,7 +65,7 @@ try {
 
 
 ### **Converting Presentations to XPS Using Custom Settings**
-This sample code shows you how to convert a presentation to an XPS document using custom settings in Java:
+This sample code shows you how to convert a presentation to an XPS document using custom settings in JavaScript:
 
 ```javascript
 // Instantiate a Presentation object that represents a presentation file

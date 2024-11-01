@@ -4,7 +4,7 @@ type: docs
 weight: 35
 url: /nodejs-java/convert-slide/
 keywords: "Convert slide to image, export slide as image, save slide as image, slide to image, slide to PNG, slide to JPEG, slide to Bitmap, Java, java, Aspose.Slides"
-description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in Javascript"
+description: "Convert PowerPoint slide to image (Bitmap, PNG, or JPG) in JavaScript"
 ---
 
 Aspose.Slides for Node.js via Java allows you to convert slides (in presentations) to images. These are the supported image formats: BMP, PNG, JPG (JPEG), GIF, and others.
@@ -20,7 +20,7 @@ To convert a slide to an image, do this:
 
 ## **About Bitmap and Other Image Formats**
 
-In Java, a [Imagess](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images)  is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
+An [Images](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Images) is an object that allows you to work with images defined by pixel data. You can use an instance of this class to save images in a wide range of formats (JPG, PNG, etc.).
 
 {{% alert title="Info" color="info" %}}
 
@@ -30,7 +30,7 @@ Aspose recently developed an online [Text to GIF](https://products.aspose.app/sl
 
 ## **Converting Slides to Bitmap and Saving the Images in PNG**
 
-This Javascript code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
+This JavaScript code shows you how to convert the first slide of a presentation to a bitmap object and then how to then save the image in the PNG format:
 
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
@@ -87,7 +87,7 @@ You can convert a slide to a Images object and then use the object directly some
 
 You may need to get an image of a certain size. Using an overload from the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-aspose.slides.IRenderingOptions-) method, you can convert a slide to an image with specific dimensions (length and width).
 
-This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-java.awt.Dimension-) method in Java:
+This sample code demonstrates the proposed conversion using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-java.awt.Dimension-) method in JavaScript:
 
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
@@ -122,7 +122,7 @@ With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nod
 
 {{% /alert %}} 
 
-This Javascript code demonstrates the conversion process for a slide with notes and comments:
+This JavaScript code demonstrates the conversion process for a slide with notes and comments:
 
 ```javascript
 var pres = new aspose.slides.Presentation("PresentationNotesComments.pptx");
@@ -154,7 +154,7 @@ try {
 }
 ```
 
-This Javascript code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-java.awt.Dimension-) method:
+This JavaScript code demonstrates the conversion process for a slide with notes using the [getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide#getImage-java.awt.Dimension-) method:
 
 ```javascript
 var pres = new aspose.slides.Presentation("PresentationNotes.pptx");
@@ -193,7 +193,7 @@ In any slide to image conversion process, the [NotesPositions](https://reference
 
 The [TiffOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TiffOptions) class gives you more control (in terms of parameters) over the resulting image. Using this class, you get to specify the size, resolution, color palette, and other parameters for the resulting image.
 
-This Javascript code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
+This JavaScript code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 
 ```javascript
 var pres = new aspose.slides.Presentation("PresentationNotesComments.pptx");
@@ -239,7 +239,7 @@ Tiff support is not guaranteed in versions earlier than JDK 9.
 
 Aspose.Slides allows you to convert all slides in a single presentation to images. Essentially, you get to convert the presentation (in its entirety) to images. 
 
-This sample code shows you how to convert all slides in a presentation to images in Java:
+This sample code shows you how to convert all slides in a presentation to images in JavaScript:
 
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");

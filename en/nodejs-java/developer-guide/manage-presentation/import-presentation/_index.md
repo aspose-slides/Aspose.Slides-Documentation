@@ -19,7 +19,7 @@ In this case, you get to convert a PDF to a PowerPoint presentation.
 2. Call the [addFromPdf()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addFromPdf-java.lang.String-) method and pass the PDF file.
 3. Use the [save()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
 
-This Javascript code demonstrates the PDF to PowerPoint operation:
+This JavaScript code demonstrates the PDF to PowerPoint operation:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -47,7 +47,7 @@ In this case, you get to convert a HTML document to a PowerPoint presentation.
 2. Call the [addFromHtml()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/#addFromHtml-java.io.InputStream-) method and pass the PDF file.
 3. Use the [save()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save-java.lang.String-int-) method to save the file in the PowerPoint format.
 
-This Javascript code demonstrates the HTML to PowerPoint operation:
+This JavaScript code demonstrates the HTML to PowerPoint operation:
 
 ```javascript
 var presentation = new aspose.slides.Presentation();

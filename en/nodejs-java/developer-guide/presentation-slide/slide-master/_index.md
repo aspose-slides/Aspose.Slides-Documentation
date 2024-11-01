@@ -4,7 +4,7 @@ type: docs
 weight: 70
 url: /nodejs-java/slide-master/
 keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, Java, Aspose.Slides for Node.js via Java"
-description: "Add or edit slide master in PowerPoint presentation in Javascript"
+description: "Add or edit slide master in PowerPoint presentation in JavaScript"
 ---
 
 ## **What is a Slide Master in PowerPoint**
@@ -249,7 +249,7 @@ The title style and formatting will change for all slides based on the slide mas
 
 ## **Change Background on Slide Master**
 
-When you change a master slide's background color, all the normal slides in the presentation will get the new color. This Javascript code demonstrates the operation:
+When you change a master slide's background color, all the normal slides in the presentation will get the new color. This JavaScript code demonstrates the operation:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -276,7 +276,7 @@ try {
 
 ## **Clone Slide Master to Another Presentation**
 
-To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This Javascript code shows you how to clone a Slide Master to another presentation:
+To clone a Slide Master to another presentation, call the [**addClone**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SlideCollection#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) method from the destination presentation alongside a Slide Master passed into it. This JavaScript code shows you how to clone a Slide Master to another presentation:
 
 ```javascript
 var presSource = new aspose.slides.Presentation();
@@ -318,7 +318,7 @@ Two Master Slides are equal if their shapes, styles, texts, animation and other 
 
 Aspose.Slides allows you to set a Slide Master as the default view for a presentation. The default view is what you see first when you open a presentation. 
 
-This code shows you how to set a Slide Master as a presentation's default view in Java:
+This code shows you how to set a Slide Master as a presentation's default view in JavaScript:
 
 ```javascript
 // Instantiates a Presentation class that represents the presentation file
@@ -335,7 +335,7 @@ try {
 
 ## **Remove Unused Master Slide**
 
-Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Javascript code shows you how to remove a master slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the  [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This JavaScript code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

@@ -4,7 +4,7 @@ type: docs
 weight: 30
 url: /nodejs-java/shape-effect
 keywords: "Shape effect, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Apply effect to PowerPoint shape in Javascript"
+description: "Apply effect to PowerPoint shape in JavaScript"
 ---
 
 While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/nodejs-java/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.
@@ -19,7 +19,7 @@ Aspose.Slides provides properties and methods under the [EffectFormat](https://r
 
 ## **Apply Shadow Effect**
 
-This Javascript code shows you how to apply the outer shadow effect ([OuterShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectFormat#setOuterShadowEffect--)) to a rectangle:
+This JavaScript code shows you how to apply the outer shadow effect ([getOuterShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/EffectFormat#getOuterShadowEffect)) to a rectangle:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -39,7 +39,7 @@ try {
 
 ## **Apply Reflection Effect**
 
-This Javascript code shows you how to apply the reflection effect to a shape:
+This JavaScript code shows you how to apply the reflection effect to a shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -60,7 +60,7 @@ try {
 
 ## **Apply Glow Effect**
 
-This Javascript code shows you how to apply the glow effect to a shape:
+This JavaScript code shows you how to apply the glow effect to a shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -79,7 +79,7 @@ try {
 
 ## **Apply Soft Edges Effect**
 
-This Javascript code shows you how to apply the soft edges to a shape:
+This JavaScript code shows you how to apply the soft edges to a shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation();

@@ -1,22 +1,22 @@
 ---
-title: Convert PPT to PPTX in Java
+title: Convert PPT to PPTX in JavaScript
 linktitle: Convert PPT to PPTX
 type: docs
 weight: 20
 url: /nodejs-java/convert-ppt-to-pptx/
-keywords: "Java Convert PPT to PPTX, PowerPoint PPT to PPTX in Javascript"
-description: "Convert PowerPoint PPT to PPTX in Java."
+keywords: "Java Convert PPT to PPTX, PowerPoint PPT to PPTX in JavaScript"
+description: "Convert PowerPoint PPT to PPTX in JavaScript."
 ---
 
 ## **Overview**
 
-This article explains how to convert PowerPoint Presentation in PPT format into PPTX format using Javascript and with online PPT to PPTX conversion app. The following topic is covered.
+This article explains how to convert PowerPoint Presentation in PPT format into PPTX format using JavaScript and with online PPT to PPTX conversion app. The following topic is covered.
 
-- Convert PPT to PPTX in Java
+- Convert PPT to PPTX in JavaScript
 
 ## **Java Convert PPT to PPTX**
 
-For Javascript sample code to convert PPT to PPTX, please see the section below i.e. [Convert PPT to PPTX](#convert-ppt-to-pptx). It just loads the PPT file and saves in PPTX format. By specifiying different save formats, you can also save PPT file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles.
+For JavaScript sample code to convert PPT to PPTX, please see the section below i.e. [Convert PPT to PPTX](#convert-ppt-to-pptx). It just loads the PPT file and saves in PPTX format. By specifiying different save formats, you can also save PPT file into many other formats like PDF, XPS, ODP, HTML etc. as disscussed in these articles.
 
 - [Java Convert PPT to PDF](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-pdf/)
 - [Java Convert PPT to XPS](https://docs.aspose.com/slides/nodejs-java/convert-powerpoint-to-xps/)

@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /nodejs-java/convert-powerpoint-to-jpg/
 keywords: "Convert PowerPoint to JPG, PPTX to JPEG, PPT to JPEG"
-description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in Javascript"
+description: "Convert PowerPoint to JPG: PPT to JPG, PPTX to JPG in JavaScript"
 ---
 
 
@@ -17,7 +17,7 @@ To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try 
 
 {{% /alert %}} 
 
-[![todo:image_alt_text](ppt-to-jpg.png)
+![todo:image_alt_text](ppt-to-jpg.png)
 
 ## **Convert PowerPoint PPT/PPTX to JPG**
 Here are the steps to convert PPT/PPTX to JPG:
@@ -89,7 +89,7 @@ try {
 ```
 
 ## **Render Comments when saving Presentation into Image**
-Aspose.Slides for Node.js via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This Javascript code demonstrates the operation:
+Aspose.Slides for Node.js via Java provides a facility that allows you to render comments in a presentation's slides when you are converting those slides into images. This JavaScript code demonstrates the operation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("presentation.pptx");

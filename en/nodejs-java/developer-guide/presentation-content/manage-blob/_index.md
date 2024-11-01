@@ -3,7 +3,7 @@ title: Manage Blob
 type: docs
 weight: 10
 url: /nodejs-java/manage-blob/
-description: Manage Blob in PowerPoint Presentation using Java. Use Blob to reduce memory consumption in PowerPoint Presentation using Java. Add large file through Blob to PowerPoint Presentation using Java. Export large file through Blob from PowerPoint Presentation using Java. Load a large PowerPoint Presentation as Blob using Java.
+description: Manage Blob in PowerPoint Presentation using JavaScript. Use Blob to reduce memory consumption in PowerPoint Presentation using JavaScript. Add large file through Blob to PowerPoint Presentation using JavaScript. Export large file through Blob from PowerPoint Presentation using JavaScript. Load a large PowerPoint Presentation as Blob using JavaScript.
 ---
 
 ## **About BLOB**
@@ -24,7 +24,7 @@ To circumvent certain limitations when interacting with streams, Aspose.Slides m
 
 [Aspose.Slides](/slides/nodejs-java/) for Node.js via Java allows you to add large files (in this case, a large video file) through a process involving BLOBs to reduce memory consumption.
 
-This Javascript shows you how to add a large video file through the BLOB process to a presentation:
+This JavaScript shows you how to add a large video file through the BLOB process to a presentation:
 
 ```javascript
 var pathToVeryLargeVideo = "veryLargeVideo.avi";
@@ -57,7 +57,7 @@ try {
 ### **Export Large File Through BLOB from Presentation**
 Aspose.Slides for Node.js via Java allows you to export large files (in this case, an audio or video file) through a process involving BLOBs from presentations. For example, you may need to extract a large media file from a presentation but do not want the file to be loaded into your computer's memory. By exporting the file through the BLOB process, you get to keep memory consumption low.
 
-This code in Javascript demonstrates the described operation:
+This code in JavaScript demonstrates the described operation:
 
 ```javascript
 var hugePresentationWithAudiosAndVideosFile = "LargeVideoFileTest.pptx";
@@ -103,7 +103,7 @@ try {
 ### **Add Image as BLOB in Presentation**
 With methods from the [**ImageCollection**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class and [**ImageCollection** ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ImageCollection) class, you can add a large image as a stream to get it treated as a BLOB.
 
-This Javascript code shows you how to add a large image through the BLOB process:
+This JavaScript code shows you how to add a large image through the BLOB process:
 
 ```javascript
 var pathToLargeImage = "large_image.jpg";
@@ -136,7 +136,7 @@ try {
 
 Typically, to load a large presentation, computers require a lot of temporary memory. All the presentation's content is loaded into the memory and the file (from which the presentation was loaded) stops being used. 
 
-Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this Javascript code:
+Consider a large PowerPoint presentation (large.pptx) that contains a 1.5 GB video file. The standard method for loading the presentation is described in this JavaScript code:
 
 ```javascript
 var pres = new aspose.slides.Presentation("large.pptx");
@@ -153,7 +153,7 @@ But this method consumes around 1.6 GB of temporary memory.
 
 ### **Load a Large Presentation as BLOB**
 
-Through the process involving a BLOB, you can load up a large presentation while using little memory. This Javascript code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
+Through the process involving a BLOB, you can load up a large presentation while using little memory. This JavaScript code describes the implementation where the BLOB process is used to load up a large presentation file (large.pptx):
 
 ```javascript
 var loadOptions = new aspose.slides.LoadOptions();
@@ -171,7 +171,7 @@ try {
 
 ### **Change the Folder for Temporary Files**
 
-When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `TempFilesRootPath`:
+When the BLOB process is used, your computer creates temporary files in the default folder for temporary files. If you want the temporary files to be kept in a different folder, you can change the settings for storage using `setTempFilesRootPath`:
 
 ```javascript
 var loadOptions = new aspose.slides.LoadOptions();
@@ -182,6 +182,6 @@ loadOptions.getBlobManagementOptions().setTempFilesRootPath("temp");
 
 {{% alert title="Info" color="info" %}}
 
-When you use `TempFilesRootPath`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
+When you use `setTempFilesRootPath`, Aspose.Slides does not automatically create a folder to store temporary files. You have to create the folder manually. 
 
 {{% /alert %}}

@@ -23,13 +23,13 @@ To use WordArt in Microsoft PowerPoint, you have to select one of the predefined
 
 In Aspose.Slides for Node.js via Java 20.10, we implemented support for WordArt and made improvements to the feature in subsequent Aspose.Slides for Node.js via Java releases.
 
-With Aspose.Slides for Node.js via Java, you can easily create your own WordArt template (one effect or combination of effects) in Javascript and apply it to texts.
+With Aspose.Slides for Node.js via Java, you can easily create your own WordArt template (one effect or combination of effects) in JavaScript and apply it to texts.
 
 ## Creating a Simple WordArt Template and Applying It to a Text
 
 **Using Aspose.Slides** 
 
-First, we create a simple text using this Javascript code:
+First, we create a simple text using this JavaScript code:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -94,7 +94,7 @@ For example, Shadow, Reflection, and Glow effects can be applied to a text; 3D F
 
 ### Applying Shadow Effects
 
-Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in Java:
+Here, we intend to set the properties relating to a text only. We apply the shadow effect to a text using this code in JavaScript:
 
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableOuterShadowEffect();
@@ -130,7 +130,7 @@ Aspose.Slides actually allows you to apply two types of shadows at once: InnerSh
 
 ### Applying Display to Texts
 
-We add display to the text through this code sample in Java:
+We add display to the text through this code sample in JavaScript:
 
 ```javascript
 portion.getPortionFormat().getEffectFormat().enableReflectionEffect();
@@ -219,7 +219,7 @@ The resulting text and its shape:
 
 ![todo:image_alt_text](image-20200930114816-9.png)
 
-We apply a 3D effect to the text with this Javascript code:
+We apply a 3D effect to the text with this JavaScript code:
 
 ```javascript
 textFrame.getTextFrameFormat().getThreeDFormat().getBevelBottom().setBevelType(aspose.slides.BevelPresetType.Circle);
@@ -316,7 +316,7 @@ Go through these steps:
 7. Set the Scheme Color.
 8. Write the presentation as a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
 
-This sample code (based on the steps above) shows you how to add a connector between two shapes in Java:
+This sample code (based on the steps above) shows you how to add a connector between two shapes in JavaScript:
 
 ```javascript
 var pres = new aspose.slides.Presentation();

@@ -1,11 +1,11 @@
 ---
-title: Font Substitution - PowerPoint Javascript API
+title: Font Substitution - PowerPoint JavaScript API
 linktitle: Font Substitution
 type: docs
 weight: 70
 url: /nodejs-java/font-substitution/
 keywords: "Font, substitute font, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Substitute font in PowerPoint in Javascript"
+description: "Substitute font in PowerPoint in JavaScript"
 ---
 
 Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:
@@ -17,7 +17,7 @@ Aspose.Slides allows you to set rules for fonts that determines what must be don
 5. Add the rule to the presentation font replacement rule collection.
 6. Generate the slide image to observe the effect.
 
-This Javascript code demonstrates the font substitution process:
+This JavaScript code demonstrates the font substitution process:
 
 ```javascript
 // Loads a presentation

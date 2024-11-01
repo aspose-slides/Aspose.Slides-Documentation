@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /nodejs-java/slide-layout/
 keyword: "Set slide size, set slide options, specify slide size, Footer visibility, Child footer, Content scaling, page size, Java, Aspose.Slides"
-description: "Set PowerPoint slide size and options in Javascript"
+description: "Set PowerPoint slide size and options in JavaScript"
 ---
 
 A slide layout contains the placeholder boxes and formatting information for all the content that appears on a slide. The layout determines the available content placeholders and where they are placed. 
@@ -36,7 +36,7 @@ For more information on working with Master Slides in particular, see the [Slide
 1. Add an empty slide based on the new layout slide.
 1. Save the presentation. 
 
-This Javascript code shows you how to add a slide layout to a PowerPoint presentation:
+This JavaScript code shows you how to add a slide layout to a PowerPoint presentation:
 
 ```javascript
 // Instantiates a Presentation class that represents the presentation file
@@ -92,7 +92,7 @@ try {
 
 ## **Remove Unused Layout Slide**
 
-Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides-aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This Javascript code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides-aspose.slides.Presentation-) method from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class to allow you to delete unwanted and unused layout slides. This JavaScript code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -109,7 +109,7 @@ try {
 
 ## **Set Size and Type for Slide Layout**
 
-To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [getType()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#getType--) and [getSize()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#getSize--) properties (from the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class). This Javascript demonstrates the operation:
+To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [getType()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#getType--) and [getSize()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#getSize--) properties (from the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class). This JavaScript demonstrates the operation:
 
 ```javascript
 // Instantiates a Presentation object that represents presentation file
@@ -143,7 +143,7 @@ try {
 1. Set the date-time placeholder to visible. 
 1. Save the presentation. 
 
-This Javascript code shows you how to set the visibility for a slide footer (and perform related tasks):
+This JavaScript code shows you how to set the visibility for a slide footer (and perform related tasks):
 
 ```javascript
 var presentation = new aspose.slides.Presentation("presentation.ppt");
@@ -177,7 +177,7 @@ try {
 1. Set a text for the master slide and all child date-time placeholders. 
 1. Save the presentation. 
 
-This Javascript code demonstrates the operation:
+This JavaScript code demonstrates the operation:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("presentation.ppt");
@@ -202,7 +202,7 @@ try {
 1. Set the date-time placeholder to visible. 
 1. Save the presentation. 
 
-This Javascript code demonstrates the operation:
+This JavaScript code demonstrates the operation:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file
@@ -222,7 +222,7 @@ try {
 
 Certain presentations (like posters) are often converted to PDF docs. If you are looking to convert your PowerPoint to PDF to access the best printing and accessibility options, you want to set your slides to sizes that suit PDF documents (A4, for example).
 
-Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This Javascript code shows you how to use the [getType()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
+Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This JavaScript code shows you how to use the [getType()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesize/#getType--) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file

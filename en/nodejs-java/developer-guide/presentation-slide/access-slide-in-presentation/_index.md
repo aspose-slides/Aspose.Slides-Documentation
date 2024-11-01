@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /nodejs-java/access-slide-in-presentation/
 keywords: "Access PowerPoint Presentation, Access slide, Edit slide properties, Change slide position, Set slide number, index, ID, position  Java, Aspose.Slides"
-description: "Access PowerPoint slide by index, ID, or position in Java. Edit slide properties"
+description: "Access PowerPoint slide by index, ID, or position in JavaScript. Edit slide properties"
 ---
 
 Aspose.Slides allows you to access slides in two ways: by index and by ID.
@@ -13,7 +13,7 @@ Aspose.Slides allows you to access slides in two ways: by index and by ID.
 
 All slides in a presentation are arranged numerically based on the slide position starting from 0. The first slide is accessible through index 0; the second slide is accessed through index 1; etc.
 
-The Presentation class, representing a presentation file, exposes all slides as an [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) collection (collection of [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) objects). This Javascript code shows you how to access a slide through its index:
+The Presentation class, representing a presentation file, exposes all slides as an [SlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidecollection/) collection (collection of [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) objects). This JavaScript code shows you how to access a slide through its index:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file
@@ -28,7 +28,7 @@ try {
 
 ## **Access Slide by ID**
 
-Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class) to target that ID. This Javascript code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method:
+Each slide in a presentation has a unique ID associated with it. You can use the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method (exposed by the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class) to target that ID. This JavaScript code shows you how to provide a valid slide ID and access that slide through the [getSlideById](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getSlideById-long-) method:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file
@@ -52,7 +52,7 @@ Aspose.Slides allow you to change a slide position. For example, you can specify
 1. Set a new position for the slide through the [setSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#setSlideNumber-int-) property.
 1. Save the modified presentation.
 
-This Javascript code demonstrates an operation in which the slide in position 1 is moved to position 2:
+This JavaScript code demonstrates an operation in which the slide in position 1 is moved to position 2:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file
@@ -81,7 +81,7 @@ Using the [setFirstSlideNumber](https://reference.aspose.com/slides/nodejs-java/
 1. Set the slide number.
 1. Save the modified presentation.
 
-This Javascript code demonstrates an operation where the first slide number is set to 10:
+This JavaScript code demonstrates an operation where the first slide number is set to 10:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file

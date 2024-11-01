@@ -1,11 +1,11 @@
 ---
-title: Open Presentation in Java
+title: Open Presentation in JavaScript
 linktitle: Open Presentation
 type: docs
 weight: 20
 url: /nodejs-java/open-presentation/
 keywords: "Open PowerPoint, PPTX, PPT, Open Presentation, Load Presentation, Java"
-description: "Open or load Presentation PPT, PPTX, ODP in Javascript"
+description: "Open or load Presentation PPT, PPTX, ODP in JavaScript"
 ---
 
 Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you to open existing presentations. After you load a presentation, you can get information about the presentation, edit the presentation (content on its slides), add new slides or remove existing ones, etc. 
@@ -14,7 +14,7 @@ Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you
 
 To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and pass the file path (of the presentation you want to open) to its constructor.
 
-This Javascript code shows you how to open a presentation and also find out the number of slides it contains:
+This JavaScript code shows you how to open a presentation and also find out the number of slides it contains:
 
 ```javascript
 // Instantiates the Presentation class and passes the file path to its constructor
@@ -31,7 +31,7 @@ try {
 
 ## **Open Password Protected Presentation**
 
-When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#getPassword--) property (from the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This Javascript code demonstrates the operation:
+When you have to open a password-protected presentation, you can pass the password through the [getPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#getPassword--) method (from the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This JavaScript code demonstrates the operation:
 
 ```javascript
 var loadOptions = new aspose.slides.LoadOptions();
@@ -48,9 +48,9 @@ try {
 
 ## Open Large Presentation
 
-Aspose.Slides provides options (the [BlobManagementOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setBlobManagementOptions-aspose.slides.IBlobManagementOptions-) property in particular) under the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions) class to allow you to load large presentations.
+Aspose.Slides provides options (the [getBlobManagementOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setBlobManagementOptions-aspose.slides.IBlobManagementOptions-) method in particular) under the [LoadOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions) class to allow you to load large presentations.
 
-This Javascript demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
+This JavaScript demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
 
 ```javascript
 var loadOptions = new aspose.slides.LoadOptions();
@@ -82,7 +82,7 @@ When you want to create a presentation that contains large objects (video, audio
 
 ## Load Presentation
 
-Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/resourceloadingcallback/) with a single method to allow you to manage external resources. This Javascript code shows you how to use the `IResourceLoadingCallback` class:
+Aspose.Slides provides [ResourceLoadingCallback](https://reference.aspose.com/slides/nodejs-java/aspose.slides/resourceloadingcallback/) with a single method to allow you to manage external resources. This JavaScript code shows you how to use the `IResourceLoadingCallback` class:
 
 ```javascript
 var opts = new aspose.slides.LoadOptions();
@@ -124,10 +124,10 @@ class ImageLoadingHandler implements IResourceLoadingCallback
 The PowerPoint presentation can contain the following types of the embedded binary objects:
 
 - VBA Project ([Presentation.VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/));
-- OLE Object embedded data ([OleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData--));
-- ActiveX Control binary data ([Control.ActiveXControlBinary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getActiveXControlBinary--));
+- OLE Object embedded data ([OleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/oleembeddeddatainfo/#getEmbeddedFileData--));
+- ActiveX Control binary data ([Control.getActiveXControlBinary](https://reference.aspose.com/slides/nodejs-java/aspose.slides/control/#getActiveXControlBinary--));
 
-Using the [LoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) property, you can load the presentation without any embedded binary objects.
+Using the [LoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) property, you can load the presentation without any embedded binary objects.
 
 This property can be useful for removing potentially malicious binary content.
 

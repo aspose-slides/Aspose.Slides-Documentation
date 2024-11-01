@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /nodejs-java/manage-hyperlinks/
 keywords: "PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, Java"
-description: "How to add hyperlink to a PowerPoint Presentation in Javascript"
+description: "How to add hyperlink to a PowerPoint Presentation in JavaScript"
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:
@@ -24,7 +24,7 @@ You may want to check out Aspose simple, [free online PowerPoint editor.](https:
 
 ### **Adding URL Hyperlinks to Texts**
 
-This Javascript code shows you how to add a website hyperlink to a text:
+This JavaScript code shows you how to add a website hyperlink to a text:
 
 ```javascript
 var presentation = new aspose.slides.Presentation();
@@ -45,7 +45,7 @@ try {
 
 ### **Adding URL Hyperlinks to Shapes or Frames**
 
-This sample code in Javascript shows you how to add a website hyperlink to a shape:
+This sample code in JavaScript shows you how to add a website hyperlink to a shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -171,7 +171,7 @@ try {
 
 ### **Color**
 
-With the [ColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource-int-) property in the [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) class, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
+With the [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource-int-) method in the [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) class, you can set the color for hyperlinks and also get the color information from hyperlinks. The feature was first introduced in PowerPoint 2019, so changes involving the property do not apply to older PowerPoint versions.
 
 This sample code demonstrates an operation where hyperlinks with different colors got added to the same slide:
 
@@ -200,7 +200,7 @@ try {
 
 ### **Removing Hyperlinks from Texts**
 
-This Javascript code shows you how to remove the hyperlink from a text in a presentation slide:
+This JavaScript code shows you how to remove the hyperlink from a text in a presentation slide:
 
 ```javascript
 var pres = new aspose.slides.Presentation("text.pptx");
@@ -236,7 +236,7 @@ try {
 
 ### **Removing Hyperlinks from Shapes or Frames**
 
-This Javascript code shows you how to remove the hyperlink from a shape in a presentation slide:
+This JavaScript code shows you how to remove the hyperlink from a shape in a presentation slide:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

@@ -3,8 +3,8 @@ title: Slide Transition
 type: docs
 weight: 80
 url: /nodejs-java/slide-transition/
-keywords: "PowerPoint slide transition, morph transition in Javascript"
-description: "PowerPoint slide transition, PowerPoint morph transition in Javascript"
+keywords: "PowerPoint slide transition, morph transition in JavaScript"
+description: "PowerPoint slide transition, PowerPoint morph transition in JavaScript"
 ---
 
 

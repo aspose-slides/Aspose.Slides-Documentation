@@ -1,10 +1,10 @@
 ---
-title: Convert PowerPoint to Markdown in Java
+title: Convert PowerPoint to Markdown in JavaScript
 type: docs
 weight: 140
 url: /nodejs-java/convert-powerpoint-to-markdown/
 keywords: "Convert PowerPoint to Markdown, Convert ppt to md, PowerPoint, PPT, PPTX, Presentation, Markdown, Java, Aspose.Slides for Node.js via Java"
-description: "Convert PowerPoint to Markdown in Javascript"
+description: "Convert PowerPoint to Markdown in JavaScript"
 ---
 
 {{% alert color="info" %}} 
@@ -15,16 +15,16 @@ Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 
 
 {{% alert color="warning" %}} 
 
-PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set  `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.
+PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to call `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` and also set the `BasePath` where the images referenced in the markdown document will be saved.
 
 {{% /alert %}} 
 
 ## **Convert PowerPoint to Markdown**
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class to represent a presentation object.
-2. Use the [Save ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save-aspose.slides.IXamlOptions-)method to save the object as a markdown file.
+2. Use the [save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#save-aspose.slides.IXamlOptions-) method to save the object as a markdown file.
 
-This Javascript code shows you how to convert PowerPoint to markdown:
+This JavaScript code shows you how to convert PowerPoint to markdown:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -41,7 +41,7 @@ try {
 
 Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syntax), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, and 17 other markdown flavors.
 
-This Javascript code shows you how to convert PowerPoint to CommonMark:
+This JavaScript code shows you how to convert PowerPoint to CommonMark:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -64,7 +64,7 @@ The [MarkdownSaveOptions](https://reference.aspose.com/slides/nodejs-java/aspose
 
 ### **Convert Images Sequentially**
 
-If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Javascript code shows you how to convert a presentation containing images to markdown:
+If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This JavaScript code shows you how to convert a presentation containing images to markdown:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -87,7 +87,7 @@ try {
 
 If you want the images to appear together in the resulting markdown, you have to choose the visual option.   In this case, images will be saved to the current directory of the application (and a relative path will be built for them in the markdown document), or you can specify your preferred path and folder name.
 
-This Javascript code demonstrates the operation:
+This JavaScript code demonstrates the operation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

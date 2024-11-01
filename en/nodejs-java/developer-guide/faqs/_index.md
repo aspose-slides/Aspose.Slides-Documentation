@@ -14,7 +14,7 @@ url: /nodejs-java/faqs/
 - formatting tables
 - font
 - Node
-- Javascript
+- JavaScript
 - Aspose.Slides for Node.js via Java
 ---
 

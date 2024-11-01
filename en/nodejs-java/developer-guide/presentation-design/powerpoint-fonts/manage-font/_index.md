@@ -1,10 +1,10 @@
 ---
-title: Manage Fonts - PowerPoint Javascript API
+title: Manage Fonts - PowerPoint JavaScript API
 linktitle: Manage Fonts
 type: docs
 weight: 10
 url: /nodejs-java/manage-fonts/
-description: Presentations usually contain both text and images. This article shows how to use PowerPoint Javascript API to configure the font properties of paragraphs of text on slides.
+description: Presentations usually contain both text and images. This article shows how to use PowerPoint JavaScript API to configure the font properties of paragraphs of text on slides.
 ---
 
 ## **Manage Font Related Properties**

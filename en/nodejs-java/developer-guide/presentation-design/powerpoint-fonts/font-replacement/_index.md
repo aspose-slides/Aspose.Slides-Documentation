@@ -1,10 +1,10 @@
 ---
-title: Font Replacement - PowerPoint Javascript API
+title: Font Replacement - PowerPoint JavaScript API
 linktitle: Font Replacement
 type: docs
 weight: 60
 url: /nodejs-java/font-replacement/
-description: Learn how to replace fonts using the explicit replacement method in PowerPoint using the Javascript API.
+description: Learn how to replace fonts using the explicit replacement method in PowerPoint using the JavaScript API.
 ---
 
 If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 
@@ -17,7 +17,7 @@ Aspose.Slides allows you to replace a font this way:
 4. Replace the font. 
 5. Write the modified presentation as a PPTX file.
 
-This Javascript code demonstrates font replacement:
+This JavaScript code demonstrates font replacement:
 
 ```javascript
 // Loads a presentation

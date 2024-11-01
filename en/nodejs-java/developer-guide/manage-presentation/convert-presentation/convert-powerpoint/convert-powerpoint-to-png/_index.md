@@ -20,11 +20,11 @@ The PNG (Portable Network Graphics) format is not as popular as JPEG (Joint Phot
 Go through these steps:
 
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
-2. Get the slide object from the [Presentation.getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) collection under the [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) class.
+2. Get the slide object from the collection returned by the [Presentation.getSlides()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getSlides--) method under the [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) class.
 3. Use a [Slide.getImage()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Slide) method to get the thumbnail for each slide.
 4. Use the  [**Image.save(String formatName, int imageFormat)**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Image#save(String formatName, int imageFormat)) method to save the slide thumbnail to the PNG format.
 
-This Javascript code shows you how to convert a PowerPoint presentation to PNG:
+This JavaScript code shows you how to convert a PowerPoint presentation to PNG:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -51,7 +51,7 @@ try {
 
 If you want to obtain PNG files around a certain scale, you can set the values for `desiredX` and `desiredY`, which determine the dimensions of the resulting thumbnail. 
 
-This code in Javascript demonstrates the described operation:
+This code in JavaScript demonstrates the described operation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

@@ -4,7 +4,7 @@ type: docs
 weight: 60
 url: /nodejs-java/manage-bullet/
 keywords: "Bullets, Bullet lists, Numbers, Numbered lists, Picture bullets, multilevel bullets, PowerPoint Presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create bullet and numbered lists in PowerPoint presentation in Javascript"
+description: "Create bullet and numbered lists in PowerPoint presentation in JavaScript"
 ---
 
 In **Microsoft PowerPoint**, you can create bullet and numbered lists the same way you do in Word and other text editors. **Aspose.Slides for Node.js via Java** also allows you to use bullets and numbers in slides in your presentations.
@@ -38,7 +38,7 @@ This topic is also the part of the topic series of managing text paragraphs. Thi
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class.
 1. Access the desired slide in slide collection using [Slide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide) object.
-1. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationText) in selected slide.
+1. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) in selected slide.
 1. Access the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) of the added shape.
 1. Remove the default paragraph in the TextFrame.
 1. Create the first paragraph instance using [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Paragraph) class.
@@ -121,7 +121,7 @@ To create a picture bullet, go through these steps:
 1. Add the second paragraph and repeat the process given in previous steps
 1. Save the presentation
 
-This Javascript code shows you to create a picture bullet in a slide:
+This JavaScript code shows you to create a picture bullet in a slide:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -180,7 +180,7 @@ To create a bullet list that contains items on different levels—additional lis
 1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
-This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in Java:
+This code, which is an implementation of the steps above, shows you how to create a multilevel bullet list in JavaScript:
 
 ```javascript
 // Instantiate a Presentation class that represents a PPTX file
@@ -262,7 +262,7 @@ Aspose.Slides for Node.js via Java provides a simple API to manage paragraphs wi
 1. Add the created paragraphs in [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe) paragraph collection.
 1. Save the presentation.
 
-This Javascript code shows you how to create a numbered list in a slide:
+This JavaScript code shows you how to create a numbered list in a slide:
 
 ```javascript
 // Instantiate a Presentation class that represents a PPTX file

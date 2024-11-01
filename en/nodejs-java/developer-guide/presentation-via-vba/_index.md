@@ -4,7 +4,7 @@ type: docs
 weight: 250
 url: /nodejs-java/presentation-via-vba/
 keywords: "Macro, macros, VBA, VBA macro, add macro, remove macro, add VBA, remove VBA, extract macro, extract VBA, PowerPoint macro, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add, remove, and extract VBA macros in PowerPoint presentations in Javascript"
+description: "Add, remove, and extract VBA macros in PowerPoint presentations in JavaScript"
 ---
 
 {{% alert title="Note" color="warning" %}} 
@@ -30,7 +30,7 @@ Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/node
 1. Associate the references with the VBA project.
 1. Save the presentation.
 
-This Javascript code shows you how to add a VBA macro from scratch to a presentation:
+This JavaScript code shows you how to add a VBA macro from scratch to a presentation:
 
 ```javascript
 // Creates an instance of the presentation class
@@ -72,7 +72,7 @@ Using the [VbaProject](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 1. Access the Macro module and remove it.
 1. Save the modified presentation.
 
-This Javascript code shows you how to remove a VBA macro:
+This JavaScript code shows you how to remove a VBA macro:
 
 ```javascript
 // Loads the presentation containing the macro
@@ -95,7 +95,7 @@ try {
 2. Check if the presentation contains a VBA Project.
 3. Loop through all the modules contained in the VBA Project to view the macros.
 
-This Javascript code shows you how to extract VBA macros from a presentation containing macros:
+This JavaScript code shows you how to extract VBA macros from a presentation containing macros:
 
 ```javascript
 // Loads the presentation containing the macro

@@ -15,7 +15,7 @@ keywords:
 - modify properties
 - PPTX
 - PPT
-- Javascript
+- JavaScript
 - Node
 description: "Read and modify PowerPoint presentation properties in Node"
 ---
@@ -32,7 +32,7 @@ The [PresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.sl
 
 Before working on a presentation, you may want to find out what format (PPT, PPTX, ODP, and others) the presentation is in at the moment.
 
-You can check a presentation's format without loading the presentation. See this Javascript code:
+You can check a presentation's format without loading the presentation. See this JavaScript code:
 
 ```javascript
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");
@@ -45,7 +45,7 @@ console.log(info3.getLoadFormat());// ODP
 
 ## **Get Presentation Properties**
 
-his Javascript code shows you how to get presentation properties (information about the presentation):
+his JavaScript code shows you how to get presentation properties (information about the presentation):
 
 ```javascript
 var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("pres.pptx");

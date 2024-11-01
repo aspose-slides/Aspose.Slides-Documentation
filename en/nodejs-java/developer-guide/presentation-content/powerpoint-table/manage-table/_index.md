@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /nodejs-java/manage-table/
 keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create and manage table in PowerPoint presentations in Javascript"
+description: "Create and manage table in PowerPoint presentations in JavaScript"
 ---
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.
@@ -24,7 +24,7 @@ Aspose.Slides provides the [Table](https://reference.aspose.com/slides/nodejs-ja
 9. Add some text to the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 10. Save the modified presentation.
 
-This Javascript code shows you how to create a table in a presentation:
+This JavaScript code shows you how to create a table in a presentation:
 
 ```javascript
 // Instantiates a Presentation class that represents a PPTX file
@@ -80,7 +80,7 @@ For example, the cells in a table with 4 columns and 4 rows are numbered this wa
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-This Javascript code shows you how to specify the numbering for cells in a table:
+This JavaScript code shows you how to specify the numbering for cells in a table:
 
 ```javascript
 // Instantiates a Presentation class that represents a PPTX file
@@ -137,7 +137,7 @@ try {
 
 6. Save the modified presentation.
 
-This Javascript code shows you how to access and work with an existing table:
+This JavaScript code shows you how to access and work with an existing table:
 
 ```javascript
 // Instantiates the Presentation class that represents a PPTX file
@@ -176,7 +176,7 @@ try {
 6. Align the text vertically.
 7. Save the modified presentation.
 
-This Javascript code shows you how to align the text in a table:
+This JavaScript code shows you how to align the text in a table:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -224,7 +224,7 @@ try {
 6. Set the [setTextVerticalType(byte value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-).
 7. Save the modified presentation. 
 
-This Javascript code shows you how to apply your preferred formatting options to the text in a table:
+This JavaScript code shows you how to apply your preferred formatting options to the text in a table:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -255,7 +255,7 @@ try {
 
 ## **Get Table Style Properties**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Javascript code shows you how to get the style properties from a table preset style:
+Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This JavaScript code shows you how to get the style properties from a table preset style:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -274,7 +274,7 @@ try {
 
 The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions. Aspose.Slides provided the [**setAspectRatioLocked**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-)  property to allow you to lock the aspect ratio setting for tables and other shapes.
 
-This Javascript code shows you how to lock the aspect ratio for a table:
+This JavaScript code shows you how to lock the aspect ratio for a table:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

@@ -4,13 +4,13 @@ type: docs
 weight: 70
 url: /nodejs-java/chart-workbook/
 keywords: "Chart workbook, chart data, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Chart workbook in PowerPoint presentation in Javascript"
+description: "Chart workbook in PowerPoint presentation in JavaScript"
 ---
 
 ## **Set Chart Data from Workbook**
-Aspose.Slides provides the [ReadWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) and [WriteWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
+Aspose.Slides provides the [readWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) and [writeWorkbookStream](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) methods that allow you to read and write chart data workbooks (containing chart data edited with Aspose.Cells). **Note** that the chart data has to be organized in the same manner or must have a structure similar to the source.
 
-This Javascript code demonstrates a sample operation:
+This JavaScript code demonstrates a sample operation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("chart.pptx");
@@ -37,7 +37,7 @@ try {
 1. Set the workbook cell as a data label.
 1. Save the presentation.
 
-This Javascript code shows you to set a workbook cell as a chart data label:
+This JavaScript code shows you to set a workbook cell as a chart data label:
 
 ```javascript
 var lbl0 = "Label 0 cell value";
@@ -65,7 +65,7 @@ try {
 
 ## **Manage Worksheets**
 
-This Javascript code demonstrates an operation where the [ChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
+This JavaScript code demonstrates an operation where the [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) method is used to access a worksheet collection:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -84,7 +84,7 @@ try {
 
 ## **Specify Data Source Type**
 
-This Javascript code shows you how to specify a type for a data source:
+This JavaScript code shows you how to specify a type for a data source:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -113,7 +113,7 @@ In [Aspose.Slides 19.4](https://docs.aspose.com/slides/nodejs-java/aspose-slides
 
 Using the **`readWorkbookStream`** and **`setExternalWorkbook`** methods, you can either create an external workbook from scratch or make an internal workbook external.
 
-This Javascript code demonstrates the external workbook creation process:
+This JavaScript code demonstrates the external workbook creation process:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -145,7 +145,7 @@ Using the **`setExternalWorkbook`** method, you can assign an external workbook 
 
 While you cannot edit the data in workbooks stored in remote locations or resources, you can still use such workbooks as an external data source. If the relative path for an external workbook is provided, it gets converted to a full path automatically.
 
-This Javascript code shows you how to set an external workbook:
+This JavaScript code shows you how to set an external workbook:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -197,7 +197,7 @@ try {
 1. Create an object for the source (`ChartDataSourceType`) type that represents the chart's data source.
 1. Specify the relevant condition based on the source type being the same as the external workbook data source type.
 
-This Javascript code demonstrates the operation:
+This JavaScript code demonstrates the operation:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -222,7 +222,7 @@ try {
 
 You can edit the data in external workbooks the same way you make changes to the contents of internal workbooks. When an external workbook cannot be loaded, an exception is thrown.
 
-This Javascript code is an implementation of the described process:
+This JavaScript code is an implementation of the described process:
 
 ```javascript
 // Creates an instance of tthe Presentation class

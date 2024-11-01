@@ -10,7 +10,7 @@ keywords:
 - parallel work
 - convert slides
 - slides to images
-- Javascript
+- JavaScript
 - Aspose.Slides for Node.js via Java
 ---
 

@@ -18,7 +18,7 @@ Ideally, you should create a section that houses similar slides—the slides hav
 
 To add a section that will house slides in a presentation, Aspose.Slides for Node.js via Java provides the [addSection()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) method that allows you to specify the name of the section you intend to create and the slide from which the section starts.
 
-This sample code shows you to create a section in a presentation in Java:
+This sample code shows you to create a section in a presentation in JavaScript:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -47,7 +47,7 @@ try {
 
 After you create a section in a PowerPoint presentation, you may decide to change its name. 
 
-This sample code shows you how to change the name of a section in a presentation in Javascript using Aspose.Slides:
+This sample code shows you how to change the name of a section in a presentation in JavaScript using Aspose.Slides:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

@@ -3,7 +3,7 @@ title: Manage Placeholder
 type: docs
 weight: 10
 url: /nodejs-java/manage-placeholder/
-description: Change Text in a Placeholder in PowerPoint Slides using Java. Set Prompt Text in a Placeholder in PowerPoint Slides using Java.
+description: Change Text in a Placeholder in PowerPoint Slides using JavaScript. Set Prompt Text in a Placeholder in PowerPoint Slides using JavaScript.
 ---
 
 ## **Change Text in Placeholder**
@@ -19,7 +19,7 @@ This is how you use Aspose.Slides to replace the text in the placeholder in that
 4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame) associated with the [`AutoShape`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape).
 5. Save the modified presentation.
 
-This Javascript code shows how to change the text in a placeholder:
+This JavaScript code shows how to change the text in a placeholder:
 
 ```javascript
 // Instantiates a Presentation class
@@ -47,7 +47,7 @@ try {
 ## **Set Prompt Text in Placeholder**
 Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
 
-This Javascript code shows you how to set the prompt text in a placeholder:
+This JavaScript code shows you how to set the prompt text in a placeholder:
 
 ```javascript
 var pres = new aspose.slides.Presentation("Presentation.pptx");
@@ -81,7 +81,7 @@ try {
 
 Aspose.Slides allows you to set the transparency of the background image in a text placeholder. By adjusting the transparency of the picture in such a frame, you can make the text or the image stand out (depending on the text's and picture's colors).
 
-This Javascript code shows you how to set the transparency for a picture background (inside a shape):
+This JavaScript code shows you how to set the transparency for a picture background (inside a shape):
 
 ```javascript
 var presentation = new aspose.slides.Presentation("example.pptx");

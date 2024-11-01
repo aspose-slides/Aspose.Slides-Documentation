@@ -3,7 +3,7 @@ title: Image
 type: docs
 weight: 10
 url: /nodejs-java/image/
-description: Work with images in Slides in PowerPoint Presentation using Java. Add images from disk or from web in PowerPoint Slides using Java. Add images to Slide Masters or as Slide Background using Java. Add SVG to PowerPoint Presentation using Java. Convert SVG to Shapes in PowerPoint using Java. Add images as EMF in Slides using Java.
+description: Work with images in Slides in PowerPoint Presentation using JavaScript. Add images from disk or from web in PowerPoint Slides using JavaScript. Add images to Slide Masters or as Slide Background using JavaScript. Add SVG to PowerPoint Presentation using JavaScript. Convert SVG to Shapes in PowerPoint using JavaScript. Add images as EMF in Slides using JavaScript.
 ---
 
 ## **Images in Slides In Presentations**
@@ -32,7 +32,7 @@ Aspose.Slides supports operations with images in these popular formats: JPEG, PN
 
 ## **Adding Images Stored Locally to Slides**
 
-You can add one or several images on your computer onto a slide in a presentation. This sample code in Javascript shows you how to add an image to a slide:
+You can add one or several images on your computer onto a slide in a presentation. This sample code in JavaScript shows you how to add an image to a slide:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -60,7 +60,7 @@ try {
 
 If the image you want to add to a slide is unavailable on your computer, you can add the image directly from the web. 
 
-This sample code shows you how to add an image from the web to a slide in Java:
+This sample code shows you how to add an image from the web to a slide in JavaScript:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -88,7 +88,7 @@ try {
 
 A slide master is the top slide that stores and controls information (theme, layout, etc.) about all slides under it. So, when you add an image to a slide master, that image appears on every slide under that slide master. 
 
-This Javascript sample code shows you how to add an image to a slide master:
+This JavaScript sample code shows you how to add an image to a slide master:
 
 ```javascript
 var pres = new aspose.slides.Presentation();

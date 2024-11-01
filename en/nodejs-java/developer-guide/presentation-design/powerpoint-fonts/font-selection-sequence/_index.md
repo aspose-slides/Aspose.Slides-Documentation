@@ -1,6 +1,6 @@
 ---
-title: Font Selection Sequence in Java
-linktitle: Font Selection Sequence in Java
+title: Font Selection Sequence in JavaScript
+linktitle: Font Selection Sequence
 type: docs
 weight: 80
 url: /nodejs-java/font-selection-sequence/
@@ -12,7 +12,7 @@ keywords:
 - PowerPoint presentation
 - Java
 - Aspose.Slides for Node.js via Java
-description: PowerPoint font selection sequence in Java
+description: PowerPoint font selection sequence in JavaScript
 ---
 
 ## Font Selection

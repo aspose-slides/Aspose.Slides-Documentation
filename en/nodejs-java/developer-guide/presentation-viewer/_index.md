@@ -4,7 +4,7 @@ type: docs
 weight: 50
 url: /nodejs-java/presentation-viewer/
 keywords: "PowerPoint PPT Viewer"
-description: "PowerPoint PPT Viewer in Javascript"
+description: "PowerPoint PPT Viewer in JavaScript"
 ---
 
 {{% alert color="primary" %}} 

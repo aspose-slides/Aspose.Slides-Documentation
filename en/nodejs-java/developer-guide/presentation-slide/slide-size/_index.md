@@ -32,7 +32,7 @@ If you prefer to use a special slide size for your presentations, we strongly re
 
 ## Changing the Slide Size in Presentations 
 
- This sample code shows you how to change the slide size in a presentation in Javascript using Aspose.Slides:
+ This sample code shows you how to change the slide size in a presentation in JavaScript using Aspose.Slides:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres-4x3-aspect-ratio.pptx");
@@ -50,7 +50,7 @@ try {
 
 If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you may decide to use a specific or unique slide size. For example, if you plan to print full-size slides from your presentation on a custom page layout or if you intend to display your presentation on certain screen types, you are likely to benefit from using a custom size setting for your presentation. 
 
-This sample code shows you how to use Aspose.Slides for Node.js via Java to specify a custom slide size for a presentation in Java:
+This sample code shows you how to use Aspose.Slides for Node.js via Java to specify a custom slide size for a presentation in JavaScript:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

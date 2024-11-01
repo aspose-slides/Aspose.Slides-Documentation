@@ -29,11 +29,11 @@ The simplest form of encoding specifies the X and Y coordinates of each sample p
 
 ## Brush Properties For Drawing 
 
-You can use a brush to draw lines connecting trace elements' points. The brush has its own color and size, corresponding to the `Brush.Color` and `Brush.Size` properties. 
+You can use a brush to draw lines connecting trace elements' points. The brush has its own color and size, corresponding to the `Brush.setColor` and `Brush.setSize` methods. 
 
 ### **Set Ink Brush Color**
 
-This Javascript code shows you how to set the color for a brush:
+This JavaScript code shows you how to set the color for a brush:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -52,7 +52,7 @@ try {
 
 ### **Set Ink Brush Size** 
 
-This Javascript code shows you how to set the size for a brush:
+This JavaScript code shows you how to set the size for a brush:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

@@ -4,7 +4,7 @@ type: docs
 weight: 20
 url: /nodejs-java/shape-formatting/
 keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Format shape in PowerPoint presentation in Javascript"
+description: "Format shape in PowerPoint presentation in JavaScript"
 ---
 
 In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, you can format shapes by modifying or applying certain effects to their constituent lines. Additionally, you can format shapes by specifying settings that determine how they (the area in them) are filled. 
@@ -28,7 +28,7 @@ Using Aspose.Slides, you can specify your preferred line style for a shape. Thes
 7. Set the [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LineDashStyle) for the shape line.
 8. Write the modified presentation as a PPTX file.
 
-This Javascript code demonstrates an operation where we formatted a rectangle `AutoShape`:
+This JavaScript code demonstrates an operation where we formatted a rectangle `AutoShape`:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -69,7 +69,7 @@ By default, when PowerPoint joins two lines at an angle (or a shape's corner), i
 
 ![join-style-powerpoint](join-style-powerpoint.png)
 
-This Javascript demonstrates an operation where 3 rectangles (the image above) were created with the Miter, Bevel, and Round join type settings:
+This JavaScript demonstrates an operation where 3 rectangles (the image above) were created with the Miter, Bevel, and Round join type settings:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -129,7 +129,7 @@ This is how you use Aspose.Slides to apply a gradient fill to a shape:
 5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
 6. Write the modified presentation as a PPTX file.
 
-This Javascript code demonstrates an operation where the gradient fill effect was used on an ellipse:
+This JavaScript code demonstrates an operation where the gradient fill effect was used on an ellipse:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -169,11 +169,11 @@ This is how you use Aspose.Slides to apply a pattern fill to a shape:
 3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) to the slide.
 4. Set the Shape's [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/FillType) to `Pattern`.
 5. Set your preferred pattern style for the shape. 
-6. Set the [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat#getBackColor--) for the [PatternFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat).
-7. Set the [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat#getForeColor--) for the [PatternFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat).
+6. Call the [getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat#getBackColor--) method for the [PatternFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat).
+7. Call the [getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat#getForeColor--) method for the [PatternFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PatternFormat).
 8. Write the modified presentation as a PPTX file.
 
-This Javascript code demonstrates an operation where a pattern fill was used to beautify a rectangle:
+This JavaScript code demonstrates an operation where a pattern fill was used to beautify a rectangle:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -214,7 +214,7 @@ This is how you use Aspose.Slides to fill a shape with a picture:
 7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `PPImage`.
 8. Write the modified presentation as a PPTX file.
 
-This Javascript code shows you how to fill a shape with a picture:
+This JavaScript code shows you how to fill a shape with a picture:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -262,7 +262,7 @@ This is how you use Aspose.Slides to apply solid color fill to a shape:
 5. Set your preferred color for the Shape.
 6. Write the modified presentation as a PPTX file.
 
-This Javascript code shows you how to apply the solid color fill to a box in PowerPoint:
+This JavaScript code shows you how to apply the solid color fill to a box in PowerPoint:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -297,7 +297,7 @@ Aspose.Slides allows you to set the transparency level for a shape this way:
 4. Use `new Color` with the alpha component set.
 5. Save the object as a PowerPoint file. 
 
-This Javascript code demonstrates the process:
+This JavaScript code demonstrates the process:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -328,7 +328,7 @@ Aspose.Slides allows you to rotate a shape added to a slide this way:
 4. Rotate the shape by the needed degrees. 
 5. Write the modified presentation as a PPTX file.
 
-This Javascript code shows you how to rotate a shape by 90 degrees:
+This JavaScript code shows you how to rotate a shape by 90 degrees:
 
 ```javascript
 // Instantiates a presentation class that represents a presentation file
@@ -359,7 +359,7 @@ Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeD
 3. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ThreeDFormat) properties.
 4. Write the presentation to disk.
 
-This Javascript code shows you how to add 3D bevel effects to a shape:
+This JavaScript code shows you how to add 3D bevel effects to a shape:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -398,10 +398,10 @@ Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying it
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Get a slide's reference through its index. 
 3. Add an [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape) to the slide.
-3. Specify your preferred figures for [CameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Camera#getCameraType--) and [LightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRig#getLightType--).
+3. Specify your preferred figures using the [getCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Camera#getCameraType--) and [getLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LightRig#getLightType--) methods.
 4. Write the presentation to disk. 
 
-This Javascript code shows you how to apply 3D rotation effects to a shape:
+This JavaScript code shows you how to apply 3D rotation effects to a shape:
 
 ```javascript
 // Creates an instance of the Presentation class
@@ -428,7 +428,7 @@ try {
 
 ## **Reset Formatting**
 
-This Javascript code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LayoutSlide) to their defaults:
+This JavaScript code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LayoutSlide) to their defaults:
 
 ```javascript
 var pres = new aspose.slides.Presentation();

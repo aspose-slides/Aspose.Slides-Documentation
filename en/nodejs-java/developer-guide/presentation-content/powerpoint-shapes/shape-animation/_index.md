@@ -7,7 +7,7 @@ keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint p
 description: "Apply PowerPoint animation in Javascript"
 ---
 
-Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/nodejs-java/animated-charts/). They give life to presentations or its constituents.
+Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/nodejs-java/animated-charts/). They give life to presentations or its constituents.
 
 ### **Why Use Animations in Presentations?**
 
@@ -33,10 +33,10 @@ Aspose.Slides for Node.js via Java allows you to apply animation to the text in 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 2. Obtain a slide reference through its index.
 3. Add a `rectangle` [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape).
-4. Add text to [AutoShape.TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-).
+4. Add text using [AutoShape.addTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-).
 5. Get a main sequence of effects.
 6. Add an animation effect to [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape).
-7. Set the `TextAnimation.BuildType` property to the value from `BuildType` Enumeration.
+7. Call the `TextAnimation.setBuildType` method with the value from `BuildType` enumeration.
 8. Write the presentation to disk as a PPTX file.
 
 This Javascript code shows you how to apply the `Fade` effect to AutoShape and set the text animation to *By 1st Level Paragraphs* value:
@@ -309,12 +309,12 @@ This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
 
 PowerPoint Effect **After animation** drop-down list matches these properties: 
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) property which describes the After animation type :
+- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) method which describes the After animation type;
   * PowerPoint **More Colors** matches the [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) type;
   * PowerPoint **Don't Dim** list item matches the [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#DoNotDim) type (default after animation type);
   * PowerPoint **Hide After Animation** item matches the [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#HideAfterAnimation) type;
   * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) type;
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
+- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) method which defines an after animation color format. This method works in conjunction with the [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) type. If you change the type to another, the after animation color will be cleared.
 
 This Javascript code shows you how to change an after animation effect:
 
@@ -351,7 +351,7 @@ Aspose.Slides provides these properties to allow you to work with an animation e
 This is how you can change the Effect Animate text properties:
 
 1. [Apply](#apply-animation-to-shape) or get the animation effect.
-2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textanimation/#setBuildType-int-) property to [BuildType.AsOneObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
+2. Set the [setBuildType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textanimation/#setBuildType-int-) method to [BuildType.AsOneObject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/buildtype/#AsOneObject) value to turn off the *By Paragraphs* animation mode.
 3. Set new values for the [setAnimateTextType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) and [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) properties.
 4. Save the modified PPTX file.
 

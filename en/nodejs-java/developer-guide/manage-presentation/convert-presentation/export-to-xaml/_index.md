@@ -22,7 +22,7 @@ XAML, which is an XML-based language, is Microsoft’s variant for describing a 
 
 ## Exporting Presentations to XAML With Default Options
 
-This Javascript code shows you how to export a presentation to XAML with default settings:
+This JavaScript code shows you how to export a presentation to XAML with default settings:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -39,7 +39,7 @@ try {
 
 You get to select options from the [XamlOptions](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions) class that control the export process and determine how Aspose.Slides exports your presentation to XAML.
 
-For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [ExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions#setExportHiddenSlides-boolean-) property to true. See this sample Javascript code:
+For example, if you want Aspose.Slides to add hidden slides from your presentation when exporting it to XAML, you can set the [setExportHiddenSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/XamlOptions#setExportHiddenSlides-boolean-) method to true. See this sample JavaScript code:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

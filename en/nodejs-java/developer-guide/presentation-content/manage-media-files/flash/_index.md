@@ -3,7 +3,7 @@ title: Flash
 type: docs
 weight: 10
 url: /nodejs-java/flash/
-description: Extract Flash Objects from PowerPoint Presentation using Java
+description: Extract Flash Objects from PowerPoint Presentation using JavaScript
 ---
 
 ## **Extract Flash Objects from Presentation**

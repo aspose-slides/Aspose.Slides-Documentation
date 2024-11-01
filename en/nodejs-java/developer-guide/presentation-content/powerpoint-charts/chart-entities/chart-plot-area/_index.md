@@ -11,7 +11,7 @@ Aspose.Slides for Node.js via Java provides a simple API for . 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 1. Access first slide.
 1. Add chart with default data.
-1. Call method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) before to get actual values.
+1. Call the method [Chart.validateChartLayout()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#validateChartLayout--) before to get actual values.
 1. Gets actual X location (left) of the chart element relative to the left top corner of the chart.
 1. Gets actual top of the chart element relative to the left top corner of the chart.
 1. Gets actual width of the chart element.

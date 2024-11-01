@@ -4,7 +4,7 @@ type: docs
 weight: 130
 url: /nodejs-java/convert-powerpoint-to-video/
 keywords: "Convert PowerPoint, PPT, PPTX, Presentation, Video, MP4, PPT to video, PPT to MP4, Java, Aspose.Slides"
-description: "Convert PowerPoint to Video in Javascript"
+description: "Convert PowerPoint to Video in JavaScript"
 ---
 
 By converting your PowerPoint presentation to video, you get 
@@ -29,9 +29,9 @@ In [Aspose.Slides 22.11](https://docs.aspose.com/slides/nodejs-java/aspose-slide
 
 1. Download ffmpeg [here](https://ffmpeg.org/download.html).
 
-2. Run the PowerPoint to video Javascript code.
+2. Run the PowerPoint to video JavaScript code.
 
-This Javascript code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
+This JavaScript code shows you how to convert a presentation (containing a figure and two animation effects) to a video:
 
 ```javascript
 var presentation = new aspose.slides.Presentation();
@@ -111,7 +111,7 @@ try {
     // Adds text and animations
     var autoShape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 120, 300, 300);
     var para1 = new aspose.slides.Paragraph();
-    para1.getPortions().add(new aspose.slides.Portion("Aspose Slides for Java"));
+    para1.getPortions().add(new aspose.slides.Portion("Aspose Slides for Node.js via Java"));
     var para2 = new aspose.slides.Paragraph();
     para2.getPortions().add(new aspose.slides.Portion("convert PowerPoint Presentation with text to video"));
     var para3 = new aspose.slides.Paragraph();
@@ -171,11 +171,11 @@ try {
 
 To allow you to perform PowerPoint to video conversion tasks, Aspose.Slides provides the [PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) and [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) classes.
 
-[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) allows you to set the frame size for the video (that will be created later) through its constructor. If you pass an instance of the presentation, `Presentation.SlideSize` will be used and it generates animations that [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) uses.
+[PresentationAnimationsGenerator](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationsgenerator/) allows you to set the frame size for the video (that will be created later) through its constructor. If you pass an instance of the presentation, `Presentation.getSlideSize` will be used and it generates animations that [PresentationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationplayer/) uses.
 
 When animations are generated, a `NewAnimation` event is generated for each subsequent animation, which has the [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/) parameter. The latter is a class that represents a player for a separate animation.
 
-To work with [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/), the [Duration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#getDuration--) (the full duration of the animation) property and [SetTimePosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `GetFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
+To work with [PresentationAnimationPlayer](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/), the [getDuration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#getDuration--) (the full duration of the animation) method and [setTimePosition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationanimationplayer/#setTimePosition-double-) method are used. Each animation position is set within the *0 to duration* range, and then the `getFrame` method will return a BufferedImage that corresponds to the animation state at that moment:
 
 ```javascript
 var presentation = new aspose.slides.Presentation();

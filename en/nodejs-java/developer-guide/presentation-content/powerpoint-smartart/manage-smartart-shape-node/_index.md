@@ -1,14 +1,14 @@
 ---
-title: Create or Manage PowerPoint SmartArt Shape Node in Java
+title: Create or Manage PowerPoint SmartArt Shape Node in JavaScript
 linktitle: Manage SmartArt Shape Node
 type: docs
 weight: 30
 url: /nodejs-java/manage-smartart-shape-node/
-keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint Javascript api
-description: Manage smart art node and child node in PowerPoint Presentations in Java
+keywords: smartart powerpoint, smartart nodes, smartart position, remove smartart, smartart nodes add, powerpoint presentation, powerpoint java, powerpoint JavaScript api
+description: Manage smart art node and child node in PowerPoint Presentations in JavaScript
 ---
 
-## **Add SmartArt Node in PowerPoint Presentation using Java**
+## **Add SmartArt Node in PowerPoint Presentation using JavaScript**
 Aspose.Slides for Node.js via Java has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class and load the presentation with SmartArt Shape.
@@ -82,7 +82,7 @@ try {
 }
 ```
 
-## **Access SmartArt Node in PowerPoint Presentation using Java**
+## **Access SmartArt Node in PowerPoint Presentation using JavaScript**
 The following sample code will help to access nodes inside SmartArt shape. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class and load the presentation with SmartArt Shape.
@@ -200,7 +200,7 @@ try {
 }
 ```
 
-## **Remove SmartArt Node in PowerPoint Presentation using Java**
+## **Remove SmartArt Node in PowerPoint Presentation using JavaScript**
 In this example, we will learn to remove the nodes inside SmartArt shape.
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation) class and load the presentation with SmartArt Shape.

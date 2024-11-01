@@ -4,7 +4,7 @@ type: docs
 weight: 50
 url: /nodejs-java/convert-powerpoint-to-pdf-with-notes/
 keywords: "convert powerpoint to pdf with notes in java"
-description: "Convert PowerPoint to PDF with notes in Javascript"
+description: "Convert PowerPoint to PDF with notes in JavaScript"
 ---
 
 ## **Convert PowerPoint to PDF with Custom Slide Size**

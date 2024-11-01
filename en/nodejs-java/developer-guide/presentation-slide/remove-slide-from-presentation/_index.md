@@ -4,7 +4,7 @@ type: docs
 weight: 30
 url: /nodejs-java/remove-slide-from-presentation/
 keywords: "Remove slide, Delete slide, PowerPoint, Presentation, Java, Aspose.Slides"
-description: "Remove slide from PowerPoint by reference or index in Javascript"
+description: "Remove slide from PowerPoint by reference or index in JavaScript"
 
 ---
 
@@ -17,7 +17,7 @@ If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides
 1. Remove the referenced slide from the presentation.
 1. Save the modified presentation. 
 
-This Javascript code shows you how to remove a slide through its reference:
+This JavaScript code shows you how to remove a slide through its reference:
 
 ```javascript
 // Instantiate a Presentation object that represents a presentation file
@@ -41,7 +41,7 @@ try {
 1. Remove the slide from the presentation through its index position.
 1. Save the modified presentation. 
 
-This Javascript code shows you how to remove a slide through its index:
+This JavaScript code shows you how to remove a slide through its index:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file
@@ -58,7 +58,7 @@ try {
 
 ## **Remove Unused Layout Slide**
 
-Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused layout slides. This Javascript code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused layout slides. This JavaScript code shows you how to remove a layout slide from a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");
@@ -74,7 +74,7 @@ try {
 
 ## **Remove Unused Master Slide**
 
-Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This Javascript code shows you how to remove a master slide from a PowerPoint presentation:
+Aspose.Slides provides the [removeUnusedMasterSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides-aspose.slides.Presentation-) method (from the [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) class) to allow you to delete unwanted and unused master slides. This JavaScript code shows you how to remove a master slide from a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

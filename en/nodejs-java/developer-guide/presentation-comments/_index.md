@@ -4,7 +4,7 @@ type: docs
 weight: 100
 url: /nodejs-java/presentation-comments/
 keywords: "Comments, PowerPoint comments, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add comments and replies in PowerPoint presentation in Javascript"
+description: "Add comments and replies in PowerPoint presentation in JavaScript"
 ---
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 
@@ -21,7 +21,7 @@ To allow you to use comments in PowerPoint presentations, Aspose.Slides for Node
 * The [CommentAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentAuthor) class, which contains information on individual authors: the author's name, his initials, comments associated with the author's name, etc.
 
 ## **Add Slide Comment**
-This Javascript code shows you how to add a comment to a slide in a PowerPoint presentation:
+This JavaScript code shows you how to add a comment to a slide in a PowerPoint presentation:
 
 ```javascript
 // Instantiates the Presentation class
@@ -57,7 +57,7 @@ try {
 ```
 
 ## **Access Slide Comments**
-This Javascript code shows you how to access an existing comment on a slide in a PowerPoint presentation:
+This JavaScript code shows you how to access an existing comment on a slide in a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation("Comments1.pptx");
@@ -80,7 +80,7 @@ try {
 ## **Reply Comments**
 A parent comment is the top or original comment in a hierarchy of comments or replies. Using the [getParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#getParentComment--) or [setParentComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment#setParentComment-aspose.slides.IComment-) methods (from the [Comment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Comment) class), you can set or get a parent comment.
 
-This Javascript code shows you how to add comments and get replies to them:
+This JavaScript code shows you how to add comments and get replies to them:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -136,9 +136,9 @@ try {
 
 In 2021, Microsoft introduced *modern comments* in PowerPoint. The modern comments feature significantly improves collaboration in PowerPoint. Through modern comments, PowerPoint users get to resolve comments, anchor comments to objects and texts, and engage in interactions a lot more easily than before. 
 
-In [Aspose Slides for Java 21.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ModernComment) class. The [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) and [nsertModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) methods were added to the [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) class.
+In [Aspose.Slides for Node.js via Java 21.11](https://docs.aspose.com/slides/nodejs-java/aspose-slides-for-java-21-11-release-notes/), we implemented support for modern comments by adding the [ModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ModernComment) class. The [addModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#addModernComment-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) and [insertModernComment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-aspose.slides.ISlide-aspose.slides.IShape-java.awt.geom.Point2D$Float-java.util.Date-) methods were added to the [CommentCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CommentCollection) class.
 
-This Javascript code shows you how to add a modern comment to a slide in a PowerPoint presentation:
+This JavaScript code shows you how to add a modern comment to a slide in a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -157,7 +157,7 @@ try {
 
 ### **Delete All Comments and Authors**
 
-This Javascript code shows you how to remove all comments and authors in a presentation:
+This JavaScript code shows you how to remove all comments and authors in a presentation:
 
 ```javascript
 var presentation = new aspose.slides.Presentation("example.pptx");
@@ -179,7 +179,7 @@ try {
 
 ### **Delete Specific Comments**
 
-This Javascript code shows you how to delete specific comments on a slide:
+This JavaScript code shows you how to delete specific comments on a slide:
 
 ```javascript
 var presentation = new aspose.slides.Presentation();

@@ -1,11 +1,11 @@
 ---
-title: Create PowerPoint Presentation using Java
+title: Create PowerPoint Presentation in JavaScript
 linktitle: Create Presentation
 type: docs
 weight: 10
 url: /nodejs-java/create-presentation/
 keywords: create ppt java, create ppt presentation, create pptx java
-description: Learn how to create PowerPoint Presentations e.g. PPT, PPTX using Javascript from scratch.
+description: Learn how to create PowerPoint Presentations e.g. PPT, PPTX using JavaScript from scratch.
 ---
 
 ## **Create PowerPoint Presentation**

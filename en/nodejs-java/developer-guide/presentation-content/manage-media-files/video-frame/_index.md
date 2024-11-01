@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /nodejs-java/video-frame/
 keywords: "Add video, create video frame, extract video, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add Video frame to PowerPoint presentation in Javascript"
+description: "Add Video frame to PowerPoint presentation in JavaScript"
 ---
 
 A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 
@@ -26,7 +26,7 @@ If the video file you want to add to your slide is stored locally, you can creat
 1. Add an [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/) object to create a frame for the video.
 1. Save the modified presentation. 
 
-This Javascript code shows you how to add a video stored locally to a presentation:
+This JavaScript code shows you how to add a video stored locally to a presentation:
 
 ```javascript
 // Instantiates the Presentation class
@@ -72,7 +72,7 @@ Microsoft [PowerPoint 2013 and newer](https://support.microsoft.com/en-us/office
 1. Set a thumbnail for the video frame. 
 1. Save the presentation. 
 
-This Javascript code shows you how to add a video from the web to a slide in a PowerPoint presentation:
+This JavaScript code shows you how to add a video from the web to a slide in a PowerPoint presentation:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file
@@ -131,7 +131,7 @@ Besides adding videos to slides, Aspose.Slides allows you to extract videos embe
 3. Iterate through all the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) objects to find a [VideoFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/videoframe/).
 4. Save the video to disk.
 
-This Javascript code shows you how to extract the video on a presentation slide:
+This JavaScript code shows you how to extract the video on a presentation slide:
 
 ```javascript
 // Instantiates a Presentation object that represents a presentation file

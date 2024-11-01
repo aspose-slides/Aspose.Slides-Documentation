@@ -27,7 +27,7 @@ You may want to try out our [free web application](https://products.aspose.app/s
 
 {{% /alert %}} 
 
-This sample code in Javascript shows you how to convert PPT to SVG using Aspose.Slides:
+This sample code in JavaScript shows you how to convert PPT to SVG using Aspose.Slides:
 
 ```javascript
 var pres = new aspose.slides.Presentation("pres.pptx");

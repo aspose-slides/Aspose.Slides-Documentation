@@ -4,7 +4,7 @@ type: docs
 weight: 30
 url: /nodejs-java/manage-autofit-settings/
 keywords: "Textbox, Autofit, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Set the autofit settings for textbox in PowerPoint in Javascript"
+description: "Set the autofit settings for textbox in PowerPoint in JavaScript"
 ---
 
 By default, when you add a textbox, Microsoft PowerPoint uses the **Resize shape to fix text** setting for the textbox—it automatically resizes the textbox to ensure its text always fits into it. 
@@ -27,11 +27,11 @@ Aspose.Slides for Node.js via Java provides similar options—some properties un
 
 ## **Resize Shape to Fit Text**
 
-If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `Shape`.
+If you want the text in a box to always fit into that box after changes are made to the text, you have to use the **Resize shape to fix text** option. To specify this setting, call the [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType) method from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class with `Shape` value.
 
 ![alwaysfit-setting-powerpoint](alwaysfit-setting-powerpoint.png)
 
-This Javascript code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
+This JavaScript code shows you how to specify that a text must always fit into its box in a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -56,11 +56,11 @@ If the text becomes longer or bigger, the textbox will be automatically resized 
 
 ## **Do Not Autofit**
 
-If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `None`.
+If you want a textbox or shape to retain its dimensions no matter the changes made to the text it contains, you have to use the **Do not Autofit** option. To specify this setting, call the [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType) method from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class with `None` value.
 
 ![donotautofit-setting-powerpoint](donotautofit-setting-powerpoint.png)
 
-This Javascript code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
+This JavaScript code shows you how to specify that a textbox must always retain its dimensions in a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -85,11 +85,11 @@ When the text becomes too long for its box, it spills out.
 
 ## **Shrink Text on Overflow**
 
-If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, set the [AutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getAutofitType--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `Normal`.
+If a text becomes too long for its box, through the **Shrink text on overflow** option, you can specify that the text's size and spacing must be reduced to make it fit into its box. To specify this setting, call the [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setAutofitType) method from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class with `Normal` value.
 
 ![shrinktextonoverflow-setting-powerpoint](shrinktextonoverflow-setting-powerpoint.png)
 
-This Javascript code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
+This JavaScript code shows you how to specify that a text must be shrunk on overflow in a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -118,9 +118,9 @@ When the **Shrink text on overflow** option is used, the setting gets applied on
 
 ## **Wrap Text**
 
-If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to set the [WrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#getWrapText--) property (from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class) to `true`.
+If you want the text in a shape to get wrapped inside that shape when the text goes beyond the shape's border (width only), you have to use the **Wrap text in shape** parameter. To specify this setting, you have to call the [setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat#setWrapText) method from the [TextFrameFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrameFormat) class with `true` value.
 
-This Javascript code shows you how to use the Wrap Text setting in a PowerPoint presentation:
+This JavaScript code shows you how to use the Wrap Text setting in a PowerPoint presentation:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -143,7 +143,7 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-If you set the `WrapText` property to `False` for a shape, when the text inside the shape becomes longer than the shape's width, the text gets extended beyond the shape's borders along a single line. 
+If you call the `setWrapText` method with `False` value for a shape, when the text inside the shape becomes longer than the shape's width, the text gets extended beyond the shape's borders along a single line. 
 
 {{% /alert %}}
 

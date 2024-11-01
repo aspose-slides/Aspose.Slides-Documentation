@@ -4,7 +4,7 @@ type: docs
 weight: 10
 url: /nodejs-java/connector/
 keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Connect PowerPoint shapes in Javascript"
+description: "Connect PowerPoint shapes in JavaScript"
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 
@@ -42,7 +42,7 @@ Aspose.Slides provides these connectors:
 1. Call the `reroute` method to apply the shortest connection path.
 1. Save the presentation. 
 
-This Javascript code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
+This JavaScript code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
 
 ```javascript
 // Instantiates a presentation class that represents the PPTX file
@@ -88,7 +88,7 @@ If you want a connector to link two shapes using specific dots on the shapes, yo
 1. Set your preferred connection dots on the shapes. 
 1. Save the presentation.
 
-This Javascript code demonstrates an operation where a preferred connection dot is specified:
+This JavaScript code demonstrates an operation where a preferred connection dot is specified:
 
 ```javascript
 // Instantiates a presentation class that represents a PPTX file
@@ -318,7 +318,7 @@ We demonstrated calculations involving simple adjustments and complicated adjust
 1. Access the connector line shape.
 1. Use the line width, height, shape frame height, and shape frame width to calculate the angle.
 
-This Javascript code demonstrates an operation in which we calculated the angle for a connector line shape:
+This JavaScript code demonstrates an operation in which we calculated the angle for a connector line shape:
 
 ```javascript
 var pres = new aspose.slides.Presentation("ConnectorLineAngle.pptx");

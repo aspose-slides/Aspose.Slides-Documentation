@@ -1,10 +1,10 @@
 ---
-title: Default Fonts - PowerPoint Javascript API
+title: Default Fonts - PowerPoint JavaScript API
 linktitle: Default Fonts
 type: docs
 weight: 30
 url: /nodejs-java/default-font/
-description: PowerPoint Javascript API lets you set the default font for rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular Font and DefaultAsian Font for use as default fonts.
+description: PowerPoint JavaScript API lets you set the default font for rendering the presentation to PDF, XPS or thumbnails. This article shows how to define DefaultRegular Font and DefaultAsian Font for use as default fonts.
 ---
 
 

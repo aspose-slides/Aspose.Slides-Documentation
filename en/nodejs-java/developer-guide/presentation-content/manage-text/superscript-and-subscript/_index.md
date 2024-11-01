@@ -8,7 +8,7 @@ url: /nodejs-java/superscript-and-subscript/
 ## **Manage Super Script and Sub Script Text**
 You can add superscript and subscript text inside any paragraph portion. For adding Superscript or Subscript text in Aspose.Slides text frame one must use the [**setEscapement**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BasePortionFormat#setEscapement-float-) method of [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat) class.
 
-This property returns or sets the superscript or subscript text (value from -100% (subscript) to 100% (superscript). For example:
+This property returns or sets the superscript or subscript text (value from -100% (subscript) to 100% (superscript)). For example:
 
 - Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) class.
 - Obtain the reference of a slide by using its Index.
