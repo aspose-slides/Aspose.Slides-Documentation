@@ -3,6 +3,11 @@ title: Metered Licensing
 type: docs
 weight: 100
 url: /java/metered-licensing/
+keywords:
+- license
+- metered licensing
+- Java
+- Aspose.Slides for Java
 ---
 
 {{% alert color="primary" %}} 
@@ -12,32 +17,37 @@ Metered licensing is a new licensing mechanism that can be used alongside existi
 When you purchase a metered license, you get keys (and not a license file). This metered key can be applied using the [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) class Aspose provided for metering operations. For more details, see [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
+
 1. Create an instance of the [Metered](https://reference.aspose.com/slides/java/com.aspose.slides/metered/) class.
 
 1. Pass your public and private keys to the [setMeteredKey](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-) method.
 
 1. Do some processing (perform tasks).
 
-1. Call the [getConsumptionQuantity](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#getConsumptionQuantity--) method of the Metered class.
+1. Call the [getConsumptionQuantity](https://reference.aspose.com/slides/java/com.aspose.slides/metered/#getConsumptionQuantity--) method of the `Metered` class.
 
-   You should see the amount/quantity of API requests you have consumed so far.
+You should see the amount/quantity of API requests you have consumed so far.
 
-This Java code shows you how to set metered public and private keys:
+This sample code shows you how to use metered licensing:
 
 ```java
-com.aspose.slides.Metered metered=new com.aspose.slides.Metered();
+// Creates an instance of the Metered class
+com.aspose.slides.Metered metered = new com.aspose.slides.Metered();
+
 try {
-    // Accesses the setMeteredKey property and pass public and private keys as parameters
-    metered.setMeteredKey("<valid pablic key>", "<valid private key>");
+    // Passes the public and private keys to the Metered object
+    metered.setMeteredKey("<valid public key>", "<valid private key>");
 
-    // Gets the consumed qantity value before accessing API
-    double quantityOld = com.aspose.slides.Metered.getConsumptionQuantity();
-    System.out.println("Consumption quantity" + quantityOld);
+    // Gets the consumed quantity value before API calls
+    double amountBefore = com.aspose.slides.Metered.getConsumptionQuantity();
+    System.out.println("Amount consumed before: " + amountBefore);
 
+    // Do something with Aspose.Slides API here
+    // ...
 
-    // Gets the consumed qantity value after accessing API
-    double quantity = com.aspose.slides.Metered.getConsumptionQuantity();
-    System.out.println("Consumption quantity" + quantity);
+    // Gets the consumed quantity value after API calls
+    double amountAfter = com.aspose.slides.Metered.getConsumptionQuantity();
+    System.out.println("Amount consumed after: " + amountAfter);
 } catch (Exception ex) {
     ex.printStackTrace();
 }

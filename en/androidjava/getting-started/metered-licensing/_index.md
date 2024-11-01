@@ -3,48 +3,59 @@ title: Metered Licensing
 type: docs
 weight: 100
 url: /androidjava/metered-licensing/
+keywords:
+- license
+- metered licensing
+- Android
+- Java
+- Aspose.Slides for Android via Java
 ---
 
 {{% alert color="primary" %}} 
 
-Aspose.Slides allows developers to apply metered key. It is a new licensing mechanism. The new licensing mechanism will be used alongside existing license methods. Customers, who prefer to be billed based on their usage of API features, can use the metered licensing. For more details, please refer to [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered) section.
+Metered licensing is a new licensing mechanism that can be used alongside existing licensing methods. If you want to be billed based on your usage of Aspose.Slides API features, you choose metered licensing.
+
+When you purchase a metered license, you get keys (and not a license file). This metered key can be applied using the [Metered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/metered/) class Aspose provided for metering operations. For more details, see [Metered Licensing FAQ](https://purchase.aspose.com/faqs/licensing/metered).
 
 {{% /alert %}} 
-## **Metered Licensing**
-Follow these simple steps to use the Metered class:
 
-1. Create an instance of Metered class.
+1. Create an instance of the [Metered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/metered/) class.
 
-1. Pass public & private keys to setMeteredKey method.
+1. Pass your public and private keys to the [setMeteredKey](https://reference.aspose.com/slides/androidjava/com.aspose.slides/metered/#setMeteredKey-java.lang.String-java.lang.String-) method.
 
-1. Do processing (perform the task).
+1. Do some processing (perform tasks).
 
-1. Call the method getConsumptionQuantity of the Metered class.
+1. Call the [getConsumptionQuantity](https://reference.aspose.com/slides/androidjava/com.aspose.slides/metered/#getConsumptionQuantity--) method of the `Metered` class.
 
-   It will return the amount/quantity of API requests you have consumed so far.
+You should see the amount/quantity of API requests you have consumed so far.
 
-This sample code shows you how to set metered public and private keys:
+This sample code shows you how to use metered licensing:
 
 ```java
-com.aspose.slides.Metered metered=new com.aspose.slides.Metered();
+// Creates an instance of the Metered class
+com.aspose.slides.Metered metered = new com.aspose.slides.Metered();
+
 try {
-    // Access the setMeteredKey property and pass public and private keys as parameters
-    metered.setMeteredKey("<valid pablic key>", "<valid private key>");
+    // Passes the public and private keys to the Metered object
+    metered.setMeteredKey("<valid public key>", "<valid private key>");
 
-    // Get consumed qantity value before accessing API
-    double quantityOld = com.aspose.slides.Metered.getConsumptionQuantity();
-    System.out.println("Consumption quantity" + quantityOld);
+    // Gets the consumed quantity value before API calls
+    double amountBefore = com.aspose.slides.Metered.getConsumptionQuantity();
+    System.out.println("Amount consumed before: " + amountBefore);
 
+    // Do something with Aspose.Slides API here
+    // ...
 
-    // Get consumed qantity value after accessing API
-    double quantity = com.aspose.slides.Metered.getConsumptionQuantity();
-    System.out.println("Consumption quantity" + quantity);
-
-
+    // Gets the consumed quantity value after API calls
+    double amountAfter = com.aspose.slides.Metered.getConsumptionQuantity();
+    System.out.println("Amount consumed after: " + amountAfter);
 } catch (Exception ex) {
     ex.printStackTrace();
 }
 ```
 
+{{% alert color="warning" title="NOTE"  %}} 
 
+To use metered licensing, you need a stable internet connection because the licensing mechanism uses the internet to constantly interact with our services and perform calculations.
 
+{{% /alert %}} 
