@@ -3,17 +3,33 @@ title: Manage PowerPoint Paragraph in JavaScript
 type: docs
 weight: 40
 url: /nodejs-java/manage-paragraph/
-keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in JavaScript"
+keywords:
+- add text
+- add paragraphs
+- manage text
+- manage paragraphs
+- paragraph indent
+- paragraph bullet
+- numbered list
+- paragraph properties
+- import HTML
+- text to HTML
+- paragraph to HTML
+- paragraphs to images
+- export paragraphs
+- PowerPoint presentation
+- JavaScript
+- Aspose.Slides for Node.js via Java
+description: "Create paragraphs and manage paragraph properties in PowerPoint presentations in JavaScript"
 ---
 
-Aspose.Slides provides all the classs and classes you need to work with PowerPoint texts, paragraphs, and portions in JavaScript.
+Aspose.Slides provides all the classs and classes you need to work with PowerPoint texts, paragraphs, and portions in Java.
 
-* Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) class to allow you to add objects that represent a paragraph. A `TextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
-* Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class to allow you to add objects that represent portions. A `Paragraph` object can have one or multiple portions (collection of Portion objects).
+* Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) class to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
+* Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).
 * Aspose.Slides provides [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) class to allow you to add objects that represent texts and their formatting properties.
 
-A `Paragraph` object is capable of handling texts with different formatting properties through its underlying `Portion` objects.
+An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
 
 ## **Add Multiple Paragraph Containing Multiple Portions**
 
@@ -22,14 +38,14 @@ These steps show you how to add a text frame containing 3 paragraphs and each pa
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
 3. Add a Rectangle [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
-4. Get the `TextFrame` associated with the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
-5. Create two [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) objects and add them to the `Paragraphs` collection of the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-6. Create three [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) objects for each new `Paragraph` (two Portion objects for default Paragraph) and add each `Portion` object to the Portion collection of each `Paragraph`.
+4. Get the ITextFrame associated with the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
+5. Create two [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) objects and add them to the `IParagraphs` collection of the [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
+6. Create three [Portion](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portion/) objects for each new `IParagraph` (two Portion objects for default Paragraph) and add each `IPortion` object to the IPortion collection of each `IParagraph`.
 7. Set some text for each portion.
-8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `Portion` object.
+8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `IPortion` object.
 9. Save the modified presentation.
 
-This JavaScript code is an implementation of the steps for adding paragraphs containing portions:
+This Javascript code is an implementation of the steps for adding paragraphs containing portions:
 
 ```javascript
 // Instantiate a Presentation class that represents a PPTX file
@@ -96,7 +112,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the selected slide.
+3. Add an [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the selected slide.
 4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 5. Remove the default paragraph in the `TextFrame`.
 6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class.
@@ -109,7 +125,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 13. Add the second paragraph and repeat the process given in steps 7 to 13.
 14. Save the presentation.
 
-This JavaScript code shows you how to add a paragraph bullet:
+This Javascript code shows you how to add a paragraph bullet:
 
 ```javascript
 // Instantiates a Presentation class that represents a PPTX file
@@ -172,7 +188,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
+3. Add an [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
 4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 5. Remove the default paragraph in the `TextFrame`.
 6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class.
@@ -186,7 +202,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 14. Add the second paragraph and repeat the process based on the previous steps.
 15. Save the modified presentation.
 
-This JavaScript code shows you how to add and manage picture bullets:
+This Javascript code shows you how to add and manage picture bullets:
 
 ```javascript
 // Instantiates a Presentation class that represents a PPTX file
@@ -239,7 +255,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) in the new slide.
+3. Add an [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) in the new slide.
 4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 5. Remove the default paragraph in the `TextFrame`.
 6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class and set the depth to 0.
@@ -249,7 +265,7 @@ Bullet lists help you to organize and present information quickly and efficientl
 10. Add the new paragraphs to the `TextFrame` paragraph collection.
 11. Save the modified presentation.
 
-This JavaScript code shows you how to add and manage multilevel bullets:
+This Javascript code shows you how to add and manage multilevel bullets:
 
 ```javascript
 // Instantiates a Presentation class that represents a PPTX file
@@ -316,20 +332,20 @@ try {
 
 ## **Manage Paragraph with Custom Numbered List**
 
-The [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) class provides the [setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) method and others that allow you to manage paragraphs with custom numbering or formatting.
+The [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) class provides the [NumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) property and others that allow you to manage paragraphs with custom numbering or formatting.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the slide containing the paragraph.
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
+3. Add an [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
 4. Access the autoshape [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
 5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class and call [setNumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) with the value `2`.
+6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class and set [NumberedBulletStartWith](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) to 2.
 7. Create the second paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 3.
 8. Create the third paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 7.
 9. Add the new paragraphs to the `TextFrame` paragraph collection.
 10. Save the modified presentation.
 
-This JavaScript code shows you how to add and manage paragraphs with custom numbering or formatting:
+This Javascript code shows you how to add and manage paragraphs with custom numbering or formatting:
 
 ```javascript
 var presentation = new aspose.slides.Presentation();
@@ -371,13 +387,13 @@ try {
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 1. Access the relevant slide's reference through its index.
-1. Add a rectangle [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
+1. Add a rectangle [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
 1. Add a [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) with three paragraphs to the rectangle autoshape.
 1. Hide the rectangle lines.
 1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) through their BulletOffset property.
 1. Write the modified presentation as a PPT file.
 
-This JavaScript code shows you how to set a paragraph indent:
+This Javascript code shows you how to set a paragraph indent:
 
 ```javascript
 // Instantiate Presentation Class
@@ -426,7 +442,7 @@ try {
 
 ## **Set Hanging Indent for Paragraph**
 
-This JavaScript code shows you how to set the hanging indent for a paragraph:
+This Javascript code shows you how to set the hanging indent for a paragraph:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -455,13 +471,13 @@ try {
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 1. Get the reference for the slide containing the paragraph through its position.
-1. Add a rectangle [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
+1. Add a rectangle [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
 1. Add a [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) with two paragraphs to the Rectangle.
 1. Set the `FontHeight` and Font type for the paragraphs.
 1. Set the End properties for the paragraphs.
 1. Write the modified presentation as a PPTX file.
 
-This JavaScript code shows you how to set the End properties for paragraphs in PowerPoint:
+This Javascript code shows you how to set the End properties for paragraphs in PowerPoint:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -492,15 +508,15 @@ Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
 2. Access the relevant slide's reference through its index.
-3. Add an [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
-4. Add and access [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
-5. Remove the default paragraph in the `TextFrame`.
+3. Add an [autoshape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) to the slide.
+4. Add and access `autoshape` [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/).
+5. Remove the default paragraph in the `ITextFrame`.
 6. Read the source HTML file in a TextReader.
 7. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class.
 8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphcollection/).
 9. Save the modified presentation.
 
-This JavaScript code is an implementation of the steps for importing HTML texts in paragraphs:
+This Javascript code is an implementation of the steps for importing HTML texts in paragraphs:
 
 ```javascript
 // Create Empty presentation instance
@@ -520,7 +536,7 @@ try {
     // Adding text from HTML stream reader in text frame
     ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
     // Saving Presentation
-    pres.save("output_out.pptx", aspose.slides.SaveFormat.Pptx);
+    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -540,7 +556,7 @@ Aspose.Slides provides enhanced support for exporting texts (contained in paragr
 5. Create an instance of `StreamWriter` and add the new HTML file.
 6. Provide a starting index to StreamWriter and export your preferred paragraphs.
 
-This JavaScript code shows you how to export PowerPoint paragraph texts to HTML:
+This Javascript code shows you how to export PowerPoint paragraph texts to HTML:
 
 ```javascript
 // Load the presentation file
@@ -567,4 +583,117 @@ try {
 }
 ```
 
- 
+## **Save a Paragraph as an Image**
+
+In this section, we will explore two examples that demonstrate how to save a text paragraph, represented by the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) interface, as an image. Both examples include obtaining the image of a shape containing the paragraph using the `getImage` methods from the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) interface, calculating the bounds of the paragraph within the shape, and exporting it as a bitmap image. These approaches allow you to extract specific parts of the text from PowerPoint presentations and save them as separate images, which can be useful for further use in various scenarios.
+
+Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+**Example 1**
+
+In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
+
+```java
+const imageio = java.import("javax.imageio.ImageIO");
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    // Save the shape in memory as a bitmap.
+    const shapeImage = firstShape.getImage();
+        
+    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
+    shapeImage.dispose();
+    shapeImageStream.flush();
+    
+    // Create a shape bitmap from memory.
+    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
+    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
+    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
+    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
+    const shapeBitmap = imageio.read(shapeImageInputStream);
+
+    // Calculate the boundaries of the second paragraph.
+    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    const paragraphRectangle = secondParagraph.getRect();
+
+    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+    const imageX = Math.floor(paragraphRectangle.getX());
+    const imageY = Math.floor(paragraphRectangle.getY());
+    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
+    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
+
+    // Crop the shape bitmap to get the paragraph bitmap only.
+    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+    const file = java.newInstanceSync("java.io.File", "paragraph.png");
+
+    imageio.write(paragraphBitmap, "png", file);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
+    }
+}
+```
+
+The result:
+
+![The paragraph image](paragraph_to_image_output.png)
+
+**Example 2**
+
+In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
+
+```java
+const imageScaleX = 2;
+const imageScaleY = imageScaleX;
+
+const imageio = java.import("javax.imageio.ImageIO");
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+
+    // Save the shape in memory as a bitmap with scaling.
+    const shapeImage = firstShape.getImage(aspose.slides.ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
+    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
+    shapeImage.dispose();
+
+    // Create a shape bitmap from memory.
+    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
+    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
+    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
+    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
+    const shapeBitmap = imageio.read(shapeImageInputStream);
+
+    // Calculate the boundaries of the second paragraph.
+    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
+    const paragraphRectangle = secondParagraph.getRect();
+    paragraphRectangle.setRect(
+            paragraphRectangle.getX() * imageScaleX,
+            paragraphRectangle.getY() * imageScaleY,
+            paragraphRectangle.getWidth() * imageScaleX,
+            paragraphRectangle.getHeight() * imageScaleY
+    );
+
+    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
+    const imageX = Math.floor(paragraphRectangle.getX());
+    const imageY = Math.floor(paragraphRectangle.getY());
+    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
+    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
+
+    // Crop the shape bitmap to get the paragraph bitmap only.
+    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
+
+    const file = java.newInstanceSync("java.io.File", "paragraph.png");
+
+    imageio.write(paragraphBitmap, "png", file);
+} finally {
+    if (presentation != null) {
+        presentation.dispose();
+    }
+}
+```

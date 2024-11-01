@@ -3,8 +3,24 @@ title: Manage PowerPoint Paragraph in C++
 type: docs
 weight: 40
 url: /cpp/manage-paragraph/
-keywords: "Add PowerPoint paragraph, Manage paragraphs, Paragraph indent, Paragraph properties, HTML text, Export paragraph text, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Create and manage Paragraph, text, indent, and properties in PowerPoint presentations in C++"
+keywords:
+- add text
+- add paragraphs
+- manage text
+- manage paragraphs
+- paragraph indent
+- paragraph bullet
+- numbered list
+- paragraph properties
+- import HTML
+- text to HTML
+- paragraph to HTML
+- paragraphs to images
+- export paragraphs
+- PowerPoint presentation
+- C++
+- Aspose.Slides for C++
+description: "Create paragraphs and manage paragraph properties in PowerPoint presentations in C++"
 ---
 
 Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in C++.
@@ -717,3 +733,101 @@ sw->Close();
 
 ```
 
+## **Save a Paragraph as an Image**
+
+In this section, we will explore two examples that demonstrate how to save a text paragraph, represented by the [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/) interface, as an image. Both examples include obtaining the image of a shape containing the paragraph using the `GetImage` methods from the [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interface, calculating the bounds of the paragraph within the shape, and exporting it as a bitmap image. These approaches allow you to extract specific parts of the text from PowerPoint presentations and save them as separate images, which can be useful for further use in various scenarios.
+
+Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+
+![The text box with three paragraphs](paragraph_to_image_input.png)
+
+**Example 1**
+
+In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+// Save the shape in memory as a bitmap.
+auto shapeImage = firstShape->GetImage();
+auto shapeImageStream = MakeObject<MemoryStream>();
+shapeImage->Save(shapeImageStream, ImageFormat::Png);
+shapeImage->Dispose();
+
+// Create a shape bitmap from memory.
+shapeImageStream->set_Position(0);
+auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
+
+// Calculate the boundaries of the second paragraph.
+auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
+auto paragraphRectangle = secondParagraph->GetRect();
+
+// Calculate the size for the output image (minimum size - 1x1 pixel).
+auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
+auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
+
+// Prepare a bitmap for the paragraph.
+auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
+
+// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
+auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
+RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
+imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
+imageGraphics->Dispose();
+
+paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+
+presentation->Dispose();
+```
+
+The result:
+
+![The paragraph image](paragraph_to_image_output.png)
+
+**Example 2**
+
+In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
+
+```cpp
+auto imageScaleX = 2.0f;
+auto imageScaleY = imageScaleX;
+
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+
+// Save the shape in memory as a bitmap with scaling.
+auto shapeImage = firstShape->GetImage(ShapeThumbnailBounds::Shape, imageScaleX, imageScaleY);
+auto shapeImageStream = MakeObject<MemoryStream>();
+shapeImage->Save(shapeImageStream, ImageFormat::Png);
+shapeImage->Dispose();
+
+// Create a shape bitmap from memory.
+shapeImageStream->set_Position(0);
+auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
+
+// Calculate the boundaries of the second paragraph.
+auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
+auto paragraphRectangle = secondParagraph->GetRect();
+paragraphRectangle.set_X(paragraphRectangle.get_X() * imageScaleX);
+paragraphRectangle.set_Y(paragraphRectangle.get_Y() * imageScaleY);
+paragraphRectangle.set_Width(paragraphRectangle.get_Width() * imageScaleX);
+paragraphRectangle.set_Height(paragraphRectangle.get_Height() * imageScaleY);
+
+// Calculate the size for the output image (minimum size - 1x1 pixel).
+auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
+auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
+
+// Prepare a bitmap for the paragraph.
+auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
+
+// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
+auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
+RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
+imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
+imageGraphics->Dispose();
+
+paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+
+presentation->Dispose();
+```
