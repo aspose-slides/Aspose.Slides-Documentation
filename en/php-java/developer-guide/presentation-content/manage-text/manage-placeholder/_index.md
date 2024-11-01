@@ -35,7 +35,7 @@ This PHP code shows how to change the text in a placeholder:
       }
     }
     # Saves the presentation to disk
-    $pres->save("output_out.pptx", SaveFormat::Pptx);
+    $pres->save("output.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
       $pres->dispose();

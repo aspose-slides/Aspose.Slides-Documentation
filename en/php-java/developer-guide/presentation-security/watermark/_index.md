@@ -147,7 +147,7 @@ $watermarkShape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage
 $watermarkShape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
 ```
 
-## **Lock a Watermark from Editing**
+### **Lock a Watermark from Editing**
 
 If it is necessary to prevent a watermark from being edited, use the [AutoShape.getAutoShapeLock](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getAutoShapeLock) method on the shape. With this property, you can protect the shape from being selected, resized, repositioned, grouped with other elements, lock its text from editing, and much more:
 
@@ -160,7 +160,7 @@ $watermarkShape->getAutoShapeLock()->setPositionLocked(true);
 $watermarkShape->getAutoShapeLock()->setGroupingLocked(true);
 ```
 
-## **Bring a Watermark to Front**
+### **Bring a Watermark to Front**
 
 In Aspose.Slides, the Z-order of shapes can be set via the [ShapeCollection.reorder](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#reorder) method. To do this, you need to call this method from the presentation slides list and pass the shape reference and its order number into the method. This way, it is possible to bring a shape to the front or send it to the back of the slide. This feature is especially useful if you need to place a watermark in front of the presentation:
 
@@ -169,7 +169,7 @@ $shapeCount = java_values($slide->getShapes()->size());
 $slide->getShapes()->reorder($shapeCount - 1, $watermarkShape);
 ```
 
-## **Set Watermark Rotation**
+### **Set Watermark Rotation**
 
 Here is a code example of how to adjust the rotation of the watermark so that it is positioned diagonally across the slide:
 
@@ -179,7 +179,7 @@ $diagonalAngle = atan($slideWidth / $slideHeight) * 180 / M_PI;
 $watermarkShape->setRotation($diagonalAngle);
 ```
 
-## **Set a Name for a Watermark**
+### **Set a Name for a Watermark**
 
 Aspose.Slides allows you to set the name of a shape. By using the shape name, you can access it in the future to modify or delete it. To set the name of the watermark shape, assign it to the [AutoShape.setName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setName) method:
 
@@ -187,7 +187,7 @@ Aspose.Slides allows you to set the name of a shape. By using the shape name, yo
 $watermarkShape->setName("watermark");
 ```
 
-## **Remove a Watermark**
+### **Remove a Watermark**
 
 To remove the watermark shape, use the [AutoShape.getName](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getName) method to find it in the slide shapes. Then, pass the watermark shape into the [ShapeCollection.remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/#remove) method:
 
@@ -199,9 +199,3 @@ foreach ($slideShapes as $shape) {
     }
 }
 ```
-
-## **A Live Example**
-
-You may want to check out the **Aspose.Slides free** [Add Watermark](https://products.aspose.app/slides/watermark) and [Remove Watermark](https://products.aspose.app/slides/watermark/remove-watermark) online tools.
-
-![Online tools to add and remove watermarks](online_tools.png)
