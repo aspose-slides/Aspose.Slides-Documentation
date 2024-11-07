@@ -4,190 +4,168 @@ type: docs
 weight: 50
 url: /net/presentation-viewer/
 keywords: 
-- view PowerPoint presentation
-- view ppt
+- view presentation
+- presentation viewer
+- view PPT
 - view PPTX
+- view ODP
+- PowerPoint
+- OpenDocument
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: "View PowerPoint presentation in C# or .NET "
+description: "View PowerPoint presentation in C# or .NET"
 ---
 
+Aspose.Slides for .NET is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides for .NET allows you to export an individual slide as an image. This article describes how to do it.
 
-
-Aspose.Slides for .NET is used to create presentation files, complete with slides. These slides can be viewed by opening presentations using Microsoft PowerPoint. But sometimes, developers may also need to view slides as images in their favorite image viewer or create their own presentation viewer. In such cases, Aspose.Slides for .NET lets you export an individual slide to an image. This article describes how to do it. 
 ## **Live Example**
+
 You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
 
 ![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)
 
-## **Generate SVG Image from Slide**
-To generate an SVG image from any desired slide with Aspose.Slides.PPTX for .NET, please follow the steps below:
+## **Generate an SVG Image from a Slide**
 
-- Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-- Obtain the desired slide's reference by using its ID or index.
-- Get the SVG image in a memory stream.
-- Save the memory stream to file.
+To generate an SVG image from a presentation slide with Aspose.Slides for .NET, please follow the steps below:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Get the slide reference by its index.
+1. Open a file stream.
+1. Save the slide as an SVG image to the file stream.
 
 ```c#
-// Instantiate a Presentation class that represents the presentation file
+int slideIndex = 0;
 
-using (Presentation pres = new Presentation("CreateSlidesSVGImage.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Create a memory stream object
-    MemoryStream SvgStream = new MemoryStream();
-
-    // Generate SVG image of slide and save in memory stream
-    sld.WriteAsSvg(SvgStream);
-    SvgStream.Position = 0;
-
-    // Save memory stream to file
-    using (Stream fileStream = System.IO.File.OpenWrite("Aspose_out.svg"))
+    using (Stream svgStream = File.OpenWrite("output.svg"))
     {
-        byte[] buffer = new byte[8 * 1024];
-        int len;
-        while ((len = SvgStream.Read(buffer, 0, buffer.Length)) > 0)
-        {
-            fileStream.Write(buffer, 0, len);
-        }
-
+        slide.WriteAsSvg(svgStream);
     }
-    SvgStream.Close();
 }
 ```
 
+## **Generate an SVG with a Custom Shape ID**
 
-## **Generate SVG with Custom Shape IDS**
-Aspose.Slides for .NET can be used to generate [SVG ](https://docs.fileformat.com/page-description-language/svg/)from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
+Aspose.Slides for .NET can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `ID` property from [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```c#
-using (Presentation pres = new Presentation("pptxFileName.pptx"))
+int slideIndex = 0;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    using (FileStream stream = new FileStream(outputPath, FileMode.OpenOrCreate))
+    ISlide slide = presentation.Slides[slideIndex];
+
+    using (FileStream svgStream = new FileStream("output.svg", FileMode.OpenOrCreate))
     {
         SVGOptions svgOptions = new SVGOptions
         {
             ShapeFormattingController = new CustomSvgShapeFormattingController()
         };
 
-        pres.Slides[0].WriteAsSvg(stream, svgOptions);
+        slide.WriteAsSvg(svgStream, svgOptions);
     }
 }
 ```
-
-
 
 ```c#
 class CustomSvgShapeFormattingController : ISvgShapeFormattingController
 {
-	private int m_shapeIndex;
-	
-	public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
-	{
-		m_shapeIndex = shapeStartIndex;
-	}
+    private int m_shapeIndex;
 
-	public void FormatShape(ISvgShape svgShape, IShape shape)
-	{
-		svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
-	}
-}
-```
-
-
-## **Create Slides Thumbnail Image**
-Aspose.Slides for .NET help you generate thumbnail images of the slides. To generate the thumbnail of any desired slide using Aspose.Slides for .NET:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain the reference of any desired slide by using its ID or index.
-1. Get the thumbnail image of the referenced slide on a specified scale.
-1. Save the thumbnail image in any desired image format.
-
-```c#
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("ThumbnailFromSlide.pptx"))
-{
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Create a full scale image
-    using (IImage image = sld.GetImage(1f, 1f))
+    public CustomSvgShapeFormattingController(int shapeStartIndex = 0)
     {
-        // Save the image to disk in JPEG format
-        image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+        m_shapeIndex = shapeStartIndex;
+    }
+
+    public void FormatShape(ISvgShape svgShape, IShape shape)
+    {
+        svgShape.Id = string.Format("shape-{0}", m_shapeIndex++);
     }
 }
 ```
 
+## **Create a Slide Thumbnail Image**
 
-## **Create Thumbnail with User Defined Dimensions**
+Aspose.Slides for .NET helps you generate thumbnail images of slides. To generate a thumbnail of a slide using Aspose.Slides for .NET, please follow the steps below:
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain the reference of any desired slide by using its ID or index.
-1. Get the thumbnail image of the referenced slide on a specified scale.
+1. Get the slide reference by its index.
+1. Get the thumbnail image of the referenced slide at a defined scale.
 1. Save the thumbnail image in any desired image format.
 
 ```c#
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx"))
+int slideIndex = 0;
+float scaleX = 1f;
+float scaleY = scaleX;
+
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
-
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-
-    // Create a full scale image
-    using (IImage image = sld.GetImage(ScaleX, ScaleY))
+    using (IImage image = slide.GetImage(scaleX, scaleY))
     {
-        // Save the image to disk in JPEG format
-        image.Save("Thumbnail2_out.jpg", ImageFormat.Jpeg);
+        image.Save("output.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
+## **Create a Slide Thumbnail with User Defined Dimensions**
 
-## **Create Thumbnail from Slide in Notes Slides View**
-To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for .NET:
+To create a slide thumbnail image with user defined dimensions, please follow the steps below:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Obtain the reference of any desired slide by using its ID or index.
-1. Get the thumbnail image of the referenced slide on a specified scale in Notes Slide view.
+1. Get the slide reference by its index.
+1. Get the thumbnail image of the referenced slide with the defined dimensions.
 1. Save the thumbnail image in any desired image format.
 
-The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
-
 ```c#
-// Instantiate a Presentation class that represents the presentation file
-using (Presentation pres = new Presentation("ThumbnailFromSlideInNotes.pptx"))
+int slideIndex = 0;
+Size slideSize = new Size(1200, 800);
+
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // Access the first slide
-    ISlide sld = pres.Slides[0];
+    ISlide slide = presentation.Slides[slideIndex];
 
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
-
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.SlideSize.Size.Width) * desiredX;
-    float ScaleY = (float)(1.0 / pres.SlideSize.Size.Height) * desiredY;
-
-    // Create a full scale image                
-    using (IImage image = sld.GetImage(ScaleX, ScaleY))
+    using (IImage image = slide.GetImage(slideSize))
     {
-        // Save the image to disk in JPEG format
-        image.Save("Notes_tnail_out.jpg", ImageFormat.Jpeg);
+        image.Save("output.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
+## **Create a Slide Thumbnail with Speaker Notes**
+
+To generate the thumbnail of a slide with speaker notes using Aspose.Slides for .NET, please follow the steps below:
+
+1. Create an instance of the [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) class.
+1. Use the `RenderingOptions.SlidesLayoutOptions` property to set the position of speaker notes.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
+1. Get the slide reference by its index.
+1. Get the thumbnail image of the referenced slide with the rendering options.
+1. Save the thumbnail image in any desired image format.
+
+```c#
+int slideIndex = 0;
+
+RenderingOptions renderingOptions = new RenderingOptions
+{
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomTruncated
+    }
+};
+
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    ISlide slide = presentation.Slides[slideIndex];
+
+    using (IImage image = slide.GetImage(renderingOptions))
+    {
+        image.Save("output.png", ImageFormat.Png);
+    }
+}
+```
