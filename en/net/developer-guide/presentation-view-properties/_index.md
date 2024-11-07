@@ -1,9 +1,25 @@
 ---
 title: Presentation View Properties
 type: docs
+weight: 80
 url: /net/presentation-view-properties/
-keywords: "PowerPoint viewer, viewer properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint presentation viewer properties in C# or .NET"
+keywords: 
+- view properties
+- normal view
+- outline content
+- outline icons
+- snap vertical splitter
+- single view
+- bar state
+- dimension size
+- auto adjust
+- default zoom
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: "PowerPoint presentation view properties in C# or .NET"
 ---
 
 {{% alert color="primary" %}} 
@@ -16,9 +32,7 @@ Property [**IViewProperties.NormalViewProperties**](https://reference.aspose.com
 
 {{% /alert %}} 
 
-
-
-## **About INormalViewProperties** #
+## **About INormalViewProperties**
 
 Represents normal view properties.
 
@@ -32,11 +46,9 @@ Properties **VerticalBarState** and **HorizontalBarState** specify the state tha
 
 Properties **RestoredLeft** and **RestoredTop** specify the sizing of the top or side slide region of the normal view, when **SplitterBarStateType.Restored** value applied for **VerticalBarState** and **HorizontalBarState** accordingly.
 
+## **About INormalViewRestoredProperties**
 
-
-## **About INormalViewRestoredProperties** #
-
-Specifies the sizing of the slide region ((width when a child of RestoredTop, height when a child of RestoredLeft) of the normal view, when the region is of a variable restored size(neither minimized nor maximized). 
+Specifies the sizing of the slide region (width when a child of RestoredTop, height when a child of RestoredLeft) of the normal view, when the region is of a variable restored size(neither minimized nor maximized). 
 
 Property **DimensionSize** specifies the size of the slide region (width when a child of restoredTop, height when a child of restoredLeft).
 
@@ -45,7 +57,6 @@ Property **AutoAdjust** specifies whether the size of the side content region sh
 An example is given below shows how can you access **ViewProperties.NormalViewProperties** properties for a presentation.
 
 ```c#
-//Instantiate a presentation object that represents a presentation file
 using (Presentation pres = new Presentation("demo.pptx"))
 {
     pres.ViewProperties.NormalViewProperties.HorizontalBarState = SplitterBarStateType.Restored;
@@ -59,10 +70,8 @@ using (Presentation pres = new Presentation("demo.pptx"))
 }
 ```
 
-
-
-
 ## **Set Default Zoom Value**
+
 Aspose.Slides for .NET now supports setting the default zoom value for presentation such that when the presentation is opened, zoom is set already. This could be done by setting the [**ViewProperties**](https://reference.aspose.com/slides/net/aspose.slides/viewproperties) of a presentation. Slide View Properties as well as [NotesViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/properties/notesviewproperties) could be set programmatically. In this topic, we will see with an example how to set the View Properties of Presentation in Aspose.Slides.
 
 In order to set the view properties. Please follow the steps below:
@@ -74,7 +83,6 @@ In order to set the view properties. Please follow the steps below:
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```c#
-// Instantiate a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     // Setting View Properties of Presentation
@@ -86,9 +94,8 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 }
 ```
 
-
-
 ## **Set View Properties**
+
 In order to set the view properties. Please follow the steps below:
 
 1. Create an instance of Presentation class.
@@ -98,7 +105,6 @@ In order to set the view properties. Please follow the steps below:
 In the example given below, we have set the zoom value for slide view as well as notes view.
 
 ```c#
-// Instantiate a Presentation object that represents a presentation file
 using (Presentation presentation = new Presentation("demo.pptx"))
 {
     // Setting View Properties of Presentation
@@ -109,4 +115,3 @@ using (Presentation presentation = new Presentation("demo.pptx"))
     presentation.Save("Zoom_out.pptx", SaveFormat.Pptx);
 }
 ```
-
