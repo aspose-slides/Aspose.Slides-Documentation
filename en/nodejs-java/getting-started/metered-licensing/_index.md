@@ -36,20 +36,20 @@ var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
 // Creates an instance of the Metered class
-var metered = new asposeSlides.Metered();
+var metered = new aspose.slides.Metered();
 
 // Passes the public and private keys to the Metered object
 metered.setMeteredKey("<valid public key>", "<valid private key>");
 
 // Gets the consumed quantity value before API calls
-var amountBefore = asposeSlides.Metered.getConsumptionQuantity();
+var amountBefore = aspose.slides.Metered.getConsumptionQuantity();
 console.log("Amount consumed before:", amountBefore);
 
 // Do something with Aspose.Slides API here
 // ...
 
 // Gets the consumed quantity value after API calls
-var amountAfter = asposeSlides.Metered.getConsumptionQuantity();
+var amountAfter = aspose.slides.Metered.getConsumptionQuantity();
 console.log("Amount consumed after:", amountAfter);
 ```
 
