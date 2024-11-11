@@ -41,7 +41,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[slideIndex];
 
-    using (Stream svgStream = File.OpenWrite("output.svg"))
+    using (FileStream svgStream = File.Create("output.svg"))
     {
         slide.WriteAsSvg(svgStream);
     }
@@ -58,8 +58,8 @@ int slideIndex = 0;
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[slideIndex];
-
-    using (FileStream svgStream = new FileStream("output.svg", FileMode.OpenOrCreate))
+    
+    using (FileStream svgStream = File.Create("output.svg"))
     {
         SVGOptions svgOptions = new SVGOptions
         {
