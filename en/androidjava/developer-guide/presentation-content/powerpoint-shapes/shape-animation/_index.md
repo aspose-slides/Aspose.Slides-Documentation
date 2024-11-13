@@ -248,12 +248,12 @@ IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeli
 presentation.dispose();
 
 System.out.println("Main sequence of shape effects:");
-PrintEffects(masterShapeEffects);
-PrintEffects(layoutShapeEffects);
-PrintEffects(shapeEffects);
+printEffects(masterShapeEffects);
+printEffects(layoutShapeEffects);
+printEffects(shapeEffects);
 ```
 ```java
-static void PrintEffects(IEffect[] effects)
+static void printEffects(IEffect[] effects)
 {
     for (IEffect effect : effects)
     {
