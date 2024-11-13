@@ -239,12 +239,12 @@ $layoutShapeEffects = $slide->getLayoutSlide()->getTimeline()->getMainSequence()
 $masterShape = $layoutShape->getBasePlaceholder();
 $masterShapeEffects = $slide->getLayoutSlide()->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($masterShape);
 
-$presentation->dispose();
-
 echo "Main sequence of shape effects:" . PHP_EOL;
 printEffects($masterShapeEffects);
 printEffects($layoutShapeEffects);
 printEffects($shapeEffects);
+
+$presentation->dispose();
 ```
 ```php
 function printEffects($effects) {
