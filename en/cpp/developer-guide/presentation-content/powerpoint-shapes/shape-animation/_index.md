@@ -3,13 +3,24 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /cpp/shape-animation/
-keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
+keywords: 
+- shape
+- animation
+- effect
+- add effects
+- get effects
+- extract effects
+- apply animation
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
 description: "Apply PowerPoint animation in C++"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/cpp/animated-charts/). They give life to presentations or its constituents. 
 
-### **Why Use Animations in Presentations?**
+## **Why Use Animations in Presentations?**
 
 Using animations, you can 
 
@@ -21,7 +32,7 @@ Using animations, you can
 
 PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
 
-### **Animations in Aspose.Slides**
+## **Animations in Aspose.Slides**
 
 * Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.animation) namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
@@ -175,29 +186,92 @@ This C++ code shows you how to apply the `PathFootball` (path football) effect t
 
 ## **Get the Animation Effects Applied to Shape**
 
-You may decide to find out the all animation effects applied to a single shape. 
+The following examples show you how to use the `GetEffectsByShape` method from the [ISequence](https://reference.aspose.com/slides/cpp/aspose.slides.animation/isequence/) interface to get all animation effects applied to a shape.
 
-This C++ code shows you how to get the all effects applied to a specific shape:
+**Example 1: Get animation effects applied to a shape on a normal slide**
+
+Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```c++
-// Instantiates a presentation class that represents a presentation file.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
+SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
 
-System::SharedPtr<ISlide> firstSlide = pres->get_Slides()->idx_get(0);
+SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
 
-// Gets the main sequence of the slide.
-System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+// Gets the main animation sequence of the slide.
+SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
 
-// Gets the first shape on slide.
-System::SharedPtr<IShape> shape = firstSlide->get_Shapes()->idx_get(0);
+// Gets the first shape on the first slide.
+SharedPtr<IShape> shape = firstSlide->get_Shape(0);
 
-// Gets all animation effects applied to the shape.
-System::ArrayPtr<System::SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
+// Gets animation effects applied to the shape.
+ArrayPtr<SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
 
 if (shapeEffects->get_Length() > 0)
 {
-    System::Console::WriteLine(System::String(u"The shape ") + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
+    Console::WriteLine(u"The shape " + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
 }
+
+presentation->Dispose();
+```
+
+**Example 2: Get all animation effects, including those inherited from placeholders**
+
+If a shape on a normal slide has placeholders that are on the layout slide and/or master slide, and animation effects have been added to these placeholders, then all effects of the shape will be played during the slide show, including those inherited from the placeholders.
+
+Let's say we have a PowerPoint presentation file `sample.pptx` with one slide containg only a footer shape with the text "Made with Aspose.Slides" and the **Random Bars** effect is applied to the shape.
+
+![Slide shape animation effect](slide-shape-animation.png)
+
+Let's also assume that the **Split** effect is applied to the footer placeholder on the **layout** slide.
+
+![Layout shape animation effect](layout-shape-animation.png)
+
+And finally, the **Fly In** effect is applied to the footer placeholder on the **master** slide.
+
+![Master shape animation effect](master-shape-animation.png)
+
+The following sample code shows you how to use the `GetBasePlaceholder` method from the [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) interface to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
+
+```cpp
+void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+{
+    for (SharedPtr<IEffect> effect : effects)
+    {
+        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+    }
+}
+```
+```cpp
+SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
+
+SharedPtr<ISlide> slide = presentation->get_Slide(0);
+
+// Get animation effects of the shape on the normal slide.
+SharedPtr<IShape> shape = slide->get_Shape(0);
+ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
+
+// Get animation effects of the placeholder on the layout slide.
+SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
+ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
+
+// Get animation effects of the placeholder on the master slide.
+SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
+ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
+
+presentation->Dispose();
+
+Console::WriteLine(u"Main sequence of shape effects:");
+PrintEffects(masterShapeEffects);
+PrintEffects(layoutShapeEffects);
+PrintEffects(shapeEffects);
+```
+
+Output:
+```text
+Main sequence of shape effects:
+Type: 47, subtype: 2              // Fly, Bottom
+Type: 134, subtype: 45            // Split, VerticalIn
+Type: 126, subtype: 22            // RandomBars, Horizontal
 ```
 
 ## **Change Animation Effect Timing Properties**

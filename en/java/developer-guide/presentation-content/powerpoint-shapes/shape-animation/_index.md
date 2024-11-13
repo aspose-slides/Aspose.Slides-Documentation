@@ -217,11 +217,11 @@ Let's say we have a PowerPoint presentation file `sample.pptx` with one slide co
 
 ![Slide shape animation effect](slide-shape-animation.png)
 
-Let's also assume that the **Split** effect is applied to the footer placeholder on the layout slide.
+Let's also assume that the **Split** effect is applied to the footer placeholder on the **layout** slide.
 
 ![Layout shape animation effect](layout-shape-animation.png)
 
-And finally, the **Fly In** effect is applied to the footer placeholder on the master slide.
+And finally, the **Fly In** effect is applied to the footer placeholder on the **master** slide.
 
 ![Master shape animation effect](master-shape-animation.png)
 
@@ -263,6 +263,7 @@ static void PrintEffects(IEffect[] effects)
     }
 }
 ```
+
 Output:
 ```text
 Main sequence of shape effects:
