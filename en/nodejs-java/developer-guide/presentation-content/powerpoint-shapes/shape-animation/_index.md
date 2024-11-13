@@ -236,12 +236,12 @@ var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().
 var masterShape = layoutShape.getBasePlaceholder();
 var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
 
-presentation.dispose();
-
 console.log("Main sequence of shape effects:");
 printEffects(masterShapeEffects);
 printEffects(layoutShapeEffects);
 printEffects(shapeEffects);
+
+presentation.dispose();
 ```
 ```js
 function printEffects(effects) {
