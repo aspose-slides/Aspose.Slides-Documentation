@@ -3,11 +3,13 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /net/shape-animation/
-keywords: 
-- PowerPoint animation
-- animation effect
+keywords:
+- shape
+- animation
+- effect
 - apply animation
-- PowerPoint presentation
+- PowerPoint
+- presentation
 - C#
 - Csharp
 - Aspose.Slides for .NET
@@ -166,7 +168,7 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Get the Animation Effects Applied to a Shape**
+## **Get the Animation Effects Applied to Shape**
 
 The following examples show you how to use the `GetEffectsByShape` method from the [ISequence](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/) interface to get all animation effects applied to a shape.
 
