@@ -3,13 +3,25 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /androidjava/shape-animation/
-keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
+keywords: 
+- shape
+- animation
+- effect
+- add effects
+- get effects
+- extract effects
+- apply animation
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides for Android via Java
 description: "Apply PowerPoint animation in Java"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/androidjava/animated-charts/). They give life to presentations or its constituents.
 
-### **Why Use Animations in Presentations?**
+## **Why Use Animations in Presentations?**
 
 Using animations, you can 
 
@@ -21,7 +33,7 @@ Using animations, you can
 
 PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
 
-### **Animations in Aspose.Slides**
+## **Animations in Aspose.Slides**
 
 * Aspose.Slides provides the classes and types you need to work with animations under the `Aspose.Slides.Animation` namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
@@ -171,30 +183,93 @@ try {
 
 ## **Get the Animation Effects Applied to Shape**
 
-You may decide to find out the all animation effects applied to a single shape. 
+The following examples show you how to use the `getEffectsByShape` method from the [ISequence](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/) interface to get all animation effects applied to a shape.
 
-This Java code shows you how to get the all effects applied to a specific shape:
+**Example 1: Get animation effects applied to a shape on a normal slide**
+
+Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```java
-// Instantiates a presentation class that represents a presentation file.
-Presentation pres = new Presentation("AnimExample_out.pptx");
+Presentation presentation = new Presentation("AnimExample_out.pptx");
 try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Gets the main sequence of the slide.
+    // Gets the main animation sequence of the slide.
     ISequence sequence = firstSlide.getTimeline().getMainSequence();
 
-    // Gets the first shape on slide.
+    // Gets the first shape on the first slide.
     IShape shape = firstSlide.getShapes().get_Item(0);
 
-    // Gets all animation effects applied to the shape.
+    // Gets animation effects applied to the shape.
     IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
 
     if (shapeEffects.length > 0)
         System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
 } finally {
-    if (pres != null) pres.dispose();
+    if (presentation != null) presentation.dispose();
 }
+```
+
+**Example 2: Get all animation effects, including those inherited from placeholders**
+
+If a shape on a normal slide has placeholders that are on the layout slide and/or master slide, and animation effects have been added to these placeholders, then all effects of the shape will be played during the slide show, including those inherited from the placeholders.
+
+Let's say we have a PowerPoint presentation file `sample.pptx` with one slide containg only a footer shape with the text "Made with Aspose.Slides" and the **Random Bars** effect is applied to the shape.
+
+![Slide shape animation effect](slide-shape-animation.png)
+
+Let's also assume that the **Split** effect is applied to the footer placeholder on the layout slide.
+
+![Layout shape animation effect](layout-shape-animation.png)
+
+And finally, the **Fly In** effect is applied to the footer placeholder on the master slide.
+
+![Master shape animation effect](master-shape-animation.png)
+
+The following sample code shows you how to use the `getBasePlaceholder` method from the [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) interface to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+
+ISlide slide = presentation.getSlides().get_Item(0);
+
+// Get animation effects of the shape on the normal slide.
+IShape shape = slide.getShapes().get_Item(0);
+IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
+
+// Get animation effects of the placeholder on the layout slide.
+IShape layoutShape = shape.getBasePlaceholder();
+IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
+
+// Get animation effects of the placeholder on the master slide.
+IShape masterShape = layoutShape.getBasePlaceholder();
+IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
+
+presentation.dispose();
+
+System.out.println("Main sequence of shape effects:");
+PrintEffects(masterShapeEffects);
+PrintEffects(layoutShapeEffects);
+PrintEffects(shapeEffects);
+```
+```java
+static void PrintEffects(IEffect[] effects)
+{
+    for (IEffect effect : effects)
+    {
+        String typeName = EffectType.getName(EffectType.class, effect.getType());
+        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+
+        System.out.println(typeName + " " + subtypeName);
+    }
+}
+```
+Output:
+```text
+Main sequence of shape effects:
+Fly Bottom
+Split VerticalIn
+RandomBars Horizontal
 ```
 
 ## **Change Animation Effect Timing Properties**

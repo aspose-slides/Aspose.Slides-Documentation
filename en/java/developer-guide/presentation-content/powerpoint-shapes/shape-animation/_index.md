@@ -7,6 +7,9 @@ keywords:
 - shape
 - animation
 - effect
+- add effects
+- get effects
+- extract effects
 - apply animation
 - PowerPoint
 - presentation
