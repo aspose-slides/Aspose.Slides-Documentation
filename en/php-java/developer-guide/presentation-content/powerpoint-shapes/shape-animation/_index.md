@@ -3,8 +3,20 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /php-java/shape-animation/
-keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Apply PowerPoint animation "
+keywords: 
+- shape
+- animation
+- effect
+- add effects
+- get effects
+- extract effects
+- apply animation
+- PowerPoint
+- presentation
+- PHP
+- Java
+- Aspose.Slides for PHP via Java
+description: "Apply PowerPoint animation in PHP"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/php-java/animated-charts/). They give life to presentations or its constituents.
