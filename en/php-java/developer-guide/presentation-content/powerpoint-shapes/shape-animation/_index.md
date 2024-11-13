@@ -9,7 +9,7 @@ description: "Apply PowerPoint animation "
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](https://docs.aspose.com/slides/php-java/animated-charts/). They give life to presentations or its constituents.
 
-### **Why Use Animations in Presentations?**
+## **Why Use Animations in Presentations?**
 
 Using animations, you can 
 
@@ -21,7 +21,7 @@ Using animations, you can
 
 PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
 
-### **Animations in Aspose.Slides**
+## **Animations in Aspose.Slides**
 
 * Aspose.Slides provides the classes and types you need to work with animations under the `Aspose.Slides.Animation` namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
@@ -160,30 +160,94 @@ This PHP code shows you how to apply the `PathFootball` (path football) effect t
 
 ## **Get the Animation Effects Applied to Shape**
 
-You may decide to find out the all animation effects applied to a single shape. 
+The following examples show you how to use the `getEffectsByShape` method from the [Sequence](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/) class to get all animation effects applied to a shape.
 
-This PHP code shows you how to get the all effects applied to a specific shape:
+**Example 1: Get animation effects applied to a shape on a normal slide**
+
+Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```php
-  # Instantiates a presentation class that represents a presentation file.
-  $pres = new Presentation("AnimExample_out.pptx");
   $Array = new java_class("java.lang.reflect.Array");
+  $presentation = new Presentation("AnimExample_out.pptx");
+
   try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Gets the main sequence of the slide.
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+
+    # Gets the main animation sequence of the slide.
     $sequence = $firstSlide->getTimeline()->getMainSequence();
-    # Gets the first shape on slide.
+
+    # Gets the first shape on the first slide.
     $shape = $firstSlide->getShapes()->get_Item(0);
-    # Gets all animation effects applied to the shape.
+
+    # Gets animation effects applied to the shape.
     $shapeEffects = $sequence->getEffectsByShape($shape);
+
     if (java_values($Array->getLength($shapeEffects)) > 0) {
       echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
     }
   } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    if (!java_is_null($presentation)) {
+      $presentation->dispose();
     }
   }
+```
+
+**Example 2: Get all animation effects, including those inherited from placeholders**
+
+If a shape on a normal slide has placeholders that are on the layout slide and/or master slide, and animation effects have been added to these placeholders, then all effects of the shape will be played during the slide show, including those inherited from the placeholders.
+
+Let's say we have a PowerPoint presentation file `sample.pptx` with one slide containg only a footer shape with the text "Made with Aspose.Slides" and the **Random Bars** effect is applied to the shape.
+
+![Slide shape animation effect](slide-shape-animation.png)
+
+Let's also assume that the **Split** effect is applied to the footer placeholder on the **layout** slide.
+
+![Layout shape animation effect](layout-shape-animation.png)
+
+And finally, the **Fly In** effect is applied to the footer placeholder on the **master** slide.
+
+![Master shape animation effect](master-shape-animation.png)
+
+The following sample code shows you how to use the `getBasePlaceholder` method from the [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) class to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
+
+```php
+$presentation = new Presentation("sample.pptx");
+
+$slide = $presentation->getSlides()->get_Item(0);
+
+// Get animation effects of the shape on the normal slide.
+$shape = $slide->getShapes()->get_Item(0);
+$shapeEffects = $slide->getTimeline()->getMainSequence()->getEffectsByShape($shape);
+
+// Get animation effects of the placeholder on the layout slide.
+$layoutShape = $shape->getBasePlaceholder();
+$layoutShapeEffects = $slide->getLayoutSlide()->getTimeline()->getMainSequence()->getEffectsByShape($layoutShape);
+
+// Get animation effects of the placeholder on the master slide.
+$masterShape = $layoutShape->getBasePlaceholder();
+$masterShapeEffects = $slide->getLayoutSlide()->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($masterShape);
+
+$presentation->dispose();
+
+echo "Main sequence of shape effects:" . PHP_EOL;
+printEffects($masterShapeEffects);
+printEffects($layoutShapeEffects);
+printEffects($shapeEffects);
+```
+```php
+function printEffects($effects) {
+    foreach ($effects as $effect) {
+        echo "Type: " . $effect->getType() . ", subtype: " . $effect->getSubtype() . PHP_EOL;
+    }
+}
+```
+
+Output:
+```text
+Main sequence of shape effects:
+Type: 47, subtype: 2              // Fly, Bottom
+Type: 134, subtype: 45            // Split, VerticalIn
+Type: 126, subtype: 22            // RandomBars, Horizontal
 ```
 
 ## **Change Animation Effect Timing Properties**
