@@ -245,12 +245,12 @@ IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSeque
 IShape masterShape = layoutShape.getBasePlaceholder();
 IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
 
-presentation.dispose();
-
 System.out.println("Main sequence of shape effects:");
 printEffects(masterShapeEffects);
 printEffects(layoutShapeEffects);
 printEffects(shapeEffects);
+
+presentation.dispose();
 ```
 ```java
 static void printEffects(IEffect[] effects)
