@@ -66,22 +66,18 @@ svgStream.close();
 presentation.dispose();
 ```
 ```java
-class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
-{
+class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
     private int m_shapeIndex;
 
-    public CustomSvgShapeFormattingController()
-    {
+    public CustomSvgShapeFormattingController() {
         m_shapeIndex = 0;
     }
 
-    public CustomSvgShapeFormattingController(int shapeStartIndex)
-    {
+    public CustomSvgShapeFormattingController(int shapeStartIndex) {
         m_shapeIndex = shapeStartIndex;
     }
 
-    public void formatShape(ISvgShape svgShape, IShape shape)
-    {
+    public void formatShape(ISvgShape svgShape, IShape shape) {
         svgShape.setId(String.format("shape-%d", m_shapeIndex++));
     }
 }
