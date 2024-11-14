@@ -33,6 +33,12 @@ The license is a plain-text XML file that contains details such as the product n
 
 To avoid the limitations associated with the evaluation version, you need to set a license before using **Aspose.Slides**. You are only required to set a license once per application or process.
 
+{{% alert color="primary" %}} 
+
+You may want to see [Metered Licensing](https://docs.aspose.com/slides/nodejs-java/metered-licensing/).
+
+{{% /alert %}} 
+
 ## Purchased License
 
 After purchase, you need to apply the license file or stream. 
@@ -106,55 +112,3 @@ license.setLicense(readStream, function(err, list) {
         console.error(err); return; 
     }});
 ```
-
-#### Apply Metered License
-
-Aspose.Slides allows developers to apply a metered key. This is a new licensing mechanism.
-
-The new licensing mechanism will be used along with the existing licensing method. Those customers who want to be billed based on the use of API features can use the Metered Licensing.
-
-After completing all the necessary steps to obtain this type of license, you will receive the keys, not the license file. This metered key can be applied using the **Metered** class specially introduced for this purpose.
-
-The following code example shows how to set metered public and private keys:
-
-```javascript
-var aspose = aspose || {};
-
-aspose.slides = require("aspose.slides.via.java");
-
-// Create an instance of the Metered class
-var metered = new aspose.slides.Metered();
-
-// Access the metered key property and pass public and private keys as parameters
-metered.setMeteredKey("*****", "*****");
-
-// Get metered data amount before calling API
-var amountbefore = aspose.slides.Metered.getConsumptionQuantity();
-
-// Display information
-console.log("Amount consumed before: " + amountbefore);
-
-// Load the document from disk
-var pres = new aspose.slides.Presentation("sample.pptx");
-
-// Get the number of slides in the document
-console.log("The number of slides: " +  pres.getSlides().size());
-
-// Save the presentation as PDF
-pres.save("out_pdf.pdf", aspose.slides.SaveFormat.Pdf);
-
-// Get metered data amount after calling API
-var amountafter = aspose.slides.Metered.getConsumptionQuantity();
-
-// Display information
-console.log("Amount consumed after: " + amountafter);
-```
-
-{{% alert color="primary" %}}
-
-Please note that you must have a stable Internet connection for the correct use of the Metered license, since the Metered mechanism requires the constant interaction with our services for correct calculations. For more details, refer to the [“Metered Licensing FAQ”](https://purchase.aspose.com/faqs/licensing/metered) section.
-
-{{% /alert %}}
-
-
-

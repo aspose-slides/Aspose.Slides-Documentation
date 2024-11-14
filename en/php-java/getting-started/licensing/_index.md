@@ -33,6 +33,12 @@ The license is a plain-text XML file that contains details such as the product n
 
 To avoid the limitations associated with the evaluation version, you need to set a license before using **Aspose.Slides**. You are only required to set a license once per application or process.
 
+{{% alert color="primary" %}} 
+
+You may want to see [Metered Licensing](https://docs.aspose.com/slides/php-java/metered-licensing/).
+
+{{% /alert %}} 
+
 ## Purchased License
 
 After purchase, you need to apply the license file or stream. 
@@ -91,8 +97,6 @@ When calling the setLicense method, the license name should be same as that of y
 
 This code snippet is used to apply a license from a stream:
 
-**PHP**
-
 ```php
 <?php
 require_once("http://localhost:8080/JavaBridge/java/Java.inc");
@@ -104,56 +108,3 @@ $license = new License();
 $license->setLicense($stream);
 ?>
 ```
-
-#### Apply Metered License
-
-Aspose.Slides allows developers to apply a metered key. This is a new licensing mechanism.
-
-The new licensing mechanism will be used along with the existing licensing method. Those customers who want to be billed based on the use of API features can use the Metered Licensing.
-
-After completing all the necessary steps to obtain this type of license, you will receive the keys, not the license file. This metered key can be applied using the **Metered** class specially introduced for this purpose.
-
-The following code example shows how to set metered public and private keys:
-
-```php
-<?php
-require_once("http://localhost:8080/JavaBridge/java/Java.inc");
-require_once("lib/aspose.slides.php");
-
-use aspose\slides\Metered;
-use aspose\slides\Presentation;
-use aspose\slides\SaveFormat;
-
-# Create an instance of CAD Metered class
-$metered = new Metered();
-
-# Access the set_metered_key property and pass public and private keys as parameters
-$metered->setMeteredKey("*****", "*****");
-
-# Get metered data amount before calling API
-$amountbefore = Metered::getConsumptionQuantity();
-# Display information
-echo "<script>console.log('Amount Consumed Before: " . java_values($amountbefore) . "' );</script>";
-
-# Load the document from disk.
-$pres = new Presentation();
-# Get the page count of document
-echo "<script>console.log('Amount Consumed After: " . java_values($pres->getSlides()->size()) . "' );</script>";
-# save as PDF
-$pres->save("out_pdf.pdf", SaveFormat::Pdf);
-
-# Get metered data amount After calling API
-$amountafter = Metered::getConsumptionQuantity();
-# Display information
-echo "<script>console.log('Amount Consumed After: " . java_values($amountafter) . "' );</script>";
-?>
-```
-
-{{% alert color="primary" %}}
-
-Please note that you must have a stable Internet connection for the correct use of the Metered license, since the Metered mechanism requires the constant interaction with our services for correct calculations. For more details, refer to the [“Metered Licensing FAQ”](https://purchase.aspose.com/faqs/licensing/metered) section.
-
-{{% /alert %}}
-
-
-

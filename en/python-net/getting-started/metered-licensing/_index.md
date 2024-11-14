@@ -3,6 +3,12 @@ title: Metered Licensing
 type: docs
 weight: 90
 url: /python-net/metered-licensing/
+keywords:
+- license
+- metered licensing
+- Python
+- .NET
+- Aspose.Slides for Python via .NET
 ---
 
 {{% alert color="primary" %}} 
@@ -14,39 +20,33 @@ When you purchase a metered license, you get keys (and not a license file). This
 {{% /alert %}} 
 
 1. Create an instance the [Metered](https://reference.aspose.com/slides/python-net/aspose.slides/metered/) class.
-1. Pass your public and private keys to the `set_metered_key` method.
+1. Pass your public and private keys to the [set_metered_key](https://reference.aspose.com/slides/python-net/aspose.slides/metered/set_metered_key/#str-str) method.
 1. Do some processing (perform tasks).
-1. Call the `get_consumption_quantity()` method of the Metered class.
+1. Call the [get_consumption_quantity](https://reference.aspose.com/slides/python-net/aspose.slides/metered/get_consumption_quantity/#) method of the `Metered` class.
 
-   You should see the amount/quantity of API requests you have consumed so far.
+You should see the amount/quantity of API requests you have consumed so far.
 
-This Python code shows you how to set metered public and private keys:
+This sample code shows you how to use metered licensing:
 
 ```python
 import aspose.slides as slides
 
-# Creates an instance of CAD Metered class
+# Creates an instance of the Metered class
 metered = slides.Metered()
 
-# Accesses the set_metered_key property and pass public and private keys as parameters
-metered.set_metered_key("*****", "*****")
+# Passes the public and private keys to the Metered object
+metered.set_metered_key("<valid public key>", "<valid private key>")
 
-# Gets the metered data amount before calling API
-amountbefore = slides.metered.get_consumption_quantity()
-# Display information
-print("Amount Consumed Before: " + str(amountbefore))
+# Gets the consumed quantity value before API calls
+amount_before = slides.Metered.get_consumption_quantity()
+print("Amount consumed before:", amount_before)
 
-# Loads the document from disk.
-with slides.Presentation("Presentation.pptx") as pres:
-   #Gets the page count of document
-   print(len(pres.slides))
-   # Saves as PDF
-   pres.save("out_pdf.pdf", slides.export.SaveFormat.PDF)
+# Do something with Aspose.Slides API here
+# ...
 
-# Gets the metered data amount After calling API
-amountafter = slides.metered.get_consumption_quantity()
-# Displays information
-print("Amount Consumed After: " + str(amountafter))
+# Gets the consumed quantity value after API calls
+amount_after = slides.Metered.get_consumption_quantity()
+print("Amount consumed after:", amount_after)
 ```
 
 {{% alert color="warning" title="NOTE"  %}} 
