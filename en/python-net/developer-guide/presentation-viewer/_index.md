@@ -18,12 +18,6 @@ description: "PowerPoint presentation viewer in Python"
 
 Aspose.Slides for Python via .NET is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides allows you to export an individual slide as an image. This article describes how to do it.
 
-## **Live Example**
-
-You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
-
-![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
-
 ## **Generate an SVG Image from a Slide**
 
 To generate an SVG image from a presentation slide with Aspose.Slides, please follow the steps below:
@@ -117,3 +111,9 @@ with slides.Presentation("sample.pptx") as presentation:
     with slide.get_image(rendering_options) as image:
         image.save("output.png", slides.ImageFormat.PNG)
 ```
+
+## **Live Example**
+
+You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
+
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
