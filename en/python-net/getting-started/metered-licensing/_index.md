@@ -38,14 +38,14 @@ metered = slides.Metered()
 metered.set_metered_key("<valid pablic key>", "<valid private key>")
 
 # Gets the consumed quantity value before API calls
-amount_before = slides.metered.get_consumption_quantity()
+amount_before = slides.Metered.get_consumption_quantity()
 print("Amount consumed before:", amount_before)
 
 # Do something with Aspose.Slides API here
 # ...
 
 # Gets the consumed quantity value after API calls
-amount_after = slides.metered.get_consumption_quantity()
+amount_after = slides.Metered.get_consumption_quantity()
 print("Amount consumed after:", amount_after)
 ```
 
