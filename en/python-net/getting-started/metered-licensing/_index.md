@@ -35,7 +35,7 @@ import aspose.slides as slides
 metered = slides.Metered()
 
 # Passes the public and private keys to the Metered object
-metered.set_metered_key("<valid pablic key>", "<valid private key>")
+metered.set_metered_key("<valid public key>", "<valid private key>")
 
 # Gets the consumed quantity value before API calls
 amount_before = slides.Metered.get_consumption_quantity()
