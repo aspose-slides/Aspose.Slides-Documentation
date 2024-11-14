@@ -14,10 +14,10 @@ keywords:
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: "View PowerPoint presentation in C# or .NET"
+description: "PowerPoint presentation viewer in C# or .NET"
 ---
 
-Aspose.Slides for .NET is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides for .NET allows you to export an individual slide as an image. This article describes how to do it.
+Aspose.Slides for .NET is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides allows you to export an individual slide as an image. This article describes how to do it.
 
 ## **Live Example**
 
@@ -27,7 +27,7 @@ You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer
 
 ## **Generate an SVG Image from a Slide**
 
-To generate an SVG image from a presentation slide with Aspose.Slides for .NET, please follow the steps below:
+To generate an SVG image from a presentation slide with Aspose.Slides, please follow the steps below:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get the slide reference by its index.
@@ -50,7 +50,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Generate an SVG with a Custom Shape ID**
 
-Aspose.Slides for .NET can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `ID` property from [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape). `CustomSvgShapeFormattingController` can be used to set the shape ID.
+Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `Id` property from [ISvgShape](https://reference.aspose.com/slides/net/aspose.slides.export/isvgshape). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```c#
 int slideIndex = 0;
@@ -59,13 +59,13 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 {
     ISlide slide = presentation.Slides[slideIndex];
     
+    SVGOptions svgOptions = new SVGOptions
+    {
+        ShapeFormattingController = new CustomSvgShapeFormattingController()
+    };
+
     using (FileStream svgStream = File.Create("output.svg"))
     {
-        SVGOptions svgOptions = new SVGOptions
-        {
-            ShapeFormattingController = new CustomSvgShapeFormattingController()
-        };
-
         slide.WriteAsSvg(svgStream, svgOptions);
     }
 }
@@ -90,7 +90,7 @@ class CustomSvgShapeFormattingController : ISvgShapeFormattingController
 
 ## **Create a Slide Thumbnail Image**
 
-Aspose.Slides for .NET helps you generate thumbnail images of slides. To generate a thumbnail of a slide using Aspose.Slides for .NET, please follow the steps below:
+Aspose.Slides helps you generate thumbnail images of slides. To generate a thumbnail of a slide using Aspose.Slides, please follow the steps below:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
 1. Get the slide reference by its index.
@@ -99,7 +99,7 @@ Aspose.Slides for .NET helps you generate thumbnail images of slides. To generat
 
 ```c#
 int slideIndex = 0;
-float scaleX = 1f;
+float scaleX = 1;
 float scaleY = scaleX;
 
 using (Presentation presentation = new Presentation("sample.pptx"))
@@ -139,7 +139,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Create a Slide Thumbnail with Speaker Notes**
 
-To generate the thumbnail of a slide with speaker notes using Aspose.Slides for .NET, please follow the steps below:
+To generate the thumbnail of a slide with speaker notes using Aspose.Slides, please follow the steps below:
 
 1. Create an instance of the [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/) class.
 1. Use the `RenderingOptions.SlidesLayoutOptions` property to set the position of speaker notes.
