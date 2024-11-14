@@ -46,29 +46,12 @@ $presentation->dispose();
 Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `setId` method from [SvgShape](https://reference.aspose.com/slides/php-java/aspose.slides/svgshape/). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```php
-class CustomSvgShapeFormattingController {
-    private $m_shapeIndex;
-
-    function __construct() {
-        $this->m_shapeIndex = 0;
-    }
-
-    function __construct($shapeStartIndex) {
-        $this->m_shapeIndex = $shapeStartIndex;
-    }
-
-    function formatShape($svgShape, $shape) {
-        $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
-    }
-}
-```
-```php
 $slideIndex = 0;
 
 $presentation = new Presentation("sample.pptx");
 $slide = $presentation->getSlides()->get_Item($slideIndex);
 
-$shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(), null, java("com.aspose.slides.ISvgShapeFormattingController"));
+$shapeFormattingController = java_closure(new CustomSvgShapeFormattingController(0), null, java("com.aspose.slides.ISvgShapeFormattingController"));
 
 $svgOptions = new SVGOptions();
 $svgOptions->setShapeFormattingController($shapeFormattingController);
@@ -78,6 +61,19 @@ $slide->writeAsSvg($svgStream, $svgOptions);
 $svgStream->close();
 
 $presentation->dispose();
+```
+```php
+class CustomSvgShapeFormattingController {
+    private $m_shapeIndex;
+
+    public function __construct($shapeStartIndex) {
+        $this->m_shapeIndex = $shapeStartIndex;
+    }
+
+    public function formatShape($svgShape, $shape) {
+        $svgShape->setId(sprintf("shape-%d", $m_shapeIndex++));
+    }
+}
 ```
 
 ## **Create a Slide Thumbnail Image**
