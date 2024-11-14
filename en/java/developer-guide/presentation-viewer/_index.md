@@ -22,9 +22,7 @@ Aspose.Slides for Java is used to create presentation files with slides. These s
 
 You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
 
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)
 
 ## **Generate an SVG Image from a Slide**
 
