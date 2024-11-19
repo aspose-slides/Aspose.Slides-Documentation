@@ -3,196 +3,159 @@ title: Presentation Viewer
 type: docs
 weight: 50
 url: /java/presentation-viewer/
-keywords: "PowerPoint PPT Viewer"
-description: "PowerPoint PPT Viewer in Java"
+keywords: 
+- view presentation
+- presentation viewer
+- view PPT
+- view PPTX
+- view ODP
+- PowerPoint
+- OpenDocument
+- Java
+- Aspose.Slides for Java
+description: "PowerPoint presentation viewer in Java"
 ---
 
-{{% alert color="primary" %}} 
+Aspose.Slides for Java is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides allows you to export an individual slide as an image. This article describes how to do it.
 
-Aspose.Slides for Java is used to create presentation files, complete with slides. These slides can be viewed by opening presentations using Microsoft PowerPoint. But sometimes, developers may also need to view slides as images in their favorite image viewer or create their own presentation viewer. In such cases, Aspose.Slides for Java lets you export an individual slide to an image. This article describes how to do it.
+## **Generate an SVG Image from a Slide**
 
-{{% /alert %}} 
+To generate an SVG image from a presentation slide with Aspose.Slides, please follow the steps below:
 
-## **Live Example**
-You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
-
-[](https://products.aspose.app/slides/viewer/)
-
-[![todo:image_alt_text](slides-viewer.png)](https://products.aspose.app/slides/viewer/)
-
-## **Generate SVG Image from Slide**
-To generate an SVG image from any desired slide with Aspose.Slides for Java, please follow the steps below:
-
-- Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-- Obtain the desired slide's reference by using its ID or index.
-- Get the SVG image in a memory stream.
-- Save the memory stream to file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get the slide reference by its index.
+1. Open a file stream.
+1. Save the slide as an SVG image to the file stream.
 
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("CreateSlidesSVGImage.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // Create a memory stream object
-    FileOutputStream svgStream = new FileOutputStream("Aspose_out.svg");
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Generate SVG image of slide and save in memory stream
-    sld.writeAsSvg(svgStream);
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream);
+svgStream.close();
 
-    svgStream.close();
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **Generate SVG with Custom Shape IDS**
-Aspose.Slides for Java can be used to generate [SVG](https://docs.fileformat.com/page-description-language/svg/) from slide with custom shape ID. For that, use ID property from [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/ISvgShape), which represents custom ID of shapes in generated SVG. CustomSvgShapeFormattingController can be used to set shape ID.
+## **Generate an SVG with a Custom Shape ID**
+
+Aspose.Slides can be used to generate an [SVG](https://docs.fileformat.com/page-description-language/svg/) from a slide with a custom shape ID. To do this, use the `setId` method from [ISvgShape](https://reference.aspose.com/slides/java/com.aspose.slides/isvgshape/). `CustomSvgShapeFormattingController` can be used to set the shape ID.
 
 ```java
-Presentation pres = new Presentation("pptxFileName.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("Aspose_out.svg");
-    try {
-        SVGOptions svgOptions = new SVGOptions();
-        svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+int slideIndex = 0;
 
-        pres.getSlides().get_Item(0).writeAsSvg(stream, svgOptions);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+SVGOptions svgOptions = new SVGOptions();
+svgOptions.setShapeFormattingController(new CustomSvgShapeFormattingController());
+
+FileOutputStream svgStream = new FileOutputStream("output.svg");
+slide.writeAsSvg(svgStream, svgOptions);
+svgStream.close();
+
+presentation.dispose();
 ```
 ```java
-class CustomSvgShapeFormattingController implements ISvgShapeFormattingController
-{
+class CustomSvgShapeFormattingController implements ISvgShapeFormattingController {
     private int m_shapeIndex;
 
-    public CustomSvgShapeFormattingController()
-    {
+    public CustomSvgShapeFormattingController() {
         m_shapeIndex = 0;
     }
-    
-    public CustomSvgShapeFormattingController(int shapeStartIndex)
-    {
+
+    public CustomSvgShapeFormattingController(int shapeStartIndex) {
         m_shapeIndex = shapeStartIndex;
     }
 
-    public void formatShape(ISvgShape svgShape, IShape shape)
-    {
+    public void formatShape(ISvgShape svgShape, IShape shape) {
         svgShape.setId(String.format("shape-%d", m_shapeIndex++));
     }
 }
 ```
 
-## **Create Slides Thumbnail Image**
-Aspose.Slides for Java help you generate thumbnail images of the slides. To generate the thumbnail of any desired slide using Aspose.Slides for Java:
+## **Create a Slide Thumbnail Image**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain the reference of any desired slide by using its ID or index.
-1. Get the thumbnail image of the referenced slide on a specified scale.
+Aspose.Slides helps you generate thumbnail images of slides. To generate a thumbnail of a slide using Aspose.Slides, please follow the steps below:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get the slide reference by its index.
+1. Get the thumbnail image of the referenced slide at a defined scale.
 1. Save the thumbnail image in any desired image format.
 
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailFromSlide.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+float scaleX = 1;
+float scaleY = scaleX;
 
-    // Create a full scale image
-    IImage slideImage = sld.getImage(1f, 1f);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Save the image to disk in JPEG format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(scaleX, scaleY);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
+
+presentation.dispose();
 ```
 
-## **Create Thumbnail with User Defined Dimensions**
+## **Create a Slide Thumbnail with User Defined Dimensions**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain the reference of any desired slide by using its ID or index.
-1. Get the thumbnail image of the referenced slide on a specified scale.
+To create a slide thumbnail image with user defined dimensions, please follow the steps below:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get the slide reference by its index.
+1. Get the thumbnail image of the referenced slide with the defined dimensions.
 1. Save the thumbnail image in any desired image format.
 
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
+Dimension slideSize = new Dimension(1200, 800);
 
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
-    
-    // Create a full scale image
-    IImage slideImage = sld.getImage(ScaleX, ScaleY);
+IImage image = slide.getImage(slideSize);
+image.save("output.jpg", ImageFormat.Jpeg);
+image.dispose();
 
-    // Save the image to disk in JPEG format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+presentation.dispose();
 ```
 
-## **Create Thumbnail from Slide in Notes Slides View**
-To generate the thumbnail of any desired slide in Notes Slide View using Aspose.Slides for Java:
+## **Create a Slide Thumbnail with Speaker Notes**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Obtain the reference of any desired slide by using its ID or index.
-1. Get the thumbnail image of the referenced slide on a specified scale in Notes Slide view.
+To generate the thumbnail of a slide with speaker notes using Aspose.Slides, please follow the steps below:
+
+1. Create an instance of the [RenderingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/renderingoptions/) class.
+1. Use the `RenderingOptions.setSlidesLayoutOptions` method to set the position of speaker notes.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get the slide reference by its index.
+1. Get the thumbnail image of the referenced slide with the rendering options.
 1. Save the thumbnail image in any desired image format.
 
-The code snippet below produces a thumbnail of the first slide of a presentation in Notes Slide View.
-
 ```java
-// Instantiate a Presentation class that represents the presentation file
-Presentation pres = new Presentation("ThumbnailWithUserDefinedDimensions.pptx");
-try {
-    // Access the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+int slideIndex = 0;
 
-    // User defined dimension
-    int desiredX = 1200;
-    int desiredY = 800;
+NotesCommentsLayoutingOptions layoutingOptions = new NotesCommentsLayoutingOptions();
+layoutingOptions.setNotesPosition(NotesPositions.BottomTruncated);
 
-    // Getting scaled value  of X and Y
-    float ScaleX = (float)(1.0 / pres.getSlideSize().getSize().getWidth()) * desiredX;
-    float ScaleY = (float)(1.0 / pres.getSlideSize().getSize().getHeight()) * desiredY;
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutingOptions);
 
-    RenderingOptions opts = new RenderingOptions();
-    opts.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomTruncated);
-    
-    // Create a full scale image
-    IImage slideImage = sld.getImage(opts, ScaleX, ScaleY);
+Presentation presentation = new Presentation("sample.pptx");
+ISlide slide = presentation.getSlides().get_Item(slideIndex);
 
-    // Save the image to disk in JPEG format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
-    }
-} finally {
-    pres.dispose();
-}
+IImage image = slide.getImage(renderingOptions);
+image.save("output.png", ImageFormat.Png);
+image.dispose();
+
+presentation.dispose();
 ```
+
+## **Live Example**
+
+You can try [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) free app to see what you can implement with Aspose.Slides API:
+
+![Online PowerPoint Viewer](online-PowerPoint-viewer.png)

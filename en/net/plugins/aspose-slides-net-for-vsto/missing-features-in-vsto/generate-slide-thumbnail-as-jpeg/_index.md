@@ -38,6 +38,6 @@ using (Presentation pres = new Presentation("Slides Test Presentation.pptx"))
 
 {{% alert color="primary" %}} 
 
-For more details, visit [Creating Slides Thumbnail Image](/slides/net/presentation-viewer/#presentationviewer-creatingslidesthumbnailimage).
+For more details, visit [Convert Slide](/slides/net/convert-slide/).
 
 {{% /alert %}}
