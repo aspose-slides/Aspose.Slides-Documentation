@@ -3,8 +3,25 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /python-net/picture-frame/
-keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add picture frame to PowerPoint presentation in Python"
+keywords:
+- picture frame
+- add a picture frame
+- create a picture frame
+- add an image
+- create an image
+- extract an image
+- crop an image
+- StretchOff property
+- picture frame formatting
+- picture frame properties
+- image effect
+- aspect ratio
+- PowerPoint
+- presentation
+- Python
+- .NET
+- Aspose.Slides for Python via .NET
+description: "Add a picture frame to a PowerPoint presentation in Python"
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
@@ -112,7 +129,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This Python code demonstrates the operation: 
+Aspose.Slides allows you to get the transparency effect applied to an image. This Python code demonstrates the operation: 
 
 ```python
 import aspose.slides as slides
@@ -125,6 +142,10 @@ with slides.Presentation("pres.pptx") as presentation:
             transparencyValue = 100 - effect.amount
             print("Picture transparency: " + str(transparencyValue))
 ```
+
+{{% alert color="primary" %}} 
+All effects applied to images can be found in [aspose.slides.effects](https://reference.aspose.com/slides/python-net/aspose.slides.effects/).
+{{% /alert %}}
 
 ## **Picture Frame Formatting**
 

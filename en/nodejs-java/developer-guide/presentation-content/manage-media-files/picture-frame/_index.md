@@ -3,9 +3,25 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /nodejs-java/picture-frame/
-keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Add picture frame to PowerPoint presentation in JavaScript"
-
+keywords:
+- picture frame
+- add a picture frame
+- create a picture frame
+- add an image
+- create an image
+- extract an image
+- crop an image
+- StretchOff property
+- picture frame formatting
+- picture frame properties
+- image effect
+- aspect ratio
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides for Node.js via Java
+description: "Add a picture frame to a PowerPoint presentation in JavaScript"
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
@@ -120,10 +136,10 @@ try {
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This JavaScript code demonstrates the operation:
+Aspose.Slides allows you to get the transparency effect applied to an image. This JavaScript code demonstrates the operation:
 
 ```javascript
-var presentation = new aspose.slides.Presentation(folderPath + "Test.pptx");
+var presentation = new aspose.slides.Presentation("Test.pptx");
 var pictureFrame = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();
 for (var i = 0; i < imageTransform.size(); i++) {

@@ -3,8 +3,24 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /cpp/picture-frame/
-keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, C++, CPP, Aspose.Slides for C++"
-description: "Add picture frame to PowerPoint presentation in C++"
+keywords:
+- picture frame
+- add a picture frame
+- create a picture frame
+- add an image
+- create an image
+- extract an image
+- crop an image
+- StretchOff property
+- picture frame formatting
+- picture frame properties
+- image effect
+- aspect ratio
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
+description: "Add a picture frame to a PowerPoint presentation in C++"
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
@@ -133,7 +149,7 @@ presentation->Dispose();
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This C++ code demonstrates the operation:
+Aspose.Slides allows you to get the transparency effect applied to an image. This C++ code demonstrates the operation:
 
 ```c++
 auto presentation = System::MakeObject<Presentation>(u"Test.pptx");
@@ -148,6 +164,10 @@ for (auto&& effect : imageTransform)
     }
 }
 ```
+
+{{% alert color="primary" %}} 
+All effects applied to images can be found in [Aspose::Slides::Effects](https://reference.aspose.com/slides/cpp/aspose.slides.effects/).
+{{% /alert %}}
 
 ## **Picture Frame Formatting**
 
