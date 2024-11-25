@@ -3,9 +3,25 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /php-java/picture-frame/
-keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Java, Aspose.Slides for PHP via Java"
-description: "Add picture frame to PowerPoint presentation "
-
+keywords:
+- picture frame
+- add a picture frame
+- create a picture frame
+- add an image
+- create an image
+- extract an image
+- crop an image
+- StretchOff property
+- picture frame formatting
+- picture frame properties
+- image effect
+- aspect ratio
+- PowerPoint
+- presentation
+- PHP
+- Java
+- Aspose.Slides for .PHP via Java
+description: "Add a picture frame to a PowerPoint presentation in PHP"
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
@@ -120,10 +136,10 @@ You can extract images from [PictureFrame](https://reference.aspose.com/slides/p
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This PHP code demonstrates the operation:
+Aspose.Slides allows you to get the transparency effect applied to an image. This PHP code demonstrates the operation:
 
 ```php
-  $presentation = new Presentation($folderPath . "Test.pptx");
+  $presentation = new Presentation("Test.pptx");
   $pictureFrame = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
   $imageTransform = $pictureFrame->getPictureFormat()->getPicture()->getImageTransform();
   foreach($imageTransform as $effect) {
