@@ -1,18 +1,30 @@
 ---
-title: Presentation Properties - Access or Modify PowerPoint Presentation Properties in C#
+title: Presentation Properties
 linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /net/presentation-properties/
-keywords: "how to remove last modified by in powerpoint, PowerPoint properties, PowerPoint presentation, C#, Csharp, Aspose.Slides for .NET"
-description: "PowerPoint presentation properties in C# or .NET"
+keywords:
+- PowerPoint properties
+- presentation properties
+- document properties
+- built-in properties
+- custom properties
+- advanced properties
+- modify properties
+- document metadata
+- edit metadata
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: "Manage PowerPoint presentation properties in C# or .NET"
 ---
 
 
 ## **Live Example**
 Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
-
-[](https://products.aspose.app/slides/metadata)
 
 [![todo:image_alt_text](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
@@ -54,13 +66,6 @@ Aspose.Slides for .NET also allows developers to add the custom the values for p
 Aspose.Slides for .NET also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AccessModifyingProperties-AccessModifyingProperties.cs" >}}
-
-## **Check if Presentation is Modified or Created**
-Aspose.Slides for .NET provides a facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
-
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-CheckPresentationCreatedorModifed-CheckPresentationCreatedorModifed.cs" >}}
-
-Set Default Language
 
 ## **Set Proofing Language**
 
