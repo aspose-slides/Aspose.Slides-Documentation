@@ -62,22 +62,51 @@ using (Presentation pres = new Presentation())
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) property (from the [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+Aspose.Slides provides the [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) property from the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
 ![Text box and shape](istextbox.png)
 
 This C# code shows you how to check whether a shape was created as a text box: 
 
 ```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    Aspose.Slides.LowCode.ForEach.Shape(pres, (shape, slide, index) =>
+    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
     {
-        if (shape is AutoShape autoShape)
+        if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is text box" : "shape is text not box");
+            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
         }
     });
+}
+```
+
+Note that if you simply add an autoshape using the `AddAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/) interface, the `IsTextBox` property of the autoshape will return `false`. However, after you add text to the autoshape using the `AddTextFrame` method or the `Text` property, the `IsTextBox` property returns `true`.
+
+```cs
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+    // shape1.IsTextBox is false
+    shape1.AddTextFrame("shape 1");
+    // shape1.IsTextBox is true
+
+    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
+    // shape2.IsTextBox is false
+    shape2.TextFrame.Text = "shape 2";
+    // shape2.IsTextBox is true
+
+    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
+    // shape3.IsTextBox is false
+    shape3.AddTextFrame("");
+    // shape3.IsTextBox is false
+
+    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
+    // shape4.IsTextBox is false
+    shape4.TextFrame.Text = "";
+    // shape4.IsTextBox is false
 }
 ```
 
