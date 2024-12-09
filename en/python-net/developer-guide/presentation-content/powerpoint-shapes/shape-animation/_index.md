@@ -3,13 +3,24 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /python-net/shape-animation/
-keywords: "PowerPoint animation, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Create PowerPoint animation in Python"
+keywords:
+- shape
+- animation
+- effect
+- add effects
+- get effects
+- extract effects
+- apply animation
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides for Python via .NET
+description: "Apply PowerPoint animation in Python"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/python-net/animated-charts/). They give life to presentations or its constituents. 
 
-### **Why Use Animations in Presentations?**
+## **Why Use Animations in Presentations?**
 
 Using animations, you can 
 
@@ -21,7 +32,7 @@ Using animations, you can
 
 PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
 
-### **Animations in Aspose.Slides**
+## **Animations in Aspose.Slides**
 
 * Aspose.Slides provides the classes and types you need to work with animations under the [Aspose.Slides.Animation](https://reference.aspose.com/slides/python-net/aspose.slides.animation/) namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effecttype/) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
@@ -170,28 +181,84 @@ with slides.Presentation() as pres:
 
 ## **Get the Animation Effects Applied to Shape**
 
-You may decide to find out the all animation effects applied to a single shape. 
+The following examples show you how to use the `get_effects_by_shape` method from the [Sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/) class to get all animation effects applied to a shape.
 
-This Python code shows you how to get the all effects applied to a specific shape:
+**Example 1: Get animation effects applied to a shape on a normal slide**
+
+Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```python
 import aspose.slides as slides
 
-# Instantiates a presentation class that represents a presentation file.
-with slides.Presentation("AnimExample_out.pptx") as pres:
-    firstSlide = pres.slides[0]
+with slides.Presentation("AnimExample_out.pptx") as presentation:
+    first_slide = presentation.slides[0]
 
-    # Gets the main sequence of the slide.
-    sequence = firstSlide.timeline.main_sequence
+    # Gets the main animation sequence of the slide.
+    sequence = first_slide.timeline.main_sequence
 
-    # Gets the first shape on slide.
-    shape = firstSlide.shapes[0]
+    # Gets the first shape on the first slide.
+    shape = first_slide.shapes[0]
 
-    # Gets all animation effects applied to the shape.
-    shapeEffects = sequence.get_effects_by_shape(shape)
+    # Gets animation effects applied to the shape.
+    shape_effects = sequence.get_effects_by_shape(shape)
 
-    if len(shapeEffects) > 0:
-        print("The shape " + shape.name + " has " + str(len(shapeEffects)) + " animation effects.")
+    if len(shape_effects) > 0:
+        print("The shape", shape.name, "has", len(shape_effects), "animation effects.")
+```
+
+**Example 2: Get all animation effects, including those inherited from placeholders**
+
+If a shape on a normal slide has placeholders that are on the layout slide and/or master slide, and animation effects have been added to these placeholders, then all effects of the shape will be played during the slide show, including those inherited from the placeholders.
+
+Let's say we have a PowerPoint presentation file `sample.pptx` with one slide containg only a footer shape with the text "Made with Aspose.Slides" and the **Random Bars** effect is applied to the shape.
+
+![Slide shape animation effect](slide-shape-animation.png)
+
+Let's also assume that the **Split** effect is applied to the footer placeholder on the **layout** slide.
+
+![Layout shape animation effect](layout-shape-animation.png)
+
+And finally, the **Fly In** effect is applied to the footer placeholder on the **master** slide.
+
+![Master shape animation effect](master-shape-animation.png)
+
+The following sample code shows you how to use the `get_base_placeholder` method from the [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) class to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
+
+```py
+import aspose.slides as slides
+
+def print_effects(effects):
+    for effect in effects:
+        print(effect.type.name, effect.subtype.name)
+```
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    # Get animation effects of the shape on the normal slide.
+    shape = slide.shapes[0]
+    shape_effects = slide.timeline.main_sequence.get_effects_by_shape(shape)
+
+    # Get animation effects of the placeholder on the layout slide.
+    layout_shape = shape.get_base_placeholder()
+    layout_shape_effects = slide.layout_slide.timeline.main_sequence.get_effects_by_shape(layout_shape)
+
+    # Get animation effects of the placeholder on the master slide.
+    master_shape = layout_shape.get_base_placeholder()
+    master_shape_effects = slide.layout_slide.master_slide.timeline.main_sequence.get_effects_by_shape(master_shape)
+
+    print("Main sequence of shape effects:")
+    print_effects(master_shape_effects)
+    print_effects(layout_shape_effects)
+    print_effects(shape_effects)
+```
+
+Output:
+```text
+Main sequence of shape effects:
+FLY BOTTOM
+SPLIT VERTICAL_IN
+RANDOM_BARS HORIZONTAL
 ```
 
 ## **Change Animation Effect Timing Properties**

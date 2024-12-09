@@ -3,9 +3,25 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /androidjava/picture-frame/
-keywords: "Add picture frame, create picture frame, add image, create image, extract image, StretchOff property, picture frame formatting, picture frame properties, PowerPoint presentation, Java, Aspose.Slides for Android via Java"
-description: "Add picture frame to PowerPoint presentation in Java"
-
+keywords:
+- picture frame
+- add a picture frame
+- create a picture frame
+- add an image
+- create an image
+- extract an image
+- crop an image
+- StretchOff property
+- picture frame formatting
+- picture frame properties
+- image effect
+- aspect ratio
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides for Android via Java
+description: "Add a picture frame to a PowerPoint presentation in Java"
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
@@ -124,10 +140,10 @@ try {
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This Java code demonstrates the operation:
+Aspose.Slides allows you to get the transparency effect applied to an image. This Java code demonstrates the operation:
 
 ```java
-Presentation presentation = new Presentation(folderPath + "Test.pptx");
+Presentation presentation = new Presentation("Test.pptx");
 
 var pictureFrame = (IPictureFrame) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 var imageTransform = pictureFrame.getPictureFormat().getPicture().getImageTransform();

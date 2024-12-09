@@ -3,13 +3,25 @@ title: Shape Animation
 type: docs
 weight: 60
 url: /nodejs-java/shape-animation/
-keywords: "PowerPoint animation, Animation effect, Apply animation, PowerPoint presentation, Java, Aspose.Slides for Node.js via Java"
-description: "Apply PowerPoint animation in Javascript"
+keywords: 
+- shape
+- animation
+- effect
+- add effects
+- get effects
+- extract effects
+- apply animation
+- PowerPoint
+- presentation
+- Node.js
+- Java
+- Aspose.Slides for Node.js via Java
+description: "Apply PowerPoint animation in JavaScript"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/nodejs-java/animated-charts/). They give life to presentations or its constituents.
 
-### **Why Use Animations in Presentations?**
+## **Why Use Animations in Presentations?**
 
 Using animations, you can 
 
@@ -21,7 +33,7 @@ Using animations, you can
 
 PowerPoint provides many options and tools for animations and animation effects across the **entrance**, **exit**, **emphasis**, and **motion paths** categories. 
 
-### **Animations in Aspose.Slides**
+## **Animations in Aspose.Slides**
 
 * Aspose.Slides provides the classes and types you need to work with animations under the `Aspose.Slides.Animation` namespace,
 * Aspose.Slides provides over **150 animation effects** under the [EffectType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effecttype) enumeration. These effects are essentially the same (or equivalent) effects used in PowerPoint.
@@ -159,29 +171,92 @@ try {
 
 ## **Get the Animation Effects Applied to Shape**
 
-You may decide to find out the all animation effects applied to a single shape. 
+The following examples show you how to use the `getEffectsByShape` method from the [Sequence](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sequence/) class to get all animation effects applied to a shape.
 
-This Javascript code shows you how to get the all effects applied to a specific shape:
+**Example 1: Get animation effects applied to a shape on a normal slide**
+
+Previously, you learned how to add animation effects to shapes in PowerPoint presentations. The following sample code shows you how to get the effects applied to the first shape on the first normal slide in the presentation `AnimExample_out.pptx`.
 
 ```javascript
-// Instantiates a presentation class that represents a presentation file.
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Gets the main sequence of the slide.
+    var firstSlide = presentation.getSlides().get_Item(0);
+
+    // Gets the main animation sequence of the slide.
     var sequence = firstSlide.getTimeline().getMainSequence();
-    // Gets the first shape on slide.
+
+    // Gets the first shape on the first slide.
     var shape = firstSlide.getShapes().get_Item(0);
-    // Gets all animation effects applied to the shape.
+
+    // Gets animation effects applied to the shape.
     var shapeEffects = sequence.getEffectsByShape(shape);
+
     if (shapeEffects.length > 0) {
-        console.log(((("The shape " + shape.getName()) + " has ") + shapeEffects.length) + " animation effects.");
+        console.log("The shape", shape.getName(), "has", shapeEffects.length, "animation effects.");
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
+    if (presentation != null) {
+        presentation.dispose();
     }
 }
+```
+
+**Example 2: Get all animation effects, including those inherited from placeholders**
+
+If a shape on a normal slide has placeholders that are on the layout slide and/or master slide, and animation effects have been added to these placeholders, then all effects of the shape will be played during the slide show, including those inherited from the placeholders.
+
+Let's say we have a PowerPoint presentation file `sample.pptx` with one slide containg only a footer shape with the text "Made with Aspose.Slides" and the **Random Bars** effect is applied to the shape.
+
+![Slide shape animation effect](slide-shape-animation.png)
+
+Let's also assume that the **Split** effect is applied to the footer placeholder on the **layout** slide.
+
+![Layout shape animation effect](layout-shape-animation.png)
+
+And finally, the **Fly In** effect is applied to the footer placeholder on the **master** slide.
+
+![Master shape animation effect](master-shape-animation.png)
+
+The following sample code shows you how to use the `getBasePlaceholder` method from the [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) class to access the shape placeholders and get the animation effects applied to the footer shape, including those inherited from placeholders located on the layout and master slides.
+
+```js
+var presentation = new aspose.slides.Presentation("sample.pptx");
+
+var slide = presentation.getSlides().get_Item(0);
+
+// Get animation effects of the shape on the normal slide.
+var shape = slide.getShapes().get_Item(0);
+var shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
+
+// Get animation effects of the placeholder on the layout slide.
+var layoutShape = shape.getBasePlaceholder();
+var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
+
+// Get animation effects of the placeholder on the master slide.
+var masterShape = layoutShape.getBasePlaceholder();
+var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
+
+console.log("Main sequence of shape effects:");
+printEffects(masterShapeEffects);
+printEffects(layoutShapeEffects);
+printEffects(shapeEffects);
+
+presentation.dispose();
+```
+```js
+function printEffects(effects) {
+    for (const effect of effects) {
+        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+    }
+}
+```
+
+Output:
+```text
+Main sequence of shape effects:
+Type: 47, subtype: 2              // Fly, Bottom
+Type: 134, subtype: 45            // Split, VerticalIn
+Type: 126, subtype: 22            // RandomBars, Horizontal
 ```
 
 ## **Change Animation Effect Timing Properties**

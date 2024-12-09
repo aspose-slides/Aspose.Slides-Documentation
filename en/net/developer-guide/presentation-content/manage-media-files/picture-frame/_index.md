@@ -3,20 +3,25 @@ title: Picture Frame
 type: docs
 weight: 10
 url: /net/picture-frame/
-keywords: 
-- add picture frame
-- create picture frame
-- add image
-- create image
-- extract image
+keywords:
+- picture frame
+- add a picture frame
+- create a picture frame
+- add an image
+- create an image
+- extract an image
+- crop an image
 - StretchOff property
 - picture frame formatting
 - picture frame properties
-- PowerPoint presentation
+- image effect
+- aspect ratio
+- PowerPoint
+- presentation
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: "Add picture frame to PowerPoint presentation in C# or .NET"
+description: "Add a picture frame to a PowerPoint presentation in C# or .NET"
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
@@ -127,10 +132,10 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ## **Get Transparency of Image**
 
-Aspose.Slides allows you to get the transparency of an image. This C# code demonstrates the operation:
+Aspose.Slides allows you to get the transparency effect applied to an image. This C# code demonstrates the operation:
 
 ```c#
-using (var presentation = new Presentation(folderPath + "Test.pptx"))
+using (var presentation = new Presentation("Test.pptx"))
 {
     var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
     var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
@@ -144,6 +149,10 @@ using (var presentation = new Presentation(folderPath + "Test.pptx"))
     }
 }
 ```
+
+{{% alert color="primary" %}} 
+All effects applied to images can be found in [Aspose.Slides.Effects](https://reference.aspose.com/slides/net/aspose.slides.effects/).
+{{% /alert %}}
 
 ## **Picture Frame Formatting**
 
