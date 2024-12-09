@@ -3,6 +3,22 @@ title: Presentation Properties
 type: docs
 weight: 70
 url: /php-java/presentation-properties/
+keywords:
+- PowerPoint properties
+- presentation properties
+- document properties
+- built-in properties
+- custom properties
+- advanced properties
+- modify properties
+- document metadata
+- edit metadata
+- PowerPoint
+- presentation
+- PHP
+- Java
+- Aspose.Slides for PHP via Java
+description: "Manage PowerPoint presentation properties in PHP"
 ---
 
 {{% alert color="primary" %}} 
@@ -17,6 +33,7 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 {{% /alert %}} 
 
 ## **Document Properties in PowerPoint**
+
 Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007 as shown below:
 
 {{% alert color="primary" %}} 
@@ -35,8 +52,6 @@ After you select **Advanced Properties** menu item, a dialog would appear allowi
 |![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
 In the above **Properties Dialog**, you can see that there are many tab pages like **General**, **Summary**, **Statistics**, **Contents** and **Custom**. All these tab pages allow configuring different kinds of information related to the PowerPoint files. **Custom** tab is used to manage the custom properties of the PowerPoint files.
 
-
-
 Working with Document Properties Using Aspose.Slides for PHP via Java
 
 As we have described earlier that Aspose.Slides for PHP via Java supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for PHP via Java API. Aspose.Slides for PHP via Java provides a class [IDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through **Presentation.DocumentProperties** property.
@@ -44,6 +59,7 @@ As we have described earlier that Aspose.Slides for PHP via Java supports two ki
 Developers can use **IDocumentProperties** property exposed by [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation) object to access the document properties of the presentation files as described below:
 
 ## **Access Built-in Properties**
+
 These properties as exposed by [IDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/idocumentproperties) object include: **Creator** (Author), **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 ```php
@@ -75,6 +91,7 @@ These properties as exposed by [IDocumentProperties](https://reference.aspose.co
 ```
 
 ## **Modify Built-in Properties**
+
 Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated how we can modify the built-in document properties of the presentation file using Aspose.Slides for PHP via Java.
 
 ```php
@@ -104,6 +121,7 @@ This example modifies the built-in properties of the presentation that can be vi
 |![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
 
 ## **Add Custom Document Properties**
+
 Aspose.Slides for PHP via Java also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```php
@@ -133,6 +151,7 @@ Aspose.Slides for PHP via Java also allows developers to add the custom the valu
 |![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
 
 ## **Access and Modify Custom Properties**
+
 Aspose.Slides for PHP via Java also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```php
@@ -169,6 +188,7 @@ This example modifies the custom properties of the [PPTX ](https://docs.fileform
 |![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
 
 ## **Advanced Document Properties**
+
 {{% alert color="primary" %}} 
 
 New methods [ReadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-), and [WriteBindedPresentation](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) have been added to [IPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/IPresentationInfo), logic of the [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/php-java/aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-) property setter has been changed.
@@ -190,7 +210,6 @@ The typical scenario load the properties, change some value and update the docum
   # update the presentation with a new values
   $info->updateDocumentProperties($props);
   $info->writeBindedPresentation("presentation.pptx");
-
 ```
 
 There is another way to use properties of a particular presentation as a template to update properties in other presentations:
@@ -209,7 +228,6 @@ There is another way to use properties of a particular presentation as a templat
   updateByTemplate("doc1.pptx", $template);
   updateByTemplate("doc2.odp", $template);
   updateByTemplate("doc3.ppt", $template);
-
 ```
 
 ```php
@@ -231,24 +249,6 @@ A new template can be created from scratch and then used to update multiple pres
   updateByTemplate("doc1.pptx", $template);
   updateByTemplate("doc2.odp", $template);
   updateByTemplate("doc3.ppt", $template);
-
-```
-
-```php
-
-```
-
-## **Check if Presentation is Modified or Created**
-Aspose.Slides for PHP via Java provides the facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
-
-```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("props.pptx");
-  $props = $info->readDocumentProperties();
-  $app = $props->getNameOfApplication();
-  $ver = $props->getAppVersion();
-  echo("Application Name: " . $app);
-  echo("Application Version: " . $ver);
-
 ```
 
 ## **Set Proofing Language**
@@ -301,3 +301,8 @@ This PHP code shows you how to set the default language for an entire PowerPoint
   }
 ```
 
+## **Live Example**
+
+Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
+
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)

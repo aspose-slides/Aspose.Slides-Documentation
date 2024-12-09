@@ -3,23 +3,27 @@ title: Presentation Properties
 type: docs
 weight: 70
 url: /python-net/presentation-properties/
-keywords: "PowerPoint properties, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint presentation properties in Python"
+keywords:
+- PowerPoint properties
+- presentation properties
+- document properties
+- built-in properties
+- custom properties
+- advanced properties
+- modify properties
+- document metadata
+- edit metadata
+- PowerPoint
+- presentation
+- Python
+- .NET
+- Aspose.Slides for Python via .NET
+description: "Manage PowerPoint presentation properties in Python"
 ---
 
-
-## **Live Example**
-Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
-
-[](https://products.aspose.app/slides/metadata)
-
-[![todo:image_alt_text](slides-metadata.png)](https://products.aspose.app/slides/metadata)
-
-
 ## **About Presentation Properties**
+
 As we have described earlier that Aspose.Slides for Python via .NET supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for Python via .NET API. Aspose.Slides for Python via .NET provides a class [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) that represents the document properties associated with a presentation file through [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) property. Developers can use [IDocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/idocumentproperties/) property exposed by **Presentation** object to access the document properties of the presentation files as described below:
-
-
 
 {{% alert color="primary" %}} 
 
@@ -27,8 +31,8 @@ Please note that you cannot set values against the **Application** and **Prod
 
 {{% /alert %}} 
 
-
 ## **Manage Presentation Properties**
+
 Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
 
 - System Defined (Built-in) Properties
@@ -61,7 +65,9 @@ with slides.Presentation(path + "AccessBuiltin Properties.pptx") as pres:
     print("Subject : " + documentProperties.subject)
     print("Title : " + documentProperties.title)
 ```
+
 ## **Modify Built-in Properties**
+
 Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated that how we can modify the built-in document properties of the presentation file.
 
 ```py
@@ -84,6 +90,7 @@ with slides.Presentation(path + "ModifyBuiltinProperties.pptx") as presentation:
 ```
 
 ## **Add Custom Presentation Properties**
+
 Aspose.Slides for Python via .NET also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 ```py
@@ -110,6 +117,7 @@ with slides.Presentation() as presentation:
 ```
 
 ## **Access and Modify Custom Properties**
+
 Aspose.Slides for Python via .NET also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 ```py
@@ -130,19 +138,6 @@ with slides.Presentation(path + "AccessModifyingProperties.pptx") as presentatio
         documentProperties.set_custom_property_value(documentProperties.get_custom_property_name(i), "New Value " + str(i + 1))
     # save your presentation to a file
     presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Check if Presentation is Modified or Created**
-Aspose.Slides for Python via .NET provides a facility to check if a presentation is modified or created. An example is given below that shows how to check if the presentation is created or modified.
-
-```py
-import aspose.slides as slides
-
-info =slides.PresentationFactory.instance.get_presentation_info(path + "AccessModifyingProperties.pptx")
-props = info.read_document_properties()
-
-print(props.name_of_application)
-print(props.app_version)
 ```
 
 ## **Set Proofing Language**
@@ -191,3 +186,8 @@ with slides.Presentation(load_options) as pres:
     print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
 ```
 
+## **Live Example**
+
+Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
+
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
