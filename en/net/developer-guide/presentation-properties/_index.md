@@ -22,17 +22,9 @@ keywords:
 description: "Manage PowerPoint presentation properties in C# or .NET"
 ---
 
-
-## **Live Example**
-Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
-
-[![todo:image_alt_text](slides-metadata.png)](https://products.aspose.app/slides/metadata)
-
-
 ## **About Presentation Properties**
+
 As we have described earlier that Aspose.Slides for .NET supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for .NET API. Aspose.Slides for .NET provides a class [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/properties/index) property. Developers can use [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties) property exposed by **Presentation** object to access the document properties of the presentation files as described below:
-
-
 
 {{% alert color="primary" %}} 
 
@@ -40,8 +32,8 @@ Please note that you cannot set values against the **Application** and **Prod
 
 {{% /alert %}} 
 
-
 ## **Manage Presentation Properties**
+
 Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
 
 - System Defined (Built-in) Properties
@@ -52,17 +44,21 @@ Microsoft PowerPoint provides a feature to add some properties to the presentati
 These properties as exposed by **IDocumentProperties** object include: **Creator(Author)**, **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AccessBuiltinProperties-AccessBuiltinProperties.cs" >}}
+
 ## **Modify Built-in Properties**
+
 Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated that how we can modify the built-in document properties of the presentation file.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-ModifyBuiltinProperties-ModifyBuiltinProperties.cs" >}}
 
 ## **Add Custom Presentation Properties**
+
 Aspose.Slides for .NET also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AddCustomDocumentProperties-AddCustomDocumentProperties.cs" >}}
 
 ## **Access and Modify Custom Properties**
+
 Aspose.Slides for .NET also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
 
 {{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AccessModifyingProperties-AccessModifyingProperties.cs" >}}
@@ -114,3 +110,8 @@ using (Presentation pres = new Presentation(loadOptions))
 }
 ```
 
+## **Live Example**
+
+Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
+
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
