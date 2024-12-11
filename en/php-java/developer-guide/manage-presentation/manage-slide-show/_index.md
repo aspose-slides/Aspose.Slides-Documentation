@@ -32,7 +32,7 @@ In Microsoft PowerPoint, the **Slide Show** settings are a key tool for preparin
 
 ## **Select Show Type**
 
-`SlideShowSettings.setSlideShowType` defines the type of slide show, which can be an instance of the following classes: [PresentedBySpeaker](https://reference.aspose.com/slides/php-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/php-java/aspose.slides/browsedbyindividual/), or [BrowsedAtKiosk](https://reference.aspose.com/slides/php-java/aspose.slides/browsedatkiosk/). Using this method allows you to adapt the presentation for different usage scenarios, such as automated kiosks or manual presentations.
+`SlideShowSettings->setSlideShowType` defines the type of slide show, which can be an instance of the following classes: [PresentedBySpeaker](https://reference.aspose.com/slides/php-java/aspose.slides/presentedbyspeaker/), [BrowsedByIndividual](https://reference.aspose.com/slides/php-java/aspose.slides/browsedbyindividual/), or [BrowsedAtKiosk](https://reference.aspose.com/slides/php-java/aspose.slides/browsedatkiosk/). Using this method allows you to adapt the presentation for different usage scenarios, such as automated kiosks or manual presentations.
 
 The code example below creates a new presentation and sets the show type to "Browsed by an individual" without displaying the scrollbar.
 
@@ -50,7 +50,7 @@ $presentation->dispose();
 
 ## **Enable Show Options**
 
-`SlideShowSettings.setLoop` determines whether the slide show should repeat in a loop until manually stopped. This is useful for automated presentations that need to run continuously. `SlideShowSettings.setShowNarration` determines whether voice narrations should be played during the slide show. It is useful for automated presentations that contain voice guidance for the audience. `SlideShowSettings.setShowAnimation` determines whether animations added to slide objects should be played. This is useful for providing the full visual effect of the presentation.
+`SlideShowSettings->setLoop` determines whether the slide show should repeat in a loop until manually stopped. This is useful for automated presentations that need to run continuously. `SlideShowSettings->setShowNarration` determines whether voice narrations should be played during the slide show. It is useful for automated presentations that contain voice guidance for the audience. `SlideShowSettings->setShowAnimation` determines whether animations added to slide objects should be played. This is useful for providing the full visual effect of the presentation.
 
 The following code example creates a new presentation and loops the slide show.
 
@@ -65,7 +65,7 @@ $presentation->dispose();
 
 ## **Select Slides to Show**
 
-`SlideShowSettings.setSlides` method allows you to select a range of slides to be shown during the presentation. This is useful when you need to show only part of the presentation rather than all slides. The following code example creates a new presentation and sets the slide range to display from slides `2` to `9`.
+`SlideShowSettings->setSlides` method allows you to select a range of slides to be shown during the presentation. This is useful when you need to show only part of the presentation rather than all slides. The following code example creates a new presentation and sets the slide range to display from slides `2` to `9`.
 
 ```php
 $presentation = new Presentation();
@@ -82,7 +82,7 @@ $presentation->dispose();
 
 ## **Use Advance Slides**
 
-`SlideShowSettings.setUseTimings` method allows you to enable or disable the use of preset timings for each slide. This is useful for automatically showing slides with pre-defined display durations. The code example below creates a new presentation and disables the use of timings.
+`SlideShowSettings->setUseTimings` method allows you to enable or disable the use of preset timings for each slide. This is useful for automatically showing slides with pre-defined display durations. The code example below creates a new presentation and disables the use of timings.
 
 ```php
 $presentation = new Presentation();
@@ -95,7 +95,7 @@ $presentation->dispose();
 
 ## **Show Media Controls**
 
-`SlideShowSettings.setShowMediaControls` method determines whether media controls (such as play, pause, and stop) should be displayed during the slide show when multimedia content (e.g., video or audio) is played. This is useful when you want to give the presenter control over media playback during the presentation.
+`SlideShowSettings->setShowMediaControls` method determines whether media controls (such as play, pause, and stop) should be displayed during the slide show when multimedia content (e.g., video or audio) is played. This is useful when you want to give the presenter control over media playback during the presentation.
 
 The following code example creates a new presentation and enables media controls to be displayed.
 
