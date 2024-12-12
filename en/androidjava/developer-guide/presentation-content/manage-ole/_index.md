@@ -99,11 +99,11 @@ In the example below, an OLE object frame (an Excel chart object embedded in a s
 ```java 
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
 
-// Get the first shape as an OLE object frame.
-IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
-
-if (oleFrame != null) {
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
+    
     // Get the embedded file data.
     byte[] oleData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
@@ -123,21 +123,21 @@ This Java code shows you how to check if an OLE object is linked and then obtain
 ```java
 Presentation presentation = new Presentation("sample.ppt");
 ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
 
-// Get the first shape as an OLE object frame.
-IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
 
-// Check if the OLE object is linked.
-if (oleFrame != null && oleFrame.isObjectLink())
-{
-    // Print the full path to the linked file.
-    System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
+    // Check if the OLE object is linked.
+    if (oleFrame.isObjectLink()) {
+        // Print the full path to the linked file.
+        System.out.println("OLE object frame is linked to: " + oleFrame.getLinkPathLong());
 
-    // Print the relative path to the linked file if present.
-    // Only the PPT presentations can contain the relative path.
-    if (oleFrame.getLinkPathRelative() != null && !oleFrame.getLinkPathRelative().isEmpty())
-    {
-        System.out.println("OLE object frame relative path: " + oleFrame.getLinkPathRelative());
+        // Print the relative path to the linked file if present.
+        // Only the PPT presentations can contain the relative path.
+        if (oleFrame.getLinkPathRelative() != null && !oleFrame.getLinkPathRelative().isEmpty()) {
+            System.out.println("OLE object frame relative path: " + oleFrame.getLinkPathRelative());
+        }
     }
 }
 
@@ -169,32 +169,30 @@ In the example below, an OLE object frame (an Excel chart object embedded in a s
 ```java 
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
+IShape shape = slide.getShapes().get_Item(0);
 
-// Get the first shape as an OLE object frame.
-IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
+if (shape instanceof IOleObjectFrame) {
+    IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
 
-if (oleFrame != null)
-{
     ByteArrayInputStream oleStream = new ByteArrayInputStream(oleFrame.getEmbeddedData().getEmbeddedFileData());
-    {
-        // Read the OLE object data as a Workbook object.
-        Workbook workbook = new Workbook(oleStream);
 
-        ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
+    // Read the OLE object data as a Workbook object.
+    Workbook workbook = new Workbook(oleStream);
 
-        // Modify the workbook data.
-        workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
-        workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
-        workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
-        workbook.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
+    ByteArrayOutputStream newOleStream = new ByteArrayOutputStream();
 
-        OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
-        workbook.save(newOleStream, fileOptions);
+    // Modify the workbook data.
+    workbook.getWorksheets().get(0).getCells().get(0, 4).putValue("E");
+    workbook.getWorksheets().get(0).getCells().get(1, 4).putValue(12);
+    workbook.getWorksheets().get(0).getCells().get(2, 4).putValue(14);
+    workbook.getWorksheets().get(0).getCells().get(3, 4).putValue(15);
 
-        // Change the OLE frame object data.
-        IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
-        oleFrame.setEmbeddedData(newData);
-    }
+    OoxmlSaveOptions fileOptions = new OoxmlSaveOptions(com.aspose.cells.SaveFormat.XLSX);
+    workbook.save(newOleStream, fileOptions);
+
+    // Change the OLE frame object data.
+    IOleEmbeddedDataInfo newData = new OleEmbeddedDataInfo(newOleStream.toByteArray(), oleFrame.getEmbeddedData().getEmbeddedFileExtension());
+    oleFrame.setEmbeddedData(newData);
 }
 
 presentation.save("output.pptx", SaveFormat.Pptx);
@@ -234,7 +232,7 @@ This Java code shows you how to set the file type for an embedded OLE object to 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 ISlide slide = presentation.getSlides().get_Item(0);
-IOleObjectFrame oleFrame = (IOleObjectFrame)slide.getShapes().get_Item(0);
+IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
 String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 byte[] oleData = oleFrame.getEmbeddedData().getEmbeddedFileData();

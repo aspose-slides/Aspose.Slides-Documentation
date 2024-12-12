@@ -314,7 +314,8 @@ using (Presentation presentation = new Presentation("sample.pptx"))
             byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
             string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
-            File.WriteAllBytes($"OLE_object_{index}{fileExtension}", fileData);
+            string filePath = $"OLE_object_{index}{fileExtension}";
+            File.WriteAllBytes(filePath, fileData);
         }
     }
 }
