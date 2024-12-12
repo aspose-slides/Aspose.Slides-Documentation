@@ -22,7 +22,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides for Android via Java
-description: Add OLE objects to PowerPoint presentations in Java
+description: Manage OLE objects in PowerPoint presentations in Java
 ---
 
 {{% alert color="primary" %}} 
@@ -281,6 +281,7 @@ oleFrame.setUpdateAutomatic(false);
 ## **Extracting Embedded Files**
 
 Aspose.Slides for Android via Java allows you to extract the files embedded in slides as OLE objects this way:
+
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class containing the OLE objects you intend to extract.
 2. Loop through all the shapes in the presentation and access the [OLEObjectFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/oleobjectframe) shapes.
 3. Access the data of embedded files from OLE object frames and write it to disk.

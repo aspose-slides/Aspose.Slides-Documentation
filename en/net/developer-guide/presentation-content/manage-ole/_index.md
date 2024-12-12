@@ -22,7 +22,7 @@ keywords:
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: Add OLE objects to PowerPoint presentations in C# or .NET
+description: Manage OLE objects in PowerPoint presentations in C# or .NET
 ---
 
 {{% alert title="Info" color="info" %}}

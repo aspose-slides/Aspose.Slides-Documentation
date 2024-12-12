@@ -21,7 +21,7 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides for C++
-description: Add OLE objects to PowerPoint presentations in C++
+description: Manage OLE objects in PowerPoint presentations in C++
 ---
 
 {{% alert title="Info" color="info" %}}
