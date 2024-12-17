@@ -133,6 +133,47 @@ using (Presentation pres = new Presentation("SetImageAsBackground.pptx"))
 }
 ```
 
+The next code sample demonstrates how to set the background fill type to the tiled picture fill and change the Tile properties:
+
+```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide firstSlide = pres.Slides[0];
+
+    IPPImage ppImage;
+    using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
+        ppImage = pres.Images.AddImage(newImage);
+
+    // Gets the background of the first slide
+    IBackground background = firstSlide.Background;
+
+    // Sets the type of the background to OwnBackground.
+    background.Type = BackgroundType.OwnBackground;
+
+    // Sets the fill type of the background to Picture
+    background.FillFormat.FillType = FillType.Picture;
+
+    // Sets the background fill image
+    IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
+    backPictureFillFormat.Picture.Image = ppImage;
+
+    // Sets the picture fill mode to Tile and changes the properties
+    backPictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    backPictureFillFormat.TileOffsetX = 15f;
+    backPictureFillFormat.TileOffsetY = 15f;
+    backPictureFillFormat.TileScaleX = 46f;
+    backPictureFillFormat.TileScaleY = 87f;
+    backPictureFillFormat.TileAlignment = RectangleAlignment.Center;
+    backPictureFillFormat.TileFlip = TileFlip.FlipY;
+
+    pres.Save("BackgroundTile.pptx", SaveFormat.Pptx);
+}
+```
+
+{{% alert color="primary" %}} 
+Read more [**Tile Picture As Texture**](https://docs.aspose.com/slides/net/shape-formatting/#tile-picture-as-texture).
+{{% /alert %}}
+
 ### **Change Transparency of Background Image**
 
 You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This C# code shows you how to change the transparency for a slide background image:
