@@ -267,6 +267,49 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+### **Tile Picture As Texture**
+If you want to set a tile picture as texture and change the tile options, you can use the following properties of [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) class:
+
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) property switches the picture fill mode between [Tile](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) and [Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/);
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/) property returns or sets the alignment for the tiling of the texture fill;
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/) property flips the texture tile around its horizontal, vertical or both axis.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/) property returns or sets the horizontal offset of the texture from the shape's origin in points
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/) property returns or sets the vertical offset of the texture from the shape's origin in points;
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/) property returns or sets the horizontal scale for the texture fill in percentage;
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/) property returns or sets the vertical scale for the texture fill in percentage;
+
+This code sample demonstrates how to add the new Rectangle shape with a tiled picture fill and change the Tile properties:
+```c#
+using (Presentation pres = new Presentation())
+{
+    ISlide firstSlide = pres.Slides[0];
+
+    IPPImage ppImage;
+    using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
+        ppImage = pres.Images.AddImage(newImage);
+    
+    // Adds the new Rectangle shape
+    var newShape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 350, 350);
+    
+    // Sets the fill type of the new shape to Picture
+    newShape.FillFormat.FillType = FillType.Picture;
+    
+    // Sets the shape's fill image
+    IPictureFillFormat pictureFillFormat = newShape.FillFormat.PictureFillFormat;
+    pictureFillFormat.Picture.Image = ppImage;
+    
+    // Sets the picture fill mode to Tile and changes the properties
+    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    pictureFillFormat.TileOffsetX = -275;
+    pictureFillFormat.TileOffsetY = -247;
+    pictureFillFormat.TileScaleX = 25;
+    pictureFillFormat.TileScaleY = 15;
+    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
+    
+    pres.Save("Tile.pptx", SaveFormat.Pptx);
+}
+```
 
 ## **Solid Color Fill**
 In PowerPoint, Solid Color Fill is a formatting option that allows you to fill a shape with a single color. The chosen color is typically a plain color. The color gets applied to the shape background with any special effects or modifications. 
