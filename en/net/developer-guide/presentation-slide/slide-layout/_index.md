@@ -128,6 +128,48 @@ auxPresentation.Slides.RemoveAt(0);
 auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Add Placeholder To Slide Layout**
+
+Aspose.Slides provides the [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) property that allows you to add new placeholders to the layout slide.
+
+This manager contains methods for the following placeholder types:
+
+| PowerPoint Placeholder              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) Method |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height); |
+| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height); |
+| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height); |
+| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height); |
+| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height); |
+| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height); |
+| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height); |
+| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height); |
+| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height); |
+| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height); |
+
+This C# code demonstrates how to add the new placeholder shapes to the Blank layout slide:
+
+```c#
+using (var pres = new Presentation())
+{
+    // Getting the Blank layout slide
+    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+    // Getting the placeholder manager of the layout slide
+    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
+
+    // Adding different placeholders to the Blank layout slide
+    placeholderManager.AddContentPlaceholder(10, 10, 300, 200);
+    placeholderManager.AddVerticalTextPlaceholder(350, 10, 200, 300);
+    placeholderManager.AddChartPlaceholder(10, 350, 300, 300);
+    placeholderManager.AddTablePlaceholder(350, 350, 300, 200);
+
+    // Adding the new slide with Blank layout
+    ISlide newSlide = pres.Slides.AddEmptySlide(layout);
+
+    pres.Save("placeholders.pptx", SaveFormat.Pptx);
+}
+```
 
 ## **Set Footer Visibility Inside Slide**
 
