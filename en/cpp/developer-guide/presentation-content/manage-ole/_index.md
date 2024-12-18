@@ -56,8 +56,8 @@ auto slideSize = presentation->get_SlideSize()->get_Size();
 auto slide = presentation->get_Slide(0);
 
 // Prepare data for the OLE object.
-auto oleData = File::ReadAllBytes(u"book.xlsx");
-auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
+auto fileData = File::ReadAllBytes(u"book.xlsx");
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(fileData, u"xlsx");
 
 // Add the OLE object frame to the slide.
 slide->get_Shapes()->AddOleObjectFrame(0, 0, slideSize.get_Width(), slideSize.get_Height(), dataInfo);
@@ -105,7 +105,7 @@ if (ObjectExt::Is<IOleObjectFrame>(shape))
     auto oleFrame = ExplicitCast<IOleObjectFrame>(shape);
 
     // Get the embedded file data.
-    auto oleData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+    auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
     // Get the extension of the embedded file.
     auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
@@ -262,12 +262,12 @@ auto slide = presentation->get_Slide(0);
 auto oleFrame = ExplicitCast<IOleObjectFrame>(slide->get_Shape(0));
 
 auto fileExtension = oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension();
-auto oleData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
+auto fileData = oleFrame->get_EmbeddedData()->get_EmbeddedFileData();
 
-std::wcout << L"Current embedded data extension is: " << fileExtension << std::endl;
+std::wcout << L"Current embedded file extension is: " << fileExtension << std::endl;
 
 // Change the file type to ZIP.
-oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(oleData, u"zip"));
+oleFrame->SetEmbeddedData(MakeObject<OleEmbeddedDataInfo>(fileData, u"zip"));
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();

@@ -58,8 +58,8 @@ var slide = presentation.getSlides().get_Item(0);
 
 // Prepare data for the OLE object.
 var oleStream = fs.readFileSync("book.xlsx");
-var oleData = Array.from(oleStream);
-var dataInfo = new asposeSlides.OleEmbeddedDataInfo(java.newArray("byte", oleData), "xlsx");
+var fileData = Array.from(oleStream);
+var dataInfo = new asposeSlides.OleEmbeddedDataInfo(java.newArray("byte", fileData), "xlsx");
 
 // Add the OLE object frame to the slide.
 slide.getShapes().addOleObjectFrame(0, 0, slideSize.getWidth(), slideSize.getHeight(), dataInfo);
@@ -105,7 +105,7 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     var oleFrame = shape;
     
     // Get the embedded file data.
-    var oleData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+    var fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
     // Get the extention of the embedded file.
     var fileExtention = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
@@ -241,11 +241,11 @@ var oleFrame = slide.getShapes().get_Item(0);
 var fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 var oleFileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-console.log("Current embedded data extension is:", fileExtension);
+console.log("Current embedded file extension is:", fileExtension);
 
 // Change the file type to ZIP.
-var oleData = java.newArray("byte", Array.from(oleFileData));
-oleFrame.setEmbeddedData(new asposeSlides.OleEmbeddedDataInfo(oleData, "zip"));
+var fileData = java.newArray("byte", Array.from(oleFileData));
+oleFrame.setEmbeddedData(new asposeSlides.OleEmbeddedDataInfo(fileData, "zip"));
 
 presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
 presentation.dispose();

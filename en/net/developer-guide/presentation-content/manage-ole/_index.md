@@ -58,8 +58,8 @@ using (Presentation presentation = new Presentation())
     ISlide slide = presentation.Slides[0];
 
     // Prepare data for the OLE object.
-    byte[] oleData = File.ReadAllBytes("book.xlsx");
-    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xlsx");
+    byte[] fileData = File.ReadAllBytes("book.xlsx");
+    IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
     // Add the OLE object frame to the slide.
     slide.Shapes.AddOleObjectFrame(0, 0, slideSize.Width, slideSize.Height, dataInfo);
@@ -109,7 +109,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     if (oleFrame != null)
     {
         // Get the embedded file data.
-        byte[] oleData = oleFrame.EmbeddedData.EmbeddedFileData;
+        byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
         // Get the extention of the embedded file.
         string fileExtention = oleFrame.EmbeddedData.EmbeddedFileExtension;
@@ -246,12 +246,12 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     IOleObjectFrame oleFrame = (IOleObjectFrame)slide.Shapes[0];
 
     string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
-    byte[] oleData = oleFrame.EmbeddedData.EmbeddedFileData;
+    byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-    Console.WriteLine($"Current embedded data extension is: {fileExtension}");
+    Console.WriteLine($"Current embedded file extension is: {fileExtension}");
 
     // Change the file type to ZIP.
-    oleFrame.SetEmbeddedData(new OleEmbeddedDataInfo(oleData, "zip"));
+    oleFrame.SetEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }

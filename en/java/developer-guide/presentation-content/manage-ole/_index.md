@@ -56,8 +56,8 @@ Dimension2D slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
 // Prepare data for the OLE object.
-byte[] oleData = Files.readAllBytes(Paths.get("book.xlsx"));
-IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(oleData, "xlsx");
+byte[] fileData = Files.readAllBytes(Paths.get("book.xlsx"));
+IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
 // Add the OLE object frame to the slide.
 slide.getShapes().addOleObjectFrame(0, 0, (float)slideSize.getWidth(), (float)slideSize.getHeight(), dataInfo);
@@ -104,7 +104,7 @@ if (shape instanceof IOleObjectFrame) {
     IOleObjectFrame oleFrame = (IOleObjectFrame) shape;
     
     // Get the embedded file data.
-    byte[] oleData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+    byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
     // Get the extention of the embedded file.
     String fileExtention = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
@@ -234,12 +234,12 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
 String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
-byte[] oleData = oleFrame.getEmbeddedData().getEmbeddedFileData();
+byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-System.out.println("Current embedded data extension is: " + fileExtension);
+System.out.println("Current embedded file extension is: " + fileExtension);
 
 // Change the file type to ZIP.
-oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(oleData, "zip"));
+oleFrame.setEmbeddedData(new OleEmbeddedDataInfo(fileData, "zip"));
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();
