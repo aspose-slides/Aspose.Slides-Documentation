@@ -106,8 +106,8 @@ if (java_instanceof($shape, new JavaClass("com.aspose.slides.OleObjectFrame"))) 
     // Get the embedded file data.
     $fileData = $oleFrame->getEmbeddedData()->getEmbeddedFileData();
 
-    // Get the extention of the embedded file.
-    $fileExtention = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
+    // Get the extension of the embedded file.
+    $fileExtension = $oleFrame->getEmbeddedData()->getEmbeddedFileExtension();
 
     // ...
 }
@@ -120,7 +120,7 @@ Aspose.Slides allows you to access linked OLE object frame properties.
 This PHP code shows you how to check if an OLE object is linked and then obtain the path to the linked file:
 
 ```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("sample.ppt");
 $slide = $presentation->getSlides()->get_Item(0);
 $shape = $slide->getShapes()->get_Item(0);
 

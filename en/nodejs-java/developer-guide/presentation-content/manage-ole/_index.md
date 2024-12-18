@@ -107,8 +107,8 @@ if (java.instanceOf(shape, "com.aspose.slides.OleObjectFrame")) {
     // Get the embedded file data.
     var fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-    // Get the extention of the embedded file.
-    var fileExtention = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+    // Get the extension of the embedded file.
+    var fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
     // ...
 }

@@ -107,8 +107,8 @@ if (shape instanceof IOleObjectFrame) {
     // Get the embedded file data.
     byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
 
-    // Get the extention of the embedded file.
-    String fileExtention = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
+    // Get the extension of the embedded file.
+    String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
     // ...
 }

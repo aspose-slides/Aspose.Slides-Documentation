@@ -111,8 +111,8 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         // Get the embedded file data.
         byte[] fileData = oleFrame.EmbeddedData.EmbeddedFileData;
 
-        // Get the extention of the embedded file.
-        string fileExtention = oleFrame.EmbeddedData.EmbeddedFileExtension;
+        // Get the extension of the embedded file.
+        string fileExtension = oleFrame.EmbeddedData.EmbeddedFileExtension;
 
         // ...
     }
