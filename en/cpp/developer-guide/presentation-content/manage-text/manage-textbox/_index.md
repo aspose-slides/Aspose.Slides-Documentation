@@ -3,8 +3,17 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /cpp/manage-textbox/
-keywords: "Textbox, Text frame, Add textbox, Textbox with hyperlink, C++, Aspose.Slides for C++"
-description: "Add textbox or text frame to PowerPoint presentations in C++"
+keywords:
+- text box
+- text frame
+- add text
+- update text
+- text box with a hyperlink
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for .С++
+description: "Manage a text box or text frame in PowerPoint presentations using C++"
 ---
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for C++ provides the [IAutoShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_auto_shape) interface that allows you to add a shape containing some text.
@@ -71,18 +80,47 @@ Aspose.Slides provides the [get_IsTextBox()](https://reference.aspose.com/slides
 This C++ code shows you how to check whether a shape was created as a text box: 
 
 ```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-for (auto&& slide : pres->get_Slides())
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+for (auto&& slide : presentation->get_Slides())
 {
     for (auto&& shape : slide->get_Shapes())
     {
-        auto autoShape = System::DynamicCast_noexcept<Aspose::Slides::AutoShape>(shape);
-        if (autoShape != nullptr)
+        if (ObjectExt::Is<IAutoShape>(shape))
         {
-            System::Console::WriteLine(autoShape->get_IsTextBox() ? System::String(u"shape is text box") : System::String(u"shape is not text box"));
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            Console::WriteLine(autoShape->get_IsTextBox() ? u"shape is a text box" : u"shape is not a text box");
         }
     }
 }
+
+presentation->Dispose();
+```
+
+Note that if you simply add an autoshape using the `AddAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/) interface, the `get_IsTextBox` method of the autoshape will return `false`. However, after you add text to the autoshape using the `AddTextFrame` method or the `set_Text` method, the `get_IsTextBox` method returns `true`.
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+// shape1->get_IsTextBox() returns false
+shape1->AddTextFrame(u"shape 1");
+// shape1->get_IsTextBox() returns true
+
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
+// shape2->get_IsTextBox() returns false
+shape2->get_TextFrame()->set_Text(u"shape 2");
+// shape2->get_IsTextBox() returns true
+
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
+// shape3->get_IsTextBox() returns false
+shape3->AddTextFrame(u"");
+// shape3->get_IsTextBox() returns false
+
+auto shape4 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
+// shape4->get_IsTextBox() returns false
+shape4->get_TextFrame()->set_Text(u"");
+// shape4->get_IsTextBox() returns false
 ```
 
 ## **Add Column In Text Box**
