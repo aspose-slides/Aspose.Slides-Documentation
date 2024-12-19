@@ -3,7 +3,18 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /nodejs-java/manage-textbox/
-description: Create Text Box on PowerPoint Slides using JavaScript. Add Column in Text Box or Text Frame in PowerPoint Slides using JavaScript. Add Text Box with Hyperlink in PowerPoint Slides using JavaScript.
+keywords:
+- text box
+- text frame
+- add text
+- update text
+- text box with a hyperlink
+- PowerPoint
+- presentation
+- Node.js
+- JavaScript
+- Aspose.Slides for Node.js via Java
+description: "Manage a text box or text frame in PowerPoint presentations using JavaScript"
 ---
 
 
@@ -62,26 +73,51 @@ try {
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#isTextBox--) method (from the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#isTextBox) method from the [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) class, allowing you to examine shapes and identify text boxes.
 
 ![Text box and shape](istextbox.png)
 
 This JavaScript code shows you how to check whether a shape was created as a text box:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+var presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    java.callStaticMethodSync("ForEach", "shape", pres, (shape, slide, index) -> {
+    java.callStaticMethodSync("ForEach", "shape", presentation, (shape, slide, index) -> {
         if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
             var autoShape = shape;
-            System.out.println(autoShape.isTextBox() ? "shape is text box" : "shape is text not box");
+            console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
         }
     });
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
+```
+
+Note that if you simply add an autoshape using the `addAutoShape` method from the [ShapeCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/) class, the `isTextBox` method of the autoshape will return `false`. However, after you add text to the autoshape using the `addTextFrame` method or the `setText` method, the `isTextBox` property returns `true`.
+
+```javascript
+var presentation = new aspose.slides.Presentation();
+var slide = presentation.getSlides().get_Item(0);
+
+var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 40);
+// shape1.isTextBox() returns false
+shape1.addTextFrame("shape 1");
+// shape1.isTextBox() returns true
+
+var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 110, 100, 40);
+// shape2.isTextBox() returns false
+shape2.getTextFrame().setText("shape 2");
+// shape2.isTextBox() returns true
+
+var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 210, 100, 40);
+// shape3.isTextBox() returns false
+shape3.addTextFrame("");
+// shape3.isTextBox() returns false
+
+var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 100, 40);
+// shape4.isTextBox() returns false
+shape4.getTextFrame().setText("");
+// shape4.isTextBox() returns false
 ```
 
 ## **Add Column In Text Box**
