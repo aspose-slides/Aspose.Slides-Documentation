@@ -3,8 +3,17 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /python-net/manage-textbox/
-keywords: "Textbox, Text frame, Add textbox, Textbox with hyperlink, Python, Aspose.Slides for Python via .NET"
-description: "Add textbox or text frame to PowerPoint presentations in Python or ,NET"
+keywords:
+- text box
+- text frame
+- add text
+- update text
+- text box with a hyperlink
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides for Python via .NET
+description: "Manage a text box or text frame in PowerPoint presentations using Python"
 ---
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Python via .NET provides the [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) interface that allows you to add a shape containing some text.
@@ -66,20 +75,49 @@ with slides.Presentation() as pres:
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the `is_text_box` property (from the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+Aspose.Slides provides the [is_text_box](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/is_text_box/) property from the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) class, allowing you to examine shapes and identify text boxes.
 
 ![Text box and shape](istextbox.png)
 
 This Python code shows you how to check whether a shape was created as a text box: xxx
 
 ```python
-from aspose.slides import Presentation, AutoShape
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:
-    for slide in pres.slides:
+with slides.Presentation("sample.pptx") as presentation:
+    for slide in presentation.slides:
         for shape in slide.shapes:
-            if (type(shape) is AutoShape):
-                print("shape is text box" if shape.is_text_box else "shape is text not box")
+            if isinstance(shape, slides.AutoShape):
+                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
+```
+
+Note that if you simply add an autoshape using the `add_auto_shape` method from the [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/) class, the `is_text_box` property of the autoshape will return `False`. However, after you add text to the autoshape using the `add_text_frame` method or the `text` property, the `is_text_box` property returns `True`.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
+    # shape1.is_text_box is false
+    shape1.add_text_frame("shape 1")
+    # shape1.is_text_box is true
+
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
+    # shape2.is_text_box is false
+    shape2.text_frame.text = "shape 2"
+    # shape2.is_text_box is true
+
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
+    # shape3.is_text_box is false
+    shape3.add_text_frame("")
+    # shape3.is_text_box is false
+
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
+    # shape4.is_text_box is false
+    shape4.text_frame.text = ""
+    # shape4.is_text_box is false
 ```
 
 ## **Add Column In Text Box**
