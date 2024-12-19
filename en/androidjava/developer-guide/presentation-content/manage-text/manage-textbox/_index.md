@@ -78,7 +78,7 @@ try {
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) method from the [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
+Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#isTextBox--) method from the [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
 ![Text box and shape](istextbox.png)
 

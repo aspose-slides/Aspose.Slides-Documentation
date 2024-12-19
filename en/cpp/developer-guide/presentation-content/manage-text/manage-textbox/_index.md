@@ -73,7 +73,7 @@ pres->Save(u"TextBox_out.pptx", SaveFormat::Pptx);
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the [get_IsTextBox()](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) method (from the [AutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+Aspose.Slides provides the [get_IsTextBox](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_istextbox/) method from the [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
 ![Text box and shape](istextbox.png)
 
