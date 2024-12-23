@@ -12,7 +12,7 @@ keywords:
 - PowerPoint
 - presentation
 - C#
--Aspose.Slides for .NET
+- Aspose.Slides for .NET
 description: "Working solution for worksheet resizing in PowerPoint presentations using C#"
 ---
 
