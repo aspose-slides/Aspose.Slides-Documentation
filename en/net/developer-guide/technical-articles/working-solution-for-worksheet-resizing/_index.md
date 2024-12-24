@@ -48,6 +48,8 @@ int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
 
+int imageResolution = 96;
+
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
 var worksheet = workbook.Worksheets[worksheetIndex];
 
@@ -57,12 +59,12 @@ var lastColumn = startColumn + columnCount - 1;
 workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
-var imageStream = CreateOleImage(cellRange);
+var imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Get the width and height of the OLE image in points.
-using var oleBitmap = new Bitmap(imageStream);
-var imageWidth = oleBitmap.Width * 72 / oleBitmap.HorizontalResolution;
-var imageHeight = oleBitmap.Height * 72 / oleBitmap.VerticalResolution;
+using var image = Image.FromStream(imageStream);
+var imageWidth = image.Width * 72 / imageResolution;
+var imageHeight = image.Height * 72 / imageResolution;
 
 // We need to use the modified workbook.
 using var oleStream = new MemoryStream();
@@ -85,7 +87,7 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 ```cs
-static Stream CreateOleImage(Aspose.Cells.Range cellRange)
+static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
     var pageSetup = cellRange.Worksheet.PageSetup;
     pageSetup.PrintArea = cellRange.Address;
@@ -98,8 +100,8 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange)
     var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
         ImageType = Aspose.Cells.Drawing.ImageType.Png,
-        VerticalResolution = 96,
-        HorizontalResolution = 96,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
         OnePagePerSheet = true,
         OnlyArea = true
     };
@@ -125,6 +127,7 @@ int startRow = 0, rowCount = 10;
 int startColumn = 0, columnCount = 13;
 int worksheetIndex = 0;
 
+int imageResolution = 96;
 float frameWidth = 400, frameHeight = 100;
 
 using var workbook = new Aspose.Cells.Workbook("sample.xlsx");
@@ -139,7 +142,7 @@ workbook.Worksheets.SetOleSize(startRow, lastRow, startColumn, lastColumn);
 var cellRange = worksheet.Cells.CreateRange(startRow, startColumn, rowCount, columnCount);
 ScaleCellRange(cellRange, frameWidth, frameHeight);
 
-var imageStream = CreateOleImage(cellRange);
+var imageStream = CreateOleImage(cellRange, imageResolution);
 
 // We need to use the modified workbook.
 using var oleStream = new MemoryStream();
@@ -191,7 +194,7 @@ static void ScaleCellRange(Aspose.Cells.Range cellRange, float width, float heig
 ```
 
 ```cs
-static Stream CreateOleImage(Aspose.Cells.Range cellRange)
+static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
     var pageSetup = cellRange.Worksheet.PageSetup;
     pageSetup.PrintArea = cellRange.Address;
@@ -204,8 +207,8 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange)
     var imageOptions = new Aspose.Cells.Rendering.ImageOrPrintOptions
     {
         ImageType = Aspose.Cells.Drawing.ImageType.Png,
-        VerticalResolution = 96,
-        HorizontalResolution = 96,
+        VerticalResolution = imageResolution,
+        HorizontalResolution = imageResolution,
         OnePagePerSheet = true,
         OnlyArea = true
     };
