@@ -37,7 +37,7 @@ There are two possible solutions to avoid the resizing effect.
 - Scale the OLE frame size in the PowerPoint presentation to match the height and width of the desired number of rows and columns in the OLE frame.
 - Keep the OLE frame size constant and scale the size of the participating rows and columns to fit within the selected OLE frame size.
 
-## **Scale the OLE Frame Size**
+### **Scale the OLE Frame Size**
 
 In this approach, we will learn how to set the OLE frame size of the embedded Excel workbook to match the cumulative size of the participating rows and columns in the Excel worksheet.
 
@@ -87,7 +87,7 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 ```cs
-static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
+static MemoryStream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 {
     var pageSetup = cellRange.Worksheet.PageSetup;
     pageSetup.PrintArea = cellRange.Address;
@@ -116,7 +116,7 @@ static Stream CreateOleImage(Aspose.Cells.Range cellRange, int imageResolution)
 }
 ```
 
-## **Scale the Cell Range Size**
+### **Scale the Cell Range Size**
 
 In this approach, we will learn how to scale the heights of the participating rows and the width of the participating columns to match a custom OLE frame size.
 
