@@ -66,8 +66,8 @@ using (Presentation pres = new Presentation("Convert_Tiff_Custom.pptx"))
     // Sets the compression type
     opts.CompressionType = TiffCompressionTypes.Default;
 
-    INotesCommentsLayoutingOptions notesOptions = opts.NotesCommentsLayouting;
-    notesOptions.NotesPosition = NotesPositions.BottomFull;
+    opts.SlidesLayoutOptions = new NotesCommentsLayoutingOptions() { NotesPosition = NotesPositions.BottomFull };
+
     // Compression Types
 
     // Default - Specifies the default compression scheme (LZW).

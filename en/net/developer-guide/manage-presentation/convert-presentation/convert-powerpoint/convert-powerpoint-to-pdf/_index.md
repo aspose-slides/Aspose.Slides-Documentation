@@ -219,22 +219,32 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 This C# code shows you how to convert a PowerPoint when its slide size is specified to a PDF:
 
 ```c#
-// Instantiates a Presentation object that represents a PowerPoint file 
-Presentation presentation = new Presentation("SelectedSlides.pptx");
-Presentation auxPresentation = new Presentation();
+// Load the PowerPoint presentation
+using (Presentation presentation = new Presentation("SelectedSlides.pptx"))
+{
+    // Create a new presentation for adjusted slide size
+    using (Presentation resizedPresentation = new Presentation())
+    {
+        // Clone the first slide from the original presentation
+        ISlide slide = presentation.Slides[0];
+        resizedPresentation.Slides.InsertClone(0, slide);
 
-ISlide slide = presentation.Slides[0];
-auxPresentation.Slides.InsertClone(0, slide);
+        // Set custom slide size (e.g., 612x792 points)
+        resizedPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
 
-// Sets the slide type and size 
-// auxPresentation.SlideSize.SetSize(presentation.SlideSize.Size.Width, presentation.SlideSize.Size.Height,SlideSizeScaleType.EnsureFit);
-auxPresentation.SlideSize.SetSize(612F, 792F,SlideSizeScaleType.EnsureFit);
+        // Configure PDF options to include notes at the bottom
+        PdfOptions pdfOptions = new PdfOptions
+        {
+            SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+            {
+                NotesPosition = NotesPositions.BottomFull
+            }
+        };
 
-PdfOptions pdfOptions = new PdfOptions();
-INotesCommentsLayoutingOptions options = pdfOptions.NotesCommentsLayouting;
-options.NotesPosition = NotesPositions.BottomFull;
-
-auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+        // Save the resized presentation to a PDF with notes
+        resizedPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+    }
+}
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
@@ -242,15 +252,20 @@ auxPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
 This C# code shows you how to convert a PowerPoint to PDF notes:
 
 ```c#
-// Instantiates a Presentation class that represents a PowerPoint file
+// Load the PowerPoint presentation
 using (Presentation presentation = new Presentation("NotesFile.pptx"))
 {
-	PdfOptions pdfOptions = new PdfOptions();
-	INotesCommentsLayoutingOptions options = pdfOptions.NotesCommentsLayouting;
-	options.NotesPosition = NotesPositions.BottomFull;
+    // Configure PDF options with Notes Layout
+    PdfOptions pdfOptions = new PdfOptions
+    {
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+        {
+            NotesPosition = NotesPositions.BottomFull
+        }
+    };
 
-	// Saves the presentation to PDF notes
-	presentation.Save("Pdf_Notes_out.tiff", SaveFormat.Pdf, pdfOptions);
+    // Save the presentation to a PDF with notes
+    presentation.Save("Pdf_Notes_out.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```
 
