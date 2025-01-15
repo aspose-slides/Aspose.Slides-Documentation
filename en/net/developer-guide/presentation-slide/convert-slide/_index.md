@@ -82,37 +82,35 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 
 Some slides contain notes and comments. 
 
-Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions) and [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions)—that allow you to control the rendering of presentation slides to images. Both interfaces house the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) interface that allows you to add notes and comments on a slide when you are converting that slide to an image.
+Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/itiffoptions) and [IRenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/irenderingoptions)—that allow you to control the rendering of presentation slides to images. Both interfaces include the [SlidesLayoutOptions](https://reference.aspose.com/slides/net/aspose.slides.export/tiffoptions/slideslayoutoptions/) property, which allows you to configure the rendering of notes and comments on a slide when converting it to an image.
 
 {{% alert title="Info" color="info" %}} 
 
-With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions) interface, you get to specify your preferred position for notes and comments in the resulting image. 
+With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/#notescommentslayoutingoptions-class) class, you get to specify your preferred position for notes and comments in the resulting image. 
 
 {{% /alert %}} 
 
 This C# code demonstrates the conversion process for a slide with notes and comments:
 
 ``` csharp 
+// Load the presentation
 using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
 {
     // Creates the rendering options
-    IRenderingOptions options = new RenderingOptions();
-
-    // Sets the position of the notes on the page
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-
-    // Sets the position of the comments on the page 
-    options.NotesCommentsLayouting.CommentsPosition = CommentsPositions.Right;
-
-    // Sets the width of the comment output area
-    options.NotesCommentsLayouting.CommentsAreaWidth = 500;
-
-    // Sets the color for the comments area
-    options.NotesCommentsLayouting.CommentsAreaColor = Color.AntiqueWhite;
-
-    // Converts the first slide of the presentation to a Bitmap object
-    using (IImage image = pres.Slides[0].GetImage(options, 2f, 2f))
+    RenderingOptions options = new RenderingOptions
+    {
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
+            NotesPosition = NotesPositions.BottomTruncated,      // Sets the position of the notes
+            CommentsPosition = CommentsPositions.Right,          // Sets the position of the comments
+            CommentsAreaWidth = 500,                             // Sets the width of the comments area
+            CommentsAreaColor = Color.AntiqueWhite               // Sets the color for the comments area
+        }
+    };
+
+    // Converts the first slide of the presentation to an image
+    using (IImage image = pres.Slides[0].GetImage(options, 2f, 2f))
+    {
         // Saves the image in the GIF format
         image.Save("Slide_Notes_Comments_0.gif", ImageFormat.Gif);
     }
@@ -132,34 +130,38 @@ The [ITiffOptions](https://reference.aspose.com/slides/net/aspose.slides.export/
 This C# code demonstrates a conversion process where ITiffOptions is used to output a black and white image with a 300dpi resolution and 2160 × 2800 size:
 
 ``` csharp 
+// Load the presentation
 using (Presentation pres = new Presentation("PresentationNotesComments.pptx"))
 {
-    // Gets a slide by its index
+    // Gets the first slide from the presentation
     ISlide slide = pres.Slides[0];
 
-    // Creates a TiffOptions object
-    TiffOptions options = new TiffOptions() { ImageSize = new Size(2160, 2880) };
+    // Creates rendering options with layout settings
+    RenderingOptions options = new RenderingOptions
+    {
+        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+        {
+            NotesPosition = NotesPositions.BottomTruncated // Sets the position of the notes
+        },
+        DefaultRegularFont = "Arial Black" // Sets the default font if source font is not found
+    };
 
-    // Set the font used in case source font is not found
-    options.DefaultRegularFont = "Arial Black";
+    // Configures the output image settings
+    TiffOptions tiffOptions = new TiffOptions
+    {
+        ImageSize = new Size(2160, 2880),                 // Sets the image size
+        PixelFormat = ImagePixelFormat.Format1bppIndexed, // Sets the pixel format (black and white)
+        DpiX = 300,                                       // Sets the horizontal resolution
+        DpiY = 300                                        // Sets the vertical resolution
+    };
 
-    // Set the position of the notes on the page 
-    options.NotesCommentsLayouting.NotesPosition = NotesPositions.BottomTruncated;
-
-    // Sets the pixel format (black and white)
-    options.PixelFormat = ImagePixelFormat.Format1bppIndexed;
-
-    // Sets the resolution
-    options.DpiX = 300;
-    options.DpiY = 300;
-
-    // Converts the slide to a Bitmap object
+    // Converts the slide to an image
     using (IImage image = slide.GetImage(options))
     {
-        // Saves the image in BMP format
-        image.Save("PresentationNotesComments.tiff", ImageFormat.Tiff);
+        // Saves the image in TIFF format with the specified options
+        image.Save("PresentationNotesComments.tiff", tiffOptions);
     }
-}  
+}
 ```
 
 ## **Converting All Slides to Images**
