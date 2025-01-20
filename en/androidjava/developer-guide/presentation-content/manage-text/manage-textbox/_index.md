@@ -3,7 +3,18 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /androidjava/manage-textbox/
-description: Create Text Box on PowerPoint Slides using Java. Add Column in Text Box or Text Frame in PowerPoint Slides using Java. Add Text Box with Hyperlink in PowerPoint Slides using Java.
+keywords:
+- text box
+- text frame
+- add text
+- update text
+- text box with a hyperlink
+- PowerPoint
+- presentation
+- Android
+- Java
+- Aspose.Slides for Android via Java
+description: "Manage a text box or text frame in PowerPoint presentations using Java"
 ---
 
 
@@ -67,26 +78,51 @@ try {
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/#isTextBox--) property (from the [AutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#isTextBox--) method from the [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
 
 ![Text box and shape](istextbox.png)
 
 This Java code shows you how to check whether a shape was created as a text box: 
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ForEach.shape(pres, (shape, slide, index) ->
-    {
-        if (shape instanceof AutoShape)
-        {
-            AutoShape autoShape = (AutoShape)shape;
-            System.out.println(autoShape.isTextBox() ? "shape is text box" : "shape is text not box");
+    ForEach.shape(presentation, (shape, slide, index) -> {
+        if (shape instanceof IAutoShape) {
+            IAutoShape autoShape = (IAutoShape) shape;
+            System.out.println(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
         }
     });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
+```
+
+Note that if you simply add an autoshape using the `addAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) interface, the `isTextBox` method of the autoshape will return `false`. However, after you add text to the autoshape using the `addTextFrame` method or the `setText` method, the `isTextBox` property returns `true`.
+
+```java
+Presentation presentation = new Presentation();
+ISlide slide = presentation.getSlides().get_Item(0);
+
+IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+// shape1.isTextBox() returns false
+shape1.addTextFrame("shape 1");
+// shape1.isTextBox() returns true
+
+IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
+// shape2.isTextBox() returns false
+shape2.getTextFrame().setText("shape 2");
+// shape2.isTextBox() returns true
+
+IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
+// shape3.isTextBox() returns false
+shape3.addTextFrame("");
+// shape3.isTextBox() returns false
+
+IAutoShape shape4 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
+// shape4.isTextBox() returns false
+shape4.getTextFrame().setText("");
+// shape4.isTextBox() returns false
 ```
 
 ## **Add Column In Text Box**

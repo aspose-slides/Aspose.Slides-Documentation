@@ -3,8 +3,18 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /net/manage-textbox/
-keywords: "Textbox, Text frame, Add textbox, Textbox with hyperlink, C#, Csharp, Aspose.Slides for .NET"
-description: "Add textbox or text frame to PowerPoint presentations in C# or .NET"
+keywords:
+- text box
+- text frame
+- add text
+- update text
+- text box with a hyperlink
+- PowerPoint
+- presentation
+- C#
+- Csharp
+- Aspose.Slides for .NET
+description: "Manage a text box or text frame in PowerPoint presentations using C# or .NET"
 ---
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add text to a slide, you have to add a textbox first and then put some text inside the textbox. 
