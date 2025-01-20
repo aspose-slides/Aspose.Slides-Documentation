@@ -57,7 +57,12 @@ SizeF slideSize = presentation.getSlideSize().getSize();
 ISlide slide = presentation.getSlides().get_Item(0);
 
 // Prepare data for the OLE object.
-byte[] fileData = Files.readAllBytes(Paths.get("book.xlsx"));
+File file = new File("book.xlsx");
+byte fileData[] = new byte[(int) file.length()];
+BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+DataInputStream dis = new DataInputStream(bis);
+dis.readFully(fileData);
+
 IOleEmbeddedDataInfo dataInfo = new OleEmbeddedDataInfo(fileData, "xlsx");
 
 // Add the OLE object frame to the slide.
@@ -209,12 +214,20 @@ This Java code shows you how to embed HTML and ZIP into a slide:
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
-byte[] htmlData = Files.readAllBytes(Paths.get("sample.html"));
+File fileHtml = new File("sample.html");
+byte htmlData[] = new byte[(int) fileHtml.length()];
+BufferedInputStream bisHtml = new BufferedInputStream(new FileInputStream(fileHtml));
+DataInputStream disHtml = new DataInputStream(bisHtml);
+disHtml.readFully(htmlData);
 IOleEmbeddedDataInfo htmlDataInfo = new OleEmbeddedDataInfo(htmlData, "html");
 IOleObjectFrame htmlOleFrame = slide.getShapes().addOleObjectFrame(150, 120, 50, 50, htmlDataInfo);
 htmlOleFrame.setObjectIcon(true);
 
-byte[] zipData = Files.readAllBytes(Paths.get("sample.zip"));
+File fileZip = new File("sample.zip");
+byte zipData[] = new byte[(int) fileZip.length()];
+BufferedInputStream bisZip = new BufferedInputStream(new FileInputStream(fileZip));
+DataInputStream disZip = new DataInputStream(bisZip);
+disZip.readFully(zipData);
 IOleEmbeddedDataInfo zipDataInfo = new OleEmbeddedDataInfo(zipData, "zip");
 IOleObjectFrame zipOleFrame = slide.getShapes().addOleObjectFrame(150, 220, 50, 50, zipDataInfo);
 zipOleFrame.setObjectIcon(true);
@@ -258,7 +271,11 @@ ISlide slide = presentation.getSlides().get_Item(0);
 IOleObjectFrame oleFrame = (IOleObjectFrame) slide.getShapes().get_Item(0);
 
 // Add an image to the presentation resources.
-byte[] imageData = Files.readAllBytes(Paths.get("image.png"));
+File file = new File("image.png");
+byte imageData[] = new byte[(int) file.length()];
+BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+DataInputStream dis = new DataInputStream(bis);
+dis.readFully(imageData);
 IPPImage oleImage = presentation.getImages().addImage(imageData);
 
 // Set a title and the image for the OLE preview.
@@ -301,8 +318,9 @@ for (int index = 0; index < slide.getShapes().size(); index++) {
         byte[] fileData = oleFrame.getEmbeddedData().getEmbeddedFileData();
         String fileExtension = oleFrame.getEmbeddedData().getEmbeddedFileExtension();
 
-        Path filePath = Paths.get("OLE_object_" + index + fileExtension);
-        Files.write(filePath, fileData);
+        FileOutputStream fos = new FileOutputStream(new File("OLE_object_" + index + fileExtension));
+        fos.write(fileData);
+        fos.close();
     }
 }
 
