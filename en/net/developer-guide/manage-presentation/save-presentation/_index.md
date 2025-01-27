@@ -111,6 +111,31 @@ Saving in the Zip64Mode.Never mode will throw a [PptxException](https://referenc
 
 {{% /alert %}}
 
+### **Saving Presentation without Refreshing Thumbnail**
+
+The new [**IPptxOptions.RefreshThumbnail**](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) property allows you to control the generation of the thumbnail when saving a presentation in PPTX format:
+
+- When the property value is **true**, the presentation thumbnail will be refreshed while saving. This is the *default* value.
+- When the property value is **false**, the current thumbnail will be saved as is. If the presentation doesn't have a thumbnail, no thumbnail will be generated.
+
+In the code below, we saved the presentation to PPTX format without refreshing its thumbnail:
+
+```c#
+using (Presentation pres = new Presentation("Sample.pptx"))
+{
+    pres.Save("Sample_with_old_thumbnail.pptx", SaveFormat.Pptx, new PptxOptions()
+    {
+        RefreshThumbnail = false
+    });
+}
+```
+
+{{% alert title="Info" color="info" %}}
+
+This option allows you to save time when saving a presentation in PPTX format.
+
+{{% /alert %}}
+
 ### **Saving Progress Updates in Percentage**
 New [**IProgressCallback** ](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback)interface has been added to [**ISaveOptions** ](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions)interface and [**SaveOptions** ](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions)abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.
 
