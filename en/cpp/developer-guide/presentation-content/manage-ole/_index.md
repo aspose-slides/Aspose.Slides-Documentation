@@ -168,61 +168,43 @@ If an OLE object is already embedded in a slide, you can easily access that obje
 In the example below, an OLE object frame (an Excel chart object embedded in a slide) is accessed, and its file data is modified to update the chart data.
 
 ``` cpp
-intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> ToCellsMemoryStream(System::ArrayPtr<uint8_t> buffer)
-{
-    intrusive_ptr<BString> array = new BString(buffer->data_ptr(), buffer->Count());
-    auto stream = new Aspose::Cells::Systems::IO::MemoryStream(array);
-
-    return stream;
-}
-
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-
 void ChangeOLEObjectData()
 {
-    System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(GetDataPath() + u"ChangeOLEObjectData.pptx");
-    System::SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+    auto presentation = MakeObject<Presentation>(u"sample.pptx");
+    auto slide = presentation->get_Slide(0);
 
-    System::SharedPtr<OleObjectFrame> ole;
+    // Get the first shape as an OLE object frame.
+    SharedPtr<IOleObjectFrame> oleFrame = AsCast<IOleObjectFrame>(slide->get_Shape(0));
 
-    // Search for the OLE frame.
-    for (auto shape : IterateOver(slide->get_Shapes()))
-    {
-        if (System::ObjectExt::Is<OleObjectFrame>(shape))
-        {
-            ole = System::ExplicitCast<OleObjectFrame>(shape);
-            break;
-        }
-    }
-    
-    if (ole != nullptr)
+    if (oleFrame != nullptr)
     {
         // Read the OLE object data as a Workbook object.
-        intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> cellsInputStream = ToCellsMemoryStream(ole->get_ObjectData());
-        intrusive_ptr<Aspose::Cells::IWorkbook> Wb = Aspose::Cells::Factory::CreateIWorkbook(cellsInputStream);
+        SharedPtr<MemoryStream> oleStream = MakeObject<MemoryStream>(oleFrame->get_EmbeddedData()->get_EmbeddedFileData());
 
-        // Modify the workbook data.
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(0,4)->PutValue(u"E");
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(1, 4)->PutValue(12);
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(2, 4)->PutValue(14);
-        Wb->GetIWorksheets()->GetObjectByIndex(0)->GetICells()->GetObjectByIndex(3, 4)->PutValue(15);
+        // Conversion between Aspose.Slides.Cpp and Aspose.Cells.Cpp classes in order to use Aspose.Cells methods
+        ArrayPtr<uint8_t> oleStreamArr = oleStream->ToArray();
+        std::vector<uint8_t> workbookDataArr(oleStreamArr->data().begin(), oleStreamArr->data().end());
+        Aspose::Cells::Workbook workbook(Aspose::Cells::Vector<uint8_t>(workbookDataArr.data(), workbookDataArr.size()));
 
-        intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-        Wb->Save(cellsOutputStream, Aspose::Cells::SaveFormat_Xlsx);
-        
-        // Change the OLE frame object data.
-        cellsOutputStream->SetPosition(0);
-        System::SharedPtr<System::IO::MemoryStream> msout = ToSlidesMemoryStream(cellsOutputStream);
-        ole->set_ObjectData(msout->ToArray());
-        
-        pres->Save(GetOutPath() + u"OleEdit_out.pptx", Export::SaveFormat::Pptx);
+        SharedPtr<MemoryStream> newOleStream = MakeObject<MemoryStream>();
+        auto worksheet = workbook.GetWorksheets().Get(0);
+        worksheet.GetCells().Get(0, 4).PutValue(Aspose::Cells::U16String("E"));
+        worksheet.GetCells().Get(1, 4).PutValue(12);
+        worksheet.GetCells().Get(2, 4).PutValue(14);
+        worksheet.GetCells().Get(3, 4).PutValue(15);
+
+        Aspose::Cells::OoxmlSaveOptions fileOptions(Aspose::Cells::SaveFormat::Xlsx);
+        Aspose::Cells::Vector<uint8_t> workbookData = workbook.Save(fileOptions);
+        newOleStream->Write(
+            MakeArray<uint8_t>(std::vector<uint8_t>(workbookData.GetData(), workbookData.GetData() + workbookData.GetLength())),
+            0, workbookData.GetLength());
+
+        SharedPtr<IOleEmbeddedDataInfo> newData = MakeObject<OleEmbeddedDataInfo>(
+            newOleStream->ToArray(), oleFrame->get_EmbeddedData()->get_EmbeddedFileExtension());
+        oleFrame->SetEmbeddedData(newData);
     }
+
+    presentation->Save(u"output.pptx", SaveFormat::Pptx);
 }
 ```
 
