@@ -3,318 +3,243 @@ title: Working Solution for Worksheet Resizing
 type: docs
 weight: 130
 url: /cpp/working-solution-for-worksheet-resizing/
+keywords:
+- OLE
+- preview image
+- image resizing
+- Excel
+- worksheet
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides for C++
+description: "Working solution for worksheet resizing in PowerPoint presentations using C++"
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-It has been observed that Excel Worksheets embedded as OLE in a PowerPoint Presentation through Aspose components are resized to an unidentified scale after first time activation. This behavior creates a considerable visual difference of the presentation between pre and post chart activation states. We have investigated this issue in detail and found the solution to this issue that has been covered in this article. 
+It has been observed that Excel worksheets embedded as OLE objects in a PowerPoint presentation through Aspose components are resized to an unidentified scale after the first activation. This behavior creates a noticeable visual difference in the presentation between the pre- and post-activation states of the OLE object. We have investigated this issue in detail and provided a solution, which is covered in this article.
 
-{{% /alert %}} 
+{{% /alert %}}
+
 ## **Background**
-In the article [Manage OLE](/slides/cpp/manage-ole/), we have explained how to add an OLE frame in a PowerPoint presentation using Aspose.Slides for C++. In order to accommodate the [object preview issue](/slides/cpp/object-preview-issue-when-adding-oleobjectframe/), we assigned the worksheet image of selected area to the Chart OLE Object Frame. In the output presentation, when we double click the OLE Object Frame showing the worksheet Image, the Excel Chart is activated. The end users can make any desired changes in the actual Excel Workbook and then return to the concerned Slide by clicking outside the activated Excel Workbook. The size of the OLE Object Frame will change when the user gets back to the slide. The resizing factor will be different for different sizes of OLE Object Frame and embedded Excel Workbook. 
+
+In the article [Manage OLE](/slides/cpp/manage-ole/), we explained how to add an OLE frame to a PowerPoint presentation using Aspose.Slides for C++. To address the [object preview issue](/slides/cpp/object-preview-issue-when-adding-oleobjectframe/), we assigned an image of the selected worksheet area to the OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the worksheet image, the Excel workbook is activated. End users can make any desired changes to the actual Excel workbook and then return to the slide by clicking outside the activated Excel workbook. The size of the OLE object frame will change when the user returns to the slide. The resizing factor will vary depending on the size of the OLE object frame and the embedded Excel workbook. 
+
 ## **Cause of Resizing**
-Since the Excel Workbook has its own window size, it tries to retain its original size on first time activation. On the other hand, the OLE Object Frame will have its own size. According to Microsoft, on activation of the Excel Workbook, Excel and PowerPoint negotiate the size and ensure it is in the correct proportions as part of the embedding operation. Based on the differences in the Excel Windows size and OLE Object Frame size / position, the resizing takes place. 
+
+Since the Excel workbook has its own window size, it tries to retain its original size upon first activation. On the other hand, the OLE object frame has its own size. According to Microsoft, when the Excel workbook is activated, Excel and PowerPoint negotiate the size to ensure it maintains the correct proportions as part of the embedding process. The resizing occurs based on the differences between the Excel window size and the OLE object frame's size and position.
+
 ## **Working Solution**
-There are two possible solutions to avoid the re-sizing effect.
 
-- Scale the Ole frame size in PPT to match the size in terms of height/width of desired number of rows/columns in Ole Frame
-- Keeping the Ole frame size constant and scale the size of participating rows/columns to get fit in selected Ole frame size
-## **Scale Ole frame size to Worksheet's selected rows/ columns size**
-In this approach, we will learn how to set the Ole frame size of the embedded Excel Workbook equivalent to the cumulative size of number of participating rows and columns in Excel Worksheet. 
-## **Example**
-Suppose, we have defined a template excel sheet and and desire to add that to presentation as Ole frame. In this scenario, the size of the OLE Object Frame will be calculated first based on cumulative rows height and columns widths of participating workbook's rows and columns respectively. Then we will set the size of Ole frame to that calculated value. In order to avoid the red **Embedded Object** message for Ole frame in PowerPoint we will also get the image of desired portions of rows and columns in Workbook and set that as Ole frame image. 
+There are two possible solutions to avoid the resizing effect.
 
-``` cpp
-auto workbookDesigner = Aspose::Cells::Factory::CreateIWorkbookDesigner();
-workbookDesigner->SetIWorkbook(Aspose::Cells::Factory::CreateIWorkbook(new Aspose::Cells::Systems::String("d:/AsposeTest.xls")));
+- Scale the OLE frame size in the PowerPoint presentation to match the height and width of the desired number of rows and columns in the OLE frame.
+- Keep the OLE frame size constant and scale the size of the participating rows and columns to fit within the selected OLE frame size.
 
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>(u"d:/AsposeTest.ppt");
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+### **Scale the OLE Frame Size**
 
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
+In this approach, we will learn how to set the OLE frame size of the embedded Excel workbook to match the cumulative size of the participating rows and columns in the Excel worksheet.
 
-System::String fileName = u"d:/AsposeTest_Ole.ppt";
-presentation->Save(fileName, Export::SaveFormat::Pptx);
+Suppose we have a template Excel sheet and want to add it to a presentation as an OLE frame. In this scenario, the size of the OLE object frame will first be calculated based on the cumulative row heights and column widths of the participating rows and columns in the workbook. Then, we will set the size of the OLE frame to this calculated value. To avoid the red "EMBEDDED OLE OBJECT" message for the OLE frame in PowerPoint, we will also capture an image of the desired portions of the rows and columns in the workbook and set it as the OLE frame image.
+
+```cpp
+Aspose::Cells::Startup();
+
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
+
+int imageResolution = 96;
+
+Aspose::Cells::Workbook workbook(u"sample.xlsx");
+auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
+
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+auto lastRow = startRow + rowCount - 1;
+auto lastColumn = startColumn + columnCount - 1;
+workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
+
+auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
+auto imageStream = CreateOleImage(cellRange, imageResolution);
+
+// Get the width and height of the OLE image in points.
+auto image = Image::FromStream(imageStream);
+auto imageWidth = image->get_Width() * 72.0f / imageResolution;
+auto imageHeight = image->get_Height() * 72.0f / imageResolution;
+
+// We need to use the modified workbook.
+auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
+workbook.Dispose();
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+// Add the OLE image to the presentation resources.
+auto oleImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
+
+// Create the OLE object frame.
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
+auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, imageWidth, imageHeight, dataInfo);
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(false);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-``` cpp
-System::Drawing::Size SetOleAccordingToSelectedRowsColumns(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t startRow, int32_t endRow, int32_t startCol, int32_t endCol, int32_t dataSheetIdx)
+```cpp
+SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+    auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
+    pageSetup.SetPrintArea(cellRange.GetAddress());
+    pageSetup.SetLeftMargin(0);
+    pageSetup.SetRightMargin(0);
+    pageSetup.SetTopMargin(0);
+    pageSetup.SetBottomMargin(0);
+    pageSetup.ClearHeaderFooter();
 
-    double actualHeight = 0, actualWidth = 0;
+    Aspose::Cells::ImageOrPrintOptions imageOptions;
+    imageOptions.SetImageType(Aspose::Cells::ImageType::Png);
+    imageOptions.SetVerticalResolution(imageResolution);
+    imageOptions.SetHorizontalResolution(imageResolution);
+    imageOptions.SetOnePagePerSheet(true);
+    imageOptions.SetOnlyArea(true);
 
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        actualHeight += work->GetICells()->GetRowHeightInch(i);
-    }
+    Aspose::Cells::SheetRender sheetRender(cellRange.GetWorksheet(), imageOptions);
+    auto renderData = sheetRender.ToImage(0);
+    auto imageData = MakeObject<Array<uint8_t>>(renderData.GetLength(), renderData.GetData());
+    auto imageStream = MakeObject<MemoryStream>(imageData);
+    sheetRender.Dispose();
 
-    for (int32_t i = startCol; i <= endCol; i++)
-    {
-        actualWidth += work->GetICells()->GetColumnWidthInch(i);
-    }
-
-    // Setting new Row and Column Height
-    return System::Drawing::Size((int32_t)(System::Math::Round(actualWidth, 2) * 576), (int32_t)(System::Math::Round(actualHeight, 2) * 576));
+    return imageStream;
 }
 ```
 
-``` cpp
-void AddOleFrame(System::SharedPtr<ISlide> slide, int32_t startRow, int32_t endRow,
-    int32_t startCol, int32_t endCol, int32_t dataSheetIdx, int32_t x, int32_t y,
-    double OleWidth, double OleHeight, System::SharedPtr<IPresentation> presentation, 
-    intrusive_ptr<Aspose::Cells::IWorkbookDesigner> workbookDesigner, 
-    bool onePagePerSheet, int32_t outputWidth, int32_t outputHeight)
-{
-    std::wstring tempFileName = System::IO::Path::GetTempFileName_().ToWCS();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
+### **Scale the Cell Range Size**
 
-    // Setting active sheet index of workbook
-    workbookDesigner->GetIWorkbook()->GetIWorksheets()->SetActiveSheetIndex(dataSheetIdx);
+In this approach, we will learn how to scale the heights of the participating rows and the width of the participating columns to match a custom OLE frame size.
 
-    // Getting Workbook and selected worksheet  
-    intrusive_ptr<Aspose::Cells::IWorkbook> workbook = workbookDesigner->GetIWorkbook();
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+Suppose we have a template Excel sheet and want to add it to a presentation as an OLE frame. In this scenario, we will set the size of the OLE frame and scale the size of the rows and columns that participate in the OLE frame area. We will then save the workbook to a stream to apply the changes and convert it to a byte array for adding it to the OLE frame. To avoid the red "EMBEDDED OLE OBJECT" message for the OLE frame in PowerPoint, we will also capture an image of the desired portions of the rows and columns in the workbook and set it as the OLE frame image.
 
-    // Setting Ole Size according to selected rows and columns
-    System::Drawing::Size SlideOleSize = SetOleAccordingToSelectedRowsColumns(workbook, startRow, endRow, startCol, endCol, dataSheetIdx);
-    OleWidth = SlideOleSize.get_Width();
-    OleHeight = SlideOleSize.get_Height();
+```cpp
+Aspose::Cells::Startup();
 
-    // Set Ole Size in Workbook
-    workbook->GetIWorksheets()->SetOleSize(startRow, endRow, startCol, endCol);
+int startRow = 0, rowCount = 10;
+int startColumn = 0, columnCount = 13;
+int worksheetIndex = 0;
 
-    workbook->GetIWorksheets()->GetObjectByIndex(0)->SetGridlinesVisible(false);
+int imageResolution = 96;
+float frameWidth = 400, frameHeight = 100;
 
-    // Setting Image Options to take the worksheet Image
-    intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> imageOrPrintOptions = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-    imageOrPrintOptions->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-    imageOrPrintOptions->SetOnePagePerSheet(onePagePerSheet);
+Aspose::Cells::Workbook workbook(u"sample.xlsx");
+auto worksheet = workbook.GetWorksheets().Get(worksheetIndex);
 
-    intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> render = Aspose::Cells::Factory::CreateISheetRender(workbookDesigner->GetIWorkbook()->GetIWorksheets()->GetObjectByIndex(dataSheetIdx), imageOrPrintOptions);
-    tempFileName.append(L".bmp");
-    render->ToImage(0, new String(tempFileName.c_str()));
-    
-    System::String slidesTempFileName = System::String::FromWCS(tempFileName);
-    System::SharedPtr<System::Drawing::Image> image = ScaleImage(System::Drawing::Image::FromFile(slidesTempFileName), outputWidth, outputHeight);
-    System::String newTempFileName = slidesTempFileName.Replace(u".tmp", u".tmp1");
-    image->Save(newTempFileName, System::Drawing::Imaging::ImageFormat::get_Bmp());
+// Set the displayed size when the workbook file is used as an OLE object in PowerPoint.
+auto lastRow = startRow + rowCount - 1;
+auto lastColumn = startColumn + columnCount - 1;
+workbook.GetWorksheets().SetOleSize(startRow, lastRow, startColumn, lastColumn);
 
-    // Adding Image to slide picture collection
-    auto ppImage = presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(newTempFileName));
+// Scale the cell range to fit the frame size.
+auto cellRange = worksheet.GetCells().CreateRange(startRow, startColumn, rowCount, columnCount);
+ScaleCellRange(cellRange, frameWidth, frameHeight);
 
-    // Saving worbook to stream and copying in byte array
-    System::SharedPtr<System::IO::Stream> mstream = ToSlidesMemoryStream(workbook->SaveToStream());
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(mstream->get_Length(), 0);
-    mstream->set_Position(0);
-    mstream->Read(chartOleData, 0, chartOleData->get_Length());
+auto imageStream = CreateOleImage(cellRange, imageResolution);
 
-    // Adding Ole Object frame
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleObjectFrame = slide->get_Shapes()->AddOleObjectFrame(x, y, OleWidth, OleHeight, dataInfo);
+// We need to use the modified workbook.
+auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
+workbook.Dispose();
 
-    // Setting ole frame Imnae and Alternative Text    
-    oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(ppImage);
-    oleObjectFrame->set_AlternativeText(System::String(u"image") + ppImage);
-}
-```
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-    return outputStream;
-}
+// Add the OLE image to the presentation resources.
+auto oleImage = presentation->get_Images()->AddImage(imageStream);
+imageStream->Dispose();
+
+// Create the OLE object frame.
+auto dataInfo = MakeObject<OleEmbeddedDataInfo>(oleData, u"xlsx");
+auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(10, 10, frameWidth, frameHeight, dataInfo);
+oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
+oleFrame->set_IsObjectIcon(false);
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+
+Aspose::Cells::Cleanup();
 ```
 
-``` cpp
-System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::Drawing::Image> image, int32_t outputWidth, int32_t outputHeight)
+```cpp
+/// <param name="width">The expected width of the cell range in points.</param>
+/// <param name="height">The expected height of the cell range in points.</param>
+void ScaleCellRange(Aspose::Cells::Range cellRange, float width, float height)
 {
-    if (outputWidth == 0 && outputHeight == 0)
+    auto rangeWidth = cellRange.GetWidth();
+    auto rangeHeight = cellRange.GetHeight();
+
+    for (int i = 0; i < cellRange.GetColumnCount(); i++)
     {
-        outputWidth = image->get_Width();
-        outputHeight = image->get_Height();
-    }
-    System::SharedPtr<System::Drawing::Bitmap> outputImage = System::MakeObject<System::Drawing::Bitmap>(outputWidth, outputHeight, image->get_PixelFormat());
-    outputImage->SetResolution(image->get_HorizontalResolution(), image->get_VerticalResolution());
-    System::SharedPtr<System::Drawing::Graphics> graphics = System::Drawing::Graphics::FromImage(outputImage);
-    graphics->set_InterpolationMode(System::Drawing::Drawing2D::InterpolationMode::HighQualityBicubic);
-    System::Drawing::Rectangle srcDestRect(0, 0, outputWidth, outputHeight);
-    graphics->DrawImage(image, srcDestRect, srcDestRect, System::Drawing::GraphicsUnit::Pixel);
-    graphics->Dispose();
+        auto columnIndex = cellRange.GetFirstColumn() + i;
+        auto columnWidth = cellRange.GetWorksheet().GetCells().GetColumnWidth(columnIndex, false, Aspose::Cells::CellsUnitType::Point);
 
-    return outputImage;
-}
-```
-
-## **Scale worksheet's row height and column width according to Ole Frame size**
-In this approach, we will learn how to scale the heights of participating rows and width of participating column in accordance with custom set ole frame size
-## **Example**
-Suppose, we have defined a template excel sheet and and desire to add that to presentation as Ole frame. In this scenario, we will set the size of Ole frame and scale the size of rows and columns participating in Ole Frame area. We will then save the workbook in stream to save changes and convert that to byte array for adding it in Ole frame. In order to avoid the red **Embedded Object** message for Ole frame in PowerPoint we will also get the image of desired portions of rows and columns in Workbook and set that as Ole frame image. 
-
-
-``` cpp
-auto workbookDesigner = Aspose::Cells::Factory::CreateIWorkbookDesigner();
-workbookDesigner->SetIWorkbook(Aspose::Cells::Factory::CreateIWorkbook(new Aspose::Cells::Systems::String("d:/AsposeTest.xls")));
-
-System::SharedPtr<IPresentation> presentation = System::MakeObject<Presentation>(u"d:/AsposeTest.ppt");
-System::SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
-
-AddOleFrame(slide, 0, 15, 0, 3, 0, 300, 1100, 0, 0, presentation, workbookDesigner, true, 0, 0);
-
-System::String fileName = u"d:/AsposeTest_Ole.ppt";
-presentation->Save(fileName, Export::SaveFormat::Pptx);
-```
-
-``` cpp
-void SetOleAccordingToCustomHeightWidth(intrusive_ptr<Aspose::Cells::IWorkbook> workbook, int32_t startRow, int32_t endRow, int32_t startCol, int32_t endCol, double slideWidth, double slideHeight, int32_t dataSheetIdx)
-{
-    auto work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
-
-    double actualHeight = 0, actualWidth = 0;
-
-    double newHeight = slideHeight;
-    double newWidth = slideWidth;
-    double tem = 0;
-    double newTem = 0;
-
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        actualHeight += work->GetICells()->GetRowHeightInch(i);
+        auto newColumnWidth = columnWidth * width / rangeWidth;
+        auto widthInInches = newColumnWidth / 72;
+        cellRange.GetWorksheet().GetCells().SetColumnWidthInch(columnIndex, widthInInches);
     }
 
-    for (int32_t i = startCol; i <= endCol; i++)
+    for (int i = 0; i < cellRange.GetRowCount(); i++)
     {
-        actualWidth += work->GetICells()->GetColumnWidthInch(i);
-    }
+        auto rowIndex = cellRange.GetFirstRow() + i;
+        auto rowHeight = cellRange.GetWorksheet().GetCells().GetRowHeight(rowIndex, false, Aspose::Cells::CellsUnitType::Point);
 
-    // Setting new Row and Column Height
-    for (int32_t i = startRow; i <= endRow; i++)
-    {
-        tem = work->GetICells()->GetRowHeightInch(i);
-        newTem = (tem / actualHeight) * newHeight;
-        work->GetICells()->SetRowHeightInch(i, newTem);
-    }
-
-    for (int32_t i = startCol; i <= endCol; i++)
-    {
-        tem = work->GetICells()->GetColumnWidthInch(i);
-        newTem = (tem / actualWidth) * newWidth;
-        work->GetICells()->SetColumnWidthInch(i, newTem);
+        auto newRowHeight = rowHeight * height / rangeHeight;
+        auto heightInInches = newRowHeight / 72;
+        cellRange.GetWorksheet().GetCells().SetRowHeightInch(rowIndex, heightInInches);
     }
 }
 ```
 
-``` cpp
-void AddOleFrame(System::SharedPtr<ISlide> slide, int32_t startRow, int32_t endRow,
-        int32_t startCol, int32_t endCol, int32_t dataSheetIdx, int32_t x, int32_t y,
-        double OleWidth, double OleHeight, System::SharedPtr<IPresentation> presentation,
-        intrusive_ptr<Aspose::Cells::IWorkbookDesigner> workbookDesigner,
-        bool onePagePerSheet, int32_t outputWidth, int32_t outputHeight)
+```cpp
+SharedPtr<MemoryStream> CreateOleImage(Aspose::Cells::Range cellRange, int imageResolution)
 {
-    std::wstring tempFileName = System::IO::Path::GetTempFileName_().ToWCS();
-    if (startRow == 0)
-    {
-        startRow++;
-        endRow++;
-    }
+    auto pageSetup = cellRange.GetWorksheet().GetPageSetup();
+    pageSetup.SetPrintArea(cellRange.GetAddress());
+    pageSetup.SetLeftMargin(0);
+    pageSetup.SetRightMargin(0);
+    pageSetup.SetTopMargin(0);
+    pageSetup.SetBottomMargin(0);
+    pageSetup.ClearHeaderFooter();
 
-    // Setting active sheet index of workbook
-    workbookDesigner->GetIWorkbook()->GetIWorksheets()->SetActiveSheetIndex(dataSheetIdx);
+    Aspose::Cells::ImageOrPrintOptions imageOptions;
+    imageOptions.SetImageType(Aspose::Cells::ImageType::Png);
+    imageOptions.SetVerticalResolution(imageResolution);
+    imageOptions.SetHorizontalResolution(imageResolution);
+    imageOptions.SetOnePagePerSheet(true);
+    imageOptions.SetOnlyArea(true);
 
-    // Getting Workbook and selected worksheet  
-    intrusive_ptr<Aspose::Cells::IWorkbook> workbook = workbookDesigner->GetIWorkbook();
-    intrusive_ptr<Aspose::Cells::IWorksheet> work = workbook->GetIWorksheets()->GetObjectByIndex(dataSheetIdx);
+    Aspose::Cells::SheetRender sheetRender(cellRange.GetWorksheet(), imageOptions);
+    auto renderData = sheetRender.ToImage(0);
+    auto imageData = MakeObject<Array<uint8_t>>(renderData.GetLength(), renderData.GetData());
+    auto imageStream = MakeObject<MemoryStream>(imageData);
+    sheetRender.Dispose();
 
-    // Scaling rows height and coluumns width according to custom Ole size
-    double height = OleHeight / 576.0f;
-    double width = OleWidth / 576.0f;
-
-    // Setting Ole Size according to selected rows and columns
-    SetOleAccordingToCustomHeightWidth(workbook, startRow, endRow, startCol, endCol, width, height, dataSheetIdx);
-
-    // Set Ole Size in Workbook
-    workbook->GetIWorksheets()->SetOleSize(startRow, endRow, startCol, endCol);
-    workbook->GetIWorksheets()->GetObjectByIndex(0)->SetGridlinesVisible(false);
-
-    // Setting Image Options to take the worksheet Image
-    intrusive_ptr<Aspose::Cells::Rendering::IImageOrPrintOptions> imageOrPrintOptions = Aspose::Cells::Factory::CreateIImageOrPrintOptions();
-    imageOrPrintOptions->SetImageFormat(Aspose::Cells::Systems::Drawing::Imaging::ImageFormat::GetBmp());
-    imageOrPrintOptions->SetOnePagePerSheet(onePagePerSheet);
-
-    intrusive_ptr<Aspose::Cells::Rendering::ISheetRender> render = Aspose::Cells::Factory::CreateISheetRender(workbookDesigner->GetIWorkbook()->GetIWorksheets()->GetObjectByIndex(dataSheetIdx), imageOrPrintOptions);
-    tempFileName.append(L".bmp");
-    render->ToImage(0, new String(tempFileName.c_str()));
-
-    System::String slidesTempFileName = System::String::FromWCS(tempFileName);
-    System::SharedPtr<System::Drawing::Image> image = ScaleImage(System::Drawing::Image::FromFile(slidesTempFileName), outputWidth, outputHeight);
-    System::String newTempFileName = slidesTempFileName.Replace(u".tmp", u".tmp1");
-    image->Save(newTempFileName, System::Drawing::Imaging::ImageFormat::get_Bmp());
-
-    // Adding Image to slide picture collection
-    auto ppImage = presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(newTempFileName));
-
-    // Saving worbook to stream and copying in byte array
-    System::SharedPtr<System::IO::Stream> mstream = ToSlidesMemoryStream(workbook->SaveToStream());
-    System::ArrayPtr<uint8_t> chartOleData = System::MakeArray<uint8_t>(mstream->get_Length(), 0);
-    mstream->set_Position(0);
-    mstream->Read(chartOleData, 0, chartOleData->get_Length());
-
-    // Adding Ole Object frame
-    System::SharedPtr<OleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(chartOleData, u"xls");
-    System::SharedPtr<IOleObjectFrame> oleObjectFrame = slide->get_Shapes()->AddOleObjectFrame(x, y, OleWidth, OleHeight, dataInfo);
-
-    // Setting ole frame Image and Alternative Text    
-    oleObjectFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(ppImage);
-    oleObjectFrame->set_AlternativeText(System::String(u"image") + ppImage);
-}
-```
-
-``` cpp
-System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
-{
-    System::ArrayPtr<uint8_t> outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
-    auto outputStream = System::MakeObject<System::IO::MemoryStream>(outputBuffer);
-
-    return outputStream;
-}
-```
-
-``` cpp
-System::SharedPtr<System::Drawing::Image> ScaleImage(System::SharedPtr<System::Drawing::Image> image, int32_t outputWidth, int32_t outputHeight)
-{
-    if (outputWidth == 0 && outputHeight == 0)
-    {
-        outputWidth = image->get_Width();
-        outputHeight = image->get_Height();
-    }
-    System::SharedPtr<System::Drawing::Bitmap> outputImage = System::MakeObject<System::Drawing::Bitmap>(outputWidth, outputHeight, image->get_PixelFormat());
-    outputImage->SetResolution(image->get_HorizontalResolution(), image->get_VerticalResolution());
-    System::SharedPtr<System::Drawing::Graphics> graphics = System::Drawing::Graphics::FromImage(outputImage);
-    graphics->set_InterpolationMode(System::Drawing::Drawing2D::InterpolationMode::HighQualityBicubic);
-    System::Drawing::Rectangle srcDestRect(0, 0, outputWidth, outputHeight);
-    graphics->DrawImage(image, srcDestRect, srcDestRect, System::Drawing::GraphicsUnit::Pixel);
-    graphics->Dispose();
-
-    return outputImage;
+    return imageStream;
 }
 ```
 
 ## **Conclusion**
 
+{{% alert color="primary" %}}
 
-{{% alert color="primary" %}}   {{% /alert %}} 
+There are two approaches to fix the worksheet resizing issue. The selection of the appropriate approach depends on the specific requirements and use case. Both approaches work the same way, whether the presentations are created from a template or from scratch. Additionally, there is no limit on the size of the OLE object frame in this solution.
 
-There are two approaches to fix the worksheet resizing issue. The selection of the appropriate approach depends upon the requirement and the use case. Both approaches work in the same way whether the presentations are created from a template or create from scratch. Also, there is no limit of the OLE Object Frame size in the solution. 
+{{% /alert %}}
 
+## **Related Articles**
 
-h4. {_}Related Sections 
-{_}
-
-[Creating and Embedding an Excel Chart as OLE Object in Presentation](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-
+[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)

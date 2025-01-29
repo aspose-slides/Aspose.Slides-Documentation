@@ -2,7 +2,7 @@
 title: Working Solution for Worksheet Resizing
 type: docs
 weight: 20
-url: /java/working-solution-for-worksheet-resizing/
+url: /androidjava/working-solution-for-worksheet-resizing/
 keywords:
 - OLE
 - preview image
@@ -11,8 +11,9 @@ keywords:
 - worksheet
 - PowerPoint
 - presentation
+- Android
 - Java
-- Aspose.Slides for Java
+- Aspose.Slides for Android via Java
 description: "Working solution for worksheet resizing in PowerPoint presentations using Java"
 ---
 
@@ -24,7 +25,7 @@ It has been observed that Excel worksheets embedded as OLE objects in a PowerPoi
 
 ## **Background**
 
-In the article [Manage OLE](/slides/java/manage-ole/), we explained how to add an OLE frame to a PowerPoint presentation using Aspose.Slides for Java. To address the [object preview issue](/slides/java/object-preview-issue-when-adding-oleobjectframe/), we assigned an image of the selected worksheet area to the OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the worksheet image, the Excel workbook is activated. End users can make any desired changes to the actual Excel workbook and then return to the slide by clicking outside the activated Excel workbook. The size of the OLE object frame will change when the user returns to the slide. The resizing factor will vary depending on the size of the OLE object frame and the embedded Excel workbook.
+In the article [Manage OLE](/slides/androidjava/manage-ole/), we explained how to add an OLE frame to a PowerPoint presentation using Aspose.Slides for Android via Java. To address the [object preview issue](/slides/androidjava/object-preview-issue-when-adding-oleobjectframe/), we assigned an image of the selected worksheet area to the OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the worksheet image, the Excel workbook is activated. End users can make any desired changes to the actual Excel workbook and then return to the slide by clicking outside the activated Excel workbook. The size of the OLE object frame will change when the user returns to the slide. The resizing factor will vary depending on the size of the OLE object frame and the embedded Excel workbook.
 
 ## **Cause of Resizing**
 
@@ -62,7 +63,7 @@ com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, st
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Get the width and height of the OLE image in points.
-Image image = ImageIO.read(imageStream);
+Bitmap image = BitmapFactory.decodeStream(imageStream);
 float imageWidth = image.getWidth(null) * 72f / imageResolution;
 float imageHeight = image.getHeight(null) * 72f / imageResolution;
 
@@ -235,9 +236,3 @@ static InputStream CreateOleImage(com.aspose.cells.Range cellRange, int imageRes
 There are two approaches to fix the worksheet resizing issue. The selection of the appropriate approach depends on the specific requirements and use case. Both approaches work the same way, whether the presentations are created from a template or from scratch. Additionally, there is no limit on the size of the OLE object frame in this solution.
 
 {{% /alert %}}
-
-## **Related Articles**
-
-[Creating an Excel Chart and Embedding It in a Presentation as an OLE Object](/slides/java/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
-
-[Updating OLE Objects Automatically Using an MS PowerPoint Add-In](/slides/java/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
