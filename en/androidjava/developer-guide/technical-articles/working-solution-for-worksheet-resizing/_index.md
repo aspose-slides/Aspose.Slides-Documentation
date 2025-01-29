@@ -63,7 +63,7 @@ com.aspose.cells.Range cellRange = worksheet.getCells().createRange(startRow, st
 InputStream imageStream = CreateOleImage(cellRange, imageResolution);
 
 // Get the width and height of the OLE image in points.
-Image image = ImageIO.read(imageStream);
+Bitmap image = BitmapFactory.decodeStream(imageStream);
 float imageWidth = image.getWidth(null) * 72f / imageResolution;
 float imageHeight = image.getHeight(null) * 72f / imageResolution;
 
