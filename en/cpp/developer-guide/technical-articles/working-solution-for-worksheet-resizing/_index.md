@@ -70,7 +70,7 @@ auto imageHeight = image->get_Height() * 72.0f / imageResolution;
 
 // We need to use the modified workbook.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
-auto oleData = MakeObject<Array<uint8_t>>(oleStream.GetLength(), oleStream.GetData());
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
 
 auto presentation = MakeObject<Presentation>();
@@ -152,7 +152,7 @@ auto imageStream = CreateOleImage(cellRange, imageResolution);
 
 // We need to use the modified workbook.
 auto oleStream = workbook.Save(Aspose::Cells::SaveFormat::Xlsx);
-auto oleData = MakeObject<Array<uint8_t>>(oleStream.GetLength(), oleStream.GetData());
+auto oleData = MakeArray<uint8_t>(oleStream.GetLength(), oleStream.GetData());
 workbook.Dispose();
 
 auto presentation = MakeObject<Presentation>();
