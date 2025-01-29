@@ -3,7 +3,18 @@ title: Manage TextBox
 type: docs
 weight: 20
 url: /php-java/manage-textbox/
-description: Create Text Box on PowerPoint Slides using PHP. Add Column in Text Box or Text Frame in PowerPoint Slides using PHP. Add Text Box with Hyperlink in PowerPoint Slides using PHP.
+keywords:
+- text box
+- text frame
+- add text
+- update text
+- text box with a hyperlink
+- PowerPoint
+- presentation
+- PHP
+- Java
+- Aspose.Slides for PHP via Java
+description: "Manage a text box or text frame in PowerPoint presentations using PHP"
 ---
 
 
@@ -62,7 +73,7 @@ This PHP code—an implementation of the steps above—shows you how to add text
 
 ## **Check for Text Box Shape**
 
-Aspose.Slides provides the [isTextBox()](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#isTextBox--) property (from the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) class) to allow you to examine shapes and find text boxes.
+Aspose.Slides provides the [isTextBox](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#isTextBox--) method from the [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) class, allowing you to examine shapes and identify text boxes.
 
 ![Text box and shape](istextbox.png)
 
@@ -70,22 +81,48 @@ This PHP code shows you how to check whether a shape was created as a text box:
 
 ```php
 class ShapeCallback {
-    function invoke($shape, $slide, $index){
-        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape")))
-        $autoShape = $shape;
-        echo(java_is_true($autoShape->isTextBox()) ? "shape is text box" : "shape is text not box");
+    function invoke($shape, $slide, $index) {
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+            $autoShape = $shape;
+            echo(java_is_true($autoShape->isTextBox()) ? "shape is a text box" : "shape is not a text box");
+        }
     }
 }
 
-  $pres = new Presentation("pres.pptx");
-  try {
+$presentation = new Presentation("sample.pptx");
+try {
     $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($pres, $forEachShapeCallback);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    ForEach::shape($presentation, $forEachShapeCallback);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Note that if you simply add an autoshape using the `addAutoShape` method from the [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) class, the `isTextBox` method of the autoshape will return `false`. However, after you add text to the autoshape using the `addTextFrame` method or the `setText` method, the `isTextBox` property returns `true`.
+
+```php
+$presentation = new Presentation();
+$slide = $presentation->getSlides()->get_Item(0);
+
+$shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 100, 40);
+// shape1->isTextBox() returns false
+$shape1->addTextFrame("shape 1");
+// shape1->isTextBox() returns true
+
+$shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 110, 100, 40);
+// shape2->isTextBox() returns false
+$shape2->getTextFrame()->setText("shape 2");
+// shape2->isTextBox() returns true
+
+$shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 210, 100, 40);
+// shape3->isTextBox() returns false
+$shape3->addTextFrame("");
+// shape3->isTextBox() returns false
+
+$shape4 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 310, 100, 40);
+// shape4->isTextBox() returns false
+$shape4->getTextFrame()->setText("");
+// shape4->isTextBox() returns false
 ```
 
 ## **Add Column In Text Box**
