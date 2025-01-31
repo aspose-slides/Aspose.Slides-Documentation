@@ -23,13 +23,14 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```cpp
-// Load a presentation and set the export options.
+// Load a presentation.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
+// Set the export options.
 auto slidesLayoutOptions = MakeObject<HandoutLayoutingOptions>();
 slidesLayoutOptions->set_Handout(HandoutType::Handouts4Horizontal);  // 4 slides on one page horizontally
 slidesLayoutOptions->set_PrintSlideNumbers(true);                    // print slide numbers
-slidesLayoutOptions->set_PrintFrameSlide(true);                      // frame around slides
+slidesLayoutOptions->set_PrintFrameSlide(true);                      // print a frame around slides
 slidesLayoutOptions->set_PrintComments(false);                       // no comments
 
 auto pdfOptions = MakeObject<PdfOptions>();

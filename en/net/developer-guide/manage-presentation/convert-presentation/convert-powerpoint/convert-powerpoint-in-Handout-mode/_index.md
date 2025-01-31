@@ -25,16 +25,17 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```c#
-// Load a presentation and set the export options.
+// Load a presentation.
 using var presentation = new Presentation("sample.pptx");
 
+// Set the export options.
 var pdfOptions = new PdfOptions
 {
     SlidesLayoutOptions = new HandoutLayoutingOptions
     {
         Handout = HandoutType.Handouts4Horizontal,  // 4 slides on one page horizontally
         PrintSlideNumbers = true,                   // print slide numbers
-        PrintFrameSlide = true,                     // frame around slides
+        PrintFrameSlide = true,                     // print a frame around slides
         PrintComments = false                       // no comments
     }
 };

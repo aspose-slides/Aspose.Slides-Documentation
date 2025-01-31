@@ -24,13 +24,14 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```js
-// Load a presentation and set the export options.
+// Load a presentation.
 var presentation = new asposeSlides.Presentation("sample.pptx");
 
+// Set the export options.
 var slidesLayoutOptions = new asposeSlides.HandoutLayoutingOptions();
 slidesLayoutOptions.setHandout(asposeSlides.HandoutType.Handouts4Horizontal);  // 4 slides on one page horizontally
 slidesLayoutOptions.setPrintSlideNumbers(true);                                // print slide numbers
-slidesLayoutOptions.setPrintFrameSlide(true);                                  // frame around slides
+slidesLayoutOptions.setPrintFrameSlide(true);                                  // print a frame around slides
 slidesLayoutOptions.setPrintComments(false);                                   // no comments
 
 var pdfOptions = new asposeSlides.PdfOptions();

@@ -24,13 +24,14 @@ To configure Handout mode, use the [HandoutLayoutingOptions](https://reference.a
 Below is a code example showing how to convert a presentation to PDF in Handout mode.
 
 ```php
-// Load a presentation and set the export options.
+// Load a presentation.
 $presentation = new Presentation("sample.pptx");
 
+// Set the export options.
 $slidesLayoutOptions = new HandoutLayoutingOptions();
 $slidesLayoutOptions->setHandout(HandoutType::Handouts4Horizontal);  // 4 slides on one page horizontally
 $slidesLayoutOptions->setPrintSlideNumbers(true);                    // print slide numbers
-$slidesLayoutOptions->setPrintFrameSlide(true);                      // frame around slides
+$slidesLayoutOptions->setPrintFrameSlide(true);                      // print a frame around slides
 $slidesLayoutOptions->setPrintComments(false);                       // no comments
 
 $pdfOptions = new PdfOptions();
