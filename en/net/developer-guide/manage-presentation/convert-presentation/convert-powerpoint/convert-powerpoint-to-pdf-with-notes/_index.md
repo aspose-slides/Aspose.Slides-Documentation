@@ -31,7 +31,7 @@ In this article, you will learn how to convert PowerPoint presentations to PDF f
 
 ## **Convert PowerPoint to PDF with Notes**
 
-The `Save` method in the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class can be used to convert a PPT or PPTX presentation to a PDF with speaker notes. With Aspose.Slides, you simply load the presentation, configure the layout options using the `SlidesLayoutOptions` property in the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to include speaker notes, and then save the file as a PDF. The following code snippet demonstrates how to convert a sample presentation to a PDF in Notes Slide view.
+The `Save` method in the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class can be used to convert a PPT or PPTX presentation to a PDF with speaker notes. With Aspose.Slides, you simply load the presentation, configure the layout options using the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) class to include speaker notes, and then save the file as a PDF. The following code snippet demonstrates how to convert a sample presentation to a PDF in Notes Slide view.
 
 ```cs
 using (Presentation presentation = new Presentation("sample.pptx"))
