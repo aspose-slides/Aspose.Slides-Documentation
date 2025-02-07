@@ -6,7 +6,6 @@ url: /net/ppt-vs-pptx/
 keywords: "PPT vs PPTX, PowerPoint formats, C#, .NET, Convert PPT to PPTX, Presentation in .NET"
 description: "Explore the key differences between PPT and PPTX formats. Learn about their usage in C# and .NET environments."
 ---
-```
 
 ## **Understanding PPT: Legacy Format**
 [**PPT**](https://docs.fileformat.com/presentation/ppt/) is a binary file format utilized by PowerPoint 97-2003. Due to its binary nature, viewing its content requires specialized tools. Despite its limitations in expandability, the PPT format remains widely used for certain applications.
