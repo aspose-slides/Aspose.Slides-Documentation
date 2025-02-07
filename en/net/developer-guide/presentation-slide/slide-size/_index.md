@@ -1,86 +1,66 @@
 ---
-title: Slide Size
+title: Customize Slide Size
+linktitle: Slide Size
 type: docs
 weight: 70
 url: /net/slide-size/
-keywords: "Set slide, edit slide size, PowerPoint Presentation, custom slide size, resolve slide problems, C#, Csharp, .NET, Aspose.Slides"
-descriptions: "Set and edit slide size or aspect ratio in PowerPoint in C# or .NET"
+keywords: "Set slide size, customize presentation dimensions, PowerPoint aspect ratio, C#, Csharp, .NET, Aspose.Slides"
+description: "Learn how to customize and adjust slide sizes or aspect ratios in PowerPoint using C# or .NET with Aspose.Slides."
 ---
 
-## Slide Sizes in PowerPoint Presentations
+## Customizing Slide Sizes and Aspect Ratios in PowerPoint
 
-Aspose.Slides for .NET allows you to change the slide size or aspect ratio in PowerPoint presentations. If you plan to print your presentation or display its slides on a screen, you have to pay attention to its slide size or aspect ratio. 
+Aspose.Slides for .NET provides comprehensive tools to adjust the slide size and aspect ratio in PowerPoint presentations, critical for both printing and on-screen display. 
 
-These are the most common slide sizes and aspect ratios:
+### Popular Slide Sizes and Ratios:
 
-- **Standard (4:3 aspect ratio)**
+- **Standard (4:3 Aspect Ratio)**: Ideal for older screens and devices.
+  
+- **Widescreen (16:9 Aspect Ratio)**: Recommended for modern projectors and displays.
 
-  If your presentation is going to be displayed or viewed on relatively older devices or screens, you may want to use this setting. 
-
-- **Widescreen (16:9 aspect ratio)** 
-
-  If your presentation is going to be seen on modern projectors or displays, you may want to use this setting. 
-
-You cannot use multiple slide size settings in a single presentation. When you select a slide size for a presentation, that slide size setting gets applied to all slides in the presentation. 
-
-If you prefer to use a special slide size for your presentations, we strongly recommend you do it early. Ideally, you should specify your preferred slide at the beginning, i.e., when you are just setting up the presentation—before you add any content to the presentation. This way, you get to avoid complications resulting from (future) changes made to the size of slides. 
+Ensure consistency throughout your presentation as a single slide size and aspect ratio apply to all slides. For optimal results, set your slide dimensions at the beginning of your presentation creation process to avoid complications.
 
 {{% alert color="primary" %}} 
+By default, presentations created with Aspose.Slides use the standard 4:3 aspect ratio.
+{{% /alert %}}
 
- When you use Aspose.Slides to create a presentation, all the slides in the presentation automatically get the standard size or 4:3 aspect ratio.
+## How to Change Slide Size in PowerPoint
 
-{{% /alert %}} 
+This example demonstrates changing a presentation's slide size with Aspose.Slides in C#:
 
-## Changing the Slide Size in Presentations 
-
- This sample code shows you how to change the slide size in a presentation in C# using Aspose.Slides:
-
-```c#
-using (Presentation pres = new Presentation("pres-4x3-aspect-ratio.pptx"))
+```csharp
+using (Presentation pres = new Presentation("presentation-4x3.pptx"))
 {
     pres.SlideSize.SetSize(SlideSizeType.OnScreen16x9, SlideSizeScaleType.DoNotScale);
-    pres.Save("pres-4x3-aspect-ratio.pptx", SaveFormat.Pptx);
+    pres.Save("presentation-16x9.pptx", SaveFormat.Pptx);
 }
 ```
 
-## Specifying Custom Slide Sizes in Presentations
+## Specify Custom Slide Sizes
 
-If you find the common slide sizes (4:3 and 16:9) unsuitable for your work, you may decide to use a specific or unique slide size. For example, if you plan to print full-size slides from your presentation on a custom page layout or if you intend to display your presentation on certain screen types, you are likely to benefit from using a custom size setting for your presentation. 
+Tailoring the slide size to your specific needs, such as for unique paper layouts or screen specifications, can be beneficial. Here's how to set a custom slide size with Aspose.Slides for .NET:
 
-This sample code shows you how to use Aspose.Slides for .NET to specify a custom slide size for a presentation in C#:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```csharp
+using (Presentation pres = new Presentation("presentation.pptx"))
 {
     pres.SlideSize.SetSize(780, 540, SlideSizeScaleType.DoNotScale); // A4 paper size
-    pres.Save("pres-a4-slide-size.pptx", SaveFormat.Pptx);
+    pres.Save("presentation-a4.pptx", SaveFormat.Pptx);
 }
 ```
 
-## Dealing With Issues When Changing the Size of Slides in Presentations
+## Handling Slide Content After Resizing
 
-After you change the slide size for a presentation, the slides’ contents (images or objects, for example) may become distorted. By default, the objects get automatically resized to fit the new slide size. However, when changing a presentation's slide size, you can specify a setting that determines how Aspose.Slides deals with the contents on the slides.
+Post-resizing, slide contents may distort. You can control how Aspose.Slides manages this resizing:
 
-Depending on what you intend to do or achieve, you can use any of these settings:
+- **`DoNotScale`**: Keep objects at original sizes to avoid scaling.
+- **`EnsureFit`**: Scale objects to fit smaller slides, preventing content loss.
+- **`Maximize`**: Enlarge objects to suit larger slides for aesthetic consistency.
 
-- `DoNotScale`
+Example of using `Maximize` setting for slide size adjustment:
 
-  If you do NOT want the objects on the slides to be resized, use this setting.
-
-- `EnsureFit`
-
-  If you want to scale to a smaller slide size and you need Aspose.Slides to scale down the slides’ objects to ensure they all fit on slides (this way, you avoid losing content), use this setting. 
-
-- `Maximize`
-
-  If you want to scale to a larger slide size and you need Aspose.Slides to enlarge the slides’ objects to make them proportional to the new slide size, use this setting. 
-
-This sample code shows you how to use the `Maximize` setting when changing the size of a presentation’s slide:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+```csharp
+using (Presentation pres = new Presentation("presentation.pptx"))
 {
    pres.SlideSize.SetSize(SlideSizeType.Ledger, SlideSizeScaleType.Maximize);
 }
 ```
-
