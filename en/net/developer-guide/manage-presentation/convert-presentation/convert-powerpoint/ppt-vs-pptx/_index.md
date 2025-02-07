@@ -1,4 +1,3 @@
-```yaml
 ---
 title: Understanding the Difference: PPT vs PPTX
 type: docs
