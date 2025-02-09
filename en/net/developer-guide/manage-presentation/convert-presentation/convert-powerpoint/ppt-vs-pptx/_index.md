@@ -1,5 +1,6 @@
 ---
-title: "Understanding the Difference: PPT vs PPTX"
+title: Understanding the Difference: PPT vs PPTX
+linktitle: PPT vs PPTX
 type: docs
 weight: 10
 url: /net/ppt-vs-pptx/
