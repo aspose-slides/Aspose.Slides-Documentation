@@ -1,5 +1,6 @@
 ---
 title: Convert PowerPoint (PPT, PPTX) to JPG - Java Code Examples
+linktitle: Convert Powerpoint to JPG
 type: docs
 weight: 60
 url: /java/convert-powerpoint-to-jpg/

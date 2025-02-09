@@ -1,5 +1,6 @@
 ---
 title: What is Slide Master in PowerPoint? Definition & Usage Guide
+linktitle: Slide Master
 type: docs
 weight: 80
 url: /net/slide-master/

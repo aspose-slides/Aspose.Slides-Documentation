@@ -1,5 +1,6 @@
 ---
 title: Effortlessly Convert PowerPoint to Word in C# and .NET
+linktitle: Convert PowerPoint to Word
 type: docs
 weight: 110
 url: /net/convert-powerpoint-to-word/
