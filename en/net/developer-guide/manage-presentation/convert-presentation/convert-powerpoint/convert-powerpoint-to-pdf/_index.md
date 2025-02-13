@@ -79,7 +79,7 @@ Aspose offers a free online [**PowerPoint to PDF converter**](https://products.a
 
 ## **Convert PowerPoint to PDF with Options**
 
-Aspose.Slides provides custom options — properties under the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class — that allow you to customize the resulting PDF, lock the PDF with a password, or specify how the conversion process should proceed.
+Aspose.Slides provides custom options—properties under the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class—that allow you to customize the resulting PDF, lock the PDF with a password, or specify how the conversion process should proceed.
 
 ### **Convert PowerPoint to PDF with Custom Options**
 
@@ -214,88 +214,84 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 
 ## **Convert PowerPoint to PDF with Custom Slide Size**
 
-This C# code shows you how to convert a PowerPoint when its slide size is specified to a PDF:
+This C# code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size.:
 
 ```c#
-// Load the PowerPoint presentation
-using (Presentation presentation = new Presentation("SelectedSlides.pptx"))
+// Load a PowerPoint presentation.
+using var presentation = new Presentation("SelectedSlides.pptx");
+
+// Create a new presentation with an adjusted slide size.
+using var resizedPresentation = new Presentation();
+
+// Clone the first slide from the original presentation.
+var slide = presentation.Slides[0];
+resizedPresentation.Slides.InsertClone(0, slide);
+
+// Set the custom slide size (e.g., 612x792 points).
+resizedPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
+
+// Configure PDF options to include notes at the bottom.
+var pdfOptions = new PdfOptions
 {
-    // Create a new presentation for adjusted slide size
-    using (Presentation resizedPresentation = new Presentation())
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
     {
-        // Clone the first slide from the original presentation
-        ISlide slide = presentation.Slides[0];
-        resizedPresentation.Slides.InsertClone(0, slide);
-
-        // Set custom slide size (e.g., 612x792 points)
-        resizedPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-
-        // Configure PDF options to include notes at the bottom
-        PdfOptions pdfOptions = new PdfOptions
-        {
-            SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-            {
-                NotesPosition = NotesPositions.BottomFull
-            }
-        };
-
-        // Save the resized presentation to a PDF with notes
-        resizedPresentation.Save("PDFnotes_out.pdf", SaveFormat.Pdf, pdfOptions);
+        NotesPosition = NotesPositions.BottomFull
     }
-}
+};
+
+// Save the resized presentation to a PDF with notes.
+resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
 
-This C# code shows you how to convert a PowerPoint to PDF notes:
+This C# code demonstrates how to convert a PowerPoint presentation to a PDF that includes notes:
 
 ```c#
-// Load the PowerPoint presentation
-using (Presentation presentation = new Presentation("NotesFile.pptx"))
-{
-    // Configure PDF options with Notes Layout
-    PdfOptions pdfOptions = new PdfOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomFull
-        }
-    };
+// Load a PowerPoint presentation.
+using var presentation = new Presentation("NotesFile.pptx");
 
-    // Save the presentation to a PDF with notes
-    presentation.Save("Pdf_Notes_out.pdf", SaveFormat.Pdf, pdfOptions);
-}
+// Configure the PDF options with Notes Layout.
+var pdfOptions = new PdfOptions
+{
+    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomFull
+    }
+};
+
+// Save the presentation to a PDF with notes.
+presentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
 ```
 
 ## **Accessibility and Compliance Standards for PDF**
 
 Aspose.Slides allows you to use a conversion procedure that complies with [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html). You can export a PowerPoint document to PDF using any of these compliance standards: **PDF/A1a**, **PDF/A1b**, and **PDF/UA**.
 
-This C# code demonstrates a PowerPoint to PDF conversion operation in which multiple PDFs based on different compliance standards are obtained:
+This C# code demonstrates a PowerPoint-to-PDF conversion process that produces multiple PDFs based on different compliance standards:
 
 ```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation("pres.pptx");
+
+presentation.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions
 {
-    pres.Save("pres-a1a-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
-    {
-        Compliance = PdfCompliance.PdfA1a
-    });
-   
-    pres.Save("pres-a1b-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
-    {
-        Compliance = PdfCompliance.PdfA1b
-    });
-   
-    pres.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions()
-   {
-        Compliance = PdfCompliance.PdfUa
-    });
-}
+    Compliance = PdfCompliance.PdfA1a
+});
+
+presentation.Save("pres-a1b-compliance.pdf", SaveFormat.Pdf, new PdfOptions
+{
+    Compliance = PdfCompliance.PdfA1b
+});
+
+presentation.Save("pres-ua-compliance.pdf", SaveFormat.Pdf, new PdfOptions
+{
+    Compliance = PdfCompliance.PdfUa
+});
 ```
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides support for PDF conversion operations extends to allowing you allow convert PDF to the most popular file formats. You can do [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—are also supported.
+Aspose.Slides supports PDF conversion operations, allowing you to convert PDF files to popular file formats. You can perform [PDF to HTML](https://products.aspose.com/slides/net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/net/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/net/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/net/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/net/conversion/pdf-to-xml/)—are also supported.
 
 {{% /alert %}}
 
@@ -303,19 +299,19 @@ Aspose.Slides support for PDF conversion operations extends to allowing you allo
 
 ### 1. **Can I convert multiple PowerPoint files to PDF in bulk?**
 
-Yes, Aspose.Slides supports batch conversion of multiple PPT/PPTX files to PDF. You can iterate through your files and apply the conversion process programmatically.
+Yes, Aspose.Slides supports batch conversion of multiple PPT or PPTX files to PDF. You can iterate through your files and apply the conversion process programmatically.
 
 ### 2. **Is it possible to password-protect the converted PDF?**
 
-Absolutely. Use the `PdfOptions` class to set a password and define access permissions during the conversion process.
+Absolutely. Use the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to set a password and define access permissions during the conversion process.
 
 ### 3. **How do I include hidden slides in the PDF?**
 
-Set the `ShowHiddenSlides` property in the `PdfOptions` class to `true` to include hidden slides in the resulting PDF.
+Set the `ShowHiddenSlides` property in the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to `true` to include hidden slides in the resulting PDF.
 
 ### 4. **Can Aspose.Slides maintain high image quality in the PDF?**
 
-Yes, you can control image quality by setting properties like `JpegQuality` and `SufficientResolution` in the `PdfOptions` class to ensure high-quality images in your PDF.
+Yes, you can control image quality by setting properties such as `JpegQuality` and `SufficientResolution` in the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to ensure high-quality images in your PDF.
 
 ### 5. **Does Aspose.Slides support PDF/A compliance standards?**
 
