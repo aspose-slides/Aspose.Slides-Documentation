@@ -6,10 +6,15 @@ weight: 40
 url: /net/convert-powerpoint-to-pdf/
 keywords:
 - convert PowerPoint
-- presentation
+- convert presentation
 - PowerPoint to PDF
+- presentation to PDF
 - PPT to PDF
+- convert PPT to PDF
 - PPTX to PDF
+- convert PPTX to PDF
+- ODP to PDF
+- convert ODP to PDF
 - save PowerPoint as PDF
 - PDF/A1a
 - PDF/A1b
@@ -37,7 +42,7 @@ To convert a presentation to PDF, pass the file name as an argument to the [Pres
 
 {{%  alert title="NOTE"  color="warning"   %}} 
 
-Aspose.Slides for .NET inserts its API information and version number into output documents. For example, when converting a presentation to PDF, Aspose.Slides for .NET populates the Application field with "*Aspose.Slides*" and the PDF Producer field with a value in "*Aspose.Slides v XX.XX*" form. **Note** that you cannot instruct Aspose.Slides for .NET to change or remove this information from output documents.
+Aspose.Slides for .NET inserts its API information and version number into output documents. For example, when converting a presentation to PDF, Aspose.Slides populates the Application field with "*Aspose.Slides*" and the PDF Producer field with a value in "*Aspose.Slides v XX.XX*" form. **Note** that you cannot instruct Aspose.Slides to change or remove this information from output documents.
 
 {{% /alert %}}
 
@@ -64,7 +69,7 @@ The standard PowerPoint-to-PDF conversion process uses default options. In this 
 This C# code shows you how to convert a presentation (PPT, PPTX, ODP, etc.) to PDF:
 
 ```c#
-// Load a presentation. It could be PPT, PPTX, ODP, etc.
+// Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 using var presentation = new Presentation("PowerPoint.ppt");
 
 // Save the presentation as a PDF.
@@ -142,7 +147,7 @@ This C# code demonstrates how to convert a PowerPoint presentation into a passwo
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 using var presentation = new Presentation("PowerPoint.pptx");
 
-/// Instantiate the PdfOptions class.
+// Instantiate the PdfOptions class.
 var pdfOptions = new PdfOptions();
 
 // Set a PDF password and access permissions.
@@ -191,13 +196,13 @@ private class FontSubstitutionHandler : IWarningCallback
 
 {{%  alert color="primary"  %}} 
 
-For more information on receiving callbacks for font substitutions during the rendering process, see [Getting Warning Callbacks for Fonts Substitution](https://docs.aspose.com/slides/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
+For more information on receiving callbacks for font substitutions during the rendering process, see [Getting Warning Callbacks for Fonts Substitution](/slides/net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/).
 
-For more information on font substitution, see the [Font Substitution](https://docs.aspose.com/slides/net/font-substitution/) article.
+For more information on font substitution, see the [Font Substitution](/slides/net/font-substitution/) article.
 
 {{% /alert %}} 
 
-## **Convert Selected Slides in PowerPoint to PDF**
+## **Convert Selected Slides from PowerPoint to PDF**
 
 This C# code demonstrates how to convert only specific slides from a PowerPoint presentation to PDF:
 
@@ -214,7 +219,7 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 
 ## **Convert PowerPoint to PDF with Custom Slide Size**
 
-This C# code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size.:
+This C# code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size:
 
 ```c#
 // Load a PowerPoint presentation.
@@ -319,6 +324,6 @@ Yes, Aspose.Slides allows you to export PDFs that comply with various standards,
 
 ## Additional Resources
 
-- [Aspose.Slides for .NET Documentation](https://docs.aspose.com/slides/net/)
+- [Aspose.Slides for .NET Documentation](/slides/net/)
 - [Aspose.Slides API Reference](https://reference.aspose.com/slides/net/)
 - [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
