@@ -336,5 +336,5 @@ Yes, Aspose.Slides allows you to export PDFs that comply with various standards,
 ## Additional Resources
 
 - [Aspose.Slides for Android via Java Documentation](/slides/androidjava/)
-- [Aspose.Slides API Reference](https://reference.aspose.com/slides/androidjava/)
+- [Aspose.Slides for Android via Java API Reference](https://reference.aspose.com/slides/androidjava/)
 - [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
