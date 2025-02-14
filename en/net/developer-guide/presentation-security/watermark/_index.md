@@ -1,26 +1,43 @@
 ---
-title: Watermark
+title: Add a Watermark to a Presentation in C#
+linktitle: Watermark
 type: docs
 weight: 40
 url: /net/watermark/
 keywords:
 - watermark
-- add watermark
 - text watermark
 - image watermark
+- add watermark
+- change watermark
+- remove watermark
+- delete watermark
+- add watermark to presentation
+- add watermark to PPT
+- add watermark to PPTX
+- add watermark to ODP
+- remove watermark from presentation
+- remove watermark from PPT
+- remove watermark from PPTX
+- remove watermark from ODP
+- delete watermark from presentation
+- delete watermark from PPT
+- delete watermark from PPTX
+- delete watermark from ODP
 - PowerPoint
+- OpenDocument
 - presentation
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: "Add text and image watermarks to PowerPoint presentations in C# or .NET"
+description: "Learn how to manage text and image watermarks in PowerPoint and OpenDocument presentations in C# to indicate a draft, confidential information, copyright, and more."
 ---
 
 ## **About Watermarks**
 
-**A watermark** in a presentation is a text or image stamp used on a slide or throughout all presentation slides. Usually, a watermark is used to indicate that the presentation is a draft (e.g., a "Draft" watermark), that it contains confidential information (e.g., a "Confidential" watermark), to specify which company it belongs to (e.g., a "Company Name" watermark), to identify the presentation author, etc. A watermark helps to prevent copyright violations by indicating that the presentation should not be copied. Watermarks are used in both PowerPoint and OpenOffice presentation formats. In Aspose.Slides, you can add a watermark to PowerPoint PPT, PPTX, and OpenOffice ODP file formats.
+**A watermark** in a presentation is a text or image stamp used on a slide or throughout all presentation slides. Usually, a watermark is used to indicate that the presentation is a draft (e.g., a "Draft" watermark), that it contains confidential information (e.g., a "Confidential" watermark), to specify which company it belongs to (e.g., a "Company Name" watermark), to identify the presentation author, etc. A watermark helps to prevent copyright violations by indicating that the presentation should not be copied. Watermarks are used in both PowerPoint and OpenDocument presentation formats. In Aspose.Slides, you can add a watermark to PowerPoint PPT, PPTX, and OpenDocument ODP file formats.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/net/), there are various ways you can create watermarks in PowerPoint or OpenOffice documents and modify their design and behavior. The common aspect is that to add text watermarks, you should use the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) interface, and to add image watermarks, use the [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) class or fill a watermark shape with an image. `PictureFrame` implements the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) interface, allowing you to use all the flexible settings of the shape object. Since `ITextFrame` is not a shape and its settings are limited, it is wrapped into an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) object.
+In [**Aspose.Slides**](https://products.aspose.com/slides/net/), there are various ways you can create watermarks in PowerPoint or OpenDocument documents and modify their design and behavior. The common aspect is that to add text watermarks, you should use the [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) interface, and to add image watermarks, use the [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) class or fill a watermark shape with an image. `PictureFrame` implements the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) interface, allowing you to use all the flexible settings of the shape object. Since `ITextFrame` is not a shape and its settings are limited, it is wrapped into an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) object.
 
 There are two ways a watermark can be applied: to a single slide or to all presentation slides. The Slide Master is used to apply a watermark to all presentation slides — the watermark is added to the Slide Master, fully designed there, and applied to all slides without affecting the permission to modify the watermark on individual slides.
 
