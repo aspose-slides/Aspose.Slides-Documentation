@@ -79,7 +79,7 @@ using (Presentation presentation = new Presentation())
     ISlide slide = presentation.Slides[0];
 
     // Add a clustered column chart with its default data.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 0, 0, 500, 500);
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
 
     // Set the chart title.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
@@ -151,18 +151,22 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-### **Create Scattered Charts**
+The result:
 
-Scattered charts (also known as scattered plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
+![The clustered column chart](clustered_column_chart.png)
 
-Use a scattered chart when:
+### **Create Scatter Charts**
+
+Scatter charts (also known as scatter plots or x-y graphs) are often used to check for patterns or demonstrate correlations between two variables.
+
+Use a scatter chart when:
 
 * You have paired numerical data.
 * You have two variables that pair well together.
 * You want to determine whether the two variables are related.
 * You have an independent variable that has multiple values for a dependent variable.
 
-This C# code shows you how to create a scattered chart with a different series of markers:
+This C# code shows you how to create a scatter chart with a different series of markers:
 
 ```c#
 // Instantiate the Presentation class.
@@ -171,8 +175,8 @@ using (Presentation presentation = new Presentation())
     // Access the first slide.
     ISlide slide = presentation.Slides[0];
 
-    // Create the default scattered chart.
-    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 0, 0, 400, 400);
+    // Create the default scatter chart.
+    IChart chart = slide.Shapes.AddChart(ChartType.ScatterWithSmoothLines, 20, 20, 500, 300);
 
     // Set the index of the chart data sheet.
     int worksheetIndex = 0;
@@ -227,6 +231,10 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+The result:
+
+![The scatter chart](scatter_chart.png)
+
 ### **Create Pie Charts**
 
 Pie charts are best used to show the part-to-whole relationship in data, especially when the data contains categorical labels with numeric values. However, if your data contains many parts or labels, you might want to consider using a bar chart instead.
@@ -254,7 +262,7 @@ using (Presentation presentation = new Presentation())
     ISlide slide = presentation.Slides[0];
 
     // Add a chart with its default data.
-    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 100, 100, 400, 400);
+    IChart chart = slide.Shapes.AddChart(ChartType.Pie, 20, 20, 500, 300);
 
     // Set the chart title.
     chart.ChartTitle.AddTextFrameForOverriding("Sample Title");
@@ -300,7 +308,7 @@ using (Presentation presentation = new Presentation())
     point.Format.Line.FillFormat.SolidFillColor.Color = Color.Gray;
     point.Format.Line.Width = 3.0;
     point.Format.Line.Style = LineStyle.ThinThick;
-    point.Format.Line.DashStyle = LineDashStyle.DashDot;
+    point.Format.Line.DashStyle = LineDashStyle.LargeDash;
 
     IChartDataPoint point1 = series.DataPoints[1];
     point1.Format.Fill.FillType = FillType.Solid;
@@ -349,6 +357,10 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+The result:
+
+![The pie chart](pie_chart.png)
+
 ### **Create Line Charts**
 
 Line charts (also known as line graphs) are best used in situations where you want to demonstrate changes in value over time. Using a line chart, you can compare a large amount of data at once, track changes and trends over time, highlight anomalies in data series, and more.
@@ -367,7 +379,7 @@ This C# code shows you how to create a line chart:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 10, 50, 600, 350);
+    IChart lineChart = presentation.Slides[0].Shapes.AddChart(ChartType.Line, 20, 20, 500, 300);
 
     presentation.Save("lineChart.pptx", SaveFormat.Pptx);
 }
@@ -381,6 +393,10 @@ foreach (IChartSeries series in lineChart.ChartData.Series)
     series.Format.Line.DashStyle = LineDashStyle.Dash;
 }
 ```
+
+The result:
+
+![The line chart](line_chart.png)
 
 ### **Create Tree Map Charts**
 
@@ -400,7 +416,7 @@ This C# code shows you how to create a tree map chart:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 50, 50, 500, 400);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Treemap, 20, 20, 500, 300);
     chart.ChartData.Categories.Clear();
     chart.ChartData.Series.Clear();
 
@@ -448,6 +464,10 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+The result:
+
+![The treemap chart](treemap_chart.png)
+
 ### **Create Stock Charts**
 
 Stock charts are used to display financial data such as open, high, low, and close prices, helping analyze market trends and volatility. They offer essential insights into stock performance, aiding investors and analysts in making informed decisions.
@@ -467,7 +487,7 @@ This C# code shows you how to create a stock chart:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 50, 50, 600, 400, false);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.OpenHighLowClose, 20, 20, 500, 300, false);
 
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
@@ -508,9 +528,15 @@ using (Presentation presentation = new Presentation())
         ser.Format.Line.FillFormat.FillType = FillType.NoFill;
     }
 
+    chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
     presentation.Save("Stock-chart.pptx", SaveFormat.Pptx);
 }
 ```
+
+The result:
+
+![The stock chart](stock_chart.png)
 
 ### **Create Box and Whisker Charts**
 
@@ -528,9 +554,9 @@ Box and Whisker charts are used to display the distribution of data by summarizi
 This C# code shows you how to create a box and whisker chart:
 
 ```c#
-using (Presentation presentation = new Presentation("test.pptx"))
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 50, 50, 500, 400);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.BoxAndWhisker, 20, 20, 500, 300);
     chart.ChartData.Categories.Clear();
     chart.ChartData.Series.Clear();
 
@@ -538,11 +564,11 @@ using (Presentation presentation = new Presentation("test.pptx"))
     workbook.Clear(0);
 
     chart.ChartData.Categories.Add(workbook.GetCell(0, "A1", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 1"));
-    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 1"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A2", "Category 2"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A3", "Category 3"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A4", "Category 4"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A5", "Category 5"));
+    chart.ChartData.Categories.Add(workbook.GetCell(0, "A6", "Category 6"));
 
     IChartSeries series = chart.ChartData.Series.Add(ChartType.BoxAndWhisker);
 
@@ -603,6 +629,10 @@ using (Presentation presentation = new Presentation("test.pptx"))
     presentation.Save("Funnel.pptx", SaveFormat.Pptx);
 }
 ```
+
+The result:
+
+![The funnel chart](funnel_chart.png)
 
 ### **Create Sunburst Charts**
 
@@ -801,7 +831,7 @@ using (Presentation presentation = new Presentation())
 
 A combination chart (or combo chart) is a chart that combines two or more chart types into a single graph. This type of chart allows you to highlight, compare, or review differences between two or more sets of data, enabling you to identify any relationships between them.
 
-![combination-chart-ppt](combination-chart-ppt.png)
+![The combination chart](combination_chart.png)
 
 This C# code shows you how to create a combination chart in a PowerPoint presentation:
 
