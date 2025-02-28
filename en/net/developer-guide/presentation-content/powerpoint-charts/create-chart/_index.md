@@ -153,7 +153,7 @@ using (Presentation presentation = new Presentation())
 
 The result:
 
-![The clustered column chart](clustered_column_chart.png)
+![The Clustered Column chart](clustered_column_chart.png)
 
 ### **Create Scatter Charts**
 
@@ -233,7 +233,7 @@ using (Presentation presentation = new Presentation())
 
 The result:
 
-![The scatter chart](scatter_chart.png)
+![The Scatter chart](scatter_chart.png)
 
 ### **Create Pie Charts**
 
@@ -359,7 +359,7 @@ using (Presentation presentation = new Presentation())
 
 The result:
 
-![The pie chart](pie_chart.png)
+![The Pie chart](pie_chart.png)
 
 ### **Create Line Charts**
 
@@ -396,7 +396,7 @@ foreach (IChartSeries series in lineChart.ChartData.Series)
 
 The result:
 
-![The line chart](line_chart.png)
+![The Line chart](line_chart.png)
 
 ### **Create Tree Map Charts**
 
@@ -466,7 +466,7 @@ using (Presentation presentation = new Presentation())
 
 The result:
 
-![The treemap chart](treemap_chart.png)
+![The Treemap chart](treemap_chart.png)
 
 ### **Create Stock Charts**
 
@@ -536,7 +536,7 @@ using (Presentation presentation = new Presentation())
 
 The result:
 
-![The stock chart](stock_chart.png)
+![The Stock chart](stock_chart.png)
 
 ### **Create Box and Whisker Charts**
 
@@ -632,7 +632,7 @@ using (Presentation presentation = new Presentation("test.pptx"))
 
 The result:
 
-![The funnel chart](funnel_chart.png)
+![The Funnel chart](funnel_chart.png)
 
 ### **Create Sunburst Charts**
 
@@ -646,9 +646,9 @@ Sunburst charts are used to visualize hierarchical data, displaying levels as co
 This C# code shows you how to create a sunburst chart:
 
 ```c#
-using (Presentation presentation = new Presentation("test.pptx"))
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 50, 50, 500, 400);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Sunburst, 20, 20, 500, 300);
     chart.ChartData.Categories.Clear();
     chart.ChartData.Series.Clear();
 
@@ -694,6 +694,10 @@ using (Presentation presentation = new Presentation("test.pptx"))
 }
 ```
 
+The result:
+
+![The Sunburst chart](sunburst_chart.png)
+
 ### **Create Histogram Charts**
 
 Histogram charts are used to represent the distribution of numerical data by grouping values into ranges or bins. They are particularly useful for identifying data patterns such as frequency, skewness, and spread, and for detecting outliers in a dataset.
@@ -709,9 +713,9 @@ Histogram charts are used to represent the distribution of numerical data by gro
 This C# code shows you how to create a histogram chart:
 
 ```c#
-using (Presentation presentation = new Presentation("test.pptx"))
+using (Presentation presentation = new Presentation())
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 50, 50, 500, 400);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Histogram, 20, 20, 500, 300);
     chart.ChartData.Categories.Clear();
     chart.ChartData.Series.Clear();
 
@@ -732,6 +736,10 @@ using (Presentation presentation = new Presentation("test.pptx"))
 }
 ```
 
+The result:
+
+![The Histogram chart](histogram_chart.png)
+
 ### **Create Radar Charts**
 
 Radar charts are used to display multivariate data in a two-dimensional format, allowing for easy comparison of several variables simultaneously. They are particularly useful for identifying patterns, strengths, and weaknesses across multiple performance metrics or attributes.
@@ -746,10 +754,14 @@ This C# code shows you how to create a radar chart:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 400, 300);
+    presentation.Slides[0].Shapes.AddChart(ChartType.Radar, 20, 20, 500, 300);
     presentation.Save("Radar-chart.pptx", SaveFormat.Pptx);
 }
 ```
+
+The result:
+
+![The Radar chart](radar_chart.png)
 
 ### **Create Multi Category Charts**
 
@@ -771,7 +783,7 @@ using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
 
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 600, 450);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 300);
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
@@ -813,6 +825,10 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+The result:
+
+![The multi category chart](multi_category_chart.png)
+
 ### **Create Map Charts**
 
 Map charts are used to visualize geographical data by mapping information to specific locations such as countries, states, or cities. They are particularly useful for analyzing regional trends, demographic data, and spatial distributions in a clear, visually engaging manner.
@@ -822,10 +838,14 @@ This C# code shows you how to create a map chart:
 ```c#
 using (Presentation presentation = new Presentation())
 {
-    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 50, 50, 500, 400);
+    IChart chart = presentation.Slides[0].Shapes.AddChart(ChartType.Map, 20, 20, 500, 300);
     presentation.Save("mapChart.pptx", SaveFormat.Pptx);
 }
 ```
+
+The result:
+
+![The Map chart](map_chart.png)
 
 ### **Create Combination Charts**
 
