@@ -1,6 +1,6 @@
 ---
 title: Secure PowerPoint Presentations with Passwords Using C#
-title: Password Protected Presentation
+linktitle: Password Protected Presentation
 type: docs
 weight: 20
 url: /net/password-protected-presentation/
