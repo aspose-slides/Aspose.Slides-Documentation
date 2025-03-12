@@ -1,6 +1,6 @@
 ---
-title: Convert PPT and PPTX to JPG in C#
-linktitle: Convert PPT and PPTX to JPG
+title: Convert PPT, PPTX, and ODP to JPG in C#
+linktitle: Convert Slides to JPG Images
 type: docs
 weight: 60
 url: /net/convert-powerpoint-to-jpg/
