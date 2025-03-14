@@ -1,63 +1,145 @@
 ---
-title: Convert PowerPoint PPT to JPG in Python
-linktitle: Convert PowerPoint PPT to JPG
+title: Convert PPT, PPTX, and ODP to JPG in Python
+linktitle: Convert Slides to JPG Images
 type: docs
 weight: 60
 url: /python-net/convert-powerpoint-to-jpg/
-keywords: "python ppt to image, Convert PowerPoint Presentation, JPG, JPEG, PowerPoint to JPG, PowerPoint to JPEG, PPT to JPG, PPTX to JPG, PPT to JPEG, PPTX to JPEG, Python, Aspose.Slides"
-description: "Convert PowerPoint to JPG in Python. Save slide as JPG image"
+keywords:
+- convert PowerPoint to JPG
+- convert presentation to JPG
+- convert slide to JPG
+- convert PPT to JPG
+- convert PPTX to JPG
+- convert ODP to JPG
+- PowerPoint to JPG
+- presentation to JPG
+- slide to JPG
+- PPT to JPG
+- PPTX to JPG
+- ODP to JPG
+- convert PowerPoint to JPEG
+- convert presentation to JPEG
+- convert slide to JPEG
+- convert PPT to JPEG
+- convert PPTX to JPEG
+- convert ODP to JPEG
+- PowerPoint to JPEG
+- presentation to JPEG
+- slide to JPEG
+- PPT to JPEG
+- PPTX to JPEG
+- ODP to JPEG
+- Python
+- Aspose.Slides
+description: "Learn how to transform your slides from PowerPoint and OpenDocument presentations into high-quality JPEG images with just a few lines of code in Python. Optimize presentations for web use, sharing, and archiving. Read the full guide now!"
 ---
 
-## **About PowerPoint to JPG Conversion**
-With [**Aspose.Slides .NET API**](https://products.aspose.com/slides/python-net/) you can convert PowerPoint PPT or PPTX presentation to JPG image in Python. It is also possible to convert PPT/PPTX to BMP, PNG or SVG in Python. With this features it's easy to implement your own presentation viewer, create  the thumbnail for every slide. This may be useful if you want to protect presentation slides from copywriting, demonstrate presentation in read-only mode. Aspose.Slides allows to convert the whole presentation or a certain slide into image formats. 
+## **Overview**
 
-{{% alert color="primary" %}} 
+Converting PowerPoint and OpenDocument presentations to JPG images helps with sharing slides, optimizing performance, and embedding content into websites or applications. Aspose.Slides for Python allows you to transform PPTX, PPT, and ODP files into high-quality JPEG images. This guide explains different methods for conversion.
 
-To see how Aspose.Slides converts PowerPoint to JPG images, you may want to try these free online converters: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) and [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+With these features, it's easy to implement your own presentation viewer and create a thumbnail for every slide. This may be useful if you want to protect presentation slides from copying or demonstrate the presentation in read-only mode. Aspose.Slides allows you to convert the whole presentation or a specific slide into image formats.
 
-{{% /alert %}} 
+## **Convert Presentation Slides to JPG Images**
 
-![todo:image_alt_text](ppt-to-jpg.png)
+Here are the steps to convert a PPT, PPTX, or ODP file to JPG:
 
-## **Convert PowerPoint PPT/PPTX to JPG**
-Here are the steps to convert PPT/PPTX to JPG:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get the slide object of the [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) type from the [Presentation.slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection.
+1. Create an image of the slide using the [Slide.get_image(scale_x, scale_y)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#float-float) method.
+1. Call the [IImage.save(filename, format)](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/#str-imageformat) method on the image object. Pass the output file name and image format as arguments.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Get the slide object of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type from [Presentation.Slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) collection.
-3. Create the thumbnail of each slide and then convert it into JPG. [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method is used to get a thumbnail of a slide, it returns [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) object as a result. [GetImage](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method has to be called from the needed slide of [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) type, the scales of the resulting thumbnail are passed into the method.
-4. After you get the slide thumbnail, call [**IImage.Save(string filename, ImageFormat format)**]((https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) method from the thumbnail object. Pass the resulting file name and the image format into it. 
+{{% alert color="primary" %}}
 
-{{% alert color="primary" %}} 
-**Note**: PPT/PPTX to JPG conversion differs from the conversion to other types in Aspose.Slides .NET API. For other types, you usually use [**IPresentation.SaveMethod(String, SaveFormat, ISaveOptions)** ](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentation/)method, but here you need [**Image.Save(string filename, ImageFormat format)**](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.image.save?view=netframework-4.8) method.
-{{% /alert %}} 
+**Note:** PPT, PPTX, or ODP to JPG conversion differs from conversion to other formats in the Aspose.Slides Python API. For other formats, you typically use the [Presentation.save(fname, format, options)](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/#str-asposeslidesexportsaveformat-asposeslidesexportisaveoptions) method. However, for JPG conversion, you need to use the [IImage.save(filename, format)](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/save/#str-imageformat) method.
+
+{{% /alert %}}
 
 ```py
 import aspose.slides as slides
 
-pres = slides.Presentation("pres.pptx")
+scale_x = 1
+scale_y = scale_x
 
-for sld in pres.slides:
-    with sld.get_image(1, 1) as bmp:
-        bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
+with slides.Presentation("PowerPoint_Presentation.ppt") as presentation:
+    for slide in presentation.slides:
+        with slide.get_image(scale_x, scale_y) as thumbnail:
+            # Save the image to disk in JPEG format.
+            file_name = f"Slide_{slide.slide_number}.jpg"
+            thumbnail.save(file_name, slides.ImageFormat.JPEG)
 ```
 
-## **Convert PowerPoint PPT/PPTX to JPG with Customized Dimensions**
-To change the dimension of the resulting thumbnail and JPG image, you can set the *ScaleX* and *ScaleY* values by passing them into the [**ISlide.GetImage(float scaleX, float scaleY)**](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) method:
+## **Convert Slides to JPG with Customized Dimensions**
+
+To change the dimensions of the resulting JPG images, you can set the image size by passing it into the [Slide.get_image(image_size)](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) method. This allows you to generate images with specific width and height values, ensuring that the output meets your requirements for resolution and aspect ratio. This flexibility is particularly useful when generating images for web applications, reports, or documentation, where precise image dimensions are required.
 
 ```py
 import aspose.slides as slides
+import aspose.pydrawing as pydrawing
 
-pres = slides.Presentation("pres.pptx")
+image_size = pydrawing.Size(1200, 800)
 
-desiredX = 1200
-desiredY = 800
-scaleX = (float)(1.0 / pres.slide_size.size.width) * desiredX
-scaleY = (float)(1.0 / pres.slide_size.size.height) * desiredY
-
-for sld in pres.slides:
-    with sld.get_image(scaleX, scaleY) as bmp:
-        bmp.save("Slide_{num}.jpg".format(num=str(sld.slide_number)), slides.ImageFormat.JPEG)
+with slides.Presentation("PowerPoint_Presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        # Create a slide image of the specified size.
+        with slide.get_image(image_size) as thumbnail:
+            # Save the image to disk in JPEG format.
+            file_name = f"Slide_{slide.slide_number}.jpg"
+            thumbnail.save(file_name, slides.ImageFormat.JPEG)
 ```
+
+## **Render Comments when Saving Slides as Images**
+
+Aspose.Slides for Python provides a feature that allows you to render comments on a presentation's slides when converting them into JPG images. This functionality is particularly useful for preserving annotations, feedback, or discussions added by collaborators in PowerPoint presentations. By enabling this option, you ensure that comments are visible in the generated images, making it easier to review and share feedback without needing to open the original presentation file.
+
+Let's say we have a presentation file, "sample.pptx," with a slide that contains comments:
+
+![The slide with comments](slide_with_comments.png)
+
+The following Python code converts the slide to a JPG image while preserving the comments:
+
+```py
+import aspose.slides as slides
+import aspose.pydrawing as pydrawing
+
+scale_x = 1
+scale_y = scale_x
+
+with slides.Presentation("sample.pptx") as presentation:
+    # Set options for the slide comments.
+    comments_options = slides.export.NotesCommentsLayoutingOptions()
+    comments_options.comments_position = slides.export.CommentsPositions.RIGHT
+    comments_options.comments_area_width = 200
+    comments_options.comments_area_color = pydrawing.Color.dark_orange
+
+    options = slides.export.RenderingOptions()
+    options.slides_layout_options = comments_options
+
+    # Convert the first slide to an image.
+    with presentation.slides[0].get_image(options, scale_x, scale_y) as thumbnail:
+        thumbnail.save("Slide_1.jpg", slides.ImageFormat.JPEG)
+```
+
+The result:
+
+![The JPG image with comments](image_with_comments.png)
+
+## **See also**
+
+See other options for converting PPT, PPTX, or ODP to images, such as:
+
+- [Convert PowerPoint to GIF](/slides/python-net/convert-powerpoint-to-animated-gif/)
+- [Convert PowerPoint to PNG](/slides/python-net/convert-powerpoint-to-png/)
+- [Convert PowerPoint to TIFF](/slides/python-net/convert-powerpoint-to-tiff/)
+- [Convert PowerPoint to SVG](/slides/python-net/render-a-slide-as-an-svg-image/)
+
+{{% alert color="primary" %}} 
+
+To see how Aspose.Slides converts PowerPoint to JPG images, try these free online converters: PowerPoint [PPTX to JPG](https://products.aspose.app/slides/conversion/pptx-to-jpg) and [PPT to JPG](https://products.aspose.app/slides/conversion/ppt-to-jpg). 
+
+{{% /alert %}} 
+
+![Free Online PPTX to JPG Converter](ppt-to-jpg.png)
 
 {{% alert title="Tip" color="primary" %}}
 
@@ -66,12 +148,3 @@ Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/coll
 Using the same principles described in this article, you can convert images from one format to another. For more information, see these pages: convert [image to JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
 
 {{% /alert %}}
-
-## **See also**
-
-See other options to convert PPT/PPTX into image like:
-
-- [PPT/PPTX to SVG conversion](/slides/python-net/render-a-slide-as-an-svg-image/).
-
-
-
