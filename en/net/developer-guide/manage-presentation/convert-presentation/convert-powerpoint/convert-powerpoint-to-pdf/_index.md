@@ -300,29 +300,29 @@ Aspose.Slides supports PDF conversion operations, allowing you to convert PDF fi
 
 {{% /alert %}}
 
-## Frequently Asked Questions
+## **Frequently Asked Questions**
 
-### 1. **Can I convert multiple PowerPoint files to PDF in bulk?**
+1. **Can I convert multiple PowerPoint files to PDF in bulk?**
 
 Yes, Aspose.Slides supports batch conversion of multiple PPT or PPTX files to PDF. You can iterate through your files and apply the conversion process programmatically.
 
-### 2. **Is it possible to password-protect the converted PDF?**
+2. **Is it possible to password-protect the converted PDF?**
 
 Absolutely. Use the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to set a password and define access permissions during the conversion process.
 
-### 3. **How do I include hidden slides in the PDF?**
+3. **How do I include hidden slides in the PDF?**
 
 Set the `ShowHiddenSlides` property in the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to `true` to include hidden slides in the resulting PDF.
 
-### 4. **Can Aspose.Slides maintain high image quality in the PDF?**
+4. **Can Aspose.Slides maintain high image quality in the PDF?**
 
 Yes, you can control image quality by setting properties such as `JpegQuality` and `SufficientResolution` in the [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/) class to ensure high-quality images in your PDF.
 
-### 5. **Does Aspose.Slides support PDF/A compliance standards?**
+5. **Does Aspose.Slides support PDF/A compliance standards?**
 
 Yes, Aspose.Slides allows you to export PDFs that comply with various standards, including PDF/A1a, PDF/A1b, and PDF/UA, ensuring your documents meet accessibility and archival requirements.
 
-## Additional Resources
+## **Additional Resources**
 
 - [Aspose.Slides for .NET Documentation](/slides/net/)
 - [Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/net/)
