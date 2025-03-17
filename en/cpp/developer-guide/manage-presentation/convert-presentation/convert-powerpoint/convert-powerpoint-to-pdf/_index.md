@@ -236,28 +236,25 @@ presentation->Dispose();
 This C++ code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size:
 
 ```C++
+auto slideWidth = 612;
+auto slideHeight = 792;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 auto presentation = MakeObject<Presentation>(u"SelectedSlides.pptx");
 
 // Create a new presentation with an adjusted slide size.
 auto resizedPresentation = MakeObject<Presentation>();
 
+// Set the custom slide size.
+resizedPresentation->get_SlideSize()->SetSize(slideWidth, slideHeight, SlideSizeScaleType::EnsureFit);
+
 // Clone the first slide from the original presentation.
 auto slide = presentation->get_Slide(0);
 resizedPresentation->get_Slides()->InsertClone(0, slide);
 
-// Set the custom slide size (e.g., 612x792 points).
-resizedPresentation->get_SlideSize()->SetSize(612.F, 792.F, SlideSizeScaleType::EnsureFit);
-
-// Configure PDF options to include notes at the bottom.
-auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesOptions->set_NotesPosition(NotesPositions::BottomFull);
-auto pdfOptions = MakeObject<PdfOptions>();
-pdfOptions->set_SlidesLayoutOptions(notesOptions);
-    
 // Save the resized presentation to a PDF with notes.
-resizedPresentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf, pdfOptions);
-    
+resizedPresentation->Save(u"PDF_with_notes.pdf", SaveFormat::Pdf);
+
 resizedPresentation->Dispose();
 presentation->Dispose();
 ```

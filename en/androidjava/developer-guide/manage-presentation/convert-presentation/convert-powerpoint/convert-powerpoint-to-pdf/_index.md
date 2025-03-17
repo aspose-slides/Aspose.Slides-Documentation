@@ -231,31 +231,27 @@ try {
 This Java code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size:
 
 ```java
+float slideWidth = 612;
+float slideHeight = 792;
+
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 Presentation presentation = new Presentation("SelectedSlides.pptx");
+
+// Create a new presentation with an adjusted slide size.
+Presentation resizedPresentation = new Presentation();
+
 try {
-    // Create a new presentation with an adjusted slide size.
-    Presentation resizedPresentation = new Presentation();
-    try {
-        // Clone the first slide from the original presentation.
-        ISlide slide = presentation.getSlides().get_Item(0);
-        resizedPresentation.getSlides().insertClone(0, slide);
+    // Set the custom slide size.
+    resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
 
-        // Set the custom slide size (e.g., 612x792 points).
-        resizedPresentation.getSlideSize().setSize(612F, 792F, SlideSizeScaleType.EnsureFit);
+    // Clone the first slide from the original presentation.
+    ISlide slide = presentation.getSlides().get_Item(0);
+    resizedPresentation.getSlides().insertClone(0, slide);
 
-        // Configure PDF options to include notes at the bottom.
-        NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-        notesOptions.setNotesPosition(NotesPositions.BottomFull);
-        PdfOptions pdfOptions = new PdfOptions();
-        pdfOptions.setSlidesLayoutOptions(notesOptions);
-
-        // Save the resized presentation to a PDF with notes.
-        resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
-    } finally {
-        resizedPresentation.dispose();
-    }
+    // Save the resized presentation to a PDF with notes.
+    resizedPresentation.save("PDF_with_notes.pdf", SaveFormat.Pdf);
 } finally {
+    resizedPresentation.dispose();
     presentation.dispose();
 }
 ```

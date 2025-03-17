@@ -222,30 +222,24 @@ presentation.Save("PPTX-to-PDF.pdf", slides, SaveFormat.Pdf);
 This C# code demonstrates how to convert a PowerPoint presentation to PDF with a specified slide size:
 
 ```c#
+var slideWidth = 612;
+var slideHeight = 792;
+
 // Load a PowerPoint presentation.
 using var presentation = new Presentation("SelectedSlides.pptx");
 
 // Create a new presentation with an adjusted slide size.
 using var resizedPresentation = new Presentation();
 
+// Set the custom slide size.
+resizedPresentation.SlideSize.SetSize(slideWidth, slideHeight, SlideSizeScaleType.EnsureFit);
+
 // Clone the first slide from the original presentation.
 var slide = presentation.Slides[0];
 resizedPresentation.Slides.InsertClone(0, slide);
 
-// Set the custom slide size (e.g., 612x792 points).
-resizedPresentation.SlideSize.SetSize(612F, 792F, SlideSizeScaleType.EnsureFit);
-
-// Configure PDF options to include notes at the bottom.
-var pdfOptions = new PdfOptions
-{
-    SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-    {
-        NotesPosition = NotesPositions.BottomFull
-    }
-};
-
 // Save the resized presentation to a PDF with notes.
-resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf, pdfOptions);
+resizedPresentation.Save("PDF_with_notes.pdf", SaveFormat.Pdf);
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**
