@@ -6,13 +6,13 @@ weight: 100
 url: /cpp/convert-powerpoint-to-tiff-with-notes/
 keywords:
 - convert PowerPoint to TIFF
-- convert presentation to TiFF
+- convert presentation to TIFF
 - convert slide to TIFF
 - convert PPT to TIFF
 - convert PPTX to TIFF
 - convert ODP to TIFF
 - PowerPoint to TIFF
-- presentation to TiFF
+- presentation to TIFF
 - slide to TIFF
 - PPT to TIFF
 - PPTX to TIFF
