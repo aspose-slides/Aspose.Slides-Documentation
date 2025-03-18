@@ -114,6 +114,7 @@ pdfOptions.setCompliance(PdfCompliance.Pdf15);
 
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
 Presentation presentation = new Presentation("PowerPoint.pptx");
+
 try {
     // Save the presentation as a PDF document.
     presentation.save("PowerPoint-to-PDF.pdf", SaveFormat.Pdf, pdfOptions);
@@ -182,9 +183,12 @@ public static void main(String[] args) {
     PdfOptions pdfOptions = new PdfOptions();
     pdfOptions.setWarningCallback(new FontSubstitutionHandler());
 
-    // Save the presentation as a PDF.
-    presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
-    presentation.dispose();
+    try {
+        // Save the presentation as a PDF.
+        presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
+    } finally {
+        presentation.dispose();
+    }
 }
 
 // Implementation of the warning callback.
