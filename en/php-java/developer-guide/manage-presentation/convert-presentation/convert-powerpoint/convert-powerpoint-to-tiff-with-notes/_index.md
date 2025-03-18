@@ -31,11 +31,11 @@ description: "Convert PowerPoint and OpenDocument presentations to TIFF with not
 
 ## **Overview**
 
-Aspose.Slides for Java provides a simple solution for converting PowerPoint and OpenDocument presentations (PPT, PPTX, and ODP) with notes to the TIFF format. This format is widely used for high-quality image storage, printing, and document archiving. With Aspose.Slides, you can not only export entire presentations with speaker notes but also generate slide thumbnails in the Notes Slide view. The conversion process is simple and efficient, utilizing the `save` method of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class to transform the entire presentation into a series of TIFF images while preserving the notes and layout.
+Aspose.Slides for PHP via Java provides a simple solution for converting PowerPoint and OpenDocument presentations (PPT, PPTX, and ODP) with notes to the TIFF format. This format is widely used for high-quality image storage, printing, and document archiving. With Aspose.Slides, you can not only export entire presentations with speaker notes but also generate slide thumbnails in the Notes Slide view. The conversion process is simple and efficient, utilizing the `save` method of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class to transform the entire presentation into a series of TIFF images while preserving the notes and layout.
 
 ## **Convert a Presentation to TIFF with Notes**
 
-Saving a PowerPoint or OpenDocument presentation to TIFF with notes using Aspose.Slides for Java involves the following steps:
+Saving a PowerPoint or OpenDocument presentation to TIFF with notes using Aspose.Slides for PHP via Java involves the following steps:
 
 1. Instantiate the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class: Load a PowerPoint or OpenDocument file.
 1. Configure the output layout options: Use the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) class to specify how notes and comments should be displayed.
@@ -49,7 +49,7 @@ The code snippet below demonstrates how to convert the presentation to a TIFF im
 
 ```php
 // Instantiate the Presentation class that represents a presentation file.
-$presentation = new Presentation($folderPath . "speaker_notes.pptx");
+$presentation = new Presentation("speaker_notes.pptx");
 try {
     $notesOptions = new NotesCommentsLayoutingOptions();
     $notesOptions->setNotesPosition(NotesPositions::BottomFull); // Display the notes below the slide.
