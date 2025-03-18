@@ -46,7 +46,7 @@ Let's say we have a "speaker_notes.pptx" file with the following slide:
 
 ![The presentation slide with speaker notes](slide_with_notes.png)
 
-The code snippet below demonstrates how to convert the presentation to a TIFF image in Notes Slide view using the [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) property.
+The code snippet below demonstrates how to convert the presentation to a TIFF image in Notes Slide view using the [setSlidesLayoutOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/tiffoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) method.
 
 ```java
 // Instantiate the Presentation class that represents a presentation file.
