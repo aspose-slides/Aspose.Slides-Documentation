@@ -60,13 +60,12 @@ using (Presentation presentation = new Presentation("speaker_notes.pptx"))
 
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            // Display the notes below the slide.
-            NotesPosition = NotesPositions.BottomFull
+            NotesPosition = NotesPositions.BottomFull // Display the notes below the slide.
         }
     };
 
     // Save the presentation to TIFF with the speaker notes.
-    presentation.Save("notes_in_TIFF.tiff", SaveFormat.Tiff, tiffOptions);
+    presentation.Save("TIFF_with_notes.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
