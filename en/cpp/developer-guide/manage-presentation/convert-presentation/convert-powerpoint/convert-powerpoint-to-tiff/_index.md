@@ -1,125 +1,160 @@
 ---
-title: Convert PowerPoint to TIFF
+title: Convert PowerPoint to TIFF in C++
+titlelink: PowerPoint to TIFF
 type: docs
 weight: 90
 url: /cpp/convert-powerpoint-to-tiff/
-keywords: "Convert PowerPoint Presentation, PowerPoint to TIFF, PPT to TIFF, PPTX to TIFF, C++, CPP, Aspose.Slides"
-description: "Convert PowerPoint presentation to TIFF in C++"
+keywords:
+- convert PowerPoint
+- convert OpenDocument
+- convert presentation
+- convert slide
+- PowerPoint to TIFF
+- OpenDocument to TIFF
+- presentation to TIFF
+- slide to TIFF
+- PPT to TIFF
+- PPTX to TIFF
+- ODP to TIFF
+- C++
+- Aspose.Slides
+description: "Learn how to easily convert PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations to high-quality TIFF images using Aspose.Slides for C++. Step-by-step guide with code examples included."
 ---
 
-**TIFF** (Tagged Image File Format) is a lossless raster and high-quality image format. Professionals use TIFF for their design, photography, and desktop publishing purposes. For example, if you want to preserve layers and settings in your design or image, you may want to save your work as a TIFF image file. 
+## **Overview**
 
-Aspose.Slides allows you to convert the slides in PowerPoint directly to TIFF. 
+TIFF (**Tagged Image File Format**) is a widely-used, lossless raster image format known for its exceptional quality and detailed preservation of graphics. Designers, photographers, and desktop publishers often choose TIFF to maintain layers, color accuracy, and original settings in their images.
 
-{{% alert title="Tip" color="primary" %}}
+Using Aspose.Slides, you can effortlessly convert your PowerPoint slides (PPT, PPTX) and OpenDocument slides (ODP) directly into high-quality TIFF images, ensuring your presentations retain maximum visual fidelity.
 
-You may want to check out Aspose's [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+## **Convert a Presentation to TIFF**
 
-{{% /alert %}}
+Using the [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) method provided by the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class, you can quickly convert an entire PowerPoint presentation to TIFF. The resulting TIFF images correspond to the default slide size.
 
-## **Convert PowerPoint to TIFF**
+This C++ code demonstrates how to convert a PowerPoint presentation to TIFF:
 
-Using the [Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) method exposed by the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class, you can quickly convert an entire PowerPoint presentation to TIFF. The resulting TIFF images correspond to the slides' default size. 
+```cpp
+// Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
+auto presentation = MakeObject<Presentation>(u"Demo_File.pptx");
 
-This C++ code shows you how to convert PowerPoint to TIFF:
+// Save the presentation as TIFF.
+presentation->Save(u"Output.tiff", SaveFormat::Tiff);
 
-```c++
-// The path to the documents directory.
-String dataDir = GetDataPath();
-
-// Instantiates a Presentation object that represents a presentation file
-auto presentation = System::MakeObject<Presentation>(dataDir + u"DemoFile.pptx");
-
-// Saves the presentation as TIFF
-presentation->Save(dataDir + u"Tiffoutput_out.tiff", SaveFormat::Tiff);
+presentation->Dispose();
 ```
 
-## **Convert PowerPoint to Black-and-White TIFF**
+## **Convert a Presentation to Black-and-White TIFF**
 
-In Aspose.Slides 23.10, Aspose.Slides added a new property ([BwConversionMode](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/)) to the [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class to allow you to specify the algorithm that is followed when a colored slide or image is converted to a black-and-white TIFF. Note that this setting is applied only when the [CompressionType](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) property is set to `CCITT4` or `CCITT3`.
+The method [set_BwConversionMode](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/) in the [TiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/) class allows you to specify the algorithm used when converting a colored slide or image to a black-and-white TIFF. Note that this setting applies only when the [set_CompressionType](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) method is set to `CCITT4` or `CCITT3`.
 
-This C++ code shows you how to convert a colored slide or image to black-and-white TIFF:
+Let's say we have a "sample.pptx" file with the following slide:
 
-```c++
-System::SharedPtr<TiffOptions> tiffOptions = System::MakeObject<TiffOptions>();
+![A presentation slide](slide_black_and_white.png)
+
+This C++ code demonstrates how to convert the colored slide to a black-and-white TIFF:
+
+```cpp
+auto tiffOptions = MakeObject<TiffOptions>();
 tiffOptions->set_CompressionType(TiffCompressionTypes::CCITT4);
 tiffOptions->set_BwConversionMode(BlackWhiteConversionMode::Dithering);
 
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 presentation->Save(u"output.tiff", SaveFormat::Tiff, tiffOptions);
+
+presentation->Dispose();
 ```
 
-## **Convert PowerPoint to TIFF with Custom Size**
+The result:
 
-If you require a TIFF image with defined dimensions, you can define your preferred figures through the properties provided under [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options). Using the [ImageSize](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_imagesize/) property, for example, you can set a size for the resulting image. 
+![Black-and-White TIFF](TIFF_black_and_white.png)
 
-This C++ code shows you how to convert PowerPoint to TIFF images with custom size:
+## **Convert a Presentation to TIFF with Custom Size**
 
-```c++
-// The path to the documents directory.
-System::String dataDir = GetDataPath();
+If you require a TIFF image with specific dimensions, you can set your desired values using methods available in [TiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/). For instance, the [set_ImageSize](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_imagesize/) method allows you to define the size of the resulting image.
 
-// Instantiates a Presentation object that represents a Presentation file
-auto pres = System::MakeObject<Presentation>(dataDir + u"Convert_Tiff_Custom.pptx");
-    
-// Instantiates the TiffOptions class
-auto opts = System::MakeObject<TiffOptions>();
+This C++ code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
 
-// Sets the compression type
-opts->set_CompressionType(TiffCompressionTypes::Default);
+```cpp
+// Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-auto notesOptions = opts->get_NotesCommentsLayouting();
-notesOptions->set_NotesPosition(NotesPositions::BottomFull);
-// Compression Types
+auto tiffOptions = MakeObject<TiffOptions>();
 
-// Default - Specifies the default compression scheme (LZW).
-// None - Specifies no compression.
-// CCITT3
-// CCITT4
-// LZW
-// RLE
-
-// Depth depends on the compression type and cannot be set manually.
-// Resolution unit  is always equal to �2� (dots per inch)
-
-// Sets the image DPI
-opts->set_DpiX(200);
-opts->set_DpiY(100);
-
-// Sets the Image Size
-opts->set_ImageSize(System::Drawing::Size(1728, 1078));
-
-// Saves the presentation to TIFF with specified size
-pres->Save(dataDir + u"TiffWithCustomSize_out.tiff", SaveFormat::Tiff, opts);
-```
-
-
-## **Convert PowerPoint to TIFF with Custom Image Pixel Format**
-
-Using the [PixelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) property under the [TiffOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.tiff_options) class, you can specify your preferred pixel format for the resulting TIFF image. 
-
-This C++ code shows you how to convert PowerPoint to TIFF image with custom pixel format:
-
-```c++
-// The path to the documents directory.
-System::String dataDir = GetDataPath();
-
-// Instantiates a Presentation object that represents a Presentation file
-auto presentation = System::MakeObject<Presentation>(dataDir + u"DemoFile.pptx");
-
-auto options = System::MakeObject<TiffOptions>();
-options->set_PixelFormat(ImagePixelFormat::Format8bppIndexed);
+// Set the compression type.
+tiffOptions->set_CompressionType(TiffCompressionTypes::Default);
 /*
-ImagePixelFormat contains the following values (as could be seen from documentation):
-Format1bppIndexed; // 1 bits per pixel, indexed.
-Format4bppIndexed; // 4 bits per pixel, indexed.
-Format8bppIndexed; // 8 bits per pixel, indexed.
-Format24bppRgb; // 24 bits per pixel, RGB.
-Format32bppArgb; // 32 bits per pixel, ARGB.
+Compression types:
+    Default - Specifies the default compression scheme (LZW).
+    None - Specifies no compression.
+    CCITT3
+    CCITT4
+    LZW
+    RLE
 */
 
-// Saves the presentation to TIFF with specified size
-presentation->Save(dataDir + u"Tiff_With_Custom_Image_Pixel_Format_out.tiff", SaveFormat::Tiff, options);
+// The depth depends on the compression type and cannot be set manually.
+
+// Set the image DPI.
+tiffOptions->set_DpiX(200);
+tiffOptions->set_DpiY(200);
+
+// Set the image size.
+tiffOptions->set_ImageSize(System::Drawing::Size(1728, 1078));
+
+auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull);
+tiffOptions->set_SlidesLayoutOptions(notesOptions);
+
+// Save the presentation as TIFF with the specified size.
+presentation->Save(u"custom_size.tiff", SaveFormat::Tiff, tiffOptions);
+
+presentation->Dispose();
 ```
 
+## **Convert a Presentation to TIFF with Custom Image Pixel Format**
 
+Using the [set_PixelFormat](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) method from the [TiffOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/tiffoptions/) class, you can specify your preferred pixel format for the resulting TIFF image.
+
+This C++ code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
+
+```cpp
+// Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
+auto presentation = MakeObject<Presentation>(u"Demo_File.pptx");
+
+auto tiffOptions = MakeObject<TiffOptions>();
+
+tiffOptions->set_PixelFormat(ImagePixelFormat::Format8bppIndexed);
+/*
+ImagePixelFormat contains the following values (as stated in the documentation):
+    Format1bppIndexed - 1 bit per pixel, indexed.
+    Format4bppIndexed - 4 bits per pixel, indexed.
+    Format8bppIndexed - 8 bits per pixel, indexed.
+    Format24bppRgb    - 24 bits per pixel, RGB.
+    Format32bppArgb   - 32 bits per pixel, ARGB.
+*/
+
+// Save the presentation as TIFF with the specified image size.
+presentation->Save(u"Custom_Image_Pixel_Format.tiff", SaveFormat::Tiff, tiffOptions);
+
+presentation->Dispose();
+```
+
+{{% alert title="Tip" color="primary" %}}
+
+Check out Aspose's [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+
+{{% /alert %}}
+
+## **FAQs**
+
+**1. Can I convert an individual slide instead of entire PowerPoint presentation to TIFF?**
+
+Yes. Aspose.Slides allows you to convert individual slides from PowerPoint and OpenDocument presentations into TIFF images separately.
+
+**2. Is there any limit to the number of slides when converting a presentation to TIFF?**
+
+No, Aspose.Slides does not impose any restrictions on the number of slides. You can convert presentations of any size into TIFF format.
+
+**3. Are PowerPoint animations and transition effects preserved when converting slides to TIFF?**
+
+No, TIFF is a static image format. Therefore, animations and transition effects are not preserved; only static snapshots of slides are exported.
