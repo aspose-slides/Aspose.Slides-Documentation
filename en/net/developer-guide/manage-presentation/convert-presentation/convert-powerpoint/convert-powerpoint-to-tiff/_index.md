@@ -95,12 +95,6 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     */
 
     // The depth depends on the compression type and cannot be set manually.
-    // The resolution unit is always equal to "2" (dots per inch).
-
-    tiffOptions.SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-    {
-        NotesPosition = NotesPositions.BottomFull
-    };
 
     // Set the image DPI.
     tiffOptions.DpiX = 200;
@@ -108,6 +102,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     // Set the image size.
     tiffOptions.ImageSize = new Size(1728, 1078);
+
+    tiffOptions.SlidesLayoutOptions = new NotesCommentsLayoutingOptions
+    {
+        NotesPosition = NotesPositions.BottomFull
+    };
 
     // Save the presentation as TIFF with the specified size.
     presentation.Save("custom_size.tiff", SaveFormat.Tiff, tiffOptions);
@@ -124,9 +123,9 @@ This C# code demonstrates how to convert a PowerPoint presentation to a TIFF ima
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
-    TiffOptions options = new TiffOptions();
+    TiffOptions tiffOptions = new TiffOptions();
    
-    options.PixelFormat = ImagePixelFormat.Format8bppIndexed;
+    tiffOptions.PixelFormat = ImagePixelFormat.Format8bppIndexed;
     /*
     ImagePixelFormat contains the following values (as stated in the documentation):
         Format1bppIndexed - 1 bit per pixel, indexed.
@@ -137,7 +136,7 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
     */
 
     // Save the presentation as TIFF with the specified image size.
-    presentation.Save("Custom_Image_Pixel_Format.tiff", SaveFormat.Tiff, options);
+    presentation.Save("Custom_Image_Pixel_Format.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
