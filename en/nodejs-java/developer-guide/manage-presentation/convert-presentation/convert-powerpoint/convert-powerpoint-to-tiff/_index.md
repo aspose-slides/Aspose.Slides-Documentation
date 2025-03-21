@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint to TIFF in JavaScript
+title: Convert PowerPoint Presentations to TIFF in JavaScript
 titlelink: PowerPoint to TIFF
 type: docs
 weight: 90

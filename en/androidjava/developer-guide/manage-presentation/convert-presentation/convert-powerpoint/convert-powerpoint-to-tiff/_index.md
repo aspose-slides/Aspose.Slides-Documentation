@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint to TIFF in Java
+title: Convert PowerPoint Presentations to TIFF in Java
 titlelink: PowerPoint to TIFF
 type: docs
 weight: 90

@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint to TIFF in PHP
+title: Convert PowerPoint Presentations to TIFF in PHP
 titlelink: PowerPoint to TIFF
 type: docs
 weight: 90

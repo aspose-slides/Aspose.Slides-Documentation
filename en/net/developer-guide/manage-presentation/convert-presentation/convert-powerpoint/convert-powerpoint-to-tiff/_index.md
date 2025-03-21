@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint to TIFF in C#
+title: Convert PowerPoint Presentations to TIFF in C#
 titlelink: PowerPoint to TIFF
 type: docs
 weight: 90
