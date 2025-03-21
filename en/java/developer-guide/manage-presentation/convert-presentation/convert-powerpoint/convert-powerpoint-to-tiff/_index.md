@@ -31,6 +31,8 @@ Using Aspose.Slides, you can effortlessly convert your PowerPoint slides (PPT, P
 
 Using the [save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-) method provided by the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class, you can quickly convert an entire PowerPoint presentation to TIFF. The resulting TIFF images correspond to the default slide size.
 
+This Java code demonstrates how to convert a PowerPoint presentation to TIFF:
+
 ```java
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 Presentation presentation = new Presentation("presentation.pptx");
