@@ -1,130 +1,152 @@
 ---
-title: Extract Text from Presentation
+title: Advanced Text Extraction from PowerPoint Presentations in C#
+title: Extract Text from Presentations
 type: docs
 weight: 90
 url: /net/extract-text-from-presentation/
-keywords: "Extract text from slide, Extract text from PowerPoint, C#, Csharp, Aspose.Slides for .NET"
-description: "Extract text from slide or PowerPoint presentation in C# or .NET"
+keywords:
+- extract text
+- extract text from slide
+- extract text from presentation
+- extract text from PowerPoint
+- extract text from PPT
+- extract text from PPTX
+- extract text from ODP
+- C#
+- .NET
+- Aspose.Slides
+description: "Learn how to quickly and easily extract text from PowerPoint presentations using Aspose.Slides for .NET. Follow our simple, step-by-step guide to save time and efficiently access slide content in your applications."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-It's not uncommon that developers need to extract the text from a presentation. To do so, you need to extract text from all the shapes on all the slides in a presentation. This article explains how to extract text from Microsoft PowerPoint PPTX presentations using Aspose.Slides. Text can be extracted in following ways:
+Extracting text from presentations is a common yet essential task for developers working with slide content. Whether you're dealing with Microsoft PowerPoint files in PPT or PPTX format, or OpenDocument presentations (ODP), accessing and retrieving textual data can be critical for analysis, automation, indexing, or content migration purposes.
 
-- [Extracting text from one slide](/slides/net/extracting-text-from-the-presentation/)
-- [Extracting text using GetAllTextBoxes method](/slides/net/extracting-text-from-the-presentation/)
-- [Categorized and fast extraction of text](/slides/net/extracting-text-from-the-presentation/)
+This article provides a comprehensive guide on how to efficiently extract text from various presentation formats, including PPT, PPTX, and ODP, using Aspose.Slides for .NET. You'll learn how to systematically iterate through presentation elements to accurately retrieve the text content you need.
 
-{{% /alert %}} 
-## **Extract Text from Slide**
-Aspose.Slides for .NET provides the Aspose.Slides.Util namespace which includes the SlideUtil class. This class exposes a number of overloaded static methods for extracting the entire text from a presentation or slide. To extract the text from a slide in a PPTX presentation, 
-use the [GetAllTextBoxes](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/getalltextboxes) overloaded static method exposed by the SlideUtil class. This method accepts the Slide object as a parameter.
-Upon execution, the Slide method scans the entire text from the slide passed as parameter and returns an array of TextFrame objects. This means that any text formatting associated with the text is available. The following piece of code extracts all the text on the first slide of the presentation:
+## **Extract Text from a Slide**
 
-```c#
-//Instatiate Presentation class that represents a PPTX file
-Presentation pptxPresentation = new Presentation("demo.pptx");
+Aspose.Slides for .NET provides the [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/) namespace, which includes the [SlideUtil](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/) class. This class exposes several overloaded static methods for extracting all text from a presentation or slide. To extract text from a slide in a presentation, use the [GetAllTextBoxes](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/getalltextboxes/) method. This method accepts an object of type [ISlide](https://reference.aspose.com/slides/net/aspose.slides/islide/) as a parameter. When executed, the method scans the entire slide for text and returns an array of objects of type [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), preserving any text formatting.
 
-//Get an Array of ITextFrame objects from all slides in the PPTX
-ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
+The following code snippet extracts all the text from the first slide of the presentation:
 
-//Loop through the Array of TextFrames
-for (int i = 0; i < textFramesPPTX.Length; i++)
+```cs
+int slideIndex = 0;
+
+// Instatiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
+using Presentation presentation = new Presentation("demo.pptx");
+
+// Get a reference to the slide.
+ISlide slide = presentation.Slides[slideIndex];
+
+// Get an array of text frames from the slide.
+ITextFrame[] textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextBoxes(slide);
+
+// Loop through the array of the text frames.
+for (int i = 0; i < textFrames.Length; i++)
 {
-	//Loop through paragraphs in current ITextFrame
-	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
-	{
-		//Loop through portions in the current IParagraph
-		foreach (IPortion port in para.Portions)
-		{
-			//Display text in the current portion
-			Console.WriteLine(port.Text);
+    // Loop through paragraphs in the current text frame.
+    foreach (IParagraph paragraph in textFrames[i].Paragraphs)
+    {
+        // Loop through text portions in the current paragraph.
+        foreach (IPortion portion in paragraph.Portions)
+        {
+            // Display text in the current text portion.
+            Console.WriteLine(portion.Text);
 
-			//Display font height of the text
-			Console.WriteLine(port.PortionFormat.FontHeight);
+            // Display the font height of the text.
+            Console.WriteLine(portion.PortionFormat.FontHeight);
 
-			//Display font name of the text
-			if (port.PortionFormat.LatinFont != null)
-				Console.WriteLine(port.PortionFormat.LatinFont.FontName);
-		}
-	}
+            // Display the font name of the text.
+            if (portion.PortionFormat.LatinFont != null)
+                Console.WriteLine(portion.PortionFormat.LatinFont.FontName);
+        }
+    }
 }
 ```
 
+## **Extract Text from a Presentation**
 
+To scan text from the entire presentation, use the [GetAllTextFrames](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/getalltextframes/) static method exposed by the [SlideUtil](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/) class. It accepts two parameters:
 
+1. First, a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) object representing a PowerPoint or OpenDocument presentation from which text will be extracted.
+1. Second, a `Boolean` value indicating whether the master slides should be included when scanning text from the presentation.
 
-## **Extract Text from Presentation**
-To scan the text from the whole presentation, use the
- [GetAllTextFrames](https://reference.aspose.com/slides/net/aspose.slides.util/slideutil/methods/getalltextframes) static method exposed by the SlideUtil class. It takes two parameters:
+The method returns an array of objects of type [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/), including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
 
-1. First, a Presentation object that represents the PPTX presentation the text is being extracted from.
-1. Second, a Boolean value determining whether the master slide is to be included when the text is scanned from the presentation.
-   The method returns an array of TextFrame objects, complete with text formatting information. The code below scans the text and formatting information from a presentation, including the master slides.
+```cs
+// Instatiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
+using Presentation presentation = new Presentation("demo.pptx");
 
-```c#
-//Instatiate Presentation class that represents a PPTX file
-Presentation pptxPresentation = new Presentation("demo.pptx");
+// Get an array of text frames from all slides in the presentation.
+ITextFrame[] textFrames = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(presentation, true);
 
-//Get an Array of ITextFrame objects from all slides in the PPTX
-ITextFrame[] textFramesPPTX = Aspose.Slides.Util.SlideUtil.GetAllTextFrames(pptxPresentation, true);
+// Loop through the array of the text frames.
+for (int i = 0; i < textFrames.Length; i++)
+{
+    // Loop through paragraphs in the current text frame.
+    foreach (IParagraph paragraph in textFrames[i].Paragraphs)
+    {
+        // Loop through text portions in the current paragraph.
+        foreach (IPortion portion in paragraph.Portions)
+        {
+            // Display text in the current text portion.
+            Console.WriteLine(portion.Text);
 
-//Loop through the Array of TextFrames
-for (int i = 0; i < textFramesPPTX.Length; i++)
+            // Display the font height of the text.
+            Console.WriteLine(portion.PortionFormat.FontHeight);
 
-	//Loop through paragraphs in current ITextFrame
-	foreach (IParagraph para in textFramesPPTX[i].Paragraphs)
-
-		//Loop through portions in the current IParagraph
-		foreach (IPortion port in para.Portions)
-		{
-			//Display text in the current portion
-			Console.WriteLine(port.Text);
-
-			//Display font height of the text
-			Console.WriteLine(port.PortionFormat.FontHeight);
-
-			//Display font name of the text
-			if (port.PortionFormat.LatinFont != null)
-				Console.WriteLine(port.PortionFormat.LatinFont.FontName);
-		}
+            // Display the font name of the text.
+            if (portion.PortionFormat.LatinFont != null)
+                Console.WriteLine(portion.PortionFormat.LatinFont.FontName);
+        }
+    }
+}
 ```
-
-
-
 
 ## **Categorized and Fast Text Extraction**
-The new static method GetPresentationText has been added to Presentation class. There are two overloads for this method:
 
-``` csharp
-PresentationText GetPresentationText(Stream stream)
-PresentationText GetPresentationText(Stream stream, ExtractionMode mode)
+The [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/) class also provides static methods for extracting all text from presentations:
+
+``` cs
+IPresentationText GetPresentationText(string file, TextExtractionArrangingMode mode);
+IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode);
+IPresentationText GetPresentationText(Stream stream, TextExtractionArrangingMode mode, ILoadOptions options);
 ```
 
-The ExtractionMode enum argument indicates the mode to organize the output of text result and can be set to the following values:
-Unarranged - The raw text with no respect to position on the slide
-Arranged - The text is positioned in the same order as on the slide
+The [TextExtractionArrangingMode](https://reference.aspose.com/slides/net/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:
+- `Unarranged` - The raw text without regard to its position on the slide.
+- `Arranged` - The text is arranged in the same order as on the slide.
 
-Unarranged mode can be used when speed is critical, it's faster than Arranged mode.
+The unarranged mode can be used when speed is critical; it's faster than the arranged mode.
 
-PresentationText represents the raw text extracted from the presentation. It contains a SlidesText property from Aspose.Slides.Util namespace which returns an array of ISlideText objects. Every object represent the text on the corresponding slide. ISlideText object have the following properties:
+[IPresentationText](https://reference.aspose.com/slides/net/aspose.slides/ipresentationtext/) represents the raw text extracted from the presentation. It contains the [SlidesText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/) property from the [Aspose.Slides.Util](https://reference.aspose.com/slides/net/aspose.slides.util/) namespace, which returns an array of objects of type [ISlideText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/). Each object represents the text on the corresponding slide. The object of type [ISlideText](https://reference.aspose.com/slides/net/aspose.slides/islidetext/) has the following properties:
 
-ISlideText.Text - The text on the slide's shapes
-ISlideText.MasterText - The text on the master page's shapes for this slide
-ISlideText.LayoutText - The text on the layout page's shapes for this slide
-ISlideText.NotesText - The text on the notes page's shapes for this slide
+- `Text` - The text within the slide's shapes.
+- `MasterText` - The text within the master slide's shapes associated with this slide.
+- `LayoutText` - The text within the layout slide's shapes associated with this slide.
+- `NotesText` - The text within the notes slide's shapes associated with this slide.
+- `CommentsText` - The text within comments associated with this slide.
 
-There is also a SlideText class which implements the ISlideText interface.
-
-The new API can be used like this:
-
-```c#
-IPresentationText text1 = new PresentationFactory().GetPresentationText("presentation.ppt", TextExtractionArrangingMode.Unarranged);
-Console.WriteLine(text1.SlidesText[0].Text);
-Console.WriteLine(text1.SlidesText[0].LayoutText);
-Console.WriteLine(text1.SlidesText[0].MasterText);
-Console.WriteLine(text1.SlidesText[0].NotesText);
+```cs
+IPresentationText text = new PresentationFactory().GetPresentationText("presentation.ppt", TextExtractionArrangingMode.Unarranged);
+Console.WriteLine(text.SlidesText[0].Text);
+Console.WriteLine(text.SlidesText[0].LayoutText);
+Console.WriteLine(text.SlidesText[0].MasterText);
+Console.WriteLine(text.SlidesText[0].NotesText);
+Console.WriteLine(text.SlidesText[0].CommentsText);
 ```
 
+## **FAQs**
 
+**1. How fast does Aspose.Slides process large presentations during text extraction?**
 
+Aspose.Slides is optimized for high performance and efficiently processes even large presentations, making it suitable for real-time or bulk processing scenarios.
+
+**2. Can Aspose.Slides extract text from tables and charts within presentations?**
+
+Yes, Aspose.Slides fully supports extracting text from tables, charts, and other complex slide elements, allowing you to access and analyze all textual content easily.
+
+**3. Do I need a special Aspose.Slides license to extract text from presentations?**
+
+You can extract text using the free trial version of Aspose.Slides, although it will have certain limitations, such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.
