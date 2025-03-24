@@ -85,7 +85,7 @@ Some slides may contain notes and comments.
 
 Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) and [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/)—that allow you to control the rendering of presentation slides to images. Both interfaces include the `setSlidesLayoutOptions` method, which enables you to configure the rendering of notes and comments on a slide when converting it to an image.
 
-With the [INotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/inotescommentslayoutingoptions/) interface, you can specify your preferred position for notes and comments in the resulting image.
+With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) class, you can specify your preferred position for notes and comments in the resulting image.
 
 This Java code demonstrates how to convert a slide with notes and comments:
 
