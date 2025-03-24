@@ -53,9 +53,9 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 
 ## **Convert Slides to Images with Custom Sizes**
 
-You may need to get an image of a certain size. Using an overload from the [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/), you can convert a slide to an image with specific dimensions (length and width). 
+You may need to get an image of a certain size. Using an overload from the [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/), you can convert a slide to an image with specific dimensions (width and height). 
 
-This sample code demonstrates the proposed conversion using the [GetImage](https://reference.aspose.com/slides/net/aspose.slides/islide/getimage/) method in C#:
+This sample code demonstrates how to do this:
 
 ```cs
 Size imageSize = new Size(1820, 1040);
@@ -111,7 +111,7 @@ using (Presentation presentation = new Presentation("Presentation_with_notes_and
 
 {{% alert title="Note" color="warning" %}} 
 
-In any slide-to-image conversion process, the [NotesPosition](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) property cannot be set to BottomFull (to specify the position for notes) because a note's text may be too large, making it unable to fit within the specified image size.
+In any slide-to-image conversion process, the [NotesPosition](https://reference.aspose.com/slides/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) property cannot be set to `BottomFull` (to specify the position for notes) because a note's text may be too large, making it unable to fit within the specified image size.
 
 {{% /alert %}} 
 
@@ -161,7 +161,7 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
     // Render the presentation to images slide by slide.
     for (int i = 0; i < presentation.Slides.Count; i++)
     {
-        // Specify the setting for hidden slides (do not render hidden slides).
+        // Control hidden slides (do not render hidden slides).
         if (presentation.Slides[i].Hidden)
             continue;
 
