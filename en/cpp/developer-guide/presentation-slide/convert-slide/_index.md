@@ -169,7 +169,7 @@ for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
     auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
 
     // Save the image in the JPEG format.
-    image->Save(u"Slide_" + String(i) + u".jpg", ImageFormat::Jpeg);
+    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
 
     image->Dispose();
 }

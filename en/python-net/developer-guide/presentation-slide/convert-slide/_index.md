@@ -148,13 +148,13 @@ scale_y = scale_x
 
 with slides.Presentation("Presentation.pptx") as presentation:
     # Render the presentation to images slide by slide.
-    for i in range(len(presentation.slides)):
+    for i, slide in enumerate(presentation.slides):
         # Control hidden slides (do not render hidden slides).
-        if presentation.slides[i].hidden:
+        if slide.hidden:
             continue
 
         # Convert the slide to an image.
-        with presentation.slides[i].get_image(scale_x, scale_y) as image:
+        with slide.get_image(scale_x, scale_y) as image:
             # Save the image in the JPEG format.
             image.save("Slide_{0}.jpg".format(i), slides.ImageFormat.JPEG)
 ```
