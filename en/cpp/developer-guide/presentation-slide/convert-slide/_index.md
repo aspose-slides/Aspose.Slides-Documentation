@@ -18,6 +18,8 @@ keywords:
 description: "Learn how to convert PowerPoint and OpenDocument slides into various formats using Aspose.Slides for C++. Easily export PPTX and ODP slides to BMP, PNG, JPEG, TIFF, and more with high-quality results."
 ---
 
+## **Overview**
+
 Aspose.Slides for C++ enables you to easily convert PowerPoint and OpenDocument presentation slides into various image formats, including BMP, PNG, JPG (JPEG), GIF, and others.
 
 To convert a slide into an image, follow these steps:
