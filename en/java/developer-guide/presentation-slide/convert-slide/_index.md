@@ -53,7 +53,7 @@ try {
 }
 ```
 
-## **Converting Slides to Images with Custom Sizes**
+## **Convert Slides to Images with Custom Sizes**
 
 You may need to get an image of a certain size. Using an overload from the [getImage](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), you can convert a slide to an image with specific dimensions (width and height). 
 
