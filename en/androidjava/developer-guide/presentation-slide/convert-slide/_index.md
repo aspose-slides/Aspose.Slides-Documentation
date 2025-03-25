@@ -184,7 +184,7 @@ try {
 
         try {
             // Save the image in the JPEG format.
-            image.save("Slide_" + i + ".png", ImageFormat.Png);
+            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
