@@ -1,5 +1,5 @@
 ---
-title: Convert PowerPoint to PDF with Notes in Java
+title: Convert PowerPoint to PDF with Notes in Android
 linktitle: Convert PowerPoint to PDF with Notes
 type: docs
 weight: 50
@@ -18,7 +18,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Convert PowerPoint to PDF with notes in Java"
+description: "Convert PowerPoint to PDF with notes in Android"
 ---
 
 ## **Overview**
@@ -34,17 +34,19 @@ The `save` method in the [Presentation](https://reference.aspose.com/slides/andr
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
+try {
+	// Configure PDF options for rendering speaker notes.
+	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Render speaker notes below the slide.
 
-// Configure PDF options for rendering speaker notes.
-NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
-notesOptions.setNotesPosition(NotesPositions.BottomFull); // Render speaker notes below the slide.
+	PdfOptions pdfOptions = new PdfOptions();
+	pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-PdfOptions pdfOptions = new PdfOptions();
-pdfOptions.setSlidesLayoutOptions(notesOptions);
-
-// Save the presentation to PDF with speaker notes.
-presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
-presentation.dispose();
+	// Save the presentation to PDF with speaker notes.
+	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+	if (presentation != null) presentation.dispose();
+}
 ```
 
 {{% alert color="primary" %}} 

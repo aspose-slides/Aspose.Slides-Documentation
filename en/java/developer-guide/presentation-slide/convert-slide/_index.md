@@ -35,7 +35,7 @@ In Aspose.Slides for Java, an [IImage](https://reference.aspose.com/slides/java/
 
 You can convert a slide to a bitmap object and use it directly in your application. Alternatively, you can convert a slide to a bitmap and then save the image in JPEG or any other preferred format.
 
-This Java code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
+This code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
 
 ```java 
 Presentation presentation = new Presentation("Presentation.pptx");
@@ -86,7 +86,7 @@ Aspose.Slides provides two interfaces—[ITiffOptions](https://reference.aspose.
 
 With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/java/com.aspose.slides/notescommentslayoutingoptions/) class, you can specify your preferred position for notes and comments in the resulting image.
 
-This Java code demonstrates how to convert a slide with notes and comments:
+This code demonstrates how to convert a slide with notes and comments:
 
 ```java 
 float scaleX = 2;
@@ -129,7 +129,7 @@ In any slide-to-image conversion process, the [setNotesPosition](https://referen
 
 The [ITiffOptions](https://reference.aspose.com/slides/java/com.aspose.slides/itiffoptions/) interface provides greater control over the resulting TIFF image by allowing you to specify parameters such as size, resolution, color palette, and more.
 
-This Java code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
+This code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
 
 ```java 
 // Load a presentation file.

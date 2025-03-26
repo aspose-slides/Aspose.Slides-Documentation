@@ -65,11 +65,11 @@ Aspose.Slides exports presentations to PDF, ensuring the resulting PDFs closely 
 
 The standard PowerPoint-to-PDF conversion process uses default options. In this case, Aspose.Slides tries to convert the provided presentation to PDF using optimal settings at the maximum quality levels.
 
-This JavaScript code shows you how to convert a presentation (PPT, PPTX, ODP, etc.) to PDF:
+This code shows you how to convert a presentation (PPT, PPTX, ODP, etc.) to PDF:
 
 ```js
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("PowerPoint.ppt");
+let presentation = new aspose.slides.Presentation("PowerPoint.ppt");
 try {
     // Save the presentation as a PDF.
     presentation.save("PPT-to-PDF.pdf", aspose.slides.SaveFormat.Pdf);
@@ -96,10 +96,10 @@ The code example below demonstrates how to convert a PowerPoint presentation to 
 
 ```js
 // Instantiate the PdfOptions class.
-var pdfOptions = new aspose.slides.PdfOptions();
+let pdfOptions = new aspose.slides.PdfOptions();
 
 // Set the quality for JPG images.
-pdfOptions.setJpegQuality(90);
+pdfOptions.setJpegQuality(java.newByte(90));
 
 // Set DPI for images.
 pdfOptions.setSufficientResolution(300);
@@ -114,7 +114,7 @@ pdfOptions.setTextCompression(aspose.slides.PdfTextCompression.Flate);
 pdfOptions.setCompliance(aspose.slides.PdfCompliance.Pdf15);
 
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("PowerPoint.pptx");
+let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
     // Save the presentation as a PDF document.
     presentation.save("PowerPoint-to-PDF.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
@@ -131,10 +131,10 @@ This JavaScript code shows how to convert a PowerPoint presentation to PDF with 
 
 ```js
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("PowerPoint.pptx");
+let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
     // Instantiate the PdfOptions class.
-    var pdfOptions = new aspose.slides.PdfOptions();
+    let pdfOptions = new aspose.slides.PdfOptions();
 
     // Add hidden slides.
     pdfOptions.setShowHiddenSlides(true);
@@ -152,10 +152,10 @@ This JavaScript code demonstrates how to convert a PowerPoint presentation into 
 
 ```js
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("PowerPoint.pptx");
+let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
     // Instantiate the PdfOptions class.
-    var pdfOptions = new aspose.slides.PdfOptions();
+    let pdfOptions = new aspose.slides.PdfOptions();
 
     // Set a PDF password and access permissions.
     pdfOptions.setPassword("password");
@@ -176,27 +176,25 @@ This JavaScript code shows how to detect font substitutions:
 
 ```js
 // Set the warning callback in PDF options.
-var pdfOptions = new aspose.slides.PdfOptions();
-pdfOptions.warningCallback = new FontSubstitutionHandler();
+let pdfOptions = new aspose.slides.PdfOptions();
+pdfOptions.setWarningCallback(FontSubstitutionHandler);
 
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("sample.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 
 // Save the presentation as a PDF.
 presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
-
-
-function FontSubstitutionHandler() {
-    this.warning = function(warning) {
-        if (warning.warningType === aspose.slides.WarningType.DataLoss &&
-            warning.description.startsWith("Font will be substituted")) {
-            console.log("Font substitution warning: " + warning.description);
-        }
-
-        return ReturnAction.Continue;
-    };
-}
+```
+```js
+const FontSubstitutionHandler = java.newProxy("com.aspose.slides.IWarningCallback", {
+	warning: function (warning) {
+		if (warning.getWarningType() === aspose.slides.WarningType.DataLoss) {
+			console.warn("Font substitution warning: " + warning.getDescription());
+		}
+		return aspose.slides.ReturnAction.Continue;
+	}
+});
 ```
 
 {{%  alert color="primary"  %}} 
@@ -213,10 +211,10 @@ This JavaScript code demonstrates how to convert only specific slides from a Pow
 
 ```js
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("PowerPoint.pptx");
+let presentation = new aspose.slides.Presentation("PowerPoint.pptx");
 try {
     // Set array of slide numbers.
-    var slides = java.newArray("int", [1, 3]);
+    let slides = java.newArray("int", [1, 3]);
 
     // Save the presentation as a PDF.
     presentation.save("PPTX-to-PDF.pdf", slides, aspose.slides.SaveFormat.Pdf);
@@ -234,17 +232,17 @@ const slideWidth = 612;
 const slideHeight = 792;
 
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
+let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
 
 // Create a new presentation with an adjusted slide size.
-var resizedPresentation = new aspose.slides.Presentation();
+let resizedPresentation = new aspose.slides.Presentation();
 
 try {
     // Set the custom slide size.
     resizedPresentation.getSlideSize().setSize(slideWidth, slideHeight, aspose.slides.SlideSizeScaleType.EnsureFit);
 
     // Clone the first slide from the original presentation.
-    var slide = presentation.getSlides().get_Item(0);
+    let slide = presentation.getSlides().get_Item(0);
     resizedPresentation.getSlides().insertClone(0, slide);
 
     // Save the resized presentation to a PDF with notes.
@@ -261,13 +259,13 @@ This JavaScript code demonstrates how to convert a PowerPoint presentation to a 
 
 ```js
 // Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
-var presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
+let presentation = new aspose.slides.Presentation("SelectedSlides.pptx");
 try {
     // Configure the PDF options with Notes Layout.
-    var notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesOptions.notesPosition = aspose.slides.NotesPositions.BottomFull;
-    var pdfOptions = new aspose.slides.PdfOptions();
-    pdfOptions.slidesLayoutOptions = notesOptions;
+    let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+    notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
+    let pdfOptions = new aspose.slides.PdfOptions();
+    pdfOptions.setSlidesLayoutOptions(notesOptions);
 
     // Save the presentation to a PDF with notes.
     presentation.save("PDF_with_notes.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
@@ -283,9 +281,9 @@ Aspose.Slides allows you to use a conversion procedure that complies with [Web C
 This JavaScript code demonstrates a PowerPoint-to-PDF conversion process that produces multiple PDFs based on different compliance standards:
 
 ```js
-var presentation = new aspose.slides.Presentation("pres.pptx");
+let presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var pdfOptions = new aspose.slides.PdfOptions();
+    let pdfOptions = new aspose.slides.PdfOptions();
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1a);
     presentation.save("pres-a1a-compliance.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
     pdfOptions.setCompliance(aspose.slides.PdfCompliance.PdfA1b);
@@ -299,7 +297,7 @@ try {
 
 {{% alert title="Note" color="warning" %}} 
 
-Aspose.Slides supports PDF conversion operations, allowing you to convert PDF files to popular file formats. You can perform [PDF to HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/), and [PDF to XML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-xml/)—are also supported.
+Aspose.Slides supports PDF conversion operations, allowing you to convert PDF files to popular file formats. You can perform [PDF to HTML](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-html/), [PDF to JPG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-jpg/), and [PDF to PNG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-png/) conversions. Other PDF conversion operations to specialized formats—[PDF to SVG](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/nodejs-java/conversion/pdf-to-tiff/)—are also supported.
 
 {{% /alert %}}
 

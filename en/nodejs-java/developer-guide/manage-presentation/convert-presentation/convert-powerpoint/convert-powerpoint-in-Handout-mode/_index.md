@@ -25,16 +25,16 @@ Below is a code example showing how to convert a presentation to PDF in Handout 
 
 ```js
 // Load a presentation.
-var presentation = new asposeSlides.Presentation("sample.pptx");
+let presentation = new asposeSlides.Presentation("sample.pptx");
 
 // Set the export options.
-var slidesLayoutOptions = new asposeSlides.HandoutLayoutingOptions();
+let slidesLayoutOptions = new asposeSlides.HandoutLayoutingOptions();
 slidesLayoutOptions.setHandout(asposeSlides.HandoutType.Handouts4Horizontal);  // 4 slides on one page horizontally
 slidesLayoutOptions.setPrintSlideNumbers(true);                                // print slide numbers
 slidesLayoutOptions.setPrintFrameSlide(true);                                  // print a frame around slides
 slidesLayoutOptions.setPrintComments(false);                                   // no comments
 
-var pdfOptions = new asposeSlides.PdfOptions();
+let pdfOptions = new asposeSlides.PdfOptions();
 pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
 // Export the presentation to PDF with the chosen layout.

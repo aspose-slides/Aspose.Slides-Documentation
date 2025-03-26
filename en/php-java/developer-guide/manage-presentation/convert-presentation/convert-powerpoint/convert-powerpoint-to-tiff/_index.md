@@ -32,7 +32,7 @@ Using Aspose.Slides, you can effortlessly convert your PowerPoint slides (PPT, P
 
 Using the [save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#save) method provided by the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class, you can quickly convert an entire PowerPoint presentation to TIFF. The resulting TIFF images correspond to the default slide size.
 
-This PHP code demonstrates how to convert a PowerPoint presentation to TIFF:
+This code demonstrates how to convert a PowerPoint presentation to TIFF:
 
 ```php
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
@@ -53,7 +53,7 @@ Let's say we have a "sample.pptx" file with the following slide:
 
 ![A presentation slide](slide_black_and_white.png)
 
-This PHP code demonstrates how to convert the colored slide to a black-and-white TIFF:
+This code demonstrates how to convert the colored slide to a black-and-white TIFF:
 
 ```php
 $tiffOptions = new TiffOptions();
@@ -76,7 +76,7 @@ The result:
 
 If you require a TIFF image with specific dimensions, you can set your desired values using methods available in [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/). For instance, the [setImageSize](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/#getImageSize) method allows you to define the size of the resulting image.
 
-This PHP code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
+This code demonstrates how to convert a PowerPoint presentation to TIFF images with a custom size:
 
 ```php
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
@@ -120,7 +120,7 @@ try {
 
 Using the [setPixelFormat](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/#getPixelFormat) method from the [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) class, you can specify your preferred pixel format for the resulting TIFF image.
 
-This PHP code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
+This code demonstrates how to convert a PowerPoint presentation to a TIFF image with a custom pixel format:
 
 ```php
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).

@@ -50,16 +50,16 @@ The code snippet below demonstrates how to convert the presentation to a TIFF im
 
 ```js
 // Instantiate the Presentation class that represents a presentation file.
-var presentation = new aspose.slides.Presentation("speaker_notes.pptx");
+let presentation = new aspose.slides.Presentation("speaker_notes.pptx");
 try {
-    var notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesOptions.notesPosition = aspose.slides.NotesPositions.BottomFull; // Display the notes below the slide.
+    let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+    notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull); // Display the notes below the slide.
 
     // Configure the TIFF options with Notes layouting.
-    var tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.dpiX = 300;
-    tiffOptions.dpiY = 300;
-    tiffOptions.slidesLayoutOptions = notesOptions;
+    let tiffOptions = new aspose.slides.TiffOptions();
+    tiffOptions.setDpiX(300);
+    tiffOptions.setDpiY(300);
+    tiffOptions.setSlidesLayoutOptions(notesOptions);
 
     // Save the presentation to TIFF with the speaker notes.
     presentation.save("TIFF_with_notes.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);

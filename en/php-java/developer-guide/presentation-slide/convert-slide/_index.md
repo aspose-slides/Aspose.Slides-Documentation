@@ -35,7 +35,7 @@ In Aspose.Slides for PHP via Java, an [IImage](https://reference.aspose.com/slid
 
 You can convert a slide to a bitmap object and use it directly in your application. Alternatively, you can convert a slide to a bitmap and then save the image in JPEG or any other preferred format.
 
-This PHP code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
+This code demonstrates how to convert the first slide of a presentation to a bitmap object and then save the image in PNG format:
 
 ```php
 $presentation = new Presentation("Presentation.pptx");
@@ -60,7 +60,7 @@ You may need to get an image of a certain size. Using an overload from the [getI
 This sample code demonstrates how to do this:
 
 ```php
-var $imageSize = new Java("java.awt.Dimension", 1820, 1040);
+$imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
@@ -85,7 +85,7 @@ Aspose.Slides provides two classes[TiffOptions](https://reference.aspose.com/sli
 
 With the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) class, you can specify your preferred position for notes and comments in the resulting image.
 
-This PHP code demonstrates how to convert a slide with notes and comments:
+This code demonstrates how to convert a slide with notes and comments:
 
 ```php
 $scaleX = 2;
@@ -126,7 +126,7 @@ In any slide-to-image conversion process, the [setNotesPosition](https://referen
 
 The [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) class provides greater control over the resulting TIFF image by allowing you to specify parameters such as size, resolution, color palette, and more.
 
-This PHP code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
+This code demonstrates a conversion process where TIFF options are used to output a black-and-white image with a 300 DPI resolution and a size of 2160 × 2800:
 
 ```php
 // Load a presentation file.
@@ -176,7 +176,7 @@ try {
     // Render the presentation to images slide by slide.
     for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
         // Control hidden slides (do not render hidden slides).
-        if ($presentation->getSlides()->get_Item($i)->getHidden()) {
+        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
             continue;
         }
 

@@ -25,20 +25,22 @@ Below is a code example showing how to convert a presentation to PDF in Handout 
 ```java
 // Load a presentation.
 Presentation presentation = new Presentation("sample.pptx");
+try {
+    // Set the export options.
+    HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
+    slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 slides on one page horizontally
+    slidesLayoutOptions.setPrintSlideNumbers(true);                   // print slide numbers
+    slidesLayoutOptions.setPrintFrameSlide(true);                     // print a frame around slides
+    slidesLayoutOptions.setPrintComments(false);                      // no comments
 
-// Set the export options.
-HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
-slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 slides on one page horizontally
-slidesLayoutOptions.setPrintSlideNumbers(true);                   // print slide numbers
-slidesLayoutOptions.setPrintFrameSlide(true);                     // print a frame around slides
-slidesLayoutOptions.setPrintComments(false);                      // no comments
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-PdfOptions pdfOptions = new PdfOptions();
-pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
-
-// Export the presentation to PDF with the chosen layout.
-presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
-presentation.dispose();
+    // Export the presentation to PDF with the chosen layout.
+    presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    if (presentation != null) presentation.dispose();    
+}
 ```
 
 {{% alert color="warning" %}} 

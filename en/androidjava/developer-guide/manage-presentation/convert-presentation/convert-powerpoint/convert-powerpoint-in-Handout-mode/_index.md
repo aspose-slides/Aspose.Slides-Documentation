@@ -1,5 +1,5 @@
 ---
-title: Convert Presentations in Handout Mode in Java
+title: Convert Presentations in Handout Mode in Android
 type: docs
 weight: 150
 url: /androidjava/convert-powerpoint-in-Handout-mode/
@@ -14,7 +14,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Convert Presentations in Handout Mode in Java"
+description: "Convert Presentations in Handout Mode in Android"
 ---
 
 Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `setSlidesLayoutOptions` method in the [IPdfOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipdfoptions/), [IRenderingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/irenderingoptions/), [IHtmlOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihtmloptions/), and [ITiffOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itiffoptions/) interfaces.
@@ -26,20 +26,22 @@ Below is a code example showing how to convert a presentation to PDF in Handout 
 ```java
 // Load a presentation.
 Presentation presentation = new Presentation("sample.pptx");
+try {
+	// Set the export options.
+	HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
+	slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 slides on one page horizontally
+	slidesLayoutOptions.setPrintSlideNumbers(true);                   // print slide numbers
+	slidesLayoutOptions.setPrintFrameSlide(true);                     // print a frame around slides
+	slidesLayoutOptions.setPrintComments(false);                      // no comments
 
-// Set the export options.
-HandoutLayoutingOptions slidesLayoutOptions = new HandoutLayoutingOptions();
-slidesLayoutOptions.setHandout(HandoutType.Handouts4Horizontal);  // 4 slides on one page horizontally
-slidesLayoutOptions.setPrintSlideNumbers(true);                   // print slide numbers
-slidesLayoutOptions.setPrintFrameSlide(true);                     // print a frame around slides
-slidesLayoutOptions.setPrintComments(false);                      // no comments
+	PdfOptions pdfOptions = new PdfOptions();
+	pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
 
-PdfOptions pdfOptions = new PdfOptions();
-pdfOptions.setSlidesLayoutOptions(slidesLayoutOptions);
-
-// Export the presentation to PDF with the chosen layout.
-presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
-presentation.dispose();
+	// Export the presentation to PDF with the chosen layout.
+	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+	if (presentation != null) presentation.dispose();
+}
 ```
 
 {{% alert color="warning" %}} 

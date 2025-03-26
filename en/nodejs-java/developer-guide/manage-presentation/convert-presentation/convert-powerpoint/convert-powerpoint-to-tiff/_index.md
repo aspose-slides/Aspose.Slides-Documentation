@@ -36,7 +36,7 @@ This JavaScript code demonstrates how to convert a PowerPoint presentation to TI
 
 ```js
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     // Save the presentation as TIFF.
     presentation.save("output.tiff", aspose.slides.SaveFormat.Tiff);
@@ -56,11 +56,11 @@ Let's say we have a "sample.pptx" file with the following slide:
 This JavaScript code demonstrates how to convert the colored slide to a black-and-white TIFF:
 
 ```js
-var tiffOptions = new aspose.slides.TiffOptions();
+let tiffOptions = new aspose.slides.TiffOptions();
 tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.CCITT4);
 tiffOptions.setBwConversionMode(aspose.slides.BlackWhiteConversionMode.Dithering);
 
-var presentation = new aspose.slides.Presentation("sample.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     presentation.save("output.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
 } finally {
@@ -80,9 +80,9 @@ This JavaScript code demonstrates how to convert a PowerPoint presentation to TI
 
 ```js
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var tiffOptions = new aspose.slides.TiffOptions();
+    let tiffOptions = new aspose.slides.TiffOptions();
 
     // Set the compression type.
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
@@ -105,7 +105,7 @@ try {
     // Set the image size.
     tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 1728, 1078));
 
-    var notesOptions = new asposeaspose.slidesSlides.NotesCommentsLayoutingOptions();
+    let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
@@ -124,9 +124,9 @@ This JavaScript code demonstrates how to convert a PowerPoint presentation to a 
 
 ```js
 // Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
-var presentation = new aspose.slides.Presentation("presentation.pptx");
+let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    var tiffOptions = new aspose.slides.TiffOptions();
+    let tiffOptions = new aspose.slides.TiffOptions();
 
     tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format8bppIndexed);
     /*
