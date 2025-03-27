@@ -1,53 +1,56 @@
 ---
-title: Convert PowerPoint to PDF Notes
+title: Convert PowerPoint to PDF with Notes in Android
+linktitle: Convert PowerPoint to PDF with Notes
 type: docs
 weight: 50
 url: /androidjava/convert-powerpoint-to-pdf-with-notes/
-keywords: "convert powerpoint to pdf with notes in java"
-description: "Convert PowerPoint to PDF with notes in Java"
+keywords:
+- convert PowerPoint
+- convert PPT
+- convert PPTX
+- presentation
+- PowerPoint to PDF
+- PPT to PDF
+- PPTX to PDF
+- OpenDocument to PDF
+- ODP to PDF
+- speaker notes
+- Android
+- Java
+- Aspose.Slides
+description: "Convert PowerPoint to PDF with notes in Android"
 ---
 
-## **Convert PowerPoint to PDF with Custom Slide Size**
-The following example shows how to convert a presentation to a PDF notes document with custom slide size. Where each inch equals 72.
+## **Overview**
+
+In this article, you will learn how to convert PowerPoint presentations to PDF format with speaker notes using Aspose.Slides. This guide will cover the necessary steps and provide code examples to help you achieve this task efficiently. By the end of this article, you will be able to:
+
+- Implement the conversion process to transform PowerPoint slides into PDF documents while preserving the speaker notes.
+- Customize the output PDF to ensure that the speaker notes are included and formatted according to your requirements.
+
+## **Convert PowerPoint to PDF with Notes**
+
+The `save` method in the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class can be used to convert a PPT or PPTX presentation to a PDF with speaker notes. With Aspose.Slides, you simply load the presentation, configure the layout options using the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/notescommentslayoutingoptions/) class to include speaker notes, and then save the file as a PDF. The following code snippet demonstrates how to convert a sample presentation to a PDF in Notes Slide view.
 
 ```java
-// Instantiate a Presentation object that represents a presentation file
-Presentation presIn = new Presentation("SelectedSlides.pptx");
-Presentation presOut = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    ISlide slide = presIn.getSlides().get_Item(0);
-    presOut.getSlides().insertClone(0, slide);
-    
-    // Setting Slide Type and Size
-    presOut.getSlideSize().setSize(612F, 792F,SlideSizeScaleType.EnsureFit);
-        
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
+	// Configure PDF options for rendering speaker notes.
+	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
+	notesOptions.setNotesPosition(NotesPositions.BottomFull); // Render speaker notes below the slide.
 
-    presOut.save("PDF-SelectedSlide.pdf", SaveFormat.Pdf, pdfOptions);
+	PdfOptions pdfOptions = new PdfOptions();
+	pdfOptions.setSlidesLayoutOptions(notesOptions);
+
+	// Save the presentation to PDF with speaker notes.
+	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
-    if (presIn != null) presIn.dispose();
-    if (presOut != null) presOut.dispose();
-}
-```
-
-## **Convert PowerPoint to PDF in Notes Slide View**
-The [**Save**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation#save-java.lang.String-int-) method exposed by [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class can be used to convert the whole presentation in Notes Slide view to PDF. The code snippets below update the sample presentation to PDF in Notes Slide view.
-
-```java
-Presentation pres = new Presentation("presentation.pptx");
-try {
-    PdfOptions pdfOptions = new PdfOptions();
-    pdfOptions.getNotesCommentsLayouting().setNotesPosition(NotesPositions.BottomFull);
-
-    pres.save(resourcesOutputPath+"PDF-Notes.pdf", SaveFormat.Pdf, pdfOptions);
-} finally {
-    if (pres != null) pres.dispose();
+	if (presentation != null) presentation.dispose();
 }
 ```
 
 {{% alert color="primary" %}} 
 
-You may to want to check out Aspose [PowerPoint to PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) or [PPT to PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf) converter. 
+You may to want to check out Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion). 
 
 {{% /alert %}} 

@@ -214,21 +214,24 @@ This Python code shows you how to convert a PowerPoint when its slide size is sp
 ```python
 import aspose.slides as slides
 
-# Instantiates a Presentation object that represents a PowerPoint file 
-presentation = slides.Presentation("SelectedSlides.pptx")
-auxPresentation = slides.Presentation()
+slide_width = 612
+slide_height = 792
 
-slide = presentation.slides[0]
+# Instantiate the Presentation class that represents a PowerPoint or OpenDocument file.
+with slides.Presentation("SelectedSlides.pptx") as presentation:
 
-auxPresentation.slides.insert_clone(0, slide)
+    # Create a new presentation with an adjusted slide size.
+    with slides.Presentation() as resized_presentation:
 
-# Sets the slide type and size 
-auxPresentation.slide_size.set_size(612, 792, slides.SlideSizeScaleType.ENSURE_FIT)
+        # Set the custom slide size.
+        resized_presentation.slide_size.set_size(slide_width, slide_height, slides.SlideSizeScaleType.ENSURE_FIT)
 
-pdfOptions = slides.export.PdfOptions()
-pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+        # Clone the first slide from the original presentation.
+        slide = presentation.slides[0]
+        resized_presentation.slides.insert_clone(0, slide)
 
-auxPresentation.save("PDFnotes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
+        # Save the resized presentation to a PDF with notes.
+        resized_presentation.save("PDF_with_notes.pdf", slides.export.SaveFormat.PDF)
 ```
 
 ## **Convert PowerPoint to PDF in Notes Slide View**

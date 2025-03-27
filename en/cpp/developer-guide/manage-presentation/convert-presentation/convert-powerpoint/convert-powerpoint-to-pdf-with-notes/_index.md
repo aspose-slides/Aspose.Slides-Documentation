@@ -1,40 +1,52 @@
 ---
-title: Convert PowerPoint to PDF with Notes
+title: Convert PowerPoint to PDF with Notes in C++
+linktitle: Convert PowerPoint to PDF with Notes
 type: docs
 weight: 50
 url: /cpp/convert-powerpoint-to-pdf-with-notes/
-keywords: "convert powerpoint to pdf with notes"
-description: "Convert PowerPoint to PDF with notes. Convert PPT and PPTX to PDF with notes in Aspose.Slides."
+keywords:
+- convert PowerPoint
+- convert PPT
+- convert PPTX
+- presentation
+- PowerPoint to PDF
+- PPT to PDF
+- PPTX to PDF
+- OpenDocument to PDF
+- ODP to PDF
+- speaker notes
+- C++
+- Aspose.Slides
+description: "Convert PowerPoint to PDF with notes with C++"
 ---
 
-The [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) method exposed by Presentation class can be used to convert PowerPoint PPT or PPTX presentation to PDF with notes. Saving a Microsoft PowerPoint presentation to PDF notes with Aspose.Slides for C++ is a two-line process. You simply open the presentation and save it out to PDF notes. The code snippets below update the sample presentation to PDF in Notes Slide view:
+## **Overview**
 
-``` cpp
-// The path to the documents directory.
-String dataDir = GetDataPath();
+In this article, you will learn how to convert PowerPoint presentations to PDF format with speaker notes using Aspose.Slides. This guide will cover the necessary steps and provide code examples to help you achieve this task efficiently. By the end of this article, you will be able to:
 
-// Instantiate a Presentation object that represents a presentation file 
-auto presentation = System::MakeObject<Presentation>(dataDir + u"SelectedSlides.pptx");
-auto auxPresentation = System::MakeObject<Presentation>();
+- Implement the conversion process to transform PowerPoint slides into PDF documents while preserving the speaker notes.
+- Customize the output PDF to ensure that the speaker notes are included and formatted according to your requirements.
 
-auto slide = presentation->get_Slides()->idx_get(0);
+## **Convert PowerPoint to PDF with Notes**
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
+The `Save` method in the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class can be used to convert a PPT or PPTX presentation to a PDF with speaker notes. With Aspose.Slides, you simply load the presentation, configure the layout options using the [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/notescommentslayoutingoptions/) class to include speaker notes, and then save the file as a PDF. The following code snippet demonstrates how to convert a sample presentation to a PDF in Notes Slide view.
 
-// Setting Slide Type and Size 
-//auxPresentation->get_SlideSize()->SetSize(presentation->get_SlideSize()->get_Size().get_Width(), presentation->get_SlideSize()->get_Size().get_Height(), SlideSizeScaleType::EnsureFit);
-auxPresentation->get_SlideSize()->SetSize(612.F, 792.F, SlideSizeScaleType::EnsureFit);
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-auto pdfOptions = System::MakeObject<PdfOptions>();
-pdfOptions->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::BottomFull);
+// Configure PDF options for rendering speaker notes.
+auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull); // Render speaker notes below the slide.
+    
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_SlidesLayoutOptions(notesOptions);
 
-auxPresentation->Save(dataDir + u"PDFnotes_out.pdf", SaveFormat::Pdf, pdfOptions);
+// Save the presentation to PDF with speaker notes.
+presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
-
-
 
 {{% alert color="primary" %}} 
 
-You may to want to check out Aspose [PowerPoint to PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) or [PPT to PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf) converter. 
+You may to want to check out Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/conversion). 
 
 {{% /alert %}} 
