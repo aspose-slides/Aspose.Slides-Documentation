@@ -84,6 +84,29 @@ with slides.Presentation() as presentation:
 
 ```
 
+### **Saving a Presentation without Refreshing the Thumbnail**
+
+The [**PptxOptions.refresh_thumbnail**](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) property allows you to control the generation of the thumbnail when saving a presentation in PPTX format:
+
+- When the property value is **True**, the presentation thumbnail will be refreshed while saving. This is the *default* value.
+- When the property value is **False**, the current thumbnail will be saved as is. If the presentation doesn't have a thumbnail, no thumbnail will be generated.
+
+In the code below, we saved the presentation to PPTX format without refreshing its thumbnail:
+
+```py
+with slides.Presentation("Sample.pptx") as presentation:
+    
+    pptx_options = slides.export.PptxOptions()
+    pptx_options.refresh_thumbnail = False
+    
+    presentation.save("Sample_with_old_thumbnail.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+```
+
+{{% alert title="Info" color="info" %}}
+
+This option allows you to save time when saving a presentation in PPTX format.
+
+{{% /alert %}}
 
 ### **Saving Progress Updates in Percentage**
 New [**IProgressCallback** ](https://reference.aspose.com/slides/python-net/aspose.slides/iprogresscallback/)interface has been added to [**ISaveOptions** ](https://reference.aspose.com/slides/python-net/aspose.slides.export/isaveoptions/)interface and [**SaveOptions** ](https://reference.aspose.com/slides/python-net/aspose.slides.export/saveoptions/)abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.

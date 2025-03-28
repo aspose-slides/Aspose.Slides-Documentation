@@ -128,6 +128,34 @@ Saving in the Zip64Mode.Never mode will throw a [PptxException](https://referenc
 
 {{% /alert %}}
 
+## **Save a Presentation without Refreshing the Thumbnail**
+
+The [**PptxOptions.setRefreshThumbnail**](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) method allows you to control the generation of the thumbnail when saving a presentation in PPTX format:
+
+- When the value **true** is passed, the presentation thumbnail will be refreshed while saving. This is the *default* value.
+- When the value **false** is passed, the current thumbnail will be saved as is. If the presentation doesn't have a thumbnail, no thumbnail will be generated.
+
+In the code below, we saved the presentation to PPTX format without refreshing its thumbnail:
+
+```php
+$presentation = new Presentation("Sample.pptx");
+try {
+    $pptxOptions = new PptxOptions();
+    $pptxOptions->setRefreshThumbnail(false);
+
+    $presentation->save("Sample_with_old_thumbnail.pptx", SaveFormat::Pptx, $pptxOptions);
+}
+finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert title="Info" color="info" %}}
+
+This option allows you to save time when saving a presentation in PPTX format.
+
+{{% /alert %}}
+
 ## **Save Progress Updates in Percentage**
 New [**IProgressCallback**](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/php-java/aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
 
