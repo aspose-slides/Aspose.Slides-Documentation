@@ -39,6 +39,30 @@ The following sample code creates a presentation and saves it in the Strict Offi
 
 {{< gist "aspose-com-gists" "81aeb05e6d3a070aa76fdea22ed53bc7" "Examples-SlidesCPP-SaveToStrictOpenXML-SaveToStrictOpenXML.cpp" >}}
 
+## **Save a Presentation without Refreshing the Thumbnail**
+
+The [**IPptxOptions.set_RefreshThumbnail**](https://reference.aspose.com/slides/cpp/aspose.slides.export/ipptxoptions/set_refreshthumbnail/) method allows you to control the generation of the thumbnail when saving a presentation in PPTX format:
+
+- When the value **true** is passed, the presentation thumbnail will be refreshed while saving. This is the *default* value.
+- When the value **false** is passed, the current thumbnail will be saved as is. If the presentation doesn't have a thumbnail, no thumbnail will be generated.
+
+In the code below, we saved the presentation to PPTX format without refreshing its thumbnail:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+    
+auto pptxOptions = MakeObject<PptxOptions>();
+pptxOptions->set_RefreshThumbnail(false);
+
+presentation->Save(u"Sample_with_old_thumbnail.pptx", SaveFormat::Pptx, pptxOptions);
+presentation->Dispose();
+```
+
+{{% alert title="Info" color="info" %}}
+
+This option allows you to save time when saving a presentation in PPTX format.
+
+{{% /alert %}}
 
 ## **Save Progress Updates in Percentage**
  New **IProgressCallback** interface has been added to **ISaveOptions** interface and **SaveOptions** abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.  
