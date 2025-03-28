@@ -12,7 +12,7 @@ keywords:
 - macOS
 - Linux
 - Java
-description: "How to Run Aspose.Slides for Java in Docker"
+description: "Learn how to easily run Aspose.Slides for Java in Docker. Step-by-step guide for fast setup, reduced compatibility issues, and smooth presentation processing in containers."
 ---
 
 
@@ -35,7 +35,7 @@ This guide explains how to containerize a Java application using Aspose Slides w
 
 #### Steps:
 
-1. Download [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/)
+1. Download the [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/)
 2. Run the installer and follow the setup wizard
 3. Restart your computer when prompted
 4. Verify installation:
@@ -52,7 +52,7 @@ This guide explains how to containerize a Java application using Aspose Slides w
 
 #### Steps:
 
-1. Download [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
+1. Download the [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop/)
 2. Drag the application to your `Applications` folder
 3. Launch Docker and wait for initialization
 4. Verify installation:
@@ -78,14 +78,14 @@ sudo apt install -y \
 # Add Docker's official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-# Add stable repository
+# Add a stable repository
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Install Docker Engine
+# Install the Docker Engine
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io
 
-# Allow current user to run Docker commands
+# Allow the current user to run Docker commands
 sudo usermod -aG docker $USER
 newgrp docker
 
@@ -145,7 +145,7 @@ ENV ASPOSE_VERSION=25.3
 ENV ASPOSE_JAR=aspose-slides-${ASPOSE_VERSION}-jdk16.jar
 ENV ASPOSE_URL=https://releases.aspose.com/java/repo/com/aspose/aspose-slides/${ASPOSE_VERSION}/${ASPOSE_JAR}
 
-# Create working directory
+# Create a working directory
 RUN mkdir -p ${APP_DIR}
 WORKDIR ${APP_DIR}
 
@@ -164,13 +164,13 @@ RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula sele
     apt-get install -y --no-install-recommends ttf-mscorefonts-installer && \
     fc-cache -f -v
 
-# Download Aspose Slides to /tmp
+# Download Aspose.Slides to /tmp
 RUN wget ${ASPOSE_URL} -O ${APP_DIR}/${ASPOSE_JAR}
 
-# Copy source code
+# Copy the source code
 COPY TestAspose.java ${APP_DIR}/
 
-# Create run script
+# Create the run script
 RUN echo '#!/bin/bash' > ${APP_DIR}/run.sh && \
     echo 'java --add-opens=java.desktop/sun.java2d=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
     echo '     --add-opens=java.desktop/sun.awt.image=ALL-UNNAMED \' >> ${APP_DIR}/run.sh && \
@@ -181,7 +181,7 @@ RUN echo '#!/bin/bash' > ${APP_DIR}/run.sh && \
 # Explicitly grant execute permissions to the script
 RUN chmod 755 ${APP_DIR}/run.sh
 
-# Compile Java code
+# Compile the Java code
 RUN javac -cp "${APP_DIR}/${ASPOSE_JAR}" ${APP_DIR}/TestAspose.java
 
 # Set the working directory
@@ -230,7 +230,7 @@ public class TestAspose {
 
 ### Run the Container
 
-   Run the following command in the directory where your Dockerfile is located to run the Docker image:
+   Run the following command in the directory where your Dockerfile is located to run the Docker container:
    ```powershell
    docker run -v "$(pwd)/output:/output" aspose-test
    ```
