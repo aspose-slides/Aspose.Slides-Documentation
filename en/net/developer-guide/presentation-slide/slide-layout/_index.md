@@ -1,60 +1,86 @@
 ---
-title: Slide Layout
+title: Apply or Change a Slide Layout in C#
+linktitle: Slide Layout
 type: docs
 weight: 60
 url: /net/slide-layout/
-keyword: "Set slide size, set slide options, specify slide size, Footer visibility, Child footer, Content scaling, page size, C#, Csharp, .NET, Aspose.Slides"
-description: "Set PowerPoint slide size and options in C# or .NET"
+keywords:
+- slide layout
+- content layout
+- placeholder
+- presentation design
+- slide design
+- unused layout
+- footer visibility
+- title slide
+- title and content
+- section header
+- two content
+- comparison
+- title only
+- blank layout
+- content with caption
+- picture with caption
+- title and vertical text
+- vertical title and text
+- C#
+- Csharp
+- .NET
+- Aspose.Slides
+description: "Learn how to manage and customize slide layouts in Aspose.Slides for .NET. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in C#."
 ---
 
-A slide layout contains the placeholder boxes and formatting information for all the content that appears on a slide. The layout determines the available content placeholders and where they are placed. 
+## **Overview**
 
-Slide layouts allow you to create and design presentations quickly (whether simple or complex). These are some of the most popular slide layouts used in PowerPoint presentations: 
+A slide layout defines the arrangement of placeholder boxes and formatting for the content on a slide. It controls which placeholders are available and where they appear. Slide layouts help you design presentations quickly and consistently—whether you're creating something simple or more complex. Some of the most common slide layouts in PowerPoint include:
 
-* **Title Slide layout**. This layout consists of two text placeholders. One placeholder is for the title and the other is for the subtitle. 
-* **Title and Content layout**. This layout contains a relatively small placeholder at the top for the title and a bigger placeholder for the core content (chart, paragraphs, bullet list, numbered list, images, etc).
-* **Blank layout**. This layout lacks placeholders, so it allows you to create elements from scratch. 
+**Title Slide layout** – Includes two text placeholders: one for the title and one for the subtitle.
 
-Since a slide master is the top hierarchical slide that stores information about slide layouts, you can use the master slide to access slide layouts and make changes to them. A layout slide can be accessed by type or name. Similarly, every slide has a unique id, which can be used to access it. 
+**Title and Content layout** – Features a smaller title placeholder at the top and a larger one below for main content (such as text, bullet points, charts, images, and more).
 
-Alternatively, you can make changes directly to a specific slide layout in a presentation. 
+**Blank layout** – Contains no placeholders, giving you full control to design the slide from scratch.
 
-* To allow you to work with slide layouts (including those in master slides), Aspose.Slides provides properties like [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class. 
-* To perform related tasks, Aspose.Slides provides [MasterSlide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/baseslideheaderfootermanager/), and many other types. 
+Slide layouts are part of a slide master, which is the top-level slide that defines layout styles for the presentation. You can access and modify layout slides through the slide master—either by their type, name, or unique ID. Alternatively, you can edit a specific layout slide directly within the presentation.
+
+To work with slide layouts in Aspose.Slides for .NET, use properties such as:
+
+- [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class
+- Types like [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/), and [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
 
-For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/net/slide-master/) article.
+To learn more about working with master slides, check out the [Slide Master](/slides/net/slide-master/) article.
 
 {{% /alert %}}
 
-## **Add Slide Layout to Presentation**
+## **Add a Slide Layout to a Presentation**
+
+To customize the appearance and structure of your slides, you may need to add new layout slides to a presentation. Aspose.Slides for .NET allows you to check whether a specific layout already exists, add a new one if needed, and use it to insert slides based on that layout.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-1. Access the [MasterSlide collection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/).
-1. Go through the existing layout slides to confirm that the required layout slide already exists in the Layout Slide collection. Otherwise, add the Layout slide you want. 
+1. Access the [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/).
+1. Check whether the desired layout slide already exists in the collection. If not, add the layout slide you need.
 1. Add an empty slide based on the new layout slide.
-1. Save the presentation. 
+1. Save the presentation.
 
-This C# code shows you how to add a slide layout to a PowerPoint presentation:
+The following C# code demonstrates how to add a slide layout to a PowerPoint presentation:
 
-```c#
-// Instantiates a Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+```cs
+// Instantiate the Presentation class that represents a PowerPoint file.
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    // Goes through layout slide types
+    // Go through the layout slide types to select a layout slide.
     IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
     ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
 
     if (layoutSlide == null)
     {
-        // The situation where a presentation doesn't contain some layout types. 
-        // presentation File only contains Blank and Custom layout types.
-        // But layout slides with Custom types have different slide names,
-        // like "Title", "Title and Content", etc. And it is possible to use these
-        // names for layout slide selection.
-        // You can also use a set of placeholder shape types. For example,
-        // Title slide should have only Title pleceholder type, etc.
+        // A situation where the presentation doesn't contain all layout types.
+        // The presentation file contains only Blank and Custom layout types.
+        // However, layout slides with custom types may have recognizable names,
+        // such as "Title", "Title and Content", etc., which can be used for layout slide selection.
+        // You can also rely on a set of placeholder shape types.
+        // For example, a Title slide should have only the Title placeholder type, and so on.
         foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
         {
             if (titleAndObjectLayoutSlide.Name == "Title and Object")
@@ -86,51 +112,32 @@ using (Presentation presentation = new Presentation("AccessSlides.pptx"))
         }
     }
 
-    // Adds empty slide with added layout slide 
+    // Add an empty slide using the added layout slide.
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
-    // Saves the presentation to disk  
-    presentation.Save("AddLayoutSlides_out.pptx", SaveFormat.Pptx);
+    // Save the presentation to disk.  
+    presentation.Save("AddLayoutSlides.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Remove Unused Layout Slide**
+## **Remove Unused Layout Slides**
 
-Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides. This C# code shows you how to remove a layout slide from a PowerPoint presentation:
+Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides.
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+The following C# code shows how to remove a layout slide from a PowerPoint presentation:
+
+```cs
+using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(pres);
+    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
     
-    pres.Save("pres-out.pptx", SaveFormat.Pptx);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Add a Placeholder To a Slide Layout**
 
-## **Set Size and Type for Slide Layout**
-
-To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/type) and [Size](https://reference.aspose.com/slides/net/aspose.slides/slidesize/properties/size) properties (from the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class). This C# demonstrates the operation:
-
-```c#
-// Instantiates a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
-
-ISlide slide = presentation.Slides[0];
-
-// Sets the slide size for the generated presentation to that of the source
-auxPresentation.SlideSize.SetSize(presentation.SlideSize.Type,SlideSizeScaleType.EnsureFit);
-
-auxPresentation.Slides.InsertClone(0, slide);
-auxPresentation.Slides.RemoveAt(0);
-// Saves the presentation to disk
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
-
-## **Add Placeholder To Slide Layout**
-
-Aspose.Slides provides the [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) property that allows you to add new placeholders to the layout slide.
+Aspose.Slides provides the [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) property, which allows you to add new placeholders to a layout slide.
 
 This manager contains methods for the following placeholder types:
 
@@ -147,130 +154,113 @@ This manager contains methods for the following placeholder types:
 | ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height); |
 | ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height); |
 
-This C# code demonstrates how to add the new placeholder shapes to the Blank layout slide:
+This C# code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
-```c#
-using (var pres = new Presentation())
+```cs
+using (var presentation = new Presentation())
 {
-    // Getting the Blank layout slide
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Get the Blank layout slide.
+    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-    // Getting the placeholder manager of the layout slide
+    // Get the placeholder manager of the layout slide.
     ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
 
-    // Adding different placeholders to the Blank layout slide
-    placeholderManager.AddContentPlaceholder(10, 10, 300, 200);
-    placeholderManager.AddVerticalTextPlaceholder(350, 10, 200, 300);
-    placeholderManager.AddChartPlaceholder(10, 350, 300, 300);
-    placeholderManager.AddTablePlaceholder(350, 350, 300, 200);
+    // Add different placeholders to the Blank layout slide.
+    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
 
-    // Adding the new slide with Blank layout
-    ISlide newSlide = pres.Slides.AddEmptySlide(layout);
+    // Add a new slide with the Blank layout.
+    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
 
-    pres.Save("placeholders.pptx", SaveFormat.Pptx);
+    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Set Footer Visibility Inside Slide**
+The result:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Get a slide's reference through its index.
-1. Set the slide footer placeholder to visible. 
-1. Set the date-time placeholder to visible. 
-1. Save the presentation. 
+![The placeholders on the layout slide](add_placeholders.png)
 
-This C# code shows you how to set the visibility for a slide footer (and perform related tasks):
+## **Set Footer Visibility Inside a Layout Slide**
 
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+In PowerPoint presentations, footer elements like date, slide number, and custom text can be shown or hidden depending on the slide layout. Aspose.Slides for .NET allows you to control the visibility of these footer placeholders. This is useful when you want certain layouts to display footer information while others remain clean and minimal.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a layout slide reference by its index.
+1. Set the slide footer placeholder to visible.
+1. Set the slide number placeholder to visible.
+1. Set the date-time placeholder to visible.
+1. Save the presentation.
+
+The following C# code shows how to set the visibility of a slide footer and perform related tasks:
+
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
 {
-    IBaseSlideHeaderFooterManager headerFooterManager = presentation.Slides[0].HeaderFooterManager;
-    if (!headerFooterManager.IsFooterVisible) // Property IsFooterVisible is used to specify that a slide footer placeholder is missing
-    {
-        headerFooterManager.SetFooterVisibility(true); // Method SetFooterVisibility is used to set a slide footer placeholder to visible
-    }
-    if (!headerFooterManager.IsSlideNumberVisible) // Property IsSlideNumberVisible is used to specify that a slide page number placeholder is missing
-    {
-        headerFooterManager.SetSlideNumberVisibility(true); // Method SetSlideNumberVisibility is used to set a slide page number placeholder to visible
-    }
-    if (!headerFooterManager.IsDateTimeVisible) // Property IsDateTimeVisible is used to specify that a slide date-time placeholder is missing
-    {
-        headerFooterManager.SetDateTimeVisibility(true); // Method SetFooterVisibility is used to set a slide date-time placeholder to visible
-    }
-    headerFooterManager.SetFooterText("Footer text"); // Method SetFooterText is used to set a text for a slide footer placeholder
-    headerFooterManager.SetDateTimeText("Date and time text"); // Method SetDateTimeText is used to set a text for a slide date-time placeholder.
+    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
 
-	presentation.Save("Presentation.ppt",SaveFormat.ppt);
+    if (!headerFooterManager.IsFooterVisible)
+    {
+        headerFooterManager.SetFooterVisibility(true);
+    }
+
+    if (!headerFooterManager.IsSlideNumberVisible)
+    {
+        headerFooterManager.SetSlideNumberVisibility(true);
+    }
+
+    if (!headerFooterManager.IsDateTimeVisible)
+    {
+        headerFooterManager.SetDateTimeVisibility(true);
+    }
+
+    headerFooterManager.SetFooterText("Footer text");
+    headerFooterManager.SetDateTimeText("Date and time text");
+
+    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
 }
 ```
 
-## **Set Child Footer Visibility Inside Slide**
+## **Set Child Footer Visibility Inside a Slide**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-1. Get a reference for the master slide through its index. 
-1. Set the master slide and all child footer placeholders to visible.
-1. Set a text for the master slide and all child footer placeholders. 
-1. Set a text for the master slide and all child date-time placeholders. 
-1. Save the presentation. 
+​In PowerPoint presentations, footer elements such as date, slide number, and custom text can be controlled at the master slide level to ensure consistency across all layout slides. Aspose.Slides for .NET enables you to set the visibility and content of these footer placeholders on the master slide and propagate these settings to all child layout slides. This approach ensures uniform footer information throughout your presentation.​
 
-This C# code demonstrates the operation:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to the master slide by its index.
+1. Set the master’s and all child footer placeholders to visible.
+1. Set the master’s and all child slide number placeholders to visible.
+1. Set the master’s and all child date-time placeholders to visible.
+1. Save the presentation.
 
-```c#
-using (Presentation presentation = new Presentation("presentation.ppt"))
+The following C# code demonstrates this operation:
+
+```cs
+using (Presentation presentation = new Presentation("Presentation.ppt"))
 {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-    headerFooterManager.SetFooterAndChildFootersVisibility(true); // Method SetFooterAndChildFootersVisibility is used to set the master slide and all child footer placeholders to visible
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // Method SetSlideNumberAndChildSlideNumbersVisibility is used to set the master slide and all child page number placeholders to visible
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // Method SetDateTimeAndChildDateTimesVisibility is used to set a master slide and all child date-time placeholders to visible
 
-    headerFooterManager.SetFooterAndChildFootersText("Footer text"); // Method SetFooterAndChildFootersText is used to set texts for the master slide and all child footer placeholders
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // Method SetDateTimeAndChildDateTimesText is used to set text for the master slide and all child date-time placeholders
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Footer text");
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Set Slide Size with Respect to Content Scaling**
+## **FAQs**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class and load the presentation containing the slide whose size you want to set. 
-1. Create another instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to generate a new presentation. 
-1. Get the slide's reference (from the first presentation) through its index.
-1. Set the slide footer placeholder to visible. 
-1. Set the date-time placeholder to visible. 
-1. Save the presentation. 
+**What’s the difference between a master slide and a layout slide?**
 
-This C# demonstrates the operation: 
+A master slide defines the overall theme and default formatting, while layout slides define specific arrangements of placeholders for different types of content.
 
-```c#
-// Instantiates a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("AccessSlides.pptx");
-Presentation auxPresentation = new Presentation();
+**Can I copy a layout slide from one presentation to another?**
 
-ISlide slide = presentation.Slides[0];
+Yes, you can clone a layout slide from one presentation’s [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) collection and insert it into another using the `LayoutSlides.AddClone` method.
 
-// Sets the slide size for the generated presentations to that of the source
-presentation.SlideSize.SetSize(540, 720, SlideSizeScaleType.EnsureFit); // Method SetSize is used to set slide size with scale content to ensure fit
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper, SlideSizeScaleType.Maximize); // Method SetSize is used to set slide size with maximum size of content
-           
-// Saves the presentation to disk
-auxPresentation.Save("Set_Size&Type_out.pptx", SaveFormat.Pptx);
-```
+**What happens if I delete a layout slide that's still used by a slide?**
 
-## **Set Page Size when Generating PDF**
-
-Certain presentations (like posters) are often converted to PDF docs. If you are looking to convert your PowerPoint to PDF to access the best printing and accessibility options, you want to set your slides to sizes that suit PDF documents (A4, for example).
-
-Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This C# code shows you how to use the [Type](https://reference.aspose.com/slides/net/aspose.slides/slidesize/type/) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
-
-```c#
-// Instantiates a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation();
-
-// Sets the SlideSize.Type Property 
-presentation.SlideSize.SetSize(SlideSizeType.A4Paper,SlideSizeScaleType.EnsureFit);
-
-// Sets different properties for PDF Options
-PdfOptions opts = new  PdfOptions();
-opts.SufficientResolution = 600;
-
-// Saves the presentation to disk
-presentation.Save("SetPDFPageSize_out.pdf", SaveFormat.Pdf, opts);
-```
+If you try to delete a layout slide that is still referenced by at least one slide in the presentation, Aspose.Slides will throw a [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/). To avoid this, use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) which safely removes only the layout slides that are not in use.
