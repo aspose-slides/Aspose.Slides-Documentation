@@ -1,5 +1,5 @@
 ---
-title: Presentation Properties
+title: Manage PowerPoint Presentation Properties in C#
 linktitle: Presentation Properties
 type: docs
 weight: 70
@@ -11,107 +11,165 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- access properties
 - modify properties
+- manage properties
 - document metadata
 - edit metadata
+- proofing language
 - PowerPoint
 - presentation
 - C#
 - Csharp
 - Aspose.Slides for .NET
-description: "Manage PowerPoint presentation properties in C# or .NET"
+description: "Learn how to easily manage, read, and edit PowerPoint document properties using Aspose.Slides for .NET in C#. Enhance productivity and automate your workflow!"
 ---
 
-## **About Presentation Properties**
+## **Overview**
 
-As we have described earlier that Aspose.Slides for .NET supports two kinds of document properties, which are **Built-in** and **Custom** properties. So, developers can access both kinds of properties with the use of Aspose.Slides for .NET API. Aspose.Slides for .NET provides a class [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties) that represents the document properties associated with a presentation file through [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/documentproperties/properties/index) property. Developers can use [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties) property exposed by **Presentation** object to access the document properties of the presentation files as described below:
+Aspose.Slides for .NET supports two types of document properties: **Built-in** and **Custom**. Both of these property types can easily be accessed and managed using the Aspose.Slides for .NET API.
+
+To handle document properties, Aspose.Slides provides the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface, accessible through the [Presentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/presentation/documentproperties/) property. Developers can leverage the `Presentation` object's [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface to seamlessly read, modify, and manage presentation properties, as shown in the examples below.
 
 {{% alert color="primary" %}} 
 
-Please note that you cannot set values against the **Application** and **Producer** fields, because Aspose Ltd. and Aspose.Slides for .NET x.x.x will be displayed against these fields.
+Please note that the **Application** and **Producer** fields cannot be modified, as these fields will always display "Aspose Ltd." and "Aspose.Slides for .NET x.x.x".
 
 {{% /alert %}} 
 
 ## **Manage Presentation Properties**
 
-Microsoft PowerPoint provides a feature to add some properties to the presentation files. These document properties allow some useful information to be stored along with the documents (presentation files). There are two kinds of document properties as follows
+Microsoft PowerPoint provides a feature for adding properties to presentation files. These document properties allow useful information to be stored along with the files. There are two types of document properties:
 
-- System Defined (Built-in) Properties
-- User Defined (Custom) Properties
+- System-defined (built-in) properties
+- User-defined (custom) properties
 
-**Built-in** properties contain general information about the document like document title, author's name, document statistics and so on. **Custom** properties are those ones, which are defined by the users as **Name/Value** pairs, where both name and value are defined by the user. Using Aspose.Slides for .NET, developers can access and modify the values of built-in properties as well as custom properties. Microsoft PowerPoint 2007 allows managing the document properties of the presentation files. All you have to do is to click the Office icon and further **Prepare | Properties | Advanced Properties** menu item of the Microsoft PowerPoint 2007. After you select **Advanced Properties** menu item, a dialog would appear allowing you to manage the document properties of the PowerPoint file. In the **Properties Dialog**, you can see that there are many tab pages like **General, Summary, Statistics, Contents and Custom**. All these tab pages allow configuring different kinds of information related to the PowerPoint files. **Custom** tab is used to manage the custom properties of the PowerPoint files.
+**Built-in** properties contain general information about the document, such as the document title, author's name, document statistics, and more.
+
+**Custom** properties are defined by users as **Name/Value** pairs, where both the name and the value are user-specified.
+
+Using Aspose.Slides for .NET, developers can access and modify both built-in and custom properties.
+
+Microsoft PowerPoint allows users to manage document properties by clicking the Office icon, then selecting **File → Info → Properties**. After choosing **Advanced Properties**, a dialog appears where you can manage all document properties of the presentation file.
+
+In the **Properties** dialog, there are several tabs, such as **General**, **Summary**, **Statistics**, **Contents**, and **Custom**.
+Each tab provides options for configuring specific types of information related to the PowerPoint file. The **Custom** tab is used to manage user-defined properties.
+
 ## **Access Built-in Properties**
-These properties as exposed by **IDocumentProperties** object include: **Creator(Author)**, **Description**, **Keywords** **Created** (Creation Date), **Modified** Modification Date, **Printed** Last Print Date, **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject** and **Title**
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AccessBuiltinProperties-AccessBuiltinProperties.cs" >}}
+These properties, as exposed by the [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) interface, include: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (indicates whether the document is shared between different producers), **PresentationFormat**, **Subject**,  **Title**, and more.
+
+```cs
+// Instantiate the Presentation class that represents a presentation file.
+using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
+
+// Get a reference to the object of type IDocumentProperties associated with the presentation.
+IDocumentProperties documentProperties = presentation.DocumentProperties;
+
+// Display the Built-in properties.
+Console.WriteLine("Category : " + documentProperties.Category);
+Console.WriteLine("Content status : " + documentProperties.ContentStatus);
+Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
+Console.WriteLine("Author : " + documentProperties.Author);
+Console.WriteLine("Comments : " + documentProperties.Comments);
+Console.WriteLine("Key words : " + documentProperties.Keywords);
+Console.WriteLine("Last modified by : " + documentProperties.LastSavedBy);
+Console.WriteLine("Manager : " + documentProperties.Manager);
+Console.WriteLine("Modified date : " + documentProperties.LastSavedTime);
+Console.WriteLine("Presentation format : " + documentProperties.PresentationFormat);
+Console.WriteLine("Last print date : " + documentProperties.LastPrinted);
+Console.WriteLine("Is shared between producers : " + documentProperties.SharedDoc);
+Console.WriteLine("Subject : " + documentProperties.Subject);
+Console.WriteLine("Title : " + documentProperties.Title);
+```
 
 ## **Modify Built-in Properties**
 
-Modifying the built-in properties of presentation files is as easy as that of accessing them. You can simply assign a string value to any desired property and the property value would be modified. In the example given below, we have demonstrated that how we can modify the built-in document properties of the presentation file.
+Modifying the built-in properties of presentation files is just as easy as accessing them. You can simply assign a string value to any desired property, and the property's value will be updated. In the example below, we demonstrate how to modify the built-in document properties of a presentation file.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-ModifyBuiltinProperties-ModifyBuiltinProperties.cs" >}}
+```cs
+// Instantiate the Presentation class that represents the a presentation file.
+using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
+
+// Get a reference to the object of type IDocumentProperties associated with the presentation.
+IDocumentProperties documentProperties = presentation.DocumentProperties;
+
+// Set the Built-in properties.
+documentProperties.Author = "Aspose.Slides for .NET";
+documentProperties.Title = "Manage PowerPoint Presentation Properties";
+documentProperties.Subject = "Modify Built-in Properties";
+documentProperties.Comments = "Aspose description";
+documentProperties.Manager = "Aspose manager";
+
+// Save the presentation to a file.
+presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
+```
 
 ## **Add Custom Presentation Properties**
 
-Aspose.Slides for .NET also allows developers to add the custom the values for presentation Document properties. An example is given below that shows how to set the custom properties for a presentation.
+Custom presentation properties enable developers to store additional metadata or specific information within a presentation file. Aspose.Slides makes it easy to create and manage these custom properties programmatically. The following examples demonstrate how to add custom properties to your presentations.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AddCustomDocumentProperties-AddCustomDocumentProperties.cs" >}}
+```cs
+// Instantiate the Presentation class.
+using Presentation presentation = new Presentation();
+
+// Get a reference to the object of type IDocumentProperties associated with the presentation.
+IDocumentProperties documentProperties = presentation.DocumentProperties;
+
+// Add custom properties.
+documentProperties["Reviewed by"] = "John Smith";
+documentProperties["Confidentiality level"] = "Internal";
+documentProperties["Document version"] = 2;
+
+// Save the presentation to a file.
+presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
+```
 
 ## **Access and Modify Custom Properties**
 
-Aspose.Slides for .NET also allows developers to access the values of custom properties. An example is given below that shows how can you access and modify all of these custom properties for a presentation.
+Aspose.Slides also allows developers to access existing custom properties and modify their values easily. This functionality helps maintain accurate metadata and supports dynamic updates based on user input or business logic. The examples below illustrate how to retrieve and update custom property values within a presentation.
 
-{{< gist "aspose-slides" "53249e5573d2cd6e66f91f708e8fe008" "Examples-CSharp-Presentations-Properties-AccessModifyingProperties-AccessModifyingProperties.cs" >}}
+```cs
+// Instantiate the Presentation class that represents a PPTX file.
+using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-## **Set Proofing Language**
+// Get a reference to the object of type IDocumentProperties associated with the presentation.
+IDocumentProperties documentProperties = presentation.DocumentProperties;
 
-Aspose.Slides provides the [LanguageId](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/languageid/) property (exposed by the [PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/portionformat/) class) to allow you to set the proofing language for a PowerPoint document. The proofing language is the language for which spellings and grammar in the PowerPoint are checked.
-
-This C# code shows you how to set the proofing language for a PowerPoint:
-
-```c#
-using (Presentation pres = new Presentation(pptxFileName))
+// Access and modify the custom properties.
+for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
-    AutoShape autoShape = (AutoShape)pres.Slides[0].Shapes[0];
+    string propertyName = documentProperties.GetCustomPropertyName(i);
+    object propertyValue = documentProperties[propertyName];
 
-    IParagraph paragraph = autoShape.TextFrame.Paragraphs[0];
-    paragraph.Portions.Clear();
+    // Display the name and value of the custom property.
+    Console.WriteLine("Custom property name : " + propertyName);
+    Console.WriteLine("Custom property value : " + propertyValue);
 
-    Portion newPortion = new Portion();
-
-    IFontData font = new FontData("SimSun");
-    IPortionFormat portionFormat = newPortion.PortionFormat;
-    portionFormat.ComplexScriptFont = font;
-    portionFormat.EastAsianFont = font;
-    portionFormat.LatinFont = font;
-
-    portionFormat.LanguageId = "zh-CN"; // set the Id of a proofing language
-    
-    newPortion.Text = "1。";
-    paragraph.Portions.Add(newPortion);
+    // Modify the value of the custom property.
+    documentProperties[propertyName] = "New Value " + (i + 1);
 }
-```
 
-## **Set Default Language**
-
-This C# code shows you how to set the default language for an entire PowerPoint presentation: 
-
-```c#
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.DefaultTextLanguage = "en-US";
-using (Presentation pres = new Presentation(loadOptions))
-{
-    // Adds a new rectangle shape with text
-    IAutoShape shp = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.TextFrame.Text = "New Text";
-    
-    // Checks the first portion language
-    Console.WriteLine(shp.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LanguageId);
-}
+// Save the presentation to a file.
+presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Live Example**
 
-Try [**Aspose.Slides Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties via Aspose.Slides API:
+Try the [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) online app to see how to work with document properties using the Aspose.Slides API:
 
 [![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
+
+## ***FAQs**
+
+**How can I remove a built-in property from a presentation?**
+
+Built-in properties are an integral part of the presentation and cannot be removed entirely. However, you can either change their values or set them to empty if allowed by the specific property.
+
+**What happens if I add a custom property that already exists?**
+
+If you add a custom property that already exists, its existing value will be overwritten with the new one. You do not need to remove or check the property beforehand, as Aspose.Slides automatically updates the property's value.
+
+**Can I access presentation properties without fully loading the presentation?**
+
+Yes, you can access presentation properties without fully loading the presentation by using the `GetPresentationInfo` method from the [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/) class. Then, utilize the `ReadDocumentProperties` method provided by the [IPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/) interface to read the properties efficiently, saving memory and improving performance.
