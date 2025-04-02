@@ -1,6 +1,6 @@
 ---
 title: "How to Extract Text from PPT, PPTX, and ODP with Aspose.Slides"
-linktitle: Overview
+linktitle: Slides
 type: docs
 weight: 30
 url: /net/slides-on-cloud-platforms/extracting-text/slides
