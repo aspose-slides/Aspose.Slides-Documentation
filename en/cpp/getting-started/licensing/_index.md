@@ -3,45 +3,53 @@ title: Licensing
 type: docs
 weight: 120
 url: /cpp/licensing/
+keywords:
+- license
+- temporary license
+- validate license
+- license file
+- evaluation version
+- Aspose.Slides for C++
+description: "Learn how to apply, manage, and troubleshoot licenses in Aspose.Slides for C++. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
 ## **Evaluate Aspose.Slides**
 
 {{% alert color="primary" %}} 
 
-You can download an evaluation version of **Aspose.Slides for C++** from [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.CPP/). The evaluation version provides the same functionalities as the licensed version of the product. he evaluation package is the same as the purchased package. The evaluation version simply becomes licensed after you add a few lines of code to it (to apply the license).
+You can download an evaluation version of **Aspose.Slides for C++** from [its NuGet download page](https://www.nuget.org/packages/Aspose.Slides.CPP/). The evaluation version offers the same functionality as the licensed product. In fact, the evaluation package is identical to the purchased one—it simply becomes licensed once you add a few lines of code to apply the license.
 
-Once you are happy with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy). We recommend you go through the different subscription types. If you have questions, contact the Aspose sales team.
+Once you're satisfied with your evaluation of **Aspose.Slides**, you can [purchase a license](https://purchase.aspose.com/buy). We recommend reviewing the available subscription types. If you have any questions, feel free to contact the Aspose sales team.
 
-Every Aspose license comes with one-year subscription for free upgrades to new versions or fixes released within the subscription period. Users with licensed products or even evaluation versions get free and unlimited technical support.
+Every Aspose license includes a one-year subscription for free upgrades, including new versions and bug fixes released during that period. Whether you're using a licensed or evaluation version, you receive free and unlimited technical support.
 
 {{% /alert %}} 
 
-**Evaluation version limitations**
+**Evaluation Version Limitations**
 
-* While Aspose.Slides evaluation version (without a license specified) provides full product functionality, it inserts an evaluation watermark at the top of the document on open and save operations. 
-* You are limited to one slide when extracting texts from presentation slides.
+* While the Aspose.Slides evaluation version (when no license is applied) provides full product functionality, it inserts an evaluation watermark at the top of the document during open and save operations.
+* Text extraction is limited to one slide when using the evaluation version.
 
 {{% alert color="primary" %}} 
 
-To test Aspose.Slides without limitations, you can ask for a **30-Day Temporary License**. See the [How to get a Temporary License](https://purchase.aspose.com/temporary-license) page for more information.
+To test Aspose.Slides without limitations, you can request a **30-Day Temporary License**. For more information, see the [How to Get a Temporary License](https://purchase.aspose.com/temporary-license) page.
 
 {{% /alert %}}
 
 ## **Licensing in Aspose.Slides**
 
-* An evaluation version becomes licensed after you purchase a license and add a couple of lines of code to it (to apply the license).
-* The license is a plain-text XML file that contains details such as the product name, number of developers it is licensed to, subscription expiry date, and so on. 
-* The license file is digitally signed, so you must not modify the file. Even an inadvertent addition of an extra line break to the contents of the file will invalidate it.
-* Aspose.Slides for C++ typically tries to find the license in these locations:
-  * An explicit path
-  * The folder containing the dll of the component (included in Aspose.Slides)
-  * The folder containing the assembly that calls the dll of the component (included in Aspose.Slides)
-* To avoid the limitations associated with the evaluation version, you need to set a license before using Aspose.Slides. You only have to set a license once per application or process.
+* An evaluation version becomes licensed after you purchase a license and apply it by adding a couple of lines of code.
+* The license is a plain-text XML file that contains details such as the product name, the number of developers it is licensed to, the subscription expiry date, and more.
+* The license file is digitally signed, so it must not be modified. Even an accidental change—such as adding a line break—will invalidate the file.
+* Aspose.Slides for C++ typically looks for the license file in the following locations:
+  * A path explicitly specified in your code
+  * The folder containing the component’s DLL (included in Aspose.Slides)
+  * The folder containing the assembly that calls the component’s DLL
+* To avoid the limitations of the evaluation version, you must set the license before using Aspose.Slides. A license only needs to be set once per application or process.
 
 ## **Applying a License**
 
-A license can be loaded from a **file**, **stream**, or **embedded resource**. 
+A license can be loaded from a **file**, a **stream**, or an **embedded resource**.
 
 {{% alert color="primary" %}}
 
@@ -51,47 +59,57 @@ Aspose.Slides provides the [License](https://reference.aspose.com/slides/cpp/cla
 
 ### **File**
 
-The easiest method of setting a license requires you to place the license file in the same folder containing the component's DLL (included in Aspose.Slides) and specify the file name without its path.
+The easiest way to set a license is to place the license file in the same folder as the component’s DLL (included in Aspose.Slides) and specify only the file name, without the path.
 
-This C++ code shows you how to set a license file:
+The following C++ code shows how to set a license file:
 
 ```c++
-SharedPtr<Aspose::Slides::License> lic = MakeObject<Aspose::Slides::License>();
+#include <Util/License.h>
 
-lic->SetLicense(L"Aspose.Slides.lic");
+using namespace Aspose::Slides;
+
+int main()
+{
+    auto license = MakeObject<License>();
+    license->SetLicense(u"Aspose.Slides.lic");
+
+    return 0;
+}
 ```
 
 {{% alert color="warning" %}} 
 
-If you place the license file in a different directory, when you call the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method, the license file name at the end of the specified explicit must be the same as your license file.
+If you place the license file in a different directory, then when calling the [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) method, the file name at the end of the specified explicit path must exactly match the name of your license file.
 
-For example, you can change the license file name to *Aspose.Slides.lic.xml*. Then, in your code, you have to pass the path to the file (ending with *Aspose.Slides.lic.xml*) to the [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method.
+For example, if you rename your license file to *Aspose.Slides.lic.xml*, you must pass the full path ending with *Aspose.Slides.lic.xml* to the [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) method in your code.
 
 {{% /alert %}}
 
 ### **Stream**
 
-You can load a license from a stream. This C++ code shows you how to apply a license from a stream:
+You can load a license from a stream. The following C++ code shows how to apply a license from a stream:
 
 ```c++
-SharedPtr<Aspose::Slides::License> lic = MakeObject<Aspose::Slides::License>();
+auto license = MakeObject<License>();
 
-System::SharedPtr<System::IO::FileStream> stream= System::IO::File::OpenRead(L"Aspose.Slides.lic");
+auto stream = File::OpenRead(u"Aspose.Slides.lic");
 
-lic->SetLicense(stream); 
+license->SetLicense(stream);
 ```
 
 ## **Validating a License**
 
-To check whether a license has been set properly, you can validate it. This C++ code shows you how to validate a license:
+To check whether a license has been set properly, you can validate it. The following C++ code shows how to validate a license:
 
 ```c++
-System::SharedPtr<Aspose::Slides::License> license = System::MakeObject<Aspose::Slides::License>();
+auto license = MakeObject<License>();
+
 license->SetLicense(u"Aspose.Slides.lic");
+
 if (license->IsLicensed())
 {
-    System::Console::WriteLine(u"License is good!");
-    System::Console::Read();
+    Console::WriteLine(u"License is good!");
+    Console::ReadKey();
 }
 ```
 
@@ -99,6 +117,6 @@ if (license->IsLicensed())
 
 {{% alert title="Note" color="warning" %}} 
 
-The [License::SetLicense()](https://reference.aspose.com/slides/cpp/class/aspose.slides.license#a44102d1d52a5e45643345448b1814a67) method is not thread safe. If this method has to be called simultaneously from many threads, you may want to use synchronization primitives (like a lock) to avoid issues. 
+The [License::SetLicense](https://reference.aspose.com/slides/cpp/aspose.slides/license/setlicense/) method is **not thread-safe**. If you need to call this method from multiple threads simultaneously, it's recommended to use synchronization primitives (such as a lock) to prevent potential issues.
 
 {{% /alert %}}
