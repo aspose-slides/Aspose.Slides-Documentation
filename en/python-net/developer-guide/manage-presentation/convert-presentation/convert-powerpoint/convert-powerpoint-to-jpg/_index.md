@@ -148,3 +148,17 @@ Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/coll
 Using the same principles described in this article, you can convert images from one format to another. For more information, see these pages: convert [image to JPG](https://products.aspose.com/slides/python-net/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/python-net/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/python-net/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/python-net/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/python-net/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/python-net/conversion/svg-to-png/).
 
 {{% /alert %}}
+
+## **FAQs**
+
+**Does this method support batch conversion?**
+
+Yes, Aspose.Slides allows batch conversion of multiple slides to JPG in a single operation.
+
+**Does the conversion support SmartArt, charts, and other complex objects?**
+
+Yes, Aspose.Slides renders all content, including SmartArt, charts, tables, shapes, and more. However, the rendering accuracy may vary slightly compared to PowerPoint, especially when using custom or missing fonts.
+
+**Are there any limitations on the number of slides that can be processed?**
+
+Aspose.Slides itself does not impose any strict limits on the number of slides you can process. However, you may encounter out-of-memory error when working with large presentations or high-resolution images.
