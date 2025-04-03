@@ -128,27 +128,43 @@ If you want the slides in the output presentation to have a different slide layo
 
 ## **Merge Specific Slides From Presentations**
 
-This JavaScript code shows you how to select and combine specific slides from different presentations to get one output presentation:
+Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for Node.js via Java allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
 
-```javascript
-var pres1 = new aspose.slides.Presentation("pres1.pptx");
+The following JavaScript code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
+
+```js
+function getTitleSlide(presentation) {
+  for (let i = 0; i < presentation.getSlides().size(); i++) {
+    var slide = presentation.getSlides().get_Item(i);
+    if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
+      return slide;
+    }
+  }
+  return null;
+}
+```
+```js
+var presentation = new aspose.slides.Presentation();
+var presentation1 = new aspose.slides.Presentation("presentation1.pptx");
+var presentation2 = new aspose.slides.Presentation("presentation2.pptx");
 try {
-    var pres2 = new aspose.slides.Presentation("pres2.pptx");
-    try {
-        for (let i = 0; i < pres2.getSlides().size(); i++) {
-            let slide = pres2.getSlides().get_Item(i);
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) {
-            pres2.dispose();
-        }
-    }
-    pres1.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().removeAt(0);
+    
+    var slide1 = getTitleSlide(presentation1);
+
+    if (slide1 != null)
+        presentation.getSlides().addClone(slide1);
+
+    var slide2 = getTitleSlide(presentation2);
+
+    if (slide2 != null)
+        presentation.getSlides().addClone(slide2);
+
+    presentation.save("combined.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) {
-        pres1.dispose();
-    }
+    presentation2.dispose();
+    presentation1.dispose();
+    presentation.dispose();
 }
 ```
 

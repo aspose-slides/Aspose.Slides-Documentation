@@ -125,18 +125,41 @@ If you want the slides in the output presentation to have a different slide layo
 
 ## **Merge Specific Slides From Presentations**
 
-This C# code shows you how to select and combine specific slides from different presentations to get one output presentation:
+Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for .NET allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
 
-```c#
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+The following C# code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
+
+```cs
+using (Presentation presentation = new Presentation())
+using (Presentation presentation1 = new Presentation("presentation1.pptx"))
+using (Presentation presentation2 = new Presentation("presentation2.pptx"))
 {
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+    presentation.Slides.RemoveAt(0);
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    ISlide slide1 = GetTitleSlide(presentation1);
+
+    if (slide1 != null)
+        presentation.Slides.AddClone(slide1);
+
+    ISlide slide2 = GetTitleSlide(presentation2);
+
+    if (slide2 != null)
+        presentation.Slides.AddClone(slide2);
+
+    presentation.Save("combined.pptx", SaveFormat.Pptx);
+}
+```
+```cs
+static ISlide GetTitleSlide(IPresentation presentation)
+{
+    foreach (ISlide slide in presentation.Slides)
+    {
+        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
+        {
+            return slide;
+        }
+    }
+    return null;
 }
 ```
 
