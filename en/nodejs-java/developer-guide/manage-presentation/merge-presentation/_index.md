@@ -8,15 +8,6 @@ description: "Merge or combine PowerPoint Presentation in JavaScript"
 ---
 
 
-{{% alert  title="Tip" color="primary" %}} 
-
-You may want to check out **Aspose free online** [Merger app](https://products.aspose.app/slides/merger). It allows people to merge PowerPoint presentations in the same format (PPT to PPT, PPTX to PPTX, etc.) and merge presentations in different formats (PPT to PPTX, PPTX to ODP, etc.).
-
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
-
-{{% /alert %}} 
-
-
 ## **Presentation Merging**
 
 When you merge one presentation to another, you are effectively combining their slides in a single presentation to obtain one file. 
@@ -69,9 +60,9 @@ Aspose.Slides provides the [**AddClone(ISlide)**](https://reference.aspose.com/s
 This JavaScript code shows you how to merge presentations:
 
 ```javascript
-var pres1 = new aspose.slides.Presentation("pres1.pptx");
+let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
-    var pres2 = new aspose.slides.Presentation("pres2.pptx");
+    let pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
@@ -97,9 +88,9 @@ Aspose.Slides provides the [**AddClone(ISlide, IMasterSlide, boolean)**](https:/
 This code in JavaScript demonstrates the described operation:
 
 ```javascript
-var pres1 = new aspose.slides.Presentation("pres1.pptx");
+let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
-    var pres2 = new aspose.slides.Presentation("pres2.pptx");
+    let pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
@@ -135,7 +126,7 @@ The following JavaScript code creates a new presentation, adds title slides from
 ```js
 function getTitleSlide(presentation) {
   for (let i = 0; i < presentation.getSlides().size(); i++) {
-    var slide = presentation.getSlides().get_Item(i);
+    let slide = presentation.getSlides().get_Item(i);
     if (slide.getLayoutSlide().getLayoutType() == aspose.slides.SlideLayoutType.Title) {
       return slide;
     }
@@ -144,18 +135,18 @@ function getTitleSlide(presentation) {
 }
 ```
 ```js
-var presentation = new aspose.slides.Presentation();
-var presentation1 = new aspose.slides.Presentation("presentation1.pptx");
-var presentation2 = new aspose.slides.Presentation("presentation2.pptx");
+let presentation = new aspose.slides.Presentation();
+let presentation1 = new aspose.slides.Presentation("presentation1.pptx");
+let presentation2 = new aspose.slides.Presentation("presentation2.pptx");
 try {
     presentation.getSlides().removeAt(0);
     
-    var slide1 = getTitleSlide(presentation1);
+    let slide1 = getTitleSlide(presentation1);
 
     if (slide1 != null)
         presentation.getSlides().addClone(slide1);
 
-    var slide2 = getTitleSlide(presentation2);
+    let slide2 = getTitleSlide(presentation2);
 
     if (slide2 != null)
         presentation.getSlides().addClone(slide2);
@@ -173,9 +164,9 @@ try {
 This JavaScript code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
 
 ```javascript
-var pres1 = new aspose.slides.Presentation("pres1.pptx");
+let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
-    var pres2 = new aspose.slides.Presentation("pres2.pptx");
+    let pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
@@ -207,9 +198,9 @@ To merge 2 presentations with different slide sizes, you have to resize one of t
 This sample code demonstrates the described operation:
 
 ```javascript
-var pres1 = new aspose.slides.Presentation("pres1.pptx");
+let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
-    var pres2 = new aspose.slides.Presentation("pres2.pptx");
+    let pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         pres2.getSlideSize().setSize(pres1.getSlideSize().getSize().getWidth(), pres1.getSlideSize().getSize().getHeight(), aspose.slides.SlideSizeScaleType.EnsureFit);
         for (let i = 0; i < pres2.getSlides().size(); i++) {
@@ -234,9 +225,9 @@ try {
 This JavaScript code shows you how to merge a specific slide to a section in a presentation:
 
 ```javascript
-var pres1 = new aspose.slides.Presentation("pres1.pptx");
+let pres1 = new aspose.slides.Presentation("pres1.pptx");
 try {
-    var pres2 = new aspose.slides.Presentation("pres2.pptx");
+    let pres2 = new aspose.slides.Presentation("pres2.pptx");
     try {
         for (let i = 0; i < pres2.getSlides().size(); i++) {
             let slide = pres2.getSlides().get_Item(i);
@@ -257,8 +248,12 @@ try {
 
 The slide is added at the end of the section. 
 
-{{% alert title="Tip" color="primary" %}}
 
-Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+## **See Also**
 
-{{% /alert %}}
+Aspose provides a [FREE Online Collage Maker](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and more.
+
+Check out the [Aspose FREE Online Merger](https://products.aspose.app/slides/merger). It allows you to merge PowerPoint presentations in the same format (e.g., PPT to PPT, PPTX to PPTX) or across different formats (e.g., PPT to PPTX, PPTX to ODP).
+
+[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+
