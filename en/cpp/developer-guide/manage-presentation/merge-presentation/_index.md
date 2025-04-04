@@ -113,7 +113,7 @@ The following C++ code creates a new presentation, adds title slides from two ot
 ```cpp
 SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
-    for (auto slide : presentation->get_Slides())
+    for (auto&& slide : presentation->get_Slides())
     {
         if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
         {
