@@ -131,10 +131,39 @@ Merging specific slides from multiple presentations is useful for creating custo
 The following PHP code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```php
-
+function getTitleSlide(Presentation $presentation) {
+    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
+            return $slide;
+        }
+    }
+    return null;
+}
 ```
 ```php
+$presentation = new Presentation();
+$presentation1 = new Presentation($folderPath . "presentation1.pptx");
+$presentation2 = new Presentation($folderPath . "presentation2.pptx");
+try {
+    $presentation->getSlides()->removeAt(0);
+    
+    $slide1 = getTitleSlide($presentation1);
 
+    if ($slide1 != null)
+        $presentation->getSlides()->addClone($slide1);
+
+    $slide2 = getTitleSlide($presentation2);
+
+    if ($slide2 != null)
+        $presentation->getSlides()->addClone($slide2);
+
+    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation2->dispose();
+    $presentation1->dispose();
+    $presentation->dispose();
+}
 ```
 
 ## **Merge Presentations With Slide Layout**

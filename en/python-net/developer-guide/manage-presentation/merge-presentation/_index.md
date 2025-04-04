@@ -103,16 +103,32 @@ If you want the slides in the output presentation to have a different slide layo
 
 ## **Merge Specific Slides From Presentations**
 
-This Python code shows you how to select and combine specific slides from different presentations to get one output presentation:
+Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for Python via .NET allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
+
+The following Python code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```py
-import aspose.slides as slides
+def get_title_slide(pres):
+    for slide in pres.slides:
+        if slide.layout_slide.layout_type == slides.SlideLayoutType.TITLE:
+            return slide
+    return None
 
-with slides.Presentation("pres.pptx") as pres1:
-    with slides.Presentation("Presentation1.pptx") as pres2:
-        for slide in pres2.slides:
-            pres1.slides.add_clone(slide, pres1.layout_slides[0])
-        pres1.save("combined_with_layout.pptx", slides.export.SaveFormat.PPTX) 
+
+with slides.Presentation() as presentation, \
+        slides.Presentation("presentation1.pptx") as presentation1, \
+        slides.Presentation("presentation2.pptx") as presentation2:
+    presentation.slides.remove_at(0)
+
+    slide1 = get_title_slide(presentation1)
+    if slide1 is not None:
+        presentation.slides.add_clone(slide1)
+
+    slide2 = get_title_slide(presentation2)
+    if slide2 is not None:
+        presentation.slides.add_clone(slide2)
+
+    presentation.save("combined.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Merge Presentations With Slide Layout**
