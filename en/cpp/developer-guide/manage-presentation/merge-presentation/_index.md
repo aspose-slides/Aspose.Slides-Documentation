@@ -106,17 +106,45 @@ If you want the slides in the output presentation to have a different slide layo
 
 ## **Merge Specific Slides From Presentations**
 
-This C++ code shows you how to select and combine specific slides from different presentations to get one output presentation:
+Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides C++ allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
+
+The following C++ code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```cpp
-auto pres1 = System::MakeObject<Presentation>(u"pres1.pptx");
-auto pres2 = System::MakeObject<Presentation>(u"pres2.pptx");
-for (const auto& slide : pres2->get_Slides())
+SmartPtr<ISlide> GetTitleSlide(SmartPtr<IPresentation> presentation)
 {
-    pres1->get_Slides()->AddClone(slide, pres2->get_LayoutSlides()->idx_get(0));
+    for (auto&& slide : presentation->get_Slides())
+    {
+        if (slide->get_LayoutSlide()->get_LayoutType() == SlideLayoutType::Title)
+        {
+            return slide;
+        }
+    }
+    return nullptr;
 }
+```
+```cpp
+auto presentation = MakeObject<Presentation>();
+auto presentation1 = MakeObject<Presentation>(u"presentation1.pptx");
+auto presentation2 = MakeObject<Presentation>(u"presentation2.pptx");
 
-pres1->Save(u"combined.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->RemoveAt(0);
+
+auto slide1 = GetTitleSlide(presentation1);
+
+if (slide1 != nullptr)
+    presentation->get_Slides()->AddClone(slide1);
+
+auto slide2 = GetTitleSlide(presentation2);
+
+if (slide2 != nullptr)
+    presentation->get_Slides()->AddClone(slide2);
+
+presentation->Save(u"combined.pptx", SaveFormat::Pptx);
+
+presentation2->Dispose();
+presentation1->Dispose();
+presentation->Dispose();
 ```
 
 ## **Merge Presentations With Slide Layout**

@@ -120,23 +120,42 @@ If you want the slides in the output presentation to have a different slide layo
 
 ## **Merge Specific Slides From Presentations**
 
-This Java code shows you how to select and combine specific slides from different presentations to get one output presentation:
+Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for Android via Java allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
+
+The following Java code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```java
-Presentation pres1 = new Presentation("pres1.pptx");
+Presentation presentation = new Presentation();
+Presentation presentation1 = new Presentation("presentation1.pptx");
+Presentation presentation2 = new Presentation("presentation2.pptx");
 try {
-    Presentation pres2 = new Presentation("pres2.pptx");
-    try {
-        for(ISlide slide : pres2.getSlides())
-        {
-            pres1.getSlides().addClone(slide, pres2.getLayoutSlides().get_Item(0));
-        }
-    } finally {
-        if (pres2 != null) pres2.dispose();
-    }
-    pres1.save("combined.pptx", SaveFormat.Pptx);
+    presentation.getSlides().removeAt(0);
+    
+    ISlide slide1 = getTitleSlide(presentation1);
+
+    if (slide1 != null)
+        presentation.getSlides().addClone(slide1);
+
+    ISlide slide2 = getTitleSlide(presentation2);
+
+    if (slide2 != null)
+        presentation.getSlides().addClone(slide2);
+
+    presentation.save("combined.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres1 != null) pres1.dispose();
+    presentation2.dispose();
+    presentation1.dispose();
+    presentation.dispose();
+}
+```
+```java
+static ISlide getTitleSlide(IPresentation presentation) {
+    for (ISlide slide : presentation.getSlides()) {
+        if (slide.getLayoutSlide().getLayoutType() == SlideLayoutType.Title) {
+            return slide;
+        }
+    }
+    return null;
 }
 ```
 

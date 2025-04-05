@@ -8,15 +8,6 @@ description: "Merge or combine PowerPoint Presentation "
 ---
 
 
-{{% alert  title="Tip" color="primary" %}} 
-
-You may want to check out **Aspose free online** [Merger app](https://products.aspose.app/slides/merger). It allows people to merge PowerPoint presentations in the same format (PPT to PPT, PPTX to PPTX, etc.) and merge presentations in different formats (PPT to PPTX, PPTX to ODP, etc.).
-
-[![todo:image_alt_text](slides-merger.png)](https://products.aspose.app/slides/merger)
-
-{{% /alert %}} 
-
-
 ## **Presentation Merging**
 
 When you merge one presentation to another, you are effectively combining their slides in a single presentation to obtain one file. 
@@ -126,27 +117,44 @@ If you want the slides in the output presentation to have a different slide layo
 
 ## **Merge Specific Slides From Presentations**
 
-This PHP code shows you how to select and combine specific slides from different presentations to get one output presentation:
+Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for PHP via Java allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
+
+The following PHP code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
 
 ```php
-  $pres1 = new Presentation("pres1.pptx");
-  try {
-    $pres2 = new Presentation("pres2.pptx");
-    try {
-      foreach($pres2->getSlides() as $slide) {
-        $pres1->getSlides()->addClone($slide, $pres2->getLayoutSlides()->get_Item(0));
-      }
-    } finally {
-      if (!java_is_null($pres2)) {
-        $pres2->dispose();
-      }
+function getTitleSlide(Presentation $presentation) {
+    for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
+        $slide = $presentation->getSlides()->get_Item($i);
+        if (java_values($slide->getLayoutSlide()->getLayoutType()) === SlideLayoutType::Title) {
+            return $slide;
+        }
     }
-    $pres1->save("combined.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres1)) {
-      $pres1->dispose();
-    }
-  }
+    return null;
+}
+```
+```php
+$presentation = new Presentation();
+$presentation1 = new Presentation($folderPath . "presentation1.pptx");
+$presentation2 = new Presentation($folderPath . "presentation2.pptx");
+try {
+    $presentation->getSlides()->removeAt(0);
+    
+    $slide1 = getTitleSlide($presentation1);
+
+    if ($slide1 != null)
+        $presentation->getSlides()->addClone($slide1);
+
+    $slide2 = getTitleSlide($presentation2);
+
+    if ($slide2 != null)
+        $presentation->getSlides()->addClone($slide2);
+
+    $presentation->save($folderPath . "combined.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation2->dispose();
+    $presentation1->dispose();
+    $presentation->dispose();
+}
 ```
 
 ## **Merge Presentations With Slide Layout**
@@ -235,8 +243,12 @@ This PHP code shows you how to merge a specific slide to a section in a presenta
 
 The slide is added at the end of the section. 
 
-{{% alert title="Tip" color="primary" %}}
+## **See Also**
 
-Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
 
-{{% /alert %}}
+Aspose provides a [FREE Online Collage Maker](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and more.
+
+Check out the [Aspose FREE Online Merger](https://products.aspose.app/slides/merger). It allows you to merge PowerPoint presentations in the same format (e.g., PPT to PPT, PPTX to PPTX) or across different formats (e.g., PPT to PPTX, PPTX to ODP).
+
+[![Aspose FREE Online Merger](slides-merger.png)](https://products.aspose.app/slides/merger)
+
