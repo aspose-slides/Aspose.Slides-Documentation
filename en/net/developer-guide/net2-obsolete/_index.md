@@ -5,9 +5,6 @@ weight: 236
 url: /net/net2-obsolete/
 ---
 
-
-## Updates to Supported Target Platforms
-
 As part of our ongoing efforts to improve product quality and security, we are planning the following changes in **version 25.7**:
 
 - Assemblies targeting **.NET Framework 2.0**, **3.5**, and **4.0** will be removed from the release package.  
