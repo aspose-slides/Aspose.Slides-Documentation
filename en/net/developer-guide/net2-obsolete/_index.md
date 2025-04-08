@@ -1,7 +1,7 @@
 ---
 title: Updates to Supported Target Platforms
 type: docs
-weight: 236
+weight: 238
 url: /net/net2-obsolete/
 ---
 
