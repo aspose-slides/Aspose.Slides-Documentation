@@ -60,7 +60,7 @@ Let's say we have a presentation "sample.pptx" that looks like this:
 
 ![PowerPoint presentation](PowerPoint.png)
 
-The following C# code example demonstrates how to convert a PowerPoint presentation to a Word document:
+The following C# code example demonstrates how to convert the PowerPoint presentation to a Word document:
 
 ```cs
 // Load a presentation file.
@@ -120,4 +120,4 @@ You only need to add the respective NuGet packages for [Aspose.Slides for .NET](
 
 **Are all PowerPoint and OpenDocument presentation formats supported?**
 
-Aspose.Slides for .NET [supports all presentation formats](https://docs.aspose.com/slides/net/supported-file-formats/), including PPT, PPTX, ODP, and other common file types. This ensures that you can work with presentations created in various versions of Microsoft PowerPoint.
+Aspose.Slides for .NET [supports all presentation formats](/slides/net/supported-file-formats/), including PPT, PPTX, ODP, and other common file types. This ensures that you can work with presentations created in various versions of Microsoft PowerPoint.
