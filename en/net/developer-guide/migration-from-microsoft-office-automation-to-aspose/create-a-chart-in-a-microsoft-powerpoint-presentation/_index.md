@@ -1,78 +1,82 @@
 ---
-title: Create a Chart  in a Microsoft PowerPoint Presentation
+title: Create a Chart in a PowerPoint Presentation in C#
+linktitle: Create a Chart
 type: docs
 weight: 80
 url: /net/create-a-chart-in-a-microsoft-powerpoint-presentation/
+keywords:
+- VSTO
+- automation
+- migration
+- chart
+- create chart
+- PowerPoint
+- presentation
+- C#
+- .NET
+- Aspose.Slides
+description: "Learn how to automate PowerPoint chart creation using C#. This step-by-step guide shows why Aspose.Slides for .NET is a faster, more powerful alternative to Microsoft.Office.Interop."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
- Charts are visual representations of data that are widely used in presentations. This article shows the code for create a chart in Microsoft PowerPoint programmatically by using [VSTO](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/) and [Aspose.Slides for .NET](/slides/net/create-a-chart-in-a-microsoft-powerpoint-presentation/).
+This article demonstrates how to create and customize charts in Microsoft PowerPoint presentations programmatically using C#. With Aspose.Slides for .NET, you can automate the generation of professional, data-driven charts without relying on Microsoft Office or Interop libraries. The API provides a rich set of features for building column charts, pie charts, line charts, and more — all with full control over appearance, data, and layout. Whether you're generating reports, dashboards, or business presentations, Aspose.Slides helps you deliver high-quality visualizations directly from your .NET applications.
 
-{{% /alert %}} 
-## **Creating a Chart**
-The code examples below describe the process of adding a simple 3D clustered column chart using VSTO. You create a presentation instance, add a default chart to it. Then use Microsoft Excel workbook to access and modify chart data along with setting chart properties. Lastly, save the presentation.
 ## **VSTO Example**
-Using VSTO, the following steps are performed:
+
+This section demonstrates how to create a chart in a Microsoft PowerPoint presentation using **VSTO (Visual Studio Tools for Office)**. With VSTO, you can programmatically generate and customize charts by combining PowerPoint and Excel automation. The example provided shows how to add a **3D clustered column chart**, populate it with data from an Excel worksheet, adjust formatting and layout, and save the final presentation — all from within a .NET application.
 
 1. Create an instance of a Microsoft PowerPoint presentation.
 1. Add a blank slide to the presentation.
-1. Add a **3D clustered column** chart and access it.
-1. Create a new Microsoft Excel Workbook instance and load chart data.
-1. Access the chart data worksheet using Microsoft Excel Workbook instance from workbook.
+1. Add a 3D clustered column chart and access it.
+1. Create a new Microsoft Excel workbook instance and load the chart data.
+1. Access the chart data worksheet using the Excel workbook instance.
 1. Set the chart range in the worksheet and remove series 2 and 3 from the chart.
 1. Modify the chart category data in the chart data worksheet.
-1. Modify chart series 1 data in the chart data worksheet.
-1. Now, access the chart title and set the font related properties.
-1. Access the chart value axis and set the major unit, minor units, max value and min values.
-1. Access the chart depth or series axis and remove that as in this example, only one serie is used.
-1. Now, set the chart rotation angles in X and Y direction.
+1. Modify the series 1 data in the chart data worksheet.
+1. Access the chart title and set its font-related properties.
+1. Access the value axis of the chart and set the major unit, minor unit, maximum value, and minimum value.
+1. Access the chart’s depth (series) axis and remove it—only one series is used in this example.
+1. Set the chart’s rotation angles in the X and Y directions.
 1. Save the presentation.
-1. Close the instances of Microsoft Excel and PowerPoint.
-
-**The output presentation, created with VSTO** 
-
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_1.png)
-
-
+1. Close the Microsoft Excel and PowerPoint instances.
 
 ```c#
 EnsurePowerPointIsRunning(true, true);
 
-//Instantiate slide object
+// Instantiate a slide object.
 Microsoft.Office.Interop.PowerPoint.Slide objSlide = null;
 
-//Access the first slide of presentation
+// Access the first presentation slide.
 objSlide = objPres.Slides[1];
 
-//Select firs slide and set its layout
+// Select the first slide and set its layout.
 objSlide.Select();
 objSlide.Layout = Microsoft.Office.Interop.PowerPoint.PpSlideLayout.ppLayoutBlank;
 
-//Add a default chart in slide
-objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20F, 30F, 400F, 300F);
+// Add a default chart to the slide.
+objSlide.Shapes.AddChart(Microsoft.Office.Core.XlChartType.xl3DColumn, 20, 30, 400, 300);
 
-//Access the added chart
+// Access the added chart.
 Microsoft.Office.Interop.PowerPoint.Chart ppChart = objSlide.Shapes[1].Chart;
 
-//Access the chart data
+// Access the chart data.
 Microsoft.Office.Interop.PowerPoint.ChartData chartData = ppChart.ChartData;
 
-//Create instance to Excel workbook to work with chart data
+// Create an instance of the Excel workbook to work with the chart data.
 Microsoft.Office.Interop.Excel.Workbook dataWorkbook = (Microsoft.Office.Interop.Excel.Workbook)chartData.Workbook;
 
-//Accessing the data worksheet for chart
+// Access the data worksheet for the chart.
 Microsoft.Office.Interop.Excel.Worksheet dataSheet = dataWorkbook.Worksheets[1];
 
-//Setting the range of chart
+// Set the data range for the chart.
 Microsoft.Office.Interop.Excel.Range tRange = dataSheet.Cells.get_Range("A1", "B5");
 
-//Applying the set range on chart data table
+// Apply the specified range to the chart data table.
 Microsoft.Office.Interop.Excel.ListObject tbl1 = dataSheet.ListObjects["Table1"];
 tbl1.Resize(tRange);
 
-//Setting values for categories and respective series data
-
+// Set values for categories and respective series data.
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A2"))).FormulaR1C1 = "Bikes";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A3"))).FormulaR1C1 = "Accessories";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("A4"))).FormulaR1C1 = "Repairs";
@@ -82,7 +86,7 @@ tbl1.Resize(tRange);
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B4"))).FormulaR1C1 = "4000";
 ((Microsoft.Office.Interop.Excel.Range)(dataSheet.Cells.get_Range("B5"))).FormulaR1C1 = "3000";
 
-//Setting chart title
+// Set the chart title.
 ppChart.ChartTitle.Font.Italic = true;
 ppChart.ChartTitle.Text = "2007 Sales";
 ppChart.ChartTitle.Font.Size = 18;
@@ -90,34 +94,31 @@ ppChart.ChartTitle.Font.Color = Color.Black.ToArgb();
 ppChart.ChartTitle.Format.Line.Visible = Microsoft.Office.Core.MsoTriState.msoTrue;
 ppChart.ChartTitle.Format.Line.ForeColor.RGB = Color.Black.ToArgb();
 
-//Accessing Chart value axis
+// Access the chart value axis.
 Microsoft.Office.Interop.PowerPoint.Axis valaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlValue, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 
-//Setting values axis units
+// Set the values for the axis units.
 valaxis.MajorUnit = 2000.0F;
 valaxis.MinorUnit = 1000.0F;
 valaxis.MinimumScale = 0.0F;
 valaxis.MaximumScale = 4000.0F;
 
-//Accessing Chart Depth axis
+// Access the chart depth axis.
 Microsoft.Office.Interop.PowerPoint.Axis Depthaxis = ppChart.Axes(Microsoft.Office.Interop.PowerPoint.XlAxisType.xlSeriesAxis, Microsoft.Office.Interop.PowerPoint.XlAxisGroup.xlPrimary);
 Depthaxis.Delete();
 
-//Setting chart rotation
-ppChart.Rotation = 20; //Y-Value
-ppChart.Elevation = 15; //X-Value
+// Set the chart rotation.
+ppChart.Rotation = 20;   // Y-Value
+ppChart.Elevation = 15;  // X-Value
 ppChart.RightAngleAxes = false;
 
-// Save the presentation as a PPTX
-objPres.SaveAs("C:\\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
-//objPres.SaveAs(@"..\..\..\VSTOSampleChart", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
+// Save the presentation as a PPTX file.
+objPres.SaveAs("VSTO_Sample_Chart.pptx", Microsoft.Office.Interop.PowerPoint.PpSaveAsFileType.ppSaveAsDefault, MsoTriState.msoTrue);
 
-//Close Workbook and presentation
+// Close the workbook and presentation.
 dataWorkbook.Application.Quit();
 objPres.Application.Quit();
 ```
-
-
 
 ```c#
 public static void EnsurePowerPointIsRunning(bool blnAddPresentation)
@@ -133,9 +134,8 @@ public static void EnsurePowerPointIsRunning()
 public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAddSlide)
 {
     string strName = null;
-    //
-    //Try accessing the name property. If it causes an exception then
-    //start a new instance of PowerPoint
+
+    // Try accessing the Name property. If it throws an exception, start a new instance of PowerPoint.
     try
     {
         strName = objPPT.Name;
@@ -144,8 +144,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
     {
         StartPowerPoint();
     }
-    //
-    //blnAddPresentation is used to ensure there is a presentation loaded
+
+    // blnAddPresentation is used to ensure that a presentation is loaded.
     if (blnAddPresentation == true)
     {
         try
@@ -157,9 +157,8 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
             objPres = objPPT.Presentations.Add(MsoTriState.msoTrue);
         }
     }
-    //
-    //BlnAddSlide is used to ensure there is at least one slide in the
-    //presentation
+
+    // blnAddSlide is used to ensure that there is at least one slide in the presentation.
     if (blnAddSlide)
     {
         try
@@ -180,104 +179,105 @@ public static void EnsurePowerPointIsRunning(bool blnAddPresentation, bool blnAd
 }
 ```
 
+The result:
 
-
+![The chart created using VSTO](chart-created-using-VSTO.png)
 
 ## **Aspose.Slides for .NET Example**
-Using Aspose.Slides for .NET, the following steps are performed:
 
-1. Create an instance of a Microsoft PowerPoint presentation.
-1. Add a blank slide to the presentation.
-1. Add a **3D clustered column** chart and access that.
-1. Access the chart data worksheet using a Microsoft Excel Workbook instance from workbook.
-1. Remove unused series 2 and 3.
-1. Access chart categories and modify the labels.
-1. Acces series 1 and modify the series values.
-1. Now, access the chart title and set the font properties.
-1. Access the chart value axis and set the major unit, minor units, max value and min values.
-1. Now, set the chart rotation angles in X and Y direction.
-1. Save the presentation to PPTX format.
+The following example shows how to create a simple chart in a PowerPoint presentation using Aspose.Slides for .NET. This code demonstrates how to add a **3D clustered column chart**, populate it with sample data, and customize its appearance. With just a few lines of code, you can generate charts dynamically and integrate them into your presentations without using Microsoft Office.
 
-**The output presentation, created with Aspose.Slides**
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to the first slide.
+1. Add a 3D clustered column chart and access it.
+1. Access the chart data.
+1. Remove the unused Series 2 and Series 3.
+1. Modify the chart categories by updating the labels.
+1. Update the values of Series 1.
+1. Access the chart title and set its font properties.
+1. Configure the chart's value axis, including major unit, minor unit, maximum, and minimum values.
+1. Set the chart rotation angles on the X and Y axes.
+1. Save the presentation in PPTX format.
 
-![todo:image_alt_text](create-a-chart-in-a-microsoft-powerpoint-presentation_2.png)
-
-```csharp
-//Create empty presentation
-using (Presentation pres = new Presentation())
+```cs
+// Create an empty presentation.
+using (Presentation presentation = new Presentation())
 {
+    // Access the first slide.
+    ISlide slide = presentation.Slides[0];
 
-    //Accessing first slide
-    ISlide slide = pres.Slides[0];
+    // Add a default chart.
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20, 30, 400, 300);
 
-    //Addding default chart
-    IChart ppChart = slide.Shapes.AddChart(ChartType.ClusteredColumn3D, 20F, 30F, 400F, 300F);
+    // Get the chart data.
+    IChartData chartData = chart.ChartData;
 
-    //Getting Chart data
-    IChartData chartData = ppChart.ChartData;
-
-    //Removing Extra default series
+    // Remove the extra default series.
     chartData.Series.RemoveAt(1);
     chartData.Series.RemoveAt(1);
 
-    //Modifying chart categories names
+    // Modify the chart category names.
     chartData.Categories[0].AsCell.Value = "Bikes";
     chartData.Categories[1].AsCell.Value = "Accessories";
     chartData.Categories[2].AsCell.Value = "Repairs";
     chartData.Categories[3].AsCell.Value = "Clothing";
 
-    //Setting the index of chart data sheet
-    int defaultWorksheetIndex = 0;
+    // Set the index of the chart data worksheet.
+    int worksheetIndex = 0;
 
+    // Get the chart data workbook.
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
 
-    //Getting the chart data worksheet
-    IChartDataWorkbook fact = ppChart.ChartData.ChartDataWorkbook;
+    // Modify the chart series values.
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 1000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2500));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 4000));
+    chartData.Series[0].DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 3000));
 
-    //Modifying chart series values for first category
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 1, 1, 1000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 2, 1, 2500));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 3, 1, 4000));
-    chartData.Series[0].DataPoints.AddDataPointForBarSeries(fact.GetCell(defaultWorksheetIndex, 4, 1, 3000));
-
-    //Setting Chart title
-    ppChart.HasTitle = true;
-    ppChart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
-    IPortionFormat format = ppChart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
+    // Set the chart title.
+    chart.HasTitle = true;
+    chart.ChartTitle.AddTextFrameForOverriding("2007 Sales");
+    IPortionFormat format = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0].PortionFormat;
     format.FontItalic = NullableBool.True;
     format.FontHeight = 18;
     format.FillFormat.FillType = FillType.Solid;
     format.FillFormat.SolidFillColor.Color = Color.Black;
 
+    // Set the axis options.
+    chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
+    chart.Axes.VerticalAxis.IsAutomaticMinValue = false;
+    chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
+    chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
 
-    ////Setting Axis values
-    ppChart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinValue = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
-    ppChart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
+    chart.Axes.VerticalAxis.MaxValue = 4000.0F;
+    chart.Axes.VerticalAxis.MinValue = 0.0F;
+    chart.Axes.VerticalAxis.MajorUnit = 2000.0F;
+    chart.Axes.VerticalAxis.MinorUnit = 1000.0F;
+    chart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
 
-    ppChart.Axes.VerticalAxis.MaxValue = 4000.0F;
-    ppChart.Axes.VerticalAxis.MinValue = 0.0F;
-    ppChart.Axes.VerticalAxis.MajorUnit = 2000.0F;
-    ppChart.Axes.VerticalAxis.MinorUnit = 1000.0F;
-    ppChart.Axes.VerticalAxis.TickLabelPosition = TickLabelPositionType.NextTo;
+    // Set the chart rotation.
+    chart.Rotation3D.RotationX = 15;
+    chart.Rotation3D.RotationY = 20;
 
-    //Setting Chart rotation
-    ppChart.Rotation3D.RotationX = 15;
-    ppChart.Rotation3D.RotationY = 20;
-
-    //Saving Presentation
-    pres.Save("AsposeSampleChart.pptx", SaveFormat.Pptx);
+    // Save the presentation as a PPTX file.
+    presentation.Save("Aspose_Sample_Chart.pptx", SaveFormat.Pptx);
 }
 ```
 
+The result:
 
+![The chart created using Aspose.Slides for .NET](chart-created-using-aspose-slides.png)
 
-{{% alert color="primary" %}} 
+## **FAQs**
 
-## **Resources**
-The projects and files used in this article can be downloaded from our website:
+**Can I create other types of charts like pie, line, or bar charts with Aspose.Slides?**
 
-- [Download the VSTO generated presentation](http://docs.aspose.com:8082/docs/download/attachments/87523560/VSTOSampleChart.pptx).
-- [Download the sample chart generated by Aspose.Slides](http://docs.aspose.com:8082/docs/download/attachments/87523560/AsposeSampleChart.pptx).
+Yes. Aspose.Slides for .NET supports a wide range of [chart types](https://docs.aspose.com/slides/net/create-chart/), including pie charts, line charts, bar charts, scatter plots, bubble charts, and more. You can specify the desired chart type using the [ChartType](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) enumeration when adding a chart.
 
-{{% /alert %}}
+**Can I apply custom styles or themes to the chart?**
+
+Yes. You can fully customize the chart’s appearance, including colors, fonts, fills, outlines, gridlines, and layout. However, applying Office themes exactly as seen in PowerPoint requires manually setting individual styles.
+
+**Can I export the chart as an image separately from the slide?**
+
+Yes, Aspose.Slides allows you to export any shape—including charts—as a separate image (e.g., PNG, JPEG) using the `GetImage` method on the chart [shape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).
