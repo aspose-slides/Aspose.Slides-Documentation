@@ -1,5 +1,5 @@
 ---
-title: Text Formatting
+title: Format PowerPoint Text in C#
 linktitle: Text Formatting
 type: docs
 weight: 50
@@ -7,76 +7,108 @@ url: /net/text-formatting/
 keywords:
 - highlight text
 - regular expression
-- align text paragraphs
+- align paragraph
+- text style
+- text background
 - text transparency
-- paragraph font properties
+- character spacing
+- font properties
 - font family
 - text rotation
-- custom angle rotation
+- rotation angle
 - text frame
 - line spacing
 - autofit property
 - text frame anchor
 - text tabulation
-- default text style
+- default language
 - C#
 - Aspose.Slides for .NET
-description: "Manage and manipulate text and text frame properties in C#"
+description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. Customize fonts, colors, alignment, and more with powerful C# code examples."
 ---
 
-## Overview
+## **Overview**
 
-This article describes how to **work with PowerPoint presentation text formatting using C#** e.g. highlight text, apply a regular expression, align text paragraphs, set text transparency, change paragraph font properties, use font families, set a text rotation, customize an angle rotation, manage a text frame, set a line spacing, use the Autofit property, set a text frame anchor, change the text tabulation. The article covers these topics.
+This section introduces how to manage and format text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. You’ll learn how to apply text formatting features such as font selection, size, color, highlighting, background color, spacing, and alignment. In addition, it covers working with text frames, paragraphs, formatting, and advanced layout options like custom rotation and autofit behaviors.
+
+Whether you're generating presentations programmatically or customizing existing content, these examples will help you create clear, professional-looking text layouts that enhance your slides and improve readability.
 
 ## **Highlight Text**
-New HighlightText method has been added to ITextFrame interface and TextFrame class.
 
-It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
+The [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) method allows you to highlight a portion of text with a background color based on a matching text sample.
 
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with input file.
-   - Input file could be PPT, PPTX, ODP etc.
-3. Access its slide using [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection
-4. Access the shape using [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) collection as [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/).
-5. Highlight the text using [TextFrame.Highlight()](https://reference.aspose.com/slides/net/aspose.slides/textframe/highlighttext/#highlighttext) method.
-6. Save the presentation in the desired output format i.e. PPT, PPTX or ODP etc.
+To use this method, follow these steps:
+
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with an input file (PPT, PPTX, ODP, etc.).
+1. Access the desired slide using the [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection.
+1. Access the target shape from the [Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) collection and cast it as an [AutoShape](https://reference.aspose.com/slides/net/aspose.slides/autoshape/).
+1. Highlight the desired text using the [ITextFrame.HighlightText](https://reference.aspose.com/slides/net/aspose.slides/itextframe/highlighttext/) method by providing the sample text and color.
+1. Save the presentation in your desired output format (e.g., PPT, PPTX, ODP).
+
+Let's say we have a file named "sample.pptx". This presentation contains a single text box on the first slide.
+
+![The text to be highlighted](text_to_highlight.png)
+
+The code example below highlights all occurrences of the word **"try"** and the entire word **"to"**.
 
 ```c#
-Presentation presentation = new Presentation("SomePresentation.pptx");
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("title", Color.LightBlue); // highlighting all words 'important'
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightText("to", Color.Violet, new TextHighlightingOptions()
+using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    WholeWordsOnly = true
-}); // highlighting all separate 'the' occurrences
-presentation.Save("SomePresentation-out2.pptx", SaveFormat.Pptx);
+    // Get the first shape from the first slide.
+    IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+
+    // Highlight the word "try" in the shape.
+    shape.TextFrame.HighlightText("try", Color.LightBlue);
+
+    TextSearchOptions searchOptions = new TextSearchOptions()
+    {
+        WholeWordsOnly = true
+    };
+
+    // Highlight the word "to" in the shape.
+    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
+
+    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
+}
 ```
+
+The result:
+
+![The highlighted text](highlighted_text.png)
 
 {{% alert color="primary" %}} 
 
-Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor)
+Aspose provides a simple, [FREE Online PowerPoint Editor](https://products.aspose.app/slides/editor).
 
 {{% /alert %}} 
 
+## **Highlight Text Using Regular Expressions**
 
-## **Highlight Text using Regular Expression**
-New HighlightRegex method has been added to ITextFrame interface and TextFrame class.
+Aspose.Slides for .NET allows you to search and highlight specific parts of text in PowerPoint slides using regular expressions. This feature is especially useful when you need to dynamically emphasize keywords, patterns, or data-driven content. The [ITextFrame.HighlightRegex](https://docs.aspose.com/slides/net/text-formatting/) method allows you to highlight parts of text with a background color using a regular expression.
 
-It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
-
-
-The code snippet below shows how to use this feature:
+Let's say, in the example text mentioned earlier, you need to highlight all words that contain **five or more characters**. The code example below shows how to do this:
 
 ```c#
-Presentation presentation = new Presentation("SomePresentation.pptx");
-TextHighlightingOptions options = new TextHighlightingOptions();
-((AutoShape)presentation.Slides[0].Shapes[0]).TextFrame.HighlightRegex(@"\b[^\s]{5,}\b", Color.Blue, options); // highlighting all words with 10 symbols or longer
-presentation.Save("SomePresentation-out.pptx", SaveFormat.Pptx);
+using (Presentation presentation = new Presentation("sample.pptx"))
+{
+    IAutoShape shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+
+    // Highlight all words with 5 or more characters.
+    shape.TextFrame.HighlightRegex(@"\b[^\s]{5,}\b", Color.Yellow, null);
+
+    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
+}
 ```
+
+The result:
+
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
 ## **Set Text Background Color**
 
-Aspose.Slides allows you to specify your preferred color for the background of a text.
+Aspose.Slides for .NET enables you to apply background colors to individual text portions in PowerPoint slides. This functionality is useful when you want to highlight specific words or phrases, draw attention to key messages, or enhance the visual appeal of your presentations.
 
-This C# code shows you how to set the background color for an entire text: 
+The following code example shows how to set the background color for an entire text: 
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -196,8 +228,8 @@ using (Presentation pres = new Presentation("ParagraphsAlignment.pptx"))
 }
 ```
 
-
 ## **Set Transparency for Text**
+
 This article demonstrates how to set transparency property to any text shape using Aspose.Slides for .NET. In order to set the transparency to text. Please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
@@ -243,7 +275,7 @@ textBox2.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.Spacing = 
 presentation.Save("out.pptx", SaveFormat.Pptx);
 ```
 
-## **Manage Paragraph's Font Properties**
+## **Manage Paragraph Font Properties**
 
 Presentations usually contain both text and images. The text can be formatted in a various ways, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for .NET to configure the font properties of paragraphs of text on slides. To manage font properties of a paragraph using Aspose.Slides for .NET :
 
@@ -310,6 +342,7 @@ using (Presentation pres = new Presentation("FontProperties.pptx"))
 
 
 ## **Manage Font Family of Text**
+
 A Portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for .NET to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
@@ -442,8 +475,8 @@ portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 presentation.Save("RotateText_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Set Custom Rotation for Text Frames**
 
-## **Set Custom Rotation Angle for TextFrame**
 Aspose.Slides for .NET now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new property RotationAngle has been added to IChartTextBlockFormat and ITextFrameFormat interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle property, Please follow the steps below:
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
@@ -472,7 +505,8 @@ presentation.Save("textframe-rotation_out.pptx", SaveFormat.Pptx);
 ```
 
 
-## **Line Spacing of Paragraph**
+## **Set Line Spacing of Paragraphs**
+
 Aspose.Slides provides properties ([SpaceAfter](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spaceafter), [SpaceBefore](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacebefore), and [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/spacewithin)) under the [ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/paragraphformat/) class that allow you to manage the line spacing for a paragraph. The three properties are used this way:
 
 * To specify the line spacing for a paragraph in percentage, use a positive value. 
@@ -512,8 +546,8 @@ para1.ParagraphFormat.SpaceAfter = 40;
 presentation.Save("LineSpacing_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Set Autofit Type for Text Frames**
 
-## **Set the AutofitType Property for TextFrame**
 In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for .NET allows developers to set AutofitType property of any text frame. AutofitType could be set to Normal or Shape. If set to Normal then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to shape, then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
 1. Create an instance of [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
@@ -554,8 +588,8 @@ portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
 presentation.Save("formatText_out.pptx", SaveFormat.Pptx); 
 ```
 
+## **Set Anchor of Text Frames**
 
-## **Set Anchor of TextFrame**
 Aspose.Slides for .NET allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. TextAnchorType could be set to Top, Center, Bottom, Justified or Distributed. To set Anchor of any TextFrame, please follow the steps below:
 
 1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
@@ -597,6 +631,7 @@ presentation.Save("AnchorText_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Set Text Tabulation**
+
 - EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
 - EffectiveTabs collection includes all tabs (from Tabs collection and default tabs)
 - EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
