@@ -1,93 +1,145 @@
 ---
-title: Embedded Font
+title: Use Embedded Fonts in PowerPoint Presentations in C++
+linktitle: Embedded Font
 type: docs
 weight: 40
 url: /cpp/embedded-font/
-keywords: "Fonts, embedded fonts, add fonts, PowerPoint presentation C++, CPP, Aspose.Slides for C++"
-description: "Use embedded fonts in PowerPoint presentation in C++"
+keywords:
+- font
+- embedded font
+- add font
+- embed font
+- get embedded font
+- add embedded font
+- remove embedded font
+- compress embedded font
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to embed fonts in PowerPoint presentations using Aspose.Slides for C++. Ensure text consistency across devices by preserving custom fonts inside your PPTX files."
 ---
 
-**Embedded fonts in PowerPoint** are useful when you want your presentation to appear correctly when opened on any system or device. If you used a third-party or non-standard font because you got creative with your work, then you have even more reasons to embed your font. Otherwise (without embedded fonts), the texts or numbers on your slides, the layout, styling, etc. may change or turn into confusing rectangles. 
+## **Overview**
 
-The [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) class, [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) class, [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class, and their interfaces contain most of the properties and methods you need to work with embedded fonts in PowerPoint presentations. 
+**Embedded fonts in PowerPoint** help ensure that your presentation retains its intended appearance when opened on any system or device. This is especially important when using custom, third-party, or non-standard fonts for branding or creative purposes. Without embedded fonts, text may be substituted, layouts can break, and characters might appear as unreadable symbols or rectangles, compromising the overall design.
 
-## **Get or Remove Embedded Fonts from Presentation**
+Aspose.Slides for C++ provides a set of powerful APIs to manage embedded fonts programmatically. You can use the [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) and [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) classes to inspect, add, or remove embedded fonts in your presentation files. Additionally, the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class allows you to optimize file size by compressing font data without affecting quality or appearance.
 
-Aspose.Slides provides the [GetEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/getembeddedfonts/) method (exposed by the [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) class) to allow you to get (or find out) the fonts embedded in a presentation. To remove fonts, the [RemoveEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/removeembeddedfont/) method (exposed by the same class) is used.
+These tools give you full control over font embedding, helping you maintain consistent typography across platforms while reducing file size when needed.
 
-This C++ code shows you how to get and remove embedded fonts from a presentation:
+## **Get Embedded Fonts from a Presentation**
 
-```c++
-// Instantiates a Presentation object that represents a presentation file
-auto presentation = System::MakeObject<Presentation>(u"EmbeddedFonts.pptx");
-// Renders a slide containing a text frame that uses embedded "FunSized"
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture1_out.png", ImageFormat::Png);
+Aspose.Slides for C++ provides the `GetEmbeddedFonts` method through the [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) class, which allows you to retrieve a list of fonts embedded in a PowerPoint presentation. This can be useful for auditing font usage, ensuring compliance with branding guidelines, or verifying that all necessary fonts are properly included before sharing the file.
 
-auto fontsManager = presentation->get_FontsManager();
+The following C++ code demonstrates how to get embedded fonts from a presentation file:
 
-// Gets all embedded fonts
-auto embeddedFonts = fontsManager->GetEmbeddedFonts();
+```cpp
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
 
-std::function<bool(SharedPtr<IFontData>)> comparer = [](SharedPtr<IFontData> data) -> bool
-{
-    return data->get_FontName() == u"Calibri";
-};
-
-// Finds the "Calibri" font
-auto funSizedEmbeddedFont = Array<SharedPtr<IFontData>>::Find(embeddedFonts, comparer);
-
-// Removes "Calibri" font
-fontsManager->RemoveEmbeddedFont(funSizedEmbeddedFont);
-
-// Renders the presentation; "Calibri" font is replaced with an existing one
-presentation->get_Slides()->idx_get(0)->GetImage(Size(960, 720))->Save(u"picture2_out.png", ImageFormat::Png);
-
-// Saves the presentation without embedded "Calibri" font to disk
-presentation->Save(u"WithoutManageEmbeddedFonts_out.ppt", SaveFormat::Ppt);
-```
-
-## **Add Embedded Fonts to Presentation**
-
-Using the [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) enum and two overloads of the [AddEmbeddedFont()](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/) method, you can select your preferred (embedding) rule to embed the fonts in a presentation. This C++ code shows you how to embed and add fonts to a presentation:
-
-```c++
-// Loads the presentation
-auto presentation = System::MakeObject<Presentation>(u"Fonts.pptx");
-
-// Loads the source font to be replaced
-auto sourceFont = System::MakeObject<FontData>(u"Arial");
-
-auto allFonts = presentation->get_FontsManager()->GetFonts();
+// Get all embedded fonts.
 auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
 
-for (SharedPtr<IFontData> font : allFonts)
+// Print names of the embedded fonts.
+for (auto&& fontData : embeddedFonts)
 {
-    std::function<bool(SharedPtr<IFontData> data)> comparer = [&font](SharedPtr<IFontData> data) -> bool
-    {
-        return data == font;
-    };
+    Console::WriteLine(fontData->get_FontName());
+}
 
+presentation->Dispose();
+```
+
+## **Add Embedded Fonts to a Presentation**
+
+Aspose.Slides for C++ allows you to embed fonts into a PowerPoint presentation using the [AddEmbeddedFont](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/addembeddedfont/) method, which comes with two overloads for flexible usage. You can control how much of the font is embedded by using the [EmbedFontCharacters](https://reference.aspose.com/slides/cpp/aspose.slides.export/embedfontcharacters/) enumeration — for example, choosing to embed only used characters or the entire font set. This feature is especially useful when preparing a presentation for sharing or distribution, ensuring that custom or non-standard fonts appear correctly on all systems, even if those fonts are not installed.
+
+The following C++ code checks all the fonts used in a presentation, and embeds any fonts that are not already embedded.
+
+```cpp
+// Load a presentation file.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+auto usedFonts = presentation->get_FontsManager()->GetFonts();
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : usedFonts)
+{
+    std::function<bool(SharedPtr<IFontData> data)> comparer = [&fontData](SharedPtr<IFontData> data) -> bool
+        {
+            return data == fontData;
+        };
+
+    // Check if the font is already embedded.
     bool isEmbeddedFont = Array<SharedPtr<IFontData>>::Exists(embeddedFonts, comparer);
     if (!isEmbeddedFont)
     {
-        presentation->get_FontsManager()->AddEmbeddedFont(font, EmbedFontCharacters::All);
+        // Embed the font into the presentation.
+        presentation->get_FontsManager()->AddEmbeddedFont(fontData, EmbedFontCharacters::All);
+    }
+
+}
+
+// Save the presentation to disk.
+presentation->Save(u"embedded_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Remove Embedded Fonts from a Presentation**
+
+Aspose.Slides for C++ provides the `RemoveEmbeddedFont` method through the [FontsManager](https://reference.aspose.com/slides/cpp/aspose.slides/fontsmanager/) class, which enables you to remove specific fonts embedded in a PowerPoint presentation. This can help reduce the overall file size, especially if the embedded fonts are no longer used or needed. Removing unused fonts can also improve performance and ensure that your presentation only includes essential resources.
+
+The following C++ code demonstrates how to remove an embedded font from a presentation:
+
+```cpp
+auto fontName = u"Calibri";
+
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>(u"embedded_fonts.pptx");
+
+// Get all embedded fonts.
+auto embeddedFonts = presentation->get_FontsManager()->GetEmbeddedFonts();
+
+for (auto&& fontData : embeddedFonts)
+{
+    if (fontData->get_FontName().Equals(fontName))
+    {
+        // Remove the embedded font.
+        presentation->get_FontsManager()->RemoveEmbeddedFont(fontData);
+
+        break;
     }
 }
 
-// Saves the presentation to disk
-presentation->Save(u"AddEmbeddedFont_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"removed_font.ppt", SaveFormat::Ppt);
+presentation->Dispose();
 ```
 
 ## **Compress Embedded Fonts**
 
-To allow you to compress the fonts embedded in a presentation and reduce its file size, Aspose.Slides provides the [CompressEmbeddedFonts()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) method (exposed by the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class).
+Aspose.Slides for C++ provides the `CompressEmbeddedFonts` method through the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class, allowing you to reduce the overall file size of a presentation by optimizing the embedded font data. This is especially useful when your presentation includes large or multiple fonts, and you want to keep the file lightweight for sharing, storage, or online use — without compromising the visual fidelity of the content.
 
-This C++ code shows you how to compress embedded PowerPoint fonts:
+The following C++ code demonstrates how to compress embedded fonts in a PowerPoint presentation:
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-Aspose::Slides::LowCode::Compress::CompressEmbeddedFonts(pres);
-pres->Save(u"pres-out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+Compress::CompressEmbeddedFonts(presentation);
+
+presentation->Save(u"compressed_fonts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **FAQs**
+
+**What happens if I remove an embedded font that is used on a slide?**
+
+If you remove an embedded font that is still used in the presentation and that font is not installed on the system, PowerPoint will substitute it with a default font. This may cause layout shifts or visual inconsistencies in the text.
+
+**Can I embed only the characters that are actually used?**
+
+Yes. When using the `AddEmbeddedFont` method, you can specify `EmbedFontCharacters::OnlyUsed` to embed only the characters that appear in the presentation. This helps reduce the overall file size.
+
+**Can I embed fonts that are not currently used in the slides?**
+
+Yes, you can embed any font by creating a [FontData](https://reference.aspose.com/slides/cpp/aspose.slides/fontdata/) object and calling `AddEmbeddedFont`, even if it's not applied to any slide content. However, this will increase the file size unnecessarily if the font is never used.
