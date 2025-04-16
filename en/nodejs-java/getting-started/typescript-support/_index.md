@@ -1,7 +1,7 @@
 ---
 title: TypeScript Support
 type: docs
-weight: 11
+weight: 65
 url: /nodejs-java/typescript-support/
 keywords:
 - Node.js
