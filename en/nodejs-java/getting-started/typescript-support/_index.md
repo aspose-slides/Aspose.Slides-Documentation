@@ -8,19 +8,20 @@ keywords:
 - JavaScript
 - TypeScript
 - Aspose.Slides for Node.js via Java
+description: "Discover how to use TypeScript with Aspose.Slides for Node.js via Java for streamlined presentation management. Explore new features and examples to enhance development efficiency."
 ---
 
 
 We're thrilled to announce **native TypeScript support** for [Aspose.Slides for Node.js via Java](https://www.npmjs.com/package/aspose.slides.via.java)! This major enhancement brings modern development workflows to PowerPoint automation in Node.js.
 
-## Key Benefits
+## **Key Benefits**
 
 - **Full API discoverability**: Get intelligent code completion for all methods
 - **Type safety**: Catch errors at compile time
 - **Zero-config**: Works out of the box with included `.d.ts` definitions
 - **Java parity**: All public methods from the Java package are properly typed
 
-## Technical Implementation
+## **Technical Implementation**
 
 The type definitions are automatically loaded via `package.json`:
 
@@ -28,9 +29,9 @@ The type definitions are automatically loaded via `package.json`:
 "types": "lib/aspose.slides.d.ts"
 ```
 
-## Developer Experience
+## **Developer Experience**
 
-### Before (Plain JavaScript)
+### **Before (Plain JavaScript)**
 ```javascript
 import * as AsposeSlides from 'aspose.slides.via.java';
 
@@ -38,7 +39,7 @@ import * as AsposeSlides from 'aspose.slides.via.java';
 const pres = new AsposeSlides.??? // Flying blind
 ```
 
-### After (TypeScript)
+### **After (TypeScript)**
 ```typescript
 import * as AsposeSlides from 'aspose.slides.via.java';
 
@@ -49,11 +50,11 @@ const slide = pres.getSlides().get_Item(0); // Proper method signatures
 ![TypeScript Autocompletion Demo](typedemo.png)  
 
 
-## Getting Started
+## **Getting Started**
 
 1. Update to the latest version:
 ```bash
 npm install aspose.slides.via.java@latest
 ```
 
-2. If using TypeScript, no additional configuration needed!
+2. If you're using TypeScript, no additional configuration is needed!
