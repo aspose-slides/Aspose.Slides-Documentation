@@ -853,103 +853,154 @@ A combination chart (or combo chart) is a chart that combines two or more chart 
 
 ![The combination chart](combination_chart.png)
 
-This C# code shows you how to create a combination chart in a PowerPoint presentation:
+This C# code shows you how to create the combination chart from the above image in a PowerPoint presentation:
 
 ```c#
 private static void CreateComboChart()
 {
     using (Presentation presentation = new Presentation())
     {
-        IChart chart = CreateChart(presentation.Slides[0]);
+        IChart chart = CreateChartWithFirstSeries(presentation.Slides[0]);
 
-        AddFirstSeriesToChart(chart);
         AddSecondSeriesToChart(chart);
+        AddThirdSeriesToChart(chart);
+
+        SetPrimaryAxesFormat(chart);
+        SetSecondaryAxesFormat(chart);
 
         presentation.Save("combo-chart.pptx", SaveFormat.Pptx);
     }
 }
 
-private static IChart CreateChart(ISlide slide)
+private static IChart CreateChartWithFirstSeries(ISlide slide)
 {
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
+
+    // Sets the chart Title
+    chart.HasTitle = true;
+    chart.ChartTitle.AddTextFrameForOverriding("Chart Title");
+    chart.ChartTitle.Overlay = false;
+    IPortionFormat portionFormat = 
+       chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    portionFormat.FontBold = NullableBool.False;
+    portionFormat.FontHeight = 18f;
+
+    // Sets the chart Legend
+    chart.Legend.Position = LegendPositionType.Bottom;
+    chart.Legend.TextFormat.PortionFormat.FontHeight = 12f;
+
+    // Deletes the default generated series and categories
     chart.ChartData.Series.Clear();
     chart.ChartData.Categories.Clear();
 
+    int worksheetIndex = 0;
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    const int worksheetIndex = 0;
-    
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
-    chart.ChartData.Series.Add(workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), chart.Type);
-    
+
+    // Adds new categories
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 1, 0, "Category 1"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 2, 0, "Category 2"));
     chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 3, 0, "Category 3"));
+    chart.ChartData.Categories.Add(workbook.GetCell(worksheetIndex, 4, 0, "Category 4"));
 
-    IChartSeries series = chart.ChartData.Series[0];
+    // Add the first series
+    IChartSeries series = chart.ChartData.Series.Add(
+        workbook.GetCell(worksheetIndex, 0, 1, "Series 1"), chart.Type);
 
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 20));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 30));
-    
-    series = chart.ChartData.Series[1];
-    
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 30));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 10));
-    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 60));
+    series.ParentSeriesGroup.Overlap = -25;
+    series.ParentSeriesGroup.GapWidth = 220;
+
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 1, 4.3));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 1, 2.5));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 1, 3.5));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1, 4.5));
 
     return chart;
-}
-
-private static void AddFirstSeriesToChart(IChart chart)
-{
-    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
-    const int worksheetIndex = 0;
-    
-    IChartSeries series = chart.ChartData.Series.Add(
-		workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), 
-		ChartType.ScatterWithSmoothLines);
-
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 0, 1, 3),
-        workbook.GetCell(worksheetIndex, 0, 2, 5));
-    
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 1, 3, 10),
-        workbook.GetCell(worksheetIndex, 1, 4, 13));
-
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 2, 3, 20),
-        workbook.GetCell(worksheetIndex, 2, 4, 15));
-
-    series.PlotOnSecondAxis = true;
 }
 
 private static void AddSecondSeriesToChart(IChart chart)
 {
     IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
     const int worksheetIndex = 0;
-    
+
     IChartSeries series = chart.ChartData.Series.Add(
-		workbook.GetCell(worksheetIndex, 0, 5, "Series 4"),
-        ChartType.ScatterWithStraightLinesAndMarkers);
+        workbook.GetCell(worksheetIndex, 0, 2, "Series 2"), ChartType.ClusteredColumn);
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 1, 3, 5),
-        workbook.GetCell(worksheetIndex, 1, 4, 2));
-    
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 1, 5, 10),
-        workbook.GetCell(worksheetIndex, 1, 6, 7));
+    series.ParentSeriesGroup.Overlap = -25;
+    series.ParentSeriesGroup.GapWidth = 220;
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 2, 5, 15),
-        workbook.GetCell(worksheetIndex, 2, 6, 12));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 1, 2, 2.4));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 2, 2, 4.4));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 3, 2, 1.8));
+    series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 2, 2.8));
+}
 
-    series.DataPoints.AddDataPointForScatterSeries(
-        workbook.GetCell(worksheetIndex, 3, 5, 12),
-        workbook.GetCell(worksheetIndex, 3, 6, 9));
-    
+private static void AddThirdSeriesToChart(IChart chart)
+{
+    IChartDataWorkbook workbook = chart.ChartData.ChartDataWorkbook;
+    const int worksheetIndex = 0;
+
+    IChartSeries series = chart.ChartData.Series.Add(
+        workbook.GetCell(worksheetIndex, 0, 3, "Series 3"), ChartType.Line);
+
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 1, 3, 2.0));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 2, 3, 2.0));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 3, 3, 3.0));
+    series.DataPoints.AddDataPointForLineSeries(workbook.GetCell(worksheetIndex, 4, 3, 5.0));
+
     series.PlotOnSecondAxis = true;
+}
+
+private static void SetPrimaryAxesFormat(IChart chart)
+{
+    // Sets the horizontal axis
+    IAxis horizontalAxis = chart.Axes.HorizontalAxis;
+    horizontalAxis.TextFormat.PortionFormat.FontHeight = 12f;
+    horizontalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
+
+    SetAxisTitle(horizontalAxis, "X Axis");
+
+    // Sets the vertical axis
+    IAxis verticalAxis = chart.Axes.VerticalAxis;
+    verticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
+    verticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
+
+    SetAxisTitle(verticalAxis, "Y Axis 1");
+
+    // Sets the vertical major gridlines color
+    ILineFillFormat majorGridLinesFormat = verticalAxis.MajorGridLinesFormat.Line.FillFormat;
+    majorGridLinesFormat.FillType = FillType.Solid;
+    majorGridLinesFormat.SolidFillColor.Color = Color.FromArgb(217, 217, 217);
+}
+
+private static void SetSecondaryAxesFormat(IChart chart)
+{
+    // Sets the secondary horizontal axis
+    IAxis secondaryHorizontalAxis = chart.Axes.SecondaryHorizontalAxis;
+    secondaryHorizontalAxis.Position = AxisPositionType.Bottom;
+    secondaryHorizontalAxis.CrossType = CrossesType.Maximum;
+    secondaryHorizontalAxis.IsVisible = false;
+    secondaryHorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+    secondaryHorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+    // Sets the secondary vertical axis
+    IAxis secondaryVerticalAxis = chart.Axes.SecondaryVerticalAxis;
+    secondaryVerticalAxis.Position = AxisPositionType.Right;
+    secondaryVerticalAxis.TextFormat.PortionFormat.FontHeight = 12f;
+    secondaryVerticalAxis.Format.Line.FillFormat.FillType = FillType.NoFill;
+    secondaryVerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+    secondaryVerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.NoFill;
+
+    SetAxisTitle(secondaryVerticalAxis, "Y Axis 2");
+}
+
+private static void SetAxisTitle(IAxis axis, string axisTitle)
+{
+    axis.HasTitle = true;
+    axis.Title.Overlay = false;
+    IPortionFormat titlePortionFormat =
+        axis.Title.AddTextFrameForOverriding(axisTitle).Paragraphs[0].ParagraphFormat.DefaultPortionFormat;
+    titlePortionFormat.FontBold = NullableBool.False;
+    titlePortionFormat.FontHeight = 12f;
 }
 ```
 
