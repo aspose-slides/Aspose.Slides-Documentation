@@ -1,442 +1,495 @@
 ---
-title: Shape Formatting
+title: Format PowerPoint Shapes in C#
+linktitle: Shape Formatting
 type: docs
 weight: 20
 url: /net/shape-formatting/
 keywords:
 - format shape
-- format lines
-- format join styles
+- format line
+- format join style
 - gradient fill
 - pattern fill
 - picture fill
+- texture fill
 - solid color fill
-- rotate shapes
-- 3d bevel effects
+- shape transparency
+- rotate shape
+- 3d bevel effect
 - 3d rotation effect
-- PowerPoint presentation
+- reset formatting
+- PowerPoint
+- presentation
 - C#
 - Csharp
-- Aspose.Slides for .NET
-description: "Format shape in PowerPoint presentation in C# or .NET"
+- .NET
+- Aspose.Slides
+description: "Learn how to format PowerPoint shapes in C# using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
 ---
 
-In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, you can format shapes by modifying or applying certain effects to their constituent lines. Additionally, you can format shapes by specifying settings that determine how they (the area in them) are filled. 
+## **Overview**
+
+In PowerPoint, you can add shapes to slides. Since shapes are made up of lines, you can format them by modifying or applying effects to their outlines. Additionally, you can format shapes by specifying settings that control how their interiors are filled.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-
-
-**Aspose.Slides for .NET** provides interfaces and properties that allow you to format shapes based on known options in PowerPoint. 
+Aspose.Slides for .NET provides interfaces and properties that allow you to format shapes using the same options available in PowerPoint.
 
 ## **Format Lines**
 
-Using Aspose.Slides, you can specify your preferred line style for a shape. These steps outline such a procedure:
+Using Aspose.Slides, you can specify a custom line style for a shape. The following steps outline the procedure:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-4. Set a color for the shape lines.
-5. Set the width for the shape lines.
-6. Set the [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle) for the shape line
-7. Set the [dash style](http://aspose.com/api/net/slides/aspose.slides/linedashstyle) for the shape line. 
-8. Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) of the shape.
+1. Set the line width.
+1. Set the [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) of the shape.
+1. Set the line color for the shape.
+1. Save the modified presentation as a PPTX file.
 
-This C# code demonstrates an operation where we formatted a rectangle `AutoShape`:
+This C# code demonstrates how to format a rectangle `AutoShape`:
 
 ```c#
-// Instantiates a presentation class that represents a presentation file
-using (Presentation pres = new Presentation())
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
 {
-    // Gets the first slide
-    ISlide sld = pres.Slides[0];
+    // Get the first slide.
+    ISlide slide = presentation.Slides[0];
 
-    // Adds autoshape of rectangle type
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
+    // Add an auto shape of the Rectangle type.
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Sets the fill color for the rectangle shape
-    shp.FillFormat.FillType = FillType.Solid;
-    shp.FillFormat.SolidFillColor.Color = Color.White;
+    // Set the fill color for the rectangle shape.
+    shape.FillFormat.FillType = FillType.NoFill;
 
-    // Applies some formatting on the rectangle's lines
-    shp.LineFormat.Style = LineStyle.ThickThin;
-    shp.LineFormat.Width = 7;
-    shp.LineFormat.DashStyle = LineDashStyle.Dash;
+    // Apply formatting to the rectangle's lines.
+    shape.LineFormat.Style = LineStyle.ThickThin;
+    shape.LineFormat.Width = 7;
+    shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // Sets the color for the rectangle's line
-    shp.LineFormat.FillFormat.FillType = FillType.Solid;
-    shp.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    // Set the color for the rectangle's line.
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Writes the PPTX file to disk
-    pres.Save("RectShpLn_out.pptx", SaveFormat.Pptx);
+    // Write the PPTX file to disk.
+    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 }
 ```
 
+The result:
+
+![The formatted lines in the presentation](formatted-lines.png)
 
 ## **Format Join Styles**
-These are the 3 join type options:
+
+Here are the three join type options:
 
 * Round
 * Miter
 * Bevel
 
-By default, when PowerPoint joins two lines at an angle (or a shape's corner), it uses the **Round** setting. However, if you are looking to draw a shape with very sharp angles, you may want to select **Miter**.
+By default, when PowerPoint joins two lines at an angle (such as at a shape’s corner), it uses the **Round** setting. However, if you're drawing a shape with sharp angles, you may prefer the **Miter** option.
 
-![join-style-powerpoint](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-This C# demonstrates an operation where 3 rectangles (the image above) were created with the Miter, Bevel, and Round join type settings:
+This C# code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```c#
-// Instantiates a presentation class that represents a presentation file
-using (Presentation pres = new Presentation())
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
 {
+    // Get the first slide.
+    ISlide slide = presentation.Slides[0];
 
-	// Gets the first slide
-	ISlide sld = pres.Slides[0];
+    // Add three auto shapes of the Rectangle type.
+    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-	// Adds 3 rectangle autoshapes
-	IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-	IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-	IShape shp3 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
+    // Set the fill color for each rectangle shape.
+    shape1.FillFormat.FillType = FillType.Solid;
+    shape1.FillFormat.SolidFillColor.Color = Color.Black;
+    shape2.FillFormat.FillType = FillType.Solid;
+    shape2.FillFormat.SolidFillColor.Color = Color.Black;
+    shape3.FillFormat.FillType = FillType.Solid;
+    shape3.FillFormat.SolidFillColor.Color = Color.Black;
 
-	// Sets the fill color for the rectangle shape
-	shp1.FillFormat.FillType = FillType.Solid;
-	shp1.FillFormat.SolidFillColor.Color = Color.Black;
-	shp2.FillFormat.FillType = FillType.Solid;
-	shp2.FillFormat.SolidFillColor.Color = Color.Black;
-	shp3.FillFormat.FillType = FillType.Solid;
-	shp3.FillFormat.SolidFillColor.Color = Color.Black;
+    // Set the line width.
+    shape1.LineFormat.Width = 15;
+    shape2.LineFormat.Width = 15;
+    shape3.LineFormat.Width = 15;
 
-	// Sets the line's width
-	shp1.LineFormat.Width = 15;
-	shp2.LineFormat.Width = 15;
-	shp3.LineFormat.Width = 15;
+    // Set the color for each rectangle's line.
+    shape1.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape2.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    shape3.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-	// Sets the color for the rectangle's line
-	shp1.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp2.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-	shp3.LineFormat.FillFormat.FillType = FillType.Solid;
-	shp3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    // Set the join style.
+    shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
+    shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
+    shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-	// Sets the Join Style
-	shp1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-	shp2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-	shp3.LineFormat.JoinStyle = LineJoinStyle.Round;
+    // Add text to each rectangle.
+    shape1.TextFrame.Text = "Miter Join Style";
+    shape2.TextFrame.Text = "Bevel Join Style";
+    shape3.TextFrame.Text = "Round Join Style";
 
-	// Adds text to each rectangle
-	((IAutoShape)shp1).TextFrame.Text = "Miter Join Style";
-	((IAutoShape)shp2).TextFrame.Text = "Bevel Join Style";
-	((IAutoShape)shp3).TextFrame.Text = "Round Join Style";
-
-	// Writes the PPTX file to disk
-	pres.Save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
+    // Write the PPTX file to disk.
+    presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 }
 ```
-
 
 ## **Gradient Fill**
-In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply a two or more colors in a setup where one color gradually fades and changes into another color. 
 
-This is how you use Aspose.Slides to apply a gradient fill to a shape:
+In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply two or more colors in a way that one gradually fades into another.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) to `Gradient`.
-5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
-6. Write the modified presentation as a PPTX file.
-
-This C# code demonstrates an operation where the gradient fill effect was used on an ellipse:
-
-```c#
-// Instantiates a presentation class that represents a presentation file
-using (Presentation pres = new Presentation())
-{
-    // Gets the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Adds an ellipse autoshape
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
-
-    // Applies the gradient formatting to the ellipse
-    shp.FillFormat.FillType = FillType.Gradient;
-    shp.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-
-    // Sets the direction of the gradient
-    shp.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
-
-    // Add 2 gradient stops
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)1.0, PresetColor.Purple);
-    shp.FillFormat.GradientFormat.GradientStops.Add((float)0, PresetColor.Red);
-
-    // Writes the PPTX file to disk
-    pres.Save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Pattern Fill**
-In PowerPoint, Pattern Fill is a formatting option that allows you to apply a two-color design comprising of dots, stripes, cross-hatches, or checks to a shape. Additionally, you get to select your preferred colors for your pattern's foreground and background. 
-
-Aspose.Slides provides over 45 predefined styles that can be used to format shapes and enrich presentations. Even after you choose a predefined pattern, you can still specify the colors the pattern must contain.
-
-This is how you use Aspose.Slides to apply a pattern fill to a shape:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) to `Pattern`.
-5. Set your preferred pattern style for the shape. 
-6. Set the [Background Color ](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/backcolor) for the [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat).
-7. Set the [Foreground Color ](http://www.aspose.com/api/net/slides/aspose.slides/patternformat/properties/forecolor) for the [PatternFormat](http://www.aspose.com/api/net/slides/aspose.slides/patternformat).
-8. Write the modified presentation as a PPTX file.
-
-This C# code demonstrates an operation where a pattern fill was used to beautify a rectangle: 
-
-```c#
-// Instantiates a presentation class that represents a presentation file
-using (Presentation pres = new Presentation())
-{
-
-    // Gets the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Adds a rectangle autoshape
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // Sets the fill type to Pattern
-    shp.FillFormat.FillType = FillType.Pattern;
-
-    // Sets the pattern style
-    shp.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
-
-    // Sets the pattern back and fore colors
-    shp.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shp.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
-
-    // Writes the PPTX file to disk
-    pres.Save("RectShpPatt_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Picture Fill**
-In PowerPoint, Picture Fill is a formatting option that allows you to place a picture inside a shape. Essentially, you get to use a picture as a shape's background. 
-
-This is how you use Aspose.Slides to fill a shape with a picture:
+Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) to `Picture`.
-5. Set the Picture Fill Mode to Tile.
-6. Create an `IPPImage` object using the image that will be used to fill the shape.
-7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
-8. Write the modified presentation as a PPTX file.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) to `Gradient`.
+1. Add your two preferred colors with defined positions using the `Add` methods of the `GradientStops` collection exposed by the `GradientFormat` class.
+1. Save the modified presentation as a PPTX file.
 
-This C# code shows you how to fill a shape with a picture:
+The following C# code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```c#
-// Instantiates the Presentation class that represents a presentation file
+// Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
-    // Gets the first slide
+    // Get the first slide.
     ISlide slide = presentation.Slides[0];
 
-    // Adds a rectangle autoshape
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Add an auto shape of the Ellipse type.
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Sets the fill type to Picture
+    // Apply gradient formatting to the ellipse.
+    shape.FillFormat.FillType = FillType.Gradient;
+    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+
+    // Set the direction of the gradient.
+    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
+
+    // Add two gradient stops.
+    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
+
+    // Write the PPTX file to disk.
+    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+The result:
+
+![The ellipse with gradient fill](gradient-fill.png)
+
+## **Pattern Fill**
+
+In PowerPoint, Pattern Fill is a formatting option that lets you apply a two-color design—such as dots, stripes, crosshatches, or checks—to a shape. You can choose custom colors for the pattern’s foreground and background.
+
+Aspose.Slides provides over 45 predefined pattern styles that you can apply to shapes to enhance the visual appeal of your presentations. Even after selecting a predefined pattern, you can still specify the exact colors it should use.
+
+Here's how to apply a pattern fill to a shape using Aspose.Slides:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) to `Pattern`.
+1. Choose a pattern style from the predefined options.
+1. Set the [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) of the pattern.
+1. Set the [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) of the pattern.
+1. Save the modified presentation as a PPTX file.
+
+The following C# code demonstrates how to apply a pattern fill to a rectangle:
+
+```c#
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
+{
+    // Get the first slide.
+    ISlide slide = presentation.Slides[0];
+
+    // Add an auto shape of the Rectangle type.
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // Set the fill type to Pattern.
+    shape.FillFormat.FillType = FillType.Pattern;
+
+    // Set the pattern style.
+    shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+
+    // Set the pattern background and foreground colors.
+    shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
+    shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
+
+    // Write the PPTX file to disk.
+    presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+The result:
+
+![The rectangle with pattern fill](pattern-fill.png)
+
+## **Picture Fill**
+
+In PowerPoint, Picture Fill is a formatting option that allows you to insert an image inside a shape—effectively using the image as the shape's background.
+
+Here’s how to use Aspose.Slides to apply a picture fill to a shape:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) to `Picture`.
+1. Set the picture fill mode to `Tile` (or another preferred mode).
+1. Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) object from the image you want to use.
+1. Assign this image to the `Picture.Image` property of the shape’s `PictureFillFormat`.
+1. Save the modified presentation as a PPTX file.
+
+Let's say we have a "lotus.png" file with the following picture:
+
+![The lotus picture](lotus.png)
+
+The following C# code demonstrates how to fill a shape with the picture:
+
+```c#
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
+{
+    // Get the first slide.
+    ISlide slide = presentation.Slides[0];
+
+    // Add an auto shape of the Rectangle type.
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 192, 95);
+
+    // Set the fill type to Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Sets the picture fill mode
+    // Set the picture fill mode.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // Loads an image and adds it to the presentation resources
-    IImage image = Images.FromFile("Tulips.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
+    // Load an image and add it to the presentation resources.
+    IImage image = Images.FromFile("lotus.png");
+    IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
 
-    // Sets the picture
-    shape.FillFormat.PictureFillFormat.Picture.Image = ppImage;
+    // Set the picture.
+    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // Writes the PPTX file to disk
-    presentation.Save("RectShpPic_out.pptx", SaveFormat.Pptx);
+    // Write the PPTX file to disk.
+    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 }
 ```
+
+The result:
+
+![The shape with picture fill](picture-fill.png)
 
 ### **Tile Picture As Texture**
-If you want to set a tile picture as texture and change the tile options, you can use the following properties of [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) class:
 
-- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) property switches the picture fill mode between [Tile](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/) and [Stretch](https://reference.aspose.com/slides/net/aspose.slides/picturefillmode/);
-- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/) property returns or sets the alignment for the tiling of the texture fill;
-- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/) property flips the texture tile around its horizontal, vertical or both axis.
-- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/) property returns or sets the horizontal offset of the texture from the shape's origin in points
-- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/) property returns or sets the vertical offset of the texture from the shape's origin in points;
-- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/) property returns or sets the horizontal scale for the texture fill in percentage;
-- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/) property returns or sets the vertical scale for the texture fill in percentage;
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following properties of the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) class:
 
-This code sample demonstrates how to add the new Rectangle shape with a tiled picture fill and change the Tile properties:
-```c#
-using (Presentation pres = new Presentation())
-{
-    ISlide firstSlide = pres.Slides[0];
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Sets the picture fill mode—either `Tile` or `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Specifies the alignment of the tiles within the shape.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Controls whether the tile is flipped horizontally, vertically, or both.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Sets the horizontal offset of the tile (in points) from the shape’s origin.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Sets the vertical offset of the tile (in points) from the shape’s origin.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Defines the horizontal scale of the tile as a percentage.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Defines the vertical scale of the tile as a percentage.
 
-    IPPImage ppImage;
-    using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
-        ppImage = pres.Images.AddImage(newImage);
-    
-    // Adds the new Rectangle shape
-    var newShape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 350, 350);
-    
-    // Sets the fill type of the new shape to Picture
-    newShape.FillFormat.FillType = FillType.Picture;
-    
-    // Sets the shape's fill image
-    IPictureFillFormat pictureFillFormat = newShape.FillFormat.PictureFillFormat;
-    pictureFillFormat.Picture.Image = ppImage;
-    
-    // Sets the picture fill mode to Tile and changes the properties
-    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
-    pictureFillFormat.TileOffsetX = -275;
-    pictureFillFormat.TileOffsetY = -247;
-    pictureFillFormat.TileScaleX = 25;
-    pictureFillFormat.TileScaleY = 15;
-    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
-    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
-    
-    pres.Save("Tile.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Solid Color Fill**
-In PowerPoint, Solid Color Fill is a formatting option that allows you to fill a shape with a single color. The chosen color is typically a plain color. The color gets applied to the shape background with any special effects or modifications. 
-
-This is how you use Aspose.Slides to apply solid color fill to a shape:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype) to `Solid`.
-5. Set your preferred color for the Shape.
-6. Write the modified presentation as a PPTX file.
-
-This C# code shows you how to apply the solid color fill to a box in PowerPoint:
+The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
 
 ```c#
-// Instantiates a presentation class that represents a presentation file
+// Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
+    // Get the first slide.
+    ISlide firstSlide = presentation.Slides[0];
 
-// Gets the first slide
-    ISlide slide = presentation.Slides[0];
+    // Load the image and add it to the presentation resources.
+    IPPImage presentationImage;
+    using (IImage sourceImage = Images.FromFile("lotus.png"))
+        presentationImage = presentation.Images.AddImage(sourceImage);
 
-// Adds a rectangle autoshape
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Add a rectangle auto shape.
+    IShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 185, 90);
 
-// Sets the fill type to Solid
-    shape.FillFormat.FillType = FillType.Solid;
+    // Set the fill type of the shape to Picture.
+    shape.FillFormat.FillType = FillType.Picture;
 
-// Sets the color for the rectangle
-    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+    // Assign the image to the shape.
+    IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
+    pictureFillFormat.Picture.Image = presentationImage;
 
-// Writes the PPTX file to disk
-    presentation.Save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    // Configure the picture fill mode and tiling properties.
+    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+    pictureFillFormat.TileOffsetX = -32;
+    pictureFillFormat.TileOffsetY = -32;
+    pictureFillFormat.TileScaleX = 50;
+    pictureFillFormat.TileScaleY = 50;
+    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
+
+    // Write the PPTX file to disk.
+    presentation.Save("tile.pptx", SaveFormat.Pptx);
 }
 ```
+
+The result:
+
+![The tile options](tile-options.png)
+
+## **Solid Color Fill**
+
+In PowerPoint, Solid Color Fill is a formatting option that fills a shape with a single, uniform color. This plain background color is applied without any gradients, textures, or patterns.
+
+To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) to `Solid`.
+1. Assign your preferred fill color to the shape.
+1. Save the modified presentation as a PPTX file.
+
+The following C# code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
+
+```c#
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
+{
+    // Get the first slide.
+    ISlide slide = presentation.Slides[0];
+
+    // Add an auto shape of the Rectangle type.
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // Set the fill type to Solid.
+    shape.FillFormat.FillType = FillType.Solid;
+
+    // Set the fill color.
+    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
+
+    // Write the PPTX file to disk.
+    presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
+}
+```
+
+The result:
+
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **Set Transparency**
 
-In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or textures, you can specify the transparency level that determines the opacity of a fill. This way, for example, if you set a low transparency level, the slide object or background behind (the shape) shows through. 
+In PowerPoint, when you apply a solid color, gradient, picture, or texture fill to shapes, you can also set a transparency level to control the opacity of the fill. A higher transparency value makes the shape more see-through, allowing the background or underlying objects to be partially visible.
 
-Aspose.Slides allows you to set the transparency level for a shape this way:
+Aspose.Slides lets you set the transparency level by adjusting the alpha value in the color used for the fill. Here’s how to do it:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-4. Use `Color.FromArgb` with the alpha component set.
-5. Save the object as a PowerPoint file. 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the fill type to `Solid`.
+1. Use `Color.FromArgb(alpha, baseColor)` to define a color with transparency (the `alpha` component controls transparency).
+1. Save the presentation.
 
-This C# code demonstrates the process:
+This C# code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```c#
-// Instantiates a presentation class that represents a presentation file
+const int alpha = 128;
+
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
+{
+    // Get the first slide.
+    ISlide slide = presentation.Slides[0];
+
+    // Add a solid rectangle auto shape.
+    IShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // Add a transparent rectangle auto shape over the solid shape.
+    IShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+    transparentShape.FillFormat.FillType = FillType.Solid;
+    transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
+
+    // Write the PPTX file to disk.
+    presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
+}
+```
+
+The result:
+
+![The transparent shape](shape-transparency.png)
+
+## **Rotate Shapes**
+
+Aspose.Slides lets you rotate shapes in PowerPoint presentations. This can be useful when positioning visual elements with specific alignment or design needs.
+
+To rotate a shape on a slide, follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index..
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s `Rotation` property to the desired angle.
+1. Save the presentation.
+
+This C# code demonstrates how to rotate a shape by 5 degrees:
+
+```c#
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
+{
+    // Get the first slide.
+    ISlide slide = presentation.Slides[0];
+
+    // Add an auto shape of the Rectangle type.
+    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // Rotate the shape by 5 degrees.
+    shape.Rotation = 5;
+
+    // Write the PPTX file to disk.
+    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
+}
+```
+
+The result:
+
+![The shape rotation](shape-rotation.png)
+
+## **Add 3D Bevel Effects**
+
+Aspose.Slides allows you to apply 3D bevel effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) properties.
+
+To add 3D bevel effects to a shape, follow these steps:
+
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) to define bevel settings.
+1. Save the presentation.
+
+This C# code shows how to apply 3D bevel effects to a shape:
+
+```c#
+// Create an instance of the Presentation class.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
-    
-    // Adds a solid shape
-    IShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
 
-    // Adds a transparent shape over the solid shape
-    IShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.FromArgb(128, 204, 102, 0);
-    
-    // Writes the PPTX file to disk
-    presentation.Save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Rotate Shapes**
-Aspose.Slides allows you to rotate a shape added to a slide this way: 
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-4. Rotate the shape by the needed degrees. 
-5. Write the modified presentation as a PPTX file.
-
-This C# code shows you how to rotate a shape by 90 degrees:
-
-```c#
-// Instantiates a presentation class that represents a presentation file
-using (Presentation pres = new Presentation())
-{
-    // Gets the first slide
-    ISlide sld = pres.Slides[0];
-
-    // Adds a rectangle autoshape
-    IShape shp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-
-    // Rotates the shape by 90 degrees
-    shp.Rotation = 90;
-
-    // Writes the PPTX file to disk
-    pres.Save("RectShpRot_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Add 3D Bevel Effects**
-Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) properties this way:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-3. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) properties. 
-4. Write the presentation to disk.
-
-This C# code shows you how to add 3D bevel effects to a shape:
-
-```c#
-// Creates an instance of the Presentation class
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    
-    // Adds a shape to the slide
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
+    // Add a shape to the slide.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.FillFormat.FillType = FillType.Solid;
     shape.FillFormat.SolidFillColor.Color = Color.Green;
-    ILineFillFormat format = shape.LineFormat.FillFormat;
-    format.FillType = FillType.Solid;
-    format.SolidFillColor.Color = Color.Orange;
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
     shape.LineFormat.Width = 2.0;
-    
-    // Sets the shape's ThreeDFormat properties
+
+    // Set the shape's ThreeDFormat properties.
     shape.ThreeDFormat.Depth = 4;
     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
     shape.ThreeDFormat.BevelTop.Height = 6;
@@ -444,57 +497,78 @@ using (Presentation pres = new Presentation())
     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-    
-    // Writes the presentation as a PPTX file
-    pres.Save("Bavel_out.pptx", SaveFormat.Pptx);
+
+    // Write the presentation as a PPTX file.
+    presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
+The result:
+
+![The 3D bevel effect](3D-bevel-effect.png)
 
 ## **Add 3D Rotation Effect**
-Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ThreeDFormat) properties this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) to the slide.
-3. Specify your preferred figures for [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/properties/cameratype) and [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/properties/lighttype).
-4. Write the presentation to disk. 
+Aspose.Slides allows you to apply 3D rotation effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) properties.
 
-This C# code shows you how to apply 3D rotation effects to a shape:
+To apply 3D rotation to a shape:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) and [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) to define the 3D rotation.
+1. Save the presentation.
+
+This C# code demonstrates how to apply 3D rotation effects to a shape:
 
 ```c#
-// Creates an instance of the Presentation class
-using (Presentation pres = new Presentation())
+// Create an instance of the Presentation class.
+using (Presentation presentation = new Presentation())
 {
-    IShape autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
-    
+    ISlide slide = presentation.Slides[0];
+
+    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    autoShape.TextFrame.Text = "Hello, Aspose!";
+
     autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    autoShape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.ThreeDFormat.Depth = 6;
-    autoShape.ThreeDFormat.Camera.SetRotation(0, 35, 20);
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-    
-    // Writes the presentation as a PPTX file
-    pres.Save("Rotation_out.pptx", SaveFormat.Pptx);
+
+    // Write the presentation as a PPTX file.
+    presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
+The result:
+
+![The 3D rotation effect](3D-rotation-effect.png)
+
 ## **Reset Formatting**
 
-This C# code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) to their defaults:
+This C# code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) to their default settings:
 
 ```c#
-using (Presentation pres = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    foreach (ISlide slide in pres.Slides)
+    foreach (ISlide slide in presentation.Slides)
     {
-        // each shape on the slide that has a placeholder on the layout will be reverted
+        // Revert each shape on the slide that has a placeholder on the layout.
         slide.Reset();
     }
 }
 ```
+
+## **FAQs**
+
+**Does shape formatting affect the final presentation file size?**
+
+Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
+
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
+
+Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
+
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
+
+Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
