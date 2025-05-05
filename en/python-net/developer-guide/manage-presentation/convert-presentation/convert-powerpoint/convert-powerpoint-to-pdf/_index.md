@@ -20,9 +20,6 @@ description: "Learn how to convert PPT, PPTX, and ODP presentations to PDF in Py
 showReadingTime: true
 ---
 
-{{ $readingTime := div (float .WordCount) .Site.Params.reading_speed }}
-{{ $readingTime = math.Ceil $readingTime }}
-
 ## **Overview**
 
 Converting PowerPoint presentations (PPT, PPTX, ODP) into PDF format in Python offers several advantages, including ensuring compatibility across different devices and preserving the layout and formatting of your presentation. This guide demonstrates how to convert presentations to PDF documents, utilize various options to control image quality, include hidden slides, password protect PDF documents, detect font substitutions, select specific slides for conversion, and apply compliance standards to output documents.
