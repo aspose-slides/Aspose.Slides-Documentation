@@ -17,7 +17,11 @@ keywords:
 - Python
 - Aspose.Slides for Python
 description: "Learn how to convert PPT, PPTX, and ODP presentations to PDF in Python using Aspose.Slides. Implement advanced features like password protection, compliance standards, and custom options for high-quality, accessible PDF documents."
+showReadingTime: true
 ---
+
+{{ $readingTime := div (float .WordCount) .Site.Params.reading_speed }}
+{{ $readingTime = math.Ceil $readingTime }}
 
 ## **Overview**
 
