@@ -3,25 +3,35 @@ title: Installation
 type: docs
 weight: 70
 url: /java/installation/
+keywords:
+- install Aspose.Slides Java
+- configure Aspose.Slides Java
+- set up Aspose.Slides Java
+- Aspose.Slides Java Maven
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Install Aspose.Slides for Java in seconds—learn Maven setup and manual JAR options to add reliable PPT, PPTX, and ODP processing to your application."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-Aspose.Slides for Java does not require Microsoft PowerPoint. It generates the needed presentation files programmatically. However, to view a generated presentation, you may have to use a PowerPoint or presentation viewer. 
+The Installation guide explains how to add Aspose.Slides for Java to your project environment. It shows how to reference the library from Maven Central or download the offline JAR package, and points out where to find checksum files so you can verify integrity. By the end of the section you should be ready to include Aspose.Slides in your build pipeline and run a simple “Hello, World” presentation to confirm everything is configured correctly.
 
-{{% /alert %}} 
+Aspose.Slides for Java does not require Microsoft PowerPoint. It programmatically generates the necessary presentation files. However, to view the generated presentations, you may need Microsoft PowerPoint or another presentation viewer.
 
-## **Installing and Configuring Java**
-Java is a popular programming language that allows you to run programs on many platforms. 
+## **Install and Configure Java**
 
-For information on installing and configuring Java on any operating system, go to https://java.com/.
+Java is a popular programming language that allows you to run programs on many platforms. For information about installing and configuring Java on any operating system, visit https://java.com/.
 
-## **Installing Aspose.Slides for Java from Maven Repository**
-Aspose hosts all Java APIs on [Maven repositories](https://releases.aspose.com/java/repo/com/aspose/). You can use [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) API directly in your Maven projects with simple configurations.
+## **Install Aspose.Slides for Java from the Maven Repository**
+
+Aspose hosts all Java APIs in its [Maven repositories](https://releases.aspose.com/java/repo/com/aspose/). You can integrate the [Aspose.Slides for Java](https://releases.aspose.com/java/repo/com/aspose/aspose-slides/) API directly into your Maven projects with minimal configuration.
 
 1. **Specify Maven Repository Configuration**
 
-   Specify Aspose Maven Repository configuration/location in your Maven pom.xml this way:
+   Specify the Aspose Maven repository configuration/location in your pom.xml like this:
 
 ``` xml
 <repositories>
@@ -53,5 +63,18 @@ Aspose hosts all Java APIs on [Maven repositories](https://releases.aspose.com/
 </dependencies>
 ```
 
-Aspose.Slides for Java dependency will then be defined in your Maven project.
+The Aspose.Slides for Java dependency will then be defined in your Maven project.
 
+## **FAQs**
+
+**How can I verify that Aspose.Slides is integrated correctly?**
+
+Build your project, instantiate a blank [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) and save it under a new name. If the file is created without throwing exceptions, the library has been integrated successfully.
+
+**How can I limit memory consumption when processing large presentations?**
+
+Raise JVM memory limits only as high as needed, and close each [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) instance in a `finally` block to release the cache promptly. This prevents out‑of‑memory errors and keeps overall memory usage predictable during batch operations.
+
+**Can I exclude unwanted export formats to shrink the final JAR size?**
+
+Current Aspose.Slides releases are shipped as a single monolithic library, so you cannot disable specific exporters such as PDF or SVG at build time.
