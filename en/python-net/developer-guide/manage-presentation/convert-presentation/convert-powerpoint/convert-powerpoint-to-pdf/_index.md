@@ -1,6 +1,6 @@
 ---
-title: Convert PPT and PPTX to PDF in Python [Advanced Features Included]
-linktitle: Convert PowerPoint to PDF
+title: Convert PPT & PPTX to PDF in Python | Advanced Options
+linktitle: PowerPoint to PDF
 type: docs
 weight: 40
 url: /python-net/convert-powerpoint-to-pdf/
@@ -16,7 +16,7 @@ keywords:
 - PDF/UA
 - Python
 - Aspose.Slides for Python
-description: "Learn how to convert PPT, PPTX, and ODP presentations to PDF in Python using Aspose.Slides. Implement advanced features like password protection, compliance standards, and custom options for high-quality, accessible PDF documents."
+description: "Step‑by‑step guide to converting PPT, PPTX, and ODP to high‑quality, WCAG‑compliant PDFs in Python with Aspose.Slides—includes password protection, slide selection, and image‑quality control."
 showReadingTime: true
 ---
 
