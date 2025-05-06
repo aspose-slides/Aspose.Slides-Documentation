@@ -112,9 +112,9 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Extract Image from Picture Frame**
+## **Extract Raster Images from Picture Frames**
 
-You can extract images from [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```c#
 using (var presentation = new Presentation("sample.pptx"))
@@ -126,6 +126,28 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         var image = pictureFrame.PictureFormat.Picture.Image.SystemImage;
         image.Save("slide_1_shape_1.png", ImageFormat.Png);
+    }
+}
+```
+
+## **Extract SVG Images from Picture Frames**
+
+When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) shapes, Aspose.Slides for .NET lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), check whether the underlying [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
+
+The following code example demonstrates how to extract an SVG image from a picture frame:
+
+```cs
+using var presentation = new Presentation("sample.pptx");
+
+var slide = presentation.Slides[0];
+var shape = slide.Shapes[0];
+
+if (shape is IPictureFrame pictureFrame)
+{
+    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
+    if (svgImage != null)
+    {
+        File.WriteAllText("output.svg", svgImage.SvgContent);
     }
 }
 ```
