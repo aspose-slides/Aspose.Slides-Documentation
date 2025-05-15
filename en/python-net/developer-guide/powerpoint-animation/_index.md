@@ -1,10 +1,32 @@
 ---
-title: PowerPoint Animation
+title: Enhance PowerPoint Presentations with Animations in Python
+linktitle: PowerPoint Animation
 type: docs
 weight: 150
 url: /python-net/powerpoint-animation/
-keywords: "Animation, animation effects, PowerPoint animation, animation timeline, interactive animation, shape animation, animated chart, animated text, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint presentation animation and effects in Python"
+keywords:
+- add animation
+- update animation
+- change animation
+- remove animation
+- manage animation
+- control animation
+- animation effect
+- PowerPoint animation
+- animation timeline
+- interactive animation
+- custom animation
+- shape animation
+- animated chart
+- animated text
+- animated shape
+- animated OLE object
+- animated image
+- animated table
+- PowerPoint presentation
+- Python
+- Aspose.Slides
+description: "Explore the capabilities of Aspose.Slides for Python via .NET in handling PowerPoint animations. This general overview highlights key features and offers insights to enhance your presentations."
 ---
 
 Since presentations are meant to present something, their visual appearance and interactive behavior is always considered while creating them.

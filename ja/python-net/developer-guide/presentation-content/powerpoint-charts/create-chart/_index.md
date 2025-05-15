@@ -1,11 +1,30 @@
 ---
-title: PythonでPowerPointプレゼンテーションのチャートを作成
+title: Python で PowerPoint プレゼンテーションのチャートを作成または更新する
 linktitle: チャートを作成
 type: docs
 weight: 10
 url: /ja/python-net/create-chart/
-keywords: "チャート作成, 散布図, 円グラフ, ツリーマップチャート, 株式チャート, ボックス・ウィスカー図, ヒストグラムチャート, ファunnelチャート, サンバーストチャート, マルチカテゴリーチャート, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションのチャートを作成"
+keywords:
+- グラフを追加
+- グラフを作成
+- グラフを編集
+- グラフを変更
+- グラフを更新
+- 散布図
+- 円グラフ
+- 折れ線グラフ
+- ツリーマップチャート
+- 株価チャート
+- 箱ひげ図
+- ファネルチャート
+- サンバーストチャート
+- ヒストグラム
+- レーダーチャート
+- マルチカテゴリチャート
+- PowerPoint プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint と OpenDocument のプレゼンテーションでグラフを作成し、カスタマイズする方法を学びます。Python の実用的なコード例を通じて、プレゼンテーション内でグラフを追加、書式設定、編集する手順を解説します。"
 ---
 
 ## **チャートを作成**

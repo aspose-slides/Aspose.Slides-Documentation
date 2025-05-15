@@ -1,10 +1,20 @@
 ---
-title: Extract Text from Presentation
+title: Advanced Text Extraction from PowerPoint Presentations in Python
+linktitle: Extract Text
 type: docs
 weight: 90
 url: /python-net/extract-text-from-presentation/
-keywords: "Extract text from slide, Extract text from PowerPoint, Python, Aspose.Slides for Python via .NET"
-description: "Extract text from slide or PowerPoint presentation in Python"
+keywords:
+- extract text
+- extract text from slide
+- extract text from presentation
+- extract text from PowerPoint
+- extract text from PPT
+- extract text from PPTX
+- extract text from ODP
+- Python
+- Aspose.Slides
+description: "Learn how to quickly and easily extract text from PowerPoint presentations using Aspose.Slides for Python via .NET. Follow our simple, step-by-step guide to save time and efficiently access slide content in your applications."
 ---
 
 {{% alert color="primary" %}} 

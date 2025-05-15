@@ -1,26 +1,30 @@
 ---
-title: Text Formatting
+title: Format PowerPoint Text in Python
+linktitle: Text Formatting
 type: docs
 weight: 50
 url: /python-net/text-formatting/
 keywords:
 - highlight text
 - regular expression
-- align text paragraphs
+- align paragraph
+- text style
+- text background
 - text transparency
-- paragraph font properties
+- character spacing
+- font properties
 - font family
 - text rotation
-- custom angle rotation
+- rotation angle
 - text frame
 - line spacing
 - autofit property
 - text frame anchor
 - text tabulation
-- default text style
+- default language
 - Python
 - Aspose.Slides for Python
-description: "Manage and manipulate text and text frame properties in Python"
+description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Python via .NET. Customize fonts, colors, alignment, and more with powerful Python code examples."
 ---
 
 ## **Highlight Text**
