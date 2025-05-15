@@ -142,8 +142,8 @@ with slides.Presentation("sample.pptx") as presentation:
         svg_image = shape.picture_format.picture.image.svg_image
 
         if svg_image is not None:
-            with open("output.svg", "w", encoding="utf-8") as file:
-                file.write(svg_image.svg_content)
+            with open("output.svg", "w", encoding="utf-8") as svg_file:
+                svg_file.write(svg_image.svg_content)
 ```
 
 ## **Get Transparency of Image**
