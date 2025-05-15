@@ -1,9 +1,19 @@
 ---
 title: Licensing
-description: "Aspose.Slides for Python via .NET provides different plans for purchase or offers a Free Trial and a 30-day Temporary License for evaluation using Licensing and Subscription policies."
 type: docs
 weight: 80
 url: /python-net/licensing/
+keywords:
+- license
+- temporary license
+- set license
+- use license
+- validate license
+- license file
+- evaluation version
+- Python
+- Aspose.Slides
+description: "Learn how to apply, manage, and troubleshoot licenses in Aspose.Slides for Python via .NET. Ensure uninterrupted access to full features with our step-by-step licensing guide."
 ---
 
 ## **Evaluate Aspose.Slides**

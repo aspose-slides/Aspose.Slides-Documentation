@@ -1,10 +1,25 @@
 ---
-title: Manage SmartArt Shape
+title: Manage SmartArt Graphics in Presentations Using Python
+linktitle: SmartArt Graphics
 type: docs
 weight: 20
 url: /python-net/manage-smartart-shape/
-keywords: "SmartArt shape, SmartArt shape style, SmartArt shape color style, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Manage SmartArt in PowerPoint presentations in Python"
+keywords:
+- SmartArt object
+- SmartArt graphic
+- SmartArt style
+- SmartArt color
+- create SmartArt
+- add SmartArt
+- edit SmartArt
+- change SmartArt
+- access SmartArt
+- SmartArt layout type
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Automate PowerPoint SmartArt creation, editing, and styling in Python via .NET using Aspose.Slides, featuring concise code examples and performance-focused guidance."
 ---
 
 ## **Create SmartArt Shape**
