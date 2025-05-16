@@ -125,11 +125,11 @@ try {
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
         try {
-                IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-                slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-            } finally {
-                     if (slideImage != null) slideImage.dispose();
-                 }
+			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
+			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+		} finally {
+			if (slideImage != null) slideImage.dispose();
+		}
     }
 } catch (IOException e) {
 } finally {
@@ -150,12 +150,13 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IShape shape = slide.getShapes().get_Item(0);
 
-    if (shape instanceof IPictureFrame pictureFrame) {
+    if (shape instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
         ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
 
-        if (svgImage != null) {
-            Files.write(Paths.get("output.svg"), svgImage.getSvgData());
-        }
+        FileOutputStream fos = new FileOutputStream("output.svg");
+        fos.write(svgImage.getSvgData());
+        fos.close();
     }
 } catch (IOException e) {
     System.out.println(e.getMessage());
