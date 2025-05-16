@@ -127,9 +127,9 @@ pf->set_RelativeScaleWidth(1.35);
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-## **Extract Image from Picture Frame**
+## **Extract Raster Images from Picture Frames**
 
-You can extract images from [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.picture_frame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```c++
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -142,6 +142,31 @@ if (ObjectExt::Is<IPictureFrame>(firstShape))
     auto image = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SystemImage();
 
     image->Save(u"slide_1_shape_1.png", ImageFormat::get_Png());
+}
+
+presentation->Dispose();
+```
+
+## **Extract SVG Images from Picture Frames**
+
+When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/) shapes, Aspose.Slides for C++ lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/pictureframe/), check whether the underlying [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
+
+The following code example demonstrates how to extract an SVG image from a picture frame:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shape(0);
+
+if (ObjectExt::Is<IPictureFrame>(shape))
+{
+    auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+    auto svgImage = pictureFrame->get_PictureFormat()->get_Picture()->get_Image()->get_SvgImage();
+    if (svgImage != nullptr)
+    {
+        File::WriteAllText(u"output.svg", svgImage->get_SvgContent());
+    }
 }
 
 presentation->Dispose();

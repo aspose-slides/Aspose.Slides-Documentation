@@ -111,9 +111,9 @@ try {
 }
 ```
 
-## **Extract Image from Picture Frame**
+## **Extract Raster Images from Picture Frames**
 
-You can extract images from [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -125,13 +125,41 @@ try {
     if (firstShape instanceof IPictureFrame) {
         IPictureFrame pictureFrame = (IPictureFrame) firstShape;
         try {
-                IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
-                slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
-            } finally {
-                     if (slideImage != null) slideImage.dispose();
-                 }
+			IImage slideImage = pictureFrame.getPictureFormat().getPicture().getImage().getImage();
+			slideImage.save("slide_1_shape_1.png", ImageFormat.Png);
+		} finally {
+			if (slideImage != null) slideImage.dispose();
+		}
     }
 } catch (IOException e) {
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Extract SVG Images from Picture Frames**
+
+When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/) shapes, Aspose.Slides for Java lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe/), check whether the underlying [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
+
+The following code example demonstrates how to extract an SVG image from a picture frame:
+
+```java
+Presentation presentation = new Presentation("sample.pptx");
+
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    if (shape instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) shape;
+        ISvgImage svgImage = pictureFrame.getPictureFormat().getPicture().getImage().getSvgImage();
+
+        FileOutputStream fos = new FileOutputStream("output.svg");
+        fos.write(svgImage.getSvgData());
+        fos.close();
+    }
+} catch (IOException e) {
+    System.out.println(e.getMessage());
 } finally {
     presentation.dispose();
 }

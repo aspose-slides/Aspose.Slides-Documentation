@@ -108,9 +108,9 @@ try {
 }
 ```
 
-## **Extract Image from Picture Frame**
+## **Extract Raster Images from Picture Frames**
 
-You can extract images from [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PictureFrame) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```javascript
 var presentation = new aspose.slides.Presentation("sample.pptx");
@@ -129,6 +129,33 @@ try {
         }
     }
 } catch (e) {console.log(e);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Extract SVG Images from Picture Frames**
+
+When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) shapes, Aspose.Slides for Node.js via Java lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), check whether the underlying [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
+
+The following code example demonstrates how to extract an SVG image from a picture frame:
+
+```js
+var presentation = new aspose.slides.Presentation("sample.pptx");
+
+try {
+    var slide = presentation.getSlides().get_Item(0);
+    var shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+        const svgImage = shape.getPictureFormat().getPicture().getImage().getSvgImage();
+
+        if (svgImage) {
+            fs.writeFileSync("output.svg", svgImage.getSvgData());
+        }
+    }
+} catch (e) {
+    console.log(e);
 } finally {
     presentation.dispose();
 }

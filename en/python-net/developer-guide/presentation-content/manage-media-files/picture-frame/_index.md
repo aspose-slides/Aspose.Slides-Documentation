@@ -111,9 +111,9 @@ with slides.Presentation() as presentation:
         presentation.save("Adding Picture Frame with Relative Scale_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Extract Image from Picture Frame**
+## **Extract Raster Images from Picture Frames**
 
-You can extract images from [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
 
 ```python
 import aspose.slides as slides
@@ -125,6 +125,25 @@ with slides.Presentation("sample.pptx") as presentation:
     if isinstance(first_shape, slides.PictureFrame):
         image = first_shape.picture_format.picture.image.image
         image.save("slide_1_shape_1.png", slides.ImageFormat.PNG)
+```
+
+## **Extract SVG Images from Picture Frames**
+
+When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) shapes, Aspose.Slides for Python via .NET lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), check whether the underlying [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
+
+The following code example demonstrates how to extract an SVG image from a picture frame:
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes[0]
+
+    if isinstance(shape, slides.PictureFrame):
+        svg_image = shape.picture_format.picture.image.svg_image
+
+        if svg_image is not None:
+            with open("output.svg", "w", encoding="utf-8") as svg_file:
+                svg_file.write(svg_image.svg_content)
 ```
 
 ## **Get Transparency of Image**
