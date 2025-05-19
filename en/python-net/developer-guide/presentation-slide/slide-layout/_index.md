@@ -1,10 +1,31 @@
 ---
-title: Slide Layout
+title: Apply or Change a Slide Layout in Python
+linktitle: Slide Layout
 type: docs
 weight: 60
 url: /python-net/slide-layout/
-keyword: "Set slide size, set slide options, specify slide size, Footer visibility, Child footer, Content scaling, page size, Python, Aspose.Slides"
-description: "Set PowerPoint slide size and options in Python"
+keywords:
+- slide layout
+- content layout
+- placeholder
+- presentation design
+- slide design
+- unused layout
+- footer visibility
+- title slide
+- title and content
+- section header
+- two content
+- comparison
+- title only
+- blank layout
+- content with caption
+- picture with caption
+- title and vertical text
+- vertical title and text
+- Python
+- Aspose.Slides
+description: "Learn how to manage and customize slide layouts in Aspose.Slides for Python via .NET. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in Python."
 ---
 
 A slide layout contains the placeholder boxes and formatting information for all the content that appears on a slide. The layout determines the available content placeholders and where they are placed. 
