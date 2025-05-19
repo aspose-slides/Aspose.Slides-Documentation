@@ -1,10 +1,32 @@
 ---
-title: PythonでのPowerPoint段落の管理
+title: Python で PowerPoint テキスト段落を管理する
+linktitle: 段落を管理
 type: docs
 weight: 40
 url: /ja/python-net/manage-paragraph/
-keywords: "PowerPoint段落の追加, 段落の管理, 段落のインデント, 段落のプロパティ, HTMLテキスト, 段落テキストのエクスポート, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションの段落、テキスト、インデント、およびプロパティを作成および管理する"
+keywords:
+- テキストを追加
+- 段落を追加
+- テキストを管理
+- 段落を管理
+- 箇条書きを管理
+- 段落のインデント
+- ぶら下げインデント
+- 段落の箇条書き
+- 番号付きリスト
+- 箇条書きリスト
+- 段落プロパティ
+- HTML をインポート
+- テキストを HTML に変換
+- 段落を HTML に変換
+- 段落を画像に変換
+- テキストを画像に変換
+- 段落をエクスポート
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して段落の書式設定を極め、PowerPoint および OpenDocument プレゼンテーションで配置・間隔・スタイルを最適化し、視聴者を惹きつけましょう。"
 ---
 
 Aspose.Slidesは、PythonでPowerPointのテキスト、段落、および部分を操作するために必要なすべてのインターフェイスとクラスを提供します。

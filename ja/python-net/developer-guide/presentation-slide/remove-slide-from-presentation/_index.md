@@ -1,11 +1,18 @@
 ---
-title: プレゼンテーションからスライドを削除する
+title: Python で PowerPoint プレゼンテーションからスライドを削除する
+linktitle: スライドを削除
 type: docs
 weight: 30
 url: /ja/python-net/remove-slide-from-presentation/
-keywords: "スライドの削除, スライドの削除, PowerPoint, プレゼンテーション, Python, Aspose.Slides"
-description: "Pythonで参照またはインデックスを使用してPowerPointからスライドを削除します"
-
+keywords:
+- スライドを削除
+- スライドを削除
+- 未使用のスライド
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NETを使って、PowerPointやOpenDocument形式のプレゼンテーションから不要なスライドを簡単に削除する方法をステップバイステップで解説。今すぐチェックして作業効率をアップ！"
 ---
 
 スライド（またはその内容）が冗長になった場合、削除することができます。Aspose.Slidesは、プレゼンテーション内のすべてのスライドのリポジトリである[ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/)をカプセル化する[Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスを提供します。既知の[ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/)オブジェクトに対してポインタ（参照またはインデックス）を使用することで、削除したいスライドを指定できます。

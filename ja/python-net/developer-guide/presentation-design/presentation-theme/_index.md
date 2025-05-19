@@ -1,10 +1,26 @@
 ---
-title: プレゼンテーションテーマ
+title: Python で PowerPoint プレゼンテーションのテーマを管理する
+linktitle: プレゼンテーション テーマ
 type: docs
 weight: 10
 url: /ja/python-net/presentation-theme/
-keywords: "テーマ, PowerPointテーマ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonのPowerPointプレゼンテーションテーマ"
+keywords:
+- PowerPoint テーマ
+- プレゼンテーション テーマ
+- スライド テーマ
+- テーマを設定
+- テーマを変更
+- テーマを管理
+- テーマの色
+- 追加パレット
+- テーマのフォント
+- テーマのスタイル
+- テーマの効果
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用してプレゼンテーション テーマを習得し、ブランドを一貫させた PowerPoint ファイルの作成、カスタマイズ、変換を行いましょう。"
 ---
 
 プレゼンテーションテーマは、デザイン要素のプロパティを定義します。プレゼンテーションテーマを選択すると、実際には特定の視覚要素のセットとそのプロパティを選択していることになります。
