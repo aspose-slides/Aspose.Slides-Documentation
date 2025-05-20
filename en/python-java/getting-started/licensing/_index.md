@@ -67,6 +67,12 @@ While multiple calls to **setLicense** aren't harmful, they are a waste of resou
 
 {{% /alert %}}
 
+{{% alert color="warning" %}}
+
+New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier versions use a different licensing system and will not recognize these licenses.
+
+{{% /alert %}}
+
 #### **Applying a License Using a File**
 
 This code snippet is used to set a license file:
@@ -166,6 +172,3 @@ jpype.shutdownJVM()
 Please note that you must have a stable Internet connection for the correct use of the Metered license, since the Metered mechanism requires the constant interaction with our services for correct calculations. For more details, refer to the [“Metered Licensing FAQ”](https://purchase.aspose.com/faqs/licensing/metered) section.
 
 {{% /alert %}}
-
-
-

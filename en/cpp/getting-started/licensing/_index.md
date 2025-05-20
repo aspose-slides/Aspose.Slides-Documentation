@@ -57,6 +57,12 @@ Aspose.Slides provides the [License](https://reference.aspose.com/slides/cpp/cla
 
 {{% /alert %}} 
 
+{{% alert color="warning" %}}
+
+New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier versions use a different licensing system and will not recognize these licenses.
+
+{{% /alert %}}
+
 ### **File**
 
 The easiest way to set a license is to place the license file in the same folder as the component’s DLL (included in Aspose.Slides) and specify only the file name, without the path.

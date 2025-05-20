@@ -55,6 +55,12 @@ Aspose.Slides provides the [License](https://reference.aspose.com/slides/java/co
 
 {{% /alert %}} 
 
+{{% alert color="warning" %}}
+
+New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier versions use a different licensing system and will not recognize these licenses.
+
+{{% /alert %}}
+
 ### **File**
 
 The easiest method of setting a license requires you to place the license file in the folder containing Aspose.Slides.jar or your applications' jar.
