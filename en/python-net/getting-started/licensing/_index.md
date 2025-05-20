@@ -66,6 +66,12 @@ Aspose.Slides provides the [License](https://reference.aspose.com/slides/python-
 
 {{% /alert %}} 
 
+{{% alert color="warning" %}} 
+
+New licenses can activate Aspose.Slides only with version 21.4 or later. Earlier versions use a different licensing system and will not recognize these licenses.
+
+{{% /alert %}}
+
 ### **File**
 
 The easiest method of setting a license requires you to place the license file in the same folder containing the component's DLL (included in Aspose.Slides) and specify the file name without its path.
