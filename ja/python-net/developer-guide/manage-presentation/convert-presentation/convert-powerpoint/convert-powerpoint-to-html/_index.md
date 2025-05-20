@@ -1,11 +1,29 @@
 ---
-title: PythonでPowerPointをHTMLに変換する
-linktitle: PowerPointをHTMLに変換する
+title: Python で PowerPoint プレゼンテーションを HTML に変換する
+linktitle: PowerPoint を HTML に
 type: docs
 weight: 30
 url: /ja/python-net/convert-powerpoint-to-html/
-keywords: "Python PowerPoint to HTML, PowerPointプレゼンテーションの変換, PPTX, PPT, PPTをHTMLに, PPTXをHTMLに, PowerPointをHTMLに, PowerPointをHTMLとして保存, PPTをHTMLとして保存, PPTXをHTMLとして保存, Python, Aspose.Slides, HTMLエクスポート"
-description: "PowerPoint HTMLの変換: PPTXまたはPPTをHTMLとして保存。スライドをHTMLとして保存"
+keywords:
+- PowerPoint を HTML に
+- プレゼンテーションを HTML に
+- スライドを HTML に
+- PPT を HTML に
+- PPTX を HTML に
+- ODP を HTML に
+- PowerPoint プレゼンテーションを変換
+- PowerPoint の変換
+- プレゼンテーションの変換
+- HTML の変換
+- PowerPoint を HTML として保存
+- プレゼンテーションを HTML として保存
+- スライドを HTML として保存
+- PPT を HTML として保存
+- PPTX を HTML として保存
+- HTML エクスポート
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションを HTML に変換する方法を学びましょう。このガイドでは、スライドをウェブ対応フォーマットに変換するための手順、コードサンプル、ベストプラクティスを提供します。"
 ---
 
 ## **概要**
