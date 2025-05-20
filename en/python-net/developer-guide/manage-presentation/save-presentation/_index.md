@@ -1,10 +1,23 @@
 ---
-title: Save Presentation
+title: Save Presentations in Python
+linktitle: Save Presentation
 type: docs
 weight: 80
 url: /python-net/save-presentation/
-keywords: "Save PowerPoint, PPT, PPTX, Save Presentation, file, stream, Python"
-description: "Save PowerPoint Presentation as file or stream in Python"
+keywords:
+- save PowerPoint
+- save presentation
+- save PPT
+- save PPTX
+- save ODP
+- save presentation to file
+- save presentation to stream
+- view type
+- strict Office Open XML format
+- saving progress
+- Python
+- Aspose.Slides
+description: "Discover how to save presentations in Python using Aspose.Slides—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
 ---
 
 ## **Save Presentation**

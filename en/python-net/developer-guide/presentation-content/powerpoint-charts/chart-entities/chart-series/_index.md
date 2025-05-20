@@ -1,9 +1,21 @@
 ---
-title: Chart Series
+title: Manage Chart Series in Python
+linktitle: Chart Series
 type: docs
 url: /python-net/chart-series/
-keywords: "Chart series, series color, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Chart series in PowerPoint presentations in Python"
+keywords:
+- сhart series
+- series overlap
+- series color
+- category color
+- series name
+- data point
+- series gap
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to manage chart series in Python for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
 A series is a row or column of numbers plotted in a chart.

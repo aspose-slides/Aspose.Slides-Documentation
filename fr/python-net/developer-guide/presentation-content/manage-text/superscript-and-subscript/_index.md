@@ -1,10 +1,20 @@
 ---
-title: Exposant et Indice
+title: Gérer les exposants et les indices en Python
+linktitle: Exposant et indice
 type: docs
 weight: 80
 url: /fr/python-net/superscript-and-subscript/
-keywords: "Exposant, Indice, Ajouter du texte exposant, Ajouter du texte indice, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter du texte exposant et indice aux présentations PowerPoint en Python"
+keywords:
+  - exposant
+  - indice
+  - ajouter un exposant
+  - ajouter un indice
+  - PowerPoint
+  - OpenDocument
+  - présentation
+  - Python
+  - Aspose.Slides
+description: "Maîtrisez les exposants et indices dans Aspose.Slides pour Python via .NET et améliorez vos présentations avec une mise en forme professionnelle du texte pour un impact maximal."
 ---
 
 ## **Gérer le Texte Exposant et Indice**

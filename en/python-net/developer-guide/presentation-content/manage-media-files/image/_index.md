@@ -1,10 +1,23 @@
 ---
-title: Image
+title: Optimize Image Management in PowerPoint with Python
 type: docs
 weight: 10
 url: /python-net/image/
-keywords: "Add image, Add picture, PowerPoint presentation, EMF, SVG, Python, Aspose.Slides for Python via .NET"
-description: "Add image to PowerPoint slide or presentation in Python"
+keywords:
+- add image
+- add picture
+- add bitmap
+- add PNG
+- add JPG
+- add SVG
+- add EMF
+- add WMF
+- add TIFF
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET, optimizing performance and automating your workflow."
 ---
 
 ## **Images in Slides In Presentations**

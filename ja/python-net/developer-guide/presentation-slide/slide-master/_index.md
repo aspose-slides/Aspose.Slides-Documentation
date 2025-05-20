@@ -1,10 +1,22 @@
 ---
-title: スライドマスター
+title: PythonでPowerPointのスライドマスターを自動化する
+linktitle: スライドマスター
 type: docs
 weight: 80
 url: /ja/python-net/slide-master/
-keywords: "スライドマスターの追加, PPTマスタースライド, スライドマスターパワーポイント, スライドマスターへの画像, プレースホルダー, 複数のスライドマスター, スライドマスターの比較, Python, Aspose.Slides"
-description: "PythonでPowerPointプレゼンテーションにスライドマスターを追加または編集する"
+keywords:
+- スライドマスター
+- マスター スライド
+- PPT マスター スライド
+- 複数のマスター スライド
+- マスター スライドを比較
+- 背景
+- プレースホルダー
+- マスター スライドを複製
+- 未使用のマスター スライド
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NETでPowerPointとOpenDocument形式のスライドマスターを自動化し、開発効率を最大化。初心者から上級者まで使える完全ガイド。"
 ---
 
 ## **PowerPointにおけるスライドマスターとは**
