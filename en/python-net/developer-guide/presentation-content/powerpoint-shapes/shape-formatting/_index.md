@@ -1,10 +1,28 @@
 ---
-title: Shape Formatting
+title: Format PowerPoint Shapes in Python
+linktitle: Shape Formatting
 type: docs
 weight: 20
 url: /python-net/shape-formatting/
-keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Format shape in PowerPoint presentation in Python"
+keywords:
+- format shape
+- format line
+- format join style
+- gradient fill
+- pattern fill
+- picture fill
+- texture fill
+- solid color fill
+- shape transparency
+- rotate shape
+- 3d bevel effect
+- 3d rotation effect
+- reset formatting
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to format PowerPoint shapes in Python using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
 ---
 
 In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, you can format shapes by modifying or applying certain effects to their constituent lines. Additionally, you can format shapes by specifying settings that determine how they (the area in them) are filled. 

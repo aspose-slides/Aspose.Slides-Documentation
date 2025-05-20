@@ -1,10 +1,25 @@
 ---
-title: SmartArt図形の管理
+title: Python でプレゼンテーションの SmartArt グラフィックを管理する
+linktitle: SmartArt グラフィック
 type: docs
 weight: 20
 url: /ja/python-net/manage-smartart-shape/
-keywords: "SmartArt図形, SmartArt図形スタイル, SmartArt図形の色スタイル, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでのPowerPointプレゼンテーションにおけるSmartArtの管理"
+keywords:
+- SmartArt オブジェクト
+- SmartArt グラフィック
+- SmartArt スタイル
+- SmartArt カラー
+- SmartArt を作成
+- SmartArt を追加
+- SmartArt を編集
+- SmartArt を変更
+- SmartArt にアクセス
+- SmartArt レイアウト タイプ
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint の SmartArt グラフィックの作成、編集、スタイリングを自動化する方法を、簡潔なコード例とパフォーマンス重視のガイダンスとともに紹介します。"
 ---
 
 ## **SmartArt図形の作成**

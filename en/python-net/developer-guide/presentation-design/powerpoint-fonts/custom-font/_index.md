@@ -1,11 +1,21 @@
 ---
-title: Custom PowerPoint Font in Python
+title: Customize PowerPoint Fonts in Python
 linktitle: Custom Font
 type: docs
 weight: 20
 url: /python-net/custom-font/
-keywords: "Fonts, custom fonts, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint custom fonts in Python"
+keywords:
+- font
+- custom font
+- external font
+- load font
+- manage fonts
+- font folder
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Embed custom fonts in PowerPoint slides with Aspose.Slides for Python via .NET to keep your presentations sharp and consistent across any device."
 ---
 
 {{% alert color="primary" %}} 

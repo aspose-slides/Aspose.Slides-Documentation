@@ -1,10 +1,19 @@
 ---
-title: Manage Placeholder
+title: Manage Placeholders in Python
 type: docs
 weight: 10
 url: /python-net/manage-placeholder/
-keywords: "Placeholder, Placeholder text, Prompt text, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Change Placeholder text and prompt text in PowerPoint presentations in Python"
+keywords:
+- placeholder
+- text placeholder 
+- image placeholder
+- chart placeholder
+- prompt text
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Effortlessly manage placeholders in Aspose.Slides for Python via .NET: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
 ## **Change Text in Placeholder**

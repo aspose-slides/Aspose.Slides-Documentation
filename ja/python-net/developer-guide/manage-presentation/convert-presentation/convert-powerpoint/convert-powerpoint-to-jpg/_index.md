@@ -1,11 +1,37 @@
 ---
-title: PythonでPowerPoint PPTをJPGに変換
-linktitle: PowerPoint PPTをJPGに変換
+title: Python で PPT、PPTX、ODP を JPG に変換する
+linktitle: スライドを画像に
 type: docs
 weight: 60
 url: /ja/python-net/convert-powerpoint-to-jpg/
-keywords: "python ppt to image, PowerPointプレゼンテーションの変換, JPG, JPEG, PowerPointからJPG, PowerPointからJPEG, PPTからJPG, PPTXからJPG, PPTからJPEG, PPTXからJPEG, Python, Aspose.Slides"
-description: "PythonでPowerPointをJPGに変換します。スライドをJPG画像として保存します"
+keywords:
+- PowerPoint を JPG に変換
+- プレゼンテーションを JPG に変換
+- スライドを JPG に変換
+- PPT を JPG に変換
+- PPTX を JPG に変換
+- ODP を JPG に変換
+- PowerPoint を JPG に
+- プレゼンテーションを JPG に
+- スライドを JPG に
+- PPT を JPG に
+- PPTX を JPG に
+- ODP を JPG に
+- PowerPoint を JPEG に変換
+- プレゼンテーションを JPEG に変換
+- スライドを JPEG に変換
+- PPT を JPEG に変換
+- PPTX を JPEG に変換
+- ODP を JPEG に変換
+- PowerPoint を JPEG に
+- プレゼンテーションを JPEG に
+- スライドを JPEG に
+- PPT を JPEG に
+- PPTX を JPEG に
+- ODP を JPEG に
+- Python
+- Aspose.Slides
+description: "Python で数行のコードだけで PowerPoint および OpenDocument プレゼンテーションのスライドを高品質な JPEG 画像に変換する方法を学びましょう。ウェブ利用、共有、アーカイブ向けにプレゼンテーションを最適化します。詳細ガイドを今すぐご覧ください！"
 ---
 
 ## **PowerPointからJPGへの変換について**

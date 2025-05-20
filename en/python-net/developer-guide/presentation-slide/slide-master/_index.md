@@ -1,10 +1,24 @@
 ---
-title: Slide Master
+title: Manage PowerPoint Slide Masters in Python
+linktitle: Slide Master
 type: docs
 weight: 80
 url: /python-net/slide-master/
-keywords: "Add Slide Master, PPT master slide, slide master PowerPoint, Image to Slide Master, Placeholder, Multiple Slide Masters, Compare Slide Masters, Python, Aspose.Slides"
-description: "Add or edit slide master in PowerPoint presentation in Python"
+keywords:
+- slide master
+- master slide
+- PPT master slide
+- multiple master slides
+- compare master slides
+- background
+- placeholder
+- clone master slide
+- copy master slide
+- duplicate master slide
+- unused master slide
+- Python
+- Aspose.Slides
+description: "Automate PowerPoint and OpenDocument slide masters with Aspose.Slides for Python via .NET to maximize development efficiency. A complete guide for beginners and advanced users."
 ---
 
 ## **What is a Slide Master in PowerPoint**
