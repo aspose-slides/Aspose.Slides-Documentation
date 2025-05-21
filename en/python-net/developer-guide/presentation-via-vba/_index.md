@@ -9,13 +9,13 @@ description: "Add, remove, and extract VBA macros in PowerPoint presentations in
 
 The [Aspose.Slides.Vba](https://reference.aspose.com/slides/python-net/aspose.slides.vba/) namespace contains classes and interfaces for working with macros and VBA code.
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Note" color="warning" %}}
 
-When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried into the resulting file).
+When you convert a presentation containing macros to a different file format (PDF, HTML, etc.), Aspose.Slides ignores all macros (macros are not carried over to the resulting file).
 
 When you add macros to a presentation or resave a presentation containing macros, Aspose.Slides simply writes the bytes for the macros.
 
-Aspose.Slides **never** runs the macros in a presentation.
+Aspose.Slides **never** executes the macros in a presentation.
 
 {{% /alert %}}
 
@@ -24,12 +24,12 @@ Aspose.Slides **never** runs the macros in a presentation.
 Aspose.Slides provides the [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides.vba/vbaproject/) class to allow you to create VBA projects (and project references) and edit existing modules. You can use the [IVbaProject](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/) interface to manage VBA embedded in a presentation.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Use the [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides.vba/vbaproject/#constructors) constructor to add a new VBA project.
-1. Add a module to the VbaProject.
+1. Use the [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides.vba/vbaproject/#constructors) constructor to add a new VBA project.
+1. Add a module to the VbaProject.
 1. Set the module source code.
-1. Add references to <stdole>.
-1. Add references to **Microsoft Office**.
-1. Associate the references with the VBA project.
+1. Add references to `<stdole>`.
+1. Add references to **Microsoft Office**.
+1. Associate the references with the VBA project.
 1. Save the presentation.
 
 This Python code shows you how to add a VBA macro from scratch to a presentation:
@@ -57,25 +57,24 @@ with slides.Presentation() as presentation:
     # Adds references to the VBA project
     presentation.vba_project.references.add(stdoleReference)
     presentation.vba_project.references.add(officeReference)
-
-            
+        
     # Saves the Presentation
     presentation.save("AddVBAMacros_out.pptm", slides.export.SaveFormat.PPTM)
 ```
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-You may want to check out **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), which a free web app used to remove macros from PowerPoint, Excel, and Word documents. 
+You may want to check out **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros), a free web app used to remove macros from PowerPoint, Excel, and Word documents.
 
-{{% /alert %}} 
+{{% /alert %}}
 
 ## **Remove VBA Macros**
 
-Using the [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#properties) property under the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class, you can remove a VBA macro.
+Using the [VbaProject](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#properties) property of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class, you can remove a VBA macro.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation containing the macro.
-1. Access the Macro module and remove it.
-1. Save the modified presentation.
+2. Access the macro module and remove it.
+3. Save the modified presentation.
 
 This Python code shows you how to remove a VBA macro:
 
@@ -93,9 +92,9 @@ with slides.Presentation(path + "VBA.pptm") as presentation:
 
 ## **Extract VBA Macros**
 
-1. Create an instance of the  [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation containing the macro.
-2. Check if the presentation contains a VBA Project.
-3. Loop through all the modules contained in the VBA Project to view the macros.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation containing the macro.
+2. Check whether the presentation contains a VBA project.
+3. Loop through all the modules in the VBA project to view the macros.
 
 This Python code shows you how to extract VBA macros from a presentation containing macros:
 
@@ -108,6 +107,3 @@ with slides.Presentation(path + "VBA.pptm") as pres:
             print(module.name)
             print(module.source_code)
 ```
-
-
-
