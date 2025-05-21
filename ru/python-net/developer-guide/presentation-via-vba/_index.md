@@ -65,7 +65,7 @@ with slides.Presentation() as presentation:
 
 {{% alert color="primary" %}} 
 
-Возможно, вам захотите ознакомиться с **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros) — бесплатным веб-приложением, используемым для удаления макросов из документов PowerPoint, Excel и Word.
+Возможно, вы захотите ознакомиться с **Aspose** [Macro Remover](https://products.aspose.app/slides/remove-macros) — бесплатным веб-приложением, используемым для удаления макросов из документов PowerPoint, Excel и Word.
 
 {{% /alert %}} 
 
