@@ -1,5 +1,6 @@
 ---
-title: Manage OLE
+title: Manage OLE in Presentations Using Python
+linktitle: Manage OLE
 type: docs
 weight: 40
 url: /python-net/manage-ole/
@@ -8,20 +9,23 @@ keywords:
 - Object Linking & Embedding
 - add OLE
 - embed OLE
-- add an object
-- embed an object
-- embed a file
+- add object
+- embed object
+- add file
+- embed file
 - linked object
+- linked file
 - change OLE
 - OLE icon
 - OLE title
 - extact OLE
-- extract an object
+- extract object
+- extract file
 - PowerPoint 
 - presentation
 - Python
-- Aspose.Slides for Python via .NET
-description: Manage OLE objects in PowerPoint presentations in Python
+- Aspose.Slides
+description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for Python via .NET. Embed, update, and export OLE content seamlessly."
 ---
 
 {{% alert title="Info" color="info" %}}

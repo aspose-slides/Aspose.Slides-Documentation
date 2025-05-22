@@ -1,10 +1,23 @@
 ---
-title: Presentation Background
+title: Manage Presentation Backgrounds in Python
+linktitle: Slide Background
 type: docs
 weight: 20
 url: /python-net/presentation-background/
-keywords: "PowerPoint background, set background, Python, Aspose.Slides for Python via .NET"
-description: "Set background in PowerPoint presentation in Python"
+keywords:
+- presentation background
+- slide background
+- solid color
+- gradient color
+- image background
+- background transparency
+- background properties
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocument files using Aspose.Slides for Python via .NET, with code tips to boost your presentations."
 ---
 
 Solid colors, gradient colors, and pictures are often used as background images for slides. You can set the background either for a **normal slide** (single slide) or **master slide** (several slides at once).

@@ -1,10 +1,24 @@
 ---
-title: Chart Formatting
+title: Format Charts in Presentations Using Python
+linktitle: Chart Formatting
 type: docs
 weight: 60
 url: /python-net/chart-formatting/
-keywords: "Chart entities, chart properties, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Format chart entities in PowerPoint presentations in Python"
+keywords:
+- format chart
+- chart formatting
+- chart entity
+- chart properties
+- chart settings
+- chart options
+- font properties
+- rounded border
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn chart formatting in Aspose.Slides for Python via .NET and elevate your PowerPoint or OpenDocument presentation with professional, eye-catching styling."
 ---
 
 ## **Format Chart Entities**

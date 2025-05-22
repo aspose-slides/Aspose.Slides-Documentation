@@ -1,11 +1,18 @@
 ---
-title: Remove Slide from Presentation
+title: Remove Slides from Presentations in Python
+linktitle: Remove Slide
 type: docs
 weight: 30
 url: /python-net/remove-slide-from-presentation/
-keywords: "Remove slide, Delete slide, PowerPoint, Presentation, Python, Aspose.Slides"
-description: "Remove slide from PowerPoint by reference or index in Python"
-
+keywords:
+- remove slide
+- delete slide
+- remove unused slide
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Effortlessly remove slides from PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Get clear code examples and boost your workflow."
 ---
 
 If a slide (or its contents) becomes redundant, you can delete it. Aspose.Slides provides the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class that encapsulates [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), which is a repository for all slides in a presentation. Using pointers (reference or index) for a known [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) object, you can specify the slide you want to remove. 

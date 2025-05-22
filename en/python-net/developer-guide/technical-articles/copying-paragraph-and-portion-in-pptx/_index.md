@@ -1,8 +1,21 @@
 ---
-title: Copying Paragraph and Portion in PPTX
+title: Copy Paragraphs and Text Portions in Presentations Using Python
+linktitle: Copy Text
 type: docs
 weight: 80
 url: /python-net/copying-paragraph-and-portion-in-pptx/
+keywords:
+- copy paragraph
+- clone paragraph
+- copy text
+- clone text
+- copy text portion
+- clone text portion
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Discover how to copy paragraphs and text portions between PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET to enhance your workflow."
 ---
 
 {{% alert color="primary" %}} 
