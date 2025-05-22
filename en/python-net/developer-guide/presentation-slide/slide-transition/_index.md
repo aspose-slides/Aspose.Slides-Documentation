@@ -1,10 +1,20 @@
 ---
-title: Slide Transition
+title: Manage Slide Transitions in Presentations Using Python
+linktitle: Slide Transition
 type: docs
 weight: 90
 url: /python-net/slide-transition/
-keywords: "Add slide transition, PowerPoint slide transition, morph transition, advanced slide transition, transition effects, Python, Aspose.Slides"
-description: " Add PowerPoint slide transition and transition effects in Python "
+keywords:
+- slide transition
+- add slide transition
+- apply slide transition
+- advanced slide transition
+- morph transition
+- transition type
+- transition effect
+- Python
+- Aspose.Slides
+description: "Discover how to customize slide transitions in Aspose.Slides for Python via .NET, with step-by-step guidance for PowerPoint and OpenDocument presentations."
 ---
 
 ## **Add Slide Transition**

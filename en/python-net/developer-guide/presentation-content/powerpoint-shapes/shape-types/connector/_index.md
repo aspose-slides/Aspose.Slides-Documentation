@@ -1,10 +1,21 @@
 ---
-title: Connector
+title: Manage Connectors in Presentations in Python
+linktitle: Connector
 type: docs
 weight: 10
 url: /python-net/connector/
-keywords: "Connect shapes, connectors, PowerPoint shapes, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Connect PowerPoint shapes in Python"
+keywords:
+- connector
+- connector type
+- connector point
+- connector line
+- connector angle
+- connect shapes
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Empower Python apps to draw, connect and auto-route lines in PowerPoint & OpenDocument slides—gain full control over straight, elbow and curved connectors."
 ---
 
 A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 

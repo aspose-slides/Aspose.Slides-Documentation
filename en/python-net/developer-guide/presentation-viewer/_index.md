@@ -1,19 +1,21 @@
 ---
-title: Presentation Viewer
+title: Create a Presentation Viewer in Python
+linktitle: Presentation Viewer
 type: docs
 weight: 50
 url: /python-net/presentation-viewer/
 keywords: 
 - view presentation
 - presentation viewer
+- create presentation viewer
 - view PPT
 - view PPTX
 - view ODP
 - PowerPoint
 - OpenDocument
 - Python
-- Aspose.Slides for Python via .NET
-description: "PowerPoint presentation viewer in Python"
+- Aspose.Slides
+description: "Learn how to create a custom presentation viewer in Python using Aspose.Slides. Easily display PowerPoint (PPTX, PPT) and OpenDocument (ODP) files without Microsoft PowerPoint or other office software."
 ---
 
 Aspose.Slides for Python via .NET is used to create presentation files with slides. These slides can be viewed by opening presentations in Microsoft PowerPoint, for example. However, sometimes developers may need to view slides as images in their preferred image viewer or create their own presentation viewer. In such cases, Aspose.Slides allows you to export an individual slide as an image. This article describes how to do it.

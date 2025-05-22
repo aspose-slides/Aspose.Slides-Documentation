@@ -1,10 +1,23 @@
 ---
-title: Create Presentation
+title: Create a Presentation in Python
+linktitle: Create Presentation
 type: docs
 weight: 10
 url: /python-net/create-presentation/
-keywords: "Create PowerPoint, PPTX, PPT, Create Presentation, Initialize Presentation, Python, .NET"
-description: "Open PowerPoint Presentation in Python"
+keywords:
+- create presentation
+- new presentation
+- create PPT
+- new PPT
+- create PPTX
+- new PPTX
+- create ODP
+- new ODP
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Create PowerPoint presentations in Python with Aspose.Slides—produce PPT, PPTX, and ODP files, benefit from OpenDocument support, and save them programmatically for reliable results."
 ---
 
 ## **Create PowerPoint Presentation**

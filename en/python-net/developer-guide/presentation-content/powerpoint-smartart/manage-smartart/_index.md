@@ -1,10 +1,21 @@
 ---
-title: Manage SmartArt
+title: Manage SmartArt in PowerPoint Presentations Using Python
+linktitle: Manage SmartArt
 type: docs
 weight: 10
 url: /python-net/manage-smartart/
-keywords: "SmartArt, text from SmartArt, Organization type chart, Picture organization chart, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "SmartArt and organization type chart in PowerPoint presentations in Python"
+keywords:
+- SmartArt
+- text from SmartArt
+- layout type
+- hidden property
+- organization chart
+- picture organization chart
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for Python via .NET using clear code samples that speed up slide design and automation."
 ---
 
 ## **Get Text from SmartArt**

@@ -3,8 +3,18 @@ title: 安装
 type: docs
 weight: 70
 url: /zh/python-net/installation/
-keywords: "下载 Aspose.Slides, 安装 Aspose.Slides, Aspose.Slides 安装, Windows, macOS, Python"
-description: "在 Windows 或 macOS 上通过 .NET 安装 Aspose.Slides for Python"
+keywords:
+- 下载 Aspose.Slides
+- 安装 Aspose.Slides
+- 使用 Aspose.Slides
+- Aspose.Slides 安装
+- Windows
+- macOS
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+description: "安装适用于 .NET 的 Aspose.Slides for Python，并快速创建、编辑和转换 PowerPoint 与 OpenDocument 演示文稿——分步设置指南。"
 ---
 
 Aspose.Slides for Python via .NET 包含所需的 .NET 库，因此不需要单独安装 .NET。 然而，根据您的平台，您可能需要安装特定的 .NET 依赖项并满足某些要求。

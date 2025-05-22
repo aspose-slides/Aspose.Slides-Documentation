@@ -1,10 +1,21 @@
 ---
-title: コネクタ
+title: Python でプレゼンテーションのコネクタを管理する
+linktitle: コネクタ
 type: docs
 weight: 10
 url: /ja/python-net/connector/
-keywords: "形状を接続, コネクタ, PowerPoint 形状, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointの形状を接続する"
+keywords:
+- コネクタ
+- コネクタ タイプ
+- コネクタ ポイント
+- コネクタ ライン
+- コネクタ アングル
+- 図形を接続
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Python アプリで PowerPoint および OpenDocument スライドに線を描画、接続、自動ルーティングできるようにすることで、直線、エルボ、曲線のコネクタを完全に制御できます。"
 ---
 
 PowerPointのコネクタは、2つの形状を接続またはリンクする特別な線であり、与えられたスライド上で移動または再配置されても形状に固定されます。 
