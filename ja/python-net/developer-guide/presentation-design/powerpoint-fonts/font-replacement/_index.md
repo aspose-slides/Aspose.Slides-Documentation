@@ -1,10 +1,20 @@
 ---
-title: フォントの置き換え
+title: Python でプレゼンテーションのフォント置換を効率化する
+linktitle: フォント置換
 type: docs
 weight: 60
 url: /ja/python-net/font-replacement/
-keywords: "フォント, フォントの置き換え, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointのフォントを明示的に置き換える"
+keywords:
+- フォント
+- フォントを置換
+- フォント置換
+- フォントを変更
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションの一貫性のあるタイポグラフィを実現するために、シームレスにフォントを置換します。"
 ---
 
 フォントの使用について気が変わった場合、そのフォントを別のフォントに置き換えることができます。古いフォントのすべてのインスタンスは新しいフォントに置き換えられます。

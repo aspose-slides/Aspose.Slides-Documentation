@@ -1,10 +1,18 @@
 ---
-title: Read Only Presentation
+title: Save Presentations in Read-Only Mode Using Python
+linktitle: Read-Only Presentation
 type: docs
 weight: 30
 url: /python-net/read-only-presentation/
-keywords: "Read-only setting, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Read-only PowerPoint presentation in Python"
+keywords:
+- read only
+- protect presentation
+- prevent editing
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Load and save PowerPoint files (PPT, PPTX) in read-only mode with Aspose.Slides for Python via .NET, offering precise slide previews without altering your presentations."
 ---
 
 In PowerPoint 2019, Microsoft introduced the **Always Open Read-Only** setting as one of the options users can use to protect their presentations. You may want to use this Read-Only setting to protect a presentation when
