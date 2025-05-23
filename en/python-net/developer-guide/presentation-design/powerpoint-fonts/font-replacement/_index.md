@@ -1,10 +1,20 @@
 ---
-title: Font Replacement
+title: Streamline Font Replacement in Presentations Using Python
+linktitle: Font Replacement
 type: docs
 weight: 60
 url: /python-net/font-replacement/
-keywords: "Font, replace font, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Replace fonts explicitly in PowerPoint in Python"
+keywords:
+- font
+- replace font
+- font replacement
+- change font
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Seamlessly replace fonts in Aspose.Slides Python via .NET to ensure consistent typography in PowerPoint and OpenDocument presentations."
 ---
 
 If you change your mind about using a font, you can replace that font with another font. All instances of the old font will be replaced by the new font. 

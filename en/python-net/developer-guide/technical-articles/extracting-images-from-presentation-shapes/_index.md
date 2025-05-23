@@ -1,10 +1,19 @@
 ---
-title: Extracting Images from Presentation shapes
+title: Extract Images from Presentation Shapes in Python
+linktitle: Image from Shape
 type: docs
 weight: 90
 url: /python-net/extracting-images-from-presentation-shapes/
-keywords: "Extract image, PowerPoint, PPT, PPTX, PowerPoint presentation, Python, Aspose.Slides for Python"
-description: "Extract images from PowerPoint presentation in Python"
+keywords:
+- extract image
+- retrieve image
+- slide background
+- shape background
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Extract images from shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET — quick, code-friendly solution."
 ---
 
 {{% alert color="primary" %}} 

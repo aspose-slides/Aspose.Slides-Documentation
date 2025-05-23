@@ -1,10 +1,18 @@
 ---
-title: 読み取り専用プレゼンテーション
+title: Python でプレゼンテーションを読み取り専用モードで保存する
+linktitle: 読み取り専用プレゼンテーション
 type: docs
 weight: 30
 url: /ja/python-net/read-only-presentation/
-keywords: "読み取り専用設定, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Pythonにおける読み取り専用のPowerPointプレゼンテーション"
+keywords:
+- 読み取り専用
+- プレゼンテーションを保護
+- 編集を防止
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint ファイル（PPT、PPTX）を読み取り専用モードで読み込みおよび保存し、プレゼンテーションを変更せずに正確なスライドプレビューを提供します。"
 ---
 
 PowerPoint 2019では、Microsoftがユーザーがプレゼンテーションを保護するために使用できるオプションの1つとして**常に読み取り専用で開く**設定を導入しました。この読み取り専用設定を使用してプレゼンテーションを保護したい場合、次のような理由があります。

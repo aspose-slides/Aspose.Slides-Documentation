@@ -1,10 +1,19 @@
 ---
-title: プレゼンテーションの図形から画像を抽出する
+title: Python でプレゼンテーションの図形から画像を抽出する
+linktitle: 図形から画像
 type: docs
 weight: 90
 url: /ja/python-net/extracting-images-from-presentation-shapes/
-keywords: "画像を抽出, PowerPoint, PPT, PPTX, PowerPointプレゼンテーション, Python, Aspose.Slides for Python"
-description: "PythonでPowerPointプレゼンテーションから画像を抽出する"
+keywords:
+- 画像を抽出
+- 画像を取得
+- スライドの背景
+- 図形の背景
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して PowerPoint および OpenDocument プレゼンテーションの図形から画像を抽出する、迅速でコーディングに適したソリューション。"
 ---
 
 {{% alert color="primary" %}} 

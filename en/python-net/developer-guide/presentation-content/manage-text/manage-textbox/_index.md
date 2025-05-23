@@ -1,5 +1,6 @@
 ---
-title: Manage TextBox
+title: Manage Text Boxes in Presentations with Python
+linktitle: Manage Text Box
 type: docs
 weight: 20
 url: /python-net/manage-textbox/
@@ -8,12 +9,15 @@ keywords:
 - text frame
 - add text
 - update text
-- text box with a hyperlink
+- create text box
+- check text box
+- add text column
+- add hyperlink
 - PowerPoint
 - presentation
 - Python
-- Aspose.Slides for Python via .NET
-description: "Manage a text box or text frame in PowerPoint presentations using Python"
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
 ---
 
 Texts on slides typically exist in text boxes or shapes. Therefore, to add a text to a slide, you have to add a text box and then put some text inside the textbox. Aspose.Slides for Python via .NET provides the [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) interface that allows you to add a shape containing some text.

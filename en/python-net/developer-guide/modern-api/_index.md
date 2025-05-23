@@ -1,10 +1,23 @@
 ---
-title: Modern API
+title: Enhance Image Processing with the Modern API
+linktitle: Modern API
 type: docs
 weight: 280
 url: /python-net/modern-api/
-keywords: "Modern API, Drawing"
-description: "Modern API"
+keywords:
+- modern API
+- drawing
+- slide thumbnail
+- slide to image
+- shape thumbnail
+- shape to image
+- presentation thumbnail
+- presentation to images
+- add image
+- add picture
+- Python
+- Aspose.Slides
+description: "Modernize slide image processing by replacing deprecated imaging APIs with the Python Modern API for seamless PowerPoint and OpenDocument automation."
 ---
 
 ## Introduction

@@ -1,10 +1,27 @@
 ---
-title: Manage Hyperlinks
+title: Manage Hyperlinks in Presentations with Python
+linktitle: Manage Hyperlink
 type: docs
 weight: 20
 url: /python-net/manage-hyperlinks/
-keywords: "Add hyperlink, PowerPoint Presentation, PowerPoint Hyperlink, text hyperlink, slide hyperlink, shape hyperlink, image hyperlink, video hyperlink, Python"
-description: "Add hyperlink to a PowerPoint Presentation in Python"
+keywords:
+- add URL
+- add hyperlink
+- create hyperlink
+- format hyperlink
+- remove hyperlink
+- update hyperlink
+- text hyperlink
+- slide hyperlink
+- shape hyperlink
+- image hyperlink
+- video hyperlink
+- mutable hyperlink
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for Python .NET—enhance interactivity and workflow in minutes."
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:

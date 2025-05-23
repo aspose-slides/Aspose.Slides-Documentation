@@ -1,10 +1,31 @@
 ---
-title: 在 Python 中将 PowerPoint 转换为 Markdown
+title: 将演示文稿转换为 Markdown（Python)
+linktitle: 演示文稿转 Markdown
 type: docs
 weight: 140
 url: /zh/python-net/convert-powerpoint-to-markdown/
-keywords: "将 PowerPoint 转换为 Markdown, 将 ppt 转换为 md, PowerPoint, PPT, PPTX, 演示文稿, Markdown, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中将 PowerPoint 转换为 Markdown"
+keywords:
+- 将 PowerPoint 转为 Markdown
+- 将 OpenDocument 转为 Markdown
+- 将演示文稿转换为 Markdown
+- 将幻灯片转换为 Markdown
+- 将 PPT 转为 Markdown
+- 将 PPTX 转为 Markdown
+- 将 ODP 转为 Markdown
+- 将 PowerPoint 转为 MD
+- 将 OpenDocument 转为 MD
+- 将演示文稿转换为 MD
+- 将幻灯片转换为 MD
+- 将 PPT 转为 MD
+- 将 PPTX 转为 MD
+- 将 ODP 转为 MD
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Markdown
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python 将 PowerPoint 和 OpenDocument 幻灯片 — PPT、PPTX、ODP — 转换为简洁的 Markdown，自动化文档并保持格式。"
 ---
 
 {{% alert color="info" %}} 

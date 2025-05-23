@@ -1,10 +1,20 @@
 ---
-title: プレゼンテーションからテキストを抽出する
+title: Python で PowerPoint プレゼンテーションから高度なテキスト抽出を行う
+linktitle: テキストを抽出
 type: docs
 weight: 90
 url: /ja/python-net/extract-text-from-presentation/
-keywords: "スライドからのテキスト抽出, PowerPointからのテキスト抽出, Python, Aspose.Slides for Python via .NET"
-description: "PythonでスライドまたはPowerPointプレゼンテーションからテキストを抽出します"
+keywords:
+- テキストを抽出
+- スライドからテキストを抽出
+- プレゼンテーションからテキストを抽出
+- PowerPoint からテキストを抽出
+- PPT からテキストを抽出
+- PPTX からテキストを抽出
+- ODP からテキストを抽出
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint プレゼンテーションからテキストを迅速かつ簡単に抽出する方法を学びましょう。シンプルなステップバイステップ ガイドに従って時間を節約し、アプリケーションでスライドの内容に効率的にアクセスできるようにします。"
 ---
 
 {{% alert color="primary" %}} 
