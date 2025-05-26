@@ -1,10 +1,23 @@
 ---
-title: プレゼンテーションのヘッダーとフッター
+title: Python でプレゼンテーションのヘッダーとフッターを管理する
+linktitle: ヘッダーとフッター
 type: docs
 weight: 140
 url: /ja/python-net/presentation-header-and-footer/
-keywords: "ヘッダー、フッター、ヘッダーを設定、フッターを設定、ヘッダーとフッターを設定、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "PythonによるPowerPointのヘッダーとフッター"
+keywords:
+- ヘッダー
+- ヘッダーテキスト
+- フッター
+- フッターテキスト
+- ヘッダーを設定
+- フッターを設定
+- 配布資料
+- ノート
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションにヘッダーとフッターを追加およびカスタマイズし、プロフェッショナルな外観を実現します。"
 ---
 
 {{% alert color="primary" %}} 

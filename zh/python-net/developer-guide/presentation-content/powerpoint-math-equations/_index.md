@@ -1,10 +1,27 @@
 ---
-title: PowerPoint 数学公式
+title: 在 Python 中向 PowerPoint 演示文稿添加数学公式
+linktitle: 数学公式
 type: docs
 weight: 80
 url: /zh/python-net/powerpoint-math-equations/
-keywords: "PowerPoint 数学公式, PowerPoint 数学符号, PowerPoint 公式, PowerPoint 数学文本, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中的 PowerPoint 数学公式、数学符号、公式和数学文本"
+keywords:
+- 数学方程
+- PowerPoint 数学方程
+- 数学符号
+- PowerPoint 数学符号
+- 数学公式
+- PowerPoint 数学公式
+- 数学文本
+- PowerPoint 数学文本
+- 向 PowerPoint 添加数学方程
+- 向 PowerPoint 添加数学符号
+- 向 PowerPoint 添加数学公式
+- 向 PowerPoint 添加数学文本
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用适用于 .NET 的 Aspose.Slides for Python 在 PowerPoint 中处理数学方程。获取详细说明、代码示例和技巧，以自动化创建和编辑演示文稿。"
 ---
 
 ## **概述**

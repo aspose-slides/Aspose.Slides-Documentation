@@ -1,11 +1,23 @@
 ---
-title: Manage Table
+title: Manage Presentation Tables with Python
+linktitle: Manage Table
 type: docs
 weight: 10
 url: /python-net/manage-table/
-keywords: "Table, create table, access table, table aspect ratio, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Create and manage table in PowerPoint presentations in Python"
-
+keywords:
+- add table
+- create table
+- access table
+- aspect ratio
+- align text
+- text formatting
+- table style
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Create & edit tables in PowerPoint and OpenDocument slides with Aspose.Slides for Python via .NET. Discover simple code examples to streamline your table workflows."
 ---
 
 A table in PowerPoint is an efficient way of displaying and portraying information. The information in a grid of cells (arranged in rows and columns) is straightforward and easy to understand.

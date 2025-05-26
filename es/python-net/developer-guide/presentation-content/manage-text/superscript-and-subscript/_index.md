@@ -1,10 +1,20 @@
 ---
-title: Superíndice y Subíndice
+title: Gestionar superíndice y subíndice en Python
+linktitle: Superíndice y subíndice
 type: docs
 weight: 80
 url: /es/python-net/superscript-and-subscript/
-keywords: "Superíndice, Subíndice, Agregar texto en superíndice, Agregar texto en subíndice, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Agregar texto en superíndice y subíndice a presentaciones de PowerPoint en Python"
+keywords:
+- superíndice
+- subíndice
+- agregar superíndice
+- agregar subíndice
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Domina el superíndice y el subíndice en Aspose.Slides para Python vía .NET y eleva tus presentaciones con un formato de texto profesional para un impacto máximo."
 ---
 
 ## **Gestionar Texto en Superíndice y Subíndice**
