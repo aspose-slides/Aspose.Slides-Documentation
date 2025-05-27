@@ -1,10 +1,28 @@
 ---
-title: 形のフォーマット
+title: Python で PowerPoint 図形の書式設定を行う
+linktitle: 図形の書式設定
 type: docs
 weight: 20
 url: /ja/python-net/shape-formatting/
-keywords: "形をフォーマットする、線をフォーマットする、結合スタイルをフォーマットする、グラデーション塗りつぶし、パターン塗りつぶし、画像塗りつぶし、単色塗りつぶし、形を回転させる、3Dベベル効果、3D回転効果、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションの形をフォーマットする"
+keywords:
+- 図形を書式設定
+- 線を書式設定
+- 結合スタイルを書式設定
+- グラデーション塗りつぶし
+- パターン塗りつぶし
+- 画像の塗りつぶし
+- テクスチャ塗りつぶし
+- 単色塗りつぶし
+- 図形の透過性
+- 図形を回転
+- 3D ベベル効果
+- 3D 回転効果
+- 書式設定をリセット
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PPT、PPTX、ODP プレゼンテーションの図形の書式設定を行い、塗りつぶし、線、効果スタイルを正確かつ自在に設定する方法を学びましょう。"
 ---
 
 PowerPointでは、スライドに形を追加できます。形は線から構成されているため、形の構成要素である線を変更または特定の効果を適用することで形をフォーマットできます。さらに、形の領域がどのように塗りつぶされるかを決定する設定を指定することで形をフォーマットできます。

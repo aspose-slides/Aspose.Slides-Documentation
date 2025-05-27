@@ -1,10 +1,21 @@
 ---
-title: PPTとPPTX
+title: PPT と PPTX の違いを理解する
+linktitle: PPT と PPTX
 type: docs
 weight: 10
 url: /ja/python-net/ppt-vs-pptx/
-keywords: "PPTとPPTX, PPTまたはPPTX, PowerPointプレゼンテーション, フォーマット, Python"
-description: "PowerPointプレゼンテーションフォーマットについて。PPTとPPTX。Pythonでの違い"
+keywords:
+- PPT と PPTX の違い
+- PPTX と PPT の違い
+- PowerPoint 形式
+- プレゼンテーション形式
+- PPT を PPTX に変換
+- レガシー形式
+- 最新標準
+- .NET
+- C#
+- Aspose.Slides
+description: "PPT と PPTX 形式の主な違いを探り、C# と .NET 環境での利用方法を学びます。"
 ---
 
 

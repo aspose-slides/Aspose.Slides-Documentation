@@ -1,10 +1,23 @@
 ---
-title: Presentation Header and Footer
+title: Manage Presentation Headers and Footers with Python
+linktitle: Header and Footer
 type: docs
 weight: 140
 url: /python-net/presentation-header-and-footer/
-keywords: "Header, footer, set header, set footer, set headed and footer, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint header and footer in Python"
+keywords:
+- header
+- header text
+- footer
+- footer text
+- set header
+- set footer
+- handout
+- notes
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Use Aspose.Slides for Python via .NET to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
 {{% alert color="primary" %}} 

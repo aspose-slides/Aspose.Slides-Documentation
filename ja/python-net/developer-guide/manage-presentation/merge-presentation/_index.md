@@ -1,10 +1,25 @@
 ---
-title: プレゼンテーションの結合
+title: Python でプレゼンテーションを効率的にマージする
+linktitle: プレゼンテーションをマージ
 type: docs
 weight: 40
 url: /ja/python-net/merge-presentation/
-keywords: "PowerPoint結合, PPTX, PPT, PowerPointの結合, プレゼンテーションの結合, Python"
-description: "PythonでPowerPointプレゼンテーションを結合または合成します"
+keywords:
+- PowerPoint をマージ
+- プレゼンテーションをマージ
+- スライドをマージ
+- PPT をマージ
+- PPTX をマージ
+- ODP をマージ
+- PowerPoint を結合
+- プレゼンテーションを結合
+- スライドを結合
+- PPT を結合
+- PPTX を結合
+- ODP を結合
+- Python
+- Aspose.Slides
+- description: "Aspose.Slides for Python via .NET を使用して、PowerPoint (PPT、PPTX) および OpenDocument (ODP) プレゼンテーションを手間なくマージし、ワークフローを効率化します。"
 ---
 
 {{% alert  title="ヒント" color="primary" %}} 

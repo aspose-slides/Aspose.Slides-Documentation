@@ -1,10 +1,25 @@
 ---
-title: Merge Presentation
+title: Efficiently Merge Presentations with Python
+linktitle: Merge Presentations
 type: docs
 weight: 40
 url: /python-net/merge-presentation/
-keywords: "Merge PowerPoint, PPTX, PPT, combine PowerPoint, merge presentation, combine presentation, Python"
-description: "Merge or combine PowerPoint Presentation in Python"
+keywords:
+- merge PowerPoint
+- merge presentations
+- merge slides
+- merge PPT
+- merge PPTX
+- merge ODP
+- combine PowerPoint
+- combine presentations
+- combine slides
+- combine PPT
+- combine PPTX
+- combine ODP
+- Python
+- Aspose.Slides
+description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for Python via .NET, streamlining your workflow."
 ---
 
 {{% alert  title="Tip" color="primary" %}} 

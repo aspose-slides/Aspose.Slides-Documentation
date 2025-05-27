@@ -1,10 +1,19 @@
 ---
-title: Group
+title: Group Presentation Shapes with Python
+linktitle: Shape Group
 type: docs
 weight: 40
 url: /python-net/group/
-keywords: "Group shape, PowerPoint shape, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add group shape to PowerPoint presentation in Python"
+keywords:
+- group shape
+- shape group
+- add group
+- alternative text
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn to group and ungroup shapes in PowerPoint and OpenDocument decks using Aspose.Slides for Python—fast, step-by-step guide with free code."
 ---
 
 ## **Add Group Shape**

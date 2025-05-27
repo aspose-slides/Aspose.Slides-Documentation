@@ -1,10 +1,20 @@
 ---
-title: Slide Section
+title: Manage Slide Sections in Presentations with Python
+titlelink: Slide Section
 type: docs
 weight: 100
 url: /python-net/slide-section/
-keywords: "Create section, Add section, Edit section name, PowerPoint Presentation, Python, Aspose.Slides"
-description: "Add and edit section in PowerPoint presentation in Python"
+keywords:
+- create section
+- add section
+- edit section
+- change section
+- section name
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for Python — split, rename, and reorder to optimize PPTX and ODP workflows."
 ---
 
 With Aspose.Slides for Python via .NET, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides. 
