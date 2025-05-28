@@ -96,3 +96,37 @@ with Presentation("pres.pptx") as pres:
 
     pres.save(outPath + "\\pres.md", SaveFormat.MD, saveOptions)
 ```
+
+## よくある質問（F.A.Q.）
+
+### **PythonでPowerPointをMarkdown形式に変換できますか？**
+
+はい、[Aspose.Slides for Python via .NET](https://products.aspose.com/slides/python-net/)を使用することで、PythonコードからPowerPoint（PPT、PPTX、ODP）をMarkdown形式に変換できます。
+
+### **変換結果に画像を含めるにはどうすればよいですか？**
+
+デフォルトでは画像は含まれません。画像付きでMarkdownに変換するには、`MarkdownSaveOptions.export_type`に`VISUAL`を指定し、画像保存先の`base_path`とフォルダ名を設定してください。
+
+### **どのMarkdownフレーバーがサポートされていますか？**
+
+Aspose.Slidesは、GitHub、CommonMark、Trello、XWiki、GitLabなど、合計23種類のMarkdownフレーバーに対応しています。詳細は[Flavor列挙体](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/)を参照してください。
+
+### **Markdownへの変換時にスライド番号や非表示スライドを含められますか？**
+
+はい、`MarkdownSaveOptions`を使用することで、スライド番号の表示や非表示スライドの出力を制御できます。
+
+### **変換対象のスライドを選択することはできますか？**
+
+はい、`save`メソッドの第2引数にスライド番号のリストを渡すことで、特定のスライドのみをMarkdownに変換できます。
+
+### **Markdownファイルと一緒に保存される画像のパスはどのように指定できますか？**
+
+`images_save_folder_name`と`base_path`プロパティで、画像の保存フォルダとMarkdown内での画像リンクを制御できます。
+
+### **変換後のMarkdownファイルはどこに保存されますか？**
+
+変換先のファイルパスを`save`メソッドで指定できます。ファイル名とパスを明示的に設定することで、任意の場所に保存可能です。
+
+### **Markdown変換はどのAspose.Slidesバージョンで利用できますか？**
+
+PowerPointからMarkdownへの変換は、[Aspose.Slides 23.7](https://docs.aspose.com/slides/python-net/aspose-slides-for-python-net-23-7-release-notes/)からサポートされています。
