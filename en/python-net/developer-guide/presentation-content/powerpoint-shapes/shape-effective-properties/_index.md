@@ -1,10 +1,23 @@
 ---
-title: Shape Effective Properties
+title: Get Shape Effective Properties from Presentations with Python
+linktitle: Effective Properties
 type: docs
 weight: 50
 url: /python-net/shape-effective-properties/
-keywords: "Shape properties, Camera properties, light rig, bevel shape, text frame, text style, font height value, fill format for table, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Get effective shape properties in PowerPoint presentations in Python"
+keywords:
+- shape properties
+- camera properties
+- light rig
+- bevel shape
+- text frame
+- text style
+- font height
+- fill format
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Discover how Aspose.Slides for Python via .NET calculates and applies effective shape properties for precise PowerPoint and OpenDocument rendering."
 ---
 
 In this topic, we will discuss **effective** and **local** properties. When we set values directly at these levels

@@ -1,10 +1,23 @@
 ---
-title: Chart Workbook
+title: Manage Chart Workbooks in Presentations with Python
+linktitle: Chart Workbook
 type: docs
 weight: 70
 url: /python-net/chart-workbook/
-keywords: "Chart workbook, chart data, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Chart workbook in PowerPoint presentation in Python"
+keywords:
+- chart workbook
+- chart data
+- workbook cell
+- data label
+- worksheet
+- data source
+- external workbook
+- external data
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Discover Aspose.Slides for Python via .NET: effortlessly manage chart workbooks in PowerPoint and OpenDocument formats to streamline your presentation data."
 ---
 
 ## **Set Chart Data from Workbook**

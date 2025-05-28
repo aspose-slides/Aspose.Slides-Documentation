@@ -1,5 +1,6 @@
 ---
 title: Optimize Image Management in PowerPoint with Python
+linktitle: Manage Images
 type: docs
 weight: 10
 url: /python-net/image/

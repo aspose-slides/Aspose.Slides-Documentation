@@ -1,10 +1,24 @@
 ---
-title: 画像
+title: Python で PowerPoint の画像管理を最適化する
+linktitle: 画像を管理
 type: docs
 weight: 10
 url: /ja/python-net/image/
-keywords: "画像を追加, 写真を追加, PowerPoint プレゼンテーション, EMF, SVG, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointスライドまたはプレゼンテーションに画像を追加"
+keywords:
+- 画像を追加
+- ピクチャを追加
+- ビットマップを追加
+- PNG を追加
+- JPG を追加
+- SVG を追加
+- EMF を追加
+- WMF を追加
+- TIFF を追加
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument の画像管理を効率化し、パフォーマンスを最適化してワークフローを自動化します。"
 ---
 
 ## **プレゼンテーションのスライド内の画像**
