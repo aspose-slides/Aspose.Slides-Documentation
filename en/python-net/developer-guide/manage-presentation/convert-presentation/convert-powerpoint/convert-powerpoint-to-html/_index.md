@@ -204,3 +204,45 @@ htmlOptions.slide_image_format = slides.export.SlideImageFormat.svg(svgOptions)
 
 presentation.save(path + "ExportMediaFiles_out.html", slides.export.SaveFormat.HTML, htmlOptions)
 ```
+
+## Frequently Asked Questions (F.A.Q.)
+
+### **How can I convert a PowerPoint presentation to HTML using Python?**
+
+You can use the Aspose.Slides for Python via .NET library to load PPT, PPTX, or ODP files and convert them to HTML using the `save()` method with `SaveFormat.HTML`.
+
+### **Does Aspose.Slides support converting individual PowerPoint slides to HTML?**
+
+Yes, Aspose.Slides allows you to convert either the entire presentation or specific slides to HTML by configuring `HtmlOptions` accordingly.
+
+### **Can I generate responsive HTML from PowerPoint presentations?**
+
+Yes, with the `ResponsiveHtmlController` class, you can export your presentation to a responsive HTML layout that adapts to different screen sizes.
+
+### **Is it possible to include speaker notes or comments in the exported HTML?**
+
+Yes, you can configure the `HtmlOptions` to include or exclude speaker notes and comments when exporting PowerPoint presentations to HTML.
+
+### **Can I embed fonts when converting a presentation to HTML?**
+
+Yes, Aspose.Slides provides the `EmbedAllFontsHtmlController` class, which allows you to embed fonts or exclude certain fonts to reduce the output file size.
+
+### **Does the PowerPoint to HTML conversion support media files like videos and audio?**
+
+Yes, Aspose.Slides allows exporting media content embedded in slides to HTML using `VideoPlayerHtmlController` and related configuration classes.
+
+### **What file formats are supported for conversion to HTML?**
+
+Aspose.Slides supports converting PPT, PPTX, and ODP presentation formats to HTML. It also allows saving slide content as SVG and exporting media assets.
+
+### **Can I avoid embedding fonts to reduce HTML output size?**
+
+Yes, you can link commonly available system fonts like Arial or Calibri instead of embedding them, using a custom implementation of the `HtmlController`.
+
+### **Is there an online tool to convert PowerPoint to HTML?**
+
+Yes, you can try Aspose’s free web tools such as [PPT to HTML](https://products.aspose.app/slides/conversion/ppt-to-html) or [PPTX to HTML](https://products.aspose.app/slides/conversion/pptx-to-html) to convert presentations directly in your browser without writing any code.
+
+### **Can I use custom CSS styles in the exported HTML file?**
+
+Yes, Aspose.Slides allows linking to external CSS files during conversion, enabling you to fully customize the appearance of the resulting HTML content.
