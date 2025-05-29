@@ -338,11 +338,15 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     NullableBool verticalFlip = shape.Frame.FlipV;
     Console.WriteLine($"Vertical flip: {verticalFlip}");
 
-    shape.Frame = new ShapeFrame(
-        shape.Frame.X, shape.Frame.Y,
-        shape.Frame.Width, shape.Frame.Height, 
-        NullableBool.True, NullableBool.True, // Flip the shape horizontally and vertically.
-        0);
+    float x = shape.Frame.X;
+    float y = shape.Frame.Y;
+    float width = shape.Frame.Width;
+    float height = shape.Frame.Height;
+    NullableBool flipH = NullableBool.True; // Flip horizontally.
+    NullableBool flipV = NullableBool.True; // Flip vertically.
+    float rotation = shape.Frame.Rotation;
+
+    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }

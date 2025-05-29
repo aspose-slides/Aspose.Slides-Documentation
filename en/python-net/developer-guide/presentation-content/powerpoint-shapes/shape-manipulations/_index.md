@@ -259,7 +259,7 @@ with slides.Presentation("pres.pptx") as pres:
         pres.slides[0].shapes[0].write_as_svg(stream)
 ```
 
-## Align Shape
+## **Align Shape**
 
 Through the [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) overloaded method, you can 
 
@@ -268,7 +268,7 @@ Through the [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/python
 
 The [ShapesAlignmentType](https://reference.aspose.com/slides/python-net/aspose.slides/shapesalignmenttype/) enumeration defines the available alignment options.
 
-### Example 1
+**Example 1**
 
 This Python code shows you how to align shapes with indices 1,2 and 4 along the border at the top of a slide:
 Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
@@ -287,7 +287,7 @@ with slides.Presentation("OutputPresentation.pptx") as pres:
             slide.shapes.index_of(shape3)])
 ```
 
-### Example 2
+**Example 2**
 
 This Python code shows you how to align an entire collection of shapes relative to the bottom shape in the collection:
 
@@ -297,3 +297,41 @@ import aspose.slides as slides
 with slides.Presentation("example.pptx") as pres:
     slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_BOTTOM, False, pres.slides[0].shapes)
 ```
+
+## **Flip Properties**
+
+In Aspose.Slides, the [ShapeFrame](https://reference.aspose.com/slides/python-net/aspose.slides/shapeframe/) class provides control over horizontal and vertical mirroring of shapes via its `flip_h` and `flip_v` properties. Both properties are of type [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/), allowing values of `TRUE` to indicate a flip, `FALSE` for no flip, or `NOT_DEFINED` to use default behavior. These values are accessible from a shape’s [Frame](https://reference.aspose.com/slides/python-net/aspose.slides/shape/frame/). 
+
+To modify the flip settings, a new [ShapeFrame](https://reference.aspose.com/slides/python-net/aspose.slides/shapeframe/) instance is constructed with the shape’s current position and size, the desired values for `flip_h` and `flip_v`, and the rotation angle. Assigning this instance to the shape’s [Frame](https://reference.aspose.com/slides/python-net/aspose.slides/shape/frame/) and saving the presentation applies the mirror transformations and commits them to the output file.
+
+Let’s say we have a sample.pptx file in which the first slide contains a single shape with default flip settings, as shown below.
+
+![The shape to be flipped](shape_to_be_flipped.png)
+
+The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
+
+```py
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+
+    # Retrieve the horizontal flip property of the shape.
+    horizontal_flip = shape.frame.flip_h
+    print("Horizontal flip:", horizontal_flip)
+
+    # Retrieve the vertical flip property of the shape.
+    vertical_flip = shape.frame.flip_v
+    print("Vertical flip:", vertical_flip)
+
+    x, y = shape.frame.x, shape.frame.y
+    width, height = shape.frame.width, shape.frame.height
+    flip_h, flip_v = slides.NullableBool.TRUE, slides.NullableBool.TRUE  # Flip horizontally and vertically.
+    rotation = shape.frame.rotation
+
+    shape.frame = slides.ShapeFrame(x, y, width, height, flip_h, flip_v, rotation)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The result:
+
+![The flipped shape](flipped_shape.png)

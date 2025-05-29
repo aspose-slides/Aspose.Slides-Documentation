@@ -137,3 +137,46 @@ The example below shows how to align the entire collection of shapes relative to
 SharedPtr<Presentation> pres = MakeObject<Presentation>(u"example.pptx");
 SlideUtil::AlignShapes(ShapesAlignmentType::AlignBottom, false, pres->get_Slides()->idx_get(0)->get_Shapes());
 ```
+
+## **Flip Properties**
+
+In Aspose.Slides, the [ShapeFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapeframe/) class provides control over horizontal and vertical mirroring of shapes via its `flipH` and `flipV` properties. Both properties are of type [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/), allowing values of `True` to indicate a flip, `False` for no flip, or `NotDefined` to use default behavior. These values are accessible from a shape’s [Frame](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_frame/). 
+
+To modify the flip settings, a new [ShapeFrame](https://reference.aspose.com/slides/cpp/aspose.slides/shapeframe/) instance is constructed with the shape’s current position and size, the desired values for `flipH` and `flipV`, and the rotation angle. Assigning this instance to the shape’s [Frame](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_frame/) and saving the presentation applies the mirror transformations and commits them to the output file.
+
+Let’s say we have a sample.pptx file in which the first slide contains a single shape with default flip settings, as shown below.
+
+![The shape to be flipped](shape_to_be_flipped.png)
+
+The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+
+// Retrieve the horizontal flip property of the shape.
+auto horizontalFlip = shape->get_Frame()->get_FlipH();
+Console::WriteLine(u"Horizontal flip: " + ObjectExt::ToString(horizontalFlip));
+
+// Retrieve the vertical flip property of the shape.
+auto verticalFlip = shape->get_Frame()->get_FlipV();
+Console::WriteLine(u"Vertical flip: " + ObjectExt::ToString(verticalFlip));
+
+auto x = shape->get_Frame()->get_X();
+auto y = shape->get_Frame()->get_Y();
+auto width = shape->get_Frame()->get_Width();
+auto height = shape->get_Frame()->get_Height();
+auto flipH = NullableBool::True; // Flip horizontally.
+auto flipV = NullableBool::True; // Flip horizontally.
+auto rotation = shape->get_Frame()->get_Rotation();
+
+shape->set_Frame(MakeObject<ShapeFrame>(x, y, width, height, flipH, flipV, rotation));
+
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result:
+
+![The flipped shape](flipped_shape.png)
