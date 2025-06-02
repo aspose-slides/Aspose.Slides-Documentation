@@ -313,3 +313,49 @@ try {
     }
 }
 ```
+
+## **Flip Properties**
+
+In Aspose.Slides, the [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) class provides control over horizontal and vertical mirroring of shapes via its `flipH` and `flipV` properties. Both properties are of type `byte`, allowing values of `1` to indicate a flip, `0` for no flip, or `-1` to use default behavior. These values are accessible from a shape’s [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame).
+
+To modify the flip settings, a new [ShapeFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeframe/) instance is constructed with the shape’s current position and size, the desired values for `flipH` and `flipV`, and the rotation angle. Assigning this instance to the shape’s [Frame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getFrame) and saving the presentation applies the mirror transformations and commits them to the output file.
+
+Let’s say we have a sample.pptx file in which the first slide contains a single shape with default flip settings, as shown below.
+
+![The shape to be flipped](shape_to_be_flipped.png)
+
+The following code example retrieves the shape’s current flip properties and flips it both horizontally and vertically.
+
+```js
+var presentation = new asposeSlides.Presentation("sample.pptx");
+try {
+    var slide = presentation.getSlides().get_Item(0);
+    var shape = slide.getShapes().get_Item(0);
+
+    // Retrieve the horizontal flip property of the shape.
+    var horizontalFlip = shape.getFrame().getFlipH();
+    console.log("Horizontal flip:", horizontalFlip);
+
+    // Retrieve the vertical flip property of the shape.
+    var verticalFlip = shape.getFrame().getFlipV();
+    console.log("Vertical flip:", verticalFlip);
+
+    var x = java.newFloat(shape.getFrame().getX());
+    var y = java.newFloat(shape.getFrame().getY());
+    var width = java.newFloat(shape.getFrame().getWidth());
+    var height = java.newFloat(shape.getFrame().getHeight());
+    var flipH = java.newByte(asposeSlides.NullableBool.True); // Flip horizontally.
+    var flipV = java.newByte(asposeSlides.NullableBool.True); // Flip vertically.
+    var rotation = shape.getFrame().getRotation();
+
+    shape.setFrame(new asposeSlides.ShapeFrame(x, y, width, height, flipH, flipV, rotation));
+
+    presentation.save("output.pptx", asposeSlides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The result:
+
+![The flipped shape](flipped_shape.png)
