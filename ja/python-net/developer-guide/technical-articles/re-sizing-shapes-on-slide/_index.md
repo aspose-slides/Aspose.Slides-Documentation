@@ -1,8 +1,18 @@
 ---
-title: スライド上の図形のサイズ変更
+title: Python でプレゼンテーションの図形のサイズを変更する
+linktitle: 図形のサイズ変更
 type: docs
 weight: 130
 url: /ja/python-net/re-sizing-shapes-on-slide/
+keywords:
+- 図形のサイズ変更
+- 図形のサイズを変更
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のスライド上の図形を簡単にリサイズし、スライドレイアウトの調整を自動化して生産性を向上させましょう。"
 ---
 
 ## **スライド上の図形のサイズ変更**

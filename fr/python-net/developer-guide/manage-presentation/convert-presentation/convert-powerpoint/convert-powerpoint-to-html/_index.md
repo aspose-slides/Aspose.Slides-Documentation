@@ -1,11 +1,27 @@
 ---
-title: Convertir PowerPoint en HTML avec Python
-linktitle: Convertir PowerPoint en HTML
+title: Convertir des présentations en HTML avec Python
+linktitle: Présentation en HTML
 type: docs
 weight: 30
 url: /fr/python-net/convert-powerpoint-to-html/
-keywords: "Python PowerPoint en HTML, Convertir présentation PowerPoint, PPTX, PPT, PPT en HTML, PPTX en HTML, PowerPoint en HTML, Enregistrer PowerPoint en HTML, Enregistrer PPT en HTML, Enregistrer PPTX en HTML, Python, Aspose.Slides, exportation HTML"
-description: "Convertir PowerPoint en HTML : Enregistrer PPTX ou PPT en HTML. Enregistrer les diapositives en HTML"
+keywords:
+  - convertir PowerPoint
+  - convertir présentation
+  - convertir diapositive
+  - PowerPoint en HTML
+  - présentation en HTML
+  - diapositive en HTML
+  - PPT en HTML
+  - PPTX en HTML
+  - ODP en HTML
+  - exportation HTML
+  - HTML réactif
+  - PowerPoint
+  - OpenDocument
+  - présentation
+  - Python
+  - Aspose.Slides
+description: "Convertissez facilement les présentations PowerPoint et OpenDocument en HTML avec Aspose.Slides for Python via .NET. Préservez parfaitement la mise en page et le style."
 ---
 
 ## **Aperçu**

@@ -1,10 +1,22 @@
 ---
-title: Manage Cells
+title: Manage Table Cells in Presentations with Python
+linktitle: Manage Cells
 type: docs
 weight: 30
 url: /python-net/manage-cells/
-keywords: "Table, merged cells, split cells, image in table cell, Python, Aspose.Slides for Python via .NET"
-description: "Table cells in PowerPoint presentations in Python"
+keywords:
+- table cell
+- merge cells
+- remove border
+- split cell
+- image in cell
+- background color
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Effortlessly manage table cells in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
 ## **Identify Merged Table Cell**

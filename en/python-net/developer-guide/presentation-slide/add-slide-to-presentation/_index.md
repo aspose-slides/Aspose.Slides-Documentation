@@ -1,10 +1,19 @@
 ---
-title: Add Slide to Presentation
+title: Add Slides to Presentations with Python
+linktitle: Add Slide
 type: docs
 weight: 10
 url: /python-net/add-slide-to-presentation/
-keywords: "Add slide to presentation, Python, Aspose.Slides"
-description: "Add slide to presentation in Python"
+keywords:
+- add slide
+- create slide
+- empty slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Easily add slides to your PowerPoint and OpenDocument presentations using Aspose.Slides for Python via .NET—seamless, efficient slide insertion in seconds."
 ---
 
 ## **Add Slide to Presentation**
