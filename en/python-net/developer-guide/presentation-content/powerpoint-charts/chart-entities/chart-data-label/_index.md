@@ -1,9 +1,21 @@
 ---
-title: Chart Data Label
+title: Manage Chart Data Labels in Presentations with Python
+linktitle: Data Label
 type: docs
 url: /python-net/chart-data-label/
-keywords: "Chart data label,label distance, Python, Aspose.Slides for Python via .NET"
-description: "Set PowerPoint chart data label and distance in Python"
+keywords:
+- chart
+- data label
+- data precision
+- percentage
+- label distance
+- label location
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn to add and format chart data labels in PowerPoint and OpenDocument presentations using Aspose.Slides for Python via .NET for more engaging slides."
 ---
 
 Data labels on a chart show details about the chart data series or individual data points. They allow readers to quickly identify data series and they also make charts easier to understand.

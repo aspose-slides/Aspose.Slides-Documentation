@@ -1,8 +1,18 @@
 ---
-title: Re-sizing Shapes on Slide
+title: Resize Shapes in Presentations with Python
+linktitle: Resizing Shapes
 type: docs
 weight: 130
 url: /python-net/re-sizing-shapes-on-slide/
+keywords:
+- resize shape
+- change shape size
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Easily resize shapes on PowerPoint and OpenDocument slides with Aspose.Slides for Python via .NET—automate slide layout adjustments and boost productivity."
 ---
 
 ## **Resizing Shapes on Slide**

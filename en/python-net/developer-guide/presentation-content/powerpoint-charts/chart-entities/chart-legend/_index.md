@@ -1,9 +1,18 @@
 ---
-title: Chart Legend
+title: Customize Chart Legends in Presentations with Python
+linktitle: Chart Legend
 type: docs
 url: /python-net/chart-legend/
-keywords: "Chart legend, legend font size, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Set positioning and font size for chart legend in PowerPoint presentations in Python"
+keywords:
+- chart legend
+- legend position
+- font size
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Customize chart legends with Aspose.Slides for Python via .NET to optimize PowerPoint and OpenDocument presentations with tailored legend formatting."
 ---
 
 ## **Legend Positioning**

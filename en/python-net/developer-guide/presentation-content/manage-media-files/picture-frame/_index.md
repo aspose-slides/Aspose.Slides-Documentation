@@ -1,27 +1,33 @@
 ---
-title: Picture Frame
+title: Add Picture Frames to Presentations with Python
+linktitle: Picture Frame
 type: docs
 weight: 10
 url: /python-net/picture-frame/
 keywords:
 - picture frame
-- add a picture frame
-- create a picture frame
-- add an image
-- create an image
-- extract an image
-- crop an image
+- add picture frame
+- create picture frame
+- add image
+- create image
+- extract image
+- raster image
+- vector image
+- crop image
+- cropped area
 - StretchOff property
 - picture frame formatting
 - picture frame properties
+- ralative scale
 - image effect
 - aspect ratio
+- image transparency
 - PowerPoint
+- OpenDocument
 - presentation
 - Python
-- .NET
-- Aspose.Slides for Python via .NET
-description: "Add a picture frame to a PowerPoint presentation in Python"
+- Aspose.Slides
+description: "Add picture frames to PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Streamline your workflow and enhance slide designs."
 ---
 
 A picture frame is a shape that contains an image—it is like a picture in a frame. 
