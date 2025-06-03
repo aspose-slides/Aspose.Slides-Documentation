@@ -1,5 +1,5 @@
 ---
-title: Elements
+title: Layout Slide
 type: docs
 weight: 20
 url: /net/examples/elements/layout-slide
