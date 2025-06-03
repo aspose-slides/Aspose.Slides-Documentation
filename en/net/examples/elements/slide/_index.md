@@ -2,7 +2,7 @@
 title: Slide
 type: docs
 weight: 10
-url: /net/examples/slide
+url: /net/examples/elements/slide
 ---
 
 This article provides a series of examples that demonstrate how to work with slides using **Aspose.Slides for .NET**. You’ll learn how to add, access, clone, reorder, and remove slides using the `Presentation` class.
