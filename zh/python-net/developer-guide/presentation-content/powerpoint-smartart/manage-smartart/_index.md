@@ -1,10 +1,21 @@
 ---
-title: 管理SmartArt
+title: 在 Python 中管理 PowerPoint 演示文稿中的 SmartArt
+linktitle: 管理 SmartArt
 type: docs
 weight: 10
 url: /zh/python-net/manage-smartart/
-keywords: "SmartArt, 从SmartArt获取文本, 组织类型图表, 图片组织图表, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中处理PowerPoint演示文稿中的SmartArt和组织类型图表"
+keywords:
+- SmartArt
+- 从 SmartArt 获取文本
+- 布局类型
+- 隐藏属性
+- 组织结构图
+- 图片组织结构图
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何使用适用于 .NET 的 Aspose.Slides for Python 构建和编辑 PowerPoint SmartArt，通过清晰的代码示例加速幻灯片设计与自动化。"
 ---
 
 ## **获取SmartArt中的文本**

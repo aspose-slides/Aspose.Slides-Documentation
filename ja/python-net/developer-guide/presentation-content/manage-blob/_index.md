@@ -1,10 +1,26 @@
 ---
-title: BLOBの管理
+title: Python でプレゼンテーションの BLOB を管理してメモリを効率的に使用する
+linktitle: BLOB を管理
 type: docs
 weight: 10
 url: /ja/python-net/manage-blob/
-keywords: "BLOBの追加, BLOBのエクスポート, BLOBとして画像を追加, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションにBLOBを追加します。BLOBをエクスポートします。画像をBLOBとして追加します。"
+keywords:
+- 大きなオブジェクト
+- 大きなアイテム
+- 大きなファイル
+- BLOB を追加
+- BLOB をエクスポート
+- 画像を BLOB として追加
+- メモリを削減
+- メモリ使用量
+- 大きなプレゼンテーション
+- 一時ファイル
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python における BLOB データを管理し、PowerPoint および OpenDocument ファイル操作を効率化して効果的なプレゼンテーション処理を実現します。"
 ---
 
 ### **BLOBについて**

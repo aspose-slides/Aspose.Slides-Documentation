@@ -1,10 +1,19 @@
 ---
-title: Doughnut Chart
+title: Customize Doughnut Charts in Presentations with Python
+linktitle: Doughnut Chart
 type: docs
 weight: 30
 url: /python-net/doughnut-chart/
-keywords: "Doughnut chart, center gap, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Specify center gap in doughnut chart in PowerPoint presentation in Python"
+keywords:
+- doughnut chart
+- center gap
+- hole size
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Discover how to create and customize doughnut charts in Aspose.Slides for Python via .NET, supporting PowerPoint and OpenDocument formats for dynamic presentations."
 ---
 
 ## **Specify Center Gap in Doughnut Chart**

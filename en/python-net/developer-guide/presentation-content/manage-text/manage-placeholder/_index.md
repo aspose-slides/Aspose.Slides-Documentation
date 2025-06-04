@@ -1,5 +1,6 @@
 ---
-title: Manage Placeholders in Python
+title: Manage Placeholders in Presentations with Python
+linktitle: Manage Placeholders
 type: docs
 weight: 10
 url: /python-net/manage-placeholder/

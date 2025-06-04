@@ -1,10 +1,20 @@
 ---
-title: グループ
+title: Python でプレゼンテーションの図形をグループ化する
+linktitle: 図形グループ
 type: docs
 weight: 40
 url: /ja/python-net/group/
-keywords: "グループ形状, PowerPoint形状, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションにグループ形状を追加する"
+keywords:
+- 図形をグループ化
+- 図形グループ
+- グループを追加
+- 代替テキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument のデッキ内で図形をグループ化およびグループ解除する方法を学びましょう。無料のコード付きで迅速に進めるステップバイステップガイドです。"
 ---
 
 ## **グループ形状の追加**

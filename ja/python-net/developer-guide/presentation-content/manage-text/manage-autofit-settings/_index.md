@@ -1,10 +1,23 @@
 ---
-title: 自動調整設定の管理
+title: Python で AutoFit を活用してプレゼンテーションを強化する
+linktitle: AutoFit 設定
 type: docs
 weight: 30
 url: /ja/python-net/manage-autofit-settings/
-keywords: "テキストボックス, 自動調整, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointのテキストボックスの自動調整設定を行います"
+keywords:
+- テキスト ボックス
+- AutoFit
+- AutoFit を無効にする
+- テキストをフィット
+- テキストを縮小
+- テキストを折り返す
+- 図形のサイズ変更
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して AutoFit 設定を管理し、PowerPoint および OpenDocument プレゼンテーションのテキスト表示を最適化し、コンテンツの読みやすさを向上させる方法を学びましょう。"
 ---
 
 デフォルトでは、テキストボックスを追加すると、Microsoft PowerPointはテキストボックスに対して**テキストに合わせて図形をサイズ変更**設定を使用します。これにより、テキストボックスは常にその中にテキストが収まるように自動的にサイズが変更されます。

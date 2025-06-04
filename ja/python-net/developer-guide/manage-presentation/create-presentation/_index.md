@@ -1,10 +1,22 @@
 ---
-title: プレゼンテーションの作成
-type: docs
+title: Python でプレゼンテーションを作成する
+linktitle: プレゼンテーションを作成
 weight: 10
 url: /ja/python-net/create-presentation/
-keywords: "PowerPointの作成, PPTX, PPT, プレゼンテーションの作成, プレゼンテーションの初期化, Python, .NET"
-description: "PythonでPowerPointプレゼンテーションを開く"
+keywords:
+- プレゼンテーションを作成
+- 新しいプレゼンテーション
+- PPT を作成
+- 新しい PPT
+- PPTX を作成
+- 新しい PPTX
+- ODP を作成
+- 新しい ODP
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Aspose.Slides を使用して Python で PowerPoint プレゼンテーションを作成します—PPT、PPTX、ODP ファイルを生成し、OpenDocument サポートの利点を活かしてプログラムで保存し、信頼性の高い結果を得る方法を解説します。"
 ---
 
 ## **PowerPointプレゼンテーションの作成**

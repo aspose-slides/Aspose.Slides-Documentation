@@ -1,9 +1,19 @@
 ---
-title: Bubble Chart
+title: Customize Bubble Charts in Presentations with Python
+linktitle: Bubble Chart
 type: docs
 url: /python-net/bubble-chart/
-keywords: "Bubble chart, chart size, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Bubble chart size in PowerPoint presentations in Python"
+keywords:
+- bubble chart
+- bubble size
+- size scaling
+- size representation
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Create and customize powerful bubble charts in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET to enhance your data visualization easily."
 ---
 
 ## **Bubble Chart Size Scaling**

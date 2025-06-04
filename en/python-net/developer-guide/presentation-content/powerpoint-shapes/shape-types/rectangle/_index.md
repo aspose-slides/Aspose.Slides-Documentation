@@ -1,10 +1,21 @@
 ---
-title: Rectangle
+title: Add Rectangles to Presentations in Python
+linktitle: Rectangle
 type: docs
 weight: 80
 url: /python-net/rectangle/
-keywords: "Create rectangle, PowerPoint shape, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Create rectangle in PowerPoint presentation in Python"
+keywords:
+- add rectangle
+- create rectangle
+- rectangle shape
+- simple rectangle
+- formatted rectangle
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Boost your PowerPoint & OpenDocument presentations by adding rectangles with Aspose.Slides for Python via .NET—easily design and modify shapes programmatically."
 ---
 
 

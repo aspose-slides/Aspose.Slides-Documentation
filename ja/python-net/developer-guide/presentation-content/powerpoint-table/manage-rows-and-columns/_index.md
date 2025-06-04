@@ -1,10 +1,29 @@
 ---
-title: 行と列の管理
+title: Python でプレゼンテーションのテーブルの行と列を管理する
+linktitle: 行と列
 type: docs
 weight: 20
 url: /ja/python-net/manage-rows-and-columns/
-keywords: "テーブル, テーブルの行と列, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションのテーブル行と列を管理する"
+keywords:
+- テーブル行
+- テーブル列
+- 最初の行
+- テーブルヘッダー
+- 行を複製
+- 列を複製
+- 行をコピー
+- 列をコピー
+- 行を削除
+- 列を削除
+- 行のテキスト書式設定
+- 列のテキスト書式設定
+- テーブルスタイル
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して PowerPoint および OpenDocument のテーブルの行と列を管理し、プレゼンテーションの編集とデータ更新を迅速化します。"
 ---
 
 PowerPointプレゼンテーションのテーブルの行と列を管理するために、Aspose.Slidesは[Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)クラス、[ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/)インターフェイス、およびその他の多くのタイプを提供します。

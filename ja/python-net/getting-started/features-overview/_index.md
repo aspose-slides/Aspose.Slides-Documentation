@@ -3,6 +3,20 @@ title: 機能概要
 type: docs
 weight: 20
 url: /ja/python-net/features-overview/
+keywords:
+- 機能
+- サポートされているプラットフォーム
+- ファイル形式
+- 変換
+- レンダリング
+- 印刷
+- 書式設定
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Python 向け Aspose.Slides の強力な API を使用して、PowerPoint および OpenDocument プレゼンテーションを効率的に作成、編集、自動化、変換する方法をご紹介します。"
 ---
 
 ## **サポートされているプラットフォーム**
