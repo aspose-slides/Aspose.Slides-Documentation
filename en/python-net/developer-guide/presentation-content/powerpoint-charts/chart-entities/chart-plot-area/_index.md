@@ -1,9 +1,20 @@
 ---
-title: Chart Plot Area
+title: Customize Plot Areas of Presentation Charts in Python
+linktitle: Plot Area
 type: docs
 url: /python-net/chart-plot-area/
-keywords: "Chart Plot Area PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Get width, height of chart plot area. Set layout mode. PowerPoint presentation in Python"
+keywords:
+- chart
+- plot area
+- plot area width
+- plot area height
+- plot area size
+- layout mode
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Discover how to customize chart plot areas in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Improve your slide visuals effortlessly."
 ---
 
 ## **Get Width, Height of Chart Plot Area**

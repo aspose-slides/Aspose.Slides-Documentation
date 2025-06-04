@@ -1,10 +1,24 @@
 ---
-title: Line
+title: Create Line Shapes in Presentations with Python
+linktitle: Line
 type: docs
 weight: 50
 url: /python-net/line/
-keywords: "Line, PowerPoint shape, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add line in PowerPoint presentation in Python"
+keywords:
+- line
+- create line
+- add line
+- plain line
+- configure line
+- customize line
+- dash style
+- arrow head
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn to manipulate line formatting in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Discover properties, methods, and examples."
 ---
 
 Aspose.Slides for Python via .NET supports adding different kinds of shapes to the slides. In this topic, we will start working with shapes by adding lines to the slides. Using Aspose.Slides for Python via .NET, developers can not only create simple lines , but some fancy lines can also be drawn on the slides.

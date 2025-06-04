@@ -1,22 +1,31 @@
 ---
-title: Gérer OLE
+title: Gérer OLE dans les présentations à l’aide de Python
+linktitle: Gérer OLE
 type: docs
 weight: 40
 url: /fr/python-net/manage-ole/
 keywords:
-- ajouter OLE
-- intégrer OLE
+- objet OLE
+- liaison et incorporation d’objets
+- ajouter un objet OLE
+- intégrer un objet OLE
 - ajouter un objet
 - intégrer un objet
+- ajouter un fichier
 - intégrer un fichier
 - objet lié
-- Liaison et Intégration d'Objets
-- objet OLE
-- PowerPoint 
+- fichier lié
+- modifier un objet OLE
+- icône OLE
+- titre OLE
+- extraire un objet OLE
+- extraire un objet
+- extraire un fichier
+- PowerPoint
 - présentation
 - Python
-- Aspose.Slides pour Python via .NET
-description: Ajouter des objets OLE aux présentations PowerPoint en Python
+- Aspose.Slides
+description: "Optimisez la gestion des objets OLE dans les fichiers PowerPoint et OpenDocument avec Aspose.Slides pour Python via .NET. Intégrez, mettez à jour et exportez le contenu OLE en toute simplicité."
 ---
 
 {{% alert title="Info" color="info" %}}

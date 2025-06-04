@@ -1,21 +1,22 @@
 ---
-title: FAQs
+title: よくある質問
 type: docs
 weight: 340
 url: /ja/python-net/faqs/
 keywords:
-- FAQ
+- よくある質問
 - PowerPoint
 - プレゼンテーション形式
 - メモリ不足エラー
-- スライドサイズ
-- テキスト抽出
-- テキスト取得
+- スライド サイズ
+- テキストを抽出
+- テキストを取得
 - 段落サイズ
-- テーブルフォーマット
+- テーブルの書式設定
 - フォント
 - Python
-- Aspose.Slides for Python via .NET
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET に関するよくある質問を入手し、PowerPoint と OpenDocument のサポート、インストール ガイダンス、ライセンス、トラブルシューティングを網羅します。"
 ---
 
 ## **対応するファイル形式**

@@ -1,11 +1,23 @@
 ---
-title: テーブルの管理
+title: Python でプレゼンテーションのテーブルを管理する
+linktitle: テーブルを管理
 type: docs
 weight: 10
 url: /ja/python-net/manage-table/
-keywords: "テーブル, テーブルの作成, テーブルへのアクセス, テーブルのアスペクト比, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションのテーブルを作成および管理する"
-
+keywords:
+- テーブルを追加
+- テーブルを作成
+- テーブルにアクセス
+- アスペクト比
+- テキストを整列
+- テキストの書式設定
+- テーブルスタイル
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のスライドでテーブルを作成および編集する方法をご紹介します。テーブルのワークフローを効率化するシンプルなコード例を確認しましょう。"
 ---
 
 PowerPointのテーブルは、情報を表示し表現するための効率的な方法です。セルのグリッド内の情報（行と列に配置）は明確で理解しやすいです。

@@ -1,26 +1,30 @@
 ---
-title: Formateo de Texto
+title: Formatear texto de PowerPoint en Python
+linktitle: Formateo de texto
 type: docs
 weight: 50
 url: /es/python-net/text-formatting/
 keywords:
 - resaltar texto
 - expresión regular
-- alinear párrafos de texto
-- transparencia del texto
-- propiedades de fuente del párrafo
-- familia de fuentes
+- alinear párrafo
+- estilo de texto
+- fondo de texto
+- transparencia de texto
+- espaciado de caracteres
+- propiedades de fuente
+- familia tipográfica
 - rotación de texto
-- rotación de ángulo personalizado
+- ángulo de rotación
 - marco de texto
-- espaciado de líneas
+- interlineado
 - propiedad de ajuste automático
-- ancla de marco de texto
+- anclaje de marco de texto
 - tabulación de texto
-- estilo de texto predeterminado
+- idioma predeterminado
 - Python
-- Aspose.Slides para Python
-description: "Gestionar y manipular texto y propiedades de marcos de texto en Python"
+- Aspose.Slides
+description: "Aprende cómo formatear y estilizar texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET. Personaliza fuentes, colores, alineación y más con potentes ejemplos de código en Python."
 ---
 
 ## **Resaltar Texto**
