@@ -1,10 +1,23 @@
 ---
-title: プレゼンテーションの背景
+title: Python でプレゼンテーションの背景を管理する
+linktitle: スライド背景
 type: docs
 weight: 20
 url: /ja/python-net/presentation-background/
-keywords: "PowerPoint 背景, 背景を設定, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションの背景を設定"
+keywords:
+- プレゼンテーションの背景
+- スライド背景
+- 単色
+- グラデーションカラー
+- 画像の背景
+- 背景の透過性
+- 背景プロパティ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint および OpenDocument ファイルで動的な背景を設定する方法を学び、プレゼンテーションを強化するためのコードのヒントをご紹介します。"
 ---
 
 単色、グラデーションカラー、画像は、スライドの背景画像としてよく使用されます。**通常のスライド**（単一スライド）または**マスタースライド**（複数スライド同時）に対して背景を設定できます。

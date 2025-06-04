@@ -1,10 +1,40 @@
 ---
-title: PowerPointを動画に変換
+title: Python でプレゼンテーションをビデオに変換する
+linktitle: プレゼンテーションをビデオに
 type: docs
 weight: 130
 url: /ja/python-net/convert-powerpoint-to-video/
-keywords: "PowerPoint変換, PPT, PPTX, プレゼンテーション, 動画, MP4, PPTから動画, PPTからMP4, Python, Aspose.Slides"
-description: "PythonでPowerPointを動画に変換"
+keywords:
+- PowerPoint をビデオに
+- OpenDocument をビデオに
+- PowerPoint をビデオに変換
+- プレゼンテーションをビデオに
+- プレゼンテーションをビデオに変換
+- PPT をビデオに
+- PPT をビデオに変換
+- PPTX をビデオに
+- PPTX をビデオに変換
+- ODP をビデオに
+- ODP をビデオに変換
+- PowerPoint を MP4 に
+- PowerPoint を MP4 に変換
+- プレゼンテーションを MP4 に
+- プレゼンテーションを MP4 に変換
+- PPT を MP4 に
+- PPT を MP4 に変換
+- PPTX を MP4 に
+- PPTX を MP4 に変換
+- PowerPoint をビデオに変換
+- プレゼンテーションをビデオに変換
+- PPT をビデオに変換
+- PPTX をビデオに変換
+- ODP をビデオに変換
+- Python ビデオ変換
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Python を使用して PowerPoint および OpenDocument プレゼンテーションをビデオに変換する方法を学びましょう。サンプルコードと自動化のテクニックを紹介し、ワークフローを効率化します。"
 ---
 
 PowerPointプレゼンテーションを動画に変換すると、次のメリットがあります。

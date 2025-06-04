@@ -1,9 +1,19 @@
 ---
-title: 授权
-description: "Aspose.Slides for Python via .NET 提供不同的购买计划，或提供免费试用和30天临时许可证以便使用许可和订阅政策进行评估。"
+title: 许可
 type: docs
 weight: 80
 url: /zh/python-net/licensing/
+keywords:
+- 许可证
+- 临时许可证
+- 设置许可证
+- 使用许可证
+- 验证许可证
+- 许可证文件
+- 评估版本
+- Python
+- Aspose.Slides
+description: "了解如何在适用于 .NET 的 Aspose.Slides for Python 中应用、管理并排除许可证故障。按照分步许可指南，确保不间断访问全部功能。"
 ---
 
 ## **评估 Aspose.Slides**

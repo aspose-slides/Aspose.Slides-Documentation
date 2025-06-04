@@ -1,11 +1,21 @@
 ---
-title: PythonでのカスタムPowerPointフォント
-linktitle: カスタムフォント
+title: Python で PowerPoint フォントをカスタマイズする
+linktitle: カスタム フォント
 type: docs
 weight: 20
 url: /ja/python-net/custom-font/
-keywords: "フォント, カスタムフォント, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointのカスタムフォント"
+keywords:
+- フォント
+- カスタム フォント
+- 外部フォント
+- フォントを読み込み
+- フォントを管理
+- フォント フォルダー
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して PowerPoint スライドにカスタム フォントを埋め込むことで、あらゆるデバイスでプレゼンテーションを鮮明かつ一貫性のある状態に保ちましょう。"
 ---
 
 {{% alert color="primary" %}} 

@@ -1,10 +1,26 @@
 ---
-title: 管理项目符号和编号列表
+title: 在 Python 中管理演示文稿中的项目符号和编号列表
+linktitle: 管理列表
 type: docs
 weight: 70
 url: /zh/python-net/manage-bullet-and-numbered-lists/
-keywords: "项目符号, 项目符号列表, 数字, 编号列表, 图片项目符号, 多级项目符号, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中创建PowerPoint演示文稿中的项目符号和编号列表"
+keywords:
+- 项目符号
+- 项目符号列表
+- 编号列表
+- 符号项目符号
+- 图片项目符号
+- 自定义项目符号
+- 多级列表
+- 创建项目符号
+- 添加项目符号
+- 添加列表
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用适用于 .NET 的 Aspose.Slides for Python 管理 PowerPoint 和 OpenDocument 演示文稿中的项目符号和编号列表。分步指南和代码示例助您快速上手。"
 ---
 
 在 **Microsoft PowerPoint** 中，您可以像在Word和其他文本编辑器中一样创建项目符号和编号列表。**Aspose.Slides for Python via .NET** 还允许您在演示文稿的幻灯片中使用项目符号和数字。

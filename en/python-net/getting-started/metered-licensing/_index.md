@@ -5,10 +5,14 @@ weight: 90
 url: /python-net/metered-licensing/
 keywords:
 - license
-- metered licensing
+- metered license
+- license keys
+- public key
+- private key
+- consumption quantity
 - Python
-- .NET
-- Aspose.Slides for Python via .NET
+- Aspose.Slides
+description: "Learn how Aspose.Slides for Python via .NET metered licensing lets you process PowerPoint and OpenDocument files flexibly, paying only for what you use."
 ---
 
 {{% alert color="primary" %}} 

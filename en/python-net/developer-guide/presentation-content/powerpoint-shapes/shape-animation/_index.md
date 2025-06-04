@@ -1,5 +1,6 @@
 ---
-title: Shape Animation
+title: Apply Shape Animations in Presentations with Python
+linktitle: Shape Animation
 type: docs
 weight: 60
 url: /python-net/shape-animation/
@@ -7,15 +8,21 @@ keywords:
 - shape
 - animation
 - effect
-- add effects
-- get effects
-- extract effects
+- animated shape
+- animated text
+- add animation
+- get animation
+- extract animation
+- add effect
+- get effect
+- extract effect
+- effect sound
 - apply animation
 - PowerPoint
 - presentation
 - Python
-- Aspose.Slides for Python via .NET
-description: "Apply PowerPoint animation in Python"
+- Aspose.Slides
+description: "Discover how to create and customize shape animations in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Stand out!"
 ---
 
 Animations are visual effects that can be applied to texts, images, shapes, or [charts](/slides/python-net/animated-charts/). They give life to presentations or its constituents. 

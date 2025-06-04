@@ -1,10 +1,33 @@
 ---
-title: Cadre Photo
+title: Ajouter des cadres photo aux présentations avec Python
+linktitle: Cadre Photo
 type: docs
 weight: 10
 url: /fr/python-net/picture-frame/
-keywords: "Ajouter cadre photo, créer cadre photo, ajouter image, créer image, extraire image, propriété StretchOff, mise en forme du cadre photo, propriétés du cadre photo, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter un cadre photo à une présentation PowerPoint en Python"
+keywords:
+- cadre photo
+- ajouter un cadre photo
+- créer un cadre photo
+- ajouter une image
+- créer une image
+- extraire une image
+- image raster
+- image vectorielle
+- recadrer une image
+- zone recadrée
+- propriété StretchOff
+- mise en forme du cadre photo
+- propriétés du cadre photo
+- échelle relative
+- effet d'image
+- rapport d'aspect
+- transparence de l'image
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Ajouter des cadres photo aux présentations PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET. Rationalisez votre flux de travail et améliorez la conception des diapositives."
 ---
 
 Un cadre photo est une forme qui contient une image—c'est comme une image dans un cadre.
