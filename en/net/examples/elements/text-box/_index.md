@@ -34,7 +34,7 @@ public static void Add_TextBox()
 }
 ````
 
-> 💡 **Note:** Any `AutoShape` that contains a `TextFrame` can function as a text box.
+> 💡 **Note:** Any `AutoShape` that contains a non-empty `TextFrame` can function as a text box.
 
 ## Access Text Boxes by Content
 
