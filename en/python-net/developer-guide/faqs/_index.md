@@ -4,7 +4,7 @@ type: docs
 weight: 340
 url: /python-net/faqs/
 keywords:
-- FAQ
+- FAQs
 - PowerPoint
 - presentation format
 - out of memory error
@@ -15,7 +15,8 @@ keywords:
 - formatting tables
 - font
 - Python
-- Aspose.Slides for Python via .NET
+- Aspose.Slides
+description: "Get answers to FAQs on Aspose.Slides for Python via .NET, covering PowerPoint and OpenDocument support, installation guidance, licensing, troubleshooting."
 ---
 
 ## **Supported File Formats**

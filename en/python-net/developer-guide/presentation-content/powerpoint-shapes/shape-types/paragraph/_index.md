@@ -1,10 +1,23 @@
 ---
-title: Paragraph
+title: Get Paragraph Bounds from Presentations in Python
+linktitle: Paragraph
 type: docs
 weight: 60
 url: /python-net/paragraph/
-keywords: "Paragraph, portion, paragraph coordinate, portion coordinate, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Paragraph and portion in PowerPoint presentation in Python"
+keywords:
+- paragraph bounds
+- text portion bounds
+- paragraph coordinate
+- portion coordinate
+- paragraph size
+- text portion size
+- text frame
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to retrieve paragraph and text-portion bounds in Aspose.Slides for Python via .NET to optimize text positioning in PowerPoint and OpenDocument presentations."
 ---
 
 ## **Get Paragraph and Portion Coordinates in TextFrame**

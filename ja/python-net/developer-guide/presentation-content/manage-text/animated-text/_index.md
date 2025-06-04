@@ -1,10 +1,20 @@
 ---
-title: アニメーションテキスト
+title: Python で PowerPoint テキストをアニメーション化する
+linktitle: アニメーション テキスト
 type: docs
 weight: 60
 url: /ja/python-net/animated-text/
-keywords: "アニメーションテキスト, アニメーション効果, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションにアニメーションテキストと効果を追加する"
+keywords:
+- アニメーション テキスト
+- テキスト アニメーション
+- アニメーション 段落
+- 段落アニメーション
+- アニメーション効果
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションに動的なアニメーション テキストを作成する方法を、わかりやすく最適化されたコード例とともに紹介します。"
 ---
 
 ## 段落にアニメーション効果を追加する

@@ -1,10 +1,20 @@
 ---
-title: Digital Signature in PowerPoint
+title: Add Digital Signatures to Presentations with Python
+linktitle: Digital Signature
 type: docs
 weight: 10
 url: /python-net/digital-signature-in-powerpoint/
-keywords: "Digital signature certificate, certificate authority, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add digital signature or certificate in PowerPoint. Certificate authority in Python"
+keywords:
+- digital signature
+- digital certificate
+- certificate authority
+- PFX certificate
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to digitally sign PowerPoint & OpenDocument files with Aspose.Slides for Python via .NET. Secure your slides in seconds with clear code examples."
 ---
 
 

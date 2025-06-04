@@ -1,22 +1,22 @@
 ---
-title: PythonでPowerPointをPDFに変換する
-linktitle: PowerPointをPDFに変換する
+title: Python で PPT & PPTX を PDF に変換 | 高度なオプション
+linktitle: PowerPoint を PDF に
 type: docs
 weight: 40
 url: /ja/python-net/convert-powerpoint-to-pdf/
 keywords:
-- PowerPointを変換
+- PowerPoint を変換
 - プレゼンテーション
-- PowerPointからPDF
-- PPTからPDF
-- PPTXからPDF
-- PowerPointをPDFとして保存
+- PowerPoint を PDF に
+- PPT を PDF に
+- PPTX を PDF に
+- PowerPoint を PDF として保存
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
 - Python
-- Aspose.Slides for Python
-description: "PythonでPowerPointプレゼンテーションをPDFに変換します。準拠またはアクセシビリティ基準を満たすPDFとしてPowerPointを保存します。"
+- Aspose.Slides
+description: "Aspose.Slides を使用して、Python で PPT、PPTX、ODP を高品質かつ WCAG 準拠の PDF に変換するステップバイステップ ガイド。パスワード保護、スライド選択、画像品質制御を含みます。"
 ---
 
 ## **概要**

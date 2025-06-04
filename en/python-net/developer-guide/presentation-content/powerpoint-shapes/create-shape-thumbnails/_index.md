@@ -1,10 +1,19 @@
 ---
-title: Create Shape Thumbnails
+title: Create Thumbnails of Presentation Shapes in Python
+linktitle: Shape Thumbnails
 type: docs
 weight: 70
 url: /python-net/create-shape-thumbnails/
-keywords: "Shape thumbnail. PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Shape thumbnail in PowerPoint presentation in Python"
+keywords:
+- shape thumbnail
+- shape image
+- render shape
+- shape rendering
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Generate high-quality shape thumbnails from PowerPoint and OpenDocument slides with Aspose.Slides for Python via .NET – easily create and export presentation thumbnails."
 ---
 
 Aspose.Slides for Python via .NET is used to create presentation files where each page is a slides. These slides can be viewed by opening the presentation files using Microsoft PowerPoint. But sometimes, developers may need to view the images of the shapes separately in an image viewer. In such cases, Aspose.Slides for Python via .NET helps you generate thumbnail images of the slide shapes. How to use this feature is described in this article.
