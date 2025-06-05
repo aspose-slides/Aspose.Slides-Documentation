@@ -22,8 +22,11 @@ keywords:
 - text frame anchor
 - text tabulation
 - default language
+- PowerPoint
+- OpenDocument
+- presentation
 - Python
-- Aspose.Slides for Python
+- Aspose.Slides
 description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Python via .NET. Customize fonts, colors, alignment, and more with powerful Python code examples."
 ---
 
@@ -632,4 +635,34 @@ with slides.Presentation() as presentation:
         paragraphFormat.default_portion_format.font_bold = slides.NullableBool.TRUE
 
     presentation.save("DefaultTextStyle.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Extract Text with the All-Caps Effect**
+
+In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To handle this, check [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/)—if it indicates `ALL`, simply convert the returned string to uppercase so that your output matches what users see on the slide.
+
+Let’s say we have the following text box on the first slide of the sample2.pptx file.
+
+![The All Caps effect](all_caps_effect.png)
+
+ The code example below shows how to extract the text with the **All Caps** effect aplyied:
+
+```py
+with slides.Presentation("sample2.pptx") as presentation:
+    auto_shape = presentation.slides[0].shapes[0]
+    text_portion = auto_shape.text_frame.paragraphs[0].portions[0]
+
+    print("Original text:", text_portion.text)
+
+    text_format = text_portion.portion_format.get_effective()
+    if text_format.text_cap_type == slides.TextCapType.ALL:
+        text = text_portion.text.upper()
+        print("All-Caps effect:", text)
+```
+
+Output:
+
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
 ```

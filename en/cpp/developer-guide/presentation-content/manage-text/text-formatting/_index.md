@@ -1,26 +1,33 @@
 ---
-title: Text Formatting
+title: Format PowerPoint Text in C++
+linktitle: Text Formatting
 type: docs
 weight: 50
 url: /cpp/text-formatting/
 keywords:
 - highlight text
 - regular expression
-- align text paragraphs
+- align paragraph
+- text style
+- text background
 - text transparency
-- paragraph font properties
+- character spacing
+- font properties
 - font family
 - text rotation
-- custom angle rotation
+- rotation angle
 - text frame
 - line spacing
 - autofit property
 - text frame anchor
 - text tabulation
-- default text style
+- default language
+- PowerPoint
+- OpenDocument
+- presentation
 - C++
-- Aspose.Slides for .C++
-description: "Manage and manipulate text and text frame properties in C++"
+- Aspose.Slides
+description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for C++. Customize fonts, colors, alignment, and more with powerful C++ code examples."
 ---
 
 ## **Highlight Text**
@@ -416,4 +423,38 @@ if (paragraphFormat != NULL) {
 
 presentation->Save(u"DefaultTextStyle.pptx", SaveFormat::Pptx);
 presentation->Dispose();
+```
+
+## **Extract Text with the All-Caps Effect**
+
+In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To handle this, check [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/)—if it indicates `All`, simply convert the returned string to uppercase so that your output matches what users see on the slide.
+
+Let’s say we have the following text box on the first slide of the sample2.pptx file.
+
+![The All Caps effect](all_caps_effect.png)
+
+ The code example below shows how to extract the text with the **All Caps** effect aplyied:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample2.pptx");
+{
+    auto autoShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+    auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+
+    Console::WriteLine(u"Original text: " + textPortion->get_Text());
+
+    auto textFormat = textPortion->get_PortionFormat()->GetEffective();
+    if (textFormat->get_TextCapType() == TextCapType::All)
+    {
+        auto text = textPortion->get_Text().ToUpper();
+        Console::WriteLine(u"All-Caps effect: " + text);
+    }
+}
+```
+
+Output:
+
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
 ```

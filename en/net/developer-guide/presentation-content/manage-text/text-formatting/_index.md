@@ -22,8 +22,11 @@ keywords:
 - text frame anchor
 - text tabulation
 - default language
+- PowerPoint
+- OpenDocument
+- presentation
 - C#
-- Aspose.Slides for .NET
+- Aspose.Slides
 description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. Customize fonts, colors, alignment, and more with powerful C# code examples."
 ---
 
