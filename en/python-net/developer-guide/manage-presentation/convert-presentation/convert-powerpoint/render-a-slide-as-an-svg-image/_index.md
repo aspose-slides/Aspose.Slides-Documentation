@@ -1,8 +1,27 @@
 ---
-title: Render a Slide as an SVG Image
+title: Render Presentation Slides to SVG Images in Python
+linktitle: Slide to SVG
 type: docs
 weight: 50
 url: /python-net/render-a-slide-as-an-svg-image/
+keywords:
+- slide to SVG
+- presentation to SVG
+- PowerPoint to SVG
+- OpenDocument to SVG
+- PPT to SVG
+- PPTX to SVG
+- ODP to SVG
+- render slide
+- convert slide
+- export slide
+- vector image
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to render PowerPoint and OpenDocument slides as SVG images using Aspose.Slides for Python via .NET. High-quality visuals with simple code examples."
 ---
 
 SVG—an acronym for Scalable Vector Graphics—is a standard graphics type or format used to render two-dimensional images. SVG stores images as vectors in XML with details that define their behavior or appearance. 

@@ -1,10 +1,18 @@
 ---
-title: Compare Slides
+title: Compare Presentation Slides in Python
+linktitle: Compare Slides
 type: docs
 weight: 50
 url: /python-net/compare-slides/
-keywords: "Compare PowerPoint slides, Compare two slides, Presentation, Python, Aspose.Slides"
-description: "Compare PowerPoint presentation slides in Python"
+keywords:
+- compare slides
+- slide comparison
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Compare PowerPoint and OpenDocument presentations programmatically with Aspose.Slides for Python via .NET. Identify slide differences in code quickly."
 ---
 
 ## **Compare Two Slides**
