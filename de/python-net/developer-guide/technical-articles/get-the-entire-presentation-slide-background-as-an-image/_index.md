@@ -2,7 +2,7 @@
 title: Holen Sie sich den gesamten Hintergrund der Präsentationsfolie als Bild
 type: docs
 weight: 95
-url: /python-net/get-the-entire-presentation-slide-background-as-an-image/
+url: /de/python-net/get-the-entire-presentation-slide-background-as-an-image/
 keywords:
 - folien
 - hintergrund
