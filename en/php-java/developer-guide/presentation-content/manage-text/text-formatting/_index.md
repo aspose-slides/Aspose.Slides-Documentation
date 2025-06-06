@@ -1,8 +1,33 @@
 ---
-title: Text Formatting
+title: Format PowerPoint Text in PHP
+linktitle: Text Formatting
 type: docs
 weight: 50
 url: /php-java/text-formatting/
+keywords:
+- highlight text
+- regular expression
+- align paragraph
+- text style
+- text background
+- text transparency
+- character spacing
+- font properties
+- font family
+- text rotation
+- rotation angle
+- text frame
+- line spacing
+- autofit property
+- text frame anchor
+- text tabulation
+- default language
+- PowerPoint
+- OpenDocument
+- presentation
+- PHP
+- Aspose.Slides
+description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for PHP via Java. Customize fonts, colors, alignment, and more with powerful PHP code examples."
 ---
 
 
@@ -577,3 +602,40 @@ All text tabulations are given in pixels.
 - EffectiveTabs.DefaultTabSize (294) property shows distance between default tabs (3 and 4 in our example).
 - EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
 - EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Hello World!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
+
+## **Extract Text with the All-Caps Effect**
+
+In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To handle this, check [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/)—if it indicates `All`, simply convert the returned string to uppercase so that your output matches what users see on the slide.
+
+Let’s say we have the following text box on the first slide of the sample2.pptx file.
+
+![The All Caps effect](all_caps_effect.png)
+
+ The code example below shows how to extract the text with the **All Caps** effect aplyied:
+
+```php
+$presentation = new Presentation("sample2.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
+    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $textPortion = $paragraph->getPortions()->get_Item(0);
+
+    echo "Original text: ", $textPortion->getText(), "\n";
+
+    $textFormat = $textPortion->getPortionFormat()->getEffective();
+    if (java_values($textFormat->getTextCapType()) === TextCapType::All) {
+        $text = $textPortion->getText()->toUpperCase();
+        echo "All-Caps effect: ", $text, "\n";
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Output:
+
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
+```
