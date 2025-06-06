@@ -2,7 +2,7 @@
 title: Ersetzen von Bildern in der Präsentationsbildsammlung
 type: docs
 weight: 110
-url: /python-net/replacing-images-inside-presentation-image-collection/
+url: /de/python-net/replacing-images-inside-presentation-image-collection/
 ---
 
 {{% alert color="primary" %}} 

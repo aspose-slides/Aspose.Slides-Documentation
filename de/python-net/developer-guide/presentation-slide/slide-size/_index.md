@@ -2,7 +2,7 @@
 title: Foliengröße
 type: docs
 weight: 70
-url: /python-net/slide-size/
+url: /de/python-net/slide-size/
 keywords: "Folie festlegen, Foliengröße bearbeiten, PowerPoint-Präsentation, benutzerdefinierte Foliengröße, Folienprobleme lösen, Python, Aspose.Slides"
 descriptions: "Foliegröße oder Seitenverhältnis in PowerPoint in Python festlegen und bearbeiten"
 ---
