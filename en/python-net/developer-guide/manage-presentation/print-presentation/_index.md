@@ -1,11 +1,27 @@
 ---
-title: Print Presentation
+title: Print Presentations with Python
+linktitle: Print Presentation
 type: docs
 weight: 50
 url: /python-net/print-presentation/
-keywords: "Print PowerPoint, PPT, PPTX, Print Presentation, Python, Printer, Print Options"
-description: "Print PowerPoint Presentation in Python"
+keywords:
+- print PowerPoint
+- print OpenDocument
+- print presentation
+- print PPT
+- print PPTX
+- print ODP
+- default printer
+- specific printer
+- print options
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Print PowerPoint and OpenDocument presentations in Python with Aspose.Slides. Learn to customize print settings and automate document output."
 ---
+
 Aspose.Slides for Python provides 4 overloaded `print` methods that allow you to print presentations. The overloaded methods take different arguments, so you will always find a method that suits your printing needs.
 
 ## **Print to Default Printer**
