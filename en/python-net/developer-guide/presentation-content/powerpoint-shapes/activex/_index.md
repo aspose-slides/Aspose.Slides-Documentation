@@ -1,10 +1,21 @@
 ---
-title: ActiveX
+title: Manage ActiveX Controls in Presentations with Python
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /python-net/activex/
-keywords: "ActiveX, ActiveX controls, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Manage ActiveX controls in PowerPoint presentation in Python"
+keywords:
+- ActiveX
+- ActiveX control
+- manage ActiveX
+- add ActiveX
+- modify ActiveX
+- media player
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how Aspose.Slides for Python via .NET leverages ActiveX to automate and enhance PowerPoint presentations, giving developers powerful control over slides."
 ---
 
 ActiveX controls are used in presentations. Aspose.Slides for Python via .NET lets you manage ActiveX controls, but managing them is bit trickier and different from normal presentation shapes. From Aspose.Slides for Python via .NET 6.9.0, the component supports managing ActiveX controls. At the moment, you can access already added ActiveX control in your presentation and modify or delete it by using its various properties. Remember, ActiveX controls are not shapes and are not part of the presentation's IShapeCollection but the separate IControlCollection. This article shows how to work with them.
