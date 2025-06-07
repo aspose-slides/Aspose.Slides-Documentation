@@ -1,9 +1,24 @@
 ---
-title: Trend Line
+title: Add Trend Lines to Presentation Charts in Python
+linktitle: Trend Line
 type: docs
 url: /python-net/trend-line/
-keywords: "Trend line, custom line PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add trend line and custom line to PowerPoint presentations in Python"
+keywords:
+- chart
+- trend line
+- exponential trend line
+- linear trend line
+- logarithmic trend line
+- moving average trend line
+- polynomial trend line
+- power trend line
+- custom trend line
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Quickly add and customize trend lines in PowerPoint and OpenDocument charts with Aspose.Slides for Python via .NET — a practical guide and code examples to improve forecasting accuracy and engage your audience."
 ---
 
 ## **Add Trend Line**

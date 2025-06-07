@@ -1,10 +1,23 @@
 ---
-title: Font Substitution
+title: Configure Font Substitution in Presentations with Python
+linktitle: Font Substitution
 type: docs
 weight: 70
 url: /python-net/font-substitution/
-keywords: "Font, substitute font, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Substitute font in PowerPoint in Python"
+keywords:
+- font
+- substitute font
+- font substitution
+- replace font
+- font replacement
+- substitution rule
+- replacement rule
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Enable optimal font substitution in Aspose.Slides for Python via .NET when converting PowerPoint & OpenDocument presentations to other file formats."
 ---
 
 Aspose.Slides allows you to set rules for fonts that determines what must be done in certain conditions (for example, when a font cannot be accessed) this way:

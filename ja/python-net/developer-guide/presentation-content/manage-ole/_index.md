@@ -1,22 +1,31 @@
 ---
-title: OLEの管理
+title: Python でプレゼンテーションの OLE を管理する
+linktitle: OLE を管理
 type: docs
 weight: 40
 url: /ja/python-net/manage-ole/
 keywords:
-- OLEを追加
-- OLEを埋め込む
+- OLE オブジェクト
+- オブジェクトのリンクと埋め込み
+- OLE を追加
+- OLE を埋め込む
 - オブジェクトを追加
 - オブジェクトを埋め込む
+- ファイルを追加
 - ファイルを埋め込む
 - リンクされたオブジェクト
-- オブジェクトリンク＆埋め込み
-- OLEオブジェクト
-- PowerPoint 
+- リンクされたファイル
+- OLE を変更
+- OLE アイコン
+- OLE タイトル
+- OLE を抽出
+- オブジェクトを抽出
+- ファイルを抽出
+- PowerPoint
 - プレゼンテーション
 - Python
-- Aspose.Slides for Python via .NET
-description: PythonでPowerPointプレゼンテーションにOLEオブジェクトを追加する
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument ファイルで OLE オブジェクトの管理を最適化します。OLE コンテンツの埋め込み、更新、エクスポートをシームレスに行います。"
 ---
 
 {{% alert title="情報" color="info" %}}

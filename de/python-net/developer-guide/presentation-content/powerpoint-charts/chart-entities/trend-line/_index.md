@@ -1,9 +1,24 @@
 ---
-title: Trendlinie
+title: Trendlinien zu Präsentationsdiagrammen in Python hinzufügen
+linktitle: Trendlinie
 type: docs
 url: /de/python-net/trend-line/
-keywords: "Trendlinie, benutzerdefinierte Linie PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Fügen Sie Trendlinien und benutzerdefinierte Linien zu PowerPoint-Präsentationen in Python hinzu"
+keywords:
+- Diagramm
+- Trendlinie
+- exponentielle Trendlinie
+- lineare Trendlinie
+- logarithmische Trendlinie
+- gleitende Durchschnittstrendlinie
+- polynomiale Trendlinie
+- Potenztrendlinie
+- benutzerdefinierte Trendlinie
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Fügen Sie mit Aspose.Slides for Python via .NET schnell Trendlinien zu PowerPoint- und OpenDocument-Diagrammen hinzu und passen Sie diese an – ein praxisorientierter Leitfaden mit Codebeispielen, um die Prognosegenauigkeit zu verbessern und Ihr Publikum zu begeistern."
 ---
 
 ## **Trendlinie hinzufügen**

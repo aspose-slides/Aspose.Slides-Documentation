@@ -1,10 +1,38 @@
 ---
-title: 将 PowerPoint 转换为视频
+title: 在 Python 中将演示文稿转换为视频
+linktitle: 演示文稿转视频
 type: docs
 weight: 130
 url: /zh/python-net/convert-powerpoint-to-video/
-keywords: "将 PowerPoint 转换为视频, PPT, PPTX, 演示文稿, 视频, MP4, PPT 转视频, PPT 转 MP4, Python, Aspose.Slides"
-description: "在 Python 中将 PowerPoint 转换为视频"
+keywords:
+- PowerPoint 转视频
+- 将 PowerPoint 转换为视频
+- 演示文稿 转视频
+- 将演示文稿转换为视频
+- PPT 转视频
+- 将 PPT 转换为视频
+- PPTX 转视频
+- 将 PPTX 转换为视频
+- ODP 转视频
+- 将 ODP 转换为视频
+- PowerPoint 转 MP4
+- 将 PowerPoint 转换为 MP4
+- 演示文稿 转 MP4
+- 将演示文稿转换为 MP4
+- PPT 转 MP4
+- 将 PPT 转换为 MP4
+- PPTX 转 MP4
+- 将 PPTX 转换为 MP4
+- PowerPoint 转视频转换
+- 演示文稿 转视频转换
+- PPT 转视频转换
+- PPTX 转视频转换
+- ODP 转视频转换
+- Python 视频转换
+- PowerPoint
+- Python
+- Aspose.Slides
+description: "学习如何使用 Python 将 PowerPoint 和 OpenDocument 演示文稿转换为视频。探索示例代码和自动化技术，简化工作流程。"
 ---
 
 通过将 PowerPoint 演示文稿转换为视频，您可以获得

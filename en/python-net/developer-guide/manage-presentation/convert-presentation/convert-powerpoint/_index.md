@@ -1,9 +1,25 @@
 ---
-title: Convert PowerPoint in Python | HTML, PNG, PDF, Word, TIFF
-linktitle: Convert PowerPoint
+title: Convert Presentations with Python | HTML, PNG, PDF, Word, TIFF
+linktitle: Convert Presentation
 type: docs
 weight: 20
 url: /python-net/convert-powerpoint/
-description: This articles list topics and sample codes in Python that can be used to convert PowerPoint (PPT, PPTX, ODP) to different formats like HTML, PNG, PDF, Word, TIFF etc.
+keywords:
+- convert PowerPoint
+- convert OpenDocument
+- convert presentation
+- convert slide
+- convert PPT
+- convert PPTX
+- convert ODP
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- export slide
+- export PPT
+- export PPTX
+- export ODP
+- Python
+- Aspose.Slides
+description: "Convert PowerPoint & OpenDocument presentations to other formats using Aspose.Slides for Python via .NET. Fast, accurate, and seamless PPT, PPTX, and ODP conversion."
 ---
-

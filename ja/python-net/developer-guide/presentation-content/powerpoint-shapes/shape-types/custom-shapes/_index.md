@@ -1,10 +1,28 @@
 ---
-title: カスタムシェイプ
+title: Python でプレゼンテーションの図形をカスタマイズする
+linktitle: カスタム 図形
 type: docs
 weight: 20
 url: /ja/python-net/custom-shape/
-keywords: "PowerPoint シェイプ, カスタムシェイプ, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Python で PowerPoint プレゼンテーションにカスタムシェイプを追加する"
+keywords:
+- カスタム 図形
+- 図形を追加
+- 図形を作成
+- 図形を変更
+- 図形のジオメトリ
+- ジオメトリ パス
+- パス ポイント
+- ポイントを編集
+- ポイントを追加
+- ポイントを削除
+- 編集操作
+- 曲線の角
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションで図形を作成およびカスタマイズします：ジオメトリ パス、曲線の角、複合図形。"
 ---
 
 # エディットポイントを使用したシェイプの変更

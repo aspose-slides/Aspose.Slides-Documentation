@@ -1,10 +1,24 @@
 ---
-title: WordArt
+title: Create and Apply WordArt Effects in Python
+linktitle: WordArt
 type: docs
 weight: 110
 url: /python-net/wordart/
-keywords: "WordArt, Word Art, Create WordArt, WordArt template, WordArt effects, Shadow effects, Display effects, Glow effects, WordArt transformations, 3D effects, Outer shadow effects, Inner Shadow effects, Python, Aspose.Slides for Python via .NET"
-description: "Add, manipulate, and manage WordArt and effects in PowerPoint presentations in Python or Aspose.Slides for Python via .NET"
+keywords:
+- WordArt
+- create WordArt
+- WordArt template
+- WordArt effect
+- shadow effect
+- display effect
+- glow effect
+- WordArt transformation
+- 3D effect
+- outer shadow effect
+- inner Shadow effect
+- Python
+- Aspose.Slides
+description: "Learn how to create and customize WordArt effects in Aspose.Slides for Python via .NET. This step-by-step guide helps developers enhance presentations with stylish, professional text in Python."
 ---
 
 ## **About WordArt?**

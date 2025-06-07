@@ -1,11 +1,35 @@
 ---
-title: Password Protected Presentation
+title: Secure Presentations with Passwords Using Python
+linktitle: Password Protection
 type: docs
 weight: 20
 url: /python-net/password-protected-presentation/
-keywords: "Lock PowerPoint, unlock PowerPoint, protect PowerPoint, set password, add password, encrypt PowerPoint, decrypt PowerPoint, Write protection, PowerPoint security, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint password protection, encryption, and security in Python"
-
+keywords:
+- lock PowerPoint
+- lock presentation
+- unlock PowerPoint
+- unlock presentation
+- protect PowerPoint
+- protect presentation
+- set password
+- add password
+- encrypt PowerPoint
+- encrypt presentation
+- decrypt PowerPoint
+- decrypt presentation
+- write protection
+- PowerPoint security
+- presentation security
+- remove password
+- remove protection
+- remove encryption
+- disable password
+- disable protection
+- remove write protection
+- PowerPoint presentation
+- Python
+- Aspose.Slides
+description: "Learn how to effortlessly lock and unlock password-protected PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET. Boost your productivity and secure your presentations with our step-by-step guide."
 ---
 
 

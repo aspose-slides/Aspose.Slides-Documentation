@@ -1,10 +1,34 @@
 ---
-title: 幻灯片布局
+title: 在 Python 中应用或更改幻灯片版式
+linktitle: 幻灯片版式
 type: docs
 weight: 60
 url: /zh/python-net/slide-layout/
-keyword: "设置幻灯片大小，设置幻灯片选项，指定幻灯片大小，页脚可见性，子页脚，内容缩放，页面大小，Python，Aspose.Slides"
-description: "在Python中设置PowerPoint幻灯片大小和选项"
+keywords:
+- 幻灯片版式
+- 内容版式
+- 占位符
+- 演示文稿设计
+- 幻灯片设计
+- 未使用的版式
+- 页脚可见性
+- 标题幻灯片
+- 标题和内容
+- 分节标题
+- 双内容
+- 比较
+- 仅标题
+- 空白版式
+- 带标题的内容
+- 带标题的图片
+- 标题与竖排文本
+- 竖排标题与文本
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何在适用于 .NET 的 Aspose.Slides for Python 中管理和自定义幻灯片版式。通过 Python 代码示例，探索版式类型、占位符控制、页脚可见性和版式操作。"
 ---
 
 幻灯片布局包含占位符框和所有出现在幻灯片上的内容的格式信息。布局确定可用的内容占位符以及它们放置的位置。

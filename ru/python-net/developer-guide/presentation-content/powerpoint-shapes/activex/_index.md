@@ -1,10 +1,21 @@
 ---
-title: ActiveX
+title: Управляйте элементами ActiveX в презентациях с помощью Python
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ru/python-net/activex/
-keywords: "ActiveX, контролы ActiveX, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Управление контролами ActiveX в презентации PowerPoint на Python"
+keywords:
+- ActiveX
+- элемент ActiveX
+- управление ActiveX
+- добавление ActiveX
+- изменение ActiveX
+- медиа-плеер
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как Aspose.Slides for Python via .NET использует ActiveX для автоматизации и улучшения презентаций PowerPoint, предоставляя разработчикам мощный контроль над слайдами."
 ---
 
 Контролы ActiveX используются в презентациях. Aspose.Slides для Python через .NET позволяет управлять контролами ActiveX, но управление ими несколько сложнее и отличается от обычных фигур презентации. Начиная с версии 6.9.0 Aspose.Slides для Python через .NET, компонент поддерживает управление контролами ActiveX. В данный момент вы можете получить доступ к уже добавленному контролу ActiveX в вашей презентации и изменить или удалить его, используя различные свойства. Помните, что контролы ActiveX не являются фигурами и не входят в IShapeCollection презентации, а представляют собой отдельную IControlCollection. Эта статья показывает, как работать с ними.

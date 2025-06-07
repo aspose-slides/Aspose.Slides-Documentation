@@ -1,11 +1,30 @@
 ---
-title: Créer des graphiques de présentation PowerPoint en Python
-linktitle: Créer un graphique
+title: Créer ou Mettre à Jour des Graphiques de Présentation en Python
+linktitle: Créer ou Mettre à Jour un Graphique
 type: docs
 weight: 10
 url: /fr/python-net/create-chart/
-keywords: "Créer un graphique, graphique éparpillé, graphique à secteurs, graphique en arbre, graphique boursier, graphique en boîte et moustaches, graphique histogramme, graphique en entonnoir, graphique en éclat, graphique multicatégorie, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Créer un graphique dans une présentation PowerPoint en Python"
+keywords:
+- ajouter un graphique
+- créer un graphique
+- éditer un graphique
+- modifier un graphique
+- mettre à jour un graphique
+- graphique en nuage de points
+- graphique en secteurs
+- graphique linéaire
+- graphique en treemap
+- graphique boursier
+- graphique en boîte à moustaches
+- graphique en entonnoir
+- graphique en sunburst
+- graphique en histogramme
+- graphique radar
+- graphique multicatégorie
+- présentation PowerPoint
+- Python
+- Aspose.Slides
+description: "Apprenez à créer et personnaliser des graphiques dans des présentations PowerPoint et OpenDocument en utilisant Aspose.Slides for Python via .NET. Cela couvre l’ajout, le formatage et la modification de graphiques dans des présentations avec des exemples de code pratiques en Python."
 ---
 
 ## **Créer un Graphique**
