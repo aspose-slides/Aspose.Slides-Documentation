@@ -1,10 +1,33 @@
 ---
-title: PowerPoint-Absätze in Python verwalten
+title: Verwalten von Textabsätzen in Präsentationen mit Python
+linktitle: Absatz verwalten
 type: docs
 weight: 40
 url: /de/python-net/manage-paragraph/
-keywords: "PowerPoint-Absatz hinzufügen, Absätze verwalten, Absatz-Indentation, Absatz-Eigenschaften, HTML-Text, Absatztext exportieren, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Erstellen und Verwalten von Absätzen, Texten, Indentationen und Eigenschaften in PowerPoint-Präsentationen in Python"
+keywords:
+- Text hinzufügen
+- Absatz hinzufügen
+- Text verwalten
+- Absatz verwalten
+- Aufzählungszeichen verwalten
+- Absatzeinzug
+- hängender Einzug
+- Absatz-Aufzählungszeichen
+- nummerierte Liste
+- Aufzählungsliste
+- Absatz-Eigenschaften
+- HTML importieren
+- Text zu HTML
+- Absatz zu HTML
+- Absatz zu Bild
+- Text zu Bild
+- Absatz exportieren
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Beherrschen Sie die Absatzformatierung mit Aspose.Slides für Python über .NET — optimieren Sie Ausrichtung, Abstände und Stil in PowerPoint- und OpenDocument-Präsentationen in Python, um die Zuschauer zu begeistern."
 ---
 
 Aspose.Slides bietet alle Schnittstellen und Klassen, die Sie benötigen, um in Python mit PowerPoint-Texten, Absätzen und Teilen zu arbeiten.

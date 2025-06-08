@@ -1,19 +1,30 @@
 ---
-title: Export to HTML5
+title: Convert Presentations to HTML5 in Python
+linktitle: Export to HTML5
 type: docs
 weight: 40
 url: /python-net/export-to-html5/
 keywords:
-- PowerPoint to HTML
-- slides to HTML
-- HTML5
-- HTML export
-- export presentation
+- PowerPoint to HTML5
+- OpenDocument to HTML5
+- presentation to HTML5
+- slide to HTML5
+- PPT to HTML5
+- PPTX to HTML5
+- ODP to HTML5
+- convert PowerPoint
+- convert OpenDocument
 - convert presentation
-- convert slides
-- Java
-- Aspose.Slides for Python via .NET
-description: "Export PowerPoint to HTML5 in Python"
+- convert slide
+- HTML5 export
+- export presentation
+- export slide
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Export PowerPoint & OpenDocument presentations to responsive HTML5 with Aspose.Slides for Python via .NET. Preserve formatting, animations, and interactivity."
 ---
 
 {{% alert title="Info" color="info" %}}

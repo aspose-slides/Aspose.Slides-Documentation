@@ -1,8 +1,22 @@
 ---
-title: 功能概述
+title: 功能概览
 type: docs
 weight: 20
 url: /zh/python-net/features-overview/
+keywords:
+- 功能
+- 支持的平台
+- 文件格式
+- 转换
+- 渲染
+- 打印
+- 格式化
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解适用于 .NET 的 Aspose.Slides for Python：一款强大的 API，可高效创建、编辑、自动化和转换 PowerPoint 与 OpenDocument 演示文稿。"
 ---
 
 ## **支持的平台**
