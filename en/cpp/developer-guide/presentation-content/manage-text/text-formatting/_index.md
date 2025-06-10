@@ -437,19 +437,19 @@ Let’s say we have the following text box on the first slide of the sample2.ppt
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"sample2.pptx");
+auto autoShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+
+Console::WriteLine(u"Original text: " + textPortion->get_Text());
+
+auto textFormat = textPortion->get_PortionFormat()->GetEffective();
+if (textFormat->get_TextCapType() == TextCapType::All)
 {
-    auto autoShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
-    auto textPortion = autoShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
-
-    Console::WriteLine(u"Original text: " + textPortion->get_Text());
-
-    auto textFormat = textPortion->get_PortionFormat()->GetEffective();
-    if (textFormat->get_TextCapType() == TextCapType::All)
-    {
-        auto text = textPortion->get_Text().ToUpper();
-        Console::WriteLine(u"All-Caps effect: " + text);
-    }
+    auto text = textPortion->get_Text().ToUpper();
+    Console::WriteLine(u"All-Caps effect: " + text);
 }
+
+presentation->Dispose();
 ```
 
 Output:
