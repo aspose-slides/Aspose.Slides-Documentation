@@ -1,10 +1,23 @@
 ---
-title: Default Font
+title: Customize Default Fonts in Presentations with Python
+linktitle: Default Font
 type: docs
 weight: 30
 url: /python-net/default-font/
-keywords: "Fonts, default fonts, render presentation PowerPoint presentation Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint default fonts in Python"
+keywords:
+- default font
+- regular font
+- normal font
+- asian font
+- PDF export
+- XPS export
+- image export
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Set default fonts in Aspose.Slides for Python to ensure proper PowerPoint (PPT, PPTX) and OpenDocument (ODP) conversion to PDF, XPS and images."
 ---
 
 ## **Using Default Fonts for Rendering Presentation**

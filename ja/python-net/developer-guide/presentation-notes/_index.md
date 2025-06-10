@@ -1,10 +1,22 @@
 ---
-title: プレゼンテーションノート
+title: Python でプレゼンテーションのノートを管理する
+linktitle: プレゼンテーション ノート
 type: docs
 weight: 110
 url: /ja/python-net/presentation-notes/
-keywords: "ノート, パワーポイントノート, ノートを追加, ノートを削除, パワーポイントプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Pythonでパワーポイントプレゼンテーションにノートを追加および削除する"
+keywords:
+- ノート
+- ノートスライド
+- ノートを追加
+- ノートを削除
+- ノートのスタイル
+- マスターノート
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、プレゼンテーション ノートをカスタマイズし、PowerPoint および OpenDocument のノートをシームレスに操作して生産性を向上させましょう。"
 ---
 
 

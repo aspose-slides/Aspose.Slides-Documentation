@@ -1,6 +1,6 @@
 ---
-title: Конвертация PowerPoint в PDF на Python
-linktitle: Конвертация PowerPoint в PDF
+title: Преобразуйте PPT и PPTX в PDF на Python | Расширенные параметры
+linktitle: PowerPoint в PDF
 type: docs
 weight: 40
 url: /ru/python-net/convert-powerpoint-to-pdf/
@@ -14,9 +14,11 @@ keywords:
 - PDF/A1a
 - PDF/A1b
 - PDF/UA
+- PowerPoint
+- presentation
 - Python
-- Aspose.Slides для Python
-description: "Конвертация PowerPoint-презентаций в PDF на Python. Сохраните PowerPoint как PDF с соблюдением стандартов совместимости или доступности."
+- Aspose.Slides
+description: "Пошаговое руководство по конвертации PPT и PPTX в PDF высокого качества, соответствующих стандартам доступности WCAG, на Python с помощью Aspose.Slides — включает защиту паролем, выбор слайдов и контроль качества изображений."
 ---
 
 ## **Обзор**

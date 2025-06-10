@@ -1,11 +1,21 @@
 ---
-title: Пользовательский шрифт PowerPoint в Python
+title: Настройте шрифты PowerPoint презентации с помощью Python
 linktitle: Пользовательский шрифт
 type: docs
 weight: 20
 url: /ru/python-net/custom-font/
-keywords: "Шрифты, пользовательские шрифты, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Пользовательские шрифты PowerPoint в Python"
+keywords:
+- шрифт
+- пользовательский шрифт
+- внешний шрифт
+- загрузить шрифт
+- управление шрифтами
+- папка шрифтов
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Настраивайте пользовательские шрифты на слайдах PowerPoint с помощью Aspose.Slides for Python via .NET, чтобы ваши презентации оставались чёткими и единообразными на любом устройстве."
 ---
 
 {{% alert color="primary" %}} 

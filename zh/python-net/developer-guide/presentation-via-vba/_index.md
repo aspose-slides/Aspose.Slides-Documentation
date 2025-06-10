@@ -1,10 +1,25 @@
 ---
-title: 通过VBA进行演示
+title: 在 Python 中管理演示文稿中的 VBA 项目
+linktitle: 通过 VBA 管理演示文稿
 type: docs
 weight: 250
 url: /zh/python-net/presentation-via-vba/
-keywords: "宏, 宏, VBA, VBA宏, 添加宏, 删除宏, 添加VBA, 删除VBA, 提取宏, 提取VBA, PowerPoint宏, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中添加、删除和提取PowerPoint演示文稿中的VBA宏"
+keywords:
+- 宏
+- VBA
+- VBA 宏
+- 添加宏
+- 移除宏
+- 提取宏
+- 添加 VBA
+- 移除 VBA
+- 提取 VBA
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用适用于 .NET 的 Aspose.Slides for Python 通过 VBA 生成和操作 PowerPoint 与 OpenDocument 演示文稿，从而简化工作流程。"
 ---
 
 [Aspose.Slides.Vba](https://reference.aspose.com/slides/python-net/aspose.slides.vba/)命名空间包含用于处理宏和VBA代码的类和接口。

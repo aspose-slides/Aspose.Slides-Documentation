@@ -1,10 +1,24 @@
 ---
-title: プレゼンテーションのインポート
+title: Python でプレゼンテーションをインポートする
+linktitle: プレゼンテーションのインポート
 type: docs
 weight: 60
 url: /ja/python-net/import-presentation/
-keywords: "PowerPointのインポート, PDFからプレゼンテーションへ, PDFからPPTXへ, PDFからPPTへ, Python, .NET経由のAspose.Slides for Python"
-description: "PDFからPowerPointプレゼンテーションをインポートします。PDFをPowerPointに変換します"
+keywords:
+- PowerPoint をインポート
+- プレゼンテーションをインポート
+- スライドをインポート
+- PDF をプレゼンテーションに
+- PDF を PPT に
+- PDF を PPTX に
+- PDF を ODP に
+- HTML をプレゼンテーションに
+- HTML を PPT に
+- HTML を PPTX に
+- HTML を ODP に
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PDF および HTML ドキュメントを手間なく PowerPoint および OpenDocument プレゼンテーションにインポートし、高性能なスライド処理を実現する方法をご紹介します。"
 ---
 
 [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/)を使用すると、他の形式のファイルからプレゼンテーションをインポートできます。Aspose.Slidesは、PDF、HTMLドキュメントなどからプレゼンテーションをインポートするための[SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/)クラスを提供します。

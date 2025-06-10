@@ -1,9 +1,18 @@
 ---
-title: Легенда графика
+title: Настройте легенды графиков в презентациях с помощью Python
+linktitle: Легенда графика
 type: docs
 url: /ru/python-net/chart-legend/
-keywords: "Легенда графика, размер шрифта легенды, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Установите позиционирование и размер шрифта легенды графика в презентациях PowerPoint на Python"
+keywords:
+  - легенда графика
+  - положение легенды
+  - размер шрифта
+  - PowerPoint
+  - OpenDocument
+  - презентация
+  - Python
+  - Aspose.Slides
+description: "Настройте легенды графиков с помощью Aspose.Slides for Python via .NET, чтобы оптимизировать презентации PowerPoint и OpenDocument с индивидуальным форматированием легенд."
 ---
 
 ## **Позиционирование легенды**

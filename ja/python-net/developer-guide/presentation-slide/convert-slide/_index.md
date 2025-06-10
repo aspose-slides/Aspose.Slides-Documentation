@@ -1,19 +1,21 @@
 ---
-title: スライドの変換
+title: Python で PowerPoint スライドを画像に変換する
+linktitle: スライドを画像に
 type: docs
 weight: 41
 url: /ja/python-net/convert-slide/
-keywords: 
+keywords:
+- スライドを変換
 - スライドを画像に変換
 - スライドを画像としてエクスポート
 - スライドを画像として保存
 - スライドを画像に
-- スライドをPNGに
-- スライドをJPEGに
+- スライドを PNG に
+- スライドを JPEG に
 - スライドをビットマップに
-- PHP
-- Aspose.Slides for Python via .NET
-description: "PythonでPowerPointスライドを画像（ビットマップ、PNG、またはJPG）に変換する"
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint および OpenDocument のスライドをさまざまな形式に変換する方法を学びましょう。PPTX や ODP のスライドを BMP、PNG、JPEG、TIFF などに高品質で簡単にエクスポートできます。"
 ---
 
 Aspose.Slides for Python via .NETを使用すると、スライド（プレゼンテーション内の）を画像に変換できます。サポートされている画像フォーマットは、BMP、PNG、JPG（JPEG）、GIFなどです。
