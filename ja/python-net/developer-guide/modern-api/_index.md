@@ -1,10 +1,25 @@
 ---
-title: モダンAPI
+title: Python Modern API で画像処理を強化する
+linktitle: モダン API
 type: docs
 weight: 280
 url: /ja/python-net/modern-api/
-keywords: "モダンAPI, 描画"
-description: "モダンAPI"
+keywords:
+- モダン API
+- 描画
+- スライド サムネイル
+- スライドを画像に
+- 図形サムネイル
+- 図形を画像に
+- プレゼンテーション サムネイル
+- プレゼンテーションを画像に
+- 画像を追加
+- ピクチャを追加
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "廃止されたイメージング API を Python の Modern API に置き換えてスライドの画像処理をモダン化し、PowerPoint および OpenDocument の自動化をシームレスに行う方法をご紹介します。"
 ---
 
 ## はじめに

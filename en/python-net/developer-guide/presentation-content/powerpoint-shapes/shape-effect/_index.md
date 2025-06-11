@@ -1,10 +1,22 @@
 ---
-title: Shape Effect
+title: Apply Shape Effects in Presentations with Python
+linktitle: Shape Effect
 type: docs
 weight: 30
 url: /python-net/shape-effect
-keywords: "Shape effect, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Apply effect to PowerPoint shape in Python"
+keywords:
+- shape effect
+- shadow effect
+- reflection effect
+- glow effect
+- soft edges effect
+- effect format
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Transform your PPT, PPTX and ODP files with advanced shape effects using Aspose.Slides for Python—create striking, professional slides in seconds."
 ---
 
 While effects in PowerPoint can be used to make a shape stand out, they differ from [fills](/slides/python-net/shape-formatting/#gradient-fill) or outlines. Using PowerPoint effects, you can create convincing reflections on a shape, spread a shape's glow, etc.

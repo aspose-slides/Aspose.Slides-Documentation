@@ -3,6 +3,24 @@ title: 製品の概要
 type: docs
 weight: 10
 url: /ja/python-net/product-overview/
+keywords:
+- 製品概要
+- ドキュメント処理
+- 主な機能
+- プレゼンテーション機能
+- スライド機能
+- グラフィック機能
+- マルチメディア機能
+- テーブル機能
+- テキスト機能
+- 高度な機能
+- 技術サポート
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用すると、Microsoft Office を必要とせずに PowerPoint (PPT、PPTX) および OpenDocument (ODP) プレゼンテーションを作成、編集、変換できます。"
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python.png)

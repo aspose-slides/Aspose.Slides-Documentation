@@ -1,10 +1,32 @@
 ---
-title: Gérer les Paragraphes PowerPoint en Python
+title: Gérer les paragraphes de texte PowerPoint en Python
+linktitle: Gérer le paragraphe
 type: docs
 weight: 40
 url: /fr/python-net/manage-paragraph/
-keywords: "Ajouter un paragraphe PowerPoint, Gérer les paragraphes, Indentation de paragraphe, Propriétés de paragraphe, Texte HTML, Exporter le texte du paragraphe, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Créer et gérer des Paragraphes, du texte, de l'indentation et des propriétés dans des présentations PowerPoint en Python"
+keywords:
+- ajouter du texte
+- ajouter un paragraphe
+- gérer le texte
+- gérer le paragraphe
+- gérer les puces
+- retrait du paragraphe
+- retrait suspendu
+- puce de paragraphe
+- liste numérotée
+- liste à puces
+- propriétés du paragraphe
+- importer du HTML
+- texte vers HTML
+- paragraphe en HTML
+- paragraphe en image
+- texte en image
+- exporter le paragraphe
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Maîtrisez le formatage des paragraphes avec Aspose.Slides for Python via .NET — optimisez l'alignement, l'espacement et le style dans les présentations PowerPoint et OpenDocument en Python pour capter l'attention du public."
 ---
 
 Aspose.Slides fournit toutes les interfaces et classes nécessaires pour travailler avec des textes PowerPoint, des paragraphes et des portions en Python.

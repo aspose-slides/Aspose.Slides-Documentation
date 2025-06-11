@@ -1,10 +1,30 @@
 ---
-title: 将 PowerPoint 转换为动画 GIF
+title: 在 Python 中将演示文稿转换为动画 GIF
+linktitle: 演示文稿转 GIF
 type: docs
 weight: 65
 url: /zh/python-net/convert-powerpoint-to-animated-gif/
-keywords: "转换 PowerPoint, PPT, PPTX, 动画 GIF, PPT 转动画 GIF, PPTX 转动画 GIF, Python, 默认设置, 自定义设置"
-description: "将 PowerPoint 演示文稿转换为动画 GIF：PPT 转 GIF, PPTX 转 GIF 在 Python 中"
+keywords:
+- 动画 GIF
+- 转换 PowerPoint
+- 转换 OpenDocument
+- 转换演示文稿
+- 转换幻灯片
+- 转换 PPT
+- 转换 PPTX
+- 转换 ODP
+- PowerPoint 转 GIF
+- OpenDocument 转 GIF
+- 演示文稿 转 GIF
+- 幻灯片 转 GIF
+- PPT 转 GIF
+- PPTX 转 GIF
+- ODP 转 GIF
+- 默认设置
+- 自定义设置
+- Python
+- Aspose.Slides
+description: "使用适用于 .NET 的 Aspose.Slides for Python，轻松将 PowerPoint 演示文稿（PPT、PPTX）和 OpenDocument 文件（ODP）转换为动画 GIF，快速获得高质量结果。"
 ---
 
 ## 使用默认设置将演示文稿转换为动画 GIF ##
