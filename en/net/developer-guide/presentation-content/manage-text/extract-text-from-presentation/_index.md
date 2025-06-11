@@ -1,6 +1,6 @@
 ---
-title: Advanced Text Extraction from PowerPoint Presentations in C#
-title: Extract Text from Presentations
+title: Advanced Text Extraction from Presentations in C#
+linktitle: Extract Text
 type: docs
 weight: 90
 url: /net/extract-text-from-presentation/

@@ -1,26 +1,33 @@
 ---
-title: Text Formatting
+title: Format PowerPoint Text in Java
+linktitle: Text Formatting
 type: docs
 weight: 50
 url: /java/text-formatting/
 keywords:
 - highlight text
 - regular expression
-- align text paragraphs
+- align paragraph
+- text style
+- text background
 - text transparency
-- paragraph font properties
+- character spacing
+- font properties
 - font family
 - text rotation
-- custom angle rotation
+- rotation angle
 - text frame
 - line spacing
 - autofit property
 - text frame anchor
 - text tabulation
-- default text style
+- default language
+- PowerPoint
+- OpenDocument
+- presentation
 - Java
-- Aspose.Slides for Java
-description: "Manage and manipulate text and text frame properties in Java"
+- Aspose.Slides
+description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for Java. Customize fonts, colors, alignment, and more with powerful Java code examples."
 ---
 
 ## **Highlight Text**
@@ -669,4 +676,41 @@ try {
 } finally {
     presentation.dispose();
 }
+```
+
+## **Extract Text with the All-Caps Effect**
+
+In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To handle this, check [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/)—if it indicates `All`, simply convert the returned string to uppercase so that your output matches what users see on the slide.
+
+Let’s say we have the following text box on the first slide of the sample2.pptx file.
+
+![The All Caps effect](all_caps_effect.png)
+
+ The code example below shows how to extract the text with the **All Caps** effect aplyied:
+
+```java
+Presentation presentation = new Presentation("sample2.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
+    IPortion textPortion = paragraph.getPortions().get_Item(0);
+
+    System.out.println("Original text: " + textPortion.getText());
+
+    IPortionFormatEffectiveData textFormat = textPortion.getPortionFormat().getEffective();
+    if (textFormat.getTextCapType() == TextCapType.All) {
+        String text = textPortion.getText().toUpperCase();
+        System.out.println("All-Caps effect: " + text);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Output:
+
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
 ```

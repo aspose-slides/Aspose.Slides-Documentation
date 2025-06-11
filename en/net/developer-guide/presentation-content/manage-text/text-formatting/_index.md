@@ -22,8 +22,11 @@ keywords:
 - text frame anchor
 - text tabulation
 - default language
+- PowerPoint
+- OpenDocument
+- presentation
 - C#
-- Aspose.Slides for .NET
+- Aspose.Slides
 description: "Learn how to format and style text in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET. Customize fonts, colors, alignment, and more with powerful C# code examples."
 ---
 
@@ -523,6 +526,40 @@ using (var presentation = new Presentation())
 
     presentation.Save("default_text_style.pptx", SaveFormat.Pptx);
 }
+```
+
+## **Extract Text with the All-Caps Effect**
+
+In PowerPoint, applying the **All Caps** font effect makes text appear in uppercase on the slide even when it was originally typed in lowercase. When you retrieve such a text portion with Aspose.Slides, the library returns the text exactly as it was entered. To handle this, check [TextCapType](https://reference.aspose.com/slides/net/aspose.slides/textcaptype/)—if it indicates `All`, simply convert the returned string to uppercase so that your output matches what users see on the slide.
+
+Let’s say we have the following text box on the first slide of the sample2.pptx file.
+
+![The All Caps effect](all_caps_effect.png)
+
+ The code example below shows how to extract the text with the **All Caps** effect aplyied:
+
+```cs
+using (var presentation = new Presentation("sample2.pptx"))
+{
+    var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    var textPortion = autoShape.TextFrame.Paragraphs[0].Portions[0];
+
+    Console.WriteLine($"Original text: {textPortion.Text}");
+
+    var textFormat = textPortion.PortionFormat.GetEffective();
+    if (textFormat.TextCapType == TextCapType.All)
+    {
+        var text = textPortion.Text.ToUpper();
+        Console.WriteLine($"All-Caps effect: {text}");
+    }
+}
+```
+
+Output:
+
+```text
+Original text: Hello, Aspose!
+All-Caps effect: HELLO, ASPOSE!
 ```
 
 ## **FAQs**
