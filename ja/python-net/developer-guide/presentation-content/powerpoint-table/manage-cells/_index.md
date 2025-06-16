@@ -1,10 +1,22 @@
 ---
-title: セルの管理
+title: Python でプレゼンテーションのテーブルセルを管理する
+linktitle: セルを管理
 type: docs
 weight: 30
 url: /ja/python-net/manage-cells/
-keywords: "テーブル, 結合セル, セル分割, テーブルセル内の画像, Python, Aspose.Slides for Python via .NET"
-description: "PythonでのPowerPointプレゼンテーションのテーブルセル"
+keywords:
+- テーブル セル
+- セルを結合
+- 枠線を削除
+- セルを分割
+- セル内の画像
+- 背景色
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument のテーブルセルを簡単に管理します。シームレスなスライド自動化のために、セルのアクセス、変更、スタイリングを素早くマスターしましょう。"
 ---
 
 ## **結合テーブルセルの特定**

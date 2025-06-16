@@ -1,9 +1,21 @@
 ---
-title: チャート系列
+title: Python でチャート系列を管理する
+linktitle: チャート系列
 type: docs
 url: /ja/python-net/chart-series/
-keywords: "チャート系列, 系列の色, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointプレゼンテーションのチャート系列"
+keywords:
+- チャート系列
+- 系列の重なり
+- 系列の色
+- カテゴリの色
+- 系列名
+- データポイント
+- 系列間隔
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "実用的なコード例とベストプラクティスを用いて、Python で PowerPoint (PPT/PPTX) のチャート系列を管理し、データプレゼンテーションを強化する方法を学びましょう。"
 ---
 
 系列は、チャートにプロットされた数値の行または列です。

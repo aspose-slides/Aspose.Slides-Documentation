@@ -1,10 +1,19 @@
 ---
-title: Кольцевая диаграмма
+title: Настройте кольцевые графики в презентациях с помощью Python
+linktitle: Кольцевой график
 type: docs
 weight: 30
 url: /ru/python-net/doughnut-chart/
-keywords: "Кольцевая диаграмма, размер отверстия, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Укажите размер отверстия в кольцевой диаграмме в презентации PowerPoint на Python"
+keywords:
+  - кольцевой график
+  - центральный зазор
+  - размер отверстия
+  - PowerPoint
+  - OpenDocument
+  - презентация
+  - Python
+  - Aspose.Slides
+description: "Узнайте, как создавать и настраивать кольцевые графики в Aspose.Slides for Python via .NET, поддерживая форматы PowerPoint и OpenDocument для динамических презентаций."
 ---
 
 ## **Укажите размер отверстия в кольцевой диаграмме**

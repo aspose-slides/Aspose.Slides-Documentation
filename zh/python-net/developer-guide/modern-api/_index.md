@@ -1,10 +1,23 @@
 ---
-title: 现代 API
+title: 使用现代 API 提升图像处理
+linktitle: 现代 API
 type: docs
 weight: 280
 url: /zh/python-net/modern-api/
-keywords: "现代 API, 绘图"
-description: "现代 API"
+keywords:
+- 现代 API
+- 绘图
+- 幻灯片缩略图
+- 幻灯片转图像
+- 形状缩略图
+- 形状转图像
+- 演示文稿缩略图
+- 演示文稿转图像
+- 添加图像
+- 添加图片
+- Python
+- Aspose.Slides
+description: "利用 Python 现代 API 替换已弃用的成像 API，实现 PowerPoint 与 OpenDocument 自动化的无缝幻灯片图像处理。"
 ---
 
 ## 介绍

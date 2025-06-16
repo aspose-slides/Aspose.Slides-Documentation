@@ -1,10 +1,23 @@
 ---
-title: テキストボックスの管理
+title: Python でプレゼンテーションのテキストボックスを管理する
+linktitle: テキストボックスを管理
 type: docs
 weight: 20
 url: /ja/python-net/manage-textbox/
-keywords: "テキストボックス, テキストフレーム, テキストボックスを追加, ハイパーリンク付きテキストボックス, Python, Aspose.Slides for Python via .NET"
-description: "Pythonまたは.NETを使用してPowerPointプレゼンテーションにテキストボックスまたはテキストフレームを追加します"
+keywords:
+- テキストボックス
+- テキストフレーム
+- テキストを追加
+- テキストを更新
+- テキストボックスを作成
+- テキストボックスを確認
+- テキスト列を追加
+- ハイパーリンクを追加
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用すると、PowerPoint および OpenDocument ファイルでテキストボックスを簡単に作成、編集、複製でき、プレゼンテーションの自動化を強化します。"
 ---
 
 スライド上のテキストは通常、テキストボックスまたは図形に存在します。したがって、スライドにテキストを追加するには、テキストボックスを追加し、その中にテキストを入れる必要があります。Aspose.Slides for Python via .NETは、テキストを含む図形を追加するための[IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/)インターフェイスを提供します。

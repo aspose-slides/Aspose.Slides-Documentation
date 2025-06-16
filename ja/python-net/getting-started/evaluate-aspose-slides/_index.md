@@ -1,8 +1,22 @@
 ---
-title: Aspose.Slidesの評価
+title: Aspose.Slides を評価する
 type: docs
 weight: 120
 url: /ja/python-net/evaluate-aspose-slides/
+keywords:
+- Aspose.Slides を評価する
+- Aspose.Slides の評価
+- 評価版
+- フル機能
+- 評価用ウォーターマーク
+- Aspose.Slides の購入
+- 制限事項
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を評価し、PowerPoint (PPT、PPTX) および OpenDocument (ODP) プレゼンテーション向けの API 機能を探索—今すぐ無料トライアルを始めましょう。"
 ---
 
 Aspose.Slidesを簡単に評価用にダウンロードできます。評価パッケージは購入したパッケージと同じです。評価版は、ライセンスを適用するために数行のコードを追加することで、単にライセンス付きになります。

@@ -1,24 +1,27 @@
 ---
-title: Convert PowerPoint to PDF with Notes in Python
-linktitle: Convert PowerPoint to PDF with Notes
+title: Convert Presentations to PDF with Notes in Python
+linktitle: Presentation to PDF with Notes
 type: docs
 weight: 50
 url: /python-net/convert-powerpoint-to-pdf-with-notes/
 keywords:
 - convert PowerPoint
+- convert OpenDocument
+- convert presentation
 - convert PPT
 - convert PPTX
-- presentation
+- convert ODP
 - PowerPoint to PDF
+- OpenDocument to PDF
+- presentation to PDF
 - PPT to PDF
 - PPTX to PDF
-- OpenDocument to PDF
 - ODP to PDF
 - speaker notes
+- PDF with notes
 - Python
-- .NET
 - Aspose.Slides
-description: "Convert PowerPoint to PDF with notes in Python"
+description: "Convert formats PPT, PPTX and ODP to PDF with notes using Aspose.Slides for Python. Preserve layouts and speaker notes for professional presentations."
 ---
 
 ## **Overview**

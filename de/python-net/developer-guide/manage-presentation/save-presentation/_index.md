@@ -1,10 +1,23 @@
 ---
-title: Präsentation speichern
+title: Präsentationen in Python speichern
+linktitle: Präsentation speichern
 type: docs
 weight: 80
 url: /de/python-net/save-presentation/
-keywords: "PowerPoint speichern, PPT, PPTX, Präsentation speichern, Datei, Stream, Python"
-description: "PowerPoint-Präsentation als Datei oder Stream in Python speichern"
+keywords:
+  - PowerPoint speichern
+  - Präsentation speichern
+  - PPT speichern
+  - PPTX speichern
+  - ODP speichern
+  - Präsentation in Datei speichern
+  - Präsentation in Stream speichern
+  - Ansichtstyp
+  - striktes Office Open XML-Format
+  - Speicherfortschritt
+  - Python
+  - Aspose.Slides
+description: "Erfahren Sie, wie Sie mit Aspose.Slides Präsentationen in Python speichern — exportieren Sie nach PowerPoint oder OpenDocument und behalten Sie Layouts, Schriftarten und Effekte bei."
 ---
 
 ## **Präsentation speichern**

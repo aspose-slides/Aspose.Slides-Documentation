@@ -1,10 +1,31 @@
 ---
-title: Diseño de Diapositiva
+title: Aplicar o cambiar un diseño de diapositiva en Python
+linktitle: Diseño de diapositiva
 type: docs
 weight: 60
 url: /es/python-net/slide-layout/
-keyword: "Establecer tamaño de diapositiva, establecer opciones de diapositiva, especificar tamaño de diapositiva, visibilidad del pie de página, pie de página secundario, escala de contenido, tamaño de página, Python, Aspose.Slides"
-description: "Establecer el tamaño y las opciones de diapositivas de PowerPoint en Python"
+keywords:
+  - diseño de diapositiva
+  - diseño de contenido
+  - marcador de posición
+  - diseño de presentación
+  - diseño de diapositiva
+  - diseño no utilizado
+  - visibilidad de pie de página
+  - diapositiva de título
+  - título y contenido
+  - encabezado de sección
+  - dos contenidos
+  - comparación
+  - solo título
+  - diseño en blanco
+  - contenido con leyenda
+  - imagen con leyenda
+  - título y texto vertical
+  - título vertical y texto
+  - Python
+  - Aspose.Slides
+description: "Aprenda cómo gestionar y personalizar diseños de diapositivas en Aspose.Slides para Python a través de .NET. Explore los tipos de diseño, el control de marcadores de posición, la visibilidad del pie de página y la manipulación de diseños mediante ejemplos de código en Python."
 ---
 
 Un diseño de diapositiva contiene los cuadros de marcador de posición y la información de formato para todo el contenido que aparece en una diapositiva. El diseño determina los marcadores de posición de contenido disponibles y dónde se colocan.

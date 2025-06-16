@@ -1,10 +1,23 @@
 ---
-title: Шрифт по умолчанию
+title: Настройте шрифт по умолчанию в презентациях с помощью Python
+linktitle: Шрифт по умолчанию
 type: docs
 weight: 30
 url: /ru/python-net/default-font/
-keywords: "Шрифты, шрифты по умолчанию, рендеринг презентации PowerPoint Python, Aspose.Slides для Python через .NET"
-description: "Шрифты по умолчанию PowerPoint в Python"
+keywords:
+  - шрифт по умолчанию
+  - обычный шрифт
+  - нормальный шрифт
+  - азиатский шрифт
+  - экспорт в PDF
+  - экспорт в XPS
+  - экспорт изображений
+  - PowerPoint
+  - OpenDocument
+  - презентация
+  - Python
+  - Aspose.Slides
+description: "Установите шрифты по умолчанию в Aspose.Slides for Python, чтобы обеспечить корректное преобразование PowerPoint (PPT, PPTX) и OpenDocument (ODP) в PDF, XPS и изображения."
 ---
 
 ## **Использование шрифтов по умолчанию для рендеринга презентации**
