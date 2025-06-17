@@ -1,5 +1,6 @@
 ---
-title: Presentation Properties
+title: Manage Presentation Properties with Python
+linktitle: Presentation Properties
 type: docs
 weight: 70
 url: /python-net/presentation-properties/
@@ -10,15 +11,18 @@ keywords:
 - built-in properties
 - custom properties
 - advanced properties
+- manage properties
 - modify properties
 - document metadata
 - edit metadata
+- proofing language
+- default language
 - PowerPoint
+- OpenDocument
 - presentation
 - Python
-- .NET
-- Aspose.Slides for Python via .NET
-description: "Manage PowerPoint presentation properties in Python"
+- Aspose.Slides
+description: "Master presentation properties in Aspose.Slides for Python via .NET and streamline search, branding and workflow in your PowerPoint files."
 ---
 
 ## **About Presentation Properties**

@@ -1,17 +1,20 @@
 ---
-title: Export Chart
+title: Export Presentation Charts with Python
+linktitle: Export Chart
 type: docs
 weight: 90
 url: /python-net/export-chart/
 keywords:
 - chart
-- chart image
+- chart to image
+- chart as image
 - extract chart image
 - PowerPoint
+- OpenDocument
 - presentation
 - Python
-- Aspose.Slides for Python
-description: "Get chart images from PowerPoint presentations in Python"
+- Aspose.Slides
+description: "Learn how to export presentation charts with Aspose.Slides for Python via .NET, supporting PPT, PPTX and ODP formats, and streamline reporting into any workflow."
 ---
 
 ## **Get Chart Image**
