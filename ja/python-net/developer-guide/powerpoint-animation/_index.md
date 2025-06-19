@@ -1,10 +1,33 @@
 ---
-title: PowerPoint アニメーション
+title: Python で PowerPoint プレゼンテーションにアニメーションを追加して強化する
+linktitle: PowerPoint アニメーション
 type: docs
 weight: 150
 url: /ja/python-net/powerpoint-animation/
-keywords: "アニメーション, アニメーション効果, PowerPoint アニメーション, アニメーションタイムライン, インタラクティブアニメーション, 形状アニメーション, アニメーションチャート, アニメーションテキスト, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Python における PowerPoint プレゼンテーションのアニメーションと効果"
+keywords:
+- アニメーションを追加
+- アニメーションを更新
+- アニメーションを変更
+- アニメーションを削除
+- アニメーションを管理
+- アニメーションを制御
+- アニメーション効果
+- PowerPoint アニメーション
+- アニメーション タイムライン
+- インタラクティブ アニメーション
+- カスタム アニメーション
+- 図形 アニメーション
+- アニメーション チャート
+- アニメーション テキスト
+- アニメーション 図形
+- アニメーション OLE オブジェクト
+- アニメーション 画像
+- アニメーション テーブル
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET の PowerPoint アニメーション機能を探り、主要機能の概要と、プレゼンテーションを強化するためのインサイトを提供します。"
 ---
 
 プレゼンテーションは何かを提示するためのものであるため、その視覚的な外観やインタラクティブな動作は作成時に常に考慮されます。

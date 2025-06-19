@@ -1,10 +1,21 @@
 ---
-title: Fallback Font
+title: Manage Fallback Fonts for Presentations in Python
+linktitle: Fallback Font
 type: docs
 weight: 50
 url: /python-net/fallback-font/
-keywords: "Fallback font, font, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint fallback font in Python"
+keywords:
+- fallback font
+- available font
+- glyph replacement
+- specify font
+- specify rule
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "See how Aspose.Slides for Python via .NET uses fallback fonts to keep text readable in PowerPoint and OpenDocument presentations when original fonts aren’t available."
 ---
 
 ## **Fallback Font**

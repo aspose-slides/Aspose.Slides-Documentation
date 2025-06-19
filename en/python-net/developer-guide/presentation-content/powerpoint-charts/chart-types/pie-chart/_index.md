@@ -1,9 +1,22 @@
 ---
-title: Pie Chart
+title: Customize Pie Charts in Presentations with Python
+linktitle: Pie Chart
 type: docs
 url: /python-net/pie-chart/
-keywords: "Pie chart, plot options, slice colors, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Pie chart plot options and slice colors in PowerPoint presentation in Python"
+keywords:
+- pie chart
+- manage chart
+- customize chart
+- chart options
+- chart settings
+- plot options
+- slice color
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to create and customize pie charts in Python with Aspose.Slides, exportable to PowerPoint and OpenDocument, boosting your data storytelling in seconds."
 ---
 
 ## **Second Plot Options for Pie of Pie and Bar of Pie Chart**

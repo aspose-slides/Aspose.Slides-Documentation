@@ -1,10 +1,21 @@
 ---
-title: Convert PowerPoint to XPS 
+title: Convert PowerPoint Presentations to XPS in Python
+linktitle: PowerPoint to XPS
 type: docs
 weight: 70
-url: /python-net/convert-powerpoint-to-xps
-keywords: "Convert PowerPoint Presentation, PowerPoint to XPS, PPT to XPS, PPTX to XPS, Conversion, Python, Aspose.Slides"
-description: "Convert PowerPoint presentation to XPS in Python."
+url: /python-net/convert-powerpoint-to-xps/
+keywords:
+- convert PowerPoint
+- convert presentation
+- PowerPoint to XPS
+- presentation to XPS
+- PPT to XPS
+- PPTX to XPS
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Convert PowerPoint PPT/PPTX to high-quality, platform-independent XPS in Python using Aspose.Slides. Get step-by-step guide and sample code."
 ---
 
 ## **About XPS**

@@ -1,10 +1,27 @@
 ---
-title: Математические уравнения PowerPoint
+title: Добавляйте математические уравнения в презентациях PowerPoint на Python
+linktitle: Математические уравнения
 type: docs
 weight: 80
 url: /ru/python-net/powerpoint-math-equations/
-keywords: "Математические уравнения PowerPoint, Математические символы PowerPoint, Формула PowerPoint, Математический текст PowerPoint, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Математические уравнения PowerPoint, математические символы, формулы и математический текст на Python"
+keywords:
+- математическое уравнение
+- математическое уравнение PowerPoint
+- математический символ
+- математический символ PowerPoint
+- математическая формула
+- математическая формула PowerPoint
+- математический текст
+- математический текст PowerPoint
+- добавить математическое уравнение в PowerPoint
+- добавить математический символ в PowerPoint
+- добавить математическую формулу в PowerPoint
+- добавить математический текст в PowerPoint
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как работать с математическими уравнениями в PowerPoint с помощью Aspose.Slides for Python via .NET. Получите подробные инструкции, примеры кода и советы по автоматизации создания и редактирования презентаций."
 ---
 
 ## **Обзор**

@@ -1,10 +1,21 @@
 ---
-title: تحويل PowerPoint إلى XPS 
+title: تحويل عروض PowerPoint إلى XPS في بايثون
+linktitle: PowerPoint إلى XPS
 type: docs
 weight: 70
-url: /ar/python-net/convert-powerpoint-to-xps
-keywords: "تحويل عرض PowerPoint، PowerPoint إلى XPS، PPT إلى XPS، PPTX إلى XPS، تحويل، بايثون، Aspose.Slides"
-description: "تحويل عرض PowerPoint إلى XPS في بايثون."
+url: /ar/python-net/convert-powerpoint-to-xps/
+keywords:
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- PowerPoint إلى XPS
+- العرض التقديمي إلى XPS
+- PPT إلى XPS
+- PPTX إلى XPS
+- PowerPoint
+- العرض التقديمي
+- بايثون
+- Aspose.Slides
+description: تحويل عروض PowerPoint (PPT/PPTX) إلى XPS عالي الجودة ومستقل عن النظام الأساسي في Python باستخدام Aspose.Slides. احصل على دليل خطوة بخطوة وكود مثال.
 ---
 
 ## **حول XPS**

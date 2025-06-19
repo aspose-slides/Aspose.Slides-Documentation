@@ -1,10 +1,23 @@
 ---
-title: Create Fallback Font
+title: Specify Fallback Fonts for Presentations in Python
+linktitle: Fallback Font
 type: docs
 weight: 10
 url: /python-net/create-fallback-font/
-keywords: "Fonts, fallback font, PowerPoint presentation Python, Aspose.Slides for Python via .NET"
-description: "Fallback font in PowerPoint in Python"
+keywords:
+- fallback font
+- fallback rule
+- apply font
+- replace font
+- Unicode range
+- missed glyph
+- proper glyph
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Master Aspose.Slides for Python via .NET to set fallback fonts in PPT, PPTX and ODP files, safeguarding consistent text display on any device or OS."
 ---
 
 Aspose.Slides supports [IFontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/iFontFallBackRule/) interface and [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class to specify the rules to apply a fallback font. [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class represents an association between the specified Unicode range, used for searching missed glyphs, and a list of fonts that may contain proper glyphs:

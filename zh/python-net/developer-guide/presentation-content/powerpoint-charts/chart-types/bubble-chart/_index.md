@@ -1,9 +1,19 @@
 ---
-title: 气泡图
+title: 在 Python 中自定义演示文稿中的气泡图
+linktitle: 气泡图
 type: docs
 url: /zh/python-net/bubble-chart/
-keywords: "气泡图, 图表大小, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中 PowerPoint 演示文稿的气泡图大小"
+keywords:
+- 气泡图
+- 气泡大小
+- 大小缩放
+- 大小表示
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python 在 PowerPoint 和 OpenDocument 中创建并自定义强大的气泡图，轻松提升数据可视化效果。"
 ---
 
 ## **气泡图大小缩放**

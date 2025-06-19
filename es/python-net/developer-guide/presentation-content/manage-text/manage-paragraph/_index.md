@@ -1,10 +1,33 @@
 ---
-title: Administrar Párrafos de PowerPoint en Python
+title: Gestionar párrafos de texto de la presentación en Python
+linktitle: Gestionar párrafo
 type: docs
 weight: 40
 url: /es/python-net/manage-paragraph/
-keywords: "Agregar párrafo de PowerPoint, Administrar párrafos, Sangría de párrafo, Propiedades de párrafo, Texto HTML, Exportar texto de párrafo, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Crear y gestionar párrafos, texto, sangría y propiedades en presentaciones de PowerPoint en Python"
+keywords:
+- agregar texto
+- agregar párrafo
+- gestionar texto
+- gestionar párrafo
+- gestionar viñeta
+- sangría de párrafo
+- sangría francesa
+- viñeta de párrafo
+- lista numerada
+- lista con viñetas
+- propiedades de párrafo
+- importar HTML
+- texto a HTML
+- párrafo a HTML
+- párrafo a imagen
+- texto a imagen
+- exportar párrafo
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Domine el formato de párrafos con Aspose.Slides for Python via .NET: optimice la alineación, el espaciado y el estilo en presentaciones de PowerPoint y OpenDocument con Python para captar la atención del público."
 ---
 
 Aspose.Slides proporciona todas las interfaces y clases que necesita para trabajar con textos, párrafos y porciones de PowerPoint en Python.

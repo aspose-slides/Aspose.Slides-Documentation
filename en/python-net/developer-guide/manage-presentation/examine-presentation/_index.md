@@ -1,11 +1,10 @@
 ---
-title: Examine Presentation
+title: Examine Presentations in Python
+linktitle: Examine Presentation
 type: docs
 weight: 30
 url: /python-net/examine-presentation/
 keywords:
-- PowerPoint
-- presentation
 - presentation format
 - presentation properties
 - document properties
@@ -13,10 +12,16 @@ keywords:
 - read properties
 - change properties
 - modify properties
-- PPTX
-- PPT
+- update properties
+- examine PPTX
+- examine PPT
+- examine ODP
+- PowerPoint
+- OpenDocument
+- presentation
 - Python
-description: "Read and modify PowerPoint presentation properties in Python"
+- Aspose.Slides
+description: "Explore slides, structure and metadata in PowerPoint and OpenDocument presentations using Python for faster insights and smarter content audits."
 ---
 
 Aspose.Slides for Python via .NET allows you to examine a presentation to find out its properties and understand its behavior. 

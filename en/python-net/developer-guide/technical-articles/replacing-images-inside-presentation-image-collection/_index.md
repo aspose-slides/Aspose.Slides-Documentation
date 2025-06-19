@@ -1,8 +1,19 @@
 ---
-title: Replacing Images inside Presentation Image Collection
+title: Replace Images in the Presentation’s Image Collection
+linktitle: Replace Images
 type: docs
 weight: 110
 url: /python-net/replacing-images-inside-presentation-image-collection/
+keywords:
+- replace image
+- image collection
+- presentation image
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Replace images in presentations fast with Python. Supporting PowerPoint and OpenDocument formats to streamline workflows and boost slide quality."
 ---
 
 {{% alert color="primary" %}} 
