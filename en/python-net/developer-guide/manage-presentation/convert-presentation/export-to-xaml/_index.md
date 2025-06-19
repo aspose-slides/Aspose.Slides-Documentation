@@ -1,10 +1,25 @@
 ---
-title: Export to XAML
+title: Export Presentations to XAML with Python
+linktitle: Export to XAML
 type: docs
 weight: 30
 url: /python-net/export-to-xaml/
-keywords: "Export PowerPoint Presentation, Convert PowerPoint, XAML, PowerPoint to XAML, PPT to XAML, PPTX to XAML, Python"
-description: "Export or convert PowerPoint presentation to XAML"
+keywords:
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- convert PowerPoint
+- convert OpenDocument
+- convert presentation
+- PowerPoint to XAML
+- OpenDocument to XAML
+- presentation to XAML
+- PPT to XAML
+- PPTX to XAML
+- ODP to XAML
+- Python
+- Aspose.Slides
+description: "Convert PowerPoint and OpenDocument slides to XAML in Python using Aspose.Slides—quick, Office-free solution that keeps your layout intact."
 ---
 
 # Exporting Presentations to XAML

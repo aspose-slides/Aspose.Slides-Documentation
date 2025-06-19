@@ -1,10 +1,21 @@
 ---
-title: Программа для просмотра презентаций
+title: Создайте средство просмотра презентаций на Python
+linktitle: Средство просмотра презентаций
 type: docs
 weight: 50
 url: /ru/python-net/presentation-viewer/
-keywords: "Просмотр презентации PowerPoint, просмотр ppt, просмотр PPTX, Python, Aspose.Slides для Python через .NET"
-description: "Просмотр презентации PowerPoint на Python"
+keywords:
+- просмотр презентаций
+- средство просмотра презентаций
+- создать средство просмотра презентаций
+- просмотр PPT
+- просмотр PPTX
+- просмотр ODP
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Узнайте, как создать собственный просмотрщик презентаций на Python с помощью Aspose.Slides. Легко отображайте файлы PowerPoint (PPTX, PPT) и OpenDocument (ODP) без Microsoft PowerPoint или другого офисного программного обеспечения."
 ---
 
 
