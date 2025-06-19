@@ -1,9 +1,24 @@
 ---
-title: 趋势线
+title: 在 Python 中为演示文稿图表添加趋势线
+linktitle: 趋势线
 type: docs
 url: /zh/python-net/trend-line/
-keywords: "趋势线, 自定义线 PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中将趋势线和自定义线添加到 PowerPoint 演示文稿"
+keywords:
+- 图表
+- 趋势线
+- 指数趋势线
+- 线性趋势线
+- 对数趋势线
+- 移动平均趋势线
+- 多项式趋势线
+- 幂函数趋势线
+- 自定义趋势线
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python，快速在 PowerPoint 和 OpenDocument 图表中添加并自定义趋势线——实用指南和代码示例，助您提高预测准确性并吸引观众。"
 ---
 
 ## **添加趋势线**

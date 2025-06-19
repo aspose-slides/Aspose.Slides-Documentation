@@ -1,10 +1,25 @@
 ---
-title: 图片
+title: 在 Python 中优化演示文稿中的图像管理
+linktitle: 管理图像
 type: docs
 weight: 10
 url: /zh/python-net/image/
-keywords: "添加图片, 添加图像, PowerPoint演示文稿, EMF, SVG, Python, Aspose.Slides for Python via .NET"
-description: "在Python中向PowerPoint幻灯片或演示文稿添加图像"
+keywords:
+- 添加图像
+- 添加图片
+- 添加位图
+- 添加 PNG
+- 添加 JPG
+- 添加 SVG
+- 添加 EMF
+- 添加 WMF
+- 添加 TIFF
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用适用于 .NET 的 Aspose.Slides for Python 流畅管理 PowerPoint 和 OpenDocument 中的图像，优化性能并自动化工作流程。"
 ---
 
 ## **演示文稿中的幻灯片图像**

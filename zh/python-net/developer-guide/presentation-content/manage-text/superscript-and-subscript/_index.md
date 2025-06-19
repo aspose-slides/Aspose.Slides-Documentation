@@ -1,10 +1,20 @@
 ---
-title: 上标和下标
+title: 在 Python 中管理演示文稿中的上标和下标
+linktitle: 上标和下标
 type: docs
 weight: 80
 url: /zh/python-net/superscript-and-subscript/
-keywords: "上标, 下标, 添加上标文本, 添加下标文本, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加上标和下标文本"
+keywords:
+- 上标
+- 下标
+- 添加上标
+- 添加下标
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "掌握适用于 .NET 的 Aspose.Slides for Python 中的上标和下标功能，通过专业文本格式提升演示文稿的影响力。"
 ---
 
 ## **管理上标和下标文本**

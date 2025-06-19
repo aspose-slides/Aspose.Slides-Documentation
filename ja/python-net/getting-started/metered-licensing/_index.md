@@ -1,8 +1,18 @@
 ---
-title: メーターライセンス
+title: 従量制ライセンス
 type: docs
 weight: 90
 url: /ja/python-net/metered-licensing/
+keywords:
+- ライセンス
+- 従量制ライセンス
+- ライセンスキー
+- 公開鍵
+- 秘密鍵
+- 使用量
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET の従量制ライセンスを使用して、PowerPoint および OpenDocument ファイルを柔軟に処理し、使用した分だけ支払う方法を学びましょう。"
 ---
 
 {{% alert color="primary" %}} 

@@ -1,10 +1,31 @@
 ---
-title: Chart Worksheet Formulas
+title: Apply Chart Worksheet Formulas in Presentations with Python
+linktitle: Worksheet Formulas
 type: docs
 weight: 70
 url: /python-net/chart-worksheet-formulas/
-keywords: "Chart spreadsheet, chart formula, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Chart spreadsheet and formula in PowerPoint presentation in Python"
+keywords:
+- chart spreadsheet
+- chart worksheet
+- chart formula
+- worksheet formula
+- spreadsheet formula
+- data source
+- logical constant
+- numerical constant
+- string constant
+- error constant
+- arithmetic constant
+- comparison operator
+- A1 style
+- R1C1 style
+- predefined function
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Apply Excel-style formulas in Aspose.Slides for Python via .NET chart worksheets and automate reports across PPT, PPTX and ODP files."
 ---
 
 

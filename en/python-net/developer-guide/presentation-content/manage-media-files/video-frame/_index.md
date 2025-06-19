@@ -1,10 +1,23 @@
 ---
-title: Video Frame
+title: Add Videos to Presentations in Python
+linktitle: Video Frame
 type: docs
 weight: 10
 url: /python-net/video-frame/
-keywords: "Add video, create video frame, extract video, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add Video frame to PowerPoint presentation in Python"
+keywords:
+- add video
+- create video
+- embed video
+- extract video
+- retrive video
+- video frame
+- web source
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn to programmatically add and extract video frames in PowerPoint and OpenDocument slides using Aspose.Slides for Python via .NET. Fast how-to guide."
 ---
 
 A well-placed video in a presentation can make your message more compelling and increase engagement levels with your audience. 

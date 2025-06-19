@@ -1,10 +1,26 @@
 ---
-title: Управление BLOB
+title: Управляйте BLOB-объектами в презентациях с помощью Python для эффективного использования памяти
+linktitle: Управление BLOB
 type: docs
 weight: 10
 url: /ru/python-net/manage-blob/
-keywords: "Добавить BLOB, Экспортировать BLOB, Добавить изображение как BLOB, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавить BLOB в презентацию PowerPoint на Python. Экспортировать BLOB. Добавить изображение как BLOB"
+keywords:
+- большой объект
+- крупный элемент
+- большой файл
+- добавить BLOB
+- экспортировать BLOB
+- добавить изображение как BLOB
+- уменьшить использование памяти
+- потребление памяти
+- большая презентация
+- временный файл
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Управляйте данными BLOB в Aspose.Slides for Python via .NET, чтобы оптимизировать операции с файлами PowerPoint и OpenDocument и эффективно обрабатывать презентации."
 ---
 
 ### **О BLOB**

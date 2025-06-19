@@ -1,10 +1,25 @@
 ---
-title: VBAによるプレゼンテーション
+title: Python でプレゼンテーションの VBA プロジェクトを管理する
+linktitle: VBA を介したプレゼンテーション
 type: docs
 weight: 250
 url: /ja/python-net/presentation-via-vba/
-keywords: "マクロ, マクロ, VBA, VBAマクロ, マクロを追加, マクロを削除, VBAを追加, VBAを削除, マクロを抽出, VBAを抽出, PowerPointマクロ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションのVBAマクロを追加、削除、抽出します"
+keywords:
+- マクロ
+- VBA
+- VBA マクロ
+- マクロを追加
+- マクロを削除
+- マクロを抽出
+- VBA を追加
+- VBA を削除
+- VBA を抽出
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、VBA を介して PowerPoint および OpenDocument プレゼンテーションを生成および操作し、ワークフローを効率化する方法をご紹介します。"
 ---
 
 [Aspose.Slides.Vba](https://reference.aspose.com/slides/python-net/aspose.slides.vba/)名前空間には、マクロやVBAコードを操作するためのクラスとインターフェイスが含まれています。

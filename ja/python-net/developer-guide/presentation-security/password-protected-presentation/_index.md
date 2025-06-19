@@ -1,11 +1,37 @@
 ---
-title: パスワード保護されたプレゼンテーション
+title: Python でパスワードを使用してプレゼンテーションを保護する
+linktitle: パスワード保護
 type: docs
 weight: 20
 url: /ja/python-net/password-protected-presentation/
-keywords: "PowerPointのロック、PowerPointの解除、PowerPointの保護、パスワードの設定、パスワードの追加、PowerPointの暗号化、PowerPointの復号化、書き込み保護、PowerPointのセキュリティ、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointのパスワード保護、暗号化、およびセキュリティ"
-
+keywords:
+- PowerPoint をロック
+- プレゼンテーションをロック
+- PowerPoint のロック解除
+- プレゼンテーションのロック解除
+- PowerPoint を保護
+- プレゼンテーションを保護
+- パスワードを設定
+- パスワードを追加
+- PowerPoint を暗号化
+- プレゼンテーションを暗号化
+- PowerPoint を復号化
+- プレゼンテーションを復号化
+- 書き込み保護
+- PowerPoint のセキュリティ
+- プレゼンテーションのセキュリティ
+- パスワードを削除
+- 保護を解除
+- 暗号化を解除
+- パスワードを無効化
+- 保護を無効化
+- 書き込み保護を解除
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、パスワード保護された PowerPoint および OpenDocument プレゼンテーションを簡単にロックおよびアンロックする方法を学びましょう。ステップバイステップ ガイドで生産性を向上させ、プレゼンテーションを安全に保護します。"
 ---
 
 ## **パスワード保護について**

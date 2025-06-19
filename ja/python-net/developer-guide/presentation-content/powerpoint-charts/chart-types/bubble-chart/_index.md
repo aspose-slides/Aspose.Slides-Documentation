@@ -1,9 +1,19 @@
 ---
-title: バブルチャート
+title: Python でプレゼンテーションのバブル チャートをカスタマイズする
+linktitle: バブル チャート
 type: docs
 url: /ja/python-net/bubble-chart/
-keywords: "バブルチャート, チャートサイズ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointプレゼンテーションのバブルチャートサイズ"
+keywords:
+- バブル チャート
+- バブルのサイズ
+- サイズスケーリング
+- サイズ表現
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument で強力なバブル チャートを作成およびカスタマイズし、データ ビジュアライゼーションを簡単に強化する方法をご紹介します。"
 ---
 
 ## **バブルチャートサイズのスケーリング**

@@ -1,10 +1,23 @@
 ---
-title: 演示文稿背景
+title: 使用 Python 管理演示文稿背景
+linktitle: 幻灯片背景
 type: docs
 weight: 20
 url: /zh/python-net/presentation-background/
-keywords: "PowerPoint 背景, 设置背景, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中设置 PowerPoint 演示文稿的背景"
+keywords:
+- 演示文稿背景
+- 幻灯片背景
+- 纯色
+- 渐变色
+- 图片背景
+- 背景透明度
+- 背景属性
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何使用 Aspose.Slides for Python 在 PowerPoint 和 OpenDocument 文件中设置动态背景，并通过代码技巧提升演示文稿效果。"
 ---
 
 纯色、渐变色和图片常用作幻灯片的背景图像。您可以为 **普通幻灯片**（单个幻灯片）或 **母版幻灯片**（多个幻灯片）设置背景。

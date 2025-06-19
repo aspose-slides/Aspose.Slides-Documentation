@@ -1,9 +1,17 @@
 ---
-title: Error Bar
+title: Customize Error Bars in Presentation Charts with Python
+linktitle: Error Bar
 type: docs
 url: /python-net/error-bar/
-keywords: "Error bar, error bar values PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add error bar to PowerPoint presentations in Python"
+keywords:
+- error bar
+- custom value
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to add and customize error bars in charts with Aspose.Slides for Python via .NET—optimize data visuals in PowerPoint and OpenDocument presentations."
 ---
 
 ## **Add Error Bar**
