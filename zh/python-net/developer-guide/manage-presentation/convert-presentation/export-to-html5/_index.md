@@ -1,19 +1,30 @@
 ---
-title: 导出为 HTML5
+title: 在 Python 中将演示文稿转换为 HTML5
+linktitle: 导出到 HTML5
 type: docs
 weight: 40
 url: /zh/python-net/export-to-html5/
 keywords:
-- PowerPoint 到 HTML
-- 幻灯片到 HTML
-- HTML5
-- HTML 导出
-- 导出演示文稿
+- PowerPoint 转 HTML5
+- OpenDocument 转 HTML5
+- 演示文稿 转 HTML5
+- 幻灯片 转 HTML5
+- PPT 转 HTML5
+- PPTX 转 HTML5
+- ODP 转 HTML5
+- 转换 PowerPoint
+- 转换 OpenDocument
 - 转换演示文稿
 - 转换幻灯片
-- Java
-- Aspose.Slides for Python via .NET
-description: "在 Python 中将 PowerPoint 导出为 HTML5"
+- HTML5 导出
+- 导出演示文稿
+- 导出幻灯片
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python，将 PowerPoint 和 OpenDocument 演示文稿导出为响应式 HTML5，保留格式、动画和交互性。"
 ---
 
 {{% alert title="信息" color="info" %}}

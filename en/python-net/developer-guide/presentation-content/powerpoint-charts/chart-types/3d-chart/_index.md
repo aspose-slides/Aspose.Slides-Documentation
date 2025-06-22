@@ -1,9 +1,18 @@
 ---
-title: 3D Chart
+title: Customize 3D Charts in Presentations with Python
+linktitle: 3D Chart
 type: docs
 url: /python-net/3d-chart/
-keywords: "3d chart, rotationX, rotationY, depthpercent, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Set rotationX, rotationY, and depthpercents for 3D chart in PowerPoint presentation in Python"
+keywords:
+- 3d chart
+- rotation
+- depth
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to create and customize 3-D charts in Aspose.Slides for Python via .NET, with support for PPT, PPTX and ODP files—boost your presentations today."
 ---
 
 ## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**

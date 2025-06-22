@@ -1,10 +1,24 @@
 ---
-title: 保存演示文稿
+title: 在 Python 中保存演示文稿
+linktitle: 保存演示文稿
 type: docs
 weight: 80
 url: /zh/python-net/save-presentation/
-keywords: "保存 PowerPoint, PPT, PPTX, 保存演示文稿, 文件, 流, Python"
-description: "在 Python 中将 PowerPoint 演示文稿保存为文件或流"
+keywords:
+- 保存 PowerPoint
+- 保存 OpenDocument
+- 保存演示文稿
+- 保存 PPT
+- 保存 PPTX
+- 保存 ODP
+- 将演示文稿保存到文件
+- 将演示文稿保存到流
+- 视图类型
+- 严格 Office Open XML 格式
+- 保存进度
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides 在 Python 中保存演示文稿——导出为 PowerPoint 或 OpenDocument，同时保留布局、字体和效果。"
 ---
 
 ## **保存演示文稿**

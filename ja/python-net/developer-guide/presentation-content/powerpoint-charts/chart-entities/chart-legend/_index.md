@@ -1,9 +1,18 @@
 ---
-title: チャートの凡例
+title: Python でプレゼンテーションのチャート凡例をカスタマイズする
+linktitle: チャート凡例
 type: docs
 url: /ja/python-net/chart-legend/
-keywords: "チャートの凡例, 凡例のフォントサイズ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでのPowerPointプレゼンテーションにおけるチャートの凡例の位置とフォントサイズを設定します"
+keywords:
+- チャート凡例
+- 凡例の位置
+- フォントサイズ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用してチャートの凡例をカスタマイズし、PowerPoint および OpenDocument プレゼンテーションを最適化する方法をご紹介します。"
 ---
 
 ## **凡例の位置設定**

@@ -1,9 +1,17 @@
 ---
-title: Barre d'erreur
+title: Personnaliser les barres d’erreur dans les graphiques de présentation avec Python
+linktitle: Barre d’erreur
 type: docs
 url: /fr/python-net/error-bar/
-keywords: "Barre d'erreur, valeurs de barre d'erreur présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter une barre d'erreur aux présentations PowerPoint en Python"
+keywords:
+- barre d’erreur
+- valeur personnalisée
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à ajouter et à personnaliser des barres d’erreur dans les graphiques avec Aspose.Slides for Python via .NET—optimisez la visualisation des données dans les présentations PowerPoint et OpenDocument."
 ---
 
 ## **Ajouter une barre d'erreur**
