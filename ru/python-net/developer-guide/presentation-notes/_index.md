@@ -1,10 +1,22 @@
 ---
-title: Заметки для презентации
+title: Управляйте заметками к презентации в Python
+linktitle: Заметки к презентации
 type: docs
 weight: 110
 url: /ru/python-net/presentation-notes/
-keywords: "Заметки, заметки PowerPoint, добавить заметки, удалить заметки, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавление и удаление заметок в презентациях PowerPoint на Python"
+keywords:
+- заметки
+- слайд заметок
+- добавить заметки
+- удалить заметки
+- стиль заметок
+- мастер заметок
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Настраивайте заметки к презентации с помощью Aspose.Slides for Python via .NET. Работайте с заметками PowerPoint и OpenDocument без усилий, повышая продуктивность."
 ---
 
 

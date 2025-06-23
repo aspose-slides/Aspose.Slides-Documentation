@@ -1,10 +1,26 @@
 ---
-title: 箇条書きと番号付きリストの管理
+title: Python でプレゼンテーションの箇条書きと番号付きリストを管理する
+linktitle: リストを管理
 type: docs
 weight: 70
 url: /ja/python-net/manage-bullet-and-numbered-lists/
-keywords: "箇条書き, 箇条書きリスト, 番号, 番号付きリスト, 画像の箇条書き, 多段階箇条書き, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションに箇条書きと番号付きリストを作成する"
+keywords:
+- 箇条書き
+- 箇条書きリスト
+- 番号付きリスト
+- シンボル箇条書き
+- 画像箇条書き
+- カスタム箇条書き
+- 階層リスト
+- 箇条書きを作成
+- 箇条書きを追加
+- リストを追加
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument プレゼンテーションで箇条書きと番号付きリストを管理する方法を学びましょう。ステップバイステップのガイドとコード例で、すぐに始められるようサポートします。"
 ---
 
 **Microsoft PowerPoint**では、Wordや他のテキストエディタと同じ方法で箇条書きと番号付きリストを作成できます。**Aspose.Slides for Python via .NET**も、プレゼンテーションのスライドで箇条書きや番号を使用することを可能にします。

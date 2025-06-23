@@ -1,10 +1,26 @@
 ---
-title: Administrar listas con viñetas y numeradas
+title: Administrar listas con viñetas y numeradas en presentaciones en Python
+linktitle: Administrar listas
 type: docs
 weight: 70
 url: /es/python-net/manage-bullet-and-numbered-lists/
-keywords: "Viñetas, listas con viñetas, Números, listas numeradas, viñetas con imagen, viñetas de varios niveles, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Crea listas con viñetas y numeradas en presentaciones de PowerPoint en Python"
+keywords:
+- viñeta
+- lista con viñetas
+- lista numerada
+- viñeta de símbolo
+- viñeta de imagen
+- viñeta personalizada
+- lista multinivel
+- crear viñeta
+- agregar viñeta
+- agregar lista
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprenda a gestionar listas con viñetas y numeradas en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET. Guía paso a paso con ejemplos de código para ayudarle a empezar rápidamente."
 ---
 
 En **Microsoft PowerPoint**, puedes crear listas con viñetas y numeradas de la misma manera que lo haces en Word y otros editores de texto. **Aspose.Slides para Python a través de .NET** también te permite usar viñetas y números en las diapositivas de tus presentaciones. 

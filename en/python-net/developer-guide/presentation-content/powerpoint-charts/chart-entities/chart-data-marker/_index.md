@@ -1,9 +1,21 @@
 ---
-title: Chart Data Marker
+title: Manage Chart Data Markers in Presentations with Python
+linktitle: Data Marker
 type: docs
 url: /python-net/chart-data-marker/
-keywords: "Chart marker options, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Set chart marker options in PowerPoint presentations in Python"
+keywords:
+- chart
+- data point
+- marker
+- marker options
+- marker size
+- fill type
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to customize chart data markers in Aspose.Slides, boosting presentation impact across PPT, PPTX and ODP formats with clear code examples."
 ---
 
 ## **Set Chart Marker Options**

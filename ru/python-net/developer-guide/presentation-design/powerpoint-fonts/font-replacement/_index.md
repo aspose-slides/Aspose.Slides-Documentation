@@ -1,10 +1,19 @@
 ---
-title: Замена шрифтов
+title: Оптимизируйте замену шрифтов в презентациях с помощью Python
+linktitle: Замена шрифтов
 type: docs
 weight: 60
 url: /ru/python-net/font-replacement/
-keywords: "Шрифт, замена шрифта, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Явно замените шрифты в PowerPoint на Python"
+keywords:
+- шрифт
+- замена шрифта
+- изменить шрифт
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Беспрепятственно заменяйте шрифты в Aspose.Slides for Python via .NET, чтобы обеспечить единообразную типографику в презентациях PowerPoint и OpenDocument."
 ---
 
 Если вы передумали использовать шрифт, вы можете заменить его другим шрифтом. Все экземпляры старого шрифта будут заменены новым шрифтом.

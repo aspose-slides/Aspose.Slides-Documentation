@@ -1,10 +1,24 @@
 ---
-title: Ouvrir une Présentation
+title: Ouvrir une présentation en Python
+linktitle: Ouvrir une présentation
 type: docs
 weight: 20
 url: /fr/python-net/open-presentation/
-keywords: "Ouvrir PowerPoint, PPTX, PPT, Ouvrir Présentation, Charger Présentation, Python"
-description: "Ouvrir ou charger une Présentation PPT, PPTX, ODP en Python"
+keywords:
+- ouvrir PowerPoint
+- ouvrir présentation
+- ouvrir PPTX
+- ouvrir PPT
+- ouvrir ODP
+- charger présentation
+- charger PPTX
+- charger PPT
+- charger ODP
+- présentation protégée
+- présentation volumineuse
+- Python
+- Aspose.Slides
+description: "Ouvrez facilement des présentations PowerPoint (.pptx, .ppt) et OpenDocument (.odp) avec Aspose.Slides for Python via .NET — rapide, fiable et entièrement fonctionnel."
 ---
 
 En plus de créer des présentations PowerPoint à partir de zéro, Aspose.Slides vous permet d'ouvrir des présentations existantes. Une fois que vous avez chargé une présentation, vous pouvez obtenir des informations sur la présentation, modifier la présentation (le contenu de ses diapositives), ajouter de nouvelles diapositives ou en supprimer des existantes, etc.
