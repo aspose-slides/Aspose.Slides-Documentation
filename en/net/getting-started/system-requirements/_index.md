@@ -23,6 +23,7 @@ Aspose.Slides for .NET does not require Microsoft PowerPoint to be installed bec
 
 ## **Supported Operating Systems**
 Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET or Mono framework is installed including (but not limited to):
+
 ### **Windows**
 - Microsoft Windows 2000 Server ( x64, x86)
 - Microsoft Windows 2003 Server ( x64, x86)
@@ -40,14 +41,7 @@ Aspose.Slides for .NET supports any 32-bit or 64-bit operating system where .NET
 
 {{%  alert  title="Notes"  color="primary"  %}} 
 
-1. Because CentOS 7 ships with GLIBC 2.14 while Aspose.Slides for .NET 6 and .NET 7 (including the cross-platform build) require Linux x86_64 with GLIBC 2.23 or newer, you should use Aspose.Slides for .NET Standard on such a system.
-
-2. As of version 25.3, Aspose.Slides for .NET can be used on Alpine Linux. To ensure proper operation in an Alpine environment, follow these steps:
-- Install the `libgdiplus` package (for example, in Docker): `RUN apk add --no-cache libgdiplus`
-- To enable support for `System.Drawing.Common`, set the following flag:
-```cs
-    AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
-```
+Because CentOS 7 ships with GLIBC 2.14 while Aspose.Slides for .NET 6 and .NET 7 (including the cross-platform build) require Linux x86_64 with GLIBC 2.23 or newer, you can use Aspose.Slides for .NET Standard on such a system.
 
 {{% /alert %}} 
 
@@ -96,3 +90,32 @@ Aspose.Slides for .NET can be used to develop applications in any development en
 - Microsoft Visual Studio 2017
 - Microsoft Visual Studio 2019
 - Microsoft Visual Studio 2022
+
+## **Aspose.Slides Main Builds**
+Currently, there are two main builds of Aspose.Slides — Aspose.Slides.NET and Aspose.Slides.NET6.CrossPlatform.
+
+### **[Aspose.Slides for .NET](https://www.nuget.org/packages/Aspose.Slides.NET)**
+This is the main version of the product. It uses the standard .NET graphics engine.
+- On non-Windows platforms, you may need to install the `libgdiplus` library and its dependencies.
+- Prior to version Aspose.Slides 25.3, for non-Windows platforms, it was necessary to use the .NET Standard 2.0 DLL from the Aspose.Slides ZIP package.
+- Starting from version Aspose.Slides 25.3, the NuGet package can be used directly even on non-Windows systems.
+- When running on non-Windows systems, your application must include the following line at startup:
+```cs
+AppContext.SetSwitch("System.Drawing.EnableUnixSupport", true);
+```
+- **Starting from version 25.3, you can use this package on platforms that support .NET, such as Linux aarch64 (ARM64).**
+
+### **[Aspose.Slides for .NET 6 CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform)**
+This is the version of Aspose.Slides using a custom cross-platform graphics engine developed by the Aspose.Slides team.  
+On non-Windows platforms, the `fontconfig` library may be required.
+
+**Supported Platforms**
+- *Windows*: x86, x86_64  
+- *Linux*: x86_64  
+- *macOS*: x86_64, ARM64
+
+**Planned for Future Support**  
+- *Linux*: aarch64 (ARM64) — *ETA: end of 2025*  
+
+**Not Planned**
+- *Windows 11 ARM* (ARM64) — *Not currently under consideration*
