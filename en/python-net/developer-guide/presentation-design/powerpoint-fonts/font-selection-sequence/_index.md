@@ -1,18 +1,22 @@
 ---
-title: Font Selection Sequence in Python
-linktitle: Font Selection Sequence in Python
+title: Font Selection Sequence in Presentations with Python
+linktitle: Font Selection
 type: docs
 weight: 80
 url: /python-net/font-selection-sequence/
 keywords:
-- font
 - font selection
 - font substitution
 - font replacement
-- PowerPoint presentation
+- substitution rule
+- available font
+- missing font
+- PowerPoint
+- OpenDocument
+- presentation
 - Python
-- Aspose.Slides for Python
-description: "PowerPoint font selection sequence in Python"
+- Aspose.Slides
+description: "Discover how Aspose.Slides for Python via .NET selects fonts, ensuring crisp, consistent presentation of PPT, PPTX and ODP files—improve your slides now."
 ---
 
 ## Font Selection

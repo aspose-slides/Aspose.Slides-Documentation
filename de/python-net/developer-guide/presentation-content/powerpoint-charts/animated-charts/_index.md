@@ -1,10 +1,24 @@
 ---
-title: Animierte Diagramme
+title: PowerPoint-Diagramme in Python animieren
+linktitle: Animierte Diagramme
 type: docs
 weight: 80
 url: /de/python-net/animated-charts/
-keywords: "Diagramme, Diagrammreihen, Animation PowerPoint-Präsentation, PPTX, PPT, Python, Aspose.Slides für Python über .NET"
-description: "PowerPoint-Diagrammreihen und Animationen in Python"
+keywords:
+- Diagramm
+- animiertes Diagramm
+- Diagrammanimation
+- Diagrammreihe
+- Diagrammkategorie
+- Reihen-Element
+- Kategorie-Element
+- Effekt hinzufügen
+- Effektart
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erstellen Sie beeindruckende animierte Diagramme in Python mit Aspose.Slides. Peppen Sie Präsentationen mit dynamischen Visualisierungen in PPT-, PPTX- und ODP-Dateien auf – jetzt loslegen."
 ---
 
 Aspose.Slides für Python über .NET unterstützt die Animation von Diagrammelementen. **Reihen**, **Kategorien**, **Reihenelemente**, **Kategorienelemente** können mit der [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/)Methode und zwei Enums [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/)und [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/)animiert werden.

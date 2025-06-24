@@ -1,10 +1,32 @@
 ---
-title: Slide Size
+title: Change the Slide Size in Presentations with Python
+linktitle: Slide Size
 type: docs
 weight: 70
 url: /python-net/slide-size/
-keywords: "Set slide, edit slide size, PowerPoint Presentation, custom slide size, resolve slide problems, Python, Aspose.Slides"
-descriptions: "Set and edit slide size or aspect ratio in PowerPoint in Python"
+keywords:
+- slide size
+- aspect ratio
+- standard
+- widescreen
+- 4:3
+- 16:9
+- set slide size
+- change slide size
+- custom slide size
+- special slide size
+- unique slide size
+- full-size slide
+- screen type
+- do not scale
+- ensure fit
+- maximize
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+descriptions: "Learn how to quickly resize slides in PPT, PPTX and ODP files with Python and Aspose.Slides, optimize presentations for any screen without losing quality."
 ---
 
 ## Slide Sizes in PowerPoint Presentations

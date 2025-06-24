@@ -1,10 +1,24 @@
 ---
-title: Animated Charts
+title: Animate PowerPoint Charts in Python
+linktitle: Animated Charts
 type: docs
 weight: 80
 url: /python-net/animated-charts/
-keywords: "Charts, Chart Series, Animation PowerPoint Presentation, PPTX, PPT, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint charts series and animations in Python"
+keywords:
+- chart
+- animated chart
+- chart animation
+- chart series
+- chart category
+- series element
+- category element
+- add effect
+- effect type
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Create stunning animated charts in Python with Aspose.Slides. Boost presentations with dynamic visuals in PPT, PPTX and ODP files—get started now."
 ---
 
 Aspose.Slides for Python via .NET supports animating the chart elements. **Series**, **Categories**, **Series Elements**, **Categories Elements** can be animated with [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/)method and two enums [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/)and [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/).

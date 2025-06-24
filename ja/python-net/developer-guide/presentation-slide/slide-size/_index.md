@@ -1,10 +1,32 @@
 ---
-title: スライドサイズ
+title: Python でプレゼンテーションのスライド サイズを変更する
+linktitle: スライド サイズ
 type: docs
 weight: 70
 url: /ja/python-net/slide-size/
-keywords: "スライドの設定、スライドサイズの編集、PowerPointプレゼンテーション、カスタムスライドサイズ、スライドの問題を解決する、Python、Aspose.Slides"
-descriptions: "PythonでPowerPointのスライドサイズやアスペクト比を設定および編集する"
+keywords:
+- スライド サイズ
+- アスペクト比
+- スタンダード
+- ワイドスクリーン
+- 4:3
+- 16:9
+- スライド サイズを設定
+- スライド サイズを変更
+- カスタム スライド サイズ
+- 特殊なスライド サイズ
+- ユニークなスライド サイズ
+- フルサイズ スライド
+- 画面タイプ
+- スケーリングしない
+- フィットを確保
+- 最大化
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Python と Aspose.Slides を使用して、PPT、PPTX、ODP ファイルのスライド サイズを素早く変更し、品質を損なうことなくあらゆる画面に最適化する方法を学びましょう。"
 ---
 
 ## PowerPointプレゼンテーションのスライドサイズ
