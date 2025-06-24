@@ -1,22 +1,31 @@
 ---
-title: 管理 OLE
+title: 在 Python 中管理演示文稿中的 OLE
+linktitle: 管理 OLE
 type: docs
 weight: 40
 url: /zh/python-net/manage-ole/
 keywords:
+- OLE 对象
+- 对象链接与嵌入
 - 添加 OLE
 - 嵌入 OLE
 - 添加对象
 - 嵌入对象
+- 添加文件
 - 嵌入文件
 - 链接对象
-- 对象链接与嵌入
-- OLE 对象
-- PowerPoint 
+- 链接文件
+- 更改 OLE
+- OLE 图标
+- OLE 标题
+- 提取 OLE
+- 提取对象
+- 提取文件
+- PowerPoint
 - 演示文稿
 - Python
-- Aspose.Slides for Python via .NET
-description: 在 Python 中将 OLE 对象添加到 PowerPoint 演示文稿
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python 优化 PowerPoint 和 OpenDocument 文件中的 OLE 对象管理，轻松嵌入、更新并导出 OLE 内容。"
 ---
 
 {{% alert title="信息" color="info" %}}

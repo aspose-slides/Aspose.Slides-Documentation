@@ -1,10 +1,29 @@
 ---
-title: ノート付きPowerPointをTIFFに変換する
+title: Python でノート付き PowerPoint プレゼンテーションを TIFF に変換する
+linktitle: ノート付き TIFF 変換
 type: docs
 weight: 100
 url: /ja/python-net/convert-powerpoint-to-tiff-with-notes/
-keywords: "ノート付きPowerPointをTIFFに変換する"
-description: "Aspose.Slidesを使用して、ノート付きのPowerPointをTIFFに変換します。"
+keywords:
+- PowerPoint を変換
+- プレゼンテーションを変換
+- スライドを変換
+- PPT を変換
+- PPTX を変換
+- PowerPoint を TIFF に
+- プレゼンテーションを TIFF に
+- スライドを TIFF に
+- PPT を TIFF に
+- PPTX を TIFF に
+- ノート付き PowerPoint
+- ノート付きプレゼンテーション
+- ノート付きスライド
+- ノート付き PPT
+- ノート付き PPTX
+- ノート付き TIFF
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、ノート付き PowerPoint プレゼンテーションを TIFF に変換する方法を学びます。スピーカーノート付きスライドのエクスポートを効率的に行う方法を紹介します。"
 ---
 
 {{% alert title="ヒント" color="primary" %}}

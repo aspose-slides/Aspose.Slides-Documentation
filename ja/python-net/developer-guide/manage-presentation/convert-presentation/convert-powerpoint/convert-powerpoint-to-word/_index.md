@@ -1,10 +1,34 @@
 ---
-title: PowerPointをWordに変換する
+title: Python で PowerPoint プレゼンテーションを Word ドキュメントに変換する
+linktitle: PowerPoint から Word へ
 type: docs
 weight: 110
 url: /ja/python-net/convert-powerpoint-to-word/
-keywords: "PowerPointを変換, PPT, PPTX, プレゼンテーション, Word, DOCX, DOC, PPTXをDOCXに, PPTをDOCに, PPTXをDOCに, PPTをDOCXに, Python, Aspose.Slides"
-description: "PythonでPowerPointプレゼンテーションをWordに変換する"
+keywords:
+- PowerPoint から DOCX へ
+- OpenDocument から DOCX へ
+- プレゼンテーションを DOCX へ
+- スライドを DOCX へ
+- PPT を DOCX へ
+- PPTX を DOCX へ
+- ODP を DOCX へ
+- PowerPoint から DOC へ
+- OpenDocument から DOC へ
+- プレゼンテーションを DOC へ
+- スライドを DOC へ
+- PPT を DOC へ
+- PPTX を DOC へ
+- ODP を DOC へ
+- PowerPoint から Word へ
+- OpenDocument から Word へ
+- プレゼンテーションを Word へ
+- スライドを Word へ
+- PPT を Word へ
+- PPTX を Word へ
+- ODP を Word へ
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションを Word ドキュメントに手間なく変換する方法を学びましょう。ドキュメントワークフローを効率化したい開発者向けに、サンプル Python コード付きのステップバイステップガイドを提供します。"
 ---
 
 プレゼンテーション（PPTまたはPPTX）のテキストコンテンツや情報を新たな方法で使用する予定がある場合、プレゼンテーションをWord（DOCまたはDOCX）に変換することで利益を得ることができます。

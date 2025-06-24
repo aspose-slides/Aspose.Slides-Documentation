@@ -1,10 +1,20 @@
 ---
-title: 字体替换
+title: 使用 Python 精简演示文稿中的字体替换
+linktitle: 字体替换
 type: docs
 weight: 60
 url: /zh/python-net/font-replacement/
-keywords: "字体, 替换字体, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中显式替换 PowerPoint 中的字体"
+keywords:
+- 字体
+- 替换字体
+- 字体替换
+- 更改字体
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 无缝替换字体，确保 PowerPoint 和 OpenDocument 演示文稿中的排版一致性。"
 ---
 
 如果您改变了对使用某种字体的想法，可以用另一种字体替换该字体。所有旧字体的实例将被新字体替换。

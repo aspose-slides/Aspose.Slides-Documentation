@@ -1,10 +1,20 @@
 ---
-title: 上付き文字と下付き文字
+title: Python で上付き文字と下付き文字を管理する
+linktitle: 上付き文字と下付き文字
 type: docs
 weight: 80
 url: /ja/python-net/superscript-and-subscript/
-keywords: "上付き文字, 下付き文字, 上付き文字のテキスト追加, 下付き文字のテキスト追加, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションに上付き文字と下付き文字のテキストを追加する"
+keywords:
+- 上付き文字
+- 下付き文字
+- 上付き文字を追加
+- 下付き文字を追加
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET で上付き文字と下付き文字をマスターし、プロフェッショナルなテキスト書式設定でプレゼンテーションを最大限に引き立てましょう。"
 ---
 
 ## **上付き文字と下付き文字のテキストを管理する**

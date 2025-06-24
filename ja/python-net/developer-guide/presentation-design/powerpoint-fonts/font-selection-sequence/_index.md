@@ -1,18 +1,22 @@
 ---
-title: Pythonにおけるフォント選択シーケンス
-linktitle: Pythonにおけるフォント選択シーケンス
+title: Python でプレゼンテーションのフォント選択シーケンスを管理する
+linktitle: フォント選択
 type: docs
 weight: 80
 url: /ja/python-net/font-selection-sequence/
 keywords:
-- フォント
 - フォント選択
+- フォントの代替
 - フォント置換
-- フォント置き換え
-- PowerPointプレゼンテーション
+- 置換ルール
+- 利用可能なフォント
+- フォントが見つからない
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - Python
-- Aspose.Slides for Python
-description: "PythonにおけるPowerPointフォント選択シーケンス"
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET がフォントを選択する仕組みを理解し、PPT、PPTX、ODP ファイルを鮮明かつ一貫性のある表示で提供する方法を学び、スライドを改善しましょう。"
 ---
 
 ## フォント選択

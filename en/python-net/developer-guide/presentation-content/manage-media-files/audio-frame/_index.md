@@ -1,10 +1,32 @@
 ---
-title: Audio Frame
+title: Embed Audio in Presentations with Python
+linktitle: Audio Frame
 type: docs
 weight: 10
 url: /python-net/audio-frame/
-keywords: "Add audio, Audio frame, Audio properties, Extract audio, Python, Aspose.Slides for Python via .NET"
-description: "Add audio to PowerPoint presentation in Python"
+keywords:
+- add audio
+- embed audio
+- audio frame
+- audio file
+- audio properties
+- extract audio
+- retrieve audio
+- change audio
+- play options
+- play mode
+- play across slides
+- loop until stopped
+- hide during show
+- rewind after playing
+- audio volume
+- default image
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Easily add, extract & manage audio frames in PPT, PPTX and ODP with Aspose.Slides for Python via .NET. Explore code examples & boost your presentations today."
 ---
 
 ## **Creating Audio Frame**

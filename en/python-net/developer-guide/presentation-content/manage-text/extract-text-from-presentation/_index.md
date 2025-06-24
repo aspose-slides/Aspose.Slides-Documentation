@@ -9,9 +9,21 @@ keywords:
 - extract text from slide
 - extract text from presentation
 - extract text from PowerPoint
+- extract text from OpenDocument
 - extract text from PPT
 - extract text from PPTX
 - extract text from ODP
+- retrieve text
+- retrieve text from slide
+- retrieve text from presentation
+- retrieve text from PowerPoint
+- retrieve text from OpenDocument
+- retrieve text from PPT
+- retrieve text from PPTX
+- retrieve text from ODP
+- PowerPoint
+- OpenDocument
+- presentation
 - Python
 - Aspose.Slides
 description: "Learn how to quickly and easily extract text from PowerPoint presentations using Aspose.Slides for Python via .NET. Follow our simple, step-by-step guide to save time and efficiently access slide content in your applications."

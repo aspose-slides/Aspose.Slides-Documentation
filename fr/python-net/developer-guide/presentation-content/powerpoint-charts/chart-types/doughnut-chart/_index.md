@@ -1,10 +1,19 @@
 ---
-title: Graphique en anneau
+title: Personnaliser les graphiques en anneau dans les présentations avec Python
+linktitle: Graphique en anneau
 type: docs
 weight: 30
 url: /fr/python-net/doughnut-chart/
-keywords: "Graphique en anneau, espace central, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Spécifiez l'espace central dans un graphique en anneau dans une présentation PowerPoint en Python"
+keywords:
+- graphique en anneau
+- espace central
+- taille du trou
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment créer et personnaliser des graphiques en anneau avec Aspose.Slides pour Python via .NET, compatible avec les formats PowerPoint et OpenDocument pour des présentations dynamiques."
 ---
 
 ## **Spécifiez l'Espace Central dans un Graphique en Anneau**

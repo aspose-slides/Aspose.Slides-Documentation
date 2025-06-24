@@ -1,10 +1,32 @@
 ---
-title: 从演示文稿中提取文本
+title: 在 Python 中从演示文稿高级提取文本
+linktitle: 提取文本
 type: docs
 weight: 90
 url: /zh/python-net/extract-text-from-presentation/
-keywords: "从幻灯片提取文本, 从PowerPoint提取文本, Python, Aspose.Slides for Python via .NET"
-description: "在Python中从幻灯片或PowerPoint演示文稿中提取文本"
+keywords:
+- 提取文本
+- 从幻灯片提取文本
+- 从演示文稿提取文本
+- 从 PowerPoint 提取文本
+- 从 OpenDocument 提取文本
+- 从 PPT 提取文本
+- 从 PPTX 提取文本
+- 从 ODP 提取文本
+- 检索文本
+- 从幻灯片检索文本
+- 从演示文稿检索文本
+- 从 PowerPoint 检索文本
+- 从 OpenDocument 检索文本
+- 从 PPT 检索文本
+- 从 PPTX 检索文本
+- 从 ODP 检索文本
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何使用 Aspose.Slides for Python 快速轻松地从演示文稿中提取文本。按照我们的简单分步指南，节省时间并在应用程序中高效获取幻灯片内容。"
 ---
 
 {{% alert color="primary" %}} 
