@@ -346,29 +346,6 @@ This method compresses an image by reducing its size based on the shape size and
 
 It adjusts the picture’s size and resolution similarly to PowerPoint’s **Picture Format → Compress Pictures → Resolution** feature.
 
-### Method Overloads
-
-```csharp
-bool CompressImage(bool deleteCroppedAreasOfImage, PicturesCompression resolution)
-bool CompressImage(bool deleteCroppedAreasOfImage, float resolution)
-```
-
-### Parameters
-
-- `deleteCroppedAreasOfImage` (`bool`)  
-  If `true`, the method removes the cropped areas of the image, potentially reducing its size further.
-
-- `resolution` (`PicturesCompression` or `float`)  
-  The target resolution for compression. Can be specified using a predefined [`PicturesCompression`](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) enum or a DPI value (`float`).
-
-### Return Value
-
-Returns `true` if the image was resized or cropped; otherwise, returns `false`.
-
-### Exceptions
-
-- `ArgumentException` — Thrown if the specified resolution is not valid (e.g., zero or negative for the `float` overload, or invalid enum value).
-
 ### Example
 
 ```csharp
