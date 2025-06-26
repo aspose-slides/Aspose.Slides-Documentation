@@ -346,7 +346,7 @@ This method compresses an image by reducing its size based on the shape size and
 
 It adjusts the picture’s size and resolution similarly to PowerPoint’s **Picture Format → Compress Pictures → Resolution** feature.
 
-### Example
+The following C# examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
@@ -371,7 +371,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 }
 ```
 
-Or using a custom DPI value:
+Or using a custom DPI value directly:
 
 ```csharp
 using (Presentation presentation = new Presentation("demo.pptx"))
@@ -390,6 +390,7 @@ using (Presentation presentation = new Presentation("demo.pptx"))
 The method converts the image to a lower resolution based on the shape’s size and provided DPI. Cropped regions can also be deleted to optimize file size.  
 If the image is a metafile (WMF/EMF) or SVG, compression will not be applied. Also, JPEG quality is preserved or slightly reduced based on resolution, similarly to how PowerPoint handles high-resolution JPEGs.
 
+{{% /alert %}}
 
 ## **Lock Aspect Ratio**
 
