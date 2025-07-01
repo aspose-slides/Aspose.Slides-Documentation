@@ -5,7 +5,7 @@ weight: 238
 url: /net/net2-obsolete/
 ---
 
-As part of our ongoing efforts to improve product quality and security, we are planning the following changes in **version 25.7**:
+As part of our ongoing efforts to improve product quality and security, we are planning the following changes in **version 25.9**:
 
 - Assemblies targeting **.NET Framework 2.0**, **3.5**, and **4.0** will be removed from the release package.  
 - Instead, a new assembly targeting **.NET Framework 4.6.2** will be introduced, offering better support for modern platform features and improved security.
