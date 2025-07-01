@@ -1,10 +1,21 @@
 ---
-title: ActiveX
+title: 在 Python 中管理演示文稿中的 ActiveX 控件
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /zh/python-net/activex/
-keywords: "ActiveX, ActiveX 控件, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中管理 PowerPoint 演示文稿中的 ActiveX 控件"
+keywords:
+- ActiveX
+- ActiveX 控件
+- 管理 ActiveX
+- 添加 ActiveX
+- 修改 ActiveX
+- 媒体播放器
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解 Aspose.Slides for Python 如何利用 ActiveX 自动化并增强 PowerPoint 演示文稿，为开发者提供强大的幻灯片控制能力。"
 ---
 
 ActiveX 控件用于演示文稿中。Aspose.Slides for Python via .NET 允许您管理 ActiveX 控件，但管理起来比普通演示形状要复杂且不同。从 Aspose.Slides for Python via .NET 6.9.0 开始，该组件支持管理 ActiveX 控件。此时，您可以访问已添加到演示文稿中的 ActiveX 控件，并通过其各种属性进行修改或删除。请记住，ActiveX 控件不是形状，并且不属于演示文稿的 IShapeCollection，而是单独的 IControlCollection。本文展示了如何与它们一起工作。

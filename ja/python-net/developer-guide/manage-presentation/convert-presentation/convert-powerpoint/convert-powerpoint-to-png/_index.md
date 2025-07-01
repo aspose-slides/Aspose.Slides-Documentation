@@ -1,10 +1,25 @@
 ---
-title: PowerPointをPNGに変換
+title: Python で PowerPoint スライドを PNG に変換する
+linktitle: スライドを PNG に
 type: docs
 weight: 30
 url: /ja/python-net/convert-powerpoint-to-png/
-keywords: PowerPointをPNGに, PPTをPNGに, PPTXをPNGに, Python, Aspose.Slides for Python via .NET
-description: PowerPointプレゼンテーションをPNGに変換
+keywords:
+- PowerPoint を PNG に変換
+- プレゼンテーションを PNG に変換
+- スライドを PNG に変換
+- PPT を PNG に変換
+- PPTX を PNG に変換
+- ODP を PNG に変換
+- PowerPoint を PNG に
+- プレゼンテーションを PNG に
+- スライドを PNG に
+- PPT を PNG に
+- PPTX を PNG に
+- ODP を PNG に
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument のプレゼンテーションを高品質な PNG 画像に迅速に変換し、正確で自動化された結果を実現します。"
 ---
 
 ## **PowerPointからPNGへの変換について**

@@ -1,10 +1,22 @@
 ---
-title: 椭圆
+title: 在 Python 中向演示文稿添加椭圆
+linktitle: 椭圆
 type: docs
 weight: 30
 url: /zh/python-net/ellipse/
-keywords: "椭圆，PowerPoint形状，PowerPoint演示文稿，Python，Aspose.Slides for Python via .NET"
-description: "在Python中创建PowerPoint演示文稿中的椭圆"
+keywords:
+- 椭圆
+- 形状
+- 添加椭圆
+- 创建椭圆
+- 绘制椭圆
+- 格式化椭圆
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何使用 Aspose.Slides for Python 在 PPT、PPTX 与 ODP 演示文稿中创建、格式化并操作椭圆形状——附带代码示例。"
 ---
 
 

@@ -1,10 +1,41 @@
 ---
-title: 将 PowerPoint 转换为 Word
+title: 在 Python 中将 PowerPoint 演示文稿转换为 Word 文档
+linktitle: PowerPoint 转 Word
 type: docs
 weight: 110
 url: /zh/python-net/convert-powerpoint-to-word/
-keywords: "转换 PowerPoint, PPT, PPTX, 演示文稿, Word, DOCX, DOC, PPTX 到 DOCX, PPT 到 DOC, PPTX 到 DOC, PPT 到 DOCX, Python, Aspose.Slides"
-description: "在 Python 中将 PowerPoint 演示文稿转换为 Word"
+keywords:
+- PowerPoint 转 DOCX
+- OpenDocument 转 DOCX
+- 演示文稿 转 DOCX
+- 幻灯片 转 DOCX
+- PPT 转 DOCX
+- PPTX 转 DOCX
+- ODP 转 DOCX
+- PowerPoint 转 DOC
+- OpenDocument 转 DOC
+- 演示文稿 转 DOC
+- 幻灯片 转 DOC
+- PPT 转 DOC
+- PPTX 转 DOC
+- ODP 转 DOC
+- PowerPoint 转 Word
+- OpenDocument 转 Word
+- 演示文稿 转 Word
+- 幻灯片 转 Word
+- PPT 转 Word
+- PPTX 转 Word
+- ODP 转 Word
+- 转换 PowerPoint
+- 转换 OpenDocument
+- 转换演示文稿
+- 转换幻灯片
+- 转换 PPT
+- 转换 PPTX
+- 转换 ODP
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python 轻松将 PowerPoint 和 OpenDocument 演示文稿转换为 Word 文档。我们的分步指南配有 Python 示例代码，为希望简化文档工作流程的开发人员提供解决方案。"
 ---
 
 如果您计划以新方式使用演示文稿（PPT 或 PPTX）中的文本内容或信息，您可能会从将演示文稿转换为 Word（DOC 或 DOCX）中受益。

@@ -1,9 +1,21 @@
 ---
-title: Etiqueta de Datos de Gráfico
+title: Gestionar etiquetas de datos de gráficas en presentaciones con Python
+linktitle: Etiqueta de datos
 type: docs
 url: /es/python-net/chart-data-label/
-keywords: "Etiqueta de datos de gráfico, distancia de etiqueta, Python, Aspose.Slides para Python a través de .NET"
-description: "Establecer la etiqueta de datos de gráfico de PowerPoint y la distancia en Python"
+keywords:
+- gráfico
+- etiqueta de datos
+- precisión de datos
+- porcentaje
+- distancia de etiqueta
+- ubicación de etiqueta
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: Aprende a agregar y formatear etiquetas de datos de gráficos en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET para lograr diapositivas más atractivas.
 ---
 
 Las etiquetas de datos en un gráfico muestran detalles sobre la serie de datos del gráfico o puntos de datos individuales. Permiten a los lectores identificar rápidamente las series de datos y también facilitan la comprensión de los gráficos.

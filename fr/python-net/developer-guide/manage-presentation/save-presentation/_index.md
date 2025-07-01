@@ -1,10 +1,23 @@
 ---
-title: Enregistrer la Présentation
+title: Enregistrer des présentations en Python
+linktitle: Enregistrer la présentation
 type: docs
 weight: 80
 url: /fr/python-net/save-presentation/
-keywords: "Enregistrer PowerPoint, PPT, PPTX, Enregistrer la Présentation, fichier, flux, Python"
-description: "Enregistrer une Présentation PowerPoint en tant que fichier ou flux en Python"
+keywords:
+- enregistrer PowerPoint
+- enregistrer présentation
+- enregistrer PPT
+- enregistrer PPTX
+- enregistrer ODP
+- enregistrer présentation dans un fichier
+- enregistrer présentation dans un flux
+- type d’affichage
+- format strict Office Open XML
+- progression de l’enregistrement
+- Python
+- Aspose.Slides
+description: "Découvrez comment enregistrer des présentations en Python avec Aspose.Slides — exportez vers PowerPoint ou OpenDocument tout en conservant les mises en page, les polices et les effets."
 ---
 
 ## **Enregistrer la Présentation**
