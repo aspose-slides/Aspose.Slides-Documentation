@@ -79,7 +79,7 @@ The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
+PowerPoint **Audio options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
 
 - Audio Options **Start** drop-down menu matches the [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) property 
 - Audio Options **Volume** matches the [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) property 
@@ -87,6 +87,15 @@ PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://r
 - Audio Options **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) property 
 - Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) property 
 - Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) property 
+
+PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
+
+- Audio Options **Fade In** matches the [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeinduration/) property 
+- Audio Options **Fade Out** matches the [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeoutduration/) property 
+- Audio Options **Trim Audio Start Time** matches the [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromstart/) property 
+- Audio Options **Trim Audio End Time** value is equal to the audio duration minus the [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromend/) property value
+
+PowerPoint **Volume controller** on the Audio control panel matches the [AudioFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/audioframe/volumevalue/) property. It allows you to change the audio volume in percent.
 
 This is how you change the Audio Play options:
 
@@ -122,6 +131,43 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 
     // Saves the PowerPoint file to disk
     pres.Save("AudioFrameEmbed_changed.pptx", SaveFormat.Pptx);
+}
+```
+
+This C# code shows you how to add the new audio frame with the embedded audio, trim it, and set the fade duration:
+
+```c#
+using (Presentation pres = new Presentation())
+{
+    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.mp3"));
+    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+
+    // Sets the start trimming duration to 1.5 seconds
+    audioFrame.TrimFromStart = 1500f;
+    // Sets the end trimming duration 2 seconds
+    audioFrame.TrimFromEnd = 2000f;
+    
+    // Sets the duration of the starting fade for 200ms
+    audioFrame.FadeInDuration = 200f;
+    // Sets the duration of the ending fade for 500ms
+    audioFrame.FadeOutDuration = 500f;
+
+    pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
+}
+```
+
+The following code sample demonstrates how to get the audio frame with the embedded audio and change its volume to 85%:
+
+```c#
+using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
+{
+    // Gets the AudioFrame shape
+    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
+
+    // Sets the audio volume to 85%
+    audioFrame.VolumeValue = 85f;
+    
+    pres.Save("AudioFrameValue_out.pptx", SaveFormat.Pptx);
 }
 ```
 
