@@ -1,10 +1,20 @@
 ---
-title: Folienabschnitt
+title: Folienabschnitte in Präsentationen mit Python verwalten
+titlelink: Folienabschnitt
 type: docs
 weight: 100
 url: /de/python-net/slide-section/
-keywords: "Abschnitt erstellen, Abschnitt hinzufügen, Abschnittsname bearbeiten, PowerPoint-Präsentation, Python, Aspose.Slides"
-description: "Abschnitt in PowerPoint-Präsentation in Python hinzufügen und bearbeiten"
+keywords:
+- Abschnitt erstellen
+- Abschnitt hinzufügen
+- Abschnitt bearbeiten
+- Abschnitt ändern
+- Abschnittsname
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Vereinfachen Sie Folienabschnitte in PowerPoint und OpenDocument mit Aspose.Slides for Python – teilen, umbenennen und neu anordnen, um PPTX- und ODP-Workflows zu optimieren."
 ---
 
 Mit Aspose.Slides für Python über .NET können Sie eine PowerPoint-Präsentation in Abschnitte organisieren. Sie können Abschnitte erstellen, die bestimmte Folien enthalten.

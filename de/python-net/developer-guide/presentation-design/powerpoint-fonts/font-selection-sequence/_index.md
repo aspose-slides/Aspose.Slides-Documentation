@@ -1,18 +1,22 @@
 ---
-title: Schriftarten-Auswahlsequenz in Python
-linktitle: Schriftarten-Auswahlsequenz in Python
+title: Reihenfolge der Schriftartauswahl in Präsentationen mit Python
+linktitle: Schriftartauswahl
 type: docs
 weight: 80
 url: /de/python-net/font-selection-sequence/
 keywords:
-- schriftart
-- schriftauswahl
-- schriftartersetzung
-- schriftartwechsel
-- PowerPoint-Präsentation
+- Schriftartauswahl
+- Schriftartsubstitution
+- Schriftartaustausch
+- Substitutionsregel
+- Verfügbare Schriftart
+- Fehlende Schriftart
+- PowerPoint
+- OpenDocument
+- Präsentation
 - Python
-- Aspose.Slides für Python
-description: "PowerPoint-Schriftauswahlsequenz in Python"
+- Aspose.Slides
+description: "Erfahren Sie, wie Aspose.Slides for Python via .NET Schriftarten auswählt und so eine klare, konsistente Darstellung von PPT-, PPTX- und ODP-Dateien gewährleistet – verbessern Sie jetzt Ihre Folien."
 ---
 
 ## Schriftauswahl

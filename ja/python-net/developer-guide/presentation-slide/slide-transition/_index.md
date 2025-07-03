@@ -1,10 +1,23 @@
 ---
-title: スライド遷移
+title: Python でプレゼンテーションのスライド遷移を管理する
+linktitle: スライド遷移
 type: docs
 weight: 90
 url: /ja/python-net/slide-transition/
-keywords: "スライド遷移の追加, PowerPointスライド遷移, モーフ遷移, 高度なスライド遷移, 遷移効果, Python, Aspose.Slides"
-description: "PythonでPowerPointスライド遷移と遷移効果を追加する"
+keywords:
+- スライド遷移
+- スライド遷移を追加
+- スライド遷移を適用
+- 高度なスライド遷移
+- モーフ遷移
+- 遷移タイプ
+- 遷移効果
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションのスライド遷移をステップバイステップでカスタマイズする方法をご紹介します。"
 ---
 
 ## **スライド遷移の追加**

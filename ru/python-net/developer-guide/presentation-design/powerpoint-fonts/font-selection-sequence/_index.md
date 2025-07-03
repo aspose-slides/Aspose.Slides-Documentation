@@ -1,18 +1,22 @@
 ---
-title: Последовательность выбора шрифтов в Python
-linktitle: Последовательность выбора шрифтов в Python
+title: Последовательность выбора шрифтов в презентациях на Python
+linktitle: Выбор шрифтов
 type: docs
 weight: 80
 url: /ru/python-net/font-selection-sequence/
 keywords:
-- шрифт
 - выбор шрифта
 - замена шрифта
-- подстановка шрифта
-- презентация PowerPoint
+- подмена шрифта
+- правило замены
+- доступный шрифт
+- отсутствующий шрифт
+- PowerPoint
+- OpenDocument
+- презентация
 - Python
-- Aspose.Slides для Python
-description: "Последовательность выбора шрифтов в PowerPoint на Python"
+- Aspose.Slides
+description: Узнайте, как Aspose.Slides for Python via .NET выбирает шрифты, обеспечивая четкое и единообразное отображение файлов PPT, PPTX и ODP — улучшите свои слайды прямо сейчас.
 ---
 
 ## Выбор шрифта
