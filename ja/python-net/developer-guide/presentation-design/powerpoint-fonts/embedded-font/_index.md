@@ -1,10 +1,23 @@
 ---
-title: 埋め込まれたフォント
+title: Python でプレゼンテーションにフォントを埋め込む
+linktitle: フォントの埋め込み
 type: docs
 weight: 40
 url: /ja/python-net/embedded-font/
-keywords: "フォント, 埋め込まれたフォント, フォントの追加, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Pythonを使用してPowerPointプレゼンテーションで埋め込まれたフォントを使用する"
+keywords:
+- フォントを追加
+- フォントを埋め込む
+- フォントの埋め込み
+- 埋め込みフォントを取得
+- 埋め込みフォントを追加
+- 埋め込みフォントを削除
+- 埋め込みフォントを圧縮
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument プレゼンテーションに TrueType フォントを埋め込み、あらゆるプラットフォームで正確にレンダリングされるようにする方法をご紹介します。"
 ---
 
 **PowerPointにおける埋め込まれたフォント**は、プレゼンテーションがどのシステムやデバイスで開かれても正しく表示されるようにするために便利です。創造的な作業のためにサードパーティ製または非標準のフォントを使用した場合、フォントを埋め込む理由はさらに増えます。そうでない場合（埋め込まれたフォントがない場合）、スライド上のテキストや数字、レイアウト、スタイリングなどが変更されたり、混乱を引き起こす長方形に変わる可能性があります。

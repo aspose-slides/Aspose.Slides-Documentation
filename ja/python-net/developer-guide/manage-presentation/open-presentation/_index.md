@@ -1,10 +1,24 @@
 ---
-title: プレゼンテーションを開く
+title: Python でプレゼンテーションを開く
+linktitle: プレゼンテーションを開く
 type: docs
 weight: 20
 url: /ja/python-net/open-presentation/
-keywords: "Open PowerPoint, PPTX, PPT, プレゼンテーションを開く, プレゼンテーションを読み込む, Python"
-description: "PythonでプレゼンテーションPPT、PPTX、ODPを開くまたは読み込む"
+keywords:
+- PowerPoint を開く
+- プレゼンテーションを開く
+- PPTX を開く
+- PPT を開く
+- ODP を開く
+- プレゼンテーションを読み込む
+- PPTX を読み込む
+- PPT を読み込む
+- ODP を読み込む
+- 保護されたプレゼンテーション
+- 大きなプレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint (.pptx, .ppt) および OpenDocument (.odp) のプレゼンテーションを手軽に開く方法をご紹介します。高速、信頼性が高く、機能豊富です。"
 ---
 
 ゼロからPowerPointプレゼンテーションを作成することに加えて、Aspose.Slidesを使用すると、既存のプレゼンテーションを開くことができます。プレゼンテーションを読み込むと、その情報を取得したり、プレゼンテーションを編集したり（スライドの内容）、新しいスライドを追加したり、既存のスライドを削除したりすることができます。
