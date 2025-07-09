@@ -1,9 +1,21 @@
 ---
-title: Series del Gráfico
+title: Gestionar Series de Gráficos en Python
+linktitle: Series de Gráficos
 type: docs
 url: /es/python-net/chart-series/
-keywords: "Series del gráfico, color de la serie, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Series del gráfico en presentaciones de PowerPoint en Python"
+keywords:
+- series de gráficos
+- superposición de series
+- color de la serie
+- color de categoría
+- nombre de la serie
+- punto de datos
+- separación de series
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprende a gestionar series de gráficos en Python para PowerPoint (PPT/PPTX) con ejemplos de código prácticos y mejores prácticas para mejorar tus presentaciones de datos."
 ---
 
 Una serie es una fila o columna de números trazados en un gráfico.

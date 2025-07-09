@@ -1,10 +1,21 @@
 ---
-title: PPT مقابل PPTX
+title: "فهم الفرق: PPT مقابل PPTX"
+linktitle: PPT مقابل PPTX
 type: docs
 weight: 10
 url: /ar/python-net/ppt-vs-pptx/
-keywords: "PPT مقابل PPTX، PPT أو PPTX، عرض PowerPoint، تنسيق، بايثون"
-description: "حول تنسيقات عرض PowerPoint. PPT مقابل PPTX. الاختلافات في بايثون"
+keywords:
+- PPT مقابل PPTX
+- PPT أو PPTX
+- تنسيق قديم
+- تنسيق حديث
+- تنسيق ثنائي
+- معيار حديث
+- باوربوينت
+- عرض تقديمي
+- بايثون
+- Aspose.Slides
+description: "قارن بين PPT و PPTX لبرنامج PowerPoint باستخدام Aspose.Slides for Python، واستكشف اختلافات التنسيق والفوائد والتوافق ونصائح التحويل."
 ---
 
 ## **ما هو PPT؟**

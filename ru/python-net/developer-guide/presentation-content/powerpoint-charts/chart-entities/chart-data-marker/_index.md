@@ -1,9 +1,21 @@
 ---
-title: Маркеры данных графика
+title: Управляйте маркерами данных диаграмм в презентациях с помощью Python
+linktitle: Маркер данных
 type: docs
 url: /ru/python-net/chart-data-marker/
-keywords: "Опции маркеров графиков, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Настройка параметров маркеров графиков в презентациях PowerPoint на Python"
+keywords:
+- диаграмма
+- точка данных
+- маркер
+- параметры маркера
+- размер маркера
+- тип заливки
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Изучите, как настраивать маркеры данных диаграмм в Aspose.Slides, повышая выразительность презентаций в форматах PPT, PPTX и ODP с понятными примерами кода."
 ---
 
 ## **Настройка параметров маркеров графиков**

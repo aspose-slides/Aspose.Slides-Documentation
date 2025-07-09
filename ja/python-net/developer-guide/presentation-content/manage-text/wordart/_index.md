@@ -1,10 +1,24 @@
 ---
-title: WordArt
+title: Python で WordArt 効果を作成および適用する
+linktitle: WordArt
 type: docs
 weight: 110
 url: /ja/python-net/wordart/
-keywords: "WordArt, Word Art, WordArtの作成, WordArtテンプレート, WordArt効果, シャドウ効果, 表示効果, グロー効果, WordArt変換, 3D効果, 外側シャドウ効果, 内側シャドウ効果, Python, Aspose.Slides for Python via .NET"
-description: "PythonまたはAspose.Slides for Python via .NETを使用してPowerPointプレゼンテーションにWordArtと効果を追加、操作、管理します。"
+keywords:
+- WordArt
+- WordArt を作成
+- WordArt テンプレート
+- WordArt 効果
+- 影効果
+- 表示効果
+- 光彩効果
+- WordArt 変換
+- 3D 効果
+- 外側の影効果
+- 内側の影効果
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して WordArt 効果を作成およびカスタマイズする方法を学びます。このステップバイステップ ガイドは、開発者が Python のプレゼンテーションでスタイリッシュかつプロフェッショナルなテキストを強化するのに役立ちます。"
 ---
 
 ## **WordArtとは？**

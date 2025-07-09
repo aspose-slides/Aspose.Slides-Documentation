@@ -1,10 +1,24 @@
 ---
-title: 图表格式
+title: 在 Python 中格式化演示文稿图表
+linktitle: 图表格式
 type: docs
 weight: 60
 url: /zh/python-net/chart-formatting/
-keywords: "图表实体, 图表属性, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中格式化PowerPoint演示文稿中的图表实体"
+keywords:
+- 格式化图表
+- 图表格式
+- 图表元素
+- 图表属性
+- 图表设置
+- 图表选项
+- 字体属性
+- 圆角边框
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习在 Aspose.Slides for Python 中进行图表格式设置，为您的 PowerPoint 或 OpenDocument 演示文稿增添专业且引人注目的样式。"
 ---
 
 ## **格式化图表实体**

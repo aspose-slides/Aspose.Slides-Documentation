@@ -1,10 +1,24 @@
 ---
-title: Graphiques Animés
+title: Animez des graphiques PowerPoint avec Python
+linktitle: Graphiques animés
 type: docs
 weight: 80
 url: /fr/python-net/animated-charts/
-keywords: "Graphiques, Séries de graphiques, Animations Présentation PowerPoint, PPTX, PPT, Python, Aspose.Slides pour Python via .NET"
-description: "Séries de graphiques et animations PowerPoint en Python"
+keywords:
+- graphique
+- graphique animé
+- animation de graphique
+- série de graphique
+- catégorie de graphique
+- élément de série
+- élément de catégorie
+- ajouter un effet
+- type d'effet
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Créez des graphiques animés époustouflants en Python avec Aspose.Slides. Dynamisez vos présentations grâce à des visuels dynamiques dans les fichiers PPT, PPTX et ODP — commencez dès maintenant."
 ---
 
 Aspose.Slides pour Python via .NET prend en charge l'animation des éléments du graphique. **Séries**, **Catégories**, **Éléments de séries**, **Éléments de catégories** peuvent être animés avec la méthode [**ISequence**.**AddEffect** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) et deux énumérations [**EffectChartMajorGroupingType** ](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/) et [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/).

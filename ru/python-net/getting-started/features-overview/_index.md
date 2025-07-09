@@ -3,6 +3,20 @@ title: Обзор возможностей
 type: docs
 weight: 20
 url: /ru/python-net/features-overview/
+keywords:
+- возможности
+- поддерживаемые платформы
+- файловый формат
+- конвертация
+- рендеринг
+- печать
+- форматирование
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Познакомьтесь с Aspose.Slides for Python via .NET — мощным API для эффективного создания, редактирования, автоматизации и преобразования презентаций PowerPoint и OpenDocument."
 ---
 
 ## **Поддерживаемые платформы**

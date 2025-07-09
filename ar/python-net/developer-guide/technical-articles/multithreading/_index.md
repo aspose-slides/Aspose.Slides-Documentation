@@ -1,17 +1,21 @@
 ---
-title: البرمجة المتعددة الخيوط في Aspose.Slides
+title: المعالجة المتعدّدة الخيوط في Aspose.Slides لـ Python
+linktitle: المعالجة المتعدّدة الخيوط
 type: docs
 weight: 200
 url: /ar/python-net/multithreading/
 keywords:
-- PowerPoint
-- عرض تقديمي
-- برمجة متعددة الخيوط
-- عمل متوازي
+- المعالجة المتعدّدة الخيوط
+- خيوط متعددة
+- العمل المتوازي
 - تحويل الشرائح
 - الشرائح إلى صور
-- بايثون
-- Aspose.Slides لبايثون
+- باوربوينت
+- OpenDocument
+- العرض التقديمي
+- Python
+- Aspose.Slides
+description: "تعزّز المعالجة المتعدّدة الخيوط في Aspose.Slides لـ Python معالجة ملفات PowerPoint و OpenDocument. اكتشف أفضل الممارسات لسير عمل العروض التقديمية بكفاءة."
 ---
 
 ## **مقدمة**

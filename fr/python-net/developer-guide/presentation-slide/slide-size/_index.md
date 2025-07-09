@@ -1,10 +1,32 @@
 ---
-title: Taille des diapositives
+title: Modifier la taille des diapositives dans les présentations avec Python
+linktitle: Taille de diapositive
 type: docs
 weight: 70
 url: /fr/python-net/slide-size/
-keywords: "Définir la diapositive, modifier la taille de la diapositive, présentation PowerPoint, taille de diapositive personnalisée, résoudre les problèmes de diapositive, Python, Aspose.Slides"
-descriptions: "Définir et modifier la taille ou le rapport d'aspect des diapositives dans PowerPoint en Python"
+keywords:
+- taille de diapositive
+- rapport d'image
+- standard
+- écran large
+- 4:3
+- 16:9
+- définir la taille de diapositive
+- changer la taille de diapositive
+- taille de diapositive personnalisée
+- taille de diapositive spéciale
+- taille de diapositive unique
+- diapositive pleine taille
+- type d'écran
+- ne pas mettre à l'échelle
+- assurer l'ajustement
+- maximiser
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+descriptions: "Découvrez comment redimensionner rapidement les diapositives des fichiers PPT, PPTX et ODP avec Python et Aspose.Slides, et optimiser les présentations pour tout écran sans perte de qualité."
 ---
 
 ## Tailles de diapositives dans les présentations PowerPoint

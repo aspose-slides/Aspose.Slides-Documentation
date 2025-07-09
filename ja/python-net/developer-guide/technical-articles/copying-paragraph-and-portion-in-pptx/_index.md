@@ -1,8 +1,21 @@
 ---
-title: PPTXにおける段落および部分のコピー
+title: Python でプレゼンテーションの段落およびテキスト部分をコピーする
+linktitle: テキストをコピー
 type: docs
 weight: 80
 url: /ja/python-net/copying-paragraph-and-portion-in-pptx/
+keywords:
+- 段落をコピー
+- 段落を複製
+- テキストをコピー
+- テキストを複製
+- テキスト部分をコピー
+- テキスト部分を複製
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument プレゼンテーション間で段落およびテキスト部分をコピーし、ワークフローを向上させる方法をご紹介します。"
 ---
 
 {{% alert color="primary" %}} 

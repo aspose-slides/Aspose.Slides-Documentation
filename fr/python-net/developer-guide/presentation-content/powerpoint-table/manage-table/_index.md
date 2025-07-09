@@ -1,11 +1,23 @@
 ---
-title: Gérer la Table
+title: Gérer les tableaux de présentation avec Python
+linktitle: Gérer le tableau
 type: docs
 weight: 10
 url: /fr/python-net/manage-table/
-keywords: "Table, créer une table, accéder à la table, rapport d'aspect de la table, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Créer et gérer une table dans des présentations PowerPoint en Python"
-
+keywords:
+- ajouter un tableau
+- créer un tableau
+- accéder au tableau
+- rapport largeur/hauteur
+- aligner le texte
+- mise en forme du texte
+- style de tableau
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Créez et modifiez des tableaux dans les diapositives PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET. Découvrez des exemples de code simples pour rationaliser vos flux de travail de tableaux."
 ---
 
 Une table dans PowerPoint est un moyen efficace d'afficher et de représenter des informations. Les informations dans une grille de cellules (disposées en lignes et en colonnes) sont simples et faciles à comprendre.

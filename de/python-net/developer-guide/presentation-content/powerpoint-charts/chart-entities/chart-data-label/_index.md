@@ -1,9 +1,21 @@
 ---
-title: Diagrammdatenbeschriftung
+title: Diagrammdatenbeschriftungen in Präsentationen mit Python verwalten
+linktitle: Datenbeschriftung
 type: docs
 url: /de/python-net/chart-data-label/
-keywords: "Diagrammdatenbeschriftung,Beschriftungsabstand, Python, Aspose.Slides für Python über .NET"
-description: "Diagrammdatenbeschriftung und Abstand in Python festlegen"
+keywords:
+- Diagramm
+- Datenbeschriftung
+- Datenpräzision
+- Prozentsatz
+- Beschriftungsabstand
+- Beschriftungsposition
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie mithilfe von Aspose.Slides for Python via .NET Datenbeschriftungen in Diagrammen in PowerPoint- und OpenDocument-Präsentationen hinzufügen und formatieren, um ansprechendere Folien zu erstellen."
 ---
 
 Datenbeschriftungen in einem Diagramm zeigen Details zu den Datensätzen oder einzelnen Datenpunkten. Sie ermöglichen es den Lesern, Datensätze schnell zu identifizieren, und machen Diagramme leichter verständlich.

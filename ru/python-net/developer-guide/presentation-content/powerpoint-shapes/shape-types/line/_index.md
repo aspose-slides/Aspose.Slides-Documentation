@@ -1,10 +1,24 @@
 ---
-title: Линия
+title: Создавайте линии в презентациях с использованием Python
+linktitle: Линия
 type: docs
 weight: 50
 url: /ru/python-net/line/
-keywords: "Линия, форма PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавление линии в презентацию PowerPoint на Python"
+keywords:
+- линия
+- создать линию
+- добавить линию
+- простая линия
+- настроить линию
+- кастомизировать линию
+- штрих-пунктир
+- наконечник стрелки
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как управлять форматированием линий в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET. Изучите свойства, методы и примеры."
 ---
 
 Aspose.Slides для Python через .NET поддерживает добавление различных форм на слайды. В этой теме мы начнем работать с формами, добавляя линии на слайды. С помощью Aspose.Slides для Python через .NET разработчики могут не только создавать простые линии, но и рисовать некоторые декоративные линии на слайдах.

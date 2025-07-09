@@ -1,9 +1,19 @@
 ---
-title: Graphique en bulles
+title: Personnaliser les graphiques à bulles dans les présentations avec Python
+linktitle: Graphique à bulles
 type: docs
 url: /fr/python-net/bubble-chart/
-keywords: "Graphique en bulles, taille du graphique, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Taille des graphiques en bulles dans les présentations PowerPoint en Python"
+keywords:
+- graphique à bulles
+- taille de bulle
+- mise à l’échelle de la taille
+- représentation de la taille
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Créez et personnalisez des graphiques à bulles puissants dans PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET afin d’améliorer facilement votre visualisation de données."
 ---
 
 ## **Mise à l'échelle de la taille des graphiques en bulles**
