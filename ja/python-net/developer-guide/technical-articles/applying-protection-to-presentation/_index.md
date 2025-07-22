@@ -1,8 +1,23 @@
 ---
-title: プレゼンテーションへの保護の適用
+title: Python で図形ロックを使用してプレゼンテーションの編集を防止する
+linktitle: 編集を防止
 type: docs
 weight: 70
 url: /ja/python-net/applying-protection-to-presentation/
+keywords:
+- 編集を防止
+- 編集から保護
+- 図形をロック
+- 位置をロック
+- 選択をロック
+- サイズをロック
+- グループ化をロック
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PPT、PPTX、ODP ファイル内の図形をロックまたはロック解除し、編集を制御しながらプレゼンテーションを保護し、迅速な配信を実現する方法をご紹介します。"
 ---
 
 {{% alert color="primary" %}} 

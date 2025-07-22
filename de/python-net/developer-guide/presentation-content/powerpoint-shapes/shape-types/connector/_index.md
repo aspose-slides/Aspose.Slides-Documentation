@@ -1,10 +1,22 @@
 ---
-title: Connector
+title: Verbinder in Präsentationen mit Python verwalten
+linktitle: Verbinder
 type: docs
 weight: 10
 url: /de/python-net/connector/
-keywords: "Verbinde Formen, Verbinder, PowerPoint Formen, PowerPoint Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Verbinde PowerPoint Formen in Python"
+keywords:
+- Verbinder
+- Verbindertyp
+- Verbindungspunkt
+- Verbindungslinie
+- Verbindungswinkel
+- Formen verbinden
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Ermöglichen Sie Python-Anwendungen, Linien in PowerPoint- und OpenDocument-Folien zu zeichnen, zu verbinden und automatisch zu verlegen – erhalten Sie vollständige Kontrolle über gerade, Winkel- und gebogene Verbinder."
 ---
 
 Ein PowerPoint-Verbinder ist eine spezielle Linie, die zwei Formen miteinander verbindet oder verknüpft und an den Formen haftet, selbst wenn sie auf einer bestimmten Folie bewegt oder neu positioniert werden.

@@ -1,8 +1,23 @@
 ---
-title: Applying Protection to Presentation
+title: Prevent Presentation Edits with Shape Locks in Python
+linktitle: Prevent Presentation Edits
 type: docs
 weight: 70
 url: /python-net/applying-protection-to-presentation/
+keywords:
+- prevent edits
+- protect from editing
+- lock shape
+- lock position
+- lock select
+- lock size
+- lock grouping
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Discover how Aspose.Slides for Python via .NET locks or unlocks shapes in PPT, PPTX and ODP files, securing presentations while allowing controlled edits and faster delivery."
 ---
 
 {{% alert color="primary" %}} 

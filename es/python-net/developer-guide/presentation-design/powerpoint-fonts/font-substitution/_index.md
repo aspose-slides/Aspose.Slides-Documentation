@@ -1,10 +1,23 @@
 ---
-title: Sustitución de fuentes
+title: Configurar la sustitución de fuentes en presentaciones con Python
+linktitle: Sustitución de fuentes
 type: docs
 weight: 70
 url: /es/python-net/font-substitution/
-keywords: "Fuente, fuente sustituta, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Sustituir fuente en PowerPoint en Python"
+keywords:
+- fuente
+- fuente de sustitución
+- sustitución de fuentes
+- reemplazar fuente
+- reemplazo de fuente
+- regla de sustitución
+- regla de reemplazo
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Habilite la sustitución óptima de fuentes en Aspose.Slides for Python via .NET al convertir presentaciones de PowerPoint y OpenDocument a otros formatos de archivo."
 ---
 
 Aspose.Slides te permite establecer reglas para fuentes que determinan lo que debe hacerse en ciertas condiciones (por ejemplo, cuando no se puede acceder a una fuente) de la siguiente manera:

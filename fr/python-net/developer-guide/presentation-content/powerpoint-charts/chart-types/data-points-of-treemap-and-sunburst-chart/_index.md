@@ -1,9 +1,20 @@
 ---
-title: Points de données du graphique Treemap et Sunburst
+title: Personnaliser les points de données dans les graphiques Treemap et Sunburst en Python
+linktitle: Points de données dans les graphiques Treemap et Sunburst
 type: docs
 url: /fr/python-net/data-points-of-treemap-and-sunburst-chart/
-keywords: "Graphique Sunburst, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter un graphique Sunburst dans une présentation PowerPoint en Python"
+keywords:
+- graphique treemap
+- graphique sunburst
+- point de données
+- couleur d’étiquette
+- couleur de branche
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment gérer les points de données dans les graphiques treemap et sunburst avec Aspose.Slides for Python via .NET, compatible avec les formats PowerPoint et OpenDocument."
 ---
 
 Parmi les autres types de graphiques PowerPoint, il existe deux types "hiérarchiques" - **Treemap** et **Sunburst** (également connus sous le nom de Graphique Sunburst, Diagramme Sunburst, Graphique Radial ou Graphique à Secteurs Multi Niveaux). Ces graphiques affichent des données hiérarchiques organisées sous forme d'arbre - des feuilles jusqu'au sommet de la branche. Les feuilles sont définies par les points de données de la série, et chaque niveau de regroupement imbriqué suivant est défini par la catégorie correspondante. Aspose.Slides pour Python via .NET permet de formater les points de données des graphiques Sunburst et Treemap en Python.
