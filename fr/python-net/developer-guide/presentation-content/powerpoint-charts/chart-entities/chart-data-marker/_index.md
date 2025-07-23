@@ -1,9 +1,21 @@
 ---
-title: Marqueur de Données de Graphique
+title: Gérer les marqueurs de données de graphique dans les présentations avec Python
+linktitle: Marqueur de données
 type: docs
 url: /fr/python-net/chart-data-marker/
-keywords: "Options de marqueur de graphique, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Définir les options de marqueur de graphique dans des présentations PowerPoint en Python"
+keywords:
+- graphique
+- point de données
+- marqueur
+- options de marqueur
+- taille du marqueur
+- type de remplissage
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment personnaliser les marqueurs de données de graphique dans Aspose.Slides, afin de renforcer l’impact des présentations aux formats PPT, PPTX et ODP grâce à des exemples de code clairs."
 ---
 
 ## **Définir les Options de Marqueur de Graphique**

@@ -1,10 +1,23 @@
 ---
-title: Accéder à une diapositive dans une présentation
+title: Accéder aux diapositives dans les présentations avec Python
+linktitle: Accéder à la diapositive
 type: docs
 weight: 20
 url: /fr/python-net/access-slide-in-presentation/
-keywords: "Accéder à la présentation PowerPoint, Accéder à la diapositive, Éditer les propriétés de la diapositive, Changer la position de la diapositive, Définir le numéro de la diapositive, index, ID, position Python, Aspose.Slides"
-description: "Accéder à une diapositive PowerPoint par index, ID ou position en Python. Éditer les propriétés de la diapositive"
+keywords:
+- accéder à la diapositive
+- index de diapositive
+- ID de diapositive
+- position de la diapositive
+- changer la position
+- propriétés de la diapositive
+- numéro de diapositive
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à accéder et à gérer les diapositives dans les présentations PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET. Améliorez votre productivité grâce à des exemples de code."
 ---
 
 Aspose.Slides vous permet d'accéder aux diapositives de deux manières : par index et par ID.

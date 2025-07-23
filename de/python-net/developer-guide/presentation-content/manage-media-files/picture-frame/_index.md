@@ -1,10 +1,33 @@
 ---
-title: Bilderrahmen
+title: Bilderrahmen zu Präsentationen mit Python hinzufügen
+linktitle: Bilderrahmen
 type: docs
 weight: 10
 url: /de/python-net/picture-frame/
-keywords: "Bilderrahmen hinzufügen, Bilderrahmen erstellen, Bild hinzufügen, Bild erstellen, Bild extrahieren, StretchOff-Eigenschaft, Bilderrahmen-Formatierung, Bilderrahmen-Eigenschaften, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Bilderrahmen zu PowerPoint-Präsentationen in Python hinzufügen"
+keywords:
+- bilderrahmen
+- bilderrahmen hinzufügen
+- bilderrahmen erstellen
+- bild hinzufügen
+- bild erstellen
+- bild extrahieren
+- rasterbild
+- vektorbild
+- bild zuschneiden
+- zugeschnittener Bereich
+- StretchOff-Eigenschaft
+- Bilderrahmenformatierung
+- Bilderrahmeneigenschaften
+- relative Skalierung
+- Bildeffekt
+- Seitenverhältnis
+- Bildtransparenz
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Fügen Sie mit Aspose.Slides for Python via .NET Bilderrahmen zu PowerPoint- und OpenDocument-Präsentationen hinzu. Optimieren Sie Ihren Arbeitsablauf und veredeln Sie das Folienlayout."
 ---
 
 Ein Bilderrahmen ist eine Form, die ein Bild enthält – es ist wie ein Bild in einem Rahmen.

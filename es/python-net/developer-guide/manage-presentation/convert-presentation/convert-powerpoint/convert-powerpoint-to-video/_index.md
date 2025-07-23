@@ -1,10 +1,38 @@
 ---
-title: Convertir PowerPoint a Video
+title: Convertir presentaciones de PowerPoint a vídeo en Python
+linktitle: PowerPoint a vídeo
 type: docs
 weight: 130
 url: /es/python-net/convert-powerpoint-to-video/
-keywords: "Convertir PowerPoint, PPT, PPTX, Presentación, Video, MP4, PPT a video, PPT a MP4, Python, Aspose.Slides"
-description: "Convertir PowerPoint a Video en Python"
+keywords:
+- PowerPoint a video
+- convertir PowerPoint a video
+- presentación a video
+- convertir presentación a video
+- PPT a video
+- convertir PPT a video
+- PPTX a video
+- convertir PPTX a video
+- ODP a video
+- convertir ODP a video
+- PowerPoint a MP4
+- convertir PowerPoint a MP4
+- presentación a MP4
+- convertir presentación a MP4
+- PPT a MP4
+- convertir PPT a MP4
+- PPTX a MP4
+- convertir PPTX a MP4
+- conversión de PowerPoint a video
+- conversión de presentación a video
+- conversión de PPT a video
+- conversión de PPTX a video
+- conversión de ODP a video
+- conversión de video con Python
+- PowerPoint
+- Python
+- Aspose.Slides
+description: "Aprenda a convertir presentaciones de PowerPoint y OpenDocument a video usando Python. Descubra ejemplos de código y técnicas de automatización para optimizar su flujo de trabajo."
 ---
 
 Al convertir tu presentación de PowerPoint a video, obtienes
