@@ -1,10 +1,25 @@
 ---
-title: Презентация через VBA
+title: Управляйте проектами VBA в презентациях с помощью Python
+linktitle: Презентация через VBA
 type: docs
 weight: 250
 url: /ru/python-net/presentation-via-vba/
-keywords: "Макрос, макросы, VBA, макрос VBA, добавить макрос, удалить макрос, добавить VBA, удалить VBA, извлечь макрос, извлечь VBA, макрос PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавление, удаление и извлечение VBA макросов в презентациях PowerPoint на Python"
+keywords:
+- макрос
+- VBA
+- макрос VBA
+- добавить макрос
+- удалить макрос
+- извлечь макрос
+- добавить VBA
+- удалить VBA
+- извлечь VBA
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как создавать и управлять презентациями PowerPoint и OpenDocument через VBA с помощью Aspose.Slides for Python via .NET, чтобы оптимизировать рабочий процесс."
 ---
 
 Пространство имен [Aspose.Slides.Vba](https://reference.aspose.com/slides/python-net/aspose.slides.vba/) содержит классы и интерфейсы для работы с макросами и кодом VBA.

@@ -1,11 +1,27 @@
 ---
-title: Печать презентации
+title: Печатайте презентации с помощью Python
+linktitle: Печать презентации
 type: docs
 weight: 50
 url: /ru/python-net/print-presentation/
-keywords: "Печать PowerPoint, PPT, PPTX, Печать презентации, Python, Принтер, Параметры печати"
-description: "Печать презентации PowerPoint в Python"
+keywords:
+- печать PowerPoint
+- печать OpenDocument
+- печать презентации
+- печать PPT
+- печать PPTX
+- печать ODP
+- принтер по умолчанию
+- конкретный принтер
+- параметры печати
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Печатайте презентации PowerPoint и OpenDocument с помощью Aspose.Slides for Python. Узнайте, как настраивать параметры печати и автоматизировать вывод документов."
 ---
+
 Aspose.Slides для Python предоставляет 4 перегруженных метода `print`, которые позволяют вам печатать презентации. Перегруженные методы принимают разные аргументы, поэтому вы всегда найдете метод, который соответствует вашим потребностям в печати.
 
 ## **Печать на умолчательном принтере**

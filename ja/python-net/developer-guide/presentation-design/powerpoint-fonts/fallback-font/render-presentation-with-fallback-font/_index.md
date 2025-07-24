@@ -1,10 +1,19 @@
 ---
-title: フォールバックフォントを使用したプレゼンテーションのレンダリング
+title: Python でフォールバックフォントを使用してプレゼンテーションをレンダリングする
+linktitle: プレゼンテーションのレンダリング
 type: docs
 weight: 30
 url: /ja/python-net/render-presentation-with-fallback-font/
-keywords: "フォールバックフォント, PowerPointのレンダリング, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Pythonでフォールバックフォントを使用してPowerPointをレンダリングする"
+keywords:
+- フォールバックフォント
+- PowerPoint のレンダリング
+- プレゼンテーションのレンダリング
+- スライドのレンダリング
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET でフォールバックフォントを使用してプレゼンテーションをレンダリングし、PPT、PPTX、ODP 間でテキストの一貫性を維持するためのステップバイステップのコードサンプル"
 ---
 
 以下の例には、次のステップが含まれています。

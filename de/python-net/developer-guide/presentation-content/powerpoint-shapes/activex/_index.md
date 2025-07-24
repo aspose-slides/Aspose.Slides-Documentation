@@ -1,10 +1,21 @@
 ---
-title: ActiveX
+title: ActiveX-Steuerelemente in Präsentationen mit Python verwalten
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /de/python-net/activex/
-keywords: "ActiveX, ActiveX-Steuerelemente, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Verwalten Sie ActiveX-Steuerelemente in PowerPoint-Präsentationen mit Python"
+keywords:
+- ActiveX
+- ActiveX-Steuerelement
+- ActiveX verwalten
+- ActiveX hinzufügen
+- ActiveX ändern
+- Medienplayer
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Aspose.Slides for Python via .NET ActiveX nutzt, um PowerPoint-Präsentationen zu automatisieren und zu erweitern und Entwicklern eine leistungsstarke Kontrolle über Folien zu geben."
 ---
 
 ActiveX-Steuerelemente werden in Präsentationen verwendet. Aspose.Slides für Python über .NET ermöglicht Ihnen die Verwaltung von ActiveX-Steuerelementen, jedoch ist die Verwaltung etwas komplizierter und anders als die von normalen Präsentationsformen. Ab Aspose.Slides für Python über .NET 6.9.0 unterstützt die Komponente die Verwaltung von ActiveX-Steuerelementen. Momentan können Sie bereits hinzugefügte ActiveX-Steuerelemente in Ihrer Präsentation aufrufen und deren verschiedene Eigenschaften ändern oder löschen. Denken Sie daran, dass ActiveX-Steuerelemente keine Formen sind und nicht Teil der IShapeCollection der Präsentation, sondern Teil der separaten IControlCollection. Dieser Artikel zeigt, wie man mit ihnen arbeitet.

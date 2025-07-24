@@ -1,10 +1,31 @@
 ---
-title: 图表工作表公式
+title: 使用 Python 在演示文稿中应用图表工作表公式
+linktitle: 工作表公式
 type: docs
 weight: 70
 url: /zh/python-net/chart-worksheet-formulas/
-keywords: "图表电子表格, 图表公式, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python中的PowerPoint演示文稿中的图表电子表格和公式"
+keywords:
+- 图表电子表格
+- 图表工作表
+- 图表公式
+- 工作表公式
+- 电子表格公式
+- 数据源
+- 逻辑常量
+- 数值常量
+- 字符串常量
+- 错误常量
+- 算术常量
+- 比较运算符
+- A1 样式
+- R1C1 样式
+- 预定义函数
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "在 Aspose.Slides for Python via .NET 的图表工作表中应用 Excel 风格公式，并在 PPT、PPTX 和 ODP 文件中自动化报表。"
 ---
 
 ## **关于演示文稿中的图表电子表格公式**

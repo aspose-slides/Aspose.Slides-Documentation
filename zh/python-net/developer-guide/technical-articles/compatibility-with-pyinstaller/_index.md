@@ -1,8 +1,16 @@
 ---
 title: 与 PyInstaller 和 cx_Freeze 的兼容性
+linktitle: 与 PyInstaller 的兼容性
 type: docs
 weight: 122
 url: /zh/python-net/compatibility-with-pyinstaller/
+keywords:
+- 兼容性
+- PyInstaller
+- cx_Freeze
+- Python
+- Aspose.Slides
+description: "使用 PyInstaller 将 Aspose.Slides for Python via .NET 打包。按照本指南将您的应用程序打包、配置并排除故障为独立可执行文件。"
 ---
 
 

@@ -1,11 +1,30 @@
 ---
-title: Erstellen von PowerPoint-Präsentationen mit Diagrammen in Python
-linktitle: Diagramm erstellen
+title: Erstellen oder Aktualisieren von Diagrammen in PowerPoint-Präsentationen mit Python
+linktitle: Diagramm erstellen oder aktualisieren
 type: docs
 weight: 10
 url: /de/python-net/create-chart/
-keywords: "Diagramm erstellen, Streudiagramm, Kreisdiagramm, Treemap-Diagramm, Aktienchart, Box-and-Whisker-Diagramm, Histogramm-Diagramm, Trichterdiagramm, Sonnendiagramm, Mehrkategorial-Diagramm, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Erstellen Sie ein Diagramm in einer PowerPoint-Präsentation in Python"
+keywords:
+- Diagramm hinzufügen
+- Diagramm erstellen
+- Diagramm bearbeiten
+- Diagramm ändern
+- Diagramm aktualisieren
+- Streudiagramm
+- Kreisdiagramm
+- Liniendiagramm
+- Treemap-Diagramm
+- Aktienkursdiagramm
+- Box-und-Whisker-Diagramm
+- Trichterdiagramm
+- Sunburst-Diagramm
+- Histogramm
+- Radar-Diagramm
+- Mehrkategorien-Diagramm
+- PowerPoint-Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Diagramme in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET erstellen und anpassen. Es behandelt das Hinzufügen, Formatieren und Bearbeiten von Diagrammen in Präsentationen mit praxisnahen Codebeispielen in Python."
 ---
 
 ## **Diagramm erstellen**

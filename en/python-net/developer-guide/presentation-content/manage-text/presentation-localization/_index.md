@@ -1,11 +1,20 @@
 ---
-title: Presentation Localization
+title: Automate Presentation Localization with Python
+linktitle: Presentation Localization
 type: docs
 weight: 100
 url: /python-net/presentation-localization/
-keywords: "Change language, Spellcheck, Spell check, Spellchecker, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Change or check language in PowerPoint presentation. Spell check text in Python"
+keywords:
+- change language
+- spell check
+- language id
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Automate PowerPoint and OpenDocument slide localization in Python with Aspose.Slides, using practical code samples and tips for faster global rollout."
 ---
+
 ## **Change Language for Presentation and Shape's Text**
 - Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 - Obtain the reference of a slide by using its Index.

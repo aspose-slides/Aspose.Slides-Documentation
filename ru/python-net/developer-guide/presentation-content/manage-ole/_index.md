@@ -1,10 +1,31 @@
 ---
-title: Управление OLE
+title: Управляйте OLE в презентациях на Python
+linktitle: Управление OLE
 type: docs
 weight: 40
 url: /ru/python-net/manage-ole/
-keywords: "Добавить OLE, Добавить объект, Встраивание объекта, Связывание и встраивание объектов, OLE объектный фрейм, Встраивание OLE, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавить OLE объект в презентацию PowerPoint на Python"
+keywords:
+- объект OLE
+- связывание и внедрение объектов
+- добавить OLE
+- внедрить OLE
+- добавить объект
+- внедрить объект
+- добавить файл
+- внедрить файл
+- связанный объект
+- связанный файл
+- изменить OLE
+- значок OLE
+- заголовок OLE
+- извлечь OLE
+- извлечь объект
+- извлечь файл
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Оптимизируйте управление объектами OLE в файлах PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET. Встраивайте, обновляйте и экспортируйте содержимое OLE без усилий."
 ---
 
 {{% alert title="Информация" color="info" %}}

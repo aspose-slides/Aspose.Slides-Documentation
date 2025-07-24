@@ -1,10 +1,31 @@
 ---
-title: Fórmulas de Hoja de Cálculo de Gráficos
+title: Aplicar fórmulas de la hoja de cálculo del gráfico en presentaciones con Python
+linktitle: Fórmulas de la hoja de cálculo
 type: docs
 weight: 70
 url: /es/python-net/chart-worksheet-formulas/
-keywords: "Hoja de cálculo de gráficos, fórmula de gráfico, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Hoja de cálculo de gráficos y fórmula en presentación de PowerPoint en Python"
+keywords:
+- hoja de cálculo de gráficos
+- hoja de trabajo del gráfico
+- fórmula de gráfico
+- fórmula de hoja de trabajo
+- fórmula de hoja de cálculo
+- fuente de datos
+- constante lógica
+- constante numérica
+- constante de cadena
+- constante de error
+- constante aritmética
+- operador de comparación
+- estilo A1
+- estilo R1C1
+- función predefinida
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aplicar fórmulas de estilo Excel en las hojas de cálculo de gráficos de Aspose.Slides for Python via .NET y automatizar informes en archivos PPT, PPTX y ODP."
 ---
 
 

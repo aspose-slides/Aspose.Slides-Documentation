@@ -1,10 +1,23 @@
 ---
-title: 管理文本框
+title: 使用 Python 管理演示文稿中的文本框
+linktitle: 管理文本框
 type: docs
 weight: 20
 url: /zh/python-net/manage-textbox/
-keywords: "文本框, 文本框架, 添加文本框, 带超链接的文本框, Python, Aspose.Slides for Python via .NET"
-description: "在Python或.NET中将文本框或文本框架添加到PowerPoint演示文稿"
+keywords:
+- 文本框
+- 文本框架
+- 添加文本
+- 更新文本
+- 创建文本框
+- 检查文本框
+- 添加文本列
+- 添加超链接
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET 使在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框变得轻而易举，从而提升演示文稿自动化。"
 ---
 
 幻灯片上的文本通常存在于文本框或形状中。因此，要向幻灯片添加文本，您必须添加一个文本框，然后将一些文本放入文本框中。Aspose.Slides for Python via .NET提供了[IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/)接口，允许您添加包含一些文本的形状。

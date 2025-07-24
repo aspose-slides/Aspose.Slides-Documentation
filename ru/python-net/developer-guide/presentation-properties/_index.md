@@ -1,10 +1,28 @@
 ---
-title: Свойства презентации
+title: Управляйте свойствами презентации в Python
+linktitle: Свойства презентации
 type: docs
 weight: 70
 url: /ru/python-net/presentation-properties/
-keywords: "Свойства PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Свойства презентации PowerPoint в Python"
+keywords:
+- свойства PowerPoint
+- свойства презентации
+- свойства документа
+- встроенные свойства
+- пользовательские свойства
+- расширенные свойства
+- управление свойствами
+- изменение свойств
+- метаданные документа
+- редактирование метаданных
+- язык проверки орфографии
+- язык по умолчанию
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Освойте работу со свойствами презентаций в Aspose.Slides for Python via .NET и упростите поиск, брендинг и рабочие процессы в ваших файлах PowerPoint."
 ---
 
 
