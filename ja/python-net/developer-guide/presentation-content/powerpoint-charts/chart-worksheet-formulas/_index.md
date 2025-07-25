@@ -1,10 +1,31 @@
 ---
-title: チャートワークシートの数式
+title: Python でプレゼンテーションのチャート ワークシートに数式を適用する
+linktitle: ワークシートの数式
 type: docs
 weight: 70
 url: /ja/python-net/chart-worksheet-formulas/
-keywords: "チャートスプレッドシート, チャート数式, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでのPowerPointプレゼンテーションのチャートスプレッドシートと数式"
+keywords:
+- チャート スプレッドシート
+- チャート ワークシート
+- チャート数式
+- ワークシート数式
+- スプレッドシート数式
+- データソース
+- 論理定数
+- 数値定数
+- 文字列定数
+- エラー定数
+- 算術定数
+- 比較演算子
+- A1 形式
+- R1C1 形式
+- 定義済み関数
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET のチャート ワークシートで Excel スタイルの数式を適用し、PPT、PPTX、ODP ファイル全体のレポートを自動化します。"
 ---
 
 ## **プレゼンテーションにおけるチャートスプレッドシート数式について**

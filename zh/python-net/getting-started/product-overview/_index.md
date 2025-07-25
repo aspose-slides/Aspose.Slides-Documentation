@@ -3,6 +3,24 @@ title: 产品概述
 type: docs
 weight: 10
 url: /zh/python-net/product-overview/
+keywords:
+- 产品概述
+- 文档处理
+- 关键功能
+- 演示文稿功能
+- 幻灯片功能
+- 图形功能
+- 多媒体功能
+- 表格功能
+- 文本功能
+- 高级功能
+- 技术支持
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET 让您在无需 Microsoft Office 的情况下创建、编辑和转换 PowerPoint（PPT、PPTX）和 OpenDocument（ODP）演示文稿。"
 ---
 
 ![todo:image_alt_text](aspose_slides-for-python.png)

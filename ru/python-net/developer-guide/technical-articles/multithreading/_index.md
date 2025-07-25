@@ -1,8 +1,21 @@
 ---
-title: Многопоточность в Aspose.Slides
+title: Многопоточность в Aspose.Slides для Python
+linktitle: Многопоточность
 type: docs
 weight: 200
 url: /ru/python-net/multithreading/
+keywords:
+- многопоточность
+- несколько потоков
+- параллельная работа
+- конвертация слайдов
+- слайды в изображения
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Многопоточность Aspose.Slides for Python via .NET ускоряет обработку PowerPoint и OpenDocument. Узнайте лучшие практики для эффективных рабочих процессов с презентациями."
 ---
 
 {{% alert color="primary" %}} 

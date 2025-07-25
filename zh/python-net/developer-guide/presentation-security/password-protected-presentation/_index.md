@@ -1,11 +1,35 @@
 ---
-title: 密码保护演示文稿
+title: 使用 Python 为演示文稿设置密码保护
+linktitle: 密码保护
 type: docs
 weight: 20
 url: /zh/python-net/password-protected-presentation/
-keywords: "锁定 PowerPoint，解锁 PowerPoint，保护 PowerPoint，设置密码，添加密码，加密 PowerPoint，解密 PowerPoint，写保护，PowerPoint 安全，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
-description: "Python 中的 PowerPoint 密码保护、加密和安全"
-
+keywords:
+- 锁定 PowerPoint
+- 锁定演示文稿
+- 解锁 PowerPoint
+- 解锁演示文稿
+- 保护 PowerPoint
+- 保护演示文稿
+- 设置密码
+- 添加密码
+- 加密 PowerPoint
+- 加密演示文稿
+- 解密 PowerPoint
+- 解密演示文稿
+- 写保护
+- PowerPoint 安全
+- 演示文稿安全
+- 移除密码
+- 移除保护
+- 移除加密
+- 禁用密码
+- 禁用保护
+- 移除写保护
+- PowerPoint 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 轻松锁定和解锁受密码保护的 PowerPoint 和 OpenDocument 演示文稿。通过我们的分步指南提升你的工作效率并保护你的演示文稿。"
 ---
 
 
