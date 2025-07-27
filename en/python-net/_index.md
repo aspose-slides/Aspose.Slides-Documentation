@@ -1,12 +1,26 @@
 ---
 title: Aspose.Slides for Python via .NET
 second_title: "Aspose.Slides for Python Documentation"
-description: Aspose.Slides for Python via .NET offers a comprehensive set of features, including managing text, shapes, tables, and animations, adding audio and video to slides, previewing slides, and exporting to SVG, PDF, and more.
-keywords: "Aspose.Slides for Python, PowerPoint automation Python, Python PPT library, export PowerPoint to PDF Python, export PowerPoint to SVG Python, edit PowerPoint in Python, Python PowerPoint without Microsoft Office, manage PPTX with Python, slides preview Python, Python add audio to slides"
 type: docs
 weight: 35
 url: /python-net/
 is_root: true
+keywords:
+- Aspose.Slides for Python
+- PowerPoint automation Python
+- Python PPT library
+- export PowerPoint to PDF Python
+- export PowerPoint to SVG Python
+- edit PowerPoint in Python
+- Python PowerPoint without Microsoft Office
+- manage PPTX with Python
+- slides preview Python
+- Python add audio to slides
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET offers a comprehensive set of features, including managing text, shapes, tables, and animations, adding audio and video to slides, previewing slides, and exporting to SVG, PDF, and more."
 ---
 
 {{% alert color="primary" %}}

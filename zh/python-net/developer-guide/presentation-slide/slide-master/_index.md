@@ -1,10 +1,24 @@
 ---
-title: 幻灯片母版
+title: 在 Python 中管理 PowerPoint 幻灯片母版
+linktitle: 幻灯片母版
 type: docs
 weight: 80
 url: /zh/python-net/slide-master/
-keywords: "添加幻灯片母版, PPT母版幻灯片, 幻灯片母版PowerPoint, 添加图像到幻灯片母版, 占位符, 多个幻灯片母版, 比较幻灯片母版, Python, Aspose.Slides"
-description: "在Python中添加或编辑PowerPoint演示文稿中的幻灯片母版"
+keywords:
+- 幻灯片母版
+- 母版幻灯片
+- PPT 母版幻灯片
+- 多个母版幻灯片
+- 比较母版幻灯片
+- 背景
+- 占位符
+- 克隆母版幻灯片
+- 复制母版幻灯片
+- 重复母版幻灯片
+- 未使用的母版幻灯片
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 自动化处理 PowerPoint 和 OpenDocument 的幻灯片母版，以最大化开发效率。面向初学者和高级用户的完整指南。"
 ---
 
 ## **什么是PowerPoint中的幻灯片母版**

@@ -1,10 +1,20 @@
 ---
-title: Управление тегами и пользовательскими данными
+title: Управляйте тегами и пользовательскими данными в презентациях на Python
+linktitle: Теги и пользовательские данные
 type: docs
 weight: 300
 url: /ru/python-net/managing-tags-and-custom-data/
-keywords: "Теги, Пользовательские данные, Значение для тегов, Добавить теги, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавление тегов и пользовательских данных к презентациям PowerPoint на Python"
+keywords:
+- свойства документа
+- тег
+- пользовательские данные
+- добавить тег
+- парные значения
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как добавлять, читать, обновлять и удалять теги и пользовательские данные в Aspose.Slides for Python via .NET с примерами для презентаций PowerPoint и OpenDocument."
 ---
 
 ## Хранение данных в файлах презентаций

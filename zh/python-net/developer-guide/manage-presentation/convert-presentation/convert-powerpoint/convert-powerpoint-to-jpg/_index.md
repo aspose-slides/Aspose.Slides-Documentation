@@ -1,11 +1,37 @@
 ---
-title: 在 Python 中将 PowerPoint PPT 转换为 JPG
-linktitle: 在 Python 中将 PowerPoint PPT 转换为 JPG
+title: 在 Python 中将 PPT、PPTX 和 ODP 转换为 JPG
+linktitle: 将幻灯片转换为 JPG 图像
 type: docs
 weight: 60
 url: /zh/python-net/convert-powerpoint-to-jpg/
-keywords: "python ppt 转换为图像, 转换 PowerPoint 演示文稿, JPG, JPEG, PowerPoint 转换为 JPG, PowerPoint 转换为 JPEG, PPT 转换为 JPG, PPTX 转换为 JPG, PPT 转换为 JPEG, PPTX 转换为 JPEG, Python, Aspose.Slides"
-description: "在 Python 中将 PowerPoint 转换为 JPG。将幻灯片保存为 JPG 图像"
+keywords:
+  - 将 PowerPoint 转换为 JPG
+  - 将演示文稿转换为 JPG
+  - 将幻灯片转换为 JPG
+  - 将 PPT 转换为 JPG
+  - 将 PPTX 转换为 JPG
+  - 将 ODP 转换为 JPG
+  - PowerPoint 转 JPG
+  - 演示文稿转 JPG
+  - 幻灯片转 JPG
+  - PPT 转 JPG
+  - PPTX 转 JPG
+  - ODP 转 JPG
+  - 将 PowerPoint 转换为 JPEG
+  - 将演示文稿转换为 JPEG
+  - 将幻灯片转换为 JPEG
+  - 将 PPT 转换为 JPEG
+  - 将 PPTX 转换为 JPEG
+  - 将 ODP 转换为 JPEG
+  - PowerPoint 转 JPEG
+  - 演示文稿转 JPEG
+  - 幻灯片转 JPEG
+  - PPT 转 JPEG
+  - PPTX 转 JPEG
+  - ODP 转 JPEG
+  - Python
+  - Aspose.Slides
+description: "了解如何只需几行 Python 代码即可将 PowerPoint 和 OpenDocument 演示文稿中的幻灯片转换为高质量 JPEG 图像。优化演示文稿以便网页使用、分享和存档。立即阅读完整指南！"
 ---
 
 ## **关于 PowerPoint 转 JPG 转换**

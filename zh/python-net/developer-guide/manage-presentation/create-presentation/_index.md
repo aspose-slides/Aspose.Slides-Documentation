@@ -1,10 +1,23 @@
 ---
-title: 创建演示文稿
+title: 用 Python 创建演示文稿
+linktitle: 创建演示文稿
 type: docs
 weight: 10
 url: /zh/python-net/create-presentation/
-keywords: "创建 PowerPoint, PPTX, PPT, 创建演示文稿, 初始化演示文稿, Python, .NET"
-description: "在 Python 中打开 PowerPoint 演示文稿"
+keywords:
+- 创建演示文稿
+- 新建演示文稿
+- 创建PPT
+- 新建PPT
+- 创建PPTX
+- 新建PPTX
+- 创建ODP
+- 新建ODP
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 Python 中创建 PowerPoint 演示文稿——生成 PPT、PPTX 和 ODP 文件，受益于对 OpenDocument 的支持，并以编程方式保存它们以获得可靠的结果。"
 ---
 
 ## **创建 PowerPoint 演示文稿**

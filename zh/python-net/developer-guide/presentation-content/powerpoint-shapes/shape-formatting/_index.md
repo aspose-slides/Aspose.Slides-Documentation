@@ -1,10 +1,28 @@
 ---
-title: 形状格式化
+title: 在 Python 中格式化 PowerPoint 形状
+linktitle: 形状格式设置
 type: docs
 weight: 20
 url: /zh/python-net/shape-formatting/
-keywords: "格式化形状, 格式化线条, 格式化连接样式, 渐变填充, 图案填充, 图片填充, 纯色填充, 旋转形状, 3D 凹凸效果, 3D 旋转效果, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中格式化 PowerPoint 演示文稿中的形状"
+keywords:
+- 形状格式化
+- 线条格式化
+- 连接样式格式化
+- 渐变填充
+- 图案填充
+- 图片填充
+- 纹理填充
+- 纯色填充
+- 形状透明度
+- 旋转形状
+- 3D 倒角效果
+- 3D 旋转效果
+- 重置格式
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何在 Python 中使用 Aspose.Slides 格式化 PowerPoint 形状——以精确且完全可控的方式为 PPT、PPTX 和 ODP 文件设置填充、线条和效果样式。"
 ---
 
 在 PowerPoint 中，您可以在幻灯片上添加形状。由于形状是由线条组成的，您可以通过修改或应用某些效果来格式化形状的构成线条。此外，您还可以通过指定设置来格式化形状，从而决定它们（其中的区域）如何填充。

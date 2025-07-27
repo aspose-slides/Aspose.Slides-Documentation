@@ -1,11 +1,27 @@
 ---
-title: プレゼンテーションの印刷
+title: Python でプレゼンテーションを印刷する
+linktitle: プレゼンテーションを印刷
 type: docs
 weight: 50
 url: /ja/python-net/print-presentation/
-keywords: "印刷 PowerPoint, PPT, PPTX, プレゼンテーションの印刷, Python, プリンター, 印刷オプション"
-description: "PythonでPowerPointプレゼンテーションを印刷"
+keywords:
+- PowerPoint を印刷
+- OpenDocument を印刷
+- プレゼンテーションを印刷
+- PPT を印刷
+- PPTX を印刷
+- ODP を印刷
+- デフォルトプリンター
+- 特定のプリンター
+- 印刷オプション
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Python の Aspose.Slides を使用して PowerPoint および OpenDocument プレゼンテーションを印刷する方法をご紹介します。印刷設定をカスタマイズし、ドキュメント出力を自動化する方法を学びましょう。"
 ---
+
 Aspose.Slides for Pythonは、プレゼンテーションを印刷するための4つのオーバーロードされた`print`メソッドを提供します。オーバーロードされたメソッドは異なる引数を受け取るため、常に印刷ニーズに合ったメソッドを見つけることができます。
 
 ## **デフォルトプリンターに印刷**

@@ -1,10 +1,21 @@
 ---
-title: PowerPointをXPSに変換
+title: Python で PowerPoint プレゼンテーションを XPS に変換する
+linktitle: PowerPoint を XPS に
 type: docs
 weight: 70
 url: /ja/python-net/convert-powerpoint-to-xps
-keywords: "PowerPointプレゼンテーションの変換, PowerPointからXPS, PPTからXPS, PPTXからXPS, 変換, Python, Aspose.Slides"
-description: "PythonでPowerPointプレゼンテーションをXPSに変換します。"
+keywords:
+- PowerPoint 変換
+- プレゼンテーション 変換
+- PowerPoint から XPS
+- プレゼンテーション から XPS
+- PPT から XPS
+- PPTX から XPS
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides を使用して、Python で PowerPoint の PPT/PPTX を高品質でプラットフォームに依存しない XPS に変換します。ステップバイステップのガイドとサンプルコードを入手できます。"
 ---
 
 ## **XPSについて**

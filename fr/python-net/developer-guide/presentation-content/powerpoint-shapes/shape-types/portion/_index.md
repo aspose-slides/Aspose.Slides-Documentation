@@ -1,10 +1,20 @@
 ---
-title: Portion
+title: Gérer les parties de texte dans les présentations avec Python
+linktitle: Portion de texte
 type: docs
 weight: 70
 url: /fr/python-net/portion/
-keywords: "Portion, forme PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Obtenir la portion dans une présentation PowerPoint en Python"
+keywords:
+- portion de texte
+- partie de texte
+- coordonnées du texte
+- position du texte
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment gérer les portions de texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides for Python via .NET, afin d'améliorer les performances et la personnalisation."
 ---
 
 ## **Obtenir les Coordonnées de Position de la Portion**

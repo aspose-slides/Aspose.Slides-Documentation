@@ -1,10 +1,31 @@
 ---
-title: PowerPointをPythonでMarkdownに変換する
+title: Python で PowerPoint プレゼンテーションを Markdown に変換する
+linktitle: PowerPoint から Markdown
 type: docs
 weight: 140
 url: /ja/python-net/convert-powerpoint-to-markdown/
-keywords: "PowerPointをMarkdownに変換する, pptをmdに変換する, PowerPoint, PPT, PPTX, プレゼンテーション, Markdown, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointをMarkdownに変換する"
+keywords:
+- PowerPoint を Markdown に変換
+- OpenDocument を Markdown に変換
+- プレゼンテーションを Markdown に変換
+- スライドを Markdown に変換
+- PPT を Markdown に変換
+- PPTX を Markdown に変換
+- ODP を Markdown に変換
+- PowerPoint を MD に変換
+- OpenDocument を MD に変換
+- プレゼンテーションを MD に変換
+- スライドを MD に変換
+- PPT を MD に変換
+- PPTX を MD に変換
+- ODP を MD に変換
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Markdown
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のスライド（PPT、PPTX、ODP）をクリーンな Markdown に変換し、ドキュメント作成を自動化し、書式を維持する方法を学びましょう。"
 ---
 
 {{% alert color="info" %}} 

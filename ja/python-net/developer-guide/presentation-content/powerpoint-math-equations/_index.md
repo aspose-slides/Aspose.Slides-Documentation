@@ -1,10 +1,27 @@
 ---
-title: PowerPoint 数学方程式
+title: Python で PowerPoint プレゼンテーションに数式を追加する
+linktitle: 数式
 type: docs
 weight: 80
 url: /ja/python-net/powerpoint-math-equations/
-keywords: " PowerPoint 数学方程式, PowerPoint 数学記号, PowerPoint 数式, PowerPoint 数学テキスト, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでのPowerPoint 数学方程式、数学記号、数式、数学テキスト"
+keywords:
+- 数式
+- PowerPoint の数式
+- 数学記号
+- PowerPoint の数学記号
+- 数学式
+- PowerPoint の数学式
+- 数学テキスト
+- PowerPoint の数学テキスト
+- PowerPoint に数式を追加
+- PowerPoint に数学記号を追加
+- PowerPoint に数学式を追加
+- PowerPoint に数学テキストを追加
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint の数式を操作する方法を学びます。プレゼンテーションの作成と編集を自動化するための詳細な手順、コード例、ヒントを入手できます。"
 ---
 
 ## **概要**

@@ -1,10 +1,19 @@
 ---
-title: Render Presentation with Fallback Font
+title: Render Presentations with Fallback Fonts in Python
+linktitle: Render Presentations
 type: docs
 weight: 30
 url: /python-net/render-presentation-with-fallback-font/
-keywords: "Fallback font, render PowerPoint, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Render PowerPoint with fallback font in Python"
+keywords:
+- fallback font
+- render PowerPoint
+- render presentation
+- render slide
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Render presentations with fallback fonts in Aspose.Slides for Python via .NET – keep text consistent across PPT, PPTX and ODP with step-by-step code samples."
 ---
 
 The following example includes these steps:

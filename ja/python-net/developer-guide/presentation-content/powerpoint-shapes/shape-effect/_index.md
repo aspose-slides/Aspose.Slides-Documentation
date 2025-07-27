@@ -1,10 +1,22 @@
 ---
-title: シェイプ効果
+title: Python でプレゼンテーションに図形効果を適用する
+linktitle: 図形効果
 type: docs
 weight: 30
 url: /ja/python-net/shape-effect
-keywords: "シェイプ効果, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointのシェイプに効果を適用"
+keywords:
+- 図形効果
+- 影の効果
+- 反射の効果
+- 光彩の効果
+- ソフトエッジ効果
+- 効果の書式
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して高度な図形効果で PPT、PPTX、ODP ファイルを変換し、数秒で印象的かつプロフェッショナルなスライドを作成する方法をご紹介します。"
 ---
 
 PowerPointの効果はシェイプを目立たせるために使用できますが、[塗りつぶし](/slides/ja/python-net/shape-formatting/#gradient-fill)やアウトラインとは異なります。PowerPointの効果を使用すると、シェイプに説得力のある反射を作成したり、シェイプのグローを広げたりできます。

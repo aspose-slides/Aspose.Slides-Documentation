@@ -1,10 +1,25 @@
 ---
-title: 将 PowerPoint 转换为 PNG
+title: 使用 Python 将 PowerPoint 幻灯片转换为 PNG
+linktitle: 幻灯片转 PNG
 type: docs
 weight: 30
 url: /zh/python-net/convert-powerpoint-to-png/
-keywords: PowerPoint 转 PNG, PPT 转 PNG, PPTX 转 PNG, Python, Aspose.Slides for Python via .NET
-description: 将 PowerPoint 演示文稿转换为 PNG
+keywords:
+- 将 PowerPoint 转换为 PNG
+- 将演示文稿转换为 PNG
+- 将幻灯片转换为 PNG
+- 将 PPT 转换为 PNG
+- 将 PPTX 转换为 PNG
+- 将 ODP 转换为 PNG
+- PowerPoint 转 PNG
+- 演示文稿转 PNG
+- 幻灯片转 PNG
+- PPT 转 PNG
+- PPTX 转 PNG
+- ODP 转 PNG
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET，可快速将 PowerPoint 和 OpenDocument 演示文稿转换为高质量 PNG 图像，确保精确且自动化的结果。"
 ---
 
 ## **关于 PowerPoint 到 PNG 的转换**

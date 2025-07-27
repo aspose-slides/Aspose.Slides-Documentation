@@ -1,8 +1,18 @@
 ---
-title: Изменение размеров фигур на слайде
+title: Меняйте размеры фигур в презентациях с помощью Python
+linktitle: Изменение размеров фигур
 type: docs
 weight: 130
 url: /ru/python-net/re-sizing-shapes-on-slide/
+keywords:
+- размер фигуры
+- изменение размера фигуры
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Легко изменяйте размеры фигур на слайдах PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET — автоматизируйте корректировку макета слайдов и повышайте продуктивность."
 ---
 
 ## **Изменение размеров фигур на слайде**

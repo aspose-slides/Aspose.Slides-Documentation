@@ -1,10 +1,24 @@
 ---
-title: Chart Calculations
+title: Optimize Chart Calculations for Presentations in Python
+linktitle: Chart Calculations
 type: docs
 weight: 50
 url: /python-net/chart-calculations/
-keywords: "Chart calculations, chart elements, element position, chart values Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint chart calculations and values in Python"
+keywords:
+- chart calculations
+- chart elements
+- element position
+- actual position
+- child element
+- parent element
+- chart values
+- actual value
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Understand chart calculations, data updates, and precision control in Aspose.Slides for Python via .NET for PPT, PPTX and ODP, with practical code examples."
 ---
 
 ## **Calculate Actual Values of Chart Elements**

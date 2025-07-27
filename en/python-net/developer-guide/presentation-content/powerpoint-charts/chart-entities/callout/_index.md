@@ -1,9 +1,16 @@
 ---
-title: Callout
+title: Manage Callouts in Presentation Charts with Python
+linktitle: Callout
 type: docs
 url: /python-net/callout/
-keywords: "Chart callout, chart data label, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint chart callouts and data labels in Python"
+keywords:
+- chart callout
+- use callout
+- data label
+- label format
+- Python
+- Aspose.Slides
+description: "Create and style callouts in Aspose.Slides for Python .NET with concise code examples, compatible with PPT, PPTX and ODP to automate presentation workflows."
 ---
 
 ## **Using Callouts**

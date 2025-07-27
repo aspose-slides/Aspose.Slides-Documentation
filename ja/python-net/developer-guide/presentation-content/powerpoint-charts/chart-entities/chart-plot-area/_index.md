@@ -1,9 +1,20 @@
 ---
-title: チャートプロットエリア
+title: Pythonでプレゼンテーションのチャートのプロット領域をカスタマイズする
+linktitle: プロット領域
 type: docs
 url: /ja/python-net/chart-plot-area/
-keywords: "チャートプロットエリア PowerPoint プレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "チャートプロットエリアの幅と高さを取得します。レイアウトモードを設定します。PythonでのPowerPointプレゼンテーション"
+keywords:
+  - チャート
+  - プロット領域
+  - プロット領域の幅
+  - プロット領域の高さ
+  - プロット領域のサイズ
+  - レイアウトモード
+  - PowerPoint
+  - プレゼンテーション
+  - Python
+  - Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションのチャートのプロット領域をカスタマイズする方法を紹介します。スライドのビジュアルを手軽に向上させましょう。"
 ---
 
 ## **チャートプロットエリアの幅と高さを取得する**

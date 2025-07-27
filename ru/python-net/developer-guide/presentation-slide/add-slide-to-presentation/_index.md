@@ -1,10 +1,19 @@
 ---
-title: Добавить слайд в презентацию
+title: Добавляйте слайды в презентации на Python
+linktitle: Добавить слайд
 type: docs
 weight: 10
 url: /ru/python-net/add-slide-to-presentation/
-keywords: "Добавить слайд в презентацию, Python, Aspose.Slides"
-description: "Добавить слайд в презентацию на Python"
+keywords:
+- добавить слайд
+- создать слайд
+- пустой слайд
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Легко добавляйте слайды в презентации PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET — бесшовное и эффективное добавление слайдов за доли секунды."
 ---
 
 ## **Добавить слайд в презентацию**

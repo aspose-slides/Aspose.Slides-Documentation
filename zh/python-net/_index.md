@@ -1,11 +1,26 @@
 ---
 title: Aspose.Slides for Python via .NET
 second_title: "Aspose.Slides for Python 文档"
-description: Aspose.Slides for Python via .NET 提供许多关键特性，例如管理文本、形状、表格和动画，向幻灯片添加音频和视频，预览幻灯片，将幻灯片导出为 SVG、PDF 格式等。
 type: docs
 weight: 35
 url: /zh/python-net/
 is_root: true
+keywords:
+- Aspose.Slides for Python
+- 使用 Python 自动化 PowerPoint
+- Python PPT 库
+- 使用 Python 将 PowerPoint 导出为 PDF
+- 使用 Python 将 PowerPoint 导出为 SVG
+- 在 Python 中编辑 PowerPoint
+- 不依赖 Microsoft Office 的 Python PowerPoint
+- 使用 Python 管理 PPTX
+- Python 幻灯片预览
+- Python 为幻灯片添加音频
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET 提供了一套全面的功能，包括管理文本、形状、表格和动画，向幻灯片添加音频和视频、预览幻灯片，以及导出为 SVG、PDF 等等。"
 ---
 
 {{% alert color="primary" %}}

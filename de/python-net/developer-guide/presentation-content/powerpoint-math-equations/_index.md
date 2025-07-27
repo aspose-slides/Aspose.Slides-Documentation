@@ -1,10 +1,27 @@
 ---
-title: PowerPoint Mathematik Gleichungen
+title: Mathematische Gleichungen zu PowerPoint-Präsentationen in Python hinzufügen
+linktitle: Mathematische Gleichungen
 type: docs
 weight: 80
 url: /de/python-net/powerpoint-math-equations/
-keywords: " PowerPoint Mathematik Gleichungen, PowerPoint Mathematik Symbole, PowerPoint Formel, PowerPoint Mathematik Text, PowerPoint Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "PowerPoint Mathematik Gleichungen, Mathematik Symbole, Formel und Mathematik Text in Python"
+keywords:
+- mathematische Gleichung
+- PowerPoint-Gleichung
+- mathematisches Symbol
+- mathematisches Symbol in PowerPoint
+- mathematische Formel
+- PowerPoint-Formel
+- mathematischer Text
+- mathematischer Text in PowerPoint
+- mathematische Gleichung zu PowerPoint hinzufügen
+- mathematisches Symbol zu PowerPoint hinzufügen
+- mathematische Formel zu PowerPoint hinzufügen
+- mathematischen Text zu PowerPoint hinzufügen
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Lernen Sie, wie Sie mit Aspose.Slides for Python via .NET mit mathematischen Gleichungen in PowerPoint arbeiten. Erhalten Sie etaillierte Anleitungen, Codebeispiele und Tipps, um das Erstellen und Bearbeiten von Präsentationen zu automatisieren."
 ---
 
 ## **Übersicht**

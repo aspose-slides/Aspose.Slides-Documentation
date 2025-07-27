@@ -1,10 +1,20 @@
 ---
-title: 动画文本
+title: 在 Python 中为 PowerPoint 文本添加动画
+linktitle: 文本动画
 type: docs
 weight: 60
 url: /zh/python-net/animated-text/
-keywords: "动画文本, 动画效果, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加动画文本和效果"
+keywords:
+- 动画文本
+- 文本动画
+- 动画段落
+- 段落动画
+- 动画效果
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python 在 PowerPoint 和 OpenDocument 演示文稿中创建动态文本动画，并提供易于上手且优化的代码示例。"
 ---
 
 ## 向段落添加动画效果

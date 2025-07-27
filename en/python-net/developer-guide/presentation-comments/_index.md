@@ -1,10 +1,26 @@
 ---
-title: Presentation Comments
+title: Manage Presentation Comments in Python
+linktitle: Presentation Comments
 type: docs
 weight: 100
 url: /python-net/presentation-comments/
-keywords: "Comments, PowerPoint comments, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Add comments and replies in PowerPoint presentation in Python"
+keywords:
+- comment
+- modern comment
+- PowerPoint comments
+- presentation comments
+- slide comments
+- add comment
+- access comment
+- edit comment
+- reply comment
+- remove comment
+- delete comment
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Master presentation comments with Aspose.Slides for Python via .NET: add, read, edit, and delete comments in PowerPoint files fast and easily."
 ---
 
 In PowerPoint, a comment appears as a note or annotation on a slide. When a comment is clicked, its contents or messages are revealed. 

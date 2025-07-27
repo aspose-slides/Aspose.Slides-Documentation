@@ -1,8 +1,19 @@
 ---
-title: プレゼンテーション画像コレクション内の画像を置き換える
+title: Python でプレゼンテーションの画像コレクション内の画像を置き換える
+linktitle: 画像を置き換える
 type: docs
 weight: 110
 url: /ja/python-net/replacing-images-inside-presentation-image-collection/
+keywords:
+- 画像を置き換える
+- 画像コレクション
+- プレゼンテーション画像
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Python を使用してプレゼンテーション内の画像を迅速に置き換えます。PowerPoint および OpenDocument 形式をサポートし、ワークフローを効率化してスライドの品質を向上させます。"
 ---
 
 {{% alert color="primary" %}} 

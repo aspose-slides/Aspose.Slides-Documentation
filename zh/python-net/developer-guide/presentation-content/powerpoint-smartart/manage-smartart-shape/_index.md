@@ -1,10 +1,25 @@
 ---
-title: 管理 SmartArt 形状
+title: 使用 Python 管理演示文稿中的 SmartArt 图形
+linktitle: SmartArt 图形
 type: docs
 weight: 20
 url: /zh/python-net/manage-smartart-shape/
-keywords: "SmartArt 形状, SmartArt 形状样式, SmartArt 形状颜色样式, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中管理 PowerPoint 演示文稿中的 SmartArt"
+keywords:
+- SmartArt 对象
+- SmartArt 图形
+- SmartArt 样式
+- SmartArt 颜色
+- 创建 SmartArt
+- 添加 SmartArt
+- 编辑 SmartArt
+- 更改 SmartArt
+- 访问 SmartArt
+- SmartArt 布局类型
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 Python 中自动化 PowerPoint SmartArt 的创建、编辑和样式设置，并提供简洁的代码示例和以性能为重点的指南。"
 ---
 
 ## **创建 SmartArt 形状**

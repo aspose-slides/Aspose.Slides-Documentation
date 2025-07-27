@@ -1,11 +1,28 @@
 ---
-title: 使用 Python 将 PowerPoint 转换为 HTML
-linktitle: 将 PowerPoint 转换为 HTML
+title: 使用 Python 将 PowerPoint 演示文稿转换为 HTML
+linktitle: PowerPoint 转 HTML
 type: docs
 weight: 30
 url: /zh/python-net/convert-powerpoint-to-html/
-keywords: "Python PowerPoint 转换为 HTML, 转换 PowerPoint 演示文稿, PPTX, PPT, PPT 转换为 HTML, PPTX 转换为 HTML, PowerPoint 转换为 HTML, 将 PowerPoint 保存为 HTML, 将 PPT 保存为 HTML, 将 PPTX 保存为 HTML, Python, Aspose.Slides, HTML 导出"
-description: "将 PowerPoint 转换为 HTML: 将 PPTX 或 PPT 保存为 HTML. 将幻灯片保存为 HTML"
+keywords:
+- 转换 PowerPoint
+- 转换演示文稿
+- 转换幻灯片
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转 HTML
+- 演示文稿转 HTML
+- 幻灯片转 HTML
+- PPT 转 HTML
+- PPTX 转 HTML
+- 将 PowerPoint 保存为 HTML
+- 将演示文稿保存为 HTML
+- 将幻灯片保存为 HTML
+- 将 PPT 保存为 HTML
+- 将 PPTX 保存为 HTML
+- Python
+- Aspose.Slides
+description: "在 Python 中将 PowerPoint 演示文稿转换为响应式 HTML。使用 Aspose.Slides 的转换指南，在保留布局、链接和图像的同时，实现快速且完美的结果。"
 ---
 
 ## **概述**
