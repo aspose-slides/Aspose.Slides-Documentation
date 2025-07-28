@@ -1,10 +1,24 @@
 ---
-title: Конвертировать слайд
+title: Преобразуйте слайды презентаций в изображения на Python
+linktitle: Слайд в изображение
 type: docs
 weight: 41
 url: /ru/python-net/convert-slide/
-keywords: "Конвертировать слайд в изображение, экспортировать слайд как изображение, сохранить слайд как изображение, слайд в изображение, слайд в PNG, слайд в JPEG, слайд в Bitmap, Python, Aspose.Slides"
-description: "Конвертировать слайд PowerPoint в изображение (Bitmap, PNG или JPG) на Python"
+keywords:
+- конвертация слайда
+- конвертация слайда в изображение
+- экспорт слайда как изображение
+- сохранение слайда как изображение
+- слайд в изображение
+- слайд в PNG
+- слайд в JPEG
+- слайд в bitmap
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как преобразовывать слайды PowerPoint и OpenDocument в различные форматы с помощью Aspose.Slides for Python via .NET. Легко экспортируйте слайды PPTX и ODP в BMP, PNG, JPEG, TIFF и другие форматы с высоким качеством."
 ---
 
 Aspose.Slides для Python через .NET позволяет вам конвертировать слайды (в презентациях) в изображения. Поддерживаемые форматы изображений: BMP, PNG, JPG (JPEG), GIF и другие.

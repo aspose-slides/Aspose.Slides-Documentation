@@ -1,13 +1,14 @@
 ---
-title: Manage Slide Show
+title: Manage Slide Show in Python
+linktitle: Slide Show
 type: docs
 weight: 90
 url: /python-net/manage-slide-show/
 keywords:
 - show type
-- presented by a speaker
-- browsed by an individual
-- browsed at a kiosk
+- presented by speaker
+- browsed by individual
+- browsed at kiosk
 - show options
 - loop continuously
 - show without narration
@@ -19,11 +20,11 @@ keywords:
 - manually
 - using timings
 - PowerPoint
+- OpenDocument
 - presentation
 - Python
-- .NET
-- Aspose.Slides for Python via .NET
-description: "Manage slide show settings in PowerPoint presentations using Python"
+- Aspose.Slides
+description: "Learn how to manage slide shows in Aspose.Slides for Python via .NET. Control slide transitions, timings and more across PPT, PPTX and ODP formats with ease."
 ---
 
 In Microsoft PowerPoint, the **Slide Show** settings are a key tool for preparing and delivering professional presentations. One of the most important features in this section is **Set Up Show**, which allows you to tailor your presentation to specific conditions and audiences, ensuring flexibility and convenience. With this feature, you can select the show type (e.g., presented by a speaker, browsed by an individual, or browsed at a kiosk), enable or disable looping, choose specific slides to display, and use timings. This step in preparation is crucial for making your presentation more effective and professional.

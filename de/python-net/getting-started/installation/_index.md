@@ -3,8 +3,15 @@ title: Installation
 type: docs
 weight: 70
 url: /de/python-net/installation/
-keywords: "Download Aspose.Slides, Install Aspose.Slides, Aspose.Slides Installation, Windows, macOS, Python"
-description: "Installieren Sie Aspose.Slides für Python über .NET unter Windows oder macOS"
+keywords:
+- Aspose.Slides herunterladen
+- Aspose.Slides installieren
+- Aspose.Slides verwenden
+- Aspose.Slides-Installation
+- Windows
+- macOS
+- Python
+description: "Erfahren Sie, wie Sie Aspose.Slides for Python via .NET schnell installieren. Schritt-für-Schritt-Anleitung, Systemanforderungen und Codebeispiele — starten Sie noch heute mit der Arbeit an PowerPoint-Präsentationen!"
 ---
 
 Das Aspose.Slides-Paket für Python über .NET kommt mit den benötigten .NET-Bibliotheken, sodass eine separate .NET-Installation nicht erforderlich ist. Abhängig von Ihrer Plattform müssen Sie jedoch möglicherweise spezifische Abhängigkeiten für .NET installieren und bestimmte Anforderungen erfüllen.

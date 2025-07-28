@@ -1,8 +1,18 @@
 ---
-title: OLEアイコンにキャプションを設定
+title: PythonでOLEアイコンにキャプションを設定する方法
 type: docs
 weight: 160
 url: /ja/python-net/set-caption-to-ole-icon/
+keywords:
+- OLE アイコン
+- 画像タイトル
+- キャプション
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PPT、PPTX、および ODP プレゼンテーションの OLE オブジェクト アイコンにキャプションを設定し、カスタムラベルでスライドを強化する方法を解説します。"
 ---
 
 新しいプロパティ **SubstitutePictureTitle** が **IOleObjectFrame** インターフェイスと **OleObjectFrame** クラスに追加されました。これにより、OLEアイコンのキャプションを取得、設定、または変更することができます。以下のコードスニペットは、Excelオブジェクトを作成し、そのキャプションを設定するサンプルを示しています。

@@ -1,11 +1,18 @@
 ---
-title: Eliminar diapositiva de la presentación
+title: Eliminar diapositivas de presentaciones en Python
+linktitle: Eliminar diapositiva
 type: docs
 weight: 30
 url: /es/python-net/remove-slide-from-presentation/
-keywords: "Eliminar diapositiva, Borrar diapositiva, PowerPoint, Presentación, Python, Aspose.Slides"
-description: "Eliminar diapositiva de PowerPoint por referencia o índice en Python"
-
+keywords:
+- eliminar diapositiva
+- borrar diapositiva
+- eliminar diapositiva no utilizada
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Elimina diapositivas de presentaciones de PowerPoint y OpenDocument con Aspose.Slides for Python via .NET sin esfuerzo. Obtén ejemplos de código claros y mejora tu flujo de trabajo."
 ---
 
 Si una diapositiva (o su contenido) se vuelve redundante, puedes eliminarla. Aspose.Slides proporciona la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) que encapsula [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), que es un repositorio para todas las diapositivas en una presentación. Utilizando punteros (referencia o índice) para un objeto [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/), puedes especificar la diapositiva que deseas eliminar.
