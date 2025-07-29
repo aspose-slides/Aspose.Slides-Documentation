@@ -1,10 +1,25 @@
 ---
-title: Fusionner une présentation
+title: Fusionner efficacement des présentations avec Python
+linktitle: Fusionner des présentations
 type: docs
 weight: 40
 url: /fr/python-net/merge-presentation/
-keywords: "Fusionner PowerPoint, PPTX, PPT, combiner PowerPoint, fusionner présentation, combiner présentation, Python"
-description: "Fusionner ou combiner des présentations PowerPoint en Python"
+keywords:
+- fusionner PowerPoint
+- fusionner des présentations
+- fusionner des diapositives
+- fusionner les PPT
+- fusionner les PPTX
+- fusionner les ODP
+- combiner PowerPoint
+- combiner des présentations
+- combiner des diapositives
+- combiner les PPT
+- combiner les PPTX
+- combiner les ODP
+- Python
+- Aspose.Slides
+description: "Fusionnez sans effort des présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) avec Aspose.Slides for Python via .NET, afin de rationaliser votre flux de travail."
 ---
 
 {{% alert  title="Conseil" color="primary" %}} 

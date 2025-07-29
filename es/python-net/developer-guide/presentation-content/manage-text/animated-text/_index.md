@@ -1,10 +1,20 @@
 ---
-title: Texto Animado
+title: Animar texto de PowerPoint en Python
+linktitle: Texto animado
 type: docs
 weight: 60
 url: /es/python-net/animated-text/
-keywords: "Texto animado, Efectos de animación, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Agrega texto animado y efectos a la presentación de PowerPoint en Python"
+keywords:
+- texto animado
+- animación de texto
+- párrafo animado
+- animación de párrafo
+- efecto de animación
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Crear texto animado dinámico en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET, con ejemplos de código optimizados y fáciles de seguir."
 ---
 
 ## Agregando Efectos de Animación a Párrafos

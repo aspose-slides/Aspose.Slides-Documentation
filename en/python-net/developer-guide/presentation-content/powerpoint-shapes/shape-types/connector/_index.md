@@ -1,5 +1,5 @@
 ---
-title: Manage Connectors in Presentations in Python
+title: Manage Connectors in Presentations with Python
 linktitle: Connector
 type: docs
 weight: 10

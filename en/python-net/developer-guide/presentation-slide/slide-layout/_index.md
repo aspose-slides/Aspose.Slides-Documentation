@@ -1,5 +1,5 @@
 ---
-title: Apply or Change a Slide Layout in Python
+title: Apply or Change Slide Layouts in Python
 linktitle: Slide Layout
 type: docs
 weight: 60
@@ -23,6 +23,8 @@ keywords:
 - picture with caption
 - title and vertical text
 - vertical title and text
+- PowerPoint
+- OpenDocument
 - Python
 - Aspose.Slides
 description: "Learn how to manage and customize slide layouts in Aspose.Slides for Python via .NET. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in Python."

@@ -1,10 +1,27 @@
 ---
-title: ハイパーリンクの管理
+title: Python でプレゼンテーションのハイパーリンクを管理
+linktitle: ハイパーリンクの管理
 type: docs
 weight: 20
 url: /ja/python-net/manage-hyperlinks/
-keywords: "ハイパーリンクを追加, PowerPoint プレゼンテーション, PowerPoint ハイパーリンク, テキストハイパーリンク, スライドハイパーリンク, 形状ハイパーリンク, 画像ハイパーリンク, 動画ハイパーリンク, Python"
-description: "PythonでPowerPointプレゼンテーションにハイパーリンクを追加"
+keywords:
+- URL を追加
+- ハイパーリンクを追加
+- ハイパーリンクを作成
+- ハイパーリンクをフォーマット
+- ハイパーリンクを削除
+- ハイパーリンクを更新
+- テキスト ハイパーリンク
+- スライド ハイパーリンク
+- シェイプ ハイパーリンク
+- 画像 ハイパーリンク
+- ビデオ ハイパーリンク
+- 変更可能なハイパーリンク
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint と OpenDocument のプレゼンテーションのハイパーリンクを簡単に管理し、数分でインタラクティブ性とワークフローを向上させます。"
 ---
 
 ハイパーリンクは、オブジェクト、データ、または何かの場所への参照です。これらはPowerPointプレゼンテーションにおける一般的なハイパーリンクです：

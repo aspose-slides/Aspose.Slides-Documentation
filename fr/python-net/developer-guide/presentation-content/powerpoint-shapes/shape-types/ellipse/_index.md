@@ -1,10 +1,22 @@
 ---
-title: Ellipse
+title: Ajouter des ellipses aux présentations en Python
+linktitle: Ellipse
 type: docs
 weight: 30
 url: /fr/python-net/ellipse/
-keywords: "Ellipse, forme PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Créer une ellipse dans une présentation PowerPoint en Python"
+keywords:
+- ellipse
+- forme
+- ajouter ellipse
+- créer ellipse
+- dessiner ellipse
+- ellipse formatée
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment créer, formater et manipuler des formes d'ellipse dans Aspose.Slides for Python via .NET pour les présentations PPT, PPTX et ODP — exemples de code inclus."
 ---
 
 
