@@ -1,11 +1,30 @@
 ---
-title: 在 Python 中创建 PowerPoint 演示文稿图表
-linktitle: 创建图表
+title: 在 Python 中创建或更新 PowerPoint 演示文稿图表
+linktitle: 创建或更新图表
 type: docs
 weight: 10
 url: /zh/python-net/create-chart/
-keywords: "创建图表, 散点图, 饼图, 树状图, 股票图, 箱线图, 直方图, 漏斗图, 日晕图, 多类别图, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中创建 PowerPoint 演示文稿图表"
+keywords:
+- 添加图表
+- 创建图表
+- 编辑图表
+- 更改图表
+- 更新图表
+- 散点图
+- 饼图
+- 折线图
+- 树状图
+- 股票图
+- 箱线图
+- 漏斗图
+- 旭日图
+- 直方图
+- 雷达图
+- 多类别图
+- PowerPoint 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中创建和自定义图表。内容涵盖在演示文稿中添加、格式化和编辑图表，并提供 Python 代码示例。"
 ---
 
 ## **创建图表**

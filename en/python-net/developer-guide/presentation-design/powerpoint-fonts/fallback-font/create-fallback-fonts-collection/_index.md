@@ -1,10 +1,21 @@
 ---
-title: Create Fallback Fonts Collection
+title: Configure Fallback Fonts in Python
+linktitle: Configure Fallback Fonts
 type: docs
 weight: 20
 url: /python-net/create-fallback-fonts-collection/
-keywords: "Fallback fonts collection, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Fallback fonts collection in PowerPoint in Python"
+keywords:
+- fallback font
+- fallback rule
+- font collection
+- configure font
+- set up font
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Set up a fallback fonts collection in Aspose.Slides for Python via .NET to keep text consistent and crisp in PowerPoint and OpenDocument presentations."
 ---
 
 Instances of [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) class can be organized into [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/), that implements [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) interface. It is possible to add or remove rules from the collection.

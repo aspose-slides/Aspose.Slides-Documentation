@@ -1,10 +1,28 @@
 ---
-title: Управление строками и колонками
+title: Управляйте строками и столбцами в таблицах PowerPoint с помощью Python
+linktitle: Строки и столбцы
 type: docs
 weight: 20
 url: /ru/python-net/manage-rows-and-columns/
-keywords: "Таблица, строки и колонки таблицы, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Управление строками и колонками таблицы в презентациях PowerPoint на Python"
+keywords:
+- строка таблицы
+- столбец таблицы
+- первая строка
+- заголовок таблицы
+- клонировать строку
+- клонировать столбец
+- копировать строку
+- копировать столбец
+- удалить строку
+- удалить столбец
+- форматирование текста строки
+- форматирование текста столбца
+- стиль таблицы
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Управляйте строками и столбцами таблиц в PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET и ускоряйте редактирование презентаций и обновление данных."
 ---
 
 Чтобы управлять строками и колонками таблицы в презентации PowerPoint, Aspose.Slides предоставляет класс [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/), интерфейс [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) и многие другие типы.

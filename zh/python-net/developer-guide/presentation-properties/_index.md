@@ -1,12 +1,29 @@
 ---
-title: 演示文稿属性
+title: 使用 Python 管理演示文稿属性
+linktitle: 演示文稿属性
 type: docs
 weight: 70
 url: /zh/python-net/presentation-properties/
-keywords: "PowerPoint 属性, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中的 PowerPoint 演示文稿属性"
+keywords:
+- PowerPoint 属性
+- 演示文稿属性
+- 文档属性
+- 内置属性
+- 自定义属性
+- 高级属性
+- 管理属性
+- 修改属性
+- 文档元数据
+- 编辑元数据
+- 校对语言
+- 默认语言
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "在 Aspose.Slides for Python via .NET 中掌握演示文稿属性，简化 PowerPoint 文件的搜索、品牌和工作流程。"
 ---
-
 
 ## **实时示例**
 尝试 [**Aspose.Slides 元数据**](https://products.aspose.app/slides/metadata) 在线应用程序，查看如何通过 Aspose.Slides API 操作文档属性：

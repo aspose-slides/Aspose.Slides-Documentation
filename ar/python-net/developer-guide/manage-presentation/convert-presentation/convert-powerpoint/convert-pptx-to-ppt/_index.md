@@ -1,11 +1,17 @@
 ---
-title: تحويل PPTX إلى PPT في بايثون
-linktitle: تحويل PPTX إلى PPT
+title: تحويل PPTX إلى PPT باستخدام بايثون
+linktitle: PPTX إلى PPT
 type: docs
 weight: 21
 url: /ar/python-net/convert-pptx-to-ppt/
-keywords: "بايثون تحويل PPTX إلى PPT, تحويل عرض باوربوينت, PPTX إلى PPT, بايثون, Aspose.Slides"
-description: "تحويل باوربوينت PPTX إلى PPT في بايثون"
+keywords:
+- PPTX إلى PPT
+- تحويل PPTX إلى PPT
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- Python
+- Aspose.Slides
+description: "حوِّل بسهولة ملفات PPTX إلى PPT باستخدام Aspose.Slides for Python via .NET—مع ضمان التوافق السلس مع تنسيقات PowerPoint والحفاظ على تخطيط العرض التقديمي وجودته."
 ---
 
 ## **نظرة عامة**

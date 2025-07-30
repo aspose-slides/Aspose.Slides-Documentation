@@ -1,12 +1,26 @@
 ---
-title: SmartArt図形ノードの管理
+title: プレゼンテーションで SmartArt 形状ノードを Python で管理する
+linktitle: SmartArt 形状ノード
 type: docs
 weight: 30
 url: /ja/python-net/manage-smartart-shape-node/
-keywords: "SmartArtノード, SmartArt子ノード, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointプレゼンテーション内のSmartノードと子ノード"
+keywords:
+- SmartArt ノード
+- 子ノード
+- ノード追加
+- ノード位置
+- ノードアクセス
+- ノード削除
+- カスタム位置
+- アシスタントノード
+- 塗りつぶし形式
+- ノードレンダリング
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して PPT、PPTX、ODP の SmartArt 形状ノードを管理します。明確なコードサンプルとヒントを入手して、プレゼンテーションを効率化しましょう。"
 ---
-
 
 ## **SmartArtノードの追加**
 Aspose.Slides for Python via .NETは、SmartArt図形を最も簡単に管理するためのシンプルなAPIを提供しています。以下のサンプルコードは、SmartArt図形内にノードと子ノードを追加するのに役立ちます。

@@ -1,12 +1,26 @@
 ---
-title: Manage SmartArt Shape Node
+title: Manage SmartArt Shape Nodes in Presentations Using Python
+linktitle: SmartArt Shape Node
 type: docs
 weight: 30
 url: /python-net/manage-smartart-shape-node/
-keywords: "SmartArt node, SmartArt child node, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Smart node and child node in PowerPoint presentations in Python"
+keywords:
+- SmartArt node
+- child node
+- add node
+- node position
+- access node
+- remove node
+- custom position
+- assistant node
+- fill format
+- render node
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "Manage SmartArt shape nodes in PPT, PPTX and ODP with Aspose.Slides for Python via .NET. Get clear code samples and tips to streamline your presentations."
 ---
-
 
 ## **Add SmartArt Node**
 Aspose.Slides for Python via .NET has provided the simplest API to manage the SmartArt shapes in an easiest way. The following sample code will help to add node and child node inside SmartArt shape.
