@@ -1,10 +1,20 @@
 ---
-title: Section de Diapositive
+title: Gérer les sections de diapositives dans les présentations avec Python
+titlelink: Section de diapositive
 type: docs
 weight: 100
 url: /fr/python-net/slide-section/
-keywords: "Créer une section, Ajouter une section, Modifier le nom de la section, Présentation PowerPoint, Python, Aspose.Slides"
-description: "Ajouter et modifier une section dans une présentation PowerPoint en Python"
+keywords:
+- créer une section
+- ajouter une section
+- modifier une section
+- changer une section
+- nom de section
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Rationalisez les sections de diapositives dans PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET — divisez, renommez et réorganisez pour optimiser les flux de travail PPTX et ODP."
 ---
 
 Avec Aspose.Slides pour Python via .NET, vous pouvez organiser une présentation PowerPoint en sections. Vous pouvez créer des sections qui contiennent des diapositives spécifiques.

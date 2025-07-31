@@ -1,10 +1,24 @@
 ---
-title: 线
+title: 使用 Python 创建演示文稿中的线条形状
+linktitle: 线条
 type: docs
 weight: 50
 url: /zh/python-net/line/
-keywords: "线, PowerPoint 形状, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中的 PowerPoint 演示文稿中添加线"
+keywords:
+- 线条
+- 创建线条
+- 添加线条
+- 普通线条
+- 配置线条
+- 自定义线条
+- 虚线样式
+- 箭头
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中操作线条格式。探索属性、方法和示例。"
 ---
 
 Aspose.Slides for Python via .NET 支持向幻灯片添加不同种类的形状。在本主题中，我们将通过向幻灯片添加线条开始处理形状。使用 Aspose.Slides for Python via .NET，开发者不仅可以创建简单的线条，还可以在幻灯片上绘制一些花哨的线条。

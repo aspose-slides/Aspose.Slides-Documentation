@@ -1,10 +1,27 @@
 ---
-title: 使用带注释的PowerPoint转换为PDF
+title: 使用 Python 将演示文稿转换为带备注的 PDF
+linktitle: 演示文稿转 PDF（含备注）
 type: docs
 weight: 50
 url: /zh/python-net/convert-powerpoint-to-pdf-with-notes/
-keywords: "转换PowerPoint, 演示文稿, PowerPoint到PDF, 注释, Python, Aspose.Slides"
-description: "使用Python将带注释的PowerPoint转换为PDF"
+keywords:
+- 转换 PowerPoint
+- 转换 OpenDocument
+- 转换演示文稿
+- 转换 PPT
+- 转换 PPTX
+- 转换 ODP
+- PowerPoint 转 PDF
+- OpenDocument 转 PDF
+- 演示文稿 转 PDF
+- PPT 转 PDF
+- PPTX 转 PDF
+- ODP 转 PDF
+- 演讲者备注
+- 含备注 PDF
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python 将 PPT、PPTX 和 ODP 格式转换为带备注的 PDF，保留布局和演讲者备注，制作专业演示文稿。"
 ---
 
 Presentation 类所提供的 [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 方法可用于将 PowerPoint PPT 或 PPTX 演示文稿转换为带注释的 PDF。通过 .NET 使用 Aspose.Slides for Python 将 Microsoft PowerPoint 演示文稿保存为 PDF 注释只需两行代码。您只需打开演示文稿并将其保存为 PDF 注释。下面的代码片段将示例演示文稿更新为带注释幻灯片视图的 PDF：
