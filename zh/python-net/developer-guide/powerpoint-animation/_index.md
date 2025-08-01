@@ -1,10 +1,32 @@
 ---
-title: PowerPoint 动画
+title: 使用Python增强PowerPoint演示文稿的动画效果
+linktitle: PowerPoint动画
 type: docs
 weight: 150
 url: /zh/python-net/powerpoint-animation/
-keywords: "动画, 动画效果, PowerPoint 动画, 动画时间轴, 互动动画, 形状动画, 动态图表, 动态文本, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中的 PowerPoint 演示文稿动画和效果"
+keywords:
+- 添加动画
+- 更新动画
+- 更改动画
+- 删除动画
+- 管理动画
+- 控制动画
+- 动画效果
+- PowerPoint动画
+- 动画时间轴
+- 交互式动画
+- 自定义动画
+- 形状动画
+- 动画图表
+- 动画文本
+- 动画形状
+- 动画OLE对象
+- 动画图片
+- 动画表格
+- PowerPoint演示文稿
+- Python
+- Aspose.Slides
+description: "探索Aspose.Slides for Python via .NET在处理PowerPoint动画方面的功能。本文概述了主要特性，并提供了提升演示文稿效果的见解。"
 ---
 
 由于演示文稿旨在展示某些内容，因此在创建时始终会考虑它们的视觉外观和互动行为。

@@ -1,10 +1,18 @@
 ---
-title: Flash
+title: Extract Flash Objects from Presentations in Python
+linktitle: Flash
 type: docs
 weight: 10
 url: /python-net/flash/
-keywords: "Extract flash, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Extract flash object from PowerPoint presentation in Python"
+keywords:
+- extract flash
+- flash object
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn how to extract Flash objects from PowerPoint and OpenDocument slides in Python with Aspose.Slides, complete code samples and best practices."
 ---
 
 ## **Extract Flash Objects from Presentation**

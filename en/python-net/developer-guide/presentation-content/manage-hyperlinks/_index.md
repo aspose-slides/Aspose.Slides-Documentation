@@ -21,7 +21,7 @@ keywords:
 - OpenDocument
 - presentation
 - Python
-description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for Python .NET—enhance interactivity and workflow in minutes."
+description: "Effortlessly manage hyperlinks in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET—enhance interactivity and workflow in minutes."
 ---
 
 A hyperlink is a reference to an object or data or a place in something. These are common hyperlinks in PowerPoint Presentations:

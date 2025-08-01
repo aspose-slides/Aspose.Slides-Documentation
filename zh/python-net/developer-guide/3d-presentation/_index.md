@@ -1,21 +1,23 @@
 ---
-title: 3D 演示文稿
+title: 在 Python 中创建 3D 演示文稿
+linktitle: 3D 演示文稿
 type: docs
 weight: 232
 url: /zh/python-net/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
 - 3D 演示文稿
 - 3D 旋转
 - 3D 深度
-- 3D 拉伸
+- 3D 挤出
 - 3D 渐变
 - 3D 文本
-- PowerPoint 演示文稿
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - Python
-- Aspose.Slides for Python via .NET
-description: "Python 中的 3D PowerPoint 演示文稿"
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 Python 中轻松生成交互式 3D 演示文稿。快速导出为 PowerPoint 和 OpenDocument 格式，满足多用途需求。"
 ---
 
 ## 概述

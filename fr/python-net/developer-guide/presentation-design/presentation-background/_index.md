@@ -1,10 +1,23 @@
 ---
-title: Arrière-plan de la présentation
+title: Gérer les arrière-plans de présentation en Python
+linktitle: Arrière-plan de diapositive
 type: docs
 weight: 20
 url: /fr/python-net/presentation-background/
-keywords: "arrière-plan PowerPoint, définir l'arrière-plan, Python, Aspose.Slides pour Python via .NET"
-description: "Définir l'arrière-plan dans une présentation PowerPoint en Python"
+keywords:
+- arrière-plan de présentation
+- arrière-plan de diapositive
+- couleur unie
+- couleur dégradée
+- arrière-plan d'image
+- transparence de l'arrière-plan
+- propriétés de l'arrière-plan
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à définir des arrière-plans dynamiques dans les fichiers PowerPoint et OpenDocument en utilisant Aspose.Slides for Python via .NET, avec des conseils de code pour améliorer vos présentations."
 ---
 
 Les couleurs unies, les couleurs dégradées et les images sont souvent utilisées comme images d'arrière-plan pour les diapositives. Vous pouvez définir l'arrière-plan soit pour une **diapositive normale** (diapositive unique) ou pour une **diapositive maîtresse** (plusieurs diapositives à la fois).

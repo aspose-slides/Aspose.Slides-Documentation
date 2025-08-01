@@ -1,26 +1,33 @@
 ---
-title: Mise en forme du texte
+title: Formater le texte PowerPoint en Python
+linktitle: Formatage du texte
 type: docs
 weight: 50
 url: /fr/python-net/text-formatting/
 keywords:
-- surligner le texte
+- mettre en surbrillance le texte
 - expression régulière
-- aligner les paragraphes de texte
+- aligner un paragraphe
+- style de texte
+- arrière‑plan du texte
 - transparence du texte
-- propriétés de police des paragraphes
-- famille de police
+- espacement des caractères
+- propriétés de la police
+- famille de polices
 - rotation du texte
-- rotation d'angle personnalisé
+- angle de rotation
 - cadre de texte
 - interligne
-- propriété ajustement automatique
-- ancre de cadre de texte
-- tabulation de texte
-- style de texte par défaut
+- propriété d'ajustement automatique
+- ancrage du cadre de texte
+- tabulation du texte
+- langue par défaut
+- PowerPoint
+- OpenDocument
+- présentation
 - Python
-- Aspose.Slides pour Python
-description: "Gérer et manipuler les propriétés de texte et de cadre de texte en Python"
+- Aspose.Slides
+description: "Découvrez comment formater et styliser du texte dans des présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides for Python via .NET. Personnalisez les polices, les couleurs, l'alignement et bien plus encore grâce à de puissants exemples de code Python."
 ---
 
 ## **Surligner le texte**

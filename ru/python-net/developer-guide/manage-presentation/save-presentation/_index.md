@@ -1,10 +1,23 @@
 ---
-title: Сохранить презентацию
+title: Сохраняйте презентации с помощью Python
+linktitle: Сохранение презентации
 type: docs
 weight: 80
 url: /ru/python-net/save-presentation/
-keywords: "Сохранить PowerPoint, PPT, PPTX, Сохранить презентацию, файл, поток, Python"
-description: "Сохранить презентацию PowerPoint в виде файла или потока на Python"
+keywords:
+- сохранить PowerPoint
+- сохранить презентацию
+- сохранить PPT
+- сохранить PPTX
+- сохранить ODP
+- сохранить презентацию в файл
+- сохранить презентацию в поток
+- тип просмотра
+- строгий формат Office Open XML
+- прогресс сохранения
+- Python
+- Aspose.Slides
+description: "Узнайте, как сохранять презентации в Python с помощью Aspose.Slides—экспортируйте в PowerPoint или OpenDocument, сохраняя макеты, шрифты и эффекты."
 ---
 
 ## **Сохранить презентацию**

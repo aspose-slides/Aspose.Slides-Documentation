@@ -1,5 +1,5 @@
 ---
-title: Render Presentation Slides to SVG Images in Python
+title: Render Presentation Slides as SVG Images in Python
 linktitle: Slide to SVG
 type: docs
 weight: 50

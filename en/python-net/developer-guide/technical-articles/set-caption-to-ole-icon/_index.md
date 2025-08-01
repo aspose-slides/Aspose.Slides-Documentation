@@ -1,8 +1,18 @@
 ---
-title: Set Caption to OLE Icon
+title: Set Captions to OLE Icons in Python
 type: docs
 weight: 160
 url: /python-net/set-caption-to-ole-icon/
+keywords:
+- OLE icon
+- picture title
+- caption
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Discover how to set captions for OLE object icons in PPT, PPTX and ODP presentations with Aspose.Slides for Python .NET, enhancing slides with custom labels."
 ---
 
 A new property **SubstitutePictureTitle** has been added to **IOleObjectFrame** interface and **OleObjectFrame** class. It allows to get, set or change the caption of an OLE icon. The code snippet below shows a sample of creating Excel object and setting its caption.

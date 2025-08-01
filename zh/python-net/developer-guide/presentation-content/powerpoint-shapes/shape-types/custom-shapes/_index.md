@@ -1,10 +1,28 @@
 ---
-title: 自定义形状
+title: 在演示文稿中使用 Python 自定义形状
+linktitle: 自定义形状
 type: docs
 weight: 20
 url: /zh/python-net/custom-shape/
-keywords: "PowerPoint 形状，自定义形状，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
-description: "在Python中为PowerPoint演示文稿添加自定义形状"
+keywords: 
+- 自定义形状
+- 添加形状
+- 创建形状
+- 更改形状
+- 形状几何
+- 几何路径
+- 路径点
+- 编辑点
+- 添加点
+- 删除点
+- 编辑操作
+- 圆角
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中创建和自定义形状：几何路径、圆角、复合形状。"
 ---
 
 # 使用编辑点更改形状

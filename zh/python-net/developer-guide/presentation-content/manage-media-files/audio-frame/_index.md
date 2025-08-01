@@ -1,10 +1,32 @@
 ---
-title: 音频帧
+title: 使用 Python 在演示文稿中嵌入音频
+linktitle: 音频帧
 type: docs
 weight: 10
 url: /zh/python-net/audio-frame/
-keywords: "添加音频, 音频帧, 音频属性, 提取音频, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加音频"
+keywords:
+- 添加音频
+- 嵌入音频
+- 音频帧
+- 音频文件
+- 音频属性
+- 提取音频
+- 获取音频
+- 更改音频
+- 播放选项
+- 播放模式
+- 跨幻灯片播放
+- 循环直至停止
+- 演示时隐藏
+- 播放后倒带
+- 音频音量
+- 默认图像
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET，可轻松在 PPT、PPTX 和 ODP 中添加、提取并管理音频帧。查看代码示例，立即提升您的演示文稿效果。"
 ---
 
 ## **创建音频帧**

@@ -1,11 +1,20 @@
 ---
-title: プレゼンテーションのローカリゼーション
+title: Pythonを使用したプレゼンテーションのローカライズ自動化
+linktitle: プレゼンテーションのローカライズ
 type: docs
 weight: 100
 url: /ja/python-net/presentation-localization/
-keywords: "言語の変更, スペルチェック, スペル チェック, スペルチェッカー, PowerPoint プレゼンテーション, Python, .NET経由のAspose.Slides for Python"
-description: "PowerPoint プレゼンテーションで言語を変更または確認する。Pythonでのテキストのスペルチェック"
+keywords:
+- 言語の変更
+- スペルチェック
+- 言語ID
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NETを使用して、PythonでPowerPointおよびOpenDocumentスライドのローカライズを自動化します。実用的なコード例とヒントで、グローバル展開を迅速化します。"
 ---
+
 ## **プレゼンテーションおよびシェイプのテキストの言語を変更する**
 - [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
 - インデックスを使用してスライドの参照を取得します。

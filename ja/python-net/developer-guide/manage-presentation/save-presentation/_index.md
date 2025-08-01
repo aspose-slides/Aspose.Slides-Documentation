@@ -1,10 +1,23 @@
 ---
-title: プレゼンテーションの保存
+title: Python でプレゼンテーションを保存
+linktitle: プレゼンテーションの保存
 type: docs
 weight: 80
 url: /ja/python-net/save-presentation/
-keywords: "PowerPointの保存, PPT, PPTX, プレゼンテーションの保存, ファイル, ストリーム, Python"
-description: "PythonでPowerPointプレゼンテーションをファイルまたはストリームとして保存"
+keywords:
+- PowerPoint を保存
+- プレゼンテーションを保存
+- PPT を保存
+- PPTX を保存
+- ODP を保存
+- ファイルにプレゼンテーションを保存
+- ストリームにプレゼンテーションを保存
+- ビューの種類
+- 厳格な Office Open XML 形式
+- 保存の進行状況
+- Python
+- Aspose.Slides
+description: "Aspose.Slides を使用して Python でプレゼンテーションを保存する方法を解説します。レイアウト、フォント、効果を保持したまま、PowerPoint や OpenDocument にエクスポートできます。"
 ---
 
 ## **プレゼンテーションの保存**

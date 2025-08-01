@@ -1,10 +1,30 @@
 ---
-title: Конвертация PowerPoint в анимированный GIF
+title: Конвертируйте презентации в анимированные GIF на Python
+linktitle: Презентация в GIF
 type: docs
 weight: 65
 url: /ru/python-net/convert-powerpoint-to-animated-gif/
-keywords: "Конвертация PowerPoint, PPT, PPTX, анимированный GIF, PPT в анимированный GIF, PPTX в анимированный GIF, Python, настройки по умолчанию, пользовательские настройки "
-description: "Конвертируйте презентацию PowerPoint в анимированный GIF: PPT в GIF, PPTX в GIF на Python"
+keywords:
+- анимированный GIF
+- конвертировать PowerPoint
+- конвертировать OpenDocument
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
+- конвертировать ODP
+- PowerPoint в GIF
+- OpenDocument в GIF
+- презентация в GIF
+- слайд в GIF
+- PPT в GIF
+- PPTX в GIF
+- ODP в GIF
+- настройки по умолчанию
+- пользовательские настройки
+- Python
+- Aspose.Slides
+description: "Легко конвертируйте презентации PowerPoint (PPT, PPTX) и файлы OpenDocument (ODP) в анимированные GIF с помощью Aspose.Slides for Python via .NET. Быстро и качественно."
 ---
 
 ## Конвертация презентаций в анимированный GIF с использованием настроек по умолчанию ##

@@ -1,11 +1,29 @@
 ---
-title: Axe de graphique
+title: Personnaliser les axes des graphiques dans les présentations avec Python
+linktitle: Axe du graphique
 type: docs
 url: /fr/python-net/chart-axis/
-keywords: "Axe de graphique PowerPoint, Graphiques de présentation, Python, Manipuler l'axe du graphique, Données du graphique"
-description: "Modifier l'axe du graphique PowerPoint en Python"
+keywords:
+- axe de graphique
+- axe vertical
+- axe horizontal
+- personnalisation de l’axe
+- manipulation de l’axe
+- gestion de l’axe
+- propriétés de l’axe
+- valeur maximale
+- valeur minimale
+- ligne d’axe
+- format de date
+- titre de l’axe
+- position de l’axe
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment utiliser Aspose.Slides for Python via .NET pour personnaliser les axes des graphiques dans les présentations PowerPoint et OpenDocument pour vos rapports et visualisations."
 ---
-
 
 ## **Obtenir les valeurs maximales sur l'axe vertical des graphiques**
 Aspose.Slides pour Python via .NET vous permet d'obtenir les valeurs minimales et maximales sur un axe vertical. Suivez ces étapes :

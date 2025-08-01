@@ -1,7 +1,14 @@
 ---
 title: Getting Started
 type: docs
-description: "Use this introduction to Aspose.Slides for Python via .NET fundamentals to start realizing the value of Aspose.Slides for your business."
 weight: 10
 url: /python-net/getting-started/
+keywords:
+- getting started
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Get started with Aspose.Slides for Python via .NET: install, create, edit, and convert presentations with code—supporting PowerPoint and OpenDocument formats."
 ---

@@ -1,10 +1,21 @@
 ---
-title: Создание коллекции запасных шрифтов
+title: Настройка резервных шрифтов с помощью Python
+linktitle: Настройка резервных шрифтов
 type: docs
 weight: 20
 url: /ru/python-net/create-fallback-fonts-collection/
-keywords: "Коллекция запасных шрифтов, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Коллекция запасных шрифтов в PowerPoint на Python"
+keywords:
+- резервный шрифт
+- правило резервного шрифта
+- коллекция шрифтов
+- настройка шрифта
+- установка шрифта
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Настройте коллекцию резервных шрифтов в Aspose.Slides for Python via .NET, чтобы сохранить текст единообразным и четким в презентациях PowerPoint и OpenDocument."
 ---
 
 Экземпляры класса [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/) могут быть организованы в [FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/), который реализует [IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/) интерфейс. Можно добавлять или удалять правила из коллекции.

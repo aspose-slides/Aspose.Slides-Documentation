@@ -1,10 +1,23 @@
 ---
-title: TextBox verwalten
+title: Textfelder in Präsentationen mit Python verwalten
+linktitle: Textfeld verwalten
 type: docs
 weight: 20
 url: /de/python-net/manage-textbox/
-keywords: "Textbox, Textfeld, Textbox hinzufügen, Textbox mit Hyperlink, Python, Aspose.Slides für Python über .NET"
-description: "Fügen Sie Textboxen oder Textfelder in PowerPoint-Präsentationen in Python oder .NET hinzu"
+keywords:
+- textfeld
+- textrahmen
+- text hinzufügen
+- text aktualisieren
+- textfeld erstellen
+- textfeld prüfen
+- textspalte hinzufügen
+- hyperlink hinzufügen
+- PowerPoint
+- präsentation
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET vereinfacht das Erstellen, Bearbeiten und Klonen von Textfeldern in PowerPoint- und OpenDocument-Dateien und verbessert die Automatisierung Ihrer Präsentationen."
 ---
 
 Texte auf Folien existieren typischerweise in Textfeldern oder Formen. Um also Text zu einer Folie hinzuzufügen, müssen Sie ein Textfeld hinzufügen und dann Text in das Textfeld einfügen. Aspose.Slides für Python über .NET bietet das [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) Interface, das es Ihnen ermöglicht, eine Form hinzuzufügen, die Text enthält.

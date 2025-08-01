@@ -1,10 +1,23 @@
 ---
-title: Standard-Schriftart
+title: Standard-Schriftarten in Präsentationen mit Python anpassen
+linktitle: Standardschriftart
 type: docs
 weight: 30
 url: /de/python-net/default-font/
-keywords: "Schriftarten, Standard-Schriftarten, Präsentation PowerPoint-Präsentation Python, Aspose.Slides für Python über .NET"
-description: "PowerPoint-Standard-Schriftarten in Python"
+keywords:
+- Standardschriftart
+- Reguläre Schriftart
+- Normale Schriftart
+- Asiatische Schriftart
+- PDF-Export
+- XPS-Export
+- Bildexport
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Legen Sie Standardschriftarten in Aspose.Slides for Python fest, um eine korrekte Konvertierung von PowerPoint (PPT, PPTX) und OpenDocument (ODP) in PDF, XPS und Bilder sicherzustellen."
 ---
 
 ## **Verwendung von Standard-Schriftarten für das Rendern von Präsentationen**

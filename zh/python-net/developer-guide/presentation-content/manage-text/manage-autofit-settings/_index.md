@@ -1,10 +1,22 @@
 ---
-title: 管理自动调整设置
+title: 在 Python 中使用 AutoFit 提升演示文稿
+linktitle: 自动调整设置
 type: docs
 weight: 30
 url: /zh/python-net/manage-autofit-settings/
-keywords: "文本框, 自动调整, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中设置 PowerPoint 中文本框的自动调整设置"
+keywords:
+- 文本框
+- 自动调整
+- 不自动调整
+- 适应文本
+- 缩小文本
+- 换行文本
+- 调整形状大小
+- PowerPoint
+- 幻灯片
+- Python
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for Python via .NET 中管理 AutoFit 设置，以优化 PowerPoint 和 OpenDocument 演示文稿中的文本显示并提高内容可读性."
 ---
 
 默认情况下，当您添加一个文本框时，Microsoft PowerPoint 使用 **调整形状以适应文本** 设置自动调整文本框—它会自动调整文本框的大小，以确保文本始终适合其中。

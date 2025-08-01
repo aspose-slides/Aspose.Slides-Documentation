@@ -1,10 +1,41 @@
 ---
-title: PowerPoint in Word umwandeln
+title: PowerPoint‑Präsentationen in Word‑Dokumente mit Python umwandeln
+linktitle: PowerPoint zu Word
 type: docs
 weight: 110
 url: /de/python-net/convert-powerpoint-to-word/
-keywords: "PowerPoint umwandeln, PPT, PPTX, Präsentation, Word, DOCX, DOC, PPTX in DOCX, PPT in DOC, PPTX in DOC, PPT in DOCX, Python, Aspose.Slides"
-description: "PowerPoint-Präsentation in Word in Python umwandeln"
+keywords:
+- PowerPoint in DOCX
+- OpenDocument in DOCX
+- Präsentation in DOCX
+- Folie in DOCX
+- PPT in DOCX
+- PPTX in DOCX
+- ODP in DOCX
+- PowerPoint in DOC
+- OpenDocument in DOC
+- Präsentation in DOC
+- Folie in DOC
+- PPT in DOC
+- PPTX in DOC
+- ODP in DOC
+- PowerPoint in Word
+- OpenDocument in Word
+- Präsentation in Word
+- Folie in Word
+- PPT in Word
+- PPTX in Word
+- ODP in Word
+- PowerPoint konvertieren
+- OpenDocument konvertieren
+- Präsentation konvertieren
+- Folie konvertieren
+- PPT konvertieren
+- PPTX konvertieren
+- ODP konvertieren
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie PowerPoint‑ und OpenDocument‑Präsentationen mithilfe von Aspose.Slides for Python via .NET mühelos in Word‑Dokumente umwandeln. Unsere Schritt‑für‑Schritt‑Anleitung mit Beispiel‑Python‑Code bietet Entwicklern eine Lösung, um ihre Dokument‑Workflows zu optimieren."
 ---
 
 Wenn Sie planen, textuelle Inhalte oder Informationen aus einer Präsentation (PPT oder PPTX) auf neue Weise zu verwenden, können Sie davon profitieren, die Präsentation in Word (DOC oder DOCX) umzuwandeln.

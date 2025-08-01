@@ -3,7 +3,22 @@ title: システム要件
 type: docs
 weight: 60
 url: /ja/python-net/system-requirements/
+keywords:
+- システム要件
+- オペレーティングシステム
+- インストール
+- 依存関係
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET のシステム要件をご確認ください。Windows、Linux、macOS で PowerPoint と OpenDocument をシームレスにサポートできます。"
 ---
+
 Aspose.Slides for Python via .NETは、Microsoft PowerPointなどのサードパーティ製品をインストールする必要はありません。Aspose.Slides自体は、Microsoft PowerPointプレゼンテーション形式を含むさまざまな形式のドキュメントを作成、変更、変換、レンダリングするためのエンジンです。
 
 ## 対応オペレーティングシステム

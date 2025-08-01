@@ -1,10 +1,23 @@
 ---
-title: 段落
+title: Python でプレゼンテーションの段落境界を取得する
+linktitle: 段落
 type: docs
 weight: 60
 url: /ja/python-net/paragraph/
-keywords: "段落, ポーション, 段落座標, ポーション座標, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointプレゼンテーションの段落とポーション"
+keywords:
+- 段落の境界
+- テキスト部分の境界
+- 段落座標
+- テキスト部分座標
+- 段落サイズ
+- テキスト部分サイズ
+- テキストフレーム
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "PowerPoint および OpenDocument プレゼンテーションでテキストの配置を最適化するために、Aspose.Slides for Python via .NET で段落とテキスト部分の境界を取得する方法を学びます。"
 ---
 
 ## **TextFrame内の段落とポーションの座標を取得する**

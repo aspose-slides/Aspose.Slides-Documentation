@@ -1,10 +1,20 @@
 ---
-title: Gérer le Placeholder
+title: Gérer les espaces réservés dans les présentations avec Python
+linktitle: Gérer les espaces réservés
 type: docs
 weight: 10
 url: /fr/python-net/manage-placeholder/
-keywords: "Placeholder, Texte de Placeholder, Texte d'invite, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Modifier le texte du Placeholder et le texte d'invite dans les présentations PowerPoint en Python"
+keywords:
+- espace réservé
+- espace réservé de texte
+- espace réservé d'image
+- espace réservé de graphique
+- texte d'invite
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Gérez facilement les espaces réservés dans Aspose.Slides for Python via .NET : remplacez du texte, personnalisez les invites et définissez la transparence des images dans PowerPoint et OpenDocument."
 ---
 
 ## **Modifier le Texte dans un Placeholder**

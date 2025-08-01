@@ -1,10 +1,30 @@
 ---
-title: 形状操作
+title: 使用 Python 管理演示文稿中的形状
+linktitle: 形状操作
 type: docs
 weight: 40
 url: /zh/python-net/shape-manipulations/
-keywords: "PowerPoint 形状, 幻灯片上的形状, 查找形状, 克隆形状, 移除形状, 隐藏形状, 改变形状顺序, 获取互操作形状 ID, 形状替代文本, 形状布局格式, 形状作为 SVG, 对齐形状, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中操作 PowerPoint 形状"
+keywords:
+- PowerPoint 形状
+- 演示文稿形状
+- 幻灯片上的形状
+- 查找形状
+- 克隆形状
+- 删除形状
+- 隐藏形状
+- 更改形状顺序
+- 获取互操作形状 ID
+- 形状替代文本
+- 形状布局格式
+- 形状为 SVG
+- 形状转换为 SVG
+- 对齐形状
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习使用 Aspose.Slides for Python 创建、编辑和优化形状，并生成高性能的 PowerPoint 和 OpenDocument 演示文稿。"
 ---
 
 ## **在幻灯片中查找形状**

@@ -1,10 +1,19 @@
 ---
-title: シェイプサムネイルを作成する
+title: Python でプレゼンテーション シェイプのサムネイルを作成する
+linktitle: シェイプのサムネイル
 type: docs
 weight: 70
 url: /ja/python-net/create-shape-thumbnails/
-keywords: "シェイプサムネイル。PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointプレゼンテーションのシェイプサムネイル"
+keywords:
+- シェイプ サムネイル
+- シェイプ 画像
+- シェイプをレンダリング
+- シェイプ レンダリング
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint と OpenDocument のスライドから高品質なシェイプのサムネイルを生成し、プレゼンテーションのサムネイルを簡単に作成およびエクスポートします。"
 ---
 
 Aspose.Slides for Python via .NETは、各ページがスライドであるプレゼンテーションファイルを作成するために使用されます。これらのスライドは、Microsoft PowerPointを使用してプレゼンテーションファイルを開くことで表示できます。しかし、時には開発者が画像ビューワーでシェイプの画像を別々に表示する必要がある場合があります。そのような場合、Aspose.Slides for Python via .NETはスライドシェイプのサムネイル画像を生成するのに役立ちます。この機能の使い方についてはこの記事で説明します。

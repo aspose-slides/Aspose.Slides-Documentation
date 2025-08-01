@@ -1,13 +1,22 @@
 ---
-title: Visor de Presentaciones
+title: Crear un visor de presentaciones en Python
+linktitle: Visor de presentaciones
 type: docs
 weight: 50
 url: /es/python-net/presentation-viewer/
-keywords: "Ver presentación de PowerPoint, ver ppt, ver PPTX, Python, Aspose.Slides para Python a través de .NET"
-description: "Ver presentación de PowerPoint en Python"
+keywords:
+- ver presentación
+- visor de presentaciones
+- crear visor de presentaciones
+- ver PPT
+- ver PPTX
+- ver ODP
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Aprenda a crear un visor de presentaciones personalizado en Python usando Aspose.Slides. Visualice fácilmente archivos de PowerPoint (PPTX, PPT) y OpenDocument (ODP) sin Microsoft PowerPoint ni otro software de oficina."
 ---
-
-
 
 Aspose.Slides para Python a través de .NET se utiliza para crear archivos de presentación, completos con diapositivas. Estas diapositivas se pueden ver abriendo presentaciones con Microsoft PowerPoint. Pero a veces, los desarrolladores también pueden necesitar ver diapositivas como imágenes en su visor de imágenes favorito o crear su propio visor de presentaciones. En tales casos, Aspose.Slides para Python a través de .NET le permite exportar una diapositiva individual a una imagen. Este artículo describe cómo hacerlo.
 ## **Ejemplo en Vivo**

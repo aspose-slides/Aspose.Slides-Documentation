@@ -1,10 +1,21 @@
 ---
-title: Управление SmartArt
+title: Управляйте SmartArt в презентациях PowerPoint с помощью Python
+linktitle: Управление SmartArt
 type: docs
 weight: 10
 url: /ru/python-net/manage-smartart/
-keywords: "SmartArt, текст из SmartArt, диаграмма типа организация, организационная диаграмма, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "SmartArt и организационная диаграмма в презентациях PowerPoint на Python"
+keywords:
+- SmartArt
+- текст из SmartArt
+- тип макета
+- скрытое свойство
+- организационная диаграмма
+- организационная диаграмма с изображениями
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Научитесь создавать и редактировать объекты SmartArt в PowerPoint с помощью Aspose.Slides for Python via .NET, используя понятные примеры кода, которые ускоряют оформление слайдов и автоматизацию."
 ---
 
 ## **Получить текст из SmartArt**

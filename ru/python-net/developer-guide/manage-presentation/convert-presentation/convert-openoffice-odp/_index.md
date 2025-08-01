@@ -1,10 +1,24 @@
 ---
-title: Конвертация OpenOffice ODP
+title: Конвертируйте презентации OpenDocument в Python
+linktitle: Конвертирование OpenDocument
 type: docs
 weight: 10
 url: /ru/python-net/convert-openoffice-odp/
-keywords: "Конвертация ODP в PDF, ODP в PPT, ODP в PPTX, ODP в XPS, ODP в HTML, ODP в TIFF"
-description: "Конвертируйте ODP в PDF, ODP в PPT, ODP в PPTX, ODP в HTML и другие форматы с помощью Aspose.Slides."
+keywords:
+- конвертировать OpenDocument
+- конвертировать ODP
+- ODP в PDF
+- ODP в PPT
+- ODP в PPTX
+- ODP в XPS
+- ODP в HTML
+- ODP в TIFF
+- ODP в SWF
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Конвертируйте OpenDocument ODP в PDF, PPT, PPTX, XPS, HTML, TIFF или SWF в Python с помощью Aspose.Slides: примеры кода, высокая точность, пакетное преобразование и настройка."
 ---
 
 [**Aspose.Slides API**](https://products.aspose.com/slides/python-net/) позволяет вам конвертировать презентации OpenOffice ODP в множество форматов. API, используемый для конвертации ODP файлов в другие форматы документов, такой же, как и для операций конвертации PowerPoint (PPT и PPTX).

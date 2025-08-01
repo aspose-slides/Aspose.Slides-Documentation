@@ -1,9 +1,18 @@
 ---
-title: Chart Data Table
+title: Customize Chart Data Tables in Python
+linktitle: Chart Data Table
 type: docs
 url: /python-net/chart-data-table/
-keywords: "Font properties, chart data table, PowerPoint presentation, Python, Aspose.Slides for Python via .NET"
-description: "Set font properties for chart database table in PowerPoint presentations in Python"
+keywords:
+- chart data
+- data table
+- font properties
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Customize chart data tables in Python for PPT, PPTX and ODP with Aspose.Slides to boost efficiency and appeal in presentations."
 ---
 
 ## **Set Font Properties for Chart Data Table**

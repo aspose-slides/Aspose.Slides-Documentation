@@ -1,10 +1,21 @@
 ---
-title: ActiveX
+title: Python でプレゼンテーションの ActiveX コントロールを管理する
+linktitle: ActiveX
 type: docs
 weight: 80
 url: /ja/python-net/activex/
-keywords: "ActiveX, ActiveX コントロール, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Python での PowerPoint プレゼンテーション内の ActiveX コントロールを管理する"
+keywords:
+- ActiveX
+- ActiveX コントロール
+- ActiveX の管理
+- ActiveX の追加
+- ActiveX の変更
+- メディアプレーヤー
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET が ActiveX を活用して PowerPoint プレゼンテーションを自動化・強化し、開発者にスライドを強力に制御する方法を学びましょう。"
 ---
 
 ActiveX コントロールはプレゼンテーションで使用されます。Aspose.Slides for Python via .NET を使うことで、ActiveX コントロールを管理できますが、これらを管理するのは少しトリッキーで、通常のプレゼンテーションシェイプとは異なります。Aspose.Slides for Python via .NET 6.9.0 以降、このコンポーネントは ActiveX コントロールの管理をサポートしています。現時点では、プレゼンテーションに追加された ActiveX コントロールにアクセスして、それをさまざまなプロパティを使って修正または削除できます。ActiveX コントロールはシェイプではなく、プレゼンテーションの IShapeCollection の一部ではなく、別の IControlCollection に属することを忘れないでください。この記事では、それらとの作業方法を示します。

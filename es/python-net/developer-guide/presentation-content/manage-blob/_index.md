@@ -1,10 +1,26 @@
 ---
-title: Gestionar BLOB
+title: Gestionar BLOBs en presentaciones con Python para un uso eficiente de la memoria
+linktitle: Gestionar BLOB
 type: docs
 weight: 10
 url: /es/python-net/manage-blob/
-keywords: "Agregar blob, Exportar blob, Agregar imagen como blob, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Agregar blob a la presentación de PowerPoint en Python. Exportar blob. Agregar imagen como blob"
+keywords:
+- objeto grande
+- elemento grande
+- archivo grande
+- agregar BLOB
+- exportar BLOB
+- agregar imagen como BLOB
+- reducir memoria
+- consumo de memoria
+- presentación grande
+- archivo temporal
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Gestiona datos BLOB en Aspose.Slides for Python via .NET para agilizar las operaciones de archivos de PowerPoint y OpenDocument y manejar presentaciones de manera eficiente."
 ---
 
 ### **Acerca de BLOB**

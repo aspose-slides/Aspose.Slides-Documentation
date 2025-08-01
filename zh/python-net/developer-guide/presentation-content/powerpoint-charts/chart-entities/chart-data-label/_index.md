@@ -1,9 +1,21 @@
 ---
-title: 图表数据标签
+title: 使用 Python 管理演示文稿中的图表数据标签
+linktitle: 数据标签
 type: docs
 url: /zh/python-net/chart-data-label/
-keywords: "图表数据标签,标签距离, Python, Aspose.Slides for Python via .NET"
-description: "在Python中设置PowerPoint图表数据标签和距离"
+keywords:
+- 图表
+- 数据标签
+- 数据精度
+- 百分比
+- 标签距离
+- 标签位置
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中添加并格式化图表数据标签，以创建更具吸引力的幻灯片。"
 ---
 
 图表上的数据标签显示有关图表数据系列或单个数据点的详细信息。它们使读者能够快速识别数据系列，并且使图表更易于理解。

@@ -1,9 +1,28 @@
 ---
-title: 图表坐标轴
+title: 使用 Python 自定义演示文稿中的图表坐标轴
+linktitle: 图表坐标轴
 type: docs
 url: /zh/python-net/chart-axis/
-keywords: "PowerPoint 图表坐标轴, 演示文稿图表, Python, 操作图表坐标轴, 图表数据"
-description: "在 Python 中编辑 PowerPoint 图表坐标轴"
+keywords:
+- 图表坐标轴
+- 垂直坐标轴
+- 水平坐标轴
+- 自定义坐标轴
+- 操作坐标轴
+- 管理坐标轴
+- 坐标轴属性
+- 最大值
+- 最小值
+- 坐标轴线
+- 日期格式
+- 坐标轴标题
+- 坐标轴位置
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中自定义图表坐标轴，以用于报告和可视化。"
 ---
 
 ## **获取图表垂直坐标轴的最大值**

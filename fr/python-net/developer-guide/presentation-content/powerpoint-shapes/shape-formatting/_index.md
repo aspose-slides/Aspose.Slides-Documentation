@@ -1,10 +1,28 @@
 ---
-title: Formatage des Formes
+title: Formater les formes PowerPoint en Python
+linktitle: Formatage des formes
 type: docs
 weight: 20
 url: /fr/python-net/shape-formatting/
-keywords: "Format de forme, format de lignes, styles de jointure, remplissage dégradé, remplissage à motifs, remplissage d'image, remplissage en couleur uniforme, rotation des formes, effets de biseau 3D, effet de rotation 3D, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Formater les formes dans une présentation PowerPoint en Python"
+keywords:
+- mise en forme de forme
+- mise en forme de ligne
+- style de jonction
+- remplissage dégradé
+- remplissage de motif
+- remplissage d’image
+- remplissage de texture
+- remplissage uni
+- transparence de forme
+- rotation de forme
+- effet chanfrein 3D
+- effet de rotation 3D
+- réinitialiser la mise en forme
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à formater les formes PowerPoint en Python à l’aide d’Aspose.Slides — définissez les styles de remplissage, de ligne et d’effets pour les fichiers PPT, PPTX et ODP avec précision et contrôle total."
 ---
 
 Dans PowerPoint, vous pouvez ajouter des formes aux diapositives. Étant donné que les formes sont constituées de lignes, vous pouvez formater des formes en modifiant ou en appliquant certains effets à leurs lignes constitutives. De plus, vous pouvez formater les formes en spécifiant des paramètres qui déterminent comment elles (la zone qui les contient) sont remplies.

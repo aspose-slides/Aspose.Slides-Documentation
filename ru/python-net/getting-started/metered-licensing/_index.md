@@ -1,8 +1,18 @@
 ---
-title: Лицензирование по замерам
+title: Лицензирование с оплатой по факту использования
 type: docs
 weight: 90
 url: /ru/python-net/metered-licensing/
+keywords:
+- лицензия
+- лицензия с оплатой по факту использования
+- лицензионные ключи
+- открытый ключ
+- закрытый ключ
+- объем потребления
+- Python
+- Aspose.Slides
+description: "Узнайте, как лицензирование с оплатой по факту использования в Aspose.Slides for Python via .NET позволяет гибко обрабатывать файлы PowerPoint и OpenDocument, оплачивая только фактическое использование."
 ---
 
 {{% alert color="primary" %}} 

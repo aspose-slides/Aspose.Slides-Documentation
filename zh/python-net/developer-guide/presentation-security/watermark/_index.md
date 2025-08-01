@@ -1,18 +1,32 @@
 ---
-title: 水印
+title: 在 Python 中为演示文稿添加水印
+linktitle: 水印
 type: docs
 weight: 40
 url: /zh/python-net/watermark/
 keywords:
 - 水印
-- 添加水印
-- 文字水印
+- 文本水印
 - 图像水印
+- 添加水印
+- 更改水印
+- 移除水印
+- 删除水印
+- 向 PPT 添加水印
+- 向 PPTX 添加水印
+- 向 ODP 添加水印
+- 从 PPT 移除水印
+- 从 PPTX 移除水印
+- 从 ODP 移除水印
+- 从 PPT 删除水印
+- 从 PPTX 删除水印
+- 从 ODP 删除水印
 - PowerPoint
+- OpenDocument
 - 演示文稿
 - Python
-- Aspose.Slides for Python via .NET
-description: "在 Python 中为 PowerPoint 演示文稿添加文字和图像水印"
+- Aspose.Slides
+description: "了解如何在 Python 中管理 PowerPoint 和 OpenDocument 演示文稿中的文本和图像水印，以指示草稿、机密信息、版权等。"
 ---
 
 ## **关于水印**

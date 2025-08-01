@@ -1,10 +1,33 @@
 ---
-title: ピクチャーフレーム
+title: Python でプレゼンテーションに画像フレームを追加
+linktitle: 画像フレーム
 type: docs
 weight: 10
 url: /ja/python-net/picture-frame/
-keywords: "ピクチャーフレームの追加, ピクチャーフレームの作成, 画像の追加, 画像の作成, 画像の抽出, StretchOffプロパティ, ピクチャーフレームのフォーマット, ピクチャーフレームのプロパティ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションにピクチャーフレームを追加する"
+keywords:
+- 画像フレーム
+- 画像フレームを追加
+- 画像フレームを作成
+- 画像を追加
+- 画像を作成
+- 画像を抽出
+- ラスター画像
+- ベクター画像
+- 画像をトリミング
+- トリミング領域
+- StretchOff プロパティ
+- 画像フレームの書式設定
+- 画像フレームのプロパティ
+- 相対スケール
+- 画像効果
+- アスペクト比
+- 画像の透過性
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Pythonと Aspose.Slides for Python via .NET を使用して、PowerPoint と OpenDocument プレゼンテーションに画像フレームを追加します。ワークフローを効率化し、スライドデザインを向上させましょう。"
 ---
 
 ピクチャーフレームは画像を含むシェイプで、フレームに入った写真のようなものです。

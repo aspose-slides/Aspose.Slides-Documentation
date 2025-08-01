@@ -1,10 +1,23 @@
 ---
-title: Cadre Vidéo
+title: Ajouter des vidéos aux présentations en Python
+linktitle: Cadre vidéo
 type: docs
 weight: 10
 url: /fr/python-net/video-frame/
-keywords: "Ajouter une vidéo, créer un cadre vidéo, extraire une vidéo, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter un cadre vidéo à une présentation PowerPoint en Python"
+keywords:
+- ajouter une vidéo
+- créer une vidéo
+- intégrer une vidéo
+- extraire une vidéo
+- récupérer une vidéo
+- cadre vidéo
+- source web
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à ajouter et à extraire par programmation des cadres vidéo dans les diapositives PowerPoint et OpenDocument à l'aide de Aspose.Slides for Python via .NET. Guide pratique rapide."
 ---
 
 Une vidéo bien placée dans une présentation peut rendre votre message plus convaincant et augmenter les niveaux d'engagement avec votre public.

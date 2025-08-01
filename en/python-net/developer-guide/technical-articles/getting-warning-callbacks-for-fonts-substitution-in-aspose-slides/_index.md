@@ -1,8 +1,18 @@
 ---
-title: Getting Warning Callbacks for Fonts Substitution in Aspose.Slides
+title: Getting Warning Callbacks for Font Substitution in Python
 type: docs
 weight: 120
 url: /python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+keywords:
+- warning callback
+- font substitution
+- rendering process
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "Learn to get warning callbacks for font substitution in Aspose.Slides for Python via .NET and display PowerPoint and OpenDocument presentations accurately."
 ---
 
 {{% alert color="primary" %}} 

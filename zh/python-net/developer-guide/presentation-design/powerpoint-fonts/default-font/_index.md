@@ -1,10 +1,23 @@
 ---
-title: 默认字体
+title: 使用 Python 自定义演示文稿默认字体
+linktitle: 默认字体
 type: docs
 weight: 30
 url: /zh/python-net/default-font/
-keywords: "字体, 默认字体, 渲染演示文稿, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint 默认字体在 Python 中的使用"
+keywords:
+- 默认字体
+- 常规字体
+- 正常字体
+- 亚洲字体
+- PDF 导出
+- XPS 导出
+- 图像导出
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "在 Aspose.Slides for Python 中设置默认字体，以确保 PowerPoint (PPT、PPTX) 和 OpenDocument (ODP) 正确转换为 PDF、XPS 和图像。"
 ---
 
 ## **使用默认字体渲染演示文稿**

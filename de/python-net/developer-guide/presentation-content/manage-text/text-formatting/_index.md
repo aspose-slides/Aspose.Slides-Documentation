@@ -1,26 +1,33 @@
 ---
-title: Textformatierung
+title: PowerPoint-Text in Python formatieren
+linktitle: Textformatierung
 type: docs
 weight: 50
 url: /de/python-net/text-formatting/
 keywords:
 - Text hervorheben
-- regulärer Ausdruck
-- Textabsätze ausrichten
+- Regulärer Ausdruck
+- Absatz ausrichten
+- Textstil
+- Texthintergrund
 - Texttransparenz
-- Absatzeigenschaften für Schriftarten
+- Zeichenabstand
+- Schriftarteigenschaften
 - Schriftfamilie
-- Textrrotation
-- benutzerdefinierte Winkelrotation
-- Textfeld
+- Textrotation
+- Rotationswinkel
+- Textrahmen
 - Zeilenabstand
-- Autofit-Eigenschaft
-- Textfeldanker
-- Texttabulation
-- Standardtextstil
+- AutoFit‑Eigenschaft
+- Textrahmenanker
+- Texttabulator
+- Standardsprache
+- PowerPoint
+- OpenDocument
+- Präsentation
 - Python
-- Aspose.Slides für Python
-description: "Verwalten und Manipulieren von Text- und Textfeld-Eigenschaften in Python"
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Text in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET formatieren und gestalten. Passen Sie Schriftarten, Farben, Ausrichtung und mehr mit leistungsstarken Python‑Codebeispielen an."
 ---
 
 ## **Text Hervorheben**
