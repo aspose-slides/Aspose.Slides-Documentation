@@ -1,10 +1,24 @@
 ---
-title: 图表计算
+title: 在 Python 中优化演示文稿图表计算
+linktitle: 图表计算
 type: docs
 weight: 50
 url: /zh/python-net/chart-calculations/
-keywords: "图表计算, 图表元素, 元素位置, 图表值 Python, Aspose.Slides for Python via .NET"
-description: "PowerPoint 图表计算和 Python 中的值"
+keywords:
+- 图表计算
+- 图表元素
+- 元素位置
+- 实际位置
+- 子元素
+- 父元素
+- 图表数值
+- 实际值
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "通过实际代码示例，了解在 Aspose.Slides for Python via .NET 中针对 PPT、PPTX 和 ODP 的图表计算、数据更新以及精度控制。"
 ---
 
 ## **计算图表元素的实际值**

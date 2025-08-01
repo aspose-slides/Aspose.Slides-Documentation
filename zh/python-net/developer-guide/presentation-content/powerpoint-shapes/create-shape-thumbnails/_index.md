@@ -1,10 +1,19 @@
 ---
-title: 创建形状缩略图
+title: 在 Python 中创建演示文稿形状缩略图
+linktitle: 形状缩略图
 type: docs
 weight: 70
 url: /zh/python-net/create-shape-thumbnails/
-keywords: "形状缩略图。PowerPoint演示文稿，Python，Aspose.Slides for Python via .NET"
-description: "Python中的PowerPoint演示文稿中的形状缩略图"
+keywords:
+- 形状缩略图
+- 形状图像
+- 渲染形状
+- 形状渲染
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 从 PowerPoint 和 OpenDocument 幻灯片生成高质量的形状缩略图——轻松创建并导出演示文稿缩略图。"
 ---
 
 Aspose.Slides for Python via .NET用于创建演示文稿文件，其中每一页都是一张幻灯片。这些幻灯片可以通过使用Microsoft PowerPoint打开演示文稿文件进行查看。但有时，开发人员可能需要在图像查看器中单独查看形状的图像。在这种情况下，Aspose.Slides for Python via .NET帮助您生成幻灯片形状的缩略图。如何使用此功能在本文中进行了说明。

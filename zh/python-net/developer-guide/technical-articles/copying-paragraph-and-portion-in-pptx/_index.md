@@ -1,8 +1,21 @@
 ---
-title: 复制PPTX中的段落和部分
+title: 在演示文稿中使用 Python 复制段落和文本片段
+linktitle: 复制文本
 type: docs
 weight: 80
 url: /zh/python-net/copying-paragraph-and-portion-in-pptx/
+keywords:
+- 复制段落
+- 克隆段落
+- 复制文本
+- 克隆文本
+- 复制文本片段
+- 克隆文本片段
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿之间复制段落和文本片段，从而提升你的工作流程。"
 ---
 
 {{% alert color="primary" %}} 

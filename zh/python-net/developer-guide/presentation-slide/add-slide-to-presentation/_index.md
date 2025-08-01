@@ -1,10 +1,19 @@
 ---
-title: 添加幻灯片到演示文稿
+title: 使用 Python 向演示文稿添加幻灯片
+linktitle: 添加幻灯片
 type: docs
 weight: 10
 url: /zh/python-net/add-slide-to-presentation/
-keywords: "添加幻灯片到演示文稿, Python, Aspose.Slides"
-description: "在 Python 中添加幻灯片到演示文稿"
+keywords:
+- 添加幻灯片
+- 创建幻灯片
+- 空白幻灯片
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 轻松将幻灯片添加到 PowerPoint 和 OpenDocument 演示文稿中——几秒即可实现无缝且高效的插入。"
 ---
 
 ## **添加幻灯片到演示文稿**

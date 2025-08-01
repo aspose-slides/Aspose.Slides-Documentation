@@ -1,23 +1,24 @@
 ---
-title: 3D プレゼンテーション
+title: Pythonで3Dプレゼンテーションを作成
+linktitle: 3Dプレゼンテーション
 type: docs
 weight: 232
 url: /ja/python-net/3d-presentation/
 keywords:
-- 3D
 - 3D PowerPoint
-- 3D プレゼンテーション
-- 3D 回転
-- 3D 深度
-- 3D 押し出し
-- 3D グラデーション
-- 3D テキスト
-- PowerPoint プレゼンテーション
+- 3Dプレゼンテーション
+- 3D回転
+- 3D奥行き
+- 3D押し出し
+- 3Dグラデーション
+- 3Dテキスト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - Python
-- Aspose.Slides for Python via .NET
-description: "Python での 3D PowerPoint プレゼンテーション"
+- Aspose.Slides
+description: "Aspose.Slides を使用して、Python でインタラクティブな 3D プレゼンテーションを手軽に生成できます。PowerPoint および OpenDocument 形式へ迅速にエクスポートし、幅広い用途に活用できます。"
 ---
-
 
 ## 概要
 通常、どのようにして 3D PowerPoint プレゼンテーションを作成しますか？

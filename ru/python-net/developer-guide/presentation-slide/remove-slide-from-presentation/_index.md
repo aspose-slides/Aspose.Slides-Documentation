@@ -1,11 +1,18 @@
 ---
-title: Удаление слайда из презентации
+title: Удаляйте слайды из презентаций с помощью Python
+linktitle: Удаление слайда
 type: docs
 weight: 30
 url: /ru/python-net/remove-slide-from-presentation/
-keywords: "Удаление слайда, Удалить слайд, PowerPoint, Презентация, Python, Aspose.Slides"
-description: "Удалите слайд из PowerPoint по ссылке или индексу в Python"
-
+keywords:
+- удалить слайд
+- удаление слайда
+- удалить неиспользуемый слайд
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Легко удаляйте слайды из презентаций PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET. Получите понятные примеры кода и ускорьте рабочий процесс."
 ---
 
 Если слайд (или его содержимое) становится избыточным, вы можете удалить его. Aspose.Slides предоставляет класс [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), который инкапсулирует [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/), являющийся хранилищем для всех слайдов в презентации. Используя указатели (ссылку или индекс) для известного объекта [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/), вы можете указать слайд, который хотите удалить.
