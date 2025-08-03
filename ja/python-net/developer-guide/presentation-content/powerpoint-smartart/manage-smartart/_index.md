@@ -1,10 +1,21 @@
 ---
-title: SmartArtの管理
+title: Python を使用して PowerPoint プレゼンテーションの SmartArt を管理する
+linktitle: SmartArt の管理
 type: docs
 weight: 10
 url: /ja/python-net/manage-smartart/
-keywords: "SmartArt, SmartArtからのテキスト, 組織図, 画像組織図, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointプレゼンテーションのSmartArtと組織図"
+keywords:
+- SmartArt
+- SmartArt のテキスト
+- レイアウトの種類
+- 非表示プロパティ
+- 組織図
+- 画像入り組織図
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "明確なコードサンプルを使用して、Aspose.Slides for Python via .NET で PowerPoint SmartArt を構築および編集する方法を学び、スライドの設計と自動化を高速化します。"
 ---
 
 ## **SmartArtからテキストを取得する**

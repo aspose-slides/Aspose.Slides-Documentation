@@ -1,10 +1,24 @@
 ---
-title: Importar Presentación
+title: Importar presentaciones con Python
+linktitle: Importar presentación
 type: docs
 weight: 60
 url: /es/python-net/import-presentation/
-keywords: "Importar PowerPoint, PDF a Presentación, PDF a PPTX, PDF a PPT, Python, Aspose.Slides para Python a través de .NET"
-description: "Importar presentación de PowerPoint desde PDF. Convertir PDF a PowerPoint"
+keywords:
+- importar PowerPoint
+- importar presentación
+- importar diapositiva
+- PDF a presentación
+- PDF a PPT
+- PDF a PPTX
+- PDF a ODP
+- HTML a presentación
+- HTML a PPT
+- HTML a PPTX
+- HTML a ODP
+- Python
+- Aspose.Slides
+description: "Importa fácilmente documentos PDF y HTML en presentaciones de PowerPoint y OpenDocument en Python con Aspose.Slides for Python via .NET para un procesamiento de diapositivas fluido y de alto rendimiento."
 ---
 
 Usando [**Aspose.Slides para Python a través de .NET**](https://products.aspose.com/slides/python-net/), puedes importar presentaciones de archivos en otros formatos. Aspose.Slides proporciona la clase [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) para permitirte importar presentaciones desde PDFs, documentos HTML, etc.

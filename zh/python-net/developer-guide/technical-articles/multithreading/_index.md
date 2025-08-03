@@ -1,17 +1,21 @@
 ---
-title: Aspose.Slides中的多线程
+title: Aspose.Slides for Python 中的多线程
+linktitle: 多线程
 type: docs
 weight: 200
 url: /zh/python-net/multithreading/
 keywords:
-- PowerPoint
-- 演示文稿
 - 多线程
+- 多个线程
 - 并行工作
 - 转换幻灯片
-- 幻灯片为图像
+- 幻灯片转图片
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - Python
-- Aspose.Slides for Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET 的多线程功能提升了 PowerPoint 和 OpenDocument 的处理速度。了解高效演示文稿工作流程的最佳实践。"
 ---
 
 ## **介绍**

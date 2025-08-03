@@ -1,10 +1,21 @@
 ---
-title: 连接器
+title: 使用 Python 管理演示文稿中的连接符
+linktitle: 连接符
 type: docs
 weight: 10
 url: /zh/python-net/connector/
-keywords: "连接形状，连接器，PowerPoint 形状，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
-description: "在 Python 中连接 PowerPoint 形状"
+keywords:
+- 连接符
+- 连接符类型
+- 连接点
+- 连接线
+- 连接符角度
+- 连接形状
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使 Python 应用能够在 PowerPoint 和 OpenDocument 幻灯片中绘制、连接并自动布线直线、折线和曲线连接符，从而实现对它们的完全控制。"
 ---
 
 PowerPoint 连接器是一种特殊的线，连接或链接两个形状，并在移动或重新定位时依然保持与形状的附着。

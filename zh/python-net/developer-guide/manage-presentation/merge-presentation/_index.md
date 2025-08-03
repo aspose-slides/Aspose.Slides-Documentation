@@ -1,10 +1,25 @@
 ---
-title: 合并演示文稿
+title: 使用 Python 高效合并演示文稿
+linktitle: 合并演示文稿
 type: docs
 weight: 40
 url: /zh/python-net/merge-presentation/
-keywords: "合并 PowerPoint，PPTX，PPT，组合 PowerPoint，合并演示文稿，组合演示文稿，Python"
-description: "在 Python 中合并或组合 PowerPoint 演示文稿"
+keywords:
+- 合并 PowerPoint
+- 合并演示文稿
+- 合并幻灯片
+- 合并 PPT
+- 合并 PPTX
+- 合并 ODP
+- 组合 PowerPoint
+- 组合演示文稿
+- 组合幻灯片
+- 组合 PPT
+- 组合 PPTX
+- 组合 ODP
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET，轻松合并 PowerPoint (PPT, PPTX) 和 OpenDocument (ODP) 演示文稿，简化您的工作流程。"
 ---
 
 {{% alert title="提示" color="primary" %}} 

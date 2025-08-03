@@ -1,10 +1,28 @@
 ---
-title: Animation de Forme
+title: Appliquer des animations de formes dans les présentations avec Python
+linktitle: Animation de forme
 type: docs
 weight: 60
 url: /fr/python-net/shape-animation/
-keywords: "animation PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Créer une animation PowerPoint en Python"
+keywords:
+- forme
+- animation
+- effet
+- forme animée
+- texte animé
+- ajouter une animation
+- obtenir l'animation
+- extraire l'animation
+- ajouter un effet
+- obtenir l'effet
+- extraire l'effet
+- son d'effet
+- appliquer l'animation
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment créer et personnaliser des animations de formes dans les présentations PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET. Démarquez-vous !"
 ---
 
 Les animations sont des effets visuels qui peuvent être appliqués aux textes, images, formes ou [graphiques](/slides/fr/python-net/animated-charts/). Elles donnent vie aux présentations ou à leurs éléments.

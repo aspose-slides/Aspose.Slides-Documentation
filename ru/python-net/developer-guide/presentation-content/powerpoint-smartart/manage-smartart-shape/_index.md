@@ -1,10 +1,25 @@
 ---
-title: Управление формой SmartArt
+title: Управляйте графикой SmartArt в презентациях с помощью Python
+linktitle: Графика SmartArt
 type: docs
 weight: 20
 url: /ru/python-net/manage-smartart-shape/
-keywords: "форма SmartArt, стиль формы SmartArt, стиль цвета формы SmartArt, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Управление SmartArt в презентациях PowerPoint на Python"
+keywords:
+- объект SmartArt
+- графика SmartArt
+- стиль SmartArt
+- цвет SmartArt
+- создание SmartArt
+- добавление SmartArt
+- редактирование SmartArt
+- изменение SmartArt
+- доступ к SmartArt
+- тип макета SmartArt
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Автоматизируйте создание, редактирование и стилизацию графики SmartArt в PowerPoint на Python с Aspose.Slides при помощи лаконичных примеров кода и рекомендаций по производительности."
 ---
 
 ## **Создание формы SmartArt**

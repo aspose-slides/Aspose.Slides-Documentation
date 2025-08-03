@@ -1,6 +1,6 @@
 ---
-title: Examine Presentations in Python
-linktitle: Examine Presentation
+title: Retrieve and Update Presentation Information in Python
+linktitle: Presentation Information
 type: docs
 weight: 30
 url: /python-net/examine-presentation/

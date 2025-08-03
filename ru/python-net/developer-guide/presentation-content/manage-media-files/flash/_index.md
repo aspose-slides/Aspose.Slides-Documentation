@@ -1,10 +1,18 @@
 ---
-title: Флеш
+title: Извлечение объектов Flash из презентаций на Python
+linktitle: Flash
 type: docs
 weight: 10
 url: /ru/python-net/flash/
-keywords: "Извлечение флеш, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Извлечение флеш-объекта из презентации PowerPoint на Python"
+keywords:
+- извлечение flash
+- объект flash
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как извлекать объекты Flash из слайдов PowerPoint и OpenDocument на Python с помощью Aspose.Slides, с полными примерами кода и лучшими практиками."
 ---
 
 ## **Извлечение флеш-объектов из презентации**

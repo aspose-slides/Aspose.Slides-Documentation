@@ -1,8 +1,27 @@
 ---
-title: Отрисовка слайда в формате SVG
+title: Рендеринг слайдов презентаций в изображения SVG с помощью Python
+linktitle: Слайд в SVG
 type: docs
 weight: 50
 url: /ru/python-net/render-a-slide-as-an-svg-image/
+keywords:
+- слайд в SVG
+- презентация в SVG
+- PowerPoint в SVG
+- OpenDocument в SVG
+- PPT в SVG
+- PPTX в SVG
+- ODP в SVG
+- рендерить слайд
+- конвертировать слайд
+- экспортировать слайд
+- векторное изображение
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как рендерить слайды PowerPoint и OpenDocument в виде изображений SVG с помощью Aspose.Slides for Python via .NET. Высококачественная визуализация с простыми примерами кода."
 ---
 
 SVG—акроним от Scalable Vector Graphics—это стандартный графический тип или формат, используемый для отрисовки двумерных изображений. SVG хранит изображения в виде векторов в XML с деталями, которые определяют их поведение или внешний вид. 

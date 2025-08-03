@@ -1,10 +1,23 @@
 ---
-title: 嵌入字体
+title: 使用 Python 在演示文稿中嵌入字体
+linktitle: 嵌入字体
 type: docs
 weight: 40
 url: /zh/python-net/embedded-font/
-keywords: "字体, 嵌入字体, 添加字体, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中使用 PowerPoint 演示文稿中的嵌入字体"
+keywords:
+- 添加字体
+- 嵌入字体
+- 字体嵌入
+- 获取嵌入字体
+- 添加嵌入字体
+- 删除嵌入字体
+- 压缩嵌入字体
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中嵌入 TrueType 字体，确保在所有平台上准确呈现。"
 ---
 
 **PowerPoint 中的嵌入字体** 在您希望演示文稿在任何系统或设备上正确显示时非常有用。如果您使用了第三方或非标准字体，因为您在工作中富有创意，那么您更有理由嵌入您的字体。否则（没有嵌入字体），幻灯片上的文本或数字、布局、样式等可能会改变或变成令人困惑的矩形。

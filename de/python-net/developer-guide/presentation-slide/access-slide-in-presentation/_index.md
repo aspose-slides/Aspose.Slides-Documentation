@@ -1,10 +1,23 @@
 ---
-title: Zugriff auf Folie in Präsentation
+title: Zugriff auf Folien in Präsentationen mit Python
+linktitle: Folie aufrufen
 type: docs
 weight: 20
 url: /de/python-net/access-slide-in-presentation/
-keywords: "Zugriff auf PowerPoint-Präsentation, Zugriff auf Folie, Folieneigenschaften bearbeiten, Folienposition ändern, Foliennummer festlegen, Index, ID, Position Python, Aspose.Slides"
-description: "Zugriff auf PowerPoint-Folie über Index, ID oder Position in Python. Folieneigenschaften bearbeiten"
+keywords:
+- auf folien zugreifen
+- folienindex
+- folien-ID
+- folienposition
+- position ändern
+- folieneigenschaften
+- foliennummer
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Folien in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET aufrufen und verwalten. Steigern Sie Ihre Produktivität mit Codebeispielen."
 ---
 
 Aspose.Slides ermöglicht den Zugriff auf Folien auf zwei Arten: über den Index und über die ID.

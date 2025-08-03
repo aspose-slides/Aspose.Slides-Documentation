@@ -1,10 +1,21 @@
 ---
-title: PPT 与 PPTX
+title: 理解区别：PPT vs PPTX
+linktitle: PPT vs PPTX
 type: docs
 weight: 10
 url: /zh/python-net/ppt-vs-pptx/
-keywords: "PPT 与 PPTX, PPT 或 PPTX, PowerPoint 演示文稿, 格式, Python"
-description: "有关 PowerPoint 演示文稿格式。PPT 与 PPTX。Python 中的差异"
+keywords:
+- PPT 与 PPTX
+- PPT 或 PPTX
+- 传统格式
+- 现代格式
+- 二进制格式
+- 现代标准
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "比较 PPT 与 PPTX 格式，使用 Aspose.Slides Python 探索格式差异、优点、兼容性及转换技巧。"
 ---
 
 ## **什么是 PPT?**

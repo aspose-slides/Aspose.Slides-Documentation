@@ -1,10 +1,26 @@
 ---
-title: Gérer les listes à puces et numérotées
+title: Gérer les listes à puces et numérotées dans les présentations en Python
+linktitle: Gérer les listes
 type: docs
 weight: 70
 url: /fr/python-net/manage-bullet-and-numbered-lists/
-keywords: "Puces, Listes à puces, Nombres, Listes numérotées, Puces d'image, puces multilevel, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Créer des listes à puces et numérotées dans une présentation PowerPoint en Python"
+keywords:
+- puce
+- liste à puces
+- liste numérotée
+- puce symbolique
+- puce image
+- puce personnalisée
+- liste multiniveau
+- créer une puce
+- ajouter une puce
+- ajouter une liste
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à gérer les listes à puces et numérotées dans les présentations PowerPoint et OpenDocument en utilisant Aspose.Slides for Python via .NET. Guide étape par étape avec exemples de code pour vous aider à démarrer rapidement."
 ---
 
 Dans **Microsoft PowerPoint**, vous pouvez créer des listes à puces et numérotées de la même manière que dans Word et d'autres éditeurs de texte. **Aspose.Slides pour Python via .NET** vous permet également d'utiliser des puces et des chiffres dans les diapositives de vos présentations.

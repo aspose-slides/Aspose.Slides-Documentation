@@ -1,10 +1,33 @@
 ---
-title: Marco de Imagen
+title: Agregar marcos de imagen a presentaciones con Python
+linktitle: Marco de imagen
 type: docs
 weight: 10
 url: /es/python-net/picture-frame/
-keywords: "Agregar marco de imagen, crear marco de imagen, agregar imagen, crear imagen, extraer imagen, propiedad StretchOff, formato de marco de imagen, propiedades de marco de imagen, presentación de PowerPoint, Python, Aspose.Slides para Python vía .NET"
-description: "Agregar marco de imagen a presentación de PowerPoint en Python"
+keywords:
+- marco de imagen
+- agregar marco de imagen
+- crear marco de imagen
+- agregar imagen
+- crear imagen
+- extraer imagen
+- imagen rasterizada
+- imagen vectorial
+- recortar imagen
+- área recortada
+- propiedad StretchOff
+- formato de marco de imagen
+- propiedades del marco de imagen
+- escala relativa
+- efecto de imagen
+- relación de aspecto
+- transparencia de imagen
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Agregue marcos de imagen a las presentaciones de PowerPoint y OpenDocument con Aspose.Slides for Python via .NET. Agilice su flujo de trabajo y mejore el diseño de las diapositivas."
 ---
 
 Un marco de imagen es una forma que contiene una imagen; es como una foto en un marco.

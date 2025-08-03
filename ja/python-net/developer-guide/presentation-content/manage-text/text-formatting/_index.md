@@ -1,26 +1,33 @@
 ---
-title: テキストのフォーマット
+title: Python で PowerPoint テキストをフォーマットする
+linktitle: テキストの書式設定
 type: docs
 weight: 50
 url: /ja/python-net/text-formatting/
 keywords:
-- テキストの強調
+- 文字のハイライト
 - 正規表現
-- テキスト段落の整列
+- 段落の配置
+- テキストスタイル
+- テキスト背景
 - テキストの透明度
-- 段落フォントプロパティ
-- フォントファミリー
-- テキストの回転
-- カスタム角度の回転
+- 文字間隔
+- フォントプロパティ
+- フォントファミリ
+- テキスト回転
+- 回転角度
 - テキストフレーム
 - 行間
 - 自動調整プロパティ
 - テキストフレームアンカー
-- テキストのタブ化
-- デフォルトテキストスタイル
+- テキストタブ
+- 既定の言語
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
 - Python
-- Aspose.Slides for Python
-description: "Pythonでテキストとテキストフレームのプロパティを管理および操作する"
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument プレゼンテーションのテキストをフォーマットおよびスタイル設定する方法を学びます。強力な Python コード例でフォント、色、配置などをカスタマイズできます。"
 ---
 
 ## **テキストの強調**

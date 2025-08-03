@@ -1,10 +1,33 @@
 ---
-title: Mise en Page des Diapositives
+title: Appliquer ou modifier la mise en page des diapositives en Python
+linktitle: Disposition de diapositive
 type: docs
 weight: 60
 url: /fr/python-net/slide-layout/
-keyword: "Définir la taille des diapositives, définir les options des diapositives, spécifier la taille des diapositives, visibilité du pied de page, pied de page enfant, mise à l'échelle du contenu, taille de page, Python, Aspose.Slides"
-description: "Définir la taille et les options des diapositives PowerPoint en Python"
+keywords:
+- disposition de diapositive
+- disposition de contenu
+- espace réservé
+- conception de présentation
+- conception de diapositive
+- disposition inutilisée
+- visibilité du pied de page
+- diapositive de titre
+- titre et contenu
+- en‑tête de section
+- deux contenus
+- comparaison
+- titre seulement
+- disposition vierge
+- contenu avec légende
+- image avec légende
+- titre et texte vertical
+- titre vertical et texte
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Apprenez à gérer et à personnaliser les dispositions de diapositives dans Aspose.Slides for Python via .NET. Découvrez les types de dispositions, le contrôle des espaces réservés, la visibilité du pied de page et la manipulation des dispositions grâce à des exemples de code en Python."
 ---
 
 Une mise en page de diapositive contient les zones de texte réservées et les informations de formatage pour tout le contenu qui apparaît sur une diapositive. La mise en page détermine les zones de contenu réservées disponibles et où elles sont placées.

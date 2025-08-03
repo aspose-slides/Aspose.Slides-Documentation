@@ -1,10 +1,19 @@
 ---
-title: Extraction d'images des formes de présentation
+title: Extraire des images à partir de formes de présentation en Python
+linktitle: Image d’une forme
 type: docs
 weight: 90
 url: /fr/python-net/extracting-images-from-presentation-shapes/
-keywords: "Extraire image, PowerPoint, PPT, PPTX, présentation PowerPoint, Python, Aspose.Slides pour Python"
-description: "Extraire des images d'une présentation PowerPoint en Python"
+keywords:
+- extraire image
+- récupérer image
+- arrière‑plan de diapositive
+- arrière‑plan de forme
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Extrayez des images à partir de formes dans des présentations PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET — une solution rapide et adaptée au code."
 ---
 
 {{% alert color="primary" %}} 

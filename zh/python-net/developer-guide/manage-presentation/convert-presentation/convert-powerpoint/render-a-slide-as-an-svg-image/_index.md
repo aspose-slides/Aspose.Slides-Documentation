@@ -1,8 +1,27 @@
 ---
-title: 将幻灯片呈现为SVG图像
+title: 在 Python 中将演示文稿幻灯片渲染为 SVG 图像
+linktitle: 幻灯片转SVG
 type: docs
 weight: 50
 url: /zh/python-net/render-a-slide-as-an-svg-image/
+keywords:
+- 幻灯片转SVG
+- 演示文稿转SVG
+- PowerPoint转SVG
+- OpenDocument转SVG
+- PPT转SVG
+- PPTX转SVG
+- ODP转SVG
+- 渲染幻灯片
+- 转换幻灯片
+- 导出幻灯片
+- 矢量图像
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 将 PowerPoint 和 OpenDocument 幻灯片渲染为 SVG 图像。通过简单的代码示例实现高质量的可视化效果。"
 ---
 
 SVG——可缩放矢量图形的缩写——是一种用于呈现二维图像的标准图形类型或格式。SVG以XML格式将图像存储为矢量，并包含定义其行为或外观的细节。

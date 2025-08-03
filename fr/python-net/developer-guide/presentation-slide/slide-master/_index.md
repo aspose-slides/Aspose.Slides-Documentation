@@ -1,10 +1,24 @@
 ---
-title: Maître de Diapositive
+title: Gérer les masques de diapositives PowerPoint en Python
+linktitle: Masque de diapositives
 type: docs
 weight: 80
 url: /fr/python-net/slide-master/
-keywords: "Ajouter Maître de Diapositive, diapositive maître PPT, maître de diapositive PowerPoint, Image au Maître de Diapositive, Espace réservé, Plusieurs Maîtres de Diapositives, Comparer Maîtres de Diapositives, Python, Aspose.Slides"
-description: "Ajouter ou modifier le maître de diapositive dans la présentation PowerPoint en Python"
+keywords:
+- masque de diapositives
+- diapositive principale
+- masque de diapositives PPT
+- plusieurs masques de diapositives
+- comparer les masques de diapositives
+- arrière-plan
+- espace réservé
+- cloner un masque de diapositives
+- copier un masque de diapositives
+- dupliquer un masque de diapositives
+- masque de diapositives inutilisé
+- Python
+- Aspose.Slides
+description: "Automatisez les masques de diapositives PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET pour maximiser l'efficacité de développement. Un guide complet pour les débutants comme pour les utilisateurs avancés."
 ---
 
 ## **Qu'est-ce qu'un Maître de Diapositive dans PowerPoint**

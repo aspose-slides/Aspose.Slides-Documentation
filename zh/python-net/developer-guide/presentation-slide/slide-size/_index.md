@@ -1,10 +1,32 @@
 ---
-title: 幻灯片大小
+title: 使用 Python 更改演示文稿中的幻灯片大小
+linktitle: 幻灯片大小
 type: docs
 weight: 70
 url: /zh/python-net/slide-size/
-keywords: "设置幻灯片, 编辑幻灯片大小, PowerPoint 演示文稿, 自定义幻灯片大小, 解决幻灯片问题, Python, Aspose.Slides"
-descriptions: "在 PowerPoint 中设置和编辑幻灯片大小或宽高比"
+keywords:
+- 幻灯片大小
+- 宽高比
+- 标准
+- 宽屏
+- 4:3
+- 16:9
+- 设置幻灯片大小
+- 更改幻灯片大小
+- 自定义幻灯片大小
+- 特殊幻灯片大小
+- 独特幻灯片大小
+- 全尺寸幻灯片
+- 屏幕类型
+- 不缩放
+- 适合
+- 最大化
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+descriptions: "了解如何使用 Python 和 Aspose.Slides 快速调整 PPT、PPTX 和 ODP 文件中的幻灯片大小，为任何屏幕优化演示文稿而不降低质量。"
 ---
 
 ## PowerPoint 演示文稿中的幻灯片大小

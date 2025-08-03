@@ -1,10 +1,24 @@
 ---
-title: チャートの書式設定
+title: Python を使用してプレゼンテーションのグラフをフォーマットする
+linktitle: グラフのフォーマット
 type: docs
 weight: 60
 url: /ja/python-net/chart-formatting/
-keywords: "チャートエンティティ、チャートプロパティ、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションのチャートエンティティを整形する"
+keywords:
+- グラフのフォーマット
+- グラフ書式設定
+- グラフエンティティ
+- グラフプロパティ
+- グラフ設定
+- グラフオプション
+- フォントプロパティ
+- 角丸境界線
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET でのグラフの書式設定を学び、PowerPoint または OpenDocument プレゼンテーションをプロフェッショナルで目を引くスタイルに高めましょう。"
 ---
 
 ## **チャートエンティティの書式設定**

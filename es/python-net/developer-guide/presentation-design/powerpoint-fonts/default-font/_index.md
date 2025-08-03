@@ -1,10 +1,23 @@
 ---
-title: Fuente Predeterminada
+title: Personalizar fuentes predeterminadas en presentaciones con Python
+linktitle: Fuente predeterminada
 type: docs
 weight: 30
 url: /es/python-net/default-font/
-keywords: "Fuentes, fuentes predeterminadas, presentación de PowerPoint en Python, Aspose.Slides para Python a través de .NET"
-description: "Fuentes predeterminadas de PowerPoint en Python"
+keywords:
+- fuente predeterminada
+- fuente regular
+- fuente normal
+- fuente asiática
+- exportar a PDF
+- exportar a XPS
+- exportar imágenes
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Establezca fuentes predeterminadas en Aspose.Slides for Python para garantizar la correcta conversión de PowerPoint (PPT, PPTX) y OpenDocument (ODP) a PDF, XPS e imágenes."
 ---
 
 ## **Uso de Fuentes Predeterminadas para Renderizar Presentaciones**

@@ -1,10 +1,33 @@
 ---
-title: Folienlayout
+title: Folienlayouts in Python anwenden oder ändern
+linktitle: Folienlayout
 type: docs
 weight: 60
 url: /de/python-net/slide-layout/
-keyword: "Folie Größe festlegen, Folienoptionen festlegen, Foliengröße angeben, Fußzeilenanzeige, Kindfußzeile, Inhaltsverkleinerung, Seitengröße, Python, Aspose.Slides"
-description: "Stellen Sie die PowerPoint-Foliengröße und -optionen in Python ein"
+keywords:
+- Folienlayout
+- Inhaltslayout
+- Platzhalter
+- Präsentationsdesign
+- Foliendesign
+- ungenutztes Layout
+- Sichtbarkeit der Fußzeile
+- Titelfolie
+- Titel und Inhalt
+- Abschnittsüberschrift
+- Zwei Inhalte
+- Vergleich
+- Nur Titel
+- Leeres Layout
+- Inhalt mit Beschriftung
+- Bild mit Beschriftung
+- Titel und vertikaler Text
+- Vertikaler Titel und Text
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Folienlayouts in Aspose.Slides for Python via .NET verwalten und anpassen. Entdecken Sie Layouttypen, Platzhaltersteuerung, Sichtbarkeit der Fußzeile und die Bearbeitung von Layouts anhand von Codebeispielen in Python."
 ---
 
 Ein Folienlayout enthält die Platzhalterkästen und Formatierungsinformationen für alle Inhalte, die auf einer Folie erscheinen. Das Layout bestimmt die verfügbaren Inhaltsplatzhalter und deren Position.

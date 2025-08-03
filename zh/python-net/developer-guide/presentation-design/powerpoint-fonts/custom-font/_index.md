@@ -1,11 +1,21 @@
 ---
-title: 在Python中自定义PowerPoint字体
+title: 在 Python 中自定义 PowerPoint 字体
 linktitle: 自定义字体
 type: docs
 weight: 20
 url: /zh/python-net/custom-font/
-keywords: "字体, 自定义字体, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python中的PowerPoint自定义字体"
+keywords:
+- 字体
+- 自定义字体
+- 外部字体
+- 加载字体
+- 管理字体
+- 字体文件夹
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 幻灯片中嵌入自定义字体，以确保您的演示文稿在任何设备上都保持清晰一致。"
 ---
 
 {{% alert color="primary" %}} 

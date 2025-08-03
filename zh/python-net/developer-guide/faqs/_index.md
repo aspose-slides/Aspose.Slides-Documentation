@@ -1,5 +1,5 @@
 ---
-title: 常见问题解答
+title: 常见问题
 type: docs
 weight: 340
 url: /zh/python-net/faqs/
@@ -10,12 +10,13 @@ keywords:
 - 内存不足错误
 - 幻灯片大小
 - 提取文本
-- 取回文本
+- 检索文本
 - 段落大小
-- 格式化表格
+- 表格格式
 - 字体
 - Python
-- Aspose.Slides for Python via .NET
+- Aspose.Slides
+description: "获取关于 Aspose.Slides for Python via .NET 的常见问题解答，包括对 PowerPoint 与 OpenDocument 支持、安装指南、许可以及故障排除。"
 ---
 
 ## **支持的文件格式**

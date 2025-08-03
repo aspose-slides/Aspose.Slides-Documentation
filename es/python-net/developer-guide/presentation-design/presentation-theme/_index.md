@@ -1,10 +1,26 @@
 ---
-title: Tema de Presentación
+title: Gestiona los temas de presentación de PowerPoint en Python
+linktitle: Tema de presentación
 type: docs
 weight: 10
 url: /es/python-net/presentation-theme/
-keywords: "Tema, tema de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Tema de presentación de PowerPoint en Python"
+keywords:
+- tema de PowerPoint
+- tema de presentación
+- tema de diapositiva
+- establecer tema
+- cambiar tema
+- administrar tema
+- color del tema
+- paleta adicional
+- fuente del tema
+- estilo del tema
+- efecto del tema
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Domina los temas de presentación en Aspose.Slides for Python via .NET para crear, personalizar y convertir archivos de PowerPoint con una identidad visual coherente."
 ---
 
 Un tema de presentación define las propiedades de los elementos de diseño. Al seleccionar un tema de presentación, en esencia estás eligiendo un conjunto específico de elementos visuales y sus propiedades.

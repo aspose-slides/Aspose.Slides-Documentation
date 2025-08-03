@@ -1,10 +1,20 @@
 ---
-title: نص متحرك
+title: تحريك نص PowerPoint في Python
+linktitle: نص متحرك
 type: docs
 weight: 60
 url: /ar/python-net/animated-text/
-keywords: "نص متحرك، تأثيرات الرسوم المتحركة، عرض باوربوينت، بايثون، Aspose.Slides لـ بايثون عبر .NET"
-description: "إضافة نصوص متحركة وتأثيرات إلى عرض باوربوينت في بايثون"
+keywords:
+- نص متحرك
+- تحريك النص
+- فقرة متحركة
+- تحريك الفقرة
+- تأثير الحركة
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "أنشئ نصًا متحركًا ديناميكيًا في عروض PowerPoint وOpenDocument التقديمية باستخدام Aspose.Slides for Python via .NET، مع أمثلة تعليمية محسّنة سهلة الاتباع."
 ---
 
 ## إضافة تأثيرات الرسوم المتحركة إلى الفقرات

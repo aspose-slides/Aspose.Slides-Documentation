@@ -1,8 +1,18 @@
 ---
-title: 调整幻灯片上的形状大小
+title: 在演示文稿中使用 Python 调整形状大小
+linktitle: 调整形状大小
 type: docs
 weight: 130
 url: /zh/python-net/re-sizing-shapes-on-slide/
+keywords:
+- 调整形状大小
+- 更改形状大小
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 轻松调整 PowerPoint 和 OpenDocument 幻灯片中的形状大小——自动化幻灯片布局调整并提升工作效率。"
 ---
 
 ## **调整幻灯片上的形状大小**

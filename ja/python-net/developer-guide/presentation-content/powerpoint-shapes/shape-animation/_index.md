@@ -1,10 +1,28 @@
 ---
-title: シェイプアニメーション
+title: Pythonでプレゼンテーションに図形アニメーションを適用する
+linktitle: 図形アニメーション
 type: docs
 weight: 60
 url: /ja/python-net/shape-animation/
-keywords: "PowerPoint アニメーション, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointアニメーションを作成する"
+keywords:
+- 図形
+- アニメーション
+- エフェクト
+- アニメーション化された図形
+- アニメーション化されたテキスト
+- アニメーションを追加
+- アニメーションを取得
+- アニメーションを抽出
+- エフェクトを追加
+- エフェクトを取得
+- エフェクトを抽出
+- 効果音
+- アニメーションを適用
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument プレゼンテーションで図形アニメーションを作成およびカスタマイズする方法をご紹介します。他と差をつけましょう！"
 ---
 
 アニメーションは、テキスト、画像、シェイプ、または [チャート](/slides/ja/python-net/animated-charts/) に適用できる視覚効果です。プレゼンテーションやその構成要素に生命を与えます。

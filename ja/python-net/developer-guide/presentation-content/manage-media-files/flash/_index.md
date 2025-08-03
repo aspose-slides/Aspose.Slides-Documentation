@@ -1,10 +1,18 @@
 ---
-title: フラッシュ
+title: Python でプレゼンテーションから Flash オブジェクトを抽出する
+linktitle: Flash
 type: docs
 weight: 10
 url: /ja/python-net/flash/
-keywords: "フラッシュ抽出、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションからフラッシュオブジェクトを抽出"
+keywords:
+- Flash 抽出
+- Flash オブジェクト
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Python と Aspose.Slides を使用して、PowerPoint および OpenDocument スライドから Flash オブジェクトを抽出する方法を学び、完全なコード サンプルとベスト プラクティスを提供します。"
 ---
 
 ## **プレゼンテーションからフラッシュオブジェクトを抽出**

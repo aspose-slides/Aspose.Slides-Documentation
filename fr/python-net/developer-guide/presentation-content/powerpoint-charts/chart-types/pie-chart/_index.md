@@ -1,9 +1,22 @@
 ---
-title: Diagramme en Secteurs
+title: Personnaliser les diagrammes circulaires dans les présentations avec Python
+linktitle: Diagramme circulaire
 type: docs
 url: /fr/python-net/pie-chart/
-keywords: "Diagramme en secteurs, options de tracé, couleurs des parts, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Options de tracé du diagramme en secteurs et couleurs des parts dans la présentation PowerPoint en Python"
+keywords:
+- diagramme circulaire
+- gérer diagramme
+- personnaliser diagramme
+- options de diagramme
+- paramètres du diagramme
+- options de tracé
+- couleur de tranche
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment créer et personnaliser des diagrammes circulaires en Python avec Aspose.Slides, exportables vers PowerPoint et OpenDocument, pour dynamiser votre narration de données en quelques secondes."
 ---
 
 ## **Deuxième Options de Tracé pour Diagramme en Secteurs et Diagramme en Barres de Secteurs**

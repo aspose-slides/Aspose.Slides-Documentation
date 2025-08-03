@@ -1,10 +1,22 @@
 ---
-title: Эллипс
+title: Добавляйте эллипсы в презентации на Python
+linktitle: Эллипс
 type: docs
 weight: 30
 url: /ru/python-net/ellipse/
-keywords: "Эллипс, форма PowerPoint, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Создание эллипса в презентации PowerPoint на Python"
+keywords:
+- эллипс
+- фигура
+- добавить эллипс
+- создать эллипс
+- нарисовать эллипс
+- отформатированный эллипс
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как создавать, форматировать и управлять фигурами-эллипсами в Aspose.Slides for Python via .NET в презентациях PPT, PPTX и ODP — примеры кода включены."
 ---
 
 

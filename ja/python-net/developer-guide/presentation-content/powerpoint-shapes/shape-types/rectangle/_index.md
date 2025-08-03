@@ -1,10 +1,21 @@
 ---
-title: 長方形
+title: Python でプレゼンテーションに長方形を追加
+linktitle: 長方形
 type: docs
 weight: 80
 url: /ja/python-net/rectangle/
-keywords: "長方形の作成, PowerPointの図形, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションに長方形を作成する"
+keywords:
+- 長方形を追加
+- 長方形を作成
+- 長方形の形状
+- シンプルな長方形
+- 書式付きの長方形
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使って PowerPoint や OpenDocument プレゼンテーションに長方形を追加し、形状をプログラムで簡単にデザイン・変更しましょう。"
 ---
 
 

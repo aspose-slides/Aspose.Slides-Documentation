@@ -1,5 +1,6 @@
 ---
-title: Presentation View Properties
+title: Retrieve and Update Presentation View Properties in Python
+linktitle: View Properties
 type: docs
 weight: 80
 url: /python-net/presentation-view-properties/
@@ -17,9 +18,8 @@ keywords:
 - PowerPoint
 - presentation
 - Python
-- .NET
-- Aspose.Slides for Python via .NET
-description: "Manage PowerPoint presentation view properties in Python"
+- Aspose.Slides
+description: "Discover Aspose.Slides for Python via .NET view properties to customize formats PPT, PPTX, and ODP slides—adjust layouts, zoom levels, and display settings."
 ---
 
 {{% alert color="primary" %}} 

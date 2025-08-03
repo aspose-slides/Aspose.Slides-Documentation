@@ -1,10 +1,32 @@
 ---
-title: 管理 Python 中的 PowerPoint 段落
+title: 在 Python 中管理 PowerPoint 文本段落
+linktitle: 管理段落
 type: docs
 weight: 40
 url: /zh/python-net/manage-paragraph/
-keywords: "添加 PowerPoint 段落, 管理段落, 段落缩进, 段落属性, HTML 文本, 导出段落文本, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中创建和管理 PowerPoint 演示文稿中的段落、文本、缩进和属性"
+keywords:
+- 添加文本
+- 添加段落
+- 管理文本
+- 管理段落
+- 管理项目符号
+- 段落缩进
+- 悬挂缩进
+- 段落项目符号
+- 编号列表
+- 项目符号列表
+- 段落属性
+- 导入 HTML
+- 文本转 HTML
+- 段落转 HTML
+- 段落转图像
+- 文本转图像
+- 导出段落
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "通过 Aspose.Slides for Python via .NET 精通段落格式设置——在 Python 中优化 PowerPoint 和 OpenDocument 演示文稿的对齐、间距和样式，以吸引观众。"
 ---
 
 Aspose.Slides 提供了在 Python 中处理 PowerPoint 文本、段落和部分所需的所有接口和类。

@@ -1,9 +1,17 @@
 ---
-title: 误差线
+title: 使用Python自定义演示文稿图表中的误差线
+linktitle: 误差线
 type: docs
 url: /zh/python-net/error-bar/
-keywords: "误差线, 误差线值 PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加误差线"
+keywords:
+- error bar
+- custom value
+- PowerPoint
+- OpenDocument
+- presentation
+- Python
+- Aspose.Slides
+description: "学习如何使用Aspose.Slides for Python via .NET在图表中添加和自定义误差线，优化PowerPoint和OpenDocument演示文稿中的数据可视化。"
 ---
 
 ## **添加误差线**

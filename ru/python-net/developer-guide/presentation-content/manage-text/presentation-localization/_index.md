@@ -1,11 +1,20 @@
 ---
-title: Локализация Презентации
+title: Автоматизируйте локализацию презентаций с помощью Python
+linktitle: Локализация презентаций
 type: docs
 weight: 100
 url: /ru/python-net/presentation-localization/
-keywords: "Изменить язык, Проверка орфографии, Орфографическая проверка, Орфографический проверщик, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Изменение или проверка языка в презентации PowerPoint. Проверка орфографии текста в Python"
+keywords:
+- смена языка
+- проверка орфографии
+- идентификатор языка
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Автоматизируйте локализацию презентаций PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET, используя практические примеры кода и рекомендации для быстрого глобального развертывания."
 ---
+
 ## **Изменение языка для презентации и текста фигуры**
 - Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 - Получите ссылку на слайд, используя его индекс.

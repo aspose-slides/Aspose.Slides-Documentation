@@ -1,10 +1,33 @@
 ---
-title: 图片框
+title: 使用 Python 将图片框架添加到演示文稿
+linktitle: 图片框架
 type: docs
 weight: 10
 url: /zh/python-net/picture-frame/
-keywords: "添加图片框, 创建图片框, 添加图像, 创建图像, 提取图像, StretchOff 属性, 图片框格式, 图片框属性, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中向PowerPoint演示文稿添加图片框"
+keywords:
+- 图片框架
+- 添加图片框架
+- 创建图片框架
+- 添加图像
+- 创建图像
+- 提取图像
+- 光栅图像
+- 矢量图像
+- 裁剪图像
+- 裁剪区域
+- StretchOff 属性
+- 图片框架格式设置
+- 图片框架属性
+- 相对缩放比例
+- 图像效果
+- 纵横比
+- 图像透明度
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 将图片框架添加到 PowerPoint 和 OpenDocument 演示文稿中。精简工作流程并增强幻灯片设计。"
 ---
 
 图片框是一种包含图像的形状——就像是框中的一张图片。

@@ -1,18 +1,32 @@
 ---
-title: Marca de agua
+title: Agregar marcas de agua a presentaciones en Python
+linktitle: Marca de agua
 type: docs
 weight: 40
 url: /es/python-net/watermark/
 keywords:
 - marca de agua
-- añadir marca de agua
 - marca de agua de texto
 - marca de agua de imagen
+- agregar marca de agua
+- cambiar la marca de agua
+- quitar la marca de agua
+- eliminar la marca de agua
+- agregar marca de agua a PPT
+- agregar marca de agua a PPTX
+- agregar marca de agua a ODP
+- quitar la marca de agua de PPT
+- quitar la marca de agua de PPTX
+- quitar la marca de agua de ODP
+- eliminar la marca de agua de PPT
+- eliminar la marca de agua de PPTX
+- eliminar la marca de agua de ODP
 - PowerPoint
+- OpenDocument
 - presentación
 - Python
-- Aspose.Slides para Python a través de .NET
-description: "Añadir marcas de agua de texto e imagen a presentaciones de PowerPoint en Python"
+- Aspose.Slides
+description: "Aprende a gestionar marcas de agua de texto e imagen en presentaciones de PowerPoint y OpenDocument en Python para indicar borrador, información confidencial, derechos de autor y más."
 ---
 
 ## **Acerca de las Marcas de Agua**

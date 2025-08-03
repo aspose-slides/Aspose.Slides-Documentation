@@ -1,10 +1,24 @@
 ---
-title: WordArt
+title: 在 Python 中创建并应用艺术字效果
+linktitle: 艺术字
 type: docs
 weight: 110
 url: /zh/python-net/wordart/
-keywords: "WordArt, Word Art, 创建 WordArt, WordArt 模板, WordArt 效果, 阴影效果, 显示效果, 发光效果, WordArt 转换, 3D 效果, 外阴影效果, 内阴影效果, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 或 Aspose.Slides for Python via .NET 中添加、操作和管理 PowerPoint 演示文稿中的 WordArt 和效果"
+keywords:
+- 艺术字
+- 创建艺术字
+- 艺术字模板
+- 艺术字效果
+- 阴影效果
+- 显示效果
+- 发光效果
+- 艺术字变换
+- 3D 效果
+- 外阴影效果
+- 内阴影效果
+- Python
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for Python via .NET 中创建和自定义艺术字效果。本分步指南帮助开发者在 Python 中用时尚、专业的文本提升演示文稿。"
 ---
 
 ## **关于 WordArt？**

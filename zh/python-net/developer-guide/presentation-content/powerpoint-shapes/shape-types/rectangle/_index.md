@@ -1,12 +1,22 @@
 ---
-title: 矩形
+title: 在 Python 演示文稿中添加矩形
+linktitle: 矩形
 type: docs
 weight: 80
 url: /zh/python-net/rectangle/
-keywords: "创建矩形, PowerPoint形状, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中创建PowerPoint演示文稿的矩形"
+keywords:
+- 添加矩形
+- 创建矩形
+- 矩形形状
+- 简单矩形
+- 格式化矩形
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "通过使用 Aspose.Slides for Python via .NET 添加矩形，提升您的 PowerPoint 和 OpenDocument 演示文稿—轻松以编程方式设计和修改形状。"
 ---
-
 
 ## **创建简单矩形**
 与之前的主题一样，这个主题也关于添加形状，这次我们讨论的形状是矩形。在本主题中，我们描述了开发人员如何使用Aspose.Slides for Python via .NET向幻灯片添加简单或格式化的矩形。要向演示文稿的选定幻灯片添加简单矩形，请按照以下步骤操作：

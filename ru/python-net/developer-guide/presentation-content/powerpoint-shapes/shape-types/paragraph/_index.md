@@ -1,10 +1,23 @@
 ---
-title: Параграф
+title: Получите границы абзаца в презентациях на Python
+linktitle: Абзац
 type: docs
 weight: 60
 url: /ru/python-net/paragraph/
-keywords: "Параграф, доля, координаты параграфа, координаты доли, презентация PowerPoint, Python, Aspose.Slides для Python via .NET"
-description: "Параграф и доля в презентации PowerPoint на Python"
+keywords:
+- границы абзаца
+- границы фрагмента текста
+- координаты абзаца
+- координаты фрагмента текста
+- размер абзаца
+- размер фрагмента текста
+- текстовый фрейм
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как получать границы абзацев и фрагментов текста в Aspose.Slides for Python via .NET, чтобы оптимизировать позиционирование текста в презентациях PowerPoint и OpenDocument."
 ---
 
 ## **Получение координат параграфа и доли в TextFrame**

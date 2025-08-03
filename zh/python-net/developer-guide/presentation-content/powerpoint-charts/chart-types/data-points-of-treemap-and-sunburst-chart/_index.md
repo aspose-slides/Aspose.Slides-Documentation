@@ -1,9 +1,20 @@
 ---
-title: Treemap 和 Sunburst 图表的数据点
+title: 在 Python 中自定义树状图和旭日图中的数据点
+linktitle: 树状图和旭日图中的数据点
 type: docs
 url: /zh/python-net/data-points-of-treemap-and-sunburst-chart/
-keywords: "Sunburst 图表, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加 Sunburst 图表"
+keywords:
+- 树状图
+- 旭日图
+- 数据点
+- 标签颜色
+- 分支颜色
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 来管理树状图和旭日图中的数据点，兼容 PowerPoint 和 OpenDocument 格式。"
 ---
 
 在其他类型的 PowerPoint 图表中，有两种“层次结构”类型 - **Treemap** 和 **Sunburst** 图表（也称为 Sunburst 图、Sunburst 图示、径向图、径向图或多层饼图）。这些图表显示层次结构数据，按照树的形式组织 - 从叶子到树枝的顶部。叶子由系列数据点定义，每个后续的嵌套分组级别由相应的类别定义。Aspose.Slides for Python via .NET 允许在 Python 中格式化 Sunburst 图表和 Treemap 的数据点。

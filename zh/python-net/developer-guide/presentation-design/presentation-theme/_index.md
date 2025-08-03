@@ -1,10 +1,26 @@
 ---
-title: 演示主题
+title: 在 Python 中管理 PowerPoint 演示文稿主题
+linktitle: 演示文稿主题
 type: docs
 weight: 10
 url: /zh/python-net/presentation-theme/
-keywords: "主题, PowerPoint 主题, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中的 PowerPoint 演示文稿主题"
+keywords:
+- PowerPoint 主题
+- 演示文稿主题
+- 幻灯片主题
+- 设置主题
+- 更改主题
+- 管理主题
+- 主题颜色
+- 附加调色板
+- 主题字体
+- 主题样式
+- 主题效果
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "在 Aspose.Slides for Python 中掌握演示文稿主题，以创建、定制并转换具有一致品牌形象的 PowerPoint 文件。"
 ---
 
 演示主题定义了设计元素的属性。当您选择一个演示主题时，实际上是在选择一组特定的视觉元素及其属性。

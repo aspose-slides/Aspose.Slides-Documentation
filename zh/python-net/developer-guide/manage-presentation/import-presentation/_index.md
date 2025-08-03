@@ -1,10 +1,24 @@
 ---
-title: 导入演示文稿
+title: 用 Python 导入演示文稿
+linktitle: 导入演示文稿
 type: docs
 weight: 60
 url: /zh/python-net/import-presentation/
-keywords: "从 PDF 导入 PowerPoint，PDF 转 PPTX，PDF 转 PPT，Python，Aspose.Slides for Python via .NET"
-description: "从 PDF 导入 PowerPoint 演示文稿。将 PDF 转换为 PowerPoint"
+keywords:
+- 导入 PowerPoint
+- 导入演示文稿
+- 导入幻灯片
+- PDF 转演示文稿
+- PDF 转 PPT
+- PDF 转 PPTX
+- PDF 转 ODP
+- HTML 转演示文稿
+- HTML 转 PPT
+- HTML 转 PPTX
+- HTML 转 ODP
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides 在 Python 中轻松将 PDF 和 HTML 文档导入 PowerPoint 和 OpenDocument 演示文稿，实现无缝且高性能的幻灯片处理。"
 ---
 
 使用 [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/)，您可以从其他格式的文件中导入演示文稿。Aspose.Slides 提供 [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) 类以允许您从 PDF、HTML 文档等中导入演示文稿。

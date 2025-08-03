@@ -1,8 +1,46 @@
 ---
-title: Поддерживаемые Форматы Файлов
+title: Поддерживаемые форматы файлов
+linktitle: Форматы файлов
 type: docs
 weight: 30
 url: /ru/python-net/supported-file-formats/
+keywords:
+- формат файла
+- поддерживаемый формат
+- файл PowerPoint
+- файл OpenDocument
+- PPT
+- POT
+- PPS
+- PPTX
+- POTX
+- PPSX
+- PPTM
+- PPSM
+- POTM
+- ODP
+- FODP
+- OTP
+- TIFF
+- EMF
+- PDF
+- XPS
+- JPEG
+- PNG
+- GIF
+- BMP
+- SVG
+- SWF
+- HTML
+- XAML
+- MD
+- XML
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте обо всех форматах файлов, которые Aspose.Slides for Python via .NET может открывать, сохранять и конвертировать — включая PPT, PPTX и ODP — с понятными примечаниями о поддержке импорта/экспорта."
 ---
 
 ## **Поддерживаемые Версии Microsoft PowerPoint**
