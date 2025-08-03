@@ -8,7 +8,7 @@ url: /net/ai/generator/
 
 # Aspose.Slides Presentation Translation API: AI-Powered Multilingual Slide Translation
 
-`Aspose.Slides` is a powerful and widely used API for programmatically managing PowerPoint presentations. Beyond creating, editing, and converting slides, it now integrates `AI-driven features`—such as the `Presentation Translation API`. This tool enables fast, accurate translation of presentation content into multiple languages, simplifying global communication. In today’s interconnected world, this feature helps businesses, educators, and professionals effortlessly reach wider audiences without the burden of manual translation.
+`Aspose Slides` is a powerful and widely used API for programmatically managing PowerPoint presentations. Beyond creating, editing, and converting slides, it now integrates `AI-driven features` - such as the [Presentation Translation API](https://reference.aspose.com/slides/net/aspose.slides.ai/). 
 
 ## How it Works
 Aspose.Slides itself does not include built-in AI capabilities; instead, it connects to external AI models over the internet to provide intelligent features. This is done through the new` SlidesAIAgent` class, which interacts with AI services via an implementation of the `IAIWebClient` interface.
