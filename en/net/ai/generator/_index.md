@@ -1,6 +1,6 @@
 ---
-title: "AI-Powered Multilingual Slide Translator"
-linktitle: "AI-Powered Multilingual Slide Translator"
+title: "AI-Powered Multilingual Slide Generator"
+linktitle: "AI-Powered Multilingual Slide Generator"
 type: docs
 weight: 40
 url: /net/ai/generator/

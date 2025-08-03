@@ -1,6 +1,6 @@
 ---
-title: "AI-Powered Presentation Generator"
-linktitle: "AI-Powered Presentation Generator"
+title: "AI-Powered Presentation Translator"
+linktitle: "AI-Powered Presentation Translator"
 type: docs
 weight: 20
 url: /net/ai/generator/
@@ -8,17 +8,21 @@ url: /net/ai/generator/
 
 # Aspose.Slides Presentation Translation API: AI-Powered Multilingual Slide Translation
 
-`Aspose Slides` is a powerful and widely used API for programmatically managing PowerPoint presentations. Beyond creating, editing, and converting slides, it now integrates `AI-driven features` - such as the [Presentation Translation API](https://reference.aspose.com/slides/net/aspose.slides.ai/). 
+Aspose.Slides is a powerful API for programmatically managing PowerPoint presentations. In addition to creating, editing, and converting slides, it now offers AI-driven features - such as the [Presentation Translation API](https://reference.aspose.com/slides/net/aspose.slides.ai/) for multilingual slide content.
 
 ## How it Works
-Aspose.Slides itself does not include built-in AI capabilities; instead, it connects to external AI models over the internet to provide intelligent features. This is done through the new` SlidesAIAgent` class, which interacts with AI services via an implementation of the `IAIWebClient` interface.
 
-You can either use the built-in `OpenAIWebClient`, which connects to OpenAI’s API, or provide your own custom implementation of IAIWebClient if you want to work with a different AI provider or language model.
+Aspose.Slides does not include built-in AI capabilities but integrates with external AI models over the internet. This functionality is exposed via the [SlidesAIAgent](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent) class, which uses an implementation of the IAIWebClient interface to communicate with AI services.
 
-Aspose.Slides manages all communication with the AI service and intelligently handles the AI’s responses—placing the translated text while preserving the original slide layout and formatting.
+You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) to connect to OpenAI’s API or implement your own IAIWebClient to use a different AI provider or language model.
 
-Note that the OpenAI API is a paid service, so you will need to create an account and supply your API key when using the built-in `OpenAIWebClient`.
+Aspose.Slides handles the communication, parses the AI responses, and intelligently inserts translated content while preserving the original slide layout and formatting.
 
+{{% alert color="primary" %}}
+
+Note that the OpenAI API is a paid service, so you will need to create an account and supply your API key when using the built-in [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
+
+{{% /alert %}}
 
 ## Example
 
