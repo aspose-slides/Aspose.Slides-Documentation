@@ -29,33 +29,33 @@ Note that the OpenAI API is a paid service, so you will need to create an accoun
 In this example, we translate a PowerPoint presentation into Japanese using the built-in OpenAIWebClient with a specified OpenAI model.
 
 ```csharp
-//Load the presentation you want to translate.
+// Load the presentation to translate.
 using (Presentation pres = new Presentation(@"Presentation.pptx"))
 {
-	//Create an AI client—in this case, an OpenAIWebClient with your chosen model and API key.
-	using IAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
+    // Create an AI client using OpenAIWebClient with your model and API key.
+    using IAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
-	//Initialize the SlidesAIAgent with the AI client.
-	SlidesAIAgent aiAgent = new SlidesAIAgent(aiWebClient);
+    // Initialize SlidesAIAgent with the AI client.
+    SlidesAIAgent aiAgent = new SlidesAIAgent(aiWebClient);
 
-	//Translate the presentation to the desired language (e.g., Japanese).
-	await aiAgent.TranslateAsync(pres, "japanese");
-	
-	//Save the translated presentation in your preferred format, such as PDF.
-	pres.Save("presentation_jp.pdf", SaveFormat.Pdf);
+    // Translate the presentation to Japanese.
+    await aiAgent.TranslateAsync(pres, "japanese");
+
+    // Save the translated presentation as a PDF.
+    pres.Save("presentation_jp.pdf", SaveFormat.Pdf);
 }
 ```
 
-By default, the built-in OpenAIWebClient creates and manages its own internal `HttpClient` instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the HttpClient yourself—such as when using an IHttpClientFactory for better resource management and performance—you can provide your own HttpClient instance when constructing the OpenAIWebClient.
+By default, the built-in OpenAIWebClient creates and manages its own internal `HttpClient` instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the HttpClient yourself - such as when using an IHttpClientFactory for better resource management and performance - you can provide your own HttpClient instance when constructing the OpenAIWebClient.
 
 ```csharp
-//Assume you have an IHttpClientFactory instance (e.g., injected via DI)
+// Assume you have an IHttpClientFactory instance (e.g., injected via dependency injection).
 HttpClient httpClient = httpClientFactory.CreateClient();
-using OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey",null, httpClient);
+using OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, httpClient);
 ```
 
-It’s important to note that many customers use Aspose.Slides in synchronous contexts. To accommodate this, the SlidesAIAgent class offers both `synchronous` and `asynchronous` methods, allowing you to choose the best approach for your application’s workflow.
+Aspose.Slides is commonly used in synchronous environments. To support this, the [SlidesAIAgent](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent/) class offers both synchronous and asynchronous methods - allowing you to choose the approach that best fits your application’s workflow.
 
-## Conclusion
+## Key Benefits
 
-The Aspose.Slides Presentation Translation API offers a powerful, AI-driven solution for multilingual communication through PowerPoint presentations. By automating translation while preserving layout and design integrity, it saves time and reduces errors compared to manual efforts. Whether you're a developer, educator, or business professional, this API empowers you to deliver compelling, localized presentations to diverse audiences worldwide—unlocking new opportunities and enhancing engagement on a global scale.
+The Aspose.Slides Presentation Translation API offers an AI-powered solution for delivering multilingual PowerPoint presentations. By automating translation while preserving layout and design, it saves time and minimizes errors compared to manual workflows. Whether you're a developer, educator, or business professional, this API enables you to create engaging, localized presentations for global audiences - expanding your reach and improving communication.
