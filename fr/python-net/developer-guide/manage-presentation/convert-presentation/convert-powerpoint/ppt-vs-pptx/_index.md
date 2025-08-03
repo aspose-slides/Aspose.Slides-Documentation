@@ -1,5 +1,5 @@
 ---
-title: Comprendre la différence : PPT vs PPTX
+title: "Comprendre la différence: PPT vs PPTX"
 linktitle: PPT vs PPTX
 type: docs
 weight: 10
