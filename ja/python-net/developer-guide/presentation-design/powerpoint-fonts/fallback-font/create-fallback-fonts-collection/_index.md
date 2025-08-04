@@ -1,10 +1,21 @@
 ---
-title: フォールバックフォントコレクションの作成
+title: Python でフォールバックフォントを設定する
+linktitle: フォールバックフォントを設定する
 type: docs
 weight: 20
 url: /ja/python-net/create-fallback-fonts-collection/
-keywords: "フォールバックフォントコレクション、PowerPointプレゼンテーション、Python、.NET経由のAspose.Slides for Python"
-description: "PythonでのPowerPointにおけるフォールバックフォントコレクション"
+keywords:
+- フォールバックフォント
+- フォールバックルール
+- フォントコレクション
+- フォントを設定
+- フォントのセットアップ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "PowerPoint および OpenDocument プレゼンテーションでテキストの一貫性と鮮明さを維持するため、Aspose.Slides for Python via .NET でフォールバックフォントコレクションを設定します."
 ---
 
 [FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/)クラスのインスタンスは、[FontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/fontfallbackrulescollection/)に整理され、このコレクションは[IFontFallBackRulesCollection](https://reference.aspose.com/slides/python-net/aspose.slides/ifontfallbackrulescollection/)インターフェイスを実装しています。コレクションからルールを追加または削除することが可能です。

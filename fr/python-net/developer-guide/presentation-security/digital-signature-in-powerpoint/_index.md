@@ -1,10 +1,20 @@
 ---
-title: Signature numérique dans PowerPoint
+title: Ajouter des signatures numériques aux présentations avec Python
+linktitle: Signature numérique
 type: docs
 weight: 10
 url: /fr/python-net/digital-signature-in-powerpoint/
-keywords: "Certificat de signature numérique, autorité de certification, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter une signature numérique ou un certificat dans PowerPoint. Autorité de certification en Python"
+keywords:
+- signature numérique
+- certificat numérique
+- autorité de certification
+- certificat PFX
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à signer numériquement des fichiers PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET. Sécurisez vos diapositives en quelques secondes grâce à des exemples de code clairs."
 ---
 
 **Le certificat numérique** est utilisé pour créer une présentation PowerPoint protégée par mot de passe, marquée comme créée par une organisation ou une personne particulière. Le certificat numérique peut être obtenu en contactant une organisation autorisée - une autorité de certification. Après avoir installé le certificat numérique dans le système, il peut être utilisé pour ajouter une signature numérique à la présentation via Fichier -> Informations -> Protéger la présentation :

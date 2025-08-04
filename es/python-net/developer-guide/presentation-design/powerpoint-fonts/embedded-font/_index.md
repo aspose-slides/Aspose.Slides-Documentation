@@ -1,10 +1,23 @@
 ---
-title: Fuente Embebida
+title: Incrusta fuentes en presentaciones con Python
+linktitle: Incrustación de fuentes
 type: docs
 weight: 40
 url: /es/python-net/embedded-font/
-keywords: "Fuentes, fuentes embebidas, agregar fuentes, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Usa fuentes embebidas en una presentación de PowerPoint en Python"
+keywords:
+- agregar fuente
+- incrustar fuente
+- incrustación de fuentes
+- obtener fuente incrustada
+- agregar fuente incrustada
+- eliminar fuente incrustada
+- comprimir fuente incrustada
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Incrusta fuentes TrueType en presentaciones de PowerPoint y OpenDocument con Aspose.Slides for Python via .NET, garantizando una representación precisa en todas las plataformas."
 ---
 
 **Las fuentes embebidas en PowerPoint** son útiles cuando deseas que tu presentación aparezca correctamente al abrirse en cualquier sistema o dispositivo. Si utilizaste una fuente de un tercero o no estándar porque te inspiraste en tu trabajo, entonces tienes aún más razones para embebeder tu fuente. De lo contrario (sin fuentes embebidas), los textos o números en tus diapositivas, el diseño, el estilo, etc., pueden cambiar o convertirse en rectángulos confusos.

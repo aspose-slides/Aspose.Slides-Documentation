@@ -1,10 +1,20 @@
 ---
-title: Экспортировать график
+title: Экспортируйте диаграммы из презентаций на Python
+linktitle: Экспорт диаграммы
 type: docs
 weight: 90
 url: /ru/python-net/export-chart/
-keywords: "График, изображение графика, извлечение изображения графика, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Получить изображения графиков в презентации PowerPoint на Python"
+keywords:
+- диаграмма
+- диаграмма в изображение
+- диаграмма как изображение
+- извлечь изображение диаграммы
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как экспортировать диаграммы из презентаций с помощью Aspose.Slides for Python via .NET с поддержкой форматов PPT, PPTX и ODP и упростить подготовку отчетов в любом рабочем процессе."
 ---
 
 ## **Получить изображение графика**

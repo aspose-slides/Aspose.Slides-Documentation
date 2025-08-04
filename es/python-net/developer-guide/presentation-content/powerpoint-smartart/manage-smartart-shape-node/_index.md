@@ -1,12 +1,26 @@
 ---
-title: Gestionar el nodo de forma SmartArt
+title: Administrar nodos de formas SmartArt en presentaciones con Python
+linktitle: Nodo de forma SmartArt
 type: docs
 weight: 30
 url: /es/python-net/manage-smartart-shape-node/
-keywords: "nodo SmartArt, nodo hijo de SmartArt, presentación de PowerPoint, Python, Aspose.Slides para Python via .NET"
-description: "Nodo inteligente y nodo hijo en presentaciones de PowerPoint en Python"
+keywords:
+- nodo de SmartArt
+- nodo hijo
+- agregar nodo
+- posición del nodo
+- acceder al nodo
+- eliminar nodo
+- posición personalizada
+- nodo asistente
+- formato de relleno
+- representar nodo
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Administra los nodos de forma SmartArt en PPT, PPTX y ODP con Aspose.Slides for Python via .NET. Obtén ejemplos de código claros y consejos para optimizar tus presentaciones."
 ---
-
 
 ## **Agregar nodo SmartArt**
 Aspose.Slides para Python via .NET ha proporcionado la API más simple para gestionar las formas SmartArt de la manera más fácil. El siguiente código de ejemplo ayudará a agregar un nodo y un nodo hijo dentro de la forma SmartArt.

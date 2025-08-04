@@ -1,10 +1,28 @@
 ---
-title: 管理行和列
+title: 使用 Python 管理 PowerPoint 表格中的行和列
+linktitle: 行和列
 type: docs
 weight: 20
 url: /zh/python-net/manage-rows-and-columns/
-keywords: "表格, 表格行和列, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中管理 PowerPoint 演示文稿中的表格行和列"
+keywords:
+- 表格行
+- 表格列
+- 第一行
+- 表头
+- 克隆行
+- 克隆列
+- 复制行
+- 复制列
+- 删除行
+- 删除列
+- 行文本格式
+- 列文本格式
+- 表格样式
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 中管理表格的行和列，加速演示文稿的编辑与数据更新。"
 ---
 
 为了让您管理 PowerPoint 演示文稿中表格的行和列，Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) 类、[ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) 接口和其他许多类型。

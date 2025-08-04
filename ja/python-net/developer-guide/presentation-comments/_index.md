@@ -1,10 +1,26 @@
 ---
-title: プレゼンテーションのコメント
+title: Python でプレゼンテーションのコメントを管理する
+linktitle: プレゼンテーションのコメント
 type: docs
 weight: 100
 url: /ja/python-net/presentation-comments/
-keywords: "コメント、PowerPoint コメント、PowerPoint プレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "Python で PowerPoint プレゼンテーションにコメントと返信を追加"
+keywords:
+- コメント
+- モダンコメント
+- PowerPoint のコメント
+- プレゼンテーションのコメント
+- スライドのコメント
+- コメントを追加
+- コメントにアクセス
+- コメントを編集
+- コメントに返信
+- コメントを削除
+- コメントを消去
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用してプレゼンテーションのコメントを自在に扱いましょう。PowerPoint ファイル内のコメントを、すばやく簡単に追加、読み取り、編集、削除できます。"
 ---
 
 PowerPointでは、コメントはスライド上のノートまたは注釈として表示されます。コメントをクリックすると、その内容やメッセージが表示されます。 
