@@ -1,45 +1,60 @@
 ---
-title: Creating Excel Chart and Embedding it in Presentation as OLE Object
+title: Create Excel Charts and Embed Them in Presentations as OLE Objects
 type: docs
 weight: 50
 url: /net/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/
+keywords:
+- Excel chart
+- embed chart
+- OLE object
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Create Excel charts and embed them as OLE objects in PowerPoint and OpenDocument presentations with C#/.NET. Step-by-step guide with code samples."
 ---
 
-{{% alert color="primary" %}} 
+## **Background**
 
-In PowerPoint Slides, the use of editable chats for graphical display of the data is a common activity. Aspose provides the support of creating the Excel Charts with the use of Aspose.Cells for .NET and further these charts can be embedded as an OLE Object in the PowerPoint Slide through Aspose.Slides for .NET. This article covers the required steps along with the implementation in C# and VB.NET to create and embed an MS Excel Chart as an OLE Object in PowerPoint presentation by using Aspose.Cells for .NET and Aspose.Slides for .NET.
+In PowerPoint, using editable charts to display data graphically is a common practice. Aspose supports creating Excel charts with Aspose.Cells for .NET, and these charts can then be embedded as OLE objects in PowerPoint slides through Aspose.Slides for .NET. This article covers the necessary steps and provides C# code samples for creating an Excel chart and embedding it as an OLE object in a PowerPoint presentation using Aspose.Cells and Aspose.Slides.
 
-{{% /alert %}} 
 ## **Required Steps**
-Following sequence of steps is required to create and embed an Excel Chart as an OLE Object in the PowerPoint Slide:
 
-1. Create an Excel Chart using Aspose.Cells for .NET.
-2. Set the OLE size of the Excel Chart using Aspose.Cells for .NET.
-3. Get the image of the Excel Chart with Aspose.Cells for .NET.
-4. Embed the Excel Chart as an OLE Object inside PPTX presentation using Aspose.Slides for .NET.
-5. Replace the object changed image with the image obtained in step 3 to cater Object Changed Issue.
-6. Write the output presentation to disk in PPTX format.
+The following sequence of steps is required to create and embed an Excel chart as an OLE object in a PowerPoint slide:
+
+1. Create an Excel chart using Aspose.Cells for .NET.
+1. Set the OLE size of the Excel chart using Aspose.Cells for .NET.
+1. Get an image of the Excel chart with Aspose.Cells for .NET.
+1. Embed the Excel chart as an OLE object in a PPTX presentation using Aspose.Slides for .NET.
+1. Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address the [object preview issue](/slides/net/object-preview-issue-when-adding-oleobjectframe/).
+1. Save the presentation to disk in PPTX format.
 
 ## **Implementation of the Required Steps**
-The implementation of the above steps in C# and Visual Basic is as under:
 
-```c#
-//Step - 1: Create an excel chart using Aspose.Cells
-//--------------------------------------------------
-//Create a workbook
+The C# implementation of the above steps is as follows:
+
+```cs
+// Step - 1: Create an Excel chart using Aspose.Cells.
+
+// Create a workbook.
 Aspose.Cells.Workbook wb = new Aspose.Cells.Workbook();
-//Add an excel chart
+
+// Add an Excel chart.
 int chartRows = 55;
 int chartCols = 25;
 int chartSheetIndex = AddExcelChartInWorkbook(wb, chartRows, chartCols);
-//Step - 2: Set the OLE size of the chart. using Aspose.Cells
-//-----------------------------------------------------------
+
+// Step - 2: Set the OLE size of the chart using Aspose.Cells.
 wb.Worksheets.SetOleSize(0, chartRows, 0, chartCols);
-//Step - 3: Get the image of the chart with Aspose.Cells
-//-----------------------------------------------------------
+
+// Step - 3: Get the image of the chart with Aspose.Cells.
 Bitmap imgChart = wb.Worksheets[chartSheetIndex].Charts[0].ToImage();
-//Save the workbook to stream
+
+// Save the workbook to a stream.
 MemoryStream wbStream = wb.SaveToStream();
+
 //Step - 4  AND 5
 //-----------------------------------------------------------
 //Step - 4: Embed the chart as an OLE object inside .ppt presentation using Aspose.Slides
