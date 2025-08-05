@@ -1,11 +1,18 @@
 ---
-title: 从演示文稿中删除幻灯片
+title: 在 Python 中从演示文稿删除幻灯片
+linktitle: 删除幻灯片
 type: docs
 weight: 30
 url: /zh/python-net/remove-slide-from-presentation/
-keywords: "删除幻灯片, 删除幻灯片, PowerPoint, 演示文稿, Python, Aspose.Slides"
-description: "通过引用或索引在 Python 中从 PowerPoint 中删除幻灯片"
-
+keywords:
+- 移除幻灯片
+- 删除幻灯片
+- 移除未使用的幻灯片
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 轻松从 PowerPoint 和 OpenDocument 演示文稿中删除幻灯片。获取清晰的代码示例，提高您的工作流程效率。"
 ---
 
 如果幻灯片（或其内容）变得多余，您可以删除它。Aspose.Slides 提供了 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类，该类封装了 [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/)，这是演示文稿中所有幻灯片的存储库。通过已知的 [ISlide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) 对象的指针（引用或索引），您可以指定要删除的幻灯片。

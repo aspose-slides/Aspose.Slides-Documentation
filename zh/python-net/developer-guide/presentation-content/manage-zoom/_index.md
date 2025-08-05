@@ -1,10 +1,21 @@
 ---
-title: 管理缩放
+title: 在演示文稿中使用 Python 管理缩放
+linktitle: 缩放
 type: docs
 weight: 60
 url: /zh/python-net/manage-zoom/
-keywords: "缩放, 缩放框, 添加缩放, 格式化缩放框, 概要缩放, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加缩放或缩放框"
+keywords:
+- 缩放
+- 缩放框架
+- 幻灯片缩放
+- 章节缩放
+- 摘要缩放
+- 添加缩放
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 创建和自定义 Zoom — 在 PPT、PPTX 和 ODP 演示文稿的章节之间跳转，添加缩略图和过渡效果。"
 ---
 
 ## **概述**

@@ -1,10 +1,32 @@
 ---
-title: オーディオフレーム
+title: Pythonでプレゼンテーションにオーディオを埋め込む
+linktitle: オーディオフレーム
 type: docs
 weight: 10
 url: /ja/python-net/audio-frame/
-keywords: "オーディオを追加, オーディオフレーム, オーディオプロパティ, オーディオを抽出, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションにオーディオを追加する"
+keywords:
+- オーディオを追加
+- オーディオを埋め込む
+- オーディオフレーム
+- オーディオファイル
+- オーディオプロパティ
+- オーディオを抽出
+- オーディオを取得
+- オーディオを変更
+- 再生オプション
+- 再生モード
+- スライド間で再生
+- 停止するまでループ
+- プレゼンテーション中に非表示
+- 再生後に巻き戻す
+- オーディオ音量
+- デフォルト画像
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "PPT、PPTX、ODP で Aspose.Slides for Python via .NET を使用してオーディオフレームを簡単に追加、抽出、管理できます。コード例を確認してプレゼンテーションを強化しましょう。"
 ---
 
 ## **オーディオフレームの作成**
