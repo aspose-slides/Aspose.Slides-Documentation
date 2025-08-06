@@ -32,7 +32,7 @@ The following sequence of steps is required to create and embed an Excel chart a
 
 ## **Implementation of the Required Steps**
 
-The implementation of the above steps in C++ is as under:
+The C++ implementation of the above steps is as follows:
 
 ```cpp
 // Step - 1: Create an Excel chart using Aspose.Cells.
@@ -171,5 +171,5 @@ By using Aspose.Cells for C++ together with Aspose.Slides for C++, we can create
 
 ## **Related Sections**
 
-[Working Solution for Chart Resizing in PPTX](/slides/cpp/working-solution-for-chart-resizing-in-pptx/)
-[Object Preview Issue when Adding OleObjectFrame](/slides/cpp/object-preview-issue-when-adding-oleobjectframe/)
+- [Working Solution for Chart Resizing in PPTX](/slides/cpp/working-solution-for-chart-resizing-in-pptx/)
+- [Object Preview Issue when Adding OleObjectFrame](/slides/cpp/object-preview-issue-when-adding-oleobjectframe/)

@@ -163,6 +163,6 @@ By using Aspose.Cells for .NET together with Aspose.Slides for .NET, we can crea
 
 ## **Related Sections**
 
-[Working Solution for Chart Resizing in PPTX](/slides/net/working-solution-for-chart-resizing-in-pptx/)
-[Object Preview Issue when Adding OleObjectFrame](/slides/net/object-preview-issue-when-adding-oleobjectframe/)
-[Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
+- [Working Solution for Chart Resizing in PPTX](/slides/net/working-solution-for-chart-resizing-in-pptx/)
+- [Object Preview Issue when Adding OleObjectFrame](/slides/net/object-preview-issue-when-adding-oleobjectframe/)
+- [Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
