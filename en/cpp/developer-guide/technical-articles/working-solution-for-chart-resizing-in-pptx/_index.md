@@ -3,36 +3,48 @@ title: Working Solution for Chart Resizing in PPTX
 type: docs
 weight: 60
 url: /cpp/working-solution-for-chart-resizing-in-pptx/
+keywords:
+- chart resizing
+- Excel chart
+- OLE object
+- embed chart
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Fix unexpected chart resizing in PPTX when using embedded Excel OLE objects with Aspose.Slides for C++. Learn two methods with code to keep sizes consistent."
 ---
 
-{{% alert color="primary" %}} 
-
-It has been observed that Excel Charts embedded as OLE in a PowerPoint Presentation through Aspose components are resized to an unidentified scale after first time activation. This behavior creates a considerable visual difference of the presentation between pre and post chart activation states. Aspose team with the help of Microsoft team has investigated this issue in detail and found the solution to this issue. This article covers the reasons and the solution to this issue. 
-
-{{% /alert %}} 
 ## **Background**
-In [previous article](https://docs.aspose.com/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/) , we have explained how to create an Excel Chart using Aspose.Cells for C++ and further embed this chart in a PowerPoint Presentation using Aspose.Slides for C++. In order to accommodate the object changed issue, we assigned the chart image to the Chart OLE Object Frame. In the output presentation, when we double click the OLE Object Frame showing the Chart Image, the Excel Chart is activated. The end users can make any desired changes in the actual Excel Workbook and then return to the concerned Slide by clicking outside the activated Excel Workbook. The size of the OLE Object Frame will change when the user gets back to the slide. The resizing factor will be different for different sizes of OLE Object Frame and embedded Excel Workbook.
+
+It has been observed that Excel charts embedded as OLE objects in a PowerPoint presentation through Aspose components are resized to an unspecified scale after their first activation. This behavior causes a noticeable visual difference in the presentation between the pre- and post-activation states of the chart. The Aspose team has investigated the issue in detail and has found a solution. This article describes the causes of the problem and the corresponding fix.
+
+In the [previous article](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/), we explained how to create an Excel chart with Aspose.Cells for C++ and embed it in a PowerPoint presentation using Aspose.Slides for C++. To address the [object preview issue](/slides/cpp/object-preview-issue-when-adding-oleobjectframe/), we assigned the chart image to the chart’s OLE object frame. In the output presentation, when you double-click the OLE object frame displaying the chart image, the Excel chart is activated. End users can make any desired changes in the underlying Excel workbook and then return to the corresponding slide by clicking outside the activated workbook. The size of the OLE object frame changes when the user returns to the slide, and the resizing factor varies depending on the original sizes of both the OLE object frame and the embedded Excel workbook.
 
 ## **Cause of Resizing**
-Since the Excel Workbook has its own window size, it tries to retain its original size on first time activation. On the other hand, the OLE Object Frame will have its own size. According to Microsoft, on activation of the Excel Workbook, Excel and PowerPoint negotiate the size and ensure it is in the correct proportions as part of the embedding operation. Based on the differences in the Excel Windows size and OLE Object Frame size / position, the resizing takes place. 
+
+Because the Excel workbook has its own window size, it tries to retain its original size on its first activation. The OLE object frame, however, has its own size. According to Microsoft, when the Excel workbook is activated, Excel and PowerPoint negotiate the size and maintain the correct proportions as part of the embedding process. Depending on the differences between the Excel window size and the OLE object frame’s size or position, resizing occurs.
 
 ## **Working Solution**
-There are two possible scenarios for creation of the PowerPoint Presentations using Aspose.Slides for C++. 
 
-**Scenario 1:** Create the presentation based on an existing template.
+There are two possible scenarios for creating PowerPoint presentations using Aspose.Slides for C++.
 
-**Scenario 2:** Create the presentation from scratch. 
+**Scenario 1:** Create a presentation based on an existing template.
 
-The solution that we will provide here will be valid for both scenarios. The base of all the solution approaches will be same. That is: **Embedded OLE Object Window size should be the same as that of the OLE Object Frame** **in the PowerPoint Slide** . Now, we will discuss the two approaches of the solution. 
+**Scenario 2:** Create a presentation from scratch.
+
+The solution we provide here applies to both scenarios. The basis of all solution approaches is the same: **the embedded OLE object’s window size should match the OLE object frame in the PowerPoint slide**. We will now discuss the two approaches to this solution.
 
 ## **First Approach**
-In this approach, we will learn how to set the window size of the embedded Excel Workbook equivalent to the size of the OLE Object Frame in the PowerPoint Slide. 
+
+In this approach, we will learn how to set the window size of the embedded Excel workbook so that it matches the size of the OLE object frame in the PowerPoint slide.
 
 **Scenario 1** 
 
-Suppose, we have defined a template and desire to create the presentations based on this template. Let us say there is some shape at index 2 in the template where we want to place an OLE Frame carrying an embedded Excel Workbook. In this scenario, the size of the OLE Object Frame will be considered as predefined (which is the size of the shape at index 2 in the template). All we have to do: set the window size of the Workbook equal to the size of the Shape. The following code snippet will serve this purpose: 
+Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we want to place an OLE frame containing an embedded Excel workbook. In this scenario, the size of the OLE object frame is predefined—it matches the size of the shape at index 2 in the template. All we need to do is set the workbook’s window size equal to that shape’s size. The following code snippet serves this purpose:
 
-``` cpp
+```cpp
 System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<Aspose::Cells::Systems::IO::MemoryStream> inputStream)
 {
     auto outputBuffer = System::MakeArray<uint8_t>(inputStream->GetLength(), inputStream->GetBuffer()->ArrayPoint());
@@ -42,144 +54,141 @@ System::SharedPtr<System::IO::MemoryStream> ToSlidesMemoryStream(intrusive_ptr<A
 }
 ```
 
-``` cpp
-// define chart size with window 
+```cpp
+// Define the chart size with a window. 
 chart->SetSizeWithWindow(true);
 
-auto shape = slide->get_Shapes()->idx_get(2);
+auto shape = slide->get_Shape(2);
 
-// set window width of the workbook in inches (divided by 72 as PowerPoint uses 
-// 72 pixels / inch)
-wb->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
+// Set the window width of the workbook in inches (divided by 72 as PowerPoint uses 72 pixels per inch).
+workbook->GetISettings()->SetWindowWidthInch(shape->get_Width() / 72.f);
 
-// set window height of the workbook in inches
-wb->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
+// Set the window height of the workbook in inches.
+workbook->GetISettings()->SetWindowHeightInch(shape->get_Height() / 72.f);
 
-// Instantiate MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream3(wb->SaveToStream());
+// Save the workbook to a memory stream.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream3(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Create an OLE Object Frame with embedded Excel
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	shape->get_X(), 
-	shape->get_Y(), 
-	shape->get_Width(), 
-	shape->get_Height(),
-	dataInfo);
+// Create an OLE object frame with the embedded Excel data.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    shape->get_X(), 
+    shape->get_Y(), 
+    shape->get_Width(), 
+    shape->get_Height(),
+    dataInfo);
 ```
 
 **Scenario 2** 
 
-Let us say, we want to create a presentation from scratch and desire an OLE Object Frame of any size with an embedded Excel Workbook. In the following code snippet, we have created an OLE Object Frame with 4 inch height and 9.5 inch width in the slide at x-axis=0.5 inch and y-axis=1 inch. Further, we have set the equivalent Excel Workbook window size, that is: height 4 inch and width 9.5 inch. 
+Let’s say we want to create a presentation from scratch and include an OLE object frame of any size with an embedded Excel workbook. In the following code snippet, we create an OLE object frame 4 inches high and 9.5 inches wide at x = 0.5 inches and y = 1 inch on the slide. We then set the Excel workbook window to the same size—4 inches high and 9.5 inches wide.
 
-``` cpp
-// Our desired height
-int32_t desiredHeight = 288; //4 inch (4 * 72)
+```cpp
+// Our desired height.
+int32_t desiredHeight = 288; // 4 inch (4 * 72)
 
-// Our desired width
-int32_t desiredWidth = 684; //9.5 inch (9.5 * 72)
+// Our desired width.
+int32_t desiredWidth = 684; // 9.5 inch (9.5 * 72)
 
-// define chart size with window 
+// Define the chart size with a window. 
 chart->SetSizeWithWindow(true);
 
-// set window width of the workbook in inches
-wb->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
+// Set the window width of the workbook in inches.
+workbook->GetISettings()->SetWindowWidthInch(desiredWidth / 72.f);
 
-// set window height of the workbook in inches
-wb->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
+// Set the window height of the workbook in inches.
+workbook->GetISettings()->SetWindowHeightInch(desiredHeight / 72.f);
 
-// Instantiate MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream(wb->SaveToStream());
+// Save the workbook to a memory stream.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Create an OLE Object Frame with embedded Excel
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	36.0f,
-	72.0f, 
-	desiredWidth, 
-	desiredHeight,
-	dataInfo);
+// Create an OLE object frame with the embedded Excel data.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    36.0f,
+    72.0f, 
+    desiredWidth, 
+    desiredHeight,
+    dataInfo);
 ```
 
-
 ## **Second Approach**
-In this approach, we will learn how to set the chart size present in the embedded Excel Workbook equivalent to the size of the OLE Object Frame in the PowerPoint Slide. This approach is useful when the size of the chart up-front is known and will never change. 
+
+In this approach, we will learn how to set the size of the chart in the embedded Excel workbook to match the size of the OLE object frame in the PowerPoint slide. This approach is useful when the chart size is known up front and will never change.
 
 **Scenario 1** 
 
-Suppose, we have defined a template and desire to create the presentations based on this template. Let us say there is some shape at index 2 in the template where we want to place an OLE Frame carrying an embedded Excel Workbook. In this scenario, the size of the OLE Frame will be considered as predefined (which is the size of the shape at index 2 in the template). All we have to do: set the size of the chart in the Workbook equal to the size of the shape. The following code snippet will serve this purpose: 
+Suppose we have defined a template and want to create presentations based on it. Assume there is a shape at index 2 in the template where we intend to place an OLE frame containing an embedded Excel workbook. In this scenario, the OLE frame size is predefined—matching the size of the shape at index 2 in the template. All we need to do is set the chart size in the workbook to equal the shape’s size. The following code snippet serves this purpose:
 
-``` cpp
-// define chart size without window 
+```cpp
+// Define the chart size without a window. 
 chart->SetSizeWithWindow(false);
 
-auto shape = slide->get_Shapes()->idx_get(2);
+auto shape = slide->get_Shape(2);
 
-// set chart width in pixels (Multiply by 96 as Excel uses 96 pixels per inch)    
+// Set the chart width in pixels (multiply by 96 as Excel uses 96 pixels per inch).    
 chart->GetIChartObject()->SetWidth((int32_t)(shape->get_Width() / 72.f * 96.f));
 
-// set chart height in pixels
+// Set the chart height in pixels.
 chart->GetIChartObject()->SetHeight((int32_t)(shape->get_Height() / 72.f) * 96.f);
 
-// Define chart print size
+// Define the chart print size.
 chart->SetPrintSize(Aspose::Cells::PrintSizeType::PrintSizeType_Custom);
 
-// Instantiate MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream(wb->SaveToStream());
+// Save the workbook to a memory stream.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Create an OLE Object Frame with embedded Excel
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	shape->get_X(), 
-	shape->get_Y(), 
-	shape->get_Width(),
-	shape->get_Height(),
-	dataInfo);
+// Create an OLE object frame with the embedded Excel data.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    shape->get_X(), 
+    shape->get_Y(), 
+    shape->get_Width(),
+    shape->get_Height(),
+    dataInfo);
 ```
 
 **Scenario 2** 
 
-Let us say, we want to create a presentation from scratch and desire an OLE Object Frame of any size with an embedded Excel Workbook. In the following code snippet, we have created an OLE Object Frame with 4 inch height and 9.5 inch width in the slide at x-axis=0.5 inch and y-axis=1 inch. Further, we have set the equivalent Chart size, that is: height 4 inch and width 9.5 inch. 
+Suppose we want to create a presentation from scratch and include an OLE object frame of any size with an embedded Excel workbook. In the following code snippet, we create an OLE object frame with a height of 4 inches and a width of 9.5 inches on the slide at x = 0.5 inches and y = 1 inch. We also set the corresponding chart size to the same dimensions: a height of 4 inches and a width of 9.5 inches.
 
-``` cpp
-// Our desired height
+```cpp
+// Our desired height.
 int32_t desiredHeight = 288; // 4 inch (4 * 576)
 
-// Our desired width
+// Our desired width.
 int32_t desiredWidth = 684; // 9.5 inch(9.5 * 576)
 
-// define chart size without window 
+// Define the chart size without a window. 
 chart->SetSizeWithWindow(false);
 
-// set chart width in pixels    
+// Set the chart width in pixels.    
 chart->GetIChartObject()->SetWidth((int32_t)((desiredWidth / 72.f) * 96.f));
 
-// set chart height in pixels    
+// Set the chart height in pixels.
 chart->GetIChartObject()->SetHeight((int32_t)((desiredHeight / 72.f) * 96.f));
 
-// Instantiate MemoryStream
-System::SharedPtr<System::IO::MemoryStream> ms = ToSlidesMemoryStream(wb->SaveToStream());
+// Save the workbook to a memory stream.
+System::SharedPtr<System::IO::MemoryStream> workbookStream = ToSlidesMemoryStream(workbook->SaveToStream());
 
-System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(ms->ToArray(), u"xls");
+System::SharedPtr<IOleEmbeddedDataInfo> dataInfo = System::MakeObject<OleEmbeddedDataInfo>(workbookStream->ToArray(), u"xls");
 
-// Create an OLE Object Frame with embedded Excel
-System::SharedPtr<IOleObjectFrame> objFrame = slide->get_Shapes()->AddOleObjectFrame(
-	36.0f, 
-	72.0f, 
-	desiredWidth, 
-	desiredHeight,
-	dataInfo);
+// Create an OLE object frame with the embedded Excel data.
+System::SharedPtr<IOleObjectFrame> oleFrame = slide->get_Shapes()->AddOleObjectFrame(
+    36.0f, 
+    72.0f, 
+    desiredWidth, 
+    desiredHeight,
+    dataInfo);
 ```
 
 ## **Conclusion**
-{{% alert color="primary" %}} 
 
-There are two approaches to fix the chart resizing issue. The selection of the appropriate approach depends upon the requirement and the use case. Both approaches work in the same way whether the presentations are created from a template or create from scratch. Also, there is no limit of the OLE Object Frame size in the solution. 
+There are two approaches to fixing the chart-resizing issue. The choice of approach depends on the requirements and the use case. Both approaches work the same way whether the presentations are created from a template or created from scratch. Also, there is no limit to the size of the OLE object frame in this solution.
 
-{{% /alert %}} 
 ## **Related Sections**
-[Creating and Embedding an Excel Chart as OLE Object in Presentation](https://docs.aspose.com/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
 
+- [Create Excel Charts and Embed Them as OLE Objects in Presentations](/slides/cpp/creating-excel-chart-and-embedding-it-in-presentation-as-ole-object/)
