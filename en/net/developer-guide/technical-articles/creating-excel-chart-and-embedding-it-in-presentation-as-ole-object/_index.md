@@ -24,10 +24,10 @@ In PowerPoint, using editable charts to display data graphically is a common pra
 
 The following sequence of steps is required to create and embed an Excel chart as an OLE object in a PowerPoint slide:
 
-1. Create an Excel chart using Aspose.Cells for .NET.
-1. Set the OLE size of the Excel chart using Aspose.Cells for .NET.
-1. Get an image of the Excel chart with Aspose.Cells for .NET.
-1. Embed the Excel chart as an OLE object in a PPTX presentation using Aspose.Slides for .NET.
+1. Create an Excel chart using Aspose.Cells.
+1. Set the OLE size of the Excel chart using Aspose.Cells.
+1. Get an image of the Excel chart with Aspose.Cells.
+1. Embed the Excel chart as an OLE object in a PPTX presentation using Aspose.Slides.
 1. Replace the "EMBEDDED OLE OBJECT" image with the image obtained in step 3 to address the [object preview issue](/slides/net/object-preview-issue-when-adding-oleobjectframe/).
 1. Save the presentation to disk in PPTX format.
 
@@ -103,7 +103,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows
     string sheetName = "DataSheet";
     dataSheet.Name = sheetName;
 
-    // Populate the DataSheet with data.
+    // Populate the data sheet with data.
     for (int i = 0; i < cellNames.Length; i++)
     {
         string cellName = cellNames[i];
@@ -116,7 +116,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows
     Aspose.Cells.Worksheet chartSheet = workbook.Worksheets[chartSheetIndex];
     chartSheet.Name = "ChartSheet";
 
-    // Add a chart in the ChartSheet with data series from DataSheet.
+    // Add a chart to the chart sheet with data series from the data sheet.
     int chartIndex = chartSheet.Charts.Add(Aspose.Cells.Charts.ChartType.Column, 0, chartRows, 0, chartCols);
     Aspose.Cells.Charts.Chart chart = chartSheet.Charts[chartIndex];
     chart.NSeries.Add(sheetName + "!A1:E1", false);
@@ -124,7 +124,7 @@ static int AddExcelChartInWorkbook(Aspose.Cells.Workbook workbook, int chartRows
     chart.NSeries.Add(sheetName + "!A3:E3", false);
     chart.NSeries.Add(sheetName + "!A4:E4", false);
 
-    // Set ChartSheet as an active sheet.
+    // Set the chart sheet as an active sheet.
     workbook.Worksheets.ActiveSheetIndex = chartSheetIndex;
     return chartSheetIndex;
 }
@@ -163,6 +163,6 @@ By using Aspose.Cells for .NET together with Aspose.Slides for .NET, we can crea
 
 ## **Related Sections**
 
-[Working Solution for Chart Resizing in PPTX](https://docs.aspose.com/slides/net/working-solution-for-chart-resizing-in-pptx/)
+[Working Solution for Chart Resizing in PPTX](/slides/net/working-solution-for-chart-resizing-in-pptx/)
 [Object Preview Issue when Adding OleObjectFrame](/slides/net/object-preview-issue-when-adding-oleobjectframe/)
 [Update OLE Objects Automatically Using a PowerPoint Add-In](/slides/net/updating-ole-objects-automatically-using-ms-powerpoint-add-in/)
