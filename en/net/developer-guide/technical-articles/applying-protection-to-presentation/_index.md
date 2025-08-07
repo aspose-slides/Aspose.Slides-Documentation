@@ -76,11 +76,11 @@ foreach (ISlide slide in presentation.Slides)
             groupShape.ShapeLock.SelectLocked = true;
             groupShape.ShapeLock.SizeLocked = true;
         }
-        else if (shape is IConnector connector)
+        else if (shape is IConnector connectorShape)
         {
-            connector.ShapeLock.PositionMove = true;
-            connector.ShapeLock.SelectLocked = true;
-            connector.ShapeLock.SizeLocked = true;
+            connectorShape.ShapeLock.PositionMove = true;
+            connectorShape.ShapeLock.SelectLocked = true;
+            connectorShape.ShapeLock.SizeLocked = true;
         }
         else if (shape is IPictureFrame pictureFrame)
         {
@@ -122,11 +122,11 @@ foreach (ISlide slide in presentation.Slides)
             groupShape.ShapeLock.SelectLocked = false;
             groupShape.ShapeLock.SizeLocked = false;
         }
-        else if (shape is IConnector connector)
+        else if (shape is IConnector connectorShape)
         {
-            connector.ShapeLock.PositionMove = false;
-            connector.ShapeLock.SelectLocked = false;
-            connector.ShapeLock.SizeLocked = false;
+            connectorShape.ShapeLock.PositionMove = false;
+            connectorShape.ShapeLock.SelectLocked = false;
+            connectorShape.ShapeLock.SizeLocked = false;
         }
         else if (shape is IPictureFrame pictureFrame)
         {
