@@ -20,142 +20,102 @@ keywords:
 description: "Discover how Aspose.Slides for Python via .NET locks or unlocks shapes in PPT, PPTX and ODP files, securing presentations while allowing controlled edits and faster delivery."
 ---
 
-{{% alert color="primary" %}} 
+## **Background**
 
-A common use for Aspose.Slides is to create, update and save Microsoft PowerPoint 2007 (PPTX) presentations as part of an automated workflow. Users of the application that uses Aspose.Slides this way get access to the output presentations. Protecting them from editing is a common concern. It is important that auto-generated presentations retain their original formatting and content.
+A common use for Aspose.Slides is to create, update, and save Microsoft PowerPoint (PPTX) presentations as part of an automated workflow. Users of applications that employ Aspose.Slides in this way have access to the generated presentations, so protecting them from editing is a common concern. It is important that automatically generated presentations retain their original formatting and content.
 
-This article explains how [presentations and slides are constructed](/slides/python-net/applying-protection-to-presentation/) and how Aspose.Slides for Python via .NET can [apply protection to](/slides/python-net/applying-protection-to-presentation/), and then [remove it from](/slides/python-net/applying-protection-to-presentation/) a presentation. This feature is unique to Aspose.Slides and, at the time of writing, is not available in Microsoft PowerPoint. It gives developers a way of controlling how the presentations their applications create are used.
+This article explains how presentations and slides are structured and how Aspose.Slides for Python can apply protection to a presentation and later remove it. It provides developers with a way to control how the presentations their applications generate are used.
 
-{{% /alert %}} 
 ## **Composition of a Slide**
-A PPTX slide is composed of a number of components like auto shapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors and the various other elements available to build up a presentation.
 
-In Aspose.Slides for Python via .NET, each element on a slide is turned into a Shape object. In other words, each element on the slide is either a Shape object or an object derived from the Shape object.
+A presentation slide is composed of components such as autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors, and other elements used to build a presentation. In Aspose.Slides for Python, each element on a slide is represented by an object that inherits the [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) class.
 
-The structure of PPTX is complex so unlike PPT, where a generic lock can be used for all type of shapes, there are different types of locks for different shape type. The BaseShapeLock class is the generic PPTX locking class. The following types of locks are supported in Aspose.Slides for Python via .NET for PPTX.
+The structure of PPTX is complex, so unlike PPT, where a generic lock can be used for all types of shapes, different shape types require different locks. The [BaseShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/baseshapelock/) class is the generic locking class for PPTX. The following types of locks are supported in Aspose.Slides for Python for PPTX:
 
-- AutoShapeLock locks auto shapes.
-- ConnectorLock locks connecter shapes.
-- GraphicalObjectLock locks graphical objects.
-- GroupshapeLock locks group shapes.
-- PictureFrameLock locks picture frames.
+- [AutoShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/autoshapelock/) locks autoshapes.  
+- [ConnectorLock](https://reference.aspose.com/slides/python-net/aspose.slides/connectorlock/) locks connector shapes.  
+- [GraphicalObjectLock](https://reference.aspose.com/slides/python-net/aspose.slides/graphicalobjectlock/) locks graphical objects.  
+- [GroupShapeLock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshapelock/) locks group shapes.  
+- [PictureFrameLock](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframelock/) locks picture frames.  
 
-Any action performed on all Shape objects in a Presentation object is applied to the whole presentation.
-## **Applying and Removing Protection**
-Applying protection ensures that a presentation cannot be edited. It is a useful technique for protecting a presentation's content.
-### **Applying Protection to PPTX Shapes**
-Aspose.Slides for Python via .NET provides the Shape class to handle a shape on the slide.
+Any action performed on all shape objects in a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object is applied to the entire presentation.
 
-As mentioned earlier, each shape class has an associated shape lock class for protection. This article focuses on the NoSelect, NoMove and NoResize locks. These locks ensure that shapes cannot be selected (through mouse clicks or other selection methods), and it cannot be moved or resized.
+## **Apply and Remove Protection**
 
-The code samples that follow apply protection to all shapes types in a presentation.
+Applying protection ensures that a presentation cannot be edited. It is a useful technique for protecting the presentation’s content.
+
+### **Apply Protection to PPTX Shapes**
+
+Aspose.Slides for Python provides the [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) class to work with shapes on a slide.
+
+As mentioned earlier, each shape class has an associated shape-lock class for protection. This article focuses on the NoSelect, NoMove, and NoResize locks. These locks ensure that shapes cannot be selected (through mouse clicks or other selection methods) and that they cannot be moved or resized.
+
+The code sample that follow apply protection to all shape types in a presentation.
 
 ```py
 import aspose.slides as slides
 
-#Instatiate Presentation class that represents a PPTX file
-with slides.Presentation(path + "RectPicFrame.pptx") as pres:
-    #ISlide object for accessing the slides in the presentation
-    slide = pres.slides[0]
-
-    #Traversing through all the slides in the presentation
-    for slide in pres.slides:
+# Instantiate the Presentation class that represents a PPTX file.
+with slides.Presentation("Sample.pptx") as presentation:
+    # Traversing all the slides in the presentation.
+    for slide in presentation.slides:
+        # Traversing all the shapes in the slide.
         for shape in slide.shapes:
-            #if shape is autoshape
             if type(shape) is slides.AutoShape:
-                auto_shape_lock = shape.shape_lock
-
-                #Applying shapes locks
-                auto_shape_lock.position_locked = True
-                auto_shape_lock.select_locked = True
-                auto_shape_lock.size_locked = True
-
-            #if shape is group shape
+                shape.shape_lock.position_locked = True
+                shape.shape_lock.select_locked = True
+                shape.shape_lock.size_locked = True
             elif type(shape) is slides.GroupShape:
-                group_shape_lock = shape.shape_lock
-
-                #Applying shapes locks
-                group_shape_lock.grouping_locked = True
-                group_shape_lock.position_locked = True
-                group_shape_lock.select_locked = True
-                group_shape_lock.size_locked = True
-
-            #if shape is a connector
+                shape.shape_lock.grouping_locked = True
+                shape.shape_lock.position_locked = True
+                shape.shape_lock.select_locked = True
+                shape.shape_lock.size_locked = True
             elif type(shape) is slides.Connector:
-                connector_lock = shape.shape_lock
-
-                #Applying shapes locks
-                connector_lock.position_move = True
-                connector_lock.select_locked = True
-                connector_lock.size_locked = True
-            #if shape is picture frame
+                shape.shape_lock.position_move = True
+                shape.shape_lock.select_locked = True
+                shape.shape_lock.size_locked = True
             elif type(shape) is slides.PictureFrame:
-                #Type casting to pitcture frame shape and  getting picture frame shape lock
-                picture_lock = shape.shape_lock
-
-                #Applying shapes locks
-                picture_lock.position_locked = True
-                picture_lock.select_locked = True
-                picture_lock.size_locked = True
-
-    #Saving the presentation file
-    pres.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
+                shape.shape_lock.position_locked = True
+                shape.shape_lock.select_locked = True
+                shape.shape_lock.size_locked = True
+    # Saving the presentation file.
+    presentation.save("ProtectedSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Remove Protection**
 
-### **Removing Protection**
-Protection applied using Aspose.Slides for Python via .NET can only be removed with Aspose.Slides for Python via .NET. To unlock a shape, set the value of the applied lock to false. The code sample that follows shows how to unlock shapes in a locked presentation.
+To unlock a shape, set the applied lock’s value to `False`. The following code sample shows how to unlock shapes in a locked presentation.
 
 ```py
 import aspose.slides as slides
 
-#Open the desired presentation
-with slides.Presentation("ProtectedSample.pptx") as pres:
-    for slide in pres.slides:
+# Instantiate the Presentation class that represents a PPTX file.
+with slides.Presentation("ProtectedSample.pptx") as presentation:
+    # Traversing all the slides in the presentation.
+    for slide in presentation.slides:
+        # Traversing all the shapes in the slide.
         for shape in slide.shapes:
-            
-            if type(shape) is slides.AutoShape: 
-                auto_shape_lock = shape.shape_lock
-
-                #Applying shapes locks
-                auto_shape_lock.position_locked = False
-                auto_shape_lock.select_locked = False
-                auto_shape_lock.size_locked = False
-            
-            elif type(shape) is slides.GroupShape:  
-                group_shape_lock = shape.shape_lock
-
-                #Applying shapes locks
-                group_shape_lock.grouping_locked = False
-                group_shape_lock.position_locked = False
-                group_shape_lock.select_locked = False
-                group_shape_lock.size_locked = False
+            if type(shape) is slides.AutoShape:
+                shape.shape_lock.position_locked = False
+                shape.shape_lock.select_locked = False
+                shape.shape_lock.size_locked = False
+            elif type(shape) is slides.GroupShape:
+                shape.shape_lock.grouping_locked = False
+                shape.shape_lock.position_locked = False
+                shape.shape_lock.select_locked = False
+                shape.shape_lock.size_locked = False
             elif type(shape) is slides.Connector:
-                connector_lock = shape.shape_lock
-
-                #Applying shapes locks
-                connector_lock.position_move = False
-                connector_lock.select_locked = False
-                connector_lock.size_locked = False
+                shape.shape_lock.position_move = False
+                shape.shape_lock.select_locked = False
+                shape.shape_lock.size_locked = False
             elif type(shape) is slides.PictureFrame:
-                picture_lock = shape.shape_lock
-
-                #Applying shapes locks
-                picture_lock.position_locked = False
-                picture_lock.select_locked = False
-                picture_lock.size_locked = False
-    #Saving the presentation file
-    pres.save("RemoveProtectionSample.pptx", slides.export.SaveFormat.PPTX)
+                shape.shape_lock.position_locked = False
+                shape.shape_lock.select_locked = False
+                shape.shape_lock.size_locked = False
+    # Saving the presentation file.
+    presentation.save("RemovedProtectionSample.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Conclusion**
 
-
-### **Summary**
-{{% alert color="primary" %}} 
-
-Aspose.Slides provides a number of options for applying protection to shapes in a presentation. It is possible to lock a particular shape, or loop through all the shapes in a presentation and lock all of them to effectively lock the presentation.
-
-Only Aspose.Slides for Python via .NET can remove protection from a presentation that is has previously protected. Remove protection by setting the value of a lock to false.
-
-{{% /alert %}} 
-
+Aspose.Slides offers several options for protecting shapes in a presentation. You can lock an individual shape or iterate through all the shapes in a presentation and lock each one to effectively secure the entire file. You can remove the protection by setting the lock value to `False`.
