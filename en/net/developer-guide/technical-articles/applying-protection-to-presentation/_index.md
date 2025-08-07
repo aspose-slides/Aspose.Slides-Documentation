@@ -29,17 +29,17 @@ This article explains how presentations and slides are structured and how Aspose
 
 ## **Composition of a Slide**
 
-A presentation slide is composed of a number of components, such as autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors, and various other elements used to build a presentation. In Aspose.Slides for .NET, each element on a slide is turned into a [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape/) object. In other words, each element on the slide is either a [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape/) object or an object derived from the [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape/) object.
+A presentation slide is composed of components such as autoshapes, tables, OLE objects, grouped shapes, picture frames, video frames, connectors, and other elements used to build a presentation. In Aspose.Slides for .NET, each element on a slide is represented by an object that implements the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interface or inherits from a class that does.
 
-The structure of PPTX is complex, so unlike PPT, where a generic lock can be used for all types of shapes, different shape types require different locks. The [BaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/baseshapelock/) class is the generic locking class for PPTX. The following types of locks are supported in Aspose.Slides for .NET for PPTX:
+The structure of PPTX is complex, so unlike PPT, where a generic lock can be used for all types of shapes, different shape types require different locks. The [IBaseShapeLock](https://reference.aspose.com/slides/net/aspose.slides/ibaseshapelock/) interface is the generic locking class for PPTX. The following types of locks are supported in Aspose.Slides for .NET for PPTX:
 
-- [AutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/autoshapelock/) locks autoshapes.  
-- [ConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/connectorlock/) locks connector shapes.  
-- [GraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/graphicalobjectlock/) locks graphical objects.  
-- [GroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/groupshapelock/) locks group shapes.  
-- [PictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/pictureframelock/) locks picture frames.  
+- [IAutoShapeLock](https://reference.aspose.com/slides/net/aspose.slides/iautoshapelock/) locks autoshapes.  
+- [IConnectorLock](https://reference.aspose.com/slides/net/aspose.slides/iconnectorlock/) locks connector shapes.  
+- [IGraphicalObjectLock](https://reference.aspose.com/slides/net/aspose.slides/igraphicalobjectlock/) locks graphical objects.  
+- [IGroupShapeLock](https://reference.aspose.com/slides/net/aspose.slides/igroupshapelock/) locks group shapes.  
+- [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) locks picture frames.  
 
-Any action performed on all [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape/) objects in a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) object is applied to the entire presentation.
+Any action performed on all shape objects in a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) object is applied to the entire presentation.
 
 ## **Apply and Remove Protection**
 
@@ -47,7 +47,7 @@ Applying protection ensures that a presentation cannot be edited. It is a useful
 
 ### **Apply Protection to PPTX Shapes**
 
-Aspose.Slides for .NET provides the [Shape](https://reference.aspose.com/slides/net/aspose.slides/shape/) class to work with shapes on a slide.
+Aspose.Slides for .NET provides the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) interface to work with shapes on a slide.
 
 As mentioned earlier, each shape class has an associated shape-lock class for protection. This article focuses on the NoSelect, NoMove, and NoResize locks. These locks ensure that shapes cannot be selected (through mouse clicks or other selection methods) and that they cannot be moved or resized.
 
@@ -100,7 +100,7 @@ presentation.Save("ProtectedSample.pptx", SaveFormat.Pptx);
 To unlock a shape, set the applied lock’s value to `false`. The following code sample shows how to unlock shapes in a locked presentation.
 
 ```cs
-// Load the presentation.
+// Instantiate the Presentation class that represents a PPTX file.
 using Presentation presentation = new Presentation("ProtectedSample.pptx");
 
 // Traversing all the slides in the presentation.
