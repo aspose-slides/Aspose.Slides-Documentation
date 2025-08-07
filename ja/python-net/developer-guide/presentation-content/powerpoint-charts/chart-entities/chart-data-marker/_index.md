@@ -1,9 +1,21 @@
 ---
-title: チャートデータマーカー
+title: Python でプレゼンテーションのチャートデータマーカーを管理する
+linktitle: データマーカー
 type: docs
 url: /ja/python-net/chart-data-marker/
-keywords: "チャートマーカーオプション, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでPowerPointプレゼンテーションのチャートマーカーオプションを設定する"
+keywords:
+- チャート
+- データポイント
+- マーカー
+- マーカーオプション
+- マーカーサイズ
+- 塗りつぶしタイプ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides でチャートデータマーカーをカスタマイズする方法を学び、明確なコード例で PPT、PPTX、ODP 形式のプレゼンテーション効果を高めましょう。"
 ---
 
 ## **チャートマーカーオプションを設定する**

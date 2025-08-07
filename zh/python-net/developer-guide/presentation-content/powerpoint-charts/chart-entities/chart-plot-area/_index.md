@@ -1,9 +1,20 @@
 ---
-title: 图表绘图区
+title: 在 Python 中自定义演示文稿图表的绘图区
+linktitle: 绘图区
 type: docs
 url: /zh/python-net/chart-plot-area/
-keywords: "图表绘图区 PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "获取图表绘图区的宽度、高度。设置布局模式。Python 中的 PowerPoint 演示文稿"
+keywords:
+- chart
+- plot area
+- plot area width
+- plot area height
+- plot area size
+- layout mode
+- PowerPoint
+- presentation
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 自定义 PowerPoint 和 OpenDocument 演示文稿中的图表绘图区。轻松提升幻灯片视觉效果。"
 ---
 
 ## **获取图表绘图区的宽度和高度**

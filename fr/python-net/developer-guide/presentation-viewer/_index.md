@@ -1,13 +1,22 @@
 ---
-title: Visionneuse de Présentation
+title: Créer un visualiseur de présentation en Python
+linktitle: Visualiseur de présentation
 type: docs
 weight: 50
 url: /fr/python-net/presentation-viewer/
-keywords: "Voir la présentation PowerPoint, voir ppt, voir PPTX, Python, Aspose.Slides pour Python via .NET"
-description: "Voir la présentation PowerPoint en Python "
+keywords:
+- afficher une présentation
+- visualiseur de présentation
+- créer un visualiseur de présentation
+- afficher un PPT
+- afficher un PPTX
+- afficher un ODP
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Apprenez à créer un visualiseur de présentation personnalisé en Python avec Aspose.Slides. Affichez facilement des fichiers PowerPoint (PPTX, PPT) et OpenDocument (ODP) sans Microsoft PowerPoint ni autre logiciel Office."
 ---
-
-
 
 Aspose.Slides pour Python via .NET est utilisé pour créer des fichiers de présentation, complets avec des diapositives. Ces diapositives peuvent être visualisées en ouvrant des présentations avec Microsoft PowerPoint. Mais parfois, les développeurs peuvent également avoir besoin de voir des diapositives sous forme d'images dans leur visionneuse d'images préférée ou de créer leur propre visionneuse de présentation. Dans de tels cas, Aspose.Slides pour Python via .NET vous permet d'exporter une diapositive individuelle vers une image. Cet article décrit comment procéder. 
 ## **Exemple en Direct**

@@ -1,19 +1,30 @@
 ---
-title: HTML5にエクスポート
+title: Python でプレゼンテーションを HTML5 に変換
+linktitle: HTML5 へのエクスポート
 type: docs
 weight: 40
 url: /ja/python-net/export-to-html5/
 keywords:
-- PowerPointをHTMLに
-- スライドをHTMLに
-- HTML5
-- HTMLエクスポート
-- プレゼンテーションをエクスポート
+- PowerPoint から HTML5
+- OpenDocument から HTML5
+- プレゼンテーションから HTML5
+- スライドから HTML5
+- PPT から HTML5
+- PPTX から HTML5
+- ODP から HTML5
+- PowerPoint を変換
+- OpenDocument を変換
 - プレゼンテーションを変換
 - スライドを変換
-- Java
-- Aspose.Slides for Python via .NET
-description: "PythonでPowerPointをHTML5にエクスポート"
+- HTML5 エクスポート
+- プレゼンテーションをエクスポート
+- スライドをエクスポート
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint と OpenDocument のプレゼンテーションをレスポンシブ HTML5 にエクスポートします。書式設定、アニメーション、インタラクティブ性を保持します。"
 ---
 
 {{% alert title="情報" color="info" %}}

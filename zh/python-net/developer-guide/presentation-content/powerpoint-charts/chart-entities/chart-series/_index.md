@@ -1,9 +1,21 @@
 ---
-title: 图表系列
+title: 在 Python 中管理图表系列
+linktitle: 图表系列
 type: docs
 url: /zh/python-net/chart-series/
-keywords: "图表系列, 系列颜色, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中 PowerPoint 演示文稿的图表系列"
+keywords:
+- 图表系列
+- 系列重叠
+- 系列颜色
+- 类别颜色
+- 系列名称
+- 数据点
+- 系列间距
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何在 PowerPoint (PPT/PPTX) 中使用 Python 管理图表系列，提供实用代码示例和最佳实践，以增强数据演示效果。"
 ---
 
 系列是在图表中绘制的一行或一列数字。
