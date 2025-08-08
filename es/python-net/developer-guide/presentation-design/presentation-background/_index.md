@@ -1,10 +1,23 @@
 ---
-title: Fondo de Presentación
+title: Administra los fondos de presentación en Python
+linktitle: Fondo de diapositiva
 type: docs
 weight: 20
 url: /es/python-net/presentation-background/
-keywords: "fondo de PowerPoint, establecer fondo, Python, Aspose.Slides para Python a través de .NET"
-description: "Establecer fondo en presentación de PowerPoint en Python"
+keywords:
+- fondo de presentación
+- fondo de diapositiva
+- color sólido
+- color degradado
+- fondo de imagen
+- transparencia del fondo
+- propiedades del fondo
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprende a configurar fondos dinámicos en archivos de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET, con consejos de código para mejorar tus presentaciones."
 ---
 
 Los colores sólidos, colores degradados e imágenes se utilizan a menudo como imágenes de fondo para las diapositivas. Puedes establecer el fondo tanto para una **diapositiva normal** (diapositiva única) como para una **diapositiva maestra** (varias diapositivas a la vez).

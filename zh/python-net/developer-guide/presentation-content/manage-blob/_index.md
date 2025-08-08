@@ -1,10 +1,26 @@
 ---
-title: 管理 BLOB
+title: 使用 Python 在演示文稿中管理 BLOB，实现高效内存使用
+linktitle: 管理 BLOB
 type: docs
 weight: 10
 url: /zh/python-net/manage-blob/
-keywords: "添加 blob, 导出 blob, 添加图像为 blob, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加 blob。导出 blob。添加图像作为 blob"
+keywords:
+- 大型对象
+- 大型项
+- 大型文件
+- 添加 BLOB
+- 导出 BLOB
+- 将图像添加为 BLOB
+- 减少内存使用
+- 内存消耗
+- 大型演示文稿
+- 临时文件
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "在 Aspose.Slides for Python via .NET 中管理 BLOB 数据，以简化 PowerPoint 和 OpenDocument 文件操作，从而高效处理演示文稿。"
 ---
 
 ### **关于 BLOB**

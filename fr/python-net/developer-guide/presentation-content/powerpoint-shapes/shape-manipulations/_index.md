@@ -1,10 +1,30 @@
 ---
-title: Manipulations de Formes
+title: Gérer les formes dans les présentations avec Python
+linktitle: Manipulation des formes
 type: docs
 weight: 40
-url: /fr/python-net/manipulations-de-formes/
-keywords: "forme PowerPoint, forme sur la diapositive, trouver forme, cloner forme, supprimer forme, cacher forme, changer l'ordre des formes, obtenir l'identifiant de forme Interop, texte alternatif de forme, formats de mise en page de forme, forme en tant que SVG, aligner forme, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Manipulez les formes PowerPoint en Python"
+url: /fr/python-net/shape-manipulations/
+keywords:
+- forme PowerPoint
+- forme de présentation
+- forme sur la diapositive
+- trouver une forme
+- cloner une forme
+- supprimer une forme
+- masquer une forme
+- changer l’ordre des formes
+- obtenir l’identifiant interop de la forme
+- texte alternatif de la forme
+- formats de disposition des formes
+- forme en SVG
+- convertir une forme en SVG
+- aligner une forme
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à créer, modifier et optimiser des formes dans Aspose.Slides for Python via .NET et à produire des présentations PowerPoint et OpenDocument performantes."
 ---
 
 ## **Trouver une Forme dans la Diapositive**

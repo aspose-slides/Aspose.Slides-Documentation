@@ -1,10 +1,20 @@
 ---
-title: Digitale Signatur in PowerPoint
+title: Digitale Signaturen zu Präsentationen mit Python hinzufügen
+linktitle: Digitale Signatur
 type: docs
 weight: 10
 url: /de/python-net/digital-signature-in-powerpoint/
-keywords: "Digitales Signaturzertifikat, Zertifizierungsstelle, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Digitale Signatur oder Zertifikat in PowerPoint hinzufügen. Zertifizierungsstelle in Python"
+keywords:
+- digitale Signatur
+- digitales Zertifikat
+- Zertifizierungsstelle
+- PFX-Zertifikat
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Dateien mit Aspose.Slides for Python via .NET digital signieren. Sichern Sie Ihre Folien in Sekunden mit klaren Codebeispielen."
 ---
 
 **Digitales Zertifikat** wird verwendet, um eine passwortgeschützte PowerPoint-Präsentation zu erstellen, die als von einer bestimmten Organisation oder Person erstellt gekennzeichnet ist. Ein digitales Zertifikat kann durch Kontaktaufnahme mit einer autorisierten Organisation - einer Zertifizierungsstelle - erhalten werden. Nach der Installation des digitalen Zertifikats im System kann es verwendet werden, um eine digitale Signatur zur Präsentation über Datei -> Informationen -> Präsentation schützen hinzuzufügen:

@@ -1,9 +1,17 @@
 ---
-title: 入门
+title: 快速入门
 type: docs
 description: "使用本介绍，您可以了解 Aspose.Slides for Python via .NET 的基本知识，从而开始实现 Aspose.Slides 为您的业务带来的价值。"
 weight: 10
 url: /zh/python-net/getting-started/
+keywords:
+- 快速入门
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 入门：通过代码安装、创建、编辑和转换演示文稿——支持 PowerPoint 和 OpenDocument 格式。"
 ---
 
 本入门指南提供了对 Aspose.Slides 基础知识的介绍。对于新用户来说，这是学习基本要求和功能以及入门的最快方式。

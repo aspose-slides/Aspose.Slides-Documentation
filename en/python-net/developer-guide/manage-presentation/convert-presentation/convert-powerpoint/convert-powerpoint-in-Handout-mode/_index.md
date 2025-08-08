@@ -1,20 +1,21 @@
 ---
-title: Convert Presentations in Handout Mode in Python
+title: Convert Presentations in Handout Mode with Python
+linktitle: Handout Mode
 type: docs
 weight: 150
 url: /python-net/convert-powerpoint-in-Handout-mode/
 keywords:
 - convert PowerPoint
+- convert presentation
 - handout mode
 - handout
 - PowerPoint
+- presentation
 - PPT
 - PPTX
-- presentation
 - Python
-- .NET
 - Aspose.Slides
-description: "Convert Presentations in Handout Mode in Python"
+description: "Convert presentations to handouts in Python. Set slides per page, keep notes, export to PDF or images with Aspose.Slides, with sample code. Try it free."
 ---
 
 Aspose.Slides provides the ability to convert presentations into various formats, including creating handouts for printing in Handout mode. This mode allows you to configure how multiple slides appear on a single page, making it useful for conferences, seminars, and other events. You can enable this mode by setting the `slides_layout_options` property in the [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/), and [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) classes.

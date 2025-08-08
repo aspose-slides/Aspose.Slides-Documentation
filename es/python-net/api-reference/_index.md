@@ -1,10 +1,18 @@
 ---
-title: Aspose.Slides para Python a través de .NET
+title: Referencia de la API
 second_title: Aspose.Slides para Python a través de la referencia de la API de .NET
 description: 
 type: docs
 weight: 10
 url: /es/python-net/api-reference/
+keywords:
+- Referencia de la API
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Crea, edita y convierte presentaciones en Python—sin necesidad de PowerPoint. Aspose.Slides for Python via .NET admite PPT, PPTX y ODP con exportación rápida a SVG/PDF."
 ---
 
 ## Espacios de nombres

@@ -1,10 +1,24 @@
 ---
-title: アニメーションチャート
+title: Python で PowerPoint のグラフをアニメーション化する
+linktitle: アニメーション付きグラフ
 type: docs
 weight: 80
 url: /ja/python-net/animated-charts/
-keywords: "チャート, チャートシリーズ, アニメーション PowerPoint プレゼンテーション, PPTX, PPT, Python, Aspose.Slides for Python via .NET"
-description: "Python における PowerPoint チャートシリーズとアニメーション"
+keywords:
+- グラフ
+- アニメーション付きグラフ
+- グラフのアニメーション
+- グラフ系列
+- グラフカテゴリ
+- 系列要素
+- カテゴリ要素
+- 効果を追加
+- 効果の種類
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides を使用して Python で魅力的なアニメーション付きグラフを作成します。PPT、PPTX、ODP ファイルで動的なビジュアルによりプレゼンテーションを強化—今すぐ始めましょう。"
 ---
 
 Aspose.Slides for Python via .NET は、チャート要素のアニメーションをサポートしています。**シリーズ**、**カテゴリ**、**シリーズエレメント**、**カテゴリエレメント**は、[**ISequence**.**AddEffect**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/isequence/) メソッドと2つの列挙型 [**EffectChartMajorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartmajorgroupingtype/) と [**EffectChartMinorGroupingType**](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effectchartminorgroupingtype/) を使用してアニメーション化できます。

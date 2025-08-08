@@ -1,8 +1,27 @@
 ---
-title: Renderizar una diapositiva como una imagen SVG
+title: Representar diapositivas de presentación como imágenes SVG en Python
+linktitle: Diapositiva a SVG
 type: docs
 weight: 50
 url: /es/python-net/render-a-slide-as-an-svg-image/
+keywords:
+- diapositiva a SVG
+- presentación a SVG
+- PowerPoint a SVG
+- OpenDocument a SVG
+- PPT a SVG
+- PPTX a SVG
+- ODP a SVG
+- representar diapositiva
+- convertir diapositiva
+- exportar diapositiva
+- imagen vectorial
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprenda a representar diapositivas de PowerPoint y OpenDocument como imágenes SVG usando Aspose.Slides for Python via .NET. Visuales de alta calidad con ejemplos de código sencillos."
 ---
 
 SVG—un acrónimo de Gráficos Vectoriales Escalables—es un tipo o formato gráfico estándar utilizado para renderizar imágenes bidimensionales. SVG almacena imágenes como vectores en XML con detalles que definen su comportamiento o apariencia.

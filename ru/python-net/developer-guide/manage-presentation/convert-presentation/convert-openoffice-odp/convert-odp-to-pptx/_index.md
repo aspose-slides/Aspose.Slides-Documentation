@@ -1,10 +1,19 @@
 ---
-title: Конвертация ODP в PPTX
+title: Конвертируйте ODP в PPTX на Python
+linktitle: ODP в PPTX
 type: docs
 weight: 10
 url: /ru/python-net/convert-odp-to-pptx/
-keywords: "Конвертация OpenOffice Презентации, ODP, ODP в PPTX, Python"
-description: "Конвертация OpenOffice ODP в PowerPoint Презентацию PPTX на Python"
+keywords:
+- преобразовать OpenDocument
+- преобразовать ODP
+- OpenDocument в PPTX
+- ODP в PPTX
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Преобразуйте ODP в PPTX с помощью Aspose.Slides for Python via .NET. Чистые примеры кода, советы по пакетной обработке и высокое качество результата — PowerPoint не требуется."
 ---
 
 Aspose.Slides для Python через .NET предлагает класс Presentation, который представляет собой файл презентации. Класс [**Presentation**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) теперь также может получать доступ к ODP через конструктор Presentation при создании объекта. Следующий пример показывает, как конвертировать презентацию ODP в PPTX.

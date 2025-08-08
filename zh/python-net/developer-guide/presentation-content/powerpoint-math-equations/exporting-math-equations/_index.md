@@ -1,10 +1,18 @@
 ---
-title: 导出数学方程
+title: 在 Python 中导出演示文稿中的数学公式
+linktitle: 导出公式
 type: docs
 weight: 30
 url: /zh/python-net/exporting-math-equations/
-keywords: "导出数学方程, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中导出 PowerPoint 数学方程"
+keywords:
+- 导出数学公式
+- MathML
+- LaTeX
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 将 PowerPoint 中的数学公式无缝导出为 MathML，保留格式并提升兼容性。"
 ---
 
 Aspose.Slides for Python via .NET 允许您从演示文稿中导出数学方程。例如，您可能需要提取幻灯片上的数学方程（来自特定演示文稿），并在其他程序或平台中使用它们。

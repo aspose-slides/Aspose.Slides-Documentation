@@ -1,10 +1,20 @@
 ---
-title: Portion
+title: Textteile in Präsentationen mit Python verwalten
+linktitle: Textteil
 type: docs
 weight: 70
 url: /de/python-net/portion/
-keywords: "Portion, PowerPoint-Form, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Erhalten Sie Portion in PowerPoint-Präsentation in Python"
+keywords:
+- Textportion
+- Textteil
+- Textkoordinaten
+- Textposition
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Textteile in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET verwalten und Leistung sowie Anpassungsmöglichkeiten steigern."
 ---
 
 ## **Positionkoordinaten der Portion abrufen**

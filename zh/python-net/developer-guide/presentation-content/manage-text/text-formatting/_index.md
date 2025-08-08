@@ -1,26 +1,33 @@
 ---
-title: 文本格式化
+title: 在 Python 中格式化 PowerPoint 文本
+linktitle: 文本格式设置
 type: docs
 weight: 50
 url: /zh/python-net/text-formatting/
 keywords:
 - 高亮文本
 - 正则表达式
-- 对齐文本段落
+- 段落对齐
+- 文本样式
+- 文本背景
 - 文本透明度
-- 段落字体属性
-- 字体族
+- 字符间距
+- 字体属性
+- 字体系列
 - 文本旋转
-- 自定义角度旋转
+- 旋转角度
 - 文本框
-- 行间距
+- 行距
 - 自动适应属性
-- 文本框锚点
-- 文本制表
-- 默认文本样式
+- 文本框锚定
+- 文本制表位
+- 默认语言
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - Python
-- Aspose.Slides for Python
-description: "在 Python 中管理和处理文本及文本框属性"
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中格式化并设置文本样式。通过功能强大的 Python 代码示例自定义字体、颜色、对齐方式等。"
 ---
 
 ## **高亮文本**

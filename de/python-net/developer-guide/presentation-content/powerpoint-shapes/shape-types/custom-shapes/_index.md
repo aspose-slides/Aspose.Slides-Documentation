@@ -1,10 +1,28 @@
 ---
-title: Benutzerdefinierte Form
+title: Formen in Präsentationen mit Python anpassen
+linktitle: Benutzerdefinierte Form
 type: docs
 weight: 20
 url: /de/python-net/custom-shape/
-keywords: "PowerPoint-Form, benutzerdefinierte Form, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Fügen Sie eine benutzerdefinierte Form in einer PowerPoint-Präsentation in Python hinzu"
+keywords:
+- benutzerdefinierte Form
+- Form hinzufügen
+- Form erstellen
+- Form ändern
+- Formgeometrie
+- Geometriepfad
+- Pfadpunkte
+- Punkte bearbeiten
+- Punkt hinzufügen
+- Punkt entfernen
+- Bearbeitungsvorgang
+- abgerundete Ecke
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erstellen und passen Sie Formen in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET an: Geometriepfade, abgerundete Ecken, zusammengesetzte Formen."
 ---
 
 # Ändern einer Form mit Bearbeitungspunkten

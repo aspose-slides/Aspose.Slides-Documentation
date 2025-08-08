@@ -1,8 +1,27 @@
 ---
-title: Exportation des présentations au format HTML avec des images liées externément
+title: Exporter des présentations en HTML avec des images liées en externe en Python
+linktitle: Exporter des présentations en HTML avec des images liées en externe
 type: docs
 weight: 100
 url: /fr/python-net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- PowerPoint vers HTML
+- OpenDocument vers HTML
+- présentation vers HTML
+- diapositive vers HTML
+- PPT vers HTML
+- PPTX vers HTML
+- ODP vers HTML
+- exportation HTML
+- image liée
+- image liée en externe
+- ressource HTML
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment exporter des présentations en HTML avec des images liées en externe dans Aspose.Slides for Python via .NET, couvrant les formats PowerPoint et OpenDocument."
 ---
 
 {{% alert color="primary" %}} 

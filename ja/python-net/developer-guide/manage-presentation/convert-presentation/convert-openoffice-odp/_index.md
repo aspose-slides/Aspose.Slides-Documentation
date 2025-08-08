@@ -1,10 +1,24 @@
 ---
-title: OpenOffice ODPを変換
+title: Python で OpenDocument プレゼンテーションを変換
+linktitle: OpenDocument を変換
 type: docs
 weight: 10
 url: /ja/python-net/convert-openoffice-odp/
-keywords: "ODPをPDFに変換, ODPをPPTに変換, ODPをPPTXに変換, ODPをXPSに変換, ODPをHTMLに変換, ODPをTIFFに変換"
-description: "Aspose.Slidesを使用してODPをPDF、ODPをPPT、ODPをPPTX、ODPをHTML、その他の形式に変換します。"
+keywords:
+- OpenDocument を変換
+- ODP を変換
+- ODP を PDF に変換
+- ODP を PPT に変換
+- ODP を PPTX に変換
+- ODP を XPS に変換
+- ODP を HTML に変換
+- ODP を TIFF に変換
+- ODP を SWF に変換
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Python で Aspose.Slides を使用して OpenDocument の ODP を PDF、PPT、PPTX、XPS、HTML、TIFF、SWF に変換: コード例、高い忠実度、一括変換、カスタマイズ。"
 ---
 
 [**Aspose.Slides API**](https://products.aspose.com/slides/python-net/) は、OpenOffice ODPプレゼンテーションを多くの形式に変換することを可能にします。ODPファイルを他のドキュメント形式に変換するために使用されるAPIは、PowerPoint（PPTおよびPPTX）の変換操作に使用されるものと同じです。

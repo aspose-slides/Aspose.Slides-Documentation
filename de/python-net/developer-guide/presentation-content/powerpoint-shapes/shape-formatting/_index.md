@@ -1,11 +1,29 @@
 ---
-title: Formatiertes Shape
+title: PowerPoint-Formen in Python formatieren
+linktitle: Formformatierung
 type: docs
 weight: 20
 url: /de/python-net/shape-formatting/
-keywords: "Shape formatieren, Linien formatieren, Join-Stile formatieren, Verlaufshintergrund, Musterfüllung, Bildfüllung, einfarbige Füllung, Formen drehen, 3D-Faseneffekte, 3D-Rotationseffekt, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Formatiere Formen in PowerPoint-Präsentationen mit Python"
----
+keywords:
+- Form formatieren
+- Linie formatieren
+- Verbindungsart formatieren
+- Verlaufsfüllung
+- Musterfüllung
+- Bildfüllung
+- Strukturfüllung
+- Einfarbige Füllung
+- Formtransparenz
+- Form drehen
+- 3D-Abschrägungseffekt
+- 3D-Drehungseffekt
+- Formatierung zurücksetzen
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie PowerPoint-Formen in Python mit Aspose.Slides formatieren – legen Sie Füll-, Linien- und Effektstile für PPT-, PPTX- und ODP-Dateien mit Präzision und voller Kontrolle fest."
+--- 
 
 In PowerPoint kannst du Formen zu Folien hinzufügen. Da Formen aus Linien bestehen, kannst du Formen formatieren, indem du gewisse Effekte auf ihre Linien anwendest oder diese modifizierst. Zusätzlich kannst du Formen formatieren, indem du Einstellungen angibst, die festlegen, wie sie (der Bereich in ihnen) gefüllt werden.
 

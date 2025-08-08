@@ -1,10 +1,23 @@
 ---
-title: 演示文稿页眉和页脚
+title: 使用 Python 管理演示文稿的页眉和页脚
+linktitle: 页眉和页脚
 type: docs
 weight: 140
 url: /zh/python-net/presentation-header-and-footer/
-keywords: "页眉, 页脚, 设置页眉, 设置页脚, 设置页眉和页脚, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中的 PowerPoint 页眉和页脚"
+keywords:
+- 页眉
+- 页眉文本
+- 页脚
+- 页脚文本
+- 设置页眉
+- 设置页脚
+- 讲义
+- 备注
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中添加并自定义页眉和页脚，打造专业外观。"
 ---
 
 {{% alert color="primary" %}} 

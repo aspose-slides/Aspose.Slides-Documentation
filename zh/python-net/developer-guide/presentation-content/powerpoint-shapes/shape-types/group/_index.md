@@ -1,10 +1,19 @@
 ---
-title: 组
+title: 使用 Python 分组演示文稿中的形状
+linktitle: 形状分组
 type: docs
 weight: 40
 url: /zh/python-net/group/
-keywords: "组形状, PowerPoint形状, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中向PowerPoint演示文稿添加组形状"
+keywords:
+- 组合形状
+- 形状组
+- 添加组合
+- 替代文本
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 演示文稿中对形状进行分组与取消分组——快速、循序渐进的指南，附带免费代码。"
 ---
 
 ## **添加组形状**

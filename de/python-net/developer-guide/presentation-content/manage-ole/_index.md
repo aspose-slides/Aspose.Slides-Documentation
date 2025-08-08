@@ -1,22 +1,31 @@
 ---
-title: OLE verwalten
+title: OLE in Präsentationen mit Python verwalten
+linktitle: OLE verwalten
 type: docs
 weight: 40
 url: /de/python-net/manage-ole/
 keywords:
+- OLE-Objekt
+- Objektverknüpfung & Einbettung
 - OLE hinzufügen
 - OLE einbetten
-- ein Objekt hinzufügen
-- ein Objekt einbetten
-- eine Datei einbetten
+- Objekt hinzufügen
+- Objekt einbetten
+- Datei hinzufügen
+- Datei einbetten
 - verknüpftes Objekt
-- Object Linking & Embedding
-- OLE-Objekt
+- verknüpfte Datei
+- OLE ändern
+- OLE-Symbol
+- OLE-Titel
+- OLE extrahieren
+- Objekt extrahieren
+- Datei extrahieren
 - PowerPoint 
 - Präsentation
 - Python
-- Aspose.Slides für Python über .NET
-description: Fügen Sie OLE-Objekte in PowerPoint-Präsentationen in Python ein
+- Aspose.Slides
+description: "Optimieren Sie die Verwaltung von OLE-Objekten in PowerPoint- und OpenDocument-Dateien mit Aspose.Slides for Python via .NET. Betten Sie OLE-Inhalte nahtlos ein, aktualisieren und exportieren Sie sie."
 ---
 
 {{% alert title="Info" color="info" %}}

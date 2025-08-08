@@ -3,6 +3,20 @@ title: Resumen de características
 type: docs
 weight: 20
 url: /es/python-net/features-overview/
+keywords:
+- características
+- plataformas compatibles
+- formato de archivo
+- conversión
+- renderizado
+- impresión
+- formato
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Descubre Aspose.Slides for Python via .NET: una potente API para crear, editar, automatizar y convertir presentaciones de PowerPoint y OpenDocument de forma eficiente."
 ---
 
 ## **Plataformas soportadas**

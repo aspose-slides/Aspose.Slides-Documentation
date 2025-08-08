@@ -1,10 +1,25 @@
 ---
-title: Объединение Презентаций
+title: Эффективно объединяйте презентации с помощью Python
+linktitle: Объединение презентаций
 type: docs
 weight: 40
 url: /ru/python-net/merge-presentation/
-keywords: "Объединение PowerPoint, PPTX, PPT, комбинирование PowerPoint, объединение презентации, комбинирование презентации, Python"
-description: "Объединение или комбинирование презентаций PowerPoint с помощью Python"
+keywords:
+- объединить PowerPoint
+- объединить презентации
+- объединить слайды
+- объединить PPT
+- объединить PPTX
+- объединить ODP
+- комбинировать PowerPoint
+- комбинировать презентации
+- комбинировать слайды
+- комбинировать PPT
+- комбинировать PPTX
+- комбинировать ODP
+- Python
+- Aspose.Slides
+description: "Легко объединяйте презентации PowerPoint (PPT, PPTX) и OpenDocument (ODP) с помощью Aspose.Slides for Python via .NET, оптимизируя ваш рабочий процесс."
 ---
 
 {{% alert  title="Совет" color="primary" %}} 

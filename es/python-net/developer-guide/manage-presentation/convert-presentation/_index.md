@@ -1,8 +1,24 @@
 ---
-title: Convertir Presentación
+title: Convertir presentaciones a múltiples formatos en Python
+linktitle: Convertir presentaciones
 type: docs
 weight: 70
 url: /es/python-net/convert-presentation/
+keywords:
+- convertir presentación
+- exportar presentación
+- PPT a PPTX
+- PPT a PDF
+- PPTX a PDF
+- PPT a XPS
+- PPTX a XPS
+- PPT a TIFF
+- PPTX a TIFF
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Convierte presentaciones de PowerPoint y OpenDocument a PPTX, PDF, XPS, TIFF y más con Aspose.Slides for Python via .NET. Conversión sencilla y de alta calidad."
 ---
 
 ## **Conversión de PPT a PPTX**

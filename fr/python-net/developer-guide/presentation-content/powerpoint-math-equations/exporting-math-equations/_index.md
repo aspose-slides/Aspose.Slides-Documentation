@@ -1,10 +1,18 @@
 ---
-title: Exportation d'équations mathématiques
+title: Exporter des équations mathématiques à partir de présentations en Python
+linktitle: Exporter des équations
 type: docs
 weight: 30
 url: /fr/python-net/exporting-math-equations/
-keywords: "Exporter des équations mathématiques, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Exporter des équations mathématiques PowerPoint en Python"
+keywords:
+- exporter des équations mathématiques
+- MathML
+- LaTeX
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Permettez une exportation fluide des équations mathématiques de PowerPoint vers MathML avec Aspose.Slides for Python via .NET — préservez la mise en forme et améliorez la compatibilité."
 ---
 
 Aspose.Slides pour Python via .NET vous permet d'exporter des équations mathématiques à partir de présentations. Par exemple, vous pourriez avoir besoin d'extraire les équations mathématiques sur les diapositives (d'une présentation spécifique) et de les utiliser dans un autre programme ou plateforme.

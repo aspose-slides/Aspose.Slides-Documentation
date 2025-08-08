@@ -1,10 +1,20 @@
 ---
-title: スライドセクション
+title: Python でプレゼンテーションのスライドセクションを管理する
+titlelink: スライドセクション
 type: docs
 weight: 100
 url: /ja/python-net/slide-section/
-keywords: "セクションの作成, セクションの追加, セクション名の編集, PowerPointプレゼンテーション, Python, Aspose.Slides"
-description: "PythonでPowerPointプレゼンテーションにセクションを追加して編集する"
+keywords:
+- セクションの作成
+- セクションの追加
+- セクションの編集
+- セクションの変更
+- セクション名
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "PowerPoint と OpenDocument のスライドセクションを Aspose.Slides for Python で効率化—分割、名前変更、並べ替えにより PPTX と ODP のワークフローを最適化します。"
 ---
 
 Aspose.Slides for Python via .NETを使用すると、PowerPointプレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。

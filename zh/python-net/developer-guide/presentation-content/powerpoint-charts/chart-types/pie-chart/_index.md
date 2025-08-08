@@ -1,9 +1,22 @@
 ---
-title: 饼图
+title: 使用 Python 在演示文稿中自定义饼图
+linktitle: 饼图
 type: docs
 url: /zh/python-net/pie-chart/
-keywords: "饼图, 绘图选项, 切片颜色, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中 PowerPoint 演示文稿的饼图绘图选项和切片颜色"
+keywords:
+- 饼图
+- 管理图表
+- 自定义图表
+- 图表选项
+- 图表设置
+- 绘图选项
+- 扇区颜色
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides 在 Python 中创建和自定义饼图，可导出为 PowerPoint 和 OpenDocument，帮助你在数秒内提升数据叙事能力。"
 ---
 
 ## **饼图的第二个绘图选项**

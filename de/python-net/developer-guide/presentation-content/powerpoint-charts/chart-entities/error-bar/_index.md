@@ -1,9 +1,17 @@
 ---
-title: Fehlerbalken
+title: Fehlerbalken in Präsentationsdiagrammen mit Python anpassen
+linktitle: Fehlerbalken
 type: docs
 url: /de/python-net/error-bar/
-keywords: "Fehlerbalken, Fehlerbalkenwerte PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Fehlerbalken zu PowerPoint-Präsentationen in Python hinzufügen"
+keywords:
+- Fehlerbalken
+- Benutzerdefinierter Wert
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie mit Aspose.Slides for Python via .NET Fehlerbalken in Diagrammen hinzufügen und anpassen – optimieren Sie Datenvisualisierungen in PowerPoint- und OpenDocument-Präsentationen."
 ---
 
 ## **Fehlerbalken hinzufügen**

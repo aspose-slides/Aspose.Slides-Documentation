@@ -1,10 +1,18 @@
 ---
-title: Flash
+title: 在 Python 中从演示文稿提取 Flash 对象
+linktitle: Flash
 type: docs
 weight: 10
 url: /zh/python-net/flash/
-keywords: "提取 Flash，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
-description: "在 Python 中从 PowerPoint 演示文稿中提取 Flash 对象"
+keywords:
+- 提取 Flash
+- Flash 对象
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides 在 Python 中从 PowerPoint 和 OpenDocument 幻灯片中提取 Flash 对象，包含完整的代码示例和最佳实践."
 ---
 
 ## **从演示文稿中提取 Flash 对象**

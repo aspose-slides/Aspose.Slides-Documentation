@@ -1,11 +1,10 @@
 ---
-title: 检查演示文稿
+title: 在 Python 中检索和更新演示文稿信息
+linktitle: 演示文稿信息
 type: docs
 weight: 30
 url: /zh/python-net/examine-presentation/
 keywords:
-- PowerPoint
-- 演示文稿
 - 演示文稿格式
 - 演示文稿属性
 - 文档属性
@@ -13,10 +12,16 @@ keywords:
 - 读取属性
 - 更改属性
 - 修改属性
-- PPTX
-- PPT
+- 更新属性
+- 检查 PPTX
+- 检查 PPT
+- 检查 ODP
+- PowerPoint
+- OpenDocument
+- 演示文稿
 - Python
-description: "在 Python 中读取和修改 PowerPoint 演示文稿属性"
+- Aspose.Slides
+description: "使用 Python 在 PowerPoint 和 OpenDocument 演示文稿中探索幻灯片、结构和元数据，以获得更快速的洞察和更智能的内容审计。"
 ---
 
 Aspose.Slides for Python via .NET 允许您检查演示文稿以了解其属性并理解其行为。

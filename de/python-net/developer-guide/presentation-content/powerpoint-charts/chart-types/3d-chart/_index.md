@@ -1,9 +1,18 @@
 ---
-title: 3D Diagramm
+title: 3D-Diagramme in Präsentationen mit Python anpassen
+linktitle: 3D-Diagramm
 type: docs
 url: /de/python-net/3d-chart/
-keywords: "3d diagramm, rotationX, rotationY, depthpercent, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "RotationX, RotationY und DepthPercents für 3D-Diagramm in PowerPoint-Präsentation in Python festlegen"
+keywords:
+- 3D-Diagramm
+- Rotation
+- Tiefe
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie in Aspose.Slides for Python via .NET 3-D-Diagramme erstellen und anpassen, mit Unterstützung für PPT-, PPTX- und ODP-Dateien—steigern Sie noch heute Ihre Präsentationen."
 ---
 
 ## **RotationX, RotationY und DepthPercents-Eigenschaften des 3D-Diagramms festlegen**

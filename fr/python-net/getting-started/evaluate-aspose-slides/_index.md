@@ -3,8 +3,21 @@ title: Évaluer Aspose.Slides
 type: docs
 weight: 120
 url: /fr/python-net/evaluate-aspose-slides/
+keywords:
+- évaluer Aspose.Slides
+- évaluation d’Aspose.Slides
+- version d’évaluation
+- fonctionnalités complètes
+- filigrane d’évaluation
+- acheter Aspose.Slides
+- limitation
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Évaluez Aspose.Slides for Python via .NET et explorez les fonctionnalités de l’API pour les présentations PowerPoint (PPT, PPTX) et OpenDocument (ODP) — démarrez votre essai gratuit."
 ---
-
 
 Vous pouvez facilement télécharger Aspose.Slides pour évaluation. Le package d'évaluation est le même que le package acheté. La version d'évaluation devient simplement sous licence après avoir ajouté quelques lignes de code pour appliquer la licence.
 

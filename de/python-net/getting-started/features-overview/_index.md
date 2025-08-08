@@ -1,8 +1,22 @@
 ---
-title: Funktionenübersicht
+title: Funktionsübersicht
 type: docs
 weight: 20
 url: /de/python-net/features-overview/
+keywords:
+- funktionen
+- unterstützte plattformen
+- dateiformat
+- konvertierung
+- rendering
+- drucken
+- formatierung
+- PowerPoint
+- OpenDocument
+- präsentation
+- Python
+- Aspose.Slides
+description: "Entdecken Sie Aspose.Slides for Python via .NET: eine leistungsstarke API, mit der Sie PowerPoint- und OpenDocument-Präsentationen effizient erstellen, bearbeiten, automatisieren und konvertieren können."
 ---
 
 ## **Unterstützte Plattformen**

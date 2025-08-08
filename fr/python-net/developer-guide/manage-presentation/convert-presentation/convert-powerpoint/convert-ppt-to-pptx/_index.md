@@ -1,11 +1,17 @@
 ---
 title: Convertir PPT en PPTX en Python
-linktitle: Convertir PPT en PPTX
+linktitle: PPT en PPTX
 type: docs
 weight: 20
 url: /fr/python-net/convert-ppt-to-pptx/
-keywords: "Python Convert PPT to PPTX, Convert PowerPoint Presentation, PPT to PPTX, Python, Aspose.Slides"
-description: "Convertir PowerPoint PPT en PPTX en Python"
+keywords:
+- convertir PPT
+- PPT en PPTX
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Convertissez rapidement des présentations PPT anciennes en PPTX modernes en Python avec Aspose.Slides — tutoriel clair, exemples de code gratuits, sans dépendance à Microsoft Office."
 ---
 
 ## **Aperçu**

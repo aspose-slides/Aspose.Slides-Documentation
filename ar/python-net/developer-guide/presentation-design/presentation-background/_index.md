@@ -1,10 +1,23 @@
 ---
-title: خلفية العرض
+title: إدارة خلفيات العروض التقديمية في بايثون
+linktitle: خلفية الشريحة
 type: docs
 weight: 20
 url: /ar/python-net/presentation-background/
-keywords: "خلفية PowerPoint, تعيين الخلفية, Python, Aspose.Slides لـ Python عبر .NET"
-description: "تعيين الخلفية في عرض PowerPoint باستخدام Python"
+keywords:
+- خلفية العرض التقديمي
+- خلفية الشريحة
+- لون مصمت
+- لون متدرج
+- خلفية صورة
+- شفافية الخلفية
+- خصائص الخلفية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعرف على كيفية تعيين خلفيات ديناميكية في ملفات PowerPoint وOpenDocument باستخدام Aspose.Slides for Python via .NET، مع نصائح برمجية لتعزيز عروضك التقديمية."
 ---
 
 الألوان الصلبة، والألوان التدرج، والصور تُستخدم غالبًا كصور خلفية للشرائح. يمكنك تعيين الخلفية سواء لشريحة **عادية** (شريحة واحدة) أو **شريحة رئيسية** (عدة شرائح دفعة واحدة).

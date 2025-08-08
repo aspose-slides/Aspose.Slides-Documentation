@@ -1,10 +1,22 @@
 ---
-title: 形状效果
+title: 使用 Python 在演示文稿中应用形状效果
+linktitle: 形状效果
 type: docs
 weight: 30
-url: /zh/python-net/shape-effect
-keywords: "形状效果, PowerPoint演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在Python中对PowerPoint形状应用效果"
+url: /zh/python-net/shape-effect/
+keywords:
+- 形状效果
+- 阴影效果
+- 反射效果
+- 发光效果
+- 柔化边缘效果
+- 效果格式
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python 的高级形状效果，快速改造您的 PPT、PPTX 和 ODP 文件，在数秒内创建醒目且专业的幻灯片。"
 ---
 
 虽然PowerPoint中的效果可以使形状更加突出，但它们与[填充](/slides/zh/python-net/shape-formatting/#gradient-fill)或轮廓不同。通过使用PowerPoint效果，您可以在形状上创建逼真的反射，扩散形状的光晕等。

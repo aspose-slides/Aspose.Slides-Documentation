@@ -1,10 +1,22 @@
 ---
-title: 管理单元格
+title: 使用 Python 管理演示文稿中的表格单元格
+linktitle: 管理单元格
 type: docs
 weight: 30
 url: /zh/python-net/manage-cells/
-keywords: "表格, 合并单元格, 拆分单元格, 表格单元格中的图像, Python, Aspose.Slides for Python via .NET"
-description: "Python中的PowerPoint演示文稿中的表格单元格"
+keywords:
+- 表格单元格
+- 合并单元格
+- 移除边框
+- 拆分单元格
+- 单元格中的图像
+- 背景颜色
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 轻松管理 PowerPoint 和 OpenDocument 中的表格单元格。快速掌握单元格的访问、修改与样式设置，实现流畅的幻灯片自动化。"
 ---
 
 ## **识别合并的表格单元格**

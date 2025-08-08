@@ -1,10 +1,24 @@
 ---
-title: Diapositiva Maestra
+title: Administra los patrones de diapositivas de PowerPoint en Python
+linktitle: Patrón de diapositivas
 type: docs
 weight: 80
 url: /es/python-net/slide-master/
-keywords: "Agregar Diapositiva Maestra, diapositiva maestra PPT, diapositiva maestra PowerPoint, Imagen a Diapositiva Maestra, Marcador de posición, Múltiples Diapositivas Maestras, Comparar Diapositivas Maestras, Python, Aspose.Slides"
-description: "Agregar o editar diapositiva maestra en presentación de PowerPoint en Python"
+keywords:
+- patrón de diapositivas
+- diapositiva patrón
+- diapositiva patrón de PPT
+- múltiples patrones de diapositivas
+- comparar patrones de diapositivas
+- fondo
+- marcador de posición
+- clonar patrón de diapositivas
+- copiar patrón de diapositivas
+- duplicar patrón de diapositivas
+- patrón de diapositivas sin usar
+- Python
+- Aspose.Slides
+description: "Automatiza los patrones de diapositivas de PowerPoint y OpenDocument con Aspose.Slides for Python via .NET para maximizar la eficiencia de desarrollo. Una guía completa para principiantes y usuarios avanzados."
 ---
 
 ## **¿Qué es una Diapositiva Maestra en PowerPoint?**

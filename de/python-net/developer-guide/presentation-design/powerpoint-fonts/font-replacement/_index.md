@@ -1,10 +1,20 @@
 ---
-title: Schriftart ersetzen
+title: Schriftartenersetzung in Präsentationen mit Python vereinfachen
+linktitle: Schriftartenersetzung
 type: docs
 weight: 60
 url: /de/python-net/font-replacement/
-keywords: "Schriftart, Schriftart ersetzen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Schriftarten explizit in PowerPoint in Python ersetzen"
+keywords:
+- Schriftart
+- Schriftart ersetzen
+- Schriftartenersetzung
+- Schriftart ändern
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Schriftarten nahtlos in Aspose.Slides for Python via .NET ersetzen, um eine konsistente Typografie in PowerPoint- und OpenDocument-Präsentationen sicherzustellen."
 ---
 
 Wenn Sie Ihre Meinung über die Verwendung einer Schriftart ändern, können Sie diese Schriftart durch eine andere ersetzen. Alle Instanzen der alten Schriftart werden durch die neue Schriftart ersetzt.

@@ -1,10 +1,19 @@
 ---
-title: ドーナツチャート
+title: Python でプレゼンテーションのドーナツチャートをカスタマイズ
+linktitle: ドーナツチャート
 type: docs
 weight: 30
 url: /ja/python-net/doughnut-chart/
-keywords: "ドーナツチャート, 中央の隙間, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonでのPowerPointプレゼンテーションにおけるドーナツチャートの中央の隙間を指定します"
+keywords:
+- ドーナツチャート
+- 中央の余白
+- 穴のサイズ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET でドーナツチャートを作成・カスタマイズする方法を紹介します。PowerPoint および OpenDocument 形式をサポートし、動的なプレゼンテーションを実現します。"
 ---
 
 ## **ドーナツチャートの中央の隙間を指定する**

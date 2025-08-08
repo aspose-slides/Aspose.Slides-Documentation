@@ -1,10 +1,21 @@
 ---
-title: インクの管理
+title: Python でプレゼンテーションのインクオブジェクトを管理する
+linktitle: インクの管理
 type: docs
 weight: 95
 url: /ja/python-net/manage-ink/
-keywords: "PowerPointのインク, インクツール, Pythonインク, PowerPointで描画, PowerPointプレゼンテーション, Python, .NET経由のAspose.Slides for Python"
-description: "PythonでPowerPointのオブジェクトを描画するためにインクツールを使用する"
+keywords:
+- インク
+- インクオブジェクト
+- インクトレース
+- インクの管理
+- インクの描画
+- 描画
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して PowerPoint のインクオブジェクトを管理—デジタルインクの作成、編集、スタイル設定。トレース、ブラシの色とサイズのコードサンプルを取得。"
 ---
 
 PowerPointはインク機能を提供しており、非標準の図形を描画して他のオブジェクトを強調表示したり、接続やプロセスを示したり、スライド上の特定の項目に注意を引くことができます。

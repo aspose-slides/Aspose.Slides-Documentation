@@ -1,12 +1,26 @@
 ---
-title: 管理 SmartArt 形状节点
+title: 使用 Python 管理演示文稿中的 SmartArt 形状节点
+linktitle: SmartArt 形状节点
 type: docs
 weight: 30
 url: /zh/python-net/manage-smartart-shape-node/
-keywords: "SmartArt 节点, SmartArt 子节点, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中的 PowerPoint 演示文稿中的 Smart 节点和子节点"
+keywords:
+- SmartArt 节点
+- 子节点
+- 添加节点
+- 节点位置
+- 访问节点
+- 删除节点
+- 自定义位置
+- 助理节点
+- 填充格式
+- 渲染节点
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PPT、PPTX 和 ODP 中管理 SmartArt 形状节点。获取清晰的代码示例和技巧，简化您的演示文稿."
 ---
-
 
 ## **添加 SmartArt 节点**
 Aspose.Slides for Python via .NET 提供了最简单的 API，以最简单的方式管理 SmartArt 形状。以下示例代码将帮助在 SmartArt 形状中添加节点和子节点。

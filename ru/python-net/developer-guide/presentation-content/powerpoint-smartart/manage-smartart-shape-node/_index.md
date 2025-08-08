@@ -1,12 +1,26 @@
 ---
-title: Управление узлом SmartArt
+title: Управляйте узлами фигур SmartArt в презентациях на Python
+linktitle: Узел фигуры SmartArt
 type: docs
 weight: 30
 url: /ru/python-net/manage-smartart-shape-node/
-keywords: "Узел SmartArt, дочерний узел SmartArt, презентация PowerPoint, Python, Aspose.Slides для Python via .NET"
-description: "Умный узел и дочерний узел в презентациях PowerPoint на Python"
+keywords:
+- узел SmartArt
+- дочерний узел
+- добавление узла
+- положение узла
+- доступ к узлу
+- удаление узла
+- произвольное положение
+- вспомогательный узел
+- формат заливки
+- отрисовка узла
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Управляйте узлами фигур SmartArt в PPT, PPTX и ODP с помощью Aspose.Slides for Python via .NET. Получите наглядные примеры кода и советы, которые упростят работу с презентациями."
 ---
-
 
 ## **Добавить узел SmartArt**
 Aspose.Slides для Python via .NET предоставил самый простой API для управления формами SmartArt самым простым способом. Следующий пример кода поможет добавить узел и дочерний узел внутри формы SmartArt.

@@ -1,9 +1,22 @@
 ---
-title: Kuchendiagramm
+title: Kreisdiagramme in Präsentationen mit Python anpassen
+linktitle: Kreisdiagramm
 type: docs
 url: /de/python-net/pie-chart/
-keywords: "Kuchendiagramm, Plot-Optionen, Slice-Farben, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Plot-Optionen für Kuchendiagramme und Slice-Farben in PowerPoint-Präsentationen in Python"
+keywords:
+- Kreisdiagramm
+- Diagramm verwalten
+- Diagramm anpassen
+- Diagrammoptionen
+- Diagrammeinstellungen
+- Plotoptionen
+- Segmentfarbe
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Lernen Sie, wie Sie mit Aspose.Slides for Python via .NET Kreisdiagramme in Python erstellen und anpassen, um sie in PowerPoint und OpenDocument zu exportieren und Ihre Datenstory in Sekunden zu verbessern."
 ---
 
 ## **Zweite Plot-Optionen für Kuchendiagramme und Balkendiagramme**

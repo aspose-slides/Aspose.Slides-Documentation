@@ -1,11 +1,21 @@
 ---
-title: خط باوربوينت مخصص في بايثون
+title: تخصيص خطوط PowerPoint في Python
 linktitle: خط مخصص
 type: docs
 weight: 20
 url: /ar/python-net/custom-font/
-keywords: "خطوط، خطوط مخصصة، عرض باوربوينت، بايثون، Aspose.Slides لبايثون عبر .NET"
-description: "خطوط باوربوينت المخصصة في بايثون"
+keywords:
+- خط
+- خط مخصص
+- خط خارجي
+- تحميل خط
+- إدارة الخطوط
+- مجلد الخطوط
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "قم بتضمين الخطوط المخصصة في شرائح PowerPoint باستخدام Aspose.Slides for Python via .NET للحفاظ على عروضك التقديمية واضحة ومتسقة على أي جهاز."
 ---
 
 {{% alert color="primary" %}} 

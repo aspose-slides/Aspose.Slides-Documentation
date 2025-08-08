@@ -1,11 +1,27 @@
 ---
-title: 打印演示文稿
+title: 使用 Python 打印演示文稿
+linktitle: 打印演示文稿
 type: docs
 weight: 50
 url: /zh/python-net/print-presentation/
-keywords: "打印 PowerPoint, PPT, PPTX, 打印演示文稿, Python, 打印机, 打印选项"
-description: "在 Python 中打印 PowerPoint 演示文稿"
+keywords:
+- 打印 PowerPoint
+- 打印 OpenDocument
+- 打印演示文稿
+- 打印 PPT
+- 打印 PPTX
+- 打印 ODP
+- 默认打印机
+- 指定打印机
+- 打印选项
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 Python 中打印 PowerPoint 和 OpenDocument 演示文稿。学习如何自定义打印设置并自动输出文档。"
 ---
+
 Aspose.Slides for Python 提供了 4 个重载的 `print` 方法，允许您打印演示文稿。重载方法接受不同的参数，因此您始终可以找到适合您打印需求的方法。
 
 ## **打印到默认打印机**

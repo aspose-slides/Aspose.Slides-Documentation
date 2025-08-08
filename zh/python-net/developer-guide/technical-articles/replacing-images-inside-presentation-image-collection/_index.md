@@ -1,8 +1,19 @@
 ---
-title: 替换演示文稿图像集合中的图像
+title: 在演示文稿的图像集合中替换图像
+linktitle: 替换图像
 type: docs
 weight: 110
 url: /zh/python-net/replacing-images-inside-presentation-image-collection/
+keywords:
+- 替换图像
+- 图像集合
+- 演示文稿图像
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Python 快速替换演示文稿中的图像。支持 PowerPoint 和 OpenDocument 格式，以简化流程并提升幻灯片质量。"
 ---
 
 {{% alert color="primary" %}} 

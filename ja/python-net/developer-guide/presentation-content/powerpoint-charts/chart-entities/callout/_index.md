@@ -1,9 +1,16 @@
 ---
-title: コールアウト
+title: プレゼンテーションのグラフでコールアウトを管理する Python のコード
+linktitle: コールアウト
 type: docs
 url: /ja/python-net/callout/
-keywords: "チャートコールアウト, チャートデータラベル, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointチャートのコールアウトとデータラベル"
+keywords:
+- グラフのコールアウト
+- コールアウトの使用
+- データラベル
+- ラベルの形式
+- Python
+- Aspose.Slides
+description: "簡潔なコード例を使用して、Aspose.Slides for Python via .NET でコールアウトを作成およびスタイル設定し、PPT、PPTX、ODP との互換性を保ちながらプレゼンテーションのワークフローを自動化します。"
 ---
 
 ## **コールアウトの使用**

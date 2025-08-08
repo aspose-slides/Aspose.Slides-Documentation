@@ -1,10 +1,27 @@
 ---
-title: 管理超链接
+title: 使用 Python 管理演示文稿中的超链接
+linktitle: 管理超链接
 type: docs
 weight: 20
 url: /zh/python-net/manage-hyperlinks/
-keywords: "添加超链接, PowerPoint演示文稿, PowerPoint超链接, 文本超链接, 幻灯片超链接, 图形超链接, 图片超链接, 视频超链接, Python"
-description: "在Python中向PowerPoint演示文稿添加超链接"
+keywords:
+- 添加 URL
+- 添加超链接
+- 创建超链接
+- 格式化超链接
+- 删除超链接
+- 更新超链接
+- 文本超链接
+- 幻灯片超链接
+- 形状超链接
+- 图像超链接
+- 视频超链接
+- 可变超链接
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+description: "使用 Aspose.Slides for Python via .NET 轻松管理 PowerPoint 和 OpenDocument 演示文稿中的超链接——在几分钟内提升交互性与工作流程效率。"
 ---
 
 超链接是对某个对象、数据或某个位置的引用。这些是PowerPoint演示文稿中常见的超链接：

@@ -1,10 +1,20 @@
 ---
-title: Transición de Diapositivas
+title: Administrar transiciones de diapositivas en presentaciones usando Python
+linktitle: Transición de diapositivas
 type: docs
 weight: 90
 url: /es/python-net/slide-transition/
-keywords: "Agregar transición de diapositiva, transición de diapositivas de PowerPoint, transición morf, transición de diapositivas avanzada, efectos de transición, Python, Aspose.Slides"
-description: " Agregar transición de diapositivas de PowerPoint y efectos de transición en Python "
+keywords:
+- transición de diapositivas
+- agregar transición de diapositivas
+- aplicar transición de diapositivas
+- transición de diapositivas avanzada
+- transición Morph
+- tipo de transición
+- efecto de transición
+- Python
+- Aspose.Slides
+description: "Descubre cómo personalizar las transiciones de diapositivas en Aspose.Slides for Python via .NET, con una guía paso a paso para presentaciones de PowerPoint y OpenDocument."
 ---
 
 ## **Agregar Transición de Diapositivas**

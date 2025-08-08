@@ -1,9 +1,24 @@
 ---
-title: プレゼンテーション ビュー プロパティ
+title: Python でプレゼンテーションの表示プロパティを取得および更新する
+linktitle: 表示プロパティ
 type: docs
 url: /ja/python-net/presentation-view-properties/
-keywords: "PowerPoint ビューア, ビューア プロパティ, PowerPoint プレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "Python における PowerPoint プレゼンテーション ビューア プロパティ"
+keywords:
+- 表示プロパティ
+- 標準表示
+- アウトライン コンテンツ
+- アウトライン アイコン
+- 垂直スプリッターのスナップ
+- 単一ビュー
+- バーの状態
+- 寸法サイズ
+- 自動調整
+- 既定のズーム
+- PowerPoint
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET の表示プロパティを活用して、PPT、PPTX、ODP スライドのレイアウト、ズーム レベル、表示設定をカスタマイズしましょう."
 ---
 
 {{% alert color="primary" %}} 

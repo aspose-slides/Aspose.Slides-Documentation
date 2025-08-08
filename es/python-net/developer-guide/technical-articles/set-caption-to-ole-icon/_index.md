@@ -1,8 +1,18 @@
 ---
-title: Establecer título para el ícono OLE
+title: Establecer leyendas en iconos OLE en Python
 type: docs
 weight: 160
 url: /es/python-net/set-caption-to-ole-icon/
+keywords:
+- icono OLE
+- título de imagen
+- leyenda
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Descubra cómo establecer leyendas para los iconos de objetos OLE en presentaciones PPT, PPTX y ODP con Aspose.Slides for Python via .NET, mejorando las diapositivas con etiquetas personalizadas."
 ---
 
 Se ha añadido una nueva propiedad **SubstitutePictureTitle** a la interfaz **IOleObjectFrame** y a la clase **OleObjectFrame**. Permite obtener, establecer o cambiar el título de un ícono OLE. El siguiente fragmento de código muestra un ejemplo de cómo crear un objeto de Excel y establecer su título.

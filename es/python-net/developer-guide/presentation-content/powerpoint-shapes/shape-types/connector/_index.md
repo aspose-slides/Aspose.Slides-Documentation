@@ -1,10 +1,21 @@
 ---
-title: Conector
+title: Gestiona conectores en presentaciones con Python
+linktitle: Conector
 type: docs
 weight: 10
 url: /es/python-net/connector/
-keywords: "Conectar formas, conectores, formas de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Conectar formas de PowerPoint en Python"
+keywords:
+- conector
+- tipo de conector
+- punto de conector
+- línea de conector
+- ángulo del conector
+- conectar formas
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Potencia las aplicaciones de Python para dibujar, conectar y enrutar automáticamente líneas en diapositivas de PowerPoint y OpenDocument—obtén control total sobre conectores rectos, en ángulo y curvos."
 ---
 
 Un conector de PowerPoint es una línea especial que conecta o enlaza dos formas y permanece adherido a las formas incluso cuando se mueven o se reubican en una diapositiva determinada.

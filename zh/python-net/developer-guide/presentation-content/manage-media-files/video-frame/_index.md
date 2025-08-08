@@ -1,10 +1,23 @@
 ---
-title: 视频框架
+title: 在 Python 中向演示文稿添加视频
+linktitle: 视频帧
 type: docs
 weight: 10
 url: /zh/python-net/video-frame/
-keywords: "添加视频，创建视频框架，提取视频，PowerPoint 演示文稿，Python，Aspose.Slides for Python via .NET"
-description: "在 Python 中向 PowerPoint 演示文稿添加视频框架"
+keywords:
+- 添加视频
+- 创建视频
+- 嵌入视频
+- 提取视频
+- 检索视频
+- 视频帧
+- Web 源
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "学习如何使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 幻灯片中以编程方式添加和提取视频帧。快速上手指南。"
 ---
 
 在演示文稿中适当放置的视频可以使您的信息更具吸引力，并提高与观众的参与度。
