@@ -1,10 +1,23 @@
 ---
-title: Marco de Video
+title: Agregar videos a presentaciones en Python
+linktitle: Marco de video
 type: docs
 weight: 10
 url: /es/python-net/video-frame/
-keywords: "Agregar video, crear marco de video, extraer video, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Agregar marco de video a la presentación de PowerPoint en Python"
+keywords:
+- agregar video
+- crear video
+- insertar video
+- extraer video
+- recuperar video
+- marco de video
+- fuente web
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprende a agregar y extraer marcos de video de forma programática en diapositivas de PowerPoint y OpenDocument usando Aspose.Slides for Python via .NET. Guía rápida paso a paso."
 ---
 
 Un video bien ubicado en una presentación puede hacer que su mensaje sea más convincente e incrementar los niveles de compromiso con su audiencia.

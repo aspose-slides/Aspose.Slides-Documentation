@@ -1,10 +1,38 @@
 ---
-title: تحويل PowerPoint إلى فيديو
+title: تحويل عروض PowerPoint إلى فيديو في بايثون
+linktitle: PowerPoint إلى فيديو
 type: docs
 weight: 130
 url: /ar/python-net/convert-powerpoint-to-video/
-keywords: "تحويل PowerPoint, PPT, PPTX, تقديم, فيديو, MP4, PPT إلى فيديو, PPT إلى MP4, Python, Aspose.Slides"
-description: "تحويل PowerPoint إلى فيديو باستخدام Python"
+keywords:
+- PowerPoint إلى فيديو
+- تحويل PowerPoint إلى فيديو
+- عرض تقديمي إلى فيديو
+- تحويل العرض التقديمي إلى فيديو
+- PPT إلى فيديو
+- تحويل PPT إلى فيديو
+- PPTX إلى فيديو
+- تحويل PPTX إلى فيديو
+- ODP إلى فيديو
+- تحويل ODP إلى فيديو
+- PowerPoint إلى MP4
+- تحويل PowerPoint إلى MP4
+- عرض تقديمي إلى MP4
+- تحويل العرض التقديمي إلى MP4
+- PPT إلى MP4
+- تحويل PPT إلى MP4
+- PPTX إلى MP4
+- تحويل PPTX إلى MP4
+- تحويل PowerPoint إلى فيديو
+- تحويل العرض التقديمي إلى فيديو
+- تحويل PPT إلى فيديو
+- تحويل PPTX إلى فيديو
+- تحويل ODP إلى فيديو
+- تحويل الفيديو في بايثون
+- PowerPoint
+- Python
+- Aspose.Slides
+description: "تعرّف على كيفية تحويل عروض PowerPoint وOpenDocument إلى فيديو باستخدام بايثون. اكتشف أمثلة برمجية وتقنيات أتمتة لتبسيط سير عملك."
 ---
 
 من خلال تحويل عرض PowerPoint الخاص بك إلى فيديو، ستحصل على 

@@ -1,10 +1,21 @@
 ---
-title: PPT против PPTX
+title: "Разница между форматами: PPT и PPTX"
+linktitle: PPT vs PPTX
 type: docs
 weight: 10
 url: /ru/python-net/ppt-vs-pptx/
-keywords: "PPT против PPTX, PPT или PPTX, Презентация PowerPoint, формат, Python"
-description: "О форматах презентации PowerPoint. PPT против PPTX. Различия в Python"
+keywords:
+- PPT vs PPTX
+- PPT или PPTX
+- устаревший формат
+- современный формат
+- двоичный формат
+- современный стандарт
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Сравните PPT и PPTX для PowerPoint с помощью Aspose.Slides for Python via .NET, изучив различия форматов, преимущества, совместимость и советы по конвертации."
 ---
 
 ## **Что такое PPT?**

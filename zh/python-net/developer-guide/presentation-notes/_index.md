@@ -1,13 +1,23 @@
 ---
-title: 演示文稿笔记
+title: 在 Python 中管理演示文稿备注
+linktitle: 演示文稿备注
 type: docs
 weight: 110
 url: /zh/python-net/presentation-notes/
-keywords: "笔记, PowerPoint 笔记, 添加笔记, 删除笔记, PowerPoint 演示, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中添加和删除 PowerPoint 演示文稿中的笔记"
+keywords:
+- 备注
+- 备注幻灯片
+- 添加备注
+- 删除备注
+- 备注样式
+- 备注母版
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 自定义演示文稿备注。与 PowerPoint 和 OpenDocument 备注无缝协作，提升工作效率。"
 ---
-
-
 
 Aspose.Slides 支持从演示文稿中移除笔记幻灯片。在本主题中，我们将介绍此新功能，即移除笔记以及从任何演示文稿中添加笔记样式幻灯片。Aspose.Slides for Python via .NET 提供了移除任何幻灯片的笔记以及为现有笔记添加样式的功能。开发人员可以通过以下方式移除笔记：
 

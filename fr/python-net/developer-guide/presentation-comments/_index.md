@@ -1,10 +1,26 @@
 ---
-title: Commentaires de Présentation
+title: Gérer les commentaires de présentation en Python
+linktitle: Commentaires de présentation
 type: docs
 weight: 100
 url: /fr/python-net/presentation-comments/
-keywords: "Commentaires, commentaires PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajoutez des commentaires et des réponses dans une présentation PowerPoint en Python"
+keywords:
+- commentaire
+- commentaire moderne
+- commentaires PowerPoint
+- commentaires de présentation
+- commentaires de diapositive
+- ajouter un commentaire
+- accéder à un commentaire
+- modifier un commentaire
+- répondre à un commentaire
+- retirer un commentaire
+- supprimer un commentaire
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Maîtrisez les commentaires de présentation avec Aspose.Slides for Python via .NET: ajoutez, lisez, modifiez et supprimez des commentaires dans les fichiers PowerPoint rapidement et facilement."
 ---
 
 Dans PowerPoint, un commentaire apparaît comme une note ou une annotation sur une diapositive. Lorsqu'un commentaire est cliqué, son contenu ou ses messages sont révélés.

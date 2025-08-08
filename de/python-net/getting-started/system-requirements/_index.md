@@ -3,7 +3,22 @@ title: Systemanforderungen
 type: docs
 weight: 60
 url: /de/python-net/system-requirements/
+keywords:
+- Systemanforderungen
+- Betriebssystem
+- Installation
+- Abhängigkeiten
+- Windows
+- Linux
+- macOS
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Entdecken Sie die Systemanforderungen für Aspose.Slides for Python via .NET. Stellen Sie nahtlose PowerPoint- und OpenDocument-Unterstützung unter Windows, Linux und macOS sicher."
 ---
+
 Aspose.Slides für Python über .NET erfordert kein drittes Produkt wie Microsoft PowerPoint, das installiert sein muss. Aspose.Slides selbst ist eine Engine zum Erstellen, Modifizieren, Konvertieren und Rendern von Dokumenten in verschiedenen Formaten, einschließlich der Microsoft PowerPoint-Präsentationsformate.
 
 ## Unterstützte Betriebssysteme

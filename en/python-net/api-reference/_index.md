@@ -6,10 +6,11 @@ url: /python-net/api-reference/
 keywords:
 - API reference
 - PowerPoint
+- OpenDocument
 - presentation
 - Python
-- .NET
-- Aspose.Slides for Python via .NET
+- Aspose.Slides
+description: "Create, edit, and convert presentations in Python—no PowerPoint needed. Aspose.Slides for Python via .NET supports PPT, PPTX, and ODP with fast SVG/PDF export."
 ---
 
 {{% alert color="primary" %}} 

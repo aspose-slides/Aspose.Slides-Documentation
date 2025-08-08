@@ -1,10 +1,23 @@
 ---
-title: フォントのフォールバックを作成
+title: Python でプレゼンテーションのフォールバックフォントを指定
+linktitle: フォールバックフォント
 type: docs
 weight: 10
 url: /ja/python-net/create-fallback-font/
-keywords: "フォント, フォールバックフォント, PowerPointプレゼンテーションPython, Aspose.Slides for Python via .NET"
-description: "PythonのPowerPointにおけるフォールバックフォント"
+keywords:
+- フォールバックフォント
+- フォールバックルール
+- フォントを適用
+- フォントを置換
+- Unicode 範囲
+- 欠落グリフ
+- 適切なグリフ
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使って PPT、PPTX、ODP ファイルにフォールバックフォントを設定し、あらゆるデバイスや OS で一貫した文字表示を確保します。"
 ---
 
 Aspose.Slidesは、[IFontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/iFontFallBackRule/)インターフェースと[FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/)クラスをサポートしており、フォールバックフォントを適用するルールを指定できます。[FontFallBackRule](https://reference.aspose.com/slides/python-net/aspose.slides/FontFallBackRule/)クラスは、失われたグリフを検索するために使用される指定されたUnicode範囲と、適切なグリフを含む可能性のあるフォントのリストとの関連を表します。

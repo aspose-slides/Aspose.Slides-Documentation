@@ -1,10 +1,23 @@
 ---
-title: Видеофрейм
+title: Добавляйте видео в презентации на Python
+linktitle: Видеокадр
 type: docs
 weight: 10
 url: /ru/python-net/video-frame/
-keywords: "Добавить видео, создать видеофрейм, извлечь видео, презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавить видеофрейм в презентацию PowerPoint на Python"
+keywords:
+- добавление видео
+- создание видео
+- встраивание видео
+- извлечение видео
+- получение видео
+- видеокадр
+- веб-источник
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Узнайте, как программно добавлять и извлекать видеокадры на слайдах PowerPoint и OpenDocument с использованием Aspose.Slides for Python via .NET. Краткое практическое руководство."
 ---
 
 Хорошо размещенное видео в презентации может сделать ваше сообщение более убедительным и повысить уровень вовлеченности вашей аудитории.
