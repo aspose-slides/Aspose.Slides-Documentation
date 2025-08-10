@@ -8,25 +8,23 @@ url: /net/ai/generator/
 
 # Aspose.Slides Adds New AI-Powered Presentation Generator
 
-Aspose.Slides introduces a new AI-powered feature: the Presentation Generator. This tool allows developers to automatically generate well-structured PowerPoint presentations from simple input text—such as topic descriptions, summaries, quotes, or bullet points.
+Aspose.Slides introduces a new AI-powered feature, the Presentation Generator, which enables developers to automatically create well-structured PowerPoint presentations from simple text inputs such as topic descriptions, summaries, quotations, or bullet points.
 
-Users can control the level of content detail and optionally apply a custom presentation template as the visual design.
+Users can adjust the level of content detail and optionally apply a custom presentation template to define the visual design.
 
-Currently, the AI Presentation Generator structures content using text blocks, bullet lists, and tables. Unfortunately, image generation is not yet supported, but you can easily add images afterward using the Aspose.Slides tools or manually.
+Currently, the AI Presentation Generator structures content using text blocks, bullet lists, and tables. Image generation is not yet supported; however, images can be easily added afterward using Aspose.Slides tools or manually.
 
-The output is a complete PowerPoint presentation that can be used as-is or saved in any of the file formats supported by the Aspose.Slides API. While the generator produces high-quality results, some minor post-editing may be necessary depending on your specific needs.
+The output is a complete PowerPoint presentation that can be used as-is or exported to any format supported by the Aspose.Slides API. While the generator produces high-quality results, minor post-editing may be required to meet specific requirements.
 
 ## How it Works
 
-Aspose.Slides does not include built-in AI models but integrates with external AI services over the internet. This integration is managed by the SlidesAIAgent class, which uses an implementation of the IAIWebClient interface to communicate with the AI model.
+Aspose.Slides does not include built-in AI models; instead, it integrates with external AI services over the internet. This integration is handled by the [`SlidesAIAgent`](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent/) class, which uses an implementation of the [`IAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/iaiwebclient/) interface to communicate with the AI model.
 
-You can either use the built-in `OpenAIWebClient`, which connects to OpenAI’s API, or provide your own custom implementation of IAIWebClient if you want to work with a different AI provider or language model.
-Aspose.Slides manages all communication with the AI service and intelligently handles the AI’s responses—creating slides.
-Note that the OpenAI API is a paid service, so you will need to create an account and supply your API key when using the built-in `OpenAIWebClient`.
+You can use the built-in [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/), which connects to OpenAI’s API, or provide a custom implementation of [`IAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/iaiwebclient/) to work with another AI provider or language model. Aspose.Slides manages all communication with the AI service and processes the AI’s responses to generate slides. Note that the OpenAI API is a paid service, so an account and API key are required when using the built-in [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
 ## Let's Code
 ### Example 1
-This example demonstrates how to generate a presentation on the topic Aspose.Slides using the built-in OpenAIWebClient.
+This example demonstrates how to generate a presentation on the topic Aspose.Slides using the built-in [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
 ```csharp
 //Create an instance of OpenAIWebClient, which is the built-in implementation of the OpenAI web client
@@ -46,9 +44,9 @@ presentation.Save("Aspose.Slides.NET.pptx", SaveFormat.Pptx);
 ```
 
 ### Example 2
-The next example demonstrates the overloads of the GeneratePresentation method. In this example, we will use an externally `managed HttpClient` instance and the user's `master presentation`.
+The following example demonstrates the overloads of the [`GeneratePresentation`](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent/generatepresentation/) method. In this case, an externally managed [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance and the user’s `master presentation` are used.
 
-By default, the built-in OpenAIWebClient creates and manages its own internal `HttpClient` instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the HttpClient yourself—such as when using an IHttpClientFactory for better resource management and performance—you can provide your own HttpClient instance when constructing the OpenAIWebClient.
+By default, the built-in [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) creates and manages its own internal [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) yourself—for example, when using an [`IHttpClientFactory`](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) for improved resource management and performance—you can supply your own [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance when constructing the [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
 ```csharp
 // Create an externally managed HttpClient instance
@@ -73,9 +71,10 @@ using IPresentation presentation = await slidesAiAgent.GeneratePresentationAsync
 presentation.Save("Aspose.Slides.NET.pdf", SaveFormat.Pdf);
 ```
 
-It’s important to mention that many customers use Aspose.Slides in synchronous contexts. To accommodate this, the SlidesAIAgent class offers both `synchronous` and `asynchronous` methods, allowing you to choose the best approach for your application’s workflow.
+It is worth noting that many customers use Aspose.Slides in synchronous contexts. To support this, the [`SlidesAIAgent`](https://reference.aspose.com/slides/net/aspose.slides.ai/slidesaiagent/) class provides both synchronous and asynchronous methods, allowing you to choose the approach that best fits your application’s workflow.
 
-## Conclusion
-The new AI Presentation Generator in Aspose.Slides offers a fast and flexible way to create structured slide decks from simple text prompts. With support for custom templates, externally managed HttpClient instances, and both sync and async workflows, it's easy to integrate into various applications.
+## Key Benefits
 
-Common use cases include generating marketing decks, educational content, client reports, and internal presentations. While image generation isn't supported yet, the tool already provides a solid foundation for automating presentation creation—with more enhancements likely to come.
+The new AI Presentation Generator in Aspose.Slides provides a fast and flexible way to produce structured slide decks from simple text prompts. With support for custom templates, externally managed [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instances, and both synchronous and asynchronous workflows, it can be seamlessly integrated into a wide range of applications.
+
+Typical use cases include creating marketing presentations, educational materials, client reports, and internal slide decks. Although image generation is not yet supported, the tool already offers a strong foundation for automating presentation creation, with further enhancements expected in the future.
