@@ -6,7 +6,7 @@ weight: 40
 url: /net/ai/generator/
 ---
 
-# Aspose.Slides Presentation Translation API: AI-Powered Multilingual Slide Generator
+# Aspose.Slides Presentation AI API: AI-Powered Slide Generator
 
 Aspose.Slides introduces a new AI-powered feature, the Presentation Generator, which enables developers to automatically create well-structured PowerPoint presentations from simple text inputs such as topic descriptions, summaries, quotations, or bullet points.
 
