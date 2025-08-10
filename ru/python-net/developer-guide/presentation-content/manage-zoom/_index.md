@@ -1,10 +1,21 @@
 ---
-title: Управление Zoom
+title: Управляйте обзорами в презентациях на Python
+linktitle: Обзор
 type: docs
 weight: 60
 url: /ru/python-net/manage-zoom/
-keywords: "Zoom, Zoom фрейм, Добавить зум, Форматировать рамку зума, Сводка зума, Презентация PowerPoint, Python, Aspose.Slides для Python через .NET"
-description: "Добавьте зум или зум рамки к презентациям PowerPoint на Python"
+keywords:
+- обзор
+- рамка обзора
+- обзор слайда
+- обзор раздела
+- обзор сводки
+- добавить обзор
+- PowerPoint
+- презентация
+- Python
+- Aspose.Slides
+description: "Создавайте и настраивайте обзор с помощью Aspose.Slides for Python via .NET — переходите между разделами, добавляйте миниатюры и переходы в презентациях PPT, PPTX и ODP."
 ---
 
 ## **Обзор**

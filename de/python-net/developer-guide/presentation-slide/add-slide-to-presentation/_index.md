@@ -1,10 +1,19 @@
 ---
-title: Fügen Sie eine Folie zur Präsentation hinzu
+title: Folien zu Präsentationen mit Python hinzufügen
+linktitle: Folie hinzufügen
 type: docs
 weight: 10
 url: /de/python-net/add-slide-to-presentation/
-keywords: "Folie zur Präsentation hinzufügen, Python, Aspose.Slides"
-description: "Folie zur Präsentation in Python hinzufügen"
+keywords:
+- Folie hinzufügen
+- Folie erstellen
+- leere Folie
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Fügen Sie mühelos Folien zu Ihren PowerPoint- und OpenDocument-Präsentationen hinzu, indem Sie Aspose.Slides for Python via .NET verwenden – nahtloses, effizientes Einfügen von Folien in Sekunden."
 ---
 
 ## **Fügen Sie eine Folie zur Präsentation hinzu**

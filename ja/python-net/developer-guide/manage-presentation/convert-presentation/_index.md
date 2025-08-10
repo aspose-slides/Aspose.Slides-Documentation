@@ -1,8 +1,24 @@
 ---
-title: プレゼンテーションの変換
+title: Python でプレゼンテーションを複数の形式に変換
+linktitle: プレゼンテーションの変換
 type: docs
 weight: 70
 url: /ja/python-net/convert-presentation/
+keywords:
+- プレゼンテーション 変換
+- プレゼンテーション エクスポート
+- PPT to PPTX
+- PPT to PDF
+- PPTX to PDF
+- PPT to XPS
+- PPTX to XPS
+- PPT to TIFF
+- PPTX to TIFF
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションを PPTX、PDF、XPS、TIFF などに変換します。シンプルで高品質な変換。"
 ---
 
 ## **PPTからPPTXへの変換**

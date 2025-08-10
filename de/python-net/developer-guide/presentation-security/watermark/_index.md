@@ -1,18 +1,32 @@
 ---
-title: Wasserzeichen
+title: Wasserzeichen zu Präsentationen in Python hinzufügen
+linktitle: Wasserzeichen
 type: docs
 weight: 40
 url: /de/python-net/watermark/
 keywords:
-- wasserzeichen
-- wasserzeichen hinzufügen
-- textwasserzeichen
-- bildwasserzeichen
+- Wasserzeichen
+- Textwasserzeichen
+- Bildwasserzeichen
+- Wasserzeichen hinzufügen
+- Wasserzeichen ändern
+- Wasserzeichen entfernen
+- Wasserzeichen löschen
+- Wasserzeichen zu PPT hinzufügen
+- Wasserzeichen zu PPTX hinzufügen
+- Wasserzeichen zu ODP hinzufügen
+- Wasserzeichen aus PPT entfernen
+- Wasserzeichen aus PPTX entfernen
+- Wasserzeichen aus ODP entfernen
+- Wasserzeichen aus PPT löschen
+- Wasserzeichen aus PPTX löschen
+- Wasserzeichen aus ODP löschen
 - PowerPoint
-- präsentation
+- OpenDocument
+- Präsentation
 - Python
-- Aspose.Slides für Python über .NET
-description: "Fügen Sie Text- und Bildwasserzeichen zu PowerPoint-Präsentationen in Python hinzu"
+- Aspose.Slides
+description: "Lernen Sie, wie Sie Text- und Bildwasserzeichen in PowerPoint- und OpenDocument-Präsentationen in Python verwalten, um einen Entwurf, vertrauliche Informationen, Urheberrechte und mehr zu kennzeichnen."
 ---
 
 ## **Über Wasserzeichen**

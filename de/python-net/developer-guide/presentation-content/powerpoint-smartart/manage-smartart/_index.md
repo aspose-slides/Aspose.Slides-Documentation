@@ -1,10 +1,21 @@
 ---
-title: SmartArt verwalten
+title: SmartArt in PowerPoint-Präsentationen mit Python verwalten
+linktitle: SmartArt verwalten
 type: docs
 weight: 10
 url: /de/python-net/manage-smartart/
-keywords: "SmartArt, Text aus SmartArt, Organigramm, Bildorganigramm, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "SmartArt und Organigramm in PowerPoint-Präsentationen in Python"
+keywords:
+- SmartArt
+- Text aus SmartArt
+- Layouttyp
+- versteckte Eigenschaft
+- Organigramm
+- Bild-Organigramm
+- PowerPoint
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie PowerPoint-SmartArt mit Aspose.Slides for Python via .NET mithilfe klarer Codebeispiele erstellen und bearbeiten, die die Foliengestaltung und Automatisierung beschleunigen."
 ---
 
 ## **Text aus SmartArt abrufen**

@@ -1,10 +1,24 @@
 ---
-title: Imagen
+title: Optimiza la gestión de imágenes en PowerPoint con Python
+linktitle: Gestionar imágenes
 type: docs
 weight: 10
 url: /es/python-net/image/
-keywords: "Agregar imagen, Agregar foto, Presentación de PowerPoint, EMF, SVG, Python, Aspose.Slides para Python a través de .NET"
-description: "Agregar imagen a una diapositiva o presentación de PowerPoint en Python"
+keywords:
+- agregar imagen
+- agregar foto
+- agregar mapa de bits
+- agregar PNG
+- agregar JPG
+- agregar SVG
+- agregar EMF
+- agregar WMF
+- agregar TIFF
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Agiliza la gestión de imágenes en PowerPoint y OpenDocument con Aspose.Slides for Python via .NET, mejorando el rendimiento y automatizando tu flujo de trabajo."
 ---
 
 ## **Imágenes en Diapositivas de Presentaciones**

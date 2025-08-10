@@ -1,10 +1,25 @@
 ---
-title: Изображение
+title: Оптимизируйте управление изображениями в презентациях с помощью Python
+linktitle: Управление изображениями
 type: docs
 weight: 10
 url: /ru/python-net/image/
-keywords: "Добавить изображение, Добавить картинку, Презентация PowerPoint, EMF, SVG, Python, Aspose.Slides для Python через .NET"
-description: "Добавить изображение на слайд или в презентацию PowerPoint на Python"
+keywords:
+- добавить изображение
+- добавить картинку
+- добавить bitmap
+- добавить PNG
+- добавить JPG
+- добавить SVG
+- добавить EMF
+- добавить WMF
+- добавить TIFF
+- PowerPoint
+- OpenDocument
+- презентация
+- Python
+- Aspose.Slides
+description: "Упростите управление изображениями в PowerPoint и OpenDocument с помощью Aspose.Slides for Python via .NET, оптимизируя производительность и автоматизируя рабочий процесс."
 ---
 
 ## **Изображения на слайдах в презентациях**

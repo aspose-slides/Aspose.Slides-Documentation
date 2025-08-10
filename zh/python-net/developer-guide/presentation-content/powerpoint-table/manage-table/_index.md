@@ -1,11 +1,23 @@
 ---
-title: 管理表格
+title: 使用 Python 管理演示文稿表格
+linktitle: 管理表格
 type: docs
 weight: 10
 url: /zh/python-net/manage-table/
-keywords: "表格, 创建表格, 访问表格, 表格长宽比, PowerPoint 演示, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中创建和管理 PowerPoint 演示中的表格"
-
+keywords:
+- 添加表格
+- 创建表格
+- 访问表格
+- 纵横比
+- 对齐文本
+- 文本格式
+- 表格样式
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 幻灯片中创建和编辑表格。通过简单的代码示例优化表格工作流程。"
 ---
 
 在 PowerPoint 中，表格是一种有效展示和表述信息的方式。单元格网格中的信息（以行和列排列）直观且易于理解。

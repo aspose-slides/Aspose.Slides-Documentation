@@ -1,11 +1,20 @@
 ---
-title: Localización de Presentaciones
+title: Automatiza la localización de presentaciones con Python
+linktitle: Localización de presentaciones
 type: docs
 weight: 100
 url: /es/python-net/presentation-localization/
-keywords: "Cambiar idioma, Verificación ortográfica, Corrector ortográfico, Presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Cambiar o verificar el idioma en una presentación de PowerPoint. Verificar ortografía del texto en Python"
+keywords:
+- cambiar idioma
+- corrección ortográfica
+- ID de idioma
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Automatiza la localización de diapositivas de PowerPoint y OpenDocument en Python con Aspose.Slides, utilizando ejemplos de código prácticos y consejos para acelerar el despliegue global."
 ---
+
 ## **Cambiar el Idioma para el Texto de la Presentación y de la Forma**
 - Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
 - Obtener la referencia de una diapositiva utilizando su índice.

@@ -1,9 +1,24 @@
 ---
-title: Ligne de Tendance
+title: Ajouter des courbes de tendance aux graphiques de présentation en Python
+linktitle: Courbe de tendance
 type: docs
 url: /fr/python-net/trend-line/
-keywords: "Ligne de tendance, ligne personnalisée présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter une ligne de tendance et une ligne personnalisée aux présentations PowerPoint en Python"
+keywords:
+- graphique
+- courbe de tendance
+- courbe de tendance exponentielle
+- courbe de tendance linéaire
+- courbe de tendance logarithmique
+- courbe de tendance de moyenne mobile
+- courbe de tendance polynomiale
+- courbe de tendance de puissance
+- courbe de tendance personnalisée
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Ajoutez et personnalisez rapidement des courbes de tendance dans les graphiques PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET — un guide pratique accompagné d'exemples de code pour améliorer la précision des prévisions et capter l'attention de votre public."
 ---
 
 ## **Ajouter une Ligne de Tendance**

@@ -1,10 +1,23 @@
 ---
-title: 段落
+title: 在 Python 中获取演示文稿的段落边界
+linktitle: 段落
 type: docs
 weight: 60
 url: /zh/python-net/paragraph/
-keywords: "段落, 部分, 段落坐标, 部分坐标, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "Python 中 PowerPoint 演示文稿的段落和部分"
+keywords:
+- 段落边界
+- 文本片段边界
+- 段落坐标
+- 文本片段坐标
+- 段落大小
+- 文本片段大小
+- 文本框架
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for Python via .NET 中获取段落和文本片段的边界，以优化 PowerPoint 和 OpenDocument 演示文稿中的文本定位。"
 ---
 
 ## **获取 TextFrame 中段落和部分的坐标**

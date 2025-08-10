@@ -1,11 +1,21 @@
 ---
-title: Fuente Personalizada de PowerPoint en Python
-linktitle: Fuente Personalizada
+title: Personalizar fuentes de PowerPoint en Python
+linktitle: Fuente personalizada
 type: docs
 weight: 20
 url: /es/python-net/custom-font/
-keywords: "Fuentes, fuentes personalizadas, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Fuentes personalizadas de PowerPoint en Python"
+keywords:
+- fuente
+- fuente personalizada
+- fuente externa
+- cargar fuente
+- administrar fuentes
+- carpeta de fuentes
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Incrusta fuentes personalizadas en las diapositivas de PowerPoint con Aspose.Slides for Python via .NET para mantener las presentaciones nítidas y coherentes en cualquier dispositivo."
 ---
 
 {{% alert color="primary" %}} 

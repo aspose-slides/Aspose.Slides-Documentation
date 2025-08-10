@@ -1,12 +1,23 @@
 ---
-title: Elipse
+title: Agregar elipses a presentaciones en Python
+linktitle: Elipse
 type: docs
 weight: 30
 url: /es/python-net/ellipse/
-keywords: "Elipse, forma de PowerPoint, presentación de PowerPoint, Python, Aspose.Slides para Python a través de .NET"
-description: "Crear elipse en presentación de PowerPoint en Python"
+keywords:
+- elipse
+- forma
+- agregar elipse
+- crear elipse
+- dibujar elipse
+- elipse formateada
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aprenda cómo crear, formatear y manipular formas de elipse en Aspose.Slides for Python via .NET en presentaciones PPT, PPTX y ODP; se incluyen ejemplos de código."
 ---
-
 
 ## **Crear Elipse**
 En este tema, presentaremos a los desarrolladores cómo agregar formas de elipse a sus diapositivas utilizando Aspose.Slides para Python a través de .NET. Aspose.Slides para Python a través de .NET proporciona un conjunto más fácil de APIs para dibujar diferentes tipos de formas con solo unas pocas líneas de código. Para agregar una elipse simple a una diapositiva seleccionada de la presentación, siga los pasos a continuación:

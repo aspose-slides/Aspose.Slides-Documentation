@@ -1,10 +1,27 @@
 ---
-title: Équations Mathématiques PowerPoint
+title: Ajouter des équations mathématiques aux présentations PowerPoint en Python
+linktitle: Équations mathématiques
 type: docs
 weight: 80
 url: /fr/python-net/powerpoint-math-equations/
-keywords: " Équations Mathématiques PowerPoint, Symboles Mathématiques PowerPoint, Formule PowerPoint, Texte Mathématique PowerPoint, présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Équations Mathématiques PowerPoint, Symboles Mathématiques, Formule, et Texte Mathématique en Python"
+keywords:
+- équation mathématique
+- équation mathématique PowerPoint
+- symbole mathématique
+- symbole mathématique PowerPoint
+- formule mathématique
+- formule mathématique PowerPoint
+- texte mathématique
+- texte mathématique PowerPoint
+- ajouter équation mathématique à PowerPoint
+- ajouter symbole mathématique à PowerPoint
+- ajouter formule mathématique à PowerPoint
+- ajouter texte mathématique à PowerPoint
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Apprenez à travailler avec des équations mathématiques dans PowerPoint à l'aide de Aspose.Slides for Python via .NET. Obtenez des instructions détaillées, des exemples de code et des conseils pour automatiser la création et la modification de présentations."
 ---
 
 ## **Aperçu**

@@ -1,10 +1,30 @@
 ---
-title: 形の操作
+title: Python でプレゼンテーションの図形を管理
+linktitle: 図形の操作
 type: docs
 weight: 40
 url: /ja/python-net/shape-manipulations/
-keywords: "PowerPoint スライドの形, 形を探す, 形を複製, 形を削除, 形を隠す, 形の順序を変更, 形の代替テキスト, 形のレイアウトフォーマット, SVG としての形, 形を整列, PowerPoint プレゼンテーション, Python, .NET 経由の Aspose.Slides for Python"
-description: "Python で PowerPoint 形を操作する"
+keywords:
+- PowerPoint 図形
+- プレゼンテーションの図形
+- スライド上の図形
+- 図形を検索
+- 図形を複製
+- 図形を削除
+- 図形を非表示
+- 図形の順序を変更
+- Interop 図形 ID を取得
+- 図形の代替テキスト
+- 図形のレイアウト形式
+- 図形を SVG として
+- 図形を SVG に変換
+- 図形を整列
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET で図形を作成・編集・最適化する方法を学び、高性能な PowerPoint および OpenDocument のプレゼンテーションを作成して提供します。"
 ---
 
 ## **スライド内の形を見つける**

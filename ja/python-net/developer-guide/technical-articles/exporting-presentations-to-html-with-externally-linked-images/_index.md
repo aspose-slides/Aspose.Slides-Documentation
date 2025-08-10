@@ -1,8 +1,27 @@
 ---
-title: 外部リンク画像を使ったHTMLへのプレゼンテーションのエクスポート
+title: Python で外部リンク画像付きのプレゼンテーションを HTML にエクスポートする
+linktitle: 外部リンク画像付きプレゼンテーションを HTML にエクスポートする
 type: docs
 weight: 100
 url: /ja/python-net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- PowerPoint から HTML
+- OpenDocument から HTML
+- プレゼンテーションから HTML
+- スライドから HTML
+- PPT から HTML
+- PPTX から HTML
+- ODP から HTML
+- HTML エクスポート
+- リンク画像
+- 外部リンク画像
+- HTML リソース
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "「Aspose.Slides for Python via .NET」を使用して、PowerPoint と OpenDocument 形式のプレゼンテーションを外部リンク画像付きで HTML にエクスポートする方法を学びます。"
 ---
 
 {{% alert color="primary" %}} 

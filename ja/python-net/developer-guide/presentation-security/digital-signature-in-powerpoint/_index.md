@@ -1,10 +1,20 @@
 ---
-title: PowerPointにおけるデジタル署名
+title: Python でプレゼンテーションにデジタル署名を追加
+linktitle: デジタル署名
 type: docs
 weight: 10
 url: /ja/python-net/digital-signature-in-powerpoint/
-keywords: "デジタル署名証明書、認証局、PowerPointプレゼンテーション、Python、Aspose.Slides for Python via .NET"
-description: "PowerPointにデジタル署名または証明書を追加します。Pythonにおける認証局"
+keywords:
+- デジタル署名
+- デジタル証明書
+- 認証局
+- PFX 証明書
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument ファイルにデジタル署名を付与する方法を学びます。わかりやすいコード例で、数秒でスライドを保護できます。"
 ---
 
 **デジタル証明書**は、特定の組織または個人によって作成されたことを示すパスワード保護されたPowerPointプレゼンテーションを作成するために使用されます。デジタル証明書は、認可された組織である認証局に連絡することで取得できます。システムにデジタル証明書をインストールした後、ファイル -> 情報 -> プレゼンテーションを保護でプレゼンテーションにデジタル署名を追加するために使用できます：

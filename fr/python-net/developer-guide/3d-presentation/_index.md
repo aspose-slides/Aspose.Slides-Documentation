@@ -1,10 +1,10 @@
 ---
-title: Présentation 3D
+title: Créer des présentations 3D en Python
+linktitle: Présentation 3D
 type: docs
 weight: 232
 url: /fr/python-net/3d-presentation/
 keywords:
-- 3D
 - PowerPoint 3D
 - présentation 3D
 - rotation 3D
@@ -12,12 +12,13 @@ keywords:
 - extrusion 3D
 - dégradé 3D
 - texte 3D
-- présentation PowerPoint
+- PowerPoint
+- OpenDocument
+- présentation
 - Python
-- Aspose.Slides pour Python via .NET
-description: "Présentation PowerPoint 3D en Python"
+- Aspose.Slides
+description: "Générez facilement des présentations 3D interactives en Python avec Aspose.Slides. Exportez rapidement vers les formats PowerPoint et OpenDocument pour une utilisation polyvalente."
 ---
-
 
 ## Aperçu
 Comment créez-vous généralement une présentation PowerPoint 3D ?

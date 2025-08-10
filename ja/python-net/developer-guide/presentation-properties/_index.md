@@ -1,12 +1,29 @@
 ---
-title: プレゼンテーションプロパティ
+title: Python でプレゼンテーションのプロパティを管理する
+linktitle: プレゼンテーションのプロパティ
 type: docs
 weight: 70
 url: /ja/python-net/presentation-properties/
-keywords: "PowerPointプロパティ, PowerPointプレゼンテーション, Python, Aspose.Slides for Python via .NET"
-description: "PythonにおけるPowerPointプレゼンテーションプロパティ"
+keywords:
+- PowerPoint のプロパティ
+- プレゼンテーションのプロパティ
+- ドキュメントのプロパティ
+- 組み込みプロパティ
+- カスタムプロパティ
+- 高度なプロパティ
+- プロパティの管理
+- プロパティの変更
+- ドキュメントのメタデータ
+- メタデータの編集
+- 校正言語
+- 既定の言語
+- PowerPoint
+- OpenDocument
+- プレゼンテーション
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET でプレゼンテーションの各種プロパティを使いこなし、PowerPoint ファイルの検索性、ブランディング、ワークフローを効率化しましょう。"
 ---
-
 
 ## **ライブ例**
 [**Aspose.Slides メタデータ**](https://products.aspose.app/slides/metadata) オンラインアプリを試して、Aspose.Slides APIを介してドキュメントプロパティを操作する方法を確認してください：

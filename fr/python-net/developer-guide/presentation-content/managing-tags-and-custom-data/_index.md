@@ -1,10 +1,20 @@
 ---
-title: Gestion des balises et des données personnalisées
+title: Gérer les balises et les données personnalisées dans des présentations avec Python
+linktitle: Balises et données personnalisées
 type: docs
 weight: 300
 url: /fr/python-net/managing-tags-and-custom-data/
-keywords: "Balises, Données personnalisées, Valeur des balises, Ajouter des balises, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Ajouter des balises et des données personnalisées aux présentations PowerPoint en Python"
+keywords:
+- propriétés du document
+- balise
+- données personnalisées
+- ajouter une balise
+- paires de valeurs
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment ajouter, lire, mettre à jour et supprimer des balises et des données personnalisées dans Aspose.Slides for Python via .NET, avec des exemples pour les présentations PowerPoint et OpenDocument."
 ---
 
 ## Stockage des données dans les fichiers de présentation

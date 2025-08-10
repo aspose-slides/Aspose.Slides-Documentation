@@ -1,10 +1,27 @@
 ---
-title: Gérer les Hyperliens
+title: Gérer les hyperliens dans les présentations avec Python
+linktitle: Gérer un hyperlien
 type: docs
 weight: 20
 url: /fr/python-net/manage-hyperlinks/
-keywords: "Ajouter un hyperlien, Présentation PowerPoint, Hyperlien PowerPoint, hyperlien texte, hyperlien diapositive, hyperlien forme, hyperlien image, hyperlien vidéo, Python"
-description: "Ajouter un hyperlien à une présentation PowerPoint en Python"
+keywords:
+- ajouter une URL
+- ajouter un hyperlien
+- créer un hyperlien
+- mettre en forme un hyperlien
+- supprimer un hyperlien
+- mettre à jour un hyperlien
+- hyperlien de texte
+- hyperlien vers une diapositive
+- hyperlien de forme
+- hyperlien d’image
+- hyperlien vidéo
+- hyperlien modifiable
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+description: "Gérez facilement les hyperliens dans les présentations PowerPoint et OpenDocument avec Aspose.Slides for Python via .NET — améliorez l’interactivité et vos flux de travail en quelques minutes."
 ---
 
 Un hyperlien est une référence à un objet ou à des données ou à un endroit dans quelque chose. Voici des hyperliens courants dans les présentations PowerPoint :

@@ -1,8 +1,26 @@
 ---
-title: Descripción del Producto
+title: Descripción del producto
 type: docs
 weight: 10
 url: /es/python-net/product-overview/
+keywords:
+- descripción del producto
+- procesamiento de documentos
+- características clave
+- características de presentación
+- características de diapositivas
+- características gráficas
+- características multimedia
+- características de tablas
+- características de texto
+- características avanzadas
+- soporte técnico
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Aspose.Slides for Python via .NET le permite crear, editar y convertir presentaciones de PowerPoint (PPT, PPTX) y OpenDocument (ODP) sin Microsoft Office."
 ---
 
 ![todo:texto_alt_imagen](aspose_slides-for-python.png)

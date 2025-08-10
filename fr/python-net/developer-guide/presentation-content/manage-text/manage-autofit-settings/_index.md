@@ -1,10 +1,22 @@
 ---
-title: Gérer les Paramètres d'Auto-Ajustement
+title: Améliorez vos présentations avec l’ajustement automatique en Python
+linktitle: Paramètres d’ajustement automatique
 type: docs
 weight: 30
 url: /fr/python-net/manage-autofit-settings/
-keywords: "Textbox, Auto-Ajustement, Présentation PowerPoint, Python, Aspose.Slides pour Python via .NET"
-description: "Configurer les paramètres d'auto-ajustement pour les zones de texte dans PowerPoint en Python"
+keywords:
+- zone de texte
+- ajustement automatique
+- ne pas ajuster automatiquement
+- adapter le texte
+- réduire le texte
+- renvoi à la ligne
+- redimensionner la forme
+- PowerPoint
+- présentation
+- Python
+- Aspose.Slides
+description: "Découvrez comment gérer les paramètres d’ajustement automatique dans Aspose.Slides for Python via .NET afin d’optimiser l’affichage du texte dans vos présentations PowerPoint et OpenDocument et d’améliorer la lisibilité du contenu."
 ---
 
 Par défaut, lorsque vous ajoutez une zone de texte, Microsoft PowerPoint utilise le paramètre **Redimensionner la forme pour ajuster le texte** pour la zone de texte—il redimensionne automatiquement la zone de texte pour s'assurer que son texte s'y ajuste toujours.

@@ -1,10 +1,23 @@
 ---
-title: Eingebettete Schriftart
+title: Schriftarten in Präsentationen mit Python einbetten
+linktitle: Schriftarten einbetten
 type: docs
 weight: 40
 url: /de/python-net/embedded-font/
-keywords: "Schriftarten, eingebettete Schriftarten, Schriftarten hinzufügen, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Verwenden Sie eingebettete Schriftarten in PowerPoint-Präsentationen in Python"
+keywords:
+- schriftart hinzufügen
+- schriftart einbetten
+- einbettung von schriftarten
+- eingebettete schriftart abrufen
+- eingebettete schriftart hinzufügen
+- eingebettete schriftart entfernen
+- eingebettete schriftart komprimieren
+- PowerPoint
+- OpenDocument
+- präsentation
+- Python
+- Aspose.Slides
+description: "Betten Sie TrueType-Schriftarten in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides for Python via .NET ein, um eine genaue Wiedergabe auf allen Plattformen zu gewährleisten."
 ---
 
 **Eingebettete Schriftarten in PowerPoint** sind nützlich, wenn Sie möchten, dass Ihre Präsentation korrekt angezeigt wird, wenn sie auf einem beliebigen System oder Gerät geöffnet wird. Wenn Sie eine Schriftart eines Drittanbieters oder eine nicht standardmäßige Schriftart verwendet haben, weil Sie kreativ mit Ihrer Arbeit waren, haben Sie noch mehr Gründe, Ihre Schriftart einzubetten. Andernfalls (ohne eingebettete Schriftarten) können sich die Texte oder Zahlen auf Ihren Folien, das Layout, die Gestaltung usw. ändern oder in verwirrende Rechtecke umwandeln.

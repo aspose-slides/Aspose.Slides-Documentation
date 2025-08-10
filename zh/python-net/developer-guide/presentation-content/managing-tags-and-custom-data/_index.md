@@ -1,10 +1,20 @@
 ---
-title: 管理标签和自定义数据
+title: 用 Python 管理演示文稿中的标签和自定义数据
+linktitle: 标签和自定义数据
 type: docs
 weight: 300
 url: /zh/python-net/managing-tags-and-custom-data/
-keywords: "标签, 自定义数据, 标签值, 添加标签, PowerPoint 演示文稿, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中为 PowerPoint 演示文稿添加标签和自定义数据"
+keywords:
+- 文档属性
+- 标签
+- 自定义数据
+- 添加标签
+- 键值对
+- PowerPoint
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for Python via .NET 中添加、读取、更新和删除标签与自定义数据，并提供适用于 PowerPoint 和 OpenDocument 演示文稿的示例。"
 ---
 
 ## 演示文稿文件中的数据存储

@@ -1,17 +1,20 @@
 ---
-title: Exportar Gráfico
+title: Exportar gráficos de presentaciones con Python
+linktitle: Exportar gráfico
 type: docs
 weight: 90
 url: /es/python-net/export-chart/
 keywords:
 - gráfico
-- imagen del gráfico
-- extraer imagen del gráfico
+- gráfico a imagen
+- gráfico como imagen
+- extraer imagen de gráfico
 - PowerPoint
+- OpenDocument
 - presentación
 - Python
-- Aspose.Slides para Python
-description: "Obtenga imágenes de gráficos de presentaciones de PowerPoint en Python"
+- Aspose.Slides
+description: "Aprenda a exportar gráficos de presentaciones con Aspose.Slides for Python via .NET, compatible con los formatos PPT, PPTX y ODP, y agilice la generación de informes en cualquier flujo de trabajo."
 ---
 
 ## **Obtener Imagen del Gráfico**

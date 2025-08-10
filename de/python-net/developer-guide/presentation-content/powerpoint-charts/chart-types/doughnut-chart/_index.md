@@ -1,10 +1,19 @@
 ---
-title: Donut-Diagramm
+title: Ringdiagramme in Präsentationen mit Python anpassen
+linktitle: Ringdiagramm
 type: docs
 weight: 30
 url: /de/python-net/doughnut-chart/
-keywords: "Donut-Diagramm, Loch in der Mitte, PowerPoint-Präsentation, Python, Aspose.Slides für Python über .NET"
-description: "Loch in der Mitte im Donut-Diagramm in PowerPoint-Präsentation in Python angeben"
+keywords:
+- ringdiagramm
+- innenabstand
+- lochgröße
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Python
+- Aspose.Slides
+description: "Erfahren Sie, wie Sie Ringdiagramme in Aspose.Slides for Python via .NET erstellen und anpassen, mit Unterstützung für PowerPoint- und OpenDocument-Formate für dynamische Präsentationen."
 ---
 
 ## **Loch in der Mitte im Donut-Diagramm angeben**

@@ -1,10 +1,23 @@
 ---
-title: API Moderne
+title: Améliorez le traitement d’images avec l’API moderne
+linktitle: API moderne
 type: docs
 weight: 280
 url: /fr/python-net/modern-api/
-keywords: "API Moderne, Dessin"
-description: "API Moderne"
+keywords:
+- API moderne
+- dessin
+- vignette de diapositive
+- diapositive en image
+- vignette de forme
+- forme en image
+- vignette de présentation
+- présentation en images
+- ajouter une image
+- ajouter une illustration
+- Python
+- Aspose.Slides
+description: "Modernisez le traitement des images de diapositives en remplaçant les API d’imagerie obsolètes par l’API moderne en Python pour une automatisation fluide de PowerPoint et d’OpenDocument."
 ---
 
 ## Introduction

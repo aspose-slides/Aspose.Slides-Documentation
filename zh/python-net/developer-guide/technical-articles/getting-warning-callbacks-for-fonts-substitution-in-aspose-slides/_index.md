@@ -1,8 +1,18 @@
 ---
-title: 获取 Aspose.Slides 中字体替换的警告回调
+title: 在 Python 中获取字体替换的警告回调
 type: docs
 weight: 120
 url: /zh/python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+keywords:
+- 警告回调
+- 字体替换
+- 渲染过程
+- PowerPoint
+- OpenDocument
+- 演示文稿
+- Python
+- Aspose.Slides
+description: "了解如何在 Aspose.Slides for Python via .NET 中获取字体替换的警告回调，并准确呈现 PowerPoint 和 OpenDocument 演示文稿。"
 ---
 
 {{% alert color="primary" %}} 
