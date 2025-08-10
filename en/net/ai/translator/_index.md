@@ -1,6 +1,6 @@
 ---
 title: "AI-Powered Presentation Translator"
-linktitle: "AI-Powered Presentation Translator"
+linktitle: "AI-Powered Translator"
 type: docs
 weight: 20
 url: /net/ai/generator/
@@ -46,7 +46,7 @@ using (Presentation pres = new Presentation("Presentation.pptx"))
 }
 ```
 
-By default, the built-in [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) creates and manages its own internal [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the [HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) yourself - such as when using an [`IHttpClientFactory`](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) for better resource management and performance - you can provide your own HttpClient instance when constructing the [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
+By default, the built-in [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/) creates and manages its own internal [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) instance, handling its lifecycle and disposal automatically. However, if you prefer to manage the [`HttpClient`](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient) yourself - such as when using an [`IHttpClientFactory`](https://learn.microsoft.com/en-us/dotnet/core/extensions/httpclient-factory) for better resource management and performance - you can provide your own HttpClient instance when constructing the [`OpenAIWebClient`](https://reference.aspose.com/slides/net/aspose.slides.ai/openaiwebclient/).
 
 ```csharp
 // Assume you have an IHttpClientFactory instance (e.g., injected via dependency injection).
