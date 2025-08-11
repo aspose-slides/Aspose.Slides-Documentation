@@ -31,17 +31,16 @@ description: "Learn how to format and style text in PowerPoint and OpenDocument 
 ---
 
 ## **Highlight Text**
-New HighlightText method has been added to ITextFrame interface and TextFrame class.
 
-It allows to highlight text part with background color using text sample, similar to Text Highlight Color tool in PowerPoint 2019.
+The `highlight_text` method in the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) class allows you to highlight a part of the text with a background color using a text sample, similar to the Text Highlight Color tool in PowerPoint 2019.
 
-The code snippet below shows how to use this feature:
+The following code snippet shows how to use this feature:
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation(path + "SomePresentation.pptx") as presentation:
+with slides.Presentation("SomePresentation.pptx") as presentation:
     presentation.slides[0].shapes[0].text_frame.highlight_text("title", draw.Color.light_blue)
 
     opts = slides.TextHighlightingOptions()
@@ -51,18 +50,9 @@ with slides.Presentation(path + "SomePresentation.pptx") as presentation:
     presentation.save("SomePresentation-out2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" %}} 
+## **Highlight Text Using Regular Expressions**
 
-Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor).
-
-{{% /alert %}} 
-
-
-## **Highlight Text using Regular Expression**
-New HighlightRegex method has been added to ITextFrame interface and TextFrame class.
-
-It allows to highlight text part with background color using regex, similar to Text Highlight Color tool in PowerPoint 2019.
-
+The `highlight_regex` method of the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) class lets you highlight a portion of text with a background color using a regular expression, similar to the Text Highlight Color tool in PowerPoint 2019.
 
 The code snippet below shows how to use this feature:
 
@@ -70,19 +60,16 @@ The code snippet below shows how to use this feature:
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation(path + "SomePresentation.pptx") as presentation:
+with slides.Presentation("SomePresentation.pptx") as presentation:
     options = slides.TextHighlightingOptions()
 
     presentation.slides[0].shapes[0].text_frame.highlight_regex("\\b[^\s]{5,}\\b", draw.Color.blue, options) 
     presentation.save("SomePresentation-out3.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Set Text Background Color**
 
-Aspose.Slides allows you to specify your preferred color for the background of a text.
-
-This Python code shows you how to set the background color for an entire text: 
+Aspose.Slides allows you to specify your preferred background color for text. The Python code below shows how to set the background color for the entire text:
 
 ```python
 import aspose.slides as slides
@@ -118,7 +105,7 @@ with slides.Presentation("text.pptx") as pres:
     pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-This Python code shows you how to set the background color for only a portion of a text:
+This Python code shows how to set the background color for only a portion of the text:
 
 ```python
 import aspose.slides as slides
@@ -157,24 +144,24 @@ with slides.Presentation("text.pptx") as pres:
     pres.save("text-red.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Align Text Paragraphs**
-Text formatting is one of the key elements while creating any kind of documents or presentations. We know that Aspose.Slides for Python via .NET supports adding text to slides but in this topic, we will see that how can we control the alignment of the text paragraphs in a slide. Please follow the steps below to align text paragraphs using Aspose.Slides for Python via .NET :
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Obtain the reference of a slide by using its Index.
-3. Access the Placeholder shapes present in the slide and typecast them as a AutoShape.
-4. Get the Paragraph (that needs to be aligned) from the TextFrame exposed by AutoShape.
-5. Align the Paragraph. A paragraph can be aligned to Right, Left, Center & Justify.
-6. Write the modified presentation as a PPTX file.
+Text formatting is a key element when creating documents or presentations. Aspose.Slides for Python via .NET supports adding text to slides; in this section, we’ll see how to control paragraph alignment in a slide. Follow these steps to align text paragraphs using Aspose.Slides for Python via .NET:
 
-The implementation of the above steps is given below.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Access the placeholder shapes on the slide and cast them to [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+1. From the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) exposed by the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/), get the paragraph that needs to be aligned.
+1. Align the paragraph. A paragraph can be aligned `LEFT`, `RIGHT`, `CENTER`, `JUSTIFY`, `JUSTIFY_LOW`, or `DISTRIBUTED`.
+1. Save the modified presentation as a PPTX file.
+
+The implementation of these steps is shown below.
 
 ```py
 import aspose.slides as slides
 
 # Instantiate a Presentation object that represents a PPTX file
-with slides.Presentation(path + "ParagraphsAlignment.pptx") as presentation:
+with slides.Presentation("ParagraphsAlignment.pptx") as presentation:
     # Accessing first slide
     slide = presentation.slides[0]
 
@@ -198,22 +185,22 @@ with slides.Presentation(path + "ParagraphsAlignment.pptx") as presentation:
     presentation.save("Centeralign_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Text Transparency**
 
-## **Set Transparency for Text**
-This article demonstrates how to set transparency property to any text shape using Aspose.Slides for Python via .NET. In order to set the transparency to text. Please follow the steps below:
+This section demonstrates how to set the transparency property for any text shape using Aspose.Slides for Python via .NET. To set text transparency, follow these steps:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Get the reference of a slide.
-3. Set shadow color
-4. Write the presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a reference to a slide.
+1. Set the shadow color.
+1. Save the presentation as a PPTX file.
 
-The implementation of the above steps is given below.
+The implementation of these steps is given below.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-with slides.Presentation(path + "transparency.pptx") as pres:
+with slides.Presentation("transparency.pptx") as pres:
     shape = pres.slides[0].shapes[0]
     effects = shape.text_frame.paragraphs[0].portions[0].portion_format.effect_format
 
@@ -227,12 +214,11 @@ with slides.Presentation(path + "transparency.pptx") as pres:
     pres.save("transparency-2.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Text Character Spacing**
 
-## **Set Character Spacing for Text**
+Aspose.Slides lets you adjust the spacing between letters in a text box. This allows you to control the visual density of a line or block of text by expanding or condensing the spacing between characters.
 
-Aspose.Slides allows you to set the space between letters in a textbox. This way, you get to adjust the visual density of a line or block of text by expanding or condensing the spacing between characters.
-
-This Python code shows you how to expand the spacing for one line of text and condense the spacing for another line: 
+The Python example below shows how to expand the spacing for one line of text and condense it for another:
 
 ```python
 import aspose.slides as slides
@@ -248,30 +234,32 @@ with slides.Presentation("in.pptx") as pres:
     pres.save("out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Manage Paragraph Font Properties**
 
-## **Manage Paragraph's Font Properties**
-Presentations usually contain both text and images. The text can be formatted in a various ways, either to highlight specific sections and words, or to conform with corporate styles. Text formatting helps users vary the look and feel of the presentation content. This article shows how to use Aspose.Slides for Python via .NET to configure the font properties of paragraphs of text on slides. To manage font properties of a paragraph using Aspose.Slides for Python via .NET :
+Presentations usually contain both text and images. The text can be formatted in various ways—either to highlight specific sections and words or to conform to corporate styles. Text formatting helps users change the look and feel of the presentation content.
+
+This section demonstrates how to use Aspose.Slides for Python via .NET to configure the font properties of paragraphs in slide text. To manage a paragraph’s font properties using Aspose.Slides for Python via .NET:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Obtain a slide's reference by using its index.
-1. Access the Placeholder shapes in the slide and typecast them to AutoShape.
-1. Get the Paragraph from the TextFrame exposed by AutoShape.
+1. Get a reference to a slide by using its index.
+1. Access the placeholder shapes on the slide and cast them to [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+1. Get the paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) exposed by [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 1. Justify the paragraph.
-1. Access a Paragraph's text Portion.
-1. Define the font using FontData and set the Font of the text Portion accordingly.
+1. Access the paragraph’s text portion.
+1. Define the font using [FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/) and set the font of the text portion accordingly.
    1. Set the font to bold.
    1. Set the font to italic.
-1. Set the font color using the FillFormat exposed by the Portion object.
-1. Write the modified presentation to a [PPTX](https://docs.fileformat.com/presentation/pptx/) file.
+1. Set the font color using the [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) exposed by the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) object.
+1. Save the modified presentation as a PPTX file.
 
-The implementation of the above steps is given below. It takes an unadorned presentation and formats the fonts on one of the slides.
+The implementation of the above steps is shown below. It takes a plain presentation and applies font formatting to one of the slides.
 
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
 # Instantiate a Presentation object that represents a PPTX file
-with slides.Presentation(path + "FontProperties.pptx") as pres:
+with slides.Presentation("FontProperties.pptx") as pres:
     # Accessing a slide using its slide position
     slide = pres.slides[0]
 
@@ -313,22 +301,24 @@ with slides.Presentation(path + "FontProperties.pptx") as pres:
     pres.save("WelcomeFont_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Manage the Font Family of Text**
 
-## **Manage Font Family of Text**
-A Portion is used to hold text with similar formatting style in a paragraph. This article shows how to use Aspose.Slides for Python to create a textbox with some text and then define a particular font, and various other properties of the font family category. To create a textbox and set font properties of the text in it::
+[Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) objects are used to hold text with a similar formatting style within a paragraph. This section demonstrates how to use Aspose.Slides for Python to create a text box, add text to it, and then define a specific font along with various other font family properties.
+
+To create a text box and set the font properties of the text inside it:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Obtain the reference of a slide by using its index.
-3. Add an AutoShape of the type Rectangle to the slide.
-4. Remove the fill style associated with the AutoShape.
-5. Access the AutoShape's TextFrame.
-6. Add some text to the TextFrame.
-7. Access the Portion object associated with the TextFrame.
-8. Define the font to be used for the Portion.
-9. Set other font properties like bold, italic, underline, color and height using the relevant properties as exposed by the Portion object.
-10. Write the modified presentation as a PPTX file.
+1. Get a reference to a slide by its index.
+1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) of type `RECTANGLE` to the slide.
+1. Remove the fill style associated with the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+1. Access the AutoShape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Add text to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Access the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) object associated with the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Define the font to be used for the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/).
+1. Set other font properties such as bold, italic, underline, color, and height using the relevant properties exposed by the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) object.
+1. Save the modified presentation as a PPTX file.
 
-The implementation of the above steps is given below.
+The implementation of the above steps is shown below.
 
 ```py
 import aspose.slides as slides
@@ -376,11 +366,11 @@ with slides.Presentation() as presentation:
 ```
 
 
-## **Set Font Size for Text**
+## **Set the Font Size for Text**
 
-Aspose.Slides allows you to choose your preferred font size for existing text in a paragraph and other texts that may be added to the paragraph later.
+Aspose.Slides allows you to set your preferred font size for existing text in a paragraph, as well as for any text that may be added to the paragraph later.
 
-This Python code shows you how to set the font size for texts contained in a paragraph: 
+This Python example demonstrates how to set the font size for text contained in a paragraph:
 
 ```python
 import aspose.slides as slides
@@ -405,16 +395,18 @@ with slides.Presentation("pres.pptx") as presentation:
 
 ```
 
-
 ## **Set Text Rotation**
-Aspose.Slides for Python via .NET allows developers to rotate the text. Text could be set to appear as Horizontal, Vertical, Vertical270, WordArtVertical, EastAsianVertical, MongolianVertical or WordArtVerticalRightToLeft. To rotate the text of any TextFrame, please follow the steps below:
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the first slide.
-3. Add any Shape to the slide.
-4. Access the TextFrame.
-5. Rotate the text.
-6. Save file to disk.
+Aspose.Slides for Python via .NET allows developers to rotate text. Text can be set to appear as `HORIZONTAL`, `VERTICAL`, `VERTICAL270`, `WORD_ART_VERTICAL`, `EAST_ASIAN_VERTICAL`, `MONGOLIAN_VERTICAL`, or `WORD_ART_VERTICAL_RIGHT_TO_LEFT`.
+
+To rotate the text in any [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Access the first slide.
+1. Add a shape to the slide.
+1. Access the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Apply the desired text rotation.
+1. Save the file to disk.
 
 ```py
 import aspose.slides as slides
@@ -449,16 +441,18 @@ with slides.Presentation() as presentation:
     presentation.save("RotateText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set a Custom Rotation Angle for a TextFrame**
 
-## **Set Custom Rotation Angle for TextFrame**
-Aspose.Slides for Python via .NET now supports, Setting custom rotation angle for textframe. In this topic, we will see with example how to set the RotationAngle property in Aspose.Slides. The new property RotationAngle has been added to IChartTextBlockFormat and ITextFrameFormat interfaces, allows to set the custom rotation angle for textframe. In order to set the RotationAngle property, Please follow the steps below:
+Aspose.Slides for Python via .NET supports setting a custom rotation angle for a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/). In this section, we will demonstrate how to use the `rotation_angle` property in Aspose.Slides.
 
-1. Create an instance of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
-2. Add a chart on slide.
-3. Set RotationAngle property.
-4. Write the presentation as a PPTX file.
+To set the `rotation_angle` property, follow these steps:
 
-In the example given below, we set the RotationAngle property.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Add a chart to the slide.
+1. Set the `rotation_angle` property.
+1. Save the presentation as a PPTX file.
+
+In the example below, we set the `rotation_angle` property.
 
 ```py
 import aspose.slides as slides
@@ -479,33 +473,33 @@ with slides.Presentation() as presentation:
     presentation.save("textframe-rotation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set the Line Spacing of Paragraphs**
 
-## **Line Spacing of Paragraph**
-Aspose.Slides provides properties under `paragraph_format`—`space_after`, `space_before` and `space_within`—that allow you to manage the line spacing for a paragraph. The three properties are used this way:
+Aspose.Slides provides the `space_after`, `space_before`, and `space_within` properties under the [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/) class to control a paragraph’s line spacing. These properties work as follows:
 
-* To specify the line spacing for a paragraph in percentage, use a positive value. 
-* To specify the line spacing for a paragraph in points, use a negative value.
+* To specify line spacing as a percentage, use a positive value.
+* To specify line spacing in points, use a negative value.
 
-For example, you can apply a 16pt line spacing for a paragraph by setting the `space_before` property to -16.
+For example, to apply a 16 pt line spacing before a paragraph, set the `space_before` property to `-16`.
 
-This is how you specify the line spacing for a specific paragraph:
+Here’s how to set the line spacing for a specific paragraph:
 
-1. Load a presentation containing an AutoShape with some text in it.
-2. Get a slide's reference through its index.
-3. Access the TextFrame.
-4. Access the Paragraph.
-5. Set the Paragraph properties.
-6. Save the presentation.
+1. Load a presentation that contains an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) with text.
+1. Get a reference to the slide by its index.
+1. Access the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Access the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/).
+1. Set the desired paragraph properties.
+1. Save the presentation.
 
-This Python code shows you how to specify the line spacing for a paragraph:
+The following Python example demonstrates how to set the line spacing for a paragraph:
 
 ```py
 import aspose.slides as slides
 
 # Create an instance of Presentation class
-with slides.Presentation(path + "Fonts.pptx") as presentation:
+with slides.Presentation("Fonts.pptx") as presentation:
 
-    # Obtain a slide's reference by its index
+    # Get a slide's reference by its index
     sld = presentation.slides[0]
 
     # Access the TextFrame
@@ -522,16 +516,23 @@ with slides.Presentation(path + "Fonts.pptx") as presentation:
     presentation.save("LineSpacing_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 ## **Set the AutofitType Property for TextFrame**
-In this topic, we will explore the different formatting properties of text frame. This article covers how to Set the AutofitType property of text frame, anchor of text and rotating the text in presentation. Aspose.Slides for Python via .NET allows developers to set AutofitType property of any text frame. AutofitType could be set to Normal or Shape. If set to Normal then shape will remain the same whereas the text will be adjusted without causing the shape to change itself whereas If AutofitType is set to shape, then shape will be modified such that only required text is contained in it. To set the AutofitType property of a text frame, please follow the steps below:
 
-1. Create an instance of [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)class.
-2. Access the first slide.
-3. Add any shape to the slide.
-4. Access the TextFrame.
-5. Set the AutofitType of the TextFrame.
-6. Save file to disk.
+In this section, we will explore various formatting properties of a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), including how to set its `autofit_type`, adjust the text anchor, and rotate text in a presentation.
+
+Aspose.Slides for Python via .NET allows developers to set the `autofit_type` property of any [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/). The `autofit_type` can be set to either `NORMAL` or `SHAPE`:
+
+* If set to `NORMAL`, the shape remains unchanged while the text is adjusted to fit within it.
+* If set to `SHAPE`, the shape is resized so that it contains only the required text.
+
+To set the `autofit_type` property of a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Access the first slide.
+1. Add a shape to the slide.
+1. Access the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Set the `autofit_type` for the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Save the file to disk.
 
 ```py
 import aspose.slides as slides
@@ -567,16 +568,18 @@ with slides.Presentation() as presentation:
     presentation.save("formatText_out.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
+## **Set the Anchor of a TextFrame**
 
-## **Set Anchor of TextFrame**
-Aspose.Slides for Python via .NET allows developers to Anchor of any TextFrame. TextAnchorType specifies that where is that text placed in the shape. TextAnchorType could be set to Top, Center, Bottom, Justified or Distributed. To set Anchor of any TextFrame, please follow the steps below:
+Aspose.Slides for Python via .NET allows developers to set the anchor position of any [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/). The [TextAnchorType](https://reference.aspose.com/slides/python-net/aspose.slides/textanchortype/) property specifies where the text is placed within the shape. It can be set to `TOP`, `CENTER`, `BOTTOM`, `JUSTIFIED`, or `DISTRIBUTED`.
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the first slide.
-3. Add any shape to the slide.
-4. Access the TextFrame.
-5. Set TextAnchorType of the TextFrame.
-6. Save file to disk.
+To set the anchor of a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Access the first slide.
+1. Add a shape to the slide.
+1. Access the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Set the [TextAnchorType](https://reference.aspose.com/slides/python-net/aspose.slides/textanchortype/) for the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Save the file to disk.
 
 ```py
 import aspose.slides as slides
@@ -611,19 +614,11 @@ with slides.Presentation() as presentation:
     presentation.save("AnchorText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set the Default Text Style**
 
-## **Set Text Tabulation**
-- EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
-- EffectiveTabs collection includes all tabs (from Tabs collection and default tabs)
-- EffectiveTabs.ExplicitTabCount (2 in our case) property is equal to Tabs.Count.
-- EffectiveTabs.DefaultTabSize (294) property shows distance between default tabs (3 and 4 in our example).
-- EffectiveTabs.GetTabByIndex(index) with index = 0 will return first explicit tab (Position = 731), index = 1 - second tab (Position = 1241). If you try to get next tab with index = 2 it will return first default tab (Position = 1470) and etc.
-- EffectiveTabs.GetTabAfterPosition(pos) used for getting next tabulation after some text. For example you have text: "Helloworld!". To render such text you should know where to start draw "world!". At first, you should calculate length of "Hello" in pixels and call GetTabAfterPosition with this value. You will get next tab position to draw "world!".
+If you need to apply the same default text formatting to all text elements in a presentation, you can use the `default_text_style` property of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and set the desired formatting.
 
-
-## **Set Default Text Style**
-
-If you need to apply the same default text formatting to all text elements of a presentation at once, then you can use the `default_text_style` property from the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and set the preferred formatting. The code example below shows how to set the default bold font (14 pt) for the text on all slides in a new presentation.
+The example below demonstrates how to set the default font to bold, with a size of 14 pt, for all text across every slide in a new presentation.
 
 ```py
 with slides.Presentation() as presentation:
@@ -666,3 +661,9 @@ Output:
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
+
+{{% alert color="primary" %}}
+
+Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor).
+
+{{% /alert %}}
