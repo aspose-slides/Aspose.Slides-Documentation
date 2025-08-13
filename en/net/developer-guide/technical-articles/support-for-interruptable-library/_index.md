@@ -86,3 +86,27 @@ private static Task Run(Action<IInterruptionToken> action, IInterruptionToken to
     });
 }
 ```
+
+## FAQ
+
+**Q: What is the purpose of the Aspose.Slides interrupt library?**
+It provides a mechanism to stop long-running operations, such as loading, saving, or rendering presentations, before they complete. This is useful in scenarios where processing time must be limited or when the task is no longer required.
+
+**Q: What is the difference between [`InterruptionToken`](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/) and [`InterruptionTokenSource`](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/)?**
+
+* **InterruptionToken** is passed to the Slides API and checked during long-running operations.
+* **InterruptionTokenSource** is used by your code to create tokens and trigger interruptions by calling `Interrupt()`.
+
+**Q: Can I use .NET [`CancellationToken`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) with the interrupt library?**
+Yes. You can monitor the [`CancellationToken`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) in your application logic and call [`InterruptionTokenSource.Interrupt()`](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) when a cancellation is requested, allowing Slides interruption to integrate with standard .NET cancellation workflows.
+
+**Q: What tasks can be interrupted?**
+Any Slides task that accepts an [`InterruptionToken`](https://reference.aspose.com/slides/net/aspose.slides/interruptiontoken/), such as loading a presentation with `Presentation(path, loadOptions)` or saving with `Presentation.Save(...)`, can be interrupted.
+
+**Q: Does interruption happen immediately?**
+No. Interruption is cooperative. The operation checks the token periodically and stops as soon as it detects a call to [`Interrupt()`](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/).
+
+**Q: What happens if I call [`Interrupt()`](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) after a task has already completed?**
+Nothing - the call will have no effect if the corresponding task has already completed.
+
+**Q: Can I reuse the same [`InterruptionTokenSource`](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/) for multiple tasks?** Yes, but after calling [`Interrupt()`](https://reference.aspose.com/slides/net/aspose.slides/iinterruptiontokensource/interrupt/) on a token source, all tasks using its tokens will be interrupted. Use separate token sources to manage different tasks separately.
