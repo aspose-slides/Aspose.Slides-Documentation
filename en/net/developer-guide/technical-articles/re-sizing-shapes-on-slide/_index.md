@@ -133,8 +133,29 @@ foreach (ISlide slide in presentation.Slides)
     }
 }
 
-presentation.Save("D:\\Resize.pptx", SaveFormat.Pptx);
+presentation.Save("resize.pptx", SaveFormat.Pptx);
 ```
 
+## FAQ
 
+**Q: Why are shapes distorted or cut off after resizing a slide?**
+When resizing a slide, shapes retain their original position and size unless the scale is explicitly changed. This can result in content being cropped or shapes being misaligned.
+
+**Q: Does the provided code work for all shape types?**
+The basic example works for most shape types (text boxes, images, charts, etc.). However, for tables, you need to handle rows and columns separately, since the height and width of a table are determined by the dimensions of individual cells.
+
+**Q: How do I resize tables when resizing a slide?**
+You need to loop through all the rows and columns of the table and resize their height and width proportionally, as shown in the second code example.
+
+**Q: Will this resizing work for master slides and layout slides?**
+Yes, but you should also loop through [`Masters`](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) and [`LayoutSlides`](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and apply the same scaling logic to their shapes to ensure consistency across the presentation.
+
+**Q: Can I change the orientation of a slide (portrait/landscape) along with the resizing?**
+Yes. You can set [`presentation.SlideSize.Orientation`](https://reference.aspose.com/slides/net/aspose.slides/islidesize/orientation/) to change the orientation. Make sure you set the scaling logic accordingly to preserve the layout.
+
+**Q: Is there a limit to the slide size I can set?**
+Aspose.Slides supports custom sizes, but very large sizes may affect performance or compatibility with some versions of PowerPoint.
+
+**Q: How can I prevent fixed aspect ratio shapes from becoming distorted?**
+You can check the `LockAspectRatio` property of the shape before scaling. If it is locked, adjust the width or height proportionally rather than scaling them individually.
 
