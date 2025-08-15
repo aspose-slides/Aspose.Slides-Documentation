@@ -27,275 +27,252 @@ keywords:
 description: "Learn to create, edit and optimize shapes in Aspose.Slides for Python via .NET and deliver high-performance PowerPoint and OpenDocument presentations."
 ---
 
-## **Find Shape in Slide**
-This topic will describe a simple technique to make it easier for developers to find a specific shape on a slide without using its internal Id. It is important to know that PowerPoint Presentation files do not have any way to identify shapes on a slide except an internal unique Id. It seems to be difficult for developers to find a shape using its internal unique Id. All shapes added to the slides have some Alt Text. We suggest developers to use alternative text for finding a specific shape. You can use MS PowerPoint to define the alternative text for objects which you are planning to change in the future.
+## **Overview**
 
-After setting the alternative text of any desired shape, you can then open that presentation using Aspose.Slides for Python via .NET and iterate through all shapes added to a slide. During each iteration, you can check the alternative text of the shape and the shape with the matching alternative text would be the shape required by you. To demonstrate this technique in a better way, we have created a method, [FindShape](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) that does the trick to find a specific shape in a slide and then simply returns that shape.
+This guide introduces shape manipulation in Aspose.Slides for Python via .NET. Learn practical patterns for finding shapes (including by Alternative Text), duplicating, deleting or hiding, reordering, aligning and flipping, reading IDs and layout-driven formatting, and exporting individual shapes to SVG using the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) and [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) APIs.
+
+## **Find Shapes on Slides**
+
+PowerPoint identifies shapes only by internal IDs. Assign a unique Alt Text to the target shape in PowerPoint, then open the presentation with Aspose.Slides for Python, iterate over slide shapes, and select the one whose Alt Text matches. The `find_shape` method implements this approach and returns the matching shape.
 
 ```py
 import aspose.slides as slides
 
-# Method implementation to find a shape in a slide using its alternative text
-def find_shape(slide, alttext):
-    for i in range(len(slide.shapes)):
-        if slide.shapes[i].alternative_text == alttext:
-            return slide.shapes[i]
+# Finds a shape on a slide by its alternative text.
+def find_shape(slide, alt_text):
+    for slide_shape in slide.shapes:
+        if slide_shape.alternative_text == alt_text:
+            return slide_shape
     return None
-    
-# Instantiate a Presentation class that represents the presentation file
-with slides.Presentation(path + "FindingShapeInSlide.pptx") as p:
-    slide = p.slides[0]
-    # Alternative text of the shape to be found
+
+
+# Instantiate the Presentation class that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    # Find the shape with Alt Text "Shape1".
     shape = find_shape(slide, "Shape1")
-    if shape != None:
-        print("Shape Name: " + shape.name)
+    if shape is not None:
+        print("Shape name:", shape.name)
 ```
 
+## **Clone Shapes**
+
+To clone shapes from a source slide to a new slide in Aspose.Slides, follow these steps:
+
+1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) from the source file.
+1. Get the source slide by index and its shapes collection.
+1. Retrieve a blank layout from the master slide.
+1. Add an empty slide using that layout and get its shapes.
+1. Clone shapes into the target slide.
+1. Save the presentation as PPTX.
+
+The following code example clones shapes from one slide to another.
+
+```py
+import aspose.slides as slides
+
+# Instantiate the Presentation class.
+with slides.Presentation("sample.pptx") as presentation:
+    source_shapes = presentation.slides[0].shapes
+    blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    target_slide = presentation.slides.add_empty_slide(blank_layout)
+    target_shapes = target_slide.shapes
+	
+    target_shapes.add_clone(source_shapes[1], 50, 150 + source_shapes[0].height)
+    target_shapes.add_clone(source_shapes[2])
+    target_shapes.insert_clone(0, source_shapes[0], 50, 150)
+
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Remove Shapes**
+
+Aspose.Slides lets you remove any shape from a slide. For example, to delete a shape from the first slide by its Alternative Text, follow these steps:
+
+1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance and load the file.
+1. Access the first slide from the slides collection.
+1. Find the shape by the Alternative Text value.
+1. Remove the shape from the slide’s shapes collection.
+1. Save the presentation to disk in PPTX format.
+
+```py
+import aspose.slides as slides
+
+# Finds a shape on a slide by its alternative text.
+def find_shape(slide, alt_text):
+    for slide_shape in slide.shapes:
+        if slide_shape.alternative_text == alt_text:
+            return slide_shape
+    return None
 
 
-## **Clone Shape**
-To clone a shape to a slide using Aspose.Slides for Python via .NET:
+# Instantiate the Presentation class that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    # Find the shape with Alt Text "User Defined".
+    shape = find_shape(slide, "User Defined")
+    # Remove the shape.
+    slide.shapes.remove(shape)
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Hide Shapes**
+
+Aspose.Slides lets you hide any shape on a slide. For example, to hide a shape on the first slide by its Alternative Text, follow these steps:
+
+1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance and load the file.
+1. Access the first slide from the slides collection.
+1. Find the shape by the Alternative Text value.
+1. Hide the shape.
+1. Save the presentation to disk in PPTX format.
+
+```py
+# Finds a shape on a slide by its alternative text.
+def find_shape(slide, alt_text):
+    for slide_shape in slide.shapes:
+        if slide_shape.alternative_text == alt_text:
+            return slide_shape
+    return None
+
+
+# Instantiate the Presentation class that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    # Find the shape with Alt Text "User Defined".
+    shape = find_shape(slide, "User Defined")
+    # Hide the shape.
+    shape.hidden = True
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Change the Order of Shapes**
+
+Aspose.Slides allows developers to reorder shapes (change their z-order). Reordering determines which shape appears in front or behind. For, example, to reorder two shapes on the first slide, follow the steps below:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Obtain the reference of a slide by using its index.
-1. Access the source slide shape collection.
-1. Add new slide to the presentation.
-1. Clone shapes from the source slide shape collection to the new slide.
-1. Save the modified presentation as a PPTX file.
-
-The example below adds a group shape to a slide.
-
-```py
-import aspose.slides as slides
-
-# Instantiate Presentation class
-with slides.Presentation(path + "Source Frame.pptx") as srcPres:
-	sourceShapes = srcPres.slides[0].shapes
-	blankLayout = srcPres.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-	destSlide = srcPres.slides.add_empty_slide(blankLayout)
-	destShapes = destSlide.shapes
-	destShapes.add_clone(sourceShapes[1], 50, 150 + sourceShapes[0].height)
-	destShapes.add_clone(sourceShapes[2])                 
-	destShapes.insert_clone(0, sourceShapes[0], 50, 150)
-
-	# Write the PPTX file to disk
-	srcPres.save("CloneShape_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-
-## **Remove Shape**
-Aspose.Slides for Python via .NET allows developers to remove any shape. To remove the shape from any slide, please follow the steps below:
-
-1. Create an instance of `Presentation` class.
 1. Access the first slide.
-1. Find the shape with specific AlternativeText.
-1. Remove the shape.
-1. Save file to disk.
+1. Add the first shape (for example, a rectangle).
+1. Add the second shape (for example, a triangle).
+1. Reorder the shapes by moving the second shape to the first position in the collection.
+1. Save the presentation to disk.
 
 ```py
 import aspose.slides as slides
 
-# Create Presentation object
-with slides.Presentation() as pres:
-    # Get the first slide
-    sld = pres.slides[0]
-
-    # Add autoshape of rectangle type
-    shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    shp2 = sld.shapes.add_auto_shape(slides.ShapeType.MOON, 160, 40, 150, 50)
-    alttext = "User Defined"
-    for i in range(len(sld.shapes)):
-        ashp = sld.shapes[0]
-        if ashp.alternative_text == alttext:
-            sld.shapes.remove(ashp)
-
-    # Save presentation to disk
-    pres.save("RemoveShape_out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    # Add two shapes to the slide.
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 150)
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 20, 200, 200, 150)
+    # Move the second shape to the first position.
+    slide.shapes.reorder(0, shape2)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Get the Interop Shape ID**
 
-
-## **Hide Shape**
-Aspose.Slides for Python via .NET allows developers to hide any shape. To hide the shape from any slide, please follow the steps below:
-
-1. Create an instance of `Presentation` class.
-1. Access the first slide.
-1. Find the shape with specific AlternativeText.
-1. Hide the shape.
-1. Save file to disk.
+Aspose.Slides lets you obtain a shape’s unique identifier at the slide scope, unlike the `unique_id` property, which is unique across the entire presentation. The `office_interop_shape_id` property is available on the [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) class. Its value corresponds to the `Id` of the `Microsoft.Office.Interop.PowerPoint.Shape` object. A sample code snippet is shown below.
 
 ```py
 import aspose.slides as slides
 
-# Instantiate Presentation class that represents the PPTX
-with slides.Presentation() as pres:
-    # Get the first slide
-    sld = pres.slides[0]
-
-    # Add autoshape of rectangle type
-    shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    shp2 = sld.shapes.add_auto_shape(slides.ShapeType.MOON, 160, 40, 150, 50)
-    alttext = "User Defined"
-    for i in range(len(sld.shapes)):
-        ashp = sld.shapes[i]
-        if ashp.alternative_text == alttext:
-            ashp.hidden = True
-
-    # Save presentation to disk
-    pres.save("Hiding_Shapes_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-
-## **Change Shapes Order**
-Aspose.Slides for Python via .NET allows developers to reorder the shapes. Reordering the shape specifies which shape is on the front or which shape is at the back. To reorder the shape from any slide, please follow the steps below:
-
-1. Create an instance of `Presentation` class.
-1. Access the first slide.
-1. Add a shape.
-1. Add some text in shape's text frame.
-1. Add another shape with the same co-ordinates.
-1. Reorder the shapes.
-1. Save file to disk.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation(path + "HelloWorld.pptx") as presentation1:
-    slide = presentation1.slides[0]
-    shp3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 365, 400, 150)
-    shp3.fill_format.fill_type = slides.FillType.NO_FILL
-    shp3.add_text_frame(" ")
-
-    txtFrame = shp3.text_frame
-    para = txtFrame.paragraphs[0]
-    portion = para.portions[0]
-    portion.text="Watermark Text Watermark Text Watermark Text"
-    shp3 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 200, 365, 400, 150)
-    slide.shapes.reorder(2, shp3)
-    presentation1.save( "Reshape_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Get Interop Shape ID**
-Aspose.Slides for Python via .NET allows developers to get a unique shape identifier in slide scope in contrast to the UniqueId property, which allows obtaining a unique identifier in presentation scope. Property OfficeInteropShapeId was added to IShape interfaces and Shape class respectively. The value returned by OfficeInteropShapeId property corresponds to the value of the Id of the Microsoft.Office.Interop.PowerPoint.Shape object. Below is a sample code is given.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation(path + "Presentation.pptx") as presentation:
-    # Getting unique shape identifier in slide scope
+with slides.Presentation("sample.pptx") as presentation:
+    # Get the shape’s unique identifier within the slide.
     officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
 ```
 
+## **Set the Alternative Text for Shapes**
 
+Aspose.Slides allows developers to set alternative text for any shape. You can use alternative text to identify and locate shapes in a presentation. The alternative text property can be read and written through both Aspose.Slides and Microsoft PowerPoint. By tagging shapes with this property, you can later remove, hide, or reorder them on a slide.
 
-## **Set Alternative Text for Shape**
-Aspose.Slides for Python via .NET allows developers to set AlternateText of any shape. 
-Shapes in a presentation could be distinguished by the AlternativeText or Shape Name property. 
-AlternativeText property could be read or set by using Aspose.Slides as well as Microsoft PowerPoint. 
-By using this property, you can tag a shape and can perform different operations as Removing a shape, 
-Hiding a shape or Reordering shapes on a slide.
-To set the AlternateText of a shape, please follow the steps below:
+To set the alternative text of a shape, follow these steps:
 
-1. Create an instance of `Presentation` class.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Access the first slide.
-1. Add any shape to the slide.
-1. Do some work with the newly added shape.
-1. Traverse through shapes to find a shape.
-1. Set the AlternativeText.
-1. Save file to disk.
+1. Add a shape to the slide.
+1. Set the alternative text.
+1. Save the presentation to disk.
 
 ```py
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# Instantiate Presentation class that represents the PPTX
-with slides.Presentation() as pres:
-    # Get the first slide
-    sld = pres.slides[0]
-
-    # Add autoshape of rectangle type
-    shp1 = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    shp2 = sld.shapes.add_auto_shape(slides.ShapeType.MOON, 160, 40, 150, 50)
-    shp2.fill_format.fill_type = slides.FillType.SOLID
-    shp2.fill_format.solid_fill_color.color = draw.Color.gray
-
-    for i in range(len(sld.shapes)):
-        shape = sld.shapes[i]
-        if shape != None:
-            shape.alternative_text = "User Defined"
-
-    # Save presentation to disk
-    pres.save("Set_AlternativeText_out.pptx", slides.export.SaveFormat.PPTX)
+# Instantiate the Presentation class that represents a PPTX file.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    # Add a shape.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
+    # Set the alternative text for the shape.
+    shape.alternative_text = "User Defined"
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Access Layout Formats for Shapes**
 
-
-
-## **Access Layout Formats for Shape**
- Aspose.Slides for Python via .NET provides a simple API to access layout formats for a shape. This article demonstrates how you can access layout formats.
-
-Below sample code is given.
+Aspose.Slides provides a simple API for accessing layout formats for shapes. This section demonstrates how to access layout formats.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("Set_AlternativeText_out.pptx") as pres:
-    for layoutSlide in pres.layout_slides:
-        fillFormats = list(map(lambda shape: shape.fill_format, layoutSlide.shapes))
-        lineFormats = list(map(lambda shape: shape.line_format, layoutSlide.shapes))
+with slides.Presentation(folder_path + "sample.pptx") as presentation:
+    for layout_slide in presentation.layout_slides:
+        fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
+        line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))
 ```
 
-## **Render Shape as SVG**
-Now Aspose.Slides for Python via .NET support for rendering a shape as svg. WriteAsSvg method (and its overload) has been added to Shape class and IShape interface. This method allows to save content of the shape as an SVG file. Code snippet below shows how to export slide's shape to an SVG file.
+## **Render Shapes as SVG**
+
+Aspose.Slides supports rendering shapes as SVG. The `write_as_svg` method (and its overloads) on the [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) class lets you save a shape’s contents as an SVG image. The code snippet below shows how to export a shape to an SVG file.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    with open("SingleShape.svg", "wb") as stream:
-        pres.slides[0].shapes[0].write_as_svg(stream)
+with slides.Presentation("sample.pptx") as presentation:
+    with open("output.svg", "wb") as image_stream:
+        # Get the first shape on the first slide.
+        shape = presentation.slides[0].shapes[0]
+        shape.write_as_svg(image_stream)
 ```
 
 ## **Align Shape**
 
-Through the [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) overloaded method, you can 
+Using the `align_shape` method in the [SlidesUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) class, you can:
 
-* align shapes relative to a slide's margins. See Example 1. 
-* align shapes relative to each other. See Example 2. 
+* Align shapes relative to a slide’s margins (see Example 1).
+* Align shapes relative to each other (see Example 2).
 
 The [ShapesAlignmentType](https://reference.aspose.com/slides/python-net/aspose.slides/shapesalignmenttype/) enumeration defines the available alignment options.
 
 **Example 1**
 
-This Python code shows you how to align shapes with indices 1,2 and 4 along the border at the top of a slide:
-Source code below aligns shapes with indices 1,2 and 4 along the top border of the slide. 
+This Python code shows how to align the shapes with indices 1, 2, and 4 to the top edge of the slide:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("OutputPresentation.pptx") as pres:
-     slide = pres.slides[0]
-     shape1 = slide.shapes[1]
-     shape2 = slide.shapes[2]
-     shape3 = slide.shapes[4]
-     slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, pres.slides[0], [
-            slide.shapes.index_of(shape1),
-            slide.shapes.index_of(shape2),
-            slide.shapes.index_of(shape3)])
+align_type = slides.ShapesAlignmentType.ALIGN_TOP
+slide_indices = [1, 2, 4]
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[0]
+    slides.util.SlideUtil.align_shapes(align_type, True, slide, slide_indices)
 ```
 
 **Example 2**
 
-This Python code shows you how to align an entire collection of shapes relative to the bottom shape in the collection:
+This Python example shows how to align all shapes in a collection relative to the bottom-most shape in that collection:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("example.pptx") as pres:
-    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_BOTTOM, False, pres.slides[0].shapes)
+align_type = slides.ShapesAlignmentType.ALIGN_BOTTOM
+
+with slides.Presentation("sample.pptx") as presentation:
+    slides.util.SlideUtil.align_shapes(align_type, False, presentation.slides[0])
 ```
 
 ## **Flip Properties**

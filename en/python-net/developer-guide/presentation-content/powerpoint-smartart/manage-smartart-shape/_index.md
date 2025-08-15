@@ -22,134 +22,124 @@ keywords:
 description: "Automate PowerPoint SmartArt creation, editing, and styling in Python via .NET using Aspose.Slides, featuring concise code examples and performance-focused guidance."
 ---
 
-## **Create SmartArt Shape**
-Aspose.Slides for Python via .NET now facilitates to add custom SmartArt shapes in their slides from scratch. Aspose.Slides for Python via .NET has provided the simplest API to create SmartArt shapes in an easiest way. To create a SmartArt shape in a slide, please follow the steps below:
+## **Create SmartArt Shapes**
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-- Obtain the reference of a slide by using its Index.
-- Add a SmartArt shape by setting it LayoutType.
-- Write the modified presentation as a PPTX file.
+Aspose.Slides for Python via .NET allows you to add custom SmartArt shapes to slides from scratch. The API makes this easy. To add a SmartArt shape to a slide:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get the target slide by its index.
+1. Add a SmartArt shape, specifying its layout type.
+1. Save the modified presentation as a PPTX file.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-# Instantiate the presentation
-with slides.Presentation() as pres:
-    # Access the presentation slide
-    slide = pres.slides[0]
-
-    # Add Smart Art Shape
-    smart = slide.shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
-
-    # Saving presentation
-    pres.save("SimpleSmartArt_out.pptx", slides.export.SaveFormat.PPTX)
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Access the presentation slide.
+    slide = presentation.slides[0]
+    # Add a SmartArt shape.
+    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+    # Save the presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Access SmartArt Shapes on Slides**
 
-
-## **Access SmartArt Shape in Slide**
-The following code will be used to access the SmartArt shapes added in presentation slide. In sample code we will traverse through every shape inside the slide and check if it is a SmartArt shape. If shape is of SmartArt type then we will typecast that to SmartArt instance.
-
-```py
-import aspose.slides as slides
-import aspose.slides.smartart as art
-
-# Load the desired the presentation
-with slides.Presentation(path + "SmartArt.pptx") as pres:
-
-    # Traverse through every shape inside first slide
-    for shape in pres.slides[0].shapes:
-        # Check if shape is of SmartArt type
-        if type(shape) is art.SmartArt:
-            # Typecast shape to SmartArtEx
-            print("Shape Name:" + shape.name)
-```
-
-
-
-## **Access SmartArt Shape with Particular Layout Type**
-The following sample code will help to access the SmartArt shape with particular LayoutType. Please note that you cannot change the LayoutType of the SmartArt as it is read only and is set only when the SmartArt shape is added.
-
-- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
-- Obtain the reference of first slide by using its Index.
-- Traverse through every shape inside first slide.
-- Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
-- Check the SmartArt shape with particular LayoutType and perform what is required to be done afterwards.
+The following code demonstrates how to access SmartArt shapes on a slide. The sample iterates through each shape on the slide and checks whether it is a [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) object.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Traverse through every shape inside first slide
+# Load a presentation file.
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Iterate through every shape on the first slide.
     for shape in presentation.slides[0].shapes:
-        # Check if shape is of SmartArt type
-        if type(shape) is art.SmartArt:
-            # Checking SmartArt Layout
-            if shape.layout == art.SmartArtLayoutType.BASIC_BLOCK_LIST:
-                print("Do some thing here....")
+        # Check whether the shape is a SmartArt shape.
+        if isinstance(shape, smartart.SmartArt):
+            # Print the shape name.
+            print("Shape name:", shape.name)
 ```
 
+## **Access SmartArt Shapes with a Specified Layout Type**
 
+The following example shows how to access a SmartArt shape with a specified layout type. Note that you cannot change a SmartArt’s layout type—it’s read-only and is set when the shape is created.
 
-## **Change SmartArt Shape Style**
-The following sample code will help to access the SmartArt shape with particular LayoutType.
-
-- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
-- Obtain the reference of first slide by using its Index.
-- Traverse through every shape inside first slide.
-- Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
-- Find the SmartArt shape with particular Style.
-- Set the new Style for the SmartArt shape.
-- Save the Presentation.
+1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance and load the presentation that contains the SmartArt shape.
+1. Get a reference to the first slide by index.
+1. Iterate over every shape on the first slide.
+1. Check whether the shape is a [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) object.
+1. If the SmartArt shape’s layout type matches the one you need, perform the required actions.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Traverse through every shape inside first slide
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Iterate through every shape on the first slide.
     for shape in presentation.slides[0].shapes:
-        # Check if shape is of SmartArt type
-        if type(shape) is art.SmartArt:
-            # Checking SmartArt style
-            if shape.quick_style == art.SmartArtQuickStyleType.SIMPLE_FILL:
-                # Changing SmartArt Style
-                smart.quick_style = art.SmartArtQuickStyleType.CARTOON
-
-    # Saving Presentation
-    presentation.save("ChangeSmartArtStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # Check whether the shape is a SmartArt shape.
+        if isinstance(shape, smartart.SmartArt):
+            # Check the SmartArt layout type.
+            if shape.layout == smartart.SmartArtLayoutType.BASIC_BLOCK_LIST:
+                print("Do something here...")
 ```
 
+## **Change the SmartArt Shape Style**
 
+The following example shows how to locate SmartArt shapes and change their style:
 
-## **Change SmartArt Shape Color Style**
-In this example, we will learn to change the color style for any SmartArt shape. In the following sample code will access the SmartArt shape with particular color style and will change its style.
-
-- Create an instance of `Presentation` class and load the presentation with SmartArt Shape.
-- Obtain the reference of first slide by using its Index.
-- Traverse through every shape inside first slide.
-- Check if shape is of SmartArt type and Typecast selected shape to SmartArt if it is SmartArt.
-- Find the SmartArt shape with particular Color Style.
-- Set the new Color Style for the SmartArt shape.
-- Save the Presentation.
+1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) and load the file that contains the SmartArt shape(s).
+1. Get a reference to the first slide by index.
+1. Iterate over each shape on the first slide.
+1. Find the SmartArt shape with the specified style.
+1. Assign the new style to the SmartArt shape.
+1. Save the presentation.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation(path + "SmartArt.pptx") as presentation:
-    # Traverse through every shape inside first slide
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Iterate through every shape on the first slide.
     for shape in presentation.slides[0].shapes:
-        # Check if shape is of SmartArt type
-        if type(shape) is art.SmartArt:
-            # Checking SmartArt color type
-            if shape.color_style == art.SmartArtColorType.COLORED_FILL_ACCENT1:
-                # Changing SmartArt color type
-                shape.color_style = art.SmartArtColorType.COLORFUL_ACCENT_COLORS
-
-    # Saving Presentation
-    presentation.save("ChangeSmartArtColorStyle_out.pptx", slides.export.SaveFormat.PPTX)
+        # Check whether the shape is a SmartArt shape.
+        if isinstance(shape, smartart.SmartArt):
+            # Check the SmartArt style.
+            if shape.quick_style == smartart.SmartArtQuickStyleType.SIMPLE_FILL:
+                # Change the SmartArt style.
+                smart.quick_style = smartart.SmartArtQuickStyleType.CARTOON
+    # Save the presentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Change the Color Style of SmartArt Shapes**
+
+This example shows how to change the color style of a SmartArt shape. The sample code locates a SmartArt shape with a specified color style and updates it.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation that contains the SmartArt shape(s).
+1. Get a reference to the first slide by index.
+1. Iterate over each shape on the first slide.
+1. Check whether the shape is a [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/) object.
+1. Locate the SmartArt shape with the specified color style.
+1. Set the new color style for that SmartArt shape.
+1. Save the presentation.
+
+```py
+import aspose.slides as slides
+import aspose.slides.smartart as smartart
+
+with slides.Presentation("SmartArt.pptx") as presentation:
+    # Iterate through every shape on the first slide.
+    for shape in presentation.slides[0].shapes:
+        # Check whether the shape is a SmartArt shape.
+        if isinstance(shape, smartart.SmartArt):
+            # Check the color type.
+            if shape.color_style == smartart.SmartArtColorType.COLORED_FILL_ACCENT1:
+                # Change the color type.
+                shape.color_style = smartart.SmartArtColorType.COLORFUL_ACCENT_COLORS
+    # Save the presentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```

@@ -17,72 +17,65 @@ keywords:
 description: "Master superscript and subscript in Aspose.Slides for Python via .NET and elevate your presentations with professional text formatting for maximum impact."
 ---
 
-## **Manage Super Script and Sub Script Text**
-You can add superscript and subscript text inside any paragraph portion. For adding Superscript or Subscript text in Aspose.Slides text frame one must use **the Escapement** properties of PortionFormat class.
+You can add superscript and subscript text to any paragraph portion. In Aspose.Slides, use the `escapement` property of the [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) class to control this.
 
-This property returns or sets the superscript or subscript text (value from -100% (subscript) to 100% (superscript). For example :
+`escapement` is a percentage from **-100% to 100%**:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-- Obtain the reference of a slide by using its Index.
-- Add an IAutoShape of Rectangle type to the slide.
-- Access the ITextFrame associated with the IAutoShape.
-- Clear existing Paragraphs
-- Create a new paragraph object for holding superscript text and add it to the IParagraphs collection of the ITextFrame.
-- Create a new portion object
-- Set Escapement property for the portion between 0 to 100 for adding superscript. (0 mean no superscript)
-- Set some text for Portion and then add that in portion collection of paragraph.
-- Create a new paragraph object for holding subscript text and add it to the IParagraphs collection of the ITextFrame.
-- Create a new portion object
-- Set Escapement property for portion between 0 to -100 for adding superscript. (0 mean no subscript)
-- Set some text for Portion and then add that in portion collection of paragraph.
-- Save the presentation as a PPTX file.
+- **> 0** → superscript (e.g., 25% = slight raise; 100% = full superscript)
+- **0** → baseline (no super/subscript)
+- **< 0** → subscript (e.g., -25% = slight lower; -100% = full subscript)
 
-The implementation of the above steps is given below.
+Steps:
+
+1. Create a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) and get a slide.
+1. Add a rectangle [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) and access its [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Clear existing paragraphs.
+1. For superscript: create a paragraph and a portion, set `portion.portion_format.escapement` to a value between **0 and 100**, set text, and add the portion.
+1. For subscript: create another paragraph and portion, set `escapement` to a value between **-100 and 0**, set text, and add the portion.
+1. Save the presentation as PPTX.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation("pres.pptx") as presentation:
-    # Get slide
+    # Get a slide.
     slide = presentation.slides[0]
 
-    # Create text box
+    # Create a text box.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
-    textFrame = shape.text_frame
-    textFrame.paragraphs.clear()
+    shape.text_frame.paragraphs.clear()
 
-    # Create paragraph for superscript text
-    superPar = slides.Paragraph()
+    # Create a paragraph for superscript text.
+    superscript_paragraph = slides.Paragraph()
 
-    # Create portion with usual text
+    # Create a text portion with regular text.
     portion1 = slides.Portion()
     portion1.text = "SlideTitle"
-    superPar.portions.add(portion1)
+    superscript_paragraph.portions.add(portion1)
 
-    # Create portion with superscript text
-    superPortion = slides.Portion()
-    superPortion.portion_format.escapement = 30
-    superPortion.text = "TM"
-    superPar.portions.add(superPortion)
+    # Create a text portion with superscript text.
+    superscript_portion = slides.Portion()
+    superscript_portion.portion_format.escapement = 30
+    superscript_portion.text = "TM"
+    superscript_paragraph.portions.add(superscript_portion)
 
-    # Create paragraph for subscript text
-    paragraph2 = slides.Paragraph()
+    # Create a paragraph for the subscript text.
+    subscript_paragraph = slides.Paragraph()
 
-    # Create portion with usual text
+    # Create a text portion with regular text.
     portion2 = slides.Portion()
     portion2.text = "a"
-    paragraph2.portions.add(portion2)
+    subscript_paragraph.portions.add(portion2)
 
-    # Create portion with subscript text
-    subPortion = slides.Portion()
-    subPortion.portion_format.escapement = -25
-    subPortion.text = "i"
-    paragraph2.portions.add(subPortion)
+    # Create a text portion with subscript text.
+    subscript_portion = slides.Portion()
+    subscript_portion.portion_format.escapement = -25
+    subscript_portion.text = "i"
+    subscript_paragraph.portions.add(subscript_portion)
 
-    # Add paragraphs to text box
-    textFrame.paragraphs.add(superPar)
-    textFrame.paragraphs.add(paragraph2)
+    # Add the paragraphs to the text box.
+    shape.text_frame.paragraphs.add(superscript_paragraph)
+    shape.text_frame.paragraphs.add(subscript_paragraph)
 
     presentation.save("TestOut.pptx", slides.export.SaveFormat.PPTX)
 ```
-
