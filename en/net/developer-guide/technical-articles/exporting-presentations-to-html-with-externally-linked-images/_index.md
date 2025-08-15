@@ -1,41 +1,61 @@
 ---
-title: Exporting Presentations to HTML with Externally Linked Images
+title: Export Presentations to HTML with Externally Linked Images
 type: docs
 weight: 100
 url: /net/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- export slide
+- export PPT
+- export PPTX
+- export ODP
+- PowerPoint to HTML
+- OpenDocument to HTML
+- presentation to HTML
+- slide to HTML
+- PPT to HTML
+- PPTX to HTML
+- ODP to HTML
+- linked image
+- externally linked image
+- Python
+- Aspose.Slides
+description: "Export PowerPoint and OpenDocument presentations to HTML in .NET using Aspose.Slides with externally linked images—faster pages, code examples, and setup tips."
 ---
 
 {{% alert color="primary" %}} 
 
-The Presentation to HTML export procedure here allows you to determine specify the
+The presentation-to-HTML export process lets you specify:
 
-1. resources that will be embedded into the resulting HTML file
-2. the resources that will be saved externally and referenced from the HTML file.
+1. which resources are embedded in the resulting HTML file, and
+1. which resources are saved externally and referenced from the HTML file.
 
 {{% /alert %}} 
 
 ## **Background**
 
-The default HTML export behavior is to embed all resources inside the HTML file through base64 encoding. Such an approach outputs a single HTML file, which is convenient for viewing and distribution. The default approach suffers from these limitations: 
+By default, HTML export embeds all resources directly in the HTML using Base64 encoding. This produces a single, self-contained HTML file that’s convenient for viewing and distribution. However, this approach has drawbacks:
 
-* the outputted file is significantly larger than its constituents due to the base64 encoding. 
-* the images or resources contained in the file are difficult to replace.
+* The resulting file is significantly larger than the original resources because of Base64 overhead.
+* Embedded images and other assets are difficult to update or replace.
 
-### **A Different Approach**
+## **Alternative Approach**
 
-A different approach involving **[ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/)** avoids the listed limitations.  
+An alternative approach using [ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/) avoids these limitations.
 
-The `LinkController` class implements the `ILinkEmbedController` interface. The interface is then passed to the [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor) class constructor. The ILinkEmbedController interface contains three methods that control the resource embedding and saving process:
+The `LinkController` class below implements [ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/) and is passed to the [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor_1) constructor. The interface exposes three methods that control how resources are embedded or linked during HTML export:
 
-**[GetObjectStoringLocation](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation)(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)**: This method is called when the exporter encounters a resource and must decide how to store the resource. *id* (resource unique identifier for the export operation) and *contentType* (containing the resource MIME type) are the most important parameters under the method. If you want to link the resource, you must return [LinkEmbedDecision.Link](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) enum from the method. Otherwise (to embed the resource), you must return [LinkEmbedDecision.Embed](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/).
+[GetObjectStoringLocation(id, entityData, semanticName, contentType, recommendedExtension)](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation): Called when the exporter encounters a resource and must decide where to store it. The most important parameters are `id` (the resource’s unique identifier for this export run) and `contentType` (the resource MIME type). Return [LinkEmbedDecision.Link](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) to link the resource, or [LinkEmbedDecision.Embed](https://reference.aspose.com/slides/net/aspose.slides.export/linkembeddecision/) to embed it.
 
-**[GetUrl](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/geturl)(int id, int referrer)**: This method is called to get the resource URL in the form the same way it is used the resulting file. The resource is identified by *id*.
+[GetUrl(id, referrer)](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/geturl/): Returns the URL that will appear in the resulting HTML for the resource identified by `id` (optionally considering the referrer object).
 
-**[SaveExternal](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/saveexternal)(int id, byte[] entityData)**: As the final method of the sequence, it is called when it is time for the resource to be stored externally. Since the resource identifier and the resource contents exist in a byte array, you can perform all kinds of tasks with the resource data.
+[SaveExternal(id, entityData)](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/saveexternal/): Called when a resource selected for linking needs to be written externally. Because the identifier and contents are provided (as a byte array), you can persist the resource however you like.
 
-This C# code for **LinkController** class implements the **ILinkEmbedController** interface:
+The C# `LinkController` implementation of [ILinkEmbedController](https://reference.aspose.com/slides/net/aspose.slides.export/ilinkembedcontroller/) follows below.
 
-```c#
+```cs
 class LinkController : ILinkEmbedController
 {
     static LinkController()
@@ -45,7 +65,7 @@ class LinkController : ILinkEmbedController
     }
 
     /// <summary>
-    /// Default parameterless constructor
+    /// Initializes a new instance of the LinkController class.
     /// </summary>
     public LinkController()
     {
@@ -53,7 +73,7 @@ class LinkController : ILinkEmbedController
     }
 
     /// <summary>
-    /// Creates a class instance and sets the path where generated resource files will be saved to.
+    /// Initializes a new instance of the LinkController class and sets the path where generated resource files will be saved.
     /// </summary>
     /// <param name="savePath">Path to the location where generated resource files will be stored.</param>
     public LinkController(string savePath)
@@ -63,109 +83,100 @@ class LinkController : ILinkEmbedController
     }
 
     /// <summary>
-    /// A ILinkEmbedController member
+    /// Determines whether to embed the resource or store it externally.
     /// </summary>
-    public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName,
-        string contentType,
-        string recomendedExtension)
+    /// <param name="id">A unique identifier for each object during the export operation.</param>
+    public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)
     {
-        // Here we make the decision about storing images externally.
-        // The id is unique identifier of each object during the whole export operation.
-
         string template;
 
-        // The s_templates dictionary contains content types we are going to store externally and the corresponding file name template.
+        // The s_templates dictionary maps content types to file name templates for resources stored externally.
         if (s_templates.TryGetValue(contentType, out template))
         {
-            // Storing this resource to the export list
+            // Store this resource for external linking.
             m_externalImages.Add(id, template);
             return LinkEmbedDecision.Link;
         }
 
-        // All other resources, if any, will be embedded
+        // All other resources are embedded.
         return LinkEmbedDecision.Embed;
     }
 
     /// <summary>
-    /// A ILinkEmbedController member
+    /// Builds the URL for a previously externalized resource.
+    /// Constructs the resource reference to use in tags such as <img src="%result%">.
+    /// Checks the dictionary to exclude resources that were not externalized.
+    /// Also retrieves the corresponding file name template.
     /// </summary>
     public string GetUrl(int id, int referrer)
     {
-        // Here we construct the resource reference string to form the tag: <img src="%result%">
-        // We need to check the dictionary to filter out unnecessary resources.
-        // Along with checking we extract the corresponding file name template.
         string template;
         if (m_externalImages.TryGetValue(id, out template))
         {
-            // Assuming we are going to store resource files just near the HTML file.
-            // The image tag will look like <img src="image-1.png"> with the appropriate resource Id and extension.
+            // Assumes resource files are stored alongside the HTML file.
+            // The image tag will look like <img src="image-1.png"> with the appropriate resource ID and extension.
             var fileUrl = String.Format(template, id);
             return fileUrl;
         }
 
-        // null must be returned for the resources remaining embedded
+        // Return null for resources that remain embedded.
         return null;
     }
 
     /// <summary>
-    /// A ILinkEmbedController member
+    /// Saves an externalized resource to disk.
+    /// Checks the dictionary again. If the ID is not found, it indicates an error in GetObjectStoringLocation or GetUrl.
     /// </summary>
     public void SaveExternal(int id, byte[] entityData)
     {
-        // Here we actually save the resource files to disk.
-        // Once again, checking the dictionary. If the id is not found here it is a sign of an error in GetObjectStoringLocation or GetUrl methods.
         if (m_externalImages.ContainsKey(id))
         {
-            // Now we use the file name stored in the dictionary and combine it with a path as required.
-
-            // Constructing the file name using the stored template and the Id.
+            // Uses the stored file name template and combines it with the target path.
+            // Constructs the file name using the stored template and the ID.
             var fileName = String.Format(m_externalImages[id], id);
 
-            // Combining with the location directory
+            // Combines it with the destination directory.
             var filePath = Path.Combine(SavePath ?? String.Empty, fileName);
 
             using (var fs = new FileStream(filePath, FileMode.Create))
                 fs.Write(entityData, 0, entityData.Length);
         }
         else
-            throw new Exception("Something is wrong");
+            throw new Exception("Something is wrong.");
     }
 
     /// <summary>
-    /// Gets or sets the path where generated resource files will be saved to.
+    /// Gets or sets the path where generated resource files are saved.
     /// </summary>
     public string SavePath { get; set; }
 
     /// <summary>
-    /// A dictionary to store associations between resource ids and corresponding file names.
+    /// A dictionary mapping resource IDs to file name templates.
     /// </summary>
     private readonly Dictionary<int, string> m_externalImages;
 
     /// <summary>
-    /// A dictionary to store associations between content types of resources we are going to store externally
-    /// and corresponding file name templates.
+    /// A dictionary mapping content types of externally stored resources to file name templates.
     /// </summary>
     private static readonly Dictionary<string, string> s_templates = new Dictionary<string, string>();
 }
 ```
 
-After writing the **LinkController** class, we can now use it alongside **HTMLOptions** class to export the presentation to HTML with externally-linked images this way:
+After implementing the `LinkController` class, you can use it with the [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor_1) class to export the presentation to HTML with externally linked images, as shown below:
 
-```c#
-using (var pres = new Presentation(@"C:\data\input.pptx")) {
-
+```cs
+using (var presentation = new Presentation(@"C:\data\input.pptx"))
+{
     var htmlOptions = new HtmlOptions(new LinkController(@"C:\data\out\"));
     htmlOptions.SlideImageFormat = SlideImageFormat.Svg(new SVGOptions());
-    // This line is needed to remove the slide title display in HTML.
-    // Comment it out if your prefer slide title is displayed.
+    // This line hides slide titles in the generated HTML.
+    // Comment it out if you prefer slide titles to be displayed.
     htmlOptions.HtmlFormatter = HtmlFormatter.CreateDocumentFormatter(String.Empty, false);
 
-    Console.WriteLine("Starting export");
-    pres.Save(@"C:\data\out\output.html", SaveFormat.Html, htmlOptions);
+    presentation.Save(@"C:\data\out\output.html", SaveFormat.Html, htmlOptions);
 }
 ```
 
-We assigned `SlideImageFormat.Svg` to the `SlideImageFormat` property so that the resulting HTML file will contain SVG data to draw the presentation contents.
+We assigned `SlideImageFormat.Svg` to the `SlideImageFormat` property so that the resulting HTML file will contain SVG data to render the presentation’s contents.
 
-Content types: If the presentation contains raster bitmaps, then the class code must be prepared to process both 'image/jpeg' and 'image/png' content types. The content of the exported bitmap images may not match what was stored in the presentation. Aspose.Slides internal algorithms perform size optimization and use either JPG or PNG codec (depending on which generates a smaller data size). Images containing alpha-channel (transparency) are always encoded to PNG.
-
+Content types: If the presentation contains raster bitmaps, then the class code must be prepared to process both `image/jpeg` and `image/png` content types. The content of the exported bitmap images may not match what was stored in the presentation. Aspose.Slides’ internal algorithms perform size optimization and use either the JPEG or PNG codec (depending on which produces a smaller file size). Images containing an alpha channel (transparency) are always encoded as PNG.
