@@ -5,6 +5,13 @@ type: docs
 weight: 100
 url: /python-net/exporting-presentations-to-html-with-externally-linked-images/
 keywords:
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- export slide
+- export PPT
+- export PPTX
+- export ODP
 - PowerPoint to HTML
 - OpenDocument to HTML
 - presentation to HTML
@@ -12,13 +19,8 @@ keywords:
 - PPT to HTML
 - PPTX to HTML
 - ODP to HTML
-- HTML export
 - linked image
 - externally linked image
-- HTML resource
-- PowerPoint
-- OpenDocument
-- presentation
 - Python
 - Aspose.Slides
 description: "Learn how to export presentations to HTML with externally linked images in Aspose.Slides for Python via .NET, covering PowerPoint and OpenDocument formats."
@@ -26,34 +28,44 @@ description: "Learn how to export presentations to HTML with externally linked i
 
 {{% alert color="primary" %}} 
 
-This article describes an advanced technique that allows controlling which resources are embedded into the resulting HTML file and which are saved externally and referenced from the HTML file.
+The presentation-to-HTML export process lets you specify:
+
+1. which resources are embedded in the resulting HTML file, and
+1. which resources are saved externally and referenced from the HTML file.
 
 {{% /alert %}} 
+
 ## **Background**
-The default HTML export behavior is to embed any resource into the HTML file. Such approach results in a single HTML file that is easy to view and distribute. All necessary resources are base64-encoded inside. But such approach has two drawbacks:
 
-- The size of output is significantly larger because of the base64 encoding.* It is difficult to replace the images contained in the file.
+By default, HTML export embeds all resources directly in the HTML using Base64 encoding. This produces a single, self-contained HTML file that’s convenient for viewing and distribution. However, this approach has drawbacks:
 
-In this article we will see how we can change the default behavior using the **Aspose.Slides for Python via .NET** to link the images externally rather than embedding in the HTML file. We will use **ILinkEmbedController** interface which contains three methods to control the resource embedding and saving process. We can pass this interface to HtmlOptions class constructor when preparing the export.
+* The resulting file is significantly larger than the original resources because of Base64 overhead.
+* Embedded images and other assets are difficult to update or replace.
 
-Following is the complete code of **LinkController** class which implements the **ILinkEmbedController** interface. As mentioned before, the LinkController must implement ILinkEmbedController interface. This interface specifies three methods:
+## **Alternative Approach**
 
-- **public LinkEmbedDecision GetObjectStoringLocation(int id, byte[] entityData, string semanticName, string contentType, string recomendedExtension)** It is called when the exporter encounters a resource and needs to decide how to store it. The most important parameters are ‘id’ – the resource unique identifier for the entire export operation and ‘contentType’ – contains the resource MIME type. If we decide to link the resource we should return LinkEmbedDecision.Link from this method. Otherwise LinkEmbedDecision.Embed should be returned to embed the resource.
-- **public string GetUrl(int id, int referrer)** 
-  It is called to get the resource URL in the form how it is used in the resulting file, say for a <img src=”%method_result_here%”> tag. The resource is identified by ‘id’.
-- **public void SaveExternal(int id, byte[] entityData)** 
-  The final method of the sequence, it is called when it comes to storing the resource externally. We have the resource identifier and the resource contents as a byte array. It’s up to us what to do with the provided resource data.
+An alternative approach using [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) avoids these limitations.
+
+The `LinkController` class below implements [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) and is passed to the [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/__init__/#ilinkembedcontroller) constructor. The interface exposes three methods that control how resources are embedded or linked during HTML export:
+
+[get_object_storing_location(id, entity_data, semantic_name, content_type, recommended_extension)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_object_storing_location/#int-bytes-str-str-str): Called when the exporter encounters a resource and must decide where to store it. The most important parameters are `id` (the resource’s unique identifier for this export run) and `content_type` (the resource MIME type). Return [LinkEmbedDecision.LINK](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) to link the resource, or [LinkEmbedDecision.EMBED](https://reference.aspose.com/slides/python-net/aspose.slides.export/linkembeddecision/) to embed it.
+
+[get_url(id, referrer)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/get_url/#int-int): Returns the URL that will appear in the resulting HTML for the resource identified by `id` (optionally considering the referrer object).
+
+[save_external(id, entity_data)](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/save_external/#int-bytes): Called when a resource selected for linking needs to be written externally. Because the identifier and contents are provided (as a byte array), you can persist the resource however you like.
+
+The Python `LinkController` implementation of [ILinkEmbedController](https://reference.aspose.com/slides/python-net/aspose.slides.export/ilinkembedcontroller/) follows below.
 
 ```py
-# [TODO[not_supported_yet]: python implementation of .net interfaces]
+# [TODO[not_supported_yet]: python implementation of .NET interfaces]
 ```
 
-After writing the **LinkController** class, now we will use it with **HTMLOptions** class to export the presentation to HTML having externally linked images using the following code.
+After implementing the `LinkController` class, you can use it with the [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/htmloptions/) class to export the presentation to HTML with externally linked images, as shown below:
 
 ```py
-# [TODO[not_supported_yet]: python implementation of .net interfaces]
+# [TODO[not_supported_yet]: python implementation of .NET interfaces]
 ```
 
-We assigned **SlideImageFormat.Svg** to the **SlideImageFormat** property which means the resulting HTML file will contain SVG data inside to draw the presentation contents.
+We assigned `SlideImageFormat.SVG` to the `slide_image_format` property so that the resulting HTML file will contain SVG data to render the presentation’s contents.
 
-As for the content types, it depends on the actual image data contained in the presentation. If there are raster bitmaps in the presentation then the class code must be ready to process both ‘image/jpeg’ and ‘image/png’ content types. The actual content type of raster bitmap images exported may not match that of images stored in the presentation. The Aspose.Slides internal algorithms perform size optimization and use either JPG or PNG codec whichever generates smaller data size. Images containing alpha-channel (transparency) are always encoded to PNG.
+Content types: If the presentation contains raster bitmaps, then the class code must be prepared to process both `image/jpeg` and `image/png` content types. The content of the exported bitmap images may not match what was stored in the presentation. Aspose.Slides’ internal algorithms perform size optimization and use either the JPEG or PNG codec (depending on which produces a smaller file size). Images containing an alpha channel (transparency) are always encoded as PNG.

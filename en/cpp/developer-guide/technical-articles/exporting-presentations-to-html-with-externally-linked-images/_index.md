@@ -46,7 +46,7 @@ The `LinkController` class below implements [ILinkEmbedController](https://refer
 
 [SaveExternal(id, entityData)](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/saveexternal/): Called when a resource selected for linking needs to be written externally. Because the identifier and contents are provided (as a byte array), you can persist the resource however you like.
 
-The C# `LinkController` implementation of [ILinkEmbedController](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/) follows below.
+The C++ `LinkController` implementation of [ILinkEmbedController](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/) follows below.
 
 ```cpp
 class LinkController : public ILinkEmbedController
