@@ -210,6 +210,41 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 }
 ```
 
+## **Replacing Images in the Image Collection**
+
+Aspose.Slides lets you replace images stored in a presentation’s image collection (including those used by slide shapes). This section shows several approaches to updating images in the collection. The API provides straightforward methods to replace an image using raw byte data, an [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) instance, or another image that already exists in the collection.
+
+Please follow the steps below:
+
+1. Load the presentation file that contains images using the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
+1. Load a new image from a file into a byte array.
+1. Replace the target image with the new image using the byte array.
+1. In the second approach, load the image into an [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) object and replace the target image with that object.
+1. In the third approach, replace the target image with an image that already exists in the presentation’s image collection.
+1. Write the modified presentation as a PPTX file.
+
+```cs
+// Instantiate the Presentation class that represents a presentation file.
+using Presentation presentation = new Presentation("sample.pptx");
+
+// The first way.
+byte[] data = File.ReadAllBytes("image0.jpeg");
+IPPImage oldImage = presentation.Images[0];
+oldImage.ReplaceImage(data);
+
+// The second way.
+using IImage newImage = Images.FromFile("image1.png");
+oldImage = presentation.Images[1];
+oldImage.ReplaceImage(newImage);
+
+// The third way.
+oldImage = presentation.Images[2];
+oldImage.ReplaceImage(presentation.Images[3]);
+
+// Save the presentation to a file.
+presentation.Save("output.pptx", SaveFormat.Pptx);
+```
+
 {{% alert title="Info" color="info" %}}
 
 Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 
