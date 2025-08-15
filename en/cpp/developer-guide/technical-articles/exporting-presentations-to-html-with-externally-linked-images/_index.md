@@ -1,97 +1,121 @@
 ---
-title: Exporting Presentations to HTML with Externally Linked Images
+title: Export Presentations to HTML with Externally Linked Images
 type: docs
 weight: 50
 url: /cpp/exporting-presentations-to-html-with-externally-linked-images/
+keywords:
+- export PowerPoint
+- export OpenDocument
+- export presentation
+- export slide
+- export PPT
+- export PPTX
+- export ODP
+- PowerPoint to HTML
+- OpenDocument to HTML
+- presentation to HTML
+- slide to HTML
+- PPT to HTML
+- PPTX to HTML
+- ODP to HTML
+- linked image
+- externally linked image
+- C++
+- Aspose.Slides
+description: "Export PowerPoint and OpenDocument presentations to HTML in C++ using Aspose.Slides with externally linked images—faster pages, code examples, and setup tips."
 ---
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-This article describes an advanced technique that allows controlling which resources are embedded into the resulting HTML file and which are saved externally and referenced from the HTML file.
+The presentation-to-HTML export process lets you specify:
 
-{{% /alert %}} 
+1. which resources are embedded in the resulting HTML file, and
+1. which resources are saved externally and referenced from the HTML file.
+
+{{% /alert %}}
+
 ## **Background**
-The default HTML export behavior is to embed any resource into the HTML file. Such approach results in a single HTML file that is easy to view and distribute. All necessary resources are base64-encoded inside. But such approach has two drawbacks:
 
-- The size of output is significantly larger because of the base64 encoding. It is difficult to replace the images contained in the file.
+An alternative approach using [ILinkEmbedController](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/) avoids these limitations.
 
-In this article we will see how we can change the default behavior using the **Aspose.Slides for C++** to link the images externally rather than embedding in the HTML file. We will use the [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface which contains three methods to control the resource embedding and saving process. We can pass this interface to the[HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class constructor when preparing the export.
+The `LinkController` class below implements [ILinkEmbedController](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/) and is passed to the [HtmlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/htmloptions/htmloptions/#htmloptionshtmloptionssystemsharedptrilinkembedcontroller-constructor) constructor. The interface exposes three methods that control how resources are embedded or linked during HTML export:
 
-Following is the complete code of the **LinkController** class which implements the [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface. As mentioned before, the **LinkController** must implement the [ILinkEmbedController](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.i_link_embed_controller) interface. This interface specifies three methods:
+[GetObjectStoringLocation(id, entityData, semanticName, contentType, recommendedExtension)](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/getobjectstoringlocation): Called when the exporter encounters a resource and must decide where to store it. The most important parameters are `id` (the resource’s unique identifier for this export run) and `contentType` (the resource MIME type). Return [LinkEmbedDecision.Link](https://reference.aspose.com/slides/cpp/aspose.slides.export/linkembeddecision/) to link the resource, or [LinkEmbedDecision.Embed](https://reference.aspose.com/slides/cpp/aspose.slides.export/linkembeddecision/) to embed it.
 
-- **LinkEmbedDecision GetObjectStoringLocation(int32_t id, ArrayPtr<uint8_t> entityData, String semanticName, String contentType, String recomendedExtension)** It is called when the exporter encounters a resource and needs to decide how to store it. The most important parameters are ‘id’ – the resource unique identifier for the entire export operation and ‘contentType’ – contains the resource MIME type. If we decide to link the resource we should return LinkEmbedDecision::Link from this method. Otherwise, LinkEmbedDecision::Embed should be returned to embed the resource.
-- **String GetUrl(int32_t id, int32_t referrer)**
-  It is called to get the resource URL in the form how it is used in the resulting file, say for a ```<img src=%method_result_here%>``` tag. The resource is identified by ‘id’.
-- **SaveExternal(int32_t id, ArrayPtr<uint8_t> entityData)** 
-  The final method of the sequence, it is called when it comes to storing the resource externally. We have the resource identifier and the resource contents as a byte array. It’s up to us what to do with the provided resource data.
+[GetUrl(id, referrer)](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/geturl/): Returns the URL that will appear in the resulting HTML for the resource identified by `id` (optionally considering the referrer object).
 
-``` cpp
-/// <summary>
-/// This class is responsible for making decisions about the resources saved externally.
-/// It must implement the Aspose::Slides::Export::ILinkEmbedController interface.
-/// </summary>
+[SaveExternal(id, entityData)](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/saveexternal/): Called when a resource selected for linking needs to be written externally. Because the identifier and contents are provided (as a byte array), you can persist the resource however you like.
+
+The C# `LinkController` implementation of [ILinkEmbedController](https://reference.aspose.com/slides/cpp/aspose.slides.export/ilinkembedcontroller/) follows below.
+
+```cpp
 class LinkController : public ILinkEmbedController
 {
 public:
+    // Initializes a new instance of the LinkController class.
     LinkController()
     {
         m_externalImages = System::MakeObject<Dictionary<int32_t, String>>();
     }
+
+    // Initializes a new instance of the LinkController class and sets the path where generated resource files will be saved.
+    // savePath - Path to the location where generated resource files will be stored.
     LinkController::LinkController(String savePath) : LinkController()
     {
         m_savePath = savePath;
     }
 
+    // Determines whether to embed the resource or store it externally.
+    // id - A unique identifier for each object during the export operation.
     LinkEmbedDecision GetObjectStoringLocation(int32_t id, ArrayPtr<uint8_t> entityData, 
         String semanticName, String contentType, String recomendedExtension) override
     {
-        // Here we make the decision about storing images externally.
-        // The id is unique identifier of each object during the whole export operation.
-
         String template_;
 
-        // The s_templates dictionary contains content types we are going to store externally and the corresponding file name template.
+        // The s_templates dictionary maps content types to file name templates for resources stored externally.
         if (s_templates->TryGetValue(contentType, template_))
         {
-            // Storing this resource to the export list
+            // Store this resource for external linking.
             m_externalImages->Add(id, template_);
             return LinkEmbedDecision::Link;
         }
 
-        // All other resources, if any, will be embedded
+        // All other resources are embedded.
         return LinkEmbedDecision::Embed;
     }
 
+    // Builds the URL for a previously externalized resource.
+    // Constructs the resource reference to use in tags such as <img src="%result%">.
+    // Checks the dictionary to exclude resources that were not externalized.
+    // Also retrieves the corresponding file name template.
     String GetUrl(int32_t id, int32_t referrer) override
     {
-        // Here we construct the resource reference string to form the tag: <img src="%result%">
-        // We need to check the dictionary to filter out unnecessary resources.
-        // Along with checking we extract the corresponding file name template.
         String template_;
         if (m_externalImages->TryGetValue(id, template_))
         {
-            // Assuming we are going to store resource files just near the HTML file.
-            // The image tag will look like <img src="image-1.png"> with the appropriate resource Id and extension.
+            // Assumes resource files are stored alongside the HTML file.
+            // The image tag will look like <img src="image-1.png"> with the appropriate resource ID and extension.
             String fileUrl = String::Format(template_, id);
             return fileUrl;
         }
 
-        // null must be returned for the resources remaining embedded
+        // Return null for resources that remain embedded.
         return nullptr;
     }
 
+    // Saves an externalized resource to disk.
+    // Checks the dictionary again. If the ID is not found, it indicates an error in GetObjectStoringLocation or GetUrl.
     void SaveExternal(int32_t id, ArrayPtr<uint8_t> entityData) override
     {
         // Here we actually save the resource files to disk.
         // Once again, checking the dictionary. If the id is not found here it is a sign of an error in GetObjectStoringLocation or GetUrl methods.
         if (m_externalImages->ContainsKey(id))
         {
-            // Now we use the file name stored in the dictionary and combine it with a path as required.
-
-            // Constructing the file name using the stored template and the Id.
+            // Uses the stored file name template and combines it with the target path.
+            // Constructs the file name using the stored template and the ID.
             String fileName = String::Format(m_externalImages->idx_get(id), id);
             
-            // Combining with the location directory
+            // Combines it with the destination directory.
             const String savePath = m_savePath != nullptr ? m_savePath : String::Empty;
             String filePath = Path::Combine(savePath, fileName);
 
@@ -100,13 +124,18 @@ public:
         }
         else
         {
-            throw Exception(u"Something is wrong");
+            throw Exception(u"Something is wrong.");
         }
     }
 
 private:
+    // The path where generated resource files are saved.
     String m_savePath;
+
+    // A dictionary mapping resource IDs to file name templates.
     SharedPtr<Dictionary<int32_t, String>> m_externalImages;
+
+    // A dictionary mapping content types of externally stored resources to file name templates.
     static SharedPtr<Dictionary<String, String>> s_templates;
 
     static struct __StaticConstructor__
@@ -120,21 +149,21 @@ private:
 };
 ```
 
-After writing the **LinkController** class, now we will use it with [HtmlOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.export.html_options) class to export the presentation to HTML having externally linked images using the following code.
+After implementing the `LinkController` class, you can use it with the [HtmlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/htmloptions/htmloptions/) class to export the presentation to HTML with externally linked images, as shown below:
 
-``` cpp
-const String templatePath = u"../templates/image.pptx";
-auto pres = System::MakeObject<Presentation>(templatePath);
+```cpp
+auto presentation = MakeObject<Presentation>(u"C:\\data\\input.pptx");
 
-auto htmlOptions = System::MakeObject<HtmlOptions>(System::MakeObject<LinkController>(GetOutPath()));
-htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(System::MakeObject<SVGOptions>()));
-// This line is needed to remove the slide title display in HTML.
-// Comment it out if your prefer slide title displayed.
+auto htmlOptions = MakeObject<HtmlOptions>(MakeObject<LinkController>(u"C:\\data\\out\\"));
+htmlOptions->set_SlideImageFormat(SlideImageFormat::Svg(MakeObject<SVGOptions>()));
+// This line hides slide titles in the generated HTML.
+// Comment it out if you prefer slide titles to be displayed.
 htmlOptions->set_HtmlFormatter(HtmlFormatter::CreateDocumentFormatter(String::Empty, false));
 
-pres->Save(GetOutPath() + u"/output.html", SaveFormat::Html, htmlOptions);
+presentation->Save(u"C:\\data\\out\\output.html", SaveFormat::Html, htmlOptions);
+presentation->Dispose();
 ```
 
-We pass **SlideImageFormat::Svg** to the **set_SlideImageFormat** method which means the resulting HTML file will contain SVG data inside to draw the presentation contents.
+We assigned `SlideImageFormat::Svg` to the `SlideImageFormat` property so that the resulting HTML file will contain SVG data to render the presentation’s contents.
 
-As for the content types, it depends on the actual image data contained in the presentation. If there are raster bitmaps in the presentation then the class code must be ready to process both ‘image/jpeg’ and ‘image/png’ content types. The actual content type of the exported raster bitmaps may not match the content type of the images stored in the presentation. The Aspose.Slides for C++ internal algorithms perform size optimization and use either JPG or PNG codec whichever generates smaller data size. Images containing alpha-channel (transparency) are always encoded to PNG.
+Content types: If the presentation contains raster bitmaps, then the class code must be prepared to process both `image/jpeg` and `image/png` content types. The content of the exported bitmap images may not match what was stored in the presentation. Aspose.Slides’ internal algorithms perform size optimization and use either the JPEG or PNG codec (depending on which produces a smaller file size). Images containing an alpha channel (transparency) are always encoded as PNG.

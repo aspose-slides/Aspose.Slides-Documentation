@@ -20,7 +20,8 @@ keywords:
 - ODP to HTML
 - linked image
 - externally linked image
-- Python
+- .NET
+- C#
 - Aspose.Slides
 description: "Export PowerPoint and OpenDocument presentations to HTML in .NET using Aspose.Slides with externally linked images—faster pages, code examples, and setup tips."
 ---
@@ -162,7 +163,7 @@ class LinkController : ILinkEmbedController
 }
 ```
 
-After implementing the `LinkController` class, you can use it with the [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/#constructor_1) class to export the presentation to HTML with externally linked images, as shown below:
+After implementing the `LinkController` class, you can use it with the [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/htmloptions/) class to export the presentation to HTML with externally linked images, as shown below:
 
 ```cs
 using (var presentation = new Presentation(@"C:\data\input.pptx"))
