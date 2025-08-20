@@ -29,202 +29,204 @@ keywords:
 description: "Master paragraph formatting with Aspose.Slides for Python via .NET—optimize alignment, spacing & style in PowerPoint and OpenDocument presentations in Python to engage viewers."
 ---
 
-Aspose.Slides provides all the interfaces and classes you need to work with PowerPoint texts, paragraphs, and portions in Python.
+## **Overview**
 
-* Aspose.Slides provides the [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) interface to allow you to add objects that represent a paragraph. An `ITextFame` object can have one or multiple paragraphs (each paragraph is created through a carriage return).
-* Aspose.Slides provides the [IParagraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) interface to allow you to add objects that represent portions. An `IParagraph` object can have one or multiple portions (collection of iPortions objects).
-* Aspose.Slides provides [IPortion](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) interface to allow you to add objects that represent texts and their formatting properties. 
+Aspose.Slides provides the interfaces and classes you need to work with PowerPoint text in Python.
 
-An `IParagraph` object is capable of handling texts with different formatting properties through its underlying `IPortion` objects.
+Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) class for creating text frame objects. A `TextFrame` object can contain one or more paragraphs (each paragraph is separated by a carriage return).
+Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class for creating paragraph objects. A `Paragraph` object can contain one or more text portions.
+Aspose.Slides provides the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) class for creating text portion objects and specifying their formatting properties.
 
-## **Add Multiple Paragraph Containing Multiple Portions**
+A `Paragraph` object can handle text with different formatting properties through its underlying `Portion` objects.
 
-These steps show you how to add a text frame containing 3 paragraphs and each paragraph containing 3 portions:
+## **Add Multiple Paragraphs Containing Multiple Portions**
+
+These steps show how to add a text frame that contains three paragraphs, each with three portions:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add a Rectangle [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
-4. Get the ITextFrame associated with the [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/).
-5. Create two [IParagraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/) objects and add them to the `IParagraphs` collection of the [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
-6. Create three [IPortion](https://reference.aspose.com/slides/python-net/aspose.slides/iportion/) objects for each new `IParagraph` (two Portion objects for default Paragraph) and add each `IPortion` object to the IPortion collection of each `IParagraph`.
-7. Set some text for each portion.
-8. Apply your preferred formatting features to each portion using the formatting properties exposed by the `IPortion` object.
-9. Save the modified presentation.
+1. Get a reference to the target slide by its index.
+1. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Get the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) associated with the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+1. Create two [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) objects and add them to the paragraph collection of the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) (together with the default paragraph, this gives three paragraphs).
+1. For each paragraph, create three [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) objects and add them to that paragraph’s portion collection.
+1. Set the text for each portion.
+1. Apply any desired formatting to each text portion using the properties exposed by [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/).
+1. Save the modified presentation.
 
-This Python code is an implementation of the steps for adding paragraphs containing portions: 
+The following Python code implements these steps:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Instantiate a Presentation class that represents a PPTX file
-with slides.Presentation() as pres:
-    # Accessing first slide
-    slide = pres.slides[0]
+# Instantiate the Presentation class to create a new PPTX file.
+with slides.Presentation() as presentation:
 
-    # Add an AutoShape of Rectangle type
-    ashp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Access TextFrame of the AutoShape
-    tf = ashp.text_frame
+    # Add a rectangle AutoShape.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
 
-    # Create Paragraphs and Portions with different text formats
-    para0 = tf.paragraphs[0]
-    port01 = slides.Portion()
-    port02 = slides.Portion()
-    para0.portions.add(port01)
-    para0.portions.add(port02)
+    # Access the AutoShape's TextFrame.
+    text_frame = shape.text_frame
 
-    para1 = slides.Paragraph()
-    tf.paragraphs.add(para1)
-    port10 = slides.Portion()
-    port11 = slides.Portion()
-    port12 = slides.Portion()
-    para1.portions.add(port10)
-    para1.portions.add(port11)
-    para1.portions.add(port12)
+    # Create paragraphs and portions; formatting is applied below.
+    paragraph0 = text_frame.paragraphs[0]
+    portion01 = slides.Portion()
+    portion02 = slides.Portion()
+    paragraph0.portions.add(portion01)
+    paragraph0.portions.add(portion02)
 
-    para2 = slides.Paragraph()
-    tf.paragraphs.add(para2)
-    port20 = slides.Portion()
-    port21 = slides.Portion()
-    port22 = slides.Portion()
-    para2.portions.add(port20)
-    para2.portions.add(port21)
-    para2.portions.add(port22)
+    paragraph1 = slides.Paragraph()
+    text_frame.paragraphs.add(paragraph1)
+    portion10 = slides.Portion()
+    portion11 = slides.Portion()
+    portion12 = slides.Portion()
+    paragraph1.portions.add(portion10)
+    paragraph1.portions.add(portion11)
+    paragraph1.portions.add(portion12)
+
+    paragraph2 = slides.Paragraph()
+    text_frame.paragraphs.add(paragraph2)
+    portion20 = slides.Portion()
+    portion21 = slides.Portion()
+    portion22 = slides.Portion()
+    paragraph2.portions.add(portion20)
+    paragraph2.portions.add(portion21)
+    paragraph2.portions.add(portion22)
 
     for i in range(3):
         for j in range(3):
-            tf.paragraphs[i].portions[j].text = "Portion0" + str(j)
+            text_frame.paragraphs[i].portions[j].text = "Portion0" + str(j)
             if j == 0:
-                tf.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                tf.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
-                tf.paragraphs[i].portions[j].portion_format.font_bold = 1
-                tf.paragraphs[i].portions[j].portion_format.font_height = 15
+                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
+                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
+                text_frame.paragraphs[i].portions[j].portion_format.font_bold = 1
+                text_frame.paragraphs[i].portions[j].portion_format.font_height = 15
             elif j == 1:
-                tf.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                tf.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-                tf.paragraphs[i].portions[j].portion_format.font_italic = 1
-                tf.paragraphs[i].portions[j].portion_format.font_height = 18
+                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
+                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+                text_frame.paragraphs[i].portions[j].portion_format.font_italic = 1
+                text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
 
-    # Write PPTX to Disk
-    pres.save("multiParaPort_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX to disk.
+    presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Manage Paragraph Bullets**
 
-Bullet lists help you to organize and present information quickly and efficiently. Bulleted paragraphs are always easier to read and understand.
+Bullet lists help you organize and present information quickly and efficiently. Bulleted paragraphs are often easier to read and understand.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [autoshape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the selected slide.
-4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/). 
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
-7. Set the bullet `Type` for the paragraph to `Symbol` and set the bullet character.
-8. Set the paragraph `Text`.
-9. Set the paragraph `Indent` for the bullet.
-10. Set a color for the bullet.
-11. Set a height of the bullet.
-12. Add the new paragraph to the `TextFrame` paragraph collection.
-13. Add the second paragraph and repeat the process given in steps 7 to 13.
-14. Save the presentation.
+1. Access the target slide by its index.
+1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
+1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
+1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
+1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
+1. Set the paragraph’s bullet type to `SYMBOL` and specify the bullet character.
+1. Set the paragraph’s text.
+1. Set the bullet indent for the paragraph.
+1. Set the bullet color.
+1. Set the bullet size (height).
+1. Add the paragraph to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/)’s paragraph collection.
+1. Add a second paragraph and repeat steps 7–12.
+1. Save the presentation.
 
-This Python code shows you how to add a paragraph bullet: 
+This Python code shows how to add bulleted paragraphs:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Creating a presenation instance
-with slides.Presentation() as pres:
-    # Accessing the first slide
-    slide = pres.slides[0]
+# Create a presentation instance.
+with slides.Presentation() as presentation:
 
-    # Adding and accessing Autoshape
-    aShp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Accessing the text frame of created autoshape
-    txtFrm = aShp.text_frame
+    # Add and access an AutoShape.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Removing the default exisiting paragraph
-    txtFrm.paragraphs.remove_at(0)
+    # Access the text frame of the created AutoShape.
+    text_frame = shape.text_frame
 
-    # Creating a paragraph
-    para = slides.Paragraph()
+    # Remove the default paragraph.
+    text_frame.paragraphs.remove_at(0)
 
-    # Setting paragraph bullet style and symbol
-    para.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para.paragraph_format.bullet.char = chr(8226)
+    # Create a paragraph.
+    paragraph = slides.Paragraph()
 
-    # Setting paragraph text
-    para.text = "Welcome to Aspose.Slides"
+    # Set the paragraph's bullet style and symbol.
+    paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph.paragraph_format.bullet.char = chr(8226)
 
-    # Setting bullet indent
-    para.paragraph_format.indent = 25
+    # Set the paragraph text.
+    paragraph.text = "Welcome to Aspose.Slides"
 
-    # Setting bullet color
-    para.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    para.paragraph_format.bullet.color.color = draw.Color.black
-    para.paragraph_format.bullet.is_bullet_hard_color = 1 
+    # Set the bullet indent.
+    paragraph.paragraph_format.indent = 25
 
-    # Setting bullet Height
-    para.paragraph_format.bullet.height = 100
+    # Set the bullet color.
+    paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    paragraph.paragraph_format.bullet.color.color = draw.Color.black
+    paragraph.paragraph_format.bullet.is_bullet_hard_color = 1 
 
-    # Adding Paragraph to text frame
-    txtFrm.paragraphs.add(para)
+    # Set the bullet height.
+    paragraph.paragraph_format.bullet.height = 100
 
-    # Creating second paragraph
-    para2 = slides.Paragraph()
+    # Add the paragraph to the text frame.
+    text_frame.paragraphs.add(paragraph)
 
-    # Setting paragraph bullet type and style
-    para2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    para2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
+    # Create the second paragraph.
+    paragraph2 = slides.Paragraph()
 
-    # Adding paragraph text
-    para2.text = "This is numbered bullet"
+    # Set the paragraph's bullet type and style.
+    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
 
-    # Setting bullet indent
-    para2.paragraph_format.indent = 25
+    # Set the paragraph text.
+    paragraph2.text = "This is numbered bullet"
 
-    para2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    para2.paragraph_format.bullet.color.color = draw.Color.black
-    para2.paragraph_format.bullet.is_bullet_hard_color = 1
+    # Set the bullet indent.
+    paragraph2.paragraph_format.indent = 25
 
-    # Setting bullet Height
-    para2.paragraph_format.bullet.height = 100
+    # Set the bullet color.
+    paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    paragraph2.paragraph_format.bullet.color.color = draw.Color.black
+    paragraph2.paragraph_format.bullet.is_bullet_hard_color = 1
 
-    # Adding Paragraph to text frame
-    txtFrm.paragraphs.add(para2)
+    # Set the bullet height.
+    paragraph2.paragraph_format.bullet.height = 100
 
+    # Add the paragraph to the text frame.
+    text_frame.paragraphs.add(paragraph2)
 
-    #Writing the presentation as a PPTX file
-    pres.save("bullet_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation as a PPTX file.
+    presentation.save("bullet_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Manage Picture Bullets**
 
-Bullet lists help you to organize and present information quickly and efficiently. Picture paragraphs are easy to read and understand.
+Bulleted lists help you organize and present information quickly and efficiently. Picture bullets are easy to read and understand.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [autoshape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
-4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/). 
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
-7. Load the image in [IPPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/).
-8. Set the bullet type to [Picture](https://reference.aspose.com/slides/python-net/aspose.slides/ippimage/) and set the image.
-9. Set the Paragraph `Text`.
-10. Set the Paragraph `Indent` for the bullet.
-11. Set a color for the bullet.
-12. Set a height for the bullet.
-13. Add the new paragraph to the `TextFrame` paragraph collection.
-14. Add the second paragraph and repeat the process based on the previous steps.
-15. Save the modified presentation.
+1. Access the target slide by its index.
+1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
+1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
+1. Load an image into an [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+1. Set the bullet type to [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) and assign the image.
+1. Set the paragraph text.
+1. Set the paragraph indent for the bullet.
+1. Set the bullet color.
+1. Set the bullet height.
+1. Add the new paragraph to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)’s paragraph collection.
+1. Add a second paragraph and repeat steps 8–12.
+1. Save the presentation.
 
-This Python code shows you how to add and manage picture bullets: 
+This Python code shows how to add and manage picture bullets:
 
 ```python
 import aspose.slides as slides
@@ -232,310 +234,323 @@ import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
 
-    # Accessing the first slide
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Instantiate the image for bullets
+    # Load the bullet image.
     image = draw.Bitmap(path + "bullets.png")
-    ippxImage = presentation.images.add_image(image)
+    pp_image = presentation.images.add_image(image)
 
-    # Adding and accessing Autoshape
-    autoShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    # Add and access an AutoShape.
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Accessing the text frame of created autoshape
-    textFrame = autoShape.text_frame
+    # Access the TextFrame of the created AutoShape.
+    text_frame = auto_shape.text_frame
 
-    # Removing the default exisiting paragraph
-    textFrame.paragraphs.remove_at(0)
+    # Remove the default paragraph.
+    text_frame.paragraphs.remove_at(0)
 
-    # Creating new paragraph
+    # Create a new paragraph.
     paragraph = slides.Paragraph()
     paragraph.text = "Welcome to Aspose.Slides"
 
-    # Setting paragraph bullet style and image
+    # Set the paragraph's bullet type to Picture and assign the image.
     paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
-    paragraph.paragraph_format.bullet.picture.image = ippxImage
+    paragraph.paragraph_format.bullet.picture.image = pp_image
 
-    # Setting Bullet Height
+    # Set the bullet height.
     paragraph.paragraph_format.bullet.height = 100
 
-    # Adding Paragraph to text frame
-    textFrame.paragraphs.add(paragraph)
+    # Add the paragraph to the text frame.
+    text_frame.paragraphs.add(paragraph)
 
-    # Writing the presentation as a PPTX file
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", slides.export.SaveFormat.PPTX)
-    # Writing the presentation as a PPT file
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", slides.export.SaveFormat.PPT)
+    # Save the presentation as a PPTX file.
+    presentation.save("picture_bullets_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation as a PPT file.
+    presentation.save("picture_bullets_out.ppt", slides.export.SaveFormat.PPT)
 ```
-
 
 ## **Manage Multilevel Bullets**
 
-Bullet lists help you to organize and present information quickly and efficiently. Multilevel bullets are easy to read and understand.
+Bulleted lists help you organize and present information quickly and efficiently. Multilevel bullets are easy to read and understand.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [autoshape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) in the new slide.
-4. Access the autoshape's [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/). 
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class and set the depth to 0.
-7. Create the second paragraph instance through the `Paragraph` class and set the depth set to 1.
-8. Create the third paragraph instance through the `Paragraph` class and set the depth set to 2.
-9. Create the fourth paragraph instance through the `Paragraph` class and set the depth set to 3.
-10. Add the new paragraphs to the `TextFrame` paragraph collection.
-11. Save the modified presentation.
+1. Access the target slide by its index.
+1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Access the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class and set its depth to 0.
+1. Create the second paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class and set its depth to 1.
+1. Create the third paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class and set its depth to 2.
+1. Create the fourth paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class and set its depth to 3.
+1. Add the new paragraphs to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)’s paragraph collection.
+1. Save the presentation.
 
-This Python code shows you how to add and manage multilevel bullets: 
+The following Python code shows how to add and manage multilevel bullets:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Creating a presenation instance
-with slides.Presentation() as pres:
-    # Accessing the first slide
-    slide = pres.slides[0]
+# Create a presentation instance.
+with slides.Presentation() as presentation:
+
+    # Access the first slide.
+    slide = presentation.slides[0]
     
-    # Adding and accessing Autoshape
-    aShp = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    # Add an AutoShape.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Accessing the text frame of created autoshape
-    text = aShp.add_text_frame("")
+    # Add an empty TextFrame to the AutoShape.
+    text_frame = shape.add_text_frame("")
     
-    #clearing default paragraph
-    text.paragraphs.clear()
+    # Clear the default paragraph.
+    text_frame.paragraphs.clear()
 
-    #Adding first paragraph
-    para1 = slides.Paragraph()
-    para1.text = "Content"
-    para1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para1.paragraph_format.bullet.char = chr(8226)
-    para1.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    para1.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    #Setting bullet level
-    para1.paragraph_format.depth = 0
+    # Add the first paragraph.
+    paragraph1 = slides.Paragraph()
+    paragraph1.text = "Content"
+    paragraph1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph1.paragraph_format.bullet.char = chr(8226)
+    paragraph1.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    paragraph1.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    # Set the bullet level.
+    paragraph1.paragraph_format.depth = 0
 
-    #Adding second paragraph
-    para2 = slides.Paragraph()
-    para2.text = "Second Level"
-    para2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para2.paragraph_format.bullet.char = '-'
-    para2.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    para2.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    #Setting bullet level
-    para2.paragraph_format.depth = 1
+    # Add the second paragraph.
+    paragraph2 = slides.Paragraph()
+    paragraph2.text = "Second Level"
+    paragraph2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph2.paragraph_format.bullet.char = '-'
+    paragraph2.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    paragraph2.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    # Set the bullet level.
+    paragraph2.paragraph_format.depth = 1
 
-    #Adding third paragraph
-    para3 = slides.Paragraph()
-    para3.text = "Third Level"
-    para3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para3.paragraph_format.bullet.char = chr(8226)
-    para3.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    para3.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    #Setting bullet level
-    para3.paragraph_format.depth = 2
+    # Add the third paragraph.
+    paragraph3 = slides.Paragraph()
+    paragraph3.text = "Third Level"
+    paragraph3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph3.paragraph_format.bullet.char = chr(8226)
+    paragraph3.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    paragraph3.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    # Set the bullet level.
+    paragraph3.paragraph_format.depth = 2
 
-    #Adding fourth paragraph
-    para4 = slides.Paragraph()
-    para4.text = "Fourth Level"
-    para4.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para4.paragraph_format.bullet.char = '-'
-    para4.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    para4.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    #Setting bullet level
-    para4.paragraph_format.depth = 3
+    # Add the fourth paragraph.
+    paragraph4 = slides.Paragraph()
+    paragraph4.text = "Fourth Level"
+    paragraph4.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph4.paragraph_format.bullet.char = '-'
+    paragraph4.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    paragraph4.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    # Set the bullet level.
+    paragraph4.paragraph_format.depth = 3
 
-    #Adding paragraphs to collection
-    text.paragraphs.add(para1)
-    text.paragraphs.add(para2)
-    text.paragraphs.add(para3)
-    text.paragraphs.add(para4)
+    # Add the paragraphs to the collection.
+    text_frame.paragraphs.add(paragraph1)
+    text_frame.paragraphs.add(paragraph2)
+    text_frame.paragraphs.add(paragraph3)
+    text_frame.paragraphs.add(paragraph4)
 
-    #Writing the presentation as a PPTX file
-    pres.save("MultilevelBullet.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation as a PPTX file.
+    presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Manage Paragraphs with Custom Numbered Lists**
 
-## **Manage Paragraph with Custom Numbered List**
-
-The [IBulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/ibulletformat/#ibulletformat/) interface provides the `NumberedBulletStartWith` property and others that allow you to manage paragraphs with custom numbering or formatting. 
+The [BulletFormat](https://reference.aspose.com/slides/python-net/aspose.slides/bulletformat/) class provides the `numbered_bullet_start_with` property (and others) to control custom numbering and formatting for paragraphs.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the slide containing the paragraph.
-3. Add an [autoshape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
-4. Access the autoshape [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/). 
-5. Remove the default paragraph in the `TextFrame`.
-6. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class and set `NumberedBulletStartWith` to 2.
-7. Create the second paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 3.
-8. Create the third paragraph instance through the `Paragraph` class and set `NumberedBulletStartWith` to 7.
-9. Add the new paragraphs to the `TextFrame` paragraph collection.
-10. Save the modified presentation.
+1. Access the slide that will contain the paragraphs.
+1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Create the first [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) and set `numbered_bullet_start_with` to 2.
+1. Create the second [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) and set `numbered_bullet_start_with` to 3.
+1. Create the third [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) and set `numbered_bullet_start_with` to 7.
+1. Add the paragraphs to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)’s collection.
+1. Save the presentation.
 
-This Python code shows you how to add and manage paragraphs with custom numbering or formatting: 
+The following Python code demonstrates how to add and manage paragraphs with custom numbering and formatting.
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+
+    # Add and access an AutoShape.
     shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Accessing the text frame of created autoshape
-    textFrame = shape.text_frame
+    # Access the TextFrame of the created AutoShape.
+    text_frame = shape.text_frame
 
-    # Removing the default exisiting paragraph
-    textFrame.paragraphs.remove_at(0)
+    # Remove the default existing paragraph.
+    text_frame.paragraphs.remove_at(0)
 
-    # First list
+    # Create the first numbered item (start at 2, depth level 4).
     paragraph1 = slides.Paragraph()
     paragraph1.text = "bullet 2"
     paragraph1.paragraph_format.depth = 4 
     paragraph1.paragraph_format.bullet.numbered_bullet_start_with = 2
     paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    textFrame.paragraphs.add(paragraph1)
+    text_frame.paragraphs.add(paragraph1)
 
+    # Create the second numbered item (start at 3, depth level 4).
     paragraph2 = slides.Paragraph()
     paragraph2.text = "bullet 3"
     paragraph2.paragraph_format.depth = 4
     paragraph2.paragraph_format.bullet.numbered_bullet_start_with = 3 
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED  
-    textFrame.paragraphs.add(paragraph2)
+    text_frame.paragraphs.add(paragraph2)
 
-
+    # Create the third numbered item (start at 7, depth level 4).
     paragraph5 = slides.Paragraph()
     paragraph5.text = "bullet 7"
     paragraph5.paragraph_format.depth = 4
     paragraph5.paragraph_format.bullet.numbered_bullet_start_with = 7
     paragraph5.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    textFrame.paragraphs.add(paragraph5)
+    text_frame.paragraphs.add(paragraph5)
 
-    presentation.save("SetCustomBulletsNumber-slides.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Set Paragraph Indent**
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Access the relevant slide's reference through its index.
-1. Add a rectangle [autoshape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) with three paragraphs to the rectangle autoshape.
-1. Hide the rectangle lines.
-1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) through their BulletOffset property.
-1. Write the modified presentation as a PPT file.
+Paragraph indentation helps establish a clear reading hierarchy on a slide and fine-tune text alignment. The example below shows how to set both overall and first-line indents in Aspose.Slides for Python through the [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/) properties.
 
-This Python code shows you how to set a paragraph indent: 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Access the target slide by its index.
+1. Add a rectangular [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Add a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) with three paragraphs to the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+1. Hide the rectangle’s outline.
+1. Set the indent for each [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) using its `paragraph_format` property.
+1. Save the modified presentation as a PPT file.
+
+The following Python code shows how to set paragraph indents:
 
 ```python
 import aspose.slides as slides
 
-# Instantiate Presentation Class
-with slides.Presentation() as pres:
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
 
-    # Get first slide
-    sld = pres.slides[0]
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Add a Rectangle Shape
-    rect = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 150)
+    # Add a rectangle shape.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 150)
 
-    # Add TextFrame to the Rectangle
-    tf = rect.add_text_frame("This is first line \rThis is second line \rThis is third line")
+    # Add a TextFrame to the rectangle.
+    text_frame = shape.add_text_frame("This is first line \rThis is second line \rThis is third line")
 
-    # Set the text to fit the shape
-    tf.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
+    # Set the text to fit the shape.
+    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
 
-    # Hide the lines of the Rectangle
-    rect.line_format.fill_format.fill_type = slides.FillType.SOLID
+    # Set a solid outline for the rectangle.
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
 
-    # Get first Paragraph in the TextFrame and set its Indent
-    para1 = tf.paragraphs[0]
-    # Setting paragraph bullet style and symbol
-    para1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para1.paragraph_format.bullet.char = chr(8226)
-    para1.paragraph_format.alignment = slides.TextAlignment.LEFT
+    # Get the first paragraph in the TextFrame and set its bullet and indent.
+    paragraph1 = text_frame.paragraphs[0]
+    # Set the paragraph bullet style and symbol.
+    paragraph1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph1.paragraph_format.bullet.char = chr(8226)
+    paragraph1.paragraph_format.alignment = slides.TextAlignment.LEFT
 
-    para1.paragraph_format.depth = 2
-    para1.paragraph_format.indent = 30
+    paragraph1.paragraph_format.depth = 2
+    paragraph1.paragraph_format.indent = 30
 
-    # Get second Paragraph in the TextFrame and set its Indent
-    para2 = tf.paragraphs[1]
-    para2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para2.paragraph_format.bullet.char = chr(8226)
-    para2.paragraph_format.alignment = slides.TextAlignment.LEFT
-    para2.paragraph_format.depth = 2
-    para2.paragraph_format.indent = 40
+    # Get the second paragraph in the TextFrame and set its bullet and indent.
+    paragraph2 = text_frame.paragraphs[1]
+    paragraph2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph2.paragraph_format.bullet.char = chr(8226)
+    paragraph2.paragraph_format.alignment = slides.TextAlignment.LEFT
+    paragraph2.paragraph_format.depth = 2
+    paragraph2.paragraph_format.indent = 40
 
-    # Get third Paragraph in the TextFrame and set its Indent
-    para3 = tf.paragraphs[2]
-    para3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    para3.paragraph_format.bullet.char = chr(8226)
-    para3.paragraph_format.alignment = slides.TextAlignment.LEFT
-    para3.paragraph_format.depth = 2
-    para3.paragraph_format.indent = 50
+    # Get the third paragraph in the TextFrame and set its bullet and indent.
+    paragraph3 = text_frame.paragraphs[2]
+    paragraph3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    paragraph3.paragraph_format.bullet.char = chr(8226)
+    paragraph3.paragraph_format.alignment = slides.TextAlignment.LEFT
+    paragraph3.paragraph_format.depth = 2
+    paragraph3.paragraph_format.indent = 50
 
-    #Write the Presentation to disk
-    pres.save("InOutDent_out.pptx", slides.export.SaveFormat.PPTX)
+    # Write the presentation to disk.
+    presentation.save("indent_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Hanging Indent for Paragraph**
+## **Set Hanging Indent for Paragraphs**
 
-This Python code shows you how to set the hanging indent for a paragraph:
+This Python code shows how to set a hanging indent for a paragraph:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    auto_shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 250, 550, 150)
+with slides.Presentation() as presentation:
+    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 250, 550, 150)
 
-    para1 = slides.Paragraph()
-    para1.text = "Example"
-    para2 = slides.Paragraph()
-    para2.text = "Set Hanging Indent for Paragraph"
-    para3 = slides.Paragraph()
-    para3.text = "This C# code shows you how to set the hanging indent for a paragraph: "
+    paragraph1 = slides.Paragraph()
+    paragraph1.text = "Example"
+    paragraph2 = slides.Paragraph()
+    paragraph2.text = "Set Hanging Indent for Paragraphs"
+    paragraph3 = slides.Paragraph()
+    paragraph3.text = "This Python code shows how to set a hanging indent for a paragraph: "
 
-    para2.paragraph_format.margin_left = 10
-    para3.paragraph_format.margin_left = 20
+    paragraph2.paragraph_format.margin_left = 10
+    paragraph3.paragraph_format.margin_left = 20
 
     paragraphs = auto_shape.text_frame.paragraphs
-    paragraphs.add(para1)
-    paragraphs.add(para2)
-    paragraphs.add(para3)
+    paragraphs.add(paragraph1)
+    paragraphs.add(paragraph2)
+    paragraphs.add(paragraph3)
 
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Manage End Paragraph Run Properties for Paragraph**
+## **Manage End-of-Paragraph Portion Format**
 
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Get the reference for the slide containing the paragraph through its position.
-1. Add a rectangle [autoshape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
-1. Add a [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) with two paragraphs to the Rectangle.
-1. Set the `FontHeight` and Font type for the paragraphs.
-1. Set the End properties for the paragraphs.
+When you need to control the styling of the "end" of a paragraph (the formatting applied after the last text portion), use the `end_paragraph_portion_format` property. The example below applies a larger Times New Roman font to the end of the second paragraph.
+
+1. Create or open a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) file.
+1. Get the target slide by index.
+1. Add a rectangle [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Use the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) and create two paragraphs.
+1. Create a [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/) set to 48-pt Times New Roman and apply it as the paragraph’s end-paragraph portion format.
+1. Assign it to paragraph's `end_paragraph_portion_format` (applies to the second paragraph’s ending).
 1. Write the modified presentation as a PPTX file.
 
-This Python code shows you how to set the End properties for paragraphs in PowerPoint: 
+This Python code shows you how to set the end-of-paragraph formatting for the second paragraph:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-	shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+with slides.Presentation("presentation.pptx") as presentation:
+	shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
 
-	para1 = slides.Paragraph()
-	para1.portions.add(slides.Portion("Sample text"))
+	paragraph1 = slides.Paragraph()
+	paragraph1.portions.add(slides.Portion("Sample text"))
 
-	para2 = slides.Paragraph()
-	para2.portions.add(slides.Portion("Sample text 2"))
-	endParagraphPortionFormat = slides.PortionFormat()
-	endParagraphPortionFormat.font_height = 48
-	endParagraphPortionFormat.latin_font = slides.FontData("Times New Roman")
-	para2.end_paragraph_portion_format = endParagraphPortionFormat
+	end_paragraph_portion_format = slides.PortionFormat()
+	end_paragraph_portion_format.font_height = 48
+	end_paragraph_portion_format.latin_font = slides.FontData("Times New Roman")
 
-	shape.text_frame.paragraphs.add(para1)
-	shape.text_frame.paragraphs.add(para2)
+	paragraph2 = slides.Paragraph()
+	paragraph2.portions.add(slides.Portion("Sample text 2"))
+	paragraph2.end_paragraph_portion_format = end_paragraph_portion_format
 
-	pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+	shape.text_frame.paragraphs.add(paragraph1)
+	shape.text_frame.paragraphs.add(paragraph2)
+
+	presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+
+
+
+
+
+
 
 
 ## **Import HTML Text into Paragraphs**
@@ -558,12 +573,12 @@ This Python code is an implementation of the steps for importing HTML texts in p
 import aspose.slides as slides
 
 # Create Empty presentation instance# Create Empty presentation instance
-with slides.Presentation() as pres:
+with slides.Presentation() as presentation:
     # Acesss the default first slide of presentation
-    slide = pres.slides[0]
+    slide = presentation.slides[0]
 
     # Adding the AutoShape to accomodate the HTML content
-    ashape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, pres.slide_size.size.width - 20, pres.slide_size.size.height - 10)
+    ashape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, presentation.slide_size.size.width - 20, presentation.slide_size.size.height - 10)
 
     ashape.fill_format.fill_type = slides.FillType.NO_FILL
 
@@ -579,7 +594,7 @@ with slides.Presentation() as pres:
         ashape.text_frame.paragraphs.add_from_html(tr.read())
 
     # Saving Presentation
-    pres.save("output_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 
@@ -600,9 +615,9 @@ This Python code shows you how to export PowerPoint paragraph texts to HTML:
 import aspose.slides as slides
 
 # Load the presentation file
-with slides.Presentation(path + "ExportingHTMLText.pptx") as pres:
+with slides.Presentation(path + "ExportingHTMLText.pptx") as presentation:
     # Acesss the default first slide of presentation
-    slide = pres.slides[0]
+    slide = presentation.slides[0]
 
     # Desired index
     index = 0
