@@ -28,92 +28,80 @@ keywords:
 description: "Convert PowerPoint and OpenDocument slides—PPT, PPTX, ODP—to clean Markdown with Aspose.Slides for Python via .NET, automate documentation and keep formatting."
 ---
 
-{{% alert color="info" %}} 
+## **Convert Presentations to Markdown**
 
-Support for PowerPoint to markdown conversion was implemented in [Aspose.Slides 23.7](https://docs.aspose.com/slides/python-net/aspose-slides-for-python-net-23-7-release-notes/).
+The example below shows the simplest way to convert a PowerPoint presentation to Markdown using Aspose.Slides for Python via .NET with default settings.
 
-{{% /alert %}} 
+1. Instantiate a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) to load the presentation.
+1. Call `save` to export it as a Markdown file.
 
-{{% alert color="warning" %}} 
-
-PowerPoint to markdown export is **without images** by default. If you want to export a PowerPoint document containing images, you need to set `saveOptions.export_type = MarkdownExportType.VISUAL` also set the `base_path` where the images referenced in the markdown document will be saved.
-
-{{% /alert %}} 
-
-## **Convert PowerPoint to Markdown**
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to represent a presentation object.
-2. Use the [Save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#methods) method to save the object as a markdown file.
-
-This Python code shows you how to convert PowerPoint to markdown: 
+Use the Python snippet below to perform the conversion:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:  
-    pres.save("pres.md", slides.export.SaveFormat.MD)
+with slides.Presentation("presentation.pptx") as presentation:  
+    presentation.save("presentation.md", slides.export.SaveFormat.MD)
 ```
 
-## Convert PowerPoint to Markdown Flavor
+## **Convert Presentations to Markdown Flavor**
 
-Aspose.Slides allows you to convert PowerPoint to markdown (containing basic syntax), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, and 17 other markdown flavors.
+Aspose.Slides allows you to convert presentations to Markdown formats, including basic Markdown, CommonMark, GitHub-flavored Markdown, Trello, XWiki, GitLab, and 17 other Markdown flavors.
 
-This Python code shows you how to convert PowerPoint to CommonMark: 
+The following Python example shows how to convert a PowerPoint presentation to CommonMark:
 
 ```python
-from aspose.slides import Presentation
-from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, Flavor
-from aspose.slides.export import SaveFormat
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:  
-    saveOptions = MarkdownSaveOptions()
-    saveOptions.flavor = Flavor.COMMONMARK
+save_options = slides.export.MarkdownSaveOptions()
+save_options.flavor = slides.export.Flavor.COMMON_MARK
 
-    pres.save("pres.md", SaveFormat.MD, saveOptions)
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.md", slides.export.SaveFormat.MD, save_options)
 ```
 
-The 23 supported markdown flavors are [listed under the Flavor enumeration](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) from the [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class.
+The 23 supported Markdown flavors are listed in the [Flavor](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) enumeration of the [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class.
 
-## **Convert Presentation Containing Images to Markdown**
+## **Convert Presentations Containing Images to Markdown**
 
-The [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class provides properties and enumerations that allow you to use certain options or settings for the resulting markdown file. The [MarkdownExportType](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enum, for example, can be set to values that determine how images are rendered or handled: `Sequential`, `TextOnly`, `Visual`.
+The [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) class provides properties and enumerations that let you configure the resulting Markdown file. For example, the [MarkdownExportType](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enum controls how images are handled: `SEQUENTIAL`, `TEXT_ONLY`, or `VISUAL`.
 
 ### **Convert Images Sequentially**
 
-If you want the images to appear individually one after the other in the resulting markdown, you have to choose the sequential option. This Python code shows you how to convert a presentation containing images to markdown: 
+If you want images to appear individually—one after another—in the generated Markdown, choose the `SEQUENTIAL` option. The Python example below shows how to convert a presentation with images to Markdown.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    markdownSaveOptions = slides.export.MarkdownSaveOptions()
-    markdownSaveOptions.show_hidden_slides = True
-    markdownSaveOptions.show_slide_number = True
-    markdownSaveOptions.flavor = slides.export.Flavor.GITHUB
-    markdownSaveOptions.export_type = slides.export.MarkdownExportType.SEQUENTIAL
-    markdownSaveOptions.new_line_type = slides.export.NewLineType.WINDOWS
-    
-    pres.save("doc.md", [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ], slides.export.SaveFormat.MD, markdownSaveOptions)
+save_options = slides.export.MarkdownSaveOptions()
+save_options.show_hidden_slides = True
+save_options.show_slide_number = True
+save_options.flavor = slides.export.Flavor.GITHUB
+save_options.export_type = slides.export.MarkdownExportType.SEQUENTIAL
+save_options.new_line_type = slides.export.NewLineType.WINDOWS
+
+slide_indices = [1, 3, 5]
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save("presentation.md", slide_indices, slides.export.SaveFormat.MD, save_options)
 ```
 
 ### **Convert Images Visually**
 
-If you want the images to appear together in the resulting markdown, you have to choose the visual option.   In this case, images will be saved to the current directory of the application (and a relative path will be built for them in the markdown document), or you can specify your preferred path and folder name.
+If you want the images to appear together in the resulting Markdown, choose the `VISUAL` option. In this mode, images are saved to the application’s current directory (and the Markdown document uses relative paths), or you can specify a custom output path and folder name.
 
-This Python code demonstrates the operation: 
+The Python example below demonstrates this operation:
 
 ```python
-from aspose.slides import Presentation
-from aspose.slides.dom.export.markdown.saveoptions import MarkdownSaveOptions, MarkdownExportType
-from aspose.slides.export import SaveFormat
+import os
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:  
-    outPath = "c:\\documents"
+save_options = slides.export.MarkdownSaveOptions()
+save_options.export_type = slides.export.MarkdownExportType.VISUAL
+save_options.images_save_folder_name = "md-images"
+save_options.base_path = "c:\\documents"
 
-    saveOptions = MarkdownSaveOptions()
-    saveOptions.export_type = MarkdownExportType.VISUAL
-    saveOptions.images_save_folder_name = "md-images"
-    saveOptions.base_path = outPath
-
-    pres.save(outPath + "\\pres.md", SaveFormat.MD, saveOptions)
+with slides.Presentation("presentation.pptx") as presentation:
+    file_path = os.path.join(save_options.base_path, "presentation.md")
+    presentation.save(file_path, slides.export.SaveFormat.MD, save_options)
 ```

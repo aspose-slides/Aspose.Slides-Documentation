@@ -15,187 +15,171 @@ keywords:
 description: "Quickly clone or duplicate PowerPoint slides with Aspose.Slides for Python via .NET. Follow our clear code examples and tips to automate PPT creation in seconds, boost productivity, and eliminate manual work."
 ---
 
-## **Clone Slides in Presentation**
-Cloning is the process of making an exact copy or replica of something. Aspose.Slides for Python via .NET also makes it possible to make a copy or clone of any slide and then insert that cloned slide to the current or any other opened presentation. The process of slide cloning creates a new slide that can be modified by developers without changing the original slide. There are several possible ways to clone a slide:
+## **Overview**
 
-- Clone at End within a Presentation.
-- Clone at Another Position within Presentation.
-- Clone at End in another Presentation.
-- Clone at Another Position in another Presentation.
-- Clone at a specific position in another Presentation.
+Cloning is the process of making an exact copy or replica of something. Aspose.Slides for Python via .NET allows you to clone any slide and insert that clone into the current presentation or another open presentation. The cloning process creates a new slide that you can modify without affecting the original.
 
-In Aspose.Slides for Python via .NET, (a collection of [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/islide/) objects) exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object provides the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) and [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) methods to perform the above types of slide cloning
-## **Clone at End Within a Presentation**
-If you want to clone a slide and then use it within the same presentation file at the end of the existing slides, use the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method according to the steps listed below:
+There are several ways to clone a slide:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Instantiate the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) class by referencing the Slides collection exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
-2. Call the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method exposed by the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) object and pass the slide to be cloned as a parameter to the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method.
-3. Write the modified presentation file.
+- Clone a slide at the end within the same presentation.
+- Clone a slide to a specific position within the same presentation.
+- Clone a slide at the end of another presentation.
+- Clone a slide to a specific position in another presentation.
+- Clone a slide with its master slide into another presentation.
 
-In the example given below, we have cloned a slide (lying at the first position – zero index – of the presentation) to the end of the presentation.
+In Aspose.Slides for Python via .NET, the [slide collection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object provides the `add_clone` and `insert_clone` methods to perform these types of slide cloning.
 
-```py
-import aspose.slides as slides
+## **Clone at the End Within the Same Presentation**
 
-# Instantiate Presentation class that represents a presentation file
-with slides.Presentation(path + "CloneWithinSamePresentationToEnd.pptx") as pres:
-    # Clone the desired slide to the end of the collection of slides in the same presentation
-    slds = pres.slides
-
-    slds.add_clone(pres.slides[0])
-
-    # Write the modified presentation to disk
-    pres.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Clone at Another Position Within Presentation**
-If you want to clone a slide and then use it within the same presentation file but at a different position, use the [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) method:
+If you want to clone a slide within the same presentation and append it to the end of the existing slides, use the `add_clone` method. Follow these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Instantiate the class by referencing the **Slides** collection exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
-1. Call the [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) method exposed by the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) object and pass the slide to be cloned along with the index for the new position as a parameter to the [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) method.
-1. Write the modified presentation as a PPTX file.
+1. Get the slide collection from the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
+1. Call the `add_clone` method on the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), passing the slide to be cloned.
+1. Save the modified presentation.
 
-In the example given below, we have cloned a slide (lying at the zero index – position 1 – of the presentation) to index 1 – Position 2 – of the presentation.
-
-```py
-import aspose.slides as slides
-
-# Instantiate Presentation class that represents a presentation file
-with slides.Presentation(path + "CloneWithInSamePresentation.pptx") as pres:
-    # Clone the desired slide to the end of the collection of slides in the same presentation
-    slds = pres.slides
-
-    # Clone the desired slide to the specified index in the same presentation
-    slds.insert_clone(2, pres.slides[1])
-
-    # Write the modified presentation to disk
-    pres.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **Clone at End in Another Presentation**
-If you need to clone a slide from one presentation and use it in another presentation file, at the end of the existing slides:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class containing the presentation the slide will be cloned from.
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class containing the destination presentation that the slide will be added to.
-1. Instantiate the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) class by referencing the **Slides** collection exposed by the Presentation object of the destination presentation.
-1. Call the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method exposed by the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) object and pass the slide from the source presentation as a parameter to the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method.
-1. Write the modified destination presentation file.
-
-In the example given below, we have cloned a slide (from the first index of the source presentation) to the end of the destination presentation.
+In the example below, the first slide (index 0) is cloned and appended to the end of the presentation.
 
 ```py
 import aspose.slides as slides
 
-# Instantiate Presentation class to load the source presentation file
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # Instantiate Presentation class for destination PPTX (where slide is to be cloned)
-    with slides.Presentation() as destPres:
-        # Clone the desired slide from the source presentation to the end of the collection of slides in destination presentation
-        slds = destPres.slides
-        slds.add_clone(srcPres.slides[0])
-
-        # Write the destination presentation to disk
-        destPres.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
+# Instantiate the Presentation class to represent the presentation file.
+with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
+    # Clone the desired slide to the end of the slide collection in the same presentation.
+    presentation.slides.add_clone(presentation.slides[0])
+    # Save the modified presentation to disk.
+    presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Clone to a Specific Position Within the Same Presentation**
 
-## **Clone at Another Position in Another Presentation**
-If you need to clone a slide from one presentation and use it in another presentation file, at a specific position:
+If you want to clone a slide within the same presentation and place it at a different position, use the `insert_clone` method:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class containing the source presentation the slide will be cloned from.
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class containing the presentation the slide will be added to.
-1. Instantiate the [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) class by referencing the Slides collection exposed by the Presentation object of the destination presentation.
-1. Call the [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) method exposed by the [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) object and pass the slide from the source presentation along with the desired position as a parameter to the [insert_clone](https://reference.aspose.com/slides/python-net/aspose.slides/ishapecollection/) method.
-1. Write the modified destination presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get the slide collection from the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.
+1. Call the `insert_clone` method on the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), passing the slide to be cloned and the target index for its new position.
+1. Save the modified presentation.
 
-In the example given below, we have cloned a slide (from the zero index of the source presentation) to index 1 (position 2) of the destination presentation.
+In the example below, the slide at index 0 (position 1) is cloned to index 1 (position 2) within the same presentation.
 
 ```py
 import aspose.slides as slides
 
-# Instantiate Presentation class to load the source presentation file
-with slides.Presentation(path + "CloneAtEndOfAnother.pptx") as srcPres:
-    # Instantiate Presentation class for destination PPTX (where slide is to be cloned)
-    with slides.Presentation("Aspose2_out.pptx") as destPres:
-        slds = destPres.slides
-        slds.insert_clone(2, srcPres.slides[0])
-
-        # Write the destination presentation to disk
-        destPres.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
+# Instantiate the Presentation class to represent the presentation file.
+with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
+    # Clone the desired slide to the specified position (index) within the same presentation.
+    presentation.slides.insert_clone(2, presentation.slides[1])
+    # Save the modified presentation to disk.
+    presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Clone at the End of Another Presentation**
 
-## **Clone at Specific Position in Another Presentation**
-If you need to clone a slide with a master slide from one presentation from and use it in another presentation, you need to clone the desired master slide from source presentation to destination presentation first. Then you need to use that master slide for cloning slide with master slide. The **add_clone(ISlide, IMasterSlide)** expects a master slide from destination presentation rather than from source presentation. In order to clone the slide with a master, please follow the steps below:
+If you need to clone a slide from one presentation and append it to the end of another presentation:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class containing the source presentation the slide will be cloned from.
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class containing the destination presentation the slide will be cloned to.
-1. Access the slide to be cloned along with the master slide.
-1. Instantiate the [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) class by referencing the Masters collection exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object of the destination presentation.
-1. Call the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method exposed by the [IMasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/imasterslidecollection/) object and pass the master from the source PPTX to be cloned as a parameter to the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method.
-1. Instantiate the [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) class by setting the reference to the Slides collection exposed by the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object of the destination presentation.
-2. Call the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method exposed by the [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) object and pass the slide from the source presentation to be cloned and master slide as a parameter to the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method.
-3. Write the modified destination presentation file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class for the source presentation (the one that contains the slide to clone).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class for the destination presentation (where the slide will be added).
+1. Get the slide collection from the destination presentation.
+1. Call `add_clone` on the destination [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), passing the slide from the source presentation.
+1. Save the modified destination presentation.
 
-In the example given below, we have cloned a slide with a master (lying at the zero index of the source presentation) to the end of the destination presentation using a master from source slide.
+In the example below, the slide at index 0 in the source presentation is cloned to the end of the destination presentation.
 
 ```py
 import aspose.slides as slides
 
-# Instantiate Presentation class to load the source presentation file
-with slides.Presentation(path + "CloneToAnotherPresentationWithMaster.pptx") as srcPres:
-    # Instantiate Presentation class for destination presentation (where slide is to be cloned)
-    with slides.Presentation() as destPres:
-        # Instantiate ISlide from the collection of slides in source presentation along with
-        # Master slide
-        sourceSlide = srcPres.slides[0]
-        sourceMaster = sourceSlide.layout_slide.master_slide
-
-        # Clone the desired master slide from the source presentation to the collection of masters in the
-        # Destination presentation
-        masters = destPres.masters
-        destMaster = sourceSlide.layout_slide.master_slide
-
-        # Clone the desired master slide from the source presentation to the collection of masters in the
-        # Destination presentation
-        iSlide = masters.add_clone(sourceMaster)
-
-        # Clone the desired slide from the source presentation with the desired master to the end of the
-        # Collection of slides in the destination presentation
-        slds = destPres.slides
-        slds.add_clone(sourceSlide, iSlide, True)
-      
-        # Clone the desired master slide from the source presentation to the collection of masters in the # Destination presentation
-        # save the destination presentation to disk
-        destPres.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
+# Instantiate the Presentation class to represent the source presentation file.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # Instantiate the Presentation class for the destination PPTX (where the slide will be cloned).
+    with slides.Presentation() as target_presentation:
+        # Clone the desired slide from the source presentation to the end of the slide collection in the destination presentation.
+        target_presentation.slides.add_clone(source_presentation.slides[0])
+        # Save the destination presentation to disk.
+        target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Clone to a Specific Position in Another Presentation**
 
+If you need to clone a slide from one presentation and insert it into another presentation at a specific position:
 
-## Clone at End in Specified Section
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class for the source presentation (the one containing the slide to clone).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class for the destination presentation (where the slide will be added).
+1. Get the slide collection from the destination presentation.
+1. Call the `insert_clone` method on the destination [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), passing the slide from the source presentation and the desired target index.
+1. Save the modified destination presentation.
 
-With Aspose.Slides for Python via .NET, you can clone a slide from one section of a presentation and insert that slide into another section in the same presentation. In this case, you have to use the [add_clone](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) method from the [ISlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/islidecollection/) Interface. 
-
-This Python code shows you how to clone a slide and insert the cloned slide into a specified section:
+In the example below, the slide at index 0 in the source presentation is cloned to index 1 (position 2) in the destination presentation.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100) # to clone
-    
-    slide2 = pres.slides.add_empty_slide(pres.slides[0].layout_slide)
-    section = pres.sections.add_section("Section2", slide2)
-
-    pres.slides.add_clone(slide, section)
-    
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+# Instantiate the Presentation class to represent the source presentation file.
+with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
+    # Instantiate the Presentation class for the destination PPTX (where the slide is to be cloned).
+    with slides.Presentation("Aspose2_out.pptx") as target_presentation:
+        # Insert a clone of the first slide from the source at index 2 in the destination presentation.
+        target_presentation.slides.insert_clone(2, source_presentation.slides[0])
+        # Save the destination presentation to disk.
+        target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Clone a Slide with Its Master Slide into Another Presentation**
 
+If you need to clone a slide **with its master** from one presentation and use it in another, first clone the required master slide from the source presentation into the destination presentation. Then use that destination master when cloning the slide. The method `add_clone(Slide, MasterSlide)` expects a **master slide from the destination presentation**, not from the source.
 
+To clone a slide with its master, follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class for the source presentation (the one containing the slide to clone).
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class for the destination presentation.
+1. Access the source slide to be cloned and its master slide.
+1. Get the [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/) from the destination presentation’s master collection.
+1. Call `add_clone` on the destination [MasterSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterslidecollection/), passing the source master to clone it into the destination.
+1. Get the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) from the destination presentation’s slide collection.
+1. Call `add_clone` on the destination [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/), passing the source slide and the cloned destination master.
+1. Save the modified destination presentation.
+
+In the example below, the slide at index 0 in the source presentation is cloned to the end of the destination presentation using the master cloned from the source.
+
+```py
+import aspose.slides as slides
+
+# Instantiate the Presentation class to represent the source presentation file.
+with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
+    # Instantiate the Presentation class for the destination presentation where the slide will be cloned.
+    with slides.Presentation() as target_presentation:
+        # Get the first slide from the source presentation.
+        source_slide = source_presentation.slides[0]
+        # Get the master slide used by the first slide.
+        source_master = source_slide.layout_slide.master_slide
+        # Clone the master slide into the destination presentation's master collection.
+        cloned_master = target_presentation.masters.add_clone(source_master)
+        # Clone the slide from the source presentation to the end of the destination presentation using the cloned master.
+        target_presentation.slides.add_clone(source_slide, cloned_master, True)
+        # Save the destination presentation to disk.
+        target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Clone at the End in a Specified Section**
+
+With Aspose.Slides for Python via .NET, you can clone a slide from one section of a presentation and insert it into another section within the same presentation. To do this, use the `add_clone(Slide, Section)` method of the [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) interface.
+
+The following Python example shows how to clone a slide and insert the clone into a specified section:
+
+```py
+import aspose.slides as slides
+
+# Create a new blank presentation.
+with slides.Presentation() as presentation:
+    # Add an empty slide based on the layout of the first slide.
+    slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # Add an ellipse shape to the new slide; this slide will be cloned later.
+    slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
+    # Add another empty slide based on the layout of the first slide.
+    slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
+    # Create a section named "Section2" that starts at slide2.
+    section = presentation.sections.add_section("Section2", slide2)
+    # Clone the previously created slide into the "Section2" section.
+    presentation.slides.add_clone(slide, section)
+    # Save the presentation as a PPTX file.
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+```
