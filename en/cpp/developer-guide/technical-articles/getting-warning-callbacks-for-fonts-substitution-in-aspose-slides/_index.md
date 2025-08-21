@@ -1,58 +1,116 @@
 ---
-title: Getting Warning Callbacks for Fonts Substitution in Aspose.Slides
+title: Get Warning Callbacks for Font Substitution
 type: docs
 weight: 70
 url: /cpp/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
+keywords:
+- warning callback
+- font substitution
+- rendering process
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn to get warning callbacks for font substitution in Aspose.Slides for C++ and display PowerPoint and OpenDocument presentations accurately."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-Aspose.Slides for C++ makes it possible to get warning callbacks for fonts substitution in case the used font is not available on a machine during the rendering process. The warning callbacks are helpful when debugging issues of missing or inaccessible fonts during the rendering process.
+Aspose.Slides for C++ allows you to receive warning callbacks for font substitution when a required font isn’t available on the machine during rendering. These callbacks help diagnose issues with missing or inaccessible fonts.
 
-{{% /alert %}} 
-## **Getting Warning Callbacks for Fonts substitution**
-Aspose.Slides for C++ provides a simple API methods to get the Warning Callbacks during the rendering process. All you need is to follow the steps below to configure the Warning Callbacks on your end:
+## **Enable Warning Callbacks**
 
-1. Create a custom Callback class to receive the callbacks.
-1. Set the Warning Callbacks using [LoadOptions](https://reference.aspose.com/slides/cpp/class/aspose.slides.load_options) class.
-1. Load the presentation file that is using a font for text inside that is unavailable on your target machine.
-1. Generate the slide thumbnail to see the effect.
+Aspose.Slides for C++ provides straightforward APIs for receiving warning callbacks when rendering presentation slides. Follow these steps to configure warning callbacks:
 
-``` cpp
-class HandleFontsWarnings : public Warnings::IWarningCallback
+1. Create a custom callback class that implements the [IWarningCallback](https://reference.aspose.com/slides/cpp/aspose.slides.warnings/iwarningcallback/) interface to handle warnings.
+1. Set the warning callback using option classes such as [RenderingOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/renderingoptions/), [PdfOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/cpp/aspose.slides.export/htmloptions/), and others.
+1. Load a presentation that uses a font not available on the target machine.
+1. Generate a slide thumbnail or export the presentation to observe the effect.
+
+**Custom Warning Callback Class:**
+
+```cpp
+#include <Warnings/IWarningCallback.h>
+
+class FontWarningHandler : public IWarningCallback
 {
 public:
-    Warnings::ReturnAction Warning(SharedPtr<Warnings::IWarningInfo> warning) override
-    {
-        if (warning->get_WarningType() == Warnings::WarningType::CompatibilityIssue)
-        {
-            return Warnings::ReturnAction::Continue;
-        }
-
-        // 1 - WarningType.DataLoss
-        Console::WriteLine(System::ObjectExt::ToString(warning->get_WarningType()));
-        // "Font will be substituted from X to Y"
-        Console::WriteLine(warning->get_Description());
-
-        return Warnings::ReturnAction::Continue;
-    }
+    ReturnAction Warning(SharedPtr<IWarningInfo> warning) override;
 };
-        
-void Run()
+
+ReturnAction FontWarningHandler::Warning(SharedPtr<IWarningInfo> warning)
 {
-    System::String dataDir = GetDataPath();
-
-    // Setting Warning Callbacks
-    System::SharedPtr<LoadOptions> options = System::MakeObject<LoadOptions>();
-    options->set_WarningCallback(System::MakeObject<HandleFontsWarnings>());
-
-    // Instantiate the presentation
-    System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(dataDir + u"presentation.pptx", options);
-
-    // Generating slide thumbnails
-    for (auto slide : presentation->get_Slides())
+    if (warning->get_WarningType() == WarningType::DataLoss)
     {
-        System::SharedPtr<IImage> image = slide->GetImage();
+        Console::WriteLine(warning->get_Description());
     }
+
+    return ReturnAction::Continue;
 }
+
+// Example output:
+//
+// Font will be substituted from XYZ to {Calibri,Cambria Math,MS Gothic,Gulim,Arial Unicode,SimSun,Segoe UI Symbol}}
+```
+
+**Generate a Slide Thumbnail:**
+
+```cpp
+// Set up a warning callback to handle font-related warnings during slide rendering.
+auto options = MakeObject<RenderingOptions>();
+options->set_WarningCallback(MakeObject<FontWarningHandler>());
+
+// Load the presentation from the specified file path.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+    
+// Generate a thumbnail image for each slide in the presentation.
+for(auto&& slide : presentation->get_Slides())
+{
+    // Get the slide thumbnail image using the specified rendering options.
+    auto image = slide->GetImage(options);
+    // ...
+
+    image->Dispose();
+}
+
+presentation->Dispose();
+```
+
+**Export to PDF Format:**
+
+```cpp
+// Set up a warning callback to handle font-related warnings during PDF export.
+auto options = MakeObject<PdfOptions>();
+options->set_WarningCallback(MakeObject<FontWarningHandler>());
+
+// Load the presentation from the specified file path.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// Export the presentation as PDF.
+auto stream = MakeObject<MemoryStream>();
+presentation->Save(stream, SaveFormat::Pdf, options);
+// ...
+
+stream->Dispose();
+presentation->Dispose();
+```
+
+**Export to HTML Format:**
+
+```cpp
+// Set up a warning callback to handle font-related warnings during HTML export.
+auto options = MakeObject<HtmlOptions>();
+options->set_WarningCallback(MakeObject<FontWarningHandler>());
+
+// Load the presentation from the specified file path.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// Export the presentation in HTML format.
+auto stream = MakeObject<MemoryStream>();
+presentation->Save(stream, SaveFormat::Html, options);
+// ...
+
+stream->Dispose();
+presentation->Dispose();
 ```

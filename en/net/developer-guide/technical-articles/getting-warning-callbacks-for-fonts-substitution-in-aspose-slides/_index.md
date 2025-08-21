@@ -24,10 +24,31 @@ Aspose.Slides for .NET allows you to receive warning callbacks for font substitu
 
 Aspose.Slides for .NET provides straightforward APIs for receiving warning callbacks when rendering presentation slides. Follow these steps to configure warning callbacks:
 
-1. Implement a custom callback class to handle warnings.
+1. Create a custom callback class that implements the [IWarningCallback](https://reference.aspose.com/slides/net/aspose.slides.warnings/iwarningcallback/) interface to handle warnings.
 1. Set the warning callback using option classes such as [RenderingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/renderingoptions/), [PdfOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/net/aspose.slides.export/htmloptions/), and others.
 1. Load a presentation that uses a font not available on the target machine.
 1. Generate a slide thumbnail or export the presentation to observe the effect.
+
+**Custom Warning Callback Class:**
+
+```c#
+class FontWarningHandler : IWarningCallback
+{
+    public ReturnAction Warning(IWarningInfo warning)
+    {
+        if (warning.WarningType == WarningType.DataLoss)
+        {
+            Console.WriteLine(warning.Description);
+        }
+
+        return ReturnAction.Continue;
+    }
+}
+
+// Example output:
+//
+// Font will be substituted from XYZ to {Calibri,Cambria Math,MS Gothic,Gulim,Arial Unicode,SimSun,Segoe UI Symbol}}
+```
 
 **Generate a Slide Thumbnail:**
 
@@ -44,6 +65,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     {
         // Get the slide thumbnail image using the specified rendering options.
         IImage image = slide.GetImage(options);
+        // ...
     }
 }
 ```
@@ -58,10 +80,11 @@ options.WarningCallback = new FontWarningHandler();
 // Load the presentation from the specified file path.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // xport the presentation as PDF.
+    // Export the presentation as PDF.
     using (MemoryStream stream = new MemoryStream())
     {
         presentation.Save(stream, SaveFormat.Pdf, options);
+        // ...
     }
 }
 ```
@@ -80,25 +103,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     using (MemoryStream stream = new MemoryStream())
     {
         presentation.Save(stream, SaveFormat.Html, options);
+        // ...
     }
 }
-```
-
-**Custom Warning Callback Class:**
-
-```c#
-class FontWarningHandler : IWarningCallback
-{
-    public ReturnAction Warning(IWarningInfo warning)
-    {
-        Console.WriteLine(warning.WarningType); 
-        Console.WriteLine(warning.Description);
-        return ReturnAction.Continue;
-    }
-}
-
-// Example output:
-//
-// DataLoss
-// Font will be substituted from XYZ to {Calibri,Cambria Math,MS Gothic,Gulim,Arial Unicode,SimSun,Segoe UI Symbol}}
 ```
