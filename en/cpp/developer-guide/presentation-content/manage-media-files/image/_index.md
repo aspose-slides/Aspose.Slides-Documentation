@@ -3,6 +3,28 @@ title: Image
 type: docs
 weight: 10
 url: /cpp/image/
+keywords:
+- add image
+- add picture
+- add bitmap
+- replace image
+- replace picture
+- from web
+- background
+- add PNG
+- add JPG
+- add SVG
+- add EMF
+- add WMF
+- add TIFF
+- PowerPoint
+- OpenDocument
+- presentation
+- EMF
+- SVG
+- C++
+- Aspose.Slides
+description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for C++, optimizing performance and automating your workflow."
 ---
 
 

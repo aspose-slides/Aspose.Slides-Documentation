@@ -8,6 +8,10 @@ keywords:
 - add image
 - add picture
 - add bitmap
+- replace image
+- replace picture
+- from web
+- background
 - add PNG
 - add JPG
 - add SVG

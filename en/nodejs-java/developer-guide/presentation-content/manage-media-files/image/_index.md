@@ -3,7 +3,28 @@ title: Image
 type: docs
 weight: 10
 url: /nodejs-java/image/
-description: Work with images in Slides in PowerPoint Presentation using JavaScript. Add images from disk or from web in PowerPoint Slides using JavaScript. Add images to Slide Masters or as Slide Background using JavaScript. Add SVG to PowerPoint Presentation using JavaScript. Convert SVG to Shapes in PowerPoint using JavaScript. Add images as EMF in Slides using JavaScript.
+keywords:
+- add image
+- add picture
+- add bitmap
+- replace image
+- replace picture
+- from web
+- background
+- add PNG
+- add JPG
+- add SVG
+- add EMF
+- add WMF
+- add TIFF
+- PowerPoint
+- OpenDocument
+- presentation
+- EMF
+- SVG
+- Node.js
+- Aspose.Slides
+description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for Node.js, optimizing performance and automating your workflow."
 ---
 
 ## **Images in Slides In Presentations**
