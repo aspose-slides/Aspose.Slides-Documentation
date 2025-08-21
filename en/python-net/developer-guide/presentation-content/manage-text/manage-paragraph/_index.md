@@ -31,11 +31,11 @@ description: "Master paragraph formatting with Aspose.Slides for Python via .NET
 
 ## **Overview**
 
-Aspose.Slides provides the interfaces and classes you need to work with PowerPoint text in Python.
+Aspose.Slides provides the classes you need to work with PowerPoint text in Python.
 
-Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) class for creating text frame objects. A `TextFrame` object can contain one or more paragraphs (each paragraph is separated by a carriage return).
-Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class for creating paragraph objects. A `Paragraph` object can contain one or more text portions.
-Aspose.Slides provides the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) class for creating text portion objects and specifying their formatting properties.
+* Aspose.Slides provides the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) class for creating text frame objects. A `TextFrame` object can contain one or more paragraphs (each paragraph is separated by a carriage return).
+* Aspose.Slides provides the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class for creating paragraph objects. A `Paragraph` object can contain one or more text portions.
+* Aspose.Slides provides the [Portion](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) class for creating text portion objects and specifying their formatting properties.
 
 A `Paragraph` object can handle text with different formatting properties through its underlying `Portion` objects.
 
@@ -120,16 +120,16 @@ Bullet lists help you organize and present information quickly and efficiently. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Access the target slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
-1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
-1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
+1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
 1. Set the paragraph’s bullet type to `SYMBOL` and specify the bullet character.
 1. Set the paragraph’s text.
 1. Set the bullet indent for the paragraph.
 1. Set the bullet color.
 1. Set the bullet size (height).
-1. Add the paragraph to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/)’s paragraph collection.
+1. Add the paragraph to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)’s paragraph collection.
 1. Add a second paragraph and repeat steps 7–12.
 1. Save the presentation.
 
@@ -203,7 +203,7 @@ with slides.Presentation() as presentation:
     text_frame.paragraphs.add(paragraph2)
 
     # Save the presentation as a PPTX file.
-    presentation.save("bullet_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Manage Picture Bullets**
@@ -214,7 +214,7 @@ Bulleted lists help you organize and present information quickly and efficiently
 1. Access the target slide by its index.
 1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
 1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
+1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
 1. Load an image into an [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
 1. Set the bullet type to [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/) and assign the image.
@@ -238,7 +238,7 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     # Load the bullet image.
-    image = draw.Bitmap(path + "bullets.png")
+    image = draw.Bitmap("bullets.png")
     pp_image = presentation.images.add_image(image)
 
     # Add and access an AutoShape.
@@ -301,8 +301,8 @@ with slides.Presentation() as presentation:
     # Add an AutoShape.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
-    # Add an empty TextFrame to the AutoShape.
-    text_frame = shape.add_text_frame("")
+    # Access the TextFrame of the created AutoShape.
+    text_frame = auto_shape.text_frame
     
     # Clear the default paragraph.
     text_frame.paragraphs.clear()
@@ -545,89 +545,79 @@ with slides.Presentation("presentation.pptx") as presentation:
 	presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-
-
-
-
-
-
-
 ## **Import HTML Text into Paragraphs**
 
 Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Access the relevant slide's reference through its index.
-3. Add an [autoshape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) to the slide.
-4. Add and access `autoshape` [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/).
-5. Remove the default paragraph in the `ITextFrame`.
-6. Read the source HTML file in a TextReader.
-7. Create the first paragraph instance through the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
-8. Add the HTML file content in the read TextReader to the TextFrame's [ParagraphCollection](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphcollection/).
-9. Save the modified presentation.
+1. Access the target slide by its index.
+1. Add an [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) to the slide.
+1. Access the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) of the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+1. Remove the default paragraph from the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Read the source HTML file.
+1. Create the first paragraph using the [Paragraph](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/) class.
+1. Add the HTML content to the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)’s paragraph collection.
+1. Save the modified presentation.
 
-This Python code is an implementation of the steps for importing HTML texts in paragraphs: 
+The following Python code implements these steps for importing HTML text into paragraphs.
 
 ```python
 import aspose.slides as slides
 
-# Create Empty presentation instance# Create Empty presentation instance
+# Create an empty Presentation instance.
 with slides.Presentation() as presentation:
-    # Acesss the default first slide of presentation
+
+    # Access the first slide of the presentation.
     slide = presentation.slides[0]
 
-    # Adding the AutoShape to accomodate the HTML content
-    ashape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, presentation.slide_size.size.width - 20, presentation.slide_size.size.height - 10)
+    slide_width = presentation.slide_size.size.width
+    slide_height = presentation.slide_size.size.height
 
-    ashape.fill_format.fill_type = slides.FillType.NO_FILL
+    # Add an AutoShape to accommodate the HTML content.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
 
-    # Adding text frame to the shape
-    ashape.add_text_frame("")
+    # Clear all paragraphs in the added text frame.
+    shape.text_frame.paragraphs.clear()
 
-    # Clearing all paragraphs in added text frame
-    ashape.text_frame.paragraphs.clear()
+    # Load the HTML file.
+    with open("file.html", "rt") as html_stream:
+        # Add text from the HTML file to the text frame.
+        shape.text_frame.paragraphs.add_from_html(html_stream.read())
 
-    # Loading the HTML file using stream reader
-    with open(path + "file.html", "rt") as tr:
-        # Adding text from HTML stream reader in text frame
-        ashape.text_frame.paragraphs.add_from_html(tr.read())
-
-    # Saving Presentation
-    presentation.save("output_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Export Paragraph Text to HTML**
 
-## **Export Paragraphs Text to HTML**
+Aspose.Slides provides enhanced support for exporting text to HTML.
 
-Aspose.Slides provides enhanced support for exporting texts (contained in paragraphs) to HTML.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the target presentation.
+1. Access the desired slide by its index.
+1. Select the shape that contains the text to export.
+1. Access the shape’s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
+1. Open a file stream to write the HTML output.
+1. Specify the starting index and export the required paragraphs.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the desired presentation.
-2. Access the relevant slide's reference through its index.
-3. Access the shape containing the text that will be exported to HTML.
-4. Access the shape [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
-5. Create an instance of `StreamWriter` and add the new HTML file.
-6. Provide a starting index to StreamWriter and export your preferred paragraphs.
-
-This Python code shows you how to export PowerPoint paragraph texts to HTML:
+This Python example shows how to export paragraph text to HTML.
 
 ```python
 import aspose.slides as slides
 
-# Load the presentation file
-with slides.Presentation(path + "ExportingHTMLText.pptx") as presentation:
-    # Acesss the default first slide of presentation
+# Load the presentation file.
+with slides.Presentation("exporting_HTML_text.pptx") as presentation:
+    # Access the first slide of the presentation.
     slide = presentation.slides[0]
 
-    # Desired index
+    # Target shape index.
     index = 0
 
-    # Accessing the added shape
-    ashape = slide.shapes[index]
+    # Access the shape by index.
+    shape = slide.shapes[index]
 
-    with open("output_out.html", "w") as sw:
-        # Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
-        sw.write(ashape.text_frame.paragraphs.export_to_html(0, ashape.text_frame.paragraphs.count, None))
+    with open("output.html", "w") as html_stream:
+        # Write paragraph data to HTML by providing the starting paragraph index and the total number of paragraphs to export.
+        html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
 ```
 
 ## **Save a Paragraph as an Image**
@@ -650,8 +640,8 @@ from PIL import Image
 
 with slides.Presentation("sample.pptx") as presentation:
     first_shape = presentation.slides[0].shapes[0]
-    # Save the shape in memory as a bitmap.
 
+    # Save the shape in memory as a bitmap.
     with first_shape.get_image() as shape_image:
         shape_image_stream = io.BytesIO()
         shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
