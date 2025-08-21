@@ -214,7 +214,7 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
 
 Aspose.Slides lets you replace images stored in a presentation’s image collection (including those used by slide shapes). This section shows several approaches to updating images in the collection. The API provides straightforward methods to replace an image using raw byte data, an [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) instance, or another image that already exists in the collection.
 
-Please follow the steps below:
+Follow the steps below:
 
 1. Load the presentation file that contains images using the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class.
 1. Load a new image from a file into a byte array.
@@ -228,9 +228,9 @@ Please follow the steps below:
 using Presentation presentation = new Presentation("sample.pptx");
 
 // The first way.
-byte[] data = File.ReadAllBytes("image0.jpeg");
+byte[] imageData = File.ReadAllBytes("image0.jpeg");
 IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(data);
+oldImage.ReplaceImage(imageData);
 
 // The second way.
 using IImage newImage = Images.FromFile("image1.png");

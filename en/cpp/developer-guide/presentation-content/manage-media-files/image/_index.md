@@ -206,6 +206,43 @@ for (int32_t j = 0; j < sr->GetPageCount(); j++)
 pres->Save(dataDir + u"Saved.pptx", SaveFormat::Pptx);
 ```
 
+## **Replacing Images in the Image Collection**
+
+Aspose.Slides lets you replace images stored in a presentation’s image collection (including those used by slide shapes). This section shows several approaches to updating images in the collection. The API provides straightforward methods to replace an image using raw byte data, an [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) instance, or another image that already exists in the collection.
+
+Follow the steps below:
+
+1. Load the presentation file that contains images using the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Load a new image from a file into a byte array.
+1. Replace the target image with the new image using the byte array.
+1. In the second approach, load the image into an [IImage](https://reference.aspose.com/slides/cpp/aspose.slides/iimage/) object and replace the target image with that object.
+1. In the third approach, replace the target image with an image that already exists in the presentation’s image collection.
+1. Write the modified presentation as a PPTX file.
+
+```cpp
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
+
+// The first way.
+auto imageData = File::ReadAllBytes(u"image0.jpeg");
+auto oldImage = presentation->get_Image(0);
+oldImage->ReplaceImage(imageData);
+
+// The second way.
+auto newImage = Images::FromFile(u"image1.png");
+oldImage = presentation->get_Image(1);
+oldImage->ReplaceImage(newImage);
+newImage->Dispose();
+
+// The third way.
+oldImage = presentation->get_Image(2);
+oldImage->ReplaceImage(presentation->get_Image(3));
+
+// Save the presentation to a file.
+presentation->Save(u"output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
 {{% alert title="Info" color="info" %}}
 
 Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 

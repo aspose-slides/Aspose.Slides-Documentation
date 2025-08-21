@@ -182,6 +182,46 @@ with slides.Presentation() as pres:
     pres.save("pres_with_emf.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Replacing Images in the Image Collection**
+
+Aspose.Slides lets you replace images stored in a presentation’s image collection (including those used by slide shapes). This section shows several approaches to updating images in the collection. The API provides straightforward methods to replace an image using raw byte data, an [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) instance, or another image that already exists in the collection.
+
+Follow the steps below:
+
+1. Load the presentation file that contains images using the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Load a new image from a file into a byte array.
+1. Replace the target image with the new image using the byte array.
+1. In the second approach, load the image into an [IImage](https://reference.aspose.com/slides/python-net/aspose.slides/iimage/) object and replace the target image with that object.
+1. In the third approach, replace the target image with an image that already exists in the presentation’s image collection.
+1. Write the modified presentation as a PPTX file.
+
+```py
+def read_all_bytes(file_name):
+    with open(file_name, "rb") as stream:
+        return stream.read()
+
+
+# Instantiate the Presentation class that represents a presentation file.
+with slides.Presentation("sample.pptx") as presentation:
+
+    # The first way.
+    image_data = read_all_bytes("image0.jpeg")
+    old_image = presentation.images[0]
+    old_image.replace_image(image_data)
+
+    # The second way.
+    new_image = slides.Images.from_file("image1.jpeg")
+    old_image = presentation.images[1]
+    old_image.replace_image(new_image)
+
+    # The third way.
+    old_image = presentation.images[2]
+    old_image.replace_image(presentation.images[3])
+
+    # Save the presentation to a file.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
+
 {{% alert title="Info" color="info" %}}
 
 Using Aspose FREE [Text to GIF](https://products.aspose.app/slides/text-to-gif) converter, you can easily animate texts, create GIFs from texts, etc. 
