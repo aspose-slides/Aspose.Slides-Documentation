@@ -253,15 +253,15 @@ Follow the steps below:
 
 ```js
 // Instantiate the Presentation class that represents a presentation file.
-var presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     // The first way.
-    var imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    var oldImage = presentation.getImages().get_Item(0);
+    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
+    let oldImage = presentation.getImages().get_Item(0);
     oldImage.replaceImage(imageData);
     
     // The second way.
-    var newImage = aspose.slides.Images.fromFile("image1.png");
+    const newImage = aspose.slides.Images.fromFile("image1.png");
     oldImage = presentation.getImages().get_Item(1);
     oldImage.replaceImage(newImage);
     newImage.dispose();

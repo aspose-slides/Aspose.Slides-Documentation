@@ -269,7 +269,7 @@ Follow the steps below:
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // The first way.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
+    IImage imageData = Images.fromStream(new FileInputStream("image0.jpeg"));
     IPPImage oldImage = presentation.getImages().get_Item(0);
     oldImage.replaceImage(imageData);
     
