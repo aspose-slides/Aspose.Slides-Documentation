@@ -54,19 +54,18 @@ class FontWarningHandler : IWarningCallback
 
 ```c#
 // Set up a warning callback to handle font-related warnings during slide rendering.
-RenderingOptions options = new RenderingOptions();
+var options = new RenderingOptions();
 options.WarningCallback = new FontWarningHandler();
 
 // Load the presentation from the specified file path.
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+
+// Generate a thumbnail image for each slide in the presentation.
+foreach (var slide in presentation.Slides)
 {
-    // Generate a thumbnail image for each slide in the presentation.
-    foreach (ISlide slide in presentation.Slides)
-    {
-        // Get the slide thumbnail image using the specified rendering options.
-        IImage image = slide.GetImage(options);
-        // ...
-    }
+    // Get the slide thumbnail image using the specified rendering options.
+    using var image = slide.GetImage(options);
+    // ...
 }
 ```
 
@@ -74,36 +73,30 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ```c#
 // Set up a warning callback to handle font-related warnings during PDF export.
-SaveOptions options = new PdfOptions();
+var options = new PdfOptions();
 options.WarningCallback = new FontWarningHandler();
 
 // Load the presentation from the specified file path.
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    // Export the presentation as PDF.
-    using (MemoryStream stream = new MemoryStream())
-    {
-        presentation.Save(stream, SaveFormat.Pdf, options);
-        // ...
-    }
-}
+using var presentation = new Presentation("sample.pptx");
+
+// Export the presentation as PDF.
+using var stream = new MemoryStream();
+presentation.Save(stream, SaveFormat.Pdf, options);
+// ...
 ```
 
 **Export to HTML Format:**
 
 ```c#
 // Set up a warning callback to handle font-related warnings during HTML export.
-SaveOptions options = new HtmlOptions();
+var options = new HtmlOptions();
 options.WarningCallback = new FontWarningHandler();
 
 // Load the presentation from the specified file path.
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    // Export the presentation in HTML format.
-    using (MemoryStream stream = new MemoryStream())
-    {
-        presentation.Save(stream, SaveFormat.Html, options);
-        // ...
-    }
-}
+using var presentation = new Presentation("sample.pptx");
+
+// Export the presentation in HTML format.
+using var stream = new MemoryStream();
+presentation.Save(stream, SaveFormat.Html, options);
+// ...
 ```
