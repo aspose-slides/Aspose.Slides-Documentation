@@ -1,5 +1,5 @@
 ---
-title: Audio Frame - Insert and Extract Audio in PowerPoint Using Java
+title: Manage Audio in Presentations Using Java
 linktitle: Audio Frame
 type: docs
 weight: 10

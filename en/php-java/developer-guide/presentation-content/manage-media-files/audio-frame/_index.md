@@ -1,5 +1,5 @@
 ---
-title: Audio Frame - Insert and Extract Audio in PowerPoint Using PHP
+title: Manage Audio in Presentations Using PHP
 linktitle: Audio Frame
 type: docs
 weight: 10

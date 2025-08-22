@@ -1,5 +1,5 @@
 ---
-title: Audio Frame - Insert and Extract Audio in PowerPoint Using C#
+title: Manage Audio in Presentations Using C#
 linktitle: Audio Frame
 type: docs
 weight: 10

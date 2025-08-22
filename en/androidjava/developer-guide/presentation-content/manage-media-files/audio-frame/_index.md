@@ -1,5 +1,5 @@
 ---
-title: Audio Frame - Insert and Extract Audio in PowerPoint on Android
+title: Manage Audio in Presentations on Android
 linktitle: Audio Frame
 type: docs
 weight: 10

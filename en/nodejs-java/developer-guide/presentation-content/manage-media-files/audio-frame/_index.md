@@ -1,5 +1,5 @@
 ---
-title: Audio Frame - Insert and Extract Audio in PowerPoint Using JavaScript
+title: Manage Audio in Presentations Using JavaScript
 linktitle: Audio Frame
 type: docs
 weight: 10
