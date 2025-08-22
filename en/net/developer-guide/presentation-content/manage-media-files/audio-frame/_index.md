@@ -150,14 +150,17 @@ This C# example shows how to add a new audio frame with embedded audio, trim it,
 ```c#
 using (Presentation pres = new Presentation())
 {
-    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.mp3"));
-    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+    ISlide slide = pres.Slides[0];
+
+    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
+    IAudio audio = pres.Audios.AddAudio(audioData);
+    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
 
     // Sets the trimming start offset to 1.5 seconds
     audioFrame.TrimFromStart = 1500f;
     // Sets the trimming end offset to 2 seconds
     audioFrame.TrimFromEnd = 2000f;
-    
+
     // Sets the fade-in duration to 200 ms
     audioFrame.FadeInDuration = 200f;
     // Sets the fade-out duration to 500 ms
