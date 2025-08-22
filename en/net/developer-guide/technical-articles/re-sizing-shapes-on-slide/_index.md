@@ -99,9 +99,9 @@ using (Presentation presentation = new Presentation("sample.pptx"))
             shape.X *= widthRatio;
         }
 
-        foreach (ILayoutSlide layoutslide in master.LayoutSlides)
+        foreach (ILayoutSlide layoutSlide in master.LayoutSlides)
         {
-            foreach (IShape shape in layoutslide.Shapes)
+            foreach (IShape shape in layoutSlide.Shapes)
             {
                 // Scale the shape size.
                 shape.Height *= heightRatio;
@@ -133,9 +133,9 @@ using (Presentation presentation = new Presentation("sample.pptx"))
                 {
                     row.MinimalHeight *= heightRatio;
                 }
-                foreach (IColumn col in table.Columns)
+                foreach (IColumn column in table.Columns)
                 {
-                    col.Width *= widthRatio;
+                    column.Width *= widthRatio;
                 }
             }
         }
