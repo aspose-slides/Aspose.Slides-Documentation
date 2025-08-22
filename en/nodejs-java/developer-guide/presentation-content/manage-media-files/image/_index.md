@@ -3,7 +3,28 @@ title: Image
 type: docs
 weight: 10
 url: /nodejs-java/image/
-description: Work with images in Slides in PowerPoint Presentation using JavaScript. Add images from disk or from web in PowerPoint Slides using JavaScript. Add images to Slide Masters or as Slide Background using JavaScript. Add SVG to PowerPoint Presentation using JavaScript. Convert SVG to Shapes in PowerPoint using JavaScript. Add images as EMF in Slides using JavaScript.
+keywords:
+- add image
+- add picture
+- add bitmap
+- replace image
+- replace picture
+- from web
+- background
+- add PNG
+- add JPG
+- add SVG
+- add EMF
+- add WMF
+- add TIFF
+- PowerPoint
+- OpenDocument
+- presentation
+- EMF
+- SVG
+- Node.js
+- Aspose.Slides
+description: "Streamline image management in PowerPoint and OpenDocument with Aspose.Slides for Node.js, optimizing performance and automating your workflow."
 ---
 
 ## **Images in Slides In Presentations**
@@ -214,6 +235,45 @@ try {
     if (pres != null) {
         pres.dispose();
     }
+}
+```
+
+## **Replacing Images in the Image Collection**
+
+Aspose.Slides lets you replace images stored in a presentation’s image collection (including those used by slide shapes). This section shows several approaches to updating images in the collection. The API provides straightforward methods to replace an image using raw byte data, an [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) instance, or another image that already exists in the collection.
+
+Follow the steps below:
+
+1. Load the presentation file that contains images using the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
+1. Load a new image from a file into a byte array.
+1. Replace the target image with the new image using the byte array.
+1. In the second approach, load the image into an [IImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/iimage/) object and replace the target image with that object.
+1. In the third approach, replace the target image with an image that already exists in the presentation’s image collection.
+1. Write the modified presentation as a PPTX file.
+
+```js
+// Instantiate the Presentation class that represents a presentation file.
+const presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    // The first way.
+    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
+    let oldImage = presentation.getImages().get_Item(0);
+    oldImage.replaceImage(imageData);
+    
+    // The second way.
+    const newImage = aspose.slides.Images.fromFile("image1.png");
+    oldImage = presentation.getImages().get_Item(1);
+    oldImage.replaceImage(newImage);
+    newImage.dispose();
+    
+    // The third way.
+    oldImage = presentation.getImages().get_Item(2);
+    oldImage.replaceImage(presentation.getImages().get_Item(3));
+    
+    // Save the presentation to a file.
+    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
