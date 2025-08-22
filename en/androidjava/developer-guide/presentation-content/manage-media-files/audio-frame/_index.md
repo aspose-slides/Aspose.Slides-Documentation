@@ -100,6 +100,7 @@ The **Audio Options** pane in Microsoft PowerPoint:
 ![example1_image](audio_frame_0.png)
 
 PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame) properties:
+
 - **Start** drop-down list matches the [AudioFrame.PlayMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayMode--) property
 - **Volume** matches the [AudioFrame.Volume](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getVolume--) property
 - **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AudioFrame#getPlayAcrossSlides--) property
@@ -190,7 +191,7 @@ try {
     ISlide slide = pres.getSlides().get_Item(0);
 
     // Gets an audio frame shape
-    AudioFrame audioFrame = (AudioFrame)slide.getShapes().get_Item(0);
+    IAudioFrame audioFrame = (IAudioFrame)slide.getShapes().get_Item(0);
 
     // Sets the audio volume to 85%
     audioFrame.setVolumeValue(85f);

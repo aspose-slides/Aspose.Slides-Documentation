@@ -176,7 +176,7 @@ The following code sample shows how to retrieve an audio frame with embedded aud
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
     // Gets an audio frame shape
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
+    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
 
     // Sets the audio volume to 85%
     audioFrame.VolumeValue = 85f;
