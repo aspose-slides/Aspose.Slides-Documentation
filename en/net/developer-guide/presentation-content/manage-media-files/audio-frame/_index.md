@@ -1,14 +1,25 @@
 ---
-title: Audio Frame - Insert and Extract Audio in PowerPoint using C#
+title: Audio Frame - Insert and Extract Audio in PowerPoint Using C#
 linktitle: Audio Frame
 type: docs
 weight: 10
 url: /net/audio-frame/
-keywords: "audio thumbnail image, Add audio, Audio frame, Audio properties, Extract audio, C#, Csharp, Aspose.Slides for .NET"
-description: "Add audio to PowerPoint presentation in C# or .NET"
+keywords:
+- audio
+- audio frame
+- thumbnail
+- add audio
+- audio properties
+- audio options
+- extract audio
+- .NET
+- C#
+- Aspose.Slides
+description: "Create and control audio frames in Aspose.Slides for .NET—C# examples to embed, trim, loop, and configure playback across PPT, PPTX, and ODP presentations."
 ---
 
-## **Create Audio Frame**
+## **Create Audio Frames**
+
 Aspose.Slides for .NET allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 
 
 1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class.
@@ -79,23 +90,23 @@ The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint **Audio options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
+PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
 
-- Audio Options **Start** drop-down menu matches the [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) property 
-- Audio Options **Volume** matches the [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) property 
-- Audio Options **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides) property 
-- Audio Options **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) property 
-- Audio Options **Hide During Show** matches the  [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) property 
-- Audio Options **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) property 
+- **Start** drop-down menu matches the [AudioFrame.PlayMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playmode) property 
+- **Volume** matches the [AudioFrame.Volume](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/volume) property 
+- **Play Across Slides** matches the [AudioFrame.PlayAcrossSlides](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playacrossslides) property 
+- **Loop until Stopped** matches the [AudioFrame.PlayLoopMode](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/playloopmode) property 
+- **Hide During Show** matches the  [AudioFrame.HideAtShowing](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/hideatshowing) property 
+- **Rewind after Playing** matches the [AudioFrame.RewindAudio ](https://reference.aspose.com/slides/net/aspose.slides/audioframe/properties/rewindaudio) property 
 
 PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/net/aspose.slides/audioframe) properties:
 
-- Audio Options **Fade In** matches the [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeinduration/) property 
-- Audio Options **Fade Out** matches the [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeoutduration/) property 
-- Audio Options **Trim Audio Start Time** matches the [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromstart/) property 
-- Audio Options **Trim Audio End Time** value is equal to the audio duration minus the [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromend/) property value
+- **Fade In** matches the [AudioFrame.FadeInDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeinduration/) property 
+- **Fade Out** matches the [AudioFrame.FadeOutDuration](https://reference.aspose.com/slides/net/aspose.slides/audioframe/fadeoutduration/) property 
+- **Trim Audio Start Time** matches the [AudioFrame.TrimFromStart](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromstart/) property 
+- **Trim Audio End Time** value equals the audio duration minus the value of [AudioFrame.TrimFromEnd](https://reference.aspose.com/slides/net/aspose.slides/audioframe/trimfromend/) property
 
-PowerPoint **Volume controller** on the Audio control panel matches the [AudioFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/audioframe/volumevalue/) property. It allows you to change the audio volume in percent.
+The PowerPoint **Volume controll** on the audio control panel corresponds to the [AudioFrame.VolumeValue](https://reference.aspose.com/slides/net/aspose.slides/audioframe/volumevalue/) property. It lets you change the audio volume as a percentage.
 
 This is how you change the Audio Play options:
 
@@ -134,7 +145,7 @@ using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 }
 ```
 
-This C# code shows you how to add the new audio frame with the embedded audio, trim it, and set the fade duration:
+This C# example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -142,26 +153,26 @@ using (Presentation pres = new Presentation())
     IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.mp3"));
     IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
 
-    // Sets the start trimming duration to 1.5 seconds
+    // Sets the trimming start offset to 1.5 seconds
     audioFrame.TrimFromStart = 1500f;
-    // Sets the end trimming duration 2 seconds
+    // Sets the trimming end offset to 2 seconds
     audioFrame.TrimFromEnd = 2000f;
     
-    // Sets the duration of the starting fade for 200ms
+    // Sets the fade-in duration to 200 ms
     audioFrame.FadeInDuration = 200f;
-    // Sets the duration of the ending fade for 500ms
+    // Sets the fade-out duration to 500 ms
     audioFrame.FadeOutDuration = 500f;
 
     pres.Save("AudioFrameTrimFade_out.pptx", SaveFormat.Pptx);
 }
 ```
 
-The following code sample demonstrates how to get the audio frame with the embedded audio and change its volume to 85%:
+The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
 ```c#
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
-    // Gets the AudioFrame shape
+    // Gets an audio frame shape
     AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
 
     // Sets the audio volume to 85%
