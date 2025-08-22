@@ -1,5 +1,5 @@
 ---
-title: Audio Frame - Insert and Extract Audio in PowerPoint Using C#
+title: Manage Audio in Presentations Using C#
 linktitle: Audio Frame
 type: docs
 weight: 10
@@ -150,14 +150,17 @@ This C# example shows how to add a new audio frame with embedded audio, trim it,
 ```c#
 using (Presentation pres = new Presentation())
 {
-    IAudio audio = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.mp3"));
-    IAudioFrame audioFrame = pres.Slides[0].Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+    ISlide slide = pres.Slides[0];
+
+    byte[] audioData = File.ReadAllBytes("sampleaudio.mp3");
+    IAudio audio = pres.Audios.AddAudio(audioData);
+    IAudioFrame audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audio);
 
     // Sets the trimming start offset to 1.5 seconds
     audioFrame.TrimFromStart = 1500f;
     // Sets the trimming end offset to 2 seconds
     audioFrame.TrimFromEnd = 2000f;
-    
+
     // Sets the fade-in duration to 200 ms
     audioFrame.FadeInDuration = 200f;
     // Sets the fade-out duration to 500 ms
@@ -173,7 +176,7 @@ The following code sample shows how to retrieve an audio frame with embedded aud
 using (Presentation pres = new Presentation("AudioFrameEmbed_out.pptx"))
 {
     // Gets an audio frame shape
-    AudioFrame audioFrame = (AudioFrame)pres.Slides[0].Shapes[0];
+    IAudioFrame audioFrame = (IAudioFrame)pres.Slides[0].Shapes[0];
 
     // Sets the audio volume to 85%
     audioFrame.VolumeValue = 85f;
