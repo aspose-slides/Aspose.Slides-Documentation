@@ -153,7 +153,7 @@ try {
 
 This JavaScript example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
-```java
+```js
 var pres = new aspose.slides.Presentation();
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -180,7 +180,7 @@ try {
 
 The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
-```java
+```js
 var pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
