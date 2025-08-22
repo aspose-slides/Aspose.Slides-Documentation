@@ -1,5 +1,6 @@
 ---
 title: Audio Frame - Insert and Extract Audio in PowerPoint Using C++
+linktitle: Audio Frame
 type: docs
 weight: 10
 url: /cpp/audio-frame/
