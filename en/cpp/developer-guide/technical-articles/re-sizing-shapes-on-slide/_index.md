@@ -172,4 +172,4 @@ Aspose.Slides supports custom sizes, but very large sizes may affect performance
 
 **Q: How can I prevent fixed aspect ratio shapes from becoming distorted?**
 
-You can check the `LockAspectRatio` property of the shape before scaling. If it is locked, adjust the width or height proportionally rather than scaling them individually.
+You can check the `get_AspectRatioLocked` method of the shape before scaling. If it is locked, adjust the width or height proportionally rather than scaling them individually.
