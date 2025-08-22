@@ -1,5 +1,5 @@
 ---
-title: Getting Warning Callbacks for Font Substitution in Python
+title: Get Warning Callbacks for Font Substitution in Python
 type: docs
 weight: 120
 url: /python-net/getting-warning-callbacks-for-fonts-substitution-in-aspose-slides/
@@ -15,22 +15,19 @@ keywords:
 description: "Learn to get warning callbacks for font substitution in Aspose.Slides for Python via .NET and display PowerPoint and OpenDocument presentations accurately."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-Aspose.Slides for Python via .NET makes it possible to get warning callbacks for fonts substitution in case the used font is not available on machine during rendering process. The warning callbacks are helpful in debugging the issues of missing or inaccessible fonts during rendering process.
+Aspose.Slides for Python allows you to receive warning callbacks for font substitution when a required font isn’t available on the machine during rendering. These callbacks help diagnose issues with missing or inaccessible fonts.
 
-{{% /alert %}} 
-## **Getting Warning Callbacks for Fonts substitution**
-Aspose.Slides for Python via .NET provides a simple API methods to get the Warning Callbacks during rendering process. All you need is to follow the steps below to configure the Warning Callbacks on your end.:
+## **Enable Warning Callbacks**
 
-1. Create a custom Callback class to receive the callbacks.
-1. Set the Warning Callbacks using using LoadOptions class
-1. Load the presentation file that is using a font for text inside that is unavailable on your target machine.
-1. Generate the slide thumbnail to see the effect.
+Aspose.Slides for Python provides straightforward APIs for receiving warning callbacks when rendering presentation slides. Follow these steps to configure warning callbacks:
+
+1. Create a custom callback class that implements the [IWarningCallback](https://reference.aspose.com/slides/python-net/aspose.slides.warnings/iwarningcallback/) class to handle warnings.
+1. Set the warning callback using option classes such as [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/), [PdfOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pdfoptions/), [HtmlOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/htmloptions/), and others.
+1. Load a presentation that uses a font not available on the target machine.
+1. Generate a slide thumbnail or export the presentation to observe the effect.
 
 ```py
-# [TODO[not_supported_yet]: python implementation of .net interfaces]
+# [TODO[not_supported_yet]: python implementation of .NET interfaces]
 ```
-
-
-
