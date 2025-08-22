@@ -30,7 +30,7 @@ Aspose.Slides for Java allows you to add audio files to slides. The audio files 
 
 This Java code shows you how to add an embedded audio frame to a slide:
 
-```Java
+```java
 // Instantiates a Presentation class that represents a presentation file
 Presentation pres = new Presentation();
 try {

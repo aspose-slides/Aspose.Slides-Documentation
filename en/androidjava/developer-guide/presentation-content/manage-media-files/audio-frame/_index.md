@@ -30,7 +30,7 @@ Aspose.Slides for Android via Java allows you to add audio files to slides. The 
 
 This Java code shows you how to add an embedded audio frame to a slide:
 
-```Java
+```java
 // Instantiates a Presentation class that represents a presentation file
 Presentation pres = new Presentation();
 try {
@@ -164,8 +164,8 @@ Presentation pres = new Presentation();
 try {
     ISlide slide = pres.getSlides().get_Item(0);
     
-    byte[] audioData = Files.readAllBytes(Paths.get("sampleaudio.mp3"));
-    IAudio audio = pres.getAudios().addAudio(audioData);
+    FileInputStream audioData = new FileInputStream("sampleaudio.mp3");
+    IAudio audio = pres.getAudios().addAudio(audioData, LoadingStreamBehavior.KeepLocked);
     IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
     // Sets the trimming start offset to 1.5 seconds

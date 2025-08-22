@@ -33,14 +33,14 @@ This JavaScript code shows you how to add an embedded audio frame to a slide:
 
 ```javascript
 // Instantiates a Presentation class that represents a presentation file
-var pres = new aspose.slides.Presentation();
+const pres = new aspose.slides.Presentation();
 try {
     // Gets the first slide
-    var sld = pres.getSlides().get_Item(0);
+    const sld = pres.getSlides().get_Item(0);
     // Loads the wav sound file to stream
-    var fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
+    const fstr = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "audio.wav"));
     // Adds the Audio Frame
-    var audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
+    const audioFrame = sld.getShapes().addAudioFrameEmbedded(50, 150, 100, 100, fstr);
     fstr.close();
     // Sets the Play Mode and Volume of the Audio
     audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.Auto);
@@ -62,16 +62,16 @@ When you add an audio file to a presentation, the audio appears as a frame with 
 This JavaScript code shows you how to change an audio frame's thumbnail or preview image:
 
 ```javascript
-var presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
     // Adds an audio frame to the slide with a specified position and size.
-    var audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
-    var audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
+    const audioStream = java.newInstanceSync("java.io.FileInputStream", "sample2.mp3");
+    const audioFrame = slide.getShapes().addAudioFrameEmbedded(150, 100, 50, 50, audioStream);
     audioStream.close();
     // Adds an image to presentation resources.
-    var picture;
-    var image = aspose.slides.Images.fromFile("eagle.jpeg");
+    let picture;
+    const image = aspose.slides.Images.fromFile("eagle.jpeg");
     try {
         picture = presentation.getImages().addImage(image);
     } finally {
@@ -126,10 +126,10 @@ This is how you change the Audio Play options:
 This JavaScript code demonstrates an operation in which an audio's options are adjusted:
 
 ```javascript
-var pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
+const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
 try {
     // Gets the AudioFrame shape
-    var audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    const audioFrame = pres.getSlides().get_Item(0).getShapes().get_Item(0);
     // Sets the Play mode to play on click
     audioFrame.setPlayMode(aspose.slides.AudioPlayModePreset.OnClick);
     // Sets the volume to Low
@@ -154,13 +154,13 @@ try {
 This JavaScript example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
 
 ```js
-var pres = new aspose.slides.Presentation();
+const pres = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
+    const slide = pres.getSlides().get_Item(0);
     
-    var audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
-    var audio = pres.getAudios().addAudio(audioData);
-    var audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
+    const audioData = java.newArray("byte", Array.from(fs.readFileSync("sampleaudio.mp3")));
+    const audio = pres.getAudios().addAudio(audioData);
+    const audioFrame = slide.getShapes().addAudioFrameEmbedded(50, 50, 100, 100, audio);
 
     // Sets the trimming start offset to 1.5 seconds
     audioFrame.setTrimFromStart(1500);
@@ -181,12 +181,12 @@ try {
 The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
 
 ```js
-var pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
+const pres = new aspose.slides.Presentation("AudioFrameEmbed_out.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
+    const slide = pres.getSlides().get_Item(0);
 
     // Gets an audio frame shape
-    var audioFrame = slide.getShapes().get_Item(0);
+    const audioFrame = slide.getShapes().get_Item(0);
 
     // Sets the audio volume to 85%
     audioFrame.setVolumeValue(85.0);
@@ -211,14 +211,14 @@ This code in JavaScript shows you how to extract the audio used in a slide:
 
 ```javascript
 // Instantiates a Presentation class that represents a presentation file
-var pres = new aspose.slides.Presentation("AudioSlide.pptx");
+const pres = new aspose.slides.Presentation("AudioSlide.pptx");
 try {
     // Accesses the desired slide
-    var slide = pres.getSlides().get_Item(0);
+    const slide = pres.getSlides().get_Item(0);
     // Gets the slideshow transition effects for the slide
-    var transition = slide.getSlideShowTransition();
+    const transition = slide.getSlideShowTransition();
     // Extracts the sound in byte array
-    var audio = transition.getSound().getBinaryData();
+    const audio = transition.getSound().getBinaryData();
     console.log("Length: " + audio.length);
 } finally {
     if (pres != null) {
