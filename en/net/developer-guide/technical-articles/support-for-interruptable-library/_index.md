@@ -42,7 +42,7 @@ public static void Run()
     InterruptionTokenSource tokenSource = new InterruptionTokenSource();
     Run(action, tokenSource.Token); // run the action in a separate thread
     Thread.Sleep(10000);            // timeout
-    tokenSource.Interrupt();        // stop conversion
+    tokenSource.Interrupt();        // stop the conversion
 }
 
 private static void Run(Action<IInterruptionToken> action, IInterruptionToken token)

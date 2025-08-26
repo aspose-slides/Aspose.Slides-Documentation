@@ -55,8 +55,8 @@ void Run()
     auto tokenSource = System::MakeObject<InterruptionTokenSource>();
     
     Run(action, tokenSource->get_Token()); // run the action in a separate thread
-    Threading::Thread::Sleep(5000);        // timeout
-    tokenSource->Interrupt();              // stop conversion
+    Threading::Thread::Sleep(10000);       // timeout
+    tokenSource->Interrupt();              // stop the conversion
 }
 ```
 
