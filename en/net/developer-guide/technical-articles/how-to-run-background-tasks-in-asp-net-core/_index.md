@@ -1,76 +1,109 @@
 ---
-title: How to run Background Tasks in ASP.NET Core
+title: How to Run Background Tasks in ASP.NET Core
 type: docs
 weight: 300
 url: /net/how-to-run-background-tasks-in-asp-net-core/
+keywords:
+- ASP.NET Core
+- background task
+- background processing
+- hosted service
+- background worker
+- job queue
+- asynchronous job scheduling
+- server-side file processing
+- progress tracking
+- status polling
+- SignalR notifications
+- AWS SQS
+- Amazon S3
+- Amazon DynamoDB
+- scalable architecture
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Run background tasks in ASP.NET Core with Hosted Services, job queues and status updates – process and convert PPT, PPTX and ODP using Aspose.Slides."
 ---
 
 ## **Overview**
-File processing (e.g. exporting presentation to PDF) is a typical server-side task. Simple file processing inside the request handler (when the client is waiting while the server is doing the job) has the following disadvantages:
 
-- *Poor UI*. The page freezes and user has to wait for the result. The page reload will cancel the task.
-- *Operation timeout*. We cannot ensure that processing is completed in a fixed period of time, so it means that user will see "operation timeout" sooner or later.  
-- *Low throughput and scalability*. ASP.NET Core is designed to process many requests asynchronously. The CPU-bound long-running tasks blocks the threads and reduce server throughput. 
-- *Bad fault tolerance*. When something goes wrong in the middle of a long-running task (e.g. connectivity issue), the processing just fails and we have to rerun the processing from the beginning once again.
+File processing (e.g., exporting a presentation to PDF) is a typical server-side task. Performing it inside the request handler (while the client waits) has the following disadvantages:
 
-A[ better approach](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices#complete-long-running-tasks-outside-of-http-requests) is to schedule the job asynchronously firstly, complete it in the background secondly and return the result of the processing lastly.
+- *Poor UI.* The page freezes and the user has to wait for the result. Reloading the page cancels the task.
+- *Operation timeouts.* We cannot ensure that processing will complete within a fixed period, so the user is likely to see an "operation timeout".
+- *Low throughput and scalability.* ASP.NET Core is designed to process many requests asynchronously. CPU-bound, long-running tasks block threads and reduce server throughput.
+- *Poor fault tolerance.* If something goes wrong during a long-running task (e.g., a connectivity issue), processing fails and must be restarted from the beginning.
 
-In this case, user can see the actual status (and even leave or reload the page), the server resources can be efficiently scaled and flexibly tuned. Also, retry-policy can be utilized. 
+A [better approach](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices?view=aspnetcore-9.0#complete-long-running-tasks-outside-of-http-requests) is to schedule the job asynchronously, process it in the background, and return the result when it’s ready.
 
-So, the typical background processing solution includes the following parts:
-1. API for scheduling the job.
-2. API for tracking job status.
-3. The background worker to process the scheduled jobs.
-4. API for storing/getting the result.
+In this model, the user can see the current status (and can leave or reload the page), server resources can be scaled efficiently and tuned flexibly, and a retry policy can be applied.
 
+A typical background-processing solution includes:
+
+1. An API for scheduling the job.
+1. An API for tracking job status.
+1. A background worker to process scheduled jobs.
+1. An API for storing and retrieving the result.
 
 ## **Background Task Example**
-To demonstrate this approach, let's consider the [**example ASP.NET Core 3.1 web application**](https://wiki.lutsk.dynabic.com/download/Aspose%20Slides/slidesnet/Discussion%20on%20Russian/Issues/Platform%20specific/How%20to%20run%20Background%20Tasks%20in%20ASP.NET%20Core/WebHome/BackgroundJobDemo.zip?rev=1.1). The web app contains a web page, where user can upload presentation, press "Export to PDF" button, then the presentation will be uploaded and converted to PDF format by a background worker.
+
+To demonstrate this approach, consider the [sample ASP.NET Core 3.1 web application](./BackgroundJobDemo.zip). The app includes a page where a user can upload a presentation and click **Export to PDF**; the presentation is then uploaded and converted to PDF by a background worker.
+
 ## **Web App**
-Example web app (*BackgroundJobDemo* project) includes:
 
-- Upload file page (razor page Upload).
-- Progress page (razor page Progress with few JavaScript functions checking and displaying the status).
-- Controller (JobStatusController) providing processing status (api/status/{jobId}).
-- Controller (JobResultController) returning exported PDF file (api/result/{id}).
-- Background worker based on ASP.NET Core hosting service (see WorkerService class).
+The sample web app (*BackgroundJobDemo* project) includes:
 
-Razor pages, controllers and background worker delegate all actual work via interfaces, defined in *BackgroundJobDemo.Common* project. The concrete implementations of job management and processing are defined in the separate projects (*BackgroundJobDemo.Local*, *BackgroundJobDemo.Aws* etc) and can be easily switched in Startup.ConfigureServices method.
+- File upload page (Razor page "Upload").
+- Progress page (Razor page "Progress" with a few JavaScript functions that check and display status).
+- Controller (`JobStatusController`) that provides processing status (`api/status/{jobId}`).
+- Controller (`JobResultController`) that returns the exported PDF file (`api/result/{id}`).
+- Background worker based on the ASP.NET Core hosting service (see the `WorkerService` class).
 
-For demo purposes, "Upload" page uses buffered model binding, but for large files uploading unbuffered streaming is [recommended](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads). For production deployment, the [security aspects](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#security-considerations) should be taken into account. The "Progress" page polls the scheduled job status via JavaScript every 2 seconds (the period can be modified). Status polling is typical behavior, but for advanced cases, real-time notifications (real-time communications are out of the scope of this article) via WebSocket can be required. [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) is a simple yet powerful tool for real-time communications.
+Razor pages, controllers, and the background worker delegate the actual work through interfaces defined in the *BackgroundJobDemo.Common* project. Concrete implementations of job management and processing are provided in separate projects (*BackgroundJobDemo.Local*, *BackgroundJobDemo.Aws*, etc.) and can be switched in the `Startup.ConfigureServices` method.
 
-Background worker hosting in the server process is handy for simple applications, but has [disadvantages ](https://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx). The more robust and scalable solution is to deploy the worker in a separate process (see e.g. *BackgroundJobDemo.Worker* console application). 
+For demo purposes, the "Upload" page uses buffered model binding, but for large file uploads, unbuffered streaming is [recommended](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads). For production, consider the relevant [security aspects](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads#security-considerations). The "Progress" page polls the scheduled job status via JavaScript every two seconds (this interval is configurable). Polling is typical, but for more advanced scenarios you may require real-time notifications via WebSockets (real-time communications are outside the scope of this article). [SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) is a simple yet powerful tool for real-time communications.
+
+Hosting the background worker in the server process is convenient for simple applications but has [drawbacks](https://haacked.com/archive/2011/10/16/the-dangers-of-implementing-recurring-background-tasks-in-asp-net.aspx). A more robust and scalable approach is to deploy the worker in a separate process (see, e.g., the *BackgroundJobDemo.Worker* console application).
+
 ## **Basic Implementation**
-*BackgroundJobDemo.Local* project contains a simple implementation of job management with SQLite database (path to the database file is specified via LocalConfig.DbFilePath, see in Startup.ConfigureServices). The uploaded and processed files are stored on file system (path to the storage folder is specified via LocalConfig.FileStorageFolderPath, see in Startup.ConfigureServices). For better fault tolerance and performance in real-word applications the job scheduling should be implemented via message queues (e.g. RabbitMQ, AWS SQS, Azure Storage Queue).
+
+The *BackgroundJobDemo.Local* project provides a simple job-management implementation using an SQLite database (the database path is configured via `LocalConfig.DbFilePath`; see `Startup.ConfigureServices`). Uploaded and processed files are stored on the file system (the storage folder path is configured via `LocalConfig.FileStorageFolderPath`; see `Startup.ConfigureServices`). For better fault tolerance and performance in real-world applications, job scheduling should be implemented through message queues (e.g., RabbitMQ, AWS SQS, Azure Storage Queue).
+
 ## **Distributed Implementation Based on Amazon Web Services**
-*BackgroundJobDemo.Aws* project implements job processing via Amazon Web Services and demonstrates the distributed architecture which can be horizontally scaled. It includes following components:
 
-- Web app - interacts with user and schedules the PPTX to PDF export tasks, etc.
-- Worker - processes export (in-process, out-of process or Amazon Lambda).
-- Message queue - stores the tasks to be processed (Amazon SQS).
-- File storage - keeps the uploaded and processed files (Amazon S3).
-- Key-value storage - provides the task processing status (Amazon DynamoDB). 
+The *BackgroundJobDemo.Aws* project implements job processing on Amazon Web Services and demonstrates a horizontally scalable distributed architecture. It includes the following components:
 
-The typical distributed architecture is based on [message queues](https://aws.amazon.com/message-queue/): web app puts the background tasks to queue, background worker gets the task from the queue and perform required work. So, system components (web app and background worker) are decoupled and the processing is asynchronous and reliable. The queue guarantees that all messages (tasks) are delivered to the workers. The queue messages have *visibility timeout* - when one worker gets the message for processing, the message becomes invisible for another workers and only worker processing the message removes it from the queue. If the processing is not completed during visibility timeout (e.g. failure or network issue) - the unprocessed message becomes visible for workers again.        
+- Web app — interacts with the user and schedules PPTX-to-PDF export tasks, etc.
+- Worker — processes exports (in-process, out-of-process, or AWS Lambda).
+- Message queue — stores tasks to be processed (Amazon SQS).
+- File storage — stores uploaded and processed files (Amazon S3).
+- Key–value store — tracks task processing status (Amazon DynamoDB).
 
-Our implementation uses [Amazon Simple Queue Service](https://aws.amazon.com/sqs/) (SQS) - fully managed message queues for microservices, distributed systems, and serverless applications.
+A typical distributed architecture relies on [message queues](https://aws.amazon.com/message-queue/): the web app places background tasks into a queue; a background worker retrieves tasks from the queue and performs the required work. This decouples components and makes processing asynchronous and reliable. The queue guarantees delivery and uses a *visibility timeout*: when one worker takes a message, it becomes invisible to other workers; only the processing worker removes it upon completion. If processing does not finish within the visibility timeout (e.g., due to a failure or network issue), the unprocessed message becomes visible again.
 
-The message queues are designed for lightweight messages (e.g. SQS message size limit is 256 KB), so it should contain only task description. All heavyweight data (e.g. files to be processed) should be placed to the separate storage and be referenced from the message. [Amazon S3](https://aws.amazon.com/s3/) is an object storage built to store and retrieve any amount of data from anywhere. This service is utilized for storing uploaded and processed files.
+Our implementation uses [Amazon Simple Queue Service](https://aws.amazon.com/sqs/) (SQS), a fully managed message queue for microservices, distributed systems, and serverless applications.
 
-Key-value storage is required to store and retrieve job processing result by ID. [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) (fast and flexible NoSQL database service for any scale) was utilized in the example.
+Message queues are intended for lightweight messages (e.g., the SQS message size limit is 256 KB), so a message should contain only the task description. Heavy data (such as files to be processed) should be stored separately and referenced from the message. [Amazon S3](https://aws.amazon.com/s3/) is used to store uploaded and processed files.
 
-To run demo app with Amazon Web Services:
+A key–value store is required to persist and retrieve job results by ID. The example uses [Amazon DynamoDB](https://aws.amazon.com/dynamodb/), a fast and flexible NoSQL database service.
 
-1. Create and configure in the same AWS region:
-   1. SQS queue,
-   1. S3 bucket,
-   1. DynamoDB table.
-1. Connect web app to the created services with AddAws extension method (SQS queue URL, S3 bucket name, DynamoDB table name and AWS region) from Startup.ConfigureServices. 
+To run the demo app with Amazon Web Services:
+
+1. In the same AWS region, create and configure:
+   1. an SQS queue,
+   1. an S3 bucket,
+   1. a DynamoDB table.
+1. Connect the web app to these services by calling *AddAws* in `Startup.ConfigureServices`, providing the SQS queue URL, S3 bucket name, DynamoDB table name, and AWS region.
+
 ## **References**
-- ASP.NET Core Performance Best Practices <https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices>
-- Upload files in ASP.NET Core <https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads>
-- Real-time ASP.NET with SignalR <https://dotnet.microsoft.com/apps/aspnet/signalr>
-- Message Queues <https://aws.amazon.com/message-queue/>
-- Amazon Simple Queue Service <https://aws.amazon.com/sqs/>
-- Amazon S3 <https://aws.amazon.com/s3/>
-- Amazon DynamoDB <https://aws.amazon.com/dynamodb/>
+
+- [ASP.NET Core Performance Best Practices](https://docs.microsoft.com/en-us/aspnet/core/performance/performance-best-practices)
+- [Upload files in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads)
+- [Real-time ASP.NET with SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr)
+- [Message Queues](https://aws.amazon.com/message-queue/)
+- [Amazon Simple Queue Service](https://aws.amazon.com/sqs/)
+- [Amazon S3](https://aws.amazon.com/s3/)
+- [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
