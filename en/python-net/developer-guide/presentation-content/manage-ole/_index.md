@@ -261,7 +261,7 @@ with slides.Presentation("sample.pptx") as presentation:
     # Set a title and the image for the OLE preview.
     ole_frame.substitute_picture_title = "My title"
     ole_frame.substitute_picture_format.picture.image = ole_image
-    ole_frame.is_object_icon = False
+    ole_frame.is_object_icon = True
 
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
