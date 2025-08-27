@@ -25,218 +25,229 @@ keywords:
 description: "Manage table rows and columns in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET and speed up presentation editing and data updates."
 ---
 
-To allow you to manage a table's rows and columns in a PowerPoint presentation, Aspose.Slides provides the [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) class, [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) interface, and many other types. 
+## **Overview**
 
-## **Set First Row as Header**
+This article shows how to manage table rows and columns in PowerPoint and OpenDocument presentations using Aspose.Slides for Python. You’ll learn how to add, insert, clone, and delete rows or columns, mark the first row as a header, adjust sizing and layout, and apply text and style formatting at the row or column level. Each task is demonstrated with compact, self-contained code snippets based on the [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) API, so you can quickly find a table on a slide and reshape its structure to match your design.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation. 
-2. Get a slide's reference through its index. 
-3. Create an [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) object and set it to null.
-4. Iterate through all [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) objects to find the relevant table. 
-5. Set the table's first row as its header. 
+## **Set the First Row as a Header**
 
-This Python code shows you how to set a table's first row as its header:
+Mark the table’s first row as a header to clearly distinguish column titles from data. In Aspose.Slides for Python, simply enable the table’s *First Row* option to apply the header formatting defined by the selected table style.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
+1. Access the slide by its index.
+1. Iterate through all [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) objects to find the relevant table.
+1. Set the table’s first row as the header.
+
+This Python code shows how to set a table’s first row as its header:
 
 ```python
 import aspose.slides as slides
 
-# Instantiates the Presentation class
-with slides.Presentation("table.pptx") as pres:
-    # Accesses the first slide
-    sld = pres.slides[0]
+# Instantiate the Presentation class.
+with slides.Presentation("table.pptx") as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Initializes the null TableEx
-    tbl = None
+    # Iterate through the shapes and get a reference to the table.
+    for shape in slide.shapes:
+        if type(shape) is slides.Table:
+            table = shape
+            break
 
-    # Iterates through the shapes and sets a reference to the table
-    for shp in sld.shapes:
-        if type(shp) is slides.Table:
-            tbl = shp
-
-    # Sets the first row of a table as its header 
-    tbl.first_row = True
+    # Set the first row of the table as its header.
+    table.first_row = True
     
-    # Saves the presentation to disk
-    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Clone a Table Row or Column**
 
-## **Clone Table's Row or Column**
+Clone any table row or column and insert the copy at the desired position in the table. The duplicate preserves cell content, formatting, and sizes, so you can extend layouts quickly and consistently.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation, 
-2. Get a slide's reference through its index. 
-3. Define an array of `columnWidth`.
-4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) object to the slide through the `add_table(x, y, column_widths, row_heights)` method.
-6. Clone the table row.
-7. Clone the table column.
-8. Save the modified presentation.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
+1. Access the slide by its index.
+1. Define an array of column widths.
+1. Define an array of row heights.
+1. Add a [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) to the slide using `add_table(x, y, column_widths, row_heights)`.
+1. Clone a table row.
+1. Clone a table column.
+1. Save the modified presentation.
 
-This Python code shows you how to clone a PowerPoint table's row or column:
+This Python code shows how to clone a row and column of a PowerPoint table:
 
 ```python
  import aspose.slides as slides
 
-# Instantiates the Presentation class
+# Instantiate the Presentation class.
 with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Accesses the first slide
-    sld = presentation.slides[0]
+    # Define column widths and row heights.
+    column_widths = [50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-    # Defines columns with widths and rows with heights
-    dblCols =  [50, 50, 50] 
-    dblRows =  [50, 30, 30, 30, 30] 
+    # Add a table to the slide.
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # Adds a table shape to the slide
-    table = sld.shapes.add_table(100, 50, dblCols, dblRows)
-
-    # Adds some text to the row 1 cell 1
+    # Add text to row 1, column 1.
     table.rows[0][0].text_frame.text = "Row 1 Cell 1"
 
-    # Adds some text to the row 1 cell 2
+    # Add text to row 2, column 1.
     table.rows[1][0].text_frame.text = "Row 1 Cell 2"
 
-    # Clones Row 1 at the end of table
+    # Clone row 1 at the end of the table.
     table.rows.add_clone(table.rows[0], False)
 
-    # Adds some text to the row 2 cell 1
+    # Add text to row 1, column 2.
     table.rows[0][1].text_frame.text = "Row 2 Cell 1"
 
-    # Adds some text to the row 2 cell 2
+    # Add text to row 2, column 2.
     table.rows[1][1].text_frame.text = "Row 2 Cell 2"
 
-    # Clones Row 2 as 4th row of table
+    # Clone row 2 as the 4th row of the table.
     table.rows.insert_clone(3,table.rows[1], False)
 
-    # Clones first column at the end
+    # Clone the first column at the end.
     table.columns.add_clone(table.columns[0], False)
 
-    # Clones 2nd column at 4th column index
+    # Clone the second column at index 3 (the 4th position).
     table.columns.insert_clone(3,table.columns[1], False)
     
-    # Saves the presentation to disk
+    # Save the presentation to disk.
     presentation.save("table_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Remove Row or Column from Table**
+## **Remove a Row or Column from a Table**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation, 
-2. Get a slide's reference through its index. 
-3. Define an array of `columnWidth`.
-4. Define an array of `rowHeight`.
-5. Add an [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) object to the slide through the `add_table(x, y, column_widths, row_heights)` method.
-6. Remove the table row.
-7. Remove the table column.
-8. Save the modified presentation. 
+Streamline a table by removing any row or column by index using Aspose.Slides for Python—the layout readjusts automatically while preserving the formatting of remaining cells. This is handy for simplifying data grids or deleting placeholders without rebuilding the table.
 
-This Python code shows you how to remove a row or column from a table:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
+1. Access the slide by its index.
+1. Define an array of column widths.
+1. Define an array of row heights.
+1. Add an ITable to the slide using `add_table(x, y, column_widths, row_heights)`.
+1. Remove the table row.
+1. Remove the table column.
+1. Save the modified presentation.
+
+The following Python code shows how to remove a row and column from a table:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    colWidth =  [100, 50, 30] 
-    rowHeight =  [30, 50, 30] 
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    
+    column_widths = [100, 50, 30]
+    row_heights = [30, 50, 30]
 
-    table = slide.shapes.add_table(100, 100, colWidth, rowHeight)
+    table = slide.shapes.add_table(100, 100, column_widths, row_heights)
     table.rows.remove_at(1, False)
     table.columns.remove_at(1, False)
-    pres.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("TestTable_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Text Formatting on Table Row Level**
+## **Set Text Formatting at the Table Row Level**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation, 
-2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) object from the slide. 
-4. Set the first-row cells' `font_height`.
-5. Set the first-row cells' `alignment` and `margin_right`. 
-6. Set the second-row cells' `text_vertical_type`.
-7. Save the modified presentation.
+Apply consistent text styling to an entire table row in one step. With Aspose.Slides for Python, you can set font family, size, weight, color, and alignment for all cells in the row at once to keep headings or data bands uniform.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
+1. Access the slide by its index.
+1. Access the relevant [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object on the slide.
+1. Set the font height for the first-row cells.
+1. Set the alignment and right margin for the first-row cells.
+1. Set the text vertical type for the second-row cells.
+1. Save the modified presentation.
 
 This Python code demonstrates the operation.
 
 ```python
 import aspose.slides as slides
 
-# Creates an instance of the Presentation class
+# Create an instance of the Presentation class.
 with slides.Presentation() as presentation:
-    
     slide = presentation.slides[0]
 
-    someTable = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-    # Sets first row cells' font height
-    portionFormat = slides.PortionFormat()
-    portionFormat.font_height = 25
-    someTable.rows[0].set_text_format(portionFormat)
+    # Set the font height for the first-row cells.
+    portion_format = slides.PortionFormat()
+    portion_format.font_height = 25
+    table.rows[0].set_text_format(portion_format)
 
-    # Sets first row cells' text alignment and right margin
-    paragraphFormat = slides.ParagraphFormat()
-    paragraphFormat.alignment = slides.TextAlignment.RIGHT
-    paragraphFormat.margin_right = 20
-    someTable.rows[0].set_text_format(paragraphFormat)
+    # Set the first-row cells' text alignment and right margin.
+    paragraph_format = slides.ParagraphFormat()
+    paragraph_format.alignment = slides.TextAlignment.RIGHT
+    paragraph_format.margin_right = 20
+    table.rows[0].set_text_format(paragraph_format)
 
-    # Sets the second row cells' text vertical type
-    textFrameFormat = slides.TextFrameFormat()
-    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
-    someTable.rows[1].set_text_format(textFrameFormat)
+    # Set the second-row cells' text vertical type.
+    text_frame_format = slides.TextFrameFormat()
+    text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
+    table.rows[1].set_text_format(text_frame_format)
 	
-  # Saves the presentation to Disk
+    # Save the presentation to disk.
     presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Text Formatting on Table Column Level**
+## **Set Text Formatting at the Table Column Level**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation, 
-2. Get a slide's reference through its index. 
-3. Access the relevant [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) object from the slide. 
-4. Set the first-column cells' `font_height`.
-5. Set the first-column cells' `alignment` and `margin_right`. 
-6. Set the second-column cells' `text_vertical_type`.
-7. Save the modified presentation. 
+Apply consistent text styling to an entire table column at once. With Aspose.Slides for Python, you can set font family, size, weight, color, and alignment for all cells in a column to create uniform vertical bands for headings or data.
 
-This Python code demonstrates the operation: 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load the presentation.
+1. Access the slide by its index.
+1. Access the relevant [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) object on the slide.
+1. Set the font height for the first-column cells.
+1. Set the alignment and right margin for the first-column cells.
+1. Set the text vertical type for the second-column cells.
+1. Save the modified presentation.
+
+The following Python code demonstrates the operation:
 
 ```python
 import aspose.slides as slides
 
-# Creates an instance of the Presentation class
-with slides.Presentation() as pres:
-    slide = pres.slides[0]
-    someTable = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Sets first column cells' font height
-    portionFormat = slides.PortionFormat()
-    portionFormat.font_height = 25
-    someTable.columns[0].set_text_format(portionFormat)
+    table = slide.shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
 
-    # Sets first column cells' text alignment and right margin 
-    paragraphFormat = slides.ParagraphFormat()
-    paragraphFormat.alignment = slides.TextAlignment.RIGHT
-    paragraphFormat.margin_right = 20
-    someTable.columns[0].set_text_format(paragraphFormat)
+    # Set the first-column cells' font height.
+    portion_format = slides.PortionFormat()
+    portion_format.font_height = 25
+    table.columns[0].set_text_format(portion_format)
 
-    # Sets second column cells' text vertical type
-    textFrameFormat = slides.TextFrameFormat()
-    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
-    someTable.columns[1].set_text_format(textFrameFormat)
+    # Set the first-column cells' text alignment and right margin.
+    paragraph_format = slides.ParagraphFormat()
+    paragraph_format.alignment = slides.TextAlignment.RIGHT
+    paragraph_format.margin_right = 20
+    table.columns[0].set_text_format(paragraph_format)
 
-    # Saves the presentation to Disk
-    pres.save("result.pptx", slides.export.SaveFormat.PPTX)
+    # Set the second-column cells' text vertical type.
+    text_frame_format = slides.TextFrameFormat()
+    text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
+    table.columns[1].set_text_format(text_frame_format)
+
+    # Save the presentation to disk.
+    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Get Table Style Properties**
 
-Aspose.Slides allows you to retrieve the style properties for a table so that you can use those details for another table or somewhere else. This Python code shows you how to get the style properties from a table preset style:
+Aspose.Slides lets you retrieve a table’s style properties so you can reuse them for another table or elsewhere. The following Python code shows how to get the style properties from a preset table style:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    table = pres.slides[0].shapes.add_table(10, 10, [100, 150], [5, 5, 5])
-    table.style_preset = slides.TableStylePreset.DARK_STYLE1
-    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
-```
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
+    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+    table.style_preset = slides.TableStylePreset.DARK_STYLE1
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
+```
