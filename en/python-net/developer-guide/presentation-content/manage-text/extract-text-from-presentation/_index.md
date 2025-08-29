@@ -31,15 +31,15 @@ description: "Learn how to quickly and easily extract text from PowerPoint prese
 
 ## **Overview**
 
-It’s common for developers to need to extract text from a presentation. To do this, you must pull text from every shape on every slide. This article explains how to extract text from Microsoft PowerPoint (PPTX) presentations using Aspose.Slides. Text can be extracted in the following ways:
+Extracting text from presentations is a common yet essential task for developers working with slide content. Whether you're dealing with Microsoft PowerPoint files in PPT or PPTX format, or OpenDocument presentations (ODP), accessing and retrieving textual data can be critical for analysis, automation, indexing, or content migration purposes.
 
-- Extracting text from a slide
-- Extracting text from a presentation
-- Categorized and fast text extraction
- 
+This article provides a comprehensive guide on how to efficiently extract text from various presentation formats, including PPT, PPTX, and ODP, using Aspose.Slides for Python. You'll learn how to systematically iterate through presentation elements to accurately retrieve the text content you need.
+
 ## **Extract Text from a Slide**
 
-Aspose.Slides for Python via .NET provides the [aspose.slides.util](https://reference.aspose.com/slides/python-net/aspose.slides.util/) namespace, which includes the [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) class. [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) exposes several overloaded static methods for extracting text from an entire presentation or a single slide. To extract text from a slide in a PPTX, use the `get_all_text_boxes` method. It takes a [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) object, scans the slide for text, and returns an array of [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) objects—so the text and its formatting are preserved. The code below extracts all text from the first slide of the presentation:
+Aspose.Slides for Python provides the [aspose.slides.util](https://reference.aspose.com/slides/python-net/aspose.slides.util/) namespace, which includes the [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) class. This class exposes several overloaded static methods for extracting all text from a presentation or slide. To extract text from a slide in a presentation, use the [get_all_text_boxes](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_boxes/) method. This method accepts an object of type [Slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/) as a parameter. When executed, the method scans the entire slide for text and returns an array of objects of type [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), preserving any text formatting.
+
+The following code snippet extracts all the text from the first slide of the presentation:
 
 ```py
 import aspose.slides as slides
@@ -66,12 +66,12 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Extract Text from a Presentation**
 
-To extract text from an entire presentation, use the `get_all_text_frames` static method of the [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) class. It takes two parameters:
+To scan text from the entire presentation, use the [get_all_text_frames](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/get_all_text_frames/) static method exposed by the [SlideUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) class. It accepts two parameters:
 
-1. A [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object representing the PPTX to extract from.
-1. A `Boolean` indicating whether to include the master slides.
+1. A [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object representing a PowerPoint or OpenDocument presentation from which text will be extracted.
+1. A `Boolean` value indicating whether the master slides should be included when scanning text from the presentation.
 
-The method returns an array of [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) objects with their formatting. The example below scans the text and formatting from a presentation, including the master slides.
+The method returns an array of objects of type [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), including text formatting information. The code below scans the text and formatting details from a presentation, including the master slides.
 
 ```py
 import aspose.slides as slides
@@ -97,29 +97,27 @@ with slides.Presentation("pres.pptx") as presentation:
 
 ## **Categorized and Fast Text Extraction**
 
-The [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class provides a static method, `get_presentation_text`, with these overloads:
+The [PresentationFactory](https://reference.aspose.com/slides/python-net/aspose.slides/ipresentationfactory/) class also provides static methods for extracting all text from presentations:
 
 ```py
-Presentation.get_presentation_text(stream, mode)
-Presentation.get_presentation_text(file, mode)
-Presentation.get_presentation_text(stream, mode, options)
+PresentationFactory.get_presentation_text(stream, mode)
+PresentationFactory.get_presentation_text(file, mode)
+PresentationFactory.get_presentation_text(stream, mode, options)
 ```
 
-The [TextExtractionArrangingMode](https://reference.aspose.com/slides/python-net/aspose.slides/textextractionarrangingmode/) argument controls how the extracted text is organized:
+The [TextExtractionArrangingMode](https://reference.aspose.com/slides/python-net/aspose.slides/textextractionarrangingmode/) enum argument indicates the mode for organizing the text extraction result and can be set to the following values:
+- `UNARRANGED` - The raw text without regard to its position on the slide.
+- `ARRANGED` - The text is arranged in the same order as on the slide.
 
-- `UNARRANGED` — raw text with no regard to on-slide position.
-- `ARRANGED` — text appears in the same order as on the slide.
+The `UNARRANGED` mode can be used when speed is critical; it's faster than the `ARRANGED` mode.
 
-Use `UNARRANGED` when speed is critical; it is faster than `ARRANGED`.
+[PresentationText](https://reference.aspose.com/slides/python-net/aspose.slides/presentationtext/) represents the raw text extracted from the presentation. It contains the `slides_text` property, which returns an array of objects of type [ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/). Each object represents the text on the corresponding slide. The object of type [ISlideText](https://reference.aspose.com/slides/python-net/aspose.slides/islidetext/) has the following properties:
 
-[PresentationText](https://reference.aspose.com/slides/python-net/aspose.slides/presentationtext/) represents the raw text extracted from a presentation. It exposes the `slides_text` property, which returns an array of `SlideText` objects—each corresponding to a slide. A `SlideText` object has the following properties:
-
-- `SlideText.text` — text from the slide’s shapes
-- `SlideText.master_text` — text from the master page’s shapes for that slide
-- `SlideText.layout_text` — text from the layout page’s shapes for that slide
-- `SlideText.notes_text` — text from the notes page’s shapes for that slide
-
-Here’s how to use the API:
+- `text` - The text within the slide's shapes.
+- `master_text` - The text within the master slide's shapes associated with this slide.
+- `layout_text` - The text within the layout slide's shapes associated with this slide.
+- `notes_text` - The text within the notes slide's shapes associated with this slide.
+- `comments_text` - The text within comments associated with this slide.
 
 ```py
 import aspose.slides as slides

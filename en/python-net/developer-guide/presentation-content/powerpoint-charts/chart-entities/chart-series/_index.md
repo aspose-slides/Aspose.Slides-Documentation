@@ -18,313 +18,291 @@ keywords:
 description: "Learn how to manage chart series in Python for PowerPoint (PPT/PPTX) with practical code examples and best practices to enhance your data presentations."
 ---
 
+## **Overview**
+
+This article describes the role of [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) in Aspose.Slides for Python, focusing on how data is structured and visualized within presentations. These objects provide the foundational elements that define individual sets of data points, categories, and appearance parameters in a chart. By working with [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/), developers can seamlessly integrate underlying data sources and maintain full control over how information is displayed, resulting in dynamic, data-driven presentations that clearly convey insights and analysis.
+
 A series is a row or column of numbers plotted in a chart.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Set Chart Series Overlap**
+## **Set Series Overlap**
 
-With the [IChartSeriesOverlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartseries/) property, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only. 
+The [ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) property controls how bars and columns overlap in a 2D chart by specifying a range from -100 to 100. Since this property is associated with the series group rather than individual chart series, it is read-only at the series level. To configure overlap values, use the `parent_series_group.overlap` read/write property, which applies the specified overlap to all series in that group.
 
-Use the `parent_series_group.overlap` read/write property to set your preferred value for `overlap`. 
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Add a clustered column chart on a slide.
-1. Access the first chart series.
-1. Access the chart series' `parent_series_group` and set your preferred overlap value for the series. 
-1. Write the modified presentation to a PPTX file.
-
-This Python code shows you how to set the overlap for a chart series:
+Below is a Python example that demonstrates how to create a presentation, add a clustered column chart, access the first chart series, configure the overlap setting, and then save the result as a PPTX file:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
+
+series_overlap = 30
 
 with slides.Presentation() as presentation:
-    # Adds chart
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400, True)
-    series = chart.chart_data.series
-    if series[0].overlap == 0:
-        # Sets series overlap
-        series[0].parent_series_group.overlap = -30
+    slide = presentation.slides[0]
 
-    # Writes the presentation file to disk
-    presentation.save("SetChartSeriesOverlap_out.pptx", slides.export.SaveFormat.PPTX)
+    # Add a clustered column chart with default data.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
+
+    series = chart.chart_data.series[0]
+    if series.overlap == 0:
+        # Set the series overlap.
+        series.parent_series_group.overlap = series_overlap
+
+    # Save the presentation file to disk.
+    presentation.save("series_overlap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Change Series Color**
-Aspose.Slides for Python via .NET allows you to change a series' color this way:
+The result:
 
-1. Create an instance of the `Presentation` class.
-1. Add chart on the slide.
-1. Access the series whose color you want to change. 
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+![The series overlap](series_overlap.png)
 
-This Python code shows you how to change a series' color:
+## **Change Series Fill Color**
+
+Aspose.Slides makes it straightforward to customize the fill colors of chart series, allowing you to highlight specific data points and create visually appealing charts. This is achieved through the [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/) object, which supports various fill types, color configurations, and other advanced styling options. After adding a chart to a slide and accessing the desired series, simply get a series and apply the appropriate fill color. Beyond solid fills, you can also leverage gradient or pattern fills for enhanced design flexibility. Once you’ve set the colors according to your requirements, save the presentation to finalize the updated look.
+
+The following Python code example shows how to change the color of the first series:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.PIE, 50, 50, 600, 400)
-	point = chart.chart_data.series[0].data_points[1]
-	
-	point.explosion = 30
-	point.format.fill.fill_type = slides.FillType.SOLID
-	point.format.fill.solid_fill_color.color = draw.Color.blue
+series_color = draw.Color.blue
 
-	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Add a clustered column chart with default data.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
+
+    # Set the color of the first series.
+    series = chart.chart_data.series[0]
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = series_color
+
+    # Save the presentation file to disk.
+    presentation.save("series_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Change Series Category's Color**
-Aspose.Slides for Python via .NET allows you to change a series category's color this way:
+The result:
 
-1. Create an instance of the `Presentation` class.
-1. Add chart on the slide.
-1. Access the series category whose color you want to change.
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+![The color of the series](series_color.png)
 
-This code in Python shows you how to change a series category's color:
+## **Rename a Series** 
 
-```py
-import aspose.slides.charts as charts
-import aspose.slides as slides
-import aspose.pydrawing as draw
+Aspose.Slides offers a simple way to modify the names of chart series, making it easier to label data in a clear and meaningful way. By accessing the relevant worksheet cell in the chart data, developers can customize how the data is presented. This modification is particularly useful when series names need to be updated or clarified based on the data’s context. After renaming the series, the presentation can be saved to persist the changes. 
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-	point = chart.chart_data.series[0].data_points[0]
-	
-	point.format.fill.fill_type = slides.FillType.SOLID
-	point.format.fill.solid_fill_color.color = draw.Color.blue
-
-	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Change Series' Name** 
-
-By default, the legend names for a chart are the contents of cells above each column or row of data. 
-
-In our example (sample image), 
-
-* the columns are *Series 1, Series 2,* and *Series 3*;
-* the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
-
-Aspose.Slides for Python via .NET allows you to update or change a series name in its chart data and legend. 
-
-This Python code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
+Below is a Python code snippet demonstrating this process in action.
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
+series_name = "New name"
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Add a clustered column chart with default data.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     
-    seriesCell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
-    seriesCell.value = "New name"
+    # Set the name of the first series.
+    series_cell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
+    series_cell.value = series_name
     
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation file to disk.
+    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-This Python code shows you how to change a series name in its legend through`Series`:
+The following Python code shows an alternative way to change the series name:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.COLUMN_3D, 50, 50, 600, 400, True)
+series_name = "New name"
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    # Add a clustered column chart with default data.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     series = chart.chart_data.series[0]
     
-    series.name.as_cells[0].value = "New name"
+    # Set the name of the first series.
+    series.name.as_cells[0].value = series_name
 
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX) 
+    # Save the presentation file to disk.
+    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX) 
 ```
 
-## **Set Chart Series Fill Color**
+The result:
 
-Aspose.Slides for Python via .NET allows you to set the automatic fill color for chart series inside a plot area this way:
+![The series name](series_name.png)
 
-1. Create an instance of the `Presentation` class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.CLUSTERED_COLUMN`).
-1. Access the chart series and set the fill color to Automatic.
-1. Save the presentation to a PPTX file.
+## **Get Automatic Series Fill Color**
 
-This Python code shows you how to set the automatic fill color for a chart series:
+Aspose.Slides for Python allows you to get the automatic fill color for chart series within a plot area. After creating an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class, you can obtain a reference to the desired slide by index, then add a chart using your preferred type (such as `ChartType.CLUSTERED_COLUMN`). By accessing the series in the chart, you can get the automatic fill color.
+
+The Python code below demonstrates this process in detail.
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    # Creates a clustered column chart
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 50, 600, 400)
+    slide = presentation.slides[0]
 
-    # Sets series fill format to automatic
+    # Add a clustered column chart with default data.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
+
     for i in range(len(chart.chart_data.series)):
-        chart.chart_data.series[i].get_automatic_series_color()
-
-    # Writes the presentation file to disk
-    presentation.save("AutoFillSeries_out.pptx", slides.export.SaveFormat.PPTX)
+        # Get the fill color of the series.
+        color = chart.chart_data.series[i].get_automatic_series_color()
+        print(f"Series {i} color: {color.name}")
 ```
 
-## **Set Chart Series Invert Fill Colors**
-Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
+Example Output:
 
-1. Create an instance of the `Presentation` class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.CLUSTERED_COLUMN`).
-1. Access the chart series and set the fill color to invert.
-1. Save the presentation to a PPTX file.
+```text
+Series 0 color: ff4f81bd
+Series 1 color: ffc0504d
+Series 2 color: ff9bbb59
+```
 
-This Python code demonstrates the operation:
+## **Set Invert Fill Colors for a Series**
+
+When your data series contains both positive and negative values, simply coloring every column or bar the same can make the chart hard to read. Aspose.Slides for Python lets you assign an invert fill color—a separate fill applied automatically to data points that fall below zero—so negative values stand out at a glance. In this section you’ll learn how to enable that option, choose an appropriate color, and save the updated presentation.
+
+The following code example demonstrates the operation:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 100, 100, 400, 300)
+invert_color = draw.Color.red
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
     workBook = chart.chart_data.chart_data_workbook
 
     chart.chart_data.series.clear()
     chart.chart_data.categories.clear()
 
-    # Adds new series and categories
-    chart.chart_data.series.add(workBook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    # Add new categories.
     chart.chart_data.categories.add(workBook.get_cell(0, 1, 0, "Category 1"))
     chart.chart_data.categories.add(workBook.get_cell(0, 2, 0, "Category 2"))
     chart.chart_data.categories.add(workBook.get_cell(0, 3, 0, "Category 3"))
 
-    # Takes the first chart series and populates its series data.
-    series = chart.chart_data.series[0]
+    # Add a new series.
+    series = chart.chart_data.series.add(workBook.get_cell(0, 0, 1, "Series 1"), chart.type)
+
+    # Populate the series data.
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 1, 1, -20))
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
     series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
-    seriesColor = series.get_automatic_series_color()
+
+    # Set the color settings for the series.
+    series_color = series.get_automatic_series_color()
     series.invert_if_negative = True
     series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = seriesColor
-    series.inverted_solid_fill_color.color = draw.Color.red
-    pres.save("SetInvertFillColorChart_out.pptx", slides.export.SaveFormat.PPTX)
+    series.format.fill.solid_fill_color.color = series_color
+    series.inverted_solid_fill_color.color = invert_color
+    presentation.save("inverted_solid_fill_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+The result:
 
-## **Set Series to Invert When Value is Negative**
-Aspose.Slides allows you to set inverts through the `ChartDataPoint.invert_if_negative` properties. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-This Python code demonstrates the operation:
+You can invert the fill color for a single data point rather than the whole series. Simply access the desired `ChartDataPoint` and set its `invert_if_negative` property to `True`.
+
+The following code example shows how to do this:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400, True)
-	series = chart.chart_data.series
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
 	chart.chart_data.series.clear()
 
-	series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
-	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
-	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
-	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -2))
-	series[0].data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
+	series = series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
 
-	series[0].invert_if_negative = False
+	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
+	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
+	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -3))
+	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
 
-	series[0].data_points[2].invert_if_negative = True
+	series.invert_if_negative = False
+	series.data_points[2].invert_if_negative = True
 
-	pres.save("out.pptx", slides.export.SaveFormat.PPTX)
+	presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Clear Specific Data Points' Data**
-Aspose.Slides for Python via .NET allows you to clear the `data_points` data for a specific chart series this way:
+## **Clear Data for Specific Data Points**
 
-1. Create an instance of the `Presentation` class.
-2. Obtain the reference of a slide through its index.
-3. Obtain the reference of a chart through its index.
-4. Iterate through all the chart `data_points` and set `x_value` and `y_value` to null.
-5. Clear all`data_points` for specific chart series.
-6. Write the modified presentation to a PPTX file.
+Sometimes a chart contains test values, outliers, or obsolete entries that you need to remove without rebuilding the entire series. Aspose.Slides for Python lets you target any data point by index, clear its contents, and instantly refresh the plot so the remaining points shift and the axes rescale automatically.
 
-This Python code demonstrates the operation:
+The following code exammple demonstrates the operation:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
-with slides.Presentation(path + "TestChart.pptx") as pres:
-    sl = pres.slides[0]
-    chart = sl.shapes[0]
+with slides.Presentation("test_chart.pptx") as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes[0]
+    series = chart.chart_data.series[0]
 
-    for dataPoint in chart.chart_data.series[0].data_points:
-        dataPoint.x_value.as_cell.value = None
-        dataPoint.y_value.as_cell.value = None
+    for data_point in series.data_points:
+        data_point.x_value.as_cell.value = None
+        data_point.y_value.as_cell.value = None
 
-    chart.chart_data.series[0].data_points.clear()
+    series.data_points.clear()
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("clear_data_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Set Series Gap Width**
-Aspose.Slides for Python via .NET allows you to set a series' Gap Width through the **`gap_width`** property this way:
 
-1. Create an instance of the `Presentation` class.
-1. Access first slide.
-1. Add chart with default data.
-1. Access any chart series.
-1. Set the `gap_width` property.
-1. Write the modified presentation to a PPTX file.
+Gap width controls the amount of empty space between adjacent columns or bars—wider gaps emphasize individual categories, while narrower gaps create a denser, more compact look. Through Aspose.Slides for Python you can fine‑tune this parameter for an entire series, achieving exactly the visual balance your presentation requires without altering the underlying data.
 
-This code in Python shows you how to set a series' Gap Width:
+The following code example shows how to set the gap width for a series:
 
 ```py
-# Creates empty presentation 
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+gap_width = 30
+
+# Create an empty presentation.
 with slides.Presentation() as presentation:
 
-    # Accesses the presentation's first slide
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Adds a chart with default data
-    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 0, 0, 500, 500)
+    # Add a chart with default data with default data.
+    chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 500, 200)
 
-    # Sets the index of the chart data sheet
-    defaultWorksheetIndex = 0
+    # Save the presentation to disk.
+    presentation.save("default_gap_width.pptx", slides.export.SaveFormat.PPTX)
 
-    # Gets the chart data worksheet
-    fact = chart.chart_data.chart_data_workbook
+    # Set the gap_width value.
+    series = chart.chart_data.series[0]
+    series.parent_series_group.gap_width = gap_width
 
-    # Adds series
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.type)
-    chart.chart_data.series.add(fact.get_cell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.type)
-
-    # Adds Categories
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"))
-    chart.chart_data.categories.add(fact.get_cell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"))
-
-    # Takes the second chart series
-    series = chart.chart_data.series[1]
-
-    # Populates the series data
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 1, 20))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 1, 30))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 1, 2, 30))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 2, 2, 10))
-    series.data_points.add_data_point_for_bar_series(fact.get_cell(defaultWorksheetIndex, 3, 2, 60))
-
-    # Sets GapWidth value
-    series.parent_series_group.gap_width = 50
-
-    # Saves presentation to disk
-    presentation.save("GapWidth_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("gap_width_30.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+The result:
+
+![The gap width](gap_width.png)
