@@ -1,5 +1,6 @@
 ---
-title: Manage OLE
+title: Manage OLE in Presentations Using Java
+linktitle: Manage OLE
 type: docs
 weight: 40
 url: /java/manage-ole/
@@ -8,20 +9,23 @@ keywords:
 - Object Linking & Embedding
 - add OLE
 - embed OLE
-- add an object
-- embed an object
-- embed a file
+- add object
+- embed object
+- add file
+- embed file
 - linked object
+- linked file
 - change OLE
 - OLE icon
 - OLE title
 - extact OLE
-- extract an object
+- extract object
+- extract file
 - PowerPoint 
 - presentation
 - Java
-- Aspose.Slides for Java
-description: Manage OLE objects in PowerPoint presentations in Java
+- Aspose.Slides
+description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for Java. Embed, update, and export OLE content seamlessly."
 ---
 
 {{% alert color="primary" %}} 
@@ -263,7 +267,7 @@ IPPImage oleImage = presentation.getImages().addImage(imageData);
 // Set a title and the image for the OLE preview.
 oleFrame.setSubstitutePictureTitle("My title");
 oleFrame.getSubstitutePictureFormat().getPicture().setImage(oleImage);
-oleFrame.setObjectIcon(false);
+oleFrame.setObjectIcon(true);
 
 presentation.save("output.pptx", SaveFormat.Pptx);
 presentation.dispose();

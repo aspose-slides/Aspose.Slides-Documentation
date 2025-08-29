@@ -1,5 +1,6 @@
 ---
-title: Manage OLE
+title: Manage OLE in Presentations Using C++
+linktitle: Manage OLE
 type: docs
 weight: 40
 url: /cpp/manage-ole/
@@ -8,20 +9,23 @@ keywords:
 - Object Linking & Embedding
 - add OLE
 - embed OLE
-- add an object
-- embed an object
-- embed a file
+- add object
+- embed object
+- add file
+- embed file
 - linked object
+- linked file
 - change OLE
 - OLE icon
 - OLE title
 - extact OLE
-- extract an object
+- extract object
+- extract file
 - PowerPoint 
 - presentation
 - C++
-- Aspose.Slides for C++
-description: Manage OLE objects in PowerPoint presentations in C++
+- Aspose.Slides
+description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for C++. Embed, update, and export OLE content seamlessly."
 ---
 
 {{% alert title="Info" color="info" %}}
@@ -271,7 +275,7 @@ auto oleImage = presentation->get_Images()->AddImage(imageData);
 // Set a title and the image for the OLE preview.
 oleFrame->set_SubstitutePictureTitle(u"My title");
 oleFrame->get_SubstitutePictureFormat()->get_Picture()->set_Image(oleImage);
-oleFrame->set_IsObjectIcon(false);
+oleFrame->set_IsObjectIcon(true);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
