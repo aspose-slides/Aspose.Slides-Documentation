@@ -1,13 +1,24 @@
 ---
-title: Audio Frame
+title: Manage Audio in Presentations Using C++
+linktitle: Audio Frame
 type: docs
 weight: 10
 url: /cpp/audio-frame/
-keywords: "Add audio, Audio frame, Audio properties, Extract audio, C++, CPP, Aspose.Slides for C++"
-description: "Add audio to PowerPoint presentation in C++"
+keywords:
+- audio
+- audio frame
+- thumbnail
+- add audio
+- audio properties
+- audio options
+- extract audio
+- C++
+- Aspose.Slides
+description: "Create and control audio frames in Aspose.Slides for C++—code examples to embed, trim, loop, and configure playback across PPT, PPTX, and ODP presentations."
 ---
 
-## **Creating Audio Frame**
+## **Create Audio Frames**
+
 Aspose.Slides for C++ allows you to add audio files to slides. The audio files are embedded in slides as audio frames. 
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
@@ -76,13 +87,23 @@ The **Audio Options** pane in Microsoft PowerPoint:
 
 ![example1_image](audio_frame_0.png)
 
-PowerPoint Audio options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame) methods:
-- Audio Options **Start** drop-down list matches the [AudioFrame::get_PlayMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a5379c1a9c1166234d674b32413215a2b) method 
-- Audio Options **Volume** matches the [AudioFrame::get_Volume()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#af06a3176684b6a13326bc8526747d9f3)  method 
-- Audio Options **Play Across Slides** matches the [AudioFrame::get_PlayAcrossSlides()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a3c6ffc45b319ce127384fc37e188f7b0)  method 
-- Audio Options **Loop until Stopped** matches the [AudioFrame::get_PlayLoopMode()](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a99b5b9cc650e93eba813bd8b2371315b)  method 
-- Audio Options **Hide During Show** matches the  [AudioFrame::get_HideAtShowing() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#abd008322e6a3d7d06bed527e329a9082)  method 
-- Audio Options **Rewind after Playing** matches the [AudioFrame::get_RewindAudio() ](https://reference.aspose.com/slides/cpp/class/aspose.slides.audio_frame#a4900e1df6477db16e8cdd859ad54e637) method 
+PowerPoint **Audio Options** that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/) methods:
+
+- **Start** drop-down list matches the [AudioFrame::set_PlayMode](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_playmode/) method 
+- **Volume** matches the [AudioFrame::set_Volume](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_volume/) method 
+- **Play Across Slides** matches the [AudioFrame::set_PlayAcrossSlides](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_playacrossslides/) method 
+- **Loop until Stopped** matches the [AudioFrame::set_PlayLoopMode](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_playloopmode/) method 
+- **Hide During Show** matches the  [AudioFrame::set_HideAtShowing](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_hideatshowing/) method 
+- **Rewind after Playing** matches the [AudioFrame::set_RewindAudio](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_rewindaudio/) method 
+
+PowerPoint **Editing** options that correspond to Aspose.Slides [AudioFrame](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/) properties:
+
+- **Fade In** matches the [AudioFrame.set_FadeInDuration](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_fadeinduration/) method
+- **Fade Out** matches the [AudioFrame.set_FadeOutDuration](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_fadeoutduration/) method
+- **Trim Audio Start Time** matches the [AudioFrame.set_TrimFromStart](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_trimfromstart/) method
+- **Trim Audio End Time** value equals the audio duration minus the value of [AudioFrame.set_TrimFromEnd](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_trimfromend/) method
+
+The PowerPoint **Volume controll** on the audio control panel corresponds to the [AudioFrame.set_VolumeValue](https://reference.aspose.com/slides/cpp/aspose.slides/audioframe/set_volumevalue/) method. It lets you change the audio volume as a percentage.
 
 This is how you change the Audio Play options:
 
@@ -121,6 +142,45 @@ audioFrame->set_RewindAudio(true);
 
 // Saves the PowerPoint file to disk
 pres->Save(u"AudioFrameEmbed_changed.pptx", SaveFormat::Pptx);
+```
+
+This C++ example shows how to add a new audio frame with embedded audio, trim it, and set the fade durations:
+
+```cpp
+auto pres = MakeObject<Presentation>();
+auto slide = pres->get_Slide(0);
+
+auto audioData = File::ReadAllBytes(u"sampleaudio.mp3");
+auto audio = pres->get_Audios()->AddAudio(audioData);
+auto audioFrame = slide->get_Shapes()->AddAudioFrameEmbedded(50, 50, 100, 100, audio);
+
+// Sets the trimming start offset to 1.5 seconds
+audioFrame->set_TrimFromStart(1500);
+// Sets the trimming end offset to 2 seconds
+audioFrame->set_TrimFromEnd(2000);
+
+// Sets the fade-in duration to 200 ms
+audioFrame->set_FadeInDuration(200);
+// Sets the fade-out duration to 500 ms
+audioFrame->set_FadeOutDuration(500);
+
+pres->Save(u"AudioFrameTrimFade_out.pptx", SaveFormat::Pptx);
+pres->Dispose();
+```
+
+The following code sample shows how to retrieve an audio frame with embedded audio and set its volume to 85%:
+
+```cpp
+auto pres = MakeObject<Presentation>(u"AudioFrameEmbed_out.pptx");
+    
+// Gets an audio frame shape
+auto audioFrame = ExplicitCast<IAudioFrame>(pres->get_Slide(0)->get_Shape(0));
+
+// Sets the audio volume to 85%
+audioFrame->set_VolumeValue(85);
+
+pres->Save(u"AudioFrameValue_out.pptx", SaveFormat::Pptx);
+pres->Dispose();
 ```
 
 ## **Extract Audio**
