@@ -18,105 +18,106 @@ keywords:
 description: "Embed custom fonts in PowerPoint slides with Aspose.Slides for Python via .NET to keep your presentations sharp and consistent across any device."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-Aspose Slides allows you to load these fonts using the `load_external_fonts` method the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class:
+Aspose.Slides for Python lets you provide custom fonts at runtime so presentations render correctly even when the required fonts aren’t installed on the host system. During export to PDF or images, you can supply font folders or in-memory font data to preserve text layout, glyph metrics, and typography. This makes server-side rendering predictable across different environments, removes OS-level font dependencies, and prevents unwanted fallbacks or reflow. The article shows how to register font sources.
 
-* TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
+Aspose.Slides lets you load the following fonts using the `load_external_font` and `load_external_fonts` methods of the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class:
 
-* OpenType (.otf) fonts. See [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
-{{% /alert %}}
+- TrueType (.ttf) and TrueType Collection (.ttc) fonts. See [TrueType](https://en.wikipedia.org/wiki/TrueType).
+- OpenType (.otf) fonts. See [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 ## **Load Custom Fonts**
 
-Aspose.Slides allows you to load fonts that are rendered in presentations without having to install those fonts. The fonts are loaded from a custom directory. 
+Aspose.Slides lets you load fonts for rendering presentations without installing them. The fonts are loaded from a custom directory.
 
-1. Create an instance of the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class and call the `load_external_fonts` method.
-2. Load the presentation that will be rendered.
-3. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class.
+1. Call the `load_external_fonts` method from [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/).
+1. Load the presentation to be rendered.
+1. Clear the cache in the [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) class.
 
-This Python code demonstrates the font loading process:
+The following Python code demonstrates the font-loading process:
 
 ```python
 import aspose.slides as slides
 
-# The path to the documents directory.
-dataDir = "C:\\"
+# Folders to search for fonts.
+font_folders = [ "C:\\MyFonts", "D:\\MyAdditionalFonts" ]
 
-# folders to seek fonts
-folders = [ dataDir ]
+# Load fonts from the custom directories.
+slides.FontsLoader.load_external_fonts(font_folders)
 
-# Loads the custom font directory fonts
-slides.FontsLoader.load_external_fonts(folders)
+# Render the presentation.
+with slides.Presentation("Fonts.pptx") as presentation:
+    presentation.save("Fonts_out.pdf", slides.export.SaveFormat.PDF)
 
-# Do some work and perform presentation/slide rendering
-with slides.Presentation(path + "DefaultFonts.pptx") as presentation:
-    presentation.save("NewFonts_out.pptx", slides.export.SaveFormat.PPTX)
-
-# Clears the font Cachce
+# Clear the font cache.
 slides.FontsLoader.clear_cache()
 ```
 
-## **Get Custom Fonts Folder**
-Aspose.Slides provides the `get_font_folders()` method to allow you to find font folders. This method returns folders added through the `LoadExternalFonts` method and system font folders.
+## **Get the Custom Fonts Folder**
 
-This Python code shows you how to use `get_font_folders()`:
+Aspose.Slides provides the `get_font_folders` method to retrieve font folders. It returns both the folders added through `load_external_fonts` and the system font folders.
 
-```python
-#  This line outputs the folders that are checked for font files.
-# Those are folders added through the load_external_fonts method and system font folders.
-fontFolders = slides.FontsLoader.get_font_folders()
-
-```
-
-
-## **Specify Custom Fonts Used With Presentation**
-Aspose.Slides provides the `document_level_font_sources` property to allow you to specify external fonts that will be used with the presentation.
-
-This Python code shows you how to use the `document_level_font_sources` property:
+This Python code shows how to use `get_font_folders`:
 
 ```python
 import aspose.slides as slides
 
-with open(path + "CustomFont1.ttf", "br") as font1:
-    memoryFont1 = font1.read()
-    with open(path + "CustomFont2.ttf", "br") as font2:
-        memoryFont2 = font2.read()
-
-        loadOptions = slides.LoadOptions()
-        loadOptions.document_level_font_sources.font_folders =  ["assets\\fonts", "global\\fonts"] 
-        loadOptions.document_level_font_sources.memory_fonts = [ memoryFont1, memoryFont2 ]
-        with slides.Presentation(path + "DefaultFonts.pptx", loadOptions) as presentation:
-            # Work with the presentation
-            # CustomFont1, CustomFont2, and fonts from assets\fonts & global\fonts folders and their subfolders are available to the presentation
-            print(len(presentation.slides))
+# This call returns the folders checked for font files.
+# These include folders added via the load_external_fonts method and the system font folders.
+font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **Manage Fonts Externally**
+## **Specify Custom Fonts for a Presentation**
 
-Aspose.Slides provides the `load_external_font`(data) method to allow you to load external fonts from binary data.
+Aspose.Slides provides the `document_level_font_sources` property, which lets you specify external fonts to use with a presentation.
 
-This Python code demonstrates the byte array font loading process:
+The following Python example shows how to use `document_level_font_sources`:
 
 ```python
-from aspose.slides import FontsLoader, Presentation
+import aspose.slides as slides
 
-def read_all_bytes(path):
-    with open(path, "rb") as in_file:
-        bytes = in_file.read()
-    return bytes
+with open("CustomFont1.ttf", "br") as font1_stream:
+    font1_data = font1_stream.read()
+    
+with open("CustomFont2.ttf", "br") as font2_stream:
+    font2_data = font2_stream.read()
 
-FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
-FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
-FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
+load_options = slides.LoadOptions()
+load_options.document_level_font_sources.font_folders = ["assets\\fonts", "global\\fonts"] 
+load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 
-try:
-    with Presentation() as pres:
-        # external font loaded during the presentation lifetime
-        print("processing")
-finally:
-    FontsLoader.clear_cache()
-
+with slides.Presentation("Fonts.pptx", load_options) as presentation:
+    # ...
+    # Work with the presentation.
+    # CustomFont1, CustomFont2, and fonts from the assets\fonts and global\fonts folders (and their subfolders) are available to the presentation.
+    # ...
+    print(len(presentation.slides))
 ```
 
+## **Load External Fonts from Binary Data**
+
+Aspose.Slides provides the `load_external_font` method to load external fonts from binary data.
+
+The following Python example demonstrates loading a font from a byte array:
+
+```python
+import aspose.slides as slides
+
+def read_all_bytes(file_path):
+    with open(file_path, "rb") as file_stream:
+        file_data = file_stream.read()
+    return file_data
+
+# Load external fonts from byte arrays.
+slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
+slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
+slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
+
+try:
+    with slides.Presentation() as presentation:
+        # External fonts are available for the lifetime of this presentation instance.
+        print("processing")
+finally:
+    slides.FontsLoader.clear_cache()
+```

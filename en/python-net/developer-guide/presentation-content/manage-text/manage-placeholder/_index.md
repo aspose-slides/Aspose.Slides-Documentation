@@ -17,84 +17,87 @@ keywords:
 description: "Effortlessly manage placeholders in Aspose.Slides for Python via .NET: replace text, customize prompts & set image transparency in PowerPoint and OpenDocument."
 ---
 
-## **Change Text in Placeholder**
+## **Overview**
 
-Using [Aspose.Slides for Python via .NET](/slides/python-net/), you can find and modify placeholders on slides in presentations. Aspose.Slides allows you to make changes to the text in a placeholder.
+Placeholders define reserved regions on masters, layouts, and slides—such as title, body, picture, chart, date/time, slide number, and footer—that control where content goes and how it inherits formatting. With Aspose.Slides for Python you can discover placeholders on a slide, its layout, or the master by checking that `shape.placeholder` is not `None`, inspect the `placeholder.type`, and then read or modify the associated content and formatting. The API lets you add new placeholders to a master or layout so they propagate to descendant slides, reposition and resize existing ones, convert a placeholder to a normal shape when you need full control, or remove it to simplify a design. The examples below show how to enumerate placeholders, update text and style, and keep layouts consistent by applying changes at the appropriate level.
 
-**Prerequisite**: You need a presentation that contains a placeholder. You can create such a presentation in the standard Microsoft PowerPoint app.
+## **Change Text in Placeholders**
 
-This is how you use Aspose.Slides to replace the text in the placeholder in that presentation:
+Using Aspose.Slides for Python, you can find and modify placeholders on slides in a presentation. Aspose.Slides allows you to modify the text in a placeholder.
 
-1. Instantiate the [`Presentation`](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the presentation as an argument.
-2. Get a slide reference through its index.
-3. Iterate through the shapes to find the placeholder.
-4. Typecast the placeholder shape to an [`AutoShape`](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) and change the text using the [`TextFrame`](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) associated with the [`AutoShape`](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
-5. Save the modified presentation.
+**Prerequisite:** You need a presentation that contains a placeholder. You can create such a presentation in Microsoft PowerPoint.
+
+This is how to use Aspose.Slides to replace the text in a placeholder:
+
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the presentation as an argument.
+1. Get a reference to the slide by its index.
+1. Iterate through the shapes to find the placeholder.
+1. Change the text using the [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) associated with the [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+1. Save the modified presentation.
 
 This Python code shows how to change the text in a placeholder:
 
 ```python
 import aspose.slides as slides
 
-# Instantiates a Presentation class
-with slides.Presentation(path + "ReplacingText.pptx") as pres:
-    # Accesses the first slide
-    sld = pres.slides[0]
+# Instantiate the Presentation class.
+with slides.Presentation("ReplacingText.pptx") as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Iterates through shapes to find the placeholder
-    for shp in sld.shapes:
-        if shp.placeholder != None:
-            # Changes the text in each placeholder
-            shp.text_frame.text = "This is Placeholder"
+    # Iterate through shapes to find placeholders.
+    for shape in slide.shapes:
+        if shape.placeholder is not None:
+            # Change the text in each placeholder.
+            shape.text_frame.text = "This is Placeholder"
 
-    # Saves the presentation to disk
-    pres.save("output_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("ReplacingText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set Prompt Text for a Placeholder**
 
-## **Set Prompt Text in a Placeholder**
-Standard and pre-built layouts contain placeholder prompt texts such as ***Click to add a title*** or ***Click to add a subtitle***. Using Aspose.Slides, you can insert your preferred prompt texts into placeholder layouts.
+Standard and prebuilt layouts include placeholder prompt text such as **Click to add a title** or **Click to add a subtitle**. With Aspose.Slides, you can replace these prompts with your own text in the placeholder layouts.
 
-This Python code shows you how to set the prompt text in a placeholder:
+The following Python example shows how to set the prompt text for a placeholder:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation(path + "Presentation2.pptx") as pres:
-    slide = pres.slides[0]
-    for shape in slide.slide.shapes: # Iterates through the slide
-        if shape.placeholder != None and type(shape) is slides.AutoShape:
-            text = ""
-            if shape.placeholder.type == slides.PlaceholderType.CENTERED_TITLE: # PowerPoint displays "Click to add title". 
+with slides.Presentation("PromptText.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    # Iterate through shapes to find placeholders.
+    for shape in slide.slide.shapes:
+        if shape.placeholder is not None and type(shape) is slides.AutoShape:
+            if shape.placeholder.type == slides.PlaceholderType.CENTERED_TITLE:
                 text = "Add Title"
-            elif shape.placeholder.type == slides.PlaceholderType.SUBTITLE: # Adds subtitle.
+            elif shape.placeholder.type == slides.PlaceholderType.SUBTITLE:
                 text = "Add Subtitle"
 
             shape.text_frame.text = text
+            print(f"Placeholder with text: {text}")
 
-            print("Placeholder with text: {text}".format(text = text))
-
-    pres.save("Placeholders_PromptText.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("PromptText_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Placeholder Image Transparency**
+## **Set Image Transparency in a Placeholder**
 
-Aspose.Slides allows you to set the transparency of the background image in a text placeholder. By adjusting the transparency of the picture in such a frame, you can make the text or the image stand out (depending on the text's and picture's colors).
+Aspose.Slides lets you set the transparency of a background image in a text placeholder. By adjusting the picture’s transparency in that frame, you can make either the text or the image stand out, depending on their colors.
 
-This Python code shows you how to set the transparency for a picture background (inside a shape):
+The following Python example shows how to set the transparency of a picture background inside a shape:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    autoShape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-    
-    autoShape.fill_format.fill_type = slides.FillType.PICTURE
-    with open("image.png", "rb") as in_file:
-        autoShape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(in_file)
+    slide = presentation.slides[0]
 
-        autoShape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-        autoShape.fill_format.picture_fill_format.picture.image_transform.add_alpha_modulate_fixed_effect(75)
+    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
+    auto_shape.fill_format.fill_type = slides.FillType.PICTURE
 
+    with open("image.png", "rb") as image_stream:
+        auto_shape.fill_format.picture_fill_format.picture.image = presentation.images.add_image(image_stream)
+        auto_shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+        auto_shape.fill_format.picture_fill_format.picture.image_transform.add_alpha_modulate_fixed_effect(75)
 ```
-
