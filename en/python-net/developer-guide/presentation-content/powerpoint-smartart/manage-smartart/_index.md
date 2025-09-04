@@ -18,122 +18,124 @@ keywords:
 description: "Learn to build and edit PowerPoint SmartArt with Aspose.Slides for Python via .NET using clear code samples that speed up slide design and automation."
 ---
 
+## **Overview**
+
+This guide shows how to create and manipulate SmartArt in Aspose.Slides for Python. You’ll learn how to extract text from SmartArt (including [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) content inside node shapes), add SmartArt to slides and switch its layout, detect and handle hidden nodes, configure organization-chart layouts, and build picture organization charts—all with concise, copy-pasteable Python examples that open a [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), work with slides and SmartArt nodes, and save results to PPTX. 
+
 ## **Get Text from SmartArt**
-Now TextFrame property has been added to ISmartArtShape interface and SmartArtShape class respectively. This property allows you to get all text from SmartArt if it has not only nodes text. The following sample code will help you to get text from SmartArt node.
+
+The `text_frame` property of the [SmartArtShape](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartartshape/) allows you to retrieve all text from a SmartArt shape—not just the text contained in its nodes. The following sample code shows how to get text from a SmartArt node.
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "SmartArt.pptx") as pres:
-    slide = pres.slides[0]
-    smartArt = slide.shapes[0]
+with slides.Presentation("SmartArt.pptx") as presentation:
+    slide = presentation.slides[0]
+    smart_art = slide.shapes[0]
 
-    for smartArtNode in smartArt.all_nodes:
-        for nodeShape in smartArtNode.shapes:
-            if nodeShape.text_frame != None:
-                print(nodeShape.text_frame.text)
+    for smart_art_node in smart_art.all_nodes:
+        for node_shape in smart_art_node.shapes:
+            if node_shape.text_frame is not None:
+                print(node_shape.text_frame.text)
 ```
 
+## **Change the SmartArt Layout Type**
 
+To change the SmartArt layout type, follow these steps:
 
-## **Change Layout Type of SmartArt**
-In order to change the layout type of SmartArt. Please follow the steps below:
-
-- Create an instance of `Presentation` class.
-- Obtain the reference of a slide by using its Index.
-- Add SmartArt BasicBlockList.
-- Change LayoutType to BasicProcess.
-- Write the presentation as a PPTX file.
-  In the example given below, we have added a connector between two shapes.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add a SmartArt shape with the `BASIC_BLOCK_LIST` layout.
+1. Change its layout to `BASIC_PROCESS`.
+1. Save the presentation as a PPTX file.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    # Add SmartArt BasicProcess 
-    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.BASIC_BLOCK_LIST)
-    # Change LayoutType to BasicProcess
-    smart.layout = art.SmartArtLayoutType.BASIC_PROCESS
-    # Saving Presentation
-    presentation.save("ChangeSmartArtLayout_out.pptx", slides.export.SaveFormat.PPTX)
+    slide = presentation.slides[0]
+
+    # Add a SmartArt shape with the BASIC_BLOCK_LIST layout.
+    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.BASIC_BLOCK_LIST)
+
+    # Change the layout type to BASIC_PROCESS.
+    smart.layout = smartart.SmartArtLayoutType.BASIC_PROCESS
+
+    # Save the presentation.
+    presentation.save("ChangedSmartArtLayout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Check the Hidden Property of SmartArt**
 
+The `SmartArtNode.is_hidden` property returns `True` if the node is hidden in the data model. To check whether a SmartArt node is hidden, follow these steps:
 
-## **Check Hidden Property of SmartArt**
-Please note Method com.aspose.slides.ISmartArtNode.isHidden() returns true if this node is a hidden node in the data model. In order to check the hidden property of any node of SmartArt. Please follow the steps below:
-
-- Create an instance of `Presentation` class.
-- Add SmartArt RadialCycle.
-- Add node on SmartArt.
-- Check isHidden property.
-- Write the presentation as a PPTX file.
-
-In the example given below, we have added a connector between two shapes.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Add a SmartArt shape with the `RADIAL_CYCLE` layout.
+1. Add a node to the SmartArt.
+1. Check the `is_hidden` property.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    # Add SmartArt BasicProcess 
-    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.RADIAL_CYCLE)
-    # Add node on SmartArt 
+    slide = presentation.slides[0]
+
+    # Add a SmartArt shape with the RADIAL_CYCLE layout.
+    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.RADIAL_CYCLE)
+
+    # Add a node to the SmartArt.
     node = smart.all_nodes.add_node()
-    # Check isHidden property
+
+    # Check the is_hidden property.
     if node.is_hidden:
-        print("hidden")
-        # Do some actions or notifications
-    # Saving Presentation
-    presentation.save("CheckSmartArtHiddenProperty_out.pptx", slides.export.SaveFormat.PPTX)
+        print("The node is hidden.")
 ```
 
+## **Get or Set the Organization Chart Type**
 
+The `SmartArtNode.organization_chart_layout` property gets or sets the organization chart type associated with the current node. To get or set the organization chart type, follow these steps:
 
-## **Get or Set Organization Chart Type**
-Methods com.aspose.slides.ISmartArtNode.getOrganizationChartLayout(), setOrganizationChartLayout(int) allow get or sets organization chart type associated with current node. In order to get or set organization chart type. Please follow the steps below:
-
-- Create an instance of `Presentation` class.
-- Add SmartArt on slide.
-- Get or Set the organization chart type.
-- Write the presentation as a PPTX file.
-  In the example given below, we have added a connector between two shapes.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Add a SmartArt shape to the slide.
+1. Get or set the organization chart type.
+1. Save the presentation as a PPTX file.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
 with slides.Presentation() as presentation:
-    # Add SmartArt BasicProcess 
-    smart = presentation.slides[0].shapes.add_smart_art(10, 10, 400, 300, art.SmartArtLayoutType.ORGANIZATION_CHART)
-    # Get or Set the organization chart type 
-    smart.nodes[0].organization_chart_layout = art.OrganizationChartLayoutType.LEFT_HANGING
-    # Saving Presentation
-    presentation.save("OrganizeChartLayoutType_out.pptx", slides.export.SaveFormat.PPTX)
+    slide = presentation.slides[0]
+
+    # Add a SmartArt shape with the ORGANIZATION_CHART layout.
+    smart = slide.shapes.add_smart_art(10, 10, 400, 300, smartart.SmartArtLayoutType.ORGANIZATION_CHART)
+
+    # Set the organization chart type.
+    smart.nodes[0].organization_chart_layout = smartart.OrganizationChartLayoutType.LEFT_HANGING
+
+    # Save the presentation.
+    presentation.save("OrganizationChartLayout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Create a Picture Organization Chart**
 
+Aspose.Slides for Python provides a simple API for creating picture organization charts easily. To create a chart on a slide:
 
-
-## **Create Picture Organization Chart**
-Aspose.Slides for Python via .NET provides a simple API for creating and PictureOrganization charts in an easy way. To create a chart on a slide:
-
-1. Create an instance of the `Presentation` class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data along with the desired type (ChartType.PictureOrganizationChart).
-1. Write the modified presentation to a PPTX file
-
-The following code is used to create a chart.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a reference to the slide by its index.
+1. Add a chart with default data of the desired type.
+1. Save the modified presentation as a PPTX file.
 
 ```py
 import aspose.slides as slides
-import aspose.slides.smartart as art
+import aspose.slides.smartart as smartart
 
-with slides.Presentation() as pres:
-    smartArt = pres.slides[0].shapes.add_smart_art(0, 0, 400, 400, art.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
-    pres.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    smart_art = slide.shapes.add_smart_art(0, 0, 400, 400, smartart.SmartArtLayoutType.PICTURE_ORGANIZATION_CHART)
+    
+    presentation.save("OrganizationChart.pptx", slides.export.SaveFormat.PPTX)
 ```
-
-
-

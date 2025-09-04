@@ -1,6 +1,6 @@
 ---
 title: Manage PowerPoint SmartArt in Python
-linktitle: Manage SmartArt
+linktitle: PowerPoint SmartArt
 type: docs
 weight: 100
 url: /python-net/powerpoint-smartart/
