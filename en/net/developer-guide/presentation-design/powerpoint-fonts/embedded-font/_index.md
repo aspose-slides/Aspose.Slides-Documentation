@@ -68,10 +68,6 @@ Using the [EmbedFontCharacters](https://reference.aspose.com/slides/net/aspose.s
 // Loads the presentation
 Presentation presentation = new Presentation("Fonts.pptx");
 
-// Loads the source font to be replaced
-IFontData sourceFont = new FontData("Arial");
-
-
 IFontData[] allFonts = presentation.FontsManager.GetFonts();
 IFontData[] embeddedFonts = presentation.FontsManager.GetEmbeddedFonts();
 foreach (IFontData font in allFonts)
