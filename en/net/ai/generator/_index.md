@@ -5,6 +5,7 @@ type: docs
 weight: 40
 url: /net/ai/generator/
 keywords:
+- multilingual presentation
 - multilingual slide
 - AI presentation generator
 - AI slide generator
@@ -43,16 +44,16 @@ This example demonstrates how to generate a presentation on the topic Aspose.Sli
 
 ```csharp
 // Create an instance of OpenAIWebClient, the built-in implementation of the OpenAI web client.
-using var openAiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
+using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
 // Create an instance of SlidesAIAgent, which provides access to AI-powered features.
-var slidesAiAgent = new SlidesAIAgent(openAiWebClient);
+var aiAgent = new SlidesAIAgent(aiWebClient);
 
 // Define the instruction for generating the presentation.
 var instruction = "Generate a presentation about Aspose.Slides for .NET, highlighting its capabilities and advantages over competitors.";
 
 // Generate a presentation with a medium amount of content based on the instruction.
-using IPresentation presentation = await slidesAiAgent.GeneratePresentationAsync(instruction, PresentationContentAmountType.Medium);
+using IPresentation presentation = await aiAgent.GeneratePresentationAsync(instruction, PresentationContentAmountType.Medium);
 
 // Save the generated presentation to the local disk as a PowerPoint (.pptx) file.
 presentation.Save("Aspose.Slides.NET.pptx", SaveFormat.Pptx);
@@ -69,10 +70,10 @@ By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/n
 using var httpClient = new HttpClient();
 
 // Pass the HttpClient to the OpenAIWebClient constructor.
-using var openAiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId", httpClient);
+using var aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", "organizationId", httpClient);
 
 // Create an instance of SlidesAIAgent.
-var slidesAiAgent = new SlidesAIAgent(openAiWebClient);
+var aiAgent = new SlidesAIAgent(aiWebClient);
 
 // Define the instruction for generating the presentation.
 var instruction = "Generate a presentation about Aspose.Slides for .NET, highlighting its capabilities and advantages over competitors.";
@@ -81,7 +82,7 @@ var instruction = "Generate a presentation about Aspose.Slides for .NET, highlig
 using var masterPresentation = new Presentation("masterPresentation.pptx");
 
 // Generate a detailed presentation using the instruction and master template.
-using IPresentation presentation = await slidesAiAgent.GeneratePresentationAsync(instruction, PresentationContentAmountType.Detailed, masterPresentation);
+using IPresentation presentation = await aiAgent.GeneratePresentationAsync(instruction, PresentationContentAmountType.Detailed, masterPresentation);
 
 // Save the generated presentation as a PDF.
 presentation.Save("Aspose.Slides.NET.pdf", SaveFormat.Pdf);

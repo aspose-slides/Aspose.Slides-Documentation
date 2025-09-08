@@ -8,7 +8,9 @@ keywords:
 - AI presentation translator
 - AI slide translator
 - AI-powered feature
+- multilingual presentation
 - multilingual slide
+- presentation translation
 - slide translation
 - AI-driven features
 - AI capabilities

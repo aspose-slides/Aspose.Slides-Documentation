@@ -7,7 +7,10 @@ url: /net/ai/
 keywords:
 - AI features
 - AI presentation translator
+- AI presentation generator
+- AI slide translator
 - AI slide generator
+- multilingual presentation
 - multilingual slide
 - PowerPoint
 - OpenDocument
