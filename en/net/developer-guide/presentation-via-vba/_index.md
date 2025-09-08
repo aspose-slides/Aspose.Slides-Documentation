@@ -126,12 +126,12 @@ Using the [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/
 ```cs
 using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    if (presentation.VbaProject == null) // Check whether the presentation contains a VBA project.
-        return;
-
-    if (presentation.VbaProject.IsPasswordProtected)
+    if (presentation.VbaProject != null) // Check whether the presentation contains a VBA project.
     {
-        Console.WriteLine($"The VBA Project '{presentation.VbaProject.Name}' is protected by password to view project properties.");
+        if (presentation.VbaProject.IsPasswordProtected)
+        {
+            Console.WriteLine($"The VBA Project '{presentation.VbaProject.Name}' is protected by password to view project properties.");
+        }
     }
 }
 ```
