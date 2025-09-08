@@ -133,3 +133,24 @@ This C++ code shows you how to extract VBA macros from a presentation containing
 	}
 ```
 
+## **Check Whether a VBA Project Is Password-Protected**
+
+Using the [IVbaProject::get_IsPasswordProtected](https://reference.aspose.com/slides/cpp/aspose.slides.vba/ivbaproject/get_ispasswordprotected/) property, you can determine whether a project’s properties are password-protected.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and load a presentation that contains a macro.
+2. Check whether the presentation contains a [VBA project](https://reference.aspose.com/slides/cpp/aspose.slides.vba/vbaproject/).
+3. Check whether the VBA project is password-protected to view its properties.
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"VBA.pptm");
+    
+if (presentation->get_VbaProject() != nullptr) // Check whether the presentation contains a VBA project.
+{
+    if (presentation->get_VbaProject()->get_IsPasswordProtected())
+    {
+        Console::WriteLine(u"The VBA Project '" + presentation->get_VbaProject()->get_Name() + u"' is protected by password to view project properties.");
+    }
+}
+    
+presentation->Dispose();
+```
