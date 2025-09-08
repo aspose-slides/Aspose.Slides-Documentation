@@ -31,7 +31,7 @@ Aspose.Slides is a powerful API for programmatically managing PowerPoint present
 
 ## **How it Works**
 
-Aspose.Slides does not include built-in AI capabilities but integrates with external AI models over the internet. This functionality is exposed via the [SlidesAIAgent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesaiagent/) class.
+Aspose.Slides does not include built-in AI capabilities but integrates with external AI models over the internet. This functionality is exposed via the [SlidesAIAgent](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slidesaiagent/) class to communicate with AI services.
 
 You can use the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/) to connect to OpenAI’s API.
 
