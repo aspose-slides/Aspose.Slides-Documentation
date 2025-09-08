@@ -76,8 +76,6 @@ HttpURLConnection urlConnection = httpUrlConnectionFactory.createUrlConnection()
 OpenAIWebClient aiWebClient = new OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
 
-Aspose.Slides is commonly used in synchronous environments. To support this, the [SlidesAIAgent](https://reference.aspose.com/slides/java/com.aspose.slides/slidesaiagent/) class offers both synchronous and asynchronous methods - allowing you to choose the approach that best fits your application’s workflow.
-
 ## **Key Benefits**
 
 The Aspose.Slides Presentation Translation API offers an AI-powered solution for delivering multilingual PowerPoint presentations. By automating translation while preserving layout and design, it saves time and minimizes errors compared to manual workflows. Whether you're a developer, educator, or business professional, this API enables you to create engaging, localized presentations for global audiences - expanding your reach and improving communication.

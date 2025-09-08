@@ -98,10 +98,8 @@ try {
 }
 ```
 
-It is worth noting that many customers use Aspose.Slides in synchronous contexts. To support this, the [SlidesAIAgent](https://reference.aspose.com/slides/java/com.aspose.slides/slidesaiagent/) class provides both synchronous and asynchronous methods, allowing you to choose the approach that best fits your application’s workflow.
-
 ## **Key Benefits**
 
-The new AI Presentation Generator in Aspose.Slides provides a fast and flexible way to produce structured slide decks from simple text prompts. With support for custom templates, externally managed [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instances, and both synchronous and asynchronous workflows, it can be seamlessly integrated into a wide range of applications.
+The new AI Presentation Generator in Aspose.Slides provides a fast and flexible way to produce structured slide decks from simple text prompts. With support for custom templates and externally managed [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instances, it can be seamlessly integrated into a wide range of applications.
 
 Typical use cases include creating marketing presentations, educational materials, client reports, and internal slide decks. Although image generation is not yet supported, the tool already offers a strong foundation for automating presentation creation, with further enhancements expected in the future.
