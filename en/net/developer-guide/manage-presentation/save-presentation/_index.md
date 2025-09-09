@@ -1,104 +1,116 @@
 ---
-title: Save Presentation in .NET
-linktitle: Save Presentation
+title: Save Presentations in .NET
+linktitle: Save Presentations
 type: docs
 weight: 80
 url: /net/save-presentation/
-keywords: "Save PowerPoint, PPT, PPTX, Save Presentation, file, stream, C#, Csharp, .NET"
-description: "Save PowerPoint Presentation as file or stream in C# or .NET"
+keywords:
+- save PowerPoint
+- save OpenDocument
+- save presentation
+- save slide
+- save PPT
+- save PPTX
+- save ODP
+- presentation to file
+- presentation to stream
+- predefined view type
+- Strict Office Open XML Format
+- Zip64 mode
+- refreshing thumbnail
+- saving progress
+- .NET
+- C#
+- Aspose.Slides
+description: "Discover how to save presentations in .NET using Aspose.Slides—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
 ---
 
-## **Save Presentation**
-Opening a Presentation described how to use the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class to open a presentation. This article explains how to create and save presentations.
-The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for .NET, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
+## **Overview**
 
-### **Saving Presentation to Files**
-Save a presentation to files by calling the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method. Simply pass the file name and save format to the [Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/methods/save/index) method. The examples that follow show how to save a presentation with Aspose.Slides for .NET using C#.
+[Open Presentations in C#](/slides/net/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class to open a presentation. This article explains how to create and save presentations. The [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class contains a presentation’s contents. Whether you’re creating a presentation from scratch or modifying an existing one, you’ll want to save it when you’re finished. With Aspose.Slides for .NET, you can save to a **file** or **stream**. This article explains the different ways to save a presentation.
 
-```c#
-// Instantiate a Presentation object that represents a PPT file
-Presentation presentation= new Presentation();
+## **Save Presentations to Files**
 
-//...do some work here...
+Save a presentation to a file by calling the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class’s `Save` method. Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
-// Save your presentation to a file
-presentation.Save("Saved_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-```
-
-
-### **Saving Presentation to Streams**
-It is possible to save a presentation to a stream by passing an output stream to the  [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class Save method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
-
-```c#
-// Instantiate a Presentation object that represents a PPT file
+```cs
+// Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
+    // Do some work here...
 
-    IAutoShape shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 200, 200, 200, 200);
-
-    // Add text to shape
-    shape.TextFrame.Text = "This demo shows how to Create PowerPoint file and save it to Stream.";
-
-    FileStream toStream = new FileStream("Save_As_Stream_out.pptx", FileMode.Create);
-    presentation.Save(toStream, Aspose.Slides.Export.SaveFormat.Pptx);
-    toStream.Close();
+    // Save the presentation to a file.
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
+## **Save Presentations to Streams**
 
-### **Saving Presentations with Predefined View Type**
-Aspose.Slides for .NET provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties) class. The [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/properties/lastview) property is used to set the view type by using the [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype) enumerator.
+You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class’s `Save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
-```csharp
-using (Presentation pres = new Presentation())
+```cs
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
 {
-    pres.ViewProperties.LastView = ViewType.SlideMasterView;
-    pres.Save("pres-will-open-SlideMasterView.pptx", SaveFormat.Pptx);
+    using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
+    {
+        // Save the presentation to the stream.
+        presentation.Save(fileStream, SaveFormat.Pptx);
+    }
 }
 ```
 
-### **Saving Presentations to Strict Office Open XML Format**
-Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**Aspose.Slides.Export.PptxOptions**](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions) class where you can set the Conformance property, while saving the presentation file. If you set its value as Conformance.Iso29500_2008_Strict, then the output presentation file will be saved in Strict Office Open XML format.
+## **Save Presentations with a Predefined View Type**
 
-The following sample code creates a presentation and saves it in the Strict Office Open XML Format. While calling the Save method for the presentation, the  **[Aspose.Slides.Export.PptxOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions)** object is passed into it with the [**Conformance** ](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions/properties/conformance)property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/net/aspose.slides.export/conformance).
+Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/) class. Set the [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/lastview/) property to a value from the [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) enumeration.
 
-
-
-```csharp
-   // Instantiate a Presentation object that represents a presentation file
-   using (Presentation presentation = new Presentation())
-   {
-       // Get the first slide
-       ISlide slide = presentation.Slides[0];
-
-       // Add an autoshape of type line
-       slide.Shapes.AddAutoShape(ShapeType.Line, 50, 150, 300, 0);
-
-       // Save the presentation to Strict Office Open XML Format
-       presentation.Save(dataDir + "NewPresentation_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx,
-           new PptxOptions() { Conformance = Conformance.Iso29500_2008_Strict });
-
-   }
-
+```cs
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
+{
+    presentation.ViewProperties.LastView = ViewType.SlideMasterView;
+    presentation.Save("SlideMasterView.pptx", SaveFormat.Pptx);
+}
 ```
 
-### **Saving Presentations to Office Open XML format in Zip64 mode**
-An Office Open XML file is a ZIP-archive that has a 4 GB (2^32 bytes) limit on uncompressed size of a file, compressed size of a file, and total size of the archive, as well as a limit of 65,535 (2^16-1) files in the archive. ZIP64 format extensions increase the limits to 2^64.
+## **Save Presentations in the Strict Office Open XML Format**
 
-The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
+Aspose.Slides lets you save a presentation in the Strict Office Open XML format. Use the [PptxOptions](https://reference.aspose.com/slides/net/aspose.slides.export/pptxoptions/) class and set its conformance property when saving. If you set `Conformance.Iso29500_2008_Strict`, the output file is saved in the Strict Office Open XML format.
+
+The example below creates a presentation and saves it in the Strict Office Open XML format.
+
+```cs
+PptxOptions options = new PptxOptions()
+{
+    Conformance = Conformance.Iso29500_2008_Strict
+};
+
+// Instantiate the Presentation class that represents a presentation file.
+using (Presentation presentation = new Presentation())
+{
+    // Save the presentation in the Strict Office Open XML format.
+    presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
+}
+```
+
+## **Save Presentations in Office Open XML Format in Zip64 Mode**
+
+An Office Open XML file is a ZIP archive that imposes 4 GB (2^32 bytes) limits on the uncompressed size of any file, the compressed size of any file, and the total size of the archive, and it also limits the archive to 65,535 (2^16-1) files. ZIP64 format extensions raise these limits to 2^64.
+
+The [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/zip64mode/) property lets you choose when to use ZIP64 format extensions when saving an Office Open XML file.
 
 This property provides the following modes:
 
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
-- [Zip64Mode.Never](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) means that ZIP64 format extensions will not be used. 
-- [Zip64Mode.Always](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) means that ZIP64 format extensions will always be used.
+- [IfNecessary](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) uses ZIP64 format extensions only if the presentation exceeds the limitations above. This is the default mode.
+- [Never](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) never uses ZIP64 format extensions.
+- [Always](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) always uses ZIP64 format extensions.
 
-The following C# code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
+The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
-```c#
-using (Presentation pres = new Presentation("Sample.pptx"))
+```cs
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    pres.Save("Sample-zip64.pptx", SaveFormat.Pptx, new PptxOptions()
+    presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
     {
         Zip64Mode = Zip64Mode.Always
     });
@@ -107,23 +119,23 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 
 {{% alert title="NOTE" color="warning" %}}
 
-Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
+When you save with `Zip64Mode.Never`, a [PptxException](https://reference.aspose.com/slides/net/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 
 {{% /alert %}}
 
-### **Saving Presentation without Refreshing Thumbnail**
+## **Save Presentations without Refreshing the Thumbnail**
 
-The new [**IPptxOptions.RefreshThumbnail**](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) property allows you to control the generation of the thumbnail when saving a presentation in PPTX format:
+The [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) property controls thumbnail generation when saving a presentation to PPTX:
 
-- When the property value is **true**, the presentation thumbnail will be refreshed while saving. This is the *default* value.
-- When the property value is **false**, the current thumbnail will be saved as is. If the presentation doesn't have a thumbnail, no thumbnail will be generated.
+- If set to `true`, the thumbnail is refreshed during save. This is the default.
+- If set to `false`, the current thumbnail is preserved. If the presentation has no thumbnail, none is generated.
 
-In the code below, we saved the presentation to PPTX format without refreshing its thumbnail:
+In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
-```c#
-using (Presentation pres = new Presentation("Sample.pptx"))
+```cs
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    pres.Save("Sample_with_old_thumbnail.pptx", SaveFormat.Pptx, new PptxOptions()
+    presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
     {
         RefreshThumbnail = false
     });
@@ -132,57 +144,41 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 
 {{% alert title="Info" color="info" %}}
 
-This option allows you to save time when saving a presentation in PPTX format.
+This option helps reduce the time required to save a presentation in PPTX format.
 
 {{% /alert %}}
 
-### **Saving Progress Updates in Percentage**
-New [**IProgressCallback** ](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback)interface has been added to [**ISaveOptions** ](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions)interface and [**SaveOptions** ](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions)abstract class. **IProgressCallback** interface represents a callback object for saving progress updates in percentage.
+## **Save Progress Updates in Percentage**
 
-The following code snippets below shows how to use IProgressCallback interface:
+The [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) interface is used via the `ProgressCallback` property exposed by the [ISaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/isaveoptions/) interface and the abstract [SaveOptions](https://reference.aspose.com/slides/net/aspose.slides.export/saveoptions/) class. Assign an [IProgressCallback](https://reference.aspose.com/slides/net/aspose.slides/iprogresscallback/) implementation to `ProgressCallback` to receive save-progress updates as a percentage.
 
-```c#
-using (Presentation presentation = new Presentation("ConvertToPDF.pptx"))
+The following code snippets show how to use `IProgressCallback`.
+
+```cs
+ISaveOptions saveOptions = new PdfOptions();
+saveOptions.ProgressCallback = new ExportProgressHandler();
+
+using (Presentation presentation = new Presentation("Sample.pptx"))
 {
-    ISaveOptions saveOptions = new PdfOptions();
-    saveOptions.ProgressCallback = new ExportProgressHandler();
-    presentation.Save("ConvertToPDF.pdf", SaveFormat.Pdf, saveOptions);
+    presentation.Save("Output.pdf", SaveFormat.Pdf, saveOptions);
 }
-
 ```
 
-
-
-```c#
+```cs
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // Use progress percentage value here
+        // Use the progress percentage value here.
         int progress = Convert.ToInt32(progressValue);
+
         Console.WriteLine(progress + "% file converted");
     }
 }
 ```
 
-
-
 {{% alert title="Info" color="info" %}}
 
-Using its own API, Aspose developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) that allows users to split their presentations into multiple files. Essentially, the app saves selected slides from a given presentation as new PowerPoint (PPTX or PPT) files. 
+Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) using its own API. The app lets you split a presentation into multiple files by saving selected slides as new PPTX or PPT files.
 
 {{% /alert %}}
-
-<h2>Open and Save Presentation</h2>
-
-<a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
-
-1. Create an instance of [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class with any format i.e. PPT, PPTX, ODP etc.
-2. Save _Presentation_ to any format supported by [SaveFormat](https://reference.aspose.com/slides/net/aspose.slides.export/saveformat/)
-
-```c#
-// Load any supported file in Presentation e.g. ppt, pptx, odp etc.
-Presentation presentation = new Presentation("Sample.odp");
-
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
-```

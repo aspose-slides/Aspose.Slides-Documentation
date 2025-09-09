@@ -1,6 +1,6 @@
 ---
 title: Save Presentations in Python
-linktitle: Save Presentation
+linktitle: Save Presentations
 type: docs
 weight: 80
 url: /python-net/save-presentation/
@@ -31,7 +31,7 @@ Save a presentation to a file by calling the [Presentation](https://reference.as
 ```py
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents a PPT file.
+# Instantiate the Presentation class that represents a presentation file.
 with slides.Presentation() as presentation:
     
     # Do some work here...
@@ -47,14 +47,10 @@ You can save a presentation to a stream by passing an output stream to the [Pres
 ```py
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents a PPT file.
+# Instantiate the Presentation class that represents a presentation file.
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 200)
-
-    # Save the presentation to a stream.
     with open("output.pptx", "bw") as file_stream:
+        # Save the presentation to the stream.
         presentation.save(file_stream, slides.export.SaveFormat.PPTX)
 ```
 
@@ -65,7 +61,7 @@ Aspose.Slides for Python lets you set the initial view that PowerPoint uses when
 ```py
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents a PPT file.
+# Instantiate the Presentation class that represents a presentation file.
 with slides.Presentation() as presentation:
     
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
@@ -83,17 +79,11 @@ The example below creates a presentation and saves it in the Strict Office Open 
 ```py
 import aspose.slides as slides
 
+options = slides.export.PptxOptions()
+options.conformance = slides.export.Conformance.ISO29500_2008_STRICT
+
 # Instantiate the Presentation class that represents a presentation file.
 with slides.Presentation() as presentation:
-    # Get the first slide.
-    slide = presentation.slides[0]
-
-    # Add a line AutoShape.
-    slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 150, 300, 0)
-
-    options = slides.export.PptxOptions()
-    options.conformance = slides.export.Conformance.ISO29500_2008_STRICT
-
     # Save the presentation in the Strict Office Open XML format.
     presentation.save("strict_office_open_xml.pptx", slides.export.SaveFormat.PPTX, options)
 ```
