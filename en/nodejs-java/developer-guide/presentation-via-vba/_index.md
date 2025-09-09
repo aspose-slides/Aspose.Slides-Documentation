@@ -116,3 +116,24 @@ try {
 }
 ```
 
+## **Check Whether a VBA Project Is Password-Protected**
+
+Using the [VbaProject.isPasswordProtected](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/#isPasswordProtected) method, you can determine whether a project’s properties are password-protected.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and load a presentation that contains a macro.
+2. Check whether the presentation contains a [VBA project](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/).
+3. Check whether the VBA project is password-protected to view its properties.
+
+```js
+var presentation = new aspose.slides.Presentation("VBA.pptm");
+try {
+    if (presentation.getVbaProject() != null) { // Check whether the presentation contains a VBA project.
+        if (presentation.getVbaProject().isPasswordProtected()) {
+            console.log("The VBA Project '%s' is protected by password to view project properties.", 
+                    presentation.getVbaProject().getName());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```

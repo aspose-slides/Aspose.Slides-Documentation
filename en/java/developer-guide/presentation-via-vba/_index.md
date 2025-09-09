@@ -131,7 +131,7 @@ Presentation presentation = new Presentation("VBA.pptm");
 try {
     if (presentation.getVbaProject() != null) { // Check whether the presentation contains a VBA project.
         if (presentation.getVbaProject().isPasswordProtected()) {
-            System.out.printf("The VBA Project %s is protected by password to view project properties.", 
+            System.out.printf("The VBA Project '%s' is protected by password to view project properties.", 
                     presentation.getVbaProject().getName());
         }
     }
