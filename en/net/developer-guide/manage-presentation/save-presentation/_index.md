@@ -65,7 +65,6 @@ using (Presentation presentation = new Presentation())
 Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/) class. Set the [LastView](https://reference.aspose.com/slides/net/aspose.slides/viewproperties/lastview/) property to a value from the [ViewType](https://reference.aspose.com/slides/net/aspose.slides/viewtype/) enumeration.
 
 ```cs
-// Instantiate the Presentation class that represents a presentation file.
 using (Presentation presentation = new Presentation())
 {
     presentation.ViewProperties.LastView = ViewType.SlideMasterView;
@@ -101,9 +100,9 @@ The [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/net/aspose.slid
 
 This property provides the following modes:
 
-- [IfNecessary](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) uses ZIP64 format extensions only if the presentation exceeds the limitations above. This is the default mode.
-- [Never](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) never uses ZIP64 format extensions.
-- [Always](https://reference.aspose.com/slides/net/aspose.slides.export/zip64mode/) always uses ZIP64 format extensions.
+- `IfNecessary` uses ZIP64 format extensions only if the presentation exceeds the limitations above. This is the default mode.
+- `Never` never uses ZIP64 format extensions.
+- `Always` always uses ZIP64 format extensions.
 
 The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
@@ -172,7 +171,7 @@ class ExportProgressHandler : IProgressCallback
         // Use the progress percentage value here.
         int progress = Convert.ToInt32(progressValue);
 
-        Console.WriteLine(progress + "% file converted");
+        Console.WriteLine(progress + "% of the file has been converted.");
     }
 }
 ```

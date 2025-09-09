@@ -71,7 +71,6 @@ try {
 Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/) class. Use the [setLastView](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewproperties/#setLastView-int-) method with a value from the [ViewType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/viewtype/) enumeration.
 
 ```java
-// Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -184,7 +183,7 @@ class ExportProgressHandler implements IProgressCallback {
         // Use the progress percentage value here.
         int progress = (int) progressValue;
 
-        System.out.println(progress + "% file converted");
+        System.out.println(progress + "% of the file has been converted.");
     }
 }
 ```
