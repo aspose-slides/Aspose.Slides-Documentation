@@ -6,14 +6,18 @@ weight: 80
 url: /python-net/save-presentation/
 keywords:
 - save PowerPoint
+- save OpenDocument
 - save presentation
+- save slide
 - save PPT
 - save PPTX
 - save ODP
-- save presentation to file
-- save presentation to stream
-- view type
-- strict Office Open XML format
+- presentation to file
+- presentation to stream
+- predefined view type
+- Strict Office Open XML Format
+- Zip64 mode
+- refreshing thumbnail
 - saving progress
 - Python
 - Aspose.Slides
@@ -61,13 +65,9 @@ Aspose.Slides for Python lets you set the initial view that PowerPoint uses when
 ```py
 import aspose.slides as slides
 
-# Instantiate the Presentation class that represents a presentation file.
 with slides.Presentation() as presentation:
-    
     presentation.view_properties.last_view = slides.ViewType.SLIDE_MASTER_VIEW
-
     presentation.save("slide_master_view.pptx", slides.export.SaveFormat.PPTX)
-
 ```
 
 ## **Save Presentations in the Strict Office Open XML Format**
@@ -88,6 +88,34 @@ with slides.Presentation() as presentation:
     presentation.save("strict_office_open_xml.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
+## **Save Presentations in Office Open XML Format in Zip64 Mode**
+
+An Office Open XML file is a ZIP archive that imposes 4 GB (2^32 bytes) limits on the uncompressed size of any file, the compressed size of any file, and the total size of the archive, and it also limits the archive to 65,535 (2^16-1) files. ZIP64 format extensions raise these limits to 2^64.
+
+The [PptxOptions.zip_64_mode](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) property lets you choose when to use ZIP64 format extensions when saving an Office Open XML file.
+
+This property provides the following modes:
+
+- `IF_NECESSARY` uses ZIP64 format extensions only if the presentation exceeds the limitations above. This is the default mode.
+- `NEVER` never uses ZIP64 format extensions.
+- `ALWAYS` always uses ZIP64 format extensions.
+
+The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
+
+```py
+pptx_options = slides.export.PptxOptions()
+pptx_options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("output_zip64.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+```
+
+{{% alert title="NOTE" color="warning" %}}
+
+When you save with `Zip64Mode.NEVER`, a [PptxException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
+
+{{% /alert %}}
+
 ## **Save Presentations without Refreshing the Thumbnail**
 
 The [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) property controls thumbnail generation when saving a presentation to PPTX:
@@ -98,11 +126,12 @@ The [PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/python-n
 In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
 ```py
+import aspose.slides as slides
+
+pptx_options = slides.export.PptxOptions()
+pptx_options.refresh_thumbnail = False
+
 with slides.Presentation("sample.pptx") as presentation:
-    
-    pptx_options = slides.export.PptxOptions()
-    pptx_options.refresh_thumbnail = False
-    
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX, pptx_options)
 ```
 

@@ -96,7 +96,7 @@ presentation->Dispose();
 
 An Office Open XML file is a ZIP archive that imposes 4 GB (2^32 bytes) limits on the uncompressed size of any file, the compressed size of any file, and the total size of the archive, and it also limits the archive to 65,535 (2^16-1) files. ZIP64 format extensions raise these limits to 2^64.
 
-The [IPptxOptions.set_Zip64Mode](https://reference.aspose.com/slides/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) method lets you choose when to use ZIP64 format extensions when saving an Office Open XML file.
+The [IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) method lets you choose when to use ZIP64 format extensions when saving an Office Open XML file.
 
 This method can be used with the following modes:
 
@@ -124,7 +124,7 @@ When you save with `Zip64Mode.Never`, a [PptxException](https://reference.aspose
 
 ## **Save Presentations without Refreshing the Thumbnail**
 
-The [PptxOptions.set_RefreshThumbnail](https://reference.aspose.com/slides/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) method controls thumbnail generation when saving a presentation to PPTX:
+The [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) method controls thumbnail generation when saving a presentation to PPTX:
 
 - If set to `true`, the thumbnail is refreshed during save. This is the default.
 - If set to `false`, the current thumbnail is preserved. If the presentation has no thumbnail, none is generated.
