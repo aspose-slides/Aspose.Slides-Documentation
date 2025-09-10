@@ -72,7 +72,7 @@ with slides.Presentation() as presentation:
 
 ## **Save Presentations in the Strict Office Open XML Format**
 
-Aspose.Slides lets you save a presentation in the Strict Office Open XML format. Use the [PptxOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/) class and set its conformance property when saving. If you set `Conformance.ISO29500_2008_STRICT`, the output file is saved in the Strict Office Open XML format.
+Aspose.Slides lets you save a presentation in the Strict Office Open XML format. Use the [PptxOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/pptxoptions/) class and set its conformance property when saving. If you set `Conformance.ISO_29500_2008_STRICT`, the output file is saved in the Strict Office Open XML format.
 
 The example below creates a presentation and saves it in the Strict Office Open XML format.
 
@@ -80,7 +80,7 @@ The example below creates a presentation and saves it in the Strict Office Open 
 import aspose.slides as slides
 
 options = slides.export.PptxOptions()
-options.conformance = slides.export.Conformance.ISO29500_2008_STRICT
+options.conformance = slides.export.Conformance.ISO_29500_2008_STRICT
 
 # Instantiate the Presentation class that represents a presentation file.
 with slides.Presentation() as presentation:
