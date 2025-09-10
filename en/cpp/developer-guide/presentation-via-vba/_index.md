@@ -148,7 +148,7 @@ if (presentation->get_VbaProject() != nullptr) // Check whether the presentation
 {
     if (presentation->get_VbaProject()->get_IsPasswordProtected())
     {
-        Console::WriteLine(u"The VBA Project '" + presentation->get_VbaProject()->get_Name() + u"' is protected by password to view project properties.");
+        Console::WriteLine(u"The VBA Project '{0}' is protected by password to view project properties.", presentation->get_VbaProject()->get_Name());
     }
 }
     
