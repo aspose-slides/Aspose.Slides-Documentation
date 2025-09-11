@@ -61,7 +61,7 @@ try {
     aiAgent.translate(presentation, "japanese");
 
     // Save the translated presentation as a PDF.
-    presentation.save("sample_jp.pptx", SaveFormat.Pptx);
+    presentation.save("sample_jp.pdf", SaveFormat.Pdf);
 } finally {
     aiWebClient.close();
     presentation.dispose();
