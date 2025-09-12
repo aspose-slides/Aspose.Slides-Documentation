@@ -29,9 +29,9 @@ Mark as decorative flags purely ornamental visuals so screen readers skip them, 
 The following code sample shows how to determine whether a shape is marked as decorative.
 
 ```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     console.log("Is shape decorative:", shape.isDecorative());
 } finally {
     presentation.dispose();
