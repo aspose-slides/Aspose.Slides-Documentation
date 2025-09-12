@@ -16,74 +16,67 @@ keywords:
 description: "Learn to group and ungroup shapes in PowerPoint and OpenDocument decks using Aspose.Slides for Python—fast, step-by-step guide with free code."
 ---
 
-## **Add Group Shape**
-Aspose.Slides support working with group shapes on slides. This feature helps developers support richer presentations. Aspose.Slides for Python via .NET supports adding or accessing group shapes. It is possible to add shapes to an added group shape to populate it or access any property of group shape. To add a group shape to a slide using Aspose.Slides for Python via .NET:
+## **Overview**
+
+Grouping shapes allows you to treat multiple drawing objects as a single unit so you can move, resize, format, and transform them together. With Aspose.Slides for Python, you can create a [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), add and arrange child shapes inside it, and persist the result to PPTX. This article demonstrates how to add a group shape on a slide and how to access accessibility metadata such as Alt Text from shapes within the group, enabling cleaner structure and richer, more maintainable presentations.
+
+## **Add Group Shapes**
+
+Aspose.Slides supports working with group shapes on a slide. This feature lets you build richer presentations by treating multiple shapes as a single object. You can add new group shapes, access existing ones, populate them with child shapes, and read or modify any of their properties. To add a group shape to a slide:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-1. Obtain the reference of a slide by using its Index
-1. Add a group shape to the slide.
-1. Add the shapes to the added group shape.
-1. Save the modified presentation as a PPTX file.
+2. Get a reference to a slide by index.
+3. Add a [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) to the slide.
+4. Add shapes to the new group shape.
+5. Save the modified presentation as a PPTX file.
 
-The example below adds a group shape to a slide.
-
-```py
-import aspose.slides as slides
-
-# Instantiate Prseetation class 
-with slides.Presentation() as pres:
-    # Get the first slide 
-    sld = pres.slides[0]
-
-    # Accessing the shape collection of slides 
-    slideShapes = sld.shapes
-
-    # Adding a group shape to the slide 
-    groupShape = slideShapes.add_group_shape()
-
-    # Adding shapes inside added group shape 
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
-
-    # Adding group shape frame 
-    groupShape.frame = slides.ShapeFrame(100, 300, 500, 40, -1, -1, 0)
-
-    # Write the PPTX file to disk 
-    pres.save("GroupShape_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-
-## **Access AltText Property**
-This topic shows simple steps, complete with code examples, for adding a group shape and accessing AltText property of group shapes on slides. To access AltText of a group shape in a slide using Aspose.Slides for Python via .NET:
-
-1. Instantiate `Presentation` class that represents PPTX file.
-1. Obtain the reference of a slide by using its Index.
-1. Accessing the shape collection of slides.
-1. Accessing the group shape.
-1. Accessing the AltText property.
-
-The example below accesses alternative text of group shape.
+The example below shows how to add a group shape to a slide.
 
 ```py
 import aspose.slides as slides
 
-# Instantiate Presentation class that represents PPTX file
-with slides.Presentation(path + "AltText.pptx") as pres:
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Get the first slide.
+    slide = presentation.slides[0]
 
-    # Get the first slide
-    sld = pres.slides[0]
+    # Add a group shape to the slide.
+    group_shape = slide.shapes.add_group_shape()
 
-    for i in range(len(sld.shapes)):
-        # Accessing the shape collection of slides
-        shape = sld.shapes[i]
+    # Add shapes inside the group shape.
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
 
-        if type(shape) is slides.GroupShape:
-            # Accessing the group shape.
-            for j in range(len(shape.shapes)):
-                # Accessing the AltText property
-                print(shape.shapes[j].alternative_text)
+    # Write the PPTX file to disk.
+    presentation.save("group_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Access the Alt Text Property**
+
+This section explains how to read the Alt Text of shapes contained within a group shape on a slide using Aspose.Slides. To access the Alt Text of the shapes:
+
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class to represent a PPTX file.
+2. Obtain a reference to the slide by its index.
+3. Access the slide’s shapes collection.
+4. Access the [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/).
+5. Read the Alt Text property.
+
+The example below retrieves the Alt Text of shapes contained within group shapes.
+
+```py
+import aspose.slides as slides
+
+# Instantiate the Presentation class to open the PPTX file.
+with slides.Presentation("group_shape.pptx") as presentation:
+    # Get the first slide.
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.GroupShape):
+            # Access the group shape.
+            for child_shape in shape.shapes:
+                # Access the Alt Text property.
+                print(child_shape.alternative_text)
+```
