@@ -1,19 +1,18 @@
 ---
-title: Manage Presentation Accessibility in C#
+title: Manage Presentation Accessibility in Python
 linktitle: Presentation Accessibility
 type: docs
 weight: 30
-url: /net/presentation-accessibility/
+url: /python-net/presentation-accessibility/
 keywords:
 - presentation accessibility
 - mark as decorative
 - PowerPoint
 - OpenDocument
 - presentation
-- .NET
-- C#
+- Python
 - Aspose.Slides
-description: "Discover how Aspose.Slides for .NET helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
+description: "Discover how Aspose.Slides for Python helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
 ---
 
 ## **Overview**
@@ -28,9 +27,10 @@ Mark as decorative flags purely ornamental visuals so screen readers skip them, 
 
 The following code sample shows how to determine whether a shape is marked as decorative.
 
-```cs
-using var presentation = new Presentation("sample.pptx");
+```py
+import aspose.slides as slides
 
-var shape = presentation.Slides[0].Shapes[0];
-Console.WriteLine($"Is shape decorative: {shape.IsDecorative}");
+with slides.Presentation("sample.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
+    print(f"Is shape decorative: {shape.is_decorative}")
 ```

@@ -1,19 +1,19 @@
 ---
-title: Manage Presentation Accessibility in C#
+title: Manage Presentation Accessibility in JavaScript
 linktitle: Presentation Accessibility
 type: docs
 weight: 30
-url: /net/presentation-accessibility/
+url: /nodejs-java/presentation-accessibility/
 keywords:
 - presentation accessibility
 - mark as decorative
 - PowerPoint
 - OpenDocument
 - presentation
-- .NET
-- C#
+- Node.js
+- JavaScript
 - Aspose.Slides
-description: "Discover how Aspose.Slides for .NET helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
+description: "Discover how Aspose.Slides for Node.js helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
 ---
 
 ## **Overview**
@@ -28,9 +28,12 @@ Mark as decorative flags purely ornamental visuals so screen readers skip them, 
 
 The following code sample shows how to determine whether a shape is marked as decorative.
 
-```cs
-using var presentation = new Presentation("sample.pptx");
-
-var shape = presentation.Slides[0].Shapes[0];
-Console.WriteLine($"Is shape decorative: {shape.IsDecorative}");
+```js
+var presentation = new aspose.slides.Presentation("sample.pptx");
+try {
+    var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    console.log("Is shape decorative:", shape.isDecorative());
+} finally {
+    presentation.dispose();
+}
 ```

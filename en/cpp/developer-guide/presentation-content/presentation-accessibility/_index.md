@@ -1,19 +1,18 @@
 ---
-title: Manage Presentation Accessibility in C#
+title: Manage Presentation Accessibility in C++
 linktitle: Presentation Accessibility
 type: docs
 weight: 30
-url: /net/presentation-accessibility/
+url: /cpp/presentation-accessibility/
 keywords:
 - presentation accessibility
 - mark as decorative
 - PowerPoint
 - OpenDocument
 - presentation
-- .NET
-- C#
+- C++
 - Aspose.Slides
-description: "Discover how Aspose.Slides for .NET helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
+description: "Discover how Aspose.Slides for C++ helps automate presentation accessibility checks in PPT, PPTX and ODP files—enhance screen reader experience and boost compliance."
 ---
 
 ## **Overview**
@@ -28,9 +27,11 @@ Mark as decorative flags purely ornamental visuals so screen readers skip them, 
 
 The following code sample shows how to determine whether a shape is marked as decorative.
 
-```cs
-using var presentation = new Presentation("sample.pptx");
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-var shape = presentation.Slides[0].Shapes[0];
-Console.WriteLine($"Is shape decorative: {shape.IsDecorative}");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+Console::WriteLine(u"Is shape decorative: {0}", shape->get_IsDecorative());
+
+presentation->Dispose();
 ```
