@@ -122,3 +122,20 @@ with slides.Presentation(path + "VBA.pptm") as pres:
             print(module.name)
             print(module.source_code)
 ```
+
+## **Check Whether a VBA Project Is Password-Protected**
+
+Using the [VbaProject.is_password_protected](https://reference.aspose.com/slides/python-net/aspose.slides.vba/vbaproject/is_password_protected/) property, you can determine whether a project’s properties are password-protected.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and load a presentation that contains a macro.
+2. Check whether the presentation contains a [VBA project](https://reference.aspose.com/slides/python-net/aspose.slides.vba/vbaproject/).
+3. Check whether the VBA project is password-protected to view its properties.
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("VBA.pptm") as presentation:
+    if presentation.vba_project is not None:  # Check whether the presentation contains a VBA project.
+        if presentation.vba_project.is_password_protected:
+            print(f"The VBA Project '{presentation.vba_project.name}' is protected by password to view project properties.")
+```

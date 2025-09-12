@@ -115,27 +115,23 @@ using (Presentation pres = new Presentation("VBA.pptm"))
 }
 ```
 
-## **Checking whether a VBA Project is Password Protected**
+## **Check Whether a VBA Project Is Password-Protected**
 
-Using the [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) property, you can check whether the project properties are password protected.
+Using the [IVbaProject.IsPasswordProtected](https://reference.aspose.com/slides/net/aspose.slides.vba/ivbaproject/ispasswordprotected/) property, you can determine whether a project’s properties are password-protected.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and load the presentation containing the macro.
-2. Check if the presentation contains a [VBA Project](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/).
-3. Check if the VBA Project is protected by a password to view project properties.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and load a presentation that contains a macro.
+2. Check whether the presentation contains a [VBA project](https://reference.aspose.com/slides/net/aspose.slides.vba/vbaproject/).
+3. Check whether the VBA project is password-protected to view its properties.
 
-This C# code demonstrates the operation:
-
-```c#
-using (Presentation pres = new Presentation("VBA.pptm"))
+```cs
+using (Presentation presentation = new Presentation("VBA.pptm"))
 {
-    if (pres.VbaProject == null) // Checks whether the Presentation contains a VBA Project
-        return;
-
-    if (pres.VbaProject.IsPasswordProtected)
+    if (presentation.VbaProject != null) // Check whether the presentation contains a VBA project.
     {
-        Console.WriteLine("The VBA Project '" + pres.VbaProject.Name +
-                            "' is protected by password to view project properties.");
+        if (presentation.VbaProject.IsPasswordProtected)
+        {
+            Console.WriteLine($"The VBA Project '{presentation.VbaProject.Name}' is protected by password to view project properties.");
+        }
     }
 }
 ```
-

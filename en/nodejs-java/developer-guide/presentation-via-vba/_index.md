@@ -34,18 +34,18 @@ This JavaScript code shows you how to add a VBA macro from scratch to a presenta
 
 ```javascript
 // Creates an instance of the presentation class
-var pres = new aspose.slides.Presentation();
+let pres = new aspose.slides.Presentation();
 try {
     // Creates a new VBA Project
     pres.setVbaProject(new aspose.slides.VbaProject());
     // Adds an empty module to the VBA project
-    var module = pres.getVbaProject().getModules().addEmptyModule("Module");
+    let module = pres.getVbaProject().getModules().addEmptyModule("Module");
     // Sets the module source code
     module.setSourceCode("Sub Test(oShape As Shape)MsgBox Test End Sub");
     // Creates a reference to <stdole>
-    var stdoleReference = new aspose.slides.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
+    let stdoleReference = new aspose.slides.VbaReferenceOleTypeLib("stdole", "*\\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\\Windows\\system32\\stdole2.tlb#OLE Automation");
     // Creates a reference to Office
-    var officeReference = new aspose.slides.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
+    let officeReference = new aspose.slides.VbaReferenceOleTypeLib("Office", "*\\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.0#0#C:\\Program Files\\Common Files\\Microsoft Shared\\OFFICE14\\MSO.DLL#Microsoft Office 14.0 Object Library");
     // Adds references to the VBA project
     pres.getVbaProject().getReferences().add(stdoleReference);
     pres.getVbaProject().getReferences().add(officeReference);
@@ -76,7 +76,7 @@ This JavaScript code shows you how to remove a VBA macro:
 
 ```javascript
 // Loads the presentation containing the macro
-var pres = new aspose.slides.Presentation("VBA.pptm");
+let pres = new aspose.slides.Presentation("VBA.pptm");
 try {
     // Accesses the Vba module and removes it
     pres.getVbaProject().getModules().remove(pres.getVbaProject().getModules().get_Item(0));
@@ -99,7 +99,7 @@ This JavaScript code shows you how to extract VBA macros from a presentation con
 
 ```javascript
 // Loads the presentation containing the macro
-var pres = new aspose.slides.Presentation("VBA.pptm");
+let pres = new aspose.slides.Presentation("VBA.pptm");
 try {
     // Checks whether the Presentation contains a VBA Project
     if (pres.getVbaProject() != null) {
@@ -116,3 +116,24 @@ try {
 }
 ```
 
+## **Check Whether a VBA Project Is Password-Protected**
+
+Using the [VbaProject.isPasswordProtected](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/#isPasswordProtected) method, you can determine whether a project’s properties are password-protected.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class and load a presentation that contains a macro.
+2. Check whether the presentation contains a [VBA project](https://reference.aspose.com/slides/nodejs-java/aspose.slides/vbaproject/).
+3. Check whether the VBA project is password-protected to view its properties.
+
+```js
+let presentation = new aspose.slides.Presentation("VBA.pptm");
+try {
+    if (presentation.getVbaProject() != null) { // Check whether the presentation contains a VBA project.
+        if (presentation.getVbaProject().isPasswordProtected()) {
+            console.log("The VBA Project '%s' is protected by password to view project properties.", 
+                    presentation.getVbaProject().getName());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
