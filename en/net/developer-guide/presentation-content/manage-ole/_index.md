@@ -1,5 +1,6 @@
 ---
-title: Manage OLE
+title: Manage OLE in Presentations Using C#
+linktitle: Manage OLE
 type: docs
 weight: 40
 url: /net/manage-ole/
@@ -8,21 +9,24 @@ keywords:
 - Object Linking & Embedding
 - add OLE
 - embed OLE
-- add an object
-- embed an object
-- embed a file
+- add object
+- embed object
+- add file
+- embed file
 - linked object
+- linked file
 - change OLE
 - OLE icon
 - OLE title
 - extact OLE
-- extract an object
+- extract object
+- extract file
 - PowerPoint 
 - presentation
+- .NET
 - C#
-- Csharp
-- Aspose.Slides for .NET
-description: Manage OLE objects in PowerPoint presentations in C# or .NET
+- Aspose.Slides
+description: "Optimize OLE object management in PowerPoint and OpenDocument files with Aspose.Slides for .NET. Embed, update, and export OLE content seamlessly."
 ---
 
 {{% alert title="Info" color="info" %}}
@@ -276,7 +280,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     // Set a title and the image for the OLE preview.
     oleFrame.SubstitutePictureTitle = "My title";
     oleFrame.SubstitutePictureFormat.Picture.Image = oleImage;
-    oleFrame.IsObjectIcon = false;
+    oleFrame.IsObjectIcon = true;
 
     presentation.Save("output.pptx", SaveFormat.Pptx);
 }
