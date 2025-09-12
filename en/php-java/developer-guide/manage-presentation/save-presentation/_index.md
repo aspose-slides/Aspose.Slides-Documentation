@@ -1,149 +1,152 @@
 ---
-title: Save Presentation
+title: Save Presentations in PHP
+linktitle: Save Presentations
 type: docs
 weight: 80
 url: /php-java/save-presentation/
+keywords:
+- save PowerPoint
+- save OpenDocument
+- save presentation
+- save slide
+- save PPT
+- save PPTX
+- save ODP
+- presentation to file
+- presentation to stream
+- predefined view type
+- Strict Office Open XML Format
+- Zip64 mode
+- refreshing thumbnail
+- saving progress
+- PHP
+- Aspose.Slides
+description: "Discover how to save presentations in PHP using Aspose.Slides—export to PowerPoint or OpenDocument while retaining layouts, fonts and effects."
 ---
 
 ## **Overview**
-{{% alert color="primary" %}} 
 
-[Opening Presentation](/slides/php-java/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class to open a presentation. This article explains how to create and save presentations.
+[Open Presentations in PHP](/slides/php-java/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class to open a presentation. This article explains how to create and save presentations. The [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class contains a presentation’s contents. Whether you’re creating a presentation from scratch or modifying an existing one, you’ll want to save it when you’re finished. With Aspose.Slides for PHP, you can save to a **file** or **stream**. This article explains the different ways to save a presentation.
 
-{{% /alert %}} 
+## **Save Presentations to Files**
 
-The [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class holds a presentation's content. Whether creating a presentation from scratch or modifying an existing one, when finished, you want to save the presentation. With Aspose.Slides for PHP via Java, it can be saved as a **file** or **stream**. This article explains how to save a presentation in different ways:
-
-## **Save Presentation to File**
-Save a presentation to file by calling the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) method. Simply pass the file name and [**SaveFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/SaveFormat) to the [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-) method.
-
-The examples that follow show how to save a presentation with Aspose.Slides for PHP via Java.
+Save a presentation to a file by calling the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class’s `save` method. Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
 ```php
-  # Instantiate a Presentation object that represents a PPT file
-  $pres = new Presentation();
-  try {
-    # ...do some work here...
-    # Save your presentation to a file
-    $pres->save("demoPass.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+// Instantiate the Presentation class that represents a presentation file.
+$presentation = new Presentation();
+try {
+    // Do some work here...
+
+    // Save the presentation to a file.
+    $presentation->save("Output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Save Presentation to Stream**
-It is possible to save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) class [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.io.OutputStream-int-) method. There are many types of streams to which a presentation can be saved. In the below example we have created a new Presentation file, add text in shape and Save the presentation to the stream.
+## **Save Presentations to Streams**
+
+You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class’s `save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
 ```php
-  # Instantiate a Presentation object that represents a PPT file
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 200, 200);
-    # Add text to shape
-    $shape->getTextFrame()->setText("This demo shows how to Create PowerPoint file and save it to Stream.");
-    $os = new Java("java.io.FileOutputStream", "Save_As_Stream_out.pptx");
-    $pres->save($os, SaveFormat::Pptx);
-    $os->close();
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+// Instantiate the Presentation class that represents a presentation file.
+$presentation = new Presentation();
+try {
+    $fileStream = new Java("java.io.FileOutputStream", "Output.pptx");
+    try {
+        // Save the presentation to the stream.
+        $presentation->save($fileStream, SaveFormat::Pptx);
+    } finally {
+        $fileStream->close();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Save Presentation with Predefined View Type**
-Aspose.Slides for PHP via Java provides a facility to set the view type for the generated presentation when it is opened in PowerPoint through the [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties) class. The [**setLastView**](https://reference.aspose.com/slides/php-java/aspose.slides/ViewProperties#setLastView-int-) property is used to set the view type by using the [**ViewType**](https://reference.aspose.com/slides/php-java/aspose.slides/ViewType) enumerator.
+## **Save Presentations with a Predefined View Type**
+
+Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/) class. Use the [setLastView](https://reference.aspose.com/slides/php-java/aspose.slides/viewproperties/#setLastView) method with a value from the [ViewType](https://reference.aspose.com/slides/php-java/aspose.slides/viewtype/) enumeration.
 
 ```php
-  # Opening the presentation file
-  $pres = new Presentation();
-  try {
-    # Setting view type
-    $pres->getViewProperties()->setLastView(ViewType::SlideMasterView);
-    # Saving presentation
-    $pres->save("newDemo.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $presentation->getViewProperties()->setLastView(ViewType::SlideMasterView);
+    $presentation->save("SlideMasterView.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Saving Presentations to Strict Office Open XML Format**
-Aspose.Slides allows you to save the presentation in Strict Office Open XML format. For that purpose, it provides the [**PptxOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions) class where you can set the Conformance property while saving the presentation file. If you set its value as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/php-java/aspose.slides/Conformance#Iso29500_2008_Strict), then the output presentation file will be saved in Strict Open XML format.
+## **Save Presentations in the Strict Office Open XML Format**
 
-The following sample code creates a presentation and saves it in the Strict Office Open XML format. While calling the [**Save**](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation#save-java.lang.String-int-com.aspose.slides.ISaveOptions-) method for the presentation, the [**PptxOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions) object is passed into it with the Conformance property set as [**Conformance.Iso29500_2008_Strict**](https://reference.aspose.com/slides/php-java/aspose.slides/Conformance#Iso29500_2008_Strict).
+Aspose.Slides lets you save a presentation in the Strict Office Open XML format. Use the [PptxOptions](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/) class and set its conformance property when saving. If you set [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/php-java/aspose.slides/conformance/#Iso29500_2008_Strict), the output file is saved in the Strict Office Open XML format.
+
+The example below creates a presentation and saves it in the Strict Office Open XML format.
 
 ```php
-  # Instantiate a Presentation object that represents a PPT file
-  $pres = new Presentation();
-  try {
-    # Get the first slide
-    $slide = $pres->getSlides()->get_Item(0);
-    # Add an autoshape of type line
-    $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 150, 300, 0);
-    #Set Strict Office Open XML Format save options
-    $options = new PptxOptions();
-    $options->setConformance(Conformance->Iso29500_2008_Strict);
-    # Save your presentation to a file
-    $pres->save("demoPass.pptx", SaveFormat::Pptx, $options);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$options = new PptxOptions();
+$options->setConformance(Conformance::Iso29500_2008_Strict);
+
+// Instantiate the Presentation class that represents a presentation file.
+$presentation = new Presentation();
+try {
+    // Save the presentation in the Strict Office Open XML format.
+    $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Saving Presentations to Office Open XML format in Zip64 mode**
-An Office Open XML file is a ZIP-archive that has a 4 GB (2^32 bytes) limit on uncompressed size of a file, compressed size of a file, and total size of the archive, as well as a limit of 65,535 (2^16-1) files in the archive. ZIP64 format extensions increase the limits to 2^64.
+## **Save Presentations in Office Open XML Format in Zip64 Mode**
 
-The new [**IPptxOptions.Zip64Mode**](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/) property allows you to choose when to use ZIP64 format extensions for the saved Office Open XML file.
+An Office Open XML file is a ZIP archive that imposes 4 GB (2^32 bytes) limits on the uncompressed size of any file, the compressed size of any file, and the total size of the archive, and it also limits the archive to 65,535 (2^16-1) files. ZIP64 format extensions raise these limits to 2^64.
 
-This property provides the following modes:
+The [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/#setZip64Mode) method lets you choose when to use ZIP64 format extensions when saving an Office Open XML file.
 
-- [Zip64Mode.IfNecessary](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#IfNecessary) means that ZIP64 format extensions will only be used if the presentation falls outside the above limitations. This is the default mode.
-- [Zip64Mode.Never](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Never) means that ZIP64 format extensions will not be used. 
-- [Zip64Mode.Always](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Always) means that ZIP64 format extensions will always be used.
+This method can be used with the following modes:
 
-The following code demonstrates how to save the presentation to PPTX format with ZIP64 format extensions:
+- [IfNecessary](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#IfNecessary) uses ZIP64 format extensions only if the presentation exceeds the limitations above. This is the default mode.
+- [Never](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Never) never uses ZIP64 format extensions.
+- [Always](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Always) always uses ZIP64 format extensions.
+
+The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
 ```php
-  $pres = new Presentation("Sample.pptx");
-  try {
-    $pptxOptions = new PptxOptions();
-    $pptxOptions->setZip64Mode(Zip64Mode::Always);
-    
-    $pres->save("Sample-zip64.pptx", SaveFormat::Pptx, $pptxOptions);
-  } finally {
-    $pres->dispose();
-  }
+$pptxOptions = new PptxOptions();
+$pptxOptions->setZip64Mode(Zip64Mode::Always);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("OutputZip64.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 {{% alert title="NOTE" color="warning" %}}
 
-Saving in the Zip64Mode.Never mode will throw a [PptxException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxexception/) if the presentation cannot be saved in ZIP32 format.
+When you save with [Zip64Mode.Never](https://reference.aspose.com/slides/php-java/aspose.slides/zip64mode/#Never), a [PptxException](https://reference.aspose.com/slides/php-java/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 
 {{% /alert %}}
 
-## **Save a Presentation without Refreshing the Thumbnail**
+## **Save Presentations without Refreshing the Thumbnail**
 
-The [**PptxOptions.setRefreshThumbnail**](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) method allows you to control the generation of the thumbnail when saving a presentation in PPTX format:
+The [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) method controls thumbnail generation when saving a presentation to PPTX:
 
-- When the value **true** is passed, the presentation thumbnail will be refreshed while saving. This is the *default* value.
-- When the value **false** is passed, the current thumbnail will be saved as is. If the presentation doesn't have a thumbnail, no thumbnail will be generated.
+- If set to `true`, the thumbnail is refreshed during save. This is the default.
+- If set to `false`, the current thumbnail is preserved. If the presentation has no thumbnail, none is generated.
 
-In the code below, we saved the presentation to PPTX format without refreshing its thumbnail:
+In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
 ```php
+$pptxOptions = new PptxOptions();
+$pptxOptions->setRefreshThumbnail(false);
+
 $presentation = new Presentation("Sample.pptx");
 try {
-    $pptxOptions = new PptxOptions();
-    $pptxOptions->setRefreshThumbnail(false);
-
-    $presentation->save("Sample_with_old_thumbnail.pptx", SaveFormat::Pptx, $pptxOptions);
+    $presentation->save("Output.pptx", SaveFormat::Pptx, $pptxOptions);
 }
 finally {
     $presentation->dispose();
@@ -152,38 +155,40 @@ finally {
 
 {{% alert title="Info" color="info" %}}
 
-This option allows you to save time when saving a presentation in PPTX format.
+This option helps reduce the time required to save a presentation in PPTX format.
 
 {{% /alert %}}
 
 ## **Save Progress Updates in Percentage**
-New [**IProgressCallback**](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) interface has been added to [**ISaveOptions**](https://reference.aspose.com/slides/php-java/aspose.slides/ISaveOptions) interface and [**SaveOptions** ](https://reference.aspose.com/slides/php-java/aspose.slides/SaveOptions)abstract class. [**IProgressCallback**](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) interface represents a callback object for saving progress updates in percentage.  
 
-The following code snippets below show how to use [IProgressCallback](https://reference.aspose.com/slides/php-java/aspose.slides/IProgressCallback) interface:
+Save-progress reporting is configured via the [setProgressCallback](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/#setProgressCallback) method on [SaveOptions](https://reference.aspose.com/slides/php-java/aspose.slides/saveoptions/) and its subclasses. Provide a Java proxy that implements the [IProgressCallback](https://reference.aspose.com/slides/java/com.aspose.slides/iprogresscallback/) interface; during export, the callback receives periodic percentage updates.
+
+The following code snippets show how to use `IProgressCallback`.
 
 ```php
-  class ExportProgressHandler {
+class ExportProgressHandler {
     function reporting($progressValue) {
-      # Use progress percentage value here
-      $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
-      echo($progress . "% file converted");
+        // Use the progress percentage value here.
+        $progress = java("java.lang.Double")->valueOf($progressValue)->intValue();
+        echo($progress . "% of the file has been converted.");
     }
-  }
+}
 
-  # Opening the presentation file
-  $pres = new Presentation("ConvertToPDF.pptx");
-  try {
-    $saveOptions = new PdfOptions();
-    $progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
-    $saveOptions->setProgressCallback($progressHandler);
-    $pres->save("ConvertToPDF.pdf", SaveFormat::Pdf, $saveOptions);
-  } finally {
-    $pres->dispose();
-  }
+$progressHandler = java_closure(new ExportProgressHandler(), null, java("com.aspose.slides.IProgressCallback"));
+
+$saveOptions = new PdfOptions();
+$saveOptions->setProgressCallback($progressHandler);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Output.pdf", SaveFormat::Pdf, $saveOptions);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 {{% alert title="Info" color="info" %}}
 
-Using its own API, Aspose developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) that allows users to split their presentations into multiple files. Essentially, the app saves selected slides from a given presentation as new PowerPoint (PPTX or PPT) files. 
+Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/splitter) using its own API. The app lets you split a presentation into multiple files by saving selected slides as new PPTX or PPT files.
 
 {{% /alert %}}
