@@ -49,14 +49,14 @@ In this example, we translate a PowerPoint presentation into Japanese using the 
 
 ```js
 // Load a presentation to translate.
-var presentation = new aspose.slides.Presentation("sample.pptx");
+let presentation = new aspose.slides.Presentation("sample.pptx");
 
 // Create an AI client with OpenAIWebClient, specifying your model and API key.
-var aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", null);
+let aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", null);
 
 try {
     // Initialize SlidesAIAgent with the AI client.
-    var aiAgent = new aspose.slides.SlidesAIAgent(aiWebClient);
+    let aiAgent = new aspose.slides.SlidesAIAgent(aiWebClient);
 
     // Translate the presentation to Japanese.
     aiAgent.translate(presentation, "japanese");
@@ -69,12 +69,12 @@ try {
 }
 ```
 
-By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself - such as when using an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance - you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/).
+By default, the built-in [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/) creates and manages its own internal [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) instance, handling its lifecycle automatically. However, if you prefer to manage the [HttpURLConnection](https://docs.oracle.com/javase/8/docs/api/java/net/HttpURLConnection.html) yourself — primarily to configure essential settings like a proxy, or to use an [URLStreamHandlerFactory](https://docs.oracle.com/javase/8/docs/api/java/net/URLStreamHandlerFactory.html) or a different [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html) for better resource management and performance — you can provide your own `HttpURLConnection` instance when constructing the [OpenAIWebClient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/openaiwebclient/).
 
 ```js
-// Assume you have a HttpUrlConnectionFactory instance (e.g., injected via dependency injection).
-var urlConnection = httpUrlConnectionFactory.createUrlConnection();
-var aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
+// Assume you have a pre-configured HttpURLConnection instance (e.g., with custom timeouts, proxy settings, etc.)
+let urlConnection = yourPreconfiguredConnection;
+let aiWebClient = new aspose.slides.OpenAIWebClient("gpt-4o-mini", "apiKey", null, urlConnection);
 ```
 
 ## **Key Benefits**
