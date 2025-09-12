@@ -35,7 +35,7 @@ Save a presentation to a file by calling the [Presentation](https://reference.as
 
 ```js
 // Instantiate the Presentation class that represents a presentation file.
-var presentation = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
     // Do some work here...
 
@@ -52,9 +52,9 @@ You can save a presentation to a stream by passing an output stream to the [Pres
 
 ```js
 // Instantiate the Presentation class that represents a presentation file.
-var presentation = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
-    var fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
+    let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
     try {
         // Save the presentation to the stream.
         presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
@@ -71,7 +71,7 @@ try {
 Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/) class. Use the [setLastView](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewproperties/#setLastView) method with a value from the [ViewType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/viewtype/) enumeration.
 
 ```js
-var presentation = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
     presentation.save("SlideMasterView.pptx", aspose.slides.SaveFormat.Pptx);
@@ -87,11 +87,11 @@ Aspose.Slides lets you save a presentation in the Strict Office Open XML format.
 The example below creates a presentation and saves it in the Strict Office Open XML format.
 
 ```js
-var options = new aspose.slides.PptxOptions();
+let options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
 // Instantiate the Presentation class that represents a presentation file.
-var presentation = new aspose.slides.Presentation();
+let presentation = new aspose.slides.Presentation();
 try {
     // Save the presentation in the Strict Office Open XML format.
     presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
@@ -115,10 +115,10 @@ This method can be used with the following modes:
 The following code demonstrates how to save a presentation as PPTX with ZIP64 format extensions enabled:
 
 ```js
-var pptxOptions = new aspose.slides.PptxOptions();
+let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
 
-var presentation = new aspose.slides.Presentation("Sample.pptx");
+let presentation = new aspose.slides.Presentation("Sample.pptx");
 try {
     presentation.save("OutputZip64.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
 } finally {
@@ -142,10 +142,10 @@ The [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/nodejs
 In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
 
 ```js
-var pptxOptions = new aspose.slides.PptxOptions();
+let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setRefreshThumbnail(false);
 
-var presentation = new aspose.slides.Presentation("Sample.pptx");
+let presentation = new aspose.slides.Presentation("Sample.pptx");
 try {
     presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
 }
@@ -178,7 +178,7 @@ const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback
 let saveOptions = new aspose.slides.PdfOptions();
 saveOptions.setProgressCallback(ExportProgressHandler);
 
-var presentation = new aspose.slides.Presentation("Sample.pptx");
+let presentation = new aspose.slides.Presentation("Sample.pptx");
 try {
     presentation.save("Output.pdf", aspose.slides.SaveFormat.Pdf, saveOptions);
 } finally {

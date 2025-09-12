@@ -58,8 +58,8 @@ try {
         // Save the presentation to the stream.
         $presentation->save($fileStream, SaveFormat::Pptx);
     } finally {
-    $fileStream->close();
-}
+        $fileStream->close();
+    }
 } finally {
     $presentation->dispose();
 }
