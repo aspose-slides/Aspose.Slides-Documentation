@@ -31,7 +31,7 @@ Check and confirm that your machine’s specifications meet or exceed the [syste
 To install Aspose.Slides, run the following command:
 
 ```sh
-pip install aspose.slides
+pip install aspose-slides
 ```
 
 **Use Aspose.Slides**
