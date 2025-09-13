@@ -56,7 +56,7 @@ In [Aspose.Slides for Python 24.4](https://releases.aspose.com/slides/python-net
 
 ## **Convert a PowerPoint Presentation to Video**
 
-1. Use the pip install command to add Aspose.Slides for Python to your project: `pip install Aspose.Slides==24.4.0`
+1. Use the pip install command to add Aspose.Slides for Python to your project: `pip install aspose-slides==24.4.0`
 2. Download ffmpeg from [here](https://ffmpeg.org/download.html) or install it via the package manager.
 3. Make sure that ffmpeg is in the `PATH`. Otherwise, launch ffmpeg using the full path to the binary (e.g., `C:\ffmpeg\ffmpeg.exe` on Windows or `/opt/ffmpeg/ffmpeg` on Linux).
 4. Run the PowerPoint-to-video conversion code.
