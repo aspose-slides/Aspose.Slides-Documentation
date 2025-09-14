@@ -26,7 +26,7 @@ Check and confirm that your machine’s specifications meet or exceed the [syste
 
 ### **Install Aspose.Slides**
 
-`pip` is the easiest way to download and install [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose.slides/) on Windows.
+`pip` is the easiest way to download and install [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) on Windows.
 
 To install Aspose.Slides, run the following command:
 
@@ -100,12 +100,12 @@ brew install mono-libgdiplus
 
 ### **Install Aspose.Slides**
 
-`pip` is the easiest way to download and install [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose.slides/) on macOS.
+`pip` is the easiest way to download and install [Aspose.Slides for Python via .NET](https://pypi.org/project/aspose-slides/) on macOS.
 
 To install Aspose.Slides, run the following command:
 
 ```sh
-pip install aspose.slides
+pip install aspose-slides
 ```
 
 **Use Aspose.Slides**
