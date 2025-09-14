@@ -105,7 +105,7 @@ brew install mono-libgdiplus
 To install Aspose.Slides, run the following command:
 
 ```sh
-pip install aspose.slides
+pip install aspose-slides
 ```
 
 **Use Aspose.Slides**
