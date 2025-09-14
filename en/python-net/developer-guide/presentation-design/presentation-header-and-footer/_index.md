@@ -20,103 +20,99 @@ keywords:
 description: "Use Aspose.Slides for Python via .NET to add and customize headers and footers in PowerPoint and OpenDocument presentations for a professional look."
 ---
 
-{{% alert color="primary" %}} 
+## **Overview**
 
-[Aspose.Slides](/slides/python-net/) provides support to work with slide's headers and footers text that are actually maintained on Slide master level.
+Aspose.Slides for Python lets you control header and footer placeholders across a presentation with precise scope. Footer text, date/time, and slide numbers on slides are managed from the master level and can be applied globally or adjusted per slide. Headers are supported on notes and handouts, where you can toggle visibility and set text for header, footer, date/time, and page numbers through the dedicated header & footer manager on the master notes slide or individual notes slides. This article outlines the key patterns for updating these placeholders and propagating changes consistently throughout your deck.
 
-{{% /alert %}} 
-
-[Aspose.Slides for Python via .NET](/slides/python-net/) provides the feature for managing headers and footers inside presentation slides. These are in fact managed on the presentation master level.
 ## **Manage Header and Footer Text**
-Notes of some specific slide could be updated as shown in the example below:
+
+In this section, you’ll learn how to manage header and footer content in a presentation—enable or modify the footer, date and time, and slide numbers. We’ll briefly outline the scopes for applying these settings (the entire presentation, individual slides, and notes/handout views) and show how to use the Aspose.Slides API to update them quickly and consistently.
+
+The code example below opens a presentation, enables and sets the footer text, updates the header text on the master notes slide, and saves the file.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Method to set Header/Footer text
+# Function to set the header text.
 def update_header_footer_text(master):
     for shape in master.shapes:
         if shape.placeholder is not None:
             if shape.placeholder.type == slides.PlaceholderType.HEADER:
-                shape.text_frame.text = "HI there new header"
+                shape.text_frame.text = "Hi, there is a header"
 
-# Load Presentation
-with slides.Presentation("combined_with_master.pptx") as pres:
-    # Setting Footer
-    pres.header_footer_manager.set_all_footers_text("My Footer text")
-    pres.header_footer_manager.set_all_footers_visibility(True)
 
-    # Access and Update Header
-    masterNotesSlide = pres.master_notes_slide_manager.master_notes_slide
-    if masterNotesSlide is not None:
-        update_header_footer_text(masterNotesSlide)
+# Load the presentation.
+with slides.Presentation("sample.pptx") as presentation:
+    # Set the footer.
+    presentation.header_footer_manager.set_all_footers_text("My Footer text")
+    presentation.header_footer_manager.set_all_footers_visibility(True)
 
-    # save presentation
-    pres.save("HeaderFooter-out.pptx", slides.export.SaveFormat.PPTX)
+    # Access and update the header.
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+    if master_notes_slide is not None:
+        update_header_footer_text(master_notes_slide)
+
+    # Save the presentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Manage Header and Footer on Notes Slides**
 
+In this section, you’ll learn how to manage headers and footers specifically for notes slides in Aspose.Slides. We’ll cover enabling the relevant placeholders, setting text for footers, date/time, and page numbers, and applying these changes consistently across the notes master and individual notes pages.
 
+Follow the steps below:
 
-## **Manage Header and Footer in Handout and Notes Slides**
-Aspose.Slides for Python via .NET supports Header and Footer in Handout and notes slides. Please follow the steps below:
-
-- Load a [Presentation ](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)containing a video.
-- Change Header and Footer settings for notes master and all notes slides.
-- Set master notes slide and all child Footer placeholders visible.
-- Set master notes slide and all child Date and time placeholders visible.
-- Change Header and Footer settings for first notes slide only.
-- Set notes slide Header placeholder visible.
-- Set text to notes slide Header placeholder.
-- Set text to notes slide Date-time placeholder.
-- Write the modified presentation file.
-
-Code Snippet provided in the below Example.
+1. Load a presentation file.
+1. Get the master notes slide and its [header & footer manager](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/).
+1. On the master notes slide, enable visibility of Header, Footer, Slide number, and Date-time for the master and all child notes slides.
+1. On the master notes slide, set text for Header, Footer, and Date-time for the master and all child notes slides.
+1. Get the notes slide for the first presentation slide and its [header & footer manager](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/).
+1. For this first notes slide only, ensure Header, Footer, Slide number, and Date-time are visible (turn on any that are off).
+1. For this first notes slide only, set the text for Header, Footer, and Date-time.
+1. Save the presentation in PPTX format.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation("combined_with_master.pptx") as presentation:
-	masterNotesSlide = presentation.master_notes_slide_manager.master_notes_slide
-	if masterNotesSlide != None:
-		headerFooterManager = masterNotesSlide.header_footer_manager
+with slides.Presentation("sample.pptx") as presentation:
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+    if master_notes_slide is not None:
+        header_footer_manager = master_notes_slide.header_footer_manager
 
-		# make the master notes slide and all child Footer placeholders visible
-		headerFooterManager.set_header_and_child_headers_visibility(True) 
-		headerFooterManager.set_footer_and_child_footers_visibility(True) 
-		headerFooterManager.set_slide_number_and_child_slide_numbers_visibility(True) 
-		headerFooterManager.set_date_time_and_child_date_times_visibility(True)
+        # Make the master notes slide and all child header, footer, slide number, and date/time placeholders visible.
+        header_footer_manager.set_header_and_child_headers_visibility(True)
+        header_footer_manager.set_footer_and_child_footers_visibility(True)
+        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+        header_footer_manager.set_date_time_and_child_date_times_visibility(True)
 
-		# set text to master notes slide and all child Header placeholders
-		headerFooterManager.set_header_and_child_headers_text("Header text") 
-		headerFooterManager.set_footer_and_child_footers_text("Footer text") 
-		headerFooterManager.set_date_time_and_child_date_times_text("Date and time text") 
+        # Set text on the master notes slide and all child header, footer, and date/time placeholders.
+        header_footer_manager.set_header_and_child_headers_text("Header text")
+        header_footer_manager.set_footer_and_child_footers_text("Footer text")
+        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-	# Change Header and Footer settings for first notes slide only
-	notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
-	if notesSlide != None:
-		headerFooterManager = notesSlide.header_footer_manager
+    # Change header, footer, slide number, and date/time settings for the first notes slide only.
+    notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
+    if notesSlide is not None:
+        header_footer_manager = notesSlide.header_footer_manager
 
-		# make notes slide Header placeholder visible
+        # Ensure the header, footer, slide number, and date/time placeholders are visible.
+        if not header_footer_manager.is_header_visible:
+            header_footer_manager.set_header_visibility(True)
 
-		if not headerFooterManager.is_header_visible:
-			headerFooterManager.set_header_visibility(True) 
+        if not header_footer_manager.is_footer_visible:
+            header_footer_manager.set_footer_visibility(True)
 
-		if not headerFooterManager.is_footer_visible:
-			headerFooterManager.set_footer_visibility(True) 
+        if not header_footer_manager.is_slide_number_visible:
+            header_footer_manager.set_slide_number_visibility(True)
 
-		if not headerFooterManager.is_slide_number_visible:
-			headerFooterManager.set_slide_number_visibility(True) 
+        if not header_footer_manager.is_date_time_visible:
+            header_footer_manager.set_date_time_visibility(True)
 
-		if not headerFooterManager.is_date_time_visible:
-			headerFooterManager.set_date_time_visibility(True) 
+        # Set text on the notes slide header, footer, and date/time placeholders.
+        header_footer_manager.set_header_text("New header text")
+        header_footer_manager.set_footer_text("New footer text")
+        header_footer_manager.set_date_time_text("New date and time text")
 
-		# set text to notes slide Header placeholder
-		headerFooterManager.set_header_text("New header text") 
-		headerFooterManager.set_footer_text("New footer text") 
-		headerFooterManager.set_date_time_text("New date and time text") 
-	presentation.save("testresult.pptx",slides.export.SaveFormat.PPTX)
+    # Save the presentation.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
-
