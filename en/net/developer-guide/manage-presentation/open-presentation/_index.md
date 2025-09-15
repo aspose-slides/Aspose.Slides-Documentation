@@ -17,6 +17,7 @@ keywords:
 - protected presentation
 - large presentation
 - external resource
+- binary object
 - .NET
 - C#
 - Aspose.Slides
@@ -122,7 +123,7 @@ public class ImageLoadingHandler : IResourceLoadingCallback
             try
             {
                 // Load a substitute image.
-                byte[] imageData = File.ReadAllBytes("c:\\aspose-logo.jpg");
+                byte[] imageData = File.ReadAllBytes("aspose-logo.jpg");
                 args.SetData(imageData);
                 return ResourceLoadingAction.UserProvided;
             }

@@ -17,6 +17,7 @@ keywords:
 - protected presentation
 - large presentation
 - external resource
+- binary object
 - Android
 - Java
 - Aspose.Slides
@@ -62,7 +63,7 @@ try {
 
 ## **Open Large Presentations**
 
-Aspose.Slides provides options—particularly the [setBlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#setBlobManagementOptions-com.aspose.slides.IBlobManagementOptions-) method in the [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) class—to help you load large presentations.
+Aspose.Slides provides options—particularly the [getBlobManagementOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) method in the [LoadOptions](https://reference.aspose.com/slides/androidjava/com.aspose.slides/loadoptions/) class—to help you load large presentations.
 
 The following Java code demonstrates loading a large presentation (for example, 2 GB):
 
@@ -148,9 +149,9 @@ A PowerPoint presentation can contain the following types of embedded binary obj
 - OLE object embedded data (accessible via [IOleEmbeddedDataInfo.getEmbeddedFileData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ioleembeddeddatainfo/#getEmbeddedFileData--));
 - ActiveX control binary data (accessible via [IControl.getActiveXControlBinary](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icontrol/#getActiveXControlBinary--)).
 
-Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) property, you can load a presentation without any embedded binary objects.
+Using the [ILoadOptions.setDeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iloadoptions/#setDeleteEmbeddedBinaryObjects-boolean-) method, you can load a presentation without any embedded binary objects.
 
-This property is useful for removing potentially malicious binary content. The following Java code demonstrates how to load a presentation without any embedded binary content:
+This method is useful for removing potentially malicious binary content. The following Java code demonstrates how to load a presentation without any embedded binary content:
 
 ```java
 LoadOptions loadOptions = new LoadOptions();
