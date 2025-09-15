@@ -44,7 +44,7 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 
 ## **Open Password-Protected Presentations**
 
-When you need to open a password-protected presentation, pass the password through the `Password` property of the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class to decrypt and load it. The following C# code demonstrates this operation:
+When you need to open a password-protected presentation, pass the password through the [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) property of the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class to decrypt and load it. The following C# code demonstrates this operation:
 
 ```cs
 LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
@@ -58,17 +58,20 @@ using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
 
 Aspose.Slides provides options—particularly the [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) property in the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class—to help you load large presentations.
 
-This C# code demonstrates loading a large presentation (for example, 2 GB):
+The following C# code demonstrates loading a large presentation (for example, 2 GB):
 
 ```cs
 const string filePath = "LargePresentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions
 {
-    BlobManagementOptions = {
+    BlobManagementOptions = 
+    {
         // Choose the KeepLocked behavior—the presentation file will remain locked for the lifetime of 
         // the Presentation instance, but it does not need to be loaded into memory or copied to a temporary file.
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+        IsTemporaryFilesAllowed = true,
+        MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 MB
     }
 };
 
@@ -145,9 +148,9 @@ public class ImageLoadingHandler : IResourceLoadingCallback
 
 A PowerPoint presentation can contain the following types of embedded binary objects:
 
-- VBA project ([IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
-- OLE object embedded data ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
-- ActiveX control binary data ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
+- VBA project (accessible via [IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
+- OLE object embedded data (accessible via [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
+- ActiveX control binary data (accessible via [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
 
 Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/) property, you can load a presentation without any embedded binary objects.
 
@@ -161,6 +164,6 @@ LoadOptions loadOptions = new LoadOptions()
 
 using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
 {
-    // ...
+    // Perform operations on the presentation.
 }
 ```
