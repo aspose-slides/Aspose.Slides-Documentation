@@ -16,6 +16,7 @@ keywords:
 - load ODP
 - protected presentation
 - large presentation
+- external resource
 - Python
 - Aspose.Slides
 description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for Python via .NET—fast, reliable, fully featured."
@@ -29,7 +30,7 @@ Beyond creating PowerPoint presentations from scratch, Aspose.Slides also lets y
 
 To open an existing presentation, instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the file path to its constructor.
 
-This Python example shows how to open a presentation and get its slide count:
+The following Python example shows how to open a presentation and get its slide count:
 
 ```python
 import aspose.slides as slides
@@ -40,7 +41,7 @@ with slides.Presentation("sample.pptx") as presentation:
     print(presentation.slides.length)
 ```
 
-## **Open Password Protected Presentations**
+## **Open Password-Protected Presentations**
 
 When you need to open a password-protected presentation, pass the password through the `password` property of the [LoadOptions](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/) class to decrypt and load it. The following Python code demonstrates this operation:
 
@@ -48,7 +49,7 @@ When you need to open a password-protected presentation, pass the password throu
 import aspose.slides as slides
 
 load_options = slides.LoadOptions()
-load_options.password = "PASSWORD"
+load_options.password = "YOUR_PASSWORD"
 
 with slides.Presentation("sample.pptx", load_options) as presentation:
     # ...
@@ -92,29 +93,10 @@ When creating a presentation that contains large objects (video, audio, high-res
 
 {{%/alert %}}
 
-## **Load Presentations**
+## **Control External Resources**
 
 Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/python-net/aspose.slides/iresourceloadingcallback/) interface with a single method that lets you manage external resources. The following Python code shows how to use the `IResourceLoadingCallback` interface:
 
 ```python
 # [TODO[not_supported_yet]: python implementation of .NET interfaces]
-```
-
-## **Open and Save Presentations**
-
-Follow these steps to open and save a presentation in Python:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class and pass the path of the file you want to open to its constructor.
-2. Save the presentation.
-
-```python
-import aspose.slides as slides
-
-# Instantiate the Presentation class that represents a PPT file.
-with slides.Presentation("sample.ppt") as presentation:
-    
-    #...do some work here...
-
-    # Save the presentation to a file.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
