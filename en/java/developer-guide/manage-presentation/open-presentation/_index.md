@@ -112,7 +112,7 @@ Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.c
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setResourceLoadingCallback(new ImageLoadingHandler());
 
-Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
 ```java

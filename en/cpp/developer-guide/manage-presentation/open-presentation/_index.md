@@ -106,13 +106,6 @@ When creating a presentation that contains large objects (video, audio, high-res
 Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/cpp/aspose.slides/iresourceloadingcallback/) interface that lets you manage external resources. The following C++ code shows how to use the `IResourceLoadingCallback` interface:
 
 ```cpp
-auto loadOptions = MakeObject<LoadOptions>();
-loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
-
-auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
-```
-
-```cpp
 class ImageLoadingHandler : public IResourceLoadingCallback
 {
 public:
@@ -143,6 +136,13 @@ public:
         return ResourceLoadingAction::Skip;
     }
 };
+```
+
+```cpp
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_ResourceLoadingCallback(MakeObject<ImageLoadingHandler>());
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
 ```
 
 ## **Load Presentations Without Embedded Binary Objects**

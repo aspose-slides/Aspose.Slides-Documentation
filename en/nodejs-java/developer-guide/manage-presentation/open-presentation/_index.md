@@ -136,7 +136,7 @@ const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCal
 let loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setResourceLoadingCallback(ImageLoadingHandler);
 
-let presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+let presentation = new aspose.slides.Presentation("Sample.pptx", loadOptions);
 ```
 
 ## **Load Presentations Without Embedded Binary Objects**
