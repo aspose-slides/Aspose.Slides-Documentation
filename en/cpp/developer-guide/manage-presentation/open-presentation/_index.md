@@ -149,11 +149,11 @@ auto presentation = MakeObject<Presentation>(u"Sample.pptx", loadOptions);
 
 A PowerPoint presentation can contain the following types of embedded binary objects:
 
-- VBA project (accessible via [IPresentation.get_VbaProject](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_vbaproject/));
-- OLE object embedded data (accessible via [IOleEmbeddedDataInfo.get_EmbeddedFileData](https://reference.aspose.com/slides/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/));
-- ActiveX control binary data (accessible via [IControl.get_ActiveXControlBinary](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_activexcontrolbinary/)).
+- VBA project (accessible via [IPresentation::get_VbaProject](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_vbaproject/));
+- OLE object embedded data (accessible via [IOleEmbeddedDataInfo::get_EmbeddedFileData](https://reference.aspose.com/slides/cpp/aspose.slides/ioleembeddeddatainfo/get_embeddedfiledata/));
+- ActiveX control binary data (accessible via [IControl::get_ActiveXControlBinary](https://reference.aspose.com/slides/cpp/aspose.slides/icontrol/get_activexcontrolbinary/)).
 
-Using the [ILoadOptions.set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cpp/aspose.slides/iloadoptions/set_deleteembeddedbinaryobjects/) method, you can load a presentation without any embedded binary objects.
+Using the [ILoadOptions::set_DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/cpp/aspose.slides/iloadoptions/set_deleteembeddedbinaryobjects/) method, you can load a presentation without any embedded binary objects.
 
 This method is useful for removing potentially malicious binary content. The following C++ code demonstrates how to load a presentation without any embedded binary content:
 
