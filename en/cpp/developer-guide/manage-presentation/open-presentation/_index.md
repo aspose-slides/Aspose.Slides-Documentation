@@ -1,6 +1,6 @@
 ---
 title: Open a Presentation in C++
-linktitle: Open Presentation
+linktitle: Open Presentations
 type: docs
 weight: 20
 url: /cpp/open-presentation/

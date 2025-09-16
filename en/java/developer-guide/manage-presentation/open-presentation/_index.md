@@ -1,6 +1,6 @@
 ---
 title: Open a Presentation in Java
-linktitle: Open Presentation
+linktitle: Open Presentations
 type: docs
 weight: 20
 url: /java/open-presentation/

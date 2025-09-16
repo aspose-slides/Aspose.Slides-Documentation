@@ -1,6 +1,6 @@
 ---
 title: Open a Presentation on Android
-linktitle: Open Presentation
+linktitle: Open Presentations
 type: docs
 weight: 20
 url: /androidjava/open-presentation/
