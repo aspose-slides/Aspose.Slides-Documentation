@@ -88,7 +88,7 @@ try {
     presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
 
     // Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
-    Files.delete(Paths.get(filePath));
+    //Files.delete(Paths.get(filePath));
 } finally {
     presentation.dispose();
 }
@@ -122,7 +122,7 @@ class ImageLoadingHandler implements IResourceLoadingCallback {
         if (args.getOriginalUri().endsWith(".jpg")) {
             try {
                 // Load a substitute image.
-                byte[] imageData = Files.readAllBytes(new File("aspose-logo.jpg").toPath());
+                byte[] imageData = getImageBytes("aspose-logo.jpg"); // Use any method to get bytes
                 args.setData(imageData);
                 return ResourceLoadingAction.UserProvided;
             } catch (RuntimeException ex) {

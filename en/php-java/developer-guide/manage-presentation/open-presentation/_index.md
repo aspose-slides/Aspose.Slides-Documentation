@@ -85,9 +85,14 @@ try {
 
     // Save the presentation to another file. Memory consumption remains low during this operation.
     $presentation->save("LargePresentation-copy.pptx", SaveFormat::Pptx);
+	
+	// Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
+	//unlink($filePath);
 } finally {
     $presentation->dispose();
 }
+// It is OK to do it here. The source file is no longer locked by the presentation object.
+unlink($filePath);
 ```
 
 {{% alert color="info" title="Info" %}}
@@ -107,17 +112,9 @@ class ImageLoadingHandler {
     function resourceLoading($args) {
         if (java_values($args->getOriginalUri()->endsWith(".jpg"))) {
             // Load a substitute image.
-            $imageFile = new Java("java.io.File", "aspose-logo.jpg");
-            $Array = new JavaClass("java.lang.reflect.Array");
-            $Byte = new JavaClass("java.lang.Byte");
-            $imageData = $Array->newInstance($Byte, $Array->getLength($imageFile));
-            try {
-                $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $imageFile));
-                $dis->readFully($imageData);
-            } finally {
-                if (!java_is_null($dis)) $dis->close();
-            }
-            $args->setData($imageData);
+			$bytes = file_get_contents("aspose-logo.jpg");
+			$javaByteArray = java_values($bytes);
+            $args->setData($javaByteArray);
             return ResourceLoadingAction::UserProvided;
         } else if (java_values($args->getOriginalUri()->endsWith(".png"))) {
             // Set a substitute URL.

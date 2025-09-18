@@ -88,13 +88,13 @@ try {
     presentation.save("LargePresentation-copy.pptx", aspose.slides.SaveFormat.Pptx);
 
     // Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
-    fs.rmSync(filePath);
+    //fs.unlinkSync(filePath);
 } finally {
     presentation.dispose();
 }
 
 // It is OK to do it here. The source file is no longer locked by the presentation object.
-fs.rmSync(filePath);
+fs.unlinkSync(filePath);
 ```
 
 {{% alert color="info" title="Info" %}}
@@ -111,7 +111,7 @@ Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.c
 
 ```js
 const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCallback", {
-  args: function (args) {
+  resourceLoading: function(args) {
         if (args.getOriginalUri().endsWith(".jpg")) {
             try {
                 // Load a substitute image.
@@ -127,7 +127,7 @@ const ImageLoadingHandler = java.newProxy("com.aspose.slides.IResourceLoadingCal
             return aspose.slides.ResourceLoadingAction.Default;
         }
         // Skip all other images.
-        return ResourceLoadingAction.Skip;
+        return aspose.slides.ResourceLoadingAction.Skip;
       }
 });
 ```

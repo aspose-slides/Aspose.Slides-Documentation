@@ -87,7 +87,7 @@ try {
     presentation.save("LargePresentation-copy.pptx", SaveFormat.Pptx);
 
     // Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
-    Files.delete(Paths.get(filePath));
+    //Files.delete(Paths.get(filePath));
 } finally {
     presentation.dispose();
 }
