@@ -52,7 +52,7 @@ To learn more about working with master slides, check out the [Slide Master](/sl
 
 {{% /alert %}}
 
-## **Add a Slide Layout to a Presentation**
+## **Add Slide Layouts to Presentations**
 
 To customize the appearance and structure of your slides, you may need to add new layout slides to a presentation. Aspose.Slides for .NET allows you to check whether a specific layout already exists, add a new one if needed, and use it to insert slides based on that layout.
 
@@ -115,7 +115,7 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
     // Save the presentation to disk.  
-    presentation.Save("AddLayoutSlides.pptx", SaveFormat.Pptx);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -134,7 +134,7 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
-## **Add a Placeholder To a Slide Layout**
+## **Add Placeholders To Slide Layouts**
 
 Aspose.Slides provides the [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) property, which allows you to add new placeholders to a layout slide.
 

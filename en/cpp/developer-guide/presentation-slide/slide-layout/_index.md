@@ -51,7 +51,7 @@ To learn more about working with master slides, check out the [Slide Master](/sl
 
 {{% /alert %}}
 
-## **Add a Slide Layout to a Presentation**
+## **Add Slide Layouts to Presentations**
 
 To customize the appearance and structure of your slides, you may need to add new layout slides to a presentation. Aspose.Slides for Android allows you to check whether a specific layout already exists, add a new one if needed, and use it to insert slides based on that layout.
 
@@ -145,7 +145,7 @@ presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Add a Placeholder To a Slide Layout**
+## **Add Placeholders To Slide Layouts**
 
 Aspose.Slides provides the [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) method, which allows you to add new placeholders to a layout slide.
 
