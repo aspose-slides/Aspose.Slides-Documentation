@@ -89,6 +89,7 @@ try {
                 break;
             }
         }
+
         if (layoutSlide == null) {
             for (ILayoutSlide titleLayoutSlide : layoutSlides) {
                 if (titleLayoutSlide.getName() == "Title") {
@@ -96,6 +97,7 @@ try {
                     break;
                 }
             }
+            
             if (layoutSlide == null) {
                 layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
                 if (layoutSlide == null) {
