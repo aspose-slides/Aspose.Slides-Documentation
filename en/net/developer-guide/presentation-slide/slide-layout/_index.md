@@ -24,7 +24,6 @@ keywords:
 - title and vertical text
 - vertical title and text
 - C#
-- Csharp
 - .NET
 - Aspose.Slides
 description: "Learn how to manage and customize slide layouts in Aspose.Slides for .NET. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in C#."
@@ -42,9 +41,9 @@ A slide layout defines the arrangement of placeholder boxes and formatting for t
 
 Slide layouts are part of a slide master, which is the top-level slide that defines layout styles for the presentation. You can access and modify layout slides through the slide master—either by their type, name, or unique ID. Alternatively, you can edit a specific layout slide directly within the presentation.
 
-To work with slide layouts in Aspose.Slides for .NET, use properties such as:
+To work with slide layouts in Aspose.Slides for .NET, you can use:
 
-- [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class
+- Properties such as [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class
 - Types like [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/), and [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
@@ -143,18 +142,18 @@ This manager contains methods for the following placeholder types:
 
 | PowerPoint Placeholder              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) Method |
 | ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height); |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height); |
-| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height); |
-| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height); |
-| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height); |
-| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height); |
-| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height); |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height); |
-| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height); |
-| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height); |
+| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-This C# code demonstrates how to add new placeholder shapes to the Blank layout slide:
+The following C# code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
 ```cs
 using (var presentation = new Presentation())
@@ -259,7 +258,7 @@ A master slide defines the overall theme and default formatting, while layout sl
 
 **Can I copy a layout slide from one presentation to another?**
 
-Yes, you can clone a layout slide from one presentation’s [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) collection and insert it into another using the `LayoutSlides.AddClone` method.
+Yes, you can clone a layout slide from one presentation’s [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) collection and insert it into another using the `AddClone` method.
 
 **What happens if I delete a layout slide that's still used by a slide?**
 
