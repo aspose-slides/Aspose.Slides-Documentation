@@ -1,284 +1,275 @@
 ---
-title: Slide Layout
+title: Apply or Change a Slide Layout in C++
+linktitle: Slide Layout
 type: docs
 weight: 60
 url: /cpp/slide-layout/
-keyword: "Set slide size, set slide options, specify slide size, Footer visibility, Child footer, Content scaling, page size, C++, CPP, Aspose.Slides"
-description: "Set PowerPoint slide size and options in C++"
+keywords:
+- slide layout
+- content layout
+- placeholder
+- presentation design
+- slide design
+- unused layout
+- footer visibility
+- title slide
+- title and content
+- section header
+- two content
+- comparison
+- title only
+- blank layout
+- content with caption
+- picture with caption
+- title and vertical text
+- vertical title and text
+- C++
+- Aspose.Slides
+description: "Learn how to manage and customize slide layouts in Aspose.Slides for C++. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in C++."
 ---
 
-A slide layout contains the placeholder boxes and formatting information for all the content that appears on a slide. The layout determines the available content placeholders and where they are placed. 
+## **Overview**
 
-Slide layouts allow you to create and design presentations quickly (whether simple or complex). These are some of the most popular slide layouts used in PowerPoint presentations: 
+A slide layout defines the arrangement of placeholder boxes and formatting for the content on a slide. It controls which placeholders are available and where they appear. Slide layouts help you design presentations quickly and consistently—whether you're creating something simple or more complex. Some of the most common slide layouts in PowerPoint include:
 
-* **Title Slide layout**. This layout consists of two text placeholders. One placeholder is for the title and the other is for the subtitle. 
-* **Title and Content layout**. This layout contains a relatively small placeholder at the top for the title and a bigger placeholder for the core content (chart, paragraphs, bullet list, numbered list, images, etc).
-* **Blank layout**. This layout lacks placeholders, so it allows you to create elements from scratch. 
+**Title Slide layout** – Includes two text placeholders: one for the title and one for the subtitle.
 
-Since a slide master is the top hierarchical slide that stores information about slide layouts, you can use the master slide to access slide layouts and make changes to them. A layout slide can be accessed by type or name. Similarly, every slide has a unique id, which can be used to access it. 
+**Title and Content layout** – Features a smaller title placeholder at the top and a larger one below for main content (such as text, bullet points, charts, images, and more).
 
-Alternatively, you can make changes directly to a specific slide layout in a presentation. 
+**Blank layout** – Contains no placeholders, giving you full control to design the slide from scratch.
 
-* To allow you to work with slide layouts (including those in master slides), Aspose.Slides provides properties like [get_LayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) and [get_Masters()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) under the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class. 
-* To perform related tasks, Aspose.Slides provides [MasterSlide](https://reference.aspose.com/slides/cpp/aspose.slides/masterslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/masterlayoutslidecollection/), [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/), [BaseSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/baseslideheaderfootermanager/), and many other types. 
+Slide layouts are part of a slide master, which is the top-level slide that defines layout styles for the presentation. You can access and modify layout slides through the slide master—either by their type, name, or unique ID. Alternatively, you can edit a specific layout slide directly within the presentation.
+
+To work with slide layouts in Aspose.Slides for Android, you can use:
+
+- Methods such as [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) and [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) under the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class
+- Types like [ILayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/), and [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
 
-For more information on working with Master Slides in particular, see the [Slide Master](https://docs.aspose.com/slides/cpp/slide-master/) article.
+To learn more about working with master slides, check out the [Slide Master](/slides/cpp/slide-master/) article.
 
 {{% /alert %}}
 
-## **Add Slide Layout to Presentation**
+## **Add a Slide Layout to a Presentation**
+
+To customize the appearance and structure of your slides, you may need to add new layout slides to a presentation. Aspose.Slides for Android allows you to check whether a specific layout already exists, add a new one if needed, and use it to insert slides based on that layout.
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-1. Access the [MasterSlide collection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/).
-1. Go through the existing layout slides to confirm that the required layout slide already exists in the Layout Slide collection. Otherwise, add the Layout slide you want. 
+1. Access the [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/).
+1. Check whether the desired layout slide already exists in the collection. If not, add the layout slide you need.
 1. Add an empty slide based on the new layout slide.
-1. Save the presentation. 
+1. Save the presentation.
 
-This C++ code shows you how to add a slide layout to a PowerPoint presentation:
+The following C++ code demonstrates how to add a slide layout to a PowerPoint presentation:
 
-```c++
-	// The path to the documents directory.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/AddLayoutSlides.pptx";
+```cpp
+// Instantiate the Presentation class that represents a PowerPoint file.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-	// Instantiates a Presentation class that represents the presentation file
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-
-	// Goes through layout slide types
-	SharedPtr<IMasterLayoutSlideCollection> layoutSlides = pres->get_Masters()->idx_get(0)->get_LayoutSlides();
-
-
-	SharedPtr<ILayoutSlide> layoutSlide;
-	if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-	}
-	else if (layoutSlides->GetByType(SlideLayoutType::Title) != NULL)
-	{
-		layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
-	}
-
-	if (layoutSlide == NULL)
-	{
-		// The situation where a presentation doesn't contain some layout types.
-		// presentation File only contains Blank and Custom layout types.
-		// But layout slides with Custom types have different slide names,
-		// like "Title", "Title and Content", etc. And it is possible to use these
-		// names for layout slide selection.
-		// You can also use a set of placeholder shape types. For example,
-		// Title slide should have only Title pleceholder type, etc.
-
-		for (int i = 0; i<layoutSlides->get_Count(); i++)
-		{
-			SharedPtr<ILayoutSlide> titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-			if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-			{
-				layoutSlide = titleAndObjectLayoutSlide;
-				break;
-			}
-		}
-
-		if (layoutSlide == NULL)
-		{
-			for (int i = 0; i < layoutSlides->get_Count(); i++)
-			{
-				SharedPtr<ILayoutSlide> titleLayoutSlide = layoutSlides->idx_get(i);
-
-				if (titleLayoutSlide->get_Name().Equals(u"Title"))
-				{
-					layoutSlide = titleLayoutSlide;
-					break;
-				}
-			}
-
-			if (layoutSlide == NULL)
-			{
-				layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-				if (layoutSlide == NULL)
-				{
-					layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-				}
-			}
-		}
-	}
-
-	// Adds empty slide with added layout slide  
-	pres->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-	// Saves the presentation to disk
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-```
-
-## **Remove Unused Layout Slide**
-
-Aspose.Slides provides the [RemoveUnusedLayoutSlides()](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides. This C++ code shows you how to remove a layout slide from a PowerPoint presentation:
-
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-
-LowCode::Compress::RemoveUnusedLayoutSlides(pres);
-
-pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
-
-```
-
-
-## **Set Size and Type for Slide Layout**
-
-To allow you to set the size and type for a specific layout slide, Aspose.Slides provides the [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) and [get_Size()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_size/) properties (from the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class). This C++ demonstrates the operation:
-
-```c++
-	// The path to the documents directory.
-	const String templatePath = u"../templates/AddSlides.pptx";
-	const String outPath = u"../out/CloneToAnotherPresentationWithSetSizeAndType.pptx";
-	// Instantiates a Presentation object that represents a presentation file
-	SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
-
-	SharedPtr<Presentation> destPres = MakeObject<Presentation>();
-
-	// Accesses Slide by ID from collection
-	SharedPtr<ISlideCollection> slideCollection = destPres->get_Slides();
-	
-	// Sets the slide size for the generated presentation to that of the source
-	destPres->get_SlideSize()->SetSize(pres->get_SlideSize()->get_Type(), Aspose::Slides::SlideSizeScaleType::DoNotScale);
-
-	slideCollection->InsertClone(1, pres->get_Slides()->idx_get(0));
-
-	// Saves the presentation to disk
-	destPres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-
-## **Set Footer Visibility Inside Slide**
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-1. Get a slide's reference through its index.
-1. Set the slide footer placeholder to visible. 
-1. Set the date-time placeholder to visible. 
-1. Save the presentation. 
-
-This C++ code shows you how to set the visibility for a slide footer (and perform related tasks):
-
-```c++
- // The path to the documents directory.
-const String outPath = u"../out/HeaderFooterManager_out.pptx";
-
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
-
-// Instantiates a SlideCollection class
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-//	SharedPtr<IBaseSlideHeaderFooterManager> headerFooterManager = presentation->get_Slides()->idx_get(0)->get_HeaderFooterManager();
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-if (!headerFooterManager->get_IsFooterVisible()) // Property IsFooterVisible is used to specify that a slide footer placeholder is missing
+// Go through the layout slide types to select a layout slide.
+auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
+SharedPtr<ILayoutSlide> layoutSlide;
+if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != NULL)
 {
-	headerFooterManager->SetFooterVisibility(true); // Method SetFooterVisibility is used to set a slide footer placeholder to visible
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
 }
-if (!headerFooterManager->get_IsSlideNumberVisible()) // Property IsSlideNumberVisible is used to specify that a slide page number placeholder is missing
+else if (layoutSlides->GetByType(SlideLayoutType::Title) != NULL)
 {
-	headerFooterManager->SetSlideNumberVisibility(true); // Method SetSlideNumberVisibility is used to set a slide page number placeholder to visible
+    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
 }
-if (!headerFooterManager->get_IsDateTimeVisible()) // Property IsDateTimeVisible is used to specify that a slide date-time placeholder is missing
+
+if (layoutSlide == NULL)
 {
-	headerFooterManager->SetDateTimeVisibility(true); // Method SetFooterVisibility is used to set a slide date-time placeholder to visible
+    // A situation where the presentation doesn't contain all layout types.
+    // The presentation file contains only Blank and Custom layout types.
+    // However, layout slides with custom types may have recognizable names,
+    // such as "Title", "Title and Content", etc., which can be used for layout slide selection.
+    // You can also rely on a set of placeholder shape types.
+    // For example, a Title slide should have only the Title placeholder type, and so on.
+    for (int i = 0; i < layoutSlides->get_Count(); i++)
+    {
+        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
+
+        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
+        {
+            layoutSlide = titleAndObjectLayoutSlide;
+            break;
+        }
+    }
+
+    if (layoutSlide == NULL)
+    {
+        for (int i = 0; i < layoutSlides->get_Count(); i++)
+        {
+            auto titleLayoutSlide = layoutSlides->idx_get(i);
+
+            if (titleLayoutSlide->get_Name().Equals(u"Title"))
+            {
+                layoutSlide = titleLayoutSlide;
+                break;
+            }
+        }
+
+        if (layoutSlide == NULL)
+        {
+            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
+            if (layoutSlide == NULL)
+            {
+                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
+            }
+        }
+    }
 }
-headerFooterManager->SetFooterText(u"Footer text"); // Method SetFooterText is used to set a text for a slide footer placeholder
-headerFooterManager->SetDateTimeText(u"Date and time text"); // Method SetDateTimeText is used to set a text for a slide date-time placeholder.
 
+// Add an empty slide using the added layout slide.
+presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
 
-// Saves the presentation to disk
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Save the presentation to disk.
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set Child Footer Visibility Inside Slide**
+## **Remove Unused Layout Slides**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
-1. Get a reference for the master slide through its index. 
-1. Set the master slide and all child footer placeholders to visible.
-1. Set a text for the master slide and all child footer placeholders. 
-1. Set a text for the master slide and all child date-time placeholders. 
-1. Save the presentation. 
+Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides.
 
-This C++ code demonstrates the operation:
+The following C++ code shows how to remove a layout slide from a PowerPoint presentation:
 
-```c++
-// The path to the documents directory.
-const String outPath = u"../out/SetChildFooter_out.pptx";
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>();
+Compress::RemoveUnusedLayoutSlides(presentation);
 
-// Instantiates a SlideCollection class
-SharedPtr<ISlideCollection> slds = presentation->get_Slides();
-
-SharedPtr<IMasterSlideHeaderFooterManager> headerFooterManager = presentation->get_Masters()->idx_get(0)->get_HeaderFooterManager();
-headerFooterManager->SetFooterAndChildFootersVisibility(true); // Method SetFooterAndChildFootersVisibility is used to set the master slide and all child footer placeholders to visible
-headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true); // Method SetSlideNumberAndChildSlideNumbersVisibility is used to set the master slide and all child page number placeholders to visible
-headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true); // Method SetDateTimeAndChildDateTimesVisibility is used to set a master slide and all child date-time placeholders to visible
-
-headerFooterManager->SetFooterAndChildFootersText(u"Footer text"); // Method SetFooterAndChildFootersText is used to set texts for the master slide and all child footer placeholders
-headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text"); // Method SetDateTimeAndChildDateTimesText is used to set text for the master slide and all child date-time placeholders
-
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set Slide Size with Respect to Content Scaling**
+## **Add a Placeholder To a Slide Layout**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class and load the presentation containing the slide whose size you want to set. 
-1. Create another instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class to generate a new presentation. 
-1. Get the slide's reference (from the first presentation) through its index.
-1. Set the slide footer placeholder to visible. 
-1. Set the date-time placeholder to visible. 
-1. Save the presentation. 
+Aspose.Slides provides the [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) method, which allows you to add new placeholders to a layout slide.
 
-This C++ code demonstrates the operation: 
+This manager contains methods for the following placeholder types:
 
-```c++
-// The path to the documents directory.
-const String templatePath = u"../templates/AccessSlides.pptx";
-const String outPath = u"../out/SetSlideSizeScale_out.pptx";
+| PowerPoint Placeholder              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/) Method |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(templatePath);
-SharedPtr<Presentation> auxPresentation = MakeObject<Presentation>();
+The following C++ code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
-// Instantiates a SlideCollection class
-SharedPtr<ISlide> slide = presentation->get_Slides()->idx_get(0);
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-// Sets the slide size for the generated presentations to that of the source
-auxPresentation->get_SlideSize()->SetSize(540, 720, SlideSizeScaleType::EnsureFit); // Method SetSize is used to set slide size with scale content to ensure fit
-auxPresentation->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::Maximize); // Method SetSize is used to set slide size with maximum size of content
+// Get the Blank layout slide.
+auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
-auxPresentation->get_Slides()->RemoveAt(0);
+// Get the placeholder manager of the layout slide.
+auto placeholderManager = layout->get_PlaceholderManager();
 
-// Saves presentation
-presentation->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+// Add different placeholders to the Blank layout slide.
+placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+
+// Add a new slide with the Blank layout.
+auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
+
+presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set Page Size when Generating PDF**
+The result:
 
-Certain presentations (like posters) are often converted to PDF docs. If you are looking to convert your PowerPoint to PDF to access the best printing and accessibility options, you want to set your slides to sizes that suit PDF documents (A4, for example).
+![The placeholders on the layout slide](add_placeholders.png)
 
-Aspose.Slides provides the [SlideSize](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/) class to allow you to specify your preferred settings for slides. This C++ code shows you how to use the [get_Type()](https://reference.aspose.com/slides/cpp/aspose.slides/slidesize/get_type/) property (from the `SlideSize` class) to set a specific paper size for the slides in a presentation:
+## **Set Footer Visibility for a Layout Slide**
 
-```c++
-// The path to the documents directory.
-	const String outPath = u"../out/SetPDFPageSize_out.pptx";
+In PowerPoint presentations, footer elements like date, slide number, and custom text can be shown or hidden depending on the slide layout. Aspose.Slides for Android allows you to control the visibility of these footer placeholders. This is useful when you want certain layouts to display footer information while others remain clean and minimal.
 
-	// Instantiates a Presentation object that represents a presentation file 
-	SharedPtr<Presentation>pres = MakeObject<Presentation>();
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a layout slide reference by its index.
+1. Set the slide footer placeholder to visible.
+1. Set the slide number placeholder to visible.
+1. Set the date-time placeholder to visible.
+1. Save the presentation.
 
-	// Sets the SlideSize.Type Property
-	pres->get_SlideSize()->SetSize(SlideSizeType::A4Paper, SlideSizeScaleType::EnsureFit);
+The following C++ code shows how to set the visibility of a slide footer and perform related tasks:
 
-	// Sets different properties of PDF Options
-	Aspose::Slides::Export::PdfOptions opts = Aspose::Slides::Export::PdfOptions();
-	opts.set_SufficientResolution (600);
+```cpp
+auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
+auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
 
-	// Saves presentation
-	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pdf, &opts);
+if (!headerFooterManager->get_IsFooterVisible())
+{
+    headerFooterManager->SetFooterVisibility(true);
+}
+
+if (!headerFooterManager->get_IsSlideNumberVisible())
+{
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+if (!headerFooterManager->get_IsDateTimeVisible())
+{
+    headerFooterManager->SetDateTimeVisibility(true);
+}
+
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+## **Set Child Footer Visibility for a Slide**
+
+​In PowerPoint presentations, footer elements such as date, slide number, and custom text can be controlled at the master slide level to ensure consistency across all layout slides. Aspose.Slides for Android enables you to set the visibility and content of these footer placeholders on the master slide and propagate these settings to all child layout slides. This approach ensures uniform footer information throughout your presentation.​
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to the master slide by its index.
+1. Set the master’s and all child footer placeholders to visible.
+1. Set the master’s and all child slide number placeholders to visible.
+1. Set the master’s and all child date-time placeholders to visible.
+1. Save the presentation.
+
+The following C++ code demonstrates this operation:
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
+
+headerFooterManager->SetFooterAndChildFootersVisibility(true);
+headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
+headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+
+presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **FAQs**
+
+**What’s the difference between a master slide and a layout slide?**
+
+A master slide defines the overall theme and default formatting, while layout slides define specific arrangements of placeholders for different types of content.
+
+**Can I copy a layout slide from one presentation to another?**
+
+Yes, you can clone a layout slide from one presentation’s layout slide collection, accessible via the [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) method, and insert it into another presentation using the `AddClone` method.
+
+**What happens if I delete a layout slide that's still used by a slide?**
+
+If you try to delete a layout slide that is still referenced by at least one slide in the presentation, Aspose.Slides will throw a [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/). To avoid this, use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) which safely removes only the layout slides that are not in use.

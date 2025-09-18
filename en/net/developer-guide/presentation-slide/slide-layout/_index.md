@@ -181,7 +181,7 @@ The result:
 
 ![The placeholders on the layout slide](add_placeholders.png)
 
-## **Set Footer Visibility Inside a Layout Slide**
+## **Set Footer Visibility for a Layout Slide**
 
 In PowerPoint presentations, footer elements like date, slide number, and custom text can be shown or hidden depending on the slide layout. Aspose.Slides for .NET allows you to control the visibility of these footer placeholders. This is useful when you want certain layouts to display footer information while others remain clean and minimal.
 
@@ -221,7 +221,7 @@ using (Presentation presentation = new Presentation("Presentation.ppt"))
 }
 ```
 
-## **Set Child Footer Visibility Inside a Slide**
+## **Set Child Footer Visibility for a Slide**
 
 ​In PowerPoint presentations, footer elements such as date, slide number, and custom text can be controlled at the master slide level to ensure consistency across all layout slides. Aspose.Slides for .NET enables you to set the visibility and content of these footer placeholders on the master slide and propagate these settings to all child layout slides. This approach ensures uniform footer information throughout your presentation.​
 
