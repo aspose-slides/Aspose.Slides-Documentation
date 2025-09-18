@@ -83,7 +83,7 @@ try {
         // You can also rely on a set of placeholder shape types.
         // For example, a Title slide should have only the Title placeholder type, and so on.
         for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName() == "Title and Object") {
+            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
                 layoutSlide = titleAndObjectLayoutSlide;
                 break;
             }
@@ -91,12 +91,12 @@ try {
 
         if (layoutSlide == null) {
             for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName() == "Title") {
+                if (titleLayoutSlide.getName().equals("Title")) {
                     layoutSlide = titleLayoutSlide;
                     break;
                 }
             }
-            
+
             if (layoutSlide == null) {
                 layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
                 if (layoutSlide == null) {
