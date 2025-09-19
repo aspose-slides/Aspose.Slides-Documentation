@@ -42,9 +42,9 @@ A slide layout defines the arrangement of placeholder boxes and formatting for t
 
 Slide layouts are part of a slide master, which is the top-level slide that defines layout styles for the presentation. You can access and modify layout slides through the slide master—either by their type, name, or unique ID. Alternatively, you can edit a specific layout slide directly within the presentation.
 
-To work with slide layouts in Aspose.Slides for Python, use the following:
+To work with slide layouts in Aspose.Slides for Python, you can use:
 
-- [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) and [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) properties under the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
+- Properties such as [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) and [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class
 - Types like [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/), and [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
@@ -59,19 +59,18 @@ To customize the appearance and structure of your slides, you may need to add ne
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
 1. Access the [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/).
-1. Check the existing layout slides; if the required layout is missing, add it to the collection.
-1. Add an empty slide based on the new layout.
+1. Check whether the desired layout slide already exists in the collection. If not, add the layout slide you need.
+1. Add an empty slide based on the new layout slide.
 1. Save the presentation.
 
-This Python example shows how to add a slide layout to a PowerPoint presentation:
+The following Python code demonstrates how to add a slide layout to a PowerPoint presentation:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Instantiate the Presentation class to open the presentation file.
 with slides.Presentation("sample.pptx") as presentation:
-    # Iterate through layout slide types.
+    # Go through the layout slide types to select a layout slide.
     layout_slides = presentation.masters[0].layout_slides
     layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
     if layout_slide is None:
@@ -80,8 +79,8 @@ with slides.Presentation("sample.pptx") as presentation:
     if layout_slide is None:
         # A situation where the presentation doesn't contain all layout types.
         # The presentation file contains only Blank and Custom layout types.
-        # However, layout slides with custom types may have recognizable names, such as 
-        # "Title", "Title and Content", etc., which can be used for layout slide selection.
+        # However, layout slides with custom types may have recognizable names,
+        # such as "Title", "Title and Content", etc., which can be used for layout slide selection.
         # You can also rely on a set of placeholder shape types.
         # For example, a Title slide should have only the Title placeholder type, and so on.
         for title_and_object_layout_slide in layout_slides:
@@ -100,7 +99,7 @@ with slides.Presentation("sample.pptx") as presentation:
                 if layout_slide is None:
                     layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
 
-    # Add an empty slide at index 0 using the selected layout.
+    # Add an empty slide using the added layout slide.
     presentation.slides.insert_empty_slide(0, layout_slide)
 
     # Save the presentation to disk.
@@ -121,7 +120,54 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Set Footer Visibility in Slides**
+## **Add Placeholders To Slide Layouts**
+
+Aspose.Slides provides the [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/) property, which allows you to add new placeholders to a layout slide.
+
+This manager contains methods for the following placeholder types:
+
+| PowerPoint Placeholder              | [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) Method |
+| ----------------------------------- | ------------------------------------------------------------ |
+| ![Content](content.png)             | add_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text](text.png)                   | add_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Text (Vertical)](textV.png)       | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
+| ![Picture](picture.png)             | add_picture_placeholder(x: float, y: float, width: float, height: float) |
+| ![Chart](chart.png)                 | add_chart_placeholder(x: float, y: float, width: float, height: float) |
+| ![Table](table.png)                 | add_table_placeholder(x: float, y: float, width: float, height: float) |
+| ![SmartArt](smartart.png)           | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
+| ![Media](media.png)                 | add_media_placeholder(x: float, y: float, width: float, height: float) |
+| ![Online Image](onlineimage.png)    | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+
+The following Python code demonstrates how to add new placeholder shapes to the Blank layout slide:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    # Get the Blank layout slide.
+    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    # Get the placeholder manager of the layout slide.
+    placeholder_manager = layout.placeholder_manager
+
+    # Add different placeholders to the Blank layout slide.
+    placeholder_manager.add_content_placeholder(20, 20, 310, 270)
+    placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
+    placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
+    placeholder_manager.add_table_placeholder(350, 310, 350, 180)
+
+    # Add a new slide with the Blank layout.
+    new_slide = presentation.slides.add_empty_slide(layout)
+
+    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The result:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+## **Set Footer Visibility for a Layout Slide**
 
 In PowerPoint presentations, footer elements like date, slide number, and custom text can be shown or hidden depending on the slide layout. Aspose.Slides for Python allows you to control the visibility of these footer placeholders. This is useful when you want certain layouts to display footer information while others remain clean and minimal.
 
@@ -138,7 +184,7 @@ The following Python code shows how to set the visibility of a slide footer and 
 import aspose.slides as slides
 
 with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.slides[0].header_footer_manager
+    header_footer_manager = presentation.layout_slides[0].header_footer_manager
 
     if not header_footer_manager.is_footer_visible: 
         header_footer_manager.set_footer_visibility(True) 
@@ -155,7 +201,7 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **Set Child Footer Visibility in Slides**
+## **Set Child Footer Visibility for a Slide**
 
 ​In PowerPoint presentations, footer elements such as date, slide number, and custom text can be controlled at the master slide level to ensure consistency across all layout slides. Aspose.Slides for Python enables you to set the visibility and content of these footer placeholders on the master slide and propagate these settings to all child layout slides. This approach ensures uniform footer information throughout your presentation.​
 
@@ -171,13 +217,29 @@ The following Python code demonstrates this operation:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("AccessSlides.pptx") as presentation:
-    manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("presentation.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
 
-    manager.set_footer_and_child_footers_visibility(True)
-    manager.set_slide_number_and_child_slide_numbers_visibility(True)
-    manager.set_date_time_and_child_date_times_visibility(True)
+    header_footer_manager.set_footer_and_child_footers_visibility(True)
+    header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+    header_footer_manager.set_date_time_and_child_date_times_visibility(True)
 
-    manager.set_footer_and_child_footers_text("Footer text")
-    manager.set_date_time_and_child_date_times_text("Date and time text") 
+    header_footer_manager.set_footer_and_child_footers_text("Footer text")
+    header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQs**
+
+**What’s the difference between a master slide and a layout slide?**
+
+A master slide defines the overall theme and default formatting, while layout slides define specific arrangements of placeholders for different types of content.
+
+**Can I copy a layout slide from one presentation to another?**
+
+Yes, you can clone a layout slide from one presentation’s [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) collection and insert it into another using the `add_clone` method.
+
+**What happens if I delete a layout slide that's still used by a slide?**
+
+If you try to delete a layout slide that is still referenced by at least one slide in the presentation, Aspose.Slides will throw a [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/). To avoid this, use [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) which safely removes only the layout slides that are not in use.

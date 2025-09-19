@@ -24,7 +24,6 @@ keywords:
 - title and vertical text
 - vertical title and text
 - C#
-- Csharp
 - .NET
 - Aspose.Slides
 description: "Learn how to manage and customize slide layouts in Aspose.Slides for .NET. Explore layout types, placeholder control, footer visibility, and layout manipulation through code examples in C#."
@@ -42,9 +41,9 @@ A slide layout defines the arrangement of placeholder boxes and formatting for t
 
 Slide layouts are part of a slide master, which is the top-level slide that defines layout styles for the presentation. You can access and modify layout slides through the slide master—either by their type, name, or unique ID. Alternatively, you can edit a specific layout slide directly within the presentation.
 
-To work with slide layouts in Aspose.Slides for .NET, use properties such as:
+To work with slide layouts in Aspose.Slides for .NET, you can use:
 
-- [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class
+- Properties such as [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) and [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class
 - Types like [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/), and [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
 
 {{% alert title="Info" color="info" %}}
@@ -53,7 +52,7 @@ To learn more about working with master slides, check out the [Slide Master](/sl
 
 {{% /alert %}}
 
-## **Add a Slide Layout to a Presentation**
+## **Add Slide Layouts to Presentations**
 
 To customize the appearance and structure of your slides, you may need to add new layout slides to a presentation. Aspose.Slides for .NET allows you to check whether a specific layout already exists, add a new one if needed, and use it to insert slides based on that layout.
 
@@ -116,7 +115,7 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
     presentation.Slides.InsertEmptySlide(0, layoutSlide);
 
     // Save the presentation to disk.  
-    presentation.Save("AddLayoutSlides.pptx", SaveFormat.Pptx);
+    presentation.Save("Output.pptx", SaveFormat.Pptx);
 }
 ```
 
@@ -135,7 +134,7 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
-## **Add a Placeholder To a Slide Layout**
+## **Add Placeholders To Slide Layouts**
 
 Aspose.Slides provides the [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) property, which allows you to add new placeholders to a layout slide.
 
@@ -143,18 +142,18 @@ This manager contains methods for the following placeholder types:
 
 | PowerPoint Placeholder              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) Method |
 | ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height); |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height); |
-| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height); |
-| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height); |
-| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height); |
-| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height); |
-| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height); |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height); |
-| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height); |
-| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height); |
+| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
+| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
+| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
+| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
+| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
+| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height) |
+| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
+| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
+| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
+| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
 
-This C# code demonstrates how to add new placeholder shapes to the Blank layout slide:
+The following C# code demonstrates how to add new placeholder shapes to the Blank layout slide:
 
 ```cs
 using (var presentation = new Presentation())
@@ -182,7 +181,7 @@ The result:
 
 ![The placeholders on the layout slide](add_placeholders.png)
 
-## **Set Footer Visibility Inside a Layout Slide**
+## **Set Footer Visibility for a Layout Slide**
 
 In PowerPoint presentations, footer elements like date, slide number, and custom text can be shown or hidden depending on the slide layout. Aspose.Slides for .NET allows you to control the visibility of these footer placeholders. This is useful when you want certain layouts to display footer information while others remain clean and minimal.
 
@@ -222,7 +221,7 @@ using (Presentation presentation = new Presentation("Presentation.ppt"))
 }
 ```
 
-## **Set Child Footer Visibility Inside a Slide**
+## **Set Child Footer Visibility for a Slide**
 
 ​In PowerPoint presentations, footer elements such as date, slide number, and custom text can be controlled at the master slide level to ensure consistency across all layout slides. Aspose.Slides for .NET enables you to set the visibility and content of these footer placeholders on the master slide and propagate these settings to all child layout slides. This approach ensures uniform footer information throughout your presentation.​
 
@@ -259,7 +258,7 @@ A master slide defines the overall theme and default formatting, while layout sl
 
 **Can I copy a layout slide from one presentation to another?**
 
-Yes, you can clone a layout slide from one presentation’s [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) collection and insert it into another using the `LayoutSlides.AddClone` method.
+Yes, you can clone a layout slide from one presentation’s [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) collection and insert it into another using the `AddClone` method.
 
 **What happens if I delete a layout slide that's still used by a slide?**
 
