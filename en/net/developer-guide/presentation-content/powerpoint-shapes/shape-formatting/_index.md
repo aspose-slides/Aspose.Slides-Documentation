@@ -507,7 +507,7 @@ The result:
 
 ![The 3D bevel effect](3D-bevel-effect.png)
 
-## **Add 3D Rotation Effect**
+## **Add 3D Rotation Effects**
 
 Aspose.Slides allows you to apply 3D rotation effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) properties.
 
