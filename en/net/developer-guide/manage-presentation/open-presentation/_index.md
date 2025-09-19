@@ -1,108 +1,130 @@
 ---
-title: Open Presentation in C#
-linktitle: Open Presentation
+title: Open a Presentation in C#
+linktitle: Open Presentations
 type: docs
 weight: 20
 url: /net/open-presentation/
-keywords: "Open PowerPoint, PPTX, PPT, Open Presentation, Load Presentation, C#, Csharp, .NET"
-description: "Open or load Presentation PPT, PPTX, ODP in C# or .NET"
+keywords:
+- open PowerPoint
+- open presentation
+- open PPTX
+- open PPT
+- open ODP
+- load presentation
+- load PPTX
+- load PPT
+- load ODP
+- protected presentation
+- large presentation
+- external resource
+- binary object
+- .NET
+- C#
+- Aspose.Slides
+description: "Open PowerPoint (.pptx, .ppt) and OpenDocument (.odp) presentations effortlessly with Aspose.Slides for .NET—fast, reliable, fully featured."
 ---
 
-Besides creating PowerPoint presentations from scratch, Aspose.Slides allows you to open existing presentations. After you load a presentation, you can get information about the presentation, edit the presentation (content on its slides), add new slides or remove existing ones, etc. 
+## **Overview**
 
-## Open Presentation
+Beyond creating PowerPoint presentations from scratch, Aspose.Slides also lets you open existing presentations. After loading a presentation, you can retrieve information about it, edit slide content, add new slides, remove existing ones, and more.
 
-To open an existing presentation, you simply have to instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and pass the file path (to the presentation you want to open) to its constructor. 
+## **Open Presentations**
 
-This C# code shows you how to open a presentation and also find out the number of slides it contains: 
+To open an existing presentation, instantiate the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and pass the file path to its constructor.
 
-```c#
-// Instantiates the Presentation class and passes the file path to its constructor
-Presentation pres = new Presentation("OpenPresentation.pptx");
+The following C# example shows how to open a presentation and get its slide count:
 
-// Prints the total number of slides present in the presentation
-System.Console.WriteLine(pres.Slides.Count.ToString());
+```cs
+// Instantiate the Presentation class and pass a file path to its constructor.
+using (Presentation presentation = new Presentation("Sample.pptx"))
+{
+    // Print the total number of slides in the presentation.
+    System.Console.WriteLine(presentation.Slides.Count);
+}
 ```
 
-## **Open Password-Protected Presentation**
+## **Open Password-Protected Presentations**
 
-When you have to open a password-protected presentation, you can pass the password through the [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) property (from the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class) to decrypt the presentation and load the presentation. This C# code demonstrates the operation:
+When you need to open a password-protected presentation, pass the password through the [Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/) property of the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class to decrypt and load it. The following C# code demonstrates this operation:
 
-```c#
-	LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
-	using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
-	{
-	  // Do some work with the decrypted presentation
-	}
+```cs
+LoadOptions loadOptions = new LoadOptions {Password = "YOUR_PASSWORD"};
+using (Presentation presentation = new Presentation("Sample.pptx", loadOptions))
+{
+    // Perform operations on the decrypted presentation.
+}
 ```
 
-## Open Large Presentation
+## **Open Large Presentations**
 
-Aspose.Slides provides options (the [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) property in particular) under the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class to allow you to load large presentations. 
+Aspose.Slides provides options—particularly the [BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) property in the [LoadOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/) class—to help you load large presentations.
 
-This C# demonstrates an operation in which a large presentation (say 2GB in size) is loaded:
+The following C# code demonstrates loading a large presentation (for example, 2 GB):
 
-```c#
-const string pathToVeryLargePresentationFile = "veryLargePresentation.pptx";
+```cs
+const string filePath = "LargePresentation.pptx";
 
 LoadOptions loadOptions = new LoadOptions
 {
-    BlobManagementOptions = {
-        // Let's choose the KeepLocked behavior - the "veryLargePresentation.pptx" will be locked for
-        // the Presentation's instance lifetime, but we don't need to load it into memory or copy into
-        // the temporary file
+    BlobManagementOptions = 
+    {
+        // Choose the KeepLocked behavior—the presentation file will remain locked for the lifetime of 
+        // the Presentation instance, but it does not need to be loaded into memory or copied to a temporary file.
         PresentationLockingBehavior = PresentationLockingBehavior.KeepLocked,
+        IsTemporaryFilesAllowed = true,
+        MaxBlobsBytesInMemory = 10 * 1024 * 1024 // 10 MB
     }
 };
 
-using (Presentation pres = new Presentation(pathToVeryLargePresentationFile, loadOptions))
+using (Presentation presentation = new Presentation(filePath, loadOptions))
 {
-    // The large presentation has been loaded and can be used, but the memory consumption is still low.
+    // The large presentation has been loaded and can be used, while memory consumption remains low.
 
-    // Makes changes to the presentation.
-    pres.Slides[0].Name = "Very large presentation";
+    // Make changes to the presentation.
+    presentation.Slides[0].Name = "Large presentation";
 
-    // The presentation will be saved to the other file. The memory consumption stays low during the operation
-    pres.Save("veryLargePresentation-copy.pptx", SaveFormat.Pptx);
+    // Save the presentation to another file. Memory consumption remains low during this operation.
+    presentation.Save("LargePresentation-copy.pptx", SaveFormat.Pptx);
 
-    // can't do that! IO exception will be thrown, because the file is locked while pres objects will
-    // not be disposed
-    File.Delete(pathToVeryLargePresentationFile);
+    // Don't do this! An I/O exception will be thrown because the file is locked until the presentation object is disposed.
+    File.Delete(filePath);
 }
 
-// It is ok to do it here, the source file is not locked by pres object
-File.Delete(pathToVeryLargePresentationFile);
+// It is OK to do it here. The source file is no longer locked by the presentation object.
+File.Delete(filePath);
 ```
 
 {{% alert color="info" title="Info" %}}
 
-To circumvent certain limitations when interacting with streams, Aspose.Slides may copy the stream's content. Loading a large presentation through its stream will result in the copying of the presentation's contents and cause slow loading. Therefore, when you intend to load a large presentation, we strongly recommend that you use the presentation file path and not its stream.
+To work around certain limitations when working with streams, Aspose.Slides may copy a stream’s contents. Loading a large presentation from a stream causes the presentation to be copied and can slow loading. Therefore, when you need to load a large presentation, we strongly recommend using the presentation file path rather than a stream.
 
-When you want to create a presentation that contains large objects (video, audio, big images, etc.), you can use the [Blob facility](https://docs.aspose.com/slides/net/manage-blob/) to reduce memory consumption.
+When creating a presentation that contains large objects (video, audio, high-resolution images, etc.), you can use [BLOB management](/slides/net/manage-blob/) to reduce memory consumption.
 
-{{%/alert %}} 
+{{%/alert %}}
 
+## **Control External Resources**
 
-## Load Presentation
-Aspose.Slides provides [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) with a single method to allow you to manage external resources. This C# code shows you how to use the `IResourceLoadingCallback` interface:
+Aspose.Slides provides the [IResourceLoadingCallback](https://reference.aspose.com/slides/net/aspose.slides/iresourceloadingcallback/) interface that lets you manage external resources. The following C# code shows how to use the `IResourceLoadingCallback` interface:
 
-```c#
-LoadOptions opts = new LoadOptions();
-opts.ResourceLoadingCallback = new ImageLoadingHandler();
-Presentation presentation = new Presentation("presentation.pptx", opts);
+```cs
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.ResourceLoadingCallback = new ImageLoadingHandler();
+
+Presentation presentation = new Presentation("Sample.pptx", loadOptions);
 ```
 
-```c#
+```cs
 public class ImageLoadingHandler : IResourceLoadingCallback
 {
     public ResourceLoadingAction ResourceLoading(IResourceLoadingArgs args)
     {
         if (args.OriginalUri.EndsWith(".jpg"))
         {
-            try // Loads substitute image
+            try
             {
-                byte[] imageBytes = File.ReadAllBytes("c:\\aspose-logo.jpg");
-                args.SetData(imageBytes);
+                // Load a substitute image.
+                byte[] imageData = File.ReadAllBytes("aspose-logo.jpg");
+                args.SetData(imageData);
                 return ResourceLoadingAction.UserProvided;
             }
             catch (Exception)
@@ -112,53 +134,37 @@ public class ImageLoadingHandler : IResourceLoadingCallback
         }
         else if (args.OriginalUri.EndsWith(".png"))
         {
-            // Sets substitute url
+            // Set a substitute URL.
             args.Uri = "http://www.google.com/images/logos/ps_logo2.png";
             return ResourceLoadingAction.Default;
         }
 
-        // Skips all other images
+        // Skip all other images.
         return ResourceLoadingAction.Skip;
     }
 }
 ```
 
-## Load Presentation Without Embedded Binary Objects
+## **Load Presentations Without Embedded Binary Objects**
 
-The PowerPoint presentation can contain the following types of the embedded binary objects:
+A PowerPoint presentation can contain the following types of embedded binary objects:
 
-- VBA Project ([IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
-- OLE Object embedded data ([IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
-- ActiveX Control binary data ([IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/));
+- VBA project (accessible via [IPresentation.VbaProject](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/vbaproject/));
+- OLE object embedded data (accessible via [IOleEmbeddedDataInfo.EmbeddedFileData](https://reference.aspose.com/slides/net/aspose.slides/ioleembeddeddatainfo/embeddedfiledata/));
+- ActiveX control binary data (accessible via [IControl.ActiveXControlBinary](https://reference.aspose.com/slides/net/aspose.slides/icontrol/activexcontrolbinary/)).
 
-Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/) property, you can load the presentation without any embedded binary objects.
+Using the [ILoadOptions.DeleteEmbeddedBinaryObjects](https://reference.aspose.com/slides/net/aspose.slides/iloadoptions/deleteembeddedbinaryobjects/) property, you can load a presentation without any embedded binary objects.
 
-This property can be useful for removing potentially malicious binary content.
+This property is useful for removing potentially malicious binary content. The following C# code demonstrates how to load a presentation without any embedded binary content:
 
-The C# code demonstrates how to load and save a presentation without any malware content:
-
-```c#
+```cs
 LoadOptions loadOptions = new LoadOptions()
 {
 	DeleteEmbeddedBinaryObjects = true
 }
 
-using (var pres = new Presentation("malware.ppt", loadOptions))
+using (Presentation presentation = new Presentation("malware.ppt", loadOptions))
 {
-    pres.Save("clean.ppt", SaveFormat.Ppt);
+    // Perform operations on the presentation.
 }
-```
-
-<h2>Open and Save Presentation</h2>
-
-<a name="csharp-open-save-presentation"><strong>Steps: Open and Save Presentation in C#</strong></a>
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) class and pass the file you want to open. 
-2. Save the Presentation.
-
-```c#
-// Loads any supported presentation e.g ppt, pptx, odp
-Presentation presentation = new Presentation("Sample.odp");
-
-presentation.Save("OutputPresenation.pptx", SaveFormat.Pptx);
 ```
