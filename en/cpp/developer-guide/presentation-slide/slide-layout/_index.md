@@ -70,16 +70,16 @@ auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 // Go through the layout slide types to select a layout slide.
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
 SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != NULL)
+if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
 {
     layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
 }
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != NULL)
+else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
 {
     layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
 }
 
-if (layoutSlide == NULL)
+if (layoutSlide == nullptr)
 {
     // A situation where the presentation doesn't contain all layout types.
     // The presentation file contains only Blank and Custom layout types.
@@ -98,23 +98,23 @@ if (layoutSlide == NULL)
         }
     }
 
-    if (layoutSlide == NULL)
+    if (layoutSlide == nullptr)
     {
         for (int i = 0; i < layoutSlides->get_Count(); i++)
         {
             auto titleLayoutSlide = layoutSlides->idx_get(i);
 
-            if (titleLayoutSlide->get_Name().Equals(u"Title"))
+            if (titleLayoutSlide->get_Name() == u"Title")
             {
                 layoutSlide = titleLayoutSlide;
                 break;
             }
         }
 
-        if (layoutSlide == NULL)
+        if (layoutSlide == nullptr)
         {
             layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == NULL)
+            if (layoutSlide == nullptr)
             {
                 layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
             }
