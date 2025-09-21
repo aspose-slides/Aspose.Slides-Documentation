@@ -156,14 +156,14 @@ using (Presentation presentation = new Presentation())
 {
     ISlide firstSlide = presentation.Slides[0];
 
-    IPPImage ppImage;
-    using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
-        ppImage = presentation.Images.AddImage(newImage);
-
     IBackground background = firstSlide.Background;
 
     background.Type = BackgroundType.OwnBackground;
     background.FillFormat.FillType = FillType.Picture;
+
+    IPPImage ppImage;
+    using (IImage newImage = Aspose.Slides.Images.FromFile("image.png"))
+        ppImage = presentation.Images.AddImage(newImage);
 
     // Set the image used for the background fill.
     IPictureFillFormat backPictureFillFormat = background.FillFormat.PictureFillFormat;
