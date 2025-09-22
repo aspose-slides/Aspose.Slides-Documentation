@@ -156,7 +156,7 @@ Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 1. Get a reference to a slide by its index.
 1. Add an [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) to the slide.
 1. Set the shape's [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) to `Gradient`.
-1. Add your two preferred colors with defined positions using the `add` methods of the gradient stop collection exposed by the [GradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientformat/) class.
+1. Add your two preferred colors with defined positions using the `add` methods of the gradient stop collection exposed by the [IGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/) interface.
 1. Save the modified presentation as a PPTX file.
 
 The following Java code demonstrates how to apply a gradient fill effect to an ellipse:
@@ -416,6 +416,7 @@ The following Java code demonstrates how to apply a transparent fill color to a 
 // Instantiate the Presentation class that represents a presentation file.
 Presentation presentation = new Presentation();
 try {
+    // Get the first slide.
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Add a solid rectangle auto shape.
@@ -444,7 +445,7 @@ Aspose.Slides lets you rotate shapes in PowerPoint presentations. This can be us
 To rotate a shape on a slide, follow these steps:
 
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index..
+1. Get a reference to a slide by its index.
 1. Add an [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) to the slide.
 1. Set the shape’s rotation property to the desired angle.
 1. Save the presentation.
@@ -551,12 +552,6 @@ try {
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    autoShape = slide.getShapes().addAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(0, 35, 20);
-    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
-    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-
     // Save the presentation as a PPTX file.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
@@ -573,13 +568,13 @@ The result:
 The following Java code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/) to their default settings:
 
 ```java
-Presentation presentation = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    for (ISlide slide : presentation.getSlides())
-    {
-        // Revert each shape on the slide that has a placeholder on the layout.
+    for (ISlide slide : presentation.getSlides()) {
+        // Reset each shape on the slide that has a placeholder on the layout.
         slide.reset();
     }
+    presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }

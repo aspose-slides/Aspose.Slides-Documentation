@@ -1,87 +1,111 @@
 ---
-title: Shape Formatting
+title: Format PowerPoint Shapes in C++
+linktitle: Shape Formatting
 type: docs
 weight: 20
 url: /cpp/shape-formatting/
-keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, C++, Aspose.Slides for С++"
-description: "Format shape in PowerPoint presentation in C++"
+keywords:
+- format shape
+- format line
+- format join style
+- gradient fill
+- pattern fill
+- picture fill
+- texture fill
+- solid color fill
+- shape transparency
+- rotate shape
+- 3d bevel effect
+- 3d rotation effect
+- reset formatting
+- PowerPoint
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to format PowerPoint shapes in C++ using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
 ---
 
-In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, you can format shapes by modifying or applying certain effects to their constituent lines. Additionally, you can format shapes by specifying settings that determine how they (the area in them) are filled. 
+## **Overview**
+
+In PowerPoint, you can add shapes to slides. Since shapes are made up of lines, you can format them by modifying or applying effects to their outlines. Additionally, you can format shapes by specifying settings that control how their interiors are filled.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-
-**Aspose.Slides for C++** provides interfaces and properties that allow you to format shapes based on known options in PowerPoint. 
+Aspose.Slides for C++ provides interfaces and methods that allow you to format shapes using the same options available in PowerPoint.
 
 ## **Format Lines**
 
-Using Aspose.Slides, you can specify your preferred line style for a shape. These steps outline such a procedure:
+Using Aspose.Slides, you can specify a custom line style for a shape. The following steps outline the procedure:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set a color for the shape lines.
-5. Set the width for the shape lines.
-6. Set the [line style](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a837c78839bf6ebb16979455cd1de59e4) for the shape line
-7. Set the [dash style](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a7eaad354a35a3b567a7327d625be3c6e) for the shape line. 
-8. Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the [line style](https://reference.aspose.com/slides/cpp/aspose.slides/linestyle/) of the shape.
+1. Set the line width.
+1. Set the [dash style](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) of the line.
+1. Set the line color for the shape.
+1. Save the modified presentation as a PPTX file.
 
-This C++ code demonstrates an operation where we formatted a rectangle `AutoShape`:
+The following code demonstrates how to format a rectangle `AutoShape`:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Adds autoshape of rectangle type
+// Add an auto shape of the Rectangle type.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// Sets the fill color for the rectangle shape
-shape->get_FillFormat()->set_FillType(FillType::Solid);
-shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_White());
+// Set the fill color for the rectangle shape.
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Applies some formatting on the rectangle's lines
+// Apply formatting to the rectangle's lines.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// Sets the color for the rectangle's line
+// Set the color for the rectangle's line.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Writes the PPTX file to disk
-pres->Save(u"RectShpLn_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+// Save the PPTX file to disk.
+presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+The result:
+
+![The formatted lines in the presentation](formatted-lines.png)
+
 ## **Format Join Styles**
-These are the 3 join type options:
+
+Here are the three join type options:
 
 * Round
 * Miter
 * Bevel
 
-By default, when PowerPoint joins two lines at an angle (or a shape's corner), it uses the **Round** setting. However, if you are looking to draw a shape with very sharp angles, you may want to select **Miter**.
+By default, when PowerPoint joins two lines at an angle (such as at a shape’s corner), it uses the **Round** setting. However, if you're drawing a shape with sharp angles, you may prefer the **Miter** option.
 
-![join-style-powerpoint](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-This C++  code demonstrates an operation where 3 rectangles (the image above) were created with the Miter, Bevel, and Round join type settings:
+The following C++ code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Adds 3 rectangle autoshapes
-SharedPtr<IAutoShape> shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
-SharedPtr<IAutoShape> shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 300, 100, 150, 75);
-SharedPtr<IAutoShape> shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 250, 150, 75);
+// Add three auto shapes of the Rectangle type.
+auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
+auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
+auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// Sets the fill color for the rectangle shape
+// Set the fill color for each rectangle shape.
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -89,12 +113,12 @@ shape2->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape3->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Sets the line's width
+// Set the line width.
 shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// Sets the color for the rectangle's line
+// Set the color for each rectangle's line.
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -102,265 +126,366 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Sets the Join Style
+// Set the join style.
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
 
-// Adds text to each rectangle
+// Add text to each rectangle.
 shape1->get_TextFrame()->set_Text(u"Miter Join Style");
 shape2->get_TextFrame()->set_Text(u"Bevel Join Style");
 shape3->get_TextFrame()->set_Text(u"Round Join Style");
 
-// Writes the PPTX file to Disk
-pres->Save(u"RectShpLnJoin_out.pptx", Export::SaveFormat::Pptx);
+// Save the PPTX file to disk.
+presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ## **Gradient Fill**
-In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply a two or more colors in a setup where one color gradually fades and changes into another color. 
 
-This is how you use Aspose.Slides to apply a gradient fill to a shape:
+In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply two or more colors in a way that one gradually fades into another.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Gradient`.
-5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
-6. Write the modified presentation as a PPTX file.
+Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 
-This C++ demonstrates an operation where the gradient fill effect was used on an ellipse:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Gradient`.
+1. Add your two preferred colors with defined positions using the `Add` methods of the gradient stop collection exposed by the [IGradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/) interface.
+1. Save the modified presentation as a PPTX file.
+
+The following C++ code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
-    
-// Adds an ellipse autoshape
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 150, 75, 150);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Applies the gradient formatting to the ellipse
-autoShape->get_FillFormat()->set_FillType(FillType::Gradient);
-autoShape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
+// Add an auto shape of the Ellipse type.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// Sets the direction of the gradient
-autoShape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
+// Apply gradient formatting to the ellipse.
+shape->get_FillFormat()->set_FillType(FillType::Gradient);
+shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
-// Add 2 gradient stops
-autoShape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
-autoShape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
+// Set the direction of the gradient.
+shape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
 
-//Writes the PPTX file to disk
-pres->Save(u"FillShapesGradient_out.pptx", Export::SaveFormat::Pptx);
+// Add two gradient stops.
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
+shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
+
+// Save the PPTX file to disk.
+presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The ellipse with gradient fill](gradient-fill.png)
 
 ## **Pattern Fill**
-In PowerPoint, Pattern Fill is a formatting option that allows you to apply a two-color design comprising of dots, stripes, cross-hatches, or checks to a shape. Additionally, you get to select your preferred colors for your pattern's foreground and background. 
 
-Aspose.Slides provides over 45 predefined styles that can be used to format shapes and enrich presentations. Even after you choose a predefined pattern, you can still specify the colors the pattern must contain.
+In PowerPoint, Pattern Fill is a formatting option that lets you apply a two-color design—such as dots, stripes, crosshatches, or checks—to a shape. You can choose custom colors for the pattern’s foreground and background.
 
-This is how you use Aspose.Slides to apply a pattern fill to a shape:
+Aspose.Slides provides over 45 predefined pattern styles that you can apply to shapes to enhance the visual appeal of your presentations. Even after selecting a predefined pattern, you can still specify the exact colors it should use.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Pattern`.
-5. Set your preferred pattern style for the shape. 
-6. Set the [Background Color](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#af55b6343b7bd80d0ad95070e96b8766e) for the [PatternFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
-7. Set the [Foreground Color](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_pattern_format#a4121d8c2233df4b90cbfd6ea4c312cbe) for the [PatternFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.pattern_format).
-8. Write the modified presentation as a PPTX file.
+Here's how to apply a pattern fill to a shape using Aspose.Slides:
 
-This C++ code demonstrates an operation where a pattern fill was used to beautify a rectangle: 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Pattern`.
+1. Choose a pattern style from the predefined options.
+1. Set the [Background Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) of the pattern.
+1. Set the [Foreground Color](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) of the pattern.
+1. Save the modified presentation as a PPTX file.
+
+The following C++ code demonstrates how to apply a pattern fill to a rectangle:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Adds a rectangle autoshape
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Add an auto shape of the Rectangle type.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Sets the fill type to Pattern
-autoShape->get_FillFormat()->set_FillType(FillType::Pattern);
+// Set the fill type to Pattern.
+shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// Sets the pattern style
-autoShape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
+// Set the pattern style.
+shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// Sets the pattern back and fore colors
-autoShape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color ( Color::get_LightGray());
-autoShape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
+// Set the pattern background and foreground colors.
+shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
+shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
-// Writes the PPTX file to disk
-pres->Save(u"RectShpPatt_out.pptx", Export::SaveFormat::Pptx);
+// Save the PPTX file to disk.
+presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Picture Fill**
-In PowerPoint, Picture Fill is a formatting option that allows you to place a picture inside a shape. Essentially, you get to use a picture as a shape's background. 
 
-This is how you use Aspose.Slides to fill a shape with a picture:
+In PowerPoint, Picture Fill is a formatting option that allows you to insert an image inside a shape—effectively using the image as the shape's background.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Picture`.
-5. Set the Picture Fill Mode to Tile.
-6. Create an `IPPImage` object using the image that will be used to fill the shape.
-7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
-8. Write the modified presentation as a PPTX file.
+Here’s how to use Aspose.Slides to apply a picture fill to a shape:
 
-This C++ code shows you how to fill a shape with a picture:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Picture`.
+1. Set the picture fill mode to `Tile` (or another preferred mode).
+1. Create an [IPPImage](https://reference.aspose.com/slides/cpp/aspose.slides/ippimage/) object from the image you want to use.
+1. Pass the image to the `ISlidesPicture.set_Image` method.
+1. Save the modified presentation as a PPTX file.
+
+Let's say we have a "lotus.png" file with the following picture:
+
+![The lotus picture](lotus.png)
+
+The following C++ code demonstrates how to fill a shape with the picture:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Add a rectangle autoshape
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Add an auto shape of the Rectangle type.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// Sets the fill type to Picture
-autoShape->get_FillFormat()->set_FillType(FillType::Picture);
+// Set the fill type to Picture.
+shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Sets the picture fill mode
-autoShape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
+// Set the picture fill mode.
+shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// Sets the picture
-auto img = Images::FromFile(u"Tulips.jpg");
-auto imgx = pres->get_Images()->AddImage(img);
-autoShape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
+// Load an image and add it to the presentation resources.
+auto image = Images::FromFile(u"lotus.png");
+auto picture = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Writes the PPTX file to disk
-pres->Save(u"RectShpPic_out.pptx", Export::SaveFormat::Pptx);
+// Set the picture.
+shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
+
+// Save the PPTX file to disk.
+presentation->Save(u"picture_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The shape with picture fill](picture-fill.png)
+
+### **Tile Picture As Texture**
+
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following methods of the [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) class:
+
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Sets the picture fill mode—either `Tile` or `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Specifies the alignment of the tiles within the shape.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Controls whether the tile is flipped horizontally, vertically, or both.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Sets the horizontal offset of the tile (in points) from the shape’s origin.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Sets the vertical offset of the tile (in points) from the shape’s origin.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Defines the horizontal scale of the tile as a percentage.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Defines the vertical scale of the tile as a percentage.
+
+The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
+
+```cpp
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
+
+// Get the first slide.
+auto firstSlide = presentation->get_Slide(0);
+
+// Add a rectangle auto shape.
+auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
+
+// Set the fill type of the shape to Picture.
+shape->get_FillFormat()->set_FillType(FillType::Picture);
+
+// Load the image and add it to the presentation resources.
+auto sourceImage = Images::FromFile(u"lotus.png");
+auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
+sourceImage->Dispose();
+
+// Assign the image to the shape.
+auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
+pictureFillFormat->get_Picture()->set_Image(presentationImage);
+
+// Configure the picture fill mode and tiling properties.
+pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+pictureFillFormat->set_TileOffsetX(-32);
+pictureFillFormat->set_TileOffsetY(-32);
+pictureFillFormat->set_TileScaleX(50);
+pictureFillFormat->set_TileScaleY(50);
+pictureFillFormat->set_TileAlignment(RectangleAlignment::BottomRight);
+pictureFillFormat->set_TileFlip(TileFlip::FlipBoth);
+
+// Save the PPTX file to disk.
+presentation->Save(u"tile.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result:
+
+![The tile options](tile-options.png)
 
 ## **Solid Color Fill**
-In PowerPoint, Solid Color Fill is a formatting option that allows you to fill a shape with a single color. The chosen color is typically a plain color. The color gets applied to the shape background with any special effects or modifications. 
 
-This is how you use Aspose.Slides to apply solid color fill to a shape:
+In PowerPoint, Solid Color Fill is a formatting option that fills a shape with a single, uniform color. This plain background color is applied without any gradients, textures, or patterns.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) to `Solid`.
-5. Set your preferred color for the Shape.
-6. Write the modified presentation as a PPTX file.
+To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
 
-The above steps are implemented in the example given below.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Solid`.
+1. Assign your preferred fill color to the shape.
+1. Save the modified presentation as a PPTX file.
+
+The following C++ code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Add a rectangle autoshape
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Add an auto shape of the Rectangle type.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Sets the fill type to Picture
-autoShape->get_FillFormat()->set_FillType(FillType::Solid);
+// Set the fill type to Solid.
+shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// Sets the color for the rectangle
-autoShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
+// Set the fill color.
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
-// Writes the PPTX file to disk
-pres->Save(u"RectShpSolid_out.pptx", Export::SaveFormat::Pptx);
+// Save the PPTX file to disk.
+presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **Set Transparency**
 
-In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or textures, you can specify the transparency level that determines the opacity of a fill. This way, for example, if you set a low transparency level, the slide object or background behind (the shape) shows through. 
+In PowerPoint, when you apply a solid color, gradient, picture, or texture fill to shapes, you can also set a transparency level to control the opacity of the fill. A higher transparency value makes the shape more see-through, allowing the background or underlying objects to be partially visible.
 
-Aspose.Slides allows you to set the transparency level for a shape this way:
+Aspose.Slides lets you set the transparency level by adjusting the alpha value in the color used for the fill. Here’s how to do it:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Use `Color.FromArgb` with the alpha component set.
-5. Save the object as a PowerPoint file. 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the fill type to `Solid`.
+1. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
+1. Save the presentation.
 
-This C++ code demonstrates the process:
+The following C++ code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Adds a solid shape
-auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 75, 175, 75, 150);
+// Add a solid rectangle auto shape.
+auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Adds a transparent shape over the solid shape
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
-shape->get_FillFormat()->set_FillType(FillType::Solid);
-shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(128, 204, 102, 0));
-   
-// Writes the PPTX file to disk
-pres->Save(u"ShapeTransparentOverSolid_out.pptx", Export::SaveFormat::Pptx);
+// Add a transparent rectangle auto shape over the solid shape.
+auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
+transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
+transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
+
+// Save the PPTX file to disk.
+presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The transparent shape](shape-transparency.png)
 
 ## **Rotate Shapes**
-Aspose.Slides allows you to rotate a shape added to a slide this way: 
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-4. Rotate the shape by the needed degrees. 
-5. Write the modified presentation as a PPTX file.
+Aspose.Slides lets you rotate shapes in PowerPoint presentations. This can be useful when positioning visual elements with specific alignment or design needs.
 
-This C++ code shows you how to rotate a shape by 90 degrees:
+To rotate a shape on a slide, follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s rotation property to the desired angle.
+1. Save the presentation.
+
+The following C++ code demonstrates how to rotate a shape by 5 degrees:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Instantiate the Presentation class that represents a presentation file.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+// Get the first slide.
+auto slide = presentation->get_Slide(0);
 
-// Adds a rectangle autoshape
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 75, 150);
+// Add an auto shape of the Rectangle type.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Rotates the shape by 90 degrees
-autoShape->set_Rotation(90.f);
+// Rotate the shape by 5 degrees.
+shape->set_Rotation(5);
 
-// Writes the PPTX file to disk
-pres->Save(u"RectShpRot_out.pptx", Export::SaveFormat::Pptx);
+// Save the PPTX file to disk.
+presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+The result:
+
+![The shape rotation](shape-rotation.png)
+
 ## **Add 3D Bevel Effects**
-Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-3. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties. 
-4. Write the presentation to disk.
+Aspose.Slides allows you to apply 3D bevel effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) properties.
 
-This C++ code shows you how to add 3D bevel effects to a shape:
+To add 3D bevel effects to a shape, follow these steps:
+
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) to define bevel settings.
+1. Save the presentation.
+
+The following C++ code shows how to apply 3D bevel effects to a shape:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
+auto slide = presentation->get_Slide(0);
 
-// Adds a shape to the slide
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 30, 200, 200);
+// Add a shape to the slide.
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
-auto format = shape->get_LineFormat()->get_FillFormat();
-format->set_FillType(FillType::Solid);
-format->get_SolidFillColor()->set_Color(Color::get_Orange());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// Sets the shape's ThreeDFormat properties
+// Set the shape's ThreeDFormat properties.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -369,61 +494,79 @@ shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::Orthog
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 
-// Writes the presentation as a PPTX file
-pres->Save(u"Bavel_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+// Save the presentation as a PPTX file.
+presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Add 3D Rotation Effect**
-Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.three_d_format) properties this way:
+The result:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape) to the slide.
-3. Specify your preferred figures for [CameraType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_camera#aea0717e8ef5f3199df99ed2cb2ea2dcb) and [LightType](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_light_rig#a2cd12029664967d0e2f93eee25a4963f).
-4. Write the presentation to disk. 
+![The 3D bevel effect](3D-bevel-effect.png)
 
-This C++ code shows you how to apply 3D rotation effects to a shape:
+## **Add 3D Rotation Effects**
+
+Aspose.Slides allows you to apply 3D rotation effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/threedformat/) properties.
+
+To apply 3D rotation to a shape:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
+1. Use the [set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) and [set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) to define the 3D rotation.
+1. Save the presentation.
+
+The following C++ code demonstrates how to apply 3D rotation effects to a shape:
 
 ```cpp
-// Instantiates a presentation class that represents a presentation file
-auto pres = MakeObject<Presentation>();
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>();
 
-// Gets the first slide
-auto slide = pres->get_Slides()->idx_get(0);
-    
-// Adds a shape to the slide
-auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 30, 200, 200);
+auto slide = presentation->get_Slide(0);
 
-// Sets the shape's ThreeDFormat properties
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
+shape->get_TextFrame()->set_Text(u"Hello, Aspose!");
+
 shape->get_ThreeDFormat()->set_Depth(6);
 shape->get_ThreeDFormat()->get_Camera()->SetRotation(40, 35, 20);
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 
-// Adds a shape to the slide
-shape = slide->get_Shapes()->AddAutoShape(ShapeType::Line, 30, 300, 200, 200);
-
-// Sets the shape's ThreeDFormat properties
-shape->get_ThreeDFormat()->set_Depth(6);
-shape->get_ThreeDFormat()->get_Camera()->SetRotation(0, 35, 20);
-shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
-shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
-
-// Writes the presentation as a PPTX file
-pres->Save(u"Rotation_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+// Save the presentation as a PPTX file.
+presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
+
+The result:
+
+![The 3D rotation effect](3D-rotation-effect.png)
 
 ## **Reset Formatting**
 
-This C++ code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.layout_slide) to their defaults:
+The following C++ code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/layoutslide/) to their default settings:
 
-```c++
-auto pres = System::MakeObject<Presentation>();
+```cpp
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-for (auto slide : pres->get_Slides())
+for (auto&& slide : presentation->get_Slides())
 {
-    // each shape on the slide that has a placeholder on the layout will be reverted
+    // Reset each shape on the slide that has a placeholder on the layout.
     slide->Reset();
 }
+
+presentation->Save(u"reset_formatting.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+## **FAQs**
+
+**Does shape formatting affect the final presentation file size?**
+
+Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
+
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
+
+Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
+
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
+
+Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
