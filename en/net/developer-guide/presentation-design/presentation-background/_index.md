@@ -199,10 +199,10 @@ var transparencyValue = 30; // For example.
 var imageTransform = slide.Background.FillFormat.PictureFillFormat.Picture.ImageTransform;
 
 // Find an existing fixed-percentage transparency effect.
-var transparencyOperation = null as AlphaModulateFixed;
+var transparencyOperation = null as IAlphaModulateFixed;
 foreach (var operation in imageTransform)
 {
-    if (operation is AlphaModulateFixed alphaModulateFixed)
+    if (operation is IAlphaModulateFixed alphaModulateFixed)
     {
         transparencyOperation = alphaModulateFixed;
         break;

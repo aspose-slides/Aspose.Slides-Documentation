@@ -1,163 +1,214 @@
 ---
-title: Presentation Background
+title: Manage Presentation Backgrounds in C++
+linktitle: Slide Background
 type: docs
 weight: 20
 url: /cpp/presentation-background/
-keywords: "PowerPoint background, set background"
-description: "Set background in PowerPoint presentation in CPP"
+keywords:
+- presentation background
+- slide background
+- solid color
+- gradient color
+- image background
+- background transparency
+- background properties
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocument files using Aspose.Slides for C++, with code tips to boost your presentations."
 ---
 
-Solid colors, gradient colors, and pictures are often used as background images for slides. You can set the background either for a **normal slide** (single slide) or **master slide** (several slides at once).
+## **Overview**
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+Solid colors, gradients, and images are commonly used for slide backgrounds. You can set the background for a **normal slide** (a single slide) or a **master slide** (applies to multiple slides at once).
 
-## **Set Solid Color as Background for Normal Slide**
+![PowerPoint background](powerpoint-background.png)
 
-Aspose.Slides allows you to set a solid color as the background for a specific slide in a presentation (even if that presentation contains a master slide). The background change affects only the selected slide.
+## **Set a Solid Color Background for a Normal Slide**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Set the [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) enum for the slide to `OwnBackground`.
-3. Set the [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) enum for the slide background to `Solid`.
-4. Use the [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) property exposed by [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) to specify a solid color for the background.
+Aspose.Slides allows you to set a solid color as the background for a specific slide in a presentation—even if the presentation uses a master slide. The change applies only to the selected slide.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+2. Set the slide’s [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) to `OwnBackground`.
+3. Set the slide background [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Solid`.
+4. Use the [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) method on [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) to specify the solid background color.
 5. Save the modified presentation.
 
-This C++ code shows you how to set a solid color (blue) as the background for a normal slide:
+The following C++ example shows how to set a blue solid color as the background for a normal slide:
 
-```c++
-// The path to the documents directory.
+```cpp
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundNormal_out.pptx";
+auto slide = presentation->get_Slide(0);
 
-	// Creates an instance of the Presentation class
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Set the background color of the slide to blue.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+slide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-	//  Sets the background color for the first ISlide to Blue
-	pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Blue());
-
-	//Writes the presentation to disk
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Save the presentation to disk.
+presentation->Save(u"SolidColorBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set Solid Color as Background for Master Slide**
+## **Set a Solid Color Background for the Master Slide**
 
-Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that contains and controls formatting settings for all slides. Therefore, when you select a solid color as the background for the master slide, that new background will be used for all slides.
+Aspose.Slides allows you to set a solid color as the background for the master slide in a presentation. The master slide acts as a template that controls formatting for all slides, so when you choose a solid color for the master slide’s background, it applies to every slide.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Set the [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) enum for the master slide (`Masters`) to `OwnBackground`.
-3. Set the [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) enum for the master slide background to `Solid`.
-4. Use the [SolidFillColor](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a13c48eebf434d92f4c0058796ea15810) property exposed by [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) to specify a solid color for the background.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+2. Set the master slide’s [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) (via `get_Masters`) to `OwnBackground`.
+3. Set the master slide background [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Solid`.
+4. Use the [get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_solidfillcolor/) method to specify the solid background color.
 5. Save the modified presentation.
 
-This C++ code shows you how to set a solid color (forest green) as the background for a master slide in a presentation:
+The following C++ example shows how to set a solid color (forest green) as the background for a master slide:
 
-```c++
-	// The path to the documents directory.
+```cpp
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>();
 
-	const String OutPath = L"../out/SetSlideBackgroundMaster_out.pptx";
+auto masterSlide = presentation->get_Master(0);
 
-	// Creates an instance of the Presentation class
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Set the background color for the Master slide to Forest Green.
+masterSlide->get_Background()->set_Type(BackgroundType::OwnBackground);
+masterSlide->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
+masterSlide->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
 
-	// Sets the background color for the Master ISlide to Forest Green
-	pres->get_Masters()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Solid);
-	pres->get_Masters()->idx_get(0)->get_Background()->get_FillFormat()->get_SolidFillColor()->set_Color(System::Drawing::Color::get_ForestGreen());
-
-	//Writes the presentation to disk
-	pres->Save(OutPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Save the presentation to disk.
+presentation->Save(u"MasterSlideBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set Gradient Color as Background for Slide**
+## **Set a Gradient Background for a Slide**
 
-A gradient is a graphical effect based on a gradual change in color. Gradient colors, when used as backgrounds for slides, make presentations looks artistic and professional. Aspose.Slides allows you to set a gradient color as the background for slides in presentations.
+A gradient is a graphical effect created by a gradual change in color. When used as a slide background, gradients can make presentations look more artistic and professional. Aspose.Slides allows you to set a gradient color as the background for slides.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Set the [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) enum for the slide to `OwnBackground`.
-3. Set the [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) enum for the master slide background to `Gradient`.
-4. Use the [GradientFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#aa686ab9c84e7e20e65dfe73458f1a823) property exposed by [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) to specify your preferred gradient setting.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+2. Set the slide’s [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) to `OwnBackground`.
+3. Set the slide background [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Gradient`.
+4. Use the [get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_gradientformat/) method on [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) to configure your preferred gradient settings.
 5. Save the modified presentation.
 
-This C++ code shows you how to set a gradient color as the background for a slide:
+The following C++ example shows how to set a gradient color as the background for a slide:
 
-```c++
-// Creates an instance of the Presentation class
-auto pres = System::MakeObject<Presentation>(u"SetBackgroundToGradient.pptx");
+```cpp
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>();
 
-// Apply Gradient effect to the Background
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+auto slide = presentation->get_Slide(0);
 
-// Writes the presentation to disk
-pres->Save(u"ContentBG_Grad_out.pptx", SaveFormat::Pptx);
+// Apply a gradient effect to the background.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Gradient);
+slide->get_Background()->get_FillFormat()->get_GradientFormat()->set_TileFlip(TileFlip::FlipBoth);
+
+// Save the presentation to disk.
+presentation->Save(u"GradientBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Set Image as Background for Slide**
+## **Set an Image as a Slide Background**
 
-Besides solid colors and gradient colors, Aspose.Slides also allows you to set images as the background for slides in presentations.
+In addition to solid and gradient fills, Aspose.Slides allows you to use images as slide backgrounds.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) class.
-2. Set the [BackgroundType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a811de442ed9b0c175aa4dce66d0ba246) enum for the slide to `OwnBackground`.
-3. Set the [FillType](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#a73f3a585b379b3df191d07931378e40a) enum for the master slide background to `Picture`.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
+2. Set the slide’s [BackgroundType](https://reference.aspose.com/slides/cpp/aspose.slides/backgroundtype/) to `OwnBackground`.
+3. Set the slide background [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Picture`.
 4. Load the image you want to use as the slide background.
-5. Add the image to the presentation's image collection.
-6. Use the [PictureFillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format#a7f2b7e6afce822667cecd3e80336bfae) property exposed by [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.fill_format) to set the image as the background.
+5. Add the image to the presentation’s image collection.
+6. Use the [get_PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/get_picturefillformat/) method on [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/) to assign the image as the background.
 7. Save the modified presentation.
 
-This C++ code shows you how to set an image as the background for a slide:
+The following C++ example shows how to set an image as the background for a slide:
 
-```c++
-// The path to the documents directory.
+```cpp
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>();
 
-const String templatePath = L"../templates/SetImageAsBackground.pptx";
-const String imagePath = L"../templates/Tulips.jpg";
-const String outPath = L"../out/ContentBG_Img_out.pptx";
+auto slide = presentation->get_Slide(0);
 
-// Creates an instance of the Presentation class
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+// Set background image properties.
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
 
-// Sets conditions for background image
-pres->get_Slides()->idx_get(0)->get_Background()->set_Type(BackgroundType::OwnBackground);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+// Load the image.
+auto image = Images::FromFile(u"Tulips.jpg");
+// Add the image to the presentation's image collection.
+auto ppImage = presentation->get_Images()->AddImage(image);
+image->Dispose();
 
-// Loads the image
-auto image = Images::FromFile(imagePath);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(ppImage);
 
-// Adds image to presentation's images collection
-SharedPtr<IPPImage> imgx = pres->get_Images()->AddImage(image);
-
-pres->get_Slides()->idx_get(0)->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(imgx);
-
-// Writes the presentation to disk
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+// Save the presentation to disk.
+presentation->Save(u"ImageAsBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-### **Change Transparency of Background Image**
+The following code sample shows how to set the background fill type to a tiled picture and modify the tiling properties:
 
-You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This C++ code shows you how to change the transparency for a slide background image:
+```cpp
+auto presentation = MakeObject<Presentation>();
 
-```c++
-int32_t transparencyValue = 30;
-// for example
-// Gets a collection of picture transform operations
+auto firstSlide = presentation->get_Slide(0);
+
+auto background = firstSlide->get_Background();
+
+background->set_Type(BackgroundType::OwnBackground);
+background->get_FillFormat()->set_FillType(FillType::Picture);
+
+auto newImage = Images::FromFile(u"image.png");
+auto ppImage = presentation->get_Images()->AddImage(newImage);
+newImage->Dispose();
+
+// Set the image used for the background fill.
+auto backPictureFillFormat = background->get_FillFormat()->get_PictureFillFormat();
+backPictureFillFormat->get_Picture()->set_Image(ppImage);
+
+// Set the picture fill mode to Tile and adjust the tile properties.
+backPictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
+backPictureFillFormat->set_TileOffsetX(15.0);
+backPictureFillFormat->set_TileOffsetY(15.0);
+backPictureFillFormat->set_TileScaleX(46.0);
+backPictureFillFormat->set_TileScaleY(87.0);
+backPictureFillFormat->set_TileAlignment(RectangleAlignment::Center);
+backPictureFillFormat->set_TileFlip(TileFlip::FlipY);
+
+presentation->Save(u"TileBackground.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+{{% alert color="primary" %}}
+
+Read more: [**Tile Picture As Texture**](/slides/cpp/shape-formatting/#tile-picture-as-texture).
+
+{{% /alert %}}
+
+### **Change the Background Image Transparency**
+
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following C++ code shows you how to change the transparency for a slide background image:
+
+```cpp
+auto transparencyValue = 30; // For example.
+
+// Get the collection of picture transform operations.
 auto imageTransform = slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->get_ImageTransform();
-// Finds a transparency effect with fixed percentage.
-System::SharedPtr<AlphaModulateFixed> transparencyOperation;
+
+// Find an existing fixed-percentage transparency effect.
+SharedPtr<IAlphaModulateFixed> transparencyOperation;
 for (auto&& operation : imageTransform)
 {
-    if (System::ObjectExt::Is<AlphaModulateFixed>(operation))
+    if (ObjectExt::Is<IAlphaModulateFixed>(operation))
     {
-        transparencyOperation = System::ExplicitCast<AlphaModulateFixed>(operation);
+        transparencyOperation = ExplicitCast<IAlphaModulateFixed>(operation);
         break;
     }
 }
-// Sets the new transparency value.
+
+// Set the new transparency value.
 if (transparencyOperation == nullptr)
 {
     imageTransform->AddAlphaModulateFixedEffect(100.0f - transparencyValue);
@@ -168,28 +219,29 @@ else
 }
 ```
 
-## **Get Value of Slide Background**
+## **Get the Slide Background Value**
 
-Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data/) interface to allow you to get the effective values of slide backgrounds. This interface contains information on the effective [FillFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a097ba368423bf4a9ab7a6a61870bfc8e) and effective [EffectFormat](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_background_effective_data#a446676281ac4195cb7eb989e4a8110f8).
+Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/) interface for retrieving a slide’s effective background values. This interface exposes the effective [FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_fillformat/) and [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibackgroundeffectivedata/get_effectformat/).
 
-Using the [Background](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide#ac12d4a7683bf6fa20b3eef387219cf16) property from the [BaseSlide](https://reference.aspose.com/slides/cpp/class/aspose.slides.base_slide/) class, you can get the effective value for a slide background.
+Using the [BaseSlide](https://reference.aspose.com/slides/cpp/aspose.slides/baseslide/) class’s `get_Background` method, you can obtain the effective background for a slide.
 
-This C++ code shows you how to get a slide's effective background value:
+The following C++ example shows how to get a slide’s effective background value:
 
-```c++
-// Creates an instance of the Presentation class
-const String templatePath = u"../templates/SamplePresentation.pptx";
-	
+```cpp
+// Create an instance of the Presentation class.
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
 
-	auto pres = System::MakeObject<Presentation>(templatePath);
-	System::SharedPtr<IBackgroundEffectiveData> effBackground = pres->get_Slides()->idx_get(0)->CreateBackgroundEffective();
-	if (effBackground->get_FillFormat()->get_FillType() == Aspose::Slides::FillType::Solid)
-	{
-		System::Console::WriteLine(System::String(u"Fill color: ") + effBackground->get_FillFormat()->get_SolidFillColor());
-	}
-	else
-	{
-		System::Console::WriteLine(System::String(u"Fill type: ") + System::ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
-	}
+auto slide = presentation->get_Slide(0);
+
+// Retrieve the effective background, taking into account master, layout, and theme.
+auto effBackground = slide->get_Background()->GetEffective();
+
+if (effBackground->get_FillFormat()->get_FillType() == FillType::Solid)
+{
+    Console::WriteLine(u"Fill color: {0}", effBackground->get_FillFormat()->get_SolidFillColor());
+}
+else
+{
+    Console::WriteLine(u"Fill type: {0}", ObjectExt::ToString(effBackground->get_FillFormat()->get_FillType()));
+}
 ```
-

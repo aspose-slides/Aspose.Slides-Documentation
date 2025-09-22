@@ -209,10 +209,10 @@ int transparencyValue = 30; // For example.
 IImageTransformOperationCollection imageTransform = slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
 
 // Find an existing fixed-percentage transparency effect.
-AlphaModulateFixed transparencyOperation = null;
+IAlphaModulateFixed transparencyOperation = null;
 for (IImageTransformOperation operation : imageTransform) {
-    if (operation instanceof AlphaModulateFixed) {
-        transparencyOperation = (AlphaModulateFixed)operation;
+    if (operation instanceof IAlphaModulateFixed) {
+        transparencyOperation = (IAlphaModulateFixed)operation;
         break;
     }
 }
