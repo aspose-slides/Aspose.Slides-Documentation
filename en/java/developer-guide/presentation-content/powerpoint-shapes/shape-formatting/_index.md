@@ -1,402 +1,509 @@
 ---
-title: Shape Formatting
+title: Format PowerPoint Shapes in Java
+linktitle: Shape Formatting
 type: docs
 weight: 20
 url: /java/shape-formatting/
-keywords: "Format shape, format lines, format join styles, gradient fill, pattern fill, picture fill, solid color fill, rotate shapes, 3d bevel effects, 3d rotation effect, PowerPoint presentation, Java, Aspose.Slides for Java"
-description: "Format shape in PowerPoint presentation in Java"
+keywords:
+- format shape
+- format line
+- format join style
+- gradient fill
+- pattern fill
+- picture fill
+- texture fill
+- solid color fill
+- shape transparency
+- rotate shape
+- 3d bevel effect
+- 3d rotation effect
+- reset formatting
+- PowerPoint
+- presentation
+- Java
+- Aspose.Slides
+description: "Learn how to format PowerPoint shapes in Java using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
 ---
 
-In PowerPoint, you can add shapes to slides. Since shapes are made of up lines, you can format shapes by modifying or applying certain effects to their constituent lines. Additionally, you can format shapes by specifying settings that determine how they (the area in them) are filled. 
+## **Overview**
+
+In PowerPoint, you can add shapes to slides. Since shapes are made up of lines, you can format them by modifying or applying effects to their outlines. Additionally, you can format shapes by specifying settings that control how their interiors are filled.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-
-
-**Aspose.Slides for Java** provides interfaces and properties that allow you to format shapes based on known options in PowerPoint. 
+Aspose.Slides for Java provides interfaces and methods that allow you to format shapes using the same options available in PowerPoint.
 
 ## **Format Lines**
 
-Using Aspose.Slides, you can specify your preferred line style for a shape. These steps outline such a procedure:
+Using Aspose.Slides, you can specify a custom line style for a shape. The following steps outline the procedure:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-4. Set a color for the shape lines.
-5. Set the width for the shape lines.
-6. Set the [line style](https://reference.aspose.com/slides/java/com.aspose.slides/LineStyle) for the shape line
-7. Set the [dash style](https://reference.aspose.com/slides/java/com.aspose.slides/LineDashStyle) for the shape line. 
-8. Write the modified presentation as a PPTX file.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the [line style](https://reference.aspose.com/slides/java/com.aspose.slides/linestyle/) of the shape.
+1. Set the line width.
+1. Set the [dash style](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) of the line.
+1. Set the line color for the shape.
+1. Save the modified presentation as a PPTX file.
 
-This Java code demonstrates an operation where we formatted a rectangle `AutoShape`:
+The following code demonstrates how to format a rectangle `AutoShape`:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adds autoshape of rectangle type
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
+    // Add an auto shape of the Rectangle type.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // Sets the fill color for the rectangle shape
-    shp.getFillFormat().setFillType(FillType.Solid);
-    shp.getFillFormat().getSolidFillColor().setColor(Color.WHITE);
+    // Set the fill color for the rectangle shape.
+    shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Applies some formatting on the rectangle's lines
-    shp.getLineFormat().setStyle(LineStyle.ThickThin);
-    shp.getLineFormat().setWidth(7);
-    shp.getLineFormat().setDashStyle(LineDashStyle.Dash);
+    // Apply formatting to the rectangle's lines.
+    shape.getLineFormat().setStyle(LineStyle.ThickThin);
+    shape.getLineFormat().setWidth(7);
+    shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // Sets the color for the rectangle's line
-    shp.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    // Set the color for the rectangle's line.
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Writes the PPTX file to disk
-    pres.save("RectShpLn_out.pptx", SaveFormat.Pptx);
+    // Save the PPTX file to disk.
+    presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+The result:
+
+![The formatted lines in the presentation](formatted-lines.png)
 
 ## **Format Join Styles**
-These are the 3 join type options:
+
+Here are the three join type options:
 
 * Round
 * Miter
 * Bevel
 
-By default, when PowerPoint joins two lines at an angle (or a shape's corner), it uses the **Round** setting. However, if you are looking to draw a shape with very sharp angles, you may want to select **Miter**.
+By default, when PowerPoint joins two lines at an angle (such as at a shape’s corner), it uses the **Round** setting. However, if you're drawing a shape with sharp angles, you may prefer the **Miter** option.
 
-![join-style-powerpoint](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-This Java demonstrates an operation where 3 rectangles (the image above) were created with the Miter, Bevel, and Round join type settings:
+The following Java code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Add three auto shapes of the Rectangle type.
+    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Adds 3 rectangle autoshapes
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 150, 75);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 100, 150, 75);
-    IShape shp3 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 250, 150, 75);
+    // Set the fill color for each rectangle shape.
+    shape1.getFillFormat().setFillType(FillType.Solid);
+    shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    shape2.getFillFormat().setFillType(FillType.Solid);
+    shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    shape3.getFillFormat().setFillType(FillType.Solid);
+    shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Sets the fill color for the rectangle shape
-    shp1.getFillFormat().setFillType(FillType.Solid);
-    shp1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shp3.getFillFormat().setFillType(FillType.Solid);
-    shp3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    // Set the line width.
+    shape1.getLineFormat().setWidth(15);
+    shape2.getLineFormat().setWidth(15);
+    shape3.getLineFormat().setWidth(15);
 
-    // Sets the line's width
-    shp1.getLineFormat().setWidth(15);
-    shp2.getLineFormat().setWidth(15);
-    shp3.getLineFormat().setWidth(15);
+    // Set the color for each rectangle's line.
+    shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Sets the color for the rectangle's line
-    shp1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shp2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shp3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shp3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    // Set the join style.
+    shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+    shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
+    shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // Sets the Join Style
-    shp1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
-    shp2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
-    shp3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
+    // Add text to each rectangle.
+    shape1.getTextFrame().setText("Miter Join Style");
+    shape2.getTextFrame().setText("Bevel Join Style");
+    shape3.getTextFrame().setText("Round Join Style");
 
-    // Adds text to each rectangle
-    ((IAutoShape)shp1).getTextFrame().setText("Miter Join Style");
-    ((IAutoShape)shp2).getTextFrame().setText("Bevel Join Style");
-    ((IAutoShape)shp3).getTextFrame().setText("Round Join Style");
-
-    // Writes the PPTX file to disk
-    pres.save("RectShpLnJoin_out.pptx", SaveFormat.Pptx);
+    // Save the PPTX file to disk.
+    presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **Gradient Fill**
-In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply a two or more colors in a setup where one color gradually fades and changes into another color. 
 
-This is how you use Aspose.Slides to apply a gradient fill to a shape:
+In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply two or more colors in a way that one gradually fades into another.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/FillType) to `Gradient`.
-5. Add your 2 preferred colors with defined positions using the `Add` methods exposed by the `GradientStops` collection associated with `GradientFormat` class.
-6. Write the modified presentation as a PPTX file.
+Here’s how to apply a gradient fill to a shape using Aspose.Slides:
 
-This Java code demonstrates an operation where the gradient fill effect was used on an ellipse:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) to `Gradient`.
+1. Add your two preferred colors with defined positions using the `add` methods of the gradient stop collection exposed by the [IGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/) interface.
+1. Save the modified presentation as a PPTX file.
+
+The following Java code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adds an ellipse autoshape
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Ellipse, 50, 150, 75, 150);
+    // Add an auto shape of the Ellipse type.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Applies the gradient formatting to the ellipse
-    shp.getFillFormat().setFillType(FillType.Gradient);
-    shp.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+    // Apply gradient formatting to the ellipse.
+    shape.getFillFormat().setFillType(FillType.Gradient);
+    shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Sets the direction of the gradient
-    shp.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
+    // Set the direction of the gradient.
+    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // Add 2 gradient stops
-    shp.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
-    shp.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
+    // Add two gradient stops.
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
-    // Writes the PPTX file to disk
-    pres.save("EllipseShpGrad_out.pptx", SaveFormat.Pptx);
+    // Save the PPTX file to disk.
+    presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+The result:
+
+![The ellipse with gradient fill](gradient-fill.png)
 
 ## **Pattern Fill**
-In PowerPoint, Pattern Fill is a formatting option that allows you to apply a two-color design comprising of dots, stripes, cross-hatches, or checks to a shape. Additionally, you get to select your preferred colors for your pattern's foreground and background. 
 
-Aspose.Slides provides over 45 predefined styles that can be used to format shapes and enrich presentations. Even after you choose a predefined pattern, you can still specify the colors the pattern must contain.
+In PowerPoint, Pattern Fill is a formatting option that lets you apply a two-color design—such as dots, stripes, crosshatches, or checks—to a shape. You can choose custom colors for the pattern’s foreground and background.
 
-This is how you use Aspose.Slides to apply a pattern fill to a shape:
+Aspose.Slides provides over 45 predefined pattern styles that you can apply to shapes to enhance the visual appeal of your presentations. Even after selecting a predefined pattern, you can still specify the exact colors it should use.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/FillType) to `Pattern`.
-5. Set your preferred pattern style for the shape. 
-6. Set the [Background Color](https://reference.aspose.com/slides/java/com.aspose.slides/PatternFormat#getBackColor--) for the [PatternFormat](https://reference.aspose.com/slides/java/com.aspose.slides/PatternFormat).
-7. Set the [Foreground Color](https://reference.aspose.com/slides/java/com.aspose.slides/PatternFormat#getForeColor--) for the [PatternFormat](https://reference.aspose.com/slides/java/com.aspose.slides/PatternFormat).
-8. Write the modified presentation as a PPTX file.
+Here's how to apply a pattern fill to a shape using Aspose.Slides:
 
-This Java code demonstrates an operation where a pattern fill was used to beautify a rectangle: 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) to `Pattern`.
+1. Choose a pattern style from the predefined options.
+1. Set the [Background Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getBackColor--) of the pattern.
+1. Set the [Foreground Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getForeColor--) of the pattern.
+1. Save the modified presentation as a PPTX file.
+
+The following Java code demonstrates how to apply a pattern fill to a rectangle:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adds a rectangle autoshape
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Add an auto shape of the Rectangle type.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Sets the fill type to Pattern
-    shp.getFillFormat().setFillType(FillType.Pattern);
+    // Set the fill type to Pattern.
+    shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // Sets the pattern style
-    shp.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
+    // Set the pattern style.
+    shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // Sets the pattern back and fore colors
-    shp.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
-    shp.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
+    // Set the pattern background and foreground colors.
+    shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
+    shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Writes the PPTX file to disk
-    pres.save("RectShpPatt_out.pptx", SaveFormat.Pptx);
+    // Save the PPTX file to disk.
+    presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+The result:
+
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Picture Fill**
-In PowerPoint, Picture Fill is a formatting option that allows you to place a picture inside a shape. Essentially, you get to use a picture as a shape's background. 
 
-This is how you use Aspose.Slides to fill a shape with a picture:
+In PowerPoint, Picture Fill is a formatting option that allows you to insert an image inside a shape—effectively using the image as the shape's background.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Obtain a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/FillType) to `Picture`.
-5. Set the Picture Fill Mode to Tile.
-6. Create an `IPPImage` object using the image that will be used to fill the shape.
-7. Set the `Picture.Image` property of the `PictureFillFormat` object to the recently created `IPPImage`.
-8. Write the modified presentation as a PPTX file.
+Here’s how to use Aspose.Slides to apply a picture fill to a shape:
 
-This Java code shows you how to fill a shape with a picture:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) to `Picture`.
+1. Set the picture fill mode to `Tile` (or another preferred mode).
+1. Create an [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) object from the image you want to use.
+1. Pass the image to the `ISlidesPicture.setImage` method.
+1. Save the modified presentation as a PPTX file.
+
+Let's say we have a "lotus.png" file with the following picture:
+
+![The lotus picture](lotus.png)
+
+The following Java code demonstrates how to fill a shape with the picture:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Add a rectangle autoshape
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Add an auto shape of the Rectangle type.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Sets the fill type to Picture
-    shp.getFillFormat().setFillType(FillType.Picture);
+    // Set the fill type to Picture.
+    shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Sets the picture fill mode
-    shp.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
+    // Set the picture fill mode.
+    shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Sets the picture
-    IPPImage picture;
-    IImage image = Images.fromFile("Tulips.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    shp.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+    // Load an image and add it to the presentation resources.
+    IImage image = Images.fromFile("lotus.png");
+    IPPImage picture = presentation.getImages().addImage(image);
+    image.dispose();
 
-    // Writes the PPTX file to disk
-    pres.save("RectShpPic_out.pptx", SaveFormat.Pptx);
-} catch(Exception e) {
+    // Set the picture.
+    shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
+
+    // Save the PPTX file to disk.
+    presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+The result:
+
+![The shape with picture fill](picture-fill.png)
+
+### **Tile Picture As Texture**
+
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following methods of the [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/) class:
+
+- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Sets the picture fill mode—either `Tile` or `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Specifies the alignment of the tiles within the shape.
+- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Controls whether the tile is flipped horizontally, vertically, or both.
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Sets the horizontal offset of the tile (in points) from the shape’s origin.
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Sets the vertical offset of the tile (in points) from the shape’s origin.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Defines the horizontal scale of the tile as a percentage.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Defines the vertical scale of the tile as a percentage.
+
+The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
+
+```java
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
+try {
+    // Get the first slide.
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+
+    // Add a rectangle auto shape.
+    IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
+
+    // Set the fill type of the shape to Picture.
+    shape.getFillFormat().setFillType(FillType.Picture);
+
+    // Load the image and add it to the presentation resources.
+    IImage sourceImage = Images.fromFile("lotus.png");
+    IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
+    sourceImage.dispose();
+
+    // Assign the image to the shape.
+    IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
+    pictureFillFormat.getPicture().setImage(presentationImage);
+
+    // Configure the picture fill mode and tiling properties.
+    pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
+    pictureFillFormat.setTileOffsetX(-32);
+    pictureFillFormat.setTileOffsetY(-32);
+    pictureFillFormat.setTileScaleX(50);
+    pictureFillFormat.setTileScaleY(50);
+    pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
+    pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
+
+    // Save the PPTX file to disk.
+    presentation.save("tile.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The result:
+
+![The tile options](tile-options.png)
 
 ## **Solid Color Fill**
-In PowerPoint, Solid Color Fill is a formatting option that allows you to fill a shape with a single color. The chosen color is typically a plain color. The color gets applied to the shape background with any special effects or modifications. 
 
-This is how you use Aspose.Slides to apply solid color fill to a shape:
+In PowerPoint, Solid Color Fill is a formatting option that fills a shape with a single, uniform color. This plain background color is applied without any gradients, textures, or patterns.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-4. Set the Shape's [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/FillType) to `Solid`.
-5. Set your preferred color for the Shape.
-6. Write the modified presentation as a PPTX file.
+To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
 
-This Java code shows you how to apply the solid color fill to a box in PowerPoint:
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) to `Solid`.
+1. Assign your preferred fill color to the shape.
+1. Save the modified presentation as a PPTX file.
+
+The following Java code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
-    // Gets the first slide
-    ISlide slide = pres.getSlides().get_Item(0);
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adds a rectangle autoshape
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Add an auto shape of the Rectangle type.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Sets the fill type to Solid
+    // Set the fill type to Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // Sets the color for the rectangle
+    // Set the fill color.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Writes the PPTX file to disk
-    pres.save("RectShpSolid_out.pptx", SaveFormat.Pptx);
+    // Save the PPTX file to disk.
+    presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+The result:
+
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **Set Transparency**
 
-In PowerPoint, when you fill shapes with solid colors, gradients, pictures, or textures, you can specify the transparency level that determines the opacity of a fill. This way, for example, if you set a low transparency level, the slide object or background behind (the shape) shows through. 
+In PowerPoint, when you apply a solid color, gradient, picture, or texture fill to shapes, you can also set a transparency level to control the opacity of the fill. A higher transparency value makes the shape more see-through, allowing the background or underlying objects to be partially visible.
 
-Aspose.Slides allows you to set the transparency level for a shape this way:
+Aspose.Slides lets you set the transparency level by adjusting the alpha value in the color used for the fill. Here’s how to do it:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-4. Use `new Color` with the alpha component set.
-5. Save the object as a PowerPoint file. 
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the fill type to `Solid`.
+1. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
+1. Save the presentation.
 
-This Java code demonstrates the process:
+The following Java code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adds a solid shape
-    IShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 75, 175, 75, 150);
+    // Add a solid rectangle auto shape.
+    IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Adds a transparent shape over the solid shape
-    IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
-    shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(new Color(204, 102, 0, 128));
-    
-    // Writes the PPTX file to disk
-    pres.save("ShapeTransparentOverSolid_out.pptx", SaveFormat.Pptx);
+    // Add a transparent rectangle auto shape over the solid shape.
+    IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+    transparentShape.getFillFormat().setFillType(FillType.Solid);
+    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
+
+    // Save the PPTX file to disk.
+    presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+The result:
+
+![The transparent shape](shape-transparency.png)
 
 ## **Rotate Shapes**
-Aspose.Slides allows you to rotate a shape added to a slide this way: 
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-4. Rotate the shape by the needed degrees. 
-5. Write the modified presentation as a PPTX file.
+Aspose.Slides lets you rotate shapes in PowerPoint presentations. This can be useful when positioning visual elements with specific alignment or design needs.
 
-This Java code shows you how to rotate a shape by 90 degrees:
+To rotate a shape on a slide, follow these steps:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s rotation property to the desired angle.
+1. Save the presentation.
+
+The following Java code demonstrates how to rotate a shape by 5 degrees:
 
 ```java
-// Instantiates a presentation class that represents a presentation file
-Presentation pres = new Presentation();
+// Instantiate the Presentation class that represents a presentation file.
+Presentation presentation = new Presentation();
 try {
-    // Gets the first slide
-    ISlide sld = pres.getSlides().get_Item(0);
+    // Get the first slide.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adds a rectangle autoshape
-    IShape shp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 75, 150);
+    // Add an auto shape of the Rectangle type.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Rotates the shape by 90 degrees
-    shp.setRotation(90);
+    // Rotate the shape by 5 degrees.
+    shape.setRotation(5);
 
-    // Writes the PPTX file to disk
-    pres.save("RectShpRot_out.pptx", SaveFormat.Pptx);
+    // Save the PPTX file to disk.
+    presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+The result:
+
+![The shape rotation](shape-rotation.png)
 
 ## **Add 3D Bevel Effects**
-Aspose.Slides allows you to 3D bevel effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) properties this way:
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-3. Set your preferred parameters for the shape's [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) properties. 
-4. Write the presentation to disk.
+Aspose.Slides allows you to apply 3D bevel effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) properties.
 
-This Java code shows you how to add 3D bevel effects to a shape:
+To add 3D bevel effects to a shape, follow these steps:
+
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) to define bevel settings.
+1. Save the presentation.
+
+The following Java code shows how to apply 3D bevel effects to a shape:
 
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+// Create an instance of the Presentation class.
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adds a shape to the slide
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 30, 30, 100, 100);
+    // Add a shape to the slide.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
-    ILineFillFormat format = shape.getLineFormat().getFillFormat();
-    format.setFillType(FillType.Solid);
-    format.getSolidFillColor().setColor(Color.ORANGE);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // Sets the shape's ThreeDFormat properties
+    // Set the shape's ThreeDFormat properties.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -405,63 +512,83 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // Writes the presentation as a PPTX file
-    pres.save("Bavel_out.pptx", SaveFormat.Pptx);
+    // Save the presentation as a PPTX file.
+    presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+The result:
 
-## **Add 3D Rotation Effect**
-Aspose.Slides allows you to apply 3D rotation effects to a shape by modifying its [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ThreeDFormat) properties this way:
+![The 3D bevel effect](3D-bevel-effect.png)
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) to the slide.
-3. Specify your preferred figures for [CameraType](https://reference.aspose.com/slides/java/com.aspose.slides/ICamera#getCameraType--) and [LightType](https://reference.aspose.com/slides/java/com.aspose.slides/ILightRig#getLightType--).
-4. Write the presentation to disk. 
+## **Add 3D Rotation Effects**
 
-This Java code shows you how to apply 3D rotation effects to a shape:
+Aspose.Slides allows you to apply 3D rotation effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) properties.
+
+To apply 3D rotation to a shape:
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) to the slide.
+1. Use the [setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) and [setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-) to define the 3D rotation.
+1. Save the presentation.
+
+The following Java code demonstrates how to apply 3D rotation effects to a shape:
 
 ```java
-// Creates an instance of the Presentation class
-Presentation pres = new Presentation();
+// Create an instance of the Presentation class.
+Presentation presentation = new Presentation();
 try {
-    IShape autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 30, 30, 200, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    autoShape.getTextFrame().setText("Hello, Aspose!");
 
     autoShape.getThreeDFormat().setDepth(6);
     autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    autoShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Line, 30, 300, 200, 200);
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(0, 35, 20);
-    autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
-    autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
-
-    // Writes the presentation as a PPTX file
-    pres.save("Rotation_out.pptx", SaveFormat.Pptx);
+    // Save the presentation as a PPTX file.
+    presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+The result:
+
+![The 3D rotation effect](3D-rotation-effect.png)
 
 ## **Reset Formatting**
 
-This Java code shows you how to reset the formatting in a slide and revert the position, size and formatting of every shape that has a placeholder on [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/LayoutSlide) to their defaults:
+The following Java code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) to their default settings:
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("sample.pptx");
 try {
-    for (ISlide slide : pres.getSlides())
-    {
-        // each shape on the slide that has a placeholder on the layout will be reverted
+    for (ISlide slide : presentation.getSlides()) {
+        // Reset each shape on the slide that has a placeholder on the layout.
         slide.reset();
     }
+    presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **FAQs**
+
+**Does shape formatting affect the final presentation file size?**
+
+Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
+
+**How can I detect shapes on a slide that share identical formatting so I can group them?**
+
+Compare each shape’s key formatting properties—fill, line, and effect settings. If all corresponding values match, treat their styles as identical and logically group those shapes, which simplifies later style management.
+
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
+
+Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
