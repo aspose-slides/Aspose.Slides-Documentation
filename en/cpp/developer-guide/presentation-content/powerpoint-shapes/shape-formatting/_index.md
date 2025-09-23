@@ -391,7 +391,7 @@ Aspose.Slides lets you set the transparency level by adjusting the alpha value i
 1. Create an instance of the [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) class.
 1. Get a reference to a slide by its index.
 1. Add an [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) to the slide.
-1. Set the fill type to `Solid`.
+1. Set the [FillType](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) to `Solid`.
 1. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
 1. Save the presentation.
 
