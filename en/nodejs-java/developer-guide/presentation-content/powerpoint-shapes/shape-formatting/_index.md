@@ -175,7 +175,7 @@ try {
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
     // Set the direction of the gradient.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(java.newByte(aspose.slides.GradientDirection.FromCorner2));
+    shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
 
     // Add two gradient stops.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
