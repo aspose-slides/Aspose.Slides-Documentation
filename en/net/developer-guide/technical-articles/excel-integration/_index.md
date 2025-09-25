@@ -81,13 +81,16 @@ for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
 
     // Replace the placeholders with data from Excel.
     string employeeName = workbook.GetCell(worksheetIndex, rowIndex, 0).Value.ToString();
-    paragraphs[0].Portions[0].Text = paragraphs[0].Portions[0].Text.Replace("{{EmployeeName}}", employeeName);
+    IPortion namePortion = paragraphs[0].Portions[0];
+    namePortion.Text = namePortion.Text.Replace("{{EmployeeName}}", employeeName);
 
     string department = workbook.GetCell(worksheetIndex, rowIndex, 1).Value.ToString();
-    paragraphs[1].Portions[0].Text = paragraphs[1].Portions[0].Text.Replace("{{Department}}", department);
+    IPortion departmentPortion = paragraphs[1].Portions[0];
+    departmentPortion.Text = departmentPortion.Text.Replace("{{Department}}", department);
 
     string yearsOfService = workbook.GetCell(worksheetIndex, rowIndex, 2).Value.ToString();
-    paragraphs[2].Portions[0].Text = paragraphs[2].Portions[0].Text.Replace("{{YearsOfService}}", yearsOfService);
+    IPortion yearsPortion = paragraphs[2].Portions[0];
+    yearsPortion.Text = yearsPortion.Text.Replace("{{YearsOfService}}", yearsOfService);
 
     // Save the personalized presentation to a separate file.
     employeePresentation.Save($"{employeeName} Report.pptx", SaveFormat.Pptx);
