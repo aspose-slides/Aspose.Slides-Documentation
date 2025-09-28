@@ -3,7 +3,7 @@ title: Integrate Excel Data into PowerPoint Presentations
 linktitle: Excel Integration
 type: docs
 weight: 330
-url: /net/excel-integration/
+url: /cpp/excel-integration/
 keywords:
 - Excel
 - workbook
@@ -15,8 +15,7 @@ keywords:
 - Excel into PowerPoint
 - PowerPoint
 - presentation
-- .NET
-- C#
+- C++
 - Aspose.Slides
 description: "Read data from Excel workbooks in Aspose.Slides using the ExcelDataWorkbook API. Load sheets and cells and use values to generate data-driven PowerPoint presentations."
 ---
@@ -35,9 +34,9 @@ To make working with Excel data easier and more streamlined, Aspose.Slides has i
 
 The new functionality is designed for general-purpose data access and is not integrated into the Presentation Document Object Model (DOM). That means *it does not allow editing or saving Excel files* — its sole purpose is to open workbooks and navigate through their content to retrieve cell data.
 
-At the core of this feature is the new [ExcelDataWorkbook](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/) class. This class allows you to load an Excel workbook from a local file or a stream. Once loaded, it provides several overloads of the [GetCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/getcell/) method, which you can use to retrieve specific cells by their position (e.g., row and column indices or named ranges).
+At the core of this feature is the new [ExcelDataWorkbook](https://reference.aspose.com/slides/cpp/aspose.slides.excel/exceldataworkbook/) class. This class allows you to load an Excel workbook from a local file or a stream. Once loaded, it provides several overloads of the [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.excel/exceldataworkbook/getcell/) method, which you can use to retrieve specific cells by their position (e.g., row and column indices or named ranges).
 
-Each call to [GetCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldataworkbook/getcell/) returns an instance of the [ExcelDataCell](https://reference.aspose.com/slides/net/aspose.slides.excel/exceldatacell/) class. This object represents a single cell in the Excel workbook and gives you access to its value in a simple and intuitive way.
+Each call to [GetCell](https://reference.aspose.com/slides/cpp/aspose.slides.excel/exceldataworkbook/getcell/) returns an instance of the [ExcelDataCell](https://reference.aspose.com/slides/cpp/aspose.slides.excel/exceldatacell/) class. This object represents a single cell in the Excel workbook and gives you access to its value in a simple and intuitive way.
 
 In short, it's a lightweight and straightforward API for reading Excel data — exactly what many developers need without the overhead of a full spreadsheet processing library.
 
@@ -56,45 +55,48 @@ To get started, we need two things:
 
 ![PowerPoint template example](example1_image1.png)
 
-```csharp
+```cpp
 // Load the Excel workbook with employee data.
-ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
-int worksheetIndex = 0;
+auto workbook = MakeObject<ExcelDataWorkbook>(u"TemplateData.xlsx");
+auto worksheetIndex = 0;
 
 // Load the presentation template.
-using Presentation templatePresentation = new Presentation("PresentationTemplate.pptx");
+auto templatePresentation = MakeObject<Presentation>(u"PresentationTemplate.pptx");
 
-// Loop through Excel rows (excluding header at row 0).
-for (int rowIndex = 1; rowIndex <= 4; rowIndex++)
-{
+    // Loop through Excel rows (excluding header at row 0).
+for (auto rowIndex = 1; rowIndex <= 4; rowIndex++) {
+
     // Create a new presentation for each employee record.
-    using Presentation employeePresentation = new Presentation();
+    auto employeePresentation = MakeObject<Presentation>();
 
     // Remove the default blank slide.
-    employeePresentation.Slides.RemoveAt(0);
+    employeePresentation->get_Slides()->RemoveAt(0);
 
     // Clone the template slide into the new presentation.
-    ISlide slide = employeePresentation.Slides.AddClone(templatePresentation.Slides[0]);
+    auto slide = employeePresentation->get_Slides()->AddClone(templatePresentation->get_Slide(0));
 
     // Get paragraphs from the target shape (assumes shape index 1 is used).
-    IParagraphCollection paragraphs = (slide.Shapes[1] as IAutoShape).TextFrame.Paragraphs;
+    auto paragraphs = ExplicitCast<IAutoShape>(slide->get_Shape(1))->get_TextFrame()->get_Paragraphs();
 
     // Replace the placeholders with data from Excel.
-    string employeeName = workbook.GetCell(worksheetIndex, rowIndex, 0).Value.ToString();
-    IPortion namePortion = paragraphs[0].Portions[0];
-    namePortion.Text = namePortion.Text.Replace("{{EmployeeName}}", employeeName);
+    auto employeeName = workbook->GetCell(worksheetIndex, rowIndex, 0)->get_Value()->ToString();
+    auto namePortion = paragraphs->idx_get(0)->get_Portion(0);
+    namePortion->set_Text(namePortion->get_Text().Replace(u"{{EmployeeName}}", employeeName));
 
-    string department = workbook.GetCell(worksheetIndex, rowIndex, 1).Value.ToString();
-    IPortion departmentPortion = paragraphs[1].Portions[0];
-    departmentPortion.Text = departmentPortion.Text.Replace("{{Department}}", department);
+    auto department = workbook->GetCell(worksheetIndex, rowIndex, 1)->get_Value()->ToString();
+    auto departmentPortion = paragraphs->idx_get(1)->get_Portion(0);
+    departmentPortion->set_Text(departmentPortion->get_Text().Replace(u"{{Department}}", department));
 
-    string yearsOfService = workbook.GetCell(worksheetIndex, rowIndex, 2).Value.ToString();
-    IPortion yearsPortion = paragraphs[2].Portions[0];
-    yearsPortion.Text = yearsPortion.Text.Replace("{{YearsOfService}}", yearsOfService);
+    auto yearsOfService = workbook->GetCell(worksheetIndex, rowIndex, 2)->get_Value()->ToString();
+    auto yearsPortion = paragraphs->idx_get(2)->get_Portion(0);
+    yearsPortion->set_Text(yearsPortion->get_Text().Replace(u"{{YearsOfService}}", yearsOfService));
 
     // Save the personalized presentation to a separate file.
-    employeePresentation.Save($"{employeeName} Report.pptx", SaveFormat.Pptx);
+    employeePresentation->Save(String::Format(u"{0} Report.pptx", employeeName), SaveFormat::Pptx);
+    employeePresentation->Dispose();
 }
+
+templatePresentation->Dispose();
 ```
 
 ![Result](example1_image2.png)
@@ -105,33 +107,32 @@ In the second example, we simply copy data from an Excel table and display it on
 
 In this example, we reuse the same Excel workbook from the first example, which contains a simple employee table.
 
-```csharp
+```cpp
 // Load the Excel workbook containing the employee data.
-ExcelDataWorkbook workbook = new ExcelDataWorkbook("TemplateData.xlsx");
-int worksheetIndex = 0;
+auto workbook = MakeObject<ExcelDataWorkbook>(u"TemplateData.xlsx");
+auto worksheetIndex = 0;
 
 // Create a new PowerPoint presentation.
-using Presentation presentation = new Presentation();
+auto presentation = MakeObject<Presentation>();
 
 // Add a table shape to the first slide.
-ITable table = presentation.Slides[0].Shapes.AddTable(
+auto table = presentation->get_Slide(0)->get_Shapes()->AddTable(
     50, 200,
-    new double[] { 200, 200, 200 },
-    new double[] { 30, 30, 30, 30, 30 }
+    MakeArray<double>({200, 200, 200}),
+    MakeArray<double>({30, 30, 30, 30, 30})
 );
 
 // Fill the PowerPoint table with data from the Excel workbook.
-for (int rowIndex = 0; rowIndex < 5; rowIndex++)
-{
-    for (int columnIndex = 0; columnIndex < 3; columnIndex++)
-    {
-        string cellValue = workbook.GetCell(worksheetIndex, rowIndex, columnIndex).Value.ToString();
-        table[columnIndex, rowIndex].TextFrame.Text = cellValue;
+for (auto rowIndex = 0; rowIndex < 5; rowIndex++) {
+    for (auto columnIndex = 0; columnIndex < 3; columnIndex++) {
+        auto cellValue = workbook->GetCell(worksheetIndex, rowIndex, columnIndex)->get_Value()->ToString();
+        table->get_Column(columnIndex)->idx_get(rowIndex)->get_TextFrame()->set_Text(cellValue);
     }
 }
 
 // Save the resulting presentation to a file.
-presentation.Save("Table.pptx", SaveFormat.Pptx);
+presentation->Save(u"Table.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
 ![Result](example2_image0.png)
