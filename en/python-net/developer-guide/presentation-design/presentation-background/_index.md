@@ -24,7 +24,7 @@ description: "Learn how to set dynamic backgrounds in PowerPoint and OpenDocumen
 
 Solid colors, gradients, and images are commonly used for slide backgrounds. You can set the background for a **normal slide** (a single slide) or a **master slide** (applies to multiple slides at once).
 
-<img src="powerpoint-background.png" alt="powerpoint-background"  />
+![PowerPoint background](powerpoint-background.png)
 
 ## **Set a Solid Color Background for a Normal Slide**
 
@@ -36,7 +36,7 @@ Aspose.Slides allows you to set a solid color as the background for a specific s
 4. Use the `solid_fill_color` property on [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) to specify the solid background color.
 5. Save the modified presentation.
 
-This Python example shows how to set a blue solid color as the background for a normal slide:
+The following Python example shows how to set a blue solid color as the background for a normal slide:
 
 ```python
 import aspose.pydrawing as draw
@@ -94,10 +94,9 @@ A gradient is a graphical effect created by a gradual change in color. When used
 4. Use the `gradient_format` property on [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) to configure your preferred gradient settings.
 5. Save the modified presentation.
 
-This Python example shows how to set a gradient color as the background for a slide:
+The following Python example shows how to set a gradient color as the background for a slide:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Create an instance of the Presentation class.
@@ -125,10 +124,9 @@ In addition to solid and gradient fills, Aspose.Slides allows you to use images 
 6. Use the `picture_fill_format` property on [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) to assign the image as the background.
 7. Save the modified presentation.
 
-This Python example shows how to set an image as the background for a slide:
+The following Python example shows how to set an image as the background for a slide:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Create an instance of the Presentation class.
@@ -151,9 +149,48 @@ with slides.Presentation() as presentation:
     presentation.save("ImageAsBackground.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+The following code sample shows how to set the background fill type to a tiled picture and modify the tiling properties:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+
+    first_slide = presentation.slides[0]
+
+    background = first_slide.background
+
+    background.type = slides.BackgroundType.OWN_BACKGROUND
+    background.fill_format.fill_type = slides.FillType.PICTURE
+
+    with slides.Images.from_file("image.png") as new_image:
+        pp_image = presentation.images.add_image(new_image)
+
+    # Set the image used for the background fill.
+    back_picture_fill_format = background.fill_format.picture_fill_format
+    back_picture_fill_format.picture.image = pp_image
+
+    # Set the picture fill mode to Tile and adjust the tile properties.
+    back_picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
+    back_picture_fill_format.tile_offset_x = 15.0
+    back_picture_fill_format.tile_offset_y = 15.0
+    back_picture_fill_format.tile_scale_x = 46.0
+    back_picture_fill_format.tile_scale_y = 87.0
+    back_picture_fill_format.tile_alignment = slides.RectangleAlignment.CENTER
+    back_picture_fill_format.tile_flip = slides.TileFlip.FLIP_Y
+
+    presentation.save("TileBackground.pptx", slides.export.SaveFormat.PPTX)
+```
+
+{{% alert color="primary" %}}
+
+Read more: [**Tile Picture As Texture**](/slides/python-net/shape-formatting/#tile-picture-as-texture).
+
+{{% /alert %}}
+
 ### **Change the Background Image Transparency**
 
-You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. This Python code shows you how to change the transparency for a slide background image:
+You may want to adjust the transparency of a slide's background image to make the contents of the slide stand out. The following Python code shows you how to change the transparency for a slide background image:
 
 ```python
 transparency_value = 30  # For example.
@@ -178,14 +215,13 @@ else:
 
 ## **Get the Slide Background Value**
 
-Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) interface for retrieving a slide’s effective background values. This interface exposes the effective [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) and [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/).
+Aspose.Slides provides the [IBackgroundEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides/ibackgroundeffectivedata/) class for retrieving a slide’s effective background values. This class exposes the effective [FillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/) and [EffectFormat](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/).
 
 Using the [BaseSlide](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/) class’s `background` property, you can obtain the effective background for a slide.
 
-This Python example shows how to get a slide’s effective background value:
+The following Python example shows how to get a slide’s effective background value:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
 # Create an instance of the Presentation class.
@@ -196,7 +232,8 @@ with slides.Presentation("Sample.pptx") as presentation:
     effective_background = slide.background.get_effective()
 
     if effective_background.fill_format.fill_type == slides.FillType.SOLID:
-        print("Fill color:", str(effective_background.fill_format.solid_fill_color))
+        color = effective_background.fill_format.solid_fill_color
+        print(f"Fill color: Color [A={color.a}, R={color.r}, G={color.g}, B={color.b}]")
     else:
         print("Fill type:", str(effective_background.fill_format.fill_type))
 ```
