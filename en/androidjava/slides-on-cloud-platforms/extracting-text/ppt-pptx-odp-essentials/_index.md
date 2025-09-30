@@ -2,7 +2,7 @@
 title: "Slide Text Extraction: PPT, PPTX, ODP Essentials"
 type: docs
 weight: 10
-url: /net/slide-text-extraction-ppt-pptx-odp-essentials/
+url: /androidjava/slide-text-extraction-ppt-pptx-odp-essentials/
 keywords:
 - presentation text extraction
 - slide text extraction
@@ -16,9 +16,10 @@ keywords:
 - document automation
 - data analytics
 - accessibility
-- .NET
+- Android
+- Java
 - Aspose.Slides
-description: "Turn slides into data: extract text from PPT, PPTX, and ODP for search, automation, and accessibility, with format insights—usable in .NET and cloud platforms."
+description: "Turn slides into data: extract text from PPT, PPTX, and ODP for search, automation, and accessibility, with format insights—usable on Android and cloud platforms."
 ---
 
 ## **Introduction**
