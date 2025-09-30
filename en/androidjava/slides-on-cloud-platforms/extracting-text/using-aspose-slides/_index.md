@@ -3,7 +3,7 @@ title: "How to Extract Text from PPT, PPTX, and ODP with Aspose.Slides"
 linktitle: Extract Text with Aspose.Slides
 type: docs
 weight: 30
-url: /net/extracting-text-on-cloud-platforms-using-aspose-slides/
+url: /androidjava/extracting-text-on-cloud-platforms-using-aspose-slides/
 keywords:
 - text extraction
 - extract text from PPT
@@ -16,8 +16,8 @@ keywords:
 - notes and comments
 - corporate indexing
 - data enrichment
-- .NET
-- C#
+- Android
+- Java
 - Aspose.Slides
 description: "Extract text from presentations on any cloud platform with Aspose.Slides. Fast, accurate, and secure for PPT, PPTX, and ODP—complete guides, code, and examples."
 ---
@@ -28,28 +28,27 @@ Aspose.Slides provides a **powerful, high-level API** for extracting text from p
 
 ## **Fast Text Extraction with GetPresentationText**
 
-To extract text from a presentation, the **Aspose.Slides API** offers the static method [PresentationFactory.GetPresentationText](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationtext/). It includes multiple overloads for working with a presentation file or a data stream, capturing text from **slides, master slides, layouts, notes, and comments**. The extracted text is accessed via the [IPresentationText](https://reference.aspose.com/slides/net/aspose.slides/ipresentationtext/) interface.
+To extract text from a presentation, the **Aspose.Slides API** offers the static method [PresentationFactory.getPresentationText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-). It includes multiple overloads for working with a presentation file or a data stream, capturing text from **slides, master slides, layouts, notes, and comments**. The extracted text is accessed via the [IPresentationText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationtext/) interface.
 
 Example usage:
 
-```csharp
-string filePath = "presentation.pptx";
-TextExtractionArrangingMode mode = TextExtractionArrangingMode.Unarranged;
+```java
+String filePath = "presentation.pptx";
+int mode = TextExtractionArrangingMode.Unarranged;
 
-IPresentationText presentationText = PresentationFactory.Instance.GetPresentationText(filePath, mode);
-ISlideText[] slideTexts = presentationText.SlidesText;
+IPresentationText presentationText = PresentationFactory.getInstance().getPresentationText(filePath, mode);
+ISlideText[] slideTexts = presentationText.getSlidesText();
 
-foreach (ISlideText slideText in slideTexts)
-{
-    Console.WriteLine("Slide Text: " + slideText.Text);
-    Console.WriteLine("Notes Text: " + slideText.NotesText);
-    Console.WriteLine("Comments Text: " + slideText.CommentsText);
+for (ISlideText slideText : slideTexts) {
+    System.out.println("Slide Text: " + slideText.getText());
+    System.out.println("Notes Text: " + slideText.getNotesText());
+    System.out.println("Comments Text: " + slideText.getCommentsText());
 }
 ```
 
 ## **Modes of Operation for GetPresentationText**
 
-The [GetPresentationText](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationtext/) method in [PresentationFactory](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/) lets you fine-tune text extraction using the [TextExtractionArrangingMode](https://reference.aspose.com/slides/net/aspose.slides/textextractionarrangingmode/) parameter, which controls how text is organized in the output.
+The [getPresentationText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) method in [PresentationFactory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/) lets you fine-tune text extraction using the [TextExtractionArrangingMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textextractionarrangingmode/) parameter, which controls how text is organized in the output.
 
 **Available Modes:**
 
@@ -58,16 +57,15 @@ The [GetPresentationText](https://reference.aspose.com/slides/net/aspose.slides/
 
 Usage example:
 
-```csharp
-string filePath = "presentation.pptx";
-TextExtractionArrangingMode mode = TextExtractionArrangingMode.Arranged;
+```java
+String filePath = "presentation.pptx";
+int mode = TextExtractionArrangingMode.Arranged;
 
-IPresentationText presentationText = PresentationFactory.Instance.GetPresentationText(filePath, mode);
-ISlideText[] slideTexts = presentationText.SlidesText;
+IPresentationText presentationText = PresentationFactory.getInstance().getPresentationText(filePath, mode);
+ISlideText[] slideTexts = presentationText.getSlidesText();
 
-foreach (ISlideText slideText in slideTexts)
-{
-    Console.WriteLine("Slide Text (preserving order): " + slideText.Text);
+for (ISlideText slideText : slideTexts) {
+    System.out.println("Slide Text (preserving order): " + slideText.getText());
 }
 ```
 
