@@ -34,16 +34,16 @@ Example usage:
 
 ```csharp
 string filePath = "presentation.pptx";
-TextExtractionArrangingMode mode = TextExtractionArrangingMode.Unarranged;
+TextExtractionArrangingMode arrangingMode = TextExtractionArrangingMode.Unarranged;
 
-IPresentationText presentationText = PresentationFactory.Instance.GetPresentationText(filePath, mode);
-ISlideText[] slideTexts = presentationText.SlidesText;
+IPresentationText presentationText = PresentationFactory.Instance.GetPresentationText(filePath, arrangingMode);
+ISlideText[] slidesText = presentationText.SlidesText;
 
-foreach (ISlideText slideText in slideTexts)
+foreach (ISlideText slideText in slidesText)
 {
-    Console.WriteLine("Slide Text: " + slideText.Text);
-    Console.WriteLine("Notes Text: " + slideText.NotesText);
-    Console.WriteLine("Comments Text: " + slideText.CommentsText);
+    Console.WriteLine("Slide text: " + slideText.Text);
+    Console.WriteLine("Notes text: " + slideText.NotesText);
+    Console.WriteLine("Comments text: " + slideText.CommentsText);
 }
 ```
 
@@ -60,14 +60,14 @@ Usage example:
 
 ```csharp
 string filePath = "presentation.pptx";
-TextExtractionArrangingMode mode = TextExtractionArrangingMode.Arranged;
+TextExtractionArrangingMode arrangingMode = TextExtractionArrangingMode.Arranged;
 
-IPresentationText presentationText = PresentationFactory.Instance.GetPresentationText(filePath, mode);
-ISlideText[] slideTexts = presentationText.SlidesText;
+IPresentationText presentationText = PresentationFactory.Instance.GetPresentationText(filePath, arrangingMode);
+ISlideText[] slidesText = presentationText.SlidesText;
 
-foreach (ISlideText slideText in slideTexts)
+foreach (ISlideText slideText in slidesText)
 {
-    Console.WriteLine("Slide Text (preserving order): " + slideText.Text);
+    Console.WriteLine("Slide text (preserving order): " + slideText.Text);
 }
 ```
 

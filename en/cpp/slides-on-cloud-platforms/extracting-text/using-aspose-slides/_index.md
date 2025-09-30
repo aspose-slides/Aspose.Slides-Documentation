@@ -3,7 +3,7 @@ title: "How to Extract Text from PPT, PPTX, and ODP with Aspose.Slides"
 linktitle: Extract Text with Aspose.Slides
 type: docs
 weight: 30
-url: /androidjava/extracting-text-on-cloud-platforms-using-aspose-slides/
+url: /cpp/extracting-text-on-cloud-platforms-using-aspose-slides/
 keywords:
 - text extraction
 - extract text from PPT
@@ -16,8 +16,7 @@ keywords:
 - notes and comments
 - corporate indexing
 - data enrichment
-- Android
-- Java
+- C++
 - Aspose.Slides
 description: "Extract text from presentations on any cloud platform with Aspose.Slides. Fast, accurate, and secure for PPT, PPTX, and ODP—complete guides, code, and examples."
 ---
@@ -28,44 +27,46 @@ Aspose.Slides provides a **powerful, high-level API** for extracting text from p
 
 ## **Fast Text Extraction with GetPresentationText**
 
-To extract text from a presentation, the **Aspose.Slides API** offers the static method [PresentationFactory.getPresentationText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-). It includes multiple overloads for working with a presentation file or a data stream, capturing text from **slides, master slides, layouts, notes, and comments**. The extracted text is accessed via the [IPresentationText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentationtext/) interface.
+To extract text from a presentation, the **Aspose.Slides API** offers the static method [PresentationFactory.GetPresentationText](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationtext/). It includes multiple overloads for working with a presentation file or a data stream, capturing text from **slides, master slides, layouts, notes, and comments**. The extracted text is accessed via the [IPresentationText](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationtext/) interface.
 
 Example usage:
 
-```java
-String filePath = "presentation.pptx";
-int arrangingMode = TextExtractionArrangingMode.Unarranged;
+```cpp
+auto filePath = u"presentation.pptx";
+auto arrangingMode = TextExtractionArrangingMode::Unarranged;
 
-IPresentationText presentationText = PresentationFactory.getInstance().getPresentationText(filePath, arrangingMode);
-ISlideText[] slidesText = presentationText.getSlidesText();
+auto presentationText = PresentationFactory::get_Instance()->GetPresentationText(filePath, arrangingMode);
+auto slidesText = presentationText->get_SlidesText();
 
-for (ISlideText slideText : slidesText) {
-    System.out.println("Slide text: " + slideText.getText());
-    System.out.println("Notes text: " + slideText.getNotesText());
-    System.out.println("Comments text: " + slideText.getCommentsText());
+for (auto slideText : slidesText) 
+{
+    Console::WriteLine(u"Slide text: " + slideText->get_Text());
+    Console::WriteLine(u"Notes text: " + slideText->get_NotesText());
+    Console::WriteLine(u"Comments text: " + slideText->get_CommentsText());
 }
 ```
 
 ## **Modes of Operation for GetPresentationText**
 
-The [getPresentationText](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/#getPresentationText-java.lang.String-int-) method in [PresentationFactory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentationfactory/) lets you fine-tune text extraction using the [TextExtractionArrangingMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/textextractionarrangingmode/) parameter, which controls how text is organized in the output.
+The [GetPresentationText](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationtext/) method in [PresentationFactory](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/) lets you fine-tune text extraction using the [TextExtractionArrangingMode](https://reference.aspose.com/slides/cpp/aspose.slides/textextractionarrangingmode/) parameter, which controls how text is organized in the output.
 
 **Available Modes:**
 
-- `TextExtractionArrangingMode.Unarranged` – Extracts text in a freeform manner, disregarding the original slide layout.  
-- `TextExtractionArrangingMode.Arranged` – Preserves text order according to its placement on each slide.
+- `TextExtractionArrangingMode::Unarranged` – Extracts text in a freeform manner, disregarding the original slide layout.  
+- `TextExtractionArrangingMode::Arranged` – Preserves text order according to its placement on each slide.
 
 Usage example:
 
-```java
-String filePath = "presentation.pptx";
-int arrangingMode = TextExtractionArrangingMode.Arranged;
+```cpp
+auto filePath = u"presentation.pptx";
+auto arrangingMode = TextExtractionArrangingMode::Arranged;
 
-IPresentationText presentationText = PresentationFactory.getInstance().getPresentationText(filePath, arrangingMode);
-ISlideText[] slidesText = presentationText.getSlidesText();
+auto presentationText = PresentationFactory::get_Instance()->GetPresentationText(filePath, arrangingMode);
+auto slidesText = presentationText->get_SlidesText();
 
-for (ISlideText slideText : slidesText) {
-    System.out.println("Slide text (preserving order): " + slideText.getText());
+for (auto slideText : slidesText)
+{
+    Console::WriteLine(u"Slide text (preserving order): " + slideText->get_Text());
 }
 ```
 
