@@ -15,96 +15,93 @@ keywords:
 description: "Customize chart legends with Aspose.Slides for Python via .NET to optimize PowerPoint and OpenDocument presentations with tailored legend formatting."
 ---
 
+## **Overview**
+
+Aspose.Slides for Python provides full control over chart legends so you can make data labels clear and presentation-ready. You can show or hide the legend, choose its position on the slide, and adjust layout to prevent overlap with the plot area. The API lets you style text and markers, fine-tune padding and background, and format borders and fills to match your theme. Developers can also access individual legend entries to rename or filter them, ensuring only the most relevant series are displayed. With these capabilities, your charts remain readable, consistent, and aligned with your presentation’s design standards.
+
 ## **Legend Positioning**
-In order to set the legend properties. Please follow the steps below:
 
-- Create an instance of [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-- Get reference of the slide.
-- Adding a chart on slide.
-- Setting the properties of legend.
-- Write the presentation as a PPTX file.
+Using Aspose.Slides, you can quickly control where the chart legend appears and how it fits your slide layout. Learn how to place the legend precisely.
 
-In the example given below, we have set the position and size for Chart legend.
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a reference to the slide.
+1. Add a chart to the slide.
+1. Set the legend properties.
+1. Save the presentation as a PPTX file.
+
+In the example below, we set the position and size of the chart legend:
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Create an instance of Presentation class
+# Create an instance of the Presentation class.
 with slides.Presentation() as presentation:
 
-    # Get reference of the slide
+    # Get a reference to the slide.
     slide = presentation.slides[0]
 
-    # Add a clustered column chart on the slide
-    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 500)
+    # Add a clustered column chart to the slide.
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 300)
 
-    # Set Legend Properties
-    chart.legend.x = 50 / chart.width
-    chart.legend.y = 50 / chart.height
+    # Set the legend properties.
+    chart.legend.x = 80 / chart.width
+    chart.legend.y = 20 / chart.height
     chart.legend.width = 100 / chart.width
     chart.legend.height = 100 / chart.height
 
-    # Write presentation to disk
-    presentation.save("Legend_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("legend_positioning.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set the Legend Font Size**
 
+A chart’s legend should be as readable as the data it explains. This section shows how to adjust the legend’s font size so you can match your presentation’s typography and improve accessibility.
 
-## **Set Font Size of Legend**
-The Aspose.Slides for Python via .NET lets developers allow to set font size of legend. Please follow the steps below: 
-
-- Instantiate `Presentation` class.
-- Creating the default chart.
-- Set the Font Size.
-- Set minimum axis value.
-- Set maximum axis value.
-- Write presentation to disk.
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Create a chart.
+1. Set the font size.
+1. Save the presentation to disk.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-	chart.legend.text_format.portion_format.font_height = 20
-	chart.axes.vertical_axis.is_automatic_min_value = False
-	chart.axes.vertical_axis.min_value = -5
-	chart.axes.vertical_axis.is_automatic_max_value = False
-	chart.axes.vertical_axis.max_value = 10
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    chart.legend.text_format.portion_format.font_height = 20
 
-	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("font_size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Set the Font Size for a Legend Entry**
 
-## **Set Font Size of Individual Legend**
-The Aspose.Slides for Python via .NET lets developers allow to set font size of individual legend entries. Please follow the steps below: 
+Aspose.Slides lets you fine-tune the appearance of chart legends by formatting individual entries. The example below shows how to target a specific legend item and set its properties without changing the rest of the legend.
 
-- Instantiate `Presentation` class.
-- Creating the default chart.
-- Access legend entry.
-- Set the Font Size.
-- Set minimum axis value.
-- Set maximum axis value.
-- Write presentation to disk.
+1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Create a chart.
+1. Access a legend entry.
+1. Set the entry properties.
+1. Save the presentation to disk.
 
 ```py
 import aspose.slides.charts as charts
 import aspose.slides as slides
 import aspose.pydrawing as draw
- 
- 
-with slides.Presentation() as pres:
-	chart = pres.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
-	tf = chart.legend.entries[1].text_format
 
-	tf.portion_format.font_bold = 1
-	tf.portion_format.font_height = 20
-	tf.portion_format.font_italic = 1
-	tf.portion_format.fill_format.fill_type = slides.FillType.SOLID 
-	tf.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-	pres.save("output.pptx", slides.export.SaveFormat.PPTX)
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 400)
+    text_format = chart.legend.entries[1].text_format
+
+    text_format.portion_format.font_bold = slides.NullableBool.TRUE
+    text_format.portion_format.font_height = 20
+    text_format.portion_format.font_italic = slides.NullableBool.TRUE
+    text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+    text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+
+    presentation.save("legend_entry.pptx", slides.export.SaveFormat.PPTX)
 ```
-
