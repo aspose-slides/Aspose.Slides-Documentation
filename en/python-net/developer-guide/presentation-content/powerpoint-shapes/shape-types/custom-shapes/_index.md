@@ -25,47 +25,45 @@ keywords:
 description: "Create and customize shapes in PowerPoint and OpenDocument presentations with Aspose.Slides for Python via .NET: geometry paths, curved corners, composite shapes."
 ---
 
-# Change a Shape Using Edit Points
+## **Overview**
 
-Consider a square. In PowerPoint, using **edit points**, you can 
+Consider a square. In PowerPoint, using **Edit Points**, you can:
 
-* move the square's corner in or out
-* specify the curvature for a corner or point
-* add new points to the square
-* manipulate points on the square, etc. 
+* move a square’s corner inward or outward,
+* adjust the curvature of a corner or point,
+* add new points to the square,
+* manipulate its points.
 
-Essentially, you can perform the described tasks on any shape. Using edit points, you get to change a shape or create a new shape from an existing shape. 
+You can apply these operations to any shape. With **Edit Points**, you can modify a shape or create a new one from an existing shape.
 
-## Shape Editing Tips
+## **Shape Editing Tips**
 
-![overview_image](custom_shape_0.png)
+!["Edit Points" command](custom_shape_0.png)
 
-Before you start editing PowerPoint shapes through edit points, you might want to consider these points about shapes:
+Before you start editing PowerPoint shapes using **Edit Points**, consider these notes about shapes:
 
-* A shape (or its path) can either be closed or open.
-* When a shape is closed, it lacks a start or end point. When a shape is open, it has a beginning and end. 
-* All shapes consist of at least 2 anchor points linked to each other by lines
-* A line is either straight or curved. Anchor points determine the nature of the line. 
-* Anchor points exist as corner points, straight points, or smooth points:
-  * A corner point is a point where 2 straight lines join at an angle. 
-  * A smooth point is a point where 2 handles exist in a straight line and the line's segments join in a smooth curve. In this case, all handles are separated from the anchor point by an equal distance. 
-  * A straight point is a point where 2 handles exist in a straight line and that line's line segments joins in a smooth curve. In this case, the handles don't have to be separated from the anchor point by an equal distance. 
-* By moving or editing anchor points (which changes the angle of lines), you can change the way a shape looks. 
+* A shape (or its path) can be **closed** or **open**.
+* A closed shape has no start or end point; an open shape has a beginning and an end.
+* Every shape has at least two anchor points connected by line segments.
+* A segment is either straight or curved; anchor points determine the segment’s nature.
+* Anchor points can be **corner**, **smooth**, or **straight**:
+  * A **corner** point is where two straight segments meet at an angle.
+  * A **smooth** point has two handles that are collinear, and the adjoining segments form a smooth curve. In this case, both handles are the same distance from the anchor point.
+  * A **straight** point also has two collinear handles, and the adjoining segments form a smooth curve. In this case, the handles do not have to be the same distance from the anchor point.
+* By moving or editing anchor points (thereby changing segment angles), you can change the shape’s appearance.
 
-To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class and [**IGeometryPath**](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/) interface. 
+To edit PowerPoint shapes, Aspose.Slides provides the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class.
 
-* A [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) instance represents a geometry path of the [IGeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) object
-* To retrieve the`GeometryPath` from the `IGeometryShape` instance, you can use the [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) method. 
-* To set the `GeometryPath` for a shape, you can use these methods: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) for *solid shapes* and [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) for *composite shapes*.
-* To add segments, you can use the methods under [IGeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/).
-* Using the [IGeometryPath.Stroke](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/) and [IGeometryPath.FillMode](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/) properties, you can set the appearance for a geometry path.
-* Using the [IGeometryPath.PathData](https://reference.aspose.com/slides/python-net/aspose.slides/igeometrypath/properties/pathdata) property, you can retrieve the geometry path of a `GeometryShape` as an array of path segments. 
-* To access additional shape geometry customization options, you can convert [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) to [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
-* Use `GeometryPathToGraphicsPath` and `GraphicsPathToGeometryPath` methods (from the [ShapeUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/shapeutil/) class) to convert `GeometryPath` to `GraphicsPath` back and forth. 
+* A [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) instance represents the geometry path of a [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) object.
+* To retrieve the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) from a [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) instance, use the [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) method.
+* To set the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) for a shape, use [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) for *solid shapes* and [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) for *composite shapes*.
+* To add segments, use the methods on [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+* Use the [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) and [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) properties to control a geometry path’s appearance.
+* Use the [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) property to retrieve a shape’s geometry path as an array of path segments.
 
 ## **Simple Editing Operations**
 
-This python code shows you how to
+The following methods are used for simple editing operations.
 
 **Add a line** to the end of a path:
 
@@ -73,106 +71,138 @@ This python code shows you how to
 line_to(point)
 line_to(x, y)
 ```
-**Add a line** to a specified position on a path:
+
+**Add a line** at a specified position in a path:
 
 ```py    
 line_to(point, index)
 line_to(x, y, index)
 ```
-**Add a cubic Bezier curve** at the end of a path:
+
+**Add a cubic Bezier curve** to the end of a path:
 
 ```py
 cubic_bezier_to(point1, point2, point3)
 cubic_bezier_to(x1, y1, x2, y2, x3, y3)
 ```
-**Add a cubic Bezier curve** to the specified position on a path:
+
+**Add a cubic Bezier curve** at a specified position in a path:
 
 ```py
 cubic_bezier_to(point1, point2, point3, index)
 cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
 ```
-**Add a quadratic Bezier curve** at the end of a path:
+
+**Add a quadratic Bezier curve** to the end of a path:
+
 ```py
 quadratic_bezier_to(point1, point2)
 quadratic_bezier_to(x1, y1, x2, y2)
 ```
-**Add quadratic Bezier curve** to a specified position on a path:
+
+**Add a quadratic Bezier curve** at a specified position in a path:
 
 ```py
 quadratic_bezier_to(point1, point2, index)
 quadratic_bezier_to(x1, y1, x2, y2, index)
 ```
-**Append a given arc** to a path:
+
+**Append an arc** to a path:
+
 ```py
 arc_to(width, heigth, startAngle, sweepAngle)
 ```
-**Close the current figure** of a path:
+
+**Close the current figure** in a path:
+
 ```py
 close_figure()
 ```
+
 **Set the position for the next point**:
+
 ```py
 move_to(point)
 move_to(x, y)
 ```
+
 **Remove the path segment** at a given index:
 
 ```py
 remove_at(index)
 ```
-## Add Custom Points to Shape
-1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class and set the [ShapeType.Rectangle](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/)
-2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class from the shape.
-3. Add a new point between the two top points on the path.
-4. Add a new point between the two bottom points on the path.
-6. Apply the path to the shape.
 
-This python code shows you how to add custom points to a shape:
+## **Add Custom Points to Shapes**
 
-```py
-import aspose.slides as slides
+Here you’ll learn how to define a freeform shape by adding your own sequence of points. By specifying ordered points and segment types (straight or curved) and optionally closing the path, you can draw precise custom graphics—polygons, icons, callouts, or logos—directly on your slides.
 
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
-    geometryPath = shape.get_geometry_paths()[0]
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class and set its [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/).
+2. Get a [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) instance from the shape.
+3. Insert a new point between the two top points on the path.
+4. Insert a new point between the two bottom points on the path.
+5. Apply the updated path to the shape.
 
-    geometryPath.line_to(100, 50, 1)
-    geometryPath.line_to(100, 50, 4)
-    shape.set_geometry_path(geometryPath)
-```
-
-![example1_image](custom_shape_1.png)
-
-##  Remove Points from Shape
-
-1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class of and set the [ShapeType.Heart](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) type. 
-2. Get an instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class from the shape.
-3. Remove the segment for the path.
-4. Apply the path to the shape.
-
-This python code shows you how to remove points from a shape:
+The following Python code shows how to add custom points to a shape:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-	shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.HEART, 100, 100, 300, 300)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-	path = shape.get_geometry_paths()[0]
-	path.remove_at(2)
-	shape.set_geometry_path(path)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+
+    geometry_path = shape.get_geometry_paths()[0]
+    geometry_path.line_to(100, 50, 1)
+    geometry_path.line_to(100, 50, 4)
+
+    shape.set_geometry_path(geometry_path)
+
+    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
-![example2_image](custom_shape_2.png)
 
-##  Create Custom Shape
+![Custom points](custom_shape_1.png)
 
-1. Calculate points for the shape.
-2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class. 
-3. Fill the path with the points.
-4. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class. 
+##  **Remove Points from Shapes**
+
+Sometimes a custom shape contains unnecessary points that complicate its geometry or affect how it renders. This section shows how to remove specific points from a shape’s path so you can simplify the outline and achieve cleaner, more precise results.
+
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class and set its [ShapeType.HEART](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) type.
+2. Get a [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) instance from the shape.
+3. Remove a segment from the path.
+4. Apply the updated path to the shape.
+
+The following Python code shows how to remove points from a shape:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.HEART, 100, 100, 300, 300)
+
+    path = shape.get_geometry_paths()[0]
+    path.remove_at(2)
+
+    shape.set_geometry_path(path)
+
+    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Removed points](custom_shape_2.png)
+
+##  **Create Custom Shapes**
+
+Create bespoke vector shapes by defining a [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) and composing it from lines, arcs, and Bézier curves. This section shows how to build a custom geometry from scratch and add the resulting shape to your slide.
+
+1. Calculate the points for the shape.
+2. Create an instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class.
+3. Populate the path with the points.
+4. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class.
 5. Apply the path to the shape.
 
-This python code shows you how to create a custom shape:
+The following Python code shows how to create a custom shape:
 
 ```py
 import aspose.slides as slides
@@ -196,103 +226,117 @@ for angle in range(-90, 270, step):
     y = r * math.sin(radians)
     points.append(draw.PointF(x + R, y + R))
 
-starPath = slides.GeometryPath()
-starPath.move_to(points[0])
+star_path = slides.GeometryPath()
+star_path.move_to(points[0])
 
 for i in range(len(points)):
-    starPath.line_to(points[i])
+    star_path.line_to(points[i])
 
-starPath.close_figure()
-
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
-    shape.set_geometry_path(starPath)
-```
-![example3_image](custom_shape_3.png)
-
-
-## Create Composite Custom Shape
-
-  1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class.
-  2. Create a first instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class.
-  3. Create a second instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class.
-  4. Apply the paths to the shape.
-
-This python code shows you how to create a composite custom shape:
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
-
-    geometryPath0 = slides.GeometryPath()
-    geometryPath0.move_to(0, 0)
-    geometryPath0.line_to(shape.width, 0)
-    geometryPath0.line_to(shape.width, shape.height/3)
-    geometryPath0.line_to(0, shape.height / 3)
-    geometryPath0.close_figure()
-
-    geometryPath1 = slides.GeometryPath()
-    geometryPath1.move_to(0, shape.height/3 * 2)
-    geometryPath1.line_to(shape.width, shape.height / 3 * 2)
-    geometryPath1.line_to(shape.width, shape.height)
-    geometryPath1.line_to(0, shape.height)
-    geometryPath1.close_figure()
-
-    shape.set_geometry_paths([ geometryPath0, geometryPath1])
-```
-![example4_image](custom_shape_4.png)
-
-## **Create Custom Shape With Curved Corners**
-
-This python code shows you how to create a custom shape with curved corners (inwards):
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-shapeX = 20
-shapeY = 20
-shapeWidth = 300
-shapeHeight = 200
-
-leftTopSize = 50
-rightTopSize = 20
-rightBottomSize = 40
-leftBottomSize = 10
+star_path.close_figure()
 
 with slides.Presentation() as presentation:
-    childShape = presentation.slides[0].shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shapeX, shapeY, shapeWidth, shapeHeight)
+    slide = presentation.slides[0]
 
-    geometryPath = slides.GeometryPath()
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape.set_geometry_path(star_path)
 
-    point1 = draw.PointF(leftTopSize, 0)
-    point2 = draw.PointF(shapeWidth - rightTopSize, 0)
-    point3 = draw.PointF(shapeWidth, shapeHeight - rightBottomSize)
-    point4 = draw.PointF(leftBottomSize, shapeHeight)
-    point5 = draw.PointF(0, leftTopSize)
-
-    geometryPath.move_to(point1)
-    geometryPath.line_to(point2)
-    geometryPath.arc_to(rightTopSize, rightTopSize, 180, -90)
-    geometryPath.line_to(point3)
-    geometryPath.arc_to(rightBottomSize, rightBottomSize, -90, -90)
-    geometryPath.line_to(point4)
-    geometryPath.arc_to(leftBottomSize, leftBottomSize, 0, -90)
-    geometryPath.line_to(point5)
-    geometryPath.arc_to(leftTopSize, leftTopSize, 90, -90)
-
-    geometryPath.close_figure()
-
-    childShape.set_geometry_path(geometryPath)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Find Out If a Shape Geometry Is Closed**
+![Custom shape](custom_shape_3.png)
+
+## **Create Composite Custom Shapes**
+
+Creating a composite custom shape lets you combine multiple geometry paths into a single, reusable shape on a slide. Define and merge these paths to build complex visuals that go beyond the standard shape set.
+
+1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class.
+2. Create the first instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class.
+3. Create the second instance of the [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) class.
+4. Apply both paths to the shape.
+
+The following Python code shows how to create a composite custom shape:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+
+    geometry_path_0 = slides.GeometryPath()
+    geometry_path_0.move_to(0, 0)
+    geometry_path_0.line_to(shape.width, 0)
+    geometry_path_0.line_to(shape.width, shape.height/3)
+    geometry_path_0.line_to(0, shape.height / 3)
+    geometry_path_0.close_figure()
+
+    geometry_path_1 = slides.GeometryPath()
+    geometry_path_1.move_to(0, shape.height/3 * 2)
+    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
+    geometry_path_1.line_to(shape.width, shape.height)
+    geometry_path_1.line_to(0, shape.height)
+    geometry_path_1.close_figure()
+
+    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
+
+    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Composite shape](custom_shape_4.png)
+
+## **Create Custom Shapes with Curved Corners**
+
+This section shows how to draw a custom shape with smoothly curved corners using a geometry path. You’ll combine straight segments and circular arcs to form the outline and add the finished shape to your slide.
+
+The following Python code shows how to create a custom shape with curved corners:
+
+```py
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+shape_x = 20
+shape_y = 20
+shape_width = 300
+shape_height = 200
+
+left_top_size = 50
+right_top_size = 20
+right_bottom_size = 40
+left_bottom_size = 10
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(
+        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
+
+    point1 = draw.PointF(left_top_size, 0)
+    point2 = draw.PointF(shape_width - right_top_size, 0)
+    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
+    point4 = draw.PointF(left_bottom_size, shape_height)
+    point5 = draw.PointF(0, left_top_size)
+
+    geometry_path = slides.GeometryPath()
+    geometry_path.move_to(point1)
+    geometry_path.line_to(point2)
+    geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
+    geometry_path.line_to(point3)
+    geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
+    geometry_path.line_to(point4)
+    geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
+    geometry_path.line_to(point5)
+    geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
+    geometry_path.close_figure()
+
+    shape.set_geometry_path(geometry_path)
+
+    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
+```
+
+![Curved corners](custom_shape_6.png)
+
+## **Determine Whether a Shape’s Geometry Is Closed**
 
 A closed shape is defined as one where all its sides connect, forming a single boundary without gaps. Such a shape can be a simple geometric form or a complex custom outline. The following code example shows how to check if a shape geometry is closed:
 
@@ -313,33 +357,3 @@ def is_geometry_closed(geometry_shape):
 
     return is_closed
 ```
-
-## Conversion of GeometryPath to GraphicsPath (System.Drawing.Drawing2D) 
-
-1. Create an instance of the [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) class.
-2. Create an instance of the [GrpahicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) class  of the [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) namespace.
-3. Convert the [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) instance to the  [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) instance using [ShapeUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/shapeutil/).
-4. Apply the paths to the shape.
-
-This python code—an implementation of the steps above—demonstrates the **GeometryPath** to **GraphicsPath** conversion process:
-
-```py
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-with slides.Presentation() as pres:
-    shape = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 100)
-
-    originalPath = shape.get_geometry_paths()[0]
-    originalPath.fill_mode = slides.PathFillModeType.NONE
-
-    gPath = draw.drawing2d.GraphicsPath()
-
-    gPath.add_string("Text in shape", draw.FontFamily("Arial"), 1, 40, draw.PointF(10, 10), draw.StringFormat.generic_default)
-
-    textPath = slides.util.ShapeUtil.graphics_path_to_geometry_path(gPath)
-    textPath.fill_mode = slides.PathFillModeType.NORMAL
-
-    shape.set_geometry_paths([originalPath, textPath])
-```
-![example5_image](custom_shape_5.png)
