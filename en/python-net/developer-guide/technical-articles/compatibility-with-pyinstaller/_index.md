@@ -13,15 +13,15 @@ keywords:
 description: "Package Aspose.Slides for Python via .NET with PyInstaller. Follow this guide to bundle, configure, and troubleshoot your app into a standalone executable."
 ---
 
+## **Compatibility with PyInstaller and cx_Freeze**
 
-## Compatibility with PyInstaller and cx_Freeze ##
+Aspose.Slides for Python via .NET extensions are standard Python C extensions, so they can be frozen as program dependencies with tools like PyInstaller and cx_Freeze (or similar). This allows you to create executable files from your Python scripts. Such tools are called “freezers” because they bundle your code and its dependencies into a single distributable file that runs on other machines without requiring a Python installation or additional libraries. This approach simplifies distributing your Python applications.
 
-'Aspose.Slides for Python via .NET' extensions are simply Python C-extensions, which can be frozen with the help of PyInstaller and cx_Freeze (or similar tools) as program dependencies. This means that you can use tools like PyInstaller and cx_Freeze to create executable files from your Python scripts. These tools are called freezers because they freeze your code and dependencies into a single file that can run on other machines without requiring Python or other libraries. This makes it easier to distribute your Python applications to others.
+Freezing an Aspose.Slides for Python via .NET extension as a dependency is illustrated below with a simple program that uses Aspose.Slides.
 
-Freezing an 'Aspose.Slides for Python via .NET' extension as a program dependency is illustrated with an example of a simple program that uses Aspose.Slides.
+### **PyInstaller**
 
-### PyInstaller
-Generally, nothing special needs to be done when packaging a program that depends on a 'Aspose.Slides for Python via .NET' extension. When a program imports an extension in a way that is visible to PyInstaller, the extension will be packaged along with the program. Since 'Aspose.Slides for Python via .NET' extensions come with PyInstaller hooks, their own dependencies will be found and copied into the bundle.
+Generally, nothing special is required when packaging a program that depends on an Aspose.Slides for Python via .NET extension. When a program imports the extension in a way visible to PyInstaller, the extension will be bundled with the program. Because Aspose.Slides for Python via .NET includes PyInstaller hooks, its dependencies are automatically detected and copied into the bundle.
 
 slide_app.py:
 ```python
@@ -30,14 +30,14 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50.0, 150.0, 300.0, 0.0)
-    presentation.save("NewPresentation_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-```
+```bash
 $ pyinstaller slide_app.py
 ```
 
-However, sometimes PyInstaller cannot detect some hidden imports, which are modules that are imported dynamically or indirectly by your code. To handle a hidden import in PyInstaller, use PyInstaller's options. The dependencies of an extension are specified in PyInstaller hooks that come with the 'Aspose.Slides for Python via .NET' extension.
+However, PyInstaller may occasionally miss hidden imports—modules that are imported dynamically or indirectly by your code. To include a hidden import, use PyInstaller’s options. The extension’s dependencies are specified in the PyInstaller hooks that ship with Aspose.Slides for Python via .NET.
 
 slide_app.spec:
 ```
@@ -48,19 +48,22 @@ a = Analysis(
 )
 ```
 
-```
+```bash
 $ pyinstaller slide_app.spec
 ```
 
-### cx_Freeze ###
-To freeze a program using cx_Freeze, use its options to freeze the root package of the 'Aspose.Slides for Python via .NET' extension that you are using. This will ensure that the extension and the modules it depends on are copied with the program.
+### **cx_Freeze**
 
-#### Using the cxfreeze script ####
-```
+To freeze a program with cx_Freeze, configure it to include the root package of the Aspose.Slides for Python via .NET extension you are using. This ensures the extension and all dependent modules are copied into the build alongside your application.
+
+#### **Using the cxfreeze Script**
+
+```bash
 $ cxfreeze slide_app.py --packages=aspose
 ```
 
-#### Using the Setup script ####
+#### **Using the Setup Script**
+
 setup.py:
 ```
 executables = [Executable('slide_app.py')]
@@ -74,10 +77,8 @@ options = {
 setup(...
     options=options,
     executables=executables)
-
 ```
 
-
-```
+```bash
 $ python setup.py build_exe
 ```

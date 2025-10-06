@@ -19,223 +19,169 @@ keywords:
 description: "Effortlessly manage table cells in PowerPoint and OpenDocument with Aspose.Slides for Python via .NET. Master accessing, modifying, and styling cells quickly for seamless slide automation."
 ---
 
-## **Identify Merged Table Cell**
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
-2. Get the table from the first slide. 
-3. Iterate through the table's rows and columns to find merge cells.
-4. Print message when merged cells are found.
+## **Overview**
 
-This Python code shows you how to identify merged table cells in a presentation:
+This article shows how to work with table cells in presentations using Aspose.Slides. You’ll learn how to detect merged cells, clear or customize cell borders, and understand how PowerPoint numbers cells after merge and split operations so you can predict indexing in complex layouts. The article also demonstrates common formatting tasks—such as changing a cell’s background fill—and shows how to place an image directly inside a table cell with picture fill settings. Each scenario is accompanied by concise Python examples that create or edit tables and then save the updated presentation, so you can adapt the snippets to your own slides quickly.
+
+## **Identify Merged Table Cells**
+
+Tables often contain merged cells for headers or to group related data. In this section, you’ll see how to determine whether a specific cell belongs to a merged region and how to reference the master (top-left) cell so you can read or format the whole block consistently.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get the table from the first slide.
+1. Iterate through the table’s rows and columns to find merged cells.
+1. Print a message when merged cells are found.
+
+The following Python code identifies merged table cells in a presentation:
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation(path + "SomePresentationWithTable.pptx") as pres:
-    table = pres.slides[0].shapes[0] # assuming that #0.Shape#0 is a table
-    for i in range(len(table.rows)):
-        for j in range(len(table.columns)):
-            currentCell = table.rows[i][j]
-            if currentCell.is_merged_cell:
-                print("Cell 01 is a part of merged cell with RowSpan=2 and ColSpan=3 starting from Cell 45.".format(
-                    i, j, currentCell.row_span, currentCell.col_span, currentCell.first_row_index, currentCell.first_column_index))
+with slides.Presentation("presentation_with_table.pptx") as presentation:
+    # Assuming the first shape on the first slide is a table.
+    table = presentation.slides[0].shapes[0]
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.columns)):
+            cell = table.rows[row_index][column_index]
+            if cell.is_merged_cell:
+                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
+                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
 ```
 
-## **Remove Table Cells Border**
-1. Create an instance of the `Presentation` class.
-2. Get a slide's reference through its index. 
-3. Define an array of columns with width.
-4. Define an array of rows with height.
-5. Add a table to the slide through the `AddTable` method.
-6. Iterate through every cell to clear the top, bottom, right, and left borders.
-7. Save the modified presentation as a PPTX file.
+## **Remove Table Cell Borders**
 
-This Python code shows you how to remove the borders from table cells:
+Sometimes table borders distract from the content or create visual clutter. This section shows how to remove borders from selected cells—or specific sides of a cell—so you can achieve a cleaner layout and better align with your slide’s design.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get the slide by its index.
+1. Define an array of column widths.
+1. Define an array of row heights.
+1. Add a table to the slide using the [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) method.
+1. Iterate through each cell to clear the top, bottom, left, and right borders.
+1. Save the modified presentation as a PPTX file.
+
+The following Python code shows how to remove borders from table cells:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiates the Presentation class that represents a PPTX file
-with slides.Presentation() as pres:
-   # Accesses the first slide
-    sld = pres.slides[0]
+# Instantiate the Presentation class that represents a PPTX file.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Defines columns with widths and rows with heights
-    dblCols = [ 50, 50, 50, 50 ]
-    dblRows = [ 50, 30, 30, 30, 30 ]
+    # Define columns with widths and rows with heights.
+    column_widths = [50, 50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-    # Adds a table shape to the slide
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Sets border format for each cell
-    for row in tbl.rows:
+    # Clear the border fill for each cell.
+    for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    #Writes the PPTX file to Disk
-    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Numbering in Merged Cells**
-If we merge 2 pairs of cells (1, 1) x (2, 1) and (1, 2) x (2, 2), the resulting table will be numbered. This Python code demonstrates the process:
+
+If you merge two pairs of cells—for example, (1, 1) x (2, 1) and (1, 2) x (2, 2)—the resulting table will keep the same cell numbering as the table without merging. The following Python code demonstrates this behavior:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiates the Presentation class that represents a PPTX file
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # Accesses the first slide
-    sld = presentation.slides[0]
-
-    # Defines columns with widths and rows with heights
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
-
-    # Adds a table shape to slide
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
-
-    # Sets the border format for each cell
-    for row in tbl.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Merges cells (1, 1) x (2, 1)
-    tbl.merge_cells(tbl.rows[1][1], tbl.rows[2][1], False)
-
-    # Merges cells (1, 2) x (2, 2)
-    tbl.merge_cells(tbl.rows[1][2], tbl.rows[2][2], False)
-
-    presentation.save("MergeCells_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-We then merge the cells further by merging (1, 1) and (1, 2). The result is a table containing a large merged cell in its center: 
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# Instantiates the Presentation class that represents a PPTX file
-with slides.Presentation() as presentation:
-    # Accesses the first slide
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Defines columns with widths and rows with heights
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70]
+    # Define columns with widths and rows with heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # Adds a table shape to slide
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Sets the border format for each cell
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Merges cells (1, 1) x (2, 1)
+    # Merge cells (1,1) and (2,1).
     table.merge_cells(table.rows[1][1], table.rows[2][1], False)
 
-    # Merges cells (1, 2) x (2, 2)
+    # Merge cells (1, 2) and (2, 2).
     table.merge_cells(table.rows[1][2], table.rows[2][2], False)
 
-    # Merges cells (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][1], table.rows[1][2], True)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
 
-    #Writes the PPTX file to disk
-    presentation.save("MergeCells1_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Numbering in Splitted Cell**
-In previous examples, when table cells got merged, the numeration or number system in other cells did not change. 
+Output:
 
-This time, we take a regular table (a table without merged cells) and then try to split cell (1,1) to get a special table. You may want to pay attention to this table's numbering, which may be considered strange. However, that is the way Microsoft PowerPoint numerates table cells and Aspose.Slides does the same thing. 
+```text
+(0, 0) (0, 1) (0, 2) (0, 3) 
+(1, 0) (1, 1) (1, 2) (1, 3) 
+(2, 0) (1, 1) (1, 2) (2, 3) 
+(3, 0) (3, 1) (3, 2) (3, 3)
+```
 
-This Python code demonstrates the process we described:
+## **Numbering in Split Cells**
+
+In previous example, when table cells were merged, the numbering in the other cells did not change. This time, we create a regular table (with no merged cells) and then split cell (1, 1) to produce a special table. Pay attention to this table’s numbering—it may look unusual. However, this is how Microsoft PowerPoint numbers table cells, and Aspose.Slides follows the same behavior.
+
+The following Python code demonstrates this behavior:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiates the Presentation class that represents a PPTX file
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # Accesses first slide
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Defines columns with widths and rows with heights
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
+    # Define column widths and row heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # Adds a table shape to the slide
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Sets the border format for each cell
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Merges cells (1, 1) x (2, 1)
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Merges cells (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Splits cell (1, 1). 
+    # Split cell (1, 1).
     table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
 
-    #Writes the PPTX file to disk
-    presentation.save("CellSplit_out.pptx", slides.export.SaveFormat.PPTX)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
+
+    # Save the PPTX file to disk.
+    presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Output:
+
+```text
+(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
+(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
+(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
+(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
 ```
 
 ## **Change Table Cell Background Color**
 
-This Python code shows you how to change a table cell's background color:
+The following Python example demonstrates how to change a table cell’s background color:
 
 ```python
 import aspose.pydrawing as draw
@@ -244,13 +190,13 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    dblCols = [ 150, 150, 150, 150 ]
-    dblRows = [ 50, 50, 50, 50, 50 ]
+    column_widths = [150, 150, 150, 150]
+    row_heights = [50, 50, 50, 50, 50]
 
-    # create a new table
-    table = slide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Create a new table.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # set the background color for a cell 
+    # Set the background color for a cell.
     cell = table.rows[2][3]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
@@ -258,48 +204,48 @@ with slides.Presentation() as presentation:
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Add Image Inside Table Cell**
-1. Create an instance of the`Presentation` class.
-2. Get a slide's reference through its index.
-3. Define an array of columns with width.
-4. Define an array of rows with height.
-5. Add a table to the slide through the `AddTable` method. 
-6. Create a `Bitmap` object to hold the image file.
-7. Add the bitmap image to the `IPPImage` object.
-8. Set the `FillFormat` for the Table Cell to `Picture`.
-9. Add the image to the table's first cell.
-10. Save the modified presentation as a PPTX file
+## **Insert Images into Table Cells**
 
-This Python code shows you how to place an image inside a table cell when creating a table:
+This section shows how to insert an image into a table cell in Aspose.Slides. It covers applying a picture fill to the target cell and configuring display options such as stretch or tile.
+
+1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class.
+1. Get a slide reference by its index.
+1. Define an array of column widths.
+1. Define an array of row heights.
+1. Add a table to the slide with the [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/) method.
+1. Load the image from a file.
+1. Add the image to the presentation’s images to obtain a [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+1. Set the table cell’s [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) to `PICTURE`.
+1. Apply the image to the table cell and choose a fill mode (e.g., `STRETCH`).
+1. Save the presentation as a PPTX file.
+
+The following Python code shows how to place an image inside a table cell when creating a table:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instantiates a Presentation class object
+# Instantiate a Presentation object.
 with slides.Presentation() as presentation:
-    # Accesses the first slide
-    islide = presentation.slides[0]
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Defines columns with widths and rows with heights
-    dblCols =  [150, 150, 150, 150] 
-    dblRows =  [100, 100, 100, 100, 90] 
+    # Define column widths and row heights.
+    column_widths = [150, 150, 150, 150]
+    row_heights = [100, 100, 100, 100]
 
-    # Adds a table shape to the slide
-    tbl = islide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Creates a Bitmap Image object to hold the image file
-    image = draw.Bitmap(path + "aspose-logo.jpg")
+    # Load the image and add it to the presentation to obtain a PPImage.
+    with slides.Images.from_file("image.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Creates an IPPImage object using the bitmap object
-    imgx1 = presentation.images.add_image(image)
+    # Apply the image to the first table cell.
+    cell = table.rows[0][0]
+    cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
+    cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    cell.cell_format.fill_format.picture_fill_format.picture.image = image
 
-    # Adds the image to the first table cell
-    tbl.rows[0][0].cell_format.fill_format.fill_type = slides.FillType.PICTURE
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture.image = imgx1
-
-    # Saves the PPTX to disk
-    presentation.save("Image_In_TableCell_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
-
