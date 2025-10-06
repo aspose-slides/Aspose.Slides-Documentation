@@ -30,25 +30,25 @@ In this article, we’ll explore the common use cases for automated PowerPoint g
 
 Automating PowerPoint generation is especially useful in scenarios where presentation content needs to be dynamically assembled, personalized, or frequently updated. Some of the most common real-world use cases include:
 
-- **Business Reports & Dashboards**  
+- **Business Reports & Dashboards**
   Generate sales summaries, KPIs, or financial performance reports by pulling live data from databases or APIs.
 
-- **Personalized Sales & Marketing Decks**  
+- **Personalized Sales & Marketing Decks**
   Automatically create client-specific pitch decks using CRM or form data, ensuring quick turnaround and brand consistency.
 
-- **Educational Content**  
+- **Educational Content**
   Convert learning material, quizzes, or course summaries into structured slide decks for e-learning platforms.
 
-- **Data & AI-Powered Insights**  
+- **Data & AI-Powered Insights**
   Use natural language processing or analytics engines to transform raw data or long-form text into summarized presentations.
 
-- **Media-Based Slides**  
+- **Media-Based Slides**
   Assemble presentations from uploaded images, annotated screenshots, or video keyframes with supporting descriptions.
 
-- **Document Conversion**  
+- **Document Conversion**
   Automatically convert Word documents, PDFs, or form inputs into visual presentations with minimal manual effort.
 
-- **Developer and Technical Tools**  
+- **Developer and Technical Tools**
   Create tech demos, documentation overviews, or changelogs in slide format directly from code or markdown content.
 
 By automating these workflows, organizations can scale their content creation, maintain consistency, and free up time for more strategic work.
@@ -80,21 +80,22 @@ using var presentation = new Presentation();
 var slide0 = presentation.Slides[0];
 slide0.LayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Title);
 
-var titleShape = slide0.Shapes[0] as AutoShape;
-var subtitleShape = slide0.Shapes[1] as AutoShape;
+var titleShape = slide0.Shapes[0] as IAutoShape;
+var subtitleShape = slide0.Shapes[1] as IAutoShape;
 
 titleShape.TextFrame.Text = "Quarterly Business Review – Q1 2025";
 subtitleShape.TextFrame.Text = "Prepared for Executive Team";
 ```
 
-![Title slide image](slide_0.png)
+![The title slide](slide_0.png)
 
 ### **Add a Slide with a Column Chart**
 
 Next, we’ll create a slide showing regional sales performance as a column chart.
 
 ```cs
-var slide1 = presentation.Slides.AddEmptySlide(presentation.LayoutSlides.GetByType(SlideLayoutType.Blank));
+var layoutSlide1 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var slide1 = presentation.Slides.AddEmptySlide(layoutSlide1);
 
 var chart = slide1.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 350, false);
 chart.Legend.Position = LegendPositionType.Bottom;
@@ -119,16 +120,20 @@ series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 4, 1
 series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(worksheetIndex, 5, 1, 120));
 ```
 
-![Title slide image](slide_1.png)
+![The slide with the chart](slide_1.png)
 
 ### **Add a Slide with a Table**
 
 We’ll now add a slide that presents key performance metrics in table format.
 
 ```cs
-var slide2 = presentation.Slides.AddEmptySlide(presentation.LayoutSlides.GetByType(SlideLayoutType.Blank));
+var layoutSlide2 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var slide2 = presentation.Slides.AddEmptySlide(layoutSlide2);
 
-var table = slide2.Shapes.AddTable(200, 200, new Double[] { 200, 100 }, new Double[] { 40, 40, 40, 40, 40});
+var columnWidths = new double[] { 200, 100 };
+var rowHeights = new double[] { 40, 40, 40, 40, 40 };
+
+var table = slide2.Shapes.AddTable(200, 200, columnWidths, rowHeights);
 table[0, 0].TextFrame.Text = "Metric";
 table[1, 0].TextFrame.Text = "Value";
 table[0, 1].TextFrame.Text = "Total Revenue";
@@ -141,7 +146,7 @@ table[0, 4].TextFrame.Text = "Customer Retention";
 table[1, 4].TextFrame.Text = "87%";
 ```
 
-![Title slide image](slide_2.png)
+![The slide with the table](slide_2.png)
 
 ### **Add a Summary Slide with Bullet Points**
 
@@ -160,7 +165,8 @@ IParagraph CreateBulletParagraph(string text)
 }
 ```
 ```cs
-var slide3 = presentation.Slides.AddEmptySlide(presentation.LayoutSlides.GetByType(SlideLayoutType.Blank));
+var layoutSlide3 = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var slide3 = presentation.Slides.AddEmptySlide(layoutSlide3);
 
 var bulletList = slide3.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 50, 600, 200);
 bulletList.FillFormat.FillType = FillType.NoFill;
@@ -173,7 +179,7 @@ bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Prepare new campaign 
 bulletList.TextFrame.Paragraphs.Add(CreateBulletParagraph("Schedule follow-up review in early July"));
 ```
 
-![Title slide image](slide_3.png)
+![The slide with the text](slide_3.png)
 
 ### **Save the Presentation**
 
