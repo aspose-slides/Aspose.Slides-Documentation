@@ -924,11 +924,11 @@ pres->Save(u"mapChart.pptx", SaveFormat::Pptx);
 
 ### **Creating Combination Charts**
 
-A combination chart (or combo chart) is a chart that combines two or more chart types into a single graph. This type of chart allows you to highlight, compare, or review differences between two or more sets of data, enabling you to identify any relationships between them.
+A combination chart (or combo chart) combines two or more chart types in a single graph. This chart lets you highlight, compare, or examine differences between two or more data sets, helping you identify relationships between them.
 
 ![The combination chart](combination_chart.png)
 
-This C++ code shows how to create the combination chart from the above image in a PowerPoint presentation:
+The following C++ code shows how to create the combination chart shown above in a PowerPoint presentation:
 
 ```cpp
 static SharedPtr<IChart> CreateChartWithFirstSeries(SharedPtr<ISlide> slide)
