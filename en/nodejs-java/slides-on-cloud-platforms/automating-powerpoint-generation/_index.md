@@ -158,7 +158,8 @@ function CreateBulletParagraph(text) {
     paragraph.setText(text);
     return paragraph;
 }
-
+```
+```js
 let layoutSlide3 = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
 let slide3 = presentation.getSlides().addEmptySlide(layoutSlide3);
 

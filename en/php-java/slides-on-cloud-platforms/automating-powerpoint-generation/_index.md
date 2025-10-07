@@ -157,7 +157,8 @@ function createBulletParagraph(string $text) {
     $paragraph->setText($text);
     return $paragraph;
 }
-
+```
+```php
 $layoutSlide3 = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 $slide3 = $presentation->getSlides()->addEmptySlide($layoutSlide3);
 
