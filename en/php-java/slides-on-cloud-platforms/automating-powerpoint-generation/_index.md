@@ -107,7 +107,7 @@ $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex,
 $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 4, 0, "Latin America"));
 $chart->getChartData()->getCategories()->add($workbook->getCell($worksheetIndex, 5, 0, "Middle East"));
 
-$series = $chart->getChartData()->getSeries()->add($workbook->getCell($worksheetIndex, 0, 1, "Sales ($K)"), $chart->getType());
+$series = $chart->getChartData()->getSeries()->add($workbook->getCell($worksheetIndex, 0, 1, "Sales (\$K)"), $chart->getType());
 $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 1, 1, 480));
 $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 2, 1, 365));
 $series->getDataPoints()->addDataPointForBarSeries($workbook->getCell($worksheetIndex, 3, 1, 290));
@@ -132,7 +132,7 @@ $table = $slide2->getShapes()->addTable(200, 200, $columnWidths, $rowHeights);
 $table->getColumns()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Metric");
 $table->getColumns()->get_Item(1)->get_Item(0)->getTextFrame()->setText("Value");
 $table->getColumns()->get_Item(0)->get_Item(1)->getTextFrame()->setText("Total Revenue");
-$table->getColumns()->get_Item(1)->get_Item(1)->getTextFrame()->setText("$1.4M");
+$table->getColumns()->get_Item(1)->get_Item(1)->getTextFrame()->setText("\$1.4M");
 $table->getColumns()->get_Item(0)->get_Item(2)->getTextFrame()->setText("Gross Margin");
 $table->getColumns()->get_Item(1)->get_Item(2)->getTextFrame()->setText("54%");
 $table->getColumns()->get_Item(0)->get_Item(3)->getTextFrame()->setText("New Customers");
@@ -148,7 +148,7 @@ $table->getColumns()->get_Item(1)->get_Item(4)->getTextFrame()->setText("87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```php
-function createBulletParagraph(string $text) {
+function createBulletParagraph($text) {
     $paragraph = new Paragraph();
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
     $paragraph->getParagraphFormat()->setIndent(15);

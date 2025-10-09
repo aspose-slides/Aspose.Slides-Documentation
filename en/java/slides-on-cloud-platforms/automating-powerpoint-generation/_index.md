@@ -148,7 +148,7 @@ table.getColumns().get_Item(1).get_Item(4).getTextFrame().setText("87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```java
-static IParagraph CreateBulletParagraph(String text) {
+static IParagraph createBulletParagraph(String text) {
     Paragraph paragraph = new Paragraph();
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     paragraph.getParagraphFormat().setIndent(15);
@@ -167,10 +167,10 @@ bulletList.getFillFormat().setFillType(FillType.NoFill);
 bulletList.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
 
 bulletList.getTextFrame().getParagraphs().clear();
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Strong performance in North America; growth opportunity in Asia Pacific"));
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Improve marketing outreach in underperforming regions"));
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Prepare new campaign strategy for Q2"));
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Schedule follow-up review in early July"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Strong performance in North America; growth opportunity in Asia Pacific"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Improve marketing outreach in underperforming regions"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Prepare new campaign strategy for Q2"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Schedule follow-up review in early July"));
 ```
 
 ![The slide with the text](slide_3.png)

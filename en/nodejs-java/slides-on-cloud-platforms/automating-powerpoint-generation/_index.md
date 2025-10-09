@@ -149,7 +149,7 @@ table.getColumns().get_Item(1).get_Item(4).getTextFrame().setText("87%");
 Lastly, we’ll include a summary and action plan using a simple bullet list.
 
 ```js
-function CreateBulletParagraph(text) {
+function createBulletParagraph(text) {
     let paragraph = new aspose.slides.Paragraph();
     paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     paragraph.getParagraphFormat().setIndent(15);
@@ -168,10 +168,10 @@ bulletList.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFil
 bulletList.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
 bulletList.getTextFrame().getParagraphs().clear();
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Strong performance in North America; growth opportunity in Asia Pacific"));
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Improve marketing outreach in underperforming regions"));
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Prepare new campaign strategy for Q2"));
-bulletList.getTextFrame().getParagraphs().add(CreateBulletParagraph("Schedule follow-up review in early July"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Strong performance in North America; growth opportunity in Asia Pacific"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Improve marketing outreach in underperforming regions"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Prepare new campaign strategy for Q2"));
+bulletList.getTextFrame().getParagraphs().add(createBulletParagraph("Schedule follow-up review in early July"));
 ```
 
 ![The slide with the text](slide_3.png)
