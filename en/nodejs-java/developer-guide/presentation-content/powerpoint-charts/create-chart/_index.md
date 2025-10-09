@@ -810,9 +810,9 @@ A map chart is a visualization of an area containing data. Map charts are best u
 This JavaScript code shows you how to create a map chart:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+let pres = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
+    let chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Map, 50, 50, 500, 400);
     pres.save("mapChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
