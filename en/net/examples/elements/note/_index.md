@@ -4,31 +4,32 @@ type: docs
 weight: 240
 url: /net/examples/elements/elements/note/
 keywords:
-- note example
+- note
 - add notes slide
 - access notes slide
 - remove notes slide
 - update notes text
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Add, read, edit, and export speaker notes in C# with Aspose.Slides: format text, manage notes per slide, and control visibility in PowerPoint and OpenDocument."
+description: "Work with slide notes in Aspose.Slides for .NET: add, read, edit, and export speaker notes in PPT, PPTX, and ODP using clear C# examples."
 ---
 
-Shows how to add, read, remove, and update notes slides using **Aspose.Slides for .NET**.
+This article demonstrates how to add, read, remove, and update notes slides using **Aspose.Slides for .NET**.
 
 ## **Add a Notes Slide**
 
 Create a notes slide and assign text to it.
 
 ```csharp
-static void Add_Note()
+static void AddNote()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
     slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "My note";
@@ -40,10 +41,11 @@ static void Add_Note()
 Read text from an existing notes slide.
 
 ```csharp
-static void Access_Note()
+static void AccessNote()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
     var notes = notesSlide.NotesTextFrame.Text;
@@ -55,10 +57,11 @@ static void Access_Note()
 Remove the notes slide associated with a slide.
 
 ```csharp
-static void Remove_Note()
+static void RemoveNote()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
     slide.NotesSlideManager.RemoveNotesSlide();
@@ -70,10 +73,11 @@ static void Remove_Note()
 Change the text of a notes slide.
 
 ```csharp
-static void Update_Note_Text()
+static void UpdateNoteText()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
     slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "Old";

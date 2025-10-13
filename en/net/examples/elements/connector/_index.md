@@ -4,33 +4,34 @@ type: docs
 weight: 190
 url: /net/examples/elements/connector/
 keywords:
-- connector example
+- connector
 - add connector
 - access connector
 - remove connector
 - reconnect shapes
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Draw and control connectors in C# with Aspose.Slides: add, route, reroute, set connection points, arrows and styles to link shapes in PPT, PPTX and ODP."
+description: "Learn how to add, route, and style connectors between shapes using Aspose.Slides for .NET, with C# examples for PPT, PPTX, and ODP presentations."
 ---
 
-Shows how to connect shapes with connectors and change their targets using **Aspose.Slides for .NET**.
+This article demonstrates how to connect shapes with connectors and change their targets using **Aspose.Slides for .NET**.
 
 ## **Add a Connector**
 
 Insert a connector shape between two points on the slide.
 
 ```csharp
-static void Add_Connector()
+static void AddConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 }
 ```
 
@@ -39,10 +40,11 @@ static void Add_Connector()
 Retrieve the first connector shape added to a slide.
 
 ```csharp
-static void Access_Connector()
+static void AccessConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
     var connector = slide.Shapes.OfType<IConnector>().First();
@@ -54,13 +56,14 @@ static void Access_Connector()
 Delete a connector from the slide.
 
 ```csharp
-static void Remove_Connector()
+static void RemoveConnector()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    slide.Shapes.Remove(conn);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+
+    slide.Shapes.Remove(connector);
 }
 ```
 
@@ -69,15 +72,16 @@ static void Remove_Connector()
 Attach a connector to two shapes by assigning start and end targets.
 
 ```csharp
-static void Reconnect_Shapes()
+static void ReconnectShapes()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
     var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 50, 50);
-    var conn = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+    var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-    conn.StartShapeConnectedTo = shape1;
-    conn.EndShapeConnectedTo = shape2;
+    connector.StartShapeConnectedTo = shape1;
+    connector.EndShapeConnectedTo = shape2;
 }
 ```

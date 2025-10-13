@@ -1,32 +1,33 @@
 ---
-title: HeaderFooter
+title: Header Footer
 type: docs
 weight: 220
-url: /net/examples/elements/elements/header-footer/
+url: /net/examples/elements/elements/headerfooter/
 keywords:
-- header footer example
+- header footer
 - add header footer
 - update header footer
+- code example
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Control headers and footers in C# with Aspose.Slides: add or edit date/time, slide numbers, and footer text, show or hide placeholders across PPT, PPTX and ODP."
+description: "Control slide headers and footers with Aspose.Slides for .NET: add dates, slide numbers, and custom text in PPT, PPTX, and ODP with C# examples."
 ---
 
-Shows how to add footers and update date and time placeholders using **Aspose.Slides for .NET**.
+This article demonstrates how to add footers and update date and time placeholders using **Aspose.Slides for .NET**.
 
 ## **Add a Footer**
 
 Add text to the footer area of a slide and make it visible.
 
 ```csharp
-static void Add_Header_Footer()
+static void AddHeaderFooter()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
     slide.HeaderFooterManager.SetFooterText("My footer");
     slide.HeaderFooterManager.SetFooterVisibility(isVisible: true);
@@ -38,10 +39,11 @@ static void Add_Header_Footer()
 Modify the date and time placeholder on a slide.
 
 ```csharp
-static void Update_Date_Time()
+static void UpdateDateTime()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     slide.HeaderFooterManager.SetDateTimeText("01/01/2024");
     slide.HeaderFooterManager.SetDateTimeVisibility(isVisible: true);
 }
