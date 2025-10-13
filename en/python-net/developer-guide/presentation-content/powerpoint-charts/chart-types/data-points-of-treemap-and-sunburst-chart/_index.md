@@ -17,90 +17,83 @@ keywords:
 description: "Learn how to manage data points in treemap and sunburst charts with Aspose.Slides for Python via .NET, compatible with PowerPoint and OpenDocument formats."
 ---
 
-Among other types of PowerPoint charts, there are two "hierarchical" types - **Treemap** and **Sunburst** chart (also known as Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph or Multi Level Pie Chart). These charts display hierarchical data organized as a tree - from leaves to the top of the branch. Leaves are defined by the series data points, and each subsequent nested grouping level defined by the corresponding category. Aspose.Slides for Python via .NET allows to format data points of Sunburst Chart and Treemap in Python.
+## **Introduction**
 
-Here is a Sunburst Chart, where data in Series1 column define the leaf nodes, while other columns define hierarchical datapoints:
+Among other PowerPoint chart types, there are two hierarchical ones—**Treemap** and **Sunburst** (also known as Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph, or Multi-Level Pie Chart). These charts display hierarchical data organized as a tree—from leaves to the top of a branch. Leaves are defined by the series data points, and each subsequent nested grouping level is defined by the corresponding category. Aspose.Slides for Python via .NET allows you to format data points of Sunburst charts and Treemaps in Python.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+Here is a Sunburst chart where data in the Series1 column defines the leaf nodes, while the other columns define hierarchical data points:
 
-Let’s start with adding a new Sunburst chart to the presentation:
+![Sunburst chart example](sunburst_example.png)
 
-
+Let’s start by adding a new Sunburst chart to the presentation:
 
 ```py
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 100, 100, 450, 400)
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [**Creating Sunburst Chart**](/slides/python-net/adding-charts/#addingcharts-creatingsunburstchart)
+{{% alert color="primary" title="See also" %}}
+- [**Create Sunburst Charts**](/slides/python-net/create-chart/#create-sunburst-charts)
 {{% /alert %}}
 
+If you need to format chart data points, use the following APIs:
 
-If there is a need to format data points of the chart, we should use the following:
+[ChartDataPointLevelsManager](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointlevelsmanager/), [ChartDataPointLevel](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointlevel/), and the [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/) property. They provide access to formatting data points in Treemap and Sunburst charts. [ChartDataPointLevelsManager](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointlevelsmanager/) is used to access multi-level categories; it represents a container of [ChartDataPointLevel](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointlevel/) objects. It is essentially a wrapper around [ChartCategoryLevelsManager](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartcategorylevelsmanager/) with additional properties specific to data points. The [ChartDataPointLevel](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointlevel/) type exposes two properties—[format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointlevel/format/) and [label](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatapointlevel/label/)—which provide access to the corresponding settings.
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevelsManager/), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapointlevel/) classes 
-and [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapoint/) property 
-provide access to format data points of Treemap and Sunburst charts. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevelsManager/) 
-is used for accessing multi-level categories - it represents the container of 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevel/) objects. 
-Basically it is a wrapper for 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartCategoryLevelsManager/) with 
-the properties added specific for data points. 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/IChartDataPointLevel/) class has 
-two properties: [**Format**](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapointlevel/) and 
-[**DataLabel** ](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichartdatapointlevel/)which 
-provide access to corresponding settings.
-## **Show Data Point Value**
-Show value of "Leaf 4" data point:
+## **Display Data Point Values**
 
+This section shows how to display the value for individual data points in Treemap and Sunburst charts. You’ll see how to enable value labels for selected points.
 
+Display the value of the "Leaf 4" data point:
 
 ```py
-    dataPoints = chart.chart_data.series[0].data_points
-    dataPoints[3].data_point_levels[0].label.data_label_format.show_value = True
+data_points = chart.chart_data.series[0].data_points
+data_points[3].data_point_levels[0].label.data_label_format.show_value = True
 ```
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
-## **Set Data Point Label and Color**
-Set "Branch 1" data label to show series name ("Series1") instead of category name. Then set text color to yellow:
+![Data point value](data_point_value.png)
 
+## **Set Labels and Colors for Data Points**
 
+This section shows how to set custom labels and colors for individual data points in Treemap and Sunburst charts. You will learn how to access a specific data point, assign a label, and apply a solid fill to highlight important nodes.
+
+Set the "Branch 1" data label to show the series name ("Series1") instead of the category name, and then set the text color to yellow:
 
 ```py
-    branch1Label = dataPoints[0].data_point_levels[2].label
-    branch1Label.data_label_format.show_category_name = False
-    branch1Label.data_label_format.show_series_name = True
+branch1_label = data_points[0].data_point_levels[2].label
+branch1_label.data_label_format.show_category_name = False
+branch1_label.data_label_format.show_series_name = True
 
-    branch1Label.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    branch1Label.data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.yellow
+branch1_label.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
+branch1_label.data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.yellow
 ```
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-## **Set Data Point Branch Color**
+![Data point's label and color](data_point_color.png)
 
-Change color of "Stem 4" branch:
+## **Set Branch Colors for Data Points**
+
+Use branch colors to control how parent and child nodes are visually grouped in Treemap and Sunburst charts. This section shows how to set a custom branch color for a specific data point so you can highlight important subtrees and improve chart readability.
+
+Change the color of the "Stem 4" branch:
 
 ```py
-import aspose.slides.charts as charts
 import aspose.slides as slides
+import aspose.slides.charts as charts
 import aspose.pydrawing as draw
 
-with slides.Presentation() as pres:
-    chart = pres.slides[0].shapes.add_chart(charts.ChartType.SUNBURST, 100, 100, 450, 400)
-    dataPoints = chart.chart_data.series[0].data_points
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    stem4branch = dataPoints[9].data_point_levels[1]
+    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
+    data_points = chart.chart_data.series[0].data_points
+
+    stem4_branch = data_points[9].data_point_levels[1]
     
-    stem4branch.format.fill.fill_type = slides.FillType.SOLID
-    stem4branch.format.fill.solid_fill_color.color = draw.Color.red
+    stem4_branch.format.fill.fill_type = slides.FillType.SOLID
+    stem4_branch.format.fill.solid_fill_color.color = draw.Color.red
       
-    pres.save("pres.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("branch_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
-
-
-
+![Branch color](branch_color.png)
