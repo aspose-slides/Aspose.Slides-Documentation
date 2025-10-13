@@ -2,42 +2,51 @@
 title: ActiveX
 type: docs
 weight: 200
-url: /net/examples/elements/activex
+url: /net/examples/elements/activex/
+keywords:
+- code example
+- ActiveX
+- PowerPoint
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "See Aspose.Slides for .NET ActiveX examples: insert, configure, and control ActiveX objects in PPT and PPTX presentations with clear C# code."
 ---
 
-Demonstrates how to add, access, remove, and configure ActiveX controls in a presentation using **Aspose.Slides for .NET**.
+This article demonstrates how to add, access, remove, and configure ActiveX controls in a presentation using **Aspose.Slides for .NET**.
 
-## Add an ActiveX Control
+## **Add an ActiveX Control**
 
 Insert a new ActiveX control and optionally set its properties.
 
 ```csharp
-static void Add_ActiveX()
+static void AddActiveX()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Add a new ActiveX control (TextBox)
+    // Add a new ActiveX control (TextBox).
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-    // Optionally set some properties
+    // Optionally set some properties.
     control.Properties["Value"] = "Default text";
 
-    pres.Save("add_activex.pptm", SaveFormat.Pptm);
+    presentation.Save("add_activex.pptm", SaveFormat.Pptm);
 }
 ```
 
-## Access an ActiveX Control
+## **Access an ActiveX Control**
 
 Read information from the first ActiveX control on the slide.
 
 ```csharp
-static void Access_ActiveX()
+static void AccessActiveX()
 {
-    using var pres = new Presentation("add_activex.pptm");
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("add_activex.pptm");
+    var slide = presentation.Slides[0];
 
-    // Access the first ActiveX control
+    // Access the first ActiveX control.
     var control = slide.Controls.FirstOrDefault();
     if (control != null)
     {
@@ -47,41 +56,41 @@ static void Access_ActiveX()
 }
 ```
 
-## Remove an ActiveX Control
+## **Remove an ActiveX Control**
 
 Delete an existing ActiveX control from the slide.
 
 ```csharp
-static void Remove_ActiveX()
+static void RemoveActiveX()
 {
-    using var pres = new Presentation("add_activex.pptm");
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation("add_activex.pptm");
+    var slide = presentation.Slides[0];
 
     if (slide.Controls.Count > 0)
     {
-        // Remove the first ActiveX control
+        // Remove the first ActiveX control.
         slide.Controls.RemoveAt(0);
     }
 
-    pres.Save("removed_activex.pptm", SaveFormat.Pptm);
+    presentation.Save("removed_activex.pptm", SaveFormat.Pptm);
 }
 ```
 
-## Set ActiveX Properties
+## **Set ActiveX Properties**
 
 Add a control and configure several ActiveX properties.
 
 ```csharp
-static void Set_ActiveX_Properties()
+static void SetActiveXProperties()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Add a CommandButton and configure properties
+    // Add a CommandButton and configure properties.
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 150, 50);
     control.Properties["Caption"] = "Click Me";
     control.Properties["Enabled"] = "true";
 
-    pres.Save("set_activex_props.pptm", SaveFormat.Pptm);
+    presentation.Save("set_activex_props.pptm", SaveFormat.Pptm);
 }
 ```

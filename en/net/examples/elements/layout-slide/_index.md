@@ -2,32 +2,44 @@
 title: Layout Slide
 type: docs
 weight: 20
-url: /net/examples/elements/layout-slide
+url: /net/examples/elements/layoutslide/
+keywords:
+- code example
+- layout slide
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Master layout slides in Aspose.Slides for .NET: choose, apply, and customize slide layouts, placeholders, and masters with C# examples for PPT, PPTX, and ODP presentations."
 ---
 
 This article demonstrates how to work with **Layout Slides** in Aspose.Slides for .NET. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
 
-## Add a Layout Slide
+## **Add a Layout Slide**
 
 You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
 
 ```csharp
-static void Add_Layout_Slide()
+static void AddLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Create a layout slide with a blank layout type and a custom name
-    var layoutSlide = pres.LayoutSlides.Add(pres.Masters[0], SlideLayoutType.Blank, "Main layout");
+    var masterSlide = presentation.Masters[0];
 
-    // Add a text box to the layout slide
+    // Create a layout slide with a blank layout type and a custom name.
+    var layoutSlide = presentation.LayoutSlides.Add(masterSlide, SlideLayoutType.Blank, "Main layout");
+
+    // Add a text box to the layout slide.
     var layoutTextBox = layoutSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 75, y: 75, width: 150, height: 150);
     layoutTextBox.TextFrame.Text = "Layout Slide Text";
 
-    // Add two slides using this layout; both will inherit the text from the layout
-    pres.Slides.AddEmptySlide(layoutSlide);
-    pres.Slides.AddEmptySlide(layoutSlide);
+    // Add two slides using this layout; both will inherit the text from the layout.
+    presentation.Slides.AddEmptySlide(layoutSlide);
+    presentation.Slides.AddEmptySlide(layoutSlide);
 }
-````
+```
 
 > 💡 **Tip 1:** Layout slides act as templates for individual slides. You can define common elements once and reuse them across many slides.
 
@@ -36,67 +48,66 @@ static void Add_Layout_Slide()
 
 ![Slides Inheriting Layout Content](layout-slide-result.png)
 
-
-## Access a Layout Slide
+## **Access a Layout Slide**
 
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```csharp
-static void Access_Layout_Slide()
+static void AccessLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Access by index
-    var firstLayoutSlide = pres.LayoutSlides[0];
+    // Access a layout slide by index.
+    var firstLayoutSlide = presentation.LayoutSlides[0];
     
-    // Access by layout type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Access a layout slide by type.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 }
 ```
 
-## Remove a Layout Slide
+## **Remove a Layout Slide**
 
 You can remove a specific layout slide if it's no longer needed.
 
 ```csharp
-static void Remove_Layout_Slide()
+static void RemoveLayoutSlide()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get a layout slide by type and remove it
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
-    pres.LayoutSlides.Remove(blankLayoutSlide);
+    // Get a layout slide by type and remove it.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    presentation.LayoutSlides.Remove(blankLayoutSlide);
 }
 ```
 
-## Remove Unused Layout Slides
+## **Remove Unused Layout Slides**
 
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
 ```csharp
-static void RemoveUnused_Layout_Slides()
+static void RemoveUnusedLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Automatically removes all layout slides not referenced by any slide
-    pres.LayoutSlides.RemoveUnused();
+    // Automatically removes all layout slides not referenced by any slide.
+    presentation.LayoutSlides.RemoveUnused();
 }
 ```
 
-## Clone a Layout Slide
+## **Clone a Layout Slide**
 
 You can duplicate a layout slide using the `AddClone` method.
 
 ```csharp
-static void Clone_Layout_Slides()
+static void CloneLayoutSlides()
 {
-    using var pres = new Presentation();
+    using var presentation = new Presentation();
     
-    // Get an existing layout slide by type
-    var blankLayoutSlide = pres.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    // Get an existing layout slide by type.
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
     
-    // Clone the layout slide to the end of the layout slide collection
-    var clonedLayoutSlide = pres.LayoutSlides.AddClone(blankLayoutSlide);
+    // Clone the layout slide to the end of the layout slide collection.
+    var clonedLayoutSlide = presentation.LayoutSlides.AddClone(blankLayoutSlide);
 }
 ```
 

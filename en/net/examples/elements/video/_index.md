@@ -2,70 +2,83 @@
 title: Video
 type: docs
 weight: 80
-url: /net/examples/elements/video
+url: /net/examples/elements/video/
+keywords:
+- code example
+- video
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Add and control videos with Aspose.Slides for .NET: insert, play, trim, set poster frames, and export with C# examples for PPT, PPTX, and ODP presentations."
 ---
 
-Shows how to embed video frames and set playback options using **Aspose.Slides for .NET**.
+This article demonstrates how to embed video frames and set playback options using **Aspose.Slides for .NET**.
 
-## Add a Video Frame
+## **Add a Video Frame**
 
 Insert an empty video frame onto a slide.
 
 ```csharp
-static void Add_Video()
+static void AddVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
 
-    // Add an empty embedded video frame
+    // Add a video.
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 }
 ```
 
-## Access a Video Frame
+## **Access a Video Frame**
 
 Retrieve the first video frame added to a slide.
 
 ```csharp
-static void Access_Video()
+static void AccessVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Access the first video frame on the slide
+    // Access the first video frame on the slide.
     var firstVideo = slide.Shapes.OfType<IVideoFrame>().First();
 }
 ```
 
-## Remove a Video Frame
+## **Remove a Video Frame**
 
 Delete a video frame from the slide.
 
 ```csharp
-static void Remove_Video()
+static void RemoveVideo()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Remove the video frame
+    // Remove the video frame.
     slide.Shapes.Remove(videoFrame);
 }
 ```
 
-## Set Video Playback
+## **Set Video Playback**
 
 Configure the video to play automatically when the slide is displayed.
 
 ```csharp
-static void Set_Video_Playback()
+static void SetVideoPlayback()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, "video.mp4");
 
-    // Configure the video to play automatically
+    // Configure the video to play automatically.
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 }
 ```

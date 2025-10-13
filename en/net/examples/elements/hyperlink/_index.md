@@ -2,35 +2,47 @@
 title: Hyperlink
 type: docs
 weight: 130
-url: /net/examples/elements/hyperlink
+url: /net/examples/elements/hyperlink/
+keywords:
+- code example
+- hyperlink
+- PowerPoint
+- OpenDocument
+- presentation
+- .NET
+- C#
+- Aspose.Slides
+description: "Add and manage hyperlinks in Aspose.Slides for .NET: link text, shapes, and images, set targets and actions for PPT, PPTX, and ODP with C# examples."
 ---
 
-Demonstrates adding, accessing, removing, and updating hyperlinks on shapes using **Aspose.Slides for .NET**.
+This article demonstrates adding, accessing, removing, and updating hyperlinks on shapes using **Aspose.Slides for .NET**.
 
-## Add a Hyperlink
+## **Add a Hyperlink**
 
 Create a rectangle shape with a hyperlink pointing to an external website.
 
 ```csharp
-static void Add_Hyperlink()
+static void AddHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
     shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 }
 ```
 
-## Access a Hyperlink
+## **Access a Hyperlink**
 
 Read hyperlink information from a shape's text portion.
 
 ```csharp
-static void Access_Hyperlink()
+static void AccessHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
     shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
@@ -39,15 +51,16 @@ static void Access_Hyperlink()
 }
 ```
 
-## Remove a Hyperlink
+## **Remove a Hyperlink**
 
 Clear the hyperlink from a shape's text.
 
 ```csharp
-static void Remove_Hyperlink()
+static void RemoveHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
     shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
@@ -56,15 +69,16 @@ static void Remove_Hyperlink()
 }
 ```
 
-## Update a Hyperlink
+## **Update a Hyperlink**
 
 Change the target of an existing hyperlink. Use `HyperlinkManager` to modify text that already contains a hyperlink, which mimics how PowerPoint updates hyperlinks safely.
 
 ```csharp
-static void Update_Hyperlink()
+static void UpdateHyperlink()
 {
-    using var pres = new Presentation();
-    var slide = pres.Slides[0];
+    using var presentation = new Presentation();
+    var slide = presentation.Slides[0];
+    
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
