@@ -52,9 +52,9 @@ static void AddMasterSlide()
 }
 ```
 
-> 💡 **Tip 1:** Master slides provide a way to apply consistent branding or shared design elements across all slides. Any changes made to the master will automatically reflect on dependent layout and normal slides.
+> 💡 **Note 1:** Master slides provide a way to apply consistent branding or shared design elements across all slides. Any changes made to the master will automatically reflect on dependent layout and normal slides.
 
-> 💡 **Tip 2:** Any shapes or formatting added to a master slide are inherited by layout slides and, in turn, all normal slides using those layouts.
+> 💡 **Note 2:** Any shapes or formatting added to a master slide are inherited by layout slides and, in turn, all normal slides using those layouts.
 > The image below illustrates how a text box added on a master slide is automatically rendered on the final slide.
 
 ![Master Inheritance Example](master-slide-banner.png)
@@ -107,5 +107,3 @@ static void RemoveUnusedMasterSlide()
     presentation.Masters.RemoveUnused(ignorePreserveField: true);
 }
 ```
-
-> ⚙️ **Tip:** Use `RemoveUnused(true)` to clean up unused master slides and minimize the presentation size.

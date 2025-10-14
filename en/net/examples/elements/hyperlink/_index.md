@@ -33,7 +33,9 @@ static void AddHyperlink()
 
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 }
 ```
 
@@ -49,7 +51,9 @@ static void AccessHyperlink()
 
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 
     var hyperlink = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick;
 }
@@ -67,9 +71,11 @@ static void RemoveHyperlink()
 
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 
-    shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick = null;
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+
+    textPortion.PortionFormat.HyperlinkClick = null;
 }
 ```
 
@@ -85,12 +91,13 @@ static void UpdateHyperlink()
     
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
     shape.TextFrame.Text = "Aspose";
-    var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-    portion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
+
+    var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
+    textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
     // Changing a hyperlink inside existing text should be done via
     // HyperlinkManager rather than setting the property directly.
     // This mimics how PowerPoint safely updates hyperlinks.
-    portion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
+    textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 }
 ```
