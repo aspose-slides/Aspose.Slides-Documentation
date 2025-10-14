@@ -27,7 +27,7 @@ static void AddChart()
     using var presentation = new Presentation();
     var slide = presentation.Slides[0];
 
-    // Add a simple column chart to the first slide.
+    // Add a simple area chart to the first slide.
     var chart = slide.Shapes.AddChart(ChartType.Area, 50, 50, 400, 300);
 }
 ```

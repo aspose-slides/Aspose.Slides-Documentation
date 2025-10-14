@@ -27,8 +27,9 @@ static void AddOleObject()
     using var presentation = new Presentation();
     var slide = presentation.Slides[0];
 
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 }
 ```
 
@@ -42,8 +43,9 @@ static void AccessOleObject()
     using var presentation = new Presentation();
     var slide = presentation.Slides[0];
 
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
     var firstOleFrame = slide.Shapes.OfType<IOleObjectFrame>().First();
 }
@@ -59,8 +61,9 @@ static void RemoveOleObject()
     using var presentation = new Presentation();
     var slide = presentation.Slides[0];
 
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
     slide.Shapes.Remove(oleFrame);
 }
@@ -76,10 +79,12 @@ static void UpdateOleObjectData()
     using var presentation = new Presentation();
     var slide = presentation.Slides[0];
 
-    var pdfData = new OleEmbeddedDataInfo(File.ReadAllBytes("doc.pdf"), "pdf");
-    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, pdfData);
+    var pdfData = File.ReadAllBytes("doc.pdf");
+    var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
+    var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
-    var newData = new OleEmbeddedDataInfo(File.ReadAllBytes("Picture.png"), "png");
-    oleFrame.SetEmbeddedData(newData);
+    var newData = File.ReadAllBytes("Picture.png");
+    var newDataInfo = new OleEmbeddedDataInfo(newData, "png");
+    oleFrame.SetEmbeddedData(newDataInfo);
 }
 ```

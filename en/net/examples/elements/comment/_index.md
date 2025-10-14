@@ -78,12 +78,12 @@ static void ReplyToModernComment()
 
     var author = presentation.CommentAuthors.AddAuthor("User", "U1");
 
-    var parent = author.Comments.AddModernComment("Parent comment", slide, null, new PointF(100, 100), DateTime.Now);
+    var parentComment = author.Comments.AddModernComment("Parent comment", slide, null, new PointF(100, 100), DateTime.Now);
     var reply1 = author.Comments.AddModernComment("Reply 1", slide, null, new PointF(110, 100), DateTime.Now);
     var reply2 = author.Comments.AddModernComment("Reply 2", slide, null, new PointF(120, 100), DateTime.Now);
 
-    reply1.ParentComment = parent;
-    reply2.ParentComment = parent;
+    reply1.ParentComment = parentComment;
+    reply2.ParentComment = parentComment;
 
     presentation.Save("modern_comment_replies.pptx", SaveFormat.Pptx);
 }

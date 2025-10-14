@@ -89,7 +89,7 @@ static void CloneSlide()
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
 ```csharp
-static void ReOrderSlide()
+static void ReorderSlide()
 {
     using var presentation = new Presentation();
     var firstSlide = presentation.Slides[0];

@@ -41,9 +41,9 @@ static void AddLayoutSlide()
 }
 ```
 
-> 💡 **Tip 1:** Layout slides act as templates for individual slides. You can define common elements once and reuse them across many slides.
+> 💡 **Note 1:** Layout slides act as templates for individual slides. You can define common elements once and reuse them across many slides.
 
-> 💡 **Tip 2:** When you add shapes or text to a layout slide, all slides based on that layout will display this shared content automatically.
+> 💡 **Note 2:** When you add shapes or text to a layout slide, all slides based on that layout will display this shared content automatically.
 > The screenshot below shows two slides, each inheriting a text box from the same layout slide.
 
 ![Slides Inheriting Layout Content](layout-slide-result.png)
