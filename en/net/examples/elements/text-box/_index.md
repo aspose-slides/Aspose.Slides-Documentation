@@ -37,8 +37,10 @@ public static void AddTextBox()
     textBox.LineFormat.FillFormat.FillType = FillType.NoFill;
 
     // Set text formatting.
-    textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-    textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    var paragraph = textBox.TextFrame.Paragraphs[0];
+    var textFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
+    textFormat.FillFormat.FillType = FillType.Solid;
+    textFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
     // Assign the actual text content.
     textBox.TextFrame.Text = "Some text...";

@@ -2,32 +2,35 @@
 title: SmartArt
 type: docs
 weight: 140
-url: /net/examples/elements/smartart/
+url: /androidjava/examples/elements/smartart/
 keywords:
 - code example
 - SmartArt
 - PowerPoint
 - OpenDocument
 - presentation
-- .NET
-- C#
+- Android
+- Java
 - Aspose.Slides
-description: "Work with SmartArt in Aspose.Slides for .NET: create, edit, convert, and style diagrams with C# for PowerPoint and OpenDocument presentations."
+description: "Work with SmartArt in Aspose.Slides for Android: create, edit, convert, and style diagrams with Java for PowerPoint and OpenDocument presentations."
 ---
 
-This article demonstrates how to add SmartArt graphics, access them, remove them, and change layouts using **Aspose.Slides for .NET**.
+This article demonstrates how to add SmartArt graphics, access them, remove them, and change layouts using **Aspose.Slides for Android via Java**.
 
 ## **Add SmartArt**
 
 Insert a SmartArt graphic using one of the built-in layouts.
 
-```csharp
-static void AddSmartArt()
-{
-    using var presentation = new Presentation();
-    var slide = presentation.Slides[0];
+```java
+static void addSmartArt() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
 
-    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+        ISmartArt smartArt = slide.getShapes().addSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+    } finally {
+        presentation.dispose();
+    }
 }
 ```
 
@@ -35,15 +38,24 @@ static void AddSmartArt()
 
 Retrieve the first SmartArt object on a slide.
 
-```csharp
-static void AccessSmartArt()
-{
-    using var presentation = new Presentation();
-    var slide = presentation.Slides[0];
+```java
+static void accessSmartArt() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
 
-    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+        ISmartArt smartArt = slide.getShapes().addSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
-    var firstSmartArt = slide.Shapes.OfType<ISmartArt>().First();
+        ISmartArt firstSmartArt = null;
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ISmartArt) {
+                firstSmartArt = (ISmartArt) shape;
+                break;
+            }
+        }
+    } finally {
+        presentation.dispose();
+    }
 }
 ```
 
@@ -51,15 +63,18 @@ static void AccessSmartArt()
 
 Delete a SmartArt shape from the slide.
 
-```csharp
-static void RemoveSmartArt()
-{
-    using var presentation = new Presentation();
-    var slide = presentation.Slides[0];
+```java
+static void removeSmartArt() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
 
-    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+        ISmartArt smartArt = slide.getShapes().addSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
-    slide.Shapes.Remove(smartArt);
+        slide.getShapes().remove(smartArt);
+    } finally {
+        presentation.dispose();
+    }
 }
 ```
 
@@ -67,14 +82,16 @@ static void RemoveSmartArt()
 
 Update the layout type of an existing SmartArt graphic.
 
-```csharp
-static void ChangeSmartArtLayout()
-{
-    using var presentation = new Presentation();
-    var slide = presentation.Slides[0];
+```java
+static void changeSmartArtLayout() {
+    Presentation presentation = new Presentation();
+    try {
+        ISlide slide = presentation.getSlides().get_Item(0);
 
-    var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
-
-    smartArt.Layout = SmartArtLayoutType.VerticalPictureList;
+        ISmartArt smartArt = slide.getShapes().addSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicBlockList);
+        smartArt.setLayout(SmartArtLayoutType.VerticalPictureList);
+    } finally {
+        presentation.dispose();
+    }
 }
 ```

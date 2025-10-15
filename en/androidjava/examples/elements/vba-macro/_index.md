@@ -2,7 +2,7 @@
 title: VBA Macro
 type: docs
 weight: 150
-url: /net/examples/elements/vbamacro/
+url: /androidjava/examples/elements/vbamacro/
 keywords:
 - code example
 - VBA
@@ -10,26 +10,29 @@ keywords:
 - PowerPoint
 - OpenDocument
 - presentation
-- .NET
-- C#
+- Android
+- Java
 - Aspose.Slides
-description: "Automate presentations with Aspose.Slides for .NET: create, run, import, and secure VBA macros in PPT, PPTX, and ODP using clear C# examples."
+description: "Automate presentations with Aspose.Slides for Android: create, run, import, and secure VBA macros in PPT, PPTX, and ODP using clear Java examples."
 ---
 
-This article demonstrates how to add, access, and remove VBA macros using **Aspose.Slides for .NET**.
+This article demonstrates how to add, access, and remove VBA macros using **Aspose.Slides for Android via Java**.
 
 ## **Add a VBA Macro**
 
 Create a presentation with a VBA project and a simple macro module.
 
-```csharp
-static void AddVbaMacro()
-{
-    using var presentation = new Presentation();
-    presentation.VbaProject = new VbaProject();
+```java
+static void addVbaMacro() {
+    Presentation presentation = new Presentation();
+    try {
+        presentation.setVbaProject(new VbaProject());
 
-    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-    module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
+        IVbaModule module = presentation.getVbaProject().getModules().addEmptyModule("Module");
+        module.setSourceCode("Sub Test()\n MsgBox \"Hi\" \nEnd Sub");
+    } finally {
+        presentation.dispose();
+    }
 }
 ```
 
@@ -37,16 +40,19 @@ static void AddVbaMacro()
 
 Retrieve the first module from the VBA project.
 
-```csharp
-static void AccessVbaMacro()
-{
-    using var presentation = new Presentation();
-    presentation.VbaProject = new VbaProject();
+```java
+static void accessVbaMacro() {
+    Presentation presentation = new Presentation();
+    try {
+        presentation.setVbaProject(new VbaProject());
 
-    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-    module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
+        IVbaModule module = presentation.getVbaProject().getModules().addEmptyModule("Module");
+        module.setSourceCode("Sub Test()\n MsgBox \"Hi\" \nEnd Sub");
 
-    var firstModule = presentation.VbaProject.Modules[0];
+        IVbaModule firstModule = presentation.getVbaProject().getModules().get_Item(0);
+    } finally {
+        presentation.dispose();
+    }
 }
 ```
 
@@ -54,15 +60,18 @@ static void AccessVbaMacro()
 
 Delete a module from the VBA project.
 
-```csharp
-static void RemoveVbaMacro()
-{
-    using var presentation = new Presentation();
-    presentation.VbaProject = new VbaProject();
+```java
+static void removeVbaMacro() {
+    Presentation presentation = new Presentation();
+    try {
+        presentation.setVbaProject(new VbaProject());
 
-    var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-    module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
+        IVbaModule module = presentation.getVbaProject().getModules().addEmptyModule("Module");
+        module.setSourceCode("Sub Test()\n MsgBox \"Hi\" \nEnd Sub");
 
-    presentation.VbaProject.Modules.Remove(module);
+        presentation.getVbaProject().getModules().remove(module);
+    } finally {
+        presentation.dispose();
+    }
 }
 ```
