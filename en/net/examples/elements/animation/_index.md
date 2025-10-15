@@ -23,7 +23,7 @@ This article demonstrates how to create simple animations and manage their seque
 
 ## **Add an Animation**
 
-Create a rectangle shape and apply a fade-in effect triggered on click.
+Create a rectangle shape and apply a fade effect triggered on click.
 
 ```csharp
 static void AddAnimation()
@@ -33,8 +33,8 @@ static void AddAnimation()
 
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
 
-    // Fade in effect.
-    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    // Fade effect.
+    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 }
 ```
 
@@ -49,7 +49,7 @@ static void AccessAnimation()
     var slide = presentation.Slides[0];
 
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
     // Access the first animation effect.
     var effect = slide.Timeline.MainSequence[0];
@@ -67,7 +67,7 @@ static void RemoveAnimation()
     var slide = presentation.Slides[0];
 
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-    var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+    var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
     // Remove the effect.
     slide.Timeline.MainSequence.Remove(effect);
