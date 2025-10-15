@@ -19,7 +19,7 @@ This article demonstrates how to create simple animations and manage their seque
 
 ## **Add an Animation**
 
-Create a rectangle shape and apply a fade-in effect triggered on click.
+Create a rectangle shape and apply a fade effect triggered on click.
 
 ```java
 static void addAnimation() {
@@ -29,9 +29,9 @@ static void addAnimation() {
 
         IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
 
-        // Fade in effect.
+        // Fade effect.
         slide.getTimeline().getMainSequence().addEffect(
-                shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick
+                shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick
         );
     } finally {
         presentation.dispose();
@@ -51,7 +51,7 @@ static void accessAnimation() {
 
         IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
         slide.getTimeline().getMainSequence().addEffect(
-                shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+                shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
         // Access the first animation effect.
         IEffect effect = slide.getTimeline().getMainSequence().get_Item(0);
@@ -73,7 +73,7 @@ static void removeAnimation() {
 
         IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
         IEffect effect = slide.getTimeline().getMainSequence().addEffect(
-                shape, EffectType.Fade, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+                shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
         // Remove the effect.
         slide.getTimeline().getMainSequence().remove(effect);

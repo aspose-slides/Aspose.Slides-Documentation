@@ -29,7 +29,7 @@ static void addAudio() {
 
         // Create an empty audio frame (audio will be embedded later).
         IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new java.io.ByteArrayInputStream(new byte[0]));
+                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
     } finally {
         presentation.dispose();
     }
@@ -47,7 +47,7 @@ static void accessAudio() {
         ISlide slide = presentation.getSlides().get_Item(0);
 
         slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new java.io.ByteArrayInputStream(new byte[0]));
+                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
 
         // Access the first audio frame on the slide.
         IAudioFrame firstAudio = null;
@@ -74,7 +74,7 @@ static void removeAudio() {
         ISlide slide = presentation.getSlides().get_Item(0);
 
         IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new java.io.ByteArrayInputStream(new byte[0]));
+                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
 
         // Remove the audio frame.
         slide.getShapes().remove(audioFrame);
@@ -95,7 +95,7 @@ static void setAudioPlayback() {
         ISlide slide = presentation.getSlides().get_Item(0);
         
         IAudioFrame audioFrame = slide.getShapes().addAudioFrameEmbedded(
-                50, 50, 100, 100, new java.io.ByteArrayInputStream(new byte[0]));
+                50, 50, 100, 100, new ByteArrayInputStream(new byte[0]));
 
         // Play automatically when the slide appears.
         audioFrame.setPlayMode(AudioPlayModePreset.Auto);
