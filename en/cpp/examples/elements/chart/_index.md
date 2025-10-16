@@ -47,8 +47,7 @@ static void AccessChart()
 
     // Access the first chart on the slide.
     auto firstChart = SharedPtr<IChart>();
-    for (auto i = 0; i < slide->get_Shapes()->get_Count(); ++i) {
-        auto shape = slide->get_Shape(i);
+    for (auto&& shape : slide->get_Shapes()) {
         if (ObjectExt::Is<IChart>(shape)) {
             firstChart = ExplicitCast<IChart>(shape);
             break;

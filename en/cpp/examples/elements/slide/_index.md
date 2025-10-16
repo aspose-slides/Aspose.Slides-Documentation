@@ -2,37 +2,35 @@
 title: Slide
 type: docs
 weight: 10
-url: /androidjava/examples/elements/slide/
+url: /cpp/examples/elements/slide/
 keywords:
 - code example
 - slide
 - PowerPoint
 - OpenDocument
 - presentation
-- Android
-- Java
+- C++
 - Aspose.Slides
-description: "Control slides in Aspose.Slides for Android: create, clone, reorder, resize, set backgrounds, and apply transitions with Java for PPT, PPTX, and ODP presentations."
+description: "Control slides in Aspose.Slides for C++: create, clone, reorder, resize, set backgrounds, and apply transitions with C++ for PPT, PPTX, and ODP presentations."
 ---
 
-This article provides a series of examples that demonstrate how to work with slides using **Aspose.Slides for Android via Java**. You’ll learn how to add, access, clone, reorder, and remove slides using the `Presentation` class.
+This article provides a series of examples that demonstrate how to work with slides using **Aspose.Slides for C++**. You’ll learn how to add, access, clone, reorder, and remove slides using the `Presentation` class.
 
-Each example below includes a brief explanation followed by a code snippet in Java.
+Each example below includes a brief explanation followed by a code snippet in C++.
 
 ## **Add a Slide**
 
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
-```java
-static void addSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+```cpp
+static void AddSlide()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-        presentation.getSlides().addEmptySlide(blankLayout);
-    } finally {
-        presentation.dispose();
-    }
+    presentation->get_Slides()->AddEmptySlide(blankLayout);
+
+    presentation->Dispose();
 }
 ```
 
@@ -44,24 +42,24 @@ static void addSlide() {
 
 You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
 
-```java
-static void accessSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        // Add another empty slide.
-        ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
-        presentation.getSlides().addEmptySlide(blankLayout);
+```cpp
+static void AccessSlide()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        // Access slides by index.
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
-        ISlide secondSlide = presentation.getSlides().get_Item(1);
+    // Add another empty slide.
+    auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+    presentation->get_Slides()->AddEmptySlide(blankLayout);
 
-        // Get slide index from a reference, then access it by index.
-        int secondSlideIndex = presentation.getSlides().indexOf(secondSlide);
-        ISlide secondSlideByIndex = presentation.getSlides().get_Item(secondSlideIndex);
-    } finally {
-        presentation.dispose();
-    }
+    // Access slides by index.
+    auto firstSlide = presentation->get_Slide(0);
+    auto secondSlide = presentation->get_Slide(1);
+
+    // Get slide index from a reference, then access it by index.
+    auto secondSlideIndex = presentation->get_Slides()->IndexOf(secondSlide);
+    auto secondSlideByIndex = presentation->get_Slide(secondSlideIndex);
+
+    presentation->Dispose();
 }
 ```
 
@@ -69,18 +67,17 @@ static void accessSlide() {
 
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
-```java
-static void cloneSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
+```cpp
+static void CloneSlide()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto firstSlide = presentation->get_Slide(0);
 
-        ISlide clonedSlide = presentation.getSlides().addClone(firstSlide);
+    auto clonedSlide = presentation->get_Slides()->AddClone(firstSlide);
 
-        int clonedSlideIndex = presentation.getSlides().indexOf(clonedSlide);
-    } finally {
-        presentation.dispose();
-    }
+    auto clonedSlideIndex = presentation->get_Slides()->IndexOf(clonedSlide);
+
+    presentation->Dispose();
 }
 ```
 
@@ -88,36 +85,35 @@ static void cloneSlide() {
 
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
-```java
-static void reorderSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
+```cpp
+static void ReorderSlide()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto firstSlide = presentation->get_Slide(0);
 
-        ISlide clonedSlide = presentation.getSlides().addClone(firstSlide);
+    auto clonedSlide = presentation->get_Slides()->AddClone(firstSlide);
 
-        presentation.getSlides().reorder(0, clonedSlide);
-    } finally {
-        presentation.dispose();
-    }
+    presentation->get_Slides()->Reorder(0, clonedSlide);
+
+    presentation->Dispose();
 }
 ```
 
 ## **Remove a Slide**
 
-To remove a slide, simply reference it and call `remove`. This example adds a second slide and then removes the original, leaving only the new one.
+To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
 
-```java
-static void removeSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
-        ISlide secondSlide = presentation.getSlides().addEmptySlide(blankLayout);
+```cpp
+static void RemoveSlide()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        ISlide firstSlide = presentation.getSlides().get_Item(0);
-        presentation.getSlides().remove(firstSlide);
-    } finally {
-        presentation.dispose();
-    }
+    auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+    auto secondSlide = presentation->get_Slides()->AddEmptySlide(blankLayout);
+
+    auto firstSlide = presentation->get_Slide(0);
+    presentation->get_Slides()->Remove(firstSlide);
+
+    presentation->Dispose();
 }
 ```

@@ -2,54 +2,52 @@
 title: Math Text
 type: docs
 weight: 160
-url: /androidjava/examples/elements/mathtext/
+url: /cpp/examples/elements/mathtext/
 keywords:
 - code example
 - mathematical text
 - PowerPoint
 - OpenDocument
 - presentation
-- Android
-- Java
+- C++
 - Aspose.Slides
-description: "Explore Aspose.Slides for Android MathematicalText examples: create and format equations, fractions, matrices, and symbols with Java in PPT, PPTX, and ODP presentations."
+description: "Explore Aspose.Slides for C++ MathematicalText examples: create and format equations, fractions, matrices, and symbols with C++ in PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates working with mathematical text shapes and formatting equations using **Aspose.Slides for Android via Java**.
+This article demonstrates working with mathematical text shapes and formatting equations using **Aspose.Slides for C++**.
 
 ## **Add Math Text**
 
 Create a math shape containing a fraction and the Pythagorean formula.
 
-```java
-static void addMathText() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void AddMathText()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
 
-        // Add a Math shape to the slide.
-        IAutoShape mathShape = slide.getShapes().addMathShape(0, 0, 720, 150);
+    // Add a Math shape to the slide.
+    auto mathShape = slide->get_Shapes()->AddMathShape(0, 0, 720, 150);
 
-        // Access the math paragraph.
-        IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        IPortion textPortion = paragraph.getPortions().get_Item(0);
-        IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
+    // Access the math paragraph.
+    auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
+    auto textPortion = paragraph->get_Portion(0);
+    auto mathParagraph = ExplicitCast<MathPortion>(textPortion)->get_MathParagraph();
 
-        // Add a simple fraction: x / y.
-        IMathElement fraction = new MathematicalText("x").divide("y");
-        mathParagraph.add(new MathBlock(fraction));
+    // Add a simple fraction: x / y.
+    auto fraction = MakeObject<MathematicalText>(u"x")->Divide(u"y");
+    mathParagraph->Add(MakeObject<MathBlock>(fraction));
 
-        // Add equation: c² = a² + b².
-        IMathBlock mathBlock = new MathematicalText("c")
-                .setSuperscript("2")
-                .join("=")
-                .join(new MathematicalText("a").setSuperscript("2"))
-                .join("+")
-                .join(new MathematicalText("b").setSuperscript("2"));
-        mathParagraph.add(mathBlock);
-    } finally {
-        presentation.dispose();
-    }
+    // Add equation: c² = a² + b².
+    auto mathBlock = MakeObject<MathematicalText>(u"c")
+        ->SetSuperscript(u"2")
+        ->Join(u"=")
+        ->Join(MakeObject<MathematicalText>(u"a")->SetSuperscript(u"2"))
+        ->Join(u"+")
+        ->Join(MakeObject<MathematicalText>(u"b")->SetSuperscript(u"2"));
+    mathParagraph->Add(mathBlock);
+
+    presentation->Dispose();
 }
 ```
 
@@ -57,50 +55,47 @@ static void addMathText() {
 
 Locate a shape that contains a math paragraph on the slide.
 
-```java
-static void accessMathText() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void AccessMathText()
+{
+    auto presentation = MakeObject<Presentation>(u"sample.pptx");
+    auto slide = presentation->get_Slide(0);
 
-        // Find the first shape that contains a math paragraph.
-        IAutoShape mathShape = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof IAutoShape) {
-                IAutoShape autoShape = (IAutoShape) shape;
-                ITextFrame textFrame = autoShape.getTextFrame();
-                if (textFrame != null) {
-                    boolean hasMath = false;
-                    for (IParagraph paragraph : textFrame.getParagraphs()) {
-                        for (IPortion portion : paragraph.getPortions()) {
-                            if (portion instanceof MathPortion) {
-                                hasMath = true;
-                                break;
-                            }
-                        }
-                        if (hasMath) break;
-                    }
-                    if (hasMath) {
-                        mathShape = autoShape;
+    // Find the first shape that contains a math paragraph.
+    auto mathShape = SharedPtr<IAutoShape>();
+    for (auto&& shape : slide->get_Shapes()) {
+        if (ObjectExt::Is<IAutoShape>(shape)) {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto textFrame = autoShape->get_TextFrame();
+            auto hasMath = false;
+            for (auto&& paragraph : textFrame->get_Paragraphs()) {
+                for (auto&& textPortion : paragraph->get_Portions()) {
+                    if (ObjectExt::Is<MathPortion>(textPortion)) {
+                        hasMath = true;
                         break;
                     }
                 }
+                if (hasMath) break;
+            }
+            if (hasMath) {
+                mathShape = autoShape;
+                break;
             }
         }
-
-        if (mathShape != null) {
-            IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-            IPortion textPortion = paragraph.getPortions().get_Item(0);
-            IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
-
-            // Example: create a fraction (not added here).
-            IMathElement fraction = new MathematicalText("x").divide("y");
-
-            // Use mathParagraph or fraction as needed...
-        }
-    } finally {
-        presentation.dispose();
     }
+
+    if (mathShape != nullptr) {
+        auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
+        auto textPortion = paragraph->get_Portion(0);
+        auto mathParagraph = ExplicitCast<MathPortion>(textPortion)->get_MathParagraph();
+
+        // Example: create a fraction (not added here).
+        auto fraction = MakeObject<MathematicalText>(u"x")->Divide(u"y");
+
+        // Use mathParagraph or fraction as needed...
+    }
+
+    presentation->Dispose();
 }
 ```
 
@@ -108,25 +103,24 @@ static void accessMathText() {
 
 Delete a math shape from the slide.
 
-```java
-static void removeMathText() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void RemoveMathText()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
 
-        IAutoShape mathShape = slide.getShapes().addMathShape(50, 50, 100, 50);
+    auto mathShape = slide->get_Shapes()->AddMathShape(50, 50, 100, 50);
 
-        IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        IPortion textPortion = paragraph.getPortions().get_Item(0);
-        IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
-        IMathElement fraction = new MathematicalText("x").divide("y");
-        mathParagraph.add(new MathBlock(fraction));
+    auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
+    auto textPortion = paragraph->get_Portion(0);
+    auto mathParagraph = ExplicitCast<MathPortion>(textPortion)->get_MathParagraph();
+    auto fraction = MakeObject<MathematicalText>(u"x")->Divide(u"y");
+    mathParagraph->Add(MakeObject<MathBlock>(fraction));
 
-        // Remove the math shape.
-        slide.getShapes().remove(mathShape);
-    } finally {
-        presentation.dispose();
-    }
+    // Remove the math shape.
+    slide->get_Shapes()->Remove(mathShape);
+
+    presentation->Dispose();
 }
 ```
 
@@ -134,22 +128,21 @@ static void removeMathText() {
 
 Set font properties for a math portion.
 
-```java
-static void formatMathText() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void FormatMathText()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
 
-        IAutoShape mathShape = slide.getShapes().addMathShape(50, 50, 100, 50);
-        IParagraph paragraph = mathShape.getTextFrame().getParagraphs().get_Item(0);
-        IPortion textPortion = paragraph.getPortions().get_Item(0);
-        IMathParagraph mathParagraph = ((MathPortion) textPortion).getMathParagraph();
-        IMathElement fraction = new MathematicalText("x").divide("y");
-        mathParagraph.add(new MathBlock(fraction));
+    auto mathShape = slide->get_Shapes()->AddMathShape(50, 50, 100, 50);
+    auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
+    auto textPortion = paragraph->get_Portion(0);
+    auto mathParagraph = ExplicitCast<MathPortion>(textPortion)->get_MathParagraph();
+    auto fraction = MakeObject<MathematicalText>(u"x")->Divide(u"y");
+    mathParagraph->Add(MakeObject<MathBlock>(fraction));
 
-        textPortion.getPortionFormat().setFontHeight(20);
-    } finally {
-        presentation.dispose();
-    }
+    textPortion->get_PortionFormat()->set_FontHeight(20);
+
+    presentation->Dispose();
 }
 ```

@@ -82,7 +82,7 @@ Master slides can be removed either by index or by reference.
 
 ```java
 static void removeMasterSlide() {
-    Presentation presentation = new Presentation();
+    Presentation presentation = new Presentation("sample.pptx");
     try {
         // Remove a master slide by index.
         presentation.getMasters().removeAt(0);
