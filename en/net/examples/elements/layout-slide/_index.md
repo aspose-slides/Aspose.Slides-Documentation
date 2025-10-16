@@ -75,7 +75,7 @@ static void RemoveLayoutSlide()
     using var presentation = new Presentation();
     
     // Get a layout slide by type and remove it.
-    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+    var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Custom);
     presentation.LayoutSlides.Remove(blankLayoutSlide);
 }
 ```

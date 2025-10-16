@@ -78,7 +78,7 @@ static void removeLayoutSlide() {
     Presentation presentation = new Presentation();
     try {
         // Get a layout slide by type and remove it.
-        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Custom);
         presentation.getLayoutSlides().remove(blankLayoutSlide);
     } finally {
         presentation.dispose();

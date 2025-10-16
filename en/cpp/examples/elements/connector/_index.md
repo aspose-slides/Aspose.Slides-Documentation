@@ -45,8 +45,7 @@ static void AccessConnector()
 
     // Access the first connector on the slide.
     auto connector = SharedPtr<IConnector>();
-    for (auto i = 0; i < slide->get_Shapes()->get_Count(); ++i) {
-        auto shape = slide->get_Shape(i);
+    for (auto&& shape :  slide->get_Shapes()) {
         if (ObjectExt::Is<IConnector>(shape)) {
             connector = ExplicitCast<IConnector>(shape);
             break;

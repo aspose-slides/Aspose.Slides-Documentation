@@ -56,7 +56,7 @@ Locate a shape that contains a math paragraph on the slide.
 ```csharp
 static void AccessMathText()
 {
-    using var presentation = new Presentation();
+    using var presentation = new Presentation("sample.pptx");
     var slide = presentation.Slides[0];
 
     // Find the first shape that contains a math paragraph.

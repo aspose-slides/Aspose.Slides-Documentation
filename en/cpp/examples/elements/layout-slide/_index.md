@@ -2,44 +2,42 @@
 title: Layout Slide
 type: docs
 weight: 20
-url: /androidjava/examples/elements/layoutslide/
+url: /cpp/examples/elements/layoutslide/
 keywords:
 - code example
 - layout slide
 - PowerPoint
 - OpenDocument
 - presentation
-- Android
-- Java
+- C++
 - Aspose.Slides
-description: "Master layout slides in Aspose.Slides for Android: choose, apply, and customize slide layouts, placeholders, and masters with Java examples for PPT, PPTX, and ODP presentations."
+description: "Master layout slides in Aspose.Slides for C++: choose, apply, and customize slide layouts, placeholders, and masters with C++ examples for PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates how to work with **Layout Slides** in Aspose.Slides for Android via Java. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
+This article demonstrates how to work with **Layout Slides** in Aspose.Slides for C++. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
 
 ## **Add a Layout Slide**
 
 You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
 
-```java
-static void addLayoutSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+```cpp
+static void AddLayoutSlide()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto masterSlide = presentation->get_Master(0);
 
-        // Create a layout slide with a blank layout type and a custom name.
-        ILayoutSlide layoutSlide = presentation.getLayoutSlides().add(masterSlide, SlideLayoutType.Blank, "Main layout");
+    // Create a layout slide with a blank layout type and a custom name.
+    auto layoutSlide = presentation->get_LayoutSlides()->Add(masterSlide, SlideLayoutType::Blank, u"Main layout");
 
-        // Add a text box to the layout slide.
-        IAutoShape layoutTextBox = layoutSlide.getShapes().addAutoShape(ShapeType.Rectangle, 75, 75, 150, 150);
-        layoutTextBox.getTextFrame().setText("Layout Slide Text");
+    // Add a text box to the layout slide.
+    auto layoutTextBox = layoutSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 75, 75, 150, 150);
+    layoutTextBox->get_TextFrame()->set_Text(u"Layout Slide Text");
 
-        // Add two slides using this layout; both will inherit the text from the layout.
-        presentation.getSlides().addEmptySlide(layoutSlide);
-        presentation.getSlides().addEmptySlide(layoutSlide);
-    } finally {
-        presentation.dispose();
-    }
+    // Add two slides using this layout; both will inherit the text from the layout.
+    presentation->get_Slides()->AddEmptySlide(layoutSlide);
+    presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+    presentation->Dispose();
 }
 ```
 
@@ -54,18 +52,18 @@ static void addLayoutSlide() {
 
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
-```java
-static void accessLayoutSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        // Access a layout slide by index.
-        ILayoutSlide firstLayoutSlide = presentation.getLayoutSlides().get_Item(0);
+```cpp
+static void AccessLayoutSlide()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        // Access a layout slide by type.
-        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
-    } finally {
-        presentation.dispose();
-    }
+    // Access a layout slide by index.
+    auto firstLayoutSlide = presentation->get_LayoutSlide(0);
+
+    // Access a layout slide by type.
+    auto blankLayoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+    presentation->Dispose();
 }
 ```
 
@@ -73,16 +71,16 @@ static void accessLayoutSlide() {
 
 You can remove a specific layout slide if it's no longer needed.
 
-```java
-static void removeLayoutSlide() {
-    Presentation presentation = new Presentation();
-    try {
-        // Get a layout slide by type and remove it.
-        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
-        presentation.getLayoutSlides().remove(blankLayoutSlide);
-    } finally {
-        presentation.dispose();
-    }
+```cpp
+static void RemoveLayoutSlide()
+{
+    auto presentation = MakeObject<Presentation>();
+
+    // Get a layout slide by type and remove it.
+    auto blankLayoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Custom);
+    presentation->get_LayoutSlides()->Remove(blankLayoutSlide);
+
+    presentation->Dispose();
 }
 ```
 
@@ -90,34 +88,34 @@ static void removeLayoutSlide() {
 
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
-```java
-static void removeUnusedLayoutSlides() {
-    Presentation presentation = new Presentation();
-    try {
-        // Automatically removes all layout slides not referenced by any slide.
-        presentation.getLayoutSlides().removeUnused();
-    } finally {
-        presentation.dispose();
-    }
+```cpp
+static void RemoveUnusedLayoutSlides()
+{
+    auto presentation = MakeObject<Presentation>();
+
+    // Automatically removes all layout slides not referenced by any slide.
+    presentation->get_LayoutSlides()->RemoveUnused();
+
+    presentation->Dispose();
 }
 ```
 
 ## **Clone a Layout Slide**
 
-You can duplicate a layout slide using the `addClone` method.
+You can duplicate a layout slide using the `AddClone` method.
 
-```java
-static void cloneLayoutSlides() {
-    Presentation presentation = new Presentation();
-    try {
-        // Get an existing layout slide by type.
-        ILayoutSlide blankLayoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+```cpp
+static void CloneLayoutSlides()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        // Clone the layout slide to the end of the layout slide collection.
-        ILayoutSlide clonedLayoutSlide = presentation.getLayoutSlides().addClone(blankLayoutSlide);
-    } finally {
-        presentation.dispose();
-    }
+    // Get an existing layout slide by type.
+    auto blankLayoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
+    // Clone the layout slide to the end of the layout slide collection.
+    auto clonedLayoutSlide = presentation->get_LayoutSlides()->AddClone(blankLayoutSlide);
+
+    presentation->Dispose();
 }
 ```
 

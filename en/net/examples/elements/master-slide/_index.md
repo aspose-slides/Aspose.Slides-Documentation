@@ -79,7 +79,7 @@ Master slides can be removed either by index or by reference.
 ```csharp
 static void RemoveMasterSlide()
 {
-    using var presentation = new Presentation();
+    using var presentation = new Presentation("sample.pptx");
 
     // Remove a master slide by index.
     presentation.Masters.RemoveAt(0);

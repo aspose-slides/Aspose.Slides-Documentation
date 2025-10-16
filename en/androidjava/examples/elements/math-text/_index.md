@@ -59,7 +59,7 @@ Locate a shape that contains a math paragraph on the slide.
 
 ```java
 static void accessMathText() {
-    Presentation presentation = new Presentation();
+    Presentation presentation = new Presentation("sample.pptx");
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
