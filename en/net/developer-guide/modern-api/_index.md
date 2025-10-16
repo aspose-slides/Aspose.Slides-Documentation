@@ -258,10 +258,6 @@ using (Presentation pres = new Presentation())
 |-----------------------------------------------------------|-----------------------------------------------------|
 | Bitmap GetTileImage(Color background, Color foreground)   | [GetTileIImage(SlidesImage image)](https://reference.aspose.com/slides/net/aspose.slides/ipatternformateffectivedata/gettileiimage)                    |
 
-## Support for Aspose.Slides.NET6.CrossPlatform will be discontinued
-
-Following the release of [Aspose.Slides.NET](https://www.nuget.org/packages/Aspose.Slides.NET) version 24.8, support for [Aspose.Slides.NET6.CrossPlatform](https://www.nuget.org/packages/Aspose.Slides.NET6.CrossPlatform) will be discontinued.
-
 ## API support for Graphics and PrinterSettings will be discontinued
 
 The [Graphics](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.graphics) class is not supported for cross-platform versions of .NET6 and higher. In Aspose Slides, the part of the API that uses it will be removed:
