@@ -2,36 +2,35 @@
 title: Slide Transition
 type: docs
 weight: 110
-url: /androidjava/examples/elements/slidetransition/
+url: /cpp/examples/elements/slidetransition/
 keywords:
 - code example
 - slide transition
 - PowerPoint
 - OpenDocument
 - presentation
-- Android
-- Java
+- C++
 - Aspose.Slides
-description: "Master slide transitions in Aspose.Slides for Android: add, customize, and sequence effects and durations with Java examples for PPT, PPTX, and ODP presentations."
+description: "Master slide transitions in Aspose.Slides for C++: add, customize, and sequence effects and durations with C++ examples for PPT, PPTX, and ODP presentations."
 ---
 
-This article demonstrates applying slide transition effects and timings with **Aspose.Slides for Android via Java**.
+This article demonstrates applying slide transition effects and timings with **Aspose.Slides for C++**.
 
 ## **Add a Slide Transition**
 
 Apply a fade transition effect to the first slide.
 
-```java
-static void addSlideTransition() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void AddSlideTransition()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        // Apply a fade transition.
-        slide.getSlideShowTransition().setType(TransitionType.Fade);
-    } finally {
-        presentation.dispose();
-    }
+    auto slide = presentation->get_Slide(0);
+
+    // Apply a fade transition.
+    slide->get_SlideShowTransition()->set_Type(TransitionType::Fade);
+
+    presentation->Dispose();
 }
 ```
 
@@ -39,19 +38,19 @@ static void addSlideTransition() {
 
 Read the transition type currently assigned to a slide.
 
-```java
-static void accessSlideTransition() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void AccessSlideTransition()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        slide.getSlideShowTransition().setType(TransitionType.Push);
+    auto slide = presentation->get_Slide(0);
 
-        // Access the transition type.
-        int type = slide.getSlideShowTransition().getType();
-    } finally {
-        presentation.dispose();
-    }
+    slide->get_SlideShowTransition()->set_Type(TransitionType::Push);
+
+    // Access the transition type.
+    auto type = slide->get_SlideShowTransition()->get_Type();
+
+    presentation->Dispose();
 }
 ```
 
@@ -59,19 +58,19 @@ static void accessSlideTransition() {
 
 Clear any transition effect by setting the type to `None`.
 
-```java
-static void removeSlideTransition() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void RemoveSlideTransition()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        slide.getSlideShowTransition().setType(TransitionType.Fade);
+    auto slide = presentation->get_Slide(0);
 
-        // Remove transition by setting none.
-        slide.getSlideShowTransition().setType(TransitionType.None);
-    } finally {
-        presentation.dispose();
-    }
+    slide->get_SlideShowTransition()->set_Type(TransitionType::Fade);
+
+    // Remove transition by setting none.
+    slide->get_SlideShowTransition()->set_Type(TransitionType::None);
+
+    presentation->Dispose();
 }
 ```
 
@@ -79,16 +78,16 @@ static void removeSlideTransition() {
 
 Specify how long the slide is displayed before advancing automatically.
 
-```java
-static void setTransitionDuration() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void SetTransitionDuration()
+{
+    auto presentation = MakeObject<Presentation>();
 
-        slide.getSlideShowTransition().setAdvanceOnClick(true);
-        slide.getSlideShowTransition().setAdvanceAfterTime(2000); // in milliseconds.
-    } finally {
-        presentation.dispose();
-    }
+    auto slide = presentation->get_Slide(0);
+
+    slide->get_SlideShowTransition()->set_AdvanceOnClick(true);
+    slide->get_SlideShowTransition()->set_AdvanceAfterTime(2000); // In milliseconds.
+
+    presentation->Dispose();
 }
 ```

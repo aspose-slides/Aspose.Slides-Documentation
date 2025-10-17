@@ -48,8 +48,10 @@ static void AccessGroupShape()
     group->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0, 0, 50, 50);
 
     auto firstGroup = SharedPtr<IGroupShape>();
-    for (auto&& shape : slide->get_Shapes()) {
-        if (ObjectExt::Is<IGroupShape>(shape)) {
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<IGroupShape>(shape))
+        {
             firstGroup = ExplicitCast<IGroupShape>(shape);
             break;
         }

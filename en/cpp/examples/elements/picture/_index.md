@@ -68,8 +68,10 @@ static void AccessPicture()
     slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0, 0, 40, 40, image);
 
     auto pictureFrame = SharedPtr<IPictureFrame>();
-    for (auto&& shape : slide->get_Shapes()) {
-        if (ObjectExt::Is<IPictureFrame>(shape)) {
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<IPictureFrame>(shape))
+        {
             pictureFrame = ExplicitCast<IPictureFrame>(shape);
             break;
         }

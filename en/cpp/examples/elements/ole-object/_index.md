@@ -49,8 +49,10 @@ static void AccessOleObject()
     auto oleFrame = slide->get_Shapes()->AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
     auto firstOleFrame = SharedPtr<IOleObjectFrame>();
-    for (auto&& shape : slide->get_Shapes()) {
-        if (ObjectExt::Is<IOleObjectFrame>(shape)) {
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<IOleObjectFrame>(shape))
+        {
             firstOleFrame = ExplicitCast<IOleObjectFrame>(shape);
             break;
         }

@@ -44,7 +44,8 @@ static void AccessActiveX()
     auto presentation = MakeObject<Presentation>(u"add_activex.pptm");
     auto slide = presentation->get_Slide(0);
 
-    if (slide->get_Controls()->get_Count() > 0) {
+    if (slide->get_Controls()->get_Count() > 0)
+    {
         // Access the first ActiveX control.
         auto control = slide->get_Control(0);
 
@@ -66,7 +67,8 @@ static void RemoveActiveX()
     auto presentation = MakeObject<Presentation>(u"add_activex.pptm");
     auto slide = presentation->get_Slide(0);
 
-    if (slide->get_Controls()->get_Count() > 0) {
+    if (slide->get_Controls()->get_Count() > 0)
+    {
         // Remove the first ActiveX control.
         slide->get_Controls()->RemoveAt(0);
     }
