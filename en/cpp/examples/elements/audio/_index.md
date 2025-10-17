@@ -47,9 +47,10 @@ static void AccessAudio()
 
     // Access the first audio frame on the slide.
     auto firstAudio = SharedPtr<IAudioFrame>();
-    for (auto i = 0; i < slide->get_Shapes()->get_Count(); ++i) {
-        auto shape = slide->get_Shape(i);
-        if (ObjectExt::Is<IAudioFrame>(shape)) {
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<IAudioFrame>(shape))
+        {
             firstAudio = ExplicitCast<IAudioFrame>(shape);
             break;
         }

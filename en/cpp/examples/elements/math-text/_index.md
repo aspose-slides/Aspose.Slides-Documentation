@@ -63,28 +63,35 @@ static void AccessMathText()
 
     // Find the first shape that contains a math paragraph.
     auto mathShape = SharedPtr<IAutoShape>();
-    for (auto&& shape : slide->get_Shapes()) {
-        if (ObjectExt::Is<IAutoShape>(shape)) {
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
             auto autoShape = ExplicitCast<IAutoShape>(shape);
             auto textFrame = autoShape->get_TextFrame();
             auto hasMath = false;
-            for (auto&& paragraph : textFrame->get_Paragraphs()) {
-                for (auto&& textPortion : paragraph->get_Portions()) {
-                    if (ObjectExt::Is<MathPortion>(textPortion)) {
+            for (auto&& paragraph : textFrame->get_Paragraphs())
+            {
+                for (auto&& textPortion : paragraph->get_Portions())
+                {
+                    if (ObjectExt::Is<MathPortion>(textPortion))
+                    {
                         hasMath = true;
                         break;
                     }
                 }
                 if (hasMath) break;
             }
-            if (hasMath) {
+            if (hasMath)
+            {
                 mathShape = autoShape;
                 break;
             }
         }
     }
 
-    if (mathShape != nullptr) {
+    if (mathShape != nullptr)
+    {
         auto paragraph = mathShape->get_TextFrame()->get_Paragraph(0);
         auto textPortion = paragraph->get_Portion(0);
         auto mathParagraph = ExplicitCast<MathPortion>(textPortion)->get_MathParagraph();

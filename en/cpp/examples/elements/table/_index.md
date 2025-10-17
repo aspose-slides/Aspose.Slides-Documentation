@@ -2,37 +2,35 @@
 title: Table
 type: docs
 weight: 120
-url: /androidjava/examples/elements/table/
+url: /cpp/examples/elements/table/
 keywords:
 - code example
 - table
 - PowerPoint
 - OpenDocument
 - presentation
-- Android
-- Java
+- C++
 - Aspose.Slides
-description: "Work with tables in Aspose.Slides for Android: create, format, merge cells, apply styles, import data, and export with Java examples for PPT, PPTX, and ODP."
+description: "Work with tables in Aspose.Slides for C++: create, format, merge cells, apply styles, import data, and export with C++ examples for PPT, PPTX, and ODP."
 ---
 
-Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for Android via Java**.
+Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for C++**.
 
 ## **Add a Table**
 
 Create a simple table with two rows and two columns.
 
-```java
-static void addTable() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void AddTable()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
-    } finally {
-        presentation.dispose();
-    }
+    auto widths = MakeArray<double>({ 80, 80 });
+    auto heights = MakeArray<double>({ 30, 30 });
+    auto table = slide->get_Shapes()->AddTable(50, 50, widths, heights);
+
+    presentation->Dispose();
 }
 ```
 
@@ -40,27 +38,28 @@ static void addTable() {
 
 Retrieve the first table shape on the slide.
 
-```java
-static void accessTable() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void AccessTable()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
+    auto widths = MakeArray<double>({ 80, 80 });
+    auto heights = MakeArray<double>({ 30, 30 });
+    auto table = slide->get_Shapes()->AddTable(50, 50, widths, heights);
 
-        // Access first table on slide.
-        ITable firstTable = null;
-        for (IShape shape : slide.getShapes()) {
-            if (shape instanceof ITable) {
-                firstTable = (ITable) shape;
-                break;
-            }
+    // Access first table on slide.
+    auto firstTable = SharedPtr<ITable>();
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<ITable>(shape))
+        {
+            firstTable = ExplicitCast<ITable>(shape);
+            break;
         }
-    } finally {
-        presentation.dispose();
     }
+
+    presentation->Dispose();
 }
 ```
 
@@ -68,20 +67,19 @@ static void accessTable() {
 
 Delete a table from a slide.
 
-```java
-static void removeTable() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void RemoveTable()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
+    auto widths = MakeArray<double>({ 80, 80 });
+    auto heights = MakeArray<double>({ 30, 30 });
+    auto table = slide->get_Shapes()->AddTable(50, 50, widths, heights);
 
-        slide.getShapes().remove(table);
-    } finally {
-        presentation.dispose();
-    }
+    slide->get_Shapes()->Remove(table);
+
+    presentation->Dispose();
 }
 ```
 
@@ -89,20 +87,19 @@ static void removeTable() {
 
 Merge adjacent cells of a table into a single cell.
 
-```java
-static void mergeTableCells() {
-    Presentation presentation = new Presentation();
-    try {
-        ISlide slide = presentation.getSlides().get_Item(0);
+```cpp
+static void MergeTableCells()
+{
+    auto presentation = MakeObject<Presentation>();
+    auto slide = presentation->get_Slide(0);
 
-        double[] widths = new double[] { 80, 80 };
-        double[] heights = new double[] { 30, 30 };
-        ITable table = slide.getShapes().addTable(50, 50, widths, heights);
+    auto widths = MakeArray<double>({ 80, 80 });
+    auto heights = MakeArray<double>({ 30, 30 });
+    auto table = slide->get_Shapes()->AddTable(50, 50, widths, heights);
 
-        // Merge cells.
-        table.mergeCells(table.get_Item(0, 0), table.get_Item(1, 1), false);
-    } finally {
-        presentation.dispose();
-    }
+    // Merge cells.
+    table->MergeCells(table->idx_get(0, 0), table->idx_get(1, 1), false);
+
+    presentation->Dispose();
 }
 ```

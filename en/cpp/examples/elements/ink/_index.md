@@ -29,10 +29,12 @@ static void AccessInk()
     auto slide = presentation->get_Slide(0);
 
     auto shape = slide->get_Shape(0);
-    if (ObjectExt::Is<IInk>(shape)) {
+    if (ObjectExt::Is<IInk>(shape))
+    {
         auto inkShape = ExplicitCast<IInk>(shape);
         auto tags = inkShape->get_CustomData()->get_Tags();
-        if (tags->get_Count() > 0) {
+        if (tags->get_Count() > 0)
+        {
             auto tagName = tags->GetNameByIndex(0);
             // Use tagName as needed.
         }
@@ -53,13 +55,16 @@ static void RemoveInk()
     auto slide = presentation->get_Slide(0);
 
     auto ink = SharedPtr<IInk>();
-    for (auto&& shape : slide->get_Shapes()) {
-        if (ObjectExt::Is<IInk>(shape)) {
+    for (auto&& shape : slide->get_Shapes())
+    {
+        if (ObjectExt::Is<IInk>(shape))
+        {
             ink = ExplicitCast<IInk>(shape);
             break;
         }
     }
-    if (ink != nullptr) {
+    if (ink != nullptr)
+    {
         slide->get_Shapes()->Remove(ink);
     }
 
