@@ -25,8 +25,10 @@ static void AddActiveX()
     auto presentation = MakeObject<Presentation>();
     auto slide = presentation->get_Slide(0);
 
+    // Add a new ActiveX control.
     auto control = slide->get_Controls()->AddControl(ControlType::WindowsMediaPlayer, 50, 50, 100, 50);
 
+    // Optionally set some properties.
     control->get_Properties()->Add(u"Value", u"Default text");
 
     presentation->Save(u"add_activex.pptm", SaveFormat::Pptm);

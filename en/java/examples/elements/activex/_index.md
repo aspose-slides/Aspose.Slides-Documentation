@@ -25,7 +25,7 @@ static void addActiveX() {
     try {
         ISlide slide = presentation.getSlides().get_Item(0);
 
-        // Add a new ActiveX control (TextBox).
+        // Add a new ActiveX control.
         IControl control = slide.getControls().addControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
         // Optionally set some properties.
