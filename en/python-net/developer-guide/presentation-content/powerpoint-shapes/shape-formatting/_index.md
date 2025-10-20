@@ -570,7 +570,7 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQs**
+## **FAQ**
 
 **Does shape formatting affect the final presentation file size?**
 

@@ -106,3 +106,17 @@ In addition to animating text, you can apply animation to a paragraph.
 Read more [**About Animated Text**](/slides/python-net/animated-text/).
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Will animations be preserved when exporting to PDF?**
+
+No. PDF is a static format, so animations and [slide transitions](/slides/python-net/slide-transition/) don’t play. If you need motion, export to [HTML5](/slides/python-net/export-to-html5/), [animated GIF](/slides/python-net/convert-powerpoint-to-animated-gif/), or [video](/slides/python-net/convert-powerpoint-to-video/) instead.
+
+**Can I turn an animated presentation into a video and control the frame rate and frame size?**
+
+Yes. You can [render the presentation as frames](/slides/python-net/convert-powerpoint-to-video/) and encode them into a video (e.g., via ffmpeg), choosing the FPS and resolution. Animations and slide transitions are played during rendering.
+
+**Will animations remain intact when working with ODP (not just PPTX)?**
+
+PPT, PPTX, and ODP are supported for [reading](/slides/python-net/open-presentation/) and [writing](/slides/python-net/save-presentation/), but format differences mean certain effects may look or behave slightly differently. Validate critical cases with real samples.

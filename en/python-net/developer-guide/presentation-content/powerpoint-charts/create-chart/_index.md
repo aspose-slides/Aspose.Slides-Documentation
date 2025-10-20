@@ -1103,20 +1103,20 @@ with slides.Presentation() as presentation:
     presentation.save("DefaultMarkersInChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQs**
+## **FAQ**
 
-**1. What chart types are supported by Aspose.Slides for Python via .NET?**
+**What chart types are supported by Aspose.Slides for Python via .NET?**
 
 Aspose.Slides for Python via .NET supports a wide range of chart types, including bar, line, pie, area, scatter, histogram, radar, and many more. This flexibility allows you to choose the most appropriate chart type for your data visualization needs.
 
-**2. How do I add a new chart to a slide?**
+**How do I add a new chart to a slide?**
 
 To add a chart, you first create an instance of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) class, retrieve the desired slide using its index, and then call the method to add a chart, specifying the chart type and initial data. This process integrates the chart directly into your presentation.
 
-**3. How can I update the data displayed in a chart?**
+**How can I update the data displayed in a chart?**
 
 You can update a chart’s data by accessing its data workbook ([ChartDataWorkbook](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdataworkbook/)), clearing any default series and categories, and then adding your custom data. This allows you to programmatically refresh the chart to reflect the latest data.
 
-**4. Is it possible to customize the appearance of the chart?**
+**Is it possible to customize the appearance of the chart?**
 
 Yes, Aspose.Slides for Python via .NET provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart’s appearance to your specific design requirements.

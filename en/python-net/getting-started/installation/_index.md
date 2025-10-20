@@ -123,7 +123,7 @@ with slides.Presentation() as presentation:
     presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQs**
+## **FAQ**
 
 **Can I install Aspose.Slides in a virtual environment?**
 

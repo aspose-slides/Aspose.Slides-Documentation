@@ -263,7 +263,7 @@ The result:
 
 ![The numbered bullets](numbered_bullets.png)
 
-## **FAQs**
+## **FAQ**
 
 **Can bulleted and numbered lists created with Aspose.Slides be exported to other formats such as PDF or images?**
 

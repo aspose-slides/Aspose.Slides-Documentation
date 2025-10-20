@@ -149,7 +149,7 @@ Using the same principles described in this article, you can convert images from
 
 {{% /alert %}}
 
-## **FAQs**
+## **FAQ**
 
 **Does this method support batch conversion?**
 

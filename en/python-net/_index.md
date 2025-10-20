@@ -51,7 +51,7 @@ Explore these helpful resources::
 - [Aspose.Slides for Python via .NET Free Support Forum](https://forum.aspose.com/c/slides/11)
 - [Aspose.Slides for Python via .NET Paid Support Helpdesk](https://helpdesk.aspose.com/)
 
-## Frequently Asked Questions (FAQ)
+## FAQ
 
 ### What is Aspose.Slides for Python via .NET?
 
