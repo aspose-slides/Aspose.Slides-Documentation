@@ -230,7 +230,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQs**
+## **FAQ**
 
 **What’s the difference between a master slide and a layout slide?**
 

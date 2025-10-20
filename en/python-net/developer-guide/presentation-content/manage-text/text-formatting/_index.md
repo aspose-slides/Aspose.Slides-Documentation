@@ -667,3 +667,17 @@ All-Caps effect: HELLO, ASPOSE!
 Aspose provides a simple, [free online PowerPoint editing service](https://products.aspose.app/slides/editor).
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I apply different formatting to specific parts of text within a single paragraph (e.g., bold just a couple of words), and how does that interact with styles inherited from layouts and themes?**
+
+Yes. Formatting is set at the “text portion” level inside a paragraph and overrides the theme/layout style only for those selected fragments. When the theme changes, only regions without explicit local formatting will update.
+
+**How do fonts work on Linux and in Docker containers that don’t have system fonts installed?**
+
+The library uses font discovery/substitution. On systems without fonts, you should explicitly [point to font directories](/slides/python-net/custom-font/) and/or configure a [substitution table](/slides/python-net/font-substitution/) to avoid fallback to unsuitable typefaces and layout shifts.
+
+**How does text formatting in placeholders differ from formatting in regular autoshapes?**
+
+Placeholders inherit styles from the slide master and layout more strongly than regular autoshapes. Local changes in placeholders are possible, but when the layout changes they’re more likely to revert to theme styles unless you’ve hard-overridden formatting at the text-portion level.
