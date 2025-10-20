@@ -26,7 +26,7 @@ static void AddActiveX()
     using var presentation = new Presentation();
     var slide = presentation.Slides[0];
 
-    // Add a new ActiveX control (TextBox).
+    // Add a new ActiveX control.
     var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
     // Optionally set some properties.
