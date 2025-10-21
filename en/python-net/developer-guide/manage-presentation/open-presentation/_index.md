@@ -128,3 +128,17 @@ load_options.delete_embedded_binary_objects = True
 with slides.Presentation("malware.ppt", load_options) as presentation:
     # Perform operations on the presentation.
 ```
+
+## **FAQ**
+
+**How can I tell that a file is corrupted and can’t be opened?**
+
+You’ll get a parsing/format validation exception during load. Such errors often mention an invalid ZIP structure or broken PowerPoint records.
+
+**What happens if required fonts are missing when opening?**
+
+The file will open, but later [rendering/export](/slides/python-net/convert-presentation/) may substitute fonts. [Configure font substitutions](/slides/python-net/font-substitution/) or [add the required fonts](/slides/python-net/custom-font/) to the runtime environment.
+
+**What about embedded media (video/audio) when opening?**
+
+They become available as presentation resources. If media are referenced via external paths, ensure those paths are accessible in your environment; otherwise [rendering/export](/slides/python-net/convert-presentation/) may omit the media.

@@ -62,3 +62,17 @@ with slides.Presentation("ParagraphAnimationEffect.pptx") as presentation:
         if len(effects) > 0:
             print(f"Paragraph \"{paragraph.text}\" has the first animation effect of type {str(effects[0].type)}.")
 ```
+
+## **FAQ**
+
+**How do text animations differ from slide transitions, and can they be combined?**
+
+Text animations control object behavior over time on a slide, while [transitions](/slides/python-net/slide-transition/) control how slides change. They’re independent and can be used together; playback order is governed by the animation timeline and the transition settings.
+
+**Are text animations preserved when exporting to PDF or images?**
+
+No. PDF and raster images are static, so you’ll see a single state of the slide without motion. To keep movement, use [video](/slides/python-net/convert-powerpoint-to-video/) or [HTML](/slides/python-net/export-to-html5/) export.
+
+**Do text animations work in layouts and the slide master?**
+
+Effects applied to layout/master objects are inherited by slides, but their timing and interaction with slide-level animations depend on the final sequence on the slide.

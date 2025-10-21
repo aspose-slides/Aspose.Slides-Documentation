@@ -269,3 +269,25 @@ with slides.Presentation("presentation.pptx") as presentation:
     slides.lowcode.Compress.remove_unused_master_slides(presentation)
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**What is a Slide Master in PowerPoint?**
+
+A Slide Master is a slide template that defines the layout, styles, themes, fonts, background, and other properties for slides in a presentation. It allows you to set and change the look of all presentation slides at once.
+
+**How do Slide Masters relate to Slide Layouts?**
+
+Slide Layouts work in conjunction with Slide Masters to provide flexibility in slide design. While a Slide Master defines overarching styles and themes, [Slide Layouts](/slides/python-net/slide-layout/) allow for variations in content arrangement. The hierarchy is as follows:
+
+- **Slide Master** → Defines global styles.
+- **Slide Layout** → Provides different content arrangements.
+- **Slide** → Inherits design from its Slide Layout.
+
+**Can I have multiple Slide Masters in a single presentation?**
+
+Yes, a presentation can contain several Slide Masters. This allows you to style different sections of a presentation in various ways, providing flexibility in design.  
+
+**How do I access and modify a Slide Master using Aspose.Slides?**
+
+In Aspose.Slides, a Slide Master is represented by the [MasterSlide](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) class. You can access a Slide Master using the [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) property of the [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) object.

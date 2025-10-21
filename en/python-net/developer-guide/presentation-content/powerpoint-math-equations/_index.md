@@ -418,3 +418,17 @@ group_chr = math.MathematicalText("x").join("y").join("z").group(chr(0x23E1),
 border_box = math.MathematicalText("x+y+z").to_border_box()
 boxed_operator = math.MathematicalText(":=").to_box()
 ```
+
+## **FAQ**
+
+**How can I add a mathematical equation to a PowerPoint slide?**
+
+To add a mathematical equation, you need to [create a math shape](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_math_shape/) object, which automatically contains a mathematical portion. Then, you retrieve the [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/) from the [MathPortion](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/) and add [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) objects to it.
+
+**Is it possible to create complex nested mathematical expressions?**
+
+Yes, Aspose.Slides allows you to create complex mathematical expressions by nesting [MathBlocks](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/). Each mathematical element allows you to apply operations (Join, Divide, Enclose, etc.) to combine elements into more complex structures.
+
+**How can I update or modify an existing mathematical equation?**
+
+To update an equation, you need to access the existing [MathBlock](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathblock/) through the [MathParagraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathparagraph/). Then, by using methods such as Join, Divide, Enclose, and others, you can modify individual elements of the equation. After editing, save the presentation to apply the changes.
