@@ -127,3 +127,13 @@ if license.is_licensed():
 The [License.set_license](https://reference.aspose.com/slides/python-net/aspose.slides/license/) methods are not thread-safe. If it needs to be called concurrently from multiple threads, use synchronization primitives (e.g., `threading.Lock`) to avoid issues.
 
 {{% /alert %}}
+
+## **FAQ**
+
+**Can I apply the license in a completely offline environment (no internet access)?**
+
+Yes. License validation is performed locally using the license file; no internet connection is required.
+
+**What happens after the one-year subscription expires? Will the library stop working?**
+
+No. The license is perpetual: you can continue using versions released before your subscription end date; you just won’t be eligible to use newer releases without renewing.

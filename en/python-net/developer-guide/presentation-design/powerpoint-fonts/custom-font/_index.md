@@ -121,3 +121,25 @@ try:
 finally:
     slides.FontsLoader.clear_cache()
 ```
+
+## **FAQ**
+
+**Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?**
+
+Yes. Connected fonts are used by the renderer across all export formats.
+
+**Are custom fonts automatically embedded into the resulting PPTX?**
+
+No. Registering a font for rendering is not the same as embedding it into a PPTX. If you need the font carried inside the presentation file, you must use the explicit [embedding features](/slides/python-net/embedded-font/).
+
+**Can I control fallback behavior when a custom font lacks certain glyphs?**
+
+Yes. Configure [font substitution](/slides/python-net/font-substitution/), [replacement rules](/slides/python-net/font-replacement/), and [fallback sets](/slides/python-net/fallback-font/) to define exactly which font is used when the requested glyph is missing.
+
+**Can I use fonts in Linux/Docker containers without installing them system-wide?**
+
+Yes. Point to your own font folders or load fonts from byte arrays. This removes any dependency on system font directories in the container image.
+
+**What about licensing—can I embed any custom font without restrictions?**
+
+You are responsible for font licensing compliance. Terms vary; some licenses prohibit embedding or commercial use. Always review the font’s EULA before distributing outputs.

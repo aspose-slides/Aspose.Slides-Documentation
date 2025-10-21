@@ -101,3 +101,17 @@ with slides.Presentation() as presentation:
         auto_shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
         auto_shape.fill_format.picture_fill_format.picture.image_transform.add_alpha_modulate_fixed_effect(75)
 ```
+
+## **FAQ**
+
+**What is a base placeholder, and how is it different from a local shape on a slide?**
+
+A base placeholder is the original shape on a layout or master that the slide’s shape inherits from—type, position, and some formatting come from it. A local shape is independent; if there’s no base placeholder, inheritance doesn’t apply.
+
+**How can I update all titles or captions across a presentation without iterating over every slide?**
+
+Edit the corresponding placeholder on the layout or the master. Slides based on those layouts/that master will automatically inherit the change.
+
+**How do I control the standard header/footer placeholders—date & time, slide number, and footer text?**
+
+Use the HeaderFooter managers at the appropriate scope (normal slides, layouts, master, notes/handouts) to turn those placeholders on or off and to set their content.

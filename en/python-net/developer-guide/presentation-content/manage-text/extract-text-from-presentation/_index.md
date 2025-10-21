@@ -130,3 +130,17 @@ print(slide_text.layout_text)
 print(slide_text.master_text)
 print(slide_text.notes_text)
 ```
+
+## **FAQ**
+
+**How fast does Aspose.Slides process large presentations during text extraction?**
+
+Aspose.Slides is optimized for high performance and efficiently processes even [large presentations](/slides/python-net/open-presentation/), making it suitable for real-time or bulk processing scenarios.
+
+**Can Aspose.Slides extract text from tables and charts within presentations?**
+
+Yes, Aspose.Slides fully supports extracting text from tables, charts, and other complex slide elements, allowing you to access and analyze all textual content easily.
+
+**Do I need a special Aspose.Slides license to extract text from presentations?**
+
+You can extract text using the free trial version of Aspose.Slides, although it will have [certain limitations](/slides/python-net/licensing/), such as processing only a limited number of slides. For unrestricted use and to handle larger presentations, purchasing a full license is recommended.

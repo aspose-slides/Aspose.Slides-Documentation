@@ -32,7 +32,21 @@ presentation = slides.Presentation("presentation.pptx")
 presentation.save("presentation.ppt", slides.export.SaveFormat.PPT)
 ```
 
-See also:
+## **FAQ**
+
+**Do all PPTX effects and features survive when saving to the legacy PPT (97–2003) format?**
+
+Not always. The PPT format lacks some newer capabilities (e.g., certain effects, objects, and behaviors), so features may be simplified or rasterized during conversion.
+
+**Can I convert only selected slides to PPT instead of the entire presentation?**
+
+Direct saving targets the whole presentation. To convert specific slides, create a new presentation with just those slides and save it as PPT; alternatively, use a service/API that supports per-slide conversion parameters.
+
+**Are password-protected presentations supported?**
+
+Yes. You can detect whether a file is protected, open it with a password, and also [configure protection/encryption settings](/slides/python-net/password-protected-presentation/) for the saved PPT.
+
+**See also:**
 - [Convert PPT & PPTX to PDF in Python | Advanced Options](/slides/python-net/convert-powerpoint-to-pdf/)
 - [Convert PowerPoint Presentations to XPS in Python](/slides/python-net/convert-powerpoint-to-xps/)
 - [Convert PowerPoint Presentations to HTML in Python](/slides/python-net/convert-powerpoint-to-html/)
