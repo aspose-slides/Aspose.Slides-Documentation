@@ -55,3 +55,41 @@ with slides.Presentation() as presentation:
 The result:
 
 ![The new presentation](new_presentation.png)
+
+## **FAQ**
+
+**What formats can I save a new presentation to?**
+
+You can save to [PPTX, PPT, and ODP](/slides/python-net/save-presentation/), and export to [PDF](/slides/python-net/convert-powerpoint-to-pdf/), [XPS](/slides/python-net/convert-powerpoint-to-xps/), [HTML](/slides/python-net/convert-powerpoint-to-html/), [SVG](/slides/python-net/convert-powerpoint-to-png/), and [images](/slides/python-net/convert-powerpoint-to-png/), among others.
+
+**Can I start from a template (POTX/POTM) and save as a regular PPTX?**
+
+Yes. Load the template and save to the desired format; POTX/POTM/PPTM and similar formats [are supported](/slides/python-net/supported-file-formats/).
+
+**How do I control slide size/aspect ratio when creating a presentation?**
+
+Set the [slide size](/slides/python-net/slide-size/) (including presets like 4:3 and 16:9 or custom dimensions) and choose how content should scale.
+
+**In what units are sizes and coordinates measured?**
+
+In points: 1 inch equals 72 units.
+
+**How do I handle very large presentations (with many media files) to reduce memory usage?**
+
+Use [BLOB management strategies](/slides/python-net/manage-blob/), limit in-memory storage by leveraging temporary files, and prefer file-based workflows over purely in-memory streams.
+
+**Can I create/save presentations in parallel?**
+
+You cannot operate on the same [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) instance from [multiple threads](/slides/python-net/multithreading/). Run separate, isolated instances per thread or process.
+
+**How do I remove the trial watermark and limitations?**
+
+[Apply a license](/slides/python-net/licensing/) once per process. The license XML must remain unmodified, and the license setup should be synchronized if multiple threads are involved.
+
+**Can I digitally sign the PPTX I create?**
+
+Yes. [Digital signatures](/slides/python-net/digital-signature-in-powerpoint/) (adding and verifying) are supported for presentations.
+
+**Are macros (VBA) supported in created presentations?**
+
+Yes. You can [create/edit VBA projects](/slides/python-net/presentation-via-vba/) and save macro-enabled files such as PPTM/PPSM.
