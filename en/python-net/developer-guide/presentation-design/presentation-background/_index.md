@@ -237,3 +237,13 @@ with slides.Presentation("Sample.pptx") as presentation:
     else:
         print("Fill type:", str(effective_background.fill_format.fill_type))
 ```
+
+## **FAQ**
+
+**Can I reset a custom background and restore the theme/layout background?**
+
+Yes. Remove the slide’s custom fill, and the background will be inherited again from the corresponding [layout](/slides/python-net/slide-layout/)/[master](/slides/python-net/slide-master/) slide (i.e., the [theme background](/slides/python-net/presentation-theme/)).
+
+**What happens to the background if I change the presentation’s theme later?**
+
+If a slide has its own fill, it will remain unchanged. If the background is inherited from the [layout](/slides/python-net/slide-layout/)/[master](/slides/python-net/slide-master/), it will update to match the [new theme](/slides/python-net/presentation-theme/).
