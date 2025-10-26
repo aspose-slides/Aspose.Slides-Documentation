@@ -3,93 +3,96 @@ title: 使用 Python 管理演示文稿表格
 linktitle: 管理表格
 type: docs
 weight: 10
-url: /zh/python-net/manage-table/
+url: /zh/python-net/developer-guide/presentation-content/powerpoint-table/manage-table/
 keywords:
 - 添加表格
 - 创建表格
 - 访问表格
-- 纵横比
+- 长宽比
 - 对齐文本
-- 文本格式
+- 文本格式化
 - 表格样式
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 幻灯片中创建和编辑表格。通过简单的代码示例优化表格工作流程。"
+description: "使用 Aspose.Slides for Python via .NET 在 PowerPoint 和 OpenDocument 幻灯片中创建和编辑表格。发现简明代码示例，以简化您的表格工作流。"
 ---
 
-在 PowerPoint 中，表格是一种有效展示和表述信息的方式。单元格网格中的信息（以行和列排列）直观且易于理解。
+## **概述**
 
-Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) 类, [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) 接口, [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) 类, [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/) 接口以及其他类型，使您可以创建、更新和管理各种演示中的表格。
+PowerPoint 中的表格是一种高效的信息展示方式。以网格（行和列）排列的信息直观易懂。
 
-## **从头开始创建表格**
+Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) 类、[Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) 类以及其他相关类型，帮助您在任何演示文稿中创建、更新和管理表格。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 定义一个 `columnWidth` 数组。
-4. 定义一个 `rowHeight` 数组。
-5. 通过 `add_table(x, y, column_widths, row_heights)` 方法将 [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) 对象添加到幻灯片。
-6. 迭代每个 [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/)，应用格式到顶部、底部、右侧和左侧边框。
+## **从零创建表格**
+
+本节展示如何在 Aspose.Slides 中通过向幻灯片添加表格形状、定义行列并设置精确大小来从零创建表格。您还会看到如何向单元格填充文本、调整对齐和边框以及自定义表格外观。
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 按索引获取幻灯片的引用。
+3. 定义列宽数组。
+4. 定义行高数组。
+5. 向幻灯片添加一个 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)。
+6. 遍历每个 [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) 并设置其上、下、左、右边框的格式。
 7. 合并表格第一行的前两个单元格。
-8. 访问 [ICell](https://reference.aspose.com/slides/python-net/aspose.slides/icell/)'s [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)。
-9. 向 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 添加一些文本。
+8. 访问 [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) 的 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/)。
+9. 向 [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) 添加文本。
 10. 保存修改后的演示文稿。
 
-以下 Python 代码展示了如何在演示文稿中创建表格：
+下面的 Python 示例展示了如何在演示文稿中创建表格：
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# 实例化代表 PPTX 文件的 Presentation 类
-with slides.Presentation() as pres:
-    # 访问第一张幻灯片
-    sld = pres.slides[0]
+# Instantiate the Presentation class that represents a presentation file.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # 定义列宽和行高
-    dblCols =  [50, 50, 50] 
-    dblRows =  [50, 30, 30, 30, 30] 
+    # Define column widths and row heights.
+    column_widths = [50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-    # 向幻灯片添加表格形状
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
 
-    # 设置每个单元格的边框格式
-    for row in range(len(tbl.rows)):
-        for cell in range(len(tbl.rows[row])):
-            tbl.rows[row][cell].cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            tbl.rows[row][cell].cell_format.border_top.width = 5
+    # Set the border format for each cell.
+    for row in table.rows:
+        for cell in row:
+            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_top.width = 5
 
-            tbl.rows[row][cell].cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
-            tbl.rows[row][cell].cell_format.border_bottom.width =5
+            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_bottom.fill_format.solid_fill_color.color= draw.Color.red
+            cell.cell_format.border_bottom.width = 5
 
-            tbl.rows[row][cell].cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
-            tbl.rows[row][cell].cell_format.border_left.width = 5
+            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_left.fill_format.solid_fill_color.color =draw.Color.red
+            cell.cell_format.border_left.width = 5
 
-            tbl.rows[row][cell].cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            tbl.rows[row][cell].cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            tbl.rows[row][cell].cell_format.border_right.width = 5
+            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
+            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
+            cell.cell_format.border_right.width = 5
         
+    # Merge cells from (row 0, col 0) to (row 1, col 1).
+    table.merge_cells(table.rows[0][0], table.rows[1][1], False)
 
-    # 合并第 1 行的单元格 1 和 2
-    tbl.merge_cells(tbl.rows[0][0], tbl.rows[1][1], False)
+    # Add text to the merged cell.
+    table.rows[0][0].text_frame.text = "Merged Cells"
 
-    # 向合并的单元格添加文本
-    tbl.rows[0][0].text_frame.text = "合并单元格"
-
-    # 将演示文稿保存到磁盘
-    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **标准表格中的编号**
 
-在标准表格中，单元格的编号是简单且从零开始的。表格中的第一个单元格索引为 0,0（列 0，行 0）。
+在标准表格中，单元格编号直接且从零开始。表格中的第一个单元格索引为 (0, 0)（列 0，行 0）。
 
-例如，具有 4 列和 4 行的表格中的单元格编号如下：
+例如，一个 4 列 4 行的表格，单元格编号如下：
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -97,212 +100,190 @@ with slides.Presentation() as pres:
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-以下 Python 代码展示了如何为表格中的单元格指定编号：
+下面的 Python 示例展示了如何使用这种零基编号引用单元格：
 
 ```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# 实例化代表 PPTX 文件的 Presentation 类
-with slides.Presentation() as pres:
-    # 访问第一张幻灯片
-    sld = pres.slides[0]
-
-    # 定义列宽和行高
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
-
-    # 向幻灯片添加表格形状
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
-
-    # 设置每个单元格的边框格式
-    for row in tbl.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # 将演示文稿保存到磁盘
-    pres.save("StandardTables_out.pptx", slides.export.SaveFormat.PPTX)
+for row_index in range(len(table.rows)):
+    for column_index in range(len(table.rows[row_index])):
+        cell = table.rows[row_index][column_index]
+        cell.text_frame.text = f"({column_index}, {row_index})"
 ```
 
 ## **访问现有表格**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+本节说明如何使用 Aspose.Slides 在演示文稿中定位并操作已有表格。您将学习如何在幻灯片上查找表格、访问其行、列和单元格，以及更新内容或格式。
 
-2. 通过其索引获取包含表格的幻灯片的引用。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 按索引获取包含表格的幻灯片引用。
+3. 遍历所有 [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) 对象，直至找到表格。
+4. 使用 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) 对象来操作表格。
+5. 保存修改后的演示文稿。
 
-3. 创建 [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) 对象并将其设置为 null。
+{{% alert color="info" %}}
 
-4. 迭代表单元格对象直到找到表格。
+如果幻灯片中包含多个表格，建议通过其 `alternative_text` 属性搜索所需的表格。
 
-   如果您怀疑您处理的幻灯片包含一个表格，您可以简单地检查它包含的所有形状。当形状被识别为表格时，您可以将其强制转换为 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) 对象。但如果您处理的幻灯片包含多个表格，那么最好通过其 `alternative_text` 查找所需的表格。
+{{% /alert %}}
 
-5. 使用 [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) 对象与表格进行操作。在下面的示例中，我们向表格添加了新行。
-
-6. 保存修改后的演示文稿。
-
-以下 Python 代码展示了如何访问和操作现有表格：
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# 实例化代表 PPTX 文件的 Presentation 类
-with slides.Presentation(path + "UpdateExistingTable.pptx") as pres:
-    # 访问第一张幻灯片
-    sld = pres.slides[0]
-
-    # 初始化 null TableEx
-    tbl = None
-
-    # 迭代形状并设置找到的表格的引用
-    for shp in sld.shapes:
-        if type(shp) is slides.Table:
-            tbl = shp
-
-    # 设置第二行第一列的文本
-    tbl.rows[0][1].text_frame.text = "新"
-
-    # 将修改后的演示文稿保存到磁盘
-    pres.save("table1_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **在表格中对齐文本**
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 向幻灯片添加 [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) 对象。
-4. 从表格中访问 [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) 对象。
-5. 访问 [ITextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/itextframe/) [IParagraph](https://reference.aspose.com/slides/python-net/aspose.slides/iparagraph/)。
-6. 垂直对齐文本。
-7. 保存修改后的演示文稿。
-
-以下 Python 代码展示了如何在表格中对齐文本：
+下面的 Python 示例展示了如何访问并操作现有表格：
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# 创建 Presentation 类的实例
-with slides.Presentation() as presentation:
-    # 获取第一张幻灯片 
+# Instantiate the Presentation class to load a PPTX file.
+with slides.Presentation("sample.pptx") as presentation:
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # 定义列宽和行高
-    dblCols =  [120, 120, 120, 120] 
-    dblRows =  [100, 100, 100, 100] 
+    table = None
 
-    # 向幻灯片添加表格形状
-    tbl = slide.shapes.add_table(100, 50, dblCols, dblRows)
-    tbl.rows[1][0].text_frame.text = "10"
-    tbl.rows[2][0].text_frame.text = "20"
-    tbl.rows[3][0].text_frame.text = "30"
+    # Iterate through shapes and reference the first table found.
+    for shape in slide.shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
 
-    # 访问文本框
-    txtFrame = tbl.rows[0][0].text_frame
+    # Set the text of the first cell in the first row.
+    if table is not None:
+        table.rows[0][0].text_frame.text = "Found"
 
-    # 为文本框创建段落对象
-    paragraph = txtFrame.paragraphs[0]
+    # Save the modified presentation to disk.
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+```
 
-    # 为段落创建部分对象
-    portion = paragraph.portions[0]
-    portion.text = "这里是文本"
-    portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    portion.portion_format.fill_format.solid_fill_color.color = draw.Color.black
+## **对表格中的文本进行对齐**
 
-    # 垂直对齐文本
-    cell = tbl.rows[0][0]
+本节展示如何使用 Aspose.Slides 控制表格单元格内文本的对齐方式。您将学习为单元格设置水平和垂直对齐，以保持内容清晰一致。
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 按索引获取幻灯片的引用。
+3. 向幻灯片添加一个 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/) 对象。
+4. 从表格中获取一个 [Cell](https://reference.aspose.com/slides/python-net/aspose.slides/cell/) 对象。
+5. 垂直对齐文本。
+6. 保存修改后的演示文稿。
+
+下面的 Python 示例展示了如何对表格中的文本进行对齐：
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+# Create an instance of the Presentation class.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
+
+    # Define column widths and row heights.
+    column_widths = [40, 120, 120, 120]
+    row_heights = [100, 100, 100, 100]
+
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(100, 50, column_widths, row_heights)
+    table.rows[0][0].text_frame.text = "Numbers"
+    table.rows[1][0].text_frame.text = "10"
+    table.rows[2][0].text_frame.text = "20"
+    table.rows[3][0].text_frame.text = "30"
+
+    # Center the text and set vertical orientation.
+    cell = table.rows[0][0]
     cell.text_anchor_type = slides.TextAnchorType.CENTER
     cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
 
-    # 将演示文稿保存到磁盘
-    presentation.save("Vertical_Align_Text_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("aligned_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **在表格级别设置文本格式**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-2. 通过其索引获取幻灯片的引用。
-3. 从幻灯片访问 [ITable](https://reference.aspose.com/slides/python-net/aspose.slides/itable/) 对象。
-4. 设置文本的 `font_height`。
-5. 设置 `alignment` 和 `margin_right`。
-6. 设置 `text_vertical_type`。
+本节展示如何在 Aspose.Slides 中对表格级别应用文本格式，使每个单元格都继承一致的统一样式。您将学习全局设置字体大小、对齐方式和边距。
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
+2. 按索引获取幻灯片的引用。
+3. 向幻灯片添加一个 [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/)。
+4. 设置文本的字体大小（字体高度）。
+5. 设置段落对齐和边距。
+6. 设置垂直文字方向。
 7. 保存修改后的演示文稿。
 
-以下 Python 代码显示了如何将您的首选格式选项应用于表格中的文本：
+下面的 Python 示例展示了如何将首选的格式选项应用于表格中的文本：
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# 创建 Presentation 类的实例
+# Creates an instance of the Presentation class
 with slides.Presentation() as presentation:
-    someTable = presentation.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
+    slide = presentation.slides[0]
 
-    # 设置表格单元格的字体高度
-    portionFormat = slides.PortionFormat()
-    portionFormat.font_height = 25
-    someTable.set_text_format(portionFormat)
+    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
 
-    # 一次性设置表格单元格的文本对齐和右边距
-    paragraphFormat = slides.ParagraphFormat()
-    paragraphFormat.alignment = slides.TextAlignment.RIGHT
-    paragraphFormat.margin_right = 20
-    someTable.set_text_format(paragraphFormat)
+    # Set the font size for all table cells.
+    portion_format = slides.PortionFormat()
+    portion_format.font_height = 25
+    table.set_text_format(portion_format)
 
-    # 设置表格单元格的文本垂直类型
-    textFrameFormat = slides.TextFrameFormat()
-    textFrameFormat.text_vertical_type = slides.TextVerticalType.VERTICAL
-    someTable.set_text_format(textFrameFormat)
+    # Set right-aligned text and a right margin for all table cells.
+    paragraph_format = slides.ParagraphFormat()
+    paragraph_format.alignment = slides.TextAlignment.RIGHT
+    paragraph_format.margin_right = 20
+    table.set_text_format(paragraph_format)
 
+    # Set the vertical text orientation for all table cells.
+    text_frame_format = slides.TextFrameFormat()
+    text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
+    table.set_text_format(text_frame_format)
 
-    presentation.save("result.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **获取表格样式属性**
+## **应用内置表格样式**
 
-Aspose.Slides 允许您检索表格的样式属性，以便您可以将这些细节用于另一个表格或其他地方。以下 Python 代码展示了如何从表格预设样式中获取样式属性：
+Aspose.Slides 允许您在代码中直接使用预定义样式来格式化表格。示例演示了创建表格、应用内置样式并保存结果——这是一种确保一致、专业格式的高效方式。
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    table = pres.slides[0].shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes.add_table(10, 10, [100, 150], [5, 5, 5])
+
     table.style_preset = slides.TableStylePreset.DARK_STYLE1
-    pres.save("table.pptx", slides.export.SaveFormat.PPTX)
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **锁定表格的长宽比**
+## **锁定表格的宽高比**
 
-几何形状的长宽比是其在不同维度上的大小比率。Aspose.Slides 提供了 `aspect_ratio_locked` 属性，以允许您锁定表格和其他形状的长宽比设置。
+形状的宽高比是其尺寸的比例。Aspose.Slides 提供 `aspect_ratio_locked` 属性，可用于锁定表格及其他形状的宽高比。
 
-以下 Python 代码展示了如何锁定表格的长宽比：
+下面的 Python 示例展示了如何锁定表格的宽高比：
 
-```c#
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    table = pres.slides[0].shapes.add_table(100, 100, [100, 50, 30], [30, 50, 30])
-    print("锁定长宽比设定: {0}".format(table.shape_lock.aspect_ratio_locked))
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes.add_table(20, 20, [100, 50, 30], [30, 50, 30])
 
+    print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
     table.shape_lock.aspect_ratio_locked = not table.shape_lock.aspect_ratio_locked
+    print(f"Lock aspect ratio set: {table.shape_lock.aspect_ratio_locked}")
 
-    print("锁定长宽比设定: {0}".format(table.shape_lock.aspect_ratio_locked))
-
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **常见问题**
+
+**我可以为整个表格及其单元格中的文本启用从右到左 (RTL) 阅读方向吗？**
+
+可以。表格公开了 [right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/table/right_to_left/) 属性，段落则有 [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/right_to_left/)。同时使用两者可确保单元格内部的 RTL 顺序和渲染正确。
+
+**如何防止用户在最终文件中移动或调整表格的大小？**
+
+使用 [shape locks](/slides/zh/python-net/applying-protection-to-presentation/) 禁用移动、缩放、选择等。这些锁同样适用于表格。
+
+**是否支持在单元格内将图像作为背景插入？**
+
+支持。您可以为单元格设置 [picture fill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/)，图像将根据所选模式（拉伸或平铺）覆盖单元格区域。

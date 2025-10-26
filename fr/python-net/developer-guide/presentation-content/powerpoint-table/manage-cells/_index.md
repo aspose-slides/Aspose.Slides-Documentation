@@ -1,228 +1,187 @@
 ---
-title: Gérer les cellules
+title: Gérer les cellules de tableau dans les présentations avec Python
+linktitle: Gérer les cellules
 type: docs
 weight: 30
-url: /fr/python-net/manage-cells/
-keywords: "Table, cellules fusionnées, cellules divisées, image dans cellule de table, Python, Aspose.Slides pour Python via .NET"
-description: "Cellules de table dans des présentations PowerPoint en Python"
+url: /fr/python-net/developer-guide/presentation-content/powerpoint-table/manage-cells/
+keywords:
+- cellule de tableau
+- fusionner des cellules
+- supprimer la bordure
+- diviser la cellule
+- image dans la cellule
+- couleur d'arrière-plan
+- PowerPoint
+- OpenDocument
+- présentation
+- Python
+- Aspose.Slides
+description: "Gérez facilement les cellules de tableau dans PowerPoint et OpenDocument avec Aspose.Slides pour Python via .NET. Maîtrisez l’accès, la modification et le style des cellules rapidement pour une automatisation fluide des diapositives."
 ---
 
-## **Identifier la cellule de table fusionnée**
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Obtenez la table à partir de la première diapositive. 
-3. Parcourez les lignes et les colonnes de la table pour trouver les cellules fusionnées.
-4. Imprimez un message lorsque des cellules fusionnées sont trouvées.
+## **Vue d'ensemble**
 
-Ce code Python vous montre comment identifier les cellules de table fusionnées dans une présentation :
+Cet article montre comment travailler avec les cellules de tableau dans les présentations à l’aide d’Aspose.Slides. Vous apprendrez à détecter les cellules fusionnées, à effacer ou personnaliser les bordures des cellules, et à comprendre comment PowerPoint numérote les cellules après les opérations de fusion et de division afin de prévoir l’indexation dans des mises en page complexes. L’article démontre également les tâches de formatage courantes—comme changer le remplissage d’arrière‑plan d’une cellule—et montre comment placer une image directement dans une cellule de tableau avec les paramètres de remplissage d’image. Chaque scénario est accompagné d’exemples Python concis qui créent ou modifient des tableaux puis enregistrent la présentation mise à jour, afin que vous puissiez adapter rapidement les extraits à vos propres diapositives.
+
+## **Identifier les cellules de tableau fusionnées**
+
+Les tableaux contiennent souvent des cellules fusionnées pour les en‑têtes ou pour regrouper des données liées. Dans cette section, vous verrez comment déterminer si une cellule donnée appartient à une zone fusionnée et comment référencer la cellule maître (en haut à gauche) afin de lire ou formater tout le bloc de façon cohérente.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Récupérez le tableau depuis la première diapositive.
+1. Parcourez les lignes et colonnes du tableau pour trouver les cellules fusionnées.
+1. Affichez un message lorsque des cellules fusionnées sont détectées.
+
+Le code Python suivant identifie les cellules de tableau fusionnées dans une présentation :
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation(path + "SomePresentationWithTable.pptx") as pres:
-    table = pres.slides[0].shapes[0] # en supposant que #0.Shape#0 est une table
-    for i in range(len(table.rows)):
-        for j in range(len(table.columns)):
-            currentCell = table.rows[i][j]
-            if currentCell.is_merged_cell:
-                print("La cellule 01 fait partie d'une cellule fusionnée avec RowSpan=2 et ColSpan=3 à partir de la cellule 45.".format(
-                    i, j, currentCell.row_span, currentCell.col_span, currentCell.first_row_index, currentCell.first_column_index))
+with slides.Presentation("presentation_with_table.pptx") as presentation:
+    # Assuming the first shape on the first slide is a table.
+    table = presentation.slides[0].shapes[0]
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.columns)):
+            cell = table.rows[row_index][column_index]
+            if cell.is_merged_cell:
+                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
+                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
 ```
 
-## **Supprimer la bordure des cellules de table**
-1. Créez une instance de la classe `Presentation`.
-2. Obtenez une référence à une diapositive via son index. 
-3. Définissez un tableau de colonnes avec des largeurs.
-4. Définissez un tableau de lignes avec des hauteurs.
-5. Ajoutez une table à la diapositive via la méthode `AddTable`.
-6. Parcourez chaque cellule pour effacer les bordures supérieure, inférieure, droite et gauche.
-7. Enregistrez la présentation modifiée en tant que fichier PPTX.
+## **Supprimer les bordures des cellules de tableau**
 
-Ce code Python vous montre comment supprimer les bordures des cellules de table :
+Parfois, les bordures du tableau détournent l’attention du contenu ou créent un désordre visuel. Cette section montre comment supprimer les bordures de cellules sélectionnées—ou de côtés spécifiques d’une cellule—afin d’obtenir une mise en page plus épurée et mieux alignée avec le design de votre diapositive.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Récupérez la diapositive par son indice.
+1. Définissez un tableau de largeurs de colonnes.
+1. Définissez un tableau de hauteurs de lignes.
+1. Ajoutez un tableau à la diapositive en utilisant la méthode [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+1. Parcourez chaque cellule pour effacer les bordures supérieure, inférieure, gauche et droite.
+1. Enregistrez la présentation modifiée au format PPTX.
+
+Le code Python suivant montre comment supprimer les bordures des cellules de tableau :
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancie la classe Presentation qui représente un fichier PPTX
-with slides.Presentation() as pres:
-   # Accède à la première diapositive
-    sld = pres.slides[0]
+# Instantiate the Presentation class that represents a PPTX file.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Définit les colonnes avec des largeurs et les lignes avec des hauteurs
-    dblCols = [ 50, 50, 50, 50 ]
-    dblRows = [ 50, 30, 30, 30, 30 ]
+    # Define columns with widths and rows with heights.
+    column_widths = [50, 50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-    # Ajoute une forme de tableau à la diapositive
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Définit le format de bordure pour chaque cellule
-    for row in tbl.rows:
+    # Clear the border fill for each cell.
+    for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Écrit le fichier PPTX sur le disque
-    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Numérotation dans les cellules fusionnées**
-Si nous fusionnons 2 paires de cellules (1, 1) x (2, 1) et (1, 2) x (2, 2), la table résultante sera numérotée. Ce code Python démontre le processus :
+## **Numérotation des cellules fusionnées**
+
+Si vous fusionnez deux paires de cellules—par exemple, (1, 1) × (2, 1) et (1, 2) × (2, 2)—le tableau résultant conserve la même numérotation des cellules que le tableau non fusionné. Le code Python suivant illustre ce comportement :
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancie la classe Presentation qui représente un fichier PPTX
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # Accède à la première diapositive
-    sld = presentation.slides[0]
-
-    # Définit les colonnes avec des largeurs et les lignes avec des hauteurs
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
-
-    # Ajoute une forme de tableau à la diapositive
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
-
-    # Définit le format de bordure pour chaque cellule
-    for row in tbl.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Fusionne les cellules (1, 1) x (2, 1)
-    tbl.merge_cells(tbl.rows[1][1], tbl.rows[2][1], False)
-
-    # Fusionne les cellules (1, 2) x (2, 2)
-    tbl.merge_cells(tbl.rows[1][2], tbl.rows[2][2], False)
-
-    presentation.save("MergeCells_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Nous fusionnons ensuite les cellules en fusionnant (1, 1) et (1, 2). Le résultat est une table contenant une grande cellule fusionnée au centre :
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# Instancie la classe Presentation qui représente un fichier PPTX
-with slides.Presentation() as presentation:
-    # Accède à la première diapositive
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Définit les colonnes avec des largeurs et les lignes avec des hauteurs
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70]
+    # Define columns with widths and rows with heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # Ajoute une forme de tableau à la diapositive
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Définit le format de bordure pour chaque cellule
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Fusionne les cellules (1, 1) x (2, 1)
+    # Merge cells (1,1) and (2,1).
     table.merge_cells(table.rows[1][1], table.rows[2][1], False)
 
-    # Fusionne les cellules (1, 2) x (2, 2)
+    # Merge cells (1, 2) and (2, 2).
     table.merge_cells(table.rows[1][2], table.rows[2][2], False)
 
-    # Fusionne les cellules (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][1], table.rows[1][2], True)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
 
-    # Écrit le fichier PPTX sur disque
-    presentation.save("MergeCells1_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Numérotation dans une cellule divisée**
-Dans les exemples précédents, lorsque les cellules de table ont été fusionnées, la numération ou le système numérique dans d'autres cellules n'a pas changé.
+Sortie :
 
-Cette fois, nous prenons une table régulière (une table sans cellules fusionnées) et essayons de diviser la cellule (1,1) pour obtenir une table spéciale. Vous voudrez peut-être prêter attention à la numérotation de cette table, qui peut sembler étrange. Cependant, c'est ainsi que Microsoft PowerPoint numérote les cellules de table et Aspose.Slides fait la même chose.
+```text
+(0, 0) (0, 1) (0, 2) (0, 3) 
+(1, 0) (1, 1) (1, 2) (1, 3) 
+(2, 0) (1, 1) (1, 2) (2, 3) 
+(3, 0) (3, 1) (3, 2) (3, 3)
+```
 
-Ce code Python démontre le processus que nous avons décrit :
+## **Numérotation des cellules scindées**
+
+Dans l’exemple précédent, lorsqu’on fusionnait des cellules, la numérotation des autres cellules ne changeait pas. Cette fois‑ci, nous créons un tableau ordinaire (sans cellules fusionnées) puis nous scindons la cellule (1, 1) pour obtenir un tableau spécial. Faites attention à la numérotation de ce tableau—elle peut sembler inhabituelle. C’est ainsi que Microsoft PowerPoint numérote les cellules de tableau, et Aspose.Slides suit ce même comportement.
+
+Le code Python suivant montre ce comportement :
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancie la classe Presentation qui représente un fichier PPTX
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # Accède à la première diapositive
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Définit les colonnes avec des largeurs et les lignes avec des hauteurs
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
+    # Define column widths and row heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # Ajoute une forme de tableau à la diapositive
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Définit le format de bordure pour chaque cellule
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Fusionne les cellules (1, 1) x (2, 1)
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Fusionne les cellules (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Divise la cellule (1, 1). 
+    # Split cell (1, 1).
     table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
 
-    # Écrit le fichier PPTX sur disque
-    presentation.save("CellSplit_out.pptx", slides.export.SaveFormat.PPTX)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
+
+    # Save the PPTX file to disk.
+    presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Changer la couleur d'arrière-plan de la cellule de table**
+Sortie :
 
-Ce code Python vous montre comment changer la couleur d'arrière-plan d'une cellule de table :
+```text
+(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
+(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
+(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
+(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+```
+
+## **Modifier la couleur d'arrière-plan d'une cellule de tableau**
+
+L’exemple Python suivant montre comment changer la couleur d’arrière‑plan d’une cellule de tableau :
 
 ```python
 import aspose.pydrawing as draw
@@ -231,13 +190,13 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    dblCols = [ 150, 150, 150, 150 ]
-    dblRows = [ 50, 50, 50, 50, 50 ]
+    column_widths = [150, 150, 150, 150]
+    row_heights = [50, 50, 50, 50, 50]
 
-    # crée une nouvelle table
-    table = slide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Create a new table.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # définit la couleur d'arrière-plan pour une cellule 
+    # Set the background color for a cell.
     cell = table.rows[2][3]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
@@ -245,47 +204,66 @@ with slides.Presentation() as presentation:
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ajouter une image à l'intérieur d'une cellule de table**
-1. Créez une instance de la classe `Presentation`.
-2. Obtenez une référence à une diapositive via son index.
-3. Définissez un tableau de colonnes avec une largeur.
-4. Définissez un tableau de lignes avec une hauteur.
-5. Ajoutez une table à la diapositive via la méthode `AddTable`. 
-6. Créez un objet `Bitmap` pour contenir le fichier image.
-7. Ajoutez l'image bitmap à l'objet `IPPImage`.
-8. Définissez le `FillFormat` pour la cellule de table sur `Picture`.
-9. Ajoutez l'image à la première cellule de la table.
-10. Enregistrez la présentation modifiée en tant que fichier PPTX.
+## **Insérer des images dans les cellules de tableau**
 
-Ce code Python vous montre comment placer une image à l'intérieur d'une cellule de table lors de la création d'une table :
+Cette section montre comment insérer une image dans une cellule de tableau avec Aspose.Slides. Elle couvre l’application d’un remplissage image à la cellule cible et la configuration des options d’affichage telles que l’étirement ou le carrelage.
+
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+1. Récupérez une référence à la diapositive par son indice.
+1. Définissez un tableau de largeurs de colonnes.
+1. Définissez un tableau de hauteurs de lignes.
+1. Ajoutez un tableau à la diapositive avec la méthode [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+1. Chargez l’image depuis un fichier.
+1. Ajoutez l’image à la collection d’images de la présentation pour obtenir un [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+1. Réglez le [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) de la cellule du tableau sur `PICTURE`.
+1. Appliquez l’image à la cellule du tableau et choisissez un mode de remplissage (ex. `STRETCH`).
+1. Enregistrez la présentation au format PPTX.
+
+Le code Python suivant montre comment placer une image à l’intérieur d’une cellule de tableau lors de la création du tableau :
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancie un objet de classe Presentation
+# Instantiate a Presentation object.
 with slides.Presentation() as presentation:
-    # Accède à la première diapositive
-    islide = presentation.slides[0]
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Définit les colonnes avec des largeurs et les lignes avec des hauteurs
-    dblCols =  [150, 150, 150, 150] 
-    dblRows =  [100, 100, 100, 100, 90] 
+    # Define column widths and row heights.
+    column_widths = [150, 150, 150, 150]
+    row_heights = [100, 100, 100, 100]
 
-    # Ajoute une forme de tableau à la diapositive
-    tbl = islide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Crée un objet Image Bitmap pour contenir le fichier image
-    image = draw.Bitmap(path + "aspose-logo.jpg")
+    # Load the image and add it to the presentation to obtain a PPImage.
+    with slides.Images.from_file("image.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Crée un objet IPPImage en utilisant l'objet bitmap
-    imgx1 = presentation.images.add_image(image)
+    # Apply the image to the first table cell.
+    cell = table.rows[0][0]
+    cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
+    cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    cell.cell_format.fill_format.picture_fill_format.picture.image = image
 
-    # Ajoute l'image à la première cellule de la table
-    tbl.rows[0][0].cell_format.fill_format.fill_type = slides.FillType.PICTURE
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture.image = imgx1
-
-    # Enregistre le PPTX sur disque
-    presentation.save("Image_In_TableCell_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**Puis‑je définir des épaisseurs et des styles de trait différents pour chaque côté d’une même cellule ?**
+
+Oui. Les bordures [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/), [bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/), [left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/), [right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) disposent de propriétés séparées, de sorte que l’épaisseur et le style de chaque côté peuvent différer. Cela découle logiquement du contrôle de bordure par côté présenté dans l’article.
+
+**Que se passe‑t‑il pour l’image si je modifie la taille d’une colonne/ligne après avoir défini une image comme arrière‑plan de la cellule ?**
+
+Le comportement dépend du [mode de remplissage](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (stretch/tile). En mode étirement, l’image s’ajuste à la nouvelle taille de la cellule ; en mode carrelage, les carreaux sont recalculés. L’article décrit les différents modes d’affichage d’une image dans une cellule.
+
+**Puis‑je attribuer un hyperlien à tout le contenu d’une cellule ?**
+
+Les [hyperliens](/slides/fr/python-net/manage-hyperlinks/) sont définis au niveau du texte (portion) à l’intérieur du cadre texte de la cellule ou au niveau du tableau/forme entier. En pratique, vous affectez le lien à une portion ou à l’ensemble du texte de la cellule.
+
+**Puis‑je appliquer des polices différentes au sein d’une même cellule ?**
+
+Oui. Le cadre texte d’une cellule prend en charge les [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (run) avec un formatage indépendant : famille de police, style, taille et couleur.

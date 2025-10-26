@@ -1,98 +1,110 @@
 ---
 title: Python でプレゼンテーションにフォントを埋め込む
-linktitle: フォントの埋め込み
+linktitle: フォント埋め込み
 type: docs
 weight: 40
-url: /ja/python-net/embedded-font/
+url: /ja/python-net/developer-guide/presentation-design/powerpoint-fonts/embedded-font/
 keywords:
-- フォントを追加
-- フォントを埋め込む
-- フォントの埋め込み
-- 埋め込みフォントを取得
-- 埋め込みフォントを追加
-- 埋め込みフォントを削除
-- 埋め込みフォントを圧縮
+- フォント追加
+- フォント埋め込み
+- フォント埋め込み処理
+- 埋め込みフォント取得
+- 埋め込みフォント追加
+- 埋め込みフォント削除
+- 埋め込みフォント圧縮
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument プレゼンテーションに TrueType フォントを埋め込み、あらゆるプラットフォームで正確にレンダリングされるようにする方法をご紹介します。"
+description: "Aspose.Slides for Python via .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションに TrueType フォントを埋め込み、すべてのプラットフォームで正確に表示できるようにします。"
 ---
 
-**PowerPointにおける埋め込まれたフォント**は、プレゼンテーションがどのシステムやデバイスで開かれても正しく表示されるようにするために便利です。創造的な作業のためにサードパーティ製または非標準のフォントを使用した場合、フォントを埋め込む理由はさらに増えます。そうでない場合（埋め込まれたフォントがない場合）、スライド上のテキストや数字、レイアウト、スタイリングなどが変更されたり、混乱を引き起こす長方形に変わる可能性があります。
+## **概要**
 
-[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)クラス、[FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/)クラス、[Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)クラス、およびそれらのインターフェイスには、PowerPointプレゼンテーションで埋め込まれたフォントを操作するために必要なほとんどのプロパティとメソッドが含まれています。
+**PowerPoint でフォントを埋め込む**ことで、プレゼンテーションは異なるシステムでも意図した外観を保つことができます。独自のフォントを使用して創造的に作成した場合でも、標準フォントを使用した場合でも、フォントを埋め込むことでテキストやレイアウトの乱れを防げます。
 
-## **プレゼンテーションから埋め込まれたフォントを取得または削除する**
+クリエイティブな作品のためにサードパーティ製や非標準フォントを使用した場合は、特に埋め込む理由が増えます。埋め込みフォントがない場合、スライド上のテキストや数値、レイアウト、スタイリングなどが変化したり、意味不明な矩形に置き換わったりすることがあります。
 
-Aspose.Slidesは、プレゼンテーションに埋め込まれているフォントを取得（または調べる）ことを可能にする`get_embedded_fonts()`メソッド（[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)クラスによって公開）を提供しています。フォントを削除するには、同じクラスによって公開されている`remove_embedded_font(font_data)`メソッドを使用します。
+[FontsManager](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/)、[FontData](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/)、および [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) クラスを利用して、埋め込みフォントを管理しましょう。
 
-このPythonコードは、プレゼンテーションから埋め込まれたフォントを取得および削除する方法を示しています：
+## **埋め込みフォントの取得と削除**
+
+プレゼンテーションから埋め込みフォントを簡単に取得または削除するには、[get_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) および [remove_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/remove_embedded_font/) メソッドを使用します。
+
+以下の Python コードは、プレゼンテーションから埋め込みフォントを取得し、削除する方法を示しています。
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# プレゼンテーションファイルを表すPresentationオブジェクトをインスタンス化
-with slides.Presentation(path + "EmbeddedFonts.pptx") as presentation:
-    # 埋め込まれた"FunSized"を使用するテキストフレームを含むスライドをレンダリング
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture1_out.png", slides.ImageFormat.PNG)
+# プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
+with slides.Presentation("EmbeddedFonts.pptx") as presentation:
+    slide = presentation.slides[0]
 
-    fontsManager = presentation.fonts_manager
+    # 埋め込み済みの 'FunSized' フォントを使用したテキストフレームを含むスライドをレンダリングします。
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture1_out.png", slides.ImageFormat.PNG)
 
-    # すべての埋め込まれたフォントを取得
-    embeddedFonts = fontsManager.get_embedded_fonts()
+    fonts_manager = presentation.fonts_manager
 
-    # "Calibri"フォントを見つける
-    
-    funSizedEmbeddedFont = list(filter(lambda data : data.font_name == "Calibri", embeddedFonts))[0]
+    # すべての埋め込みフォントを取得します。
+    embedded_fonts = fonts_manager.get_embedded_fonts()
 
-    # "Calibri"フォントを削除
-    fontsManager.remove_embedded_font(funSizedEmbeddedFont)
+    # 'Calibri' フォントを検索します。
+    font_data = list(filter(lambda data : data.font_name == "Calibri", embedded_fonts))[0]
 
-    # プレゼンテーションをレンダリング; "Calibri"フォントは既存のものに置き換えられる
-    with presentation.slides[0].get_image(draw.Size(960, 720)) as img:
-        img.save("picture2_out.png", slides.ImageFormat.PNG)
+    # 'Calibri' フォントを削除します。
+    fonts_manager.remove_embedded_font(font_data)
 
-    # 埋め込まれた"Calibri"フォントなしでプレゼンテーションをディスクに保存
-    presentation.save("WithoutManageEmbeddedFonts_out.ppt", slides.export.SaveFormat.PPT)
+    # スライドを再レンダリングします。'Calibri' フォントは既存のフォントに置き換えられます。
+    with slide.get_image(draw.Size(960, 720)) as image:
+        image.save("picture2_out.png", slides.ImageFormat.PNG)
+
+    # 埋め込み 'Calibri' フォントなしのプレゼンテーションをディスクに保存します。
+    presentation.save("WithoutEmbeddedFonts.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **プレゼンテーションに埋め込まれたフォントを追加する**
+## **埋め込みフォントの追加**
 
-[EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/)列挙体と`add_embedded_font(font_data, embed_font_rule)`メソッドの2つのオーバーロードを使用することで、プレゼンテーションに埋め込むフォントの好みの（埋め込み）ルールを選択できます。このPythonコードは、プレゼンテーションにフォントを埋め込んで追加する方法を示しています：
+[EmbedFontCharacters](https://reference.aspose.com/slides/python-net/aspose.slides.export/embedfontcharacters/) 列挙体と [add_embedded_font](https://reference.aspose.com/slides/python-net/aspose.slides/fontsmanager/add_embedded_font/) メソッドの 2 つのオーバーロードを使用して、プレゼンテーションにフォントを埋め込むためのルールを選択できます。以下の Python コードは、フォントを埋め込み、プレゼンテーションに追加する方法を示しています。
 
 ```python
 import aspose.slides as slides
 
-# プレゼンテーションを読み込む
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # 置き換えるソースフォントを読み込む
-    sourceFont = slides.FontData("Arial")
+# プレゼンテーションを読み込みます。
+with slides.Presentation("Fonts.pptx") as presentation:
+    all_fonts = presentation.fonts_manager.get_fonts()
+    embedded_fonts = presentation.fonts_manager.get_embedded_fonts()
 
-    allFonts = presentation.fonts_manager.get_fonts()
-    embeddedFonts = presentation.fonts_manager.get_embedded_fonts()
-    for font in allFonts:
-        if font not in embeddedFonts:
+    for font in all_fonts:
+        if font not in embedded_fonts:
             presentation.fonts_manager.add_embedded_font(font, slides.export.EmbedFontCharacters.ALL)
 
-    # プレゼンテーションをディスクに保存
-    presentation.save("AddEmbeddedFont_out.pptx", slides.export.SaveFormat.PPTX)
+    # プレゼンテーションをディスクに保存します。
+    presentation.save("AddEmbeddedFont.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **埋め込まれたフォントを圧縮する**
+## **埋め込みフォントの圧縮**
 
-プレゼンテーションに埋め込まれたフォントを圧縮し、そのファイルサイズを減らすことを可能にするために、Aspose.Slidesは`compress_embedded_fonts`メソッド（[Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/)クラスによって公開）を提供しています。
+[compress_embedded_fonts](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/) を使用して埋め込みフォントを圧縮し、ファイルサイズを最適化します。
 
-このPythonコードは、埋め込まれたPowerPointフォントを圧縮する方法を示しています：
+圧縮のサンプルコード:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-
-    slides.lowcode.Compress.compress_embedded_fonts(pres)
-    pres.save("pres-out.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("sample.pptx") as presentation:
+    slides.lowcode.Compress.compress_embedded_fonts(presentation)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **FAQ**
+
+**埋め込みフォントがあるにもかかわらず、レンダリング時に特定のフォントが置き換えられる可能性があるかどうかを確認するにはどうすればよいですか？**
+
+フォントマネージャーの [置換情報](/slides/ja/python-net/font-substitution/) と [フォールバック/置換ルール](/slides/ja/python-net/fallback-font/) を確認してください。フォントが利用できない、または制限されている場合はフォールバックが使用されます。
+
+**Arial や Calibri といった「システム」フォントを埋め込む価値はありますか？**
+
+通常はありません — これらのフォントはほぼ常に利用可能です。ただし、Docker コンテナやフォントが事前にインストールされていない Linux サーバーなど「軽量」環境での完全な移植性が必要な場合は、システムフォントを埋め込むことで予期しない置換リスクを排除できます。

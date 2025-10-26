@@ -3,80 +3,92 @@ title: Importer des présentations avec Python
 linktitle: Importer une présentation
 type: docs
 weight: 60
-url: /fr/python-net/import-presentation/
+url: /fr/python-net/developer-guide/manage-presentation/import-presentation/
 keywords:
-- importer PowerPoint
-- importer une présentation
-- importer une diapositive
-- PDF vers présentation
-- PDF vers PPT
-- PDF vers PPTX
-- PDF vers ODP
-- HTML vers présentation
-- HTML vers PPT
-- HTML vers PPTX
-- HTML vers ODP
+- import PowerPoint
+- import presentation
+- import slide
+- PDF to presentation
+- PDF to PPT
+- PDF to PPTX
+- PDF to ODP
+- HTML to presentation
+- HTML to PPT
+- HTML to PPTX
+- HTML to ODP
 - Python
 - Aspose.Slides
-description: "Importez facilement des documents PDF et HTML dans des présentations PowerPoint et OpenDocument en Python avec Aspose.Slides, pour un traitement des diapositives fluide et performant."
+description: "Importez facilement des documents PDF et HTML dans des présentations PowerPoint et OpenDocument en Python avec Aspose.Slides pour un traitement des diapositives fluide et haute performance."
 ---
 
-En utilisant [**Aspose.Slides pour Python via .NET**](https://products.aspose.com/slides/python-net/), vous pouvez importer des présentations à partir de fichiers dans d'autres formats. Aspose.Slides fournit la classe [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) pour vous permettre d'importer des présentations à partir de PDF, de documents HTML, etc. 
+## **Vue d'ensemble**
 
-## **Importer PowerPoint à partir de PDF**
+Avec [**Aspose.Slides for Python via .NET**](https://products.aspose.com/slides/python-net/), vous pouvez importer du contenu dans une présentation à partir d’autres formats de fichiers. La classe [SlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/) propose des méthodes pour importer des diapositives depuis PDF, HTML et d’autres sources.
 
-Dans ce cas, vous pouvez convertir un PDF en présentation PowerPoint.
+## **Convertir un PDF en présentation**
+
+Cette section montre comment convertir un PDF en présentation à l’aide d’Aspose.Slides. Elle vous guide à travers l’importation du PDF, la transformation de ses pages en diapositives, puis l’enregistrement du résultat sous forme de fichier PPTX.
 
 <img src="pdf-to-powerpoint.png" alt="pdf-to-powerpoint" style="zoom:50%;" />
 
-1. Instanciez un objet de la classe de présentation. 
-2. Appelez la méthode `add_from_pdf` et passez le fichier PDF. 
-3. Utilisez la méthode `save` pour enregistrer le fichier au format PowerPoint.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Appelez la méthode [add_from_pdf](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_from_pdf/) en passant le fichier PDF.
+3. Utilisez la méthode [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) pour enregistrer la présentation au format PowerPoint.
 
-Ce code Python démontre l'opération de conversion de PDF en PowerPoint :
+L’exemple Python suivant montre la conversion d’un PDF en présentation :
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    pres.slides.remove_at(0)
-    pres.slides.add_from_pdf("welcome-to-powerpoint.pdf")
-    pres.save("OutputPresentation.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation() as presentation:
+    presentation.slides.remove_at(0)
+
+    presentation.slides.add_from_pdf("sample.pdf")
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert  title="Conseil" color="primary" %}} 
+{{% alert  title="Astuce" color="primary" %}}
 
-Vous voudrez peut-être essayer l'application web gratuite **Aspose** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) car il s'agit d'une mise en œuvre en direct du processus décrit ici. 
+Vous pouvez essayer l’application web gratuite d’Aspose **PDF vers PowerPoint** [PDF to PowerPoint](https://products.aspose.app/slides/import/pdf-to-powerpoint) — c’est une implémentation en ligne du processus décrit ici.
 
-{{% /alert %}} 
+{{% /alert %}}
 
-## **Importer PowerPoint à partir de HTML**
+## **Convertir un HTML en présentation**
 
-Dans ce cas, vous pouvez convertir un document HTML en présentation PowerPoint.
+Cette section montre comment importer du contenu HTML dans une présentation à l’aide d’Aspose.Slides. Elle couvre le chargement du HTML, sa transformation en diapositives en conservant le texte, les images et le formatage de base, puis l’enregistrement du résultat sous forme de fichier PPTX.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
-2. Appelez la méthode `add_from_html` et passez le fichier HTML. 
-3. Utilisez la méthode `save` pour enregistrer le fichier en tant que document PowerPoint.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Appelez la méthode [add_from_html](https://reference.aspose.com/slides/python-net/aspose.slides/slidecollection/add_from_html/) en passant le fichier HTML. 
+3. Utilisez la méthode [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) pour enregistrer la présentation au format PowerPoint.
 
-Ce code Python démontre l'opération de conversion de HTML en PowerPoint : 
+L’exemple Python suivant montre la conversion d’un HTML en présentation :
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    with open("page.html", "rb") as htmlStream:
-        pres.slides.add_from_html(htmlStream)
+with slides.Presentation() as presentation:
+    presentation.slides.remove_at(0)
 
-    pres.save("MyPresentation.pptx", slides.export.SaveFormat.PPTX)
+    with open("page.html", "rb") as html_stream:
+        presentation.slides.add_from_html(html_stream)
+
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Note" color="warning" %}} 
+## **FAQ**
 
-Vous pouvez également utiliser Aspose.Slides pour convertir HTML en d'autres formats de fichiers populaires : 
+**Les tableaux sont‑ils conservés lors de l’importation d’un PDF, et la détection peut‑elle être améliorée ?**
 
-* [HTML en image](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
-* [HTML en JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
-* [HTML en XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
-* [HTML en TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
+Les tableaux peuvent être détectés pendant l’importation ; [PdfImportOptions](https://reference.aspose.com/slides/python-net/aspose.slides.importing/pdfimportoptions/) propose un paramètre [detect_tables](https://reference.aspose.com/slides/python-net/aspose.slides.importing/pdfimportoptions/detect_tables/) qui active la reconnaissance des tableaux. L’efficacité dépend de la structure du PDF.
+
+{{% alert title="Remarque" color="info" %}}
+
+Vous pouvez également utiliser Aspose.Slides pour convertir le HTML vers d’autres formats populaires :
+
+* [HTML vers image](https://products.aspose.com/slides/python-net/conversion/html-to-image/)
+* [HTML vers JPG](https://products.aspose.com/slides/python-net/conversion/html-to-jpg/)
+* [HTML vers XML](https://products.aspose.com/slides/python-net/conversion/html-to-xml/)
+* [HTML vers TIFF](https://products.aspose.com/slides/python-net/conversion/html-to-tiff/)
 
 {{% /alert %}}

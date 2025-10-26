@@ -1,19 +1,27 @@
 ---
 title: التوافق مع PyInstaller و cx_Freeze
+linktitle: التوافق مع PyInstaller
 type: docs
 weight: 122
-url: /ar/python-net/compatibility-with-pyinstaller/
+url: /ar/python-net/developer-guide/technical-articles/compatibility-with-pyinstaller/
+keywords:
+- التوافق
+- PyInstaller
+- cx_Freeze
+- Python
+- Aspose.Slides
+description: "حزم Aspose.Slides للبايثون عبر .NET باستخدام PyInstaller. اتبع هذا الدليل لتجميع التطبيق، وتكوينه، وحل المشكلات لتشغيله كملف تنفيذي مستقل."
 ---
 
+## **التوافق مع PyInstaller و cx_Freeze**
 
-## التوافق مع PyInstaller و cx_Freeze ##
+ملحقات Aspose.Slides للبايثون عبر .NET هي ملحقات C قياسية للبايثون، لذا يمكن تجميدها كاعتمادات للبرنامج باستخدام أدوات مثل PyInstaller و cx_Freeze (أو ما شابه). يتيح لك ذلك إنشاء ملفات تنفيذية من سكريبتات البايثون الخاصة بك. تُسمى هذه الأدوات “مجمّدة” لأنها تُدمج الكود الخاص بك واعتماداته في ملف واحد يمكن توزيعه ويعمل على أجهزة أخرى دون الحاجة إلى تثبيت بايثون أو مكتبات إضافية. يبسط هذا النهج توزيع تطبيقات البايثون الخاصة بك.
 
-تعتبر ملحقات 'Aspose.Slides for Python عبر .NET' ببساطة ملحقات C بلغة Python، والتي يمكن تجميدها بمساعدة PyInstaller و cx_Freeze (أو أدوات مشابهة) كاعتماديات للبرنامج. هذا يعني أنه يمكنك استخدام أدوات مثل PyInstaller و cx_Freeze لإنشاء ملفات تنفيذية من سكريبتات Python الخاصة بك. تُسمى هذه الأدوات "مجمدات" لأنها تقوم بتجميد كودك واعتمادياته في ملف واحد يمكن أن يعمل على آلات أخرى دون الحاجة إلى Python أو مكتبات أخرى. مما يسهل توزيع تطبيقات Python الخاصة بك للآخرين.
+تجميد ملحق Aspose.Slides للبايثون عبر .NET كاعتماد موضح أدناه باستخدام برنامج بسيط يستخدم Aspose.Slides.
 
-يتم توضيح تجميد ملحق 'Aspose.Slides for Python عبر .NET' كاعتماد برنامج من خلال مثال لبرنامج بسيط يستخدم Aspose.Slides.
+### **PyInstaller**
 
-### PyInstaller
-بشكل عام، لا حاجة لعمل أي شيء خاص عند تعبئة برنامج يعتمد على ملحق 'Aspose.Slides for Python عبر .NET'. عندما يقوم برنامج باستيراد ملحق بطريقة تكون مرئية لـ PyInstaller، سيتم تعبئة الملحق مع البرنامج. نظرًا لأن ملحقات 'Aspose.Slides for Python عبر .NET' تأتي مع توصيلات PyInstaller، سيتم العثور على اعتمادياتها الخاصة ونسخها في الحزمة.
+بشكل عام، لا يلزم أي شيء خاص عند حزم برنامج يعتمد على ملحق Aspose.Slides للبايثون عبر .NET. عندما يستورد البرنامج الملحق بطريقة يمكن لـ PyInstaller رؤيتها، سيتم دمج الملحق مع البرنامج. نظرًا لأن Aspose.Slides للبايثون عبر .NET يتضمن ربطات PyInstaller، يتم اكتشاف واعتماد اعتماده تلقائيًا ونقله إلى الحزمة.
 
 slide_app.py:
 ```python
@@ -22,14 +30,14 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50.0, 150.0, 300.0, 0.0)
-    presentation.save("NewPresentation_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("NewPresentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-```
+```bash
 $ pyinstaller slide_app.py
 ```
 
-ومع ذلك، في بعض الأحيان لا يستطيع PyInstaller اكتشاف بعض الاستيرادات المخفية، وهي الوحدات التي يتم استيرادها ديناميكيًا أو بشكل غير مباشر بواسطة الكود الخاص بك. للتعامل مع استيراد مخفي في PyInstaller، استخدم خيارات PyInstaller. يتم تحديد اعتماديات الملحق في توصيلات PyInstaller التي تأتي مع ملحق 'Aspose.Slides for Python عبر .NET'.
+ومع ذلك، قد يتغاضى PyInstaller أحيانًا عن الاستيرادات المخفية — الوحدات التي يتم استيرادها ديناميكيًا أو بشكل غير مباشر من قبل الكود الخاص بك. لتضمين استيراد مخفي، استخدم خيارات PyInstaller. يتم تحديد اعتمادات الملحق في ربطات PyInstaller التي تُرفق مع Aspose.Slides للبايثون عبر .NET.
 
 slide_app.spec:
 ```
@@ -40,19 +48,22 @@ a = Analysis(
 )
 ```
 
-```
+```bash
 $ pyinstaller slide_app.spec
 ```
 
-### cx_Freeze ###
-لتجميد برنامج باستخدام cx_Freeze، استخدم خياراته لتجميد الحزمة الجذرية للملحق 'Aspose.Slides for Python عبر .NET' الذي تستخدمه. سيتأكد هذا من أن الملحق والوحدات التي يعتمد عليها قد تم نسخها مع البرنامج.
+### **cx_Freeze**
 
-#### استخدام سكريبت cxfreeze ####
-```
+لتجميد برنامج باستخدام cx_Freeze، قم بتكوينه لتضمين الحزمة الجذرية لملحق Aspose.Slides للبايثون عبر .NET الذي تستخدمه. يضمن ذلك نسخ الملحق وجميع الوحدات التابعة إلى البناء جنبًا إلى جنب مع تطبيقك.
+
+#### **استخدام سكريبت cxfreeze**
+
+```bash
 $ cxfreeze slide_app.py --packages=aspose
 ```
 
-#### باستخدام سكريبت Setup ####
+#### **استخدام سكريبت الإعداد**
+
 setup.py:
 ```
 executables = [Executable('slide_app.py')]
@@ -66,10 +77,22 @@ options = {
 setup(...
     options=options,
     executables=executables)
-
 ```
 
-
-```
+```bash
 $ python setup.py build_exe
 ```
+
+## **الأسئلة المتكررة**
+
+**هل أحتاج إلى تثبيت Microsoft PowerPoint أو .NET على جهاز المستخدم؟**
+
+لا، لا يلزم وجود PowerPoint. Aspose.Slides هو محرك مستقل؛ حزمة البايثون تُرسل كل ما يلزم كملحق لـ CPython. لا يحتاج المستخدم إلى تثبيت .NET بشكل منفصل.
+
+**كيف يمكنني إرفاق الترخيص بشكل صحيح لتطبيق مجمد؟**
+
+يمكنك حفظ ملف الترخيص XML بجانب الملف التنفيذي أو تضمينه كمورد وتحميله من مسار قابل للوصول قبل أول استدعاء للواجهة البرمجية. مهم: لا تُعدّل محتوى XML (ليس حتى فواصل الأسطر).
+
+**ماذا أفعل إذا ظهرت الخطوط بشكل مختلف بعد البناء مقارنةً ببيئة التطوير؟**
+
+تأكد من أن الخطوط التي تستخدمها متوفرة في البيئة المستهدفة (مضمنة أو مثبتة على النظام) وأن مساراتها تُحلّ بشكل صحيح وقت التشغيل؛ سلوك الخطوط حساس خصوصًا على نظام Linux.

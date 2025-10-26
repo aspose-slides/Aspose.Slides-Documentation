@@ -1,89 +1,96 @@
 ---
-title: Python でプレゼンテーションの図形をグループ化する
-linktitle: 図形グループ
+title: Pythonでのグループプレゼンテーションシェイプ
+linktitle: シェイプ グループ
 type: docs
 weight: 40
-url: /ja/python-net/group/
+url: /ja/python-net/developer-guide/presentation-content/powerpoint-shapes/shape-types/group/
 keywords:
-- 図形をグループ化
-- 図形グループ
-- グループを追加
+- グループシェイプ
+- シェイプ グループ
+- グループの追加
 - 代替テキスト
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument のデッキ内で図形をグループ化およびグループ解除する方法を学びましょう。無料のコード付きで迅速に進めるステップバイステップガイドです。"
+description: "Aspose.Slides for Python を使用して PowerPoint および OpenDocument デッキでシェイプをグループ化およびグループ解除する方法を学びます—高速でステップバイステップのガイドと無料コードを提供します。"
 ---
 
-## **グループ形状の追加**
-Aspose.Slidesはスライド上のグループ形状の操作をサポートしています。この機能は、開発者がよりリッチなプレゼンテーションをサポートするのに役立ちます。Aspose.Slides for Python via .NETは、グループ形状の追加またはアクセスをサポートしています。追加されたグループ形状に形状を追加して内容を充実させたり、グループ形状の任意のプロパティにアクセスすることが可能です。Aspose.Slides for Python via .NETを使用してスライドにグループ形状を追加するには：
+## **概要**
 
-1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)クラスのインスタンスを作成します。
-1. インデックスを使用してスライドの参照を取得します。
-1. スライドにグループ形状を追加します。
-1. 追加されたグループ形状に形状を追加します。
-1. 修正されたプレゼンテーションをPPTXファイルとして保存します。
+シェイプをグループ化すると、複数の描画オブジェクトを1つのユニットとして扱えるようになり、まとめて移動、サイズ変更、書式設定、変形が可能です。Aspose.Slides for Python を使用すると、[GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) を作成し、その内部に子シェイプを追加・配置し、結果を PPTX に保存できます。本記事では、スライドにグループシェイプを追加する方法と、グループ内のシェイプから Alt Text などのアクセシビリティメタデータにアクセスする方法を示し、構造を整理し、よりリッチで保守性の高いプレゼンテーションを実現します。
 
-以下の例では、スライドにグループ形状を追加します。
+## **グループシェイプの追加**
 
-```py
-import aspose.slides as slides
+Aspose.Slides はスライド上でのグループシェイプの操作をサポートしています。この機能により、複数のシェイプを1つのオブジェクトとして扱うことで、よりリッチなプレゼンテーションを構築できます。新しいグループシェイプの追加、既存のグループシェイプへのアクセス、子シェイプの配置、プロパティの読み書きが可能です。スライドにグループシェイプを追加する手順は次のとおりです。
 
-# Presentationクラスのインスタンスを生成
-with slides.Presentation() as pres:
-    # 最初のスライドを取得
-    sld = pres.slides[0]
+1. [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. スライドに [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) を追加します。
+4. 新しいグループシェイプにシェイプを追加します。
+5. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-    # スライドの形状コレクションにアクセス
-    slideShapes = sld.shapes
-
-    # スライドにグループ形状を追加
-    groupShape = slideShapes.add_group_shape()
-
-    # 追加されたグループ形状内に形状を追加
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
-
-    # グループ形状のフレームを追加
-    groupShape.frame = slides.ShapeFrame(100, 300, 500, 40, -1, -1, 0)
-
-    # PPTXファイルをディスクに書き込む
-    pres.save("GroupShape_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-
-## **AltTextプロパティへのアクセス**
-このトピックでは、グループ形状を追加し、スライド上のグループ形状のAltTextプロパティにアクセスするための簡単なステップをコード例と共に示します。Aspose.Slides for Python via .NETを使用してスライドのグループ形状のAltTextにアクセスするには：
-
-1. PPTXファイルを表す`Presentation`クラスをインスタンス化します。
-1. インデックスを使用してスライドの参照を取得します。
-1. スライドの形状コレクションにアクセスします。
-1. グループ形状にアクセスします。
-1. AltTextプロパティにアクセスします。
-
-以下の例では、グループ形状の代替テキストにアクセスします。
+以下の例は、スライドにグループシェイプを追加する方法を示しています。
 
 ```py
 import aspose.slides as slides
 
-# PPTXファイルを表すPresentationクラスのインスタンスを生成
-with slides.Presentation(path + "AltText.pptx") as pres:
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Get the first slide.
+    slide = presentation.slides[0]
 
-    # 最初のスライドを取得
-    sld = pres.slides[0]
+    # Add a group shape to the slide.
+    group_shape = slide.shapes.add_group_shape()
 
-    for i in range(len(sld.shapes)):
-        # スライドの形状コレクションにアクセス
-        shape = sld.shapes[i]
+    # Add shapes inside the group shape.
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
 
-        if type(shape) is slides.GroupShape:
-            # グループ形状にアクセス
-            for j in range(len(shape.shapes)):
-                # AltTextプロパティにアクセス
-                print(shape.shapes[j].alternative_text)
+    # Write the PPTX file to disk.
+    presentation.save("group_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Alt Text プロパティへのアクセス**
+
+このセクションでは、Aspose.Slides を使用してスライド上のグループシェイプに含まれるシェイプの Alt Text を読み取る方法を説明します。シェイプの Alt Text にアクセスする手順は次のとおりです。
+
+1. PPTX ファイルを表すために [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+2. インデックスでスライドへの参照を取得します。
+3. スライドのシェイプコレクションにアクセスします。
+4. [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) にアクセスします。
+5. Alt Text プロパティを読み取ります。
+
+以下の例は、グループシェイプ内に含まれるシェイプの Alt Text を取得する方法を示しています。
+
+```py
+import aspose.slides as slides
+
+# Instantiate the Presentation class to open the PPTX file.
+with slides.Presentation("group_shape.pptx") as presentation:
+    # Get the first slide.
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.GroupShape):
+            # Access the group shape.
+            for child_shape in shape.shapes:
+                # Access the Alt Text property.
+                print(child_shape.alternative_text)
+```
+
+## **FAQ**
+
+**ネストされたグルーピング（グループ内のグループ）はサポートされていますか？**
+
+はい。[GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) には [parent_group](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/parent_group/) プロパティがあり、階層構造のサポート（あるグループが別のグループの子になること）が直接示されています。
+
+**スライド上の他のオブジェクトに対するグループの Z オーダーをどのように制御しますか？**
+
+[GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) の [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) プロパティを使用して、表示スタック内での位置を確認または変更できます。
+
+**移動/編集/グループ解除を防止できますか？**
+
+はい。グループのロックセクションは [group_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/group_shape_lock/) を介して公開されており、オブジェクトに対する操作を制限できます。

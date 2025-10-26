@@ -1,79 +1,96 @@
 ---
-title: مجموعة
+title: تجميع أشكال العروض التقديمية باستخدام بايثون
+linktitle: مجموعة الشكل
 type: docs
 weight: 40
-url: /ar/python-net/group/
-keywords: "شكل مجموعة، شكل PowerPoint، عرض PowerPoint، Python، Aspose.Slides لـ Python عبر .NET"
-description: "إضافة شكل مجموعة إلى عرض PowerPoint باستخدام Python"
+url: /ar/python-net/developer-guide/presentation-content/powerpoint-shapes/shape-types/group/
+keywords:
+- شكل مجموعة
+- مجموعة الشكل
+- إضافة مجموعة
+- نص بديل
+- PowerPoint
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "تعلم كيفية تجميع وإلغاء تجميع الأشكال في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for Python—دليل سريع خطوة بخطوة مع كود مجاني."
 ---
 
-## **إضافة شكل مجموعة**
-يدعم Aspose.Slides العمل مع أشكال المجموعات على الشرائح. تساعد هذه الميزة المطورين على دعم عروض تقديمية أكثر تنوعًا. كما يدعم Aspose.Slides لـ Python عبر .NET إضافة أو الوصول إلى أشكال المجموعات. من الممكن إضافة أشكال إلى شكل مجموعة مُضاف لتعبئته أو الوصول إلى أي خاصية من خصائص شكل المجموعة. لإضافة شكل مجموعة إلى شريحة باستخدام Aspose.Slides لـ Python عبر .NET:
+## **نظرة عامة**
 
-1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-1. الحصول على مرجع شريحة باستخدام فهرسها.
-1. إضافة شكل مجموعة إلى الشريحة.
-1. إضافة الأشكال إلى شكل المجموعة المُضاف.
-1. حفظ العرض المعدل كملف PPTX.
+يتيح تجميع الأشكال التعامل مع عدة كائنات رسم كوحدة واحدة بحيث يمكنك تحريكها، تعديل حجمها، تنسيقها، وتحويلها معًا. باستخدام Aspose.Slides for Python، يمكنك إنشاء [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/)، إضافة وتنسيق أشكال فرعية داخلها، وحفظ النتيجة كملف PPTX. تُظهر هذه المقالة كيفية إضافة شكل مجموعة إلى شريحة وكيفية الوصول إلى بيانات التعريف الخاصة بإمكانية الوصول مثل النص البديل من الأشكال داخل المجموعة، مما يتيح بنية أكثر نظافة وعروضًا تقديمية أكثر ثراءً وسهولة في الصيانة.
 
-المثال أدناه يضيف شكل مجموعة إلى شريحة.
+## **إضافة أشكال المجموعة**
 
-```py
-import aspose.slides as slides
+يدعم Aspose.Slides العمل مع أشكال المجموعة على الشريحة. تتيح هذه الميزة بناء عروض تقديمية أغنى من خلال التعامل مع عدة أشكال ككائن واحد. يمكنك إضافة أشكال مجموعة جديدة، الوصول إلى الموجودة منها، تعبئتها بأشكال فرعية، وقراءة أو تعديل أي من خصائصها. لإضافة شكل مجموعة إلى شريحة:
 
-# إنشاء مثيل لفئة Presentation 
-with slides.Presentation() as pres:
-    # الحصول على الشريحة الأولى 
-    sld = pres.slides[0]
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. الحصول على مرجع إلى شريحة وفق الفهرس.
+3. إضافة [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) إلى الشريحة.
+4. إضافة أشكال إلى شكل المجموعة الجديد.
+5. حفظ العرض التقديمي المعدل كملف PPTX.
 
-    # الوصول إلى مجموعة الأشكال في الشرائح 
-    slideShapes = sld.shapes
-
-    # إضافة شكل مجموعة إلى الشريحة 
-    groupShape = slideShapes.add_group_shape()
-
-    # إضافة أشكال داخل شكل المجموعة المُضاف 
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
-    groupShape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
-
-    # إضافة إطار شكل المجموعة 
-    groupShape.frame = slides.ShapeFrame(100, 300, 500, 40, -1, -1, 0)
-
-    # كتابة ملف PPTX إلى القرص 
-    pres.save("GroupShape_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-
-## **الوصول إلى خاصية AltText**
-تظهر هذه الموضوعات خطوات بسيطة، مكتملة بأمثلة الكود، لإضافة شكل مجموعة والوصول إلى خاصية AltText لأشكال المجموعات على الشرائح. للوصول إلى AltText لشكل مجموعة في شريحة باستخدام Aspose.Slides لـ Python عبر .NET:
-
-1. إنشاء مثيل لفئة `Presentation` التي تمثل ملف PPTX.
-1. الحصول على مرجع شريحة باستخدام فهرسها.
-1. الوصول إلى مجموعة الأشكال في الشرائح.
-1. الوصول إلى شكل المجموعة.
-1. الوصول إلى خاصية AltText.
-
-المثال أدناه يصل إلى النص البديل لشكل المجموعة.
+يوضح المثال أدناه كيفية إضافة شكل مجموعة إلى شريحة.
 
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation التي تمثل ملف PPTX
-with slides.Presentation(path + "AltText.pptx") as pres:
+# Instantiate the Presentation class.
+with slides.Presentation() as presentation:
+    # Get the first slide.
+    slide = presentation.slides[0]
 
-    # الحصول على الشريحة الأولى
-    sld = pres.slides[0]
+    # Add a group shape to the slide.
+    group_shape = slide.shapes.add_group_shape()
 
-    for i in range(len(sld.shapes)):
-        # الوصول إلى مجموعة الأشكال في الشرائح
-        shape = sld.shapes[i]
+    # Add shapes inside the group shape.
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 100, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 300, 300, 100, 100)
+    group_shape.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 500, 300, 100, 100)
 
-        if type(shape) is slides.GroupShape:
-            # الوصول إلى شكل المجموعة.
-            for j in range(len(shape.shapes)):
-                # الوصول إلى خاصية AltText
-                print(shape.shapes[j].alternative_text)
+    # Write the PPTX file to disk.
+    presentation.save("group_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **الوصول إلى خاصية النص البديل**
+
+تشرح هذه الفقرة كيفية قراءة النص البديل للأشكال الموجودة داخل شكل مجموعة على شريحة باستخدام Aspose.Slides. للوصول إلى النص البديل للأشكال:
+
+1. إنشاء مثيل من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) لتمثيل ملف PPTX.
+2. الحصول على مرجع إلى الشريحة وفق الفهرس.
+3. الوصول إلى مجموعة أشكال الشريحة.
+4. الوصول إلى [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/).
+5. قراءة خاصية النص البديل.
+
+يعرض المثال أدناه كيفية استرجاع النص البديل للأشكال الموجودة داخل أشكال المجموعة.
+
+```py
+import aspose.slides as slides
+
+# Instantiate the Presentation class to open the PPTX file.
+with slides.Presentation("group_shape.pptx") as presentation:
+    # Get the first slide.
+    slide = presentation.slides[0]
+
+    for shape in slide.shapes:
+        if isinstance(shape, slides.GroupShape):
+            # Access the group shape.
+            for child_shape in shape.shapes:
+                # Access the Alt Text property.
+                print(child_shape.alternative_text)
+```
+
+## **الأسئلة المتكررة**
+
+**هل يتم دعم التجميع المتداخل (مجموعة داخل مجموعة)؟**
+
+نعم. يحتوي [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) على خاصية [parent_group](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/parent_group/) التي تشير مباشرةً إلى دعم الهرمية (يمكن أن تكون المجموعة فرعية لمجموعة أخرى).
+
+**كيف يمكن التحكم بترتيب z للمجموعة مقارنةً بالكائنات الأخرى على الشريحة؟**
+
+استخدم خاصية [z_order_position](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/z_order_position/) الخاصة بـ [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/) لفحص أو تغيير موضعها في مكدس العرض.
+
+**هل يمكن منع التحريك/التعديل/إلغاء التجميع؟**
+
+نعم. يتم كشف قسم القفل للمجموعة عبر [group_shape_lock](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/group_shape_lock/)، مما يتيح لك تقييد العمليات على الكائن.

@@ -1,229 +1,181 @@
 ---
-title: Gestionar Celdas
+title: Manage Table Cells in Presentations with Python
+linktitle: Manage Cells
 type: docs
 weight: 30
-url: /es/python-net/manage-cells/
-keywords: "Tabla, celdas combinadas, celdas divididas, imagen en celda de tabla, Python, Aspose.Slides para Python a través de .NET"
-description: "Celdas de tabla en presentaciones de PowerPoint en Python"
+url: /es/python-net/developer-guide/presentation-content/powerpoint-table/manage-cells/
+keywords:
+- celda de tabla
+- combinar celdas
+- eliminar borde
+- dividir celda
+- imagen en celda
+- color de fondo
+- PowerPoint
+- OpenDocument
+- presentación
+- Python
+- Aspose.Slides
+description: "Administre sin esfuerzo las celdas de tabla en PowerPoint y OpenDocument con Aspose.Slides para Python mediante .NET. Domine el acceso, la modificación y el estilo de las celdas rápidamente para una automatización fluida de diapositivas."
 ---
 
-## **Identificar Celda de Tabla Combinada**
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-2. Obtén la tabla de la primera diapositiva.
-3. Recorre las filas y columnas de la tabla para encontrar celdas combinadas.
-4. Imprime un mensaje cuando se encuentren celdas combinadas.
+## **Resumen**
 
-Este código Python te muestra cómo identificar celdas de tabla combinadas en una presentación:
+Este artículo muestra cómo trabajar con celdas de tabla en presentaciones usando Aspose.Slides. Aprenderá a detectar celdas combinadas, borrar o personalizar los bordes de las celdas, y a entender cómo PowerPoint numera las celdas después de operaciones de combinación y división para que pueda predecir la indexación en diseños complejos. El artículo también demuestra tareas comunes de formato—como cambiar el relleno de fondo de una celda—y muestra cómo colocar una imagen directamente dentro de una celda de tabla con configuraciones de relleno de imagen. Cada escenario va acompañado de concisos ejemplos en Python que crean o editan tablas y luego guardan la presentación actualizada, para que pueda adaptar los fragmentos a sus propias diapositivas rápidamente.
+
+## **Identificar celdas de tabla combinadas**
+
+Las tablas a menudo contienen celdas combinadas para encabezados o para agrupar datos relacionados. En esta sección, verá cómo determinar si una celda específica pertenece a una región combinada y cómo referenciar la celda maestra (superior izquierda) para leer o formatear todo el bloque de forma coherente.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Obtenga la tabla de la primera diapositiva.
+3. Itere a través de las filas y columnas de la tabla para encontrar celdas combinadas.
+4. Imprima un mensaje cuando se encuentren celdas combinadas.
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation(path + "SomePresentationWithTable.pptx") as pres:
-    table = pres.slides[0].shapes[0] # asumiendo que #0.Shape#0 es una tabla
-    for i in range(len(table.rows)):
-        for j in range(len(table.columns)):
-            currentCell = table.rows[i][j]
-            if currentCell.is_merged_cell:
-                print("La celda 01 es parte de una celda combinada con RowSpan=2 y ColSpan=3, comenzando desde la celda 45.".format(
-                    i, j, currentCell.row_span, currentCell.col_span, currentCell.first_row_index, currentCell.first_column_index))
+with slides.Presentation("presentation_with_table.pptx") as presentation:
+    # Assuming the first shape on the first slide is a table.
+    table = presentation.slides[0].shapes[0]
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.columns)):
+            cell = table.rows[row_index][column_index]
+            if cell.is_merged_cell:
+                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
+                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
 ```
 
-## **Eliminar Bordes de Celdas de Tabla**
-1. Crea una instancia de la clase `Presentation`.
-2. Obtén una referencia de la diapositiva a través de su índice.
-3. Define un arreglo de columnas con ancho.
-4. Define un arreglo de filas con altura.
-5. Agrega una tabla a la diapositiva a través del método `AddTable`.
-6. Recorre cada celda para limpiar los bordes superior, inferior, derecho e izquierdo.
-7. Guarda la presentación modificada como un archivo PPTX.
+## **Eliminar bordes de celdas de tabla**
 
-Este código Python te muestra cómo eliminar los bordes de las celdas de tabla:
+A veces los bordes de la tabla distraen del contenido o crean desorden visual. Esta sección muestra cómo eliminar bordes de celdas seleccionadas—o de lados específicos de una celda—para lograr un diseño más limpio y alinearse mejor con el estilo de su diapositiva.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Obtenga la diapositiva por su índice.
+3. Defina una matriz de anchos de columna.
+4. Defina una matriz de alturas de fila.
+5. Añada una tabla a la diapositiva usando el método [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+6. Itere a través de cada celda para borrar los bordes superior, inferior, izquierdo y derecho.
+7. Guarde la presentación modificada como archivo PPTX.
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancia la clase Presentation que representa un archivo PPTX
-with slides.Presentation() as pres:
-   # Accede a la primera diapositiva
-    sld = pres.slides[0]
+# Instantiate the Presentation class that represents a PPTX file.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Define columnas con anchos y filas con alturas
-    dblCols = [ 50, 50, 50, 50 ]
-    dblRows = [ 50, 30, 30, 30, 30 ]
+    # Define columns with widths and rows with heights.
+    column_widths = [50, 50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-    # Agrega una forma de tabla a la diapositiva
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Establece el formato del borde para cada celda
-    for row in tbl.rows:
+    # Clear the border fill for each cell.
+    for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Escribe el archivo PPTX en disco
-    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Numeración en celdas combinadas**
 
-## **Numeración en Celdas Combinadas**
-Si combinamos 2 pares de celdas (1, 1) x (2, 1) y (1, 2) x (2, 2), la tabla resultante será numerada. Este código Python demuestra el proceso:
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# Instancia la clase Presentation que representa un archivo PPTX
-with slides.Presentation() as presentation:
-    # Accede a la primera diapositiva
-    sld = presentation.slides[0]
-
-    # Define columnas con anchos y filas con alturas
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
-
-    # Agrega una forma de tabla a la diapositiva
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
-
-    # Establece el formato del borde para cada celda
-    for row in tbl.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Combina celdas (1, 1) x (2, 1)
-    tbl.merge_cells(tbl.rows[1][1], tbl.rows[2][1], False)
-
-    # Combina celdas (1, 2) x (2, 2)
-    tbl.merge_cells(tbl.rows[1][2], tbl.rows[2][2], False)
-
-    presentation.save("MergeCells_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-Luego combinamos las celdas aún más combinando (1, 1) y (1, 2). El resultado es una tabla que contiene una celda combinada grande en su centro:
+Si combina dos pares de celdas—por ejemplo, (1, 1) x (2, 1) y (1, 2) x (2, 2)—la tabla resultante mantendrá la misma numeración de celdas que la tabla sin combinar. El siguiente código Python demuestra este comportamiento:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancia la clase Presentation que representa un archivo PPTX
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # Accede a la primera diapositiva
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Define columnas con anchos y filas con alturas
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70]
+    # Define columns with widths and rows with heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # Agrega una forma de tabla a la diapositiva
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Establece el formato del borde para cada celda
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Combina celdas (1, 1) x (2, 1)
+    # Merge cells (1,1) and (2,1).
     table.merge_cells(table.rows[1][1], table.rows[2][1], False)
 
-    # Combina celdas (1, 2) x (2, 2)
+    # Merge cells (1, 2) and (2, 2).
     table.merge_cells(table.rows[1][2], table.rows[2][2], False)
 
-    # Combina celdas (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][1], table.rows[1][2], True)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
 
-    # Escribe el archivo PPTX en disco
-    presentation.save("MergeCells1_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Numeración en Celda Dividida**
-En los ejemplos anteriores, cuando las celdas de la tabla se combinaban, la numeración o el sistema de números en las otras celdas no cambiaba. 
+Salida:
 
-Esta vez, tomamos una tabla normal (una tabla sin celdas combinadas) y luego intentamos dividir la celda (1,1) para obtener una tabla especial. Puede que desees prestar atención a la numeración de esta tabla, que podría considerarse extraña. Sin embargo, así es como Microsoft PowerPoint numera las celdas de la tabla y Aspose.Slides hace lo mismo. 
+```text
+(0, 0) (0, 1) (0, 2) (0, 3) 
+(1, 0) (1, 1) (1, 2) (1, 3) 
+(2, 0) (1, 1) (1, 2) (2, 3) 
+(3, 0) (3, 1) (3, 2) (3, 3)
+```
 
-Este código Python demuestra el proceso que describimos:
+## **Numeración en celdas divididas**
+
+En el ejemplo anterior, cuando se combinaron celdas de tabla, la numeración en las demás celdas no cambió. Esta vez, creamos una tabla regular (sin celdas combinadas) y luego dividimos la celda (1, 1) para producir una tabla especial. Preste atención a la numeración de esta tabla—puede parecer inusual. Sin embargo, así es como Microsoft PowerPoint numera las celdas de tabla, y Aspose.Slides sigue el mismo comportamiento.
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancia la clase Presentation que representa un archivo PPTX
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # Accede a la primera diapositiva
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # Define columnas con anchos y filas con alturas
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
+    # Define column widths and row heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # Agrega una forma de tabla a la diapositiva
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Establece el formato del borde para cada celda
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # Combina celdas (1, 1) x (2, 1)
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # Combina celdas (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # Divide la celda (1, 1).
+    # Split cell (1, 1).
     table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
 
-    # Escribe el archivo PPTX en disco
-    presentation.save("CellSplit_out.pptx", slides.export.SaveFormat.PPTX)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
+
+    # Save the PPTX file to disk.
+    presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Cambiar el Color de Fondo de la Celda de Tabla**
+Salida:
 
-Este código Python te muestra cómo cambiar el color de fondo de una celda de tabla:
+```text
+(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
+(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
+(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
+(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
+```
+
+## **Cambiar color de fondo de una celda de tabla**
+
+El siguiente ejemplo en Python muestra cómo cambiar el color de fondo de una celda de tabla:
 
 ```python
 import aspose.pydrawing as draw
@@ -232,13 +184,13 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    dblCols = [ 150, 150, 150, 150 ]
-    dblRows = [ 50, 50, 50, 50, 50 ]
+    column_widths = [150, 150, 150, 150]
+    row_heights = [50, 50, 50, 50, 50]
 
-    # crea una nueva tabla
-    table = slide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Create a new table.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # establece el color de fondo para una celda 
+    # Set the background color for a cell.
     cell = table.rows[2][3]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
@@ -246,47 +198,64 @@ with slides.Presentation() as presentation:
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Agregar Imagen Dentro de la Celda de Tabla**
-1. Crea una instancia de la clase `Presentation`.
-2. Obtén una referencia de la diapositiva a través de su índice.
-3. Define un arreglo de columnas con ancho.
-4. Define un arreglo de filas con altura.
-5. Agrega una tabla a la diapositiva a través del método `AddTable`. 
-6. Crea un objeto `Bitmap` para contener el archivo de imagen.
-7. Agrega la imagen del bitmap al objeto `IPPImage`.
-8. Establece el `FillFormat` para la celda de tabla como `Picture`.
-9. Agrega la imagen a la primera celda de la tabla.
-10. Guarda la presentación modificada como un archivo PPTX.
+## **Insertar imágenes en celdas de tabla**
 
-Este código Python te muestra cómo colocar una imagen dentro de una celda de tabla al crear una tabla:
+Esta sección muestra cómo insertar una imagen en una celda de tabla en Aspose.Slides. Cubre la aplicación de un relleno de imagen a la celda objetivo y la configuración de opciones de visualización como estirar o mosaico.
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Obtenga una referencia a la diapositiva por su índice.
+3. Defina una matriz de anchos de columna.
+4. Defina una matriz de alturas de fila.
+5. Añada una tabla a la diapositiva con el método [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+6. Cargue la imagen desde un archivo.
+7. Añada la imagen a las imágenes de la presentación para obtener un [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+8. Establezca el [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) de la celda de tabla a `PICTURE`.
+9. Aplique la imagen a la celda de tabla y elija un modo de relleno (p.ej., `STRETCH`).
+10. Guarde la presentación como archivo PPTX.
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Instancia un objeto de la clase Presentation
+# Instantiate a Presentation object.
 with slides.Presentation() as presentation:
-    # Accede a la primera diapositiva
-    islide = presentation.slides[0]
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # Define columnas con anchos y filas con alturas
-    dblCols =  [150, 150, 150, 150] 
-    dblRows =  [100, 100, 100, 100, 90] 
+    # Define column widths and row heights.
+    column_widths = [150, 150, 150, 150]
+    row_heights = [100, 100, 100, 100]
 
-    # Agrega una forma de tabla a la diapositiva
-    tbl = islide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # Crea un objeto de imagen Bitmap para contener el archivo de imagen
-    image = draw.Bitmap(path + "aspose-logo.jpg")
+    # Load the image and add it to the presentation to obtain a PPImage.
+    with slides.Images.from_file("image.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # Crea un objeto IPPImage usando el objeto bitmap
-    imgx1 = presentation.images.add_image(image)
+    # Apply the image to the first table cell.
+    cell = table.rows[0][0]
+    cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
+    cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    cell.cell_format.fill_format.picture_fill_format.picture.image = image
 
-    # Agrega la imagen a la primera celda de la tabla
-    tbl.rows[0][0].cell_format.fill_format.fill_type = slides.FillType.PICTURE
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture.image = imgx1
-
-    # Guarda el PPTX en disco
-    presentation.save("Image_In_TableCell_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Preguntas frecuentes**
+
+**¿Puedo establecer diferentes grosores y estilos de línea para los distintos lados de una sola celda?**
+
+Sí. Los bordes [top](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[bottom](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[left](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[right](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) tienen propiedades separadas, por lo que el grosor y estilo de cada lado pueden diferir. Esto sigue lógicamente del control de bordes por lado para una celda demostrado en el artículo.
+
+**¿Qué ocurre con la imagen si cambio el tamaño de la columna/fila después de establecer una foto como fondo de la celda?**
+
+El comportamiento depende del [fill mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (stretch/tile). Con estiramiento, la imagen se ajusta a la nueva celda; con mosaico, los mosaicos se recalculan. El artículo menciona los modos de visualización de la imagen en una celda.
+
+**¿Puedo asignar un hipervínculo a todo el contenido de una celda?**
+
+[Hyperlinks](/slides/es/python-net/manage-hyperlinks/) se establecen a nivel de texto (porción) dentro del marco de texto de la celda o a nivel de toda la tabla/forma. En la práctica, asigna el enlace a una porción o a todo el texto en la celda.
+
+**¿Puedo establecer diferentes fuentes dentro de una sola celda?**
+
+Sí. El marco de texto de una celda admite [portions](https://reference.aspose.com/slides/python-net/aspose.slides/portion/) (runs) con formato independiente—familia, estilo, tamaño y color de fuente.

@@ -1,9 +1,9 @@
 ---
-title: Python でプレゼンテーションのスライドセクションを管理する
-titlelink: スライドセクション
+title: Python でプレゼンテーションのスライド セクションを管理する
+linktitle: スライド セクション
 type: docs
 weight: 100
-url: /ja/python-net/slide-section/
+url: /ja/python-net/developer-guide/presentation-slide/slide-section/
 keywords:
 - セクションの作成
 - セクションの追加
@@ -14,61 +14,75 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "PowerPoint と OpenDocument のスライドセクションを Aspose.Slides for Python で効率化—分割、名前変更、並べ替えにより PPTX と ODP のワークフローを最適化します。"
+description: "Aspose.Slides for Python を使用して、PowerPoint および OpenDocument のスライド セクションを効率化 — 分割、名前変更、並び替えで PPTX と ODP のワークフローを最適化します。"
 ---
 
-Aspose.Slides for Python via .NETを使用すると、PowerPointプレゼンテーションをセクションに整理できます。特定のスライドを含むセクションを作成できます。
+## **概要**
 
-次のような状況では、セクションを作成し、それを使用してプレゼンテーション内のスライドを論理的な部分に整理または分割したい場合があります。
+Aspose.Slides for Python を使用すると、特定のスライドをグループ化するセクションに PowerPoint プレゼンテーションを整理できます。
 
-- 大規模なプレゼンテーションを他の人やチームと一緒に作業しているとき—and特定のスライドを同僚や一部のチームメンバーに割り当てる必要がある場合。
-- 多くのスライドを含むプレゼンテーションを扱っており—andその内容を一度に管理または編集するのに苦労しているとき。
+次のような状況で、プレゼンテーションを論理的なパートに分割するためにセクションを作成したいことがあります。
 
-理想的には、類似のスライドを収容するセクションを作成するべきです—スライドは何か共通のものを持っているか、ルールに基づいてグループに存在できます—andその中のスライドを説明する名前をセクションに付けます。
+- 大規模なプレゼンテーションをチームで作業しており、特定のスライドを特定の同僚に割り当てる必要があるとき。
+- スライドが多数あるプレゼンテーションを扱っており、全体を一度に管理・編集するのが困難なとき。
 
-## プレゼンテーション内のセクションの作成
+理想的には、テーマ・トピック・目的が共通する関連スライドをまとめたセクションを作成し、各セクションに内容を明確に示す名前を付けます。
 
-プレゼンテーション内にスライドを収容するセクションを追加するには、Aspose.Slides for Python via .NETが提供するAddSectionメソッドを使用して、作成するセクションの名前とセクションが始まるスライドを指定できます。
+## **プレゼンテーションでセクションを作成する**
 
-このサンプルコードは、Pythonでプレゼンテーションにセクションを作成する方法を示しています：
+プレゼンテーション内でスライドをグループ化する[セクション](https://reference.aspose.com/slides/python-net/aspose.slides/section/)を追加するには、Aspose.Slides の [add_section](https://reference.aspose.com/slides/python-net/aspose.slides/sectioncollection/add_section/) メソッドを使用します。セクション名とセクション開始スライドを指定できます。
+
+以下の Python の例は、プレゼンテーションにセクションを作成する方法を示しています。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    defaultSlide = pres.slides[0]
-    newSlide1 = pres.slides.add_empty_slide(pres.layout_slides[0])
-    newSlide2 = pres.slides.add_empty_slide(pres.layout_slides[0])
-    newSlide3 = pres.slides.add_empty_slide(pres.layout_slides[0])
-    newSlide4 = pres.slides.add_empty_slide(pres.layout_slides[0])
+with slides.Presentation() as presentation:
+    layout_slide = presentation.layout_slides[0]
 
-    section1 = pres.sections.add_section("セクション 1", newSlide1)
-    # section1はnewSlide2で終了し、その後section2が始まります
-    section2 = pres.sections.add_section("セクション 2", newSlide3) 
+    slide1 = presentation.slides.add_empty_slide(layout_slide)
+    slide2 = presentation.slides.add_empty_slide(layout_slide)
+    slide3 = presentation.slides.add_empty_slide(layout_slide)
+    slide4 = presentation.slides.add_empty_slide(layout_slide)
+
+    section1 = presentation.sections.add_section("Section 1", slide1)
+    # Section 1 ends at slide2; Section 2 starts at slide3.
+    section2 = presentation.sections.add_section("Section 2", slide3) 
       
+    presentation.save("presentation_sections.pptx", slides.export.SaveFormat.PPTX)
     
-    pres.save("pres-sections.pptx", slides.export.SaveFormat.PPTX)
+    presentation.sections.reorder_section_with_slides(section2, 0)
+    presentation.save("reordered_sections.pptx", slides.export.SaveFormat.PPTX)
     
-    pres.sections.reorder_section_with_slides(section2, 0)
-    pres.save("pres-sections-moved.pptx", slides.export.SaveFormat.PPTX)
-    
-    pres.sections.remove_section_with_slides(section2)
-    
-    pres.sections.append_empty_section("最後の空のセクション")
-    
-    pres.save("pres-section-with-empty.pptx",slides.export.SaveFormat.PPTX)
+    presentation.sections.remove_section_with_slides(section2)
+    presentation.sections.append_empty_section("Last empty section")
+    presentation.save("presentation_with_empty_section.pptx",slides.export.SaveFormat.PPTX)
 ```
 
-## セクション名の変更
+## **セクション名の変更**
 
-PowerPointプレゼンテーションにセクションを作成した後、その名前を変更することを決定する場合があります。
+PowerPoint プレゼンテーションに[セクション](https://reference.aspose.com/slides/python-net/aspose.slides/section/)を作成した後で、名前を変更したくなることがあります。
 
-このサンプルコードは、Aspose.Slidesを使用してPythonでプレゼンテーションのセクション名を変更する方法を示しています：
+以下の Python の例は、プレゼンテーション内のセクション名を変更する方法を示しています。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres-sections.pptx") as pres:
-   section = pres.sections[0]
-   section.name = "私のセクション"
+with slides.Presentation("sample.pptx") as presentation:
+   section = presentation.sections[0]
+   section.name = "My section"
 ```
+
+## **FAQ**
+
+**PPT（PowerPoint 97–2003）形式で保存するとセクションは保持されますか？**
+
+いいえ。PPT 形式はセクション メタデータをサポートしていないため、.ppt に保存するとセクションのグループ化は失われます。
+
+**セクション全体を「非表示」にできますか？**
+
+いいえ。個々のスライドのみが非表示にでき、セクション全体としての「非表示」状態は存在しません。
+
+**スライドからセクションをすばやく検索したり、逆にセクションの最初のスライドを取得したりできますか？**
+
+はい。セクションは開始スライドで一意に定義されます。スライドが与えられればそのスライドが属するセクションを判定でき、セクションが与えられればその最初のスライドにアクセスできます。

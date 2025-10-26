@@ -1,229 +1,187 @@
 ---
-title: إدارة الخلايا
+title: إدارة خلايا الجداول في العروض التقديمية باستخدام بايثون
+linktitle: إدارة الخلايا
 type: docs
 weight: 30
-url: /ar/python-net/manage-cells/
-keywords: "جدول، خلايا مدمجة، خلايا مقسمة، صورة في خلية جدول، بايثون، Aspose.Slides لـ بايثون عبر .NET"
-description: "خلايا جدول في عروض PowerPoint التقديمية باستخدام بايثون"
+url: /ar/python-net/developer-guide/presentation-content/powerpoint-table/manage-cells/
+keywords:
+- خلية جدول
+- دمج خلايا
+- إزالة الحد
+- تقسيم خلية
+- صورة في خلية
+- لون خلفية
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Python
+- Aspose.Slides
+description: "إدارة خلايا الجداول بسهولة في PowerPoint وOpenDocument باستخدام Aspose.Slides لبايثون عبر .NET. إتقان الوصول إلى الخلايا وتعديلها وتنسيقها بسرعة لأتمتة الشرائح بسلاسة."
 ---
 
-## **تحديد خلية جدول مدمجة**
-1. أنشئ مثيلاً من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) .
-2. احصل على الجدول من الشريحة الأولى.
-3. تمر عبر صفوف وأعمدة الجدول للعثور على الخلايا المدمجة.
-4. اطبع رسالة عند العثور على خلايا مدمجة.
+## **نظرة عامة**
 
-يظهر لك هذا الكود بلغة بايثون كيفية تحديد خلايا الجدول المدمجة في عرض تقديمي:
+توضح هذه المقالة كيفية العمل مع خلايا الجداول في العروض التقديمية باستخدام Aspose.Slides. ستتعرف على كيفية اكتشاف الخلايا المدمجة، وإزالة أو تخصيص حدود الخلية، وفهم كيفية ترقيم PowerPoint للخلايا بعد عمليات الدمج والتقسيم بحيث يمكنك توقع الفهارس في التخطيطات المعقدة. كما تُظهر المقالة مهام التنسيق الشائعة — مثل تغيير تعبئة خلفية الخلية — وتوضح كيفية وضع صورة مباشرة داخل خلية جدول باستخدام إعدادات تعبئة الصورة. يرافق كل سيناريو أمثلة مختصرة بلغة Python تُنشئ أو تُعدل الجداول ثم تحفظ العرض المحدث، بحيث يمكنك تعديل الشيفرات لتناسب شرائحك بسرعة.
+
+## **تحديد خلايا الجداول المدمجة**
+
+غالبًا ما تحتوي الجداول على خلايا مدمجة للرؤوس أو لتجميع البيانات ذات الصلة. في هذا القسم، ستتعرف على كيفية تحديد ما إذا كانت خلية معينة تنتمي إلى منطقة مدمجة وكيفية الإشارة إلى الخلية الرئيسة (الزاوية العليا اليسرى) بحيث يمكنك قراءة أو تنسيق الكتلة بأكملها بشكل متسق.
+
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. الحصول على الجدول من الشريحة الأولى.
+3. التنقل عبر صفوف وأعمدة الجدول للعثور على الخلايا المدمجة.
+4. طباعة رسالة عندما يتم العثور على خلايا مدمجة.
+
+الكود التالي بلغة Python يحدد الخلايا المدمجة في عرض تقديمي:
 
 ```py
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-with slides.Presentation(path + "SomePresentationWithTable.pptx") as pres:
-    table = pres.slides[0].shapes[0] # بافتراض أن #0.Shape#0 هو جدول
-    for i in range(len(table.rows)):
-        for j in range(len(table.columns)):
-            currentCell = table.rows[i][j]
-            if currentCell.is_merged_cell:
-                print("الخانة 01 هي جزء من خلية مدمجة مع RowSpan=2 و ColSpan=3 بدءًا من الخانة 45.".format(
-                    i, j, currentCell.row_span, currentCell.col_span, currentCell.first_row_index, currentCell.first_column_index))
+with slides.Presentation("presentation_with_table.pptx") as presentation:
+    # Assuming the first shape on the first slide is a table.
+    table = presentation.slides[0].shapes[0]
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.columns)):
+            cell = table.rows[row_index][column_index]
+            if cell.is_merged_cell:
+                print("Cell ({}, {}) is part of a merged region with a row span of {} and a column span of {}, starting from cell ({}, {}).".format(
+                    row_index, column_index, cell.row_span, cell.col_span, cell.first_row_index, cell.first_column_index))
 ```
 
-## **إزالة حدود خلايا الجدول**
-1. أنشئ مثيلاً من فئة `Presentation` .
-2. احصل على مرجع للشريحة من خلال فهرسها.
-3. عرّف مصفوفة من الأعمدة بعرض.
-4. عرّف مصفوفة من الصفوف بارتفاع.
-5. أضف جدولًا إلى الشريحة من خلال الطريقة `AddTable` .
-6. تمر عبر كل خلية لإزالة الحدود العليا والسفلى واليمنى واليسرى.
-7. احفظ العرض التقديمي المعدل كملف PPTX.
+## **إزالة حدود خلايا الجداول**
 
-يظهر لك هذا الكود بلغة بايثون كيفية إزالة الحدود من خلايا الجدول:
+أحيانًا تشوش حدود الجداول على المحتوى أو تخلق فوضى بصرية. يوضح هذا القسم كيفية إزالة الحدود من الخلايا المختارة — أو من جوانب معينة من الخلية — بحيث يمكنك الحصول على تخطيط أنظف وتناسق أفضل مع تصميم شريحتك.
+
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. الحصول على الشريحة بحسب الفهرس.
+3. تعريف مصفوفة بعرض الأعمدة.
+4. تعريف مصفوفة بارتفاع الصفوف.
+5. إضافة جدول إلى الشريحة باستخدام طريقة [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+6. التنقل عبر كل خلية لإزالة الحدود العلوية والسفلية واليسرى واليمنى.
+7. حفظ العرض المعدل كملف PPTX.
+
+الكود التالي يوضح كيفية إزالة الحدود من خلايا الجدول:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
-with slides.Presentation() as pres:
-   # الوصول إلى الشريحة الأولى
-    sld = pres.slides[0]
+# Instantiate the Presentation class that represents a PPTX file.
+with slides.Presentation() as presentation:
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # تعريف الأعمدة بعرضها والصفوف بارتفاعها
-    dblCols = [ 50, 50, 50, 50 ]
-    dblRows = [ 50, 30, 30, 30, 30 ]
+    # Define columns with widths and rows with heights.
+    column_widths = [50, 50, 50, 50]
+    row_heights = [50, 30, 30, 30, 30]
 
-    # إضافة شكل جدول إلى الشريحة
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # تعيين تنسيق الحدود لكل خلية
-    for row in tbl.rows:
+    # Clear the border fill for each cell.
+    for row in table.rows:
         for cell in row:
             cell.cell_format.border_top.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_left.fill_format.fill_type = slides.FillType.NO_FILL
             cell.cell_format.border_right.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # كتابة ملف PPTX إلى القرص
-    pres.save("table_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **الترقيم في الخلايا المدمجة**
 
-## **التعداد في خلايا مدمجة**
-إذا دمجنا زوجين من الخلايا (1, 1) x (2, 1) و(1, 2) x (2, 2)، فإن الجدول الناتج سيكون مرقمًا. يوضح لك هذا الكود بلغة بايثون العملية:
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-# أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
-with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى
-    sld = presentation.slides[0]
-
-    # تعريف الأعمدة بعرضها والصفوف بارتفاعها
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
-
-    # إضافة شكل جدول إلى الشريحة
-    tbl = sld.shapes.add_table(100, 50, dblCols, dblRows)
-
-    # تعيين تنسيق الحدود لكل خلية
-    for row in tbl.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # دمج الخلايا (1, 1) x (2, 1)
-    tbl.merge_cells(tbl.rows[1][1], tbl.rows[2][1], False)
-
-    # دمج الخلايا (1, 2) x (2, 2)
-    tbl.merge_cells(tbl.rows[1][2], tbl.rows[2][2], False)
-
-    presentation.save("MergeCells_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-ثم نقوم بدمج الخلايا أكثر بدمج (1, 1) و(1, 2). النتيجة هي جدول يحتوي على خلية مدمجة كبيرة في وسطه:
+إذا دمجت زوجين من الخلايا — على سبيل المثال، (1, 1) × (2, 1) و (1, 2) × (2, 2) — سيبقى ترقيم الجدول كما هو كما لو لم يتم الدمج. يوضح الكود التالي هذا السلوك:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # تعريف الأعمدة بعرضها والصفوف بارتفاعها
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70]
+    # Define columns with widths and rows with heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # إضافة شكل جدول إلى الشريحة
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # تعيين تنسيق الحدود لكل خلية
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # دمج الخلايا (1, 1) x (2, 1)
+    # Merge cells (1,1) and (2,1).
     table.merge_cells(table.rows[1][1], table.rows[2][1], False)
 
-    # دمج الخلايا (1, 2) x (2, 2)
+    # Merge cells (1, 2) and (2, 2).
     table.merge_cells(table.rows[1][2], table.rows[2][2], False)
 
-    # دمج الخلايا (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][1], table.rows[1][2], True)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
 
-    # كتابة ملف PPTX إلى القرص
-    presentation.save("MergeCells1_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the PPTX file to disk.
+    presentation.save("merged_cells.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **التعداد في الخلية المقسمة**
-في الأمثلة السابقة، عندما تم دمج خلايا الجدول، لم يتغير الترقيم أو النظام العددي في الخلايا الأخرى.
+المخرجات:
 
-هذه المرة، نأخذ جدولًا عاديًا (جدول بدون خلايا مدمجة) ثم نحاول تقسيم الخلية (1،1) للحصول على جدول خاص. قد ترغب في الانتباه إلى ترقيم هذا الجدول، والذي قد يعتبر غريبًا. ومع ذلك، هذه هي الطريقة التي تعد بها Microsoft PowerPoint خلايا الجدول وAspose.Slides تفعل الشيء نفسه.
+```text
+(0, 0) (0, 1) (0, 2) (0, 3) 
+(1, 0) (1, 1) (1, 2) (1, 3) 
+(2, 0) (1, 1) (1, 2) (2, 3) 
+(3, 0) (3, 1) (3, 2) (3, 3)
+```
 
-يظهر لك هذا الكود بلغة بايثون العملية التي وصفناها:
+## **الترقيم في الخلايا المقسمة**
+
+في المثال السابق، عندما تم دمج خلايا الجدول، لم يتغير ترقيم الخلايا الأخرى. هذه المرة، ننشئ جدولًا عاديًا (بدون خلايا مدمجة) ثم نقسم الخلية (1, 1) لإنتاج جدول خاص. انتبه إلى ترقيم هذا الجدول — قد يبدو غير مألوف. ومع ذلك، هذا هو أسلوب ترقيم خلايا الجداول في Microsoft PowerPoint، ويتبع Aspose.Slides نفس السلوك.
+
+الكود التالي يوضح هذا السلوك:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# أنشئ مثيلاً من فئة Presentation التي تمثل ملف PPTX
+# Instantiate the Presentation class that represents a PPTX file.
 with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى
+    # Access the first slide.
     slide = presentation.slides[0]
 
-    # تعريف الأعمدة بعرضها والصفوف بارتفاعها
-    dblCols =  [70, 70, 70, 70] 
-    dblRows =  [70, 70, 70, 70] 
+    # Define column widths and row heights.
+    column_widths = [70, 70, 70, 70]
+    row_heights = [70, 70, 70, 70]
 
-    # إضافة شكل جدول إلى الشريحة
-    table = slide.shapes.add_table(100, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # تعيين تنسيق الحدود لكل خلية
-    for row in table.rows:
-        for cell in row:
-            cell.cell_format.border_top.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_top.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_top.width = 5
-
-            cell.cell_format.border_bottom.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_bottom.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_bottom.width = 5
-
-            cell.cell_format.border_left.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_left.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_left.width = 5
-
-            cell.cell_format.border_right.fill_format.fill_type = slides.FillType.SOLID
-            cell.cell_format.border_right.fill_format.solid_fill_color.color = draw.Color.red
-            cell.cell_format.border_right.width = 5
-
-    # دمج الخلايا (1, 1) x (2, 1)
-    table.merge_cells(table.rows[1][1], table.rows[2][1], False)
-
-    # دمج الخلايا (1, 2) x (2, 2)
-    table.merge_cells(table.rows[1][2], table.rows[2][2], False)
-
-    # تقسيم الخلية (1، 1).
+    # Split cell (1, 1).
     table.rows[1][1].split_by_width(table.rows[2][1].width / 2)
 
-    # كتابة ملف PPTX إلى القرص
-    presentation.save("CellSplit_out.pptx", slides.export.SaveFormat.PPTX)
+    # Print the cell indices.
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            print(f"{cell.first_row_index, cell.first_column_index} ", end="")
+        print()
+
+    # Save the PPTX file to disk.
+    presentation.save("split_cells.pptx", slides.export.SaveFormat.PPTX)
+```
+
+المخرجات:
+
+```text
+(0, 0) (0, 1) (0, 1) (0, 3) (0, 4) 
+(1, 0) (1, 1) (1, 2) (1, 3) (1, 4) 
+(2, 0) (2, 1) (2, 1) (2, 3) (2, 4) 
+(3, 0) (3, 1) (3, 1) (3, 3) (3, 4) 
 ```
 
 ## **تغيير لون خلفية خلية الجدول**
 
-يظهر لك هذا الكود بلغة بايثون كيفية تغيير لون خلفية خلية جدول:
+يظهر المثال التالي بلغة Python كيفية تغيير لون خلفية خلية جدول:
 
 ```python
 import aspose.pydrawing as draw
@@ -232,13 +190,13 @@ import aspose.slides as slides
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    dblCols = [ 150, 150, 150, 150 ]
-    dblRows = [ 50, 50, 50, 50, 50 ]
+    column_widths = [150, 150, 150, 150]
+    row_heights = [50, 50, 50, 50, 50]
 
-    # إنشاء جدول جديد
-    table = slide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Create a new table.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # تعيين لون الخلفية لخلية
+    # Set the background color for a cell.
     cell = table.rows[2][3]
     cell.cell_format.fill_format.fill_type = slides.FillType.SOLID
     cell.cell_format.fill_format.solid_fill_color.color = draw.Color.red
@@ -246,47 +204,66 @@ with slides.Presentation() as presentation:
     presentation.save("cell_background_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **إضافة صورة داخل خلية جدول**
-1. أنشئ مثيلاً من فئة `Presentation` .
-2. احصل على مرجع للشريحة من خلال فهرسها.
-3. عرّف مصفوفة من الأعمدة بعرض.
-4. عرّف مصفوفة من الصفوف بارتفاع.
-5. أضف جدولًا إلى الشريحة من خلال الطريقة `AddTable` .
-6. أنشئ كائن `Bitmap` للاحتفاظ بملف الصورة.
-7. أضف الصورة البتوماتية إلى كائن `IPPImage` .
-8. عيّن `FillFormat` لخلية الجدول إلى `Picture` .
-9. أضف الصورة إلى الخلية الأولى في الجدول.
-10. احفظ العرض التقديمي المعدل كملف PPTX.
+## **إدراج صور في خلايا الجداول**
 
-يظهر لك هذا الكود بلغة بايثون كيفية وضع صورة داخل خلية جدول عند إنشاء الجدول:
+يعرض هذا القسم كيفية إدراج صورة داخل خلية جدول في Aspose.Slides. يغطي تطبيق تعبئة صورة على الخلية المستهدفة وتكوين خيارات العرض مثل التمدد أو التكرار.
+
+1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. الحصول على مرجع الشريحة بحسب الفهرس.
+3. تعريف مصفوفة بعرض الأعمدة.
+4. تعريف مصفوفة بارتفاع الصفوف.
+5. إضافة جدول إلى الشريحة باستخدام طريقة [add_table](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_table/).
+6. تحميل الصورة من ملف.
+7. إضافة الصورة إلى مجموعة صور العرض للحصول على كائن [PPImage](https://reference.aspose.com/slides/python-net/aspose.slides/ppimage/).
+8. تعيين خاصية [FillType](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) للخلية إلى `PICTURE`.
+9. تطبيق الصورة على الخلية واختيار وضع التعبئة (مثل `STRETCH`).
+10. حفظ العرض كملف PPTX.
+
+الكود التالي يوضح كيفية وضع صورة داخل خلية جدول عند إنشاء جدول:
 
 ```python
-import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# أنشئ مثيلاً من فئة Presentation
+# Instantiate a Presentation object.
 with slides.Presentation() as presentation:
-    # الوصول إلى الشريحة الأولى
-    islide = presentation.slides[0]
+    # Access the first slide.
+    slide = presentation.slides[0]
 
-    # تعريف الأعمدة بعرضها والصفوف بارتفاعها
-    dblCols =  [150, 150, 150, 150] 
-    dblRows =  [100, 100, 100, 100, 90] 
+    # Define column widths and row heights.
+    column_widths = [150, 150, 150, 150]
+    row_heights = [100, 100, 100, 100]
 
-    # إضافة شكل جدول إلى الشريحة
-    tbl = islide.shapes.add_table(50, 50, dblCols, dblRows)
+    # Add a table shape to the slide.
+    table = slide.shapes.add_table(50, 50, column_widths, row_heights)
 
-    # إنشاء كائن صورة بتوماتية للاحتفاظ بملف الصورة
-    image = draw.Bitmap(path + "aspose-logo.jpg")
+    # Load the image and add it to the presentation to obtain a PPImage.
+    with slides.Images.from_file("image.png") as source_image:
+        image = presentation.images.add_image(source_image)
 
-    # إنشاء كائن IPPImage باستخدام كائن البتوم
-    imgx1 = presentation.images.add_image(image)
+    # Apply the image to the first table cell.
+    cell = table.rows[0][0]
+    cell.cell_format.fill_format.fill_type = slides.FillType.PICTURE
+    cell.cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    cell.cell_format.fill_format.picture_fill_format.picture.image = image
 
-    # إضافة الصورة إلى أول خلية في الجدول
-    tbl.rows[0][0].cell_format.fill_format.fill_type = slides.FillType.PICTURE
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
-    tbl.rows[0][0].cell_format.fill_format.picture_fill_format.picture.image = imgx1
-
-    # حفظ ملف PPTX إلى القرص
-    presentation.save("Image_In_TableCell_out.pptx", slides.export.SaveFormat.PPTX)
+    # Save the presentation to disk.
+    presentation.save("image_in_table_cell.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تعيين سماكة وأنماط خطوط مختلفة لجوانب خلية واحدة؟**
+
+نعم. حدود [الأعلى](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_top/)/[الأسفل](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_bottom/)/[اليسار](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_left/)/[اليمين](https://reference.aspose.com/slides/python-net/aspose.slides/cellformat/border_right/) لها خصائص منفصلة، لذا يمكن أن تختلف السماكة والنمط لكل جانب. هذا يتماشى منطقيًا مع التحكم في حدود كل جانب للخلية كما هو موضح في المقالة.
+
+**ماذا يحدث للصورة إذا غيرت حجم العمود/الصف بعد تعيين صورة كخلفية للخلية؟**
+
+السلوك يعتمد على [وضع التعبئة](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillmode/) (تمدد/تكرار). مع التمدد، تتكيف الصورة مع الخلية الجديدة؛ مع التكرار، يُعاد حساب التجانب. تتناول المقالة أوضاع عرض الصورة داخل الخلية.
+
+**هل يمكنني ربط كل محتوى خلية برابط تشعبي؟**
+
+يتم تعيين [الارتباطات التشعبية](/slides/ar/python-net/manage-hyperlinks/) على مستوى النص (الجزء) داخل إطار النص للخلية أو على مستوى الجدول/الشكل بأكمله. عمليًا، يمكنك ربط الجزء أو كل النص داخل الخلية.
+
+**هل يمكنني تعيين خطوط مختلفة داخل خلية واحدة؟**
+
+نعم. يدعم إطار النص في الخلية الـ[الأقسام](/slides/ar/python-net/manage-hyperlinks/) (الوحدات) ذات تنسيق مستقل—عائلة الخط، النمط، الحجم، واللون.

@@ -1,68 +1,103 @@
 ---
-title: PPT in PPTX mit Python konvertieren
+title: PPT in Python nach PPTX konvertieren
 linktitle: PPT zu PPTX
 type: docs
 weight: 20
-url: /de/python-net/convert-ppt-to-pptx/
+url: /de/python-net/developer-guide/manage-presentation/convert-presentation/convert-powerpoint/convert-ppt-to-pptx/
 keywords:
-- PPT konvertieren
-- PPT zu PPTX
+- сonvert PPT
+- PPT to PPTX
 - PowerPoint
-- Präsentation
+- presentation
 - Python
 - Aspose.Slides
-description: "Konvertieren Sie ältere PPT-Präsentationen mit Python schnell in moderne PPTX mit Aspose.Slides — klare Anleitung, kostenlose Codebeispiele, keine Abhängigkeit von Microsoft Office."
+description: "Konvertieren Sie alte PPT‑Präsentationen schnell in moderne PPTX in Python mit Aspose.Slides – klare Anleitung, kostenlose Code‑Beispiele, ohne Microsoft Office‑Abhängigkeit."
 ---
 
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man PowerPoint-Präsentationen im PPT-Format in das PPTX-Format mit Python und einer Online-App zur Konvertierung von PPT in PPTX umwandelt. Das folgende Thema wird behandelt.
+Dieser Artikel erklärt, wie man eine PowerPoint‑Präsentation im PPT‑Format in das PPTX‑Format konvertiert – sowohl mit Python als auch mit einer Online‑App zur PPT‑zu‑PPTX‑Konvertierung. Folgende Themen werden behandelt:
 
-- PPT in PPTX mit Python konvertieren
+- PPT in Python zu PPTX konvertieren
 
-## **Python PPT in PPTX konvertieren**
+## **Python PPT zu PPTX konvertieren**
 
-Für Beispielcode in Python zur Konvertierung von PPT in PPTX siehe den folgenden Abschnitt, d.h. [PPT in PPTX konvertieren](#convert-ppt-to-pptx). Es lädt einfach die PPT-Datei und speichert sie im PPTX-Format. Durch Angabe verschiedener Speicherformate kannst du die PPT-Datei auch in viele andere Formate wie PDF, XPS, ODP, HTML usw. speichern, wie in diesen Artikeln besprochen.
+Für Python‑Beispielcode zur Konvertierung von PPT nach PPTX siehe den Abschnitt weiter unten, d. h. [Convert PPT to PPTX](#convert-ppt-to-pptx). Dabei wird die PPT‑Datei geladen und im PPTX‑Format gespeichert. Durch Angabe verschiedener Speicherformate können Sie eine PPT‑Datei auch in zahlreiche andere Formate wie PDF, XPS, ODP, HTML usw. speichern, wie in diesen Artikeln beschrieben:
 
-- [Python PPT in PDF konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-pdf/)
-- [Python PPT in XPS konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)
-- [Python PPT in HTML konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)
-- [Python PPT in ODP konvertieren](https://docs.aspose.com/slides/python-net/save-presentation/)
-- [Python PPT in Bild konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-png/)
+- [Python PPT zu PDF konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-pdf/)
+- [Python PPT zu XPS konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-xps/)
+- [Python PPT zu HTML konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-html/)
+- [Python PPT zu ODP konvertieren](https://docs.aspose.com/slides/python-net/save-presentation/)
+- [Python PPT zu Bild konvertieren](https://docs.aspose.com/slides/python-net/convert-powerpoint-to-png/)
 
-## **Über die Konvertierung von PPT in PPTX**
-Konvertiere das alte PPT-Format in PPTX mit der Aspose.Slides-API. Wenn du Tausende von PPT-Präsentationen in das PPTX-Format konvertieren musst, ist die beste Lösung, dies programmgesteuert zu tun. Mit der Aspose.Slides-API ist es möglich, dies in nur wenigen Codezeilen zu erledigen. Die API unterstützt volle Kompatibilität zur Konvertierung von PPT-Präsentationen in PPTX und es ist möglich:
+## **Über die PPT‑zu‑PPTX‑Konvertierung**
+Konvertieren Sie das alte PPT‑Format mit der Aspose.Slides‑API in PPTX. Wenn Sie Tausende von PPT‑Präsentationen programmatisch nach PPTX konvertieren müssen, ist dies die optimale Lösung. Mit der Aspose.Slides‑API lässt sich das in wenigen Code‑Zeilen erledigen. Die API unterstützt die vollständige Kompatibilität zur Konvertierung einer PPT‑Präsentation nach PPTX und ermöglicht:
 
-- Komplizierte Strukturen von Masterfolien, Layouts und Folien zu konvertieren.
-- Präsentationen mit Diagrammen zu konvertieren.
-- Präsentationen mit Gruppierungen, Autoshapes (wie Rechtecke und Ellipsen), Shapes mit benutzerdefinierter Geometrie zu konvertieren.
-- Präsentationen zu konvertieren, die Texturen und Bilderfüllstile für Autoshapes haben.
-- Präsentationen mit Platzhaltern, Textfeldern und Textcontainern zu konvertieren.
+- Konvertierung komplexer Strukturen von Master‑Folien, Layouts und Folien.
+- Konvertierung von Präsentationen mit Diagrammen.
+- Konvertierung von Präsentationen mit Gruppierungsformen, Auto‑Shapes (wie Rechtecken und Ellipsen) und Formen mit benutzerdefinierter Geometrie.
+- Konvertierung von Präsentationen mit Texturen und Bildfüllungen für Auto‑Shapes.
+- Konvertierung von Präsentationen mit Platzhaltern, Text‑Frames und Text‑Haltern.
 
-{{% alert color="primary" %}} 
+{{% alert color="primary" %}}
 
-Sieh dir die [**Aspose.Slides PPT zu PPTX Konvertierung**](https://products.aspose.app/slides/conversion/ppt-to-pptx) App an:
+Werfen Sie einen Blick auf die **Aspose.Slides PPT‑zu‑PPTX‑Konvertierung**‑App:
 
 [](https://products.aspose.app/slides/conversion/ppt-to-pptx)
 
 [![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/conversion/ppt-to-pptx)
 
-Diese App basiert auf der **Aspose.Slides API**, sodass du ein live Beispiel der grundlegenden PPT zu PPTX-Konvertierungsfähigkeiten sehen kannst. Die Aspose.Slides-Konvertierung ist eine Web-App, die es ermöglicht, Präsentationsdateien im PPT-Format hochzuladen und die konvertierte Version im PPTX-Format herunterzuladen.
+Diese App basiert auf der **Aspose.Slides‑API**, sodass Sie ein Live‑Beispiel der Grundfunktionen zur PPT‑zu‑PPTX‑Konvertierung sehen können. Aspose.Slides Conversion ist eine Web‑App, mit der Sie eine Präsentationsdatei im PPT‑Format hochladen und als PPTX‑Datei herunterladen können.
 
-Finde weitere Live- [**Aspose.Slides Konvertierung**](https://products.aspose.app/slides/conversion/) Beispiele.
-{{% /alert %}} 
+Weitere Live‑Beispiele finden Sie unter **Aspose.Slides Conversion**.
 
-## **PPT in PPTX konvertieren**
-Um eine PPT in PPTX zu konvertieren, übergib einfach den Dateinamen und das Speicherformat an die [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Methode der [**Presentation**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) Klasse. Der folgende Python-Code konvertiert eine Präsentation von PPT in PPTX mit den Standardoptionen.
+{{% /alert %}}
 
-```py
+## **PPT zu PPTX konvertieren**
+Um ein PPT in PPTX zu konvertieren, übergeben Sie einfach den Dateinamen und das Speicherformat an die **Save**‑Methode der **Presentation**‑Klasse. Das folgende Python‑Beispiel konvertiert eine Präsentation von PPT nach PPTX mit den Standardoptionen.
+
+```python
 import aspose.slides as slides
 
-# Instanziiere ein Präsentationsobjekt, das eine PPTX-Datei darstellt
+# Instanziiert ein Presentation‑Objekt, das eine PPT‑Datei darstellt
 pres = slides.Presentation("PPTtoPPTX.ppt")
 
-# Speichern der PPTX-Präsentation im PPTX-Format
+# Speichert die Präsentation im PPTX‑Format
 pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Lies mehr über die [**Unterschiede zwischen PPT und PPTX**](/slides/de/python-net/ppt-vs-pptx/) Präsentationsformate und wie [**Aspose.Slides PPT in PPTX konvertiert**](/slides/de/python-net/convert-ppt-to-pptx/).
+Lesen Sie mehr über die Präsentationsformate **PPT vs PPTX** (/slides/de/python-net/ppt-vs-pptx/) und darüber, wie **Aspose.Slides die PPT‑zu‑PPTX‑Konvertierung unterstützt** (/slides/de/python-net/convert-ppt-to-pptx/).
+
+## Häufig gestellte Fragen
+
+### **Was ist der Unterschied zwischen den Formaten PPT und PPTX?**
+
+PPT ist das ältere binäre Dateiformat von Microsoft PowerPoint, während PPTX das neuere, XML‑basierte Format ist, das mit Microsoft Office 2007 eingeführt wurde. PPTX‑Dateien bieten bessere Leistung, geringere Dateigröße und verbesserte Datenwiederherstellung.
+
+### **Kann ich PPT mit Python nach PPTX konvertieren?**
+
+Ja, mit der Aspose.Slides‑Bibliothek für Python via .NET können Sie eine PPT‑Datei laden und mit wenigen Code‑Zeilen im PPTX‑Format speichern.
+
+### **Benötige ich Aspose.Slides für Python via .NET für die PPT‑zu‑PPTX‑Konvertierung?**
+
+Ja, die Aspose.Slides‑API stellt die erforderlichen Methoden und Klassen bereit, um Präsentationen programmgesteuert zu konvertieren, zu bearbeiten und zu speichern – ohne Microsoft PowerPoint.
+
+### **Unterstützt Aspose.Slides die Stapelkonvertierung mehrerer PPT‑Dateien zu PPTX?**
+
+Ja, Sie können Aspose.Slides in einer Schleife einsetzen, um mehrere PPT‑Dateien programmgesteuert zu PPTX zu konvertieren – ideal für Batch‑Szenarien.
+
+### **Werden Inhalt und Formatierung nach der Konvertierung beibehalten?**
+
+Aspose.Slides gewährleistet eine hohe Treue bei der Konvertierung. Folien‑Layouts, Animationen, Formen, Diagramme und andere Designelemente bleiben erhalten.
+
+### **Kann ich aus PPT‑Dateien weitere Formate wie PDF oder HTML konvertieren?**
+
+Ja, Aspose.Slides unterstützt die Konvertierung von PPT in zahlreiche Formate, darunter PDF, XPS, HTML, ODP sowie Bildformate wie PNG und JPEG.
+
+### **Ist eine Konvertierung von PPT zu PPTX ohne installierten Microsoft PowerPoint möglich?**
+
+Ja, Aspose.Slides für Python via .NET ist eine eigenständige API und benötigt weder Microsoft PowerPoint noch andere Drittanbieter‑Software.
+
+### **Gibt es ein Online‑Tool zur PPT‑zu‑PPTX‑Konvertierung?**
+
+Ja, Sie können die kostenlose **Aspose.Slides PPT‑zu‑PPTX‑Konverter**‑Webanwendung (https://products.aspose.app/slides/conversion/ppt-to-pptx) nutzen, um die Konvertierung direkt im Browser durchzuführen, ohne Code zu schreiben.

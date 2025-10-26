@@ -1,138 +1,137 @@
 ---
-title: 演示文稿查看器
+title: 在 Python 中创建演示文稿查看器
+linktitle: 演示文稿查看器
 type: docs
 weight: 50
-url: /zh/python-net/presentation-viewer/
-keywords: "查看 PowerPoint 演示文稿, 查看 ppt, 查看 PPTX, Python, Aspose.Slides for Python via .NET"
-description: "在 Python 中查看 PowerPoint 演示文稿"
+url: /zh/python-net/developer-guide/presentation-viewer/
+keywords: 
+- 查看演示文稿
+- 演示文稿查看器
+- 创建演示文稿查看器
+- 查看 PPT
+- 查看 PPTX
+- 查看 ODP
+- PowerPoint
+- OpenDocument
+- Python
+- Aspose.Slides
+description: "了解如何使用 Aspose.Slides 在 Python 中创建自定义演示文稿查看器。轻松显示 PowerPoint（PPTX、PPT）和 OpenDocument（ODP）文件，无需 Microsoft PowerPoint 或其他办公软件。"
 ---
 
+## **概述**
 
-
-Aspose.Slides for Python via .NET 用于创建包含幻灯片的演示文稿文件。这些幻灯片可以通过 Microsoft PowerPoint 打开演示文稿进行查看。但是，有时开发人员可能还需要在他们喜欢的图像查看器中将幻灯片作为图像查看，或者创建他们自己的演示文稿查看器。在这种情况下，Aspose.Slides for Python via .NET 允许您将单个幻灯片导出为图像。本文描述了如何做到这一点。
-## **实时示例**
-您可以尝试 [**Aspose.Slides 查看器**](https://products.aspose.app/slides/viewer/) 免费应用程序，以查看您可以使用 Aspose.Slides API 实现的功能：
-
-![powerpoint-in-aspose-viewer](powerpoint-in-aspose-viewer.png)
+Aspose.Slides for Python 用于创建包含幻灯片的演示文稿文件。这些幻灯片可以通过 Microsoft PowerPoint 等软件打开进行查看。然而，开发者有时需要在自己的图像查看器中将幻灯片以图像形式展示，或在自定义演示文稿查看器中使用。在这种情况下，Aspose.Slides 允许将单个幻灯片导出为图像。本文将说明如何实现该功能。
 
 ## **从幻灯片生成 SVG 图像**
-要使用 Aspose.Slides for Python 从任何所需的幻灯片生成 SVG 图像，请按照以下步骤操作：
 
-- 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-- 通过使用其 ID 或索引来获取所需幻灯片的引用。
-- 在内存流中获取 SVG 图像。
-- 将内存流保存到文件中。
+要使用 Aspose.Slides 从演示文稿幻灯片生成 SVG 图像，请按照下列步骤操作：
 
-```py
-import aspose.slides as slides
-
-# 实例化代表演示文稿文件的 Presentation 类
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    # 访问第一张幻灯片
-    sld = pres.slides[0]
-
-    # 创建内存流对象
-    with open("Aspose_out-1.svg", "wb") as svg_stream:
-        # 生成幻灯片的 SVG 图像并保存在内存流中
-        sld.write_as_svg(svg_stream)
-```
-
-
-## **使用自定义形状 ID 生成 SVG**
-Aspose.Slides for Python via .NET 可用于从具有自定义形状 ID 的幻灯片生成 [SVG ](https://docs.fileformat.com/page-description-language/svg/)。为此，请使用代表生成的 SVG 中形状自定义 ID 的 [ISvgShape](https://reference.aspose.com/slides/python-net/aspose.slides.export/isvgshape/) 中的 ID 属性。CustomSvgShapeFormattingController 可用于设置形状 ID。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
+2. 按索引获取幻灯片的引用。  
+3. 打开文件流。  
+4. 将幻灯片以 SVG 图像保存到文件流。
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation(path + "CreateSlidesSVGImage.pptx") as pres:
-    with open("Aspose_out-2.svg", "wb") as svg_stream:
-        svgOptions = slides.export.SVGOptions()
-        pres.slides[0].write_as_svg(svg_stream, svgOptions)
+slide_index = 0
+
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with open("output.svg", "wb") as svg_stream:
+        slide.write_as_svg(svg_stream)
 ```
 
+## **创建幻灯片缩略图**
 
-## **创建幻灯片缩略图图像**
-Aspose.Slides for Python via .NET 可帮助您生成幻灯片的缩略图图像。要使用 Aspose.Slides for Python via .NET 生成任何所需幻灯片的缩略图：
+Aspose.Slides 可帮助生成幻灯片的缩略图。要使用 Aspose.Slides 生成幻灯片缩略图，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 通过使用其 ID 或索引来获取所需幻灯片的引用。
-1. 在指定比例下获取引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
+2. 按索引获取幻灯片的引用。  
+3. 按所需比例为该幻灯片创建缩略图。  
+4. 将缩略图以您喜欢的图像格式保存。
 
 ```py
 import aspose.slides as slides
 
-# 实例化代表演示文稿文件的 Presentation 类
-with slides.Presentation("pres.pptx") as pres:
-    # 访问第一张幻灯片
-    sld = pres.slides[0]
+slide_index = 0
+scale_x = 1
+scale_y = scale_x
 
-    # 创建全尺度图像
-    with sld.get_image(1, 1) as bmp:
-        # 以 JPEG 格式将图像保存到磁盘
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
+
+    with slide.get_image(scale_x, scale_y) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
 
+## **使用自定义尺寸创建幻灯片缩略图**
 
-## **使用用户定义的尺寸创建缩略图**
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 通过使用其 ID 或索引来获取所需幻灯片的引用。
-1. 在指定比例下获取引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
+要使用用户自定义尺寸创建幻灯片缩略图，请按以下步骤操作：
+
+1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
+2. 按索引获取幻灯片的引用。  
+3. 使用指定的尺寸生成该幻灯片的缩略图。  
+4. 将缩略图以您喜欢的图像格式保存。
 
 ```py
 import aspose.slides as slides
+import aspose.pydrawing as pydrawing
 
-# 实例化代表演示文稿文件的 Presentation 类
-with slides.Presentation("pres.pptx") as pres:
-    # 访问第一张幻灯片
-    sld = pres.slides[0]
+slide_index = 0
+slide_size = pydrawing.Size(1200, 800)
 
-    # 用户定义的尺寸
-    desiredX = 1200
-    desiredY = 800
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
 
-    # 获取 X 和 Y 的缩放值
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
-
-
-    # 创建全尺度图像
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # 以 JPEG 格式将图像保存到磁盘
-        bmp.save("Thumbnail2_out.jpg", slides.ImageFormat.JPEG)
+    with slide.get_image(slide_size) as image:
+        image.save("output.jpg", slides.ImageFormat.JPEG)
 ```
 
+## **创建带有演讲者备注的幻灯片缩略图**
 
-## **从备注幻灯片视图中的幻灯片创建缩略图**
-要使用 Aspose.Slides for Python via .NET 生成任何所需幻灯片在备注幻灯片视图中的缩略图：
+要使用 Aspose.Slides 生成带有演讲者备注的幻灯片缩略图，请按以下步骤操作：
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 通过使用其 ID 或索引来获取所需幻灯片的引用。
-1. 在备注幻灯片视图中以指定比例获取引用幻灯片的缩略图图像。
-1. 以任何所需的图像格式保存缩略图图像。
-
-以下代码片段生成演示文稿第一张幻灯片在备注幻灯片视图中的缩略图。
+1. 创建 [RenderingOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/renderingoptions/) 类的实例。  
+2. 使用 `RenderingOptions.slides_layout_options` 属性设置演讲者备注的位置。  
+3. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。  
+4. 按索引获取幻灯片的引用。  
+5. 使用渲染选项生成该幻灯片的缩略图。  
+6. 将缩略图以您喜欢的图像格式保存。
 
 ```py
-import aspose.slides as slides
+slide_index = 0
 
-# 实例化代表演示文稿文件的 Presentation 类
-with slides.Presentation("pres.pptx") as pres:
-    # 访问第一张幻灯片
-    sld = pres.slides[0]
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
 
-    # 用户定义的尺寸
-    desiredX = 1200
-    desiredY = 800
+rendering_options = slides.export.RenderingOptions()
+rendering_options.slides_layout_options = layout_options
 
-    # 获取 X 和 Y 的缩放值
-    ScaleX = (1.0 / pres.slide_size.size.width) * desiredX
-    ScaleY = (1.0 / pres.slide_size.size.height) * desiredY
+with slides.Presentation("sample.pptx") as presentation:
+    slide = presentation.slides[slide_index]
 
-   
-    # 创建全尺度图像                
-    with sld.get_image(ScaleX, ScaleY) as bmp:
-        # 以 JPEG 格式将图像保存到磁盘
-        bmp.save("Notes_tnail_out.jpg", slides.ImageFormat.JPEG)
+    with slide.get_image(rendering_options) as image:
+        image.save("output.png", slides.ImageFormat.PNG)
 ```
+
+## **实时示例**
+
+尝试使用免费应用 [**Aspose.Slides Viewer**](https://products.aspose.app/slides/viewer/) 了解使用 Aspose.Slides API 可以实现的功能：
+
+[![Online PowerPoint Viewer](online-PowerPoint-viewer.png)](https://products.aspose.app/slides/viewer/)
+
+## **常见问答**
+
+**我可以在 ASP.NET Web 应用中嵌入演示文稿查看器吗？**
+
+可以。您可以在服务器端使用 Aspose.Slides 将幻灯片渲染为 [images](/slides/zh/python-net/convert-powerpoint-to-png/) 或 [HTML](/slides/zh/python-net/convert-powerpoint-to-html/)，然后在浏览器中显示。导航和缩放功能可以使用 JavaScript 实现，从而提供交互式体验。
+
+**在自定义 .NET 查看器中显示幻灯片的最佳方式是什么？**
+
+推荐的做法是将每张幻灯片渲染为 [image](/slides/zh/python-net/convert-powerpoint-to-png/)（如 PNG 或 SVG）或使用 Aspose.Slides 转换为 [HTML](/slides/zh/python-net/convert-powerpoint-to-html/)，然后在桌面应用的图片框或 Web 端的 HTML 容器中展示。
+
+**如何处理包含大量幻灯片的演示文稿？**
+
+对于大型演示文稿，建议采用懒加载或按需渲染的方式。即仅在用户导航到某张幻灯片时才生成其内容，从而降低内存占用和加载时间。

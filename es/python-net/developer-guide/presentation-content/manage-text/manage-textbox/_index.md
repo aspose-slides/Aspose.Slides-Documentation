@@ -1,172 +1,165 @@
 ---
-title: Gestionar TextBox
+title: Administrar cuadros de texto en presentaciones con Python
+linktitle: Administrar cuadro de texto
 type: docs
 weight: 20
-url: /es/python-net/manage-textbox/
-keywords: "Textbox, Marco de texto, Añadir textbox, Textbox con hiperenlace, Python, Aspose.Slides para Python a través de .NET"
-description: "Añadir un textbox o marco de texto a presentaciones de PowerPoint en Python o .NET"
+url: /es/python-net/developer-guide/presentation-content/manage-text/manage-textbox/
+keywords:
+- cuadro de texto
+- marco de texto
+- añadir texto
+- actualizar texto
+- crear cuadro de texto
+- comprobar cuadro de texto
+- añadir columna de texto
+- añadir hipervínculo
+- PowerPoint
+- presentación
+- Python
+- Aspose.Slides
+description: "Aspose.Slides para Python mediante .NET facilita la creación, edición y clonación de cuadros de texto en archivos PowerPoint y OpenDocument, mejorando la automatización de sus presentaciones."
 ---
 
-Los textos en las diapositivas generalmente existen en cuadros de texto o formas. Por lo tanto, para agregar un texto a una diapositiva, debes añadir un cuadro de texto y luego poner algo de texto dentro del textbox. Aspose.Slides para Python a través de .NET proporciona la interfaz [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) que te permite agregar una forma que contenga algo de texto.
+## **Descripción general**
 
-{{% alert title="Info" color="info" %}}
+Los textos en las diapositivas normalmente existen en cuadros de texto o formas. Por lo tanto, para añadir texto a una diapositiva, primero debe añadir un cuadro de texto y luego colocar el texto dentro de él. Aspose.Slides para Python proporciona la clase [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) que permite añadir una forma que contiene texto.
 
-Aspose.Slides también proporciona la interfaz [IShape](https://reference.aspose.com/slides/python-net/aspose.slides/ishape/) que te permite agregar formas a las diapositivas. Sin embargo, no todas las formas añadidas a través de la interfaz `IShape` pueden contener texto. Pero las formas añadidas a través de la interfaz [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) pueden contener texto. 
+{{% alert title="Información" color="info" %}}
 
-{{% /alert %}}
-
-{{% alert title="Nota" color="warning" %}} 
-
-Por lo tanto, cuando trabajes con una forma a la que deseas agregar texto, puede que quieras verificar y confirmar que se haya convertido a través de la interfaz `IAutoShape`. Solo entonces podrás trabajar con [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/), que es una propiedad de `IAutoShape`. Consulta la sección [Actualizar Texto](https://docs.aspose.com/slides/python-net/manage-textbox/#update-text) en esta página. 
+Aspose.Slides también ofrece la clase [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/). Sin embargo, no todas las formas pueden contener texto.
 
 {{% /alert %}}
 
-## **Crear Cuadro de Texto en la Diapositiva**
+{{% alert title="Nota" color="warning" %}}
 
-Para crear un textbox en una diapositiva, sigue estos pasos:
+Por ello, cuando trabaje con una forma a la que desea añadir texto, conviene comprobar y confirmar que ha sido convertida mediante la clase [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Sólo entonces podrá trabajar con [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/), que es una propiedad de [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Consulte la sección [Actualizar texto](/slides/es/python-net/manage-textbox/#update-text) de esta página.
 
-1. Crea una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). 
-2. Obtén una referencia para la primera diapositiva en la presentación recién creada. 
-3. Agrega un objeto [IAutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/iautoshape/) con [ShapeType](https://reference.aspose.com/slides/python-net/aspose.slides/igeometryshape/) establecido como `RECTANGLE` en una posición especificada en la diapositiva y obtén la referencia para el objeto `IAutoShape` recién añadido. 
-4. Agrega una propiedad `text_frame` al objeto `IAutoShape` que contendrá un texto. En el ejemplo a continuación, añadimos este texto: *Aspose TextBox*
-5. Finalmente, escribe el archivo PPTX a través del objeto `Presentation`. 
+{{% /alert %}}
 
-Este código en Python—una implementación de los pasos anteriores—te muestra cómo agregar texto a una diapositiva:
+## **Crear cuadros de texto en diapositivas**
+
+Para crear un cuadro de texto en una diapositiva:
+
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Obtenga una referencia a la primera diapositiva.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) con `ShapeType.RECTANGLE` en la posición deseada de la diapositiva.
+4. Asigne el texto al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma.
+5. Guarde la presentación como archivo PPTX.
+
+El siguiente ejemplo en Python implementa estos pasos:
 
 ```py
 import aspose.slides as slides
 
-# Instancia PresentationEx
-with slides.Presentation() as pres:
+# Instanciar la clase Presentation.
+with slides.Presentation() as presentation:
 
-    # Obtiene la primera diapositiva en la presentación
-    sld = pres.slides[0]
+    # Obtener la primera diapositiva de la presentación.
+    slide = presentation.slides[0]
 
-    # Añade una AutoShape con tipo establecido como Rectángulo
-    ashp = sld.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
+    # Añadir un AutoShape de tipo RECTANGLE.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
-    # Añade TextFrame al Rectángulo
-    ashp.add_text_frame(" ")
+    shape.text_frame.text = "Aspose TextBox"
 
-    # Accede al marco de texto
-    txtFrame = ashp.text_frame
-
-    # Crea el objeto Paragraph para el marco de texto
-    para = txtFrame.paragraphs[0]
-
-    # Crea un objeto Portion para el párrafo
-    portion = para.portions[0]
-
-    # Establece el Texto
-    portion.text = "Aspose TextBox"
-
-    # Guarda la presentación en disco
-    pres.save("TextBox_out.pptx", slides.export.SaveFormat.PPTX)
+    # Guardar la presentación en disco.
+    presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Verificar Forma de Cuadro de Texto**
+## **Comprobar si una forma es un cuadro de texto**
 
-Aspose.Slides proporciona la propiedad `is_text_box` (de la clase [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/)) que te permite examinar formas y encontrar cuadros de texto.
+Aspose.Slides proporciona la propiedad [is_text_box](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/is_text_box/) en la clase [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/), que permite determinar si una forma es un cuadro de texto.
 
 ![Cuadro de texto y forma](istextbox.png)
 
-Este código en Python te muestra cómo verificar si una forma fue creada como un cuadro de texto: xxx
+Este ejemplo en Python muestra cómo comprobar si una forma se creó como cuadro de texto:
 
 ```python
-from aspose.slides import Presentation, AutoShape
+import aspose.slides as slides
 
-with Presentation("pres.pptx") as pres:
-    for slide in pres.slides:
+with slides.Presentation("Sample.pptx") as presentation:
+    for slide in presentation.slides:
         for shape in slide.shapes:
-            if (type(shape) is AutoShape):
-                print("la forma es un cuadro de texto" if shape.is_text_box else "la forma no es un cuadro de texto")
+            if isinstance(shape, slides.AutoShape):
+                print("shape is a text box" if shape.is_text_box else "shape is not a text box")
 ```
 
-## **Añadir Columna en Cuadro de Texto**
-
-Aspose.Slides proporciona las propiedades [column_count](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) y [column_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) (de la interfaz [ITextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) y la clase [text_frame_format](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/)) que te permiten añadir columnas a los cuadros de texto. Puedes especificar el número de columnas en un cuadro de texto y establecer la cantidad de espaciado en puntos entre las columnas. 
-
-Este código en Python demuestra la operación descrita: 
+Observe que si añade un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) mediante la clase [ShapeCollection](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/), la propiedad `is_text_box` de la forma devuelve `False`. Sin embargo, después de añadir texto—bien con el método `add_text_frame` o estableciendo la propiedad `text`—`is_text_box` devuelve `True`.
 
 ```py
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Obtiene la primera diapositiva en la presentación
     slide = presentation.slides[0]
 
-    # Añade una AutoShape con tipo establecido como Rectángulo
-    aShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
+    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 40)
+    # shape1.is_text_box is false
+    shape1.add_text_frame("shape 1")
+    # shape1.is_text_box is true
 
-    # Añade un TextFrame al Rectángulo
-    aShape.add_text_frame("Todas estas columnas están limitadas a estar dentro de un único contenedor de texto -- " +
-    "puedes añadir o eliminar texto y el nuevo o restante texto se ajusta automáticamente " +
-    "para fluir dentro del contenedor. No puedes tener texto fluyendo de un contenedor " +
-    "a otro, ya que las opciones de columnas de PowerPoint para texto son limitadas.")
+    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 110, 100, 40)
+    # shape2.is_text_box is false
+    shape2.text_frame.text = "shape 2"
+    # shape2.is_text_box is true
 
-    # Obtiene el formato de texto de TextFrame
-    format = aShape.text_frame.text_frame_format
+    shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 210, 100, 40)
+    # shape3.is_text_box is false
+    shape3.add_text_frame("")
+    # shape3.is_text_box is false
 
-    # Especifica el número de columnas en TextFrame
-    format.column_count = 3
-
-    # Especifica el espaciado entre columnas
-    format.column_spacing = 10
-
-    # Guarda la presentación
-    presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
+    shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 100, 40)
+    # shape4.is_text_box is false
+    shape4.text_frame.text = ""
+    # shape4.is_text_box is false
 ```
 
-## **Añadir Columna en Marco de Texto**
-Aspose.Slides para Python a través de .NET proporciona la propiedad [ColumnCount](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/) (de la interfaz [ITextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/itextframeformat/)) que te permite añadir columnas en marcos de texto. A través de esta propiedad, puedes especificar tu número preferido de columnas en un marco de texto. 
+## **Añadir columnas a los cuadros de texto**
 
-Este código en Python te muestra cómo añadir una columna dentro de un marco de texto:
+Aspose.Slides ofrece las propiedades [column_count](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/column_count/) y [column_spacing](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/column_spacing/) en la clase [TextFrameFormat](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/) para añadir columnas a los cuadros de texto. Puede especificar el número de columnas y establecer el espaciado (en puntos) entre ellas.
+
+El siguiente código Python muestra esta operación:
 
 ```py
 import aspose.slides as slides
 
-outPptxFileName = "ColumnsTest.pptx"
-with slides.Presentation() as pres:
-    shape1 = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
-    format = shape1.text_frame.text_frame_format
+with slides.Presentation() as presentation:
 
-    format.column_count = 2
-    shape1.text_frame.text = """Todas estas columnas están forzadas a permanecer dentro de un único contenedor de texto -- 
-        puedes añadir o eliminar texto - y el nuevo o restante texto se ajusta automáticamente 
-        para permanecer dentro del contenedor. No puedes tener texto desbordándose de un contenedor 
-        a otro, ya que las opciones de columnas de PowerPoint para texto son limitadas!"""
-    
-    with slides.Presentation(path + outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
+	# Obtener la primera diapositiva de la presentación.
+	slide = presentation.slides[0]
 
-    format.column_spacing = 20
-    pres.save(path + outPptxFileName, slides.export.SaveFormat.PPTX)
+	# Añadir un AutoShape de tipo RECTANGLE.
+	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
 
-    with slides.Presentation(path + outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
+	# Añadir un TextFrame al rectángulo.
+	shape.add_text_frame("All of these columns are confined to a single text container—" +
+	"you can add or delete text, and any new or remaining text automatically reflows " +
+	"within the container. You cannot have text flow from one container to another, " +
+	"though—PowerPoint’s column options for text are limited!")
 
-    format.column_count = 3
-    format.column_spacing = 15
-    pres.save(path + outPptxFileName, slides.export.SaveFormat.PPTX)
+	# Obtener el formato de texto del TextFrame.
+	format = shape.text_frame.text_frame_format
 
-    with slides.Presentation(path + outPptxFileName) as test:
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_count)
-        print(test.slides[0].shapes[0].text_frame.text_frame_format.column_spacing)
+	# Especificar el número de columnas en el TextFrame.
+	format.column_count = 3
+
+	# Especificar el espaciado entre columnas.
+	format.column_spacing = 10
+
+	# Guardar la presentación.
+	presentation.save("ColumnCount.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Actualizar Texto**
+## **Actualizar texto**
 
-Aspose.Slides te permite cambiar o actualizar el texto contenido en un cuadro de texto o todos los textos contenidos en una presentación. 
+Aspose.Slides le permite actualizar el texto en un único cuadro de texto o en toda la presentación.
 
-Este código en Python demuestra una operación donde todos los textos en una presentación son actualizados o cambiados:
+El siguiente ejemplo en Python muestra cómo actualizar todo el texto de una presentación:
 
 ```py
 import aspose.slides as slides
 
-with slides.Presentation("pres.pptx") as pres:
-    for slide in pres.slides:
+with slides.Presentation("Sample.pptx") as presentation:
+    for slide in presentation.slides:
         for shape in slide.shapes:
             if type(shape) is slides.AutoShape:
                 for paragraph in shape.text_frame.paragraphs:
@@ -174,48 +167,57 @@ with slides.Presentation("pres.pptx") as pres:
                         portion.text = portion.text.replace("years", "months")
                         portion.portion_format.font_bold = 1
   
-    # Guarda la presentación modificada
-    pres.save("text-changed.pptx", slides.export.SaveFormat.PPTX)
+    # Guardar la presentación modificada.
+    presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Añadir Cuadro de Texto con Hiperenlace** 
+## **Añadir cuadros de texto con hipervínculos**
 
-Puedes insertar un enlace dentro de un cuadro de texto. Cuando se hace clic en el cuadro de texto, los usuarios son dirigidos a abrir el enlace. 
+Puede insertar un enlace en un cuadro de texto. Cuando se hace clic en el cuadro de texto, el enlace se abre.
 
-Para añadir un cuadro de texto que contenga un enlace, sigue estos pasos:
+Para añadir un cuadro de texto que contenga un hipervínculo, siga estos pasos:
 
-1. Crea una instancia de la clase `Presentation`. 
-2. Obtén una referencia para la primera diapositiva en la presentación recién creada. 
-3. Añade un objeto `AutoShape` con `ShapeType` establecido como `RECTANGLE` en una posición especificada en la diapositiva y obtén la referencia del objeto AutoShape recién añadido.
-4. Añade un `text_frame` al objeto `AutoShape` que contenga *Aspose TextBox* como su texto predeterminado. 
-5. Instancia la clase `hyperlink_manager`. 
-6. Asigna el objeto `hyperlink_manager` a la propiedad [HyperlinkClick](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) asociada con tu porción preferida del `TextFrame`. 
-7. Finalmente, escribe el archivo PPTX a través del objeto `Presentation`. 
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
+2. Obtenga una referencia a la primera diapositiva.
+3. Añada un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) con `ShapeType.RECTANGLE` en la posición deseada de la diapositiva.
+4. Asigne el texto al [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/) de la forma.
+5. Obtenga una referencia al [HyperlinkManager](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/).
+6. Utilice la propiedad `hyperlink_manager` para establecer un hipervínculo externo al hacer clic.
+7. Guarde la presentación como archivo PPTX.
 
-Este código en Python—una implementación de los pasos anteriores—te muestra cómo añadir un cuadro de texto con un hiperenlace a una diapositiva:
+Este ejemplo en Python muestra cómo añadir un cuadro de texto con hipervínculo a una diapositiva:
 
 ```py
 import aspose.slides as slides
 
-# Instancia una clase Presentation que representa un PPTX
-with slides.Presentation() as pptxPresentation:
-    # Obtiene la primera diapositiva en la presentación
-    slide = pptxPresentation.slides[0]
+# Instanciar la clase Presentation.
+with slides.Presentation() as presentation:
 
-    # Añade un objeto AutoShape con tipo establecido como Rectángulo
-    pptxShape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
+    # Obtener la primera diapositiva de la presentación.
+    slide = presentation.slides[0]
 
-    # Accede a la propiedad ITextFrame asociada con el AutoShape
-    pptxShape.add_text_frame("")
+    # Añadir un AutoShape de tipo RECTANGLE.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
 
-    textFrame = pptxShape.text_frame
+    text_portion = shape.text_frame.paragraphs[0].portions[0]
 
-    # Añade algo de texto al marco
-    textFrame.paragraphs[0].portions[0].text = "Aspose.Slides"
+    # Añadir texto al marco.
+    text_portion.text = "Aspose.Slides"
 
-    # Establece el hiperenlace para el texto de la porción
-    hm = textFrame.paragraphs[0].portions[0].portion_format.hyperlink_manager
-    hm.set_external_hyperlink_click("http://www.aspose.com")
-    # Guarda la presentación PPTX
-    pptxPresentation.save("hLinkPPTX_out.pptx", slides.export.SaveFormat.PPTX)
+    # Establecer un hipervínculo para el texto de la porción.
+    hyperlink_manager = text_portion.portion_format.hyperlink_manager
+    hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
+
+    # Guardar la presentación como archivo PPTX.
+    presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Preguntas frecuentes**
+
+**¿Cuál es la diferencia entre un cuadro de texto y un marcador de posición de texto al trabajar con diapositivas maestras?**
+
+Un [marcador de posición](/slides/es/python-net/manage-placeholder/) hereda estilo/posición de la [maestra](https://reference.aspose.com/slides/python-net/aspose.slides/masterslide/) y puede ser sobrescrito en los [diseños](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), mientras que un cuadro de texto normal es un objeto independiente en una diapositiva específica y no cambia al cambiar de diseño.
+
+**¿Cómo puedo realizar una sustitución masiva de texto en toda la presentación sin tocar el texto dentro de gráficos, tablas y SmartArt?**
+
+Limite la iteración a autoformas que tengan marcos de texto y excluya los objetos incrustados ([gráficos](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/), [tablas](https://reference.aspose.com/slides/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/python-net/aspose.slides.smartart/smartart/)) recorriendo sus colecciones por separado o omitiendo esos tipos de objeto.
